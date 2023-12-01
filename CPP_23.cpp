@@ -1,15 +1,14 @@
 #include <string>
-#include <iostream>
 #include <cassert>
 #include <cstring>
-using namespace std;
+#include <iostream>
 
-int calculateLength(string str){
-    return str.length();
+int calculateLength(char* str){
+    return strlen(str);
 }
 
 int main() {
-    assert(calculateLength("asdasnakj") == 9);
+    assert(calculateLength("asdasnakj") == strlen("asdasnakj"));
     // your code here
     return 0;
 }
