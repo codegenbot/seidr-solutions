@@ -65,10 +65,13 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    vector<int> music_beats = parse_music("o|.|o");
-    vector<int> expected_beats = {4, 1, 4};
+    vector<int> music1 = parse_music("o|o|o|o|o|o|o|o|o|o|");
+    vector<int> music2 = parse_music("ooooooo|||ooooooo");
+    vector<int> music3 = parse_music("o.o.o.o.");
     
-    assert(issame(music_beats, expected_beats));
+    assert(issame(music1, music2));
+    assert(!issame(music1, music3));
+    assert(!issame(music2, music3));
     
     return 0;
 }
