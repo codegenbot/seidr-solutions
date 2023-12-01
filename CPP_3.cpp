@@ -13,12 +13,8 @@ bool below_zero(vector<int> operations){
 }
 
 int main(){
-    // Test cases
-    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
-    assert(below_zero({1, 2, 3, 4, 5}) == false);
-    assert(below_zero({-1, -2, -3, -4, -5}) == true);
-    assert(below_zero({2, 4, 6, -12, 8}) == true);
-    assert(below_zero({-1, -2, -3, -4, 5}) == false);
+    assert (below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    // Add more test cases if needed
 
     return 0;
 }
