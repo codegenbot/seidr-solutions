@@ -18,18 +18,11 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         return "NO";
     }
     
-    for (int i = 2; i * i <= intersectionLength; i++) {
+    for (int i = 2; i * i < intersectionLength; i++) {
         if (intersectionLength % i == 0) {
             return "NO";
         }
     }
     
-    return "YES";
-}
-
-int main() {
-    assert (intersection({-2, -2}, {-3, -2}) == "NO");
-    // Add more test cases here
-    
-    return 0;
+    return intersectionLength % sqrt(intersectionLength) == 0 ? "YES" : "NO";
 }
