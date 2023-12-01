@@ -1,25 +1,20 @@
-#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
+#include <boost/any.hpp>
+#include <cassert>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        std::replace(str1.begin(), str1.end(), ',', '.');
-        std::replace(str2.begin(), str2.end(), ',', '.');
-        float num1 = std::stof(str1);
-        float num2 = std::stof(str2);
-        return (num1 > num2) ? str1 : str2;
-    } else {
-        throw std::invalid_argument("Invalid argument types");
-    }
+using namespace std;
+using namespace boost;
+
+template <typename T>
+T compare_one(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+string compare_one(string a, string b) {
+    replace(a.begin(), a.end(), ',', '.');
+    replace(b.begin(), b.end(), ',', '.');
+    float num1 = stof(a);
+    float num2 = stof(b);
+    return (num1 > num2) ? a : b;
 }
