@@ -15,7 +15,11 @@ vector<int> factorize(int n) {
     return factors;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(factorize(3 * 2 * 3) == vector<int>{2, 3, 3});
+    assert(issame(factorize(3 * 2 * 3), vector<int>{2, 3, 3}));
     // rest of the code
 }
