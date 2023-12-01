@@ -1,55 +1,49 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
-std::vector<int> cutVector(std::vector<int>& vec) {
-    int n = vec.size();
-    int totalSum = 0;
-    for (int i = 0; i < n; i++) {
-        totalSum += vec[i];
-    }
-    
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
+    int totalSum = std::accumulate(input.begin(), input.end(), 0);
     int leftSum = 0;
     int rightSum = totalSum;
-    int minDiff = INT_MAX;
+
+    int minDifference = std::abs(leftSum - rightSum);
     int cutIndex = 0;
-    
-    for (int i = 0; i < n; i++) {
-        leftSum += vec[i];
-        rightSum -= vec[i];
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
+
+    for (int i = 0; i < input.size(); i++) {
+        leftSum += input[i];
+        rightSum -= input[i];
+        int currentDifference = std::abs(leftSum - rightSum);
+
+        if (currentDifference < minDifference) {
+            minDifference = currentDifference;
             cutIndex = i;
         }
     }
-    
-    std::vector<int> subVec1(vec.begin(), vec.begin() + cutIndex + 1);
-    std::vector<int> subVec2(vec.begin() + cutIndex + 1, vec.end());
-    
-    std::vector<int> result;
-    result.push_back(subVec1);
-    result.push_back(subVec2);
-    
-    return result;
+
+    std::vector<int> leftSubvector(input.begin(), input.begin() + cutIndex + 1);
+    std::vector<int> rightSubvector(input.begin() + cutIndex + 1, input.end());
+
+    return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> vec(n);
+
+    std::vector<int> input(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> vec[i];
+        std::cin >> input[i];
     }
-    
-    std::vector<int> result = cutVector(vec);
-    
-    for (int i = 0; i < result[0].size(); i++) {
-        std::cout << result[0][i] << std::endl;
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
+
+    for (int num : result.first) {
+        std::cout << num << std::endl;
     }
-    
-    for (int i = 0; i < result[1].size(); i++) {
-        std::cout << result[1][i] << std::endl;
+    for (int num : result.second) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
