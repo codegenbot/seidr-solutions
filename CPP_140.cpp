@@ -1,31 +1,23 @@
-#include <iostream>
-#include <string>
-
 string fix_spaces(string text) {
+    int consecutiveSpaces = 0;
+    string result = "";
+
     for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            text[i] = '_';
-
-            // Check for consecutive spaces
-            int count = 1;
-            int j = i + 1;
-            while (j < text.length() && text[j] == ' ') {
-                count++;
-                j++;
+        if (text[i] == ' ') { // found a space
+            if (consecutiveSpaces >= 2) {
+                result += "-";
+                consecutiveSpaces = 0;
             }
-
-            // Replace consecutive spaces with '-'
-            if (count > 2) {
-                text.replace(i + 1, count - 1, "-");
+            else {
+                result += "_";
+                consecutiveSpaces++;
             }
         }
+        else { // not a space
+            result += text[i];
+            consecutiveSpaces = 0;
+        }
     }
-    return text;
-}
 
-int main() {
-    string input;
-    getline(cin, input);
-    cout << fix_spaces(input) << endl;
-    return 0;
+    return result;
 }
