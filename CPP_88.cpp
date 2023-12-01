@@ -1,13 +1,13 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <iostream>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b){
-    return vector<int>(a) == vector<int>(b);
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
-vector<int> sort_array(vector<int> array){
+std::vector<int> sort_array(std::vector<int> array){
     if(array.size() <= 1){
         return array;
     }
@@ -15,10 +15,10 @@ vector<int> sort_array(vector<int> array){
     int sum = array[0] + array[array.size()-1];
     
     if(sum % 2 == 0){
-        sort(array.rbegin(), array.rend());
+        std::sort(array.rbegin(), array.rend());
     }
     else{
-        sort(array.begin(), array.end());
+        std::sort(array.begin(), array.end());
     }
     
     return array;
