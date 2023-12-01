@@ -1,19 +1,8 @@
 #include <string>
-#include <cassert>
 #include <vector>
+#include <cassert>
 
 using namespace std;
-
-string exchange(vector<int> lst1, vector<int> lst2);
-
-int main() {
-    // Sample test case
-    vector<int> lst1 = {1, 2, 3};
-    vector<int> lst2 = {4, 5, 6};
-    assert(exchange(lst1, lst2) == "YES");
-    
-    return 0;
-}
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int count = 0;
@@ -34,4 +23,11 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         return "YES";
     }
     return "NO";
+}
+
+int main() {
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+    assert(exchange({1, 3}, {1, 1, 1}) == "NO");
+    assert(exchange({2, 4}, {1, 3}) == "YES");
+    return 0;
 }
