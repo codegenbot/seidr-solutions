@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
-bool isSame(vector<string> a, vector<string> b){
+bool is_same(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -33,6 +34,6 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main() {
-    assert(isSame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(is_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
