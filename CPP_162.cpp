@@ -19,8 +19,9 @@ string string_to_md5(string text) {
 
     char md5hash[33];
     for (unsigned int i = 0; i < digest_len; i++) {
-        sprintf(&md5hash[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5hash[i * 2], "%02x", digest[i]);
     }
+    md5hash[32] = '\0';
 
     return md5hash;
 }
