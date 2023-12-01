@@ -1,72 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-using namespace std;
-
 vector<float> find_closest_elements(vector<float> numbers);
 
-bool issame(vector<float> a, vector<float> b);
-
-vector<float> find_closest_elements(vector<float> numbers){
-    vector<float> closest_elements;
-    float min_diff = INFINITY;
-    for(int i = 0; i < numbers.size(); i++){
-        for(int j = i+1; j < numbers.size(); j++){
-            float diff = abs(numbers[i] - numbers[j]);
-            if(diff < min_diff){
-                min_diff = diff;
-                closest_elements.clear();
-                closest_elements.push_back(min(numbers[i], numbers[j]));
-                closest_elements.push_back(max(numbers[i], numbers[j]));
-            }
-        }
-    }
-    return closest_elements;
-}
-
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i]!=b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    vector<float> a;
-    vector<float> b;
+    vector<float> sorted_a(a.begin(), a.end());
+    vector<float> sorted_b(b.begin(), b.end());
     
-    int n;
-    cin>>n;
+    sort(sorted_a.begin(), sorted_a.end());
+    sort(sorted_b.begin(), sorted_b.end());
     
-    float temp;
-    
-    for(int i=0; i<n; i++) {
-        cin>>temp;
-        a.push_back(temp);
-    }
-    
-    for(int i=0; i<n; i++) {
-        cin>>temp;
-        b.push_back(temp);
-    }
-    
-    if(issame(a, b)) {
-        cout<<"Same"<<endl;
-    } else {
-        cout<<"Different"<<endl;
-    }
-    
-    vector<float> closest_elements = find_closest_elements(b);
-    
-    for(int i=0; i<closest_elements.size(); i++) {
-        cout<<closest_elements[i]<<" ";
-    }
-    
-    return 0;
+    return sorted_a == sorted_b;
 }
