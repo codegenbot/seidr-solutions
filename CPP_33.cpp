@@ -5,20 +5,16 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l);
-bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> v1, vector<int> v2);
 
 int main() {
-    vector<int> input;
-    int num;
+    vector<int> l = {5, 2, 7, 1, 8, 4, 3, 9, 6};
     
-    while(cin >> num) {
-        input.push_back(num);
-    }
+    vector<int> sorted = sort_third(l);
     
-    vector<int> sorted = sort_third(input);
-    
-    for(int i = 0; i < sorted.size(); i++) {
-        cout << sorted[i] << " ";
+    for(int num : sorted){
+        cout << num << " ";
     }
     
     return 0;
@@ -28,31 +24,21 @@ vector<int> sort_third(vector<int> l){
     vector<int> l_prime = l;
     vector<int> indices;
     
-    for(int i = 0; i < l.size(); i++) {
-        if(i % 3 == 0) {
+    for(int i = 0; i < l.size(); i++){
+        if(i % 3 == 0){
             indices.push_back(i);
         }
     }
     
     sort(indices.begin(), indices.end());
     
-    for(int i = 0; i < indices.size(); i++) {
+    for(int i = 0; i < indices.size(); i++){
         l_prime[indices[i]] = l[indices[i]];
     }
     
     return l_prime;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(vector<int> v1, vector<int> v2){
+    return v1 == v2;
 }
