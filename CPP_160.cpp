@@ -1,9 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
-    int result = operand[0]; // Initialize result with the first operand
+int do_algebra(vector<string> operato, vector<int> operand) {
+    int result = operand[0]; // Initialize result with first operand
 
     for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
@@ -20,14 +16,4 @@ int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     }
 
     return result;
-}
-
-int main() {
-    std::vector<std::string> operato{"+", "*", "-"};
-    std::vector<int> operand{2, 3, 4, 5};
-
-    int result = do_algebra(operato, operand);
-    std::cout << "Result: " << result << std::endl;
-
-    return 0;
 }
