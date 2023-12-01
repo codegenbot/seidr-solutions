@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 vector<string> all_prefixes(string str);
 
@@ -12,6 +13,6 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // function implementation here
+bool issame(vector<string> a, vector<string> b){
+    // existing code here
 }
