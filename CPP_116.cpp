@@ -1,26 +1,28 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
+using namespace std;
 
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b){
-        int countA = __builtin_popcount(a);
-        int countB = __builtin_popcount(b);
-        if(countA == countB){
+vector<int> sort_array(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        int count_a = __builtin_popcount(a);
+        int count_b = __builtin_popcount(b);
+        
+        if(count_a == count_b) {
             return a < b;
         }
-        return countA < countB;
+        
+        return count_a < count_b;
     });
+    
     return arr;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+  
 int main() {
-    std::vector<int> sorted = sort_array({2, 4, 8, 16, 32});
-    std::vector<int> expected = {2, 4, 8, 16, 32};
-    if (std::equal(sorted.begin(), sorted.end(), expected.begin())) {
-        std::cout << "Array sorting is correct!" << std::endl;
-    } else {
-        std::cout << "Array sorting is incorrect!" << std::endl;
-    }
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
