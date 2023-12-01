@@ -1,11 +1,14 @@
-int closest_integer(string value){
-  double num = stod(value);
-  int floor_num = floor(num);
-  int ceil_num = ceil(num);
-  
-  if (num - floor_num < ceil_num - num) {
-    return floor_num;
-  } else {
-    return ceil_num;
-  }
+int closest_integer(string value) {
+    float num = stof(value); // convert string to float
+    int rounded = round(num); // round the float to the nearest integer
+
+    if (num - rounded == 0.5) {
+        if (num > 0) {
+            return rounded + 1;
+        } else {
+            return rounded - 1;
+        }
+    } else {
+        return rounded;
+    }
 }
