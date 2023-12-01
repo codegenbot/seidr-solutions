@@ -1,5 +1,3 @@
-#include <string>
-
 int vowels_count(std::string s){
     int count = 0;
     transform(s.begin(), s.end(), s.begin(), ::tolower);
