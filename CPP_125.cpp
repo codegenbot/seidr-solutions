@@ -1,6 +1,11 @@
 #include <vector>
 #include <string>
 
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -49,14 +54,15 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+vector<string> split_words(string txt);  // Prototype declaration
+
 int main() {
-    vector<string> words_1 = split_words("Hello,world");
-    vector<string> words_2 = {"Hello", "world"};
+    string txt = "Hello, World!";
+    vector<string> words = split_words(txt);
     
-    if (issame(words_1, words_2)) {
-        cout << "The words are the same";
-    } else {
-        cout << "The words are different";
+    // Print the split words
+    for (string word : words) {
+        cout << word << endl;
     }
     
     return 0;
