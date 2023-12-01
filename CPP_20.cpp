@@ -1,7 +1,6 @@
 #include <vector>
 
 vector<float> find_closest_elements(vector<float> numbers);
-
 bool issame(vector<float> a, vector<float> b);
 
 vector<float> find_closest_elements(vector<float> numbers){
@@ -40,6 +39,6 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    // Add your code here to test the find_closest_elements function
+    // code to test the find_closest_elements function
     return 0;
 }
