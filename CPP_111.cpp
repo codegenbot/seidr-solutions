@@ -22,7 +22,7 @@ map<char,int> histogram(string test) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(histogram("a") == {{'a', 1}});
 
     return 0;
 }
