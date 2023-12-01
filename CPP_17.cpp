@@ -1,4 +1,9 @@
-vector<int> parse_music(string music_string){
+#include <iostream>
+#include <vector>
+#include <cassert>
+using namespace std;
+
+vector<int> parse_music(string music_string) {
     vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
@@ -19,7 +24,6 @@ vector<int> parse_music(string music_string){
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    // Add your code here
     if (a.size() != b.size()) {
         return false;
     }
