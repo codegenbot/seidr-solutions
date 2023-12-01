@@ -1,18 +1,29 @@
-vector<float> find_closest_elements(vector<float> numbers){
-    vector<float> closest_elements;
-    float min_diff = INFINITY;
-    
-    for(int i = 0; i < numbers.size(); i++){
-        for(int j = i+1; j < numbers.size(); j++){
-            float diff = abs(numbers[i] - numbers[j]);
-            if(diff < min_diff){
-                min_diff = diff;
-                closest_elements.clear();
-                closest_elements.push_back(min(numbers[i], numbers[j]));
-                closest_elements.push_back(max(numbers[i], numbers[j]));
-            }
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+    std::vector<float> sortedNumbers = numbers;
+    std::sort(sortedNumbers.begin(), sortedNumbers.end());
+
+    float minDiff = std::numeric_limits<float>::max();
+    std::pair<float, float> closestElements;
+
+    for (int i = 0; i < sortedNumbers.size() - 1; i++) {
+        float diff = std::abs(sortedNumbers[i] - sortedNumbers[i + 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            closestElements = std::make_pair(sortedNumbers[i], sortedNumbers[i + 1]);
         }
     }
-    
-    return closest_elements;
+
+    return closestElements;
+}
+
+int main() {
+    std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0, 2.2};
+    std::pair<float, float> closest = find_closest_elements(numbers);
+    std::cout << "(" << closest.first << ", " << closest.second << ")" << std::endl;
+
+    return 0;
 }
