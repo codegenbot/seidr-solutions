@@ -1,2 +1,2 @@
 def cycpattern_check(a, b):
-    return b in (a * 2)[:len(a)*2-1]
+    return b in (a + a)[1:-1]
