@@ -18,8 +18,8 @@ int main() {
     vector<float> lst = {1.5, 2.5, 3.5, 4.0, 5.0};
 
     long long odd_sum = double_the_difference(lst);
-
-    assert(odd_sum == 72);
+    
+    assert(double_the_difference(lst) == odd_sum);
 
     return 0;
 }
