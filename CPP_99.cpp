@@ -1,11 +1,25 @@
-int closest_integer(string value){
-    double num = stod(value);
-    int closestInt = round(num);
-    if (closestInt == num) {
-        return closestInt;
-    } else if (num > 0) {
-        return floor(num + 0.5);
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+int closest_integer(string value) {
+    double number = stod(value);
+    int floorNumber = floor(number);
+    int ceilNumber = ceil(number);
+
+    if (number - floorNumber < ceilNumber - number) {
+        return floorNumber;
     } else {
-        return ceil(num - 0.5);
+        return ceilNumber;
     }
+}
+
+int main() {
+    string value;
+    cout << "Enter a number: ";
+    cin >> value;
+    cout << closest_integer(value) << endl;
+    return 0;
 }
