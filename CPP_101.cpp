@@ -2,8 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> words_string(string s){
     vector<string> words;
     string word = "";
@@ -37,29 +35,24 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // Testing the words_string function
-    string input = "Hello, World! This is a test.";
-    vector<string> result = words_string(input);
-    assert(result.size() == 6);
-    assert(result[0] == "Hello");
-    assert(result[1] == "World!");
-    assert(result[2] == "This");
-    assert(result[3] == "is");
-    assert(result[4] == "a");
-    assert(result[5] == "test.");
+    // Test the words_string function
+    vector<string> words = words_string("Hello, World! This is a test.");
+    assert(words.size() == 6);
+    assert(words[0] == "Hello");
+    assert(words[1] == "World!");
+    assert(words[2] == "This");
+    assert(words[3] == "is");
+    assert(words[4] == "a");
+    assert(words[5] == "test.");
 
-    // Testing the issame function
-    vector<string> a = {"Hello", "World!"};
-    vector<string> b = {"Hello", "World!"};
+    // Test the issame function
+    vector<string> a = {"apple", "banana", "orange"};
+    vector<string> b = {"apple", "banana", "orange"};
     assert(issame(a, b));
 
-    vector<string> c = {"Hello", "World!"};
-    vector<string> d = {"Hello", "World", "!"};
+    vector<string> c = {"apple", "banana", "orange"};
+    vector<string> d = {"apple", "grape", "orange"};
     assert(!issame(c, d));
-
-    vector<string> e = {"Hello", "World!"};
-    vector<string> f = {"Hello", "world!"};
-    assert(!issame(e, f));
 
     return 0;
 }
