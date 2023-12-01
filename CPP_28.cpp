@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string concatenate(vector<string> strings){
