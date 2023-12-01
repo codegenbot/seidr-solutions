@@ -3,33 +3,29 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int diff = INT_MAX;
-    int index = -1;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
     
-    for (int i = 0; i < n - 1; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            leftSum += nums[j];
-        }
-        
-        for (int j = i + 1; j < n; j++) {
-            rightSum += nums[j];
-        }
-        
-        int currentDiff = abs(leftSum - rightSum);
-        
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            index = i;
+    int target = sum / 2;
+    int currSum = 0;
+    int diff = INT_MAX;
+    int idx = -1;
+    
+    for (int i = 0; i < n; i++) {
+        currSum += nums[i];
+        int currDiff = std::abs(target - currSum);
+        if (currDiff < diff) {
+            diff = currDiff;
+            idx = i;
         }
     }
     
-    std::vector<int> left(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> right(nums.begin() + index + 1, nums.end());
+    std::vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    std::vector<int> subvector2(nums.begin() + idx + 1, nums.end());
     
-    return std::make_pair(left, right);
+    return std::make_pair(subvector1, subvector2);
 }
 
 int main() {
