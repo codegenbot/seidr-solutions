@@ -19,12 +19,6 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    
-    return 0;
-}
-
 vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
@@ -64,4 +58,10 @@ vector<string> split_words(string txt) {
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    
+    return 0;
 }
