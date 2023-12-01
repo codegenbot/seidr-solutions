@@ -22,3 +22,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     return true;
 }
+
+// main function removed as it is already defined on line 26
