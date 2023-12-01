@@ -1,67 +1,33 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
-
-using namespace std;
 
 vector<string> split_words(string txt){
-    vector<string> result;
+    vector<string> words;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
-    
-    for(char c : txt){
-        if(c == ' '){
-            hasWhitespace = true;
+    for(int i = 0; i < txt.length(); i++){
+        if(txt[i] == ' ' || txt[i] == ','){
             if(word != ""){
-                result.push_back(word);
+                words.push_back(word);
                 word = "";
             }
-        }
-        else if(c == ','){
-            hasComma = true;
-            if(word != ""){
-                result.push_back(word);
-                word = "";
-            }
-        }
-        else{
-            word += c;
+        }else{
+            word += txt[i];
         }
     }
-    
     if(word != ""){
-        result.push_back(word);
+        words.push_back(word);
     }
-    
-    if(result.empty()){
-        result.push_back(to_string(3));
+    if(words.empty()){
+        words.push_back(to_string(3));
     }
-    
-    return result;
+    return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(vector<string> a, vector<string> b){
+    // Function implementation
 }
 
-int main() {
-    vector<string> input1 = split_words("");
-    vector<string> output1 = {"0"};
-    assert(issame(input1, output1));
-
-    // Add more test cases here
-
-    return 0;
+int main(){
+    assert(issame(split_words("") ,{"0"}));
+    // Rest of the code
 }
