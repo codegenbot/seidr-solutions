@@ -1,9 +1,17 @@
 int starts_one_ends(int n){
     int count = 0;
-    for(int i = 0; i < 10; i++){
-        if(i == 1 || (n > 1 && i == 0)){
-            count += pow(10, n-1);
-        }
+    int start = 1;
+    int end = 1;
+
+    for (int i = 0; i < n - 1; i++) {
+        start *= 10;
     }
+
+    for (int i = 0; i < n; i++) {
+        end *= 10;
+    }
+
+    count = (end - start) / 10 + 1;
+
     return count;
 }
