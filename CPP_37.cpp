@@ -2,7 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+using namespace std;
+
+bool issame(const vector<float>& a, const vector<float>& b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -14,7 +16,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-bool issame_alt(std::vector<float> a, std::vector<float> b) {
+bool issame_alt(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -26,15 +28,15 @@ bool issame_alt(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort_even(const std::vector<float>& l) {
-    std::vector<float> l_prime = l;
-    std::vector<float> even_values;
+vector<float> sort_even(const vector<float>& l) {
+    vector<float> l_prime = l;
+    vector<float> even_values;
     
     for(int i = 0; i < l.size(); i += 2) {
         even_values.push_back(l[i]);
     }
     
-    std::sort(even_values.begin(), even_values.end());
+    sort(even_values.begin(), even_values.end());
     
     for(int i = 0; i < l.size(); i += 2) {
         l_prime[i] = even_values[i / 2];
