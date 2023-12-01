@@ -7,7 +7,7 @@
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     long long diff = std::numeric_limits<long long>::max();
-    int index = 0;
+    int index = -1;
 
     if (n == 1) {
         return std::make_pair(nums, std::vector<int>());
