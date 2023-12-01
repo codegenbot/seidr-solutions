@@ -1,7 +1,7 @@
-#include <string>
 #include <cassert>
+#include <string>
 
-std::string generateNumbers(int n) {
+std::string generateSequence(int n) {
     std::string result;
     for (int i = 0; i <= n; i++) {
         result += std::to_string(i) + " ";
