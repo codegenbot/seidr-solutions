@@ -13,11 +13,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         return std::make_pair(nums, std::vector<int>());
     }
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
-        for (int j = 0; j < i; j++) {
+        for (int j = 0; j <= i; j++) {
             leftSum += nums[j];
         }
 
@@ -33,8 +33,12 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    if (index == 1) {
+        return std::make_pair(std::vector<int>(), nums);
+    }
+
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
+    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
 }
