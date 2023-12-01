@@ -1,11 +1,10 @@
 #include <iostream>
 #include <cmath>
-#include <cassert>
 using namespace std;
 
 int closest_integer(string value){
-    float num = stof(value);
-    int floor_num = floor(num);
+    float num = stof(value); 
+    int floor_num = floor(num); 
     int ceil_num = ceil(num);
     
     float diff_floor = abs(num - floor_num);
@@ -28,6 +27,5 @@ int closest_integer(string value){
 
 int main() {
     assert(closest_integer("0") == 0);
-    // more test cases...
     return 0;
 }
