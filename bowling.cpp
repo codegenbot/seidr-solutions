@@ -17,7 +17,7 @@ int calculateScore(const std::string& bowls) {
                 if (bowls[bowlIndex + 2] == '/') {
                     score += 20;
                 } else {
-                    score += 10 + (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0' - '0');
+                    score += 10 + (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0');
                 }
             }
             bowlIndex += 1;
