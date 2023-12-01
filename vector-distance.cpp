@@ -11,7 +11,7 @@ double calculateDistance(const std::vector<double>& vector1, const std::vector<d
 }
 
 int main() {
-    int n;
+    size_t n;
     std::cin >> n;
 
     std::vector<double> vector1(n);
