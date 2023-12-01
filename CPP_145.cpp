@@ -1,9 +1,10 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
 
 bool compare(int a, int b) {
     int sum_a = 0, sum_b = 0;
