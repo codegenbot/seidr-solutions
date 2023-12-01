@@ -24,25 +24,16 @@ int calculateScore(const std::string& bowls) {
             frame++;
         } else if (bowl == '/') {
             score += (10 - (bowls[i - 1] - '0'));
-
-            if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
-            }
+            score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
 
             frame++;
         } else if (bowl == '-') {
-            // do nothing
+            // Do nothing for a miss
         } else {
             score += (bowl - '0');
-
-            if (frame < 10 && bowlIndex % 2 == 1) {
-                if (bowls[i - 1] == '/') {
-                    score += (bowls[i] - '0');
-                }
-            }
-
-            bowlIndex++;
         }
+
+        bowlIndex++;
     }
 
     return score;
