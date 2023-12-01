@@ -1,13 +1,8 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
+#include <iostream>
 
-bool issame(int a, int b){
-    return a == b;
-}
-
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
-    std::vector<int> result;
+vector<int> compare(vector<int> game, vector<int> guess){
+    vector<int> result;
     for(int i=0; i<game.size(); i++){
         int diff = abs(guess[i] - game[i]);
         result.push_back(diff);
@@ -15,16 +10,14 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
     return result;
 }
 
-int main(){
-    std::vector<int> game = {1, 2, 3};
-    std::vector<int> guess = {2, 4, 6};
-    
-    std::vector<int> result = compare(game, guess);
-    
-    assert(result.size() == game.size());
-    for(int i=0; i<result.size(); i++){
-        assert(issame(result[i], guess[i] - game[i]));
+int main() {
+    vector<int> game = {1, 2, 3, 5};
+    vector<int> guess = {-1, 2, 3, 4};
+    vector<int> result = compare(game, guess);
+
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
-    
+
     return 0;
 }
