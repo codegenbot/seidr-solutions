@@ -11,7 +11,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (val_a < val_b) {
             return val_b;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float val_a = boost::any_cast<float>(a);
@@ -21,7 +21,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (val_a < val_b) {
             return val_b;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string val_a = boost::any_cast<std::string>(a);
@@ -31,16 +31,16 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (val_a < val_b) {
             return val_b;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int val_a = boost::any_cast<int>(a);
         std::string val_b = boost::any_cast<std::string>(b);
-        return val_b;
+        return boost::any(val_b);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string val_a = boost::any_cast<std::string>(a);
         int val_b = boost::any_cast<int>(b);
-        return val_a;
+        return boost::any(val_a);
     }
-    return "None";
+    return boost::any();
 }
