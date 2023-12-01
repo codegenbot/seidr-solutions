@@ -1,20 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 string find_max(vector<string> words){
-    string maxWord = "";
-    int maxUniqueChars = 0;
+    string max_word = "";
+    int max_unique_chars = 0;
 
-    for (string word : words) {
-        int uniqueChars = 0;
-        sort(word.begin(), word.end());
-        word.erase(unique(word.begin(), word.end()), word.end());
-        uniqueChars = word.length();
+    for(string word : words){
+        int unique_chars = 0;
+        int char_count[26] = {0};
 
-        if (uniqueChars > maxUniqueChars) {
-            maxUniqueChars = uniqueChars;
-            maxWord = word;
-        } else if (uniqueChars == maxUniqueChars && word < maxWord) {
-            maxWord = word;
+        for(char c : word){
+            if(char_count[c - 'a'] == 0){
+                unique_chars++;
+                char_count[c - 'a'] = 1;
+            }
+        }
+
+        if(unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)){
+            max_word = word;
+            max_unique_chars = unique_chars;
         }
     }
 
-    return maxWord;
+    return max_word;
+}
+
+int main() {
+    cout << find_max({"play", "play", "play"}) << endl;
+
+    return 0;
 }
