@@ -1,21 +1,20 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-bool issame(const vector<float>& v1, const vector<float>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
+using namespace std;
 
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-4) return false;
     }
 
     return true;
 }
 
-std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
+vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = std::abs(numbers[0] - numbers[1]);
     float num1 = numbers[0];
     float num2 = numbers[1];
@@ -31,7 +30,7 @@ std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
         }
     }
 
-    std::vector<float> result;
+    vector<float> result;
     result.push_back(num1);
     result.push_back(num2);
 
@@ -39,13 +38,6 @@ std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
 }
 
 int main() {
-    std::vector<float> expected = {2.2, 3.1};
-    std::vector<float> input = {1.1, 2.2, 3.1, 4.1, 5.1};
-    std::vector<float> result = find_closest_elements(input);
-
-    if (issame(result, expected)) {
-        return 0;
-    } else {
-        return 1;
-    }
+    assert(issame(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), {2.2, 3.1}));
+    return 0;
 }
