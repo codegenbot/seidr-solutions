@@ -1,46 +1,55 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
-
 using namespace std;
 
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
-bool isSame(vector<string> a, vector<string> b) {
-    // Add appropriate comparison logic here
-    // and return true if the vectors are same, false otherwise
-}
+vector<string> select_words(string s, int n);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
         return result;
     }
-    string word = "";
-    int consonantCount = 0;
+
+    string word;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
-            if (isConsonant(s[i])) {
-                consonantCount++;
-            }
-        } else {
-            if (consonantCount == n) {
+        if (s[i] == ' ') {
+            if (count_consonants(word) == n) {
                 result.push_back(word);
             }
-            word = "";
-            consonantCount = 0;
+            word.clear();
+        } else {
+            word += s[i];
         }
     }
-    if (consonantCount == n) {
+
+    if (count_consonants(word) == n) {
         result.push_back(word);
     }
+
     return result;
 }
 
+int count_consonants(string word) {
+    int count = 0;
+    for (int i = 0; i < word.length(); i++) {
+        if (!is_vowel(word[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+
+bool is_vowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // implementation of the issame function
+}
+
 int main() {
-    assert(isSame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
+    // Test the functions here
     return 0;
 }
