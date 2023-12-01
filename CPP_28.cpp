@@ -1,4 +1,4 @@
-string concatenate(vector<string> strings){
+string concatenate(vector<string> strings) {
     string result = "";
     for (string str : strings) {
         result += str;
