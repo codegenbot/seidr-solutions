@@ -1,15 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
     
-    for(int i=0; i<a.size(); i++){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -22,34 +16,27 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     int m = grid[0].size();
     vector<int> path;
-    int row = 0, col = 0;
-    int dir = 0;
+    vector<vector<bool>> visited(n, vector<bool>(m, false));
+    int currRow = 0;
+    int currCol = 0;
+    int steps = 0;
     
-    while(k > 0){
-        path.push_back(grid[row][col]);
-        k--;
+    while(steps < k){
+        path.push_back(grid[currRow][currCol]);
+        visited[currRow][currCol] = true;
+        int nextRow = currRow;
+        int nextCol = currCol;
         
-        if(dir == 0){
-            if(col + 1 < m){
-                col++;
-            }
-            else{
-                row++;
-            }
+        if(currRow + 1 < n && !visited[currRow + 1][currCol]){
+            nextRow = currRow + 1;
         }
-        else{
-            if(col - 1 >= 0){
-                col--;
-            }
-            else{
-                row++;
-            }
+        else if(currCol + 1 < m && !visited[currRow][currCol + 1]){
+            nextCol = currCol + 1;
         }
         
-        if(row >= n){
-            row--;
-            dir = 1 - dir;
-        }
+        currRow = nextRow;
+        currCol = nextCol;
+        steps++;
     }
     
     return path;
@@ -57,6 +44,8 @@ vector<int> minPath(vector<vector<int>> grid, int k){
 
 int main(){
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-
+    // more test cases
+    // ...
+    
     return 0;
 }
