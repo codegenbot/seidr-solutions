@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(std::vector<float> a, std::vector<float> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -13,7 +13,7 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
-vector<float> rescale_to_unit(vector<float> numbers){
+std::vector<float> rescale_to_unit(std::vector<float> numbers){
     float min_num = numbers[0];
     float max_num = numbers[0];
     
@@ -28,7 +28,7 @@ vector<float> rescale_to_unit(vector<float> numbers){
     }
     
     // Apply linear transform to each number in the vector
-    vector<float> rescaled_numbers;
+    std::vector<float> rescaled_numbers;
     for(int i=0; i<numbers.size(); i++){
         float rescaled_num = (numbers[i] - min_num) / (max_num - min_num);
         rescaled_numbers.push_back(rescaled_num);
