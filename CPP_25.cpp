@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> factorize(int n) {
@@ -14,19 +12,4 @@ vector<int> factorize(int n) {
     }
     
     return factors;
-}
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    
-    vector<int> primeFactors = factorize(n);
-    
-    cout << "Prime factors: ";
-    for (int factor : primeFactors) {
-        cout << factor << " ";
-    }
-    
-    return 0;
 }
