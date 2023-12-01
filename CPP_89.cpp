@@ -1,23 +1,25 @@
-```cpp
 #include <string>
-#include <cctype>
-using namespace std;
+#include <cassert>
 
-string encrypt(string s);
+std::string encrypt(std::string s) {
+    std::string encrypted = "";
+    int shift = 2 * 2;
 
-string encrypt(string s){
-    string encryptedString = "";
-    for(int i=0; i<s.length(); i++){
+    for (int i = 0; i < s.length(); i++) {
         char c = s[i];
-        if(isalpha(c)){
-            if(islower(c)){
-                c = (c - 'a' + 2*2) % 26 + 'a';
-            }
-            else{
-                c = (c - 'A' + 2*2) % 26 + 'A';
-            }
+        if (c >= 'a' && c <= 'z') {
+            c = 'a' + (c - 'a' + shift) % 26;
+        } else if (c >= 'A' && c <= 'Z') {
+            c = 'A' + (c - 'A' + shift) % 26;
         }
-        encryptedString += c;
+        encrypted += c;
     }
-    return encryptedString;
+
+    return encrypted;
+}
+
+int main() {
+    assert (encrypt("a")=="e"); // Sample assertion to test the encrypt function
+    // Add more test cases here
+    return 0;
 }
