@@ -1,19 +1,15 @@
 #include <string>
 #include <cassert>
 
-string encode_cyclic(string s){
-    string encoded_str;
-    // implementation of encode_cyclic function
-    return encoded_str;
-}
+string encode_cyclic(string s);
 
-string decode_cyclic(string s){
+string decode_cyclic(string s) {
     string output;
     string str;
     for (char chr : s) {
         string temp;
-        temp+=chr;
-        str+=temp;
+        temp += chr;
+        str += temp;
     }
 
     string encoded_str = encode_cyclic(str);
@@ -27,4 +23,10 @@ string decode_cyclic(string s){
         output += x;
     }
     return output;
+}
+
+string encode_cyclic(string s) {
+    string encoded_str;
+    // implementation of encode_cyclic function
+    return encoded_str;
 }
