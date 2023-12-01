@@ -1,25 +1,41 @@
-vector<int> order_by_points(vector<int> nums){
-    vector<int> result;
-    vector<pair<int, int>> sums;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-    // Calculate the sum of digits for each number
-    for(int i = 0; i < nums.size(); i++){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> sums;
+    for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         int num = nums[i];
-        while(num != 0){
+        while (num != 0) {
             sum += abs(num % 10);
             num /= 10;
         }
         sums.push_back(make_pair(sum, i));
     }
-
-    // Sort the sums vector based on the sum of digits
     sort(sums.begin(), sums.end());
-
-    // Populate the result vector based on the sorted sums vector
-    for(int i = 0; i < sums.size(); i++){
-        result.push_back(nums[sums[i].second]);
+    vector<int> result;
+    for (auto pair : sums) {
+        result.push_back(nums[pair.second]);
     }
-
     return result;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }

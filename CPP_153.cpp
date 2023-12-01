@@ -1,19 +1,32 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm>
+#include <vector>
+#include <cctype>
+#include <climits>
 
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = extensions[0];
-    int max_strength = count_if(strongest_extension.begin(), strongest_extension.end(), isupper) - count_if(strongest_extension.begin(), strongest_extension.end(), islower);
+    string strongest_extension = "";
+    int max_strength = INT_MIN;
     
-    for (int i = 1; i < extensions.size(); i++) {
-        int strength = count_if(extensions[i].begin(), extensions[i].end(), isupper) - count_if(extensions[i].begin(), extensions[i].end(), islower);
+    for (string extension : extensions) {
+        int cap_count = 0;
+        int sm_count = 0;
+        
+        for (char c : extension) {
+            if (isupper(c)) {
+                cap_count++;
+            } else if (islower(c)) {
+                sm_count++;
+            }
+        }
+        
+        int strength = cap_count - sm_count;
+        
         if (strength > max_strength) {
-            strongest_extension = extensions[i];
             max_strength = strength;
+            strongest_extension = extension;
         }
     }
     
@@ -21,20 +34,6 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    string class_name;
-    vector<string> extensions;
-    int n;
-    
-    cin >> class_name;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        string extension;
-        cin >> extension;
-        extensions.push_back(extension);
-    }
-    
-    string result = Strongest_Extension(class_name, extensions);
-    cout << result << endl;
-    
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
