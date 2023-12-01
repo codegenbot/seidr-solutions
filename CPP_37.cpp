@@ -4,19 +4,16 @@
 
 using namespace std;
 
-vector<float> sort_even(vector<float> l);
-bool issame(vector<float> a, vector<float> b);
-
-int main() {
-    vector<float> l = {3.5, 2.0, 4.5, 1.0, 6.0};
-    vector<float> sorted = sort_even(l);
-
-    for(float num : sorted){
-        cout << num << " ";
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
     }
-    cout << endl;
-
-    return 0;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<float> sort_even(vector<float> l){
@@ -32,14 +29,25 @@ vector<float> sort_even(vector<float> l){
     return l_prime;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
+int main() {
+    // Test the sort_even function
+    vector<float> input = {1.5, 2.3, 4.7, 3.2, 6.1};
+    vector<float> output = sort_even(input);
+    
+    cout << "Sorted even elements: ";
+    for(int i=0; i<output.size(); i++){
+        cout << output[i] << " ";
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
+    
+    // Test the issame function
+    vector<float> a = {1.5, 2.3, 4.7};
+    vector<float> b = {1.5, 2.3, 4.7};
+    
+    if(issame(a, b)){
+        cout << "\nVectors a and b are identical";
+    }else{
+        cout << "\nVectors a and b are not identical";
     }
-    return true;
+    
+    return 0;
 }
