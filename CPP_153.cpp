@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <cctype>
-#include <climits>
+#include <climits> // Add this line
 
 using namespace std;
 
@@ -33,6 +33,9 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     return class_name + "." + strongest_extension;
 }
 
+// Comment out one of the main functions
+
+/*
 int main() {
     // Test the function
 
@@ -59,3 +62,4 @@ int main() {
     
     return 0;
 }
+*/
