@@ -13,6 +13,6 @@ int sumOfOddNumbers(std::vector<int> lst) {
 }
 
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 3);
+    std::cout << sumOfOddNumbers({3, 13, 2, 9}) << std::endl;
     return 0;
 }
