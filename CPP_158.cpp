@@ -4,18 +4,12 @@
 
 using namespace std;
 
-int countUniqueChars(string word) {
-    int count = 0;
-    vector<bool> visited(26, false);
+string find_max(vector<string> words);
+int countUniqueChars(string word);
 
-    for (char ch : word) {
-        if (!visited[ch - 'a']) {
-            visited[ch - 'a'] = true;
-            count++;
-        }
-    }
-
-    return count;
+int main() {
+    assert((find_max({"play", "play", "play"}) == "play"));
+    return 0;
 }
 
 string find_max(vector<string> words) {
@@ -33,7 +27,16 @@ string find_max(vector<string> words) {
     return maxWord;
 }
 
-int main() {
-    assert((find_max({"play", "play", "play"}) == "play"));
-    return 0;
+int countUniqueChars(string word) {
+    int uniqueChars = 0;
+    bool visited[256] = {false};
+
+    for (char c : word) {
+        if (!visited[c]) {
+            visited[c] = true;
+            uniqueChars++;
+        }
+    }
+
+    return uniqueChars;
 }
