@@ -1,9 +1,12 @@
-vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = total;
-    if (total > remaining) {
-        eaten = remaining;
+vector<int> eat(int number, int need, int remaining){
+    int total = number + remaining;
+    int left = 0;
+    
+    if(total >= need){
+        left = total - need;
+        total = need;
     }
-    int left = remaining - eaten;
-    return {eaten, left};
+    
+    vector<int> result = {total, left};
+    return result;
 }
