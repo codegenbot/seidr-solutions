@@ -11,7 +11,5 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    // Code for testing the functions
-
-    return 0;
+    // Code to test the functions
 }
