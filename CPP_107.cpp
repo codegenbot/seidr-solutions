@@ -1,30 +1,22 @@
 vector<int> even_odd_palindrome(int n){
-    vector<int> result(2, 0); // initialize result vector with two elements, both set to 0
-
+    vector<int> result(2, 0);
     for(int i=1; i<=n; i++){
-        string num = to_string(i); // convert integer to string
-
+        string num = to_string(i);
+        int len = num.length();
         bool isPalindrome = true;
-        int left = 0;
-        int right = num.length() - 1;
-
-        while(left < right){
-            if(num[left] != num[right]){
+        for(int j=0; j<len/2; j++){
+            if(num[j] != num[len-j-1]){
                 isPalindrome = false;
                 break;
             }
-            left++;
-            right--;
         }
-
         if(isPalindrome){
             if(i % 2 == 0){
-                result[0]++; // increment even palindrome count
-            } else{
-                result[1]++; // increment odd palindrome count
+                result[0]++;
+            }else{
+                result[1]++;
             }
         }
     }
-
     return result;
 }
