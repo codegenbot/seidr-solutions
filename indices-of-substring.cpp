@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
@@ -8,14 +8,14 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     int targetLength = target.length();
 
     for (int i = 0; i <= textLength - targetLength; i++) {
-        bool match = true;
+        bool found = true;
         for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
-                match = false;
+                found = false;
                 break;
             }
         }
-        if (match) {
+        if (found) {
             indices.push_back(i);
         }
     }
@@ -32,7 +32,6 @@ int main() {
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
-    std::cout << std::endl;
 
     return 0;
 }
