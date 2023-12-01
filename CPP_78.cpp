@@ -14,12 +14,11 @@ int hex_key(std::string num){
 }
 
 int main(){
-    std::string input;
-    std::cout << "Enter a hexadecimal number: ";
-    std::cin >> input;
+    std::string num;
+    std::cin >> num;
     
-    int result = hex_key(input);
-    std::cout << "The number of prime characters in the hexadecimal number is: " << result << std::endl;
+    int count = hex_key(num);
+    std::cout << count << std::endl;
     
     return 0;
 }
