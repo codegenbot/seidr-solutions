@@ -1,18 +1,17 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 #include <iterator>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size())
+    if (a.size() != b.size()) {
         return false;
-
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
     }
-
-    return true;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
