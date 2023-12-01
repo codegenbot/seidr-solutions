@@ -1,5 +1,3 @@
-// Your modified code
-
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -18,6 +16,9 @@ vector<int> filter_integers(list<boost::any> values) {
 }
 
 int main() {
-    // Your code here
+    for (int num : filter_integers({3, 'c', 3, 3, 'a', 'b'})) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
