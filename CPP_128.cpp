@@ -1,5 +1,6 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 int prod_signs(vector<int> arr){
