@@ -1,14 +1,15 @@
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst){
+    vector<int> result;
     sort(lst.begin(), lst.end());
-    int n = lst.size();
-    vector<int> result(n);
-    int i = 0, j = n - 1;
-    int index = 0;
-    while (i <= j) {
-        result[index++] = lst[i++];
-        if (i <= j) {
-            result[index++] = lst[j--];
+    int start = 0;
+    int end = lst.size() - 1;
+    while (start <= end) {
+        result.push_back(lst[start]);
+        if (start != end) {
+            result.push_back(lst[end]);
         }
+        start++;
+        end--;
     }
     return result;
 }
