@@ -1,10 +1,10 @@
 #include <string>
-#include <iostream>
 #include <cassert>
 #include <cstring>
+#include <iostream>
 
-int calculateLength(const std::string& str){
-    return str.length();
+int calculateLength(char* str){
+    return strlen(str);
 }
 
 int main() {
