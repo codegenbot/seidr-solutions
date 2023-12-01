@@ -1,20 +1,18 @@
-string encrypt(string s){
-    string encrypted = "";
+#include <string>
+
+string encrypt(string s) {
+    string encryptedString = "";
+
     for (int i = 0; i < s.length(); i++) {
-        // Encrypt uppercase letters
-        if (isupper(s[i])) {
-            char encryptedChar = (s[i] - 'A' + 2 * 2) % 26 + 'A';
-            encrypted += encryptedChar;
+        int asciiValue = int(s[i]);
+        int encryptedValue = asciiValue + (2 * 2);
+        
+        if (encryptedValue > 122) {
+            encryptedValue = (encryptedValue % 122) + 96;
         }
-        // Encrypt lowercase letters
-        else if (islower(s[i])) {
-            char encryptedChar = (s[i] - 'a' + 2 * 2) % 26 + 'a';
-            encrypted += encryptedChar;
-        }
-        // Characters other than letters remain unchanged
-        else {
-            encrypted += s[i];
-        }
+        
+        encryptedString += char(encryptedValue);
     }
-    return encrypted;
+
+    return encryptedString;
 }
