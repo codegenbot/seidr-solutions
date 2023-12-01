@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -14,8 +15,10 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    assert (specialFilter({}) == 0);
-    // More test cases...
-
+    assert(specialFilter({}) == 0);                  // Empty vector
+    assert(specialFilter({1, 2, 3, 4, 5}) == 0);     // No numbers matching the condition
+    assert(specialFilter({1, 2, 3, 4, 55}) == 0);    // No numbers matching the condition
+    assert(specialFilter({1, 2, 3, 4, 15}) == 1);    // One number matching the condition
+    assert(specialFilter({11, 22, 33, 44, 55}) == 0); // No numbers matching the condition
     return 0;
 }
