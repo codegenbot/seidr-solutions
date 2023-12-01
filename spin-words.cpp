@@ -1,20 +1,19 @@
 #include <iostream>
 #include <sstream>
+#include <string>
 
-std::string reverseWords(const std::string& input) {
-    std::istringstream iss(input);
-    std::ostringstream oss;
-    std::string word;
+std::string reverseWords(std::string sentence) {
+    std::stringstream ss(sentence);
+    std::string word, result;
     
-    while (iss >> word) {
+    while (ss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
-        oss << word << " ";
+        result += word + " ";
     }
     
-    std::string result = oss.str();
-    result.pop_back(); // remove the trailing space
+    result.pop_back(); // Remove extra space at the end
     
     return result;
 }
