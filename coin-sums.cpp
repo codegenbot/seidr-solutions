@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    int cents;
+    int cents = 0;
     std::cin >> cents;
 
     int quarters = cents / 25;
