@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 vector<int> compare(vector<int> game, vector<int> guess){
     vector<int> result;
@@ -14,10 +14,10 @@ int main() {
     vector<int> game = {1, 2, 3, 5};
     vector<int> guess = {-1, 2, 3, 4};
     vector<int> result = compare(game, guess);
-
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
     }
-
+    
     return 0;
 }
