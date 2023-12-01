@@ -1,23 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-double double_the_difference(std::vector<float> lst) {
+std::vector<float> numbers = {1.5, 2.5, 3.5, 4.5, 5.5};
+
+double double_the_difference(std::vector<float> numbers) {
     double sum = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] > 0 && lst[i] == std::floor(lst[i]) && static_cast<int>(lst[i]) % 2 != 0) {
-            sum += std::pow(lst[i], 2);
+    for (int i = 0; i < numbers.size(); i++) {
+        if (numbers[i] > 0 && numbers[i] == std::floor(numbers[i]) && static_cast<int>(numbers[i]) % 2 != 0) {
+            sum += std::pow(numbers[i], 2);
         }
     }
     return sum;
 }
 
-
 int main() {
-    std::vector<float> lst;
-    lst = {1.5, 2.5, 3.5, 4.5, 5.5};
-    double odd_sum;
-    odd_sum = double_the_difference(lst);
+    double odd_sum = double_the_difference(numbers);
     std::cout << "Odd Sum: " << odd_sum << std::endl;
+    assert(double_the_difference(numbers) == odd_sum);
     return 0;
 }
