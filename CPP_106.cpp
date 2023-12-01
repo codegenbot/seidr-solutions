@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(vector<int> a, vector<int> b){
+    // function code
+}
+
 vector<int> f(int n){
     vector<int> result;
     for(int i=1; i<=n; i++){
@@ -20,10 +24,6 @@ vector<int> f(int n){
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    // function code
 }
 
 int main() {
