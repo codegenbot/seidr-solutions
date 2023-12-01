@@ -2,8 +2,6 @@
 
 vector<int> issame(vector<int> a, vector<int> b) {
     // code implementation
-    vector<int> result;
-    return result;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
@@ -14,5 +12,4 @@ vector<int> maximum(vector<int> arr, int k) {
 
 int main() {
     // code implementation
-    return 0;
 }
