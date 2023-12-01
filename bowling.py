@@ -1,36 +1,19 @@
-def calculate_score(round):
+def bowling(string):
     score = 0
-    frame = 1
-    i = 0
-    
-    while frame <= 10:
-        if round[i] == 'X':
+    frames = string.split('/')
+    for frame in frames:
+        if 'X' in frame:
             score += 10
-            if round[i+2] == 'X':
+            if frame == 'X' * 2:
                 score += 10
-                if round[i+4] == 'X':
-                    score += 10
-                else:
-                    score += int(round[i+4])
-            else:
-                if round[i+3] == '/':
-                    score += 10
-                else:
-                    score += int(round[i+2]) + int(round[i+3])
-            i += 1
-        elif round[i+1] == '/':
-            score += 10
-            if round[i+2] == 'X':
-                score += 10
-            else:
-                score += int(round[i+2])
-            i += 2
+            elif len(frame) == 3:
+                score += int(frame[1]) + int(frame[2])
         else:
-            score += int(round[i]) + int(round[i+1])
-            i += 2
-        frame += 1
-    
+            score += sum(int(bowl) for bowl in frame if bowl != '-')
     return score
 
-round = input()
-print(calculate_score(round))
+# Read input from user
+input_string = input("Enter the string of bowls: ")
+
+# Calculate and print the score
+print(bowling(input_string))
