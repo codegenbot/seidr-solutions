@@ -1,3 +1,9 @@
+#include <iostream>
+
+using namespace std;
+
+string encrypt(string s);
+
 string encrypt(string s){
     string encryptedString = "";
     for(int i=0; i<s.length(); i++){
@@ -13,4 +19,14 @@ string encrypt(string s){
         encryptedString += c;
     }
     return encryptedString;
+}
+
+int main() {
+    assert(encrypt("a")=="e");
+    assert(encrypt("z")=="d");
+    assert(encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
+    
+    cout << "All test cases passed!" << endl;
+    
+    return 0;
 }
