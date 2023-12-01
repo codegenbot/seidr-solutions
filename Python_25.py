@@ -1,6 +1,6 @@
 from typing import List
 
-def factorize(n: int) -> List[int]:
+def factorize(n: int) -> list[int]:
     factors = []
     i = 2
     while i * i <= n:
