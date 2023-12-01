@@ -36,18 +36,18 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 int main() {
     bool issameResult = issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
     assert(issameResult);
-
+    
     issameResult = issame(largest_smallest_integers({5, 3, -1, 7, 2}), {-1, 2});
     assert(issameResult);
-
+    
     issameResult = issame(largest_smallest_integers({0, 0, 0, 0, 0}), {0, 0});
     assert(issameResult);
-
+    
     issameResult = issame(largest_smallest_integers({-1, -2, -3, -4, -5}), {-1, -5});
     assert(issameResult);
-
+    
     issameResult = issame(largest_smallest_integers({1, 2, 3, 4, 5}), {5, 1});
     assert(issameResult);
-
+    
     return 0;
 }
