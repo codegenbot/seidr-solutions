@@ -1,9 +1,12 @@
 from typing import List, Tuple
 
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    sum_ = 0
+def sum_product() -> Tuple[int, int]:
+    numbers = input().split()
+    numbers = [int(num) for num in numbers]
+    
+    total_sum = sum(numbers)
     product = 1
     for num in numbers:
-        sum_ += num
         product *= num
-    return sum_, product
+    
+    return total_sum, product
