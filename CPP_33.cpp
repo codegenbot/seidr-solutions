@@ -1,23 +1,27 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b){
-    // Implementation of the issame function
-    // ...
+    return a == b;
 }
 
 vector<int> sort_third(vector<int> l){
-    // Implementation of the sort_third function
-    vector<int> l_sorted = l;
-    sort(l_sorted.begin(), l_sorted.end());
-    for(int i = 0; i < l_sorted.size(); i++){
+    vector<int> l_prime = l;
+    vector<int> divisible_by_three;
+    for(int i=0; i<l.size(); i++){
         if(i % 3 == 0){
-            l_sorted[i] = l[i];
+            divisible_by_three.push_back(l[i]);
         }
     }
-    return l_sorted;
-}
-
-int main(){
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    // ...
-    
-    return 0;
+    sort(divisible_by_three.begin(), divisible_by_three.end());
+    int j = 0;
+    for(int i=0; i<l.size(); i++){
+        if(i % 3 == 0){
+            l_prime[i] = divisible_by_three[j];
+            j++;
+        }
+    }
+    return l_prime;
 }

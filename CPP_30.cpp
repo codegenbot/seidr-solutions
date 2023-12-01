@@ -1,5 +1,18 @@
 #include <vector>
-#include <cassert>
+
+vector<float> get_positive(vector<float> l);
+
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
@@ -9,16 +22,4 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return positive_nums;
-}
-
-bool issame(vector<float> a, vector<float> b){
-    // implementation of issame function
-}
-
-int main(){
-    assert (issame(get_positive({}) , {}));
-    
-    // more test cases
-    
-    return 0;
 }

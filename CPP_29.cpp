@@ -1,35 +1,35 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix);
-bool are_equal(vector<string> a, vector<string> b);
+using namespace std;
 
-int main() {
-    assert(are_equal(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-}
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
-    vector<string> result;
-    for (const string& str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
-        }
-    }
-    return result;
-}
-
-bool are_equal(vector<string> a, vector<string> b) {
-    // compare the size of vectors
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
         return false;
     }
-    
-    // compare each element of the vectors
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
-    
     return true;
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> filteredStrings;
+    for(const string& str : strings){
+        if(str.substr(0, prefix.length()) == prefix){
+            filteredStrings.push_back(str);
+        }
+    }
+    return filteredStrings;
+}
+
+int main(){
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAA", "xxx"}, "xxx"), {"xxx", "xxxAA", "xxx"}));
+    
+    cout << "Test passed!" << endl;
+    
+    return 0;
 }
