@@ -6,7 +6,7 @@ def cut_vector(vector):
     min_diff = float("inf")
     cut_index = -1
 
-    for i in range(n - 1):
+    for i in range(n):
         left_sum += vector[i]
         right_sum -= vector[i]
         diff = abs(left_sum - right_sum)
@@ -24,10 +24,10 @@ while True:
     try:
         num = int(input())
         vector.append(num)
-    except EOFError:
+    except:
         break
 
-# Call the function and print the output
+# Call the function and print the results
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
     print(num)
