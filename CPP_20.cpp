@@ -5,6 +5,16 @@ bool issame(vector<float> a, vector<float> b) {
     // Function implementation
 }
 
+vector<float> find_closest_elements(vector<float> numbers);
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+
+    // Additional test cases and code here
+
+    return 0;
+}
+
 vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = abs(numbers[0] - numbers[1]);
     int min_idx1 = 0;
@@ -25,12 +35,4 @@ vector<float> find_closest_elements(vector<float> numbers) {
     result.push_back(numbers[min_idx1]);
     result.push_back(numbers[min_idx2]);
     return result;
-}
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-
-    // Additional test cases and code here
-
-    return 0;
 }
