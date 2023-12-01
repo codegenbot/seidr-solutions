@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 vector<int> intersperse(vector<int> numbers, int delimiter){
     vector<int> result;
     if(numbers.empty()){
