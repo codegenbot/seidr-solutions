@@ -13,9 +13,3 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
-
-
-# Remove int(input("Enter the number: ")) 
-n = 25
-result = factorize(n)
-print(result)
