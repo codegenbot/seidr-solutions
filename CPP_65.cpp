@@ -1,6 +1,6 @@
-#include <iostream>
-#include <algorithm>
 #include <string>
+#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -17,16 +17,13 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    // sample test cases
-    int num1 = 1234;
-    int shift1 = 2;
-    string result1 = circular_shift(num1, shift1);
-    cout << result1 << endl;    // expected output: "3412"
+    assert(circular_shift(11, 101) == "11");
 
-    int num2 = 98765;
-    int shift2 = 4;
-    string result2 = circular_shift(num2, shift2);
-    cout << result2 << endl;    // expected output: "56789"
+    // Add more test cases here...
+    assert(circular_shift(12345, 1) == "51234");
+    assert(circular_shift(12345, 2) == "45123");
+    assert(circular_shift(12345, 5) == "12345");
+    assert(circular_shift(12345, 6) == "54321");
 
     return 0;
 }
