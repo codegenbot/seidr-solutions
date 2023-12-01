@@ -1,17 +1,6 @@
 #include <map>
 #include <string>
-#include <cassert>
-
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    for (char c : test) {
-        if (c != ' ') {
-            result[c]++;
-        }
-    }
-    return result;
-}
-
+bool issame(map<char,int> a,map<char,int> b);
 bool issame(map<char,int> a,map<char,int> b) {
     if (a.size() != b.size()) {
         return false;
