@@ -19,18 +19,18 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    int size;
+    std::cout << "Enter the size of the list: ";
+    std::cin >> size;
 
-    std::vector<int> lst(n);
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; i++) {
+    std::vector<int> lst(size);
+    std::cout << "Enter the elements of the list: ";
+    for (int i = 0; i < size; i++) {
         std::cin >> lst[i];
     }
     
     int result = search(lst);
-    std::cout << "Maximum number: " << result << std::endl;
-    
+    std::cout << "The maximum number satisfying the conditions is: " << result << std::endl;
+
     return 0;
 }
