@@ -7,13 +7,13 @@
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     long long diff = std::numeric_limits<long long>::max();
-    int index = -1;
+    int index = 0;
 
     if (n == 1) {
         return std::make_pair(nums, std::vector<int>());
     }
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i <= n; i++) {
         long long leftSum = 0;
         long long rightSum = 0;
 
@@ -36,7 +36,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
     std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
 
-    if (index == n - 1) {
+    if (index == n) {
         leftSubvector = std::vector<int>();
         rightSubvector = nums;
     }
