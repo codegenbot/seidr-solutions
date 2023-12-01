@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -23,9 +24,9 @@ string encrypt(string s){
 
 int main() {
     assert (encrypt("a") == "e");
-    // Add more test cases here
-    assert (encrypt("hello") == "lipps");
-    assert (encrypt("XYZ") == "BCD");
+    assert (encrypt("Hello, World!") == "Lipps, Asvph!");
+    assert (encrypt("abcdefghijklmnopqrstuvwxyz") == "efghijklmnopqrstuvwxyzabcd");
+    assert (encrypt("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == "EFGHIJKLMNOPQRSTUVWXYZABCD");
     
     return 0;
 }
