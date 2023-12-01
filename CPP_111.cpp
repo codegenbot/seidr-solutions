@@ -1,27 +1,20 @@
-map<char,int> histogram(string test){
-    map<char,int> result;
-    if(test.empty()){
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    if (test.empty()) {
         return result;
     }
     string word;
-    for(int i=0; i<test.length(); i++){
-        if(test[i] == ' '){
-            if(result.find(word[0]) == result.end()){
-                result[word[0]] = 1;
-            }
-            else{
+    for (char ch : test) {
+        if (ch == ' ') {
+            if (!word.empty()) {
                 result[word[0]]++;
+                word.clear();
             }
-            word = "";
-        }
-        else{
-            word += test[i];
+        } else {
+            word += ch;
         }
     }
-    if(result.find(word[0]) == result.end()){
-        result[word[0]] = 1;
-    }
-    else{
+    if (!word.empty()) {
         result[word[0]]++;
     }
     return result;
