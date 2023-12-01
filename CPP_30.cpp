@@ -14,15 +14,15 @@ vector<float> get_positive(const vector<float>& l) {
     return positive_nums;
 }
 
-bool are_same(const vector<float>& a, const vector<float>& b) {
+bool issame(const vector<float>& a, const vector<float>& b) {
     if (a.size() != b.size()) return false;
-    for (int i=0;i<a.size();i++){
+    for(int i=0; i<a.size(); i++) {
         if (abs(a[i]-b[i])>1e-4) return false;
     }
     return true;
 }
 
 int main() {
-    assert(are_same(get_positive({}), {}));
+    assert(issame(get_positive({}), {}));
     return 0;
 }
