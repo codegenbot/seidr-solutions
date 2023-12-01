@@ -1,4 +1,4 @@
-#include <vector>
+#include <vector> 
 
 int prod_signs(std::vector<int> arr){
     if(arr.empty()){
@@ -14,4 +14,11 @@ int prod_signs(std::vector<int> arr){
     }
     
     return product * sum;
+}
+
+int main() {
+
+    // Add code to test the 'prod_signs' function here
+
+    return 0;
 }
