@@ -52,8 +52,4 @@ bool issame(vector<string> a, vector<string> b){
 
 int main(){
     // TODO: Add test cases
-    vector<string> input1 = {"hello", "world"};
-    vector<string> input2 = {"hello", "world"};
-    cout << boolalpha << "issame: " << issame(input1, input2) << endl;
-    return 0;
 }
