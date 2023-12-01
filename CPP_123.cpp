@@ -1,44 +1,40 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
+#include <cassert>
+#include <iostream>
 
-vector<int> get_odd_collatz(int n){
-    vector<int> collatz;
-    collatz.push_back(n);
-    while (n != 1){
-        if (n % 2 == 0){
-            n = n / 2;
-        }
-        else{
-            n = 3 * n + 1;
-        }
-        collatz.push_back(n);
-    }
-    vector<int> odd_collatz;
-    for (int i = 0; i < collatz.size(); i++){
-        if (collatz[i] % 2 != 0){
-            odd_collatz.push_back(collatz[i]);
-        }
-    }
-    sort(odd_collatz.begin(), odd_collatz.end());
-    return odd_collatz;
+bool issame(std::vector<int> a, std::vector<int> b) {
+  return a == b;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()){
-        return false;
+std::vector<int> get_odd_collatz(int n) {
+  std::vector<int> collatz_seq;
+  collatz_seq.push_back(n);
+  while (n != 1) {
+    if (n % 2 == 0) {
+      n = n / 2;
+    } else {
+      n = (3 * n) + 1;
     }
-    for (int i = 0; i < a.size(); i++){
-        if (a[i] != b[i]){
-            return false;
-        }
+    collatz_seq.push_back(n);
+  }
+  std::vector<int> odd_collatz_seq;
+  for (int i = 0; i < collatz_seq.size(); i++) {
+    if (collatz_seq[i] % 2 != 0) {
+      odd_collatz_seq.push_back(collatz_seq[i]);
     }
-    return true;
+  }
+  std::sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
+  return odd_collatz_seq;
 }
 
-int main(){
-    assert (issame(get_odd_collatz(1), {1}));
-
-    return 0;
+int main() {
+  std::vector<int> expected = {1};
+  std::vector<int> result = get_odd_collatz(1);
+  if (issame(result, expected)) {
+    std::cout << "Output is correct" << std::endl;
+  } else {
+    std::cout << "Output is incorrect" << std::endl;
+  }
+  return 0;
 }
