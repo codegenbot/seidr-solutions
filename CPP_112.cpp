@@ -1,3 +1,4 @@
+'''cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,6 +8,7 @@
 using namespace std;
 
 vector<string> reverse_delete(string s, string c);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> reverse_delete(string s, string c) {
     string result;
@@ -25,3 +27,4 @@ int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
+'''
