@@ -1,3 +1,10 @@
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
     for(int i=0; i<grades.size(); i++){
