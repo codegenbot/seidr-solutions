@@ -14,8 +14,8 @@ def find_zero(xs: list) -> float:
 
 if __name__ == "__main__":
     try:
-        input_list = input().split()
+        input_list = input("Enter a list of coefficients separated by spaces: ").split()
         coefficients = [float(coeff) for coeff in input_list]
-        print(f"{find_zero(coefficients)}")
+        print(f"The zero of the polynomial is: {find_zero(coefficients)}")
     except (ValueError, IndexError):
-        print("Invalid input.")
+        print("Invalid input. Please enter a valid list of coefficients.")
