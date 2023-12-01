@@ -9,10 +9,11 @@ vector<int> make_a_pile(int n){
     int stones = n;
     pile.push_back(stones);
     
-    for(int i = 1; i < n; i++){
-        if(n % 2 == 0){
+    for(int i=1; i<n; i++){
+        if(n%2 == 0){
             stones += 2;
-        } else{
+        }
+        else{
             stones += 1;
         }
         pile.push_back(stones);
@@ -25,7 +26,7 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
