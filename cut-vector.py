@@ -1,29 +1,27 @@
-import numpy as np
+def cut_vector(vector):
+    smallest_diff = float("inf")
+    cut_index = -1
 
-def cut_vector(v):
-    v = np.array(v)
-    n = len(v)
-    diff = np.zeros(n)    
-    for i in range(1, n):
-        diff[i] = abs(sum(v[:i]) - sum(v[i:]))
-    idx = np.argmin(diff)
-    return list(v[:idx]), list(v[idx:])
+    for i in range(1, len(vector)):
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        if diff < smallest_diff:
+            smallest_diff = diff
+            cut_index = i
 
-# Read the input from the user
-v = []
+    return vector[:cut_index], vector[cut_index:]
+
+
+# Read input vector from user
+vector = []
 while True:
     num = input()
-    if num != '':
-        v.append(int(num))
-    else:
+    if num == "":
         break
+    vector.append(int(num))
 
-# Get the resulting subvectors
-subvector1, subvector2 = cut_vector(v)
-
-# Output the subvectors
+# Call the function and print the results
+subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
     print(num)
-print()
 for num in subvector2:
     print(num)
