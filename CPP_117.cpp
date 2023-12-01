@@ -1,46 +1,59 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    // implementation of issame function
-    return a == b;
-}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
+    if (s.empty()) {
+        return result;
+    }
     string word = "";
-    int consonants = 0;
-
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            if (consonants == n) {
+        if (s[i] != ' ') {
+            word += s[i];
+        } else {
+            int consonantCount = 0;
+            for (int j = 0; j < word.length(); j++) {
+                if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u') {
+                    consonantCount++;
+                }
+            }
+            if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
-            consonants = 0;
-        } else {
-            if (isalpha(s[i])) {
-                if (tolower(s[i]) != 'a' && tolower(s[i]) != 'e' && tolower(s[i]) != 'i' && tolower(s[i]) != 'o' && tolower(s[i]) != 'u') {
-                    consonants++;
-                }
-            }
-            word += s[i];
         }
     }
-
-    if (consonants == n) {
+    int consonantCount = 0;
+    for (int j = 0; j < word.length(); j++) {
+        if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u') {
+            consonantCount++;
+        }
+    }
+    if (consonantCount == n) {
         result.push_back(word);
     }
-
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    // test case
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // additional test cases
-    
+    assert(issame(select_words("hello world", 2), {"world"}));
+    assert(issame(select_words("programming is fun", 3), {"programming"}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
