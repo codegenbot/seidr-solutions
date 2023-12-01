@@ -6,9 +6,7 @@ using namespace std;
 
 vector<string> reverse_delete(string s, string c);
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
@@ -27,4 +25,8 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(newString == reversedString ? "True" : "False");
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
