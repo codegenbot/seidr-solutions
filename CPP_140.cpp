@@ -1,10 +1,11 @@
 string fix_spaces(string text){
-    int n = text.size();
     string result = "";
     int consecutive_spaces = 0;
-    for(int i=0; i<n; i++){
+    
+    for(int i=0; i<text.length(); i++){
         if(text[i] == ' '){
             consecutive_spaces++;
+            
             if(consecutive_spaces > 2){
                 result += "-";
             }
@@ -17,5 +18,6 @@ string fix_spaces(string text){
             consecutive_spaces = 0;
         }
     }
+    
     return result;
 }
