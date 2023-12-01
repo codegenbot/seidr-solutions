@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
