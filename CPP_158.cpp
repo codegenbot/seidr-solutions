@@ -1,28 +1,26 @@
-string find_max(vector<string> words){
-    string result = "";
-    int maxUniqueChars = 0;
-    
-    // Iterate through the vector of words
-    for (const auto& word : words) {
-        int uniqueChars = 0;
-        string sortedWord = word;
+#include <stdio.h>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string find_max(vector<string> words) {
+    // Initialize the variables to store the maximum number of unique characters and the word with the maximum number
+    int maxUniqueChars = -1;
+    string maxWord = "";
+
+    // Iterate through each word in the vector
+    for (string word : words) {
+        // Store the unique characters of the current word in a set
+        set<char> uniqueChars(begin(word), end(word));
         
-        // Sort the word in lexicographical order
-        sort(sortedWord.begin(), sortedWord.end());
-        
-        // Count the number of unique characters
-        for (int i = 0; i < sortedWord.size(); i++) {
-            if (i == 0 || sortedWord[i] != sortedWord[i - 1]) {
-                uniqueChars++;
-            }
-        }
-        
-        // Update the result if necessary
-        if (uniqueChars > maxUniqueChars) {
-            result = word;
-            maxUniqueChars = uniqueChars;
+        // Check if the current word has more unique characters or it has the same number of unique characters but comes lexicographically first
+        if (uniqueChars.size() > maxUniqueChars || (uniqueChars.size() == maxUniqueChars && word < maxWord)) {
+            maxUniqueChars = uniqueChars.size();
+            maxWord = word;
         }
     }
-    
-    return result;
+
+    // Return the word with the maximum number of unique characters
+    return maxWord;
 }
