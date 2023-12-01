@@ -1,18 +1,16 @@
-#include <string>
-
-string encrypt(string s) {
-    string encryptedString = "";
-
-    for (int i = 0; i < s.length(); i++) {
-        int asciiValue = int(s[i]);
-        int encryptedValue = asciiValue + (2 * 2);
-        
-        if (encryptedValue > 122) {
-            encryptedValue = (encryptedValue % 122) + 96;
+string encrypt(string s){
+    string result = "";
+    for(int i = 0; i < s.length(); i++){
+        char c = s[i];
+        if(isalpha(c)){
+            if(isupper(c)){
+                c = (c - 'A' + (2 * 2)) % 26 + 'A';
+            }
+            else{
+                c = (c - 'a' + (2 * 2)) % 26 + 'a';
+            }
         }
-        
-        encryptedString += char(encryptedValue);
+        result += c;
     }
-
-    return encryptedString;
+    return result;
 }
