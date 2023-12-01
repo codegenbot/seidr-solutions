@@ -15,3 +15,5 @@ int main() {
     assert (issame(eat(4, 5, 1) , {5, 0}));
     // Rest of the main function code
 }
+
+Note: Please make sure to include any additional libraries required for the implementation of the `issame` function and complete the code inside it and the `main` function as per your requirement.
