@@ -1,7 +1,7 @@
 #include <string>
 #include <algorithm>
 
-template <typename T>
+template<typename T>
 T compare_one(T a, T b) {
     return (a > b) ? a : b;
 }
