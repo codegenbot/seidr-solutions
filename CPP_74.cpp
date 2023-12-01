@@ -18,6 +18,6 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2){
 }
 
 int main() {
-    assert(totalMatch({"this"}, {}) == vector<string>{});
+    assert(totalMatch({"this"}, {}) == vector<string>());
     return 0;
 }
