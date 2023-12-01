@@ -9,6 +9,8 @@ bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
+vector<string> by_length(vector<int> arr);
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> digitNames = {
@@ -23,7 +25,6 @@ vector<string> by_length(vector<int> arr){
         {9, "Nine"}
     };
 
-    // Sort the integers between 1 and 9
     vector<int> sortedArr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -32,7 +33,6 @@ vector<string> by_length(vector<int> arr){
     }
     sort(sortedArr.begin(), sortedArr.end());
 
-    // Reverse the sorted array and replace each digit with its corresponding name
     reverse(sortedArr.begin(), sortedArr.end());
     for (int num : sortedArr) {
         result.push_back(digitNames[num]);
