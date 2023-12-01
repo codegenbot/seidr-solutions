@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ int main() {
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
-    
+
     for(int i=0; i<txt.length(); i++){
         if(txt[i] == ' ' || txt[i] == ','){
             if(!word.empty()){
@@ -31,14 +32,14 @@ vector<string> split_words(string txt){
             word += txt[i];
         }
     }
-    
+
     if(!word.empty()){
         words.push_back(word);
     }
-    
+
     if(words.empty()){
         words.push_back(to_string(3));
     }
-    
+
     return words;
 }
