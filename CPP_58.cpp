@@ -1,13 +1,13 @@
 #include <vector>
 #include <algorithm>
-#include <iterator>
+#include <iostream>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Your implementation goes here
 }
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    vector<int> result;
+std::vector<int> common(std::vector<int> l1, std::vector<int> l2){
+    std::vector<int> result;
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
@@ -17,7 +17,4 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    // Add more test cases if needed
-
-    return 0;
 }
