@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
-std::vector<std::string> all_prefixes(std::string str) {
-    std::vector<std::string> prefixes;
-    std::string prefix = "";
+using namespace std;
+
+vector<string> all_prefixes(string str) {
+    vector<string> prefixes;
+    string prefix = "";
     for(int i = 0; i < str.length(); i++) {
         prefix += str[i];
         prefixes.push_back(prefix);
@@ -14,7 +15,13 @@ std::vector<std::string> all_prefixes(std::string str) {
 }
 
 int main() {
-    assert(all_prefixes("WWW") == std::vector<std::string>{"W", "WW", "WWW"});
-    std::cout << "Test cases passed." << std::endl;
+    string input;
+    cin >> input;
+    
+    vector<string> prefixes = all_prefixes(input);
+    for (const auto& prefix : prefixes) {
+        cout << prefix << " ";
+    }
+    
     return 0;
 }
