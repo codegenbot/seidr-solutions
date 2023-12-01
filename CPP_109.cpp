@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool move_one_ball(const vector<int>& arr){
+bool move_one_ball(vector<int>& arr){
     if(arr.empty()){
         return true;
     }
@@ -28,7 +28,7 @@ bool move_one_ball(const vector<int>& arr){
 }
 
 int main(){
-    assert(move_one_ball({}));
+    assert(move_one_ball(vector<int>{}) == true);
     
     return 0;
 }
