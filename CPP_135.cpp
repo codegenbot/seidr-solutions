@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 class Solution {
 public:
