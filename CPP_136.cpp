@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<int> largest_smallest_integers(const vector<int>& lst) {
     vector<int> result = {0, 0};
     int largestNegative = 0;
