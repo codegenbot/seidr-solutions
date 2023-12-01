@@ -1,4 +1,3 @@
-#include <iostream>
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
@@ -31,7 +30,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str2;
         }
     }
-    return boost::any(string("None"));
+    return boost::any("None");
 }
 
 int main() {
