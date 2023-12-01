@@ -25,9 +25,9 @@ vector<string> splitString(string s){
 }
 
 int main(){
-    vector<string> result = splitString("ahmed     , gamal");
+    vector<string> words = splitString("ahmed     , gamal");
     cout << "Output: ";
-    for(const string& word : result){
+    for(const string& word : words){
         cout << word << " ";
     }
     cout << endl;
