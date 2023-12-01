@@ -1,14 +1,16 @@
 int fruit_distribution(string s, int n) {
     int apples = 0;
     int oranges = 0;
-    int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'a') {
-            apples = stoi(s.substr(i + 1));
-        } else if (s[i] == 'o') {
-            oranges = stoi(s.substr(i + 1));
-        }
-        i++;
+    int pos = s.find("apples");
+    if (pos != string::npos) {
+        string num = s.substr(0, pos);
+        apples = stoi(num);
     }
-    return n - apples - oranges;
+    pos = s.find("oranges");
+    if (pos != string::npos) {
+        string num = s.substr(pos);
+        oranges = stoi(num);
+    }
+    int mangoes = n - apples - oranges;
+    return mangoes;
 }
