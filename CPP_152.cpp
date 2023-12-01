@@ -3,11 +3,11 @@
 #include <cassert>
 #include <cmath>
 
-std::vector<int> issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess);
 
-std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -26,7 +26,7 @@ int main() {
 
     std::vector<int> result = compare(game, guess);
 
-    assert(issame(result, std::vector<int>{1, 0, 2}));
+    assert(issame(result, {1, 0, 2}));
 
     return 0;
 }
