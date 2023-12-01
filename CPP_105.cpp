@@ -6,15 +6,6 @@
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr);
-
-bool issame(vector<string> a, vector<string>& b);
-
-int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
-}
-
 vector<string> by_length(vector<int> arr){
     vector<int> sortedArr;
     for(int i = 0; i < arr.size(); i++){
@@ -26,17 +17,16 @@ vector<string> by_length(vector<int> arr){
     reverse(sortedArr.begin(), sortedArr.end());
     
     vector<string> result;
-    map<int, string> numberMap = {
-        {1, "One"},
-        {2, "Two"},
-        {3, "Three"},
-        {4, "Four"},
-        {5, "Five"},
-        {6, "Six"},
-        {7, "Seven"},
-        {8, "Eight"},
-        {9, "Nine"}
-    };
+    map<int, string> numberMap;
+    numberMap[1] = "One";
+    numberMap[2] = "Two";
+    numberMap[3] = "Three";
+    numberMap[4] = "Four";
+    numberMap[5] = "Five";
+    numberMap[6] = "Six";
+    numberMap[7] = "Seven";
+    numberMap[8] = "Eight";
+    numberMap[9] = "Nine";
     
     for(int i = 0; i < sortedArr.size(); i++){
         result.push_back(numberMap[sortedArr[i]]);
@@ -45,10 +35,15 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string>& b){
+bool issame(vector<string> a, vector<string> &b){
     if(a.size() != b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    assert (issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
 }
