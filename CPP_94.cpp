@@ -2,32 +2,32 @@
 #include <vector>
 
 int skjkasdkd(std::vector<int> lst) {
-    int largest_prime = 0;
+    int maxPrime = 0;
+    int sumOfDigits = 0;
+
     for (int num : lst) {
-        if (is_prime(num) && num > largest_prime) {
-            largest_prime = num;
+        bool isPrime = true;
+
+        if (num <= 1) {
+            continue;
+        }
+
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime && num > maxPrime) {
+            maxPrime = num;
         }
     }
-    return sum_of_digits(largest_prime);
-}
 
-bool is_prime(int num) {
-    if (num <= 1) {
-        return false;
+    while (maxPrime > 0) {
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
     }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
 
-int sum_of_digits(int num) {
-    int sum = 0;
-    while (num != 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
+    return sumOfDigits;
 }
