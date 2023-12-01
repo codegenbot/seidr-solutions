@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
 
 vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
@@ -28,7 +28,12 @@ vector<string> separate_paren_groups(string paren_string){
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b);
+
+int main() {
+    // Your code here
+}
+
 bool issame(vector<string> a, vector<string> b) {
-    // Function implementation goes here
-    
+    // Your code here
 }
