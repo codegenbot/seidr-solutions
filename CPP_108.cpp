@@ -19,6 +19,7 @@ int count_nums(std::vector<int> n){
 }
 
 int main() {
+    // Test cases
     assert (count_nums({1}) == 1);
     assert (count_nums({10, 20, 30}) == 3);
 
