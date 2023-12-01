@@ -2,9 +2,10 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
-vector<string> totalMatch(vector<string> lst1, vector<string> lst2){
+vector<string> total_match(vector<string> lst1, vector<string> lst2){
     int sum1 = 0, sum2 = 0;
     for(string s : lst1){
         sum1 += s.length();
@@ -23,6 +24,6 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    assert(issame(totalMatch({"this"}, {}) , {}));
+    assert(issame(total_match({"this"}, {}) , {}));
     return 0;
 }
