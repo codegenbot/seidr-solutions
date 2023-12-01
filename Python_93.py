@@ -7,8 +7,7 @@ def encode(message):
                 encoded_char = chr(ord(char) + 2)
                 if encoded_char.lower() not in vowels:
                     encoded_char = chr(ord(encoded_char) - 26)
-                encoded_char = encoded_char.lower()
-                encoded_message += encoded_char
+                encoded_message += encoded_char.lower()
             else:
                 encoded_message += char.swapcase()
         else:
