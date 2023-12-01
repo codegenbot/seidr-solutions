@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implementation of issame function
+    // implementation of issame function
     if (a.size() != b.size()) {
         return false;
     }

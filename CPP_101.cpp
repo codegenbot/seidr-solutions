@@ -1,4 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <cassert>
+
+using namespace std;
+
 vector<string> words_string(string s);
+
+bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
@@ -10,6 +19,26 @@ bool issame(vector<string> a, vector<string> b){
         }
     }
     return true;
+}
+
+vector<string> words_string(string s){
+    vector<string> words;
+    string word = "";
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' ' || s[i] == ','){
+            if(word != ""){
+                words.push_back(word);
+                word = "";
+            }
+        }
+        else{
+            word += s[i];
+        }
+    }
+    if(word != ""){
+        words.push_back(word);
+    }
+    return words;
 }
 
 int main(){
