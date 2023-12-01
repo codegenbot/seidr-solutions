@@ -20,6 +20,8 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     return class_name + "." + strongest_extension;
 }
 
+string Strongest_Extension(string class_name, vector<string> extensions);
+
 int main() {
     string class_name;
     vector<string> extensions;
