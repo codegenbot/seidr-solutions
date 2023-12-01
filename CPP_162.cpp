@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cryptopp/md5.h>
+#include <crypto++/md5.h>
 
 using namespace std;
 using namespace CryptoPP;
@@ -13,10 +13,10 @@ string string_to_md5(const string& text) {
     byte digest[MD5::DIGESTSIZE];
     MD5().CalculateDigest(digest, (byte*)text.c_str(), text.length());
 
-    stringstream ss;
-    for (int i = 0; i < MD5::DIGESTSIZE; i++) {
-        ss << hex << setw(2) << setfill('0') << (int)digest[i];
+    char md5String[33];
+    for (int i = 0; i < 16; i++) {
+        sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return ss.str();
+    return string(md5String);
 }
