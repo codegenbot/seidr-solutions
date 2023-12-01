@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
@@ -15,11 +16,11 @@ int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
 
-    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
 
-    std::cout << distance << std::endl;
+    cout << distance << endl;
 
     return 0;
 }
