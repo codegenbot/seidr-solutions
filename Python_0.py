@@ -9,17 +9,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 
-def main():
-    n = int(input())
-    numbers = []
-    for _ in range(n):
-        num = float(input())
-        numbers.append(num)
-    threshold = float(input())
+input_numbers = input().split()
+numbers = [float(num) for num in input_numbers]
+threshold = float(input())
 
-    result = has_close_elements(numbers, threshold)
-    print(result)
-
-
-if __name__ == "__main__":
-    main()
+result = has_close_elements(numbers, threshold)
+print(result)
