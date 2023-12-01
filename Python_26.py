@@ -1,4 +1,4 @@
-from typing import list, List
+from typing import List
 
-def remove_duplicates(numbers: list[int]) -> list[int]:
+def remove_duplicates(numbers: List[int]) -> List[int]:
     return list(dict.fromkeys(numbers))
