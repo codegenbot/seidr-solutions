@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 string encode(string message){
     for(int i=0; i<message.length(); i++){
         if(isalpha(message[i])){
