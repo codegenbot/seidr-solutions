@@ -3,8 +3,6 @@
 
 using namespace std;
 
-string get_closest_vowel(string word);
-
 string get_closest_vowel(string word){
     int n = word.length();
     for(int i = n-2; i >= 1; i--){
@@ -19,7 +17,8 @@ string get_closest_vowel(string word){
     return "";
 }
 
-int main() {
-    cout << get_closest_vowel("Above") << endl;
+int main(){
+    assert (get_closest_vowel("Above") == "o");
+    
     return 0;
 }
