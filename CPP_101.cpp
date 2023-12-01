@@ -7,7 +7,8 @@ vector<string> words_string(string s){
                 words.push_back(word);
                 word = "";
             }
-        }else{
+        }
+        else{
             word += s[i];
         }
     }
