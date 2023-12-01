@@ -38,3 +38,7 @@ std::vector<int> even_odd_palindrome(int n){
     }
     return result;
 }
+
+int main(){
+    assert(std::equal(even_odd_palindrome(1).begin(), even_odd_palindrome(1).end(), std::vector<int>({0, 1}).begin()));
+}
