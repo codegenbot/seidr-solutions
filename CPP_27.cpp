@@ -2,18 +2,23 @@
 
 std::string flip_case(std::string str){
     std::string result = "";
-    for(int i = 0; i < str.length(); i++){
+    for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
             result += toupper(str[i]);
         }
-        else{
+        else if(isupper(str[i])){
             result += tolower(str[i]);
+        }
+        else{
+            result += str[i];
         }
     }
     return result;
 }
 
 int main(){
-    assert(flip_case("These violent delights have violent ends") == "tHese VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    // Perform other test cases if needed
+
     return 0;
 }
