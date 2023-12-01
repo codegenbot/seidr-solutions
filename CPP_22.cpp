@@ -30,15 +30,14 @@ vector<int> filter_integers(list<boost::any> values){
 int main() {
     // Test the filter_integers function
     list<boost::any> values;
-    values.push_back(1);
-    values.push_back(2.5);
-    values.push_back(3);
-    values.push_back("four");
-    values.push_back(5);
+    values.push_back(10);
+    values.push_back(3.14);
+    values.push_back("hello");
+    values.push_back(20);
 
     vector<int> filtered = filter_integers(values);
 
-    vector<int> expected = {1, 3, 5};
+    vector<int> expected = {10, 20};
     assert(issame(filtered, expected));
 
     return 0;
