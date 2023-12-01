@@ -33,5 +33,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
 
-    return boost::any();
+    return "None";
 }
