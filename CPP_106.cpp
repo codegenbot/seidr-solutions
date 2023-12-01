@@ -1,14 +1,7 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
+vector<int> f(int n);
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> f(int n){
     vector<int> result(n);
@@ -30,15 +23,14 @@ vector<int> f(int n){
     return result;
 }
 
-int main() {
-    vector<int> result = f(10);
-    vector<int> expected = {1, 1, 2, 2, 5, 5, 15, 15, 52, 52};
-
-    if (issame(result, expected)) {
-      cout << "Test case passed." << endl;
-    } else {
-      cout << "Test case failed." << endl;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
     }
-
-    return 0;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
