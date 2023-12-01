@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<int> rolling_max(vector<int> numbers){
     vector<int> rollingMax;
     int maxElement = numbers[0];
