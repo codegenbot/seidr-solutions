@@ -3,8 +3,8 @@
 #include <vector>
 
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
-    int whitePegs = 0;
     int blackPegs = 0;
+    int whitePegs = 0;
     std::vector<int> codeCount(6, 0);
     std::vector<int> guessCount(6, 0);
 
