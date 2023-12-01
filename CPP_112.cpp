@@ -18,12 +18,13 @@ vector<string> reverse_delete(string s, string c) {
     return {result, (is_palindrome ? "True" : "False")};
 }
 
-bool is_same(vector<string> a, vector<string> b) {
+bool are_same(vector<string> a, vector<string> b) {
     return (a == b);
 }
 
 int main() {
+    vector<string> expected_result = {"", "True"};
     vector<string> result = reverse_delete("mamma", "mia");
-    cout << result[0] << " " << result[1] << endl;
+    assert (are_same(result, expected_result));
     return 0;
 }
