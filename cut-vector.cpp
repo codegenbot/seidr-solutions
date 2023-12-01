@@ -1,56 +1,59 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 using namespace std;
 
-vector<int> cutVector(vector<int> nums) {
+void cutVector(vector<int>& nums) {
     int n = nums.size();
-    int mid = n / 2;
-    int left_sum = 0;
-    int right_sum = 0;
-
-    for (int i = 0; i < mid; i++) {
-        left_sum += nums[i];
+    int leftSum = 0;
+    int rightSum = 0;
+    
+    // Calculate the sum of all elements in the vector
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
     }
-
-    for (int i = mid; i < n; i++) {
-        right_sum += nums[i];
+    
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    
+    // Iterate through each index to find the optimal cut position
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
     }
-
-    if (left_sum == right_sum) {
-        return {nums.begin(), nums.begin() + mid, nums.end() - mid};
+    
+    // Create the two subvectors
+    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+    
+    // Print the two subvectors
+    for (int i = 0; i < subvector1.size(); i++) {
+        cout << subvector1[i] << endl;
     }
-
-    int diff = abs(left_sum - right_sum);
-
-    while (mid > 0 && diff >= abs(left_sum - right_sum)) {
-        mid--;
-        left_sum += nums[mid];
-        right_sum -= nums[mid];
+    
+    for (int i = 0; i < subvector2.size(); i++) {
+        cout << subvector2[i] << endl;
     }
-
-    return {nums.begin(), nums.begin() + mid, nums.end() - mid};
 }
 
 int main() {
     int n;
     cin >> n;
-
+    
     vector<int> nums(n);
+    
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-
-    vector<int> left, right;
-    left = cutVector(nums);
-    right = {nums.begin() + left.size(), nums.end()};
-
-    for (int num : left) {
-        cout << num << endl;
-    }
-
-    for (int num : right) {
-        cout << num << endl;
-    }
-
+    
+    cutVector(nums);
+    
     return 0;
 }
