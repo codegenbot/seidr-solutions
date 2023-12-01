@@ -1,22 +1,35 @@
-import sys
-
 def cut_vector(vector):
-    total_sum = sum(vector)
-    current_sum = 0
-    for i, num in enumerate(vector):
-        current_sum += num
-        if current_sum >= total_sum - current_sum:
-            return vector[:i+1], vector[i+1:]
-    return vector, [0]
+    i = 0
+    j = len(vector) - 1
+    left_sum = vector[i]
+    right_sum = vector[j]
+
+    while i < j:
+        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
+            return vector[: i + 1], vector[j:]
+
+        if left_sum < right_sum:
+            i += 1
+            left_sum += vector[i]
+        else:
+            j -= 1
+            right_sum += vector[j]
+
+    return vector[: i + 1], vector[j:]
+
 
 # Read input from user
-input_vector = []
-for line in sys.stdin:
-    input_vector.append(int(line))
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
 
 # Call the function and print the output
-left_vector, right_vector = cut_vector(input_vector)
-for num in left_vector:
+result1, result2 = cut_vector(vector)
+for num in result1:
     print(num)
-for num in right_vector:
+for num in result2:
     print(num)
