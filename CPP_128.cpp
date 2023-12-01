@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int prod_signs(vector<int> arr) {
@@ -19,17 +18,18 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr;
-    int size;
-    cout << "Enter the size of the array: ";
-    cin >> size;
-    cout << "Enter the elements of the array: ";
-    for (int i = 0; i < size; i++) {
-        int num;
-        cin >> num;
-        arr.push_back(num);
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    vector<int> arr(n);
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
+    
     int result = prod_signs(arr);
     cout << "Result: " << result << endl;
+    
     return 0;
 }
