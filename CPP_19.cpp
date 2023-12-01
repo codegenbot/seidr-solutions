@@ -45,6 +45,7 @@ string sort_numbers(string numbers){
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    // Additional test cases
     assert(sort_numbers("one two three four") == "one two three four");
     assert(sort_numbers("nine eight seven six five") == "five six seven eight nine");
     assert(sort_numbers("") == "");
