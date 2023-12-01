@@ -1,7 +1,12 @@
 #include <string>
-
+   
 std::string circular_shift(int x, int shift);
 
+int main() {
+    // Your code here
+    return 0;
+}
+ 
 std::string circular_shift(int x, int shift) {
     std::string num = std::to_string(x);
     int n = num.length();
