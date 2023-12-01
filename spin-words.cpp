@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 std::string reverseWords(const std::string& sentence) {
     std::stringstream ss(sentence);
