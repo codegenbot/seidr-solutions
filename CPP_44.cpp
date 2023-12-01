@@ -13,8 +13,7 @@ int main() {
     int x;
     cin >> x; // Read input value for x
 
-    // Call the change_base function with appropriate arguments
-    change_base(x, x + 1);
+    change_base(x, x + 1); // Call the change_base function with appropriate arguments
 
     return 0;
 }
