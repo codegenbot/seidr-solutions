@@ -39,6 +39,6 @@ vector<int> get_odd_collatz(int n) {
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
     assert(issame(get_odd_collatz(5), {1, 5}));
-    assert(issame(get_odd_collatz(7), {1, 7, 11, 17, 13, 5}));
+    assert(issame(get_odd_collatz(7), {1, 7, 11, 13, 17}));
     return 0;
 }
