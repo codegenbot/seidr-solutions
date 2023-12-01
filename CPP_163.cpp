@@ -1,3 +1,5 @@
+#include <vector>
+
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
     for (int i = a; i <= b; i++) {
