@@ -22,12 +22,12 @@ string encrypt(string s){
     return encryptedString;
 }
 
-int main() {
+int main(){
     assert(encrypt("a")=="e");
     assert(encrypt("z")=="d");
     assert(encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
-    
+
     cout << "All test cases passed!" << endl;
-    
+
     return 0;
 }
