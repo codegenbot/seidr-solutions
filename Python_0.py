@@ -7,10 +7,7 @@ def has_close_elements(numbers, threshold):
 
 
 numbers_input = input().split()
-threshold_input = int(input())
+threshold_input = float(input())
 
-numbers = [int(num) for num in numbers_input]
-threshold = int(threshold_input)
-
-result = has_close_elements(numbers, threshold)
+result = has_close_elements(numbers_input, threshold_input)
 print(result)
