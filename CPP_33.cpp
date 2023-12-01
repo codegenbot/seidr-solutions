@@ -1,51 +1,41 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-vector<int> sort_third(vector<int> l);
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+vector<int> sort_third(vector<int> l){
+    vector<int> l_prime = l;
+    vector<int> divisible_by_three;
+    for(int i=0; i<l.size(); i++){
+        if(i % 3 == 0){
+            divisible_by_three.push_back(l[i]);
         }
     }
-    
-    return true;
-}
-
-vector<int> sort_third(vector<int> l) {
-    vector<int> result = l;
-    vector<int> sorted_third;
-
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            sorted_third.push_back(l[i]);
-        }
-    }
-
-    sort(sorted_third.begin(), sorted_third.end());
-
+    sort(divisible_by_three.begin(), divisible_by_three.end());
     int j = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            result[i] = sorted_third[j];
+    for(int i=0; i<l.size(); i++){
+        if(i % 3 == 0){
+            l_prime[i] = divisible_by_three[j];
             j++;
         }
     }
+    return l_prime;
+}
 
-    return result;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    
     return 0;
 }
