@@ -10,12 +10,12 @@ vector<int> get_odd_collatz(int n){
         }
         collatz_seq.push_back(n);
     }
-    vector<int> odd_numbers;
-    for(int num : collatz_seq){
-        if(num % 2 != 0){
-            odd_numbers.push_back(num);
+    vector<int> odd_collatz_seq;
+    for(int i = 0; i < collatz_seq.size(); i++){
+        if(collatz_seq[i] % 2 != 0){
+            odd_collatz_seq.push_back(collatz_seq[i]);
         }
     }
-    sort(odd_numbers.begin(), odd_numbers.end());
-    return odd_numbers;
+    sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
+    return odd_collatz_seq;
 }
