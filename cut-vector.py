@@ -23,9 +23,7 @@ while True:
     except:
         break
 
-# Call the function and print the output
+# Call the function and print the outputs
 left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
-    print(num)
-for num in right_subvector:
-    print(num)
+print("\n".join(map(str, left_subvector)))
+print("\n".join(map(str, right_subvector)))
