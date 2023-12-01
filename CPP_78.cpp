@@ -16,13 +16,3 @@ int hex_key(string num) {
     
     return count;
 }
-
-int main() {
-    string num;
-    cin >> num;
-    
-    int result = hex_key(num);
-    cout << result << endl;
-    
-    return 0;
-}
