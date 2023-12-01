@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+
 using namespace std;
 
 vector<int> sum_product(vector<int> numbers){
@@ -20,5 +22,7 @@ bool issame(vector<int> a, vector<int> b){
 
 int main() {
     assert(issame(sum_product({10}), {10, 10}));
+    // Add more test cases here
+    
     return 0;
 }
