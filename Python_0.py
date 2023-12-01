@@ -1,5 +1,3 @@
-from typing import List
-
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     sorted_numbers = sorted(numbers)
     for i in range(len(sorted_numbers) - 1):
