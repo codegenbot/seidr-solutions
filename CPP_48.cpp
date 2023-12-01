@@ -1,4 +1,5 @@
-#include <string>
+#include <string> 
+#include <cassert> // Add this line to include the cassert header
 
 bool is_palindrome(std::string text){
     int length = text.length();
