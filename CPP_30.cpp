@@ -1,4 +1,18 @@
+#include <iostream>
 #include <vector>
+
+using namespace std;
+
+vector<float> get_positive(vector<float> l);
+
+int main() {
+    vector<float> nums = {1.5, -2.3, 4.7, -3.8, 0.9};
+    vector<float> positive_nums = get_positive(nums);
+    for (int i = 0; i < positive_nums.size(); i++) {
+        cout << positive_nums[i] << " ";
+    }
+    return 0;
+}
 
 vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
@@ -8,13 +22,4 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return positive_nums;
-}
-
-int main() {
-    vector<float> numbers = {1.5, -2.3, 4.7, -3.2, 0.9};
-    vector<float> positive_numbers = get_positive(numbers);
-    for (int i = 0; i < positive_numbers.size(); i++) {
-        cout << positive_numbers[i] << " ";
-    }
-    return 0;
 }
