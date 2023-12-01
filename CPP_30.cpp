@@ -1,7 +1,15 @@
 #include <vector>
 
 vector<float> get_positive(vector<float> l);
+
 bool issame(vector<float> a, vector<float> b);
+
+int main(){
+    assert (issame(get_positive({}) , {}));
+    // Additional test cases
+    // ...
+    return 0;
+}
 
 vector<float> get_positive(vector<float> l){
     vector<float> positive;
@@ -15,11 +23,4 @@ vector<float> get_positive(vector<float> l){
 
 bool issame(vector<float> a, vector<float> b){
     // Function implementation
-}
-
-int main(){
-    assert (issame(get_positive({}) , {}));
-    // Additional test cases
-    // ...
-    return 0;
 }
