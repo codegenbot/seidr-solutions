@@ -1,3 +1,5 @@
-int strlen(string str){
+#include <string>
+
+int getStrLength(string str){
     return str.length();
 }
