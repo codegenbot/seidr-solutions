@@ -3,13 +3,12 @@ vector<int> unique_digits(vector<int> x){
     for(int i=0; i<x.size(); i++){
         int num = x[i];
         bool hasEvenDigit = false;
-        while(num>0){
-            int digit = num%10;
-            if(digit%2 == 0){
+        while(num > 0){
+            if(num % 2 == 0){
                 hasEvenDigit = true;
                 break;
             }
-            num = num/10;
+            num /= 10;
         }
         if(!hasEvenDigit){
             result.push_back(x[i]);
