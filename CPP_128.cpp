@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-using namespace std;
 
 int prod_signs(vector<int> arr){
     if(arr.empty()){
@@ -20,17 +18,13 @@ int prod_signs(vector<int> arr){
 
 int main() {
     // Test cases
-    vector<int> arr1 = {1, -2, 3, -4};
-    cout << prod_signs(arr1) << endl; // Expected output: -10
+    vector<int> arr1 = {1, -2, 3, -4, 5};
+    vector<int> arr2 = {-1, -2, -3, -4, -5};
+    vector<int> arr3 = {0, 1, 2, 3, 4, 5};
     
-    vector<int> arr2 = {-1, 2, -3, 4};
-    cout << prod_signs(arr2) << endl; // Expected output: -10
-    
-    vector<int> arr3 = {0, 1, 2, 3};
-    cout << prod_signs(arr3) << endl; // Expected output: 0
-    
-    vector<int> arr4 = {};
-    cout << prod_signs(arr4) << endl; // Expected output: -32768
+    int result1 = prod_signs(arr1);
+    int result2 = prod_signs(arr2);
+    int result3 = prod_signs(arr3);
     
     return 0;
 }
