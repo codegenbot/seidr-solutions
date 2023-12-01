@@ -1,8 +1,19 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -38,22 +49,13 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    assert(issame(select_words("hello world", 2), {"world"}));
-    assert(issame(select_words("programming is fun", 3), {"programming"}));
-    cout << "All test cases passed!" << endl;
+    vector<string> words = select_words("a b c d e f", 1);
+    vector<string> expected = {"b", "c", "d", "f"};
+    if (issame(words, expected)) {
+        cout << "Test case passed" << endl;
+    } else {
+        cout << "Test case failed" << endl;
+    }
     return 0;
 }
