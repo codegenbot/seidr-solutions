@@ -22,14 +22,14 @@ def cut_vector(vector):
 vector = []
 while True:
     try:
-        num = int(input())
-        vector.append(num)
-    except:
+        line = input()
+        vector.append(int(line))
+    except EOFError:
         break
 
-# Call the function and print the results
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
+# Call the function and print the output
+subvector1, subvector2 = cut_vector(vector)
+for num in subvector1:
     print(num)
-for num in right_subvector:
+for num in subvector2:
     print(num)
