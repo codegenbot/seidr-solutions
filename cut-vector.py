@@ -1,23 +1,34 @@
 def cut_vector(vector):
-    n = len(vector)
-    prefix_sum = [0] * (n + 1)
-    for i in range(1, n + 1):
-        prefix_sum[i] = prefix_sum[i - 1] + vector[i - 1]
-
-    total_sum = prefix_sum[n]
+    length = len(vector)
+    if length == 1:
+        return vector, [0]
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
     min_diff = float("inf")
-    cut_index = -1
-
-    for i in range(1, n):
-        sum_left = prefix_sum[i]
-        sum_right = total_sum - sum_left
-        diff = abs(sum_left - sum_right)
-
+    cut_index = 0
+    for i in range(length - 1):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+        diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
-            cut_index = i
+            cut_index = i + 1
+    return vector[:cut_index], vector[cut_index:]
 
-    subvector1 = vector[:cut_index]
-    subvector2 = vector[cut_index:]
 
-    return subvector1, subvector2
+# Read input from user
+vector = []
+while True:
+    try:
+        value = int(input())
+        vector.append(value)
+    except:
+        break
+
+# Call the function and print the output
+left_subvector, right_subvector = cut_vector(vector)
+for value in left_subvector:
+    print(value)
+for value in right_subvector:
+    print(value)
