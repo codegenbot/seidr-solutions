@@ -1,33 +1,32 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
-int main() {
-    // Test cases
-    vector<vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int x = 5;
-    vector<vector<int>> result = get_row(lst, x);
-  
-    return 0;
-}
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
-    vector<vector<int>> result;
-    for (int i = 0; i < lst.size(); i++) {
-        for (int j = 0; j < lst[i].size(); j++) {
-            if (lst[i][j] == x) {
-                vector<int> coordinate = {i, j};
-                result.push_back(coordinate);
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
+    std::vector<std::vector<int>> result;
+    for(int i=0; i<lst.size(); i++){
+        for(int j=0; j<lst[i].size(); j++){
+            if(lst[i][j] == x){
+                result.push_back({i, j});
             }
         }
     }
-    // Sort coordinates initially by rows in ascending order
-    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
+    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
         return a[0] < b[0];
     });
-    // Sort coordinates of the row by columns in descending order
-    for (int i = 0; i < result.size(); i++) {
-        sort(result[i].begin(), result[i].end(), greater<int>());
+    for(auto& row : result){
+        std::sort(row.begin(), row.end(), std::greater<int>());
     }
     return result;
+}
+
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+
+    return 0;
 }
