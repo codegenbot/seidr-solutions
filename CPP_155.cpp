@@ -4,7 +4,7 @@
 std::vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
-    std::string numString = std::to_string(abs(num));
+    std::string numString = std::to_string(std::abs(num));
     
     for(int i = 0; i < numString.length(); i++){
         int digit = numString[i] - '0';
@@ -35,7 +35,4 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 int main() {
     assert (issame(even_odd_count(0) , {1, 0}));
-    // Add more test cases here
-    
-    return 0;
 }
