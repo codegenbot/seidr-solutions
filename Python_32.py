@@ -1,5 +1,6 @@
 import math
 
+
 xs = list(map(float, input().split()))
 
 
