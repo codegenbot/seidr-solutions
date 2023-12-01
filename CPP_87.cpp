@@ -20,8 +20,8 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     return result;
 }
 
-bool issame(std::vector<std::vector<int>> lst1, std::vector<std::vector<int>> lst2){
-    return lst1 == lst2;
+bool issame(std::vector<std::vector<int>> lst, std::vector<std::vector<int>> b){
+    return lst == b;
 }
 
 int main(){
