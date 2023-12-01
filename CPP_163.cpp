@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -23,4 +24,5 @@ bool isSame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(isSame(generate_integers(17, 89), {}));
+    return 0;
 }
