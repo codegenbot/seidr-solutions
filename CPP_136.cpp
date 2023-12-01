@@ -1,6 +1,11 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b);
+vector<int> largest_smallest_integers(vector<int> lst);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<int> largest_smallest_integers(vector<int> lst){
     int max_negative = 0;
@@ -16,10 +21,6 @@ vector<int> largest_smallest_integers(vector<int> lst){
     }
     
     return {max_negative, min_positive};
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
 }
 
 int main(){
