@@ -1,33 +1,46 @@
-def bowling(score):
-    total_score = 0
-    frames = []
-    frame = []
-    for char in score:
+def bowling_score(bowls):
+    score = 0
+    frame = 1
+    bowl_index = 0
+    
+    for char in bowls:
         if char == 'X':
-            frame.append(10)
-            frames.append(frame)
-            frame = []
+            score += 10
+            if frame < 10:
+                score += get_strike_bonus(bowls, bowl_index + 1)
+                score += get_strike_bonus(bowls, bowl_index + 2)
+            frame += 1
         elif char == '/':
-            frame.append(10 - frame[0])
-            frames.append(frame)
-            frame = []
-        elif char == '-':
-            frame.append(0)
-        else:
-            frame.append(int(char))
+            score += get_spare_bonus(bowls, bowl_index + 1)
+            frame += 1
+        elif char.isdigit():
+            score += int(char)
+            frame += 1
             
-        if len(frame) == 2 or char == 'X':
-            frames.append(frame)
-            frame = []
+        if frame > 10:
+            break
             
-    for i in range(10):
-        if frames[i][0] == 10:
-            total_score += 10 + frames[i+1][0] + frames[i+1][1]
-            if frames[i+1][0] == 10:
-                total_score += frames[i+2][0]
-        elif frames[i][0] + frames[i][1] == 10:
-            total_score += 10 + frames[i+1][0]
-        else:
-            total_score += frames[i][0] + frames[i][1]
-            
-    return total_score
+        bowl_index += 1
+        
+    return score
+
+def get_strike_bonus(bowls, index):
+    if index >= len(bowls):
+        return 0
+    
+    if bowls[index] == 'X':
+        return 10
+    
+    return int(bowls[index])
+
+def get_spare_bonus(bowls, index):
+    if index >= len(bowls):
+        return 0
+    
+    if bowls[index] == 'X':
+        return 10
+    
+    if bowls[index].isdigit():
+        return int(bowls[index])
+    
+    return 10 - int(bowls[index-1])
