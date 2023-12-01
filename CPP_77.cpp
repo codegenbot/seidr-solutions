@@ -1,4 +1,7 @@
-bool iscuber(int a){
-    int root = cbrt(a);
-    return (root * root * root == a);
+#include <iostream>
+#include <cmath>
+
+bool iscuber(int a) {
+    int cubeRoot = cbrt(a);
+    return (cubeRoot * cubeRoot * cubeRoot == a);
 }
