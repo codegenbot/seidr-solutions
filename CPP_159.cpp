@@ -1,9 +1,4 @@
 #include <vector>
-#include <cassert>
-
-bool issame(vector<int> a, vector<int> b) {
-    // code implementation
-}
 
 vector<int> eat(int number, int need, int remaining) {
     int totalEaten = number + need;
@@ -13,6 +8,10 @@ vector<int> eat(int number, int need, int remaining) {
     }
     vector<int> result = {totalEaten, carrotsLeft};
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    // code implementation
 }
 
 int main() {
