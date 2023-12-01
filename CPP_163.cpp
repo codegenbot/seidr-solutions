@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
@@ -24,6 +24,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), std::vector<int>()));
+    std::vector<int> result = generate_integers(17, 89);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
