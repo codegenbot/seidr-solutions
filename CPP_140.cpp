@@ -1,6 +1,5 @@
 #include <string>
-
-std::string fix_spaces(std::string text);
+#include <cassert>
 
 std::string fix_spaces(std::string text){
     int n = text.size();

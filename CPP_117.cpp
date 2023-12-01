@@ -3,6 +3,18 @@
 #include <string>
 #include <cassert>
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> result;
     if (s.empty()) {
@@ -15,8 +27,7 @@ std::vector<std::string> select_words(std::string s, int n) {
         } else {
             int consonantCount = 0;
             for (int j = 0; j < word.length(); j++) {
-                if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' &&
-                    word[j] != 'o' && word[j] != 'u') {
+                if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u') {
                     consonantCount++;
                 }
             }
@@ -28,8 +39,7 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
     int consonantCount = 0;
     for (int j = 0; j < word.length(); j++) {
-        if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' &&
-            word[j] != 'o' && word[j] != 'u') {
+        if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u') {
             consonantCount++;
         }
     }
@@ -40,12 +50,7 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    std::vector<std::string> words = select_words("a b c d e f", 1);
-    for (int i = 0; i < words.size(); i++) {
-        std::cout << words[i] << " ";
-    }
+    std::cout << issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"});
     std::cout << std::endl;
-    assert(std::vector<std::string>{"b", "c", "d", "f"} == select_words("a b c d e f", 1));
-    
     return 0;
 }
