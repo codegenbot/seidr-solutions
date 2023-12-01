@@ -3,10 +3,6 @@
 #include <string>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    if (target.empty()) {
-        return {};
-    }
-    
     std::vector<int> indices;
     int targetLength = target.length();
     int textLength = text.length();
