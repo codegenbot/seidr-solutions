@@ -34,7 +34,7 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-
+    return a == b;
 }
 
 int main() {
