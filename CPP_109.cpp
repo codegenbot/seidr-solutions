@@ -1,20 +1,25 @@
-bool move_one_ball(vector<int> arr){
-    int n = arr.size();
-    if (n == 0) {
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool move_one_ball(vector<int> arr) {
+    if (arr.empty()) {
         return true;
     }
     
-    int min_index = 0;
+    int n = arr.size();
+    int minIdx = 0;
+    
     for (int i = 1; i < n; i++) {
-        if (arr[i] < arr[min_index]) {
-            min_index = i;
+        if (arr[i] < arr[minIdx]) {
+            minIdx = i;
         }
     }
     
-    int rotations = min_index;
+    int shift = (n - minIdx) % n;
+    
     for (int i = 0; i < n; i++) {
-        int index = (i + rotations) % n;
-        if (arr[index] != i + 1) {
+        if (arr[(i + shift) % n] < arr[(i + shift - 1) % n]) {
             return false;
         }
     }
