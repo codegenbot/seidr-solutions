@@ -1,33 +1,28 @@
 import numpy as np
 
 def cut_vector(vector):
+    # Calculate the sum of all elements in the vector
     total_sum = sum(vector)
-    current_sum = 0
-    min_diff = total_sum
-    index = 0
     
+    # Initialize the difference as infinity
+    min_diff = float('inf')
+    # Initialize the cut index as -1
+    cut_index = -1
+    
+    # Iterate through each index of the vector
     for i in range(len(vector)):
-        current_sum += vector[i]
-        diff = abs(total_sum - 2*current_sum)
+        # Calculate the sum of elements on the left side of the cut
+        left_sum = sum(vector[:i+1])
+        # Calculate the sum of elements on the right side of the cut
+        right_sum = total_sum - left_sum
         
+        # Calculate the absolute difference between the sums
+        diff = abs(left_sum - right_sum)
+        
+        # Update the minimum difference and cut index if necessary
         if diff < min_diff:
             min_diff = diff
-            index = i + 1
+            cut_index = i
     
-    return vector[:index], vector[index:]
-
-# Read input from user
-vector = []
-while True:
-    try:
-        num = int(input())
-        vector.append(num)
-    except:
-        break
-
-# Call the function and print the output
-output1, output2 = cut_vector(vector)
-for num in output1:
-    print(num)
-for num in output2:
-    print(num)
+    # Return the two subvectors
+    return vector[:cut_index+1], vector[cut_index+1:]
