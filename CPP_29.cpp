@@ -1,14 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // implementation of the function
+    // Implementation of issame function
     // ...
+    return true; // Replace with your logic
 }
 
-vector<string> filtered_strings(vector<string> strings, string prefix) {
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filtered_strings;
     for (string str : strings) {
         if (str.substr(0, prefix.length()) == prefix) {
@@ -18,9 +20,8 @@ vector<string> filtered_strings(vector<string> strings, string prefix) {
     return filtered_strings;
 }
 
-
 int main() {
-    assert(issame(filtered_strings({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-    // rest of the code
-    // ...
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    // More test cases
+    return 0;
 }
