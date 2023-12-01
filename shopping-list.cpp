@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float total = 0.0;
@@ -17,7 +16,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> prices[i];
     }
-    std::cin >> n;
     std::vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
         std::cin >> discounts[i];
