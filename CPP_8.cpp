@@ -1,15 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (unsigned int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 std::vector<int> sum_product(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end()); // Sort the numbers vector
+    std::sort(numbers.begin(), numbers.end());
 
     int sum = 0;
     int product = 1;
@@ -23,7 +32,6 @@ std::vector<int> sum_product(std::vector<int> numbers) {
 }
 
 int main() {
-    // Take input from user
     int n;
     std::cin >> n;
 
@@ -32,14 +40,15 @@ int main() {
         std::cin >> numbers[i];
     }
 
-    // Get the sum and product
     std::vector<int> result = sum_product(numbers);
 
-    // Print the output
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
+
     std::cout << std::endl;
+
+    assert(issame(sum_product({10}), {10, 10}));
 
     return 0;
 }
