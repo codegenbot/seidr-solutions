@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
+using namespace std;
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 vector<int> f(int n);
-
 vector<int> f(int n) {
     vector<int> result;
     for (int i = 1; i <= n; i++) {
@@ -30,7 +29,6 @@ vector<int> f(int n) {
 
 int main() {
     assert(issame(f(3), {1, 2, 6}));
-    // Add more test cases here
 
     return 0;
 }
