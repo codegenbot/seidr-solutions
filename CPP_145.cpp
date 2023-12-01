@@ -1,27 +1,26 @@
-#include <algorithm>
-
 vector<int> order_by_points(vector<int> nums){
-    vector<pair<int, int>> points;
-    
-    for(int i=0; i<nums.size(); i++){
-        int num = nums[i];
-        int sum = 0;
-        
-        while(num != 0){
-            sum += num % 10;
-            num /= 10;
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sum1 = 0, sum2 = 0;
+
+        if (a < 0) a *= -1;
+        if (b < 0) b *= -1;
+
+        while (a > 0) {
+            sum1 += a % 10;
+            a /= 10;
         }
-        
-        points.push_back(make_pair(sum, i));
-    }
-    
-    sort(points.begin(), points.end());
-    
-    vector<int> result;
-    
-    for(auto point : points){
-        result.push_back(nums[point.second]);
-    }
-    
-    return result;
+
+        while (b > 0) {
+            sum2 += b % 10;
+            b /= 10;
+        }
+
+        if (sum1 == sum2) {
+            return a < b;
+        } else {
+            return sum1 < sum2;
+        }
+    });
+
+    return nums;
 }
