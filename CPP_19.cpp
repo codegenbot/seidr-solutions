@@ -1,36 +1,40 @@
 string sort_numbers(string numbers){
-    map<string, int> numberMap;
-    numberMap["zero"] = 0;
-    numberMap["one"] = 1;
-    numberMap["two"] = 2;
-    numberMap["three"] = 3;
-    numberMap["four"] = 4;
-    numberMap["five"] = 5;
-    numberMap["six"] = 6;
-    numberMap["seven"] = 7;
-    numberMap["eight"] = 8;
-    numberMap["nine"] = 9;
-
-    vector<int> numberList;
-    string number;
-    stringstream ss(numbers);
-    while (ss >> number) {
-        numberList.push_back(numberMap[number]);
+    map<string, int> numMap;
+    numMap["zero"] = 0;
+    numMap["one"] = 1;
+    numMap["two"] = 2;
+    numMap["three"] = 3;
+    numMap["four"] = 4;
+    numMap["five"] = 5;
+    numMap["six"] = 6;
+    numMap["seven"] = 7;
+    numMap["eight"] = 8;
+    numMap["nine"] = 9;
+    
+    vector<int> numList;
+    string temp;
+    for(int i = 0; i < numbers.length(); i++){
+        if(numbers[i] == ' '){
+            numList.push_back(numMap[temp]);
+            temp = "";
+        }
+        else{
+            temp += numbers[i];
+        }
     }
-
-    sort(numberList.begin(), numberList.end());
-
-    string sortedNumbers;
-    for (int i = 0; i < numberList.size(); i++) {
-        for (auto it = numberMap.begin(); it != numberMap.end(); ++it) {
-            if (it->second == numberList[i]) {
-                sortedNumbers += it->first + " ";
+    numList.push_back(numMap[temp]);
+    
+    sort(numList.begin(), numList.end());
+    
+    string result = "";
+    for(int i = 0; i < numList.size(); i++){
+        for(auto it : numMap){
+            if(it.second == numList[i]){
+                result += it.first + " ";
                 break;
             }
         }
     }
-
-    sortedNumbers.pop_back(); // Remove the extra space at the end
-
-    return sortedNumbers;
+    
+    return result;
 }
