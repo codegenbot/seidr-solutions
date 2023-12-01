@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -25,4 +26,9 @@ std::vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(is_same(generate_integers(17, 89) , {}));
+    return 0;
 }
