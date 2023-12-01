@@ -5,9 +5,8 @@ int add(int x, int y) {
 }
 
 int main() {
-    srand(time(NULL));
     int x = rand() % 1000;
     int y = rand() % 1000;
-    int result = add(x, y);
+    int sum = add(x, y);
     return 0;
 }
