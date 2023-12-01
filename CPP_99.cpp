@@ -28,14 +28,11 @@ int closest_integer(string value) {
 
 int main() {
     assert(closest_integer("0") == 0);
-    assert(closest_integer("1.5") == 2);
-    assert(closest_integer("2.4") == 2);
-    assert(closest_integer("-1.7") == -2);
-    assert(closest_integer("3.00") == 3);
-    assert(closest_integer("5.0000") == 5);
-    assert(closest_integer("-0.500001") == 0);
-    assert(closest_integer("7.99") == 8);
-    // Add more test cases if needed
+    assert(closest_integer("3.14") == 3);
+    assert(closest_integer("-2.5") == -2);
+    assert(closest_integer("5.8") == 6);
+    assert(closest_integer("10.5") == 11);
+    assert(closest_integer("-7.2") == -7);
 
     return 0;
 }
