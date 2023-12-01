@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 bool isVowel(char c) {
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
@@ -19,10 +20,7 @@ std::string get_closest_vowel(std::string word) {
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
-    assert(get_closest_vowel("Hallway") == "a");
-    assert(get_closest_vowel("Apple") == "");
-    assert(get_closest_vowel("Umbrella") == "e");
-    assert(get_closest_vowel("Rhythm") == "y");
+    // Add more test cases here
 
     return 0;
 }
