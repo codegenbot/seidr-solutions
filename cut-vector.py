@@ -1,30 +1,22 @@
 def cut_vector(vector):
-    min_diff = float("inf")
-    index = 0
-
+    total_sum = sum(vector)
+    current_sum = 0
     for i in range(len(vector)):
-        diff = abs(sum(vector[:i]) - sum(vector[i:]))
-        if diff < min_diff:
-            min_diff = diff
-            index = i
-
-    subvector1 = vector[:index]
-    subvector2 = vector[index:]
-
-    return subvector1, subvector2
+        current_sum += vector[i]
+        if current_sum * 2 == total_sum or current_sum * 2 - vector[i + 1] == total_sum:
+            return vector[: i + 1], vector[i + 1 :]
 
 
-input_vector = []
-try:
-    while True:
-        input_vector.append(int(input()))
-except EOFError:
-    pass
+# Read input from user
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
 
-output_vector1, output_vector2 = cut_vector(input_vector)
-
-for element in output_vector1:
-    print(element)
-
-for element in output_vector2:
-    print(element)
+# Call the function and print the output subvectors
+subvector1, subvector2 = cut_vector(vector)
+print(subvector1)
+print(subvector2)
