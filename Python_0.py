@@ -9,11 +9,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 
-numbers_input = input()
-threshold_input = input()
-
-numbers = [float(num) for num in numbers_input.split()]
-threshold = float(threshold_input)
+numbers = input().strip().split()
+numbers = [float(num) for num in numbers]
+threshold = float(input())
 
 result = has_close_elements(numbers, threshold)
 print(result)
