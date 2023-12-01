@@ -10,10 +10,10 @@ def find_zero(xs: list):
 
 
 def main():
-    # Read a list of coefficients from the user and parse it into a list of floats
-    xs = list(map(float, input("Enter the coefficients separated by spaces: ").split()))
+    # Read input from user and parse it into the required format
+    xs = list(map(float, input("Enter the coefficients of the polynomial separated by spaces: ").split()))
 
-    # Call the functions with the parsed input
+    # Call the functions with parsed input
     print(poly(xs, 0.5))
     print(find_zero(xs))
 
