@@ -1,9 +1,9 @@
 string solve(string s){
     string result = "";
-    bool hasLetter = false;
-    for(int i = 0; i < s.length(); i++){
+    bool containsLetter = false;
+    for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
-            hasLetter = true;
+            containsLetter = true;
             if(islower(s[i])){
                 result += toupper(s[i]);
             } else {
@@ -13,7 +13,7 @@ string solve(string s){
             result += s[i];
         }
     }
-    if(!hasLetter){
+    if(!containsLetter){
         reverse(result.begin(), result.end());
     }
     return result;
