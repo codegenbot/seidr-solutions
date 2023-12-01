@@ -1,5 +1,9 @@
 #include <vector>
 
+bool issame(vector<int> a, vector<int> b){
+    // Function logic
+}
+
 vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
@@ -18,10 +22,6 @@ vector<int> even_odd_count(int num){
     
     vector<int> result = {evenCount, oddCount};
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
 }
 
 int main(){
