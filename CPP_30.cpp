@@ -26,9 +26,7 @@ bool issame(vector<float> a, vector<float> b){
 int main(){
     vector<float> l = {1.2, -3.4, 5.6, -7.8, 9.0};
     vector<float> positive_nums = get_positive(l);
-    assert(positive_nums.size() == 3);
-    assert(positive_nums[0] == 1.2);
-    assert(positive_nums[1] == 5.6);
-    assert(positive_nums[2] == 9.0);
+    vector<float> expected = {1.2, 5.6, 9.0};
+    assert(issame(positive_nums, expected));
     return 0;
 }
