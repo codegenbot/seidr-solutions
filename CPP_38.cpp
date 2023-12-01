@@ -9,11 +9,11 @@ string encode_cyclic(string s){
 
 string decode_cyclic(string s){
     string output;
-    string str;
+    string str; // Declare the str variable before using it
     for (char chr : s) {
         string temp;
-        temp+=chr;
-        str+=temp;
+        temp += chr;
+        str += temp;
     }
 
     string encoded_str = encode_cyclic(str);
@@ -23,7 +23,8 @@ string decode_cyclic(string s){
     int num = (l + 2) / 3;
     for (int i = 0; i < num; i++) {
         string x = s.substr(i * 3, 3);
-        if (x.length() == 3) x = x[2] + x.substr(0, 2);
+        if (x.length() == 3) 
+            x = x[2] + x.substr(0, 2);
         output += x;
     }
     return output;
