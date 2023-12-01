@@ -37,22 +37,17 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    // Test cases
-    vector<string> a = words_string("hello world");
-    vector<string> b = words_string("hello,world");
+    vector<string> a = words_string("Hello, World!");
+    vector<string> b = words_string("Hello World!");
     assert(issame(a, b) == true);
 
-    vector<string> c = words_string("code contest");
-    vector<string> d = words_string("code,contest");
-    assert(issame(c, d) == true);
+    vector<string> c = words_string("Hello, World!");
+    vector<string> d = words_string("Hello, World");
+    assert(issame(c, d) == false);
 
-    vector<string> e = words_string("hello world");
-    vector<string> f = words_string("hello,world,test");
+    vector<string> e = words_string("Hello, World!");
+    vector<string> f = words_string("Hello, world!");
     assert(issame(e, f) == false);
-
-    vector<string> g = words_string("hello world");
-    vector<string> h = words_string("hello");
-    assert(issame(g, h) == false);
 
     return 0;
 }
