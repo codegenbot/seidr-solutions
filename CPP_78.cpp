@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
 int hex_key(std::string num){
     int count = 0;
@@ -16,7 +14,12 @@ int hex_key(std::string num){
 }
 
 int main(){
-    assert(hex_key("") == 0);
-    
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+
+    int result = hex_key(input);
+    std::cout << "Number of hex characters: " << result << std::endl;
+
     return 0;
 }
