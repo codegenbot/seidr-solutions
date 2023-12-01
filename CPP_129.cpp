@@ -1,5 +1,8 @@
-bool issame(vector<int> a, vector<int> b);
-vector<int> minPath(vector<vector<int>> grid, int k);
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
