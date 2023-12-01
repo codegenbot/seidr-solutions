@@ -2,6 +2,14 @@
 
 using namespace std;
 
+vector<int> generate_integers(int a, int b);
+
+bool issame(vector<int> a, vector<int> b) {
+    vector<int> result1 = generate_integers(a, b);
+    vector<int> result2 = generate_integers(b, a);
+    return result1 == result2;
+}
+
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
     for (int i = a; i <= b; i++) {
@@ -15,16 +23,4 @@ vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
