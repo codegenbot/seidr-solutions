@@ -2,9 +2,9 @@
 
 using namespace std;
 
-vector<int> generate_integers(int a, int b); 
+vector<int> generate_integers(int a, int b);
 
-bool issame(vector<int> a, vector<int> b) { 
+bool issame(vector<int> a, vector<int> b) {
     // implementation of the issame function
 }
 
