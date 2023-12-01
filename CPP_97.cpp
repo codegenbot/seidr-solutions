@@ -1,5 +1,9 @@
+#include <cmath>
+
 int multiply(int a, int b) {
-   int unitA = abs(a) % 10; // get the unit digit of a
-   int unitB = abs(b) % 10; // get the unit digit of b
-   return unitA * unitB; // return the product of the unit digits
+    int unit_a = std::abs(a) % 10;
+    int unit_b = std::abs(b) % 10;
+    int product = unit_a * unit_b;
+
+    return product;
 }
