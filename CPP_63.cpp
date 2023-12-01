@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int fibfib(int n) {
     if (n == 0 || n == 1) {
@@ -6,25 +7,25 @@ int fibfib(int n) {
     } else if (n == 2) {
         return 1;
     }
-
-    int a = 0;
-    int b = 0;
-    int c = 1;
-
+    
+    int a = 0, b = 0, c = 1, result;
+    
     for (int i = 3; i <= n; i++) {
-        int temp = a + b + c;
+        result = a + b + c;
         a = b;
         b = c;
-        c = temp;
+        c = result;
     }
-
-    return c;
+    
+    return result;
 }
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "fibfib(" << n << ") = " << fibfib(n) << std::endl;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    
+    cout << "The " << n << "-th element of the fibfib number sequence is: " << fibfib(n) << endl;
+    
     return 0;
 }
