@@ -31,14 +31,14 @@ int main() {
     string class_name;
     vector<string> extensions;
     int n;
-    
+
     cin >> class_name >> n;
     extensions.resize(n);
     for (int i = 0; i < n; i++) {
         cin >> extensions[i];
     }
-    
+
     cout << Strongest_Extension(class_name, extensions) << endl;
-    
+
     return 0;
 }
