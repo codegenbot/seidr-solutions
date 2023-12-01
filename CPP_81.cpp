@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 vector<string> numerical_letter_grade(vector<float> grades);
-
-bool issame(vector<string> a, vector<string> b);
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
@@ -52,18 +51,6 @@ vector<string> numerical_letter_grade(vector<float> grades){
         }
     }
     return letter_grades;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
 
 int main(){
