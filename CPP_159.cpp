@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    // code implementation
 }
 
 vector<int> eat(int number, int need, int remaining) {
