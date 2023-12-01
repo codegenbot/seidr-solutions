@@ -8,8 +8,6 @@ bool issame(vector<int> a, vector<int>& b){
     // implementation of issame function
 }
 
-vector<int> remove_duplicates(vector<int> numbers);
-
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
