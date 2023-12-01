@@ -19,6 +19,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         float num1 = std::stof(str1);
         float num2 = std::stof(str2);
         return (num1 > num2) ? str1 : str2;
+    } else {
+        throw std::invalid_argument("Invalid argument types");
     }
-    return boost::any();
 }
