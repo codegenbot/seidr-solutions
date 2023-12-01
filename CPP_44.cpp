@@ -2,12 +2,10 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
-
-string change_base(int x, int base) {
-    string result = "";
+std::string change_base(int x, int base) {
+    std::string result = "";
     while (x > 0) {
-        result = to_string(x % base) + result;
+        result = std::to_string(x % base) + result;
         x /= base;
     }
     return result;
@@ -15,10 +13,11 @@ string change_base(int x, int base) {
 
 int main() {
     int x;
-    cin >> x; // Take input for x
+    std::cout << "Enter the value of x: ";
+    std::cin >> x;
 
     // Check the functionality of change_base function
-    assert(change_base(x, x + 1) == to_string(x));
+    assert(change_base(x, x + 1) == std::to_string(x));
 
     return 0;
 }
