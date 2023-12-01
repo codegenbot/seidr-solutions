@@ -1,36 +1,31 @@
-#include <boost/lexical_cast.hpp>
+#include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = boost::any_cast<std::string>(a);
-        std::string strB = boost::any_cast<std::string>(b);
-
-        // Remove commas from strings
-        strA.erase(std::remove(strA.begin(), strA.end(), ','), strA.end());
-        strB.erase(std::remove(strB.begin(), strB.end(), ','), strB.end());
-
-        // Convert strings to floats
-        float floatA = boost::lexical_cast<float>(strA);
-        float floatB = boost::lexical_cast<float>(strB);
-
-        if (floatA > floatB) {
-            return a;
-        } else if (floatA < floatB) {
-            return b;
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
+        if (str1 > str2) {
+            return str1;
+        } else if (str1 < str2) {
+            return str2;
         }
     }
-
-    return "None";
+    
+    return boost::any("None");
 }
