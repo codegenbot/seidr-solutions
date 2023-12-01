@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -18,11 +20,17 @@ vector<int> largest_smallest_integers(vector<int> lst){
     return {max_negative, min_positive};
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    // TODO: Implement the issame function
+int main() {
+    // Test the function
+    vector<int> lst = {-3, 5, -1, 9, 2, -4};
+    vector<int> result = largest_smallest_integers(lst);
+    
+    cout << "Max Negative: " << result[0] << endl;
+    cout << "Min Positive: " << result[1] << endl;
+    
+    return 0;
 }
 
-int main() {
-    // TODO: Add code to test the largest_smallest_integers function
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    // Implementation of issame function goes here
 }
