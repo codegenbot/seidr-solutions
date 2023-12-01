@@ -1,12 +1,26 @@
-#include <string>
+#include <iostream>
 #include <map>
+#include <sstream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <sstream>
+
+using namespace std;
 
 string sort_numbers(string numbers);
 
-string sort_numbers(string numbers){
+int main() {
+    string numbers;
+    getline(cin, numbers);
+
+    string sorted_numbers = sort_numbers(numbers);
+
+    cout << sorted_numbers << endl;
+
+    return 0;
+}
+
+string sort_numbers(string numbers) {
     map<string, int> number_map;
     number_map["zero"] = 0;
     number_map["one"] = 1;
@@ -41,11 +55,4 @@ string sort_numbers(string numbers){
     sorted_numbers.pop_back(); // remove the trailing space
 
     return sorted_numbers;
-}
-
-int main() {
-    string numbers;
-    cin >> numbers;
-    cout << sort_numbers(numbers) << endl;
-    return 0;
 }
