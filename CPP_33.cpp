@@ -1,18 +1,23 @@
+bool issame(vector<int> a, vector<int> b){
+    // Implementation of the issame function
+    // ...
+}
+
 vector<int> sort_third(vector<int> l){
-    vector<int> l_prime = l;
-    vector<int> indices;
-    
-    for(int i=0; i<l.size(); i++){
+    // Implementation of the sort_third function
+    vector<int> l_sorted = l;
+    sort(l_sorted.begin(), l_sorted.end());
+    for(int i = 0; i < l_sorted.size(); i++){
         if(i % 3 == 0){
-            indices.push_back(i);
+            l_sorted[i] = l[i];
         }
     }
+    return l_sorted;
+}
+
+int main(){
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    // ...
     
-    sort(indices.begin(), indices.end());
-    
-    for(int i=0; i<indices.size(); i++){
-        l_prime[indices[i]] = l[indices[i]];
-    }
-    
-    return l_prime;
+    return 0;
 }
