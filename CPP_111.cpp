@@ -2,32 +2,62 @@
 #include <map>
 #include <cassert>
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::string word;
-    for (char c : test) {
-        if (c != ' ') {
-            word += c;
-        } else {
-            if (!word.empty()) {
-                result[word]++;
-                word = "";
-            }
+using namespace std;
+
+map<char, int> histogram(string test);
+
+bool issame(map<char, int> a, map<char, int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (auto it = a.begin(); it != a.end(); it++) {
+        char key = it->first;
+        int value = it->second;
+        if (b.find(key) == b.end() || b[key] != value) {
+            return false;
         }
     }
-    if (!word.empty()) {
-        result[word]++;
+    return true;
+}
+
+map<char, int> histogram(string test) {
+    map<char, int> countMap;
+    string word;
+    for (int i = 0; i < test.length(); i++) {
+        if (test[i] != ' ') {
+            word += test[i];
+        } else {
+            if (countMap.find(word[0]) == countMap.end()) {
+                countMap[word[0]] = 1;
+            } else {
+                countMap[word[0]]++;
+            }
+            word = "";
+        }
+    }
+    if (word != "") {
+        if (countMap.find(word[0]) == countMap.end()) {
+            countMap[word[0]] = 1;
+        } else {
+            countMap[word[0]]++;
+        }
+    }
+    int maxCount = 0;
+    for (auto it = countMap.begin(); it != countMap.end(); it++) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+        }
+    }
+    map<char, int> result;
+    for (auto it = countMap.begin(); it != countMap.end(); it++) {
+        if (it->second == maxCount) {
+            result[it->first] = it->second;
+        }
     }
     return result;
 }
 
-bool issame(std::map<char, int> a, std::map<char, int> b){
-    return a == b;
-}
-
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    // Add more test cases here
-    std::cout << "All test cases passed." << std::endl;
     return 0;
 }
