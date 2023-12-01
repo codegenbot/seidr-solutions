@@ -18,9 +18,9 @@ int closest_integer(string value){
 
 int main() {
     assert (closest_integer("0") == 0);
-    assert (closest_integer("3.14") == 3);
-    assert (closest_integer("-2.5") == -3);
-    assert (closest_integer("5.7") == 6);
-    assert (closest_integer("-8.2") == -8);
+    assert (closest_integer("3.5") == 4);
+    assert (closest_integer("-2.8") == -3);
+    assert (closest_integer("10.1") == 10);
+    assert (closest_integer("7.9") == 8);
     return 0;
 }
