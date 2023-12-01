@@ -1,5 +1,5 @@
-#include <string>
 #include <cassert>
+#include <string>
 
 bool checkEquality(string x, string n){
     int numX = stoi(x.substr(0, x.find("/")));
@@ -14,6 +14,5 @@ bool checkEquality(string x, string n){
 
 int main() {
     assert(checkEquality("1/5", "1/5") == false);
-    
     return 0;
 }
