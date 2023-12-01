@@ -16,6 +16,4 @@ vector<int> filter_integers(list<boost::any> values) {
 
 int main() {
     vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-
-    // Use the filtered vector as needed
 }
