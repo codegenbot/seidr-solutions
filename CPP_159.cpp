@@ -17,9 +17,9 @@ int main() {
     std::vector<int> result = eat(4, 5, 1);
     std::vector<int> expected = {5, 0};
     if (issame(result, expected)) {
-        // code for passing test case
+        
     } else {
-        // code for failing test case
+        
     }
     return 0;
 }
