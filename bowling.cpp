@@ -5,58 +5,41 @@ int getScore(const std::string& input) {
     int score = 0;
     int frame = 1;
     int roll = 0;
-    
-    for (char c : input) {
+
+    for (int i = 0; i < input.length(); i++) {
+        char c = input[i];
         if (c == 'X') {
             score += 10;
-            
             if (frame < 10) {
-                if (roll == 0) {
-                    score += 10;
-                    roll++;
-                } else {
-                    roll = 0;
-                    frame++;
-                }
+                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+                score += (input[i + 2] == 'X') ? 10 : ((input[i + 2] == '/') ? (10 - (input[i + 1] - '0')) : (input[i + 2] - '0'));
+                frame++;
             }
         } else if (c == '/') {
-            score += 10 - (input[roll] - '0');
-            
+            score += (10 - (input[i - 1] - '0')) + ((input[i + 1] == 'X') ? 10 : (input[i + 1] - '0'));
             if (frame < 10) {
-                roll = 0;
                 frame++;
             }
         } else if (c == '-') {
-            if (frame < 10) {
-                roll++;
-            }
+            // do nothing
         } else {
-            score += c - '0';
-            
-            if (frame < 10) {
-                if (roll == 0) {
-                    roll++;
-                } else {
-                    roll = 0;
-                    frame++;
-                }
+            score += (c - '0');
+            if (roll == 0) {
+                roll++;
+            } else {
+                roll = 0;
+                frame++;
             }
-        }
-        
-        if (frame == 10 && roll == 2 && input[roll-1] == '/') {
-            score += input[roll] - '0';
         }
     }
-    
+
     return score;
 }
 
 int main() {
     std::string input;
     std::cin >> input;
-    
     int score = getScore(input);
     std::cout << score << std::endl;
-    
     return 0;
 }
