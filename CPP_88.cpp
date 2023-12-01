@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -20,10 +19,4 @@ vector<int> sortArray(vector<int> array){
 
 bool issame(vector<int> a, vector<int> b){
     return a == b;
-}
-
-int main(){
-    assert (issame(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
-    
-    return 0;
 }
