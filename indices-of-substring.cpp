@@ -1,34 +1,39 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
-std::vector<int> getIndicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> indices;
     int textLen = text.length();
     int targetLen = target.length();
     
     for (int i = 0; i <= textLen - targetLen; i++) {
-        int j;
-        for (j = 0; j < targetLen; j++) {
-            if (text[i + j] != target[j])
+        bool found = true;
+        for (int j = 0; j < targetLen; j++) {
+            if (text[i+j] != target[j]) {
+                found = false;
                 break;
+            }
         }
-        if (j == targetLen)
+        
+        if (found) {
             indices.push_back(i);
+        }
     }
     
     return indices;
 }
 
 int main() {
-    std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
     
-    std::vector<int> result = getIndicesOfSubstring(text, target);
+    vector<int> result = indicesOfSubstring(text, target);
     
     for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+        cout << result[i] << " ";
     }
     
     return 0;
