@@ -1,15 +1,17 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-int next_smallest(vector<int> lst){
+int next_smallest(std::vector<int> lst){
     if(lst.size() < 2){
-        return NULL;
+        return -1;
     }
-    sort(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
     return lst[1];
 }
 
-int main() {
-    assert(next_smallest(vector<int>{-35, 34, 12, -45}) == -35);
+int main(){
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    // Add more test cases if needed
     return 0;
 }
