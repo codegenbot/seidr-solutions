@@ -6,8 +6,16 @@ using namespace std;
 
 vector<string> all_prefixes(string str);
 
-bool issame(vector<string> a, vector<string> b) {
-    // Compare the two vectors and return true or false;
+bool issame(vector<string> a, vector<string> b);
+
+int main() {
+    vector<string> result = all_prefixes("WWW");
+    for (const auto& prefix : result) {
+        cout << prefix << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
 
 vector<string> all_prefixes(string str) {
@@ -20,12 +28,6 @@ vector<string> all_prefixes(string str) {
     return prefixes;
 }
 
-int main() {
-    vector<string> result = all_prefixes("WWW");
-    for (const auto& prefix : result) {
-        cout << prefix << " ";
-    }
-    cout << endl;
-
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    // Compare the two vectors and return true or false;
 }
