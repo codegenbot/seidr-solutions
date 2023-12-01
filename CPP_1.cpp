@@ -12,7 +12,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string){
     int count = 0;
 
     for(char c : paren_string){
-         if(c == '('){
+        if(c == '('){
             if(count > 0){
                 group += c;
             }
@@ -34,6 +34,6 @@ std::vector<std::string> separate_paren_groups(std::string paren_string){
 }
 
 int main() {
-    assert(issame({"()", "(())", "(()())"}, separate_paren_groups("( ) (( )) (( )( ))")));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
