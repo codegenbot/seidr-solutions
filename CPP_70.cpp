@@ -1,4 +1,10 @@
-vector<int> strange_sort_vector(vector<int> lst){
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
     int start = 0;
