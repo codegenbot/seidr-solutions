@@ -1,12 +1,12 @@
 #include <vector>
-#include <algorithm>
-#include <iostream>
 #include <climits>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<int> a,vector<int> b) {
+bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -18,10 +18,13 @@ bool issame(vector<int> a,vector<int> b) {
     return true;
 }
 
+vector<int> minPath(vector<vector<int>> grid, int k);
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> path;
     int n = grid.size();
     
+    // Find the starting cell with the smallest value
     int minVal = grid[0][0];
     int startRow = 0;
     int startCol = 0;
@@ -35,11 +38,14 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         }
     }
     
+    // Add the starting cell to the path
     path.push_back(minVal);
     
+    // Perform k-1 steps to complete the path
     int currRow = startRow;
     int currCol = startCol;
     for(int step=1; step<k; step++){
+        // Find the neighbor cell with the smallest value
         int minNeighborVal = INT_MAX;
         int nextRow = -1;
         int nextCol = -1;
@@ -64,8 +70,10 @@ vector<int> minPath(vector<vector<int>> grid, int k){
             nextCol = currCol+1;
         }
         
+        // Add the next cell to the path
         path.push_back(minNeighborVal);
         
+        // Move to the next cell
         currRow = nextRow;
         currCol = nextCol;
     }
@@ -74,9 +82,9 @@ vector<int> minPath(vector<vector<int>> grid, int k){
 }
 
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    assert(issame(result, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    // Add more test cases if needed
     
-    cout << "All test cases passed." << endl;
-
     return 0;
 }
