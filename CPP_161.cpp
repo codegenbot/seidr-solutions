@@ -7,6 +7,7 @@ int main() {
     assert(solve("#ccc") == "#CCC");
     return 0;
 }
+
 string solve(string s) {
     transform(s.begin(), s.end(), s.begin(), [](char c) {
         if (isalpha(c)) {
