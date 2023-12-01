@@ -1,13 +1,13 @@
 #include <iostream>
-#include <cassert>
 #include <string>
+#include <cassert>
 
-int hex_key(std::string num) {
+int hex_key(std::string num){
     int count = 0;
     std::string primes = "2357BD";
     
-    for(int i = 0; i < num.length(); i++) {
-        if(primes.find(num[i]) != std::string::npos) {
+    for(int i = 0; i < num.length(); i++){
+        if(primes.find(num[i]) != std::string::npos){
             count++;
         }
     }
@@ -15,7 +15,7 @@ int hex_key(std::string num) {
     return count;
 }
 
-int main() {
+int main(){
     assert(hex_key("") == 0);
     
     return 0;
