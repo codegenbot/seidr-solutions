@@ -24,5 +24,3 @@ string string_to_md5(string text) {
 
     return md5hash;
 }
-
-#include <openssl/evp.h>
