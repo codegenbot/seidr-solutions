@@ -1,5 +1,9 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -38,34 +42,26 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
-    
+
     return true;
 }
 
-int main(){
-    string txt;
-    getline(cin, txt);
-    
-    vector<string> words = split_words(txt);
-    vector<string> reverse_words = words;
-    reverse(reverse_words.begin(), reverse_words.end());
-    
-    if(issame(words, reverse_words)){
-        cout << "The sentence is palindromic" << endl;
-    }
-    else{
-        cout << "The sentence is not palindromic" << endl;
-    }
-    
+int main() {
+    vector<string> input1 = split_words("");
+    vector<string> output1 = {"0"};
+    assert(issame(input1, output1));
+
+    // Add more test cases here
+
     return 0;
 }
