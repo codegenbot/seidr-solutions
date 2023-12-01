@@ -1,34 +1,39 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm> // for count function
+#include <cassert> // for assert function
+
 using namespace std;
+
+string find_max(vector<string> words);
+
+int main() {
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    return 0;
+}
 
 string find_max(vector<string> words){
     string max_word = "";
-    int max_unique_chars = 0;
+    int max_count = 0;
 
-    for(string word : words){
-        int unique_chars = 0;
-        int char_count[26] = {0};
+    for (int i = 0; i < words.size(); i++) {
+        string word = words[i];
+        int count = 0;
 
-        for(char c : word){
-            if(char_count[c - 'a'] == 0){
-                unique_chars++;
-                char_count[c - 'a'] = 1;
+        // Count unique characters in the word
+        for (int j = 0; j < word.size(); j++) {
+            if (count(word.begin(), word.end(), word[j]) == 1) {
+                count++;
             }
         }
 
-        if(unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)){
+        // Update max_word if current word has more unique characters
+        // or if it has the same number of unique characters but comes first in lexicographical order
+        if (count > max_count || (count == max_count && word < max_word)) {
             max_word = word;
-            max_unique_chars = unique_chars;
+            max_count = count;
         }
     }
 
     return max_word;
-}
-
-int main() {
-    assert((find_max({"play", "play", "play"}) == "play"));
-
-    return 0;
 }

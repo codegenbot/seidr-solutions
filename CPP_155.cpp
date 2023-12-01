@@ -1,16 +1,31 @@
+#include <vector>
+#include <cassert>
+
+vector<int> even_odd_count(int num);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
-    string strNum = to_string(abs(num));
+    int digit;
     
-    for (char c : strNum) {
-        int digit = c - '0';
-        if (digit % 2 == 0) {
+    num = abs(num);
+    
+    while(num > 0){
+        digit = num % 10;
+        
+        if(digit % 2 == 0){
             evenCount++;
         } else {
             oddCount++;
         }
+        
+        num = num / 10;
     }
     
-    return {evenCount, oddCount};
+    vector<int> result = {evenCount, oddCount};
+    return result;
 }
