@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 int can_arrange(vector<int> arr){
     int largestIndex = -1;
@@ -11,8 +12,9 @@ int can_arrange(vector<int> arr){
 }
 
 int main() {
+    // Test cases
     assert(can_arrange({}) == -1);
     // Add more test cases here
-
+    
     return 0;
 }
