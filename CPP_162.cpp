@@ -10,18 +10,14 @@ string string_to_md5(string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
-    EVP_MD_CTX_free(mdctx);
+    EVP_Digest((const unsigned char*)text.c_str(), text.length(), digest, nullptr, EVP_md5(), nullptr);
 
-    char md5hash[33];
+    char md5hashStr[33];
     for (int i = 0; i < 16; i++) {
-        sprintf(&md5hash[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5hashStr[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return md5hash;
+    return md5hashStr;
 }
 
 int main() {
