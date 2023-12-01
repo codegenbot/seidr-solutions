@@ -1,6 +1,16 @@
 #include <vector>
 #include <cassert>
 
+vector<float> get_positive(vector<float> l){
+    vector<float> positive_nums;
+    for(int i=0; i<l.size(); i++){
+        if(l[i] > 0){
+            positive_nums.push_back(l[i]);
+        }
+    }
+    return positive_nums;
+}
+
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -13,22 +23,18 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
-vector<float> get_positive(vector<float> l){
-    vector<float> positive_nums;
-    for(int i=0; i<l.size(); i++){
-        if(l[i] > 0){
-            positive_nums.push_back(l[i]);
-        }
-    }
-    return positive_nums;
-}
-
 int main(){
-    vector<float> nums = {1.5, -2.3, 4.7, -3.2, 6.9};
-    vector<float> positive_nums = get_positive(nums);
+    vector<float> l = {1.2, -3.4, 5.6, -7.8, 9.0};
+    vector<float> positive_nums = get_positive(l);
     assert(positive_nums.size() == 3);
-    assert(positive_nums[0] == 1.5);
-    assert(positive_nums[1] == 4.7);
-    assert(positive_nums[2] == 6.9);
+    assert(positive_nums[0] == 1.2);
+    assert(positive_nums[1] == 5.6);
+    assert(positive_nums[2] == 9.0);
+    vector<float> a = {1.2, 3.4, 5.6};
+    vector<float> b = {1.2, 3.4, 5.6};
+    assert(issame(a, b) == true);
+    vector<float> c = {1.2, 3.4, 5.6};
+    vector<float> d = {1.2, 3.4, 5.7};
+    assert(issame(c, d) == false);
     return 0;
 }
