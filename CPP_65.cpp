@@ -16,3 +16,10 @@ string circular_shift(int x, int shift){
     
     return num;
 }
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    // more test cases...
+
+    return 0;
+}
