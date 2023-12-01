@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
     // implementation of issame function
 }
