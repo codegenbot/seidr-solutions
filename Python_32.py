@@ -6,16 +6,11 @@ def poly(xs: list, x: float):
 def find_zero(xs: list):
     return round(-xs[0] / xs[1], 2)
 
-# Read input from the user
-coefficients = input("Enter coefficients separated by spaces: ")
-x_value = float(input("Enter the value of x: "))
+# Read input from user and convert it into the appropriate format
+xs = list(map(int, input().split()))
 
-coefficients = list(map(float, coefficients.split()))
+# Call the find_zero function with the input value
+result = find_zero(xs)
 
-# Call the functions with the given input
-result1 = poly(coefficients, x_value)
-result2 = find_zero(coefficients)
-
-# Print the results
-print("Result 1:", result1)
-print("Result 2:", result2)
+# Print the result
+print(result)
