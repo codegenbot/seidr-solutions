@@ -1,6 +1,4 @@
 from typing import List
-import sys
-
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if not numbers:
@@ -9,8 +7,9 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     max_num = max(numbers)
     return [(num - min_num) / (max_num - min_num) for num in numbers]
 
-
-input_numbers = [float(num) for num in sys.argv[1:]]
-
-output = rescale_to_unit(input_numbers)
-print(*output)
+try:
+    input_numbers = [float(num) for num in input().strip().split()]
+    output = rescale_to_unit(input_numbers)
+    print(*output)
+except ValueError:
+    print("Invalid input. Please provide valid numbers separated by space.")
