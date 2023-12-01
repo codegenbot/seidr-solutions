@@ -7,7 +7,8 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 
-strings = [input("Enter a string: ") for _ in range(len(strings))]
+n = int(input())
+strings = [input() for _ in range(n)]
 
 result = longest(strings)
-print("Longest string:", result)
+print(result)
