@@ -1,24 +1,38 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-vector<int> unique_digits(vector<int> x){
+using namespace std;
+
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
-    for(int num : x){
+    for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
-        while(temp > 0){
+        while (temp > 0) {
             int digit = temp % 10;
-            if(digit % 2 == 0){
+            if (digit % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
             temp /= 10;
         }
-        if(!hasEvenDigit){
+        if (!hasEvenDigit) {
             result.push_back(num);
         }
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    vector<int> arr = { 12, 123, 456, 7890, 13579 };
+    vector<int> expectedOutput = { 13579 };
+
+    vector<int> result = unique_digits(arr);
+
+    assert(result == expectedOutput);
+    
+    return 0;
 }
