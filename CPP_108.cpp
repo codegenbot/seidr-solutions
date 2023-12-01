@@ -19,6 +19,6 @@ int count_nums(std::vector<int> n) {
 
 int main() {
     assert(count_nums(std::vector<int>{1}) == 1);
-
+    
     return 0;
 }
