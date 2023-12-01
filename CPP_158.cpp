@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // for count function
-#include <cassert> // for assert function
+#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
