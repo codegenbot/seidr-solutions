@@ -10,5 +10,5 @@ input_string = input()
 encoded_string = encode_shift(input_string)
 decoded_string = decode_shift(encoded_string)
 
-print(f"Encoded: {encoded_string}")
-print(f"Decoded: {decoded_string}")
+print(encoded_string)
+print(decoded_string)
