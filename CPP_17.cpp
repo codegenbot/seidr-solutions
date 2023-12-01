@@ -1,6 +1,8 @@
 vector<int> parse_music(string music_string);
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    // implementation of issame function
+}
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
@@ -20,10 +22,6 @@ vector<int> parse_music(string music_string){
         }
     }
     return beats;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    // implementation of issame function
 }
 
 int main() {
