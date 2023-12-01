@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool is_same(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -23,7 +24,15 @@ std::vector<int> even_odd_count(int num){
     return result;
 }
 
-int main2(){
-    assert(issame(even_odd_count(0), {1, 0}));
+int main(){
+    std::vector<int> expected_result = {1, 0};
+    std::vector<int> actual_result = even_odd_count(0);
+    
+    if (is_same(actual_result, expected_result)) {
+        std::cout << "Test case passed." << std::endl;
+    } else {
+        std::cout << "Test case failed." << std::endl;
+    }
+    
     return 0;
 }
