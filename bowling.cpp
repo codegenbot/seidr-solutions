@@ -1,4 +1,7 @@
-int calculateScore(string frames) {
+#include <iostream>
+#include <string>
+
+int calculateScore(std::string frames) {
     int score = 0;
     int frameIndex = 0;
     
@@ -35,4 +38,14 @@ int calculateScore(string frames) {
     }
     
     return score;
+}
+
+int main() {
+    std::string frames;
+    std::cin >> frames;
+    
+    int score = calculateScore(frames);
+    std::cout << score << std::endl;
+    
+    return 0;
 }
