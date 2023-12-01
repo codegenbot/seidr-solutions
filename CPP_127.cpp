@@ -5,14 +5,16 @@
 using namespace std;
 
 bool isPrime(int n) {
-    if (n <= 1) {
+    if (n < 2) {
         return false;
     }
-    for (int i = 2; i <= n/2; i++) {
+    
+    for (int i = 2; i <= n / 2; i++) {
         if (n % i == 0) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -22,16 +24,19 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int start2 = interval2[0];
     int end2 = interval2[1];
     
-    int start = max(start1, start2);
-    int end = min(end1, end2);
-    
-    if (start > end) {
+    // Checking if the intervals don't intersect
+    if (end1 < start2 || end2 < start1) {
         return "NO";
     }
     
-    int length = end - start;
+    // Finding the start and end of the intersection
+    int intersectionStart = max(start1, start2);
+    int intersectionEnd = min(end1, end2);
     
-    if (isPrime(length)) {
+    // Finding the length of the intersection
+    int intersectionLength = intersectionEnd - intersectionStart + 1;
+    
+    if (isPrime(intersectionLength)) {
         return "YES";
     } else {
         return "NO";
@@ -50,6 +55,6 @@ int main() {
     interval1 = {-3, -1};
     interval2 = {-5, 5};
     cout << intersection(interval1, interval2) << endl;
-    
+
     return 0;
 }
