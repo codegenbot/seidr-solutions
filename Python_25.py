@@ -13,3 +13,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
+
+def solve(n: int) -> List[int]:
+    return factorize(n)
