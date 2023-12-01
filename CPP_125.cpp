@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+using namespace std;
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -39,12 +40,12 @@ vector<string> split_words(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+    if (a.size() != b.size()){
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i=0; i<a.size(); i++){
+        if (a[i] != b[i]){
             return false;
         }
     }
@@ -53,20 +54,20 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    string txt = "hello, world";
-    vector<string> words = split_words(txt);
+    string txt1, txt2;
+    getline(cin, txt1);
+    getline(cin, txt2);
     
-    for(string word : words){
-        cout << word << endl;
-    }
+    vector<string> words1 = split_words(txt1);
+    vector<string> words2 = split_words(txt2);
     
-    vector<string> words2 = {"hello", "world"};
+    bool same = issame(words1, words2);
     
-    if(issame(words, words2)){
-        cout << "Words are the same!" << endl;
+    if(same){
+        cout << "Same";
     }
     else{
-        cout << "Words are different!" << endl;
+        cout << "Different";
     }
     
     return 0;
