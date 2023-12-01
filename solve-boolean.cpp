@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
+bool evaluateBooleanExpression(std::string expression, bool isEnclosed) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
@@ -46,11 +46,11 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
 
 int main() {
     std::string expression;
-    std::cout << "Enter a Boolean expression: ";
+    std::cout << "Enter boolean expression: ";
     std::cin >> expression;
-    
+
     bool result = evaluateBooleanExpression(expression, false);
-    std::cout << "Result: " << std::boolalpha << result << std::endl;
+    std::cout << "Result: " << (result ? "T" : "F") << std::endl;
 
     return 0;
 }
