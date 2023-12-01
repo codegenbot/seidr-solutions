@@ -4,7 +4,7 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // implementation of issame function
+    // actual implementation of issame function
 }
 
 vector<string> select_words(string s, int n) {
