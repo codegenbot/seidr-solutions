@@ -4,15 +4,6 @@
 
 using namespace std;
 
-vector<int> rolling_max(vector<int> numbers);
-
-int main(){
-    vector<int> numbers = {3, 2, 3, 100, 3};
-    assert(rolling_max(numbers) == vector<int>({3, 3, 3, 100, 100}));
-    
-    return 0;
-}
-
 vector<int> rolling_max(vector<int> numbers){
     vector<int> rollingMax;
     int maxElement = numbers[0];
@@ -26,4 +17,23 @@ vector<int> rolling_max(vector<int> numbers){
     }
     
     return rollingMax;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    vector<int> numbers = {3, 2, 3, 100, 3};
+    assert(issame(rolling_max(numbers), {3, 3, 3, 100, 100}));
+    
+    return 0;
 }
