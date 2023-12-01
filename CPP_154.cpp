@@ -1,25 +1,18 @@
-bool cycpattern_check(string a, string b) {
-    int n = a.length();
-    int m = b.length();
+#include <string>
 
-    if (m > n) {
+bool cycpattern_check(std::string a, std::string b) {
+    int lenA = a.length();
+    int lenB = b.length();
+    
+    if (lenA < lenB) {
         return false;
     }
-
-    for (int i = 0; i < n; i++) {
-        bool found = true;
-
-        for (int j = 0; j < m; j++) {
-            if (a[(i + j) % n] != b[j]) {
-                found = false;
-                break;
-            }
-        }
-
-        if (found) {
-            return true;
-        }
+    
+    std::string temp = b + b;
+    
+    if (temp.find(a) != std::string::npos) {
+        return true;
     }
-
+    
     return false;
 }
