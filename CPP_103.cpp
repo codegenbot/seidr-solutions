@@ -1,16 +1,5 @@
 #include <string>
 
-string rounded_avg(int n, int m);
-
-int main() {
-    // Test cases
-    int n = 1;
-    int m = 10;
-    string result = rounded_avg(n, m);
-    
-    return 0;
-}
-
 string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
