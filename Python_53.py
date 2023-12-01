@@ -1,7 +1,10 @@
+import sys
+
+
 def add(x: int, y: int) -> int:
     return x + y
 
-x = int(input().strip())
-y = int(input().strip())
+
+x, y = map(int, sys.stdin.readline().strip().split())
 result = add(x, y)
 print(result)
