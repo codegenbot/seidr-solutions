@@ -1,7 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
