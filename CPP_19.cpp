@@ -1,31 +1,34 @@
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <algorithm>
+string sort_numbers(string numbers){
+    map<string, int> numeral_map;
+    numeral_map["zero"] = 0;
+    numeral_map["one"] = 1;
+    numeral_map["two"] = 2;
+    numeral_map["three"] = 3;
+    numeral_map["four"] = 4;
+    numeral_map["five"] = 5;
+    numeral_map["six"] = 6;
+    numeral_map["seven"] = 7;
+    numeral_map["eight"] = 8;
+    numeral_map["nine"] = 9;
 
-std::string sort_numbers(std::string numbers) {
-    std::map<std::string, int> numberMapping = {
-        {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4},
-        {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}
-    };
-
-    std::istringstream iss(numbers);
-    std::string word;
-    std::vector<int> numberList;
-
-    while (iss >> word) {
-        numberList.push_back(numberMapping[word]);
-    }
-    
-    std::sort(numberList.begin(), numberList.end());
-
-    std::ostringstream oss;
-    for (int i = 0; i < numberList.size(); ++i) {
-        oss << numberList[i];
-        if (i != numberList.size() - 1) {
-            oss << " ";
+    multimap<int, string> sorted_numbers;
+    string current_number;
+    for(int i=0; i<numbers.size(); i++){
+        if(numbers[i] != ' '){
+            current_number += numbers[i];
+        }
+        else{
+            sorted_numbers.insert(make_pair(numeral_map[current_number], current_number));
+            current_number = "";
         }
     }
+    sorted_numbers.insert(make_pair(numeral_map[current_number], current_number));
 
-    return oss.str();
+    string sorted_string = "";
+    for(auto it = sorted_numbers.begin(); it != sorted_numbers.end(); it++){
+        sorted_string += it->second + " ";
+    }
+    sorted_string.pop_back(); // Remove the trailing space
+
+    return sorted_string;
 }
