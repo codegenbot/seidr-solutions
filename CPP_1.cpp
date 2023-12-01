@@ -3,11 +3,11 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
     std::vector<std::string> result;
     std::string group;
     int count = 0;
@@ -33,6 +33,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    assert(is_same(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+
     return 0;
 }
