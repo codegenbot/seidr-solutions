@@ -1,25 +1,62 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
+    int row = 0, col = 0;
     
-    // Rest of the code...
+    int minVal = grid[0][0];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(grid[i][j] < minVal){
+                minVal = grid[i][j];
+                row = i;
+                col = j;
+            }
+        }
+    }
+    
+    path.push_back(minVal);
+    
+    while(path.size() < k){
+        int minValue = INT_MAX;
+        int nextRow = row;
+        int nextCol = col;
+        
+        if(row > 0 && grid[row-1][col] < minValue){
+            minValue = grid[row-1][col];
+            nextRow = row - 1;
+            nextCol = col;
+        }
+        if(row < n-1 && grid[row+1][col] < minValue){
+            minValue = grid[row+1][col];
+            nextRow = row + 1;
+            nextCol = col;
+        }
+        if(col > 0 && grid[row][col-1] < minValue){
+            minValue = grid[row][col-1];
+            nextRow = row;
+            nextCol = col - 1;
+        }
+        if(col < n-1 && grid[row][col+1] < minValue){
+            minValue = grid[row][col+1];
+            nextRow = row;
+            nextCol = col + 1;
+        }
+        
+        row = nextRow;
+        col = nextCol;
+        
+        path.push_back(minValue);
+    }
     
     return path;
 }
 
-int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+int main(){
+    vector<int> expected_path = {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
     
+    vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    
+    bool is_same = (result == expected_path);
+
     return 0;
 }
