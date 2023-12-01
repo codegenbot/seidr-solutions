@@ -1,30 +1,24 @@
-string match_parens(vector<string> lst) {
-    string result = "Yes";
-    int balance = 0;
+string match_parens(vector<string> lst){
+    int openCount = 0;
+    int closeCount = 0;
     
-    for (int i = 0; i < lst.size(); i++) {
-        string str = lst[i];
-        for (int j = 0; j < str.length(); j++) {
-            if (str[j] == '(') {
-                balance++;
+    for(string s : lst){
+        for(char c : s){
+            if(c == '('){
+                openCount++;
             } else {
-                balance--;
+                if(openCount > 0){
+                    openCount--;
+                } else {
+                    closeCount++;
+                }
             }
-            
-            if (balance < 0) {
-                result = "No";
-                break;
-            }
-        }
-        
-        if (balance < 0) {
-            break;
         }
     }
     
-    if (balance != 0) {
-        result = "No";
+    if(openCount == 0 && closeCount == 0){
+        return "Yes";
+    } else {
+        return "No";
     }
-    
-    return result;
 }
