@@ -13,10 +13,15 @@ std::string change_base(int x, int base) {
 }
 
 int main() {
-    // Test the function with some sample inputs
-    std::cout << change_base(10, 2) << std::endl; // Output: 1010
-    std::cout << change_base(15, 16) << std::endl; // Output: F
-    std::cout << change_base(255, 16) << std::endl; // Output: FF
+    // Test the change_base function
+    int x, base;
+    std::cout << "Enter the number: ";
+    std::cin >> x;
+    std::cout << "Enter the base: ";
+    std::cin >> base;
+
+    std::string result = change_base(x, base);
+    std::cout << "Result: " << result << std::endl;
 
     return 0;
 }
