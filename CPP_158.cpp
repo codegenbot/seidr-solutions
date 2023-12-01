@@ -1,17 +1,25 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
+int countUniqueChars(string word);
+
+string find_max(vector<string> words);
+
+int main() {
+    assert((find_max({"play", "play", "play"}) == "play"));
+    return 0;
+}
+
 int countUniqueChars(string word) {
     int count = 0;
-    vector<bool> visited(26, false);
+    bool visited[256] = {false};
 
     for (char c : word) {
-        if (!visited[c - 'a']) {
-            visited[c - 'a'] = true;
+        if (!visited[c]) {
+            visited[c] = true;
             count++;
         }
     }
@@ -32,9 +40,4 @@ string find_max(vector<string> words) {
     }
 
     return maxWord;
-}
-
-int main() {
-    assert((find_max({"play", "play", "play"}) == "play"));
-    return 0;
 }
