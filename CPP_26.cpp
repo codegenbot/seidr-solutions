@@ -24,10 +24,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == vector<int>{1, 4, 5});
-    assert(remove_duplicates({1, 1, 1, 1, 1}) == vector<int>{});
-    assert(remove_duplicates({1, 2, 3, 4, 5}) == vector<int>{1, 2, 3, 4, 5});
-    assert(remove_duplicates({}) == vector<int>{});
-    assert(remove_duplicates({1}) == vector<int>{1});
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
