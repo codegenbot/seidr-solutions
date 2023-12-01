@@ -2,17 +2,13 @@
 #include <vector>
 
 bool isConsonant(char c) {
-    // Implement the logic to check if `c` is a consonant
-    // Return true if it is a consonant, otherwise false
+    // Implement the logic of checking if a character is a consonant.
+    // Return true if it is a consonant, false otherwise.
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     int consonantCount = 0;
 
     for (int i = 0; i < s.length(); i++) {
@@ -38,7 +34,8 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+    // Write other test cases to verify the correctness of the select_words function.
 
     return 0;
 }
