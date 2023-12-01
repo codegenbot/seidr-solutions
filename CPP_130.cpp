@@ -7,11 +7,6 @@ bool issame(vector<int> a, vector<int> b);
 
 vector<int> tri(int n);
 
-int main(){
-    assert(issame(tri(1), {1, 3}));
-    return 0;
-}
-
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -49,4 +44,9 @@ vector<int> tri(int n){
     }
     
     return sequence;
+}
+
+int main(){
+    assert(issame(tri(1), {1, 3}));
+    return 0;
 }
