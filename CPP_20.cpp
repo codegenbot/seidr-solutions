@@ -2,7 +2,7 @@
 #include <cassert>
 #include <cmath>
 
-bool is_same(std::vector<float> a, std::vector<float> b) {
+bool is_same_vector(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -36,6 +36,6 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(is_same(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    assert(is_same_vector(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     return 0;
 }
