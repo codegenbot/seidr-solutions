@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+
 using namespace std;
 
 bool is_same(vector<string> a, vector<string> b){
