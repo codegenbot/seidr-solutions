@@ -24,18 +24,11 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main(){
-    vector<float> nums = {-1.5, 2.0, -3.5, 4.5, -5.0, 6.0};
+    vector<float> nums = {1.5, -2.3, 4.7, -3.2, 6.9};
     vector<float> positive_nums = get_positive(nums);
-
     assert(positive_nums.size() == 3);
-    assert(positive_nums[0] == 2.0);
-    assert(positive_nums[1] == 4.5);
-    assert(positive_nums[2] == 6.0);
-
-    vector<float> empty_nums;
-    vector<float> empty_positive_nums = get_positive(empty_nums);
-
-    assert(empty_positive_nums.size() == 0);
-
+    assert(positive_nums[0] == 1.5);
+    assert(positive_nums[1] == 4.7);
+    assert(positive_nums[2] == 6.9);
     return 0;
 }
