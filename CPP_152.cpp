@@ -1,11 +1,11 @@
-#include <vector> 
+#include <vector>
 
-using namespace std; 
+using namespace std;
 
 vector<int> compare(vector<int> game, vector<int> guess);
 
-bool issame(vector<int> a, vector<int> b){ 
-    if(a.size() != b.size()) 
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i])
@@ -22,7 +22,7 @@ vector<int> compare(vector<int> game, vector<int> guess){
     return result;
 }
 
-int main() { 
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1})); 
-    return 0; 
+int main() {
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    return 0;
 }
