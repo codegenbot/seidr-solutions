@@ -2,12 +2,12 @@
 
 const int None = -1;
 
-int next_smallest(std::vector<int> lst) {
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2) {
         return None;
     }
     
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
     
     int smallest = lst[0];
     
@@ -22,6 +22,8 @@ int next_smallest(std::vector<int> lst) {
 
 int main() {
     assert(next_smallest({-35, 34, 12, -45}) == -35);
-    // Add more test cases here
+
+    // Your additional test cases here
+
     return 0;
 }
