@@ -15,7 +15,7 @@ int do_algebra(std::vector<std::string> operators, std::vector<int> operands){
         else if(operators[i] == "*"){
             result *= operands[i+1];
         }
-        else if(operators[i] == "/"){
+        else if(operators[i] == "//"){
             result /= operands[i+1];
         }
         else if(operators[i] == "**"){
