@@ -3,24 +3,12 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
+std::vector<std::pmr::string> select_words(std::pmr::string s, int n) {
+    std::vector<std::pmr::string> result;
     if (s.empty()) {
         return result;
     }
-    std::string word = "";
+    std::pmr::string word = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] != ' ') {
             word += s[i];
@@ -49,8 +37,11 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
+bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b) {
+    return a == b;
+}
+
 int main() {
-    std::cout << issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"});
-    std::cout << std::endl;
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
