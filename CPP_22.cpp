@@ -1,6 +1,5 @@
 #include <vector>
 #include <boost/any.hpp>
-#include <cassert>
 
 using namespace std;
 using namespace boost;
