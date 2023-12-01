@@ -1,22 +1,30 @@
 def minPath(grid, k):
-    def dfs(i, j, target, visited, path, result):
-        if not (0 <= i < len(grid) and 0 <= j < len(grid[0])) or grid[i][j] != target or visited[i][j]:
-            return
-        visited[i][j] = True
-        path.append(grid[i][j])
+    def dfs(i, j, path):
         if len(path) == k:
-            result.append(path[:])
-        dfs(i - 1, j, target, visited, path, result)
-        dfs(i + 1, j, target, visited, path, result)
-        dfs(i, j - 1, target, visited, path, result)
-        dfs(i, j + 1, target, visited, path, result)
-        visited[i][j] = False
-        path.pop()
-    
-    result = []
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            visited = [[False] * len(grid[0]) for _ in range(len(grid))]
-            path = []
-            dfs(i, j, grid[i][j], visited, path, result)
-    return min(result)
+            return path
+        elif i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]):
+            return None
+        elif grid[i][j] == -1:
+            return None
+
+        num = grid[i][j]
+        grid[i][j] = -1
+
+        for dx, dy in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
+            x, y = i + dx, j + dy
+            res = dfs(x, y, path + [num])
+            if res is not None:
+                return res
+
+        grid[i][j] = num
+
+    n = len(grid)
+    start_row, start_col = 0, 0
+
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] == 1:
+                start_row, start_col = i, j
+                break
+
+    return dfs(start_row, start_col, [])
