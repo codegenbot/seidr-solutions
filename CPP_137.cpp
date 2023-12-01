@@ -18,3 +18,8 @@ string compare_one(string a, string b) {
     float num2 = stof(b);
     return (num1 > num2) ? a : b;
 }
+
+int main() {
+    assert(any_cast<string>(compare_one<string>(string("1"), "1")) == "None");
+    return 0;
+}
