@@ -5,6 +5,18 @@
 
 using namespace std;
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> largest_smallest_integers(vector<int> lst) {
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
@@ -22,20 +34,20 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 }
 
 int main() {
-    vector<int> result = largest_smallest_integers({-6, -4, -4, -3, -100, 1});
-    assert(result[0] == -100 && result[1] == -3);
+    bool issameResult = issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
+    assert(issameResult);
 
-    result = largest_smallest_integers({5, 3, -1, 7, 2});
-    assert(result[0] == -1 && result[1] == 2);
+    issameResult = issame(largest_smallest_integers({5, 3, -1, 7, 2}), {-1, 2});
+    assert(issameResult);
 
-    result = largest_smallest_integers({0, 0, 0, 0, 0});
-    assert(result[0] == 0 && result[1] == 0);
+    issameResult = issame(largest_smallest_integers({0, 0, 0, 0, 0}), {0, 0});
+    assert(issameResult);
 
-    result = largest_smallest_integers({-1, -2, -3, -4, -5});
-    assert(result[0] == -1 && result[1] == -5);
+    issameResult = issame(largest_smallest_integers({-1, -2, -3, -4, -5}), {-1, -5});
+    assert(issameResult);
 
-    result = largest_smallest_integers({1, 2, 3, 4, 5});
-    assert(result[0] == 1 && result[1] == 5);
+    issameResult = issame(largest_smallest_integers({1, 2, 3, 4, 5}), {5, 1});
+    assert(issameResult);
 
     return 0;
 }
