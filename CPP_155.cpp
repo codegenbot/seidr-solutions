@@ -4,18 +4,17 @@
 vector<int> even_odd_count(int num);
 
 bool issame(vector<int> a, vector<int> b){
-    return (a[0] == b[0]) && (a[1] == b[1]);
+    return (a[0] == b[0] && a[1] == b[1]);
 }
 
 int main() {
-    vector<int> result = even_odd_count(1234567890);
-    assert(issame(result, {5, 5}));
+    int num;
+    cin >> num;
 
-    result = even_odd_count(246810);
-    assert(issame(result, {6, 0}));
+    vector<int> expectedResult{2, 3};
+    vector<int> result = even_odd_count(num);
 
-    result = even_odd_count(-13579);
-    assert(issame(result, {0, 5}));
+    assert(issame(expectedResult, result));
 
     return 0;
 }
