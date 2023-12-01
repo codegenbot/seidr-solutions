@@ -1,7 +1,7 @@
 def max_fill(grid, capacity):
-    total = 0
+    num_buckets = 0
     for row in grid:
         for well in row:
-            if well > capacity:
-                total += math.ceil(well / capacity)
-    return total
+            if well == 1:
+                num_buckets += math.ceil(well / capacity)
+    return num_buckets
