@@ -31,6 +31,7 @@ int main(){
     }
     cout << endl;
 
+    // Perform assertion
     assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 
     return 0;
