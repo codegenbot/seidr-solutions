@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
@@ -16,13 +15,13 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             leftSum += nums[j];
         }
 
-        for (int j = i; j < n; j++) {
+        for (int j = i; j <= n; j++) {
             rightSum += nums[j];
         }
 
         int currentDiff = abs(leftSum - rightSum);
 
-        if (currentDiff < diff || (currentDiff == diff && i < index)) {
+        if (currentDiff <= diff) {
             diff = currentDiff;
             index = i;
         }
