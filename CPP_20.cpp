@@ -1,5 +1,8 @@
 #include <vector>
 
+vector<float> find_closest_elements(vector<float> numbers);
+bool issame(vector<float> a, vector<float> b);
+
 vector<float> find_closest_elements(vector<float> numbers){
     float min_diff = abs(numbers[0] - numbers[1]);
     float num1 = numbers[0];
@@ -36,5 +39,6 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    ...
+    // Code for testing
+    return 0;
 }
