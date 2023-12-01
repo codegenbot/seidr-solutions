@@ -1,24 +1,28 @@
 #include <iostream>
-using namespace std;
 
-double calculateSnow(double hours, double initialSnow, double snowFallRate, double meltingRate) {
-    double snowOnGround = initialSnow;
+float calculateSnow(int hours, float initialSnow, float rateOfSnow, float meltingRate) {
+    float snow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
-        snowOnGround += snowFallRate;
-        snowOnGround -= snowOnGround * meltingRate;
+        snow += rateOfSnow;
+        snow -= snow * meltingRate;
     }
     
-    return snowOnGround;
+    return snow;
 }
 
 int main() {
-    double hours, initialSnow, snowFallRate, meltingRate;
-    cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
+    int hours;
+    float initialSnow, rateOfSnow, meltingRate;
     
-    double finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
+    std::cin >> hours;
+    std::cin >> initialSnow;
+    std::cin >> rateOfSnow;
+    std::cin >> meltingRate;
     
-    cout << finalSnow << endl;
+    float finalSnow = calculateSnow(hours, initialSnow, rateOfSnow, meltingRate);
+    
+    std::cout << finalSnow << std::endl;
     
     return 0;
 }
