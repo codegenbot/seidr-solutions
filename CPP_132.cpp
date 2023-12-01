@@ -1,5 +1,6 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+using namespace std;
 
 bool is_nested(string str){
     int count = 0;
@@ -17,6 +18,7 @@ bool is_nested(string str){
     return false;
 }
 
-int main() {
+int main(){
     assert(is_nested("]]]]]]]]") == false);
+    return 0;
 }
