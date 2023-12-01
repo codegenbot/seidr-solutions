@@ -8,16 +8,20 @@ def prime_fib(n: int):
         return True
 
     def fibonacci(n):
-        if n <= 0:
-            return []
-        fib_sequence = [0, 1]
-        while len(fib_sequence) < n:
-            fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-        return fib_sequence
+        if n == 0:
+            return 0
+        elif n == 1:
+            return 1
+        else:
+            a, b = 0, 1
+            for _ in range(2, n + 1):
+                a, b = b, a + b
+            return b
 
-    fib_sequence = fibonacci(n)
-    prime_fib_numbers = []
-    for num in fib_sequence:
-        if is_prime(num):
-            prime_fib_numbers.append(num)
-    return prime_fib_numbers[-1]
+    count = 0
+    num = 2
+    while count < n:
+        if is_prime(num) and is_prime(fibonacci(num)):
+            count += 1
+        num += 1
+    return fibonacci(num - 1)
