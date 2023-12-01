@@ -1,10 +1,14 @@
-bool issame(int a, int b){
+#include <iostream>
+#include <vector>
+#include <sstream>
+
+bool issame(char a, char b) {
     return a == b;
 }
 
-vector<int> parse_music(string music_string){
-    vector<int> beats;
-    string note = "";
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
+    std::string note = "";
     for (int i = 0; i < music_string.length(); i++) {
         if (music_string[i] == ' ') {
             if (note == "o") {
