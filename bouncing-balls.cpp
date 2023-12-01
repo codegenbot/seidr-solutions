@@ -17,11 +17,11 @@ int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
     cin >> startingHeight >> firstBounceHeight >> numBounces;
-
+    
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
-
+    
     cout << totalDistance << endl;
-
+    
     return 0;
 }
