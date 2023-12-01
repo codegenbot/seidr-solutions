@@ -1,7 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <cassert>
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
     std::vector<std::string> letter_grades;
@@ -47,12 +45,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
         }
     }
     return letter_grades;
-}
-
-int main() {
-    bool is_same = std::equal(numerical_letter_grade({0, 0.7}).begin(), numerical_letter_grade({0, 0.7}).end(), 
-                             std::vector<std::string>{"E", "D-"}.begin());
-    assert(is_same);
-    
-    return 0;
 }
