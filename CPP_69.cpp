@@ -1,4 +1,6 @@
-int search(vector<int> lst) {
+#include <vector>
+
+int findMax(vector<int> lst) {
     int maxNum = -1;
     for (int i = 0; i < lst.size(); i++) {
         int num = lst[i];
