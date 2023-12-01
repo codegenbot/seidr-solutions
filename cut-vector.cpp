@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int sum = 0;
@@ -7,11 +8,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         sum += num;
     }
     
-    int target = sum / 2;
+    int target = (sum + 1) / 2;
     int currentSum = 0;
     int index = 0;
     
-    while (currentSum <= target && index < nums.size()) {
+    while (currentSum < target && index < nums.size()) {
         currentSum += nums[index];
         index++;
     }
