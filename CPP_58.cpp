@@ -33,6 +33,5 @@ bool issame(vector<int> a, vector<int> b) {
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
     // Add more test cases
-    
     return 0;
 }
