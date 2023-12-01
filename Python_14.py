@@ -1,5 +1,5 @@
-import sys
 from typing import List
+
 
 def all_prefixes(string: str) -> List[str]:
     prefixes = []
@@ -7,5 +7,9 @@ def all_prefixes(string: str) -> List[str]:
         prefixes.append(string[:i])
     return prefixes
 
-input_string = sys.stdin.readline().strip()
+
+# Assign the input string directly
+input_string = "example"
+
+# Call the function with the input string and print the result
 print(all_prefixes(input_string))
