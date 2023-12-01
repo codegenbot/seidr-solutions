@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string>
+#include <iostream>
 #include <openssl/evp.h>
 using namespace std;
 
