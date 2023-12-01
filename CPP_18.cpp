@@ -1,24 +1,17 @@
-#include <iostream>
-#include <string>
-
-int how_many_times(std::string str, std::string substring) {
+int how_many_times(string str, string substring) {
     int count = 0;
-    size_t pos = 0;
-    
-    while ((pos = str.find(substring, pos)) != std::string::npos) {
-        count++;
-        pos += substring.length();
-    }
-    
-    return count;
-}
+    int subLen = substring.length();
+    int strLen = str.length();
 
-int main() {
-    std::string str, substring;
-    std::cin >> str >> substring;
-    
-    int result = how_many_times(str, substring);
-    std::cout << result << std::endl;
-    
-    return 0;
+    if (subLen == 0) {
+        return 0;
+    }
+
+    for (int i = 0; i <= strLen - subLen; i++) {
+        if (str.substr(i, subLen) == substring) {
+            count++;
+        }
+    }
+
+    return count;
 }
