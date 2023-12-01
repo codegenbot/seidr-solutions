@@ -30,15 +30,15 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str2;
         }
     }
-    return boost::any();
+    return boost::any("None");
 }
 
 int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
-    assert(boost::any_cast<int>(compare_one(2, 3)) == 3);
-    assert(boost::any_cast<int>(compare_one(5, 3)) == 5);
-    assert(boost::any_cast<string>(compare_one(string("abc"), string("def"))) == "def");
-    assert(boost::any_cast<string>(compare_one(string("xyz"), string("abc"))) == "xyz");
+    assert(boost::any_cast<string>(compare_one(boost::any(string("1")), boost::any(string("2")))) == "2");
+    assert(boost::any_cast<int>(compare_one(boost::any(2), boost::any(3))) == 3);
+    assert(boost::any_cast<int>(compare_one(boost::any(5), boost::any(3))) == 5);
+    assert(boost::any_cast<string>(compare_one(boost::any(string("abc")), boost::any(string("def")))) == "def");
+    assert(boost::any_cast<string>(compare_one(boost::any(string("xyz")), boost::any(string("abc")))) == "xyz");
 
     return 0;
 }
