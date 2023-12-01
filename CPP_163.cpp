@@ -5,9 +5,7 @@ using namespace std;
 vector<int> generate_integers(int a, int b);
 
 bool issame(vector<int> a, vector<int> b) {
-    vector<int> result1 = generate_integers(a, b);
-    vector<int> result2 = generate_integers(b, a);
-    return result1 == result2;
+    return a == b;
 }
 
 vector<int> generate_integers(int a, int b) {
