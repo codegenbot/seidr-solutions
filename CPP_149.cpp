@@ -4,18 +4,7 @@
 #include <cassert>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    // Implementation of issame function
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
@@ -31,6 +20,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
         return a.length() < b.length();
     });
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Implementation of issame function
 }
 
 int main() {
