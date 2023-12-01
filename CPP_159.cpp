@@ -1,12 +1,30 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b)
+{
+    if (a.size() != b.size())
+    {
+        return false;
+    }
 
-vector<int> eat(int number, int need, int remaining) {
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (a[i] != b[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+vector<int> eat(int number, int need, int remaining)
+{
     int totalCarrots = number + remaining;
     int carrotsLeft = totalCarrots - need;
 
-    if (carrotsLeft < 0) {
+    if (carrotsLeft < 0)
+    {
         carrotsLeft = 0;
     }
 
