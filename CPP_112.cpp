@@ -1,4 +1,3 @@
-'''cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -27,4 +26,3 @@ int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
-'''
