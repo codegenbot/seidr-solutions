@@ -22,4 +22,4 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-assert (issame(generate_integers(17, 89), {}));
+assert(issame(generate_integers(17, 89), {}));
