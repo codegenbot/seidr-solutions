@@ -1,11 +1,21 @@
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int num1, int num2) {
-        int sum1 = getDigitSum(num1);
-        int sum2 = getDigitSum(num2);
-        if (sum1 == sum2) {
-            return num1 < num2;
-        }
-        return sum1 < sum2;
-    });
+vector<int> order_by_points(vector<int> nums){
+  if(nums.empty()){
     return nums;
+  }
+  vector<pair<int,int>> sums;
+  for(int i=0;i<nums.size();i++){
+    int sum=0;
+    int num=abs(nums[i]);
+    while(num>0){
+      sum+=num%10;
+      num/=10;
+    }
+    sums.push_back(make_pair(sum,i));
+  }
+  sort(sums.begin(),sums.end());
+  vector<int> result;
+  for(auto it=sums.begin();it!=sums.end();it++){
+    result.push_back(nums[it->second]);
+  }
+  return result;
 }
