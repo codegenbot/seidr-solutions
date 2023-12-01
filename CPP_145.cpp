@@ -1,14 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 #include <cassert>
-
-using namespace std;
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
-    string strA = to_string(a);
-    string strB = to_string(b);
+    std::string strA = std::to_string(a);
+    std::string strB = std::to_string(b);
     
     for (char c : strA) {
         if (c != '-') {
@@ -29,13 +28,26 @@ bool compare(int a, int b) {
     return sumA < sumB;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), compare);
     return nums;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
 int main() {
-    assert(order_by_points({0,6,6,-76,-21,23,4}) == vector<int>({-76, -21, 0, 4, 23, 6, 6}));
-    cout << "Test passed!" << endl;
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
