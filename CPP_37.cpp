@@ -1,5 +1,7 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
+
+vector<float> sort_even(vector<float> l);
 
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
@@ -11,19 +13,6 @@ bool issame(vector<float> a, vector<float> b){
         }
     }
     return true;
-}
-
-vector<float> sort_even(vector<float> l);
-
-int main() {
-    // Test the sort_even function
-    vector<float> l = {5.5, 2.2, 3.3, 4.4, 1.1};
-    vector<float> sorted = sort_even(l);
-    for(int i=0; i<sorted.size(); i++){
-        cout << sorted[i] << " ";
-    }
-    cout << endl;
-    return 0;
 }
 
 vector<float> sort_even(vector<float> l){
@@ -42,4 +31,18 @@ vector<float> sort_even(vector<float> l){
         }
     }
     return l_prime;
+}
+
+int main() {
+    // Test the sort_even function
+    vector<float> input = {4.5, 2.3, 7.8, 1.2, 3.4};
+    vector<float> sorted = sort_even(input);
+    vector<float> expected = {1.2, 4.5, 3.4, 7.8, 2.3};
+    if(issame(sorted, expected)){
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+    
+    return 0;
 }
