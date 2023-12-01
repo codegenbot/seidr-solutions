@@ -10,12 +10,13 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
 
-    int nickels = cents / 5;
-    cents %= 5;
+    int nickels = cents % 5;
+    cents /= 5;
 
     int pennies = cents;
+    cents = 0;
 
-    int totalCoins = quarters + dimes + nickels + pennies + cents;
+    int totalCoins = quarters + dimes + nickels + pennies;
 
     std::cout << totalCoins << std::endl;
     std::cout << pennies << std::endl;
