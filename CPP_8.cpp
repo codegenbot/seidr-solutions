@@ -1,20 +1,10 @@
 #include <vector>
 
-bool issame(vector<int> v1, vector<int> v2){
-    if(v1.size() != v2.size()){
-        return false;
-    }
-    
-    for(int i=0; i<v1.size(); i++){
-        if(v1[i] != v2[i]){
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(int a, int b){
+    return (a == b);
 }
 
-vector<int> sum_product(vector<int> numbers){
+std::vector<int> sum_product(std::vector<int> numbers){
     int sum = 0;
     int product = 1;
     
@@ -27,8 +17,8 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 int main(){
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<int> result = sum_product(numbers);
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::vector<int> result = sum_product(numbers);
     
     return 0;
 }
