@@ -16,9 +16,7 @@ int getScore(const std::string& input) {
             if (i + 2 < input.length()) {
                 if (input[i + 2] == '/') {
                     score += 10;
-                } else if (input[i + 1] == '/' || input[i + 2] == '/') {
-                    score += 10;
-                } else if (input[i + 1] != 'X' && input[i + 2] != 'X') {
+                } else if (input[i + 1] != 'X' || input[i + 2] != 'X') {
                     score += (input[i + 1] - '0') + (input[i + 2] - '0');
                 }
             }
@@ -27,7 +25,7 @@ int getScore(const std::string& input) {
         } else if (input[i] == '/') {
             score += (10 - (input[i - 1] - '0'));
 
-            if (i + 1 < input.length() && input[i + 1] != 'X') {
+            if (i + 1 < input.length() && input[i + 1] != 'X' && input[i + 1] != '-') {
                 score += (input[i + 1] - '0');
             }
 
