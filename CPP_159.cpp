@@ -15,7 +15,7 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    if (eat(4, 5, 1) == vector<int>{5, 0}) {
+    if (issame(eat(4, 5, 1), {5, 0})) {
         cout << "Test case passed!" << endl;
     } else {
         cout << "Test case failed!" << endl;
