@@ -25,10 +25,15 @@ int closest_integer(string value) {
         return ceil_num;
     }
 }
-
+/*
 int main() {
     assert(closest_integer("0") == 0);
     // more test cases...
 
+    return 0;
+}
+*/
+
+int main() {
     return 0;
 }

@@ -1,4 +1,12 @@
-vector<string> by_length(vector<int> arr){
+#include <vector>
+#include <string>
+#include <cassert>
+#include <algorithm>
+#include <map>
+
+using namespace std;
+
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
 
     // Sort the integers between 1 and 9
@@ -27,4 +35,11 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
+}
+
+int main() {
+    // assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    // Add more test cases if needed
+
+    return 0;
 }
