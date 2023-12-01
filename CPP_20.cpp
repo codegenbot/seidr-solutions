@@ -2,7 +2,10 @@
 #include <cmath>
 #include <vector>
 
-bool issame(vector<float> a, vector<float> b);
+bool issame(vector<float> a, vector<float> b) {
+    // Function implementation
+    // ...
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = INFINITY;
@@ -24,11 +27,6 @@ vector<float> find_closest_elements(vector<float> numbers) {
     result.push_back(second_num);
     
     return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    // Function implementation
-    // ...
 }
 
 int main() {
