@@ -1,29 +1,33 @@
-def calculate_bowling_score(round_string):
-    score = 0
-    frame = 1
-    i = 0
-    while frame <= 10:
-        if round_string[i] == 'X':
-            score += 10
-            if round_string[i+2] == 'X':
-                score += 10
-            elif round_string[i+2] == '/':
-                score += 10 - int(round_string[i+1])
-            else:
-                score += int(round_string[i+1]) + int(round_string[i+2])
-            i += 1
-        elif round_string[i+1] == '/':
-            score += 10
-            if round_string[i+2] == 'X':
-                score += 10
-            else:
-                score += int(round_string[i+2])
-            i += 2
+def bowling(score):
+    frames = []
+    frame = []
+    for i in range(len(score)):
+        if score[i] == 'X':
+            frame.append(10)
+            frames.append(frame)
+            frame = []
+        elif score[i] == '/':
+            frame.append(10 - int(score[i-1]))
+            frames.append(frame)
+            frame = []
+        elif score[i] == '-':
+            frame.append(0)
         else:
-            score += int(round_string[i]) + int(round_string[i+1])
-            i += 2
-        frame += 1
-    return score
+            frame.append(int(score[i]))
 
-round_string = input()
-print(calculate_bowling_score(round_string))
+        if len(frame) == 2 or score[i] == 'X':
+            frames.append(frame)
+            frame = []
+
+    total_score = 0
+    for i in range(10):
+        if frames[i][0] == 10:
+            total_score += 10 + sum(frames[i+1][:2])
+            if frames[i+1][0] == 10:
+                total_score += frames[i+2][0]
+        elif sum(frames[i]) == 10:
+            total_score += 10 + frames[i+1][0]
+        else:
+            total_score += sum(frames[i])
+
+    return total_score
