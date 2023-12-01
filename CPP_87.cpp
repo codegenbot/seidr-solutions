@@ -2,7 +2,21 @@
 #include <algorithm>
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    // Your implementation of the `issame` function
+    // Implementation of the `issame` function
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].size() != b[i].size()) {
+            return false;
+        }
+        for (int j = 0; j < a[i].size(); j++) {
+            if (a[i][j] != b[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
