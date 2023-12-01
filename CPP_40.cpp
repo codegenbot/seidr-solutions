@@ -1,4 +1,6 @@
-bool triples_sum_to_zero(vector<int> l){
+#include <vector>
+
+bool triples_sum_to_zero(std::vector<int> l){
     int n = l.size();
     for(int i=0; i<n-2; i++){
         for(int j=i+1; j<n-1; j++){
