@@ -1,10 +1,8 @@
-#include <map>
-#include <cassert>
+#include<iostream>
+#include<map>
+#include<assert.h>
 
 using namespace std;
-
-map<char, int> histogram(string test);
-bool issame(const map<char, int>& a, const map<char, int>& b);
 
 map<char, int> histogram(string test) {
     map<char, int> counts;
@@ -12,14 +10,17 @@ map<char, int> histogram(string test) {
     for (int i = 0; i < test.length(); i++) {
         if (test[i] != ' ') {
             letter = test[i];
-            counts[letter]++;
+        } else {
+            counts[letter] += 1;
+            letter = ' ';
         }
     }
+    if (letter != ' ') counts[letter] += 1;
     return counts;
 }
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
+bool issame(map<char, int> a, map<char, int> b) {
+    return a.size() == b.size() && a == b;
 }
 
 int main() {
