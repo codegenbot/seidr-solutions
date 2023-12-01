@@ -2,7 +2,16 @@
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2);
-bool issame(vector<int>& a, vector<int>& b);
+
+bool issame(vector<int>& a, vector<int>& b){
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
+}
 
 vector<int> common(vector<int> l1, vector<int> l2){
     vector<int> result;
@@ -29,19 +38,8 @@ vector<int> common(vector<int> l1, vector<int> l2){
     return result;
 }
 
-bool issame(vector<int>& a, vector<int>& b){
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    // Add more test cases if necessary
     
     return 0;
 }
