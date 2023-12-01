@@ -17,17 +17,16 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 int main(){
-    // add your test cases here using sum_product and issame functions
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<int> result = sum_product(numbers);
-    for(auto i : result){
-        cout << i << " ";
-    }
-    cout << endl;
-
+    vector<int> input = {1, 2, 3, 4, 5};
+    vector<int> result = sum_product(input);
+    
+    // Print the sum and product
+    cout << "Sum: " << result[0] << endl;
+    cout << "Product: " << result[1] << endl;
+    
     vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
+    vector<int> b = {4, 5, 6};
     issame(a, b);
-
+    
     return 0;
 }
