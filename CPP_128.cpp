@@ -1,4 +1,6 @@
-int prod_signs(vector<int> arr){
+#include <vector>
+
+int prod_signs(std::vector<int> arr){
     if(arr.empty()){
         return -32768;
     }
