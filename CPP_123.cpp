@@ -4,8 +4,8 @@
 #include <iostream>
 
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+ 
+bool issame(vector<int> a, vector<int> b) { 
   return a == b;
 }
 
@@ -26,13 +26,13 @@ vector<int> get_odd_collatz(int n) {
       odd_collatz_seq.push_back(collatz_seq[i]);
     }
   }
-  sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
+  sort(odd_collatz_seq.begin(), odd_collatz_seq.end()); 
   return odd_collatz_seq;
 }
 
 vector<int> expected = {1};
 vector<int> result = get_odd_collatz(1);
-if (issame(result, expected)) {
+if (issame(result, expected)) { 
   cout << "Output is correct" << endl;
 } else {
   cout << "Output is incorrect" << endl;
