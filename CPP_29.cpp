@@ -28,9 +28,9 @@ bool issame(vector<string> a, vector<string> b){
 
 int main() {
     vector<string> filter_by_prefix(vector<string> strings, string prefix);
-
+    
     vector<string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxxA1"}, "xxx");
     assert(issame(result, {"xxx", "xxxA", "xxxA1"}));
-
+    
     return 0;
 }
