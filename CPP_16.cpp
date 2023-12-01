@@ -1,5 +1,9 @@
+#include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
+#include <cassert>
+
 using namespace std;
 
 int count_distinct_characters(string str) {
