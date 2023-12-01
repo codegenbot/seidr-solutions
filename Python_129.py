@@ -1,29 +1,31 @@
 def minPath(grid, k):
-    n = len(grid)
-    m = len(grid[0])
-    visited = [[False] * m for _ in range(n)]
-    
-    def dfs(i, j, path):
+    def dfs(i, j, path, visited):
         if len(path) == k:
             return path
-        
-        visited[i][j] = True
-        path.append(grid[i][j])
-        
-        neighbors = [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]
-        neighbors = [(x, y) for x, y in neighbors if 0 <= x < n and 0 <= y < m and not visited[x][y]]
+        visited.add((i, j))
+        neighbors = []
+        if i > 0 and (i-1, j) not in visited:
+            neighbors.append((i-1, j))
+        if i < len(grid)-1 and (i+1, j) not in visited:
+            neighbors.append((i+1, j))
+        if j > 0 and (i, j-1) not in visited:
+            neighbors.append((i, j-1))
+        if j < len(grid[0])-1 and (i, j+1) not in visited:
+            neighbors.append((i, j+1))
         neighbors.sort(key=lambda x: grid[x[0]][x[1]])
-        
-        for x, y in neighbors:
-            res = dfs(x, y, path)
-            if res:
-                return res
-        
-        visited[i][j] = False
-        path.pop()
-    
-    for i in range(n):
-        for j in range(m):
-            res = dfs(i, j, [])
-            if res:
-                return res
+        for neighbor in neighbors:
+            path.append(grid[neighbor[0]][neighbor[1]])
+            result = dfs(neighbor[0], neighbor[1], path, visited)
+            if result:
+                return result
+            path.pop()
+        visited.remove((i, j))
+
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            path = [grid[i][j]]
+            visited = set()
+            visited.add((i, j))
+            result = dfs(i, j, path, visited)
+            if result:
+                return result
