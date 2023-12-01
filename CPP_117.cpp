@@ -1,38 +1,45 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
 vector<string> select_words(string s, int n) {
+    vector<string> result;
     if (s.empty()) {
-        return {};
+        return result;
     }
     
-    vector<string> words;
-    string word;
-    for (char c : s) {
-        if (isalpha(c)) {
-          // Count the number of consonants in the word
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                word += c;
+    string word = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            if (word.length() >= n) {
+                int consonantCount = 0;
+                for (int j = 0; j < word.length(); j++) {
+                    if (isalpha(word[j]) && !isVowel(word[j])) {
+                        consonantCount++;
+                    }
+                }
+                if (consonantCount == n) {
+                    result.push_back(word);
+                }
             }
-        } else if (!word.empty()) {
-          // Add the word to the vector if it has the desired number of consonants
-            if (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
-                + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
-                + count(word.begin(), word.end(), 'u') != n) {
-                words.push_back(word);
-            }
-            
             word = "";
+        } else {
+            word += s[i];
         }
     }
     
-    // Check if the last word in the string has the desired number of consonants
-    if (!word.empty() && (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
-                         + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
-                         + count(word.begin(), word.end(), 'u') != n)) {
-        words.push_back(word);
+    if (word.length() >= n) {
+        int consonantCount = 0;
+        for (int j = 0; j < word.length(); j++) {
+            if (isalpha(word[j]) && !isVowel(word[j])) {
+                consonantCount++;
+            }
+        }
+        if (consonantCount == n) {
+            result.push_back(word);
+        }
     }
     
-    return words;
+    return result;
+}
+
+bool isVowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
