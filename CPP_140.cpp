@@ -1,20 +1,22 @@
-string fix_spaces(string text){
-    string result;
-    int count = 0;
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(count < 2){
-                result += '_';
-                count++;
-            }
-            else{
+#include <string>
+using namespace std;
+
+string fix_spaces(string text) {
+    int consecutiveSpaces = 0;
+    int n = text.length();
+    string result = "";
+
+    for (int i = 0; i < n; i++) {
+        if (text[i] == ' ') {
+            consecutiveSpaces++;
+            if (consecutiveSpaces > 2) {
                 result += '-';
-                count = 0;
+            } else {
+                result += '_';
             }
-        }
-        else{
+        } else {
             result += text[i];
-            count = 0;
+            consecutiveSpaces = 0;
         }
     }
     return result;
