@@ -27,14 +27,14 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
         int currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff <= diff || (currentDiff == diff && i > index)) {
+        if (currentDiff <= diff) {
             diff = currentDiff;
-            index = i + 1;
+            index = i;
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
+    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
 }
