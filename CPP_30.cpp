@@ -1,6 +1,16 @@
 #include <vector>
 #include <cassert>
 
+vector<float> get_positive(vector<float> l){
+    vector<float> positive_nums;
+    for (float num : l) {
+        if (num > 0) {
+            positive_nums.push_back(num);
+        }
+    }
+    return positive_nums;
+}
+
 bool issame(vector<float> a, vector<float> b){
     if (a.size() != b.size()) {
         return false;
@@ -11,16 +21,6 @@ bool issame(vector<float> a, vector<float> b){
         }
     }
     return true;
-}
-
-vector<float> get_positive(vector<float> l){
-    vector<float> positive_nums;
-    for (float num : l) {
-        if (num > 0) {
-            positive_nums.push_back(num);
-        }
-    }
-    return positive_nums;
 }
 
 int main() {
