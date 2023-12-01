@@ -12,23 +12,26 @@ vector<int> incr_list(vector<int> l){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+    if (a.size() != b.size()){
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i=0; i<a.size(); i++){
+        if (a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-int main() {
-    vector<int> result = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
+int main(){
+    vector<int> l = {5, 2, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> result = incr_list(l);
+
     if (issame(result, {6, 3, 6, 3, 4, 4, 10, 1, 124})) {
         cout << "Output is correct" << endl;
     } else {
         cout << "Output is incorrect" << endl;
     }
+
     return 0;
 }
