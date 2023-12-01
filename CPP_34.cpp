@@ -6,17 +6,17 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> unique(vector<int> l){
+vector<int> unique(vector<int> l) {
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return unique(a) == unique(b);
 }
 
-int main(){
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+int main() {
+    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), unique({0, 2, 3, 5, 9, 123})));
     return 0;
 }
