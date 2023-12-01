@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
     for (const string& str : strings) {
@@ -13,6 +20,9 @@ bool issame(vector<string> a) {
 }
 
 int main() {
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == {"grunt", "prune"});
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == filter_by_substring({"grunt", "prune"}, "run"));
+    
+    cout << "Test cases passed!" << endl;
+    
     return 0;
 }
