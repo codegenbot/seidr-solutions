@@ -15,7 +15,7 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else if(grades[i] > 3.0)
             letter_grades.push_back("B+");
         else if(grades[i] > 2.7)
-            letter_grades.push_back("B");
+            letter_grades.push_back("B"); 
         else if(grades[i] > 2.3)
             letter_grades.push_back("B-");
         else if(grades[i] > 2.0)
@@ -34,16 +34,4 @@ vector<string> numerical_letter_grade(vector<float> grades){
             letter_grades.push_back("E");
     }
     return letter_grades;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
