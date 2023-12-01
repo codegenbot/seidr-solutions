@@ -1,32 +1,39 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string file_name_check(string file_name);
+
+int main() {
+    assert (file_name_check("s.") == "No");
+
+    return 0;
+}
+
 string file_name_check(string file_name){
-    int dotIndex = file_name.find(".");
-    if(dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length()-1){
-        return "No";
-    }
+    int digits = 0;
+    int dot = 0;
+    int dotIndex = -1;
+    int len = file_name.length();
     
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex+1);
-    
-    if(beforeDot.empty()){
-        return "No";
-    }
-    
-    if(beforeDot.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos){
-        return "No";
-    }
-    
-    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
-        return "No";
-    }
-    
-    int digitCount = 0;
-    for(char c : file_name){
-        if(isdigit(c)){
-            digitCount++;
+    for(int i = 0; i < len; i++){
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            digits++;
+        }
+        else if(file_name[i] == '.'){
+            dot++;
+            dotIndex = i;
         }
     }
     
-    if(digitCount > 3){
+    if(digits > 3 || dot != 1 || dotIndex == 0 || dotIndex == len - 1){
+        return "No";
+    }
+    
+    string extension = file_name.substr(dotIndex + 1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
     
