@@ -1,4 +1,11 @@
-vector<string> total_match(vector<string> lst1,vector<string> lst2){
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2){
     int sum1 = 0, sum2 = 0;
     for(string s : lst1){
         sum1 += s.length();
@@ -10,4 +17,8 @@ vector<string> total_match(vector<string> lst1,vector<string> lst2){
         return lst1;
     }
     return lst2;
+}
+
+bool issame_new(vector<string> a, vector<string> b){
+    return a == b;
 }
