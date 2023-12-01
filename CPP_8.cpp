@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> sum_product(vector<int> numbers){
+vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
 
@@ -12,12 +12,28 @@ vector<int> sum_product(vector<int> numbers){
     return {sum, product};
 }
 
-int main() {
-    vector<int> a = {1, 2, 3, 4, 5};
-    vector<int> b = {1, 2, 3, 4, 5};
+int issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return 0;
+    }
 
-    vector<int> result = sum_product(a);
-    bool is_same = issame(a, b);
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> result = sum_product(numbers);
+
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+
+    int same = issame(a, b);
 
     return 0;
 }
