@@ -1,3 +1,6 @@
+import math
+
+
 def poly():
     xs = [float(coeff) for coeff in input().split()]
     x = float(input())
