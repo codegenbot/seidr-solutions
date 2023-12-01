@@ -32,7 +32,6 @@ int main() {
     if (result.empty()) {
         std::cout << 0;
     } else {
-        // Print the elements of the result vector
         for (int i : result) {
             std::cout << i << " ";
         }
