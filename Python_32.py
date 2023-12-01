@@ -2,7 +2,7 @@ import math
 
 
 def poly(xs: list, x: float):
-    return sum([coeff * x**i for i, coeff in reversed(list(enumerate(xs)))])
+    return sum([coeff * x ** i for i, coeff in reversed(list(enumerate(xs)))])
 
 
 def find_zero(xs: list):
