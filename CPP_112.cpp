@@ -1,15 +1,12 @@
 vector<string> reverse_delete(string s, string c) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (c.find(s[i]) == string::npos) {
-            result += s[i];
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
+            result += ch;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    bool isPalindrome = (result == reversed);
-    vector<string> output;
-    output.push_back(result);
-    output.push_back(isPalindrome ? "True" : "False");
-    return output;
+    string reverse_result = result;
+    reverse(reverse_result.begin(), reverse_result.end());
+    bool is_palindrome = (result == reverse_result);
+    return {result, (is_palindrome ? "True" : "False")};
 }
