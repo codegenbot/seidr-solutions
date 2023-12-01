@@ -1,6 +1,15 @@
 #include <vector>
 
-int skjkasdkd(vector<int> lst) {
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+int largestPrimeSum(vector<int> lst) {
     int largestPrime = 0;
     for (int num : lst) {
         bool isPrime = true;
@@ -14,12 +23,5 @@ int skjkasdkd(vector<int> lst) {
             largestPrime = num;
         }
     }
-
-    int sum = 0;
-    while (largestPrime != 0) {
-        sum += largestPrime % 10;
-        largestPrime /= 10;
-    }
-
-    return sum;
+    return sumOfDigits(largestPrime);
 }
