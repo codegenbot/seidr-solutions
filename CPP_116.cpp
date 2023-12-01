@@ -1,10 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-vector<int> sort_vector(vector<int> arr){
-    sort(arr.begin(), arr.end(), [](int a, int b){
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end(), [](int a, int b){
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
         if(countA == countB){
@@ -15,21 +14,13 @@ vector<int> sort_vector(vector<int> arr){
     return arr;
 }
 
-bool is_same(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-int main(){
-    if (is_same(sort_vector({2,4,8,16,32}), {2, 4, 8, 16, 32})){
-        // Code works as expected
+int main() {
+    std::vector<int> sorted = sort_array({2, 4, 8, 16, 32});
+    std::vector<int> expected = {2, 4, 8, 16, 32};
+    if (std::equal(sorted.begin(), sorted.end(), expected.begin())) {
+        std::cout << "Array sorting is correct!" << std::endl;
+    } else {
+        std::cout << "Array sorting is incorrect!" << std::endl;
     }
     return 0;
 }
