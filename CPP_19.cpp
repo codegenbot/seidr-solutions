@@ -1,36 +1,49 @@
-string sort_numbers(string numbers){
-    map<string, int> number_map;
-    number_map["zero"] = 0;
-    number_map["one"] = 1;
-    number_map["two"] = 2;
-    number_map["three"] = 3;
-    number_map["four"] = 4;
-    number_map["five"] = 5;
-    number_map["six"] = 6;
-    number_map["seven"] = 7;
-    number_map["eight"] = 8;
-    number_map["nine"] = 9;
-    
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string num;
-    while (getline(ss, num, ' ')){
-        sorted_numbers.push_back(number_map[num]);
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <algorithm>
+
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> numberMap = {
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
+
+    std::istringstream iss(numbers);
+    std::vector<std::string> numberList;
+    std::string number;
+
+    while (iss >> number) {
+        numberList.push_back(number);
     }
-    
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-    
-    string result;
-    for (int i = 0; i < sorted_numbers.size(); i++){
-        for (auto it = number_map.begin(); it != number_map.end(); ++it){
-            if (it->second == sorted_numbers[i]){
-                result += it->first + " ";
-                break;
-            }
-        }
+
+    std::sort(numberList.begin(), numberList.end(), [&](const std::string& a, const std::string& b) {
+        return numberMap[a] < numberMap[b];
+    });
+
+    std::string sortedNumbers;
+    for (const auto& num : numberList) {
+        sortedNumbers += num + " ";
     }
-    
-    result.pop_back(); // remove the last space
-    
-    return result;
+
+    return sortedNumbers;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter space-delimited string of numbers: ";
+    std::getline(std::cin, input);
+
+    std::string sortedNumbers = sort_numbers(input);
+    std::cout << "Sorted numbers: " << sortedNumbers << std::endl;
+
+    return 0;
 }
