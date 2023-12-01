@@ -1,5 +1,7 @@
 #include <vector>
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> tri(int n){
     vector<int> sequence;
     sequence.push_back(3); // add the first element of the sequence
@@ -35,9 +37,7 @@ vector<int> tri(int n){
     return sequence; // return the complete sequence
 }
 
-bool issame(vector<int> a, vector<int> b);
-
-int main() {
+int main(){
     assert(issame(tri(1) , {1, 3}));
     return 0;
 }
