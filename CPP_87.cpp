@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
