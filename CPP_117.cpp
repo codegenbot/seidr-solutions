@@ -2,7 +2,9 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -19,7 +21,7 @@ vector<string> select_words(string s, int n){
     if(s.empty()){
         return result;
     }
- 
+    
     string word;
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
@@ -32,11 +34,11 @@ vector<string> select_words(string s, int n){
             word += s[i];
         }
     }
- 
+    
     if(count_consonants(word) == n){
         result.push_back(word);
     }
- 
+    
     return result;
 }
 
