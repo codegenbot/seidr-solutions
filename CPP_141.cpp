@@ -4,6 +4,14 @@
 
 using namespace std;
 
+string file_name_check(string file_name);
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    // more test cases...
+    return 0;
+}
+
 string file_name_check(string file_name){
     int dotIndex = file_name.find('.');
     if(dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length()-1){
@@ -27,10 +35,4 @@ string file_name_check(string file_name){
         return "No";
     }
     return "Yes";
-}
-
-int main(){
-    assert (file_name_check("s.") == "No");
-    
-    return 0;
 }
