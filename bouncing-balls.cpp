@@ -12,11 +12,11 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
     double totalDistance = 0;
 
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += firstBounceHeight;
-        firstBounceHeight *= 2 / bouncinessIndex;
+        totalDistance += 2 * firstBounceHeight * bouncinessIndex;
+        firstBounceHeight *= bouncinessIndex;
     }
 
-    return totalDistance + startingHeight;
+    return totalDistance - startingHeight;
 }
 
 int main() {
