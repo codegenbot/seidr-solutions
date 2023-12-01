@@ -1,5 +1,7 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+using namespace std;
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -22,7 +24,7 @@ vector<string> split_words(string txt){
     }
     
     if(result.empty()){
-        result.push_back(to_string(3));
+        result.push_back("3");
     }
     
     return result;
@@ -33,7 +35,7 @@ bool issame(vector<string> a, vector<string> b){
         return false;
     }
     
-    for(int i=0; i<a.size(); i++){
+    for(size_t i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -47,26 +49,15 @@ int main(){
     getline(cin, txt);
     
     vector<string> words = split_words(txt);
+    vector<string> target = {"hello", "world", "cpp"};
     
-    vector<string> a;
-    vector<string> b;
-    
-    for(int i=0; i<words.size(); i++){
-        if(i % 2 == 0){
-            a.push_back(words[i]);
-        }
-        else{
-            b.push_back(words[i]);
-        }
-    }
-    
-    bool same = issame(a, b);
+    bool same = issame(words, target);
     
     if(same){
-        cout << "Same" << endl;
+        cout << "Same words" << endl;
     }
     else{
-        cout << "Different" << endl;
+        cout << "Different words" << endl;
     }
     
     return 0;
