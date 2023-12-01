@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-pair<int, int> getClues(string code, string guess) {
+std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     int codeCount[6] = {0};
@@ -18,19 +17,19 @@ pair<int, int> getClues(string code, string guess) {
     }
 
     for (int i = 0; i < 6; i++) {
-        whitePegs += min(codeCount[i], guessCount[i]);
+        whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
-    return make_pair(whitePegs, blackPegs);
+    return std::make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
 
-    pair<int, int> clues = getClues(code, guess);
-    cout << clues.first << endl;
-    cout << clues.second << endl;
+    std::pair<int, int> result = mastermind(code, guess);
+    std::cout << result.first << std::endl;
+    std::cout << result.second << std::endl;
 
     return 0;
 }
