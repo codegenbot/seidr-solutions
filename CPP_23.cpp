@@ -1,6 +1,6 @@
 #include <string>
 
-int strLength(string str){
+int strLength(std::string str){
     return str.length();
 }
 
