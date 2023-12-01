@@ -1,18 +1,35 @@
-template<typename T>
-T boost_any_cast(const boost::any& operand) {
-    try {
-        return boost::any_cast<T>(operand);
-    }
-    catch(const boost::bad_any_cast& e) {
-        return T();
-    }
-}
+#include <string>
+#include <algorithm>
 
-template<typename T1, typename T2>
-boost::any compare_one(const T1& a, const T2& b) {
-    static_assert(std::is_arithmetic<T1>::value || std::is_same<T1, std::string>::value,
-                  "T1 must be an arithmetic type or std::string");
-    static_assert(std::is_arithmetic<T2>::value || std::is_same<T2, std::string>::value,
-                  "T2 must be an arithmetic type or std::string");
-    return std::max(boost_any_cast<T1>(a), boost_any_cast<T2>(b));
+auto compare_one(auto a, auto b) {
+    if (typeid(a) == typeid(int) && typeid(b) == typeid(int)) {
+        int num1 = a;
+        int num2 = b;
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
+        }
+    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(float)) {
+        float num1 = a;
+        float num2 = b;
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
+        }
+    } else if (typeid(a) == typeid(std::string) && typeid(b) == typeid(std::string)) {
+        std::string str1 = a;
+        std::string str2 = b;
+        std::replace(str1.begin(), str1.end(), ',', '.');
+        std::replace(str2.begin(), str2.end(), ',', '.');
+        float num1 = std::stof(str1);
+        float num2 = std::stof(str2);
+        if (num1 > num2) {
+            return str1;
+        } else if (num2 > num1) {
+            return str2;
+        }
+    }
+    return decltype(a)();
 }

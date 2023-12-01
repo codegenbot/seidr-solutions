@@ -2,12 +2,14 @@
 #include <vector>
 #include <cassert>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool is_same(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> piles;
+vector<int> make_a_pile(int n) {
+    vector<int> piles;
     int stones = n;
     for (int i = 0; i < n; i++) {
         piles.push_back(stones);
@@ -21,7 +23,7 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(is_same(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
-    std::cout << "Test passed!" << std::endl;
+    assert(is_same(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    cout << "Test passed!" << endl;
     return 0;
 }
