@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 
-int sumOfOddNumbers(std::vector<int> lst) {
+int sumOfOddNumbers(vector<int> lst) {
     int sum = 0;
     for (int i = 0; i < lst.size(); i++) {
         if (i % 2 == 0 && lst[i] % 2 != 0) {
