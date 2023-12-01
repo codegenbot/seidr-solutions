@@ -22,7 +22,7 @@ def prime_fib(n: int):
 
     fib_numbers = fibonacci(2 * n)
     prime_fib_numbers = [num for num in fib_numbers if is_prime(num)]
-    
+
     if prime_fib_numbers:
         return prime_fib_numbers[n - 1]
     else:
