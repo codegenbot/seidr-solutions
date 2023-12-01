@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 bool evaluateBooleanExpression(const std::string& expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
@@ -10,9 +7,15 @@ bool evaluateBooleanExpression(const std::string& expression) {
             parenthesisCount++;
         } else if (expression[i] == ')') {
             parenthesisCount--;
-        } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0) {
-            opIndex = i;
-            break;
+        } else if (parenthesisCount == 0) {
+            if (expression[i] == '|') {
+                opIndex = i;
+                break;
+            } else if (expression[i] == '&') {
+                if (opIndex == -1 || expression[opIndex] == '|') {
+                    opIndex = i;
+                }
+            }
         }
     }
 
@@ -20,30 +23,18 @@ bool evaluateBooleanExpression(const std::string& expression) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
         bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
 
-        switch (expression[opIndex]) {
-            case '|':
-                return left || right;
-            case '&':
-                return left && right;
+        if (expression[opIndex] == '&') {
+            return left && right;
+        } else {
+            return left || right;
         }
     } else {
-        if (expression[opIndex] == 't') {
+        if (expression[0] == 't') {
             return true;
-        } else if (expression[opIndex] == 'f') {
+        } else if (expression[0] == 'f') {
             return false;
         }
     }
 
     return false;
-}
-
-int main() {
-    std::string expression;
-    std::getline(std::cin, expression);
-
-    bool result = evaluateBooleanExpression(expression);
-
-    std::cout << std::boolalpha << result << std::endl;
-
-    return 0;
 }
