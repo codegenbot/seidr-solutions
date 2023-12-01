@@ -4,7 +4,6 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string>& b) {
-    // Implementation of issame
     if (a.size() != b.size()) {
         return false;
     }
