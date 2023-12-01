@@ -20,4 +20,5 @@ vector<int> maximum(vector<int> arr, int k) {
 
 int main() {
     // function body
+    return 0;
 }
