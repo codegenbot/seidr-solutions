@@ -5,12 +5,8 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-if __name__ == "__main__":
-    n = int(input())
-    strings = []
-    for _ in range(n):
-        string = input()
-        strings.append(string)
+string_list = input("Enter strings (separated by space): ").split()
 
-    result = longest(strings)
-    print(result)
+result = longest(string_list)
+
+print("Longest string: ", result)
