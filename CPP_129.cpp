@@ -1,72 +1,84 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-  int n = grid.size();
-  
-  // initialize variables
-  int row = 0, col = 0, count = 0;
-  
-  // store the minimum path values
-  vector<int> path;
-  
-  // check if k is less than n
-  if(k <= n){
-    while(count < k){
-      // add the current value to path
-      path.push_back(grid[row][col]);
-      count++;
-      
-      // move to the next cell
-      if(col < n - 1){
-        col++;
-      }
-      else{
-        row++;
-      }
-    }
-  }
-  else{
-    // calculate the number of complete cycles
-    int cycles = (k - n) / (2 * (n - 1));
-    int remaining = (k - n) % (2 * (n - 1));
-    
-    // add the values from the first row
-    for(int i = 0; i < n; i++){
-      path.push_back(grid[0][i]);
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+        
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
     }
     
-    // add the values from last column
-    for(int i = 1; i < n; i++){
-      path.push_back(grid[i][n - 1]);
+    return true;
+}
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<int> path;
+    
+    // Find the starting cell with the minimum value
+    int minVal = INT_MAX;
+    int startRow, startCol;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (grid[i][j] < minVal) {
+                minVal = grid[i][j];
+                startRow = i;
+                startCol = j;
+            }
+        }
     }
     
-    // add the values from the last row in reverse order
-    for(int i = n - 2; i >= 0; i--){
-      path.push_back(grid[n - 1][i]);
+    // Add the starting cell value to the path
+    path.push_back(minVal);
+    
+    // Move to the neighbor cell with the minimum value in each step
+    int currentRow = startRow;
+    int currentCol = startCol;
+    for (int step = 1; step < k; step++) {
+        int minValue = INT_MAX;
+        int nextRow, nextCol;
+        
+        // Check the neighbor cells
+        if (currentRow > 0 && grid[currentRow - 1][currentCol] < minValue) {
+            minValue = grid[currentRow - 1][currentCol];
+            nextRow = currentRow - 1;
+            nextCol = currentCol;
+        }
+        if (currentRow < n - 1 && grid[currentRow + 1][currentCol] < minValue) {
+            minValue = grid[currentRow + 1][currentCol];
+            nextRow = currentRow + 1;
+            nextCol = currentCol;
+        }
+        if (currentCol > 0 && grid[currentRow][currentCol - 1] < minValue) {
+            minValue = grid[currentRow][currentCol - 1];
+            nextRow = currentRow;
+            nextCol = currentCol - 1;
+        }
+        if (currentCol < n - 1 && grid[currentRow][currentCol + 1] < minValue) {
+            minValue = grid[currentRow][currentCol + 1];
+            nextRow = currentRow;
+            nextCol = currentCol + 1;
+        }
+        
+        // Move to the neighbor cell with the minimum value
+        currentRow = nextRow;
+        currentCol = nextCol;
+        
+        // Add the value of the current cell to the path
+        path.push_back(grid[currentRow][currentCol]);
     }
     
-    // add the values from the first column in reverse order
-    for(int i = n - 2; i >= 1; i--){
-      path.push_back(grid[i][0]);
-    }
-    
-    // add the values from the remaining part of the path
-    row = 1;
-    col = 1;
-    count = n * 2 - 4;
-    
-    while(count < k){
-      // add the current value to path
-      path.push_back(grid[row][col]);
-      count++;
-      
-      // move to the next cell
-      if(col < n - 1){
-        col++;
-      }
-      else{
-        row++;
-      }
-    }
-  }
-  
-  return path;
+    return path;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+
+    return 0;
 }
