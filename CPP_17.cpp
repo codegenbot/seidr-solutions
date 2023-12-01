@@ -1,8 +1,7 @@
 #include <vector>
+#include <cassert>
 
-vector<int> parse_music(string music_string);
-
-bool issame(vector<int> a, vector<int> b){
+bool are_same(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -62,7 +61,7 @@ vector<int> parse_music(string music_string){
     return beats;
 }
 
-int main() {
-    assert(parse_music("o| .| o| .| o o| o o|") == vector<int>{2, 1, 2, 1, 4, 2, 4, 2});
+int main(){
+    assert(are_same(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
