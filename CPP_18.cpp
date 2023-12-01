@@ -1,11 +1,14 @@
-int how_many_times(string str, string substring) {
+#include <cassert>
+#include <string>
+
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
-    if (substring.length() == 0) {
-        return 0;
-    }
-    for (int i = 0; i <= str.length() - substring.length(); i++) {
+    int subLen = substring.length();
+    int strLen = str.length();
+
+    for (int i = 0; i <= strLen - subLen; i++) {
         bool found = true;
-        for (int j = 0; j < substring.length(); j++) {
+        for (int j = 0; j < subLen; j++) {
             if (str[i + j] != substring[j]) {
                 found = false;
                 break;
@@ -15,5 +18,14 @@ int how_many_times(string str, string substring) {
             count++;
         }
     }
+
     return count;
+}
+
+int main() {
+    // Test the implementation with desired inputs
+    assert(how_many_times("hellohellohello", "hello") == 3);
+    assert(how_many_times("abababababab", "aba") == 5);
+
+    return 0;
 }
