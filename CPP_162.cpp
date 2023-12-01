@@ -1,5 +1,5 @@
 #include <string>
-#include <openssl/evp.h>
+#include <openssl/md5.h>
 using namespace std;
 
 string string_to_md5(string text) {
@@ -7,22 +7,13 @@ string string_to_md5(string text) {
         return "None";
     }
 
-    const EVP_MD *md = EVP_md5();
-    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, md, NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-
-    unsigned char digest[16];
-    unsigned int digestLength;
-    EVP_DigestFinal_ex(mdctx, digest, &digestLength);
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)text.c_str(), text.length(), digest);
 
     char md5String[33];
     for(int i = 0; i < 16; i++) {
-        sprintf(&md5String[i*2], "%02x", digest[i]);
+        sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
     }
-    md5String[32] = '\0';
-
-    EVP_MD_CTX_free(mdctx);
 
     return md5String;
 }
