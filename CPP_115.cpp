@@ -1,17 +1,15 @@
+#include <iostream>
 #include <vector>
 
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int rows = grid.size();
-    int cols = grid[0].size();
+int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
     int count = 0;
-    
-    for (int j = 0; j < cols; j++) {
-        int sum = 0;
-        for (int i = 0; i < rows; i++) {
-            sum += grid[i][j];
+    for (const auto& row : grid) {
+        for (int val : row) {
+            if (val > 0) {
+                int buckets_needed = (val + capacity - 1) / capacity;
+                count += buckets_needed;
+            }
         }
-        count += (sum + capacity - 1) / capacity;
     }
-    
     return count;
 }
