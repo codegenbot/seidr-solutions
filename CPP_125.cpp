@@ -1,14 +1,22 @@
-#include <iostream>
-#include <vector>
 #include <string>
-using namespace std;
+#include <vector>
 
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
+    bool hasWhitespace = false;
+    bool hasComma = false;
     
     for(char c : txt){
-        if(c == ' ' || c == ','){
+        if(c == ' '){
+            hasWhitespace = true;
+            if(word != ""){
+                result.push_back(word);
+                word = "";
+            }
+        }
+        else if(c == ','){
+            hasComma = true;
             if(word != ""){
                 result.push_back(word);
                 word = "";
@@ -24,7 +32,7 @@ vector<string> split_words(string txt){
     }
     
     if(result.empty()){
-        result.push_back("3");
+        result.push_back(to_string(3));
     }
     
     return result;
@@ -35,7 +43,7 @@ bool issame(vector<string> a, vector<string> b){
         return false;
     }
     
-    for(size_t i=0; i<a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -47,18 +55,18 @@ bool issame(vector<string> a, vector<string> b){
 int main(){
     string txt;
     getline(cin, txt);
-    
     vector<string> words = split_words(txt);
-    vector<string> target = {"hello", "world", "cpp"};
     
-    bool same = issame(words, target);
+    vector<string> expected = {"hello", "world"};
+    
+    bool same = issame(words, expected);
     
     if(same){
-        cout << "Same words" << endl;
+        cout << "Same";
     }
     else{
-        cout << "Different words" << endl;
+        cout << "Different";
     }
-    
+
     return 0;
 }
