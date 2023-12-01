@@ -1,5 +1,5 @@
 string encode(string message){
-    for(int i = 0; i < message.length(); i++){
+    for(int i=0; i<message.length(); i++){
         if(isalpha(message[i])){
             if(islower(message[i])){
                 message[i] = toupper(message[i]);
@@ -7,20 +7,8 @@ string encode(string message){
             else{
                 message[i] = tolower(message[i]);
             }
-            if(message[i] == 'a'){
-                message[i] = 'c';
-            }
-            else if(message[i] == 'e'){
-                message[i] = 'g';
-            }
-            else if(message[i] == 'i'){
-                message[i] = 'k';
-            }
-            else if(message[i] == 'o'){
-                message[i] = 'q';
-            }
-            else if(message[i] == 'u'){
-                message[i] = 'w';
+            if(message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u'){
+                message[i] = message[i] + 2;
             }
         }
     }
