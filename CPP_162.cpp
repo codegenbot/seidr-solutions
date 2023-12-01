@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string>
-#include <openssl/evp.h>
+#include <cryptopp/md5.h>
 using namespace std;
 
 string string_to_md5(string text){
@@ -8,20 +8,14 @@ string string_to_md5(string text){
         return "None";
     }
     
-    EVP_MD_CTX* md_ctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(md_ctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(md_ctx, text.c_str(), text.length());
-    
-    unsigned char hash[EVP_MAX_MD_SIZE];
-    unsigned int length = 0;
-    EVP_DigestFinal_ex(md_ctx, hash, &length);
+    unsigned char digest[CryptoPP::Weak::MD5::DIGESTSIZE];
+    CryptoPP::Weak::MD5 hash;
+    hash.CalculateDigest(digest, (const unsigned char*)text.c_str(), text.length());
     
     char md5string[33];
-    for(int i = 0; i < length; i++){
-        sprintf(&md5string[i*2], "%02x", (unsigned int)hash[i]);
+    for(int i = 0; i < CryptoPP::Weak::MD5::DIGESTSIZE; i++){
+        sprintf(&md5string[i*2], "%02x", (unsigned int)digest[i]);
     }
-    
-    EVP_MD_CTX_free(md_ctx);
     
     return md5string;
 }
