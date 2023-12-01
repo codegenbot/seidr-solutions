@@ -1,27 +1,26 @@
-#include <iostream>
+#include <cmath>
 
 int largest_prime_factor(int n) {
-    int largest = 0;
+    int largestFactor = 0;
+    
+    // Check if n is divisible by 2
     while (n % 2 == 0) {
-        largest = 2;
+        largestFactor = 2;
         n /= 2;
     }
+    
+    // Check for odd factors up to the square root of n
     for (int i = 3; i <= sqrt(n); i += 2) {
         while (n % i == 0) {
-            largest = i;
+            largestFactor = i;
             n /= i;
         }
     }
+    
+    // If n is a prime number greater than 2
     if (n > 2) {
-        largest = n;
+        largestFactor = n;
     }
-    return largest;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << "Largest prime factor: " << largest_prime_factor(n) << std::endl;
-    return 0;
+    
+    return largestFactor;
 }
