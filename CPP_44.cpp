@@ -3,7 +3,7 @@ string change_base(int x, int base) {
     while (x > 0) {
         int remainder = x % base;
         result = to_string(remainder) + result;
-        x /= base;
+        x = x / base;
     }
     return result;
 }
