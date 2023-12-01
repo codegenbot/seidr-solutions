@@ -5,9 +5,9 @@ def solve(n):
 
 
 def main():
-    n = int(input())  # read the input n
-    result = solve(n)  # call solve() function with n as argument
-    print(result)  # print the result
+    n = int(input())
+    result = solve(n)
+    print(result)
 
 
 if __name__ == "__main__":
