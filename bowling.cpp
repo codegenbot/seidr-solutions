@@ -14,14 +14,15 @@ int getScore(std::string input) {
             score += (input[index + 1] == 'X') ? 10 : (isdigit(input[index + 1]) ? input[index + 1] - '0' : 0);
             score += (input[index + 2] == 'X') ? 10 : (isdigit(input[index + 2]) ? input[index + 2] - '0' : 0);
         } else if (current == '/') {
-            score += 10 - (input[index - 1] - '0');
+            score += 10 - (isdigit(input[index - 1]) ? input[index - 1] - '0' : 0);
             score += (input[index + 1] == 'X') ? 10 : (isdigit(input[index + 1]) ? input[index + 1] - '0' : 0);
-        } else if (current != '-') {
-            score += (current - '0');
+        } else if (current == '-') {
+            // do nothing
+        } else {
+            score += (isdigit(current) ? current - '0' : 0);
         }
         
         frame++;
-        index++;
     }
     
     return score;
