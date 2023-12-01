@@ -10,10 +10,15 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
 
-    int nickels = (cents % 25) / 5;
-    cents %= 5;
+    int nickels = 0;
+    int pennies = 0;
 
-    int pennies = cents;
+    if (cents >= 5) {
+        nickels = 1;
+        cents -= 5;
+    }
+
+    pennies = cents;
 
     int totalCoins = quarters + dimes + nickels + pennies;
 
