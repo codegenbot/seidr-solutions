@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <cassert>
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
@@ -13,6 +12,7 @@ bool issame(vector<string> a, vector<string> b){
             return false;
         }
     }
+
     return true;
 }
 
