@@ -4,7 +4,7 @@
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int index = -1;
+    int cutIdx = -1;
 
     for (int i = 1; i < n; i++) {
         int leftSum = 0;
@@ -19,16 +19,17 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
 
         int currentDiff = abs(leftSum - rightSum);
+
         if (currentDiff < diff) {
             diff = currentDiff;
-            index = i;
+            cutIdx = i;
         }
     }
 
-    std::vector<int> left(nums.begin(), nums.begin() + index);
-    std::vector<int> right(nums.begin() + index, nums.end());
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIdx);
+    std::vector<int> rightSubvector(nums.begin() + cutIdx, nums.end());
 
-    return std::make_pair(left, right);
+    return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
