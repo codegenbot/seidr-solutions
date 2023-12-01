@@ -11,7 +11,5 @@ for i in range(1, len(vector)):
 subvector1 = vector[:index]
 subvector2 = vector[index:]
 
-for num in subvector1:
-    print(num)
-for num in subvector2:
-    print(num)
+print(subvector1)
+print(subvector2)
