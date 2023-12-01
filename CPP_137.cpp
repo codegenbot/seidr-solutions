@@ -3,14 +3,18 @@
 
 using namespace std;
 
-template <typename T>
-T compare_one(T a, T b) {
+template<typename T>
+T compare(const T& a, const T& b) {
     if (a > b) {
         return a;
-    } else if (b > a) {
+    } else {
         return b;
     }
-    return T("None");
+}
+
+template<typename T>
+T compare_one(T a, T b) {
+    return compare(a, b);
 }
 
 int main() {
