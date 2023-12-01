@@ -16,20 +16,20 @@ vector<string> all_prefixes(string str){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Compare vectors a and b and return true if they are the same, otherwise return false.
-    // Your implementation here.
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW") ,{"W", "WW", "WWW"}));
     return 0;
 }
