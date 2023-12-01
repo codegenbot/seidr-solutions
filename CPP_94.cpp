@@ -1,6 +1,8 @@
 #include <vector>
 #include <cmath>
+
 using namespace std;
+
 int sumOfDigits(int num) {
     int sum = 0;
     while (num > 0) {
@@ -9,6 +11,7 @@ int sumOfDigits(int num) {
     }
     return sum;
 }
+
 int largestPrimeSum(vector<int>& lst) {
     int largestPrime = 0;
     for (int num : lst) {
