@@ -28,7 +28,7 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    vector<float> numbers = {1.1, 2.2, 3.3, 4.4, 5.5};
+    vector<float> numbers = {1.2, 3.4, 5.6, 7.8, 9.0};
     vector<float> closest_elements = find_closest_elements(numbers);
     for (int i = 0; i < closest_elements.size(); i++) {
         cout << closest_elements[i] << " ";
