@@ -1,37 +1,32 @@
+import numpy as np
 def cut_vector(vector):
-    n = len(vector)
-    if n == 0:
-        return [], []
-    if n == 1:
-        return vector, [0]
-
-    diff = abs(sum(vector))
-    index = 0
-    for i in range(1, n):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
-        new_diff = abs(left_sum - right_sum)
-        if new_diff < diff:
-            diff = new_diff
-            index = i
-
-    return vector[:index], vector[index:]
-
+    vector = np.array(vector)
+    min_diff = np.inf
+    cut_index = -1
+    
+    for i in range(1, len(vector)):
+        sum_left = np.sum(vector[:i])
+        sum_right = np.sum(vector[i:])
+        diff = abs(sum_left - sum_right)
+        
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    
+    return list(vector[:cut_index]), list(vector[cut_index:])
 
 # Read input from user
 vector = []
 while True:
     try:
-        line = input()
-        if line.strip() == "":
-            break
-        vector.append(int(line))
-    except EOFError:
+        num = int(input())
+        vector.append(num)
+    except ValueError:
         break
 
-# Print the resulting subvectors
-left, right = cut_vector(vector)
-for num in left:
+# Call the function and print the output
+output1, output2 = cut_vector(vector)
+for num in output1:
     print(num)
-for num in right:
+for num in output2:
     print(num)
