@@ -9,19 +9,7 @@ T compare_one(T a, T b) {
     return (a > b) ? a : b;
 }
 
-string compare_one(string a, string b) {
-    replace(a.begin(), a.end(), ',', '.');
-    replace(b.begin(), b.end(), ',', '.');
-    float num1 = stof(a);
-    float num2 = stof(b);
-    return (num1 > num2) ? a : b;
-}
-
-template <typename T1, typename T2>
-auto compare_one(T1 a, T2 b) {
-    if (a > b) {
-        return a;
-    } else {
-        return b;
-    }
+template <typename T>
+T compare_one(T a, T b) {
+    return (a > b) ? a : b;
 }
