@@ -1,9 +1,5 @@
+from typing import List
 def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
-
-
-# Read input
+    return ''.join(strings)
 strings = input().split()
-
-# Call the function and print output
 print(concatenate(strings))
