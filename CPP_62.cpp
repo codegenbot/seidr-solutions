@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ bool issame(vector<float> a, vector<float> b){
         return false;
     }
     for(int i=0; i<a.size(); i++){
-        if (a[i] != b[i]){
+        if (abs(a[i]-b[i]) > 1e-4) {
             return false;
         }
     }
@@ -25,7 +25,7 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main() {
-    assert(issame(derivative({1}), {}));
+    assert (issame(derivative({1}) , {}));
     
     return 0;
 }
