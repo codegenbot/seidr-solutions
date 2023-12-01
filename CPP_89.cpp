@@ -22,12 +22,11 @@ string encrypt(string s){
 }
 
 int main() {
+    // Test cases
     assert (encrypt("a") == "e");
-    // add more test cases here
-    assert (encrypt("z") == "d");
-    assert (encrypt("A") == "E");
-    assert (encrypt("Z") == "D");
-    assert (encrypt("hello world") == "lipps asvph");
+    assert (encrypt("") == "");
+    assert (encrypt("AbCdEfGhIj") == "EfGhIjKlMn");
+    assert (encrypt("XYZ") == "BCD");
     
     return 0;
 }
