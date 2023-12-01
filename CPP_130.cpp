@@ -1,5 +1,17 @@
 #include <vector>
 
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> tri(int n){
     vector<int> sequence;
     sequence.push_back(3);
@@ -23,21 +35,6 @@ vector<int> tri(int n){
     return sequence;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // compare the content of vector a and b
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(issame(::tri(1), {1, 3}));
-
-    return 0;
+    assert (issame(::tri(1) , {1, 3}));
 }
