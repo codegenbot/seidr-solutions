@@ -12,11 +12,13 @@ vector<string> separate_paren_groups(string paren_string){
             if (count > 1) {
                 group += c;
             }
-        } else if (c == ')') {
+        } 
+        else if (c == ')') {
             count--;
             if (count > 0) {
                 group += c;
-            } else {
+            } 
+            else {
                 result.push_back(group);
                 group = "";
             }
@@ -27,9 +29,18 @@ vector<string> separate_paren_groups(string paren_string){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Implementation of the function
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    return 0;
 }
