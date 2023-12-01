@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 bool evaluateBooleanExpression(std::string expression, bool isEnclosed = false) {
@@ -41,4 +42,15 @@ bool evaluateBooleanExpression(std::string expression, bool isEnclosed = false) 
     }
 
     return !isEnclosed;
+}
+
+int main() {
+    std::string expression;
+    std::cout << "Enter a boolean expression: ";
+    std::cin >> expression;
+
+    bool result = evaluateBooleanExpression(expression);
+    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
+
+    return 0;
 }
