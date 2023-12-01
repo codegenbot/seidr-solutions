@@ -1,12 +1,12 @@
 def minPath(grid, k):
     """
-    Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
+    Given a grid with N rows and N columns (N >= 2) and a positive integer k,
     each cell of the grid contains a value. Every integer in the range [1, N * N]
     inclusive appears exactly once on the cells of the grid.
 
     You have to find the minimum path of length k in the grid. You can start
     from any cell, and in each step you can move to any of the neighbor cells,
-    in other words, you can go to cells which share an edge with you current
+    in other words, you can go to cells which share an edge with your current
     cell.
     Please note that a path of length k means visiting exactly k cells (not
     necessarily distinct).
@@ -21,31 +21,55 @@ def minPath(grid, k):
     Return an ordered list of the values on the cells that the minimum path go through.
     """
 
-    N = len(grid)
-    visited = [[False] * N for _ in range(N)]
-    path = []
+    # Variables to track current path and its length
+    current_path = []
+    current_length = 0
 
-    def dfs(i, j, length):
-        if i < 0 or i >= N or j < 0 or j >= N:
-            return False
-        
-        if visited[i][j]:
-            return False
-        
-        visited[i][j] = True
-        path.append(grid[i][j])
-        
-        if length == k:
-            return True
-        
-        if dfs(i-1, j, length+1) or dfs(i+1, j, length+1) or dfs(i, j-1, length+1) or dfs(i, j+1, length+1):
-            return True
-        
-        visited[i][j] = False
-        path.pop()
-        return False
+    # Function to find the minimum path
+    def find_minimum_path(row, col, current_path, current_length):
+        # Base case: If the current path length equals k, return the current path
+        if current_length == k:
+            return current_path
+        # Base case: If the current row or column is out of bounds, return None
+        if row < 0 or col < 0 or row >= len(grid) or col >= len(grid[0]):
+            return None
 
-    for i in range(N):
-        for j in range(N):
-            if dfs(i, j, 1):
-                return path
+        # Save the current value in this cell
+        current_value = grid[row][col]
+
+        # Add the current value to the current path
+        current_path.append(current_value)
+        current_length += 1
+
+        # Try moving to each neighbor cell and find the minimum path
+        paths = []
+        paths.append(find_minimum_path(row - 1, col, current_path.copy(), current_length))
+        paths.append(find_minimum_path(row + 1, col, current_path.copy(), current_length))
+        paths.append(find_minimum_path(row, col - 1, current_path.copy(), current_length))
+        paths.append(find_minimum_path(row, col + 1, current_path.copy(), current_length))
+
+        # Filter out None paths
+        paths = [path for path in paths if path is not None]
+
+        # Sort the paths based on lexicographical order
+        paths.sort()
+
+        # Return the minimum path
+        if paths:
+            return paths[0]
+        else:
+            return None
+
+    # Find the minimum path starting from each cell
+    paths = []
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            path = find_minimum_path(i, j, [], 0)
+            if path is not None:
+                paths.append(path)
+
+    # Sort the paths based on lexicographical order
+    paths.sort()
+
+    # Return the minimum path
+    return paths[0]
