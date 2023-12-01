@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 
-int can_arrange(std::vector<int> arr){
+int can_arrange(vector<int> arr){
     int largestIndex = -1;
     for(int i = 1; i < arr.size(); i++){
         if(arr[i] < arr[i-1]){
@@ -12,14 +11,19 @@ int can_arrange(std::vector<int> arr){
 }
 
 int main() {
-    // Test cases
-    std::vector<int> arr1 = {1, 2, 3, 4, 5};
-    std::vector<int> arr2 = {5, 4, 3, 2, 1};
-    std::vector<int> arr3 = {1, 3, 2, 4, 5};
+    // Test the can_arrange function
+    vector<int> arr1 = {1, 2, 3, 4, 5};
+    vector<int> arr2 = {5, 4, 3, 2, 1};
+    vector<int> arr3 = {1, 3, 2, 4, 5};
     
-    std::cout << can_arrange(arr1) << std::endl;  // Output: -1
-    std::cout << can_arrange(arr2) << std::endl;  // Output: 3
-    std::cout << can_arrange(arr3) << std::endl;  // Output: 1
+    int result1 = can_arrange(arr1);
+    int result2 = can_arrange(arr2);
+    int result3 = can_arrange(arr3);
+    
+    // Print the results
+    cout << "Result 1: " << result1 << endl;
+    cout << "Result 2: " << result2 << endl;
+    cout << "Result 3: " << result3 << endl;
     
     return 0;
 }
