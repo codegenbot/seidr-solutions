@@ -24,15 +24,8 @@ vector<string> splitString(string s){
     return words;
 }
 
-int main(){
-    vector<string> result = splitString("ahmed     , gamal");
-    cout << "Output: ";
-    for(const string& word : result){
-        cout << word << " ";
-    }
-    cout << endl;
-
-    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
-
+int main() {
+    assert (splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    
     return 0;
 }
