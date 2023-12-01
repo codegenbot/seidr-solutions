@@ -3,10 +3,22 @@ bool is_sorted(vector<int> lst){
         return true;
     }
     
+    int prev = lst[0];
+    bool hasDuplicate = false;
+    
     for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] < lst[i-1]) {
+        if (lst[i] < prev) {
             return false;
         }
+        if (lst[i] == prev) {
+            if (hasDuplicate) {
+                return false;
+            }
+            hasDuplicate = true;
+        } else {
+            hasDuplicate = false;
+        }
+        prev = lst[i];
     }
     
     return true;
