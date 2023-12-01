@@ -6,8 +6,7 @@ float truncate_number(float number){
 }
 
 int main() {
-    // Add your code here
-
     assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
+    // Add more test cases here if needed
     return 0;
 }
