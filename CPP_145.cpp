@@ -1,7 +1,6 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-
 using namespace std;
 
 bool compare(int a, int b) {
