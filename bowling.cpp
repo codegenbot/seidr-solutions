@@ -18,7 +18,7 @@ int calculateScore(const std::string& bowls) {
                 bowlIndex++;
             }
         } else if (bowl == '/') {
-            score += 10 - (int)(bowls[bowlIndex - 1] - '0') + (int)(bowls[bowlIndex + 1] - '0');
+            score += 10 - (int)(bowl - '0') + (int)(bowls[bowlIndex + 1] - '0');
             if (frame == 10) {
                 score += (int)(bowls[bowlIndex + 1] == 'X' ? 10 : (bowls[bowlIndex + 1] - '0'));
             }
@@ -35,7 +35,7 @@ int calculateScore(const std::string& bowls) {
 }
 
 int main() {
-    std::string bowls = "";
+    std::string bowls = "52618-34334/36812163";
 
     int score = calculateScore(bowls);
     std::cout << score << std::endl;
