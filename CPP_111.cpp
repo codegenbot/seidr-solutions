@@ -19,12 +19,8 @@ map<char,int> buildHistogram(string test) {
     return counts;
 }
 
-bool isSame(map<char,int> a, map<char,int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(isSame(buildHistogram("a"), {{'a', 1}}));
+    assert(buildHistogram("a") == map<char, int>{{'a', 1}});
 
     return 0;
 }
