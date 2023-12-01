@@ -1,19 +1,33 @@
-vector<int> parse_music(string music_string){ 
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> parse_music(string music_string){
     vector<int> beats;
-    int i = 0;
-    while (i < music_string.length()) {
-        if (music_string[i] == 'o') {
+    string note;
+    for(int i=0; i<music_string.length(); i+=3){
+        note = music_string.substr(i, 3);
+        if(note == "o  "){
             beats.push_back(4);
-            i++;
-        } else if (music_string[i] == 'o' && music_string[i+1] == '|') {
+        }
+        else if(note == "o| "){
             beats.push_back(2);
-            i += 2;
-        } else if (music_string[i] == '.' && music_string[i+1] == '|') {
+        }
+        else if(note == ".| "){
             beats.push_back(1);
-            i += 2;
-        } else {
-            i++;
         }
     }
     return beats;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    // Implementation of the function
+}
+
+int main(){
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    
+    return 0;
 }

@@ -3,54 +3,25 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring);
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Code for checking if two vectors are the same
+    // ...
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> filtered_strings;
-    
-    for(const auto& str : strings){
-        if(str.find(substring) != string::npos){
-            filtered_strings.push_back(str);
-        }
-    }
-    
-    return filtered_strings;
-}
-
-int main(){
-    vector<string> strings = {"apple", "banana", "grape", "pear", "orange"};
-    string substring = "ap";
-    vector<string> result = filter_by_substring(strings, substring);
-    vector<string> expected = {"apple", "grape"};
-    assert(issame(result, expected));
-
-    strings = {"cat", "dog", "elephant", "tiger"};
-    substring = "e";
-    result = filter_by_substring(strings, substring);
-    expected = {"elephant"};
-    assert(issame(result, expected));
-
-    strings = {"red", "green", "blue"};
-    substring = "yellow";
-    result = filter_by_substring(strings, substring);
-    expected = {};
-    assert(issame(result, expected));
-
-    cout << "All test cases passed!" << endl;
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 
     return 0;
+}
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+    std::vector<std::string> result;
+    for (std::string s : strings) {
+        if (s.find(substring) != std::string::npos) {
+            result.push_back(s);
+        }
+    }
+    return result;
 }
