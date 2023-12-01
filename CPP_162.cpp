@@ -22,7 +22,7 @@ string string_to_md5(string text) {
     EVP_MD_CTX_free(mdctx);
 
     for (unsigned int i = 0; i < digestLen; i++) {
-        sprintf(&md5String[i*2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5String[i*2], "%02x", digest[i]);
     }
 
     return string(md5String);
