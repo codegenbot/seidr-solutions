@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <string> // Add this line
+#include <string>
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
