@@ -33,4 +33,5 @@ int main() {
   } else {
     std::cout << "Output is incorrect" << std::endl;
   }
+  return 0;
 }
