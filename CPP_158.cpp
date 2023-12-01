@@ -1,11 +1,8 @@
 #include <algorithm>
-#include <cassert>
 #include <string>
 #include <vector>
 
 using namespace std;
-
-string find_max(vector<string> words);
 
 string find_max(vector<string> words){
     string maxWord = "";
