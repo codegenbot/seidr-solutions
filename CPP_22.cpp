@@ -8,14 +8,19 @@ using namespace std;
 vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (auto& value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int&>(value));
+        try {
+            result.push_back(boost::any_cast<int>(value));
+        } catch (const boost::bad_any_cast&) {
+            continue;
         }
     }
     return result;
 }
 
 int main() {
-    // Your code here
+    for (int num : filter_integers({3, 'c', 3, 3, 'a', 'b'})) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
