@@ -1,5 +1,8 @@
-string sort_numbers(string numbers){
-    // Create a map to store the corresponding numerical value of each string
+#include <sstream>
+#include <algorithm>
+
+string sort_numbers(string numbers) {
+    // Create a map to map number names to numbers
     map<string, int> number_map;
     number_map["zero"] = 0;
     number_map["one"] = 1;
@@ -12,27 +15,24 @@ string sort_numbers(string numbers){
     number_map["eight"] = 8;
     number_map["nine"] = 9;
 
-    // Convert the space-delimited string of numbers into a vector of strings
-    vector<string> number_list;
+    // Split the input string into individual number names
     stringstream ss(numbers);
-    string number;
-    while (getline(ss, number, ' ')) {
-        number_list.push_back(number);
+    string number_name;
+    vector<string> number_names;
+    while (ss >> number_name) {
+        number_names.push_back(number_name);
     }
 
-    // Sort the vector based on the numerical values
-    sort(number_list.begin(), number_list.end(), [&](const string& a, const string& b) {
+    // Sort the number names based on their corresponding numbers
+    sort(number_names.begin(), number_names.end(), [&](const string& a, const string& b) {
         return number_map[a] < number_map[b];
     });
 
-    // Convert the sorted vector back into a string
-    string sorted_numbers;
-    for (const auto& num : number_list) {
-        sorted_numbers += num + " ";
+    // Join the sorted number names back into a string
+    stringstream sorted_numbers;
+    for (const auto& number_name : number_names) {
+        sorted_numbers << number_name << " ";
     }
 
-    // Remove the trailing space from the string
-    sorted_numbers.pop_back();
-
-    return sorted_numbers;
+    return sorted_numbers.str().erase(sorted_numbers.str().length() - 1);
 }
