@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+#include <string>
+
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     string result;
     for (int i = 0; i < s.length(); i++) {
@@ -8,5 +16,5 @@ vector<string> reverse_delete(string s, string c) {
     string reversed = result;
     reverse(reversed.begin(), reversed.end());
     bool isPalindrome = (result == reversed);
-    return {result, (isPalindrome ? "True" : "False")};
+    return {result};
 }
