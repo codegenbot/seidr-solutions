@@ -2,6 +2,7 @@ import numpy as np
 
 n = int(input())
 vector1 = np.array(list(map(float, input().split())))
+
 n = int(input())
 vector2 = np.array(list(map(float, input().split())))
 
