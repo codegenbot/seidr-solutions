@@ -1,19 +1,21 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+using namespace std;
 
-bool checkEquality(string x, string n){
-    int numX = stoi(x.substr(0, x.find("/")));
-    int denX = stoi(x.substr(x.find("/") + 1));
-    int numN = stoi(n.substr(0, n.find("/")));
-    int denN = stoi(n.substr(n.find("/") + 1));
-    
-    double result = (numX * denN) / (denX * numN);
-    
-    return result == (int)result;
+bool isProductDivisible(string x, string n){
+    int num1 = stoi(x.substr(0, x.find('/')));
+    int den1 = stoi(x.substr(x.find('/') + 1));
+    int num2 = stoi(n.substr(0, n.find('/')));
+    int den2 = stoi(n.substr(n.find('/') + 1));
+
+    int productNum = num1 * num2;
+    int productDen = den1 * den2;
+
+    return (productNum % productDen == 0);
 }
 
-int main() {
-    assert(checkEquality("1/5", "1/5") == false);
+int main(){
+    assert(isProductDivisible("1/5", "1/5") == false);
     
     return 0;
 }
