@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-vector<string> reverse_delete(string s, string c) {
+vector<string> reverse_delete(const string& s, const string& c) {
     string result;
     for (int i = 0; i < s.length(); i++) {
         if (c.find(s[i]) == string::npos) {
@@ -16,10 +14,26 @@ vector<string> reverse_delete(string s, string c) {
     string reversed = result;
     reverse(reversed.begin(), reversed.end());
     bool isPalindrome = (result == reversed);
-    return {result};
+    if (isPalindrome) {
+        return {result, "True"};
+    } else {
+        return {result, "False"};
+    }
+}
+
+bool issame(const vector<string>& v1, const vector<string>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"mam"});
+    assert(issame(reverse_delete("mamma", "mia"), {"amma", "True"}));
     return 0;
 }
