@@ -28,3 +28,8 @@ int largestPrimeSum(vector<int> lst) {
     }
     return sumOfDigits(largestPrime);
 }
+
+int main() {
+    cout << largestPrimeSum({127, 97, 8192}) << endl;
+    return 0;
+}
