@@ -1,21 +1,32 @@
+#include <iostream>
 #include <string>
+using namespace std;
 
-string solve(string s){
-    int n = s.size();
-    int isLetter = 0;
-    for(int i = 0; i < n; i++){
-        if(isalpha(s[i])){
-            isLetter = 1;
-            if(islower(s[i])){
-                s[i] = toupper(s[i]); // reverse lower case to upper case
+string solve(string s) {
+    string result = "";
+
+    bool hasLetter = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            hasLetter = true;
+            if (islower(s[i])) {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
             }
-            else{
-                s[i] = tolower(s[i]); // reverse upper case to lower case
-            }
+        } else {
+            result += s[i];
         }
     }
-    if(!isLetter){
-        reverse(s.begin(), s.end()); // reverse the string
+
+    if (!hasLetter) {
+        reverse(result.begin(), result.end());
     }
-    return s;
+
+    return result;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
