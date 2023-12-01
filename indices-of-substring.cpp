@@ -2,14 +2,14 @@
 #include <vector>
 #include <string>
 
-std::vector<int> indices_of_substring(const std::string& text, const std::string& target) {
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int text_length = text.length();
-    int target_length = target.length();
+    int textLength = text.length();
+    int targetLength = target.length();
 
-    for (int i = 0; i <= text_length - target_length; i++) {
+    for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
-        for (int j = 0; j < target_length; j++) {
+        for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -27,11 +27,12 @@ int main() {
     std::string text, target;
     std::getline(std::cin, text);
     std::getline(std::cin, target);
-    std::vector<int> result = indices_of_substring(text, target);
 
+    std::vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
