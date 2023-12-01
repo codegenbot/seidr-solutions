@@ -1,10 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool vector_equal(vector<float> a, vector<float> b);
-
-vector<float> find_closest_elements(vector<float> numbers);
-
 bool vector_equal(vector<float> a, vector<float> b){
     // code to check if two vectors are equal
     // ...
