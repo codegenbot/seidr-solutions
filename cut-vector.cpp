@@ -33,8 +33,10 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    index = n;
+
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
+    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
 }
@@ -49,15 +51,15 @@ int main() {
 
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
-    std::cout << "Left Subvector:";
+    std::cout << "Left subvector: ";
     for (int num : result.first) {
-        std::cout << " " << num;
+        std::cout << num << " ";
     }
     std::cout << std::endl;
 
-    std::cout << "Right Subvector:";
+    std::cout << "Right subvector: ";
     for (int num : result.second) {
-        std::cout << " " << num;
+        std::cout << num << " ";
     }
     std::cout << std::endl;
 
