@@ -9,6 +9,11 @@ def all_prefixes(string: str) -> List[str]:
     return prefixes
 
 
+# Read input from the user
 input_string = input()
+
+# Call the function with the input string
 result = all_prefixes(input_string)
+
+# Return the result
 print(result)
