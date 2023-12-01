@@ -26,11 +26,11 @@ bool evaluateBooleanExpression(const std::string& expression) {
             }
         }
 
-        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
+        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1, expression.length() - (opIndex + 1)));
         return right;
-    } else if (expression[0] == 'T' || expression[0] == 't') {
+    } else if (expression.at(0) == 'T' || expression.at(0) == 't') {
         return true;
-    } else if (expression[0] == 'F' || expression[0] == 'f') {
+    } else if (expression.at(0) == 'F' || expression.at(0) == 'f') {
         return false;
     }
 
