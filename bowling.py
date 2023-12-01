@@ -1,33 +1,50 @@
-def bowling_score(bowls):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    i = 0
-
-    while frame <= 10:
-        if bowls[i] == 'X':
+    frame_score = 0
+    frame_count = 0
+    prev_bowl = ''
+  
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-            if i + 2 < len(bowls):
-                if bowls[i + 2] == 'X':
+            frame_score = 10
+            if frame_count < 9:
+                if prev_bowl == 'X':
                     score += 10
-                else:
-                    score += int(bowls[i + 2])
-            if i + 3 < len(bowls):
-                if bowls[i + 3] == '/':
-                    score += 10 - int(bowls[i + 2])
-            i += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i - 1])
-            if i + 1 < len(bowls):
-                if bowls[i + 1] == 'X':
+                elif prev_bowl == '/':
                     score += 10
-                else:
-                    score += int(bowls[i + 1])
+            frame_count += 1
+            if frame_count == 10:
+                break
+            prev_bowl = 'X'
+        elif bowl == '/':
+            score += 10 - frame_score
+            frame_score = 10
+            if frame_count < 9:
+                if prev_bowl == 'X':
+                    score += 10
+            frame_count += 1
+            if frame_count == 10:
+                break
+            prev_bowl = '/'
+        elif bowl == '-':
+            frame_score = 0
+            prev_bowl = '-'
         else:
-            score += int(bowls[i])
-        i += 1
-        frame += 1
-
+            score += int(bowl)
+            frame_score += int(bowl)
+            if frame_score == 10:
+                score += 10
+                if frame_count < 9:
+                    if prev_bowl == 'X':
+                        score += 10
+                frame_count += 1
+                if frame_count == 10:
+                    break
+            prev_bowl = bowl
+  
     return score
 
 bowls = input()
-print(bowling_score(bowls))
+print(calculate_score(bowls))
