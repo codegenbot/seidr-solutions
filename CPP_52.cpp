@@ -1,11 +1,9 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
-
-bool below_threshold(vector<int> l, int t) {
-    for (size_t i = 0; i < l.size(); i++) {
-        if (l[i] < t) {
+bool below_threshold(std::vector<int> l, int t) {
+    for (int num : l) {
+        if (num >= t) {
             return false;
         }
     }
@@ -13,6 +11,28 @@ bool below_threshold(vector<int> l, int t) {
 }
 
 int main() {
-    assert(!below_threshold(vector<int>{1, 8, 4, 10}, 10));
+    std::vector<int> numbers;
+    int threshold;
+
+    // Read input from user
+    int num;
+    while (std::cin >> num) {
+        numbers.push_back(num);
+    }
+    std::cin.clear();
+
+    std::cout << "Enter threshold: ";
+    std::cin >> threshold;
+
+    // Call the function
+    bool result = below_threshold(numbers, threshold);
+
+    // Print the result
+    if (result) {
+        std::cout << "All numbers are below the threshold." << std::endl;
+    } else {
+        std::cout << "At least one number is equal to or above the threshold." << std::endl;
+    }
+
     return 0;
 }
