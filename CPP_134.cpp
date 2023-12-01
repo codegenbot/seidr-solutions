@@ -1,13 +1,16 @@
+#include <iostream>
 #include <string>
 
-bool check_if_last_char_is_a_letter(std::string txt){
-    if(txt.length() == 0){
+using namespace std;
+
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()){
         return false;
     }
-    int last_space_index = txt.find_last_of(' ');
-    char last_char = txt.back();
-    if(last_char >= 'a' && last_char <= 'z' || last_char >= 'A' && last_char <= 'Z'){
-        if(last_space_index == std::string::npos || last_space_index == txt.length() - 1){
+    int n = txt.length();
+    char lastChar = txt[n-1];
+    if(isalpha(lastChar)){
+        if(txt[n-2] == ' '){
             return true;
         }
     }
@@ -15,7 +18,10 @@ bool check_if_last_char_is_a_letter(std::string txt){
 }
 
 int main() {
+    assert (check_if_last_char_is_a_letter("apple pie ") == true);
+    assert (check_if_last_char_is_a_letter("apple pie") == false);
+    assert (check_if_last_char_is_a_letter(" apple pie") == false);
     assert (check_if_last_char_is_a_letter("apple pi e ") == false);
-    // Add more test cases here
+
     return 0;
 }
