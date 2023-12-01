@@ -1,6 +1,6 @@
 #include <vector>
-
 vector<float> derivative(vector<float> xs);
+#include <vector>
 
 vector<float> derivative(vector<float> xs) {
     vector<float> result;
