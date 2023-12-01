@@ -17,7 +17,7 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
-    
+
     // Find the starting cell with the minimum value
     int minVal = INT_MAX;
     int startRow, startCol;
@@ -30,17 +30,17 @@ vector<int> minPath(vector<vector<int>> grid, int k){
             }
         }
     }
-    
+
     // Add the starting cell value to the path
     path.push_back(minVal);
-    
+
     // Move to the neighbor cell with the minimum value in each step
     int currentRow = startRow;
     int currentCol = startCol;
     for(int step = 1; step < k; step++){
         int minValue = INT_MAX;
         int nextRow, nextCol;
-        
+
         // Check the neighbor cells
         if(currentRow > 0 && grid[currentRow - 1][currentCol] < minValue){
             minValue = grid[currentRow - 1][currentCol];
@@ -62,19 +62,20 @@ vector<int> minPath(vector<vector<int>> grid, int k){
             nextRow = currentRow;
             nextCol = currentCol + 1;
         }
-        
+
         // Move to the neighbor cell with the minimum value
         currentRow = nextRow;
         currentCol = nextCol;
-        
+
         // Add the value of the current cell to the path
         path.push_back(grid[currentRow][currentCol]);
     }
-    
+
     return path;
 }
 
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+
     return 0;
 }
