@@ -1,10 +1,7 @@
-import math
-
-
 def poly():
     xs = [float(coeff) for coeff in input().split()]
     x = float(input())
-    return sum(coeff * x**i for i, coeff in enumerate(xs))
+    return sum(coeff * x ** i for i, coeff in enumerate(xs))
 
 
 def find_zero():
