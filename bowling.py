@@ -1,29 +1,38 @@
-def calculate_score(rolls):
+def calculate_score(bowls):
     score = 0
     frames = []
-    for roll in rolls:
-        if roll == 'X':
-            frames.append(10)
-        elif roll == '/':
-            frames.append('/')
+    frame = []
+    for bowl in bowls:
+        if bowl == 'X':
+            frame.append(10)
+            frames.append(frame)
+            frame = []
+        elif bowl == '/':
+            frame.append(10 - frame[0])
+            frames.append(frame)
+            frame = []
+        elif bowl == '-':
+            frame.append(0)
         else:
-            frames.append(int(roll))
-
-    i = 0
-    frame = 1
-    while frame <= 10:
-        if frames[i] == '/':
-            score += 10 + frames[i + 1]
-        elif frames[i] == 10:
-            score += 10 + frames[i + 1] + frames[i + 2]
-            if frames[i + 1] == '/':
-                score += frames[i + 2]
-        else:
-            score += frames[i] + frames[i + 1]
-        i += 1
-        frame += 1
-
+            frame.append(int(bowl))
+            if len(frame) == 2:
+                frames.append(frame)
+                frame = []
+    
+    for i in range(len(frames)):
+        frame = frames[i]
+        score += sum(frame)
+        if i < 9:
+            if frame[0] == 10:
+                if frames[i+1][0] == 10:
+                    score += frames[i+1][0] + frames[i+2][0]
+                else:
+                    score += sum(frames[i+1])
+            elif sum(frame) == 10:
+                score += frames[i+1][0]
+    
     return score
 
-rolls = input().strip()
-print(calculate_score(rolls))
+# Main program
+bowls = input()
+print(calculate_score(bowls))
