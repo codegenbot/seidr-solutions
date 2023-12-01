@@ -40,6 +40,7 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 int main() {
+    // test cases
     assert(issame(histogram("a"), {{'a', 1}}));
     
     return 0;
