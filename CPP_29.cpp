@@ -5,7 +5,6 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your implementation of issame function goes here
     if (a.size() != b.size()) {
         return false;
     }
@@ -28,7 +27,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    // Your test cases go here
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 
     return 0;
