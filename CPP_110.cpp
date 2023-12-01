@@ -9,6 +9,8 @@ string exchange(vector<int> lst1, vector<int> lst2);
 int main() {
     assert(exchange({100, 200}, {200, 200}) == "YES");
     // More test cases...
+
+    return 0;
 }
 
 string exchange(vector<int> lst1, vector<int> lst2) {
