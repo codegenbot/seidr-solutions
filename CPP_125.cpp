@@ -7,10 +7,24 @@ using namespace std;
 
 vector<string> split_words(string txt);
 
+// Test case helper function
+template<typename T>
+bool is_same(const vector<T>& v1, const vector<T>& v2){
+    if(v1.size() != v2.size()){
+        return false;
+    }
+    for(int i=0; i<v1.size(); i++){
+        if(v1[i] != v2[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 int main(){
     // Test cases
-    assert(split_words("") == vector<string>{"0"});
-    assert(split_words("Hello, World!") == vector<string>{"Hello", "World!"});
+    assert(is_same(split_words("") ,{"0"}));
+    assert(is_same(split_words("Hello, World!") ,{"Hello", "World!"}));
     // Add more test cases
     
     return 0;
