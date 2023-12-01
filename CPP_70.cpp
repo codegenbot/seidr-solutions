@@ -1,12 +1,11 @@
 #include <vector>
-using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
+bool issame(vector<int> lst1, vector<int> lst2){
+    if(lst1.size() != lst2.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<lst1.size(); i++){
+        if(lst1[i] != lst2[i]){
             return false;
         }
     }
@@ -16,10 +15,10 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> strange_sort_list(vector<int> lst);
 
 int main() {
-    vector<int> input = {5, 2, 8, 3, 1, 4};
-    vector<int> expected_output = {1, 8, 2, 5, 3, 4};
-    vector<int> result = strange_sort_list(input);
-    assert(issame(result, expected_output));
+    vector<int> input = {5, 2, 8, 4, 1, 9};
+    vector<int> expected_output = {1, 9, 2, 8, 4, 5};
+    vector<int> output = strange_sort_list(input);
+    assert(issame(output, expected_output));
     return 0;
 }
 
