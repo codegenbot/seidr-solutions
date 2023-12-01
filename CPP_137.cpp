@@ -1,6 +1,9 @@
-#include <boost/any.hpp>
-#include <iostream>
+#include <stdio.h>
 #include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -19,13 +22,13 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (val1 < val2)
             return val2;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string val1 = boost::any_cast<std::string>(a);
-        std::string val2 = boost::any_cast<std::string>(b);
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string val1 = boost::any_cast<string>(a);
+        string val2 = boost::any_cast<string>(b);
         if (val1 > val2)
             return val1;
         else if (val1 < val2)
             return val2;
     }
-    return nullptr;
+    return boost::any("None");
 }
