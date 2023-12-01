@@ -13,7 +13,7 @@ string string_to_md5(string text) {
     MD5().CalculateDigest(digest, (byte*)text.c_str(), text.length());
 
     char md5String[33];
-    for (int i = 0; i < sizeof(digest); i++) {
+    for (int i = 0; i < 16; i++) {
         sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
