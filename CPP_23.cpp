@@ -1,6 +1,5 @@
 #include <cassert>
 #include <cstring>
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -9,12 +8,8 @@ int calculateLength(string str){
 }
 
 int main() {
-    string input;
-    getline(cin, input);
+    // Write your code here
 
-    int length = calculateLength(input);
-
-    cout << length;
-
+    assert (calculateLength("asdasnakj") == 9);
     return 0;
 }
