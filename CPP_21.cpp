@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 bool issame(vector<float> a, vector<float> b) {
