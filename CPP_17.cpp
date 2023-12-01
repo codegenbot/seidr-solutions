@@ -4,22 +4,22 @@
 
 using namespace std;
 
-vector<int> parse_music(const string& music_string){
+vector<int> parse_music(const string& music_string) {
     vector<int> beats;
     string note;
-    for (int i = 0; i < music_string.length(); i++){
-        if (music_string[i] == 'o'){
-            if (music_string[i+1] == ' '){
+    for (int i = 0; i < music_string.length(); i++) {
+        if (music_string[i] == 'o') {
+            if (music_string[i+1] == ' ') {
                 beats.push_back(4);
                 i++;
             }
-            else if (music_string[i+1] == '|'){
+            else if (music_string[i+1] == '|') {
                 beats.push_back(2);
                 i += 2;
             }
         }
-        else if (music_string[i] == '.'){
-            if (music_string[i+1] == '|'){
+        else if (music_string[i] == '.') {
+            if (music_string[i+1] == '|') {
                 beats.push_back(1);
                 i += 2;
             }
@@ -28,7 +28,7 @@ vector<int> parse_music(const string& music_string){
     return beats;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
