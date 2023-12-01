@@ -4,6 +4,7 @@
 using namespace std;
 
 any compare_one(any a, any b) {
+
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int num1 = any_cast<int>(a);
         int num2 = any_cast<int>(b);
@@ -20,8 +21,6 @@ any compare_one(any a, any b) {
         } else if (num2 > num1) {
             return num2;
         }
-    } else if (a.type() != b.type()) {
-        return "None";
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = any_cast<string>(a);
         string str2 = any_cast<string>(b);
@@ -31,5 +30,6 @@ any compare_one(any a, any b) {
             return str2;
         }
     }
+
     return any("None");
 }
