@@ -1,7 +1,24 @@
-string make_palindrome(string str){
-    int n = str.length();
-    string rev_str = str;
-    reverse(rev_str.begin(), rev_str.end());
-    string palindrome = str + rev_str.substr(1, n-1);
+#include <stdio.h>
+#include <string>
+using namespace std;
+
+bool is_palindrome(string str) {
+    string s(str.rbegin(), str.rend());
+    return s == str;
+}
+
+string make_palindrome(string str) {
+    string palindrome = str;
+    int len = str.length();
+    int i = len - 1;
+    while (i >= 0) {
+        if (is_palindrome(str.substr(i))) {
+            break;
+        }
+        i--;
+    }
+    string prefix = str.substr(0, i);
+    string reversed_prefix(prefix.rbegin(), prefix.rend());
+    palindrome += reversed_prefix;
     return palindrome;
 }
