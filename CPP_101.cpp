@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 vector<string> splitString(string s){
@@ -30,12 +31,7 @@ int main(){
     }
     cout << endl;
 
-    // Check if the result is as expected
-    if(result == vector<string>{"ahmed", "gamal"}){
-        cout << "Test Passed!" << endl;
-    } else {
-        cout << "Test Failed!" << endl;
-    }
-    
+    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+
     return 0;
 }
