@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 vector<int> f(int n) {
@@ -24,8 +25,10 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(f(3) == {1, 2, 6});
-    // Add more test cases here
+    assert(f(3) == vector<int>({1, 2, 6}));
+    assert(f(5) == vector<int>({1, 2, 6, 24, 120}));
+    assert(f(1) == vector<int>({1}));
+    assert(f(0) == vector<int>({}));
 
     return 0;
 }
