@@ -1,37 +1,61 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(const vector<int>& input) {
-    int n = input.size();
-    int minDiff = abs(input[0] - input[n-1]);
-    int cutIndex = 0;
-    for (int i = 1; i < n-1; i++) {
-        int diff = abs(input[i] - input[n-1]);
+vector<int> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    int leftSum = 0;
+    int rightSum = 0;
+    
+    // Calculate the sum of all elements
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
+    }
+    
+    // Iterate through each element and find the spot where the difference is minimized
+    int minDiff = abs(leftSum - rightSum);
+    int splitIndex = 0;
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        
+        int diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
-            cutIndex = i;
+            splitIndex = i;
         }
     }
-    vector<int> subvector1(input.begin(), input.begin() + cutIndex + 1);
-    vector<int> subvector2(input.begin() + cutIndex + 1, input.end());
-    return make_pair(subvector1, subvector2);
+    
+    // Create the two resulting subvectors
+    vector<int> leftSubvector(nums.begin(), nums.begin() + splitIndex + 1);
+    vector<int> rightSubvector(nums.begin() + splitIndex + 1, nums.end());
+    
+    return leftSubvector;
+    return rightSubvector;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> input(n);
+    
+    vector<int> nums;
     for (int i = 0; i < n; i++) {
-        cin >> input[i];
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
-    pair<vector<int>, vector<int>> result = cutVector(input);
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << endl;
+    
+    vector<int> leftSubvector, rightSubvector;
+    leftSubvector = cutVector(nums);
+    rightSubvector = cutVector(nums);
+    
+    // Print the resulting subvectors
+    for (int i = 0; i < leftSubvector.size(); i++) {
+        cout << leftSubvector[i] << endl;
     }
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << endl;
+    for (int i = 0; i < rightSubvector.size(); i++) {
+        cout << rightSubvector[i] << endl;
     }
+    
     return 0;
 }
