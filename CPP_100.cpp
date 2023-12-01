@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 vector<int> make_a_pile(int n){
     vector<int> pile;
