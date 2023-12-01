@@ -1,14 +1,10 @@
-string decode_cyclic(string s){ 
+string decode_cyclic(string s){
+    int l = s.length();
     string output;
-    int l=s.length();
-    int num=(l+2)/3;
-    string x;
-    int i;
-    for (i=0;i*3<l;i++)
-    {
-        x=s.substr(i*3,3);
-        if (x.length()==3) x=x[2]+x.substr(0,2);
-        output=output+x;
+    for(int i = 0; i < l; i += 3){
+        string x = s.substr(i, 3);
+        if(x.length() == 3) x = x[2] + x.substr(0, 2);
+        output += x;
     }
     return output;
 }
