@@ -17,7 +17,7 @@ bool issame(const vector<float>& a, const vector<float>& b) {
 }
 
 vector<float> sort_even(const vector<float>& l) {
-    vector<float> l_prime = l;
+    vector<float> l_prime(l);
     vector<float> even_values;
     
     for(int i = 0; i < l.size(); i += 2) {
