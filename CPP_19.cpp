@@ -1,46 +1,51 @@
-#include <iostream>
+#include <string>
+#include <map>
 #include <sstream>
 #include <vector>
-#include <map>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
+std::string sort_numbers(std::string numbers);
 
-string sort_numbers(string numbers){
-    map<string, int> num_map;
-    num_map["zero"] = 0;
-    num_map["one"] = 1;
-    num_map["two"] = 2;
-    num_map["three"] = 3;
-    num_map["four"] = 4;
-    num_map["five"] = 5;
-    num_map["six"] = 6;
-    num_map["seven"] = 7;
-    num_map["eight"] = 8;
-    num_map["nine"] = 9;
+std::string sort_numbers(std::string numbers){
+    std::map<std::string, int> number_map;
+    number_map["zero"] = 0;
+    number_map["one"] = 1;
+    number_map["two"] = 2;
+    number_map["three"] = 3;
+    number_map["four"] = 4;
+    number_map["five"] = 5;
+    number_map["six"] = 6;
+    number_map["seven"] = 7;
+    number_map["eight"] = 8;
+    number_map["nine"] = 9;
 
-    vector<string> num_list;
-    stringstream ss(numbers);
-    string word;
-    while (ss >> word) {
-        num_list.push_back(word);
+    // Split the input string into individual numbers
+    std::vector<std::string> number_list;
+    std::stringstream ss(numbers);
+    std::string token;
+    while (std::getline(ss, token, ' ')) {
+        number_list.push_back(token);
     }
 
-    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b) {
-        return num_map[a] < num_map[b];
+    // Sort the numbers based on their corresponding values in the map
+    std::sort(number_list.begin(), number_list.end(), [&](std::string a, std::string b) {
+        return number_map[a] < number_map[b];
     });
 
-    string result;
-    for (const string& num : num_list) {
-        result += num + " ";
+    // Construct the sorted string
+    std::string sorted_numbers;
+    for (int i = 0; i < number_list.size(); i++) {
+        sorted_numbers += number_list[i];
+        if (i < number_list.size() - 1) {
+            sorted_numbers += " ";
+        }
     }
-    result.pop_back(); // Remove the last space
 
-    return result;
+    return sorted_numbers;
 }
 
 int main() {
+    // Test the sort_numbers function
     assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
-
-    return 0;
 }
