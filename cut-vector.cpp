@@ -13,7 +13,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         return std::make_pair(nums, std::vector<int>());
     }
 
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         long long leftSum = 0;
         long long rightSum = 0;
 
@@ -21,7 +21,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             leftSum += nums[j];
         }
 
-        for (int j = i; j < n; j++) {
+        for (int j = i + 1; j < n; j++) {
             rightSum += nums[j];
         }
 
