@@ -7,7 +7,7 @@ vector<string> odd_count(vector<string> lst){
                 oddCount++;
             }
         }
-        string output = "the number of odd elements " + to_string(oddCount) + "n the str" + to_string(i+1) + "ng " + to_string(i+1) + " of the " + to_string(i+1) + "nput.";
+        string output = "the number of odd elements " + to_string(oddCount) + " in the string " + to_string(i+1) + " of the input.";
         result.push_back(output);
     }
     return result;
