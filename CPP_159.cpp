@@ -14,7 +14,7 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    std::vector<int> expectedOutput{5, 0};
-    std::vector<int> actualOutput = eat(4, 5, 1);
-    assert(issame(actualOutput, expectedOutput));
+    std::vector<int> result = eat(4, 5, 1);
+    assert(issame(result, std::vector<int>{5, 0}));
+    return 0;
 }
