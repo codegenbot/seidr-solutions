@@ -1,22 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <string>
-
 using namespace std;
 
-bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool isPrime(int n);
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
@@ -40,9 +26,16 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     }
 }
 
-int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-    // Add more test cases
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
+    }
     
-    return 0;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    
+    return true;
 }
