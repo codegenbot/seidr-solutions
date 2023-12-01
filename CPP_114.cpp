@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -18,9 +19,10 @@ long long minSubArraySum(vector<long long> nums){
 
 int main() {
     assert (minSubArraySum({1, -1}) == -1);
-    assert (minSubArraySum({1, 2, -3, 4, -5}) == -3);
-    assert (minSubArraySum({-1, -2, -3, -4, -5}) == -15);
-    assert (minSubArraySum({5, -2, 3, 1, -7}) == -2);
+    assert (minSubArraySum({-1, 2, 3, -4, 5}) == -4);
+    assert (minSubArraySum({5, -6, 7, 8, -9}) == -9);
+    assert (minSubArraySum({-10, -20, -30, -40, -50}) == -150);
+    assert (minSubArraySum({10, 20, 30, 40, 50}) == 10);
     
     return 0;
 }
