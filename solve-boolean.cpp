@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-
-bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed = false) {
+bool evaluateBooleanExpression(std::string expression, bool isEnclosed = false) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
@@ -16,7 +13,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed = 
             if (parenthesisCount > 0) {
                 continue;
             }
-        } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0) {
+        } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0) {
             opIndex = i;
             break;
         }
@@ -32,24 +29,14 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed = 
         std::string left = expression.substr(0, opIndex);
         std::string right = expression.substr(opIndex + 1);
 
-        if (expression[opIndex] == '|') {
+        if (expression[opIndex] == '&') {
             bool leftResult = evaluateBooleanExpression(left);
             bool rightResult = evaluateBooleanExpression(right);
-            return leftResult || rightResult;
-        } else if (expression[opIndex] == '&') {
-            return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
+            return leftResult && rightResult;
+        } else if (expression[opIndex] == '|') {
+            return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
         }
     }
 
     return !isEnclosed;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-  
-    bool result = evaluateBooleanExpression(input);
-    std::cout << (result ? "true" : "false") << std::endl;
-
-    return 0;
 }
