@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a){
-    return a == b;
+    return a == a;
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string){
