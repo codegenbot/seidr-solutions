@@ -1,7 +1,7 @@
 vector<string> filteredStrings;
-    for (string str : strings) {
-        if (str.find(prefix) == 0) {
-            filteredStrings.push_back(str);
-        }
+for (auto str : strings) {
+    if (str.substr(0, prefix.size()) == prefix) {
+        filteredStrings.push_back(str);
     }
-    return filteredStrings;
+}
+return filteredStrings;
