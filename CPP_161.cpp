@@ -1,38 +1,26 @@
-#include <iostream>
+#include <cctype>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
-using namespace std;
-
-string solve(string s){
-    string result = "";
-    bool hasLetter = false;
-
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            hasLetter = true;
-            if(islower(s[i])){
-                result += toupper(s[i]);
-            }
-            else{
-                result += tolower(s[i]);
-            }
-        }
-        else{
-            result += s[i];
-        }
-    }
-
-    if(!hasLetter){
-        reverse(result.begin(), result.end());
-    }
-
-    return result;
-}
+std::string solve(std::string s);
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
-    
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << solve(input);
     return 0;
+}
+
+std::string solve(std::string s) {
+    bool hasLetter = false;
+    for (char& c : s) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
+            hasLetter = true;
+        }
+    }
+    if (!hasLetter) {
+        std::reverse(s.begin(), s.end());
+    }
+    return s;
 }
