@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -15,12 +16,12 @@ vector<string> all_prefixes(string str){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
