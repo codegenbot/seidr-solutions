@@ -1,25 +1,16 @@
-#include <vector>
-#include <algorithm>
-
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
-    // Check if all elements in lst1 are already even
-    bool allEven = true;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            allEven = false;
-            break;
+string exchange(vector<int> lst1,vector<int> lst2){
+    for(int i=0; i<lst1.size(); i++){
+        if(lst1[i] % 2 != 0){
+            for(int j=0; j<lst2.size(); j++){
+                if(lst2[j] % 2 == 0){
+                    swap(lst1[i], lst2[j]);
+                    break;
+                }
+            }
+            if(lst1[i] % 2 != 0){
+                return "NO";
+            }
         }
     }
-    if (allEven) {
-        return "YES";
-    }
-
-    // Check if there are odd elements in lst2 that can be swapped with lst1
-    for (int num : lst2) {
-        if (num % 2 == 0) {
-            return "YES";
-        }
-    }
-
-    return "NO";
+    return "YES";
 }
