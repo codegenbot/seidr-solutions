@@ -29,6 +29,5 @@ int main(){
     std::vector<int> expected_output = {31, 135};
     std::vector<int> output = unique_digits(input);
     assert(output == expected_output);
-
     return 0;
 }
