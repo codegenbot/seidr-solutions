@@ -1,25 +1,34 @@
-bool cycpattern_check(string a, string b) {
+#include <iostream>
+#include <string>
+
+bool cycpattern_check(std::string a, std::string b) {
     int n = a.length();
     int m = b.length();
 
-    if (n < m) {
+    if (m > n) {
         return false;
     }
 
-    string temp = b + b;
+    for (int i = 0; i < n; i++) {
+        bool isRotation = true;
 
-    if (temp.find(a) != string::npos) {
-        return true;
-    }
+        for (int j = 0; j < m; j++) {
+            if (a[(i + j) % n] != b[j]) {
+                isRotation = false;
+                break;
+            }
+        }
 
-    for (int i = 1; i < m; i++) {
-        string rotated = b.substr(i, m - i) + b.substr(0, i);
-        string combined = rotated + rotated;
-
-        if (combined.find(a) != string::npos) {
+        if (isRotation) {
             return true;
         }
     }
 
     return false;
+}
+
+int main() {
+    assert(cycpattern_check("winemtt", "tinem") == true);
+    
+    return 0;
 }
