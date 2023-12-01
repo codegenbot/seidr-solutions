@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <algorithm>
 
 bool evaluateBooleanExpression(std::string expression, bool isEnclosed) {
     int opIndex = -1;
@@ -43,18 +41,4 @@ bool evaluateBooleanExpression(std::string expression, bool isEnclosed) {
     }
 
     return !isEnclosed;
-}
-
-int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, expression);
-
-    expression.erase(std::remove_if(expression.begin(), expression.end(), isspace), expression.end());
-
-    bool result = evaluateBooleanExpression(expression, false);
-
-    std::cout << "Result: " << (result ? "T" : "F") << std::endl;
-
-    return 0;
 }
