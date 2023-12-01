@@ -3,7 +3,9 @@
 #include <cmath>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
-    return firstBounceHeight / startingHeight;
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    bouncinessIndex = std::round(bouncinessIndex * 1e14) / 1e14;
+    return bouncinessIndex;
 }
 
 double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
@@ -12,9 +14,8 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
     double currentBounceHeight = firstBounceHeight;
 
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += currentBounceHeight;
+        totalDistance += currentBounceHeight * 2;
         currentBounceHeight *= bouncinessIndex;
-        totalDistance += currentBounceHeight;
     }
 
     return totalDistance;
