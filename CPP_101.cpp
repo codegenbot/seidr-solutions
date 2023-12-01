@@ -4,17 +4,10 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    // Add your implementation here
+    // Return true if a and b have the same elements, else return false
+    // You can compare the elements using a loop or using the standard library function std::equal()
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> words_string(string s) {
