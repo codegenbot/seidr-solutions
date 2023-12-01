@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     std::vector<std::vector<int>> result;
@@ -22,20 +21,13 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 }
 
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i].size() != b[i].size()){
-            return false;
-        }
-        for(int j=0; j<a[i].size(); j++){
-            if(a[i][j] != b[i][j]){
-                return false;
-            }
-        }
-    }
-    return true;
+    // Code to compare if a and b are the same
+    // Return true if they are the same, false otherwise
+}
+
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
+    // Code to compare if a and b are the same
+    // Return true if they are the same, false otherwise
 }
 
 int main(){
