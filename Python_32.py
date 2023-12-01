@@ -2,7 +2,7 @@ import math
 
 
 def poly(xs: list, x: float):
-    return sum([coeff * x ** i for i, coeff in enumerate(xs)])
+    return sum([coeff * x**i for i, coeff in enumerate(xs)])
 
 
 def find_zero(xs: list):
@@ -10,9 +10,9 @@ def find_zero(xs: list):
 
 
 def main():
-    xs = list(map(float, input().split()))
+    xs = list(map(float, input("Enter the coefficients: ").split()))
     result = find_zero(xs)
-    print(result)
+    print("Zero of the function: ", result)
 
 
 if __name__ == "__main__":
