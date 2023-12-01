@@ -1,9 +1,9 @@
 #include <iostream>
-#include <sstream>
 #include <map>
+#include <sstream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 using namespace std;
 
@@ -14,13 +14,12 @@ int main() {
     getline(cin, numbers);
 
     string sorted_numbers = sort_numbers(numbers);
-
     cout << sorted_numbers << endl;
 
     return 0;
 }
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
     map<string, int> number_map;
     number_map["zero"] = 0;
     number_map["one"] = 1;
