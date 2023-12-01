@@ -1,6 +1,8 @@
-using namespace std;
+#include <iostream>
 #include <vector>
 #include <string>
+
+using namespace std;
 
 vector<string> select_words(string s, int n);
 
@@ -40,6 +42,6 @@ vector<string> select_words(string s, int n){
 }
 
 int main(){
-    assert(select_words("a b c d e f", 1) == {"b", "c", "d", "f"});
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
     return 0;
 }
