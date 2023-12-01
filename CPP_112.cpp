@@ -19,7 +19,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
     return 0;
 }
