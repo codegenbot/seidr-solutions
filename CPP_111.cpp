@@ -1,8 +1,11 @@
+#include <map>
+using namespace std;
+
 map<char, int> histogram(string test) {
   map<char, int> result;
   string letter;
   int count = 0;
-  
+
   for (int i = 0; i < test.length(); i++) {
     if (test[i] != ' ') {
       letter += test[i];
@@ -16,20 +19,30 @@ map<char, int> histogram(string test) {
       }
     }
   }
-  
+
   if (!letter.empty()) {
     result[letter[0]]++;
     if (result[letter[0]] > count) {
       count = result[letter[0]];
     }
   }
-  
+
   map<char, int> output;
   for (auto it = result.begin(); it != result.end(); it++) {
     if (it->second == count) {
       output[it->first] = it->second;
     }
   }
-  
+
   return output;
+}
+
+bool issame(map<char, int>& a, map<char, int>& b) {
+  return a == b;
+}
+
+int main() {
+  assert (issame(histogram("a") , {{'a', 1}}));
+
+  return 0;
 }
