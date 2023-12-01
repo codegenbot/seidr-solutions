@@ -3,35 +3,36 @@
 #include <string>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
-    int targetLen = target.length();
-    int textLen = text.length();
+    std::vector<int> result;
+    int textSize = text.size();
+    int targetSize = target.size();
 
-    for (int i = 0; i <= textLen - targetLen; i++) {
+    for (int i = 0; i <= textSize - targetSize; i++) {
         bool found = true;
-        for (int j = 0; j < targetLen; j++) {
+        for (int j = 0; j < targetSize; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
         if (found) {
-            indices.push_back(i);
+            result.push_back(i);
         }
     }
 
-    return indices;
+    return result;
 }
 
 int main() {
     std::string text, target;
-    std::cin >> text >> target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
-
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    for (int i : result) {
+        std::cout << i << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
