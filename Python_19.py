@@ -16,3 +16,8 @@ def sort_numbers(numbers: List[str]) -> str:
     }
     sorted_numbers = sorted(numbers, key=lambda x: num_mapping[x])
     return " ".join(sorted_numbers)
+
+
+numbers_input = input("Enter the numbers (separated by spaces): ").split()
+output = sort_numbers(numbers_input)
+print(output)
