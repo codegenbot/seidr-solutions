@@ -19,13 +19,13 @@ bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     return (totalChars1 < totalChars2);
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
     assert(issame(total_match({"this", "is"}, {"a", "test"}), {"a", "test"}));
     
     return 0;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
 }
