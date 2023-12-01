@@ -1,15 +1,13 @@
 #include <string> 
-#include <cmath>
-#include <cassert>
 
-int closest_integer(std::string value){
-    float num = std::stof(value); // convert string to float
-    int floor_num = std::floor(num); // round down to the nearest integer
-    int ceil_num = std::ceil(num); // round up to the nearest integer
+int closest_integer(string value){
+    float num = stof(value); // convert string to float
+    int floor_num = floor(num); // round down to the nearest integer
+    int ceil_num = ceil(num); // round up to the nearest integer
     
     // calculate the difference between the original number and the rounded numbers
-    float diff_floor = std::abs(num - floor_num);
-    float diff_ceil = std::abs(num - ceil_num);
+    float diff_floor = abs(num - floor_num);
+    float diff_ceil = abs(num - ceil_num);
     
     // if the difference is the same, round away from zero
     if(diff_floor == diff_ceil){
@@ -30,7 +28,6 @@ int closest_integer(std::string value){
 
 int main(){
     assert (closest_integer("0") == 0);
-    // more test cases...
-    
+    // further test cases and code...
     return 0;
 }
