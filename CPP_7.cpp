@@ -1,7 +1,7 @@
-bool issame(vector<string> a, vector<string> b) {
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
-    for (const auto& str : a) {
-        if (str.find(b[0]) != string::npos) {
+    for (const auto& str : strings) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
@@ -9,7 +9,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame({"grunt", "trumpet", "prune", "gruesome"}, {"run"}) == vector<string>{"grunt", "prune"});
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
 
     return 0;
 }
