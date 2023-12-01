@@ -8,7 +8,7 @@ int main() {
     int remainingCents = cents % 25;
 
     int dimes = remainingCents / 10;
-    remainingCents %= 10;
+    remainingCents = remainingCents % 10;
 
     int nickels = remainingCents / 5;
     int pennies = remainingCents % 5;
