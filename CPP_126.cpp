@@ -1,19 +1,20 @@
-bool is_sorted(vector<int> lst){
-    if(lst.size() < 2) return true;
-    
-    int prev = lst[0];
-    bool hasDuplicates = false;
-    
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] == prev){
-            hasDuplicates = true;
-            break;
-        }
-        else if(lst[i] < prev){
+#include <vector>
+#include <cassert>
+
+bool is_sorted(std::vector<int> lst){
+    int n = lst.size();
+    for(int i=1; i<n; i++){
+        if(lst[i] <= lst[i-1]){
             return false;
         }
-        prev = lst[i];
+    }
+    return true;
+}
+
+int main(){
+    if (is_sorted({1, 2, 3, 4}) == true){
+        // code logic
     }
     
-    return !hasDuplicates;
+    return 0;
 }
