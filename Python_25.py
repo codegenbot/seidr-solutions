@@ -1,5 +1,9 @@
+def solve(n):
+    return n
+
+
 def main():
-    n = int(input().strip())
+    n = int(input("Enter N: "))
     result = solve(n)
     print(result)
 
