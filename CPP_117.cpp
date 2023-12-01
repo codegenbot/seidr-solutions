@@ -1,3 +1,27 @@
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+bool isConsonant(char c) {
+    c = tolower(c);
+    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+vector<string> select_words(string s, int n);
+
+bool isSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -25,7 +49,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+int main() {
+    assert(isSame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    return 0;
 }

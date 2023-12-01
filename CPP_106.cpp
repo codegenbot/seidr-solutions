@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
+#include <algorithm>
 using namespace std;
 
 vector<int> f(int n) {
@@ -24,12 +24,9 @@ vector<int> f(int n) {
     return result;
 }
 
-void test() {
-    assert(f(3) == vector<int>{1, 2, 6});
-    // Add more test cases here
-}
-
 int main() {
-    test();
+    assert(equal(f(3).begin(), f(3).end(), vector<int>{1, 2, 6}.begin(), vector<int>{1, 2, 6}.end()));
+    // Add more test cases here
+
     return 0;
 }
