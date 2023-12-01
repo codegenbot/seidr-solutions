@@ -8,5 +8,5 @@ input_str = input("Enter a string: ").strip()
 encoded_str = encode_shift(input_str)
 decoded_str = decode_shift(encoded_str)
 
-print(encoded_str)
-print(decoded_str)
+print("Encoded String:", encoded_str)
+print("Decoded String:", decoded_str)
