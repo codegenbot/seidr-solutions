@@ -28,8 +28,8 @@ int main() {
     assert (encrypt("A") == "E");
     assert (encrypt("Z") == "D");
     assert (encrypt("abc") == "efg");
-    assert (encrypt("xyz") == "bcd");
     assert (encrypt("ABC") == "EFG");
+    assert (encrypt("xyz") == "bcd");
     assert (encrypt("XYZ") == "BCD");
     
     return 0;
