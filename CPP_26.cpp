@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-
-using namespace std;
+#include <cassert>
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
@@ -14,12 +12,23 @@ vector<int> remove_duplicates(vector<int> numbers){
     return result;
 }
 
-int main(){
-    vector<int> input = {1, 2, 3, 2, 4, 3, 5};
-    vector<int> output = remove_duplicates(input);
-    for(int num : output){
-        cout << num << " ";
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
     }
-    
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    vector<int> arr = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+    assert(issame(arr, {1, 4, 5}));
+
     return 0;
 }
