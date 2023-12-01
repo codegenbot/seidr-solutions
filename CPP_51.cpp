@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
+#include <cassert> // Include the necessary header file
 
 using namespace std;
 
-string remove_vowels(string text);
+string remove_vowels(string text); // Function declaration
 
 int main(){
     assert(remove_vowels("ybcd") == "ybcd");
