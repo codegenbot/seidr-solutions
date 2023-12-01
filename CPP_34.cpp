@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
-
 vector<int> myUnique(vector<int> l){
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
