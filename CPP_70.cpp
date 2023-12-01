@@ -1,15 +1,18 @@
 vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
-    int start = 0;
-    int end = lst.size() - 1;
-    while (start <= end) {
-        result.push_back(lst[start]);
-        if (start != end) {
-            result.push_back(lst[end]);
+
+    int min_index = 0;
+    int max_index = lst.size() - 1;
+
+    while (min_index <= max_index) {
+        result.push_back(lst[min_index]);
+        if (min_index != max_index) {
+            result.push_back(lst[max_index]);
         }
-        start++;
-        end--;
+        min_index++;
+        max_index--;
     }
+
     return result;
 }
