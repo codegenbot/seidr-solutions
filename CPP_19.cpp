@@ -1,57 +1,65 @@
-#include <iostream>
 #include <string>
 #include <map>
-#include <vector>
-#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-string sort_numbers(string numbers) {
-    map<string, int> numberMap;
-    numberMap["zero"] = 0;
-    numberMap["one"] = 1;
-    numberMap["two"] = 2;
-    numberMap["three"] = 3;
-    numberMap["four"] = 4;
-    numberMap["five"] = 5;
-    numberMap["six"] = 6;
-    numberMap["seven"] = 7;
-    numberMap["eight"] = 8;
-    numberMap["nine"] = 9;
-
-    vector<string> numberList;
-    string currentNumber;
+string sort_numbers(string numbers){
+    map<string, int> number_map;
+    number_map["zero"] = 0;
+    number_map["one"] = 1;
+    number_map["two"] = 2;
+    number_map["three"] = 3;
+    number_map["four"] = 4;
+    number_map["five"] = 5;
+    number_map["six"] = 6;
+    number_map["seven"] = 7;
+    number_map["eight"] = 8;
+    number_map["nine"] = 9;
+    
+    string result = "";
+    string current_number = "";
+    
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
-            numberList.push_back(currentNumber);
-            currentNumber = "";
+            result += current_number + " ";
+            current_number = "";
         } else {
-            currentNumber += numbers[i];
+            current_number += numbers[i];
         }
     }
-    numberList.push_back(currentNumber);
-
-    sort(numberList.begin(), numberList.end(), [&](const string &a, const string &b) {
-        return numberMap[a] < numberMap[b];
-    });
-
-    string sortedNumbers = "";
-    for (int i = 0; i < numberList.size(); i++) {
-        sortedNumbers += numberList[i];
-        if (i < numberList.size() - 1) {
-            sortedNumbers += " ";
+    
+    result += current_number;
+    
+    int n = result.length();
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            string number1 = "";
+            string number2 = "";
+            int k = 0;
+            
+            while (result[j+k] != ' ') {
+                number1 += result[j+k];
+                k++;
+            }
+            
+            k = 0;
+            
+            while (result[j+k+1] != ' ') {
+                number2 += result[j+k+1];
+                k++;
+            }
+            
+            if (number_map[number1] > number_map[number2]) {
+                swap(result[j], result[j+1]);
+            }
         }
     }
-
-    return sortedNumbers;
+    
+    return result;
 }
 
 int main() {
-    string numbers;
-    getline(cin, numbers);
-
-    string sortedNumbers = sort_numbers(numbers);
-    cout << sortedNumbers << endl;
-
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
     return 0;
 }
