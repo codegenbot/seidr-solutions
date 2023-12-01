@@ -1,20 +1,31 @@
 #include <string>
-#include <algorithm>
+using namespace std;
 
-string solve(string s){
-    bool hasLetter = false;
+string solve(string s) {
+    string result = ""; // initialize an empty string to store the result
+    bool hasLetters = false; // flag to check if the string contains any letters
+    
+    // iterate through each character in the string
     for (int i = 0; i < s.length(); i++) {
+        // check if the character is a letter
         if (isalpha(s[i])) {
-            hasLetter = true;
+            hasLetters = true; // set the flag to true
+            
+            // reverse the case of the letter
             if (islower(s[i])) {
-                s[i] = toupper(s[i]);
+                result += toupper(s[i]); // convert lowercase to uppercase
             } else {
-                s[i] = tolower(s[i]);
+                result += tolower(s[i]); // convert uppercase to lowercase
             }
+        } else {
+            result += s[i]; // if the character is not a letter, keep it as it is
         }
     }
-    if (!hasLetter) {
-        reverse(s.begin(), s.end());
+    
+    // if the string contains no letters, reverse the string
+    if (!hasLetters) {
+        reverse(result.begin(), result.end());
     }
-    return s;
+    
+    return result; // return the resulted string
 }
