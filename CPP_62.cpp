@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 vector<float> derivative(vector<float> xs) {
     vector<float> result;
