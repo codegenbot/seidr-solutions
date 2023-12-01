@@ -28,8 +28,18 @@ vector<int> sort_third(vector<int>& l){
     return l_sorted;
 }
 
-int main(){
+int main() {
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(sort_third({1, 2, 3, 4, 5, 6, 7, 8, 9}), {1, 2, 3, 4, 5, 6, 7, 8, 9}));
+    assert(issame(sort_third({9, 8, 7, 6, 5, 4, 3, 2, 1}), {1, 8, 7, 6, 5, 4, 3, 2, 9}));
+    assert(issame(sort_third({}), {}));
+    assert(issame(sort_third({1}), {1}));
+    assert(issame(sort_third({1, 2, 3}), {1, 2, 3}));
+    assert(issame(sort_third({3, 2, 1}), {1, 2, 3}));
+    assert(issame(sort_third({1, 2, 3, 4}), {1, 2, 3, 4}));
+    assert(issame(sort_third({4, 3, 2, 1}), {1, 3, 2, 4}));
+
+    cout << "All test cases passed!" << endl;
 
     return 0;
 }
