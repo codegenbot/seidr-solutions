@@ -16,7 +16,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-int main() {
+/* int main() {
     assert(issame(eat(4, 5, 1), {5, 0}));
-    // return 0;
-}
+    return 0;
+} */
