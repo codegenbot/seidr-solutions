@@ -1,3 +1,5 @@
+#include <vector>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -20,4 +22,13 @@ bool issame(vector<float> a, vector<float> b){
         }
     }
     return true;
+}
+
+int main() {
+    vector<float> input; // Replace with actual input
+    vector<float> result = derivative(input);
+    
+    // Print output (Not included in the given code)
+    
+    return 0;
 }
