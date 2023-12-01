@@ -1,50 +1,41 @@
 string sort_numbers(string numbers){
-    map<string, int> num_map;
-    num_map["zero"] = 0;
-    num_map["one"] = 1;
-    num_map["two"] = 2;
-    num_map["three"] = 3;
-    num_map["four"] = 4;
-    num_map["five"] = 5;
-    num_map["six"] = 6;
-    num_map["seven"] = 7;
-    num_map["eight"] = 8;
-    num_map["nine"] = 9;
-    
-    string result = "";
-    string current = "";
-    
-    for(int i = 0; i < numbers.length(); i++){
-        if(numbers[i] == ' '){
-            result += current + " ";
-            current = "";
-        }else{
-            current += numbers[i];
+    map<string, int> numMap;
+    numMap["zero"] = 0;
+    numMap["one"] = 1;
+    numMap["two"] = 2;
+    numMap["three"] = 3;
+    numMap["four"] = 4;
+    numMap["five"] = 5;
+    numMap["six"] = 6;
+    numMap["seven"] = 7;
+    numMap["eight"] = 8;
+    numMap["nine"] = 9;
+
+    vector<int> sortedNumbers;
+
+    // Split the input string into individual numbers
+    stringstream ss(numbers);
+    string num;
+    while (getline(ss, num, ' ')) {
+        sortedNumbers.push_back(numMap[num]);
+    }
+
+    // Sort the numbers in ascending order
+    sort(sortedNumbers.begin(), sortedNumbers.end());
+
+    // Convert the sorted numbers back to string
+    string result;
+    for (int i = 0; i < sortedNumbers.size(); i++) {
+        for (auto it = numMap.begin(); it != numMap.end(); ++it) {
+            if (it->second == sortedNumbers[i]) {
+                result += it->first + " ";
+                break;
+            }
         }
     }
-    result += current;
-    
-    vector<string> num_list;
-    current = "";
-    
-    for(int i = 0; i < result.length(); i++){
-        if(result[i] == ' '){
-            num_list.push_back(current);
-            current = "";
-        }else{
-            current += result[i];
-        }
-    }
-    num_list.push_back(current);
-    
-    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b){
-        return num_map[a] < num_map[b];
-    });
-    
-    string sorted_numbers = "";
-    for(int i = 0; i < num_list.size(); i++){
-        sorted_numbers += num_list[i] + " ";
-    }
-    
-    return sorted_numbers;
+
+    // Remove the trailing space
+    result = result.substr(0, result.length() - 1);
+
+    return result;
 }
