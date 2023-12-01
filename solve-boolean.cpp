@@ -5,7 +5,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
-    for (int i = expression.length() - 1; i >= 0; i--) {
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '(') {
             parenthesisCount++;
         } else if (expression[i] == ')') {
@@ -18,7 +18,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
 
     if (opIndex != -1) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
-        bool right = evaluateBooleanExpression(expression.substr(opIndex + 2));
+        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
 
         switch (expression[opIndex]) {
             case '|':
