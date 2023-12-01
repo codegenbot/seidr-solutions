@@ -1,30 +1,38 @@
 #include <vector>
 
-using namespace std;
-
-vector<float> rescale_to_unit(vector<float> numbers) {
-    float maximum = 0;
-    for (float num : numbers) {
-        if (num > maximum) {
-            maximum = num;
+std::vector<float> rescale_to_unit(std::vector<float> numbers) {
+    std::vector<float> rescaled;
+    float min_val = numbers[0];
+    float max_val = numbers[0];
+    
+    for (auto number : numbers) {
+        if (number < min_val) {
+            min_val = number;
+        }
+        if (number > max_val) {
+            max_val = number;
         }
     }
-    vector<float> rescaled;
-    for (float num : numbers) {
-        rescaled.push_back(num / maximum);
+    
+    for (auto number : numbers) {
+        float rescaled_val = (number - min_val) / (max_val - min_val);
+        rescaled.push_back(rescaled_val);
     }
+    
     return rescaled;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
+    
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
