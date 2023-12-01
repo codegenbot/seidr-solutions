@@ -3,11 +3,19 @@
 #include <string>
 #include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
 
-vector<string> by_length(vector<int> arr){
-    vector<int> sortedArr;
-    vector<string> result;
+std::vector<std::string> by_length(std::vector<int> arr){
+    std::vector<int> sortedArr;
+    std::vector<std::string> result;
 
     // Sort the integers between 1 and 9 inclusive
     for(int i=0; i<arr.size(); i++){
@@ -15,11 +23,11 @@ vector<string> by_length(vector<int> arr){
             sortedArr.push_back(arr[i]);
         }
     }
-    sort(sortedArr.begin(), sortedArr.end());
+    std::sort(sortedArr.begin(), sortedArr.end());
 
     // Reverse the sorted array and replace each digit by its corresponding name
     for(int i=sortedArr.size()-1; i>=0; i--){
-        string digitName;
+        std::string digitName;
         switch(sortedArr[i]){
             case 1:
                 digitName = "One";
@@ -54,16 +62,6 @@ vector<string> by_length(vector<int> arr){
         result.push_back(digitName);
     }
     return result;
-}
-
-bool issame(const vector<string>& a, const vector<string>& b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
 }
 
 int main() {
