@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed, bool isInnerExpression = false) {
+bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
     if (expression.length() == 1) {
         if (expression[0] == 'T') {
             return isEnclosed;
@@ -13,7 +13,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed, b
     int opIndex = -1;
     int parenthesisCount = 0;
 
-    for (int i = expression.length() - 1; i >= 0; i--) {
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '(') {
             parenthesisCount++;
             if (parenthesisCount == 1 && !isEnclosed) {
@@ -32,7 +32,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed, b
     }
 
     if (opIndex != -1) {
-        int lastOpIndex = opIndex + 1;
+        int lastOpIndex = opIndex;
 
         while (lastOpIndex < expression.length() && (expression[lastOpIndex] == '&' || expression[lastOpIndex] == '|')) {
             lastOpIndex++;
@@ -40,16 +40,14 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed, b
         lastOpIndex--;
 
         std::string left = expression.substr(0, opIndex);
-        std::string right = expression.substr(lastOpIndex + 1);
+        std::string right = expression.substr(lastOpIndex + 2);
 
         if (expression[opIndex] == '&') {
-            bool leftResult = evaluateBooleanExpression(left, false, true);
-            bool rightResult = evaluateBooleanExpression(right, false, true);
+            bool leftResult = evaluateBooleanExpression(left, false);
+            bool rightResult = evaluateBooleanExpression(right, false);
             return leftResult && rightResult;
         } else if (expression[opIndex] == '|') {
-            bool leftResult = evaluateBooleanExpression(left, false, true);
-            bool rightResult = evaluateBooleanExpression(right, false, true);
-            return leftResult || rightResult;
+            return evaluateBooleanExpression(left, false) || evaluateBooleanExpression(right, false);
         }
     }
 
