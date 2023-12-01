@@ -1,21 +1,21 @@
 def cut_vector(vector):
-    i = 0
-    j = len(vector) - 1
-    left_sum = vector[i]
-    right_sum = vector[j]
+    n = len(vector)
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
+    min_diff = float("inf")
+    cut_index = -1
 
-    while i < j:
-        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
-            return vector[: i + 1], vector[j:]
+    for i in range(n):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+        diff = abs(left_sum - right_sum)
 
-        if left_sum < right_sum:
-            i += 1
-            left_sum += vector[i]
-        else:
-            j -= 1
-            right_sum += vector[j]
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
 
-    return vector[: i + 1], vector[j:]
+    return vector[: cut_index + 1], vector[cut_index + 1 :]
 
 
 # Read input from user
@@ -27,9 +27,9 @@ while True:
     except:
         break
 
-# Call the function and print the output
-result1, result2 = cut_vector(vector)
-for num in result1:
+# Call the function and print the results
+left_subvector, right_subvector = cut_vector(vector)
+for num in left_subvector:
     print(num)
-for num in result2:
+for num in right_subvector:
     print(num)
