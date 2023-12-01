@@ -1,10 +1,18 @@
-def longest(string_list):
-    if not string_list:
+from typing import List, Optional
+
+
+def longest(strings: List[str]) -> Optional[str]:
+    if not strings:
         return None
-    return max(string_list, key=len)
+    return max(strings, key=len)
 
-input_string = input("Enter a list of strings: ")
-strings = input_string.split()
 
-result = longest(strings)
-print("Longest string:", result)
+if __name__ == "__main__":
+    n = int(input())
+    strings = []
+    for _ in range(n):
+        string = input()
+        strings.append(string)
+
+    result = longest(strings)
+    print(result)
