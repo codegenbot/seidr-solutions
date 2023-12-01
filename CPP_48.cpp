@@ -1,9 +1,8 @@
 bool is_palindrome(string text){
     int n = text.length();
-    for(int i=0; i<n/2; i++){
-        if(text[i] != text[n-i-1]){
+    for(int i=0, j=n-1; i<j; i++, j--){
+        if(text[i] != text[j])
             return false;
-        }
     }
     return true;
 }
