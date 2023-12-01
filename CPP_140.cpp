@@ -1,20 +1,32 @@
-string fix_spaces(string text){
-    string result = "";
-    int count = 0;
-    
-    for(int i = 0; i < text.length(); i++){
-        if(text[i] == ' '){
-            count++;
-            if(count > 2){
+#include <iostream>
+#include <string>
+
+std::string fix_spaces(std::string text) {
+    int n = text.size();
+    std::string result = "";
+    int consecutive_spaces = 0;
+    for (int i = 0; i < n; i++) {
+        if (text[i] == ' ') {
+            consecutive_spaces++;
+            if (consecutive_spaces > 2) {
                 result += "-";
-            }else{
+            }
+            else {
                 result += "_";
             }
-        }else{
+        }
+        else {
             result += text[i];
-            count = 0;
+            consecutive_spaces = 0;
         }
     }
-    
     return result;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::string output = fix_spaces(input);
+    std::cout << output << std::endl;
+    return 0;
 }
