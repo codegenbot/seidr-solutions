@@ -3,7 +3,7 @@
 #include <cassert>
 using namespace std;
 
-vector<string> splitString(string s){
+vector<string> splitStringAndRemoveSpaces(string s){
     vector<string> words;
     string word = "";
     for(int i=0; i<s.length(); i++){
@@ -24,14 +24,14 @@ vector<string> splitString(string s){
 }
 
 int main(){
-    vector<string> result = splitString("ahmed     , gamal");
+    vector<string> result = splitStringAndRemoveSpaces("ahmed     , gamal");
     cout << "Output: ";
     for(const string& word : result){
         cout << word << " ";
     }
     cout << endl;
 
-    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert(splitStringAndRemoveSpaces("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 
     return 0;
 }
