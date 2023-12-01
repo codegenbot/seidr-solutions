@@ -6,11 +6,6 @@ def string_to_md5(text):
     else:
         return hashlib.md5(text.encode()).hexdigest()
 
-# Read input from user
-text = input("Enter the input text: ")
-
-# Call the function with user input
+text = input("Enter the text to convert to MD5: ")
 result = string_to_md5(text)
-
-# Return the result
 print(result)
