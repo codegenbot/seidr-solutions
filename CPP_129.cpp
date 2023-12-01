@@ -72,15 +72,17 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    
+    int n = a.size();
+    for (int i = 0; i < n; i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
 int main() {
     // ... your test cases ...
-    return 0;
 }
