@@ -1,12 +1,11 @@
-#include <iostream>
 #include <string>
-#include <cassert>
+#include <cctype>
 
-int digitSum(const std::string& s){
+int digitSum(string s){
     int sum = 0;
-    for(char c : s){
-        if(std::isupper(c)){
-            sum += c;
+    for(int i = 0; i < s.length(); i++){
+        if(isupper(s[i])){
+            sum += s[i];
         }
     }
     return sum;
