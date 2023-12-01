@@ -19,8 +19,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-bool issame2(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    assert(issame(factorize(3 * 2 * 3), vector<int>{2, 3, 3}));
+    // rest of the code
 }
-
-#include <cassert>
