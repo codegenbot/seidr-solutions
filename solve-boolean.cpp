@@ -6,7 +6,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
         if (expression[0] == 'T') {
             return !isEnclosed;
         } else if (expression[0] == 'F') {
-            return !isEnclosed;
+            return false;
         }
     }
 
@@ -28,7 +28,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
             opIndex = i;
             break;
         } else if (expression[i] == 'F' && parenthesisCount == 0) {
-            return !isEnclosed;
+            return false;
         }
     }
 
@@ -53,7 +53,7 @@ int main() {
     std::getline(std::cin, expression);
     
     bool result = evaluateBooleanExpression(expression, false);
-    std::cout << std::boolalpha << result << std::endl;
+    std::cout << std::boolalpha << !result << std::endl;
 
     return 0;
 }
