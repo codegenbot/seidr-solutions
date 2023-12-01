@@ -1,7 +1,8 @@
-#include <vector>
+#include <vector> // Include the necessary header file
 
-vector<float> get_positive(vector<float> l);
+using namespace std;
 
+// Define the missing function issame
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -14,12 +15,21 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
+// Declare the get_positive function
 vector<float> get_positive(vector<float> l){
-    vector<float> positive_nums;
-    for(int i=0; i<l.size(); i++){
-        if(l[i] > 0){
-            positive_nums.push_back(l[i]);
+    vector<float> positive_numbers;
+    for(float num : l){
+        if(num > 0){
+            positive_numbers.push_back(num);
         }
     }
-    return positive_nums;
+    return positive_numbers;
+}
+
+int main(){
+    assert (issame(get_positive({}), {})); // Use the declared function get_positive
+
+    // Additional code logic
+
+    return 0;
 }
