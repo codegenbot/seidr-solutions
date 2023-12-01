@@ -1,8 +1,5 @@
 #include <vector>
-#include <algorithm>
-#include <cmath>
-
-using namespace std;
+#include <cassert>
 
 float median(vector<float> l){
     sort(l.begin(), l.end());
@@ -14,7 +11,8 @@ float median(vector<float> l){
     }
 }
 
-int main() {
+int main(){
     assert (abs(median({8, 1, 3, 9, 9, 2, 7}) - 7)<1e-4 );
+    // Additional test cases can be added here
     return 0;
 }
