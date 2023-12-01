@@ -1,3 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
+bool is_same(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     for(string s : lst){
