@@ -25,15 +25,8 @@ vector<string> words_string(string s) {
 
 bool issame(vector<string> a, vector<string> b) {
     // Implement your logic to compare vectors a and b
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    // ...
+    return false; // Placeholder return value
 }
 
 int main() {
