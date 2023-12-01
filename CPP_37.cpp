@@ -4,6 +4,9 @@
 
 using namespace std;
 
+bool issame(vector<float> a, vector<float> b);
+vector<float> sort_even(vector<float> l);
+
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -34,9 +37,9 @@ vector<float> sort_even(vector<float> l){
 }
 
 int main(){
-    vector<float> result = sort_even({ 5, 8, -12, 4, 23, 2, 3, 11, 12, -10 });
+    vector<float> result = sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     cout << "Result: ";
-    for (float num : result) {
+    for(float num : result){
         cout << num << " ";
     }
     cout << endl;
