@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstddef>
 
 int calculateScore(const std::string& bowls) {
     int score = 0;
@@ -39,11 +40,10 @@ int calculateScore(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::cout << "Enter the bowling sequence: ";
     std::cin >> bowls;
 
     int score = calculateScore(bowls);
-    std::cout << "Score: " << score << std::endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
