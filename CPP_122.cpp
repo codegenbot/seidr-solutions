@@ -11,9 +11,6 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    // Test the add_elements() function
-    vector<int> arr = {5, 15, 25, 35, 45};
-    int k = 3;
-    int result = add_elements(arr, k);
+    // Test the add_elements() function here
     return 0;
 }
