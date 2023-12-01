@@ -7,7 +7,5 @@ if __name__ == "__main__":
     n = int(input())
     strings = [input() for _ in range(n)]
     substring = input()
-
     result = filter_by_substring(strings, substring)
-
     print(result)
