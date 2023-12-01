@@ -11,20 +11,20 @@ int calculateScore(const std::string& bowls) {
                 if (bowls[bowlIndex + 2] == 'X') {
                     score += 30;
                 } else {
-                    score += 20 + (bowls[bowlIndex + 2] - '0');
+                    score += 20 + (int)(bowls[bowlIndex + 2] - '0');
                 }
             } else {
                 if (bowls[bowlIndex + 2] == '/') {
                     score += 20;
                 } else {
-                    score += 10 + (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0');
+                    score += 10 + (int)(bowls[bowlIndex + 1] - '0') + (int)(bowls[bowlIndex + 2] - '0');
                 }
             }
             bowlIndex += 1;
         } else if (bowl == '/') {
-            score += (10 - (bowls[bowlIndex - 1] - '0')) + (bowls[bowlIndex + 1] - '0');
+            score += (10 - ((int)bowls[bowlIndex - 1] - '0')) + (int)(bowls[bowlIndex + 1] - '0');
         } else {
-            score += (bowl - '0');
+            score += (int)(bowl - '0');
         }
 
         frame++;
