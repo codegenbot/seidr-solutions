@@ -21,16 +21,12 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    // Test case
-    vector<int> lst = {4, 3, -5, 2, -1, 7, -6};
+    vector<int> lst = {-5, 10, -2, 7, -3, 0};
     vector<int> result = largest_smallest_integers(lst);
     
-    cout << "Max Negative: " << result[0] << endl;
-    cout << "Min Positive: " << result[1] << endl;
+    for(int num : result){
+        cout << num << " ";
+    }
     
     return 0;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    // Implementation of issame function
 }
