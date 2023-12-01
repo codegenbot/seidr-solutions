@@ -19,6 +19,5 @@ int main() {
     vector<float> lst = {1.5, 2.5, 3.5, 4.5, 5.5};
     long long odd_sum = double_the_difference(lst);
     cout << odd_sum << endl;
-
     return 0;
 }
