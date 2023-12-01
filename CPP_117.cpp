@@ -9,11 +9,6 @@ int count_consonants(string word);
 vector<string> select_words(string s, int n);
 bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b);
-vector<string> select_words(string s, int n);
-int count_consonants(string word);
-bool is_vowel(char c);
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
