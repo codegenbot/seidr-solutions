@@ -27,11 +27,11 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert (issame(common({4, 3, 2, 8}, {}), {}));
-    assert (issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
-    assert (issame(common({1, 2, 3}, {4, 5, 6}), {}));
-    assert (issame(common({1, 2, 3}, {3, 4, 5}), {3}));
-    assert (issame(common({}, {}), {}));
-    
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
+    assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
+    assert(issame(common({1, 2, 3}, {3, 4, 5}), {3}));
+    assert(issame(common({}, {}), {}));
+
     return 0;
 }
