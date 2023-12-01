@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 using namespace std;
 
 bool correct_bracketing(string brackets){
