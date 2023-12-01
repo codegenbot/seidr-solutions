@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <utility>
-#include <cmath>
 #include <limits>
+#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
@@ -36,4 +37,35 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     std::vector<int> rightSubvector(nums.begin() + index, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
+}
+
+int main() {
+    // Read input from the user
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
+    }
+
+    // Call the cutVector function with the input
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+
+    // Print the resulting subvectors
+    std::cout << "Left subvector: ";
+    for (int num : result.first) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "Right subvector: ";
+    for (int num : result.second) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
