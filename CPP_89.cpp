@@ -16,7 +16,6 @@ string encrypt(string s){
 }
 
 int main() {
-    // Test cases
     assert(encrypt("a") == "e");
     assert(encrypt("hello") == "jgnnq");
     assert(encrypt("xyz") == "bcd");
