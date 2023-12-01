@@ -1,23 +1,16 @@
 from typing import List
 
-
 def all_prefixes(string: str) -> List[str]:
     prefixes = []
     for i in range(1, len(string) + 1):
         prefixes.append(string[:i])
     return prefixes
 
-
-# Get the number of test cases from the user
-num_test_cases = int(input())
+num_test_cases = int(input("Enter the number of test cases: "))
 
 result = []
-# Loop over the number of test cases
 for _ in range(num_test_cases):
-    # Prompt user for input
-    input_string = input()
-    # Call the function with the input string and add the result to the list
+    input_string = input("Enter a string: ")
     result.append(all_prefixes(input_string))
 
-# Print the result
 print(result)
