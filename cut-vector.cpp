@@ -11,7 +11,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int currentSum = 0;
     int index = 0;
     
-    while (currentSum <= target && index < nums.size()) {
+    while (currentSum <= target && index < nums.size()) { // Update condition here
         currentSum += nums[index];
         index++;
     }
