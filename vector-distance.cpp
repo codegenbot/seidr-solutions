@@ -2,32 +2,36 @@
 #include <vector>
 #include <cmath>
 
-double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
+double calculateDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
+    int n = vector1.size();
     double distance = 0.0;
-    for (int i = 0; i < vector1.size(); ++i) {
-        distance += std::pow(vector1[i] - vector2[i], 2);
+    
+    for (int i = 0; i < n; i++) {
+        double diff = vector1[i] - vector2[i];
+        distance += diff * diff;
     }
+    
     return std::sqrt(distance);
 }
 
 int main() {
     int n;
     std::cin >> n;
-
+    
     std::vector<double> vector1(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         std::cin >> vector1[i];
     }
-
+    
     std::cin >> n;
-
+    
     std::vector<double> vector2(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         std::cin >> vector2[i];
     }
-
-    double distance = euclideanDistance(vector1, vector2);
+    
+    double distance = calculateDistance(vector1, vector2);
     std::cout << distance << std::endl;
-
+    
     return 0;
 }
