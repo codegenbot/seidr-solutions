@@ -4,7 +4,6 @@
 #include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b);
-std::vector<int> pluck(std::vector<int> arr);
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
