@@ -6,7 +6,7 @@
 std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     int largestNegative = INT_MIN;
     int smallestPositive = INT_MAX;
-    
+
     for(int i = 0; i < lst.size(); i++) {
         if(lst[i] < 0 && lst[i] > largestNegative) {
             largestNegative = lst[i];
@@ -15,7 +15,7 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
             smallestPositive = lst[i];
         }
     }
-    
+
     return {largestNegative, smallestPositive};
 }
 
@@ -25,6 +25,6 @@ int main() {
     assert (largest_smallest_integers({0, 0, 0, 0, 0}) == std::vector<int>{0, 0});
     assert (largest_smallest_integers({-1, -2, -3, -4, -5}) == std::vector<int>{-1, -5});
     assert (largest_smallest_integers({1, 2, 3, 4, 5}) == std::vector<int>{5, 1});
-    
+
     return 0;
 }
