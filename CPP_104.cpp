@@ -1,11 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-vector<int> unique_digits(vector<int> x);
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int i=0; i<x.size(); i++){
