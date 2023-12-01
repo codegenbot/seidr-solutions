@@ -1,10 +1,14 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-using namespace std;
+std::vector<float> derivative(std::vector<float> xs);
 
-vector<float> derivative(vector<float> xs) {
-    vector<float> result;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    // implementation of issame function
+}
+
+std::vector<float> derivative(std::vector<float> xs) {
+    std::vector<float> result;
     for (int i = 1; i < xs.size(); i++) {
         result.push_back(xs[i] * i);
     }
@@ -12,12 +16,5 @@ vector<float> derivative(vector<float> xs) {
 }
 
 int main() {
-    vector<float> result = derivative({1.0});
-
-    for (float val : result) {
-        cout << val << " ";
-    }
-    cout << endl;
-
-    return 0;
+    assert(issame(derivative({1}), {}));
 }
