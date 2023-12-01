@@ -1,32 +1,49 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <cassert>
+#include <vector>
 
 using namespace std;
 
-string exchange(vector<int> lst1, vector<int> lst2); // Function declaration
-
-string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
-        }
-    }
-    if (oddCount == 0) {
-        return "YES";
-    }
-    for (int num : lst2) {
-        if (num % 2 != 0) {
-            return "NO";
-        }
-    }
-    return "YES";
-}
+string exchange(vector<int> lst1, vector<int> lst2);
 
 int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
-    // Add more test cases here
+    // Test the exchange function
+    vector<int> lst1 = {1, 3, 5};
+    vector<int> lst2 = {2, 4, 6};
+    assert(exchange(lst1, lst2) == "YES");
+
+    lst1 = {2, 4, 6};
+    lst2 = {1, 3, 5};
+    assert(exchange(lst1, lst2) == "NO");
+
+    lst1 = {1, 2, 3};
+    lst2 = {4, 5, 6};
+    assert(exchange(lst1, lst2) == "YES");
+
+    lst1 = {2, 4, 6};
+    lst2 = {1, 3, 5};
+    assert(exchange(lst1, lst2) == "NO");
 
     return 0;
+}
+
+string exchange(vector<int> lst1, vector<int> lst2) {
+    int count = 0;
+    for (int i = 0; i < lst1.size(); i++) {
+        if (lst1[i] % 2 != 0) {
+            count++;
+        }
+    }
+    if (count == 0) {
+        return "YES";
+    }
+    for (int i = 0; i < lst2.size(); i++) {
+        if (lst2[i] % 2 == 0) {
+            count--;
+        }
+    }
+    if (count <= 0) {
+        return "YES";
+    }
+    return "NO";
 }
