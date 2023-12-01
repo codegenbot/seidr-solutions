@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 int fruit_distribution(string s, int n) {
     int apples = 0;
@@ -22,4 +23,5 @@ int fruit_distribution(string s, int n) {
     return mangoes;
 }
 
+// Test case
 assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
