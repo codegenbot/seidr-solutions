@@ -20,15 +20,3 @@ std::vector<int> pluck(std::vector<int> arr){
     
     return result;
 }
-
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    // implementation of issame function
-}
-
-int main(){
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    
-    return 0;
-}
