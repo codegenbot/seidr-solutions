@@ -5,9 +5,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess);
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
     std::vector<int> result;
@@ -18,13 +16,6 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
     return result;
 }
 
-int main() {
-    std::vector<int> game = {3, 7, 5};
-    std::vector<int> guess = {4, 7, 3};
-    
-    std::vector<int> result = compare(game, guess);
-    
-    assert(issame(result, {1, 0, 2}));
-    
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
