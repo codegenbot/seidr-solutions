@@ -27,10 +27,6 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main(){
     assert(issame(even_odd_count(0) , {1, 0}));
     assert(issame(even_odd_count(12345) , {2, 3}));
