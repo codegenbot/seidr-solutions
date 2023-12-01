@@ -12,7 +12,7 @@ public:
 std::vector<int> ClassName::remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
     for(int i = 0; i < numbers.size(); i++){
-        if(std::count(numbers.begin(), numbers.end(), numbers[i]) == 1){
+        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
             result.push_back(numbers[i]);
         }
     }
@@ -20,8 +20,8 @@ std::vector<int> ClassName::remove_duplicates(std::vector<int> numbers){
 }
 
 bool ClassName::issame(std::vector<int> a, std::vector<int> b){
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
