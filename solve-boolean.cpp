@@ -1,28 +1,19 @@
-bool evaluateBooleanExpression(std::string expression, bool isEnclosed = false) {
+#include <iostream>
+#include <string>
+
+bool evaluateBooleanExpression(std::string expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
-    for (int i = expression.length() - 1; i >= 0; i--) {
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '(') {
             parenthesisCount++;
-            if (parenthesisCount == 1 && !isEnclosed) {
-                return evaluateBooleanExpression(expression.substr(i + 1, expression.length() - i - 2), true);
-            }
         } else if (expression[i] == ')') {
             parenthesisCount--;
-            if (parenthesisCount > 0) {
-                continue;
-            }
         } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0) {
             opIndex = i;
             break;
         }
-    }
-
-    if (expression == "t") {
-        return !isEnclosed;
-    } else if (expression == "f") {
-        return false;
     }
 
     if (opIndex != -1) {
@@ -30,13 +21,25 @@ bool evaluateBooleanExpression(std::string expression, bool isEnclosed = false) 
         std::string right = expression.substr(opIndex + 1);
 
         if (expression[opIndex] == '|') {
-            bool leftResult = evaluateBooleanExpression(left);
-            bool rightResult = evaluateBooleanExpression(right);
-            return leftResult || rightResult;
+            return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
         } else if (expression[opIndex] == '&') {
             return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
         }
+    } else if (expression == "t") {
+        return true;
+    } else if (expression == "f") {
+        return false;
     }
 
-    return !isEnclosed;
+    return false;
+}
+
+int main() {
+    std::string inputExpression;
+    std::getline(std::cin, inputExpression);
+    
+    bool result = evaluateBooleanExpression(inputExpression);
+    std::cout << std::boolalpha << result << std::endl;
+
+    return 0;
 }
