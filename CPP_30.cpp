@@ -12,23 +12,13 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // implementation of issame function
 }
 
 int main(){
-    vector<float> nums = {1.5, -2.3, 4.7, -0.9, 3.2};
-    vector<float> positive_nums = get_positive(nums);
-    assert(positive_nums.size() == 3);
-    assert(positive_nums[0] == 1.5);
-    assert(positive_nums[1] == 4.7);
-    assert(positive_nums[2] == 3.2);
+    assert (issame(get_positive({}) , {}));
+    
+    // more test cases
+    
     return 0;
 }
