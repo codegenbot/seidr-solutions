@@ -1,3 +1,7 @@
+double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
+    return firstBounceHeight / startingHeight;
+}
+
 double calculateTotalDistance(double startingHeight, double firstBounceHeight, double numBounces) {
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = firstBounceHeight + startingHeight;
