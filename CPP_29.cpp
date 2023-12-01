@@ -6,19 +6,7 @@ using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     // Your implementation of issame function goes here
-    // Compare the size of the two vectors
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    // Compare each element of the two vectors
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
@@ -32,7 +20,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    // Your test cases go here
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 
     return 0;
