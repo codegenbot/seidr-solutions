@@ -1,11 +1,23 @@
-#include <iostream>
-#include <boost/any.hpp>
+#include <vector>
+#include <list>
+#include <variant>
+#include <cassert>
 
-using namespace std;
+std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
+    std::vector<int> result;
+    for (const auto& value : values) {
+        if (std::holds_alternative<int>(value)) {
+            result.push_back(std::get<int>(value));
+        }
+    }
+    return result;
+}
 
-int main()
-{
-    // code logic
-    
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
