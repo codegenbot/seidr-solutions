@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 int prod_signs(vector<int> arr){
@@ -18,10 +17,14 @@ int prod_signs(vector<int> arr){
 }
 
 int main() {
-    // Test the code with sample inputs
-    vector<int> arr = {1, -2, 3, -4, 5};
-    int result = prod_signs(arr);
-    std::cout << "Result: " << result << std::endl;
+    // Test cases
+    vector<int> arr1 = {1, -2, 3, -4, 5};
+    vector<int> arr2 = {-1, 2, -3, 4, -5};
+    vector<int> arr3 = {};
+    
+    int result1 = prod_signs(arr1); // Expected output: 15
+    int result2 = prod_signs(arr2); // Expected output: 15
+    int result3 = prod_signs(arr3); // Expected output: -32768
     
     return 0;
 }
