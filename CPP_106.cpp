@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -31,7 +32,6 @@ vector<int> f(int n) {
 
 int main() {
     assert(issame(f(3), {1, 2, 6}));
-    // Add more test cases here
 
     return 0;
 }
