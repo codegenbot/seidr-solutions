@@ -22,4 +22,5 @@ vector<float> get_positive(vector<float> l) {
 
 bool issame(vector<float> a, vector<float> b) {
     // Implementation here
+    return true; // Replace this line with your implementation
 }
