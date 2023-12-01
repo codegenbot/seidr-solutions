@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b){
-    return a == b;
+bool issame(int x, int y){
+    return x == y;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
