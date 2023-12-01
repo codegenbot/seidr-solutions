@@ -2,11 +2,6 @@
 
 string rounded_avg(int n, int m);
 
-int main() {
-    // code here
-    return 0;
-}
-
 string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
