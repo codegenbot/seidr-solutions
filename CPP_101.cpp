@@ -25,7 +25,7 @@ vector<string> splitString(string s){
 }
 
 int main() {
-    assert (splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert (splitString("ahmed     , gamal") == {"ahmed", "gamal"});
     
     return 0;
 }
