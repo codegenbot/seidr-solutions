@@ -14,10 +14,10 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    return (a == b);
+   return (a == b);
 }
 
-int main(){
+int main() {
     assert(issame(sum_product({10}), {10, 10}));
     return 0;
 }
