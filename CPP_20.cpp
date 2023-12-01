@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b) { 
-    // Compare the vectors and return true or false
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
 }
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
