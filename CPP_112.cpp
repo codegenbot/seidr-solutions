@@ -17,9 +17,3 @@ vector<string> reverse_delete(string s, string c) {
     bool is_palindrome = (result == reversed_result);
     return {result, (is_palindrome ? "True" : "False")};
 }
-
-int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
-
-    return 0;
-}
