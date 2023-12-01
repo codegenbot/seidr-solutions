@@ -19,7 +19,6 @@ int prod_signs(std::vector<int> arr){
 }
 
 int main() {
-    // Test case
     std::vector<int> arr = {-1, 1, 1, 0};
     int result = prod_signs(arr);
     std::cout << result << std::endl;
