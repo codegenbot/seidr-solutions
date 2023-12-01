@@ -15,7 +15,7 @@ int sumOfOddNumbers(std::vector<int> lst) {
 int main() {
     assert(sumOfOddNumbers({3, 13, 2, 9}) == 3);
     // Additional test cases can be added here
-
+    
     std::cout << "All test cases passed!" << std::endl;
 
     return 0;
