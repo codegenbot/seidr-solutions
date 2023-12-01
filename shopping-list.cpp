@@ -1,12 +1,12 @@
 #include <vector>
 
-float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
-    float total = 0.0;
+float calculateTotalPrice(std::vector<float>& prices, std::vector<float>& discounts) {
+    float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
         float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
-        total += discountedPrice;
+        totalPrice += discountedPrice;
     }
-    return total;
+    return totalPrice;
 }
 
 int main() {
