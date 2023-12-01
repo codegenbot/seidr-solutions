@@ -9,10 +9,13 @@ vector<string> split_words(string txt);
 int main() {
     string input;
     getline(cin, input);
+    
     vector<string> words = split_words(input);
+    
     for (string word : words) {
         cout << word << endl;
     }
+    
     return 0;
 }
 
