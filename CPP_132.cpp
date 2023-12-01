@@ -1,25 +1,17 @@
-#include <iostream>
 #include <string>
 
-bool is_nested(std::string str) {
+bool is_nested(const std::string& str){
     int count = 0;
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == '[') {
+    for(int i = 0; i < str.length(); i++){
+        if(str.at(i) == '['){
             count++;
-        } else if(str[i] == ']') {
+        }
+        else if(str.at(i) == ']'){
             count--;
         }
-        if(count < 0) {
+        if(count > 1){
             return true;
         }
     }
     return false;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    std::cout << "Is the string nested? " << (is_nested(input) ? "Yes" : "No") << std::endl;
-    return 0;
 }

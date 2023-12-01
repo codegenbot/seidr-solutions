@@ -2,7 +2,9 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(std::vector<int>& a, std::vector<int>& b) {
   return a == b;
 }
 

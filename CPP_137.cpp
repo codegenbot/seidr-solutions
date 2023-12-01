@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -28,13 +29,13 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str2;
         }
     }
-    return boost::any();
+    return boost::any(); // Return an empty boost::any object instead of "None"
 }
 
 int main() {
-    std::cout << boost::any_cast<int>(compare_one(1, 2.5f)) << std::endl;
-    std::cout << boost::any_cast<std::string>(compare_one(1, std::string("2,3"))) << std::endl;
-    std::cout << boost::any_cast<std::string>(compare_one(std::string("5,1"), std::string("6"))) << std::endl;
-    std::cout << boost::any_cast<std::string>(compare_one(std::string("1"), 1)) << std::endl;
+    std::cout << boost::any_cast<int>(compare_one(1, 2.5)) << std::endl;
+    std::cout << boost::any_cast<std::string>(compare_one(1, "2,3")) << std::endl;
+    std::cout << boost::any_cast<std::string>(compare_one("5,1", "6")) << std::endl;
+    std::cout << boost::any_cast<std::string>(compare_one("1", 1)) << std::endl;
     return 0;
 }
