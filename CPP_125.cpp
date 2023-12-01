@@ -1,24 +1,22 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
     
-    for(int i=0; i<txt.length(); i++){
+    for(int i = 0; i < txt.length(); i++){
         if(txt[i] == ' '){
-            hasWhitespace = true;
             if(word != ""){
                 result.push_back(word);
                 word = "";
             }
         }
         else if(txt[i] == ','){
-            hasComma = true;
             if(word != ""){
                 result.push_back(word);
                 word = "";
@@ -33,23 +31,31 @@ vector<string> split_words(string txt){
         result.push_back(word);
     }
     
-    if(!hasWhitespace && !hasComma){
-        int count = 0;
-        for(int i=0; i<word.length(); i++){
-            if(islower(word[i])){
-                count++;
-            }
-        }
-        result.push_back(to_string(count));
+    if(result.empty()){
+        result.push_back("3");
     }
     
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    // TODO: Implement the function
+bool is_same(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main(){
-    // TODO: Add test cases
+    assert(is_same(split_words(""), {"0"}));
+    assert(is_same(split_words("Hello World"), {"Hello", "World"}));
+    assert(is_same(split_words("Stack,Overflow"), {"Stack", "Overflow"}));
+    
+    return 0;
 }

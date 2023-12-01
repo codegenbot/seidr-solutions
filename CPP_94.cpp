@@ -13,7 +13,7 @@ int sumOfDigits(int num) {
     return sum;
 }
 
-int largestPrimeSum(vector<int> lst) {
+int largestPrimeSum(vector<int>& lst) {
     int largestPrime = 0;
     for (int num : lst) {
         bool isPrime = true;
