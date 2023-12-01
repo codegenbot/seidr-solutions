@@ -23,11 +23,11 @@ vector<float> get_positive(vector<float> l){
     return positive_nums;
 }
 
-int main() {
-    vector<float> l = {1.5, -2.0, 3.7, -4.2, 5.9};
-    vector<float> positive_nums = get_positive(l);
-    
-    assert(issame(positive_nums, {1.5, 3.7, 5.9}));
+int main(){
+    vector<float> nums = {1.5, -2.3, 4.7, -0.9, 3.2};
+    vector<float> positive_nums = get_positive(nums);
+    vector<float> expected = {1.5, 4.7, 3.2};
+    assert(issame(positive_nums, expected));
     
     return 0;
 }
