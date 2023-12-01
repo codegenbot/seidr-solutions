@@ -19,5 +19,4 @@ bool is_nested(std::string str){
 
 int main() {
     assert(is_nested("]]]]]]]]") == false);
-    return 0;
 }
