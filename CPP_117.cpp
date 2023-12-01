@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -7,6 +8,10 @@ bool is_vowel(char c);
 int count_consonants(string word);
 vector<string> select_words(string s, int n);
 bool issame(vector<string> a, vector<string> b);
+
+bool issame(vector<string> a, vector<string> b);
+bool is_vowel(char c);
+int count_consonants(string word);
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
