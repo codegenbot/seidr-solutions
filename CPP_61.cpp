@@ -1,11 +1,12 @@
 #include <string>
+#include <cassert>
 
 bool correct_bracketing(std::string brackets) {
     int count = 0;
-    for (char bracket : brackets) {
-        if (bracket == '<') {
+    for (char c : brackets) {
+        if (c == '(') {
             count++;
-        } else if (bracket == '>') {
+        } else if (c == ')') {
             count--;
         }
         if (count < 0) {
@@ -16,6 +17,6 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    assert(!correct_bracketing("<><><<><>><>>><>"));
+    assert(!(correct_bracketing("()()(()())()))()")));
     return 0;
 }

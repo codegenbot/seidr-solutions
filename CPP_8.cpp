@@ -3,7 +3,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,8 +19,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sum_product(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end()); // Sort the numbers vector
+vector<int> sum_product(vector<int> numbers) {
+    sort(numbers.begin(), numbers.end()); // Sort the numbers vector
 
     int sum = 0;
     int product = 1;
@@ -31,31 +33,24 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-// Updated function name to solve
-int solve() {
+int main() {
     // Take input from user
     int n;
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<int> numbers(n);
+    vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> numbers[i];
+        cin >> numbers[i];
     }
 
     // Get the sum and product
-    std::vector<int> result = sum_product(numbers);
+    vector<int> result = sum_product(numbers);
 
     // Print the output
     for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+        cout << result[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
-    return 0;
-}
-
-// Call the solve function
-int main() {
-    solve();
     return 0;
 }
