@@ -1,38 +1,35 @@
-#include <iostream>
 #include <map>
 #include <cassert>
+#include <string>
+
 using namespace std;
 
 map<char, int> histogram(string test);
+
 bool issame(map<char, int> a, map<char, int> b);
 
 map<char, int> histogram(string test) {
-    map<char, int> counts;
-    for (char c : test) {
-        if (c != ' ') {
-            counts[c]++;
+    map<char, int> freqMap;
+    string word;
+    for (int i = 0; i < test.length(); i++) {
+        if (test[i] != ' ') {
+            word += test[i];
+        } else {
+            freqMap[word]++;
+            word = "";
         }
     }
-    map<char, int> result;
-    int maxCount = 0;
-    for (auto it = counts.begin(); it != counts.end(); ++it) {
-        if (it->second > maxCount) {
-            result.clear();
-            result[it->first] = it->second;
-            maxCount = it->second;
-        } else if (it->second == maxCount) {
-            result[it->first] = it->second;
-        }
+    if (!word.empty()) {
+        freqMap[word]++;
     }
-    return result;
+    return freqMap;
 }
 
-bool issame(map<char, int> a, map<char, int> b) {
+bool issame(map<char, int> a, map<char, int> b){
     return a == b;
 }
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    
     return 0;
 }
