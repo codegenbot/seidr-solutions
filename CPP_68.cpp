@@ -1,9 +1,15 @@
-#include <iostream>
-#include <vector>
+#include <cassert>
 #include <climits>
+#include <vector>
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int smallestValue = INT_MAX;
     int smallestIndex = -1;
     
@@ -22,10 +28,6 @@ std::vector<int> pluck(std::vector<int> arr){
     return result;
 }
 
-int main() {
-    std::vector<int> output = pluck({7, 9, 7, 1});
-    for (int i = 0; i < output.size(); i++) {
-        std::cout << output[i] << " ";
-    }
-    return 0;
+int main(){
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
