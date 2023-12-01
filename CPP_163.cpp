@@ -1,7 +1,31 @@
+#include <iostream>
 #include <vector>
 
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> generate_integers(int a, int b);
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    // Example usage
+    int a, b;
+    cin >> a >> b;
+    vector<int> integers = generate_integers(a, b);
+    for (int num : integers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    vector<int> first = {1, 2, 3};
+    vector<int> second = {1, 2, 3};
+    bool same = issame(first, second);
+    cout << (same ? "Same" : "Not Same") << endl;
+
+    return 0;
+}
+
+vector<int> generate_integers(int a, int b) {
+    vector<int> result;
     for (int i = a; i <= b; i++) {
         if (i % 2 == 0) {
             result.push_back(i);
@@ -10,19 +34,6 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    std::assert(issame(generate_integers(17, 89), {}));
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
