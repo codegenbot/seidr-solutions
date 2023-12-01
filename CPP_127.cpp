@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool isPrime(int n);
+
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
