@@ -1,28 +1,40 @@
+#include <iostream>
 #include <vector>
-bool issame(vector<int> a, vector<int> b){
-    // Function logic
+
+using namespace std;
+
+vector<int> even_odd_count(int num);
+
+bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
-    int digit;
+    string numString = to_string(abs(num));
     
-    while(num != 0){
-        digit = abs(num % 10);
+    for(int i = 0; i < numString.length(); i++){
+        int digit = numString[i] - '0';
         if(digit % 2 == 0){
             evenCount++;
-        }
-        else{
+        } else {
             oddCount++;
         }
-        num /= 10;
     }
-    
+
     vector<int> result = {evenCount, oddCount};
     return result;
 }
 
-int main(){
+int main() {
     assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(12345), {2, 3}));
+    assert(issame(even_odd_count(-987654), {3, 3}));
+    
+    cout << "All test cases passed!";
+    
+    return 0;
 }
