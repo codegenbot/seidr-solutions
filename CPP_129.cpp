@@ -11,10 +11,12 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     vector<int> path;
     vector<vector<bool>> visited(n, vector<bool>(m, false));
     
+    // Helper function to check if a cell is valid
     auto isValid = [&](int x, int y) {
         return x >= 0 && x < n && y >= 0 && y < m && !visited[x][y];
     };
     
+    // Helper function to get neighbors of a cell
     auto getNeighbors = [&](int x, int y) {
         vector<pair<int, int>> neighbors;
         vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -31,6 +33,7 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         return neighbors;
     };
     
+    // Helper function to perform depth-first search
     function<bool(int, int, int)> dfs = [&](int x, int y, int steps) {
         path.push_back(grid[x][y]);
         visited[x][y] = true;
@@ -58,6 +61,7 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         return false;
     };
     
+    // Find the minimum path starting from each cell in the grid
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             dfs(i, j, 1);
