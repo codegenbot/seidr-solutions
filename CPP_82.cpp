@@ -12,3 +12,10 @@ bool prime_length(string str){
     }
     return true;
 }
+
+int main(){
+
+    // code goes here
+
+    return 0;
+}
