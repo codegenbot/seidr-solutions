@@ -1,5 +1,5 @@
-string res = "";
+string result = "";
 for (int i = 0; i <= n; i++) {
-    res += to_string(i) + " ";
+    result += to_string(i) + " ";
 }
-return res;
+return result;
