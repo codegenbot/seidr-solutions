@@ -1,5 +1,7 @@
 #include <vector>
 
+using namespace std;
+
 vector<float> rescale_to_unit(vector<float> numbers);
 
 bool issame(const vector<float>& a, const vector<float>& b) {
