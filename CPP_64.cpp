@@ -1,7 +1,8 @@
+#include <algorithm>
+#include <cassert>
 #include <string>
-using namespace std;
 
-int vowels_count(string s){
+int vowels_count(std::string s){
     int count = 0;
     transform(s.begin(), s.end(), s.begin(), ::tolower);
 
@@ -16,4 +17,9 @@ int vowels_count(string s){
     }
 
     return count;
+}
+
+int main(){
+    assert(vowels_count("ACEDY") == 3);
+    return 0;
 }
