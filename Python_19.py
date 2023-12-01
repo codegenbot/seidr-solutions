@@ -19,5 +19,5 @@ def sort_numbers(numbers: List[str]) -> str:
 
 
 if __name__ == "__main__":
-    input_numbers = input("Enter numbers in words separated by spaces: ").split()
+    input_numbers = input().split()
     print(sort_numbers(input_numbers))
