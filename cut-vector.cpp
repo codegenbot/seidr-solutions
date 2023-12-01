@@ -21,10 +21,19 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
         int currentDiff = abs(leftSum - rightSum);
 
-        if (currentDiff <= diff) {
+        if (currentDiff == 0) {
+            index = i;
+            break;
+        }
+
+        if (currentDiff < diff) {
             diff = currentDiff;
             index = i;
         }
+    }
+
+    if (index == -1) {
+        index = n - 1;
     }
 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
