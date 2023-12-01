@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double calculateSnow(double hours, double snowOnGround, double snowFallRate, double snowMeltRate) {
@@ -13,9 +14,9 @@ double calculateSnow(double hours, double snowOnGround, double snowFallRate, dou
 int main() {
     double hours, snowOnGround, snowFallRate, snowMeltRate;
     cin >> hours >> snowOnGround >> snowFallRate >> snowMeltRate;
-    
+
     double result = calculateSnow(hours, snowOnGround, snowFallRate, snowMeltRate);
     cout << fixed << setprecision(15) << result << endl;
-    
+
     return 0;
 }
