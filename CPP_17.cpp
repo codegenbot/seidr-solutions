@@ -1,27 +1,17 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
+using namespace std;
 
-bool issame(int a, int b){
-    return a == b;
-}
+int main() {
+    string music;
+    getline(cin, music);
 
-std::vector<int> parse_music(std::string music_string){
-    std::vector<int> beats;
-    std::string note = "";
-    for (int i = 0; i < music_string.length(); i++) {
-        if (music_string[i] == ' ') {
-            if (note == "o") {
-                beats.push_back(4);
-            } else if (note == "o|") {
-                beats.push_back(2);
-            } else if (note == ".|") {
-                beats.push_back(1);
-            }
-            note = "";
-        } else {
-            note += music_string[i];
-        }
+    vector<int> beats = parse_music(music);
+
+    for (int i = 0; i < beats.size(); i++) {
+        cout << beats[i] << " ";
     }
-    return beats;
+    cout << endl;
+
+    return 0;
 }
