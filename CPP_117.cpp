@@ -2,7 +2,7 @@
 #include <vector>
 
 bool isConsonant(char c) {
-    // Implement the logic to check if `c` is a consonant
+    // Implement the logic to check if 'c' is a consonant
     // Return true if it is a consonant, otherwise false
 }
 
