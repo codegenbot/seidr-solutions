@@ -1,7 +1,28 @@
-#include <vector>
-#include <cassert>
+#include <vector>   // 1. Add the missing header <vector>
 
-vector<int> sum_product(vector<int> numbers){
+using namespace std;
+
+vector<int> sum_product(vector<int> numbers);
+
+bool issame(vector<int> a, vector<int> b);   // 2. Change the function signature of issame
+
+#include <cassert>   // 4. Add a missing include statement for assert
+
+bool issame(vector<int> a, vector<int> b) {   // 3. Add a missing closing bracket }
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
     
@@ -11,18 +32,4 @@ vector<int> sum_product(vector<int> numbers){
     }
     
     return {sum, product};
-}
-
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()){
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++){
-        if (a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
 }
