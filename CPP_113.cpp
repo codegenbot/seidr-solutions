@@ -23,24 +23,10 @@ vector<string> odd_count(vector<string> lst){
 }
 
 int main() {
-    vector<string> input1 = {"123", "456", "789"};
-    vector<string> input2 = {"12", "34", "56"};
-    
-    vector<string> result1 = odd_count(input1);
-    vector<string> result2 = odd_count(input2);
-    
-    cout << "Result 1:" << endl;
-    for (string str : result1) {
+    vector<string> lst = {"123", "456", "789"};
+    vector<string> result = odd_count(lst);
+    for (string str : result) {
         cout << str << endl;
     }
-    
-    cout << "Result 2:" << endl;
-    for (string str : result2) {
-        cout << str << endl;
-    }
-    
-    bool isSame = issame(result1, result2);
-    cout << "Is Same: " << (isSame ? "true" : "false") << endl;
-    
     return 0;
 }
