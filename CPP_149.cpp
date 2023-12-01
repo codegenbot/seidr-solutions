@@ -17,8 +17,6 @@ vector<string> sorted_list_sum(vector<string> lst){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
