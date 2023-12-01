@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -19,8 +20,17 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    vector<string> result = reverse_delete("mamma", "mia");
-    cout << result[0] << " " << result[1] << endl;
-    
+    vector<string> result1 = reverse_delete("mamma", "mia");
+    cout << result1[0] << " " << result1[1] << endl;
+    // Expected Output: "" True
+
+    vector<string> result2 = reverse_delete("racecar", "r");
+    cout << result2[0] << " " << result2[1] << endl;
+    // Expected Output: aceca True
+
+    vector<string> result3 = reverse_delete("hello", "e");
+    cout << result3[0] << " " << result3[1] << endl;
+    // Expected Output: hllo False
+
     return 0;
 }

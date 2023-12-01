@@ -1,12 +1,9 @@
-\```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-vector<int> makeAPile(int n) {
-    vector<int> piles;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> piles;
     int stones = n;
     for (int i = 0; i < n; i++) {
         piles.push_back(stones);
@@ -19,13 +16,12 @@ vector<int> makeAPile(int n) {
     return piles;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(makeAPile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    cout << "Test passed!" << endl;
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
-\```

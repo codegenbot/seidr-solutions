@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -36,5 +35,6 @@ int main() {
   } else {
     std::cout << "Output is incorrect" << std::endl;
   }
+
   return 0;
 }
