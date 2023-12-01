@@ -1,19 +1,3 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<int> sort_third(vector<int> l){
     vector<int> l_prime = l;
     vector<int> indices;
@@ -31,9 +15,8 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
-int main(){
-    vector<int> result = sort_third({5, 6, 3, 4, 8, 9, 2, 1});
-    assert(issame(result, {2, 6, 3, 4, 8, 9, 5, 1}));
+bool issame(vector<int> a, vector<int> b);
 
-    return 0;
+int main(){
+    assert(equal(sort_third({5, 6, 3, 4, 8, 9, 2, 1}).begin(), sort_third({5, 6, 3, 4, 8, 9, 2, 1}).end(), {2, 6, 3, 4, 8, 9, 5, 1}.begin()));
 }
