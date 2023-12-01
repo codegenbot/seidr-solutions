@@ -5,7 +5,7 @@
 using namespace std;
 
 map<char,int> buildHistogram(string test) {
-    map<char,int> counts;
+    map<char, int> counts;
     string letter;
     for (int i = 0; i < test.length(); i++) {
         if (test[i] != ' ') {
@@ -17,4 +17,10 @@ map<char,int> buildHistogram(string test) {
     }
     if (!letter.empty()) counts[letter]++;
     return counts;
+}
+
+int main() {
+    assert(buildHistogram("a") == {{'a', 1}});
+
+    return 0;
 }
