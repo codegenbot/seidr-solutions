@@ -1,3 +1,8 @@
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
     if (a > b) {
@@ -11,4 +16,8 @@ vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
+}
+
+bool isSame(vector<int> a, vector<int> b) {
+    return a == b;
 }
