@@ -1,19 +1,26 @@
-#include <cctype>
-#include <algorithm>
+#include <string>
+using namespace std;
 
-string solve(string s){
-    // Reverse the case of letters
-    transform(s.begin(), s.end(), s.begin(), [](char c) {
-        if (isalpha(c)) {
-            return islower(c) ? toupper(c) : tolower(c);
+string solve(string s) {
+    string result = "";
+    bool hasLetter = false;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
+            hasLetter = true;
+        } else {
+            result += s[i];
         }
-        return c;
-    });
-
-    // Reverse the string if it contains no letters
-    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-        reverse(s.begin(), s.end());
     }
 
-    return s;
+    if (!hasLetter) {
+        reverse(result.begin(), result.end());
+    }
+
+    return result;
 }
