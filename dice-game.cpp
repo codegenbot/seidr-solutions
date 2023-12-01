@@ -18,10 +18,6 @@ double probabilityOfHigherRoll(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    
-    double probability = probabilityOfHigherRoll(n, m);
-    
-    std::cout << probability << std::endl;
-    
+    std::cout << probabilityOfHigherRoll(n, m) << std::endl;
     return 0;
 }
