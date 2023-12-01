@@ -20,9 +20,8 @@ int main() {
         std::cin >> vector1[i];
     }
 
-    std::cin >> n;
-
     std::vector<double> vector2(n);
+    std::cin >> n;
     for (int i = 0; i < n; i++) {
         std::cin >> vector2[i];
     }
