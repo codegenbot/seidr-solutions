@@ -14,10 +14,19 @@ vector<int> generate_integers(int a, int b) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implementation of issame function
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), generate_integers(17, 89)));
+    assert(issame(generate_integers(17, 89), {}));
+
     return 0;
 }
