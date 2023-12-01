@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
 
-std::string fix_spaces(std::string text){
+using namespace std;
+
+string fix_spaces(string text){
     int n = text.size();
-    std::string result = "";
+    string result = "";
     int consecutive_spaces = 0;
     for(int i=0; i<n; i++){
         if(text[i] == ' '){
@@ -24,9 +26,9 @@ std::string fix_spaces(std::string text){
 }
 
 int main() {
-    std::string input;
-    getline(std::cin, input);
-    std::string output = fix_spaces(input);
-    std::cout << output << std::endl;
+    string input;
+    getline(cin, input); 
+    string output = fix_spaces(input); 
+    cout << output << endl; 
     return 0;
 }
