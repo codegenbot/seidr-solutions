@@ -1,3 +1,10 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string exchange(vector<int> lst1, vector<int> lst2);
+
 string exchange(vector<int> lst1, vector<int> lst2) {
     int count = 0;
     for (int i = 0; i < lst1.size(); i++) {
