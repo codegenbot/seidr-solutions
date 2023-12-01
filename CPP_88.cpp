@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> sort_array(std::vector<int> array);
-
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
+
+std::vector<int> sort_array(std::vector<int> array);
 
 std::vector<int> sort_array(std::vector<int> array){
     if(array.size() <= 1){
