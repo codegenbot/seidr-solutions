@@ -1,19 +1,20 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <cassert>
 
 bool compare(int a, int b) {
     int sum_a = 0;
     int sum_b = 0;
     
     // Calculate the sum of digits for a
-    int temp_a = std::abs(a);
+    int temp_a = abs(a);
     while (temp_a > 0) {
         sum_a += temp_a % 10;
         temp_a /= 10;
     }
     
     // Calculate the sum of digits for b
-    int temp_b = std::abs(b);
+    int temp_b = abs(b);
     while (temp_b > 0) {
         sum_b += temp_b % 10;
         temp_b /= 10;
@@ -33,4 +34,24 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), compare);
     
     return nums;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+
+    return 0;
 }
