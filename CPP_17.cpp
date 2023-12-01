@@ -1,17 +1,48 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <cassert>
 
-int main() {
-    string music;
-    getline(cin, music);
+bool issame(vector<int> a, vector<int> b);
 
-    vector<int> beats = parse_music(music);
-
-    for (int i = 0; i < beats.size(); i++) {
-        cout << beats[i] << " ";
+vector<int> parse_music(string music_string){
+    vector<int> beats;
+    string note = "";
+    for(char c : music_string){
+        if(c == ' '){
+            if(note == "o"){
+                beats.push_back(4);
+            }
+            else if(note == "o|"){
+                beats.push_back(2);
+            }
+            else if(note == ".|"){
+                beats.push_back(1);
+            }
+            note = "";
+        }
+        else{
+            note += c;
+        }
     }
-    cout << endl;
+    if(note == "o"){
+        beats.push_back(4);
+    }
+    else if(note == "o|"){
+        beats.push_back(2);
+    }
+    else if(note == ".|"){
+        beats.push_back(1);
+    }
+    return beats;
+}
 
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
