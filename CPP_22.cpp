@@ -3,7 +3,7 @@
 #include <vector>
 #include <boost/any.hpp>
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list_any values){
     vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
@@ -13,7 +13,7 @@ vector<int> filter_integers(list<any> values) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
