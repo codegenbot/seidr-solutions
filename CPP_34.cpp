@@ -1,17 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> unique(vector<int> l){
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
-
-bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
     return unique(a) == unique(b);
