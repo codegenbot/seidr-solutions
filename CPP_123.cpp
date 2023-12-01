@@ -4,13 +4,13 @@ vector<int> get_odd_collatz(int n){
     while(n != 1){
         if(n % 2 == 0){
             n = n / 2;
-        }else{
-            n = (3 * n) + 1;
+        } else {
+            n = 3 * n + 1;
         }
         collatz_seq.push_back(n);
     }
     vector<int> odd_collatz_seq;
-    for(int i=0; i<collatz_seq.size(); i++){
+    for(int i = 0; i < collatz_seq.size(); i++){
         if(collatz_seq[i] % 2 != 0){
             odd_collatz_seq.push_back(collatz_seq[i]);
         }
