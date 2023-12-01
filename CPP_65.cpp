@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -16,14 +16,4 @@ string circular_shift(int x, int shift) {
     shift %= len;
     string shiftedNum = num.substr(len - shift) + num.substr(0, len - shift);
     return shiftedNum;
-}
-
-int main() {
-    int x, shift;
-    cin >> x >> shift;
-    
-    string result = circular_shift(x, shift);
-    cout << result << endl;
-    
-    return 0;
 }
