@@ -31,4 +31,3 @@ int main() {
     // more test cases...
     return 0;
 }
-```
