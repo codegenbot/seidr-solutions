@@ -1,49 +1,56 @@
 #include <iostream>
 #include <string>
 
-int getScore(std::string input) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
-    int index = 0;
-    
-    while (frame <= 10) {
-        char current = input[index];
-        
-        if (current == 'X') {
+    int bowlIndex = 0;
+
+    while (frame <= 10 && bowlIndex < bowls.length()) {
+        char bowl = bowls[bowlIndex];
+
+        if (bowl == 'X') {
             score += 10;
+
             if (frame < 10) {
-                score += (input[index + 1] == 'X') ? 10 : std::stoi(std::string(1, input[index + 1]));
-                score += (input[index + 2] == 'X') ? 10 : std::stoi(std::string(1, input[index + 2]));
-            } else {
-                score += (input[index + 1] == 'X') ? 10 : ((input[index + 1] == '/') ? 10 - std::stoi(std::string(1, input[index + 2])) : std::stoi(std::string(1, input[index + 1])));
-                score += (input[index + 2] == 'X') ? 10 : ((input[index + 2] == '/') ? 10 - std::stoi(std::string(1, input[index + 1])) : std::stoi(std::string(1, input[index + 2])));
+                score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+                score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
             }
-            
-            index++;
-        } else if (current == '/') {
-            score += 10 - std::stoi(std::string(1, input[index - 1]));
-            score += (input[index + 1] == 'X') ? 10 : std::stoi(std::string(1, input[index + 1]));
-            
-            index++;
-        } else if (current == '-') {
-            // do nothing
+
+            bowlIndex++;
+        } else if (bowl == '/') {
+            score += (10 - (bowls[bowlIndex - 1] - '0'));
+
+            if (frame < 10) {
+                score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            }
+
+            bowlIndex++;
         } else {
-            score += std::stoi(std::string(1, current));
+            score += (bowl - '0');
+
+            if (frame < 10 && (bowl - '0') + (bowls[bowlIndex + 1] - '0') == 10) {
+                score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            }
+
+            bowlIndex++;
         }
-        
-        index++;
-        frame++;
+
+        if (bowl == 'X' || bowlIndex % 2 == 0) {
+            frame++;
+        }
     }
-    
+
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    
-    int score = getScore(input);
-    std::cout << score << std::endl;
-    
+    std::string bowls;
+    std::cout << "Enter the string representing the individual bowls: ";
+    std::cin >> bowls;
+
+    int score = calculateScore(bowls);
+    std::cout << "Score: " << score << std::endl;
+
     return 0;
 }
