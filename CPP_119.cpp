@@ -1,9 +1,9 @@
 #include <string>
 #include <vector>
 
-string match_parens(vector<string> lst){
-    string s1 = lst[0]; // first string
-    string s2 = lst[1]; // second string
+std::string match_parens(std::vector<std::string> lst){
+    std::string s1 = lst[0]; // first string
+    std::string s2 = lst[1]; // second string
     int count = 0; // count of open parentheses
 
     // iterate through first string
