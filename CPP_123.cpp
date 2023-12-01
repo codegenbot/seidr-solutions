@@ -32,6 +32,14 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
+int main(){
+    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(2), {1}));
+    assert(issame(get_odd_collatz(3), {1, 5}));
+    assert(issame(get_odd_collatz(9), {1, 5, 17, 13, 41, 9}));
+    return 0;
+}
+
 vector<int> get_odd_collatz(int n){
     vector<int> collatz_sequence = collatz(n);
     vector<int> odd_numbers;
@@ -42,12 +50,4 @@ vector<int> get_odd_collatz(int n){
     }
     sort(odd_numbers.begin(), odd_numbers.end());
     return odd_numbers;
-}
-
-int main(){
-    assert(issame(get_odd_collatz(1), {1}));
-    assert(issame(get_odd_collatz(2), {1}));
-    assert(issame(get_odd_collatz(3), {1, 5}));
-    assert(issame(get_odd_collatz(9), {1, 5, 17, 13, 41, 9}));
-    return 0;
 }
