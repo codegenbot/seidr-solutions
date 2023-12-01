@@ -22,6 +22,6 @@ vector<float> sort_even(vector<float> l){
 
 int main(){
     assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 2, 4, 8, 12, 23}));
-    
+
     return 0;
 }
