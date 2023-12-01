@@ -1,13 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> remove_duplicates(std::vector<int> numbers);
-
-int main(){
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>{1, 4, 5});
-    return 0;
-}
-
 std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
     for(auto num : numbers){
@@ -16,4 +9,9 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
         }
     }
     return result;
+}
+
+int main(){
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>{1, 4, 5});
+    return 0;
 }
