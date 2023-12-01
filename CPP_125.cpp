@@ -1,26 +1,21 @@
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
-    
-    for(int i=0; i<txt.length(); i++){
+    for(int i = 0; i < txt.length(); i++){
         if(txt[i] == ' ' || txt[i] == ','){
-            if(!word.empty()){
+            if(word != ""){
                 words.push_back(word);
                 word = "";
             }
-        }
-        else{
+        }else{
             word += txt[i];
         }
     }
-    
-    if(!word.empty()){
+    if(word != ""){
         words.push_back(word);
     }
-    
     if(words.empty()){
         words.push_back(to_string(3));
     }
-    
     return words;
 }
