@@ -1,7 +1,7 @@
-bool filter_by_substring(vector<string> a, vector<string> b) {
+vector<string> filter_by_substring(vector<string> a, string substring){
     vector<string> result;
     for (const auto& str : a) {
-        if (str.find(b[0]) != string::npos) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
