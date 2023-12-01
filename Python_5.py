@@ -1,14 +1,12 @@
 from typing import List
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+def intersperse() -> List[int]:
+    numbers = list(map(int, input().split()))
+    delimeter = int(input())
+    
     result = []
     for i in range(len(numbers)):
         result.append(numbers[i])
         if i < len(numbers) - 1:
-            result.append(delimiter)
+            result.append(delimeter)
     return result
-
-numbers = list(map(int, input().split()))
-delimiter = int(input())
-result = intersperse(numbers, delimiter)
-print(result)
