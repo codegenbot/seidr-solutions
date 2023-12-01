@@ -19,3 +19,14 @@ string string_to_md5(string text) {
 
     return md5hashStr;
 }
+
+int main() {
+    string text;
+    cout << "Enter a string: ";
+    getline(cin, text);
+
+    string md5hash = string_to_md5(text);
+    cout << "MD5 Hash: " << md5hash << endl;
+
+    return 0;
+}
