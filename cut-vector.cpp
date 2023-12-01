@@ -26,7 +26,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             break;
         }
 
-        if (currentDiff <= diff) {
+        if (currentDiff < diff) {
             diff = currentDiff;
             index = i;
         }
@@ -37,7 +37,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 2, nums.end());
+    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
 }
@@ -56,6 +56,8 @@ int main() {
     for (int num : result.first) {
         std::cout << num << " ";
     }
+
+    std::cout << std::endl;
 
     for (int num : result.second) {
         std::cout << num << " ";
