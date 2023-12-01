@@ -1,10 +1,8 @@
-#include <iostream>
 #include <string>
 #include <map>
 #include <vector>
 #include <sstream>
 #include <algorithm>
-#include <cassert>
 
 std::string sort_numbers(std::string numbers) {
     std::map<std::string, int> numeralMap;
@@ -37,10 +35,4 @@ std::string sort_numbers(std::string numbers) {
 
     sortedNumbers.pop_back();
     return sortedNumbers;
-}
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    std::cout << "Test passed!" << std::endl;
-    return 0;
 }
