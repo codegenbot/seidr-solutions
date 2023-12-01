@@ -1,15 +1,22 @@
-bool will_it_fly(vector<int> q, int w) {
+#include <vector>
+#include <cassert>
+
+bool will_it_fly(vector<int> q, int w){
     int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
+    for(int i=0; i<q.size(); i++){
         sum += q[i];
     }
-    if (sum <= w) {
-        for (int i = 0; i < q.size() / 2; i++) {
-            if (q[i] != q[q.size() - i - 1]) {
-                return false;
-            }
+    if(sum <= w){
+        vector<int> temp = q;
+        reverse(temp.begin(), temp.end());
+        if(temp == q){
+            return true;
         }
-        return true;
     }
     return false;
+}
+
+int main() {
+    assert (will_it_fly({5}, 5) == true);
+    return 0;
 }
