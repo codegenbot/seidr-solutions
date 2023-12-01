@@ -26,7 +26,6 @@ vector<int> f(int n) {
 
 int main() {
     assert(equal(f(3).begin(), f(3).end(), vector<int>{1, 2, 6}.begin(), vector<int>{1, 2, 6}.end()));
-    // Add more test cases here
 
     return 0;
 }
