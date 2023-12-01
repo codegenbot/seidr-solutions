@@ -1,3 +1,5 @@
+#include <vector> 
+
 int count_nums(vector<int> n){
     int count = 0;
     for(int num : n){
@@ -15,7 +17,6 @@ int count_nums(vector<int> n){
 }
 
 int main() {
-    assert(count_nums({1}) == 1);
-    // Add more test cases if needed
+    assert(count_nums({1}) == 1); 
     return 0;
 }
