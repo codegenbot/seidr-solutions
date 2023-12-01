@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include <algorithm>
 
 string find_max(vector<string> words){
     string maxWord = "";
