@@ -1,7 +1,7 @@
 #include <map>
 #include <string>
 
-bool check_map_case(map<string,string> dict){
+bool check_map_case(std::map<std::string, std::string> dict){
     if(dict.empty()){
         return false;
     }
@@ -10,7 +10,7 @@ bool check_map_case(map<string,string> dict){
     bool isUpper = true;
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        string key = it->first;
+        std::string key = it->first;
         
         if(key.empty()){
             return false;
