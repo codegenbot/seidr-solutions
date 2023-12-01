@@ -1,35 +1,46 @@
-string sort_numbers(string numbers){
-    map<string, int> numMap;
-    numMap["zero"] = 0;
-    numMap["one"] = 1;
-    numMap["two"] = 2;
-    numMap["three"] = 3;
-    numMap["four"] = 4;
-    numMap["five"] = 5;
-    numMap["six"] = 6;
-    numMap["seven"] = 7;
-    numMap["eight"] = 8;
-    numMap["nine"] = 9;
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+#include <cassert>
 
-    vector<int> nums;
-    stringstream ss(numbers);
-    string numStr;
-    while (getline(ss, numStr, ' ')) {
-        nums.push_back(numMap[numStr]);
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> numeralMap;
+    numeralMap["zero"] = 0;
+    numeralMap["one"] = 1;
+    numeralMap["two"] = 2;
+    numeralMap["three"] = 3;
+    numeralMap["four"] = 4;
+    numeralMap["five"] = 5;
+    numeralMap["six"] = 6;
+    numeralMap["seven"] = 7;
+    numeralMap["eight"] = 8;
+    numeralMap["nine"] = 9;
+
+    std::vector<std::string> numerals;
+    std::stringstream ss(numbers);
+    std::string temp;
+    while (std::getline(ss, temp, ' ')) {
+        numerals.push_back(temp);
     }
 
-    sort(nums.begin(), nums.end());
+    std::sort(numerals.begin(), numerals.end(), [&](const std::string& a, const std::string& b) {
+        return numeralMap[a] < numeralMap[b];
+    });
 
-    string sortedNumbers;
-    for (int num : nums) {
-        for (auto it = numMap.begin(); it != numMap.end(); ++it) {
-            if (it->second == num) {
-                sortedNumbers += it->first + " ";
-                break;
-            }
-        }
+    std::string sortedNumbers;
+    for (const std::string& numeral : numerals) {
+        sortedNumbers += numeral + " ";
     }
 
-    sortedNumbers.pop_back(); // Remove the extra space at the end
+    sortedNumbers.pop_back();
     return sortedNumbers;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    std::cout << "Test passed!" << std::endl;
+    return 0;
 }
