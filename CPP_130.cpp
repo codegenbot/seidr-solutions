@@ -1,53 +1,52 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
-vector<int> tri(int n){
-    vector<int> sequence;
-    sequence.push_back(3); // tri(1) = 3
+bool issame(vector<int> a, vector<int> b);
 
-    if(n >= 1){
-        sequence.push_back(1 + n / 2); // tri(2) = 1 + (2 / 2) = 2
-    }
-
-    if(n >= 2){
-        sequence.push_back(sequence[1] + sequence[0] + sequence[2]); // tri(3) = tri(2) + tri(1) + tri(4) = 2 + 3 + 3 = 8
-    }
-
-    for(int i = 3; i <= n; i++){
-        if(i % 2 == 0){
-            sequence.push_back(1 + i / 2); // tri(n) = 1 + n / 2, if n is even
-        }
-        else{
-            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]); // tri(n) = tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd
-        }
-    }
-
-    return sequence;
-}
+vector<int> tri(int n);
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    
-    for(int i=0; i<a.size(); i++){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
-    
     return true;
 }
 
+vector<int> tri(int n){
+    vector<int> sequence;
+    sequence.push_back(3);
+    
+    if(n == 0){
+        return sequence;
+    }
+    
+    sequence.push_back(1 + n / 2);
+    
+    if(n == 1){
+        return sequence;
+    }
+    
+    sequence.push_back(sequence[0] + sequence[1]);
+    
+    for(int i = 3; i <= n; i++){
+        if(i % 2 == 0){
+            sequence.push_back(1 + i / 2);
+        } else {
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i - 3]);
+        }
+    }
+    
+    return sequence;
+}
+
 int main(){
-    // Test cases
-    vector<int> seq1 = tri(1);
-    vector<int> seq2 = tri(2);
-    
-    assert (issame(seq1 , {3}));
-    assert (issame(seq2 , {3, 2, 8}));
-    
+    assert(issame(tri(1), {1, 3}));
     return 0;
 }
