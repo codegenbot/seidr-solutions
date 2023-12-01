@@ -1,37 +1,16 @@
 #include <iostream>
 #include <string>
-
-using namespace std;
+#include <algorithm>
 
 string circular_shift(int x, int shift) {
-    string num = to_string(x);         // Convert integer to string
-    int length = num.length();         // Get the length of the number
-    
-    if (shift >= length) {
-        // Reverse the digits in the number
-        reverse(num.begin(), num.end());
-        return num;
-    }
-    
-    shift = shift % length;            // Wrap around the shift value if it exceeds length
-    
-    // Perform circular shift
-    string shifted_num = num.substr(length - shift) + num.substr(0, length - shift);
-    
-    return shifted_num;
-}
+    string str = to_string(x);
+    int n = str.length();
 
-int main() {
-    int x, shift;
-    
-    // Read input from user
-    cout << "Enter the number: ";
-    cin >> x;
-    cout << "Enter the shift value: ";
-    cin >> shift;
-    
-    // Call the circular_shift function and print the result
-    cout << "Result: " << circular_shift(x, shift) << endl;
-    
-    return 0;
+    if (shift > n) {
+        reverse(str.begin(), str.end());
+    } else {
+        rotate(str.begin(), str.begin() + (n - shift), str.end());
+    }
+
+    return str;
 }
