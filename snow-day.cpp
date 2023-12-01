@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
 using namespace std;
 
 float calculateSnow(float hours, float snowOnGround, float snowFallRate, float snowMeltRate) {
