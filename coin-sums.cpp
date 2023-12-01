@@ -5,15 +5,9 @@ int main() {
     std::cin >> cents;
 
     int pennies = cents % 5;
-    cents /= 5;
-
-    int nickels = cents % 2;
-    cents /= 2;
-
-    int dimes = cents % 2;
-    cents /= 2;
-
-    int quarters = cents;
+    int nickels = cents % 10 / 5;
+    int dimes = cents % 25 / 10;
+    int quarters = cents / 25;
 
     int totalCoins = quarters + dimes + nickels + pennies;
 
