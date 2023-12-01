@@ -1,38 +1,54 @@
-def calculate_score(bowls):
+def calculate_bowling_score(bowling_round):
     score = 0
-    frames = []
-    frame = []
-    for bowl in bowls:
-        if bowl == 'X':
-            frame.append(10)
-            frames.append(frame)
-            frame = []
-        elif bowl == '/':
-            frame.append(10 - frame[0])
-            frames.append(frame)
-            frame = []
-        elif bowl == '-':
-            frame.append(0)
+    frame = 1
+    frame_count = 0
+    in_first_half = True
+
+    for i in range(len(bowling_round)):
+        if bowling_round[i] == '/':
+            score += 10 - previous_bowl
+            if frame < 10:
+                score += get_bonus_score(bowling_round, i + 1)
+            frame_count += 1
+            in_first_half = True
+        elif bowling_round[i] == 'X':
+            score += 10
+            if frame < 10:
+                score += get_bonus_score(bowling_round, i + 1)
+            frame_count += 1
+        elif bowling_round[i] == '-':
+            frame_count += 1
+            in_first_half = not in_first_half
         else:
-            frame.append(int(bowl))
-            if len(frame) == 2:
-                frames.append(frame)
-                frame = []
-    
-    for i in range(len(frames)):
-        frame = frames[i]
-        score += sum(frame)
-        if i < 9:
-            if frame[0] == 10:
-                if frames[i+1][0] == 10:
-                    score += frames[i+1][0] + frames[i+2][0]
-                else:
-                    score += sum(frames[i+1])
-            elif sum(frame) == 10:
-                score += frames[i+1][0]
-    
+            score += int(bowling_round[i])
+            if in_first_half:
+                in_first_half = False
+            else:
+                if frame < 10:
+                    score += get_bonus_score(bowling_round, i + 1)
+                frame_count += 1
+
+        if frame_count == 2:
+            frame += 1
+            frame_count = 0
+            in_first_half = True
+
     return score
 
-# Main program
-bowls = input()
-print(calculate_score(bowls))
+
+def get_bonus_score(bowling_round, index):
+    if bowling_round[index] == 'X':
+        return 10
+    elif bowling_round[index] == '/':
+        return 10 - int(bowling_round[index-1])
+    elif bowling_round[index] == '-':
+        return 0
+    else:
+        return int(bowling_round[index])
+
+
+# Read input from user and get bowling round
+bowling_round = input()
+
+# Calculate and print the score
+print(calculate_bowling_score(bowling_round))
