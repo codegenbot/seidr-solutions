@@ -1,15 +1,11 @@
+#include <iostream>
 #include <string>
 #include <algorithm>
 
-string remove_vowels(string text) {
-    string result = "";
-    string vowels = "aeiouAEIOU";
-
-    for (char c : text) {
-        if (vowels.find(c) == string::npos) {
-            result += c;
-        }
-    }
-
-    return result;
+std::string remove_vowels(std::string text) {
+    std::string vowels = "aeiouAEIOU";
+    text.erase(std::remove_if(text.begin(), text.end(), [&](char c) {
+        return vowels.find(c) != std::string::npos;
+    }), text.end());
+    return text;
 }
