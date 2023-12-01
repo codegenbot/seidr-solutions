@@ -1,19 +1,18 @@
-string fix_spaces(string text){
-    string result = "";
-    int consecutiveSpaces = 0;
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            consecutiveSpaces++;
-            if(consecutiveSpaces > 2){
-                result += "-";
-                consecutiveSpaces = 0;
-            } else {
-                result += "_";
+#include <iostream>
+#include <string>
+
+std::string fix_spaces(std::string text) {
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            text[i] = '_';
+            int count = 1;
+            while (i + count < text.length() && text[i + count] == ' ') {
+                count++;
             }
-        } else {
-            result += text[i];
-            consecutiveSpaces = 0;
+            if (count > 2) {
+                text.replace(i, count, "-");
+            }
         }
     }
-    return result;
+    return text;
 }
