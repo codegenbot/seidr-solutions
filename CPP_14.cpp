@@ -15,7 +15,6 @@ vector<string> all_prefixes(string str) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Compare the vectors 'a' and 'b' for equality
     return a == b;
 }
 
