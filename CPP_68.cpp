@@ -3,6 +3,8 @@
 #include <cassert>
 #include <iostream>
 
+bool issame(std::vector<int> a, std::vector<int> b);
+
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     int smallestValue = INT_MAX;
