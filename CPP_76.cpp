@@ -1,19 +1,16 @@
 bool is_simple_power(int x, int n) {
-    if (x < 1 || n < 2) {
+    if (x == 1) {
+        return true;
+    }
+    if (n == 1) {
         return false;
     }
-    
-    int power = 0;
-    int result = 1;
-    
-    while (result <= x) {
-        if (result == x) {
+    int power = 1;
+    while (power <= x) {
+        if (power == x) {
             return true;
         }
-        
-        result = pow(n, power);
-        power++;
+        power *= n;
     }
-    
     return false;
 }
