@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> even_odd_count(int num) {
+vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
     string numStr = to_string(abs(num));
@@ -20,7 +20,7 @@ vector<int> even_odd_count(int num) {
     return {evenCount, oddCount};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
