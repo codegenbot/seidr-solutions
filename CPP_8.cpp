@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -28,5 +27,24 @@ std::vector<int> sum_product(std::vector<int> numbers) {
         product *= numbers[i];
     }
 
-    return {sum, product};
+    return std::vector<int>({sum, product});
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> numbers[i];
+    }
+
+    std::vector<int> result = sum_product(numbers);
+
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
