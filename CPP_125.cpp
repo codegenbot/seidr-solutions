@@ -57,16 +57,15 @@ int main(){
     getline(cin, txt);
     
     vector<string> words = split_words(txt);
+    vector<string> reverse_words = words;
+    reverse(reverse_words.begin(), reverse_words.end());
     
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
-    vector<string> c = {"apple", "banana", "orange"};
-    
-    bool ab = issame(a, b);
-    bool ac = issame(a, c);
-    
-    cout << ab << endl;
-    cout << ac << endl;
+    if(issame(words, reverse_words)){
+        cout << "The sentence is palindromic" << endl;
+    }
+    else{
+        cout << "The sentence is not palindromic" << endl;
+    }
     
     return 0;
 }
