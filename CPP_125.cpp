@@ -1,54 +1,18 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
-std::vector<std::string> split_words(std::string txt);
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+vector<string> split_words(string txt);
 
-std::vector<std::string> split_words(std::string txt){
-    std::vector<std::string> words;
-    std::string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
-
-    for(int i = 0; i < txt.length(); i++){
-        if(txt[i] == ' '){
-            hasWhitespace = true;
-            if(word != ""){
-                words.push_back(word);
-                word = "";
-            }
-        }
-        else if(txt[i] == ','){
-            hasComma = true;
-            if(word != ""){
-                words.push_back(word);
-                word = "";
-            }
-        }
-        else{
-            word += txt[i];
-        }
-    }
-
-    if(word != ""){
-        words.push_back(word);
-    }
-
-    if(words.empty()){
-        words.push_back(std::to_string(3));
-    }
-
-    return words;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()){
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
 
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -56,14 +20,52 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-int main(){
-    std::vector<std::string> a = split_words("Hello, World");
-    std::vector<std::string> b = split_words("Hello World");
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word = "";
+    bool hasWhitespace = false;
+    bool hasComma = false;
 
-    if(issame(a, b)){
-        return 1;
+    for (int i = 0; i < txt.length(); i++) {
+        if (txt[i] == ' ') {
+            hasWhitespace = true;
+            if (word != "") {
+                words.push_back(word);
+                word = "";
+            }
+        }
+        else if (txt[i] == ',') {
+            hasComma = true;
+            if (word != "") {
+                words.push_back(word);
+                word = "";
+            }
+        }
+        else {
+            word += txt[i];
+        }
     }
-    else{
-        return 0;
+
+    if (word != "") {
+        words.push_back(word);
     }
+
+    if (words.empty()) {
+        words.push_back(to_string(3));
+    }
+
+    return words;
+}
+
+int main() {
+    string txt;
+    getline(cin, txt);
+
+    vector<string> words = split_words(txt);
+
+    for (int i = 0; i < words.size(); i++) {
+        cout << words[i] << endl;
+    }
+
+    return 0;
 }
