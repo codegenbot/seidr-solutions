@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 bool evaluateBooleanExpression(std::string expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
@@ -17,20 +14,14 @@ bool evaluateBooleanExpression(std::string expression) {
     }
 
     if (opIndex != -1) {
-        bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
+        std::string left = expression.substr(0, opIndex);
+        std::string right = expression.substr(opIndex + 1);
 
-        if (expression.at(opIndex) == '|') {
-            if (left) {
-                return true;
-            }
-        } else if (expression.at(opIndex) == '&') {
-            if (!left) {
-                return false;
-            }
+        if (expression[opIndex] == '|') {
+            return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
+        } else if (expression[opIndex] == '&') {
+            return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
         }
-
-        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
-        return right;
     } else if (expression[0] == 'T' || expression[0] == 't') {
         return true;
     } else if (expression[0] == 'F' || expression[0] == 'f') {
@@ -38,16 +29,4 @@ bool evaluateBooleanExpression(std::string expression) {
     }
 
     return true;
-}
-
-int main() {
-    std::string inputExpression;
-    std::cout << "Enter a boolean expression: ";
-    std::getline(std::cin, inputExpression);
-
-    bool result = evaluateBooleanExpression(inputExpression);
-
-    std::cout << "Result: " << std::boolalpha << result << std::endl;
-
-    return 0;
 }
