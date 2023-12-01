@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -11,7 +12,7 @@ int sumOfOddNumbers(std::vector<int> lst) {
     return sum;
 }
 
-int main() {
+int myFunction() {
     assert(sumOfOddNumbers({3, 13, 2, 9}) == 3);
     return 0;
 }
