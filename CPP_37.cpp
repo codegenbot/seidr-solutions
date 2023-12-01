@@ -2,7 +2,7 @@ vector<float> sort_even(vector<float> l){
     vector<float> l_prime(l.size());
     for(int i=0; i<l.size(); i++){
         if(i%2 == 0){
-            l_prime[i] = l[i]; 
+            l_prime[i] = l[i];
         }else{
             l_prime[i] = l_prime[i-1];
         }
