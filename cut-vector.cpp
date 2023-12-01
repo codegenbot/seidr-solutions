@@ -36,7 +36,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
     std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
 
-    if (index == n - 1) {
+    if (index == n-1) {
         leftSubvector = std::vector<int>();
         rightSubvector = nums;
     }
