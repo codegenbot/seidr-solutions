@@ -25,6 +25,7 @@ std::vector<int> count_up_to(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
+    // Implement the function to compare the contents of vectors a and b
     if (a.size() != b.size()) {
         return false;
     }
