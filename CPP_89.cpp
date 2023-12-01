@@ -1,31 +1,33 @@
-#include <string>
+#include <iostream>
 #include <cassert>
 
-std::string encrypt(std::string s) {
-    std::string encrypted = "";
-    int shift = 2 * 2;
+using namespace std;
 
-    for (int i = 0; i < s.length(); i++) {
+string encrypt(string s);
+
+string encrypt(string s){
+    string encryptedString = "";
+    for(int i=0; i<s.length(); i++){
         char c = s[i];
-        if (c >= 'a' && c <= 'z') {
-            c = 'a' + (c - 'a' + shift) % 26;
-        } else if (c >= 'A' && c <= 'Z') {
-            c = 'A' + (c - 'A' + shift) % 26;
+        if(isalpha(c)){
+            if(islower(c)){
+                c = (c - 'a' + 2*2) % 26 + 'a';
+            }
+            else{
+                c = (c - 'A' + 2*2) % 26 + 'A';
+            }
         }
-        encrypted += c;
+        encryptedString += c;
     }
-
-    return encrypted;
+    return encryptedString;
 }
 
 int main() {
-    assert (encrypt("a")=="e"); 
-    assert (encrypt("z")=="d");
-    assert (encrypt("A")=="E");
-    assert (encrypt("Z")=="D");
-    assert (encrypt("abc")=="efg");
-    assert (encrypt("ABC")=="EFG");
-    assert (encrypt("xyz")=="bcd");
+    assert(encrypt("a") == "e");
+    assert(encrypt("z") == "d");
+    assert(encrypt("Hello, World!") == "Jgnnq, Yqtnf!");
+    
+    cout << "All test cases passed!" << endl;
     
     return 0;
 }
