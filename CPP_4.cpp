@@ -1,13 +1,22 @@
-#include <algorithm>
-#include <numeric>
+float mean_absolute_deviation(vector<float> numbers){
+    float sum = 0;
+    float mean = 0;
+    float mad = 0;
 
-float mean_absolute_deviation(vector<float> numbers) {
-    float mean = accumulate(numbers.begin(), numbers.end(), 0.0) / numbers.size();
-    float sum_abs_diff = 0.0;
-
-    for (float num : numbers) {
-        sum_abs_diff += abs(num - mean);
+    // Calculate the sum of all numbers
+    for(float num : numbers){
+        sum += num;
     }
 
-    return sum_abs_diff / numbers.size();
+    // Calculate the mean of the dataset
+    mean = sum / numbers.size();
+
+    // Calculate the mean absolute deviation
+    for(float num : numbers){
+        mad += abs(num - mean);
+    }
+
+    mad /= numbers.size();
+
+    return mad;
 }
