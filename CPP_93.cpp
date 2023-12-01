@@ -3,10 +3,7 @@
 string encode(string message);
 
 int main() {
-    string message;
-    getline(cin, message);
-    string encodedMessage = encode(message);
-    cout << encodedMessage;
+    // code
     return 0;
 }
 
