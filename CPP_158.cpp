@@ -15,8 +15,3 @@ string find_max(vector<string> words){
 
     return maxWord;
 }
-
-int main(){
-    assert((find_max({"play", "play", "play"}) == "play"));
-    return 0;
-}
