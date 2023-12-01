@@ -1,59 +1,25 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <cmath>
-
-using namespace std;
-
-bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    vector<string> words;
     string word = "";
+    int wordLength = 0;
     
-    // Split sentence into words
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] != ' ') {
+    for(int i=0; i<sentence.length(); i++){
+        if(sentence[i] != ' '){
             word += sentence[i];
-        } else {
-            words.push_back(word);
+            wordLength++;
+        }
+        else{
+            if(isPrime(wordLength)){
+                result += word + " ";
+            }
             word = "";
-        }
-    }
-    words.push_back(word);
-    
-    // Check if word length is prime and add to result
-    for (int i = 0; i < words.size(); i++) {
-        if (isPrime(words[i].length())) {
-            result += words[i] + " ";
+            wordLength = 0;
         }
     }
     
-    // Remove trailing space if result is not empty
-    if (!result.empty()) {
-        result.pop_back();
+    if(isPrime(wordLength)){
+        result += word;
     }
     
     return result;
-}
-
-int main() {
-    string sentence;
-    getline(cin, sentence);
-    
-    string result = words_in_sentence(sentence);
-    cout << result << endl;
-    
-    return 0;
 }
