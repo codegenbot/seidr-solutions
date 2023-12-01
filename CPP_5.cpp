@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     std::vector<int> result;
@@ -16,21 +15,29 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     return result;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
+void assert(bool condition) {
+    if (!condition) {
+        std::cout << "Assertion failed." << std::endl;
     }
+}
 
-    for (size_t i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
+void issame(std::vector<int> result, std::vector<int> expected) {
+    if (result.size() != expected.size()) {
+        std::cout << "Size mismatch." << std::endl;
+        return;
+    }
+    
+    for (int i = 0; i < result.size(); i++) {
+        if (result[i] != expected[i]) {
+            std::cout << "Element mismatch at index " << i << "." << std::endl;
+            return;
         }
     }
-
-    return true;
+    
+    std::cout << "Test passed." << std::endl;
 }
 
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2});
     return 0;
 }
