@@ -12,9 +12,9 @@ bool is_palindrome(std::string text) {
 }
 
 int main() {
-    assert(is_palindrome("racecar"));
-    assert(is_palindrome("abccba"));
-    assert(!is_palindrome("hello"));
-    
+    assert(is_palindrome("hello") == false);
+    assert(is_palindrome("racecar") == true);
+    assert(is_palindrome("madam") == true);
+
     return 0;
 }
