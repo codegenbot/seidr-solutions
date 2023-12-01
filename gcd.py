@@ -1,8 +1,11 @@
 import math
 
-a, b = map(int, input().split())
-print(math.gcd(a, b))
-
-text = input()
-target = input()
-print([i for i in range(len(text)) if text[i:i+len(target)] == target])
+try:
+    input_values = map(int, input().split())
+    values = list(input_values)
+    if len(values) != 2:
+        raise ValueError("ValueError: not enough values to unpack (expected 2, got " + str(len(values)) + ")")
+    a, b = values
+    print(math.gcd(a, b))
+except ValueError as e:
+    print(e)
