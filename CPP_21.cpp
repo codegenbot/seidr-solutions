@@ -1,29 +1,10 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-std::vector<float> rescale_to_unit(std::vector<float> numbers) {
-    // Find the minimum and maximum values in the input vector
-    float min_val = numbers[0];
-    float max_val = numbers[0];
-    for (float num : numbers) {
-        if (num < min_val) {
-            min_val = num;
-        }
-        if (num > max_val) {
-            max_val = num;
-        }
-    }
-    
-    // Rescale each value to the unit range [0, 1]
-    std::vector<float> rescaled_numbers;
-    for (int i = 0; i < numbers.size(); i++) {
-        float rescaled_val = (numbers[i] - min_val) / (max_val - min_val);
-        rescaled_numbers.push_back(rescaled_val);
-    }
-    
-    return rescaled_numbers;
-}
+using namespace std;
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -35,7 +16,39 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
+vector<float> rescale_to_unit(vector<float> numbers);
+
 int main() {
-    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
+    vector<float> numbers = {10.5, 5.5, 8.7, 3.9};
+    vector<float> expected_result = {0.484848, 0.0, 0.636364, 0.242424};
+
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
+
+    assert(rescaled_numbers == expected_result);
+
     return 0;
+}
+
+vector<float> rescale_to_unit(vector<float> numbers){
+    float min_num = numbers[0];
+    float max_num = numbers[0];
+
+    for(int i=1; i<numbers.size(); i++){
+        if(numbers[i] < min_num){
+            min_num = numbers[i];
+        }
+        if(numbers[i] > max_num){
+            max_num = numbers[i];
+        }
+    }
+
+    float range = max_num - min_num;
+    vector<float> rescaled_numbers;
+
+    for(int i=0; i<numbers.size(); i++){
+        float rescaled_num = (numbers[i] - min_num) / range;
+        rescaled_numbers.push_back(rescaled_num);
+    }
+
+    return rescaled_numbers;
 }
