@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -31,8 +29,6 @@ int main(){
     assert(issame(even_odd_count(0), {1, 0}));
     assert(issame(even_odd_count(12345), {2, 3}));
     assert(issame(even_odd_count(-2468642), {7, 0}));
-    
-    cout << "All test cases passed" << endl;
     
     return 0;
 }
