@@ -23,7 +23,7 @@ vector<int> strange_sort_list(vector<int> lst){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){ // Fixing the function signature
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,8 +37,10 @@ bool issame(vector<int> a, vector<int> b){ // Fixing the function signature
 
 int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
-    // Add more test cases and assertions here
-    assert(issame(strange_sort_list({3, 2, 1}), {1, 3, 2}));
+    assert(issame(strange_sort_list({1, 2, 3, 4, 5}), {1, 5, 2, 4, 3}));
+    assert(issame(strange_sort_list({9, 10, 7, 5}), {5, 10, 7, 9}));
+    assert(issame(strange_sort_list({}), {}));
+    assert(issame(strange_sort_list({1, 2, 3}), {1, 3, 2}));
 
     cout << "All test cases pass" << endl;
     return 0;
