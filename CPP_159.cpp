@@ -1,18 +1,19 @@
+#include <iostream>
 #include <vector>
 
-std::vector<int> eat(int number, int need, int remaining) {
-    int totalEatenCarrots = number + remaining;
-    
-    if (totalEatenCarrots >= need) {
-        totalEatenCarrots = need;
+using namespace std;
+
+vector<int> eat(int number, int need, int remaining) {
+    number += need;
+    remaining -= need;
+    if (remaining < 0) {
+        number += remaining;
+        remaining = 0;
     }
-    
-    return {totalEatenCarrots, number + remaining - totalEatenCarrots};
+    vector<int> result = {number, remaining};
+    return result;
 }
 
-int main() {
-    assert(eat(4, 5, 1) == std::vector<int>({5, 0}));
-    // Add more test cases here
-    
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
