@@ -14,19 +14,12 @@ std::vector<int> filter_integers(std::list<boost::any> values){
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main(){
+    // Test case
     assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    
+
     return 0;
 }
