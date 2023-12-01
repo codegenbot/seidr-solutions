@@ -24,6 +24,8 @@ vector<int> even_odd_count(int num) {
     return result;
 }
 
+#include <cassert>
+
 int main() {
     cout << boolalpha;
     assert(even_odd_count(0) == vector<int>{1, 0});
