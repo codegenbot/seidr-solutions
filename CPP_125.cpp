@@ -6,18 +6,17 @@ using namespace std;
 
 vector<string> split_words(string txt);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+int main() {
+    string txt;
+    getline(cin, txt);
+
+    vector<string> words = split_words(txt);
+
+    for (string word : words) {
+        cout << word << endl;
     }
 
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return 0;
 }
 
 vector<string> split_words(string txt) {
@@ -33,15 +32,13 @@ vector<string> split_words(string txt) {
                 words.push_back(word);
                 word = "";
             }
-        }
-        else if (txt[i] == ',') {
+        } else if (txt[i] == ',') {
             hasComma = true;
             if (word != "") {
                 words.push_back(word);
                 word = "";
             }
-        }
-        else {
+        } else {
             word += txt[i];
         }
     }
@@ -55,17 +52,4 @@ vector<string> split_words(string txt) {
     }
 
     return words;
-}
-
-int main() {
-    string txt;
-    getline(cin, txt);
-
-    vector<string> words = split_words(txt);
-
-    for (int i = 0; i < words.size(); i++) {
-        cout << words[i] << endl;
-    }
-
-    return 0;
 }
