@@ -1,30 +1,26 @@
-#include <vector>
+#include <vector> 
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     std::vector<float> result;
-    float min_value = numbers[0];
-    float max_value = numbers[0];
-    
-    // Find minimum and maximum values
+    float min_val = numbers[0];
+    float max_val = numbers[0];
+
+    // Find the minimum and maximum values in the input vector
     for (float number : numbers) {
-        if (number < min_value) {
-            min_value = number;
+        if (number < min_val) {
+            min_val = number;
         }
-        if (number > max_value) {
-            max_value = number;
+        if (number > max_val) {
+            max_val = number;
         }
     }
-    
-    // Rescale numbers to the unit interval
+
+    // Rescale each number in the input vector to the unit range [0, 1]
     for (float number : numbers) {
-        if (max_value == min_value) {
-            result.push_back(0.0); // Avoid division by zero
-        } else {
-            float rescaled_number = (number - min_value) / (max_value - min_value);
-            result.push_back(rescaled_number);
-        }
+        float rescaled_num = (number - min_val) / (max_val - min_val);
+        result.push_back(rescaled_num);
     }
-    
+
     return result;
 }
 
