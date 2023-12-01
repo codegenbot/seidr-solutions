@@ -1,26 +1,27 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int fib4(int n) {
-    if (n < 2) {
+    if (n == 0 || n == 1) {
         return 0;
     }
-    
-    int fib[4] = {0, 0, 2, 0};
-    
-    for (int i = 4; i <= n; i++) {
-        fib[i % 4] = fib[(i-1) % 4] + fib[(i-2) % 4] + fib[(i-3) % 4] + fib[(i-4) % 4];
+    if (n == 2) {
+        return 2;
     }
-    
-    return fib[n % 4];
+    int a = 0, b = 0, c = 2, d = 0;
+    for (int i = 3; i <= n; i++) {
+        d = a + b + c;
+        a = b;
+        b = c;
+        c = d;
+    }
+    return d;
 }
 
 int main() {
     int n;
     cout << "Enter the value of n: ";
     cin >> n;
-    
-    cout << "fib4(" << n << ") = " << fib4(n) << endl;
-    
+    cout << "The " << n << "-th element of the fib4 number sequence is " << fib4(n) << endl;
     return 0;
 }
