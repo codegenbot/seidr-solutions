@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 std::string encrypt(std::string s) {
     std::string encrypted = "";
@@ -18,7 +19,7 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    assert (encrypt("a")=="e");
-    // more test cases here
+    assert (encrypt("a")=="e"); // Sample assertion to test the encrypt function
+    // Add more test cases here
     return 0;
 }
