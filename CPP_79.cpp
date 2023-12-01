@@ -1,14 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string decimal_to_binary(int decimal){
     string binary = "db";
-    if(decimal == 0){
-        binary += "0";
-    }
     while(decimal > 0){
-        int remainder = decimal % 2;
-        binary += to_string(remainder);
-        decimal /= 2;
+        int rem = decimal % 2;
+        binary = to_string(rem) + binary;
+        decimal = decimal / 2;
     }
-    reverse(binary.begin(), binary.end());
-    binary += "db";
-    return binary;
+    return binary + "db";
+}
+
+int main(){
+    assert(decimal_to_binary(15) == "db1111db");
+
+    return 0;
 }
