@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
-using namespace std;
+#include <cassert>
 
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+std::vector<std::string> bff(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> result;
 
     int index1 = -1;
     int index2 = -1;
@@ -23,21 +25,12 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    int start = min(index1, index2);
-    int end = max(index1, index2);
+    int start = std::min(index1, index2);
+    int end = std::max(index1, index2);
 
     for (int i = start + 1; i < end; i++) {
         result.push_back(planets[i]);
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(bf("Jupiter", "Makemake") == vector<string>{});
-    return 0;
 }
