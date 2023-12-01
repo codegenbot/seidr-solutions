@@ -11,7 +11,10 @@ int solutions(std::vector<int> lst) {
     return sum;
 }
 
-assert (solutions({3, 13, 2, 9}) == 3);
-// Add more test cases if needed
+// Only keep one main() function in the entire program
+int main() {
+    assert(solutions({3, 13, 2, 9}) == 3);
+    // Add more test cases if needed
 
-return 0;
+    return 0;
+}
