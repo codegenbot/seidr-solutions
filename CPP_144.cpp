@@ -1,18 +1,11 @@
 bool simplify(string x, string n) {
-    // Extracting the numerator and denominator of x and n
-    int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
+    int numeratorX = stoi(x.substr(0, x.find("/")));
+    int denominatorX = stoi(x.substr(x.find("/") + 1));
+    int numeratorN = stoi(n.substr(0, n.find("/")));
+    int denominatorN = stoi(n.substr(n.find("/") + 1));
 
-    // Calculating the product of x and n
-    int product_num = x_num * n_num;
-    int product_den = x_den * n_den;
+    int result = numeratorX * numeratorN;
+    int remainder = result % (denominatorX * denominatorN);
 
-    // Checking if the product is a whole number
-    if (product_den % product_num == 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return remainder == 0;
 }
