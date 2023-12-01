@@ -1,8 +1,3 @@
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = 0;
     int smallest_positive = 0;
@@ -18,6 +13,8 @@ vector<int> largest_smallest_integers(vector<int> lst){
     
     return {largest_negative, smallest_positive};
 }
+#include <vector>
+#include <cassert>
 
 int main() {
     assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>({-3, 1}));
