@@ -1,42 +1,33 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <cassert>
 
-using namespace std;
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    
-    return true;
+bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2);
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int totalChars1 = 0;
     int totalChars2 = 0;
     
-    for (string str : lst1) {
+    for (std::string str : lst1) {
         totalChars1 += str.length();
     }
     
-    for (string str : lst2) {
+    for (std::string str : lst2) {
         totalChars2 += str.length();
     }
     
-    if (totalChars1 < totalChars2) {
-        return lst1;
-    } else {
-        return lst2;
-    }
+    return (totalChars1 < totalChars2);
 }
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this", "is"}, {"a", "test"}), {"a", "test"}));
     
     return 0;
 }
