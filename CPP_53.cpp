@@ -6,7 +6,6 @@ int add(int x, int y){
 
 int main() {
     int x = rand() % 1000;
-    int y = rand() % 1000;
-    int result = add(x, y);
+    // rest of the code
     return 0;
 }
