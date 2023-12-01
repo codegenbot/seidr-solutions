@@ -13,5 +13,5 @@ std::string change_base(int x, int base) {
 }
 
 int main() {
-
+    return 0;
 }
