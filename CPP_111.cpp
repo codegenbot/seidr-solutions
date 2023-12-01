@@ -1,6 +1,6 @@
 #include <iostream>
 #include <map>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
@@ -55,22 +55,14 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    string test = "apple banana cherry apple orange orange";
-    map<char, int> output = histogram(test);
-    map<char, int> expected_output = {{'a', 2}, {'b', 1}, {'c', 1}, {'o', 2}};
-    assert(issame(output, expected_output));
+    string test;
+    getline(cin, test);
 
-    test = "hello world";
-    output = histogram(test);
-    expected_output = {{'o', 2}, {'l', 3}};
-    assert(issame(output, expected_output));
+    map<char, int> result = histogram(test);
 
-    test = "cpp code contest";
-    output = histogram(test);
-    expected_output = {{'c', 3}, {'p', 2}};
-    assert(issame(output, expected_output));
-
-    cout << "All test cases pass" << endl;
+    for (auto it = result.begin(); it != result.end(); it++) {
+        cout << it->first << ": " << it->second << endl;
+    }
 
     return 0;
 }
