@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
@@ -14,6 +16,7 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 bool issame(vector<int> a, vector<int> b){
+    // Check if vectors a and b have the same elements
     if(a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
