@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 bool isPrime(int num) {
     if (num <= 1) {
         return false;
