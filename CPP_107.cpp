@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool isSame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -12,12 +12,6 @@ bool isSame(std::vector<int> a, std::vector<int> b){
         }
     }
     return true;
-}
-
-std::vector<int> even_odd_palindrome(int n);
-
-int main(){
-    assert(std::equal(even_odd_palindrome(1).begin(), even_odd_palindrome(1).end(), std::vector<int>({0, 1}).begin()));
 }
 
 std::vector<int> even_odd_palindrome(int n){
