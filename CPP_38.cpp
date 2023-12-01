@@ -21,11 +21,3 @@ string decode_cyclic(string s){
     }
     return output;
 }
-
-int main() {
-    string str;
-    cin >> str;
-    string encoded_str = encode_cyclic(str);
-    assert (decode_cyclic(encoded_str) == str);
-    return 0;
-}
