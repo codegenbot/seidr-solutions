@@ -1,20 +1,40 @@
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> unique_digits(vector<int> x){
-    vector<int> res;
+    vector<int> result;
     for(int num : x){
-        bool onlyOdd = true;
         int temp = num;
+        bool hasEvenDigit = false;
         while(temp > 0){
             int digit = temp % 10;
             if(digit % 2 == 0){
-                onlyOdd = false;
+                hasEvenDigit = true;
                 break;
             }
             temp /= 10;
         }
-        if(onlyOdd){
-            res.push_back(num);
+        if(!hasEvenDigit){
+            result.push_back(num);
         }
     }
-    sort(res.begin(), res.end());
-    return res;
+    sort(result.begin(), result.end());
+    return result;
+}
+
+int main(){
+    assert (issame(unique_digits({135, 103, 31}) , {31, 135}));
+    return 0;
 }
