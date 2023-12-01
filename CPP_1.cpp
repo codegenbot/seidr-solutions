@@ -5,26 +5,21 @@ using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group;
-    int open_braces = 0;
+    string group;
+    int count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_braces > 0) {
-                current_group += c;
-            }
-            open_braces++;
+            count++;
+        } else if (c == ')') {
+            count--;
         }
-        else if (c == ')') {
-            open_braces--;
 
-            if (open_braces == 0) {
-                result.push_back(current_group);
-                current_group = "";
-            }
-            else {
-                current_group += c;
-            }
+        group += c;
+
+        if (count == 0 && !group.empty()) {
+            result.push_back(group);
+            group = "";
         }
     }
 
@@ -33,13 +28,16 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
     string input;
+    cout << "Enter the string of nested parentheses: ";
     getline(cin, input);
 
     vector<string> groups = separate_paren_groups(input);
 
+    cout << "Separated groups: ";
     for (string group : groups) {
-        cout << group << endl;
+        cout << group << " ";
     }
+    cout << endl;
 
     return 0;
 }
