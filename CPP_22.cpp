@@ -2,9 +2,8 @@
 #include <list>
 #include <variant>
 #include <cassert>
-#include <memory>
 
-std::vector<int> filter_integers(std::list<std::variant<int, char>> values) {
+std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
     std::vector<int> result;
     for (const auto& value : values) {
         if (std::holds_alternative<int>(value)) {
