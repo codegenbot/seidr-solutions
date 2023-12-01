@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -25,8 +24,19 @@ vector<int> unique_digits(vector<int> x){
     return result;
 }
 
-int main(){
-    assert (unique_digits({135, 103, 31}) == vector<int>({31, 135}));
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
+        return false;
     
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+int main(){
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    // Add more test cases here
     return 0;
 }
