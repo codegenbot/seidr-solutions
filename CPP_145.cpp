@@ -1,18 +1,32 @@
-vector<int> order_by_points(vector<int> nums){
-    vector<pair<int, int>> sums;
-    for(int i=0; i<nums.size(); i++){
-        int sum = 0;
-        int num = abs(nums[i]);
-        while(num > 0){
-            sum += num % 10;
-            num /= 10;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool compare(int a, int b) {
+    int sumA = 0, sumB = 0;
+    std::string strA = std::to_string(a);
+    std::string strB = std::to_string(b);
+    
+    for (char c : strA) {
+        if (c != '-') {
+            sumA += c - '0';
         }
-        sums.push_back(make_pair(sum, i));
     }
-    sort(sums.begin(), sums.end());
-    vector<int> result;
-    for(auto p : sums){
-        result.push_back(nums[p.second]);
+    
+    for (char c : strB) {
+        if (c != '-') {
+            sumB += c - '0';
+        }
     }
-    return result;
+    
+    if (sumA == sumB) {
+        return a < b;
+    }
+    
+    return sumA < sumB;
+}
+
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
