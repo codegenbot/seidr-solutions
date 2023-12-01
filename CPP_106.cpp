@@ -1,7 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool isSame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool isSame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -13,15 +16,15 @@ bool isSame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> f(int n){
-    std::vector<int> result;
+vector<int> f(int n){
+    vector<int> result;
     for(int i=1; i<=n; i++){
         if(i%2 == 0){
-            int factorial = 1;
+            int fact = 1;
             for(int j=1; j<=i; j++){
-                factorial *= j;
+                fact *= j;
             }
-            result.push_back(factorial);
+            result.push_back(fact);
         } else {
             int sum = 0;
             for(int j=1; j<=i; j++){
@@ -34,6 +37,6 @@ std::vector<int> f(int n){
 }
 
 int main(){
-    assert(isSame(f(3) , {1, 2, 6}));
+    assert(isSame(f(3), {1, 2, 6}));
     return 0;
 }
