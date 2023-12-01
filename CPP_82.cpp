@@ -1,4 +1,7 @@
-bool prime_length(string str){
+#include <cassert>
+#include <string>
+
+bool prime_length(std::string str){
     int length = str.length();
     if(length <= 1){
         return false;
@@ -10,3 +13,5 @@ bool prime_length(string str){
     }
     return true;
 }
+
+// Rest of your code...
