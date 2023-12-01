@@ -27,13 +27,11 @@ vector<string> by_length(vector<int> arr){
   return result;
 }
 
-// Optional: Define the "issame" function
 bool issame(vector<string> a, vector<string> b){
   return a == b;
 }
 
 int main() {
-  // Optional: Remove the assertion with "issame" or define the function
   assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
 
   return 0;
