@@ -1,10 +1,9 @@
 #include <vector>
-
 using namespace std;
 
 vector<int> compare(vector<int> game, vector<int> guess);
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++){
@@ -14,7 +13,7 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess){
+vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for(int i=0; i<game.size(); i++){
         result.push_back(abs(game[i] - guess[i]));
