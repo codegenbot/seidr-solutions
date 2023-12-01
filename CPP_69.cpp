@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
 
-int findMax(vector<int> lst) {
+int search(std::vector<int> lst) {
     int maxNum = -1;
     for (int i = 0; i < lst.size(); i++) {
         int num = lst[i];
@@ -15,4 +16,21 @@ int findMax(vector<int> lst) {
         }
     }
     return maxNum;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> lst(n);
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> lst[i];
+    }
+    
+    int result = search(lst);
+    std::cout << "Maximum number: " << result << std::endl;
+    
+    return 0;
 }
