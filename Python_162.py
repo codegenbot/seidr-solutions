@@ -6,11 +6,6 @@ def string_to_md5(text):
     else:
         return hashlib.md5(text.encode()).hexdigest()
 
-try:
-    text = input()
-except EOFError:
-    text = ""
-
+text = input("Enter the input text: ")
 result = string_to_md5(text)
-
 print(result)
