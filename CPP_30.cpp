@@ -1,26 +1,20 @@
 #include <vector>
 
-vector<float> get_positive(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b);
-
-int main(){
-    assert (issame(get_positive({}) , {}));
-    // Additional test cases
-    // ...
-    return 0;
-}
-
 vector<float> get_positive(vector<float> l){
-    vector<float> positive;
-    for(int i=0; i<l.size(); i++){
-        if(l[i] > 0){
-            positive.push_back(l[i]);
+    vector<float> positive_nums;
+    for (int i = 0; i < l.size(); i++) {
+        if (l[i] > 0) {
+            positive_nums.push_back(l[i]);
         }
     }
-    return positive;
+    return positive_nums;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    // Function implementation
+int main() {
+    vector<float> numbers = {1.5, -2.3, 4.7, -3.2, 0.9};
+    vector<float> positive_numbers = get_positive(numbers);
+    for (int i = 0; i < positive_numbers.size(); i++) {
+        cout << positive_numbers[i] << " ";
+    }
+    return 0;
 }
