@@ -4,7 +4,7 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> strange_sort_vector(vector<int> lst){
+vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     sort(lst.begin(), lst.end());
     int left = 0;
@@ -36,5 +36,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(strange_sort_vector({111111}) , {111111}));
+
     return 0;
 }
