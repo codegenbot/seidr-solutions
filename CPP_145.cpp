@@ -1,21 +1,12 @@
-#include <algorithm>
 #include <vector>
-#include <cassert>
-#include <iostream>
+#include <numeric>
 
 bool compare(int a, int b) {
-    int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
-    
-    while (tempA > 0) {
-        sumA += tempA % 10;
-        tempA /= 10;
-    }
-    
-    while (tempB > 0) {
-        sumB += tempB % 10;
-        tempB /= 10;
-    }
+    int sumA = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0,
+                             [](int sum, char c) { return sum + (c - '0'); });
+                             
+    int sumB = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0,
+                             [](int sum, char c) { return sum + (c - '0'); });
     
     if (sumA == sumB) {
         return a < b;
@@ -29,21 +20,11 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return nums;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
 int main() {
-    std::vector<int> input = {0, 6, 6, -76, -21, 23, 4};
-    std::vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
-    
-    std::vector<int> result = order_by_points(input);
-    
-    if (issame(result, expected)) {
-        std::cout << "Test case passed!";
-    } else {
-        std::cout << "Test case failed!";
-    }
-    
+    assert (issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
