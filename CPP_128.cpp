@@ -1,15 +1,17 @@
-int prod_signs(vector<int> arr){
-    int sum = 0;
-    int product = 1;
-    
-    if (arr.empty()){
+#include <vector>
+
+int prod_signs(vector<int> arr) {
+    if (arr.empty()) {
         return -32768;
     }
-    
-    for (int i = 0; i < arr.size(); i++){
-        sum += abs(arr[i]);
-        product *= arr[i] < 0 ? -1 : arr[i] > 0 ? 1 : 0;
+
+    int sign_product = 1;
+    int magnitude_sum = 0;
+
+    for (int num : arr) {
+        sign_product *= num >= 0 ? (num > 0 ? 1 : 0) : -1;
+        magnitude_sum += abs(num);
     }
-    
-    return sum * product;
+
+    return sign_product * magnitude_sum;
 }
