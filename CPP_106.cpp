@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -23,4 +22,10 @@ vector<int> f(int n) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(equal(f(3).begin(), f(3).end(), vector<int>{1, 2, 6}.begin(), vector<int>{1, 2, 6}.end()));
+
+    return 0;
 }
