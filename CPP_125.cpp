@@ -39,6 +39,10 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     // Add your testcases here to check the functionality of the split_words function
+    vector<string> words = split_words("Hello, World!");
+    for (string word : words) {
+        cout << word << endl;
+    }
     
     return 0;
 }
