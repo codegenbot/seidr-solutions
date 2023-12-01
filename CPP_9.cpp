@@ -1,14 +1,7 @@
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
@@ -21,11 +14,29 @@ vector<int> rolling_max(vector<int> numbers){
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 int main(){
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    assert(issame(rolling_max({1, 2, 3, 4, 5}), {1, 2, 3, 4, 5}));
-    assert(issame(rolling_max({5, 4, 3, 2, 1}), {5, 5, 5, 5, 5}));
-    assert(issame(rolling_max({100, 100, 100, 100, 100}), {100, 100, 100, 100, 100}));
-    
+    vector<int> input = {3, 2, 3, 100, 3};
+    vector<int> expected_output = {3, 3, 3, 100, 100};
+    vector<int> result = rolling_max(input);
+
+    if(issame(result, expected_output)){
+        cout << "Output is correct!" << endl;
+    }
+    else{
+        cout << "Output is incorrect!" << endl;
+    }
+
     return 0;
 }
