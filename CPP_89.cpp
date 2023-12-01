@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert> // Include the necessary header file for assert() function
-
 using namespace std;
 
 string encrypt(string s){
@@ -24,7 +22,5 @@ string encrypt(string s){
 
 int main() {
     assert (encrypt("a")=="e");
-    // Add more test cases here
-    
     return 0;
 }
