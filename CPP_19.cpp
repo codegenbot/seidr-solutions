@@ -28,7 +28,7 @@ std::string sort_numbers(std::string numbers){
     std::vector<int> number_values;
     std::stringstream ss(numbers);
     std::string number;
-    while (getline(ss, number, ' ')) {
+    while (std::getline(ss, number, ' ')) {
         number_values.push_back(number_map[number]);
     }
 
