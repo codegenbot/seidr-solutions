@@ -5,17 +5,21 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
+    // check if two vectors are empty
     if (a.empty() && b.empty()) {
         return true;
     }
+    // check if lengths are equal
     if (a.size() != b.size()) {
         return false;
     }
+    // check if corresponding elements are equal
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    // vectors are equal
     return true;
 }
 
@@ -40,6 +44,7 @@ vector<int> pluck(vector<int> arr){
 }
 
 int main() {
+    // assert test cases
     assert(issame(pluck({7, 9, 7, 1}), {}));
     assert(issame(pluck({1, 3, 5, 7}), {}));
     assert(issame(pluck({-4, 2, -1, 0}), {-4, 0}));
