@@ -1,44 +1,43 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
-
-    // Iterate over each character in the input string
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> groups;
+    string group;
+    int count = 0;
+    
     for (char c : paren_string) {
-        // Ignore spaces
-        if (c == ' ') {
-            continue;
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
         }
-        // If it's an opening parenthesis, append it to the current group
-        else if (c == '(') {
-            current_group += c;
+        
+        if (c == '(' && count == 1) {
+            group = "";
         }
-        // If it's a closing parenthesis, check if the current group is non-empty
-        // If so, append it to the result and clear the current group
-        else if (c == ')') {
-            if (!current_group.empty()) {
-                current_group += c;
-                result.push_back(current_group);
-                current_group.clear();
-            }
+        
+        group += c;
+        
+        if (count == 0 && group.size() > 0) {
+            groups.push_back(group);
         }
     }
-
-    return result;
+    
+    return groups;
 }
 
 int main() {
-    std::string paren_string = "( ) (( )) (( )( ))";
-    std::vector<std::string> groups = separate_paren_groups(paren_string);
-
-    // Print the resulting groups
-    for (const std::string& group : groups) {
-        std::cout << group << " ";
+    string paren_string;
+    getline(cin, paren_string);
+    
+    vector<string> result = separate_paren_groups(paren_string);
+    
+    for (string group : result) {
+        cout << group << endl;
     }
-    std::cout << std::endl;
-
+    
     return 0;
 }
