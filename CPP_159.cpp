@@ -19,8 +19,8 @@ bool issame(vector<int> a, vector<int> b) {
 int main() {
     assert(issame(eat(4, 5, 1), {5, 0}));
     assert(issame(eat(10, 3, 7), {13, 4}));
-    
+
     cout << "All test cases passed!" << endl;
-    
+
     return 0;
 }
