@@ -1,6 +1,6 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 int prod_signs(std::vector<int> arr){
     if(arr.empty()){
