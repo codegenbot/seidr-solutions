@@ -1,3 +1,15 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string remove_vowels(string text);
+
+int main(){
+    assert(remove_vowels("ybcd") == "ybcd");
+    return 0;
+}
+
 string remove_vowels(string text){
     string result = "";
     for(int i=0; i<text.length(); i++){
