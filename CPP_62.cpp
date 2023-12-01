@@ -1,6 +1,6 @@
 #include <vector>
-
-vector<float> derivative(vector<float> xs);
+#include <cmath>
+using namespace std;
 
 vector<float> derivative(vector<float> xs) {
     vector<float> result;
