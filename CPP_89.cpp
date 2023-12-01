@@ -1,14 +1,9 @@
+```cpp
 #include <string>
 #include <cctype>
 using namespace std;
 
 string encrypt(string s);
-
-int main(){
-    assert (encrypt("a")=="e");
-    // add more test cases here
-    return 0;
-}
 
 string encrypt(string s){
     string encryptedString = "";
