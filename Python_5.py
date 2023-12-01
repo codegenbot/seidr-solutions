@@ -14,4 +14,4 @@ numbers = [int(num) for num in numbers]
 delimiter = int(input())
 
 output = intersperse(numbers, delimiter)
-print(output)
+print(*output)
