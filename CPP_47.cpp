@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 float median(vector<float> l){
     sort(l.begin(), l.end());
@@ -14,5 +15,6 @@ float median(vector<float> l){
 int main() {
     float result = median({8, 1, 3, 9, 9, 2, 7});
     assert(abs(result - 7) < 1e-4);
+
     return 0;
 }
