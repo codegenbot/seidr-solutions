@@ -1,8 +1,9 @@
+#include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
+using namespace std;
 
-string int_to_mini_romank(int number){
+string int_to_mini_romank(int number) {
     vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     vector<string> romans = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
     string result = "";
@@ -18,9 +19,8 @@ string int_to_mini_romank(int number){
 }
 
 int main() {
-    // Test the int_to_mini_romank function
     assert(int_to_mini_romank(1000) == "m");
-    // Add more test cases if needed
-
+    // Add more test cases here
+    
     return 0;
 }
