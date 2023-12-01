@@ -1,26 +1,14 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) {
-        return result;
-    }
-    string::size_type pos = 0;
-    while (pos < test.length()) {
-        if (test[pos] != ' ') {
-            result[test[pos]]++;
-        }
-        pos++;
-    }
-    int maxCount = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
+map<char,int> histogram(string test){
+    map<char,int> result;
+    string letter;
+    for(int i=0; i<test.length(); i++){
+        if(test[i] != ' '){
+            letter += test[i];
+            if(i == test.length()-1 || test[i+1] == ' '){
+                result[letter[0]]++;
+                letter = "";
+            }
         }
     }
-    map<char, int> finalResult;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second == maxCount) {
-            finalResult.insert(*it);
-        }
-    }
-    return finalResult;
+    return result;
 }
