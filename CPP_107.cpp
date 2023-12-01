@@ -1,26 +1,35 @@
+#include <vector>
+#include <string>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> even_odd_palindrome(int n){
-    vector<int> result(2,0); // initialize the result vector with 2 zeros
-    for(int i=1;i<=n;i++){
-        string s = to_string(i); // convert the integer i to string for checking palindrome
-        int left =0;
-        int right = s.length()-1;
+    vector<int> result(2, 0);
+    for(int i=1; i<=n; i++){
+        string num = to_string(i);
+        int len = num.length();
         bool isPalindrome = true;
-        while(left<=right){
-            if(s[left]!=s[right]){
+        for(int j=0; j<len/2; j++){
+            if(num[j] != num[len-j-1]){
                 isPalindrome = false;
                 break;
             }
-            left++;
-            right--;
         }
         if(isPalindrome){
-            if(i%2==0){
-                result[0]++; // increment the number of even palindromes
-            }
-            else{
-                result[1]++; // increment the number of odd palindromes
+            if(i % 2 == 0){
+                result[0]++;
+            }else{
+                result[1]++;
             }
         }
     }
     return result;
+}
+
+int main() {
+    assert (issame(even_odd_palindrome(1) , {0, 1}));
+  
+    return 0;
 }

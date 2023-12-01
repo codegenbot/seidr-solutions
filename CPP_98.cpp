@@ -1,6 +1,10 @@
+#include <iostream>
 #include <string>
+using namespace std;
 
-int count_upper(std::string s) {
+int count_upper(string s);
+
+int count_upper(string s){
     int count = 0;
     for (int i = 0; i < s.length(); i += 2) {
         char c = s[i];
@@ -14,8 +18,6 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    // Test your count_upper function
-    assert(count_upper("EEEE") == 2);
-
+    assert (count_upper("EEEE") == 2);
     return 0;
 }
