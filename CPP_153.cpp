@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <algorithm> // Include the <algorithm> header to access the count_if function
 
 using namespace std;
 
