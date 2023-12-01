@@ -23,6 +23,15 @@ bool compare(int a, int b) {
     return sum_a < sum_b;
 }
 
+std::vector<int> order_by_points(std::vector<int> nums);
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), compare);
+    return nums;
+}
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -35,9 +44,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     
     return true;
-}
-
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), compare);
-    return nums;
 }
