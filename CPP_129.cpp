@@ -1,7 +1,13 @@
+#include <vector>
+#include <climits>
+#include <cassert>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> path;
     int n = grid.size();
-    
+
     // Find the starting cell with the smallest value
     int minVal = grid[0][0];
     int startRow = 0;
@@ -15,10 +21,10 @@ vector<int> minPath(vector<vector<int>> grid, int k){
             }
         }
     }
-    
+
     // Add the starting cell to the path
     path.push_back(minVal);
-    
+
     // Perform k-1 steps to complete the path
     int currRow = startRow;
     int currCol = startCol;
@@ -47,14 +53,14 @@ vector<int> minPath(vector<vector<int>> grid, int k){
             nextRow = currRow;
             nextCol = currCol+1;
         }
-        
+
         // Add the next cell to the path
         path.push_back(minNeighborVal);
-        
+
         // Move to the next cell
         currRow = nextRow;
         currCol = nextCol;
     }
-    
+
     return path;
 }
