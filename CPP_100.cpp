@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -20,11 +21,11 @@ vector<int> make_a_pile(int n){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    // Implementation of issame function
+    return a == b;
 }
 
 int main() {
-    assert (issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(8), vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
     
     return 0;
 }
