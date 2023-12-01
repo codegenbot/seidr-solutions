@@ -6,7 +6,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
         if (expression[0] == 'T') {
             return isEnclosed;
         } else if (expression[0] == 'F') {
-            return false;
+            return !isEnclosed;
         }
     }
 
