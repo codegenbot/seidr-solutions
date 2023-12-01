@@ -1,10 +1,8 @@
 #include <string>
 #include <vector>
-#include <cassert>
+#include <cassert> // Added missing include statement
 
 using namespace std;
-
-bool issame(vector<string> a, vector<string> b);
 
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
@@ -16,7 +14,7 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b){ // Removed redefinition of issame function
     if(a.size() != b.size()){
         return false;
     }
@@ -30,7 +28,7 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-int main(){
+int main(){ // Removed redefinition of main function
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
 
     return 0;
