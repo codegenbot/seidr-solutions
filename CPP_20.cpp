@@ -1,10 +1,11 @@
-#include <cmath>
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
-bool issame(vector<float> a, vector<float> b){
-    return a == b;
-}
+using namespace std;
+
+vector<float> find_closest_elements(vector<float> numbers);
+bool issame(vector<float> a, vector<float> b);
 
 vector<float> find_closest_elements(vector<float> numbers){
     float min_diff = INFINITY;
@@ -22,8 +23,20 @@ vector<float> find_closest_elements(vector<float> numbers){
     return {num1, num2};
 }
 
-int main(){
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-    
+    // Add more test cases here
     return 0;
 }
