@@ -5,34 +5,29 @@
 
 using namespace std;
 
-vector<string> words_string(string s)
-{
+vector<string> words_string(string s);
+
+vector<string> words_string(string s){
     vector<string> words;
     string word;
-    for (char c : s)
-    {
-        if (c == ' ' || c == ',')
-        {
-            if (!word.empty())
-            {
+    for(char c : s){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 words.push_back(word);
                 word.clear();
             }
         }
-        else
-        {
+        else{
             word += c;
         }
     }
-    if (!word.empty())
-    {
+    if(!word.empty()){
         words.push_back(word);
     }
     return words;
 }
 
-int main()
-{
+int main() {
     vector<string> input = words_string("ahmed     , gamal");
     vector<string> expected_output = {"ahmed", "gamal"};
     assert(input == expected_output);
