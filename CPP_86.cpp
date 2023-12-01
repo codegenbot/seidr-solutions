@@ -1,7 +1,7 @@
 string anti_shuffle(string s){
     string result = "";
     string word = "";
-    for(int i = 0; i < s.length(); i++){
+    for(int i=0; i<s.length(); i++){
         if(s[i] != ' '){
             word += s[i];
         }
