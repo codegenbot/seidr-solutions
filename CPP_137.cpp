@@ -12,7 +12,13 @@ std::string compare_one(boost::any a, boost::any b) {
     std::string strB = boost::any_cast<std::string>(b);
     std::replace(strA.begin(), strA.end(), ',', '.');
     std::replace(strB.begin(), strB.end(), ',', '.');
-    float num1 = std::stof(strA);
-    float num2 = std::stof(strB);
-    return (num1 > num2) ? strA : strB;
+
+    try {
+        float num1 = std::stof(strA);
+        float num2 = std::stof(strB);
+        return (num1 > num2) ? strA : strB;
+    } catch (...) {
+        // Handle the case where the cast or conversion failed.
+        return "";
+    }
 }
