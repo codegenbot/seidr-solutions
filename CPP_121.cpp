@@ -11,13 +11,15 @@ int solutions(vector<int> lst){
 }
 
 int main() {
-    vector<int> test1 = {1, 2, 3, 4, 5};
-    vector<int> test2 = {2, 4, 6, 8, 10};
-    vector<int> test3 = {1, 3, 5, 7, 9};
-    
-    int result1 = solutions(test1);
-    int result2 = solutions(test2);
-    int result3 = solutions(test3);
+    // Test Case 1
+    vector<int> nums1 = {1, 2, 3, 4, 5};
+    int result1 = solutions(nums1);
+    // Test Case 2
+    vector<int> nums2 = {2, 4, 6, 8, 10};
+    int result2 = solutions(nums2);
+    // Test Case 3
+    vector<int> nums3 = {1, 3, 5, 7, 9};
+    int result3 = solutions(nums3);
     
     return 0;
 }
