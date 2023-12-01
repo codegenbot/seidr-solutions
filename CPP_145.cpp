@@ -1,18 +1,11 @@
-vector<int> order_by_points(vector<int> nums){
-    sort(nums.begin(), nums.end(), [](int a, int b){
-        int sumA = 0, sumB = 0;
-        string strA = to_string(abs(a));
-        string strB = to_string(abs(b));
-        for(char c : strA){
-            sumA += c - '0';
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int num1, int num2) {
+        int sum1 = getDigitSum(num1);
+        int sum2 = getDigitSum(num2);
+        if (sum1 == sum2) {
+            return num1 < num2;
         }
-        for(char c : strB){
-            sumB += c - '0';
-        }
-        if(sumA == sumB){
-            return a < b;
-        }
-        return sumA < sumB;
+        return sum1 < sum2;
     });
     return nums;
 }
