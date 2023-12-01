@@ -1,21 +1,13 @@
+import numpy as np
+
 def cut_vector(vector):
-    n = len(vector)
-    total_sum = sum(vector)
-    left_sum = 0
-    right_sum = total_sum
-    min_diff = float("inf")
-    cut_index = -1
-
-    for i in range(n):
-        left_sum += vector[i]
-        right_sum -= vector[i]
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
-
+    total_sum = np.sum(vector)
+    current_sum = 0
+    for i in range(len(vector)):
+        current_sum += vector[i]
+        if current_sum == total_sum - current_sum or current_sum + vector[i+1] == total_sum - current_sum:
+            return vector[:i+1], vector[i+1:]
+    return vector, [0]
 
 # Read input from user
 vector = []
@@ -23,12 +15,12 @@ while True:
     try:
         num = int(input())
         vector.append(num)
-    except EOFError:
+    except:
         break
 
-# Call the function and print the output
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
+# Call the function and print the result
+subvector1, subvector2 = cut_vector(vector)
+for num in subvector1:
     print(num)
-for num in right_subvector:
+for num in subvector2:
     print(num)
