@@ -23,8 +23,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> filtered_values = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-    vector<int> expected_values = {3, 3, 3};
-    assert(issame(filtered_values, expected_values));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
