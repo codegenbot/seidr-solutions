@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
-#include <cassert>
 
 bool compare(int a, int b) {
     int sum_a = 0, sum_b = 0;
