@@ -18,7 +18,7 @@ int count_nums(std::vector<int> n) {
 
 int main() {
     // Example usage
-    std::vector<int> numbers = {123, -45, 6789, 0, -987};
-    int result = count_nums(numbers);
+    std::vector<int> nums = {123, -456, 789};
+    int result = count_nums(nums);
     return 0;
 }
