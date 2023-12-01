@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ostream>
 #include <vector>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
@@ -12,7 +11,7 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 }
 
 int main() {
-    size_t n;
+    int n;
     std::cin >> n;
     std::vector<float> prices(n);
     for (size_t i = 0; i < n; i++) {
