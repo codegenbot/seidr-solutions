@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
@@ -17,7 +17,7 @@ vector<int> sum_product(vector<int> numbers) {
     return {sum, product};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
