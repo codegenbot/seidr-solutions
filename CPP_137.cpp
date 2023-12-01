@@ -34,3 +34,11 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     return boost::any("None");
 }
+
+int main() {
+    assert(any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    assert(any_cast<string>(compare_one(1, 2)) == "2");
+    assert(any_cast<string>(compare_one(1.5f, 1.2f)) == "1.5");
+    cout << "All tests passed!" << endl;
+    return 0;
+}
