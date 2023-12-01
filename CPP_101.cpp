@@ -7,6 +7,18 @@ using namespace std;
 
 vector<string> words_string(string s);
 
+bool isSame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<string> words_string(string s){
     vector<string> words;
     string word;
@@ -28,9 +40,7 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    vector<string> input = words_string("ahmed     , gamal");
-    vector<string> expected_output = {"ahmed", "gamal"};
-    assert(input == expected_output);
+    assert(isSame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     cout << "Test case passed!" << endl;
 
     return 0;
