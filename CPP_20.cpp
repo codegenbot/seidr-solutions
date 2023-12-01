@@ -2,7 +2,6 @@
 #include <cmath>
 #include <cassert>
 
-// Forward declaration
 std::vector<float> find_closest_elements(std::vector<float> numbers);
 
 bool issame(std::vector<float> a, std::vector<float> b){
