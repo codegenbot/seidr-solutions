@@ -2,9 +2,11 @@
 #include <string>
 #include <cassert>
 
-std::vector<int> parse_nested_parens(std::string paren_string);
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+vector<int> parse_nested_parens(string paren_string);
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()){
         return false;
     }
@@ -18,8 +20,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> parse_nested_parens(std::string paren_string){
-    std::vector<int> levels;
+vector<int> parse_nested_parens(string paren_string){
+    vector<int> levels;
     int max_level = 0;
     int current_level = 0;
     
