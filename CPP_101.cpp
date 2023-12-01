@@ -25,7 +25,8 @@ vector<string> words_string(string s) {
                 words.push_back(word);
                 word = "";
             }
-        } else {
+        }
+        else {
             word += s[i];
         }
     }
@@ -36,8 +37,6 @@ vector<string> words_string(string s) {
 }
 
 int main() {
-    vector<string> words_string(string s);
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-
     return 0;
 }
