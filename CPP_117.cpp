@@ -3,8 +3,8 @@
 using namespace std;
 
 bool isConsonant(char c) {
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    // Implement the logic to check if c is a consonant
+    return (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u');
 }
 
 vector<string> select_words(string s, int n) {
