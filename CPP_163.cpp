@@ -1,7 +1,4 @@
 #include <vector>
-#include <cassert>
-
-using namespace std;
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
@@ -16,13 +13,4 @@ vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
-}
-
-bool isSame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(isSame(generate_integers(17, 89), {}));
-    return 0;
 }
