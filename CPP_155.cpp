@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
     // Function logic
@@ -25,8 +25,6 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-int main() {
+int main(){
     assert(issame(even_odd_count(0), {1, 0}));
-    
-    return 0;
 }
