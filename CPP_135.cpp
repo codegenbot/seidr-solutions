@@ -3,7 +3,7 @@
 
 class Solution {
 public:
-    int can_arrange(std::vector<int> arr); // Function declaration
+    int can_arrange(std::vector<int> arr);
 };
 
 int Solution::can_arrange(std::vector<int> arr) {
