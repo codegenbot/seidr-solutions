@@ -1,36 +1,28 @@
-#include <boost/lexical_cast.hpp>
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
+        int int_a = boost::any_cast<int>(a);
+        int int_b = boost::any_cast<int>(b);
+        if (int_a > int_b) {
+            return int_a;
+        } else if (int_b > int_a) {
+            return int_b;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
+        float float_a = boost::any_cast<float>(a);
+        float float_b = boost::any_cast<float>(b);
+        if (float_a > float_b) {
+            return float_a;
+        } else if (float_b > float_a) {
+            return float_b;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = boost::any_cast<std::string>(a);
-        std::string strB = boost::any_cast<std::string>(b);
-
-        // Remove commas from strings
-        strA.erase(std::remove(strA.begin(), strA.end(), ','), strA.end());
-        strB.erase(std::remove(strB.begin(), strB.end(), ','), strB.end());
-
-        // Convert strings to floats
-        float floatA = boost::lexical_cast<float>(strA);
-        float floatB = boost::lexical_cast<float>(strB);
-
-        if (floatA > floatB) {
-            return a;
-        } else if (floatA < floatB) {
-            return b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string string_a = boost::any_cast<string>(a);
+        string string_b = boost::any_cast<string>(b);
+        if (string_a > string_b) {
+            return string_a;
+        } else if (string_b > string_a) {
+            return string_b;
         }
     }
-
     return "None";
 }
