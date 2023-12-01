@@ -27,6 +27,7 @@ vector<string> split_words(string txt){
 
 bool issame(vector<string> a, vector<string> b) {
     // Your code here
+    return a == b;
 }
 
 int main() {
