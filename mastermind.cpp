@@ -3,8 +3,8 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int whitePegs = 0;
     int blackPegs = 0;
+    int whitePegs = 0;
     int codeCount[6] = {0};
     int guessCount[6] = {0};
     
