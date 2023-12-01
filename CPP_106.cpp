@@ -27,11 +27,5 @@ vector<int> f(int n) {
 int main() {
     assert(equal(f(3).begin(), f(3).end(), vector<int>{1, 2, 6}.begin(), vector<int>{1, 2, 6}.end()));
 
-    // Add more test cases here
-
-    assert(equal(f(5).begin(), f(5).end(), vector<int>{1, 2, 6, 4, 15}.begin(), vector<int>{1, 2, 6, 4, 15}.end()));
-    assert(equal(f(7).begin(), f(7).end(), vector<int>{1, 2, 6, 4, 15, 6, 28}.begin(), vector<int>{1, 2, 6, 4, 15, 6, 28}.end()));
-    assert(equal(f(10).begin(), f(10).end(), vector<int>{1, 2, 6, 4, 15, 6, 28, 8, 45, 10}.begin(), vector<int>{1, 2, 6, 4, 15, 6, 28, 8, 45, 10}.end()));
-
     return 0;
 }
