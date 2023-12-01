@@ -29,12 +29,11 @@ int main() {
     
     std::vector<int> result = indicesOfSubstring(text, target);
     
-    if (result.empty()) {
+    if (result.size() == 0) {
         std::cout << 0;
     } else {
-        // Print the elements of the result vector
-        for (int i : result) {
-            std::cout << i << " ";
+        for (int i = 0; i < result.size(); i++) {
+            std::cout << result[i] << " ";
         }
     }
     
