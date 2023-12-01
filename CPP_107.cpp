@@ -1,24 +1,27 @@
 vector<int> even_odd_palindrome(int n){
-    vector<int> result(2, 0); // initialize the result vector with 2 elements, both set to 0
+    vector<int> result(2, 0); // initialize result vector with two elements, both set to 0
 
-    for(int i = 1; i <= n; i++){
-        string num = to_string(i); // convert the integer to string
-        int len = num.length(); // get the length of the string
+    for(int i=1; i<=n; i++){
+        string num = to_string(i); // convert integer to string
 
-        bool isPalindrome = true; // flag to check if the number is palindrome
+        bool isPalindrome = true;
+        int left = 0;
+        int right = num.length() - 1;
 
-        for(int j = 0; j < len/2; j++){
-            if(num[j] != num[len-j-1]){ // compare the characters from both ends
-                isPalindrome = false; // if any characters don't match, set the flag to false
+        while(left < right){
+            if(num[left] != num[right]){
+                isPalindrome = false;
                 break;
             }
+            left++;
+            right--;
         }
 
         if(isPalindrome){
             if(i % 2 == 0){
-                result[0]++; // increment the count of even palindromes
-            } else {
-                result[1]++; // increment the count of odd palindromes
+                result[0]++; // increment even palindrome count
+            } else{
+                result[1]++; // increment odd palindrome count
             }
         }
     }
