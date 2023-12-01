@@ -1,8 +1,7 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
-std::string encrypt(std::string s){
+std::string encrypt(std::string s)
+{
     std::string encrypted = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
