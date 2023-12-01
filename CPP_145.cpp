@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <vector>
 #include <numeric>
 
@@ -17,7 +16,7 @@ bool compare(int a, int b) {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), compare);
+    sort(nums.begin(), nums.end(), compare);
     return nums;
 }
 
