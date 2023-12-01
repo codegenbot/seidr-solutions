@@ -1,10 +1,12 @@
+#include <iostream>
 #include <string>
 
-int stringLength(const string& str){
-    return str.size();
+int getLength(const std::string& str){
+    return str.length();
 }
 
-int main() {
-    assert(stringLength("asdasnakj") == 9);
+int main(){
+    assert (getLength("asdasnakj") == 9);
+    // rest of your code logic
     return 0;
 }
