@@ -19,8 +19,9 @@ int count_nums(std::vector<int> n) {
 
 int main() {
     assert(count_nums(std::vector<int>{1}) == 1);
-    assert(count_nums(std::vector<int>{-1234, 567, -89}) == 3);
-    assert(count_nums(std::vector<int>{0, 0, 0}) == 0);
-    // Add more test cases...
+    assert(count_nums(std::vector<int>{-123, 0, 456, 789}) == 3);
+    assert(count_nums(std::vector<int>{100, 200, -300, 0}) == 3);
+    assert(count_nums(std::vector<int>{}) == 0);
+    assert(count_nums(std::vector<int>{-1, -2, -3}) == 3);
     return 0;
 }
