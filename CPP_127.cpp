@@ -6,22 +6,18 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
     int intersectionStart = max(start1, start2);
     int intersectionEnd = min(end1, end2);
-    
-    if (intersectionStart > intersectionEnd) {
+
+    int intersectionLength = intersectionEnd - intersectionStart + 1;
+
+    if (intersectionLength <= 1) {
         return "NO";
     }
-    
-    int length = intersectionEnd - intersectionStart;
-    
-    if (length < 2) {
-        return "NO";
-    }
-    
-    for (int i = 2; i * i <= length; i++) {
-        if (length % i == 0) {
+
+    for (int i = 2; i <= sqrt(intersectionLength); i++) {
+        if (intersectionLength % i == 0) {
             return "NO";
         }
     }
-    
+
     return "YES";
 }
