@@ -17,22 +17,10 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         }
         if (match) {
             indices.push_back(i);
+            // Add the target length to i to continue matching after finding a target
             i += targetLength - 1;
         }
     }
 
     return indices;
-}
-
-int main() {
-    std::string text, target;
-    std::cin >> text >> target;
-
-    std::vector<int> result = indicesOfSubstring(text, target);
-
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
-    }
-
-    return 0;
 }
