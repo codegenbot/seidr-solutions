@@ -2,6 +2,15 @@
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
+
+    if (expression.length() == 1) {
+        if (expression[0] == 'T') {
+            return !isEnclosed;
+        } else if (expression[0] == 'F') {
+            return isEnclosed;
+        }
+    }
+
     int opIndex = -1;
     int parenthesisCount = 0;
 
@@ -19,13 +28,9 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
         } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0) {
             opIndex = i;
             break;
+        } else if (expression[i] == 'F') {
+            return isEnclosed;
         }
-    }
-
-    if (expression == "T") {
-        return !isEnclosed;
-    } else if (expression == "F") {
-        return false;
     }
 
     if (opIndex != -1) {
@@ -41,13 +46,13 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
         }
     }
 
-    return !isEnclosed;
+    return isEnclosed;
 }
 
 int main() {
     std::string expression;
     std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, expression);
+    std::cin >> expression;
     
     bool result = evaluateBooleanExpression(expression, false);
     std::cout << "Result: " << std::boolalpha << result << std::endl;
