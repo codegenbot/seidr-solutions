@@ -12,7 +12,7 @@ int sumOfOddNumbers(std::vector<int> lst) {
     return sum;
 }
 
-int myFunction() {
+int main() {
     assert(sumOfOddNumbers({3, 13, 2, 9}) == 3);
     return 0;
 }
