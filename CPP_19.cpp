@@ -1,36 +1,49 @@
 string sort_numbers(string numbers){
-    map<string, int> number_map;
-    number_map["zero"] = 0;
-    number_map["one"] = 1;
-    number_map["two"] = 2;
-    number_map["three"] = 3;
-    number_map["four"] = 4;
-    number_map["five"] = 5;
-    number_map["six"] = 6;
-    number_map["seven"] = 7;
-    number_map["eight"] = 8;
-    number_map["nine"] = 9;
+    map<string, int> numberMap;
+    numberMap["zero"] = 0;
+    numberMap["one"] = 1;
+    numberMap["two"] = 2;
+    numberMap["three"] = 3;
+    numberMap["four"] = 4;
+    numberMap["five"] = 5;
+    numberMap["six"] = 6;
+    numberMap["seven"] = 7;
+    numberMap["eight"] = 8;
+    numberMap["nine"] = 9;
 
-    vector<int> number_values;
-    stringstream ss(numbers);
-    string number;
-    while (getline(ss, number, ' ')) {
-        number_values.push_back(number_map[number]);
-    }
-
-    sort(number_values.begin(), number_values.end());
-
-    string sorted_numbers;
-    for (int i = 0; i < number_values.size(); i++) {
-        for (auto it = number_map.begin(); it != number_map.end(); ++it) {
-            if (it->second == number_values[i]) {
-                sorted_numbers += it->first + " ";
-                break;
-            }
+    string result = "";
+    string currentNumber = "";
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
+            result += currentNumber + " ";
+            currentNumber = "";
+        } else {
+            currentNumber += numbers[i];
         }
     }
+    result += currentNumber;
 
-    sorted_numbers.pop_back(); // remove trailing space
+    vector<string> numberList;
+    currentNumber = "";
+    for (int i = 0; i < result.length(); i++) {
+        if (result[i] == ' ') {
+            numberList.push_back(currentNumber);
+            currentNumber = "";
+        } else {
+            currentNumber += result[i];
+        }
+    }
+    numberList.push_back(currentNumber);
 
-    return sorted_numbers;
+    sort(numberList.begin(), numberList.end(), [&](string a, string b) {
+        return numberMap[a] < numberMap[b];
+    });
+
+    string sortedNumbers = "";
+    for (int i = 0; i < numberList.size(); i++) {
+        sortedNumbers += numberList[i] + " ";
+    }
+    sortedNumbers = sortedNumbers.substr(0, sortedNumbers.length() - 1);
+
+    return sortedNumbers;
 }
