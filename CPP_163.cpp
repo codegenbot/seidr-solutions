@@ -1,18 +1,25 @@
 #include <vector>
 
-vector<int> generate_integers(int a, int b);
-
-vector<int> generate_integers(int a, int b) {
-    vector<int> result;
+std::vector<int> generate_integers(int a, int b) {
+    std::vector<int> result;
     for (int i = a; i <= b; i++) {
-        int num = i;
-        while (num > 0) {
-            int digit = num % 10;
+        int temp = i;
+        while (temp > 0) {
+            int digit = temp % 10;
             if (digit % 2 == 0) {
                 result.push_back(digit);
             }
-            num /= 10;
+            temp /= 10;
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // TODO: Add your implementation here
+}
+
+int main() {
+    assert (issame(generate_integers(17,89) , {}));
+    // TODO: Add more test cases
 }
