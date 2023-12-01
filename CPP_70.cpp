@@ -1,15 +1,46 @@
-vector<int> strange_sort_vector(vector<int> lst){
-    vector<int> result;
-    sort(lst.begin(), lst.end());
-    int left = 0;
-    int right = lst.size() - 1;
-    while (left <= right) {
-        result.push_back(lst[left]);
-        if (left != right) {
-            result.push_back(lst[right]);
-        }
-        left++;
-        right--;
+#include <vector>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
+vector<int> strange_sort_list(vector<int> lst);
+int main();
+
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
     }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> strange_sort_list(vector<int> lst){
+    sort(lst.begin(), lst.end());
+    int n = lst.size();
+    vector<int> result(n);
+    int i = 0;
+    int j = n - 1;
+    int k = 0;
+
+    while (i <= j) {
+        if (i == j) {
+            result[k++] = lst[i++];
+        } else {
+            result[k++] = lst[i++];
+            result[k++] = lst[j--];
+        }
+    }
+
     return result;
+}
+
+int main(){
+    assert(issame(strange_sort_list({111111}), {111111}));
+    assert(issame(strange_sort_list({3, 2, 1}), {1, 2, 3}));
+
+    return 0;
 }
