@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cmath>
 
 float truncate_number(float number){
