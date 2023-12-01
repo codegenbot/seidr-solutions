@@ -1,9 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
-    // implementation here
+using namespace std;
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
+
+int main() {
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
+    return 0;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -14,9 +20,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
-}
-
-int main(){
-    // test cases here
-    return 0;
 }
