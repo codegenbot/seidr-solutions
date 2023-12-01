@@ -7,7 +7,7 @@ bool is_nested(string str){
         else if(str[i] == ']'){
             count--;
         }
-        if(count > 0 && count < str.length()){
+        if(count > 0 && count < i){
             return true;
         }
     }
