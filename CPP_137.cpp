@@ -14,15 +14,11 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
         std::string str2 = boost::any_cast<std::string>(b);
-        
         std::replace(str1.begin(), str1.end(), ',', '.');
         std::replace(str2.begin(), str2.end(), ',', '.');
-        
         float num1 = std::stof(str1);
         float num2 = std::stof(str2);
-        
         return (num1 > num2) ? str1 : str2;
     }
-    
     return boost::any();
 }
