@@ -28,6 +28,6 @@ bool issame(vector<int> a, vector<int> b){
 
 int main(){
     assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
-    
+
     return 0;
 }
