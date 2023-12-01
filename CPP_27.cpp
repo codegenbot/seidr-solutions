@@ -1,27 +1,19 @@
-#include <iostream>
 #include <string>
-#include <cctype>
-#include <cassert>
 using namespace std;
 
-string flip_case(string str){
-    string result = "";
-    for(int i=0; i<str.length(); i++){
-        if(islower(str[i])){
-            result += toupper(str[i]);
-        }
-        else if(isupper(str[i])){
-            result += tolower(str[i]);
-        }
-        else{
-            result += str[i];
+string flip_case(string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (islower(str[i])) {
+            str[i] = toupper(str[i]);
+        } else if (isupper(str[i])) {
+            str[i] = tolower(str[i]);
         }
     }
-    return result;
+    return str;
 }
 
-int main(){
+int main() {
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    cout << "Test Passed" << endl;
+
     return 0;
 }
