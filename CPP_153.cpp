@@ -19,3 +19,22 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     
     return class_name + "." + strongest_extension;
 }
+
+int main() {
+    string class_name;
+    vector<string> extensions;
+    int n;
+    
+    cin >> class_name;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        string extension;
+        cin >> extension;
+        extensions.push_back(extension);
+    }
+    
+    string result = Strongest_Extension(class_name, extensions);
+    cout << result << endl;
+    
+    return 0;
+}
