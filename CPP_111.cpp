@@ -8,18 +8,18 @@ std::map<std::string, int> histogram(std::string test) {
     std::string word;
     for (char c : test) {
         if (c != ' ') {
-            word += c;
-        } else {
-            if (!word.empty()) {
-                result[word]++;
-                word = "";
-            }
-        }
-    }
-    if (!word.empty()) {
-        result[word]++;
-    }
-    return result;
+           word += c;
+       } else {
+           if (!word.empty()) {
+               result[word]++;
+               word = "";
+           }
+       }
+   }
+   if (!word.empty()) {
+       result[word]++;
+   }
+   return result;
 }
 
 bool issame(std::map<std::string, int> a, std::map<std::string, int> b) {
