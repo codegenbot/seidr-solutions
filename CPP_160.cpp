@@ -1,17 +1,20 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
-    int result = operand[0]; // Set initial result to the first operand
+#include <vector>
+#include <cmath>
+
+int do_algebra(std::vector<std::string> operators, std::vector<int> operands) {
+    int result = operands[0];
     
-    for (int i = 0; i < operato.size(); i++) {
-        if (operato[i] == "+") {
-            result = result + operand[i+1];
-        } else if (operato[i] == "-") {
-            result = result - operand[i+1];
-        } else if (operato[i] == "*") {
-            result = result * operand[i+1];
-        } else if (operato[i] == "//") {
-            result = result / operand[i+1];
-        } else if (operato[i] == "**") {
-            result = pow(result, operand[i+1]);
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == "+") {
+            result += operands[i + 1];
+        } else if (operators[i] == "-") {
+            result -= operands[i + 1];
+        } else if (operators[i] == "*") {
+            result *= operands[i + 1];
+        } else if (operators[i] == "/") {
+            result /= operands[i + 1];
+        } else if (operators[i] == "**") {
+            result = std::pow(result, operands[i + 1]);
         }
     }
     
