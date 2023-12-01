@@ -13,10 +13,11 @@ std::string change_base(int x, int base) {
 }
 
 int main() {
-    // Test the function with some sample inputs
-    std::cout << change_base(10, 2) << std::endl; // Output: 1010
-    std::cout << change_base(15, 16) << std::endl; // Output: F
-    std::cout << change_base(255, 16) << std::endl; // Output: FF
-
+    // Test cases
+    assert(change_base(10, 2) == "1010");
+    assert(change_base(16, 16) == "10");
+    assert(change_base(100, 10) == "100");
+    
+    std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
