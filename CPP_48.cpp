@@ -2,8 +2,6 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 bool is_palindrome(std::string text){
     int left = 0;
     int right = text.length() - 1;
@@ -20,6 +18,5 @@ bool is_palindrome(std::string text){
 
 int main() {
     assert (is_palindrome("xywzx") == false);
-
     return 0;
 }
