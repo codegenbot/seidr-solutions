@@ -38,12 +38,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> a = {"hello", "world"};
-    vector<string> b = {"hello", "world"};
-    vector<string> c = {"hello", "cpp"};
-    
-    bool ab = issame(a, b);
-    bool ac = issame(a, c);
+    // Add your testcases here to check the functionality of the split_words function
+    vector<string> words = split_words("Hello, world! This is a test.");
+    vector<string> expected = {"Hello", "world!", "This", "is", "a", "test."};
+    bool same = issame(words, expected);
     
     return 0;
 }
