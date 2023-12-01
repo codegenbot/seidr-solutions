@@ -31,8 +31,8 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
-    assert(isSame(sorted_list_sum(input), expected_output));
+    auto result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
+    std::vector<std::string> expected = {"cc", "dd", "aaaa", "bbbb"};
+    assert(isSame(result, expected));
     return 0;
 }
