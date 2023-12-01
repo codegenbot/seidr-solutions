@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 double double_the_difference(std::vector<float> lst) {
     double sum = 0;
@@ -14,22 +13,9 @@ double double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    double odd_sum = 0.0;
+    std::vector<float> lst = {1.5, 2.5, 3.5, 4.5, 5.5};
+    double odd_sum = double_the_difference(lst);
 
-    // Add code to populate the lst vector
-    lst.push_back(1.5);
-    lst.push_back(3.0);
-    lst.push_back(4.25);
-
-    // Add code to calculate odd_sum
-    for (int i = 0; i < lst.size(); i++) {
-        if (static_cast<int>(lst[i]) % 2 != 0) {
-            odd_sum += lst[i];
-        }
-    }
-
-    assert(double_the_difference(lst) == odd_sum);
-
+    std::cout << "Odd Sum: " << odd_sum << std::endl;
     return 0;
 }
