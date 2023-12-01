@@ -2,36 +2,30 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        if (num1 > num2) {
-            return a;
-        } else if (num1 < num2) {
-            return b;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        if (num1 > num2) {
-            return a;
-        } else if (num1 < num2) {
-            return b;
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        float num1, num2;
-        try {
-            num1 = boost::lexical_cast<float>(str1);
-            num2 = boost::lexical_cast<float>(str2);
-        } catch (const boost::bad_lexical_cast&) {
-            return "None";
-        }
-        if (num1 > num2) {
-            return a;
-        } else if (num1 < num2) {
-            return b;
-        }
+        int intA = boost::any_cast<int>(a);
+        int intB = boost::any_cast<int>(b);
+        if (intA > intB)
+            return intA;
+        else if (intB > intA)
+            return intB;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float floatA = boost::any_cast<float>(a);
+        float floatB = boost::any_cast<float>(b);
+        if (floatA > floatB)
+            return floatA;
+        else if (floatB > floatA)
+            return floatB;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string stringA = boost::any_cast<std::string>(a);
+        std::string stringB = boost::any_cast<std::string>(b);
+        float floatA = boost::lexical_cast<float>(stringA);
+        float floatB = boost::lexical_cast<float>(stringB);
+        if (floatA > floatB)
+            return stringA;
+        else if (floatB > floatA)
+            return stringB;
     }
     return "None";
 }
