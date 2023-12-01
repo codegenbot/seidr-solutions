@@ -3,7 +3,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +17,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums){
-    std::vector<std::pair<int, int>> sums;
+vector<int> order_by_points(vector<int> nums){
+    vector<pair<int, int>> sums;
     for(int i=0; i<nums.size(); i++){
         int sum = 0;
         int num = nums[i];
@@ -24,10 +26,10 @@ std::vector<int> order_by_points(std::vector<int> nums){
             sum += abs(num % 10);
             num /= 10;
         }
-        sums.push_back(std::make_pair(sum, i));
+        sums.push_back(make_pair(sum, i));
     }
-    std::sort(sums.begin(), sums.end());
-    std::vector<int> result;
+    sort(sums.begin(), sums.end());
+    vector<int> result;
     for(auto pair : sums){
         result.push_back(nums[pair.second]);
     }
@@ -36,6 +38,6 @@ std::vector<int> order_by_points(std::vector<int> nums){
 
 int main() {
     assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    std::cout << "Test passed!" << std::endl;
+    cout << "Test passed!" << endl;
     return 0;
 }
