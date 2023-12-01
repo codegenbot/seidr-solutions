@@ -14,7 +14,7 @@ long long double_the_difference(vector<float>& lst){
 
 int main() {
     vector<float> lst;
-    // read input from user
+    // read input from user and store in the vector
     float num;
     while (cin >> num) {
         lst.push_back(num);
