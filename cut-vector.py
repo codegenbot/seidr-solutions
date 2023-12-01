@@ -1,18 +1,22 @@
+import sys
+
 def cut_vector(vector):
     total_sum = sum(vector)
-    left_sum = 0
-    right_sum = total_sum
-    min_difference = float("inf")
+    current_sum = 0
+    for i, num in enumerate(vector):
+        current_sum += num
+        if current_sum >= total_sum - current_sum:
+            return vector[:i+1], vector[i+1:]
+    return vector, [0]
 
-    for i in range(len(vector)):
-        left_sum += vector[i]
-        right_sum -= vector[i]
-        difference = abs(left_sum - right_sum)
-        if difference <= min_difference:
-            min_difference = difference
-            split_index = i
+# Read input from user
+input_vector = []
+for line in sys.stdin:
+    input_vector.append(int(line))
 
-    subvector1 = vector[: split_index + 1]
-    subvector2 = vector[split_index + 1 :]
-
-    return subvector1, subvector2
+# Call the function and print the output
+left_vector, right_vector = cut_vector(input_vector)
+for num in left_vector:
+    print(num)
+for num in right_vector:
+    print(num)
