@@ -8,13 +8,10 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product *= num
     return total_sum, product
 
-# Receive input from user
 input_numbers = input().split()
 numbers = [int(num) for num in input_numbers]
 
-# Call the function with user input
 result = sum_product(numbers)
 
-# Print the result
 print(result[0])
 print(result[1])
