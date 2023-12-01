@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 int do_algebra(vector<string> operators, vector<int> operand){
     int result = operand[0];
