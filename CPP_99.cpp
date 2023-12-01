@@ -1,10 +1,20 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
 int closest_integer(string value){
-    float num = stof(value);
-    int closest = round(num);
-    if (num - closest == 0.5) {
-        closest = ceil(num);
-    } else if (num - closest == -0.5) {
-        closest = floor(num);
+    double num = stod(value);
+    int floor_num = floor(num);
+    int ceil_num = ceil(num);
+    if (num - floor_num < ceil_num - num) {
+        return floor_num;
+    } else {
+        return ceil_num;
     }
-    return closest;
+}
+
+int main(){
+    assert (closest_integer("0") == 0);
+    return 0;
 }
