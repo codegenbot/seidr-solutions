@@ -46,11 +46,10 @@ int calculateScore(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::cout << "Enter the string representing the individual bowls: ";
     std::cin >> bowls;
 
     int score = calculateScore(bowls);
-    std::cout << "Score: " << score << std::endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
