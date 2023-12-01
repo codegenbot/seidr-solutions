@@ -24,14 +24,10 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<string, int> a, initializer_list<pair<const string, int>> b) {
-    return a == map<string, int>(b);
-}
-
 int main() {
-    assert(issame(histogram("a"), {{"a", 1}}));
-    assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
-    assert(issame(histogram("hello hello"), {{"hello", 2}}));
+    assert(histogram("a") == map<string, int>{{"a", 1}});
+    assert(histogram("hello world") == map<string, int>{{"hello", 1}, {"world", 1}});
+    assert(histogram("hello hello") == map<string, int>{{"hello", 2}});
     cout << "All test cases passed!" << endl;
     return 0;
 }
