@@ -14,7 +14,7 @@ int count_distinct_characters(std::string str) {
 }
 
 int main() {
-    // Add your test cases here
-
+    std::string str = "Hello World";
+    int result = count_distinct_characters(str);
     return 0;
 }
