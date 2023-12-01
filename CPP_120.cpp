@@ -9,6 +9,7 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
+    // Call the maximum function and assert the result
     assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0) == vector<int>{});
 
     return 0;
