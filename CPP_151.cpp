@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -18,6 +19,8 @@ int main() {
     
     // Test the function
     assert(double_the_difference(lst) == odd_sum);
+    
+    std::cout << "Test passed!" << std::endl;
     
     return 0;
 }
