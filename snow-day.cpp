@@ -2,11 +2,12 @@
 using namespace std;
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
-    float totalSnow = initialSnow;
+    float snowOnGround = initialSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow += snowFallRate - (totalSnow * meltingRate);
+        snowOnGround += snowFallRate;
+        snowOnGround -= snowOnGround * meltingRate;
     }
-    return totalSnow;
+    return snowOnGround;
 }
 
 int main() {
