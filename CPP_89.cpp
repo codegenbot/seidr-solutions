@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
 std::string encrypt(std::string s)
 {
