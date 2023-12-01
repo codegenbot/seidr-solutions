@@ -1,45 +1,42 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int n = nums.size();
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+    for (int num : nums) {
+        sum += num;
     }
     
-    int target = sum / 2;
-    int currSum = 0;
-    int index = 0;
-    for (int i = 0; i < n; i++) {
-        currSum += nums[i];
-        if (currSum >= target) {
-            index = i;
-            break;
+    int halfSum = sum / 2;
+    std::vector<int> subVector1, subVector2;
+    
+    int currentSum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        if (currentSum + nums[i] <= halfSum) {
+            subVector1.push_back(nums[i]);
+            currentSum += nums[i];
+        } else {
+            subVector2.push_back(nums[i]);
         }
     }
     
-    std::vector<int> subvector1(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> subvector2(nums.begin() + index + 1, nums.end());
-    
-    return std::make_pair(subvector1, subvector2);
+    return std::make_pair(subVector1, subVector2);
 }
 
 int main() {
-    int num;
     std::vector<int> nums;
+    int num;
     
-    // Read input from user
     while (std::cin >> num) {
         nums.push_back(num);
     }
     
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     
-    // Print output
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
+    
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
