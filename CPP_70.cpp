@@ -41,7 +41,5 @@ int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
     assert(issame(strange_sort_list({3, 2, 1}), {1, 2, 3}));
 
-    // Add more test cases here
-
     return 0;
 }
