@@ -1,12 +1,12 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-vector<int> sort_array(vector<int> array);
+vector<int> sort_array(vector<int> array); 
 
-bool issame(vector<int> a,vector<int> b);
+bool issame(vector<int> a,vector<int> b){ 
+    return a == b;
+}
 
 vector<int> sort_array(vector<int> array){
     if(array.size() <= 1){
@@ -22,10 +22,6 @@ vector<int> sort_array(vector<int> array){
     }
     
     return array;
-}
-
-bool issame(vector<int> a,vector<int> b){
-    return a == b;
 }
 
 int main(){
