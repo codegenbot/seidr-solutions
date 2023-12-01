@@ -1,2 +1,2 @@
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+def filter_by_substring(strings, substring):
     return [string for string in strings if substring in string]
