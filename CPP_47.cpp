@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
-#include <cassert>
 
 float median(std::vector<float> l){
     std::sort(l.begin(), l.end());
