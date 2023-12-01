@@ -10,10 +10,10 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     std::size_t i = 0;
     while (i <= textLen - targetLen) {
         std::size_t j = 0;
-        while (j < targetLen && text[i+j] == target[j]) {
+        while (j < targetLen && text[i+j] == target[j] && i+j < textLen) {
             j++;
         }
-        if (j >= targetLen) {
+        if (j == targetLen) {
             indices.push_back(i);
             i += targetLen;
         } else {
@@ -25,8 +25,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    std::string text = "\\l\\l\\l0\\l\\l\\l\\l\\l\\";
-    std::string target = "\\l";
+    std::string text = "This is a text example";
+    std::string target = "is";
     
     std::vector<int> result = indicesOfSubstring(text, target);
 
