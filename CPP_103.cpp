@@ -8,9 +8,10 @@ string rounded_avg(int n, int m);
 
 int main() {
     // Add test cases here
-    cout << rounded_avg(1, 5) << endl;  // Expected output: "10"
-    cout << rounded_avg(5, 10) << endl;  // Expected output: "101"
-    cout << rounded_avg(10, 15) << endl;  // Expected output: "110"
+    cout << rounded_avg(1, 10) << endl;
+    cout << rounded_avg(5, 5) << endl;
+    cout << rounded_avg(10, 1) << endl;
+    cout << rounded_avg(0, 0) << endl;
 }
 
 string rounded_avg(int n, int m) {
