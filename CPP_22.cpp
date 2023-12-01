@@ -8,10 +8,8 @@ using namespace std;
 vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (auto& value : values) {
-        try {
+        if (value.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
-        } catch (const boost::bad_any_cast&) {
-            continue;
         }
     }
     return result;
