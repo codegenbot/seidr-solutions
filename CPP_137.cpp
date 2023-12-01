@@ -23,6 +23,6 @@ int main() {
     assert(compare_one(std::string("-1.5"), std::string("-2.3")) == "-1.5");
     assert(compare_one(std::string("3,14159"), std::string("2,71828")) == "3.14159");
     assert(compare_one(std::string("9,876,543,210"), std::string("1,234,567,890")) == "9.876.543.210");
-    
+
     return 0;
 }
