@@ -1,2 +1,2 @@
-def sorted_list_sum(lst):
+def sorted_list(lst):
     return sorted(lst)
