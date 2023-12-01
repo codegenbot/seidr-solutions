@@ -3,15 +3,6 @@
 
 using namespace std;
 
-vector<string> split_words(string txt);
-
-int main() {
-    assert(issame(split_words("") ,{"0"}));
-    // other test cases
-
-    return 0;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";

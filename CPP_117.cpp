@@ -37,8 +37,8 @@ vector<string> select_words(string s, int n){
 int main() {
     vector<string> expected = {"b", "c", "d", "f"};
     vector<string> result = select_words("a b c d e f", 1);
-    
+
     assert(issame(result, expected));
-    
+
     return 0;
 }
