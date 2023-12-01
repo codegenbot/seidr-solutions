@@ -5,6 +5,7 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
 std::vector<std::string> bff(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
