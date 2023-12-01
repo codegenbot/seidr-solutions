@@ -1,7 +1,11 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-std::string encrypt(std::string s){
-    std::string encrypted = "";
+using namespace std;
+
+string encrypt(string s){
+    string encrypted = "";
     int shift = 2 * 2; // Shift down by two multiplied to two places
     
     for(int i = 0; i < s.length(); i++){
@@ -18,7 +22,11 @@ std::string encrypt(std::string s){
     return encrypted;
 }
 
-int main(){
-    assert (encrypt("a")=="e");
-    // remaining code...
+int main() {
+    assert (encrypt("a") == "e");
+    assert (encrypt("abc") == "efg");
+    assert (encrypt("XYZ") == "BCD");
+    assert (encrypt("Hello, World!") == "Jgnnq, Yqtnf!");
+    
+    return 0;
 }
