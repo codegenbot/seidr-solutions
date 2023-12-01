@@ -2,9 +2,13 @@
 #include <string>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
     }
     return true;
 }
@@ -32,7 +36,18 @@ vector<int> even_odd_palindrome(int n){
     return result;
 }
 
-int main() {
-    // Test the code here
+int main(){
+    vector<int> result = even_odd_palindrome(10);
+    vector<int> expected = {5, 5};
+    assert(issame(result, expected));
+    
+    result = even_odd_palindrome(20);
+    expected = {9, 11};
+    assert(issame(result, expected));
+    
+    result = even_odd_palindrome(100);
+    expected = {45, 55};
+    assert(issame(result, expected));
+    
     return 0;
 }
