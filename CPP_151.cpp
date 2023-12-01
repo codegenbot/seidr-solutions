@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <cmath> // for pow
 
 double double_the_difference(std::vector<float> lst) {
     double sum = 0;
