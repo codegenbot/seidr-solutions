@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cryptopp/md5.h>
+#include <cryptopp/md5.h>  // Include the correct header file for MD5 hashing
 
 using namespace std;
 using namespace CryptoPP;
@@ -9,15 +9,14 @@ string string_to_md5(const string& text) {
     if (text.empty()) {
         return "None";
     }
+
     byte digest[MD5::DIGESTSIZE];
-    CryptoPP::Weak::MD5 hash;
-    hash.Update((const byte*)text.data(), text.size());
-    hash.Final(digest);
-    
-    char encoded[MD5::DIGESTSIZE * 2 + 1];
-    for (int i = 0; i < MD5::DIGESTSIZE; i++) {
-        sprintf_s(encoded + i * 2, 3, "%02x", digest[i]);
+    MD5().CalculateDigest(digest, (byte*)text.c_str(), text.length());
+
+    char md5String[33];
+    for (int i = 0; i < 16; i++) {
+        sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
     }
-    
-    return string(encoded);
+
+    return string(md5String);
 }
