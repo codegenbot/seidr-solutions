@@ -15,9 +15,6 @@ public:
 
 int main(){
     Solution obj;
-    
-    // Test the can_arrange function
     assert(obj.can_arrange({}) == -1);
-
     return 0;
 }
