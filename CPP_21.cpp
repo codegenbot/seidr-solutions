@@ -1,7 +1,5 @@
 #include <vector>
 
-using namespace std;
-
 vector<float> rescale_to_unit(vector<float> numbers) {
     float maximum = 0;
     for (float num : numbers) {
