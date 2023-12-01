@@ -50,7 +50,9 @@ int calculateScore(const std::string& bowls) {
 int main() {
     std::string bowls;
     std::cin >> bowls;
+
     int score = calculateScore(bowls);
     std::cout << score << std::endl;
+
     return 0;
 }
