@@ -1,49 +1,41 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-int getScore(string bowls) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
-    int ball = 0;
+    int bowlIndex = 0;
 
-    for (int i = 0; i < bowls.size(); i++) {
-        if (bowls[i] == 'X') {
+    while (frame <= 10 && bowlIndex < bowls.length()) {
+        char bowl = bowls[bowlIndex];
+
+        if (bowl == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : stoi(string(1, bowls[i + 1]));
-                score += (bowls[i + 2] == 'X') ? 10 : stoi(string(1, bowls[i + 2]));
-            }
-            ball++;
-        } else if (bowls[i] == '/') {
-            score += 10 - stoi(string(1, bowls[i - 1]));
-            if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : stoi(string(1, bowls[i + 1]));
-            }
-            ball = 0;
-        } else if (bowls[i] == '-') {
-            ball++;
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            bowlIndex++;
+        } else if (bowl == '/') {
+            score += (10 - (bowls[bowlIndex - 1] - '0'));
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            bowlIndex++;
         } else {
-            score += stoi(string(1, bowls[i]));
-            ball++;
+            score += (bowl - '0');
         }
 
-        if (frame < 10 && (ball == 2 || bowls[i] == 'X')) {
-            frame++;
-            ball = 0;
-        }
+        bowlIndex++;
+        frame++;
     }
 
     return score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
+    std::string bowls;
+    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cin >> bowls;
 
-    int score = getScore(bowls);
-    cout << score << endl;
+    int score = calculateScore(bowls);
+    std::cout << "The score of the round is: " << score << std::endl;
 
     return 0;
 }
