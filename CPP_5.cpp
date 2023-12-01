@@ -15,11 +15,11 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
     return result;
 }
 
-int main(){
+vector<int> solve(){
     vector<int> expected = {2, 2, 2, 2, 2};
     vector<int> result = intersperse({2, 2, 2}, 2);
     
     assert(result == expected);
 
-    return 0;
+    return result;
 }
