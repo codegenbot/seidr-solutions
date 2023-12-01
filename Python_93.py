@@ -1,11 +1,11 @@
 def encode(message):
     encoded_message = ""
-    for letter in message:
-        if letter.isalpha():
-            if letter.lower() in 'aeiou':
-                encoded_message += chr(ord(letter) + 2)
+    for char in message:
+        if char.isalpha():
+            if char.lower() in ['a', 'e', 'i', 'o', 'u']:
+                encoded_message += chr(ord(char) + 2)
             else:
-                encoded_message += letter.swapcase()
+                encoded_message += char.swapcase()
         else:
-            encoded_message += letter
+            encoded_message += char
     return encoded_message
