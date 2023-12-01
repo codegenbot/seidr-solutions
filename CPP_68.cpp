@@ -2,12 +2,14 @@
 #include <climits>
 #include <cassert>
 
-std::vector<int> pluck(std::vector<int> arr);
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b);
+vector<int> pluck(vector<int> arr);
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     int smallestValue = INT_MAX;
     int smallestIndex = -1;
 
@@ -26,7 +28,7 @@ std::vector<int> pluck(std::vector<int> arr) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -42,6 +44,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({2, 4, 6, 8}), {2, 0}));
+    assert(issame(pluck({1, 3, 5, 7}), {}));
     // Add more test cases here
 
     return 0;
