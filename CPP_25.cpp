@@ -25,3 +25,9 @@ bool issame(const vector<int>& a, const vector<int>& b){
     }
     return true;
 }
+
+int main(){
+    assert (issame(factorize(3 * 2 * 3) , {2, 3, 3}));
+    
+    return 0;
+}
