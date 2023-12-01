@@ -37,6 +37,9 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-// Test cases
-assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
-// Add more test cases if needed
+int main() {
+    assert(is_same(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
+    // Add more test cases if needed
+
+    return 0;
+}
