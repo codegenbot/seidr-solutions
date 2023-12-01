@@ -1,27 +1,13 @@
 vector<int> common(vector<int> l1, vector<int> l2) {
-    vector<int> res;
-
-    // Sort the vectors
+    vector<int> result;
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
+    auto it1 = unique(l1.begin(), l1.end());
+    auto it2 = unique(l2.begin(), l2.end());
 
-    // Find the common elements
-    auto it1 = l1.begin();
-    auto it2 = l2.begin();
-    while (it1 != l1.end() && it2 != l2.end()) {
-        if (*it1 == *it2) {
-            // Add the common element to result if it is not already present
-            if (res.empty() || res.back() != *it1) {
-                res.push_back(*it1);
-            }
-            it1++;
-            it2++;
-        } else if (*it1 < *it2) {
-            it1++;
-        } else {
-            it2++;
-        }
+    for (auto it = l1.begin(); it != it1; ++it) {
+        if (binary_search(l2.begin(), it2, *it))
+            result.push_back(*it);
     }
-
-    return res;
+    return result;
 }
