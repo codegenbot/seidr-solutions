@@ -1,13 +1,14 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
 
-vector<int> intersperse(vector<int> numbers, int delimeter){
+vector<int> intersperse(vector<int> numbers, int delimiter){
     vector<int> result;
     for(int i = 0; i < numbers.size(); i++){
         result.push_back(numbers[i]);
         if(i != numbers.size()-1){
-            result.push_back(delimeter);
+            result.push_back(delimiter);
         }
     }
     return result;
@@ -25,13 +26,26 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-int main() {
+int main(){
     vector<int> numbers = {1, 2, 3, 4, 5};
     int delimiter = 0;
+    
     vector<int> result = intersperse(numbers, delimiter);
+    
     for(int i = 0; i < result.size(); i++){
         cout << result[i] << " ";
     }
     cout << endl;
+    
+    vector<int> test1 = {1, 2, 3};
+    vector<int> test2 = {1, 2, 4};
+    
+    if(issame(test1, test2)){
+        cout << "The vectors are the same." << endl;
+    }
+    else{
+        cout << "The vectors are different." << endl;
+    }
+    
     return 0;
 }
