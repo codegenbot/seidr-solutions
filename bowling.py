@@ -1,90 +1,30 @@
-def calculate_score(bowls):
+def bowling_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
-    
+    i = 0
     while frame <= 10:
-        if bowls[bowl_index] == 'X':
+        if bowls[i] == 'X':
             score += 10
-            if frame < 10:
-                score += get_strike_bonus(bowls, bowl_index)
-                bowl_index += 1
-            else:
-                score += get_final_frame_bonus(bowls, bowl_index)
-                break
-        elif bowls[bowl_index] == '/':
-            score += 10 - int(bowls[bowl_index - 1])
-            if frame < 10:
-                score += get_spare_bonus(bowls, bowl_index)
-                bowl_index += 1
-            else:
-                score += get_final_frame_bonus(bowls, bowl_index)
-                break
+            if i < len(bowls) - 2:
+                if bowls[i+2] == 'X':
+                    score += 10
+                elif bowls[i+2] == '/':
+                    score += 10 - int(bowls[i+1])
+                else:
+                    score += int(bowls[i+1]) + int(bowls[i+2])
+            frame += 1
+            i += 1
+        elif bowls[i] == '/':
+            score += 10 - int(bowls[i-1])
+            if i < len(bowls) - 1:
+                score += int(bowls[i+1])
+            frame += 1
+            i += 1
         else:
-            score += int(bowls[bowl_index])
-            if frame < 10:
-                bowl_index += 1
-            else:
-                break
-        
-        frame += 1
-    
+            score += int(bowls[i])
+            frame += 1
+        i += 1
     return score
 
-def get_strike_bonus(bowls, bowl_index):
-    bonus = 0
-    if bowls[bowl_index + 1] == 'X':
-        bonus += 10
-        if bowls[bowl_index + 2] == 'X':
-            bonus += 10
-        else:
-            bonus += int(bowls[bowl_index + 2])
-    else:
-        bonus += int(bowls[bowl_index + 1])
-        if bowls[bowl_index + 2] == '/':
-            bonus += 10 - int(bowls[bowl_index + 1])
-        else:
-            bonus += int(bowls[bowl_index + 2])
-    
-    return bonus
-
-def get_spare_bonus(bowls, bowl_index):
-    bonus = 0
-    if bowls[bowl_index + 1] == 'X':
-        bonus += 10
-    else:
-        bonus += int(bowls[bowl_index + 1])
-    
-    return bonus
-
-def get_final_frame_bonus(bowls, bowl_index):
-    bonus = 0
-    if bowls[bowl_index] == 'X':
-        bonus += 10
-        if bowls[bowl_index + 1] == 'X':
-            bonus += 10
-            if bowls[bowl_index + 2] == 'X':
-                bonus += 10
-            else:
-                bonus += int(bowls[bowl_index + 2])
-        elif bowls[bowl_index + 1] == '/':
-            bonus += 10 - int(bowls[bowl_index + 2])
-        else:
-            bonus += int(bowls[bowl_index + 1])
-            if bowls[bowl_index + 2] == '/':
-                bonus += 10 - int(bowls[bowl_index + 1])
-            else:
-                bonus += int(bowls[bowl_index + 2])
-    elif bowls[bowl_index + 1] == '/':
-        bonus += 10 - int(bowls[bowl_index])
-        if bowls[bowl_index + 2] == 'X':
-            bonus += 10
-        else:
-            bonus += int(bowls[bowl_index + 2])
-    else:
-        bonus += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-    
-    return bonus
-
-bowls = input()
-print(calculate_score(bowls))
+bowls = input().strip()
+print(bowling_score(bowls))
