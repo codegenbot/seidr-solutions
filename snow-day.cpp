@@ -12,6 +12,7 @@ float calculateSnow(float hours, float snowOnGround, float snowFallRate, float s
 int main() {
     float hours, snowOnGround, snowFallRate, snowMeltingRate;
     cin >> hours >> snowOnGround >> snowFallRate >> snowMeltingRate;
-    cout << calculateSnow(hours, snowOnGround, snowFallRate, snowMeltingRate) << endl;
+    float result = calculateSnow(hours, snowOnGround, snowFallRate, snowMeltingRate);
+    cout << result << endl;
     return 0;
 }
