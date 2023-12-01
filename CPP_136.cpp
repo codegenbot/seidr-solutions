@@ -17,7 +17,6 @@ vector<int> largest_smallest_integers(vector<int> lst){
 bool issame(vector<int> a, vector<int> b);
 
 int main() {
-    // Your code here
-    
+    // code here
     return 0;
 }
