@@ -10,14 +10,14 @@ def find_zero(xs: list):
 
 
 if __name__ == "__main__":
-    n = int(input("Enter the number of coefficients: "))
+    n = int(input())
     xs = []
     for i in range(n):
-        xs.append(float(input(f"Enter coefficient {i+1}: ")))
+        xs.append(float(input()))
 
-    x_val = float(input("Enter the value of x: "))
+    x_val = float(input())
     output1 = poly(xs, x_val)
     output2 = find_zero(xs)
 
-    print("Output of poly function:", output1)
-    print("Output of find_zero function:", output2)
+    print(output1)
+    print(output2)
