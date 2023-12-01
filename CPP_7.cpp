@@ -3,7 +3,6 @@
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b){
-    // code to check if vectors are the same
     if (a.size() != b.size()) {
         return false;
     }
