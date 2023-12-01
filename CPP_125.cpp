@@ -4,9 +4,19 @@
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-
+    bool hasWhitespace = false;
+    bool hasComma = false;
+    
     for(char c : txt){
-        if(c == ' ' || c == ','){
+        if(c == ' '){
+            hasWhitespace = true;
+            if(word != ""){
+                result.push_back(word);
+                word = "";
+            }
+        }
+        else if(c == ','){
+            hasComma = true;
             if(word != ""){
                 result.push_back(word);
                 word = "";
@@ -48,16 +58,15 @@ int main(){
     
     vector<string> words = split_words(txt);
     
-    vector<string> expected = {"apple", "banana", "cherry"};
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"apple", "banana", "cherry"};
+    vector<string> c = {"apple", "banana", "orange"};
     
-    bool same = issame(words, expected);
+    bool ab = issame(a, b);
+    bool ac = issame(a, c);
     
-    if(same){
-        cout << "The words are the same" << endl;
-    }
-    else{
-        cout << "The words are different" << endl;
-    }
+    cout << ab << endl;
+    cout << ac << endl;
     
     return 0;
 }
