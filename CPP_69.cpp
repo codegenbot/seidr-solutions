@@ -1,13 +1,15 @@
-int search(vector<int> lst){
+#include <vector>
+
+int search(std::vector<int> lst) {
     int result = -1;
-    for(int i = 1; i <= lst.size(); i++){
+    for (int i = 1; i <= lst.size(); i++) {
         int count = 0;
-        for(int j = 0; j < lst.size(); j++){
-            if(lst[j] == i){
+        for (int j = 0; j < lst.size(); j++) {
+            if (lst[j] == i) {
                 count++;
             }
         }
-        if(count >= i && i > result){
+        if (count >= i && i > result) {
             result = i;
         }
     }
