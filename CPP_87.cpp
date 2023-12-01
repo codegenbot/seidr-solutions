@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
     std::vector<std::vector<int>> result;
     for(int i=0; i<lst.size(); i++){
         for(int j=0; j<lst[i].size(); j++){
@@ -21,15 +21,33 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     return result;
 }
 
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
-    // Code to compare if a and b are the same
-    // Return true if they are the same, false otherwise
-    return a == b;
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].size() != b[i].size()) {
+            return false;
+        }
+
+        for (int j = 0; j < a[i].size(); j++) {
+            if (a[i][j] != b[i][j]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
-int main(){
+int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    // More test cases if necessary
+    assert(issame(get_row({{1, 2, 3}, {4, 5}, {6, 7, 8, 9}}, 8), {{2, 3}}));
+    assert(issame(get_row({{1, 1, 1}, {2, 2}, {3, 3, 3}}, 1), {{1, 2}, {0, 1}, {0, 0}}));
+    assert(issame(get_row({{1, 2, 3}, {4, 5}, {}, {6, 7, 8, 9}}, 10), {}));
+    assert(issame(get_row({}, 5), {}));
+    assert(issame(get_row({{1}, {2}, {3}}, 0), {}));
 
     return 0;
 }
