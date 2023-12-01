@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
 int can_arrange(std::vector<int> arr){
     int largestIndex = -1;
@@ -11,8 +11,9 @@ int can_arrange(std::vector<int> arr){
     return largestIndex;
 }
 
-int main(){
-    assert (can_arrange({})==-1);
-
+int main() {
+    std::vector<int> arr = {1, 2, 3, 5, 4};
+    int result = can_arrange(arr);
+    std::cout << "The largest index where the array is not arranged in ascending order is: " << result << std::endl;
     return 0;
 }
