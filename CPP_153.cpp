@@ -1,44 +1,42 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <climits>
+#include <vector>
+#include <cassert>
+
 using namespace std;
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = "";
-    int max_strength = INT_MIN;
-
-    for (const string& extension : extensions) {
-        int cap_count = 0, sm_count = 0;
-        for (char c : extension) {
-            if (isupper(c)) {
-                cap_count++;
-            } else if (islower(c)) {
-                sm_count++;
-            }
-        }
-        int strength = cap_count - sm_count;
-        if (strength > max_strength) {
-            max_strength = strength;
-            strongest_extension = extension;
-        }
-    }
-
-    return class_name + "." + strongest_extension;
-}
+string Strongest_Extension(string class_name, vector<string> extensions);
 
 int main() {
-    string class_name;
-    vector<string> extensions;
-    int n;
-    
-    cin >> class_name >> n;
-    extensions.resize(n);
-    for (int i = 0; i < n; i++) {
-        cin >> extensions[i];
-    }
-    
-    cout << Strongest_Extension(class_name, extensions) << endl;
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    // Add more test cases here
     
     return 0;
+}
+
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = extensions[0];
+    int max_strength = 0;
+    
+    for (int i = 1; i < extensions.size(); i++) {
+        int cap = 0;
+        int sm = 0;
+        
+        for (int j = 0; j < extensions[i].length(); j++) {
+            if (isupper(extensions[i][j])) {
+                cap++;
+            } else if (islower(extensions[i][j])) {
+                sm++;
+            }
+        }
+        
+        int strength = cap - sm;
+        
+        if (strength > max_strength) {
+            max_strength = strength;
+            strongest_extension = extensions[i];
+        }
+    }
+    
+    return class_name + "." + strongest_extension;
 }
