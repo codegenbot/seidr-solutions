@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool is_palindrome(string text){
+bool is_palindrome(std::string text){
     int len = text.length();
     for(int i=0; i<len/2; i++){
         if(text[i] != text[len-i-1]){
