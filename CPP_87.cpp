@@ -10,8 +10,8 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b){
         return a[0] < b[0];
     });
-    for(auto& v : result){
-        sort(v.begin(), v.end(), greater<int>());
+    for(auto& row : result){
+        sort(row.begin(), row.end(), greater<int>());
     }
     return result;
 }
