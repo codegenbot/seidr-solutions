@@ -9,7 +9,12 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
             result.append(delimiter)
     return result
   
+# Read input from user
 numbers = list(map(int, input().split()))
 delimiter = int(input())
+
+# Call the function
 result = intersperse(numbers, delimiter)
+
+# Print the result
 print(result)
