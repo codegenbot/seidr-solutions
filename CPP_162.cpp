@@ -1,11 +1,11 @@
+#include <stdio.h>
 #include <string>
-#include <iostream>
-#include <cryptopp/md5.h>
+#include "cryptopp/md5.h"
 
 using namespace std;
 using namespace CryptoPP;
 
-string string_to_md5(const string& text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
