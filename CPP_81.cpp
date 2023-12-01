@@ -1,5 +1,6 @@
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
+    
     for(int i=0; i<grades.size(); i++){
         if(grades[i] == 4.0)
             letter_grades.push_back("A+");
@@ -28,5 +29,6 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else
             letter_grades.push_back("E");
     }
+    
     return letter_grades;
 }
