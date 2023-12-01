@@ -3,22 +3,19 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    std::vector<int> sortedA(a);
-    std::vector<int> sortedB(b);
-    std::sort(sortedA.begin(), sortedA.end());
-    std::sort(sortedB.begin(), sortedB.end());
-    return sortedA == sortedB;
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
 }
 
-std::vector<int> unique(const std::vector<int>& l){
-    std::vector<int> sortedL(l);
-    std::sort(sortedL.begin(), sortedL.end());
-    sortedL.erase(std::unique(sortedL.begin(), sortedL.end()), sortedL.end());
-    return sortedL;
+std::vector<int> unique(std::vector<int> l){
+    std::sort(l.begin(), l.end());
+    l.erase(std::unique(l.begin(), l.end()), l.end());
+    return l;
 }
 
 int main(){
