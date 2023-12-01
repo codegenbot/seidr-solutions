@@ -15,9 +15,3 @@ bool monotonic(vector<float> l){
 
     return increasing || decreasing;
 }
-
-int main(){
-    assert (monotonic({9.0, 9.0, 9.0, 9.0}) == true);
-
-    return 0;
-}
