@@ -17,15 +17,16 @@ int hex_key(string num) {
     return count;
 }
 
-// int main() {
-//     string num;
-//     cin >> num;
+// Remove or comment out the previous definition of the main function
+/* int main() {
+    string num;
+    cin >> num;
     
-//     int result = hex_key(num);
-//     cout << result << endl;
+    int result = hex_key(num);
+    cout << result << endl;
     
-//     return 0;
-// }
+    return 0;
+} */
 
 int main() {
     string num;
