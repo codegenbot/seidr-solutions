@@ -1,28 +1,56 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(m, false));
-    int currRow = 0;
-    int currCol = 0;
-    int steps = 0;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     
-    while(steps < k){
-        path.push_back(grid[currRow][currCol]);
-        visited[currRow][currCol] = true;
-        int nextRow = currRow;
-        int nextCol = currCol;
+    // Helper function to check if cell is valid
+    auto isValid = [&](int x, int y){
+        return (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]);
+    };
+    
+    // Helper function to get neighbors
+    auto getNeighbors = [&](int x, int y){
+        vector<pair<int, int>> neighbors;
+        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         
-        if(currRow + 1 < n && !visited[currRow + 1][currCol]){
-            nextRow = currRow + 1;
-        }
-        else if(currCol + 1 < m && !visited[currRow][currCol + 1]){
-            nextCol = currCol + 1;
+        for(auto dir : directions){
+            int newX = x + dir.first;
+            int newY = y + dir.second;
+            if(isValid(newX, newY)){
+                neighbors.push_back({newX, newY});
+            }
         }
         
-        currRow = nextRow;
-        currCol = nextCol;
-        steps++;
+        return neighbors;
+    };
+    
+    // Helper function to perform DFS
+    function<void(int, int, int)> dfs = [&](int x, int y, int steps){
+        visited[x][y] = true;
+        path.push_back(grid[x][y]);
+        
+        if(steps == k){
+            return;
+        }
+        
+        vector<pair<int, int>> neighbors = getNeighbors(x, y);
+        sort(neighbors.begin(), neighbors.end(), [&](pair<int, int> a, pair<int, int> b){
+            return grid[a.first][a.second] < grid[b.first][b.second];
+        });
+        
+        for(auto neighbor : neighbors){
+            dfs(neighbor.first, neighbor.second, steps + 1);
+        }
+        
+        visited[x][y] = false;
+        path.pop_back();
+    };
+    
+    // Start DFS from each cell
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            dfs(i, j, 1);
+        }
     }
     
     return path;
