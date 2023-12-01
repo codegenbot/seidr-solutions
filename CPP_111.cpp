@@ -25,7 +25,7 @@ map<string, int> histogram(string test) {
 }
 
 bool issame(map<string, int> a, initializer_list<pair<const string, int>> b) {
-    return a == b;
+    return a == map<string, int>(b);
 }
 
 int main() {
