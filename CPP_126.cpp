@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool isListSorted(vector<int> lst) {
     int n = lst.size();
