@@ -23,11 +23,3 @@ vector<string> sorted_list_sum(vector<string> lst){
     });
     return result;
 }
-
-int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    for(const string& s : result) cout << s << " ";
-    cout << endl;
-    
-    return 0;
-}
