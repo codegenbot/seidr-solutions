@@ -1,27 +1,42 @@
-#include <algorithm>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <cassert>
 
 using namespace std;
 
+string Strongest_Extension(string class_name, vector<string> extensions);
+
+int main() {
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    // Add more test cases here
+    
+    return 0;
+}
+
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = extensions[0];
-    int strongest_strength = count_if(strongest_extension.begin(), strongest_extension.end(), isupper) - count_if(strongest_extension.begin(), strongest_extension.end(), islower);
+    int max_strength = 0;
     
     for (int i = 1; i < extensions.size(); i++) {
-        int strength = count_if(extensions[i].begin(), extensions[i].end(), isupper) - count_if(extensions[i].begin(), extensions[i].end(), islower);
-        if (strength > strongest_strength) {
+        int cap = 0;
+        int sm = 0;
+        
+        for (int j = 0; j < extensions[i].length(); j++) {
+            if (isupper(extensions[i][j])) {
+                cap++;
+            } else if (islower(extensions[i][j])) {
+                sm++;
+            }
+        }
+        
+        int strength = cap - sm;
+        
+        if (strength > max_strength) {
+            max_strength = strength;
             strongest_extension = extensions[i];
-            strongest_strength = strength;
         }
     }
     
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    
-    return 0;
 }
