@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> 
 
 using namespace std;
 
@@ -12,15 +12,11 @@ vector<int> compare(vector<int> game, vector<int> guess){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;;
-}
-
 int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
+    vector<int> result = compare({1,2,3,5},{-1,2,3,4});
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
