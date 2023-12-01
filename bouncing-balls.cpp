@@ -9,16 +9,10 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = startingHeight;
     double currentBounceHeight = firstBounceHeight;
-    bool direction = false;
 
     for (int i = 0; i < numBounces; i++) {
-        if (direction) {
-            currentBounceHeight *= bouncinessIndex;
-        } else {
-            currentBounceHeight /= bouncinessIndex;
-        }
+        currentBounceHeight *= bouncinessIndex;
         totalDistance += currentBounceHeight;
-        direction = !direction;
     }
 
     return totalDistance;
