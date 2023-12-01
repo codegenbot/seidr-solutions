@@ -1,5 +1,5 @@
 #include <string>
-#include <assert.h>
+#include <cassert>
 
 int stringLength(std::string str){
     return str.length();
