@@ -12,9 +12,3 @@ int count_distinct_characters(std::string str) {
     }
     return distinct_chars.size();
 }
-
-int main() {
-    // Add your test cases here
-
-    return 0;
-}
