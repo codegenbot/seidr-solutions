@@ -7,6 +7,10 @@ using namespace std;
 
 bool issame(vector<float> a, vector<float> b);
 
+bool issame(vector<float> a, vector<float> b){
+    return a == b;
+}
+
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float minDiff = INT_MAX;
@@ -22,10 +26,6 @@ vector<float> find_closest_elements(vector<float> numbers) {
 
     vector<float> result = { closestPair.first, closestPair.second };
     return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
 }
 
 int main() {
