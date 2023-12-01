@@ -1,13 +1,14 @@
+#include <string>
 #include <cctype>
 #include <algorithm>
-#include <string>
 
 std::string solve(std::string s);
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
-    std::cout << solve(input);
+    std::cin >> input;
+    std::cout << solve(input) << std::endl;
+    
     return 0;
 }
 
@@ -20,7 +21,7 @@ std::string solve(std::string s) {
         }
     }
     if (!hasLetter) {
-        std::reverse(s.begin(), s.end());
+        reverse(s.begin(), s.end());
     }
     return s;
 }
