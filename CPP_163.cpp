@@ -25,12 +25,6 @@ bool issame(vector<int> a, vector<int> b) {
 int main() {
     vector<int> a = generate_integers(17, 89);
     vector<int> b = generate_integers(17, 89);
-
-    if (issame(a, b)) {
-        cout << "The generated vectors are the same." << endl;
-    } else {
-        cout << "The generated vectors are different." << endl;
-    }
-
+    bool result = issame(a, b);
     return 0;
 }
