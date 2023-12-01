@@ -5,6 +5,15 @@ using namespace std;
 
 string decimal_to_binary(int decimal);
 
+int main() {
+    assert(decimal_to_binary(15) == "db1111db");
+    assert(decimal_to_binary(0) == "db0db");
+    assert(decimal_to_binary(10) == "db1010db");
+    assert(decimal_to_binary(7) == "db111db");
+    
+    return 0;
+}
+
 string decimal_to_binary(int decimal){
     string binary = "db";
     
@@ -14,13 +23,4 @@ string decimal_to_binary(int decimal){
     }
     
     return binary + "db";
-}
-
-int main() {
-    assert(decimal_to_binary(15) == "db1111db");
-    assert(decimal_to_binary(0) == "db0db");
-    assert(decimal_to_binary(10) == "db1010db");
-    assert(decimal_to_binary(7) == "db111db");
-    
-    return 0;
 }
