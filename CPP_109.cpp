@@ -28,7 +28,7 @@ bool move_one_ball(const vector<int>& arr){
 }
 
 int main(){
-    assert(move_one_ball({}));
+    assert(move_one_ball({}) == true);
     
     return 0;
 }
