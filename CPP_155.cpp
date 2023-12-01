@@ -1,24 +1,14 @@
 vector<int> even_odd_count(int num){
-    int evenCount = 0;
-    int oddCount = 0;
+    vector<int> counts(2, 0);
+    string numStr = to_string(abs(num));
     
-    // Convert the integer to string
-    string strNum = to_string(num);
-    
-    // Iterate over each digit in the string
-    for(char c : strNum){
-        // Convert the digit back to integer
-        int digit = c - '0';
-        
-        // Check if the digit is even or odd
-        if(digit % 2 == 0){
-            evenCount++;
+    for(char c : numStr){
+        if((c - '0') % 2 == 0){
+            counts[0]++;
         } else {
-            oddCount++;
+            counts[1]++;
         }
     }
     
-    // Create and return the vector with even and odd counts
-    vector<int> result = {evenCount, oddCount};
-    return result;
+    return counts;
 }
