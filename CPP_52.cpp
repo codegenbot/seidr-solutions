@@ -15,24 +15,18 @@ int main() {
     int threshold;
 
     // Read input from user
-    int num;
-    while (std::cin >> num) {
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cin >> num;
         numbers.push_back(num);
     }
-    std::cin.clear();
-
-    std::cout << "Enter threshold: ";
     std::cin >> threshold;
 
-    // Call the function
+    // Call the function and print the result
     bool result = below_threshold(numbers, threshold);
-
-    // Print the result
-    if (result) {
-        std::cout << "All numbers are below the threshold." << std::endl;
-    } else {
-        std::cout << "At least one number is equal to or above the threshold." << std::endl;
-    }
+    std::cout << std::boolalpha << result;
 
     return 0;
 }
