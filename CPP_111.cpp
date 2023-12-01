@@ -1,13 +1,10 @@
 #include <cassert>
+#include <string>
 #include <map>
 
-map<char, int> histogram(string test);
+using namespace std;
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
-}
-
-map<char, int> histogram(string test) {
+map<char,int> histogram(string test) {
     map<char, int> counts;
     string letter;
     for (int i = 0; i < test.length(); i++) {
@@ -18,11 +15,18 @@ map<char, int> histogram(string test) {
             letter = "";
         }
     }
-    if (!letter.empty()) counts[letter]++;
+    if (!letter.empty()) {
+        counts[letter]++;
+    }
     return counts;
+}
+
+bool issame(map<char,int> a, map<char,int> b) {
+    return a == b;
 }
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
+
     return 0;
 }
