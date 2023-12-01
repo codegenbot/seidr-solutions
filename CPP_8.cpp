@@ -1,10 +1,6 @@
 #include <vector>
 
-bool issame(int a, int b){
-    return (a == b);
-}
-
-std::vector<int> sum_product(std::vector<int> numbers){
+vector<int> sum_product(vector<int> numbers){
     int sum = 0;
     int product = 1;
     
@@ -16,9 +12,9 @@ std::vector<int> sum_product(std::vector<int> numbers){
     return {sum, product};
 }
 
-int main(){
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-    std::vector<int> result = sum_product(numbers);
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> result = sum_product(numbers);
     
     return 0;
 }
