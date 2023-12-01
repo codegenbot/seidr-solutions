@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<int> sort_array(vector<int> array){
     if(array.size() == 0){
         return {};
