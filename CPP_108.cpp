@@ -20,7 +20,6 @@ int count_nums(const std::vector<int>& n){
 
 int main() {
     assert(count_nums({1}) == 1);
-
     // Add more test cases if needed
     return 0;
 }
