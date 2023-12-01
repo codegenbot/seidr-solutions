@@ -8,7 +8,6 @@ vector<string> split_words(string txt);
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-    int count = 0;
 
     for(int i = 0; i < txt.length(); i++){
         if(txt[i] == ' ' || txt[i] == ','){
@@ -27,7 +26,7 @@ vector<string> split_words(string txt){
     }
 
     if(result.empty()){
-        result.push_back(to_string(count));
+        result.push_back(to_string(0));
     }
 
     return result;
@@ -43,6 +42,6 @@ bool issame(vector<string> a, vector<string> b){
             return false;
         }
     }
-
+    
     return true;
 }
