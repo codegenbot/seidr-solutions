@@ -1,7 +1,6 @@
-#include <string>
-#include <cassert>
+#include <string> 
 
-bool correct_bracketing(std::string brackets) {
+bool correct_bracketing(std::string brackets) { 
     int count = 0;
     for (char c : brackets) {
         if (c == '(') {
@@ -17,6 +16,6 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    assert(!(correct_bracketing("()()(()())()))()")));
+    assert (not correct_bracketing("()()(()())()))()")); 
     return 0;
 }
