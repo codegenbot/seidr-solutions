@@ -1,35 +1,37 @@
 def cut_vector(vector):
     n = len(vector)
-    prefix_sum = [0] * (n + 1)
-    for i in range(1, n + 1):
-        prefix_sum[i] = prefix_sum[i - 1] + vector[i - 1]
-    total_sum = prefix_sum[n]
+    if n == 0:
+        return [], []
+    if n == 1:
+        return vector, [0]
 
-    min_difference = float("inf")
-    cutting_point = 0
+    diff = abs(sum(vector))
+    index = 0
+    for i in range(1, n):
+        left_sum = sum(vector[:i])
+        right_sum = sum(vector[i:])
+        new_diff = abs(left_sum - right_sum)
+        if new_diff < diff:
+            diff = new_diff
+            index = i
 
-    for i in range(1, n + 1):
-        left_sum = prefix_sum[i]
-        right_sum = total_sum - prefix_sum[i]
-        difference = abs(left_sum - right_sum)
-
-        if difference < min_difference:
-            min_difference = difference
-            cutting_point = i
-
-    return vector[:cutting_point], vector[cutting_point:]
+    return vector[:index], vector[index:]
 
 
+# Read input from user
 vector = []
 while True:
     try:
-        num = input()
-        vector.append(int(num))
+        line = input()
+        if line.strip() == "":
+            break
+        vector.append(int(line))
     except EOFError:
         break
 
-left_vector, right_vector = cut_vector(vector)
-for num in left_vector:
+# Print the resulting subvectors
+left, right = cut_vector(vector)
+for num in left:
     print(num)
-for num in right_vector:
+for num in right:
     print(num)
