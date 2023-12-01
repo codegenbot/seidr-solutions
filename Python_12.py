@@ -4,7 +4,6 @@ def longest(*strings) -> Optional[str]:
     if not strings:
         return None
     return max(strings, key=len)
-
 strings = input().split()
 result = longest(*strings)
 print(result)
