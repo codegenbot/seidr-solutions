@@ -3,13 +3,14 @@
 
 int luhnAlgorithm(const std::vector<int>& digits) {
     int sum = 0;
-    int n = digits.size();
+    int size = digits.size();
 
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = size - 1; i >= 0; i--) {
         int digit = digits[i];
 
         if (i % 2 == 1) {
             digit *= 2;
+
             if (digit > 9) {
                 digit -= 9;
             }
