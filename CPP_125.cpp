@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -37,4 +38,6 @@ bool issame(vector<string> a, vector<string> b){
 
 int main() {
     assert(issame(split_words(""), {"0"}));
+    
+    return 0;
 }
