@@ -7,6 +7,6 @@ int my_strlen(std::string str){
 }
 
 int main() {
-    assert (my_strlen("asdasnakj") == 9);
+    assert(my_strlen("asdasnakj") == 9);
     return 0;
 }
