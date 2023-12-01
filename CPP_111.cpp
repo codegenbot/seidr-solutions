@@ -1,10 +1,12 @@
 #include <cassert>
 #include <string>
 #include <map>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-map<char, int> buildHistogram(string test) {
+map<char,int> buildHistogram(string test) {
     map<char, int> counts;
     string letter;
     for (int i = 0; i < test.length(); i++) {
@@ -20,7 +22,7 @@ map<char, int> buildHistogram(string test) {
 }
 
 int main() {
-    assert(issame(buildHistogram("a"), {{'a', 1}}));
+    assert(buildHistogram("a") == map<char,int>{{'a', 1}});
 
     return 0;
 }
