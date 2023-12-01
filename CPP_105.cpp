@@ -22,9 +22,9 @@ std::vector<std::string> by_length(std::vector<int> arr){
 
     // Sort the integers between 1 and 9 inclusive
     for(int num : arr){
-        if(num >= 1 && num <= 9){
-            sorted_arr.push_back(num);
-        }
+      if(num >= 1 && num <= 9){
+        sorted_arr.push_back(num);
+      }
     }
     std::sort(sorted_arr.begin(), sorted_arr.end());
 
