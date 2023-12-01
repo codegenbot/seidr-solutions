@@ -27,8 +27,8 @@ string fix_spaces(string text){
 
 int main() {
     string input;
-    getline(cin, input); 
-    string output = fix_spaces(input); 
-    cout << output << endl; 
+    getline(cin, input);
+    string output = fix_spaces(input);
+    cout << output << endl;
     return 0;
 }
