@@ -1,10 +1,10 @@
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -12,7 +12,7 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     int m = grid[0].size();
     vector<int> path;
@@ -21,16 +21,16 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     int currCol = 0;
     int steps = 0;
     
-    while(steps < k){
+    while(steps < k) {
         path.push_back(grid[currRow][currCol]);
         visited[currRow][currCol] = true;
         int nextRow = currRow;
         int nextCol = currCol;
         
-        if(currRow + 1 < n && !visited[currRow + 1][currCol]){
+        if(currRow + 1 < n && !visited[currRow + 1][currCol]) {
             nextRow = currRow + 1;
         }
-        else if(currCol + 1 < m && !visited[currRow][currCol + 1]){
+        else if(currCol + 1 < m && !visited[currRow][currCol + 1]) {
             nextCol = currCol + 1;
         }
         
@@ -42,7 +42,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     return path;
 }
 
-int main(){
+int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     // more test cases
     // ...
