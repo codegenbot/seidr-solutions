@@ -1,3 +1,10 @@
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+string encrypt(string s);
+
 string encrypt(string s){
     string encryptedString = "";
     for(int i=0; i<s.length(); i++){
@@ -13,4 +20,12 @@ string encrypt(string s){
         encryptedString += c;
     }
     return encryptedString;
+}
+
+string input(){
+    assert(encrypt("a") == "e");
+    assert(encrypt("z") == "d");
+    assert(encrypt("Hello, World!") == "Jgnnq, Yqtnf!");
+    
+    return "All test cases passed!";    
 }
