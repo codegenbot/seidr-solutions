@@ -8,6 +8,7 @@ def cut_vector(vector):
             index = i
     return vector[:index], vector[index:]
 
+
 vector = list(map(int, input().split()))
 subvector1, subvector2 = cut_vector(vector)
 print(*subvector1)
