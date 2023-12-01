@@ -35,12 +35,3 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
     return result;
 }
-
-int main() {
-    std::vector<std::string> words = select_words("a b c d e f", 1);
-    for (int i = 0; i < words.size(); i++) {
-        std::cout << words[i] << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}
