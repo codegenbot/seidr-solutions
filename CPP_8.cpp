@@ -3,9 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -19,8 +17,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> sum_product(vector<int> numbers) {
-    sort(numbers.begin(), numbers.end()); // Sort the numbers vector
+std::vector<int> sum_product(std::vector<int> numbers) {
+    std::sort(numbers.begin(), numbers.end()); // Sort the numbers vector
 
     int sum = 0;
     int product = 1;
@@ -36,21 +34,21 @@ vector<int> sum_product(vector<int> numbers) {
 int main() {
     // Take input from user
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    vector<int> numbers(n);
+    std::vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
+        std::cin >> numbers[i];
     }
 
     // Get the sum and product
-    vector<int> result = sum_product(numbers);
+    std::vector<int> result = sum_product(numbers);
 
     // Print the output
     for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+        std::cout << result[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }
