@@ -1,4 +1,3 @@
-\```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -28,4 +27,3 @@ int main() {
     cout << "Test passed!" << endl;
     return 0;
 }
-\```
