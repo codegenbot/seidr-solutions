@@ -1,55 +1,34 @@
 def calculate_score(bowls):
     score = 0
     frame = 1
-    i = 0
+    in_first_half = True
 
-    while frame <= 10:
-        if bowls[i] == 'X':
+    for i in range(len(bowls)):
+        if bowls[i] == '/':
+            score += 10 - last_bowl
+            if frame < 10:
+                score += int(bowls[i+1])
+        elif bowls[i] == 'X':
             score += 10
-            score += calculate_strike_bonus(bowls, i)
-            i += 1
-        elif bowls[i+1] == '/':
-            score += 10
-            score += calculate_spare_bonus(bowls, i)
-            i += 2
+            if frame < 10:
+                score += int(bowls[i+1]) + int(bowls[i+2])
         else:
-            score += int(bowls[i]) + int(bowls[i+1])
-            i += 2
+            score += int(bowls[i])
 
-        frame += 1
+        if not in_first_half:
+            frame += 1
+
+        if bowls[i] == 'X':
+            in_first_half = True
+        else:
+            in_first_half = not in_first_half
+
+        last_bowl = int(bowls[i])
 
     return score
 
-def calculate_strike_bonus(bowls, index):
-    bonus = 0
-    i = index + 1
-    count = 0
-
-    while count < 2:
-        if bowls[i] == 'X':
-            bonus += 10
-            count += 1
-        elif bowls[i] == '/':
-            bonus += 10 - int(bowls[i-1])
-            count += 1
-        else:
-            bonus += int(bowls[i])
-            count += 1
-
-        i += 1
-
-    return bonus
-
-def calculate_spare_bonus(bowls, index):
-    bonus = 0
-    i = index + 2
-
-    if bowls[i] == 'X':
-        bonus += 10
-    else:
-        bonus += int(bowls[i])
-
-    return bonus
-
+# Read input from user
 bowls = input()
+
+# Calculate and print the score
 print(calculate_score(bowls))
