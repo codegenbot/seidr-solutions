@@ -3,19 +3,32 @@
 #include <cassert>
 #include <cmath>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+using namespace std;
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess);
+bool issame(const vector<int>& a, const vector<int>& b);
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
-    std::vector<int> result;
+vector<int> compare(vector<int> game, vector<int> guess);
+
+int main() {
+    vector<int> game = {3, 7, 5};
+    vector<int> guess = {4, 7, 3};
+    
+    vector<int> result = compare(game, guess);
+    
+    assert(issame(result, {1, 0, 2}));
+    
+    return 0;
+}
+
+vector<int> compare(vector<int> game, vector<int> guess){
+    vector<int> result;
     for(int i=0; i<game.size(); i++){
-        int diff = std::abs(guess[i] - game[i]);
+        int diff = abs(guess[i] - game[i]);
         result.push_back(diff);
     }
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
