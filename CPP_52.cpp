@@ -10,11 +10,8 @@ bool below_threshold(vector<int> l, int t){
 }
 
 int main() {
-    // Test case
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    int threshold = 6;
-    
-    bool result = below_threshold(numbers, threshold);
-    
+    vector<int> l = {1, 2, 3, 4, 5};
+    int t = 6;
+    bool result = below_threshold(l, t);
     return 0;
 }
