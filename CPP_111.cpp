@@ -5,7 +5,7 @@
 using namespace std;
 
 map<char,int> buildHistogram(string test) {
-    map<char, int> counts;
+    map<char,int> counts;
     string letter;
     for (int i = 0; i < test.length(); i++) {
         if (test[i] != ' ') {
@@ -19,12 +19,8 @@ map<char,int> buildHistogram(string test) {
     return counts;
 }
 
-bool isSame(map<char,int> a, map<char,int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(isSame(buildHistogram("a"), {{'a', 1}}));
+    assert(buildHistogram("a") == {{'a', 1}});
 
     return 0;
 }
