@@ -27,7 +27,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
         int currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff <= diff || (currentDiff == diff && i > index)) {
+        if (currentDiff <= diff || (currentDiff == diff && i < index)) {
             diff = currentDiff;
             index = i;
         }
