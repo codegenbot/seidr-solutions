@@ -1,27 +1,10 @@
 #include <vector>
 #include <climits>
 #include <cassert>
+#include <iostream>
 
-using namespace std;
-
-vector<int> pluck(vector<int> arr);
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     int smallestValue = INT_MAX;
     int smallestIndex = -1;
 
@@ -40,9 +23,25 @@ vector<int> pluck(vector<int> arr) {
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
     // Add more test cases here
+
+    std::cout << "Test cases passed." << std::endl;
 
     return 0;
 }
