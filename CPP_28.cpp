@@ -1,15 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <numeric>
 
 using namespace std;
 
 string concatenate(vector<string> strings){
-    string result = "";
-    for(int i = 0; i < strings.size(); i++){
-        result += strings[i];
-    }
-    return result;
+    return accumulate(strings.begin(), strings.end(), string());
 }
 
 int main() {
