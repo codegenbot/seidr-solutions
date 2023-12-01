@@ -3,7 +3,7 @@
 #include <climits>
 #include <cassert>
 
-std::vector<int> rolling_max(std::vector<int>& numbers){
+std::vector<int> rolling_max(std::vector<int> numbers){
     std::vector<int> rollingMax;
     int maxSoFar = INT_MIN;
     
@@ -27,10 +27,4 @@ bool issame(std::vector<int>& a, std::vector<int>& b){
     }
     
     return true;
-}
-
-int main(){
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    
-    return 0;
 }
