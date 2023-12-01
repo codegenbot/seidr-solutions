@@ -1,7 +1,5 @@
-#include <vector>
 #include <algorithm>
-
-std::vector<int> sort_array(std::vector<int> array);
+#include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
