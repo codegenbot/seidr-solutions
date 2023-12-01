@@ -10,14 +10,11 @@ def find_zero(xs: list):
 
 
 if __name__ == "__main__":
-    # Read input values
     xs = list(map(float, input().split()))
     x = float(input())
 
-    # Call the functions with the input values
     result1 = poly(xs, x)
     result2 = find_zero(xs)
 
-    # Print the results
     print(result1)
     print(result2)
