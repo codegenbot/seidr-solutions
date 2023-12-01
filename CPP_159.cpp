@@ -4,15 +4,15 @@
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
-    vector<int> result;
-    int totalCarrots = number + need;
-    int carrotsLeft = max(0, remaining - need);
-    result.push_back(totalCarrots);
-    result.push_back(carrotsLeft);
-    return result;
+    int totalEaten = number + need;
+    int carrotsLeft = remaining - need;
+    if (carrotsLeft < 0) {
+        carrotsLeft = 0;
+    }
+    return {totalEaten, carrotsLeft};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int>& a, vector<int>& b) {
     return a == b;
 }
 
