@@ -6,9 +6,11 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    coefficients = xs[::-1] # reverse the list of coefficients
-    return -coefficients[0] / coefficients[1]
-
-
-print(round(find_zero([1, 2]), 2))
-print(round(find_zero([-6, 11, -6, 1]), 2))
+    degree = len(xs) - 1
+    if degree % 2 != 0:
+        raise ValueError("The number of coefficients must be even")
+    max_coeff = max(xs)
+    if max_coeff == 0:
+        raise ValueError("The largest non-zero coefficient must be greater than 0")
+    x = -max_coeff / xs[-2]
+    return x
