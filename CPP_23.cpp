@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 int stringLength(std::string str){
     return str.length();
@@ -6,6 +7,6 @@ int stringLength(std::string str){
 
 int main(){
     assert (stringLength("asdasnakj") == 9);
-    
+
     return 0;
 }
