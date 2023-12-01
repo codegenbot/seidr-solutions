@@ -32,8 +32,8 @@ int main() {
     if (result.empty()) {
         std::cout << 0;
     } else {
-        for (int i = 0; i < result.size(); i++) {
-            std::cout << result[i] << " ";
+        for (int i : result) {
+            std::cout << i << " ";
         }
     }
     
