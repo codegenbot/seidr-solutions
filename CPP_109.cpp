@@ -26,9 +26,7 @@ bool move_one_ball(std::vector<int> arr){
 }
 
 int main() {
-    std::vector<int> arr;
-    // Add input elements to the vector arr here
-    
+    std::vector<int> arr = {1, 2, 3, 4, 5};
     bool result = move_one_ball(arr);
     
     return 0;
