@@ -4,18 +4,18 @@
 
 using namespace std;
 
-vector<int> maximum(vector<int> arr, int k){
+vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     arr.resize(k);
     return arr;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
