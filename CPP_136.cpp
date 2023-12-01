@@ -1,3 +1,7 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int max_negative = 0;
     int min_positive = 0;
@@ -14,9 +18,12 @@ vector<int> largest_smallest_integers(vector<int> lst){
     return {max_negative, min_positive};
 }
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
-int main() {
-    // code goes here
+int main(){
+    assert (issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    
     return 0;
 }
