@@ -19,12 +19,3 @@ vector<string> odd_count(vector<string> lst){
     }
     return result;
 }
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    // implementation of issame function
-}
-
-int main() {
-    // main function code
-    return 0;
-}
