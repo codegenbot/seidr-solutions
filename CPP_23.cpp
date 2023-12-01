@@ -4,7 +4,7 @@
 #include <cstring>
 
 int calculateLength(std::string str){
-    return strlen(str.c_str());
+    return str.size();
 }
 
 int main() {
