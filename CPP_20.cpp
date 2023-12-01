@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cassert>
 
+
 bool issame(vector<float> a, vector<float> b){
     // Implementation of issame function
 }
