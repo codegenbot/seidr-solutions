@@ -1,8 +1,5 @@
 #include <vector>
 #include <string>
-#include <cassert>
-
-namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
