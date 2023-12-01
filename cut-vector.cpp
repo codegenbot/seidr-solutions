@@ -1,9 +1,11 @@
 #include <vector>
+#include <utility>
 #include <climits>
+#include <cstdlib>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int diff = INT_MAX;
+    int diff = std::numeric_limits<int>::max();
     int index = 0;
 
     if (n == 1) {
@@ -22,7 +24,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             rightSum += nums[j];
         }
 
-        int currentDiff = abs(leftSum - rightSum);
+        int currentDiff = std::abs(leftSum - rightSum);
 
         if (currentDiff < diff || (currentDiff == diff && i < index)) {
             diff = currentDiff;
