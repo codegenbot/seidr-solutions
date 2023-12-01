@@ -1,15 +1,30 @@
 #include <vector>
 
+std::vector<int> tri(int n);
+
 bool issame(std::vector<int> a, std::vector<int> b){
-   if(a.size() != b.size()){
-       return false;
-   }
-   for(int i=0; i<a.size(); i++){
-       if(a[i] != b[i]){
-           return false;
-       }
-   }
-   return true;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    // Test the tri function and issame function
+    int n = 10;
+    std::vector<int> result = tri(n);
+    std::vector<int> expected = {3, 6, 11, 8, 13, 16, 10, 17, 20, 30};
+    if(issame(result, expected)){
+        std::cout << "Test case passed." << std::endl;
+    } else {
+        std::cout << "Test case failed." << std::endl;
+    }
+    return 0;
 }
 
 std::vector<int> tri(int n){
@@ -31,21 +46,4 @@ std::vector<int> tri(int n){
         }
     }
     return sequence;
-}
-
-int main() {
-    // Test the tri function and issame function
-    std::vector<int> result = tri(10);
-    std::vector<int> expected = {3, 6, 10, 8, 13, 21, 18, 30, 49, 63, 102};
-    if(issame(result, expected)){
-        // Output the result
-        for(int i=0; i<result.size(); i++) {
-            std::cout << result[i] << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Test case failed." << std::endl;
-    }
-    
-    return 0;
 }
