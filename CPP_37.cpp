@@ -2,13 +2,11 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<float>& a, vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if(a.size() != b.size()) {
         return false;
     }
-    for(auto i = 0u; i < a.size(); i++) {
+    for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
             return false;
         }
@@ -16,15 +14,27 @@ bool issame(const vector<float>& a, vector<float>& b) {
     return true;
 }
 
-vector<float> sort_even(const vector<float>& l) {
-    vector<float> l_prime = l;
-    vector<float> even_values;
+bool issame_alt(std::vector<float> a, std::vector<float> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<float> sort_even(const std::vector<float>& l) {
+    std::vector<float> l_prime = l;
+    std::vector<float> even_values;
     
     for(int i = 0; i < l.size(); i += 2) {
         even_values.push_back(l[i]);
     }
     
-    sort(even_values.begin(), even_values.end());
+    std::sort(even_values.begin(), even_values.end());
     
     for(int i = 0; i < l.size(); i += 2) {
         l_prime[i] = even_values[i / 2];
