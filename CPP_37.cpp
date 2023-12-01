@@ -1,8 +1,14 @@
 vector<float> sort_even(vector<float> l){
-    vector<float> l_sorted = l;
-    for(int i=0; i<l.size(); i+=2){
-        l_sorted[i] = l[i];
+    vector<float> l_prime = l;
+
+    // Sort even indices of l_prime
+    for(int i = 0; i < l_prime.size(); i += 2){
+        for(int j = i+2; j < l_prime.size(); j += 2){
+            if(l_prime[j] < l_prime[i]){
+                swap(l_prime[i], l_prime[j]);
+            }
+        }
     }
-    sort(l_sorted.begin(), l_sorted.end());
-    return l_sorted;
+
+    return l_prime;
 }
