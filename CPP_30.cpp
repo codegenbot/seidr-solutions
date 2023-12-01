@@ -1,22 +1,38 @@
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
-vector<float> get_positive(const vector<float>& l) {
+bool issame(vector<float> a, vector<float> b){
+    // Compare a and b and return true if they are the same, false otherwise
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
-    for(int i=0; i<l.size(); i++) {
-        if(l[i] > 0) {
+    for(int i=0; i<l.size(); i++){
+        if(l[i] > 0){
             positive_nums.push_back(l[i]);
         }
     }
     return positive_nums;
 }
 
-bool are_same(const vector<float>& a, const vector<float>& b) {
-    return (a == b);
-}
-
 int main() {
-    assert(are_same(get_positive({}), {}));
+    // Test the get_positive function
+    assert(issame(get_positive({}), {}));
+
+    // Add more test cases to validate the code
+
     return 0;
 }
