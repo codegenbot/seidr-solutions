@@ -6,5 +6,5 @@ def filter_integers(values: List[int]) -> List[int]:
 
 
 # Sample input for testing
-values = [1, 2, 3, "4", None, 5.5, 6, "7"]
+values = [1, "a", 2, "b", 3, "c", 4, "d"]
 print(filter_integers(values))
