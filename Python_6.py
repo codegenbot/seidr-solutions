@@ -1,13 +1,13 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    nested_counts = []
+    result = []
     count = 0
 
-    for char in paren_string:
-        if char == '(':
+    for paren in paren_string:
+        if paren == "(":
             count += 1
-        elif char == ')':
+        elif paren == ")":
             count -= 1
 
-        nested_counts.append(count)
+        result.append(count)
 
-    return nested_counts
+    return result
