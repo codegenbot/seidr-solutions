@@ -15,7 +15,7 @@ string find_max(vector<string> words){
 
         for (char c : word) {
             if (!charCount[c - 'a']) {
-            	charCount[c - 'a'] = true;
+                charCount[c - 'a'] = true;
                 uniqueChars++;
             }
         }
