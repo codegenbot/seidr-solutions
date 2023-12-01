@@ -20,7 +20,6 @@ std::string sort_numbers(std::string numbers){
     number_map["eight"] = 8;
     number_map["nine"] = 9;
 
-    // Split the input string into individual numbers
     std::vector<std::string> number_list;
     std::stringstream ss(numbers);
     std::string token;
@@ -28,12 +27,10 @@ std::string sort_numbers(std::string numbers){
         number_list.push_back(token);
     }
 
-    // Sort the numbers based on their corresponding values in the map
     std::sort(number_list.begin(), number_list.end(), [&](std::string a, std::string b) {
         return number_map[a] < number_map[b];
     });
 
-    // Construct the sorted string
     std::string sorted_numbers;
     for (int i = 0; i < number_list.size(); i++) {
         sorted_numbers += number_list[i];
@@ -46,6 +43,5 @@ std::string sort_numbers(std::string numbers){
 }
 
 int main() {
-    // Test the sort_numbers function
     assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
 }
