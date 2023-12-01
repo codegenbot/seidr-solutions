@@ -11,19 +11,18 @@ int calculateScore(const std::string& bowls) {
 
         if (bowl == 'X') {
             score += 10 + (int)(bowls[bowlIndex + 1] - '0') + (int)(bowls[bowlIndex + 2] - '0');
-            bowlIndex++;
         } else if (bowl == '/') {
-            score += 10 - (int)(bowls[bowlIndex - 1] - '0') + (int)(bowls[bowlIndex + 1] - '0') - (int)('0');
-            bowlIndex++;
+            score += 10 - (int)(bowls[bowlIndex - 1] - '0') + (int)(bowl - '0');
         } else {
             score += (int)(bowl - '0');
         }
 
-        if (bowl != 'X' || frame > 10) {
+        if (bowl == 'X' || frame >= 10) {
             bowlIndex++;
         }
 
         frame++;
+        bowlIndex++;
     }
 
     return score;
