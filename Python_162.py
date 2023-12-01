@@ -1,5 +1,6 @@
 import hashlib
 
+
 def string_to_md5():
     try:
         text = input().strip()
@@ -9,5 +10,6 @@ def string_to_md5():
             return hashlib.md5(text.encode()).hexdigest()
     except EOFError:
         return None
+
 
 print(string_to_md5())
