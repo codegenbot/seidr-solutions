@@ -38,7 +38,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // Add your testcases here to check the functionality of the split_words function
-    
+    vector<string> a = split_words("Hello, World!");
+    vector<string> b = split_words("Hello World");
+    bool result = issame(a, b);
     return 0;
 }
