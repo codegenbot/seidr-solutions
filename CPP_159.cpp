@@ -1,5 +1,6 @@
-#include <vector>
-using namespace std;
+#include <vector> 
+
+using namespace std; 
 
 vector<int> eat(int number, int need, int remaining) {
     number += need;
@@ -14,7 +15,6 @@ vector<int> eat(int number, int need, int remaining) {
 
 bool issame(vector<int> a, vector<int> b) {
     // implementation of the issame function
-    // You need to specify what it means for 'a' and 'b' to be the same
 }
 
 int main() {
