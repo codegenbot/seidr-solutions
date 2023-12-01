@@ -8,9 +8,9 @@ int countUniqueChars(string word) {
     int count = 0;
     vector<bool> visited(26, false);
 
-    for (char ch : word) {
-        if (!visited[ch - 'a']) {
-            visited[ch - 'a'] = true;
+    for (char c : word) {
+        if (!visited[c - 'a']) {
+            visited[c - 'a'] = true;
             count++;
         }
     }
