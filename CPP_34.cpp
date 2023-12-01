@@ -5,16 +5,13 @@ bool are_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
 }
 
