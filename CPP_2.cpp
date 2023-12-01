@@ -1,5 +1,4 @@
-float truncate_number(float number){
-    int integerPart = static_cast<int>(number);
-    float decimalPart = number - integerPart;
-    return decimalPart;
+float truncate_number(float number) {
+    float decimal = number - floor(number);
+    return decimal;
 }
