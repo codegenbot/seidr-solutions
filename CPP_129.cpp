@@ -82,7 +82,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    // Add more test cases if needed
     
     return 0;
 }
