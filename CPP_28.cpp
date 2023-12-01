@@ -1,7 +1,14 @@
-string concatenate(vector<string> strings){
+#include <vector>
+#include <string>
+
+using namespace std;
+
+string concatenate(vector<string> strings) {
     string result = "";
-    for(string str : strings){
-        result += str;
+
+    for (const string& s : strings) {
+        result += s;
     }
+
     return result;
 }
