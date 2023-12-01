@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
+
+// Existing function
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -28,6 +31,8 @@ int largestPrimeSum(vector<int> lst) {
     }
     return sumOfDigits(largestPrime);
 }
+
+// Main function
 
 int main() {
     vector<int> input = {127, 97, 8192};
