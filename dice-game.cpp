@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 long double probabilityOfHigherRoll(int n, int m) {
