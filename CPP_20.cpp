@@ -10,7 +10,7 @@ bool issame(vector<float> a, vector<float> b) {
 vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = INFINITY;
     float first_num, second_num;
-
+    
     for(int i = 0; i < numbers.size(); i++) {
         for(int j = i + 1; j < numbers.size(); j++) {
             float diff = abs(numbers[i] - numbers[j]);
@@ -21,11 +21,11 @@ vector<float> find_closest_elements(vector<float> numbers) {
             }
         }
     }
-
+    
     vector<float> result;
     result.push_back(first_num);
     result.push_back(second_num);
-
+    
     return result;
 }
 
