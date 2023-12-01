@@ -14,6 +14,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
+    // Implement the logic to determine if the vectors are the same
     if (a.size() != b.size()) {
         return false;
     }
