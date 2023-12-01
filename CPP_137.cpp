@@ -1,41 +1,25 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int aInt = boost::any_cast<int>(a);
-        int bInt = boost::any_cast<int>(b);
-        if (aInt == bInt) {
-            return boost::any();
-        } else if (aInt > bInt) {
-            return aInt;
-        } else {
-            return bInt;
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+            return a;
+        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+            return b;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float aFloat = boost::any_cast<float>(a);
-        float bFloat = boost::any_cast<float>(b);
-        if (aFloat == bFloat) {
-            return boost::any();
-        } else if (aFloat > bFloat) {
-            return aFloat;
-        } else {
-            return bFloat;
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
+            return a;
+        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
+            return b;
         }
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string aString = boost::any_cast<string>(a);
-        string bString = boost::any_cast<string>(b);
-        if (aString == bString) {
-            return boost::any();
-        } else if (aString > bString) {
-            return aString;
-        } else {
-            return bString;
+        if (boost::any_cast<string>(a) > boost::any_cast<string>(b)) {
+            return a;
+        } else if (boost::any_cast<string>(a) < boost::any_cast<string>(b)) {
+            return b;
         }
-    } else {
-        return boost::any();
+    } else if ((a.type() == typeid(string) && b.type() == typeid(int)) ||
+               (a.type() == typeid(int) && b.type() == typeid(string))) {
+        return "None";
     }
+    return boost::any();
 }
