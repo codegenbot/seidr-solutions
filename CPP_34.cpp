@@ -7,16 +7,18 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+    std::vector<int> sortedA(a);
+    std::vector<int> sortedB(b);
+    std::sort(sortedA.begin(), sortedA.end());
+    std::sort(sortedB.begin(), sortedB.end());
+    return sortedA == sortedB;
 }
 
 std::vector<int> unique(const std::vector<int>& l){
-    std::vector<int> result = l;
-    std::sort(result.begin(), result.end());
-    result.erase(std::unique(result.begin(), result.end()), result.end());
-    return result;
+    std::vector<int> sortedL(l);
+    std::sort(sortedL.begin(), sortedL.end());
+    sortedL.erase(std::unique(sortedL.begin(), sortedL.end()), sortedL.end());
+    return sortedL;
 }
 
 int main(){
