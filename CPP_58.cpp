@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    // implementation goes here
+   // implementation goes here
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
