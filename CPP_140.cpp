@@ -1,23 +1,19 @@
-#include <algorithm>
-#include <string>
-
-string fix_spaces(string text) {
-    string result;
-    bool consecutive_spaces = false;
-
-    for (char ch : text) {
-        if (ch == ' ') {
-            if (consecutive_spaces) {
-                result += '-';
-            } else {
-                result += '_';
-                consecutive_spaces = true;
-            }
-        } else {
-            result += ch;
-            consecutive_spaces = false;
-        }
+string fix_spaces(string text){
+  int consecutive_spaces = 0;
+  for(int i=0; i<text.length(); i++){
+    if(text[i] == ' '){
+      consecutive_spaces++;
+      if(consecutive_spaces > 2){
+        text.replace(i, 1, "-");
+        consecutive_spaces = 0;
+      }
+      else{
+        text.replace(i, 1, "_");
+      }
     }
-
-    return result;
+    else{
+      consecutive_spaces = 0;
+    }
+  }
+  return text;
 }
