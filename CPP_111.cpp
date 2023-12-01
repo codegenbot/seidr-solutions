@@ -1,5 +1,5 @@
 map<char,int> histogram(string test){
-    map<char, int> countMap;
+    map<char,int> result;
     string word;
     for(int i=0; i<test.length(); i++){
         if(test[i] != ' '){
@@ -7,13 +7,13 @@ map<char,int> histogram(string test){
         }
         else{
             if(word.length() > 0){
-                countMap[word[0]]++;
+                result[word[0]]++;
                 word = "";
             }
         }
     }
     if(word.length() > 0){
-        countMap[word[0]]++;
+        result[word[0]]++;
     }
-    return countMap;
+    return result;
 }
