@@ -11,8 +11,6 @@ string sort_numbers(string numbers);
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-
-    return 0;
 }
 
 string sort_numbers(string numbers){
