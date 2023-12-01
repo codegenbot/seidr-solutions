@@ -1,15 +1,24 @@
-int search(vector<int> lst){
-    int max_val = -1;
-    for(int i = 0; i < lst.size(); i++){
+#include <vector>
+
+using namespace std;
+
+int search(const vector<int>& lst){
+    int result = -1;
+    for(int i = 1; i <= lst.size(); i++){
         int count = 0;
         for(int j = 0; j < lst.size(); j++){
-            if(lst[j] == lst[i]){
+            if(lst[j] == i){
                 count++;
             }
         }
-        if(count >= lst[i] && lst[i] > max_val){
-            max_val = lst[i];
+        if(count >= i && i > result){
+            result = i;
         }
     }
-    return max_val;
+    return result;
+}
+
+int main(){
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
