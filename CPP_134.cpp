@@ -1,19 +1,15 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()){
         return false;
     }
-    
-    int n = txt.length();
-    char lastChar = txt[n-1];
-    
-    if (isalpha(lastChar)) {
-        for (int i = n-2; i >= 0; i--) {
-            if (txt[i] == ' ') {
-                return true;
-            }
+    int len = txt.length();
+    if(!isalpha(txt[len-1])){
+        return false;
+    }
+    for(int i=len-2; i>=0; i--){
+        if(txt[i] == ' '){
+            return true;
         }
-        return false;
     }
-    
     return false;
 }
