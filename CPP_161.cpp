@@ -1,25 +1,18 @@
-string solve(string s){
-    string result = "";
+#include <iostream>
+#include <cctype>
+#include <algorithm>
+#include <string>
+
+std::string solve(std::string s) {
     bool hasLetter = false;
-
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
+    for (char& c : s) {
+        if (std::isalpha(c)) {
+            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
             hasLetter = true;
-            if(islower(s[i])){
-                result += toupper(s[i]);
-            }
-            else{
-                result += tolower(s[i]);
-            }
-        }
-        else{
-            result += s[i];
         }
     }
-
-    if(!hasLetter){
-        reverse(result.begin(), result.end());
+    if (!hasLetter) {
+        std::reverse(s.begin(), s.end());
     }
-
-    return result;
+    return s;
 }
