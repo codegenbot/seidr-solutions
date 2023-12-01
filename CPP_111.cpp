@@ -1,6 +1,5 @@
 #include <map>
 #include <string>
-#include <cassert>
 
 map<char, int> histogram(string test) {
     map<char, int> result;
