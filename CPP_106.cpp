@@ -1,13 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
+
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> f(int n);
 
 vector<int> f(int n) {
     vector<int> result;
@@ -30,7 +26,7 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert(f(3) == vector<int>{1, 2, 6});
     // Add more test cases here
 
     return 0;
