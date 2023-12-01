@@ -1,46 +1,33 @@
 def calculate_score(bowls):
     score = 0
     frame = 1
-    frame_score = 0
-    is_strike = False
-    is_spare = False
-    for bowl in bowls:
-        if bowl == 'X':
+    bowl_index = 0
+    
+    while frame <= 10:
+        if bowls[bowl_index] == 'X':
             score += 10
-            if frame < 10:
-                frame += 1
-            if is_strike:
-                score += 10
-            if is_spare:
-                score += 10
-            is_strike = True
-            is_spare = False
-        elif bowl == '/':
-            score += 10 - frame_score
-            if frame < 10:
-                frame += 1
-            if is_strike:
-                score += 10
-            is_strike = False
-            is_spare = True
-        elif bowl == '-':
-            if is_strike:
-                score += 10
-            if is_spare:
-                score += 10 - frame_score
-            is_strike = False
-            is_spare = False
+            if bowl_index + 2 < len(bowls):
+                if bowls[bowl_index + 2] == 'X':
+                    score += 10
+                elif bowls[bowl_index + 2] == '/':
+                    score += 10 - int(bowls[bowl_index + 1])
+                else:
+                    score += int(bowls[bowl_index + 1]) + int(bowls[bowl_index + 2])
+            bowl_index += 1
+        elif bowls[bowl_index] == '/':
+            score += 10 - int(bowls[bowl_index - 1])
+            if bowl_index + 1 < len(bowls):
+                if bowls[bowl_index + 1] == 'X':
+                    score += 10
+                else:
+                    score += int(bowls[bowl_index + 1])
+            bowl_index += 1
         else:
-            score += int(bowl)
-            frame_score = int(bowl)
-            if frame < 10:
-                if is_strike:
-                    score += int(bowl)
-                if is_spare:
-                    score += int(bowl)
-                frame += 1
-                is_strike = False
-                is_spare = False
+            score += int(bowls[bowl_index])
+        
+        bowl_index += 1
+        frame += 1
+    
     return score
 
 bowls = input()
