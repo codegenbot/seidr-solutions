@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -13,6 +14,6 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-def solve() -> List[int]:
-    n = int(input())
+
+def solve(n: int) -> List[int]:
     return factorize(n)
