@@ -1,34 +1,50 @@
 def calculate_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
-    
-    while frame <= 10:
-        if bowls[bowl_index] == 'X':
+    frame_score = 0
+    is_strike = False
+    is_spare = False
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-            if bowl_index + 2 < len(bowls):
-                if bowls[bowl_index + 2] == 'X':
-                    score += 10
-                elif bowls[bowl_index + 2] == '/':
-                    score += 10 - int(bowls[bowl_index + 1])
-                else:
-                    score += int(bowls[bowl_index + 1]) + int(bowls[bowl_index + 2])
-            bowl_index += 1
-        elif bowls[bowl_index] == '/':
-            score += 10 - int(bowls[bowl_index - 1])
-            if bowl_index + 1 < len(bowls):
-                if bowls[bowl_index + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[bowl_index + 1])
-            bowl_index += 1
+            if frame < 10:
+                frame_score = 10
+                is_strike = True
+            else:
+                frame_score += 10
+        elif bowl == '/':
+            score += 10 - frame_score
+            if frame < 10:
+                frame_score = 10
+                is_spare = True
+            else:
+                frame_score += 10 - frame_score
+        elif bowl == '-':
+            if frame < 10:
+                frame_score = 0
+            else:
+                frame_score += 0
         else:
-            score += int(bowls[bowl_index])
+            score += int(bowl)
+            if frame < 10:
+                frame_score += int(bowl)
+            else:
+                frame_score += int(bowl)
         
-        bowl_index += 1
-        frame += 1
+        if is_strike:
+            score += int(bowl)
+            frame_score += int(bowl)
+            is_strike = False
+        elif is_spare:
+            score += int(bowl)
+            frame_score += int(bowl)
+            is_spare = False
+        
+        if frame < 10 and (is_strike or frame_score == 10):
+            frame += 1
+            frame_score = 0
     
     return score
 
-bowls = input()
+bowls = input().strip()
 print(calculate_score(bowls))
