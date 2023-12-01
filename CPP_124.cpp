@@ -1,4 +1,7 @@
-bool valid_date(string date) {
+#include <iostream>
+#include <string>
+
+bool valid_date(std::string date) {
     if (date.empty()) {
         return false;
     }
@@ -29,6 +32,12 @@ bool valid_date(string date) {
             return false;
         }
     }
+    
+    return true;
+}
+
+bool test_valid_date() {
+    std::cout << valid_date("04-2003") << std::endl;
     
     return true;
 }
