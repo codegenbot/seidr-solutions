@@ -10,7 +10,7 @@ vector<float> get_positive(vector<float> l){
     return positive_nums;
 }
 
-bool issame_vec(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -25,7 +25,6 @@ bool issame_vec(vector<float> a, vector<float> b){
 }
 
 int main() {
-    assert (issame_vec(get_positive({}) , {}));
-
+    assert (issame(get_positive({}) , {}));
     return 0;
 }
