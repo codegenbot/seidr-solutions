@@ -19,7 +19,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    // Call the reverse_delete function with appropriate arguments and print the result
     vector<string> result = reverse_delete("mamma", "mia");
     cout << result[0] << " " << result[1] << endl;
     
