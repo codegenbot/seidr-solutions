@@ -1,33 +1,26 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
-bool cycpattern_check(string a, string b) {
-    int n = a.length();
-    int m = b.length();
+bool cycpattern_check(std::string a, std::string b) {
+    int lenA = a.length();
+    int lenB = b.length();
 
-    if (m > n) {
+    if (lenA < lenB) {
         return false;
     }
 
-    for (int i = 0; i < n; i++) {
-        bool found = true;
+    std::string temp = b + b;
 
-        for (int j = 0; j < m; j++) {
-            if (a[(i + j) % n] != b[j]) {
-                found = false;
-                break;
-            }
-        }
-
-        if (found) {
-            return true;
-        }
+    if (temp.find(a) != std::string::npos) {
+        return true;
     }
 
     return false;
 }
 
 int main() {
-    assert(cycpattern_check("winemtt", "tinem") == true);
+    assert(cycpattern_check("winemtt","tinem") == true);
+
     return 0;
 }
