@@ -3,7 +3,9 @@
 #include <cassert>
 #include <climits>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(vector<int>& a, vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +17,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
+vector<int> largest_smallest_integers(vector<int> lst) {
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
     
@@ -32,20 +34,15 @@ std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
 }
 
 int main() {
-    bool issameResult = issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
-    assert(issameResult);
-    
-    issameResult = issame(largest_smallest_integers({5, 3, -1, 7, 2}), {-1, 2});
-    assert(issameResult);
-    
-    issameResult = issame(largest_smallest_integers({0, 0, 0, 0, 0}), {0, 0});
-    assert(issameResult);
-    
-    issameResult = issame(largest_smallest_integers({-1, -2, -3, -4, -5}), {-1, -5});
-    assert(issameResult);
-    
-    issameResult = issame(largest_smallest_integers({1, 2, 3, 4, 5}), {5, 1});
-    assert(issameResult);
-    
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
+
+    assert(issame(largest_smallest_integers({5, 3, -1, 7, 2}), {-1, 2}));
+
+    assert(issame(largest_smallest_integers({0, 0, 0, 0, 0}), {0, 0}));
+
+    assert(issame(largest_smallest_integers({-1, -2, -3, -4, -5}), {-1, -5}));
+
+    assert(issame(largest_smallest_integers({1, 2, 3, 4, 5}), {5, 1}));
+
     return 0;
 }
