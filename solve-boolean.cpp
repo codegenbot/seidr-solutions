@@ -4,7 +4,7 @@
 bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
     if (expression.length() == 1) {
         if (expression[0] == 'T') {
-            return !isEnclosed;
+            return isEnclosed;
         } else if (expression[0] == 'F') {
             return !isEnclosed;
         }
