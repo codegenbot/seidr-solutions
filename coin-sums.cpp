@@ -15,7 +15,7 @@ int main() {
 
     int pennies = cents;
 
-    int totalCoins = quarters + dimes + nickels + pennies;
+    int totalCoins = quarters + dimes + nickels + pennies + cents;
 
     std::cout << totalCoins << std::endl;
     std::cout << pennies << std::endl;
