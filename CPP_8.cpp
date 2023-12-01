@@ -2,20 +2,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 std::vector<int> sum_product(std::vector<int> numbers) {
     std::sort(numbers.begin(), numbers.end());
 
@@ -27,7 +13,7 @@ std::vector<int> sum_product(std::vector<int> numbers) {
         product *= numbers[i];
     }
 
-    return std::vector<int>({sum, product});
+    return {sum, product};
 }
 
 int main() {
@@ -39,12 +25,12 @@ int main() {
         std::cin >> numbers[i];
     }
 
-    std::vector<int> result = sum_product(numbers);
+    std::vector<int> result = sum_product(std::move(numbers));
 
     for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+        std::cout << result[i] << ' ';
     }
-    std::cout << std::endl;
+    std::cout << '\n';
 
     return 0;
 }
