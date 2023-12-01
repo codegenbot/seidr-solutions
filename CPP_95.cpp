@@ -1,7 +1,6 @@
+#include <iostream>
 #include <map>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
 bool check_dict_case(map<string,string> dict){
@@ -33,6 +32,9 @@ bool check_dict_case(map<string,string> dict){
 
 int main() {
     assert (check_dict_case({}) == false);
+    // additional test cases
+    // assert (check_dict_case({{"abc", "def"}, {"ABC", "DEF"}}) == true);
+    // assert (check_dict_case({{"abc", "def"}, {"ABC", "DEF"}, {"xyz", "XYZ"}}) == false);
 
     return 0;
 }
