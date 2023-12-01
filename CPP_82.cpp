@@ -6,7 +6,7 @@ bool prime_length(std::string str){
     if(length <= 1){
         return false;
     }
-    for(int i=2; i*i<=length; i++){
+    for(int i=2; i * i <= length; i++){
         if(length % i == 0){
             return false;
         }
@@ -15,9 +15,7 @@ bool prime_length(std::string str){
 }
 
 int main(){
-    assert(prime_length("0") == false); 
-
-    // Rest of your code...
+    assert(prime_length("0") == false);
 
     return 0;
 }
