@@ -18,7 +18,7 @@ string sort_numbers(string numbers){
     number_map["seven"] = 7;
     number_map["eight"] = 8;
     number_map["nine"] = 9;
-  
+
     vector<int> number_values;
     stringstream ss(numbers);
     string number;
