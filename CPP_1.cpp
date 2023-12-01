@@ -1,7 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <string>
-
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
@@ -28,12 +30,12 @@ vector<string> separate_paren_groups(string paren_string){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    // Your code here
+bool issame(vector<string> a, vector<string> b) {
+    // Your code here to check if a and b are the same
+    // Return true if they are the same, else return false
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Your code here
+int main() {
+    // Your test cases to check the issame function
+    return 0;
 }
