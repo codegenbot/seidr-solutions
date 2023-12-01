@@ -36,6 +36,14 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    // Add your code here to test the find_closest_elements function
+    // Code to test the find_closest_elements function
+    vector<float> numbers = {1.5, 2.3, 4.7, 3.2, 1.8};
+    vector<float> closest_elements = find_closest_elements(numbers);
+    
+    // Print the closest elements
+    for(int i=0; i<closest_elements.size(); i++){
+        cout << closest_elements[i] << " ";
+    }
+    
     return 0;
 }
