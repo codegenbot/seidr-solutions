@@ -7,10 +7,16 @@ def mastermind(code, guess):
     for i in range(len(code)):
         if code[i] == guess[i]:
             black_pegs += 1
-            code_count[code[i]] -= 1
-            guess_count[guess[i]] -= 1
-            
-    for color, count in guess_count.items():
-        white_pegs += min(count, code_count[color])
-        
+    
+    for color in code_count:
+        white_pegs += min(code_count[color], guess_count[color])
+    
+    white_pegs -= black_pegs
+    
     return white_pegs, black_pegs
+
+code = input()
+guess = input()
+output = mastermind(code, guess)
+print(output[0])
+print(output[1])
