@@ -1,8 +1,20 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool are_same(std::vector<int> a, std::vector<int> b) {
     // Implementation of the `are_same` function
+    if (a.size() != b.size()) {
+        return false;
+    }
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> unique_numbers(std::vector<int> l) {
