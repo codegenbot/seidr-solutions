@@ -1,21 +1,29 @@
-vector<float> derivative(vector<float> xs){
-    vector<float> result;
-    for(int i=1; i<xs.size(); i++){
-        result.push_back(xs[i]*i);
+#include <iostream>
+#include <vector>
+
+std::vector<float> derivative(std::vector<float> xs) {
+    std::vector<float> result;
+    for (int i = 1; i < xs.size(); i++) {
+        result.push_back(xs[i] * i);
     }
     return result;
 }
 
-vector<float> derivative(vector<float> xs);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    // implementation here
+    // return true if vectors a and b are the same
+    // otherwise, return false
+}
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
+int main() {
+    // test cases
+    std::vector<float> result = derivative({1.0});
+
+    // print the result
+    for (float val : result) {
+        std::cout << val << " ";
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    std::cout << std::endl;
+
+    return 0;
 }
