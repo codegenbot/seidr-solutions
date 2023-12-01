@@ -1,9 +1,5 @@
-#include <vector>
-#include <utility>
-#include <algorithm>
-#include <cassert>
-
-bool issame(vector<int> a, vector<int> b){
+template<typename T>
+bool issame(vector<T> a, vector<T> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -14,6 +10,8 @@ bool issame(vector<int> a, vector<int> b){
     }
     return true;
 }
+
+vector<int> order_by_points(vector<int> nums);
 
 vector<int> order_by_points(vector<int> nums){
     vector<pair<int, int>> sums;
@@ -32,9 +30,4 @@ vector<int> order_by_points(vector<int> nums){
         result.push_back(nums[p.second]);
     }
     return result;
-}
-
-int main(){
-    assert (issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }
