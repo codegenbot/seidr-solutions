@@ -25,6 +25,6 @@ int main() {
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
     assert(result == expected);
-    
+
     return 0;
 }
