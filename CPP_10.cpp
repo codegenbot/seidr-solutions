@@ -1,5 +1,7 @@
 string make_palindrome(string str){
-    string rev_str(str.rbegin(), str.rend());
-    string prefix = str.substr(0, str.length() - 1);
-    return str + rev_str;
+    int n = str.length();
+    string rev_str = str;
+    reverse(rev_str.begin(), rev_str.end());
+    string palin_str = str + rev_str;
+    return palin_str;
 }
