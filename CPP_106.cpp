@@ -1,7 +1,7 @@
-#include<iostream>
-#include<vector>
-#include<cassert>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -25,9 +25,6 @@ vector<int> f(int n) {
     return result;
 }
 
-int main() {
-    assert(f(3) == vector<int>{1, 2, 6});
-    // Add more test cases here
-
-    return 0;
-}
+vector<int> expected = {1, 2, 6};
+vector<int> actual = f(3);
+assert(expected == actual);
