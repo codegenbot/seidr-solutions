@@ -1,4 +1,4 @@
-#include <string>
+#include <string> 
 
 bool is_palindrome(std::string text){
     int length = text.length();
