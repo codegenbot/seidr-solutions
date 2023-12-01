@@ -1,10 +1,9 @@
 from typing import List
 
-def count_chars(string: str) -> List[int]:
-    char_count = [0] * 26
-    
-    for char in string:
-        if char.isalpha():
-            char_count[ord(char.lower()) - ord('a')] += 1
-    
-    return char_count
+
+def find_max_length_words(words: List[str], target_length: int) -> List[int]:
+    result = []
+    for i in range(len(words)):
+        if len(words[i]) == target_length:
+            result.append(i)
+    return result
