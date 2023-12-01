@@ -2,18 +2,6 @@
 #include <cassert>
 #include <cmath>
 
-std::vector<float> find_closest_elements(std::vector<float> numbers);
-
-bool is_same_vector(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-4)
-            return false;
-    }
-    return true;
-}
-
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     float min_diff = std::abs(numbers[0] - numbers[1]);
     float num1 = numbers[0];
@@ -35,6 +23,16 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     result.push_back(num2);
 
     return result;
+}
+
+bool is_same_vector(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-4)
+            return false;
+    }
+    return true;
 }
 
 int main() {
