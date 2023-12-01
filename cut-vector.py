@@ -1,11 +1,11 @@
 def cut_vector(vector):
-    total_sum = sum(vector)
+    n = len(vector)
     left_sum = 0
-    right_sum = total_sum
+    right_sum = sum(vector)
     min_diff = float("inf")
-    cut_index = 0
+    cut_index = -1
 
-    for i in range(len(vector)):
+    for i in range(n):
         left_sum += vector[i]
         right_sum -= vector[i]
         diff = abs(left_sum - right_sum)
