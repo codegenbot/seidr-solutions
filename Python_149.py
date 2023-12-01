@@ -1,2 +1,3 @@
 def sorted_list_sum(lst):
-    return sum(sorted(lst))
+    sorted_lst = sorted(lst)
+    return sum(sorted_lst)
