@@ -24,18 +24,8 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<string, int>& a, map<string, int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (const auto& pair : a) {
-        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(map<string, int> a, initializer_list<pair<const string, int>> b) {
+    return map<string, int>(b) == a;
 }
 
 int main() {
