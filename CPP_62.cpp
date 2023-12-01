@@ -1,7 +1,5 @@
 #include <vector>
 
-using namespace std;
-
 vector<float> derivative(vector<float> xs){
     vector<float> result;
     for(int i=1; i<xs.size(); i++){
@@ -12,15 +10,10 @@ vector<float> derivative(vector<float> xs){
 
 void issame(vector<float> a, vector<float> b){
     // Implementation of issame function
-    // Add your implementation here
 }
 
 int main(){
-    vector<float> xs = {1};
-    vector<float> result = derivative(xs);
-    vector<float> expected = {};
-
-    issame(result, expected);
-
+    assert(issame(derivative({1}), {}));
+    // Rest of the main function
     return 0;
 }
