@@ -1,52 +1,58 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+
+    // Calculate the sum of all numbers in the vector
+    int totalSum = 0;
+    for (int num : nums) {
+        totalSum += num;
     }
-    
-    int target = sum / 2;
-    int currSum = 0;
-    int diff = INT_MAX;
-    int idx = -1;
-    
+
+    // Iterate through each index to find the cut spot
+    int leftSum = 0;
     for (int i = 0; i < n; i++) {
-        currSum += nums[i];
-        int currDiff = abs(target - currSum);
-        if (currDiff < diff) {
-            diff = currDiff;
-            idx = i;
+        int rightSum = totalSum - leftSum;
+        int diff = abs(leftSum - rightSum);
+
+        // Check if the current difference is smaller than the minimum difference found so far
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
+
+        leftSum += nums[i];
     }
-    
-    vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subVec2(nums.begin() + idx + 1, nums.end());
-    
-    return make_pair(subVec1, subVec2);
+
+    // Create the two resulting subvectors
+    std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    std::vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+
+    return std::make_pair(subvector1, subvector2);
 }
 
 int main() {
+    // Read the input vector from the user
     int n;
-    cin >> n;
-    
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << endl;
+
+    // Call the cutVector function to get the resulting subvectors
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+
+    // Print the resulting subvectors
+    for (int num : result.first) {
+        std::cout << num << std::endl;
     }
-    
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << endl;
+    for (int num : result.second) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
