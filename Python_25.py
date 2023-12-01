@@ -5,7 +5,7 @@ def factorize(n: int) -> List[int]:
     factors = []
     i = 2
     while i * i <= n:
-        if n % i == 0:
+        if(n % i) == 0:
             n //= i
             factors.append(i)
         else:
@@ -16,5 +16,3 @@ def factorize(n: int) -> List[int]:
 
 
 n = int(input())
-result = factorize(n)
-print(result)
