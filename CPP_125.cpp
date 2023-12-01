@@ -4,11 +4,24 @@
 #include <cassert>
 
 vector<string> split_words(string txt);
+bool issame(vector<string> v1, vector<string> v2);
+
+bool issame(vector<string> v1, vector<string> v2){
+    if(v1.size() != v2.size()){
+        return false;
+    }
+    for(int i=0; i<v1.size(); i++){
+        if(v1[i] != v2[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 int main(){
     // Test cases
-    assert(split_words("").size() == 1 && split_words("").at(0) == "0");
-    assert(split_words("Hello, World!") == vector<string>{"Hello", "World!"});
+    assert (issame(split_words("") ,{"0"}));
+    assert (issame(split_words("Hello, World!") ,{"Hello", "World!"}));
     // Add more test cases
     
     return 0;
