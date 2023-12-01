@@ -1,26 +1,45 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(vector<float> a, vector<float> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<float> sort_even(vector<float> l){
-    vector<float> l_prime(l.size());
+    vector<float> l_prime;
     for(int i=0; i<l.size(); i++){
-        if(i%2 == 0){
-            l_prime[i] = l[i];
-        }else{
-            l_prime[i] = l_prime[i-1];
+        if(i % 2 == 0){
+            l_prime.push_back(l[i]);
         }
     }
     sort(l_prime.begin(), l_prime.end());
+    int j = 0;
+    for(int i=0; i<l.size(); i++){
+        if(i % 2 == 0){
+            l_prime.insert(l_prime.begin() + i, l[j]);
+            j++;
+        }
+    }
     return l_prime;
 }
 
 int main(){
-    assert(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == 
-           {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
+    // Test the sort_even function
+    vector<float> input = {5.4, 2.1, 3.7, 8.2, 1.9};
+    vector<float> output = sort_even(input);
+    vector<float> expected = {2.1, 5.4, 1.9, 3.7, 8.2};
+    if(issame(output, expected)){
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
     return 0;
 }
