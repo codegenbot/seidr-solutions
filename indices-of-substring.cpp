@@ -1,4 +1,4 @@
-#include <iostream>
+... #include <iostream>
 #include <vector>
 #include <string>
 
@@ -15,7 +15,6 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
                 break;
             }
         }
-        
         if (found || (j == targetLength - 1 && text[i + j] == target[j])) {
             indices.push_back(i);
         }
