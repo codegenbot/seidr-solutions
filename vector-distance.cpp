@@ -22,7 +22,7 @@ int main() {
     }
 
     std::vector<double> vector2(vector1.size());
-    for (int i = 0; i < vector2.size(); i++) {
+    for (int i = 0; i < vector1.size(); i++) {
         std::cin >> vector2[i];
     }
 
