@@ -7,10 +7,12 @@ def below_zero(operations: List[int]) -> bool:
         if balance < 0:
             return True
     return False
-n = 5 
+
+n = 5  # replace with the correct number of operations
+
 operations = []
 for i in range(n):
-    operation = list(map(int, input().split()))  
+    operation = list(map(int, input().split()))  # replace with the correct input method
     operations.append(operation)
 
 result = below_zero(operations)
