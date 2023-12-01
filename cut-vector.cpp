@@ -49,15 +49,15 @@ int main() {
 
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
-    std::cout << "Left subvector: ";
+    std::cout << "Left Subvector:";
     for (int num : result.first) {
-        std::cout << num << " ";
+        std::cout << " " << num;
     }
     std::cout << std::endl;
 
-    std::cout << "Right subvector: ";
+    std::cout << "Right Subvector:";
     for (int num : result.second) {
-        std::cout << num << " ";
+        std::cout << " " << num;
     }
     std::cout << std::endl;
 
