@@ -12,7 +12,7 @@ vector<int> maximum(vector<int> arr, int k) {
     return arr;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
