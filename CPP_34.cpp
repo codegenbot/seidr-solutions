@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
@@ -18,14 +19,7 @@ std::vector<int> unique(std::vector<int> l){
 }
 
 int main(){
-    std::vector<int> result = unique({5, 3, 5, 2, 3, 3, 9, 0, 123});
-    std::vector<int> expected = {0, 2, 3, 5, 9, 123};
-  
-    if(issame(result, expected)){
-        std::cout << "Test passed!" << std::endl;
-    }
-    else{
-        std::cout << "Test failed!" << std::endl;
-    }
+    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
