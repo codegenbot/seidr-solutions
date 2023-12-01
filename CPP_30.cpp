@@ -1,4 +1,7 @@
+#include <iostream>
 #include <vector>
+
+using namespace std;
 
 vector<float> get_positive(vector<float> l);
 
@@ -11,7 +14,7 @@ int main() {
     return 0;
 }
 
-vector<float> get_positive(vector<float> l) {
+vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
     for (int i = 0; i < l.size(); i++) {
         if (l[i] > 0) {
