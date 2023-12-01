@@ -1,8 +1,8 @@
-#include <iostream>
-#include <string>
+`#include <iostream>
 #include <map>
+using namespace std;
 
-bool check_dict_case(std::map<std::string, std::string> dict){
+bool check_dict_case(map<string,string>& dict){
     if(dict.empty()){
         return false;
     }
@@ -11,13 +11,13 @@ bool check_dict_case(std::map<std::string, std::string> dict){
     bool allUpper = true;
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        std::string key = it->first;
+        string key = it->first;
         
         for(char c : key){
-            if(std::islower(c)){
+            if(islower(c)){
                 allUpper = false;
             }
-            else if(std::isupper(c)){
+            else if(isupper(c)){
                 allLower = false;
             }
         }
@@ -26,8 +26,7 @@ bool check_dict_case(std::map<std::string, std::string> dict){
     return allLower || allUpper;
 }
 
-int main() {
-    assert (check_dict_case(std::map<std::string, std::string>{}) == false);
-  
+int main(){
+    assert(check_dict_case(map<string,string>()) == false);
     return 0;
-}
+}`
