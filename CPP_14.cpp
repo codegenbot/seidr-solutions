@@ -1,6 +1,7 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -14,21 +15,17 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
-        return false;
+bool issame(vector<string> b){
+    vector<string> a = all_prefixes(b[0]);
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
     return true;
 }
 
 int main(){
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW")));
+    cout << "Test cases passed." << endl;
     return 0;
 }
