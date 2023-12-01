@@ -1,12 +1,11 @@
 def match_parens(lst):
     stack = []
-    open_parens = set(['(', '{', '['])
-    close_parens = set([')', '}', ']'])
-    parentheses = {'(': ')', '{': '}', '[': ']'}
-    for char in lst[0] + lst[1]:
-        if char in open_parens:
-            stack.append(char)
-        elif char in close_parens:
-            if not stack or char != parentheses[stack.pop()]:
-                return 'No'
-    return 'Yes' if not stack else 'No'
+    for s in lst:
+        for c in s:
+            if c == '(':
+                stack.append(c)
+            elif c == ')':
+                if len(stack) == 0:
+                    return 'No'
+                stack.pop()
+    return 'Yes' if len(stack) == 0 else 'No'
