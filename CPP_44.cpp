@@ -15,9 +15,7 @@ string change_base(int x, int base) {
 
 int main() {
     int x; // Replace with your desired value
-    cout << "Enter a value for x: ";
     cin >> x;
-
     assert(change_base(x, x + 1) == to_string(x));
 
     cout << "Test case passed." << endl;
