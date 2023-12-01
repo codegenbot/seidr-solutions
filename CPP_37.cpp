@@ -4,18 +4,6 @@
 
 using namespace std;
 
-bool issame(const vector<float>& a, const vector<float>& b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<float> sort_even(const vector<float>& l) {
     vector<float> l_prime = l;
     vector<float> even_values;
@@ -31,4 +19,35 @@ vector<float> sort_even(const vector<float>& l) {
     }
     
     return l_prime;
+}
+
+vector<float> sort_even_test() {
+    vector<float> result = sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    
+    vector<float> expected_result = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    
+    assert(result == expected_result);
+    
+    return result;
+}
+
+vector<float> issame_test() {
+    vector<float> a = {1, 2, 3};
+    vector<float> b = {1, 2, 3};
+    
+    assert(issame(a, b) == true);
+    
+    vector<float> c = {1, 2, 3};
+    vector<float> d = {1, 2, 4};
+    
+    assert(issame(c, d) == false);
+    
+    return a;
+}
+
+int main() {
+    sort_even_test();
+    issame_test();
+    
+    return 0;
 }
