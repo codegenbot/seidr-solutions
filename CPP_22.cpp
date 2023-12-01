@@ -13,7 +13,7 @@ std::vector<int> filter_integers(const std::list<std::variant<int, char>>& value
     return result;
 }
 
-std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
