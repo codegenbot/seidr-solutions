@@ -18,7 +18,4 @@ vector<int> sum_product(vector<int> numbers){
 
 int main(){
     // add your test cases here using sum_product and issame functions
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<int> result = sum_product(numbers);
-    issame(numbers, result);
 }
