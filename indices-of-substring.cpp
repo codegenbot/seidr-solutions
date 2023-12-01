@@ -11,8 +11,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         return indices;
     }
 
-    for (int i = 0; i < textLength - targetLength + 1; i++) {
-        if (text.find(target, i) == i || text.find(target, i) == i + targetLength) {
+    for (int i = 0; i < textLength - targetLength + 2; i++) {
+        if (text.find(target, i) != std::string::npos) {
             indices.push_back(i);
         }
     }
