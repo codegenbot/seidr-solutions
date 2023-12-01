@@ -2,7 +2,9 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -14,10 +16,10 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> even_odd_palindrome(int n){
-    std::vector<int> result(2, 0);
+vector<int> even_odd_palindrome(int n){
+    vector<int> result(2, 0);
     for(int i = 1; i <= n; i++){
-        std::string s = std::to_string(i);
+        string s = to_string(i);
         int left = 0, right = s.length() - 1;
         bool isPalindrome = true;
         while(left < right){

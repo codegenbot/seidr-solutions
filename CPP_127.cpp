@@ -1,5 +1,7 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+using namespace std;
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];

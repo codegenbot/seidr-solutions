@@ -5,7 +5,6 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    // function implementation
     return a == b;
 }
 
