@@ -1,8 +1,11 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
 using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k);
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
@@ -15,13 +18,12 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         visited[curRow][curCol] = true;
         k--;
 
-        // Check if there is a neighbor cell that has not been visited
         if (curRow + 1 < n && !visited[curRow + 1][curCol]) {
             curRow++;
         } else if (curCol + 1 < n && !visited[curRow][curCol + 1]) {
             curCol++;
         } else {
-            break; // No unvisited neighbor cells, exit the loop
+            break;
         }
     }
 
@@ -44,6 +46,5 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-
     return 0;
 }
