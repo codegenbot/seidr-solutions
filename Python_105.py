@@ -1,5 +1,14 @@
 def by_length(arr):
-    arr = [x for x in arr if 1 <= x <= 9]
-    arr.sort()
-    arr.reverse()
-    return ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"][x-1 for x in arr]
+    return [digit_names[i] for i in sorted(arr) if 1 <= i <= 9][::-1]
+
+digit_names = {
+    1: "One",
+    2: "Two",
+    3: "Three",
+    4: "Four",
+    5: "Five",
+    6: "Six",
+    7: "Seven",
+    8: "Eight",
+    9: "Nine"
+}
