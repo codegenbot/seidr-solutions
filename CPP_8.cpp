@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-   return (a == b);
-}
+using namespace std;
 
 vector<int> sum_product(vector<int> numbers){
     int sum = 0;
@@ -15,6 +13,10 @@ vector<int> sum_product(vector<int> numbers){
     }
 
     return {sum, product};
+}
+
+bool issame(vector<int> a, vector<int> b){
+   return (a == b);
 }
 
 int main() {
