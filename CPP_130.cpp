@@ -14,11 +14,13 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-vector<int> tri(int n){
+vector<int> tri(int n) {
     vector<int> sequence;
     sequence.push_back(3);
 
-    if(n == 0) return sequence;
+    if(n == 0) {
+        return sequence;
+    }
 
     sequence.push_back(1 + n / 2);
 
@@ -27,14 +29,14 @@ vector<int> tri(int n){
             sequence.push_back(1 + i / 2);
         }
         else{
-            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i - 3]);
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]);
         }
     }
 
     return sequence;
 }
 
-int main(){
+int main() {
     assert(issame(tri(1), {1, 3}));
 
     return 0;
