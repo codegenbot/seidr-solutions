@@ -33,13 +33,3 @@ any compare_one(any a, any b) {
     }
     return any("None");
 }
-
-int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
-    assert(boost::any_cast<int>(compare_one(2, 3)) == 3);
-    assert(boost::any_cast<int>(compare_one(5, 3)) == 5);
-    assert(boost::any_cast<string>(compare_one(string("abc"), string("def"))) == "def");
-    assert(boost::any_cast<string>(compare_one(string("xyz"), string("abc"))) == "xyz");
-
-    return 0;
-}

@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -29,5 +28,3 @@ vector<int> even_odd_count(int num){
 }
 
 #include <cassert>
-
-int main(){
