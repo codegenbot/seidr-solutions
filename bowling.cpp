@@ -19,7 +19,7 @@ int getScore(std::string input) {
         } else if (current == '-') {
             // do nothing
         } else {
-            score += (current - '0');
+            score += current - '0';
         }
         
         frame++;
