@@ -9,9 +9,9 @@ def cut_vector(vector):
     cut_index = -1
 
     for i in range(1, n):
-        left_sum = prefix_sum[i]
-        right_sum = total_sum - left_sum
-        diff = abs(left_sum - right_sum)
+        sum_left = prefix_sum[i]
+        sum_right = total_sum - sum_left
+        diff = abs(sum_left - sum_right)
 
         if diff < min_diff:
             min_diff = diff
