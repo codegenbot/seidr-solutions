@@ -3,5 +3,4 @@ def concatenate(strings: List[str]) -> str:
 
 
 strings = input().split()
-
 print(concatenate(strings))
