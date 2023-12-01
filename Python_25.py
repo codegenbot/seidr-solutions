@@ -1,8 +1,3 @@
-def main():
-    n = int(input())
-    result = solve(n)
-    print(result)
-
-
-if __name__ == "__main__":
-    main()
+def solve(n):
+    # Add your logic here
+    return n * 2
