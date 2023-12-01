@@ -2,7 +2,17 @@
 
 vector<float> find_closest_elements(vector<float> numbers);
 
-bool issame(vector<float> a, vector<float> b);
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<float> find_closest_elements(vector<float> numbers){
     float min_diff = abs(numbers[0] - numbers[1]);
@@ -27,19 +37,6 @@ vector<float> find_closest_elements(vector<float> numbers){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int main(){
-    // Add your code here
-    return 0;
+    ...
 }
