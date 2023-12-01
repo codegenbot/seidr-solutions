@@ -1,10 +1,6 @@
+#include <cstring>
 #include <string>
 
-int myStrlen(std::string str){
-    return str.length();
-}
-
-int main(){
-    assert (myStrlen("asdasnakj") == 9);
-    return 0;
+int getLength(std::string str){
+    return strlen(str.c_str());
 }
