@@ -1,27 +1,29 @@
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group = "";
-    int count = 0;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
 
-    for (char ch : paren_string) {
-        if (ch == '(') {
-            count++;
-        } else if (ch == ')') {
-            count--;
+    // Iterate over each character in the input string
+    for (char c : paren_string) {
+        // Ignore spaces
+        if (c == ' ') {
+            continue;
         }
-
-        if (ch != ' ') {
-            current_group += ch;
+        // If it's an opening parenthesis, append it to the current group
+        else if (c == '(') {
+            current_group += c;
         }
-
-        if (count == 0 && current_group != "") {
-            result.push_back(current_group);
-            current_group = "";
+        // If it's a closing parenthesis, check if the current group is non-empty
+        // If so, append it to the result and clear the current group
+        else if (c == ')') {
+            if (!current_group.empty()) {
+                current_group += c;
+                result.push_back(current_group);
+                current_group.clear();
+            }
         }
     }
 
@@ -29,12 +31,14 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string paren_string = "( ) (( )) (( )( ))";
-    vector<string> groups = separate_paren_groups(paren_string);
+    std::string paren_string = "( ) (( )) (( )( ))";
+    std::vector<std::string> groups = separate_paren_groups(paren_string);
 
-    for (const string& group : groups) {
-        cout << group << endl;
+    // Print the resulting groups
+    for (const std::string& group : groups) {
+        std::cout << group << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
