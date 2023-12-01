@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
@@ -18,13 +16,7 @@ vector<string> reverse_delete(string s, string c) {
     return {result, (is_palindrome ? "True" : "False")};
 }
 
-bool are_same(vector<string> a, vector<string> b) {
-    return (a == b);
-}
-
 int main() {
-    vector<string> expected_result = {"", "True"};
-    vector<string> result = reverse_delete("mamma", "mia");
-    assert (are_same(result, expected_result));
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
