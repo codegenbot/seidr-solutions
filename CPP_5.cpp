@@ -1,5 +1,18 @@
 #include <vector>
 
+using namespace std;
+
+vector<int> intersperse(vector<int> numbers, int delimeter){
+    vector<int> result;
+    for(int i = 0; i < numbers.size(); i++){
+        result.push_back(numbers[i]);
+        if(i != numbers.size()-1){
+            result.push_back(delimeter);
+        }
+    }
+    return result;
+}
+
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -13,29 +26,13 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    using namespace std;
-
-    vector<int> intersperse(vector<int> numbers, int delimeter){
-        vector<int> result;
-        for(int i = 0; i < numbers.size(); i++){
-            result.push_back(numbers[i]);
-            if(i != numbers.size()-1){
-                result.push_back(delimeter);
-            }
-        }
-        return result;
-    }
-
-    // Call the intersperse function
     vector<int> numbers = {1, 2, 3, 4, 5};
     int delimeter = 0;
     vector<int> result = intersperse(numbers, delimeter);
-
-    // Print the result
-    for(int i = 0; i < result.size(); i++){
-        cout << result[i] << " ";
-    }
-    cout << endl;
-
+    
+    vector<int> expected = {1, 0, 2, 0, 3, 0, 4, 0, 5};
+    
+    bool same = issame(result, expected);
+    
     return 0;
 }
