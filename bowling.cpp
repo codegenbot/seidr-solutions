@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 int getScore(const std::string& round) {
     int score = 0;
     int frame = 0;
@@ -31,4 +34,14 @@ int getScore(const std::string& round) {
     }
 
     return score;
+}
+
+int main() {
+    std::string round;
+    std::getline(std::cin, round);
+
+    int score = getScore(round);
+    std::cout << score << std::endl;
+
+    return 0;
 }
