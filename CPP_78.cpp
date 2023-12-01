@@ -14,12 +14,11 @@ int hex_key(std::string num){
 }
 
 int main(){
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-
-    int result = hex_key(input);
-    std::cout << "Number of hex characters: " << result << std::endl;
-
+    std::string num;
+    std::cin >> num;
+    
+    int count = hex_key(num);
+    std::cout << count << std::endl;
+    
     return 0;
 }
