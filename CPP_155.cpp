@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#include <cassert>
+
 vector<int> even_odd_count(int num) {
     int evenCount = 0;
     int oddCount = 0;
@@ -23,8 +25,6 @@ vector<int> even_odd_count(int num) {
     vector<int> result = {evenCount, oddCount};
     return result;
 }
-
-#include <cassert>
 
 int main() {
     cout << boolalpha;
