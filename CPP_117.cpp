@@ -1,55 +1,55 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <cassert>
 
-bool isVowel(char c) {
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+int count_consonants(std::string word);
+bool is_consonant(char c);
+std::vector<std::string> select_words(std::string s, int n);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
+int count_consonants(std::string word) {
+    int count = 0;
+    for (char c : word) {
+        if (is_consonant(c)) {
+            count++;
+        }
+    }
+    return count;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    int count = 0;
-    
+bool is_consonant(char c) {
+    c = tolower(c);
+    return (c >= 'b' && c <= 'd') || (c >= 'f' && c <= 'h') ||
+           (c >= 'j' && c <= 'n') || (c >= 'p' && c <= 't') ||
+           (c >= 'v' && c <= 'z');
+}
+
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    if (s.empty()) {
+        return result;
+    }
+    std::string word = "";
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
-            if (isalpha(s[i]) && !isVowel(s[i])) {
-                count++;
-            }
-        } else {
-            if (count == n) {
+        if (s[i] == ' ') {
+            if (count_consonants(word) == n) {
                 result.push_back(word);
             }
             word = "";
-            count = 0;
+        } else {
+            word += s[i];
         }
     }
-    
-    if (count == n) {
+    if (count_consonants(word) == n) {
         result.push_back(word);
     }
-    
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
 int main() {
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // Add more test cases to validate the solution
-
     return 0;
 }
