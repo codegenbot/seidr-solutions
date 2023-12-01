@@ -1,10 +1,21 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <cassert>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // implementation of issame function
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> select_words(string s, int n) {
@@ -37,9 +48,7 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    // test case
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // additional test cases
-    
+    assert(issame(select_words("a b c d e f", 1), { "b", "c", "d", "f" }));
+
     return 0;
 }
