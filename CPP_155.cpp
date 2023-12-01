@@ -3,11 +3,15 @@
 #include <iostream>
 #include <cassert>
 
-std::vector<int> even_odd_count(int num) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> even_odd_count(int num) {
     int evenCount = 0;
     int oddCount = 0;
 
-    std::string numStr = std::to_string(std::abs(num));
+    string numStr = to_string(abs(num));
 
     for (char c : numStr) {
         int digit = c - '0';
@@ -18,15 +22,19 @@ std::vector<int> even_odd_count(int num) {
         }
     }
 
-    std::vector<int> result = {evenCount, oddCount};
+    vector<int> result = {evenCount, oddCount};
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    std::cout << std::boolalpha;
-    assert(even_odd_count(0) == std::vector<int>{1, 0});
-    assert(even_odd_count(123456789) == std::vector<int>{4, 5});
-    assert(even_odd_count(-987654321) == std::vector<int>{4, 5});
+    cout << boolalpha;
+    assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(123456789), {4, 5}));
+    assert(issame(even_odd_count(-987654321), {4, 5}));
 
     return 0;
 }
