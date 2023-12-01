@@ -1,2 +1,4 @@
-The code is correct and does not need any modification. However, there seems to be an issue with the input provided.
-Please ensure that you are providing the input correctly and that it matches the expected format.
+from typing import List
+
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    return [s for s in strings if s.startswith(prefix)]
