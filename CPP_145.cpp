@@ -1,10 +1,11 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+using namespace std;
 
-using IntVector = std::vector<int>;
+bool issame(vector<int> a, vector<int> b);
 
-IntVector order_by_points(IntVector nums){
+vector<int> order_by_points(vector<int> nums){
     sort(nums.begin(), nums.end(), [](int a, int b){
         int sum_a = 0, sum_b = 0;
         if (a < 0) a = -a;
@@ -23,21 +24,4 @@ IntVector order_by_points(IntVector nums){
         return sum_a < sum_b;
     });
     return nums;
-}
-
-bool issame(IntVector a, IntVector b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }
