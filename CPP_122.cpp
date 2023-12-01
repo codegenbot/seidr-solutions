@@ -12,15 +12,11 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-    int k;
-    std::cin >> k;
+    // Test the add_elements() function
+    std::vector<int> arr = {5, 15, 25, 35, 45};
+    int k = 3;
     int result = add_elements(arr, k);
-    std::cout << result << std::endl;
+    std::cout << "Sum: " << result << std::endl;
+
     return 0;
 }
