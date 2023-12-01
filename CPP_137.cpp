@@ -1,29 +1,40 @@
+#include <iostream>
+#include <string>
 #include <boost/any.hpp>
+
+using namespace std;
+
+template<typename T>
+T compare_one(T a, T b) {
+    if (a > b) {
+        return a;
+    } else if (a < b) {
+        return b;
+    }
+    return T();
+}
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int val1 = boost::any_cast<int>(a);
-        int val2 = boost::any_cast<int>(b);
-        if (val1 > val2)
-            return val1;
-        else if (val1 < val2)
-            return val2;
+        return compare_one(boost::any_cast<int>(a), boost::any_cast<int>(b));
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return compare_one(boost::any_cast<float>(a), boost::any_cast<float>(b));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return compare_one(boost::any_cast<string>(a), boost::any_cast<string>(b));
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float val1 = boost::any_cast<float>(a);
-        float val2 = boost::any_cast<float>(b);
-        if (val1 > val2)
-            return val1;
-        else if (val1 < val2)
-            return val2;
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string val1 = boost::any_cast<std::string>(a);
-        std::string val2 = boost::any_cast<std::string>(b);
-        if (val1 > val2)
-            return val1;
-        else if (val1 < val2)
-            return val2;
-    }
-    return boost::any();
+    return nullptr;
+}
+
+int main() {
+    // Example usage
+    int intResult = boost::any_cast<int>(compare_one(boost::any(5), boost::any(10)));
+    cout << "intResult: " << intResult << endl;
+
+    float floatResult = boost::any_cast<float>(compare_one(boost::any(3.14), boost::any(2.5)));
+    cout << "floatResult: " << floatResult << endl;
+
+    string stringResult = boost::any_cast<string>(compare_one(boost::any("hello"), boost::any("world")));
+    cout << "stringResult: " << stringResult << endl;
+
+    return 0;
 }
