@@ -31,6 +31,6 @@ int largestPrimeSum(vector<int> lst) {
 }
 
 int main() {
-    assert(largestPrimeSum({127, 97, 8192}) == 10);
+    assert (largestPrimeSum({127, 97, 8192}) == 10);
     return 0;
 }
