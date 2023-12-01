@@ -1,25 +1,22 @@
 #include <vector>
-
-bool issame(vector<int> a, vector<int> b) {
-    // Add your implementation here
-}
+#include <algorithm>
+#include <cassert>
 
 vector<int> strange_sort_vector(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
-    int start = 0;
-    int end = lst.size() - 1;
+    int left = 0;
+    int right = lst.size() - 1;
     
-    while(start <= end){
-        result.push_back(lst[start]);
-        if(start != end){
-            result.push_back(lst[end]);
+    while (left <= right) {
+        result.push_back(lst[left]);
+        if (left != right) {
+            result.push_back(lst[right]);
         }
-        start++;
-        end--;
+        left++;
+        right--;
     }
     
     return result;
 }
-
-assert(issame(strange_sort_vector({111111}), {111111}));
+assert(strange_sort_vector({111111}) == vector<int>{111111});

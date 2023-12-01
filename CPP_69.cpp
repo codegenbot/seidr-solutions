@@ -1,15 +1,16 @@
+#include <iostream>
 #include <vector>
 
-int search(vector<int> lst) {
+int search(std::vector<int> lst) {
     int result = -1;
-    for (int i = 1; i <= lst.size(); i++) {
+    for(int i = 1; i <= lst.size(); i++){
         int count = 0;
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[j] == i) {
+        for(int j = 0; j < lst.size(); j++){
+            if(lst[j] == i){
                 count++;
             }
         }
-        if (count >= i && i > result) {
+        if(count >= i && i > result){
             result = i;
         }
     }
@@ -17,17 +18,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    // Test case 1
-    vector<int> lst1 = {1, 2, 3, 4, 4};
-    int result1 = search(lst1);
-
-    // Test case 2
-    vector<int> lst2 = {1, 1, 3, 5, 5, 5};
-    int result2 = search(lst2);
-
-    // Test case 3
-    vector<int> lst3 = {1, 1, 1, 1};
-    int result3 = search(lst3);
-
+    std::cout << search({3, 10, 10, 9, 2}) << std::endl;
+    
     return 0;
 }
