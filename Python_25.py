@@ -13,9 +13,8 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-try:
-    n = int(input("> "))
-    result = factorize(n)
-    print(result)
-except ValueError:
-    print("Invalid input. Please enter an integer.")
+n = int(input("Enter an integer value: "))
+
+result = factorize(n)
+
+print(result)
