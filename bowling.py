@@ -1,44 +1,37 @@
-def calculate_score(bowls):
+import re
+
+def bowling_score(round):
     score = 0
-    frame = 1
+    frames = re.findall(r'(\d{1,2}|X|/|-)', round)
     frame_index = 0
-    while frame <= 10:
-        if bowls[frame_index] == 'X':
-            score += 10
-            if frame < 10:
-                score += get_strike_bonus(bowls, frame_index)
+
+    for _ in range(10):
+        frame = frames[frame_index]
+        
+        if frame == 'X':
+            score += 10 + get_frame_score(frames[frame_index+1])
+            if frame_index < 8 and frames[frame_index+2] == '/':
+                score += 10
+            else:
+                score += get_frame_score(frames[frame_index+2])
             frame_index += 1
-        elif bowls[frame_index+1] == '/':
-            score += 10
-            if frame < 10:
-                score += get_spare_bonus(bowls, frame_index)
-            frame_index += 2
+        elif '/' in frame:
+            score += 10 + get_frame_score(frames[frame_index+1])
+            frame_index += 1
         else:
-            score += int(bowls[frame_index]) + int(bowls[frame_index+1])
-            frame_index += 2
-        frame += 1
+            score += get_frame_score(frame)
+        
+        frame_index += 1
+    
     return score
 
-def get_strike_bonus(bowls, frame_index):
-    bonus = 0
-    if bowls[frame_index+2] == 'X':
-        bonus += 10
-        if bowls[frame_index+4] == 'X':
-            bonus += 10
-        else:
-            bonus += int(bowls[frame_index+4])
+def get_frame_score(frame):
+    if frame == 'X':
+        return 10
+    elif '/' in frame:
+        return 10 - int(frame[0])
     else:
-        bonus += int(bowls[frame_index+2]) + int(bowls[frame_index+3])
-    return bonus
+        return int(frame[0]) + int(frame[1])
 
-def get_spare_bonus(bowls, frame_index):
-    bonus = 0
-    if bowls[frame_index+2] == 'X':
-        bonus += 10
-    else:
-        bonus += int(bowls[frame_index+2])
-    return bonus
-
-bowls = input().strip()
-score = calculate_score(bowls)
-print(score)
+round = input()
+print(bowling_score(round))
