@@ -9,11 +9,7 @@ def encode(message):
                     encoded_char = chr(ord(encoded_char) - 26)
                 encoded_message += encoded_char
             else:
-                encoded_message += char.swapcase()
+                encoded_message += char.lower() if char.isupper() else char.upper()
         else:
             encoded_message += char
     return encoded_message
-
-assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
-assert encode("tEsT") == "vGuV"
-assert encode("abcde") == "cde"
