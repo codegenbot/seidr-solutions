@@ -57,8 +57,6 @@ int main() {
         std::cout << num << " ";
     }
 
-    std::cout << std::endl;
-
     for (int num : result.second) {
         std::cout << num << " ";
     }
