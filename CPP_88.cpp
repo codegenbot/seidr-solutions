@@ -2,15 +2,11 @@
 #include <algorithm>
 #include <cassert>
 
-namespace std {
-    using ::vector;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> sort_array(std::vector<int> array){
+std::vector<int> sort_array(std::vector<int> array) {
     if(array.size() <= 1){
         return array;
     }
