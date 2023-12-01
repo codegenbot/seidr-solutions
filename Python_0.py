@@ -5,8 +5,10 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
             return True
     return False
 
+# Read input from user
 numbers = list(map(float, input().split()))
 threshold = float(input())
 
+# Call the function with the input
 result = has_close_elements(numbers, threshold)
 print(result)
