@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 int do_algebra(const vector<string>& operato, const vector<int>& operand){
     int result = operand[0]; // Initialize result with the first operand
 
