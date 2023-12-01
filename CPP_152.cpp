@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b);
 
