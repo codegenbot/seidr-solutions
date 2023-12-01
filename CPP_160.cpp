@@ -1,17 +1,17 @@
 int do_algebra(vector<string> operatoRs, vector<int> operanDs) {
-    int result = operanDs[0]; // Initialize the result with the first operand
+    int result = operanDs[0];
 
     for (int i = 0; i < operatoRs.size(); i++) {
         if (operatoRs[i] == "+") {
-            result += operanDs[i+1]; // Perform addition
+            result += operanDs[i+1];
         } else if (operatoRs[i] == "-") {
-            result -= operanDs[i+1]; // Perform subtraction
+            result -= operanDs[i+1];
         } else if (operatoRs[i] == "*") {
-            result *= operanDs[i+1]; // Perform multiplication
+            result *= operanDs[i+1];
         } else if (operatoRs[i] == "//") {
-            result /= operanDs[i+1]; // Perform floor division
+            result /= operanDs[i+1];
         } else if (operatoRs[i] == "**") {
-            result = pow(result, operanDs[i+1]); // Perform exponentiation
+            result = pow(result, operanDs[i+1]);
         }
     }
 
