@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<int> order_by_points(vector<int> nums){
     vector<pair<int, int>> sums;
     for(int i=0; i<nums.size(); i++){
