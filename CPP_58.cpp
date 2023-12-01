@@ -1,3 +1,12 @@
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <cassert>
+
+using namespace std;
+
+vector<int> common(vector<int> l1, vector<int> l2);
+
 vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result;
     sort(l1.begin(), l1.end());
