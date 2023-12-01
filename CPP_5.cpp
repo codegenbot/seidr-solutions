@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     std::vector<int> result;
@@ -12,6 +14,20 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     }
     
     return result;
+}
+
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
