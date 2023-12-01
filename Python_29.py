@@ -1,9 +1,13 @@
 from typing import List
 
+def my_function(input_list: List[int]) -> int:
+    # Add your code here
+    
+    return output
 
-def find_max_length_words(words: List[str], target_length: int) -> List[int]:
-    result = []
-    for i in range(len(words)):
-        if len(words[i]) == target_length:
-            result.append(i)
-    return result
+# Read input from user
+input_list = list(map(int, input().split()))
+
+# Call the function and print the output
+output = my_function(input_list)
+print(output)
