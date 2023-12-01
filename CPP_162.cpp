@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "/path/to/md5.h"
+#include "path_to_cryptopp/md5.h"
 
 using namespace std;
 using namespace CryptoPP;
