@@ -1,6 +1,6 @@
-#include <vector> 
+#include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const vector<int>& a, const vector<int>& b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,8 +12,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-std::vector<int> make_a_pile(int n){
-    std::vector<int> pile;
+vector<int> make_a_pile(int n){
+    vector<int> pile;
     pile.push_back(n);
     for(int i=1; i<n; i++){
         if(n%2 == 0){
