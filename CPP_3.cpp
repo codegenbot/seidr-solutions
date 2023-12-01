@@ -1,7 +1,4 @@
-#include <iostream> // or #include <cassert> if using assert
 #include <vector>
-
-using namespace std; // Only if not using assert
 
 bool below_zero(vector<int> operations){
     int balance = 0;
