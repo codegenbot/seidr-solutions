@@ -17,7 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> sum_product(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end()); 
 
     int sum = 0;
     int product = 1;
@@ -45,6 +45,6 @@ int main() {
         std::cout << result[i] << " ";
     }
     std::cout << std::endl;
-
+    
     return 0;
 }

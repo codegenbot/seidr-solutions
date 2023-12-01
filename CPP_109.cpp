@@ -1,0 +1,12 @@
+bool move_one_ball(vector<int> arr){
+    int n = arr.size();
+    if(n == 0) return true;
+    int minIdx = 0;
+    for(int i=1; i<n; i++){
+        if(arr[i] < arr[minIdx]){
+            minIdx = i;
+        }
+    }
+    int shifts = n - minIdx;
+    return arr[minIdx] <= arr[0] && shifts % n == 0;
+}
