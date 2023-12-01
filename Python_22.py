@@ -1,7 +1,6 @@
-values = input().strip().split()
-values = [int(x) for x in values]
+values = input().strip()
 
-from typing import List
+from typing import List, Any
 
 
 def filter_integers(values: List[int]) -> List[int]:
