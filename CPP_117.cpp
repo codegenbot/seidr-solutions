@@ -1,44 +1,51 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <cassert>
 
-bool isConsonant(char c) {
-    // Implement the logic to check if c is a consonant
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+bool isVowel(char c) {
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
 }
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    int consonantCount = 0;
     string word = "";
-
+    int count = 0;
+    
     for (int i = 0; i < s.length(); i++) {
         if (s[i] != ' ') {
             word += s[i];
-            if (isConsonant(s[i])) {
-                consonantCount++;
+            if (isalpha(s[i]) && !isVowel(s[i])) {
+                count++;
             }
         } else {
-            if (consonantCount == n) {
+            if (count == n) {
                 result.push_back(word);
             }
             word = "";
-            consonantCount = 0;
+            count = 0;
         }
     }
-
-    if (consonantCount == n) {
+    
+    if (count == n) {
         result.push_back(word);
     }
-
+    
     return result;
 }
 
 int main() {
-    vector<string> expected = {"b", "c", "d", "f"};
-    vector<string> result = select_words("a b c d e f", 1);
-    assert(result == expected);
-
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
