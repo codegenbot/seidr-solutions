@@ -2,7 +2,6 @@
 #include <cmath>
 #include <cassert>
 #include <iostream>
-#include <iomanip>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
