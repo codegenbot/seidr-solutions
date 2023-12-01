@@ -26,13 +26,13 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
             }
         } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0 && opIndex == -1) {
             opIndex = i;
-        } else if (expression[i] == 'F' && parenthesisCount == 0) {
+        } else if (expression[i] == 'F' && parenthesisCount == 0 && !isEnclosed) {
             return false;
         }
     }
 
     if (opIndex != -1) {
-        int lastOpIndex = opIndex + 1;
+        int lastOpIndex = opIndex;
 
         while (lastOpIndex < expression.length() && (expression[lastOpIndex] == '&' || expression[lastOpIndex] == '|')) {
             lastOpIndex++;
