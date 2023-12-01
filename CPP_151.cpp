@@ -12,7 +12,7 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main(){
-    vector<float> lst = {2, 3, 4, 5.5, 6.7};
-    long long expected_odd_sum = double_the_difference(lst);
+    vector<float> lst = {1.5, 2.0, 3.5, 4.0};
+    long long odd_sum = double_the_difference(lst);
     return 0;
 }
