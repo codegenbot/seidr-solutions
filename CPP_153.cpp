@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <cassert>
@@ -34,19 +33,10 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    string class_name;
-    cin >> class_name;
+    string result = Strongest_Extension("Sp", {"671235", "Bb"});
+    assert(result == "Sp.671235");
 
-    int n;
-    cin >> n;
-
-    vector<string> extensions(n);
-    for (int i = 0; i < n; i++) {
-        cin >> extensions[i];
-    }
-
-    string result = Strongest_Extension(class_name, extensions);
-    cout << result << endl;
+    // Add more test cases and assertions if needed
 
     return 0;
 }
