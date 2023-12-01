@@ -17,7 +17,7 @@ bool monotonic(vector<float> l){
 }
 
 int main(){
-    assert (monotonic({9.0, 9.0, 9.0, 9.0}) == true);
+    assert(monotonic({9.0, 9.0, 9.0, 9.0}) == true);
 
     return 0;
 }
