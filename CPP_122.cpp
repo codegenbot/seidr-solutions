@@ -12,16 +12,22 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    std::cin >> n >> k;
+    int n;
+    std::cout << "Enter the size of the array: ";
+    std::cin >> n;
 
     std::vector<int> arr(n);
+    std::cout << "Enter " << n << " elements: ";
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i];
     }
 
+    int k;
+    std::cout << "Enter the value of k: ";
+    std::cin >> k;
+
     int result = add_elements(arr, k);
-    std::cout << result << std::endl;
+    std::cout << "Sum of elements greater than or equal to 10 and less than 100 in the first " << k << " elements: " << result << std::endl;
 
     return 0;
 }
