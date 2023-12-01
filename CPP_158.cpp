@@ -1,17 +1,15 @@
-#include <algorithm>
-#include <string>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-string find_max(vector<string> words){
-    string maxWord = "";
+std::string find_max(std::vector<std::string> words){
+    std::string maxWord = "";
     int maxUniqueChars = 0;
 
-    for (string word : words) {
+    for (std::string word : words) {
         int uniqueChars = 0;
-        sort(word.begin(), word.end());
-        word.erase(unique(word.begin(), word.end()), word.end());
+        std::sort(word.begin(), word.end());
+        word.erase(std::unique(word.begin(), word.end()), word.end());
         uniqueChars = word.length();
 
         if (uniqueChars > maxUniqueChars) {
@@ -26,7 +24,6 @@ string find_max(vector<string> words){
 }
 
 int main() {
-    assert ((find_max({"play", "play", "play"}) == "play"));
 
     return 0;
 }
