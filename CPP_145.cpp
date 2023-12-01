@@ -1,15 +1,12 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
+vector<int> order_by_points(vector<int> nums){
+    sort(nums.begin(), nums.end(), [](int a, int b){
         int sum_a = 0, sum_b = 0;
         if (a < 0) a = -a;
         if (b < 0) b = -b;
