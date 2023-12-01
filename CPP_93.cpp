@@ -8,26 +8,24 @@ string encode(string message){
             else{
                 encodedMessage += tolower(message[i]);
             }
+            if(message[i] == 'a' || message[i] == 'A'){
+                encodedMessage += 'C';
+            }
+            else if(message[i] == 'e' || message[i] == 'E'){
+                encodedMessage += 'G';
+            }
+            else if(message[i] == 'i' || message[i] == 'I'){
+                encodedMessage += 'K';
+            }
+            else if(message[i] == 'o' || message[i] == 'O'){
+                encodedMessage += 'Q';
+            }
+            else if(message[i] == 'u' || message[i] == 'U'){
+                encodedMessage += 'W';
+            }
         }
         else{
             encodedMessage += message[i];
-        }
-    }
-    for(int i=0; i<encodedMessage.length(); i++){
-        if(encodedMessage[i]=='a' || encodedMessage[i]=='A'){
-            encodedMessage[i] = 'c';
-        }
-        else if(encodedMessage[i]=='e' || encodedMessage[i]=='E'){
-            encodedMessage[i] = 'g';
-        }
-        else if(encodedMessage[i]=='i' || encodedMessage[i]=='I'){
-            encodedMessage[i] = 'k';
-        }
-        else if(encodedMessage[i]=='o' || encodedMessage[i]=='O'){
-            encodedMessage[i] = 'q';
-        }
-        else if(encodedMessage[i]=='u' || encodedMessage[i]=='U'){
-            encodedMessage[i] = 'w';
         }
     }
     return encodedMessage;
