@@ -1,5 +1,6 @@
 string decimal_to_binary(int decimal){
     string binary = "db";
+    
     if(decimal == 0){
         binary += "0";
     }
@@ -9,6 +10,7 @@ string decimal_to_binary(int decimal){
             decimal /= 2;
         }
     }
+    
     binary += "db";
     return binary;
 }
