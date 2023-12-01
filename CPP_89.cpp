@@ -4,10 +4,9 @@ string encrypt(string s){
         char c = s[i];
         if(isalpha(c)){
             if(islower(c)){
-                c = (((c - 'a') + (2 * 2)) % 26) + 'a';
-            }
-            else{
-                c = (((c - 'A') + (2 * 2)) % 26) + 'A';
+                c = ((c - 'a') + (2*2)) % 26 + 'a';
+            } else {
+                c = ((c - 'A') + (2*2)) % 26 + 'A';
             }
         }
         encrypted += c;
