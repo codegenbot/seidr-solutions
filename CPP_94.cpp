@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -27,4 +28,9 @@ int largestPrimeSum(vector<int> lst) {
         }
     }
     return sumOfDigits(largestPrime);
+}
+
+int main() {
+    assert(largestPrimeSum({127, 97, 8192}) == 10);
+    return 0;
 }
