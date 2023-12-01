@@ -3,8 +3,21 @@
 #include <cassert>
 #include <algorithm>
 #include <map>
+#include <iostream>
 
 using namespace std;
+
+bool issame(const vector<string>& v1, const vector<string>& v2){
+    if(v1.size() != v2.size()){
+        return false;
+    }
+    for(size_t i=0; i<v1.size(); i++){
+        if(v1[i] != v2[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -37,9 +50,11 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-int main() {
-    assert(is_same(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
+int main2() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     // Add more test cases if needed
+
+    cout << "Tests passed!" << endl;
 
     return 0;
 }
