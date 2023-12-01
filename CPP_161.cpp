@@ -1,23 +1,26 @@
-string solve(string s){
+#include <string>
+using namespace std;
+
+string solve(string s) {
     string result = "";
-    bool hasLetters = false;
-    
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            hasLetters = true;
-            if(islower(s[i])){
-                result += toupper(s[i]);
+  
+    bool containsLetters = false;
+    for (char c : s) {
+        if (isalpha(c)) {
+            containsLetters = true;
+            if (islower(c)) {
+                result += toupper(c);
             } else {
-                result += tolower(s[i]);
+                result += tolower(c);
             }
         } else {
-            result += s[i];
+            result += c;
         }
     }
-    
-    if(!hasLetters){
+  
+    if (!containsLetters) {
         reverse(result.begin(), result.end());
     }
-    
+  
     return result;
 }
