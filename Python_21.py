@@ -9,9 +9,9 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     return [(num - min_num) / (max_num - min_num) for num in numbers]
 
 
-try:
-    input_numbers = [float(num) for num in input().strip().split()]
-    output = rescale_to_unit(input_numbers)
-    print(*output)
-except ValueError:
-    print("Invalid input. Please provide valid numbers separated by space.")
+input_string = input()
+input_numbers = input_string.strip().split()
+input_numbers = [float(num) for num in input_numbers]
+
+output = rescale_to_unit(input_numbers)
+print(*output)
