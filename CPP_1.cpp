@@ -1,47 +1,38 @@
 #include <iostream>
+#include <stack>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group;
+    stack<int> st;
+    int n = paren_string.size();
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (!current_group.empty()) {
-                result.push_back(current_group);
-                current_group = "";
-            }
+    for (int i = 0; i < n; i++) {
+        if (paren_string[i] == '(') {
+            st.push(i);
+        } else if (paren_string[i] == ')') {
+            int start = st.top();
+            st.pop();
+            result.push_back(paren_string.substr(start, i - start + 1));
         }
-        else if (c == ')') {
-            if (!current_group.empty()) {
-                current_group += ')';
-                result.push_back(current_group);
-                current_group = "";
-            }
-        }
-        else if (c != ' ') {
-            current_group += c;
-        }
-    }
-
-    if (!current_group.empty()) {
-        result.push_back(current_group);
     }
 
     return result;
 }
 
 int main() {
-    string paren_string;
-    getline(cin, paren_string);
+    string input;
+    getline(cin, input);
 
-    vector<string> groups = separate_paren_groups(paren_string);
+    vector<string> result = separate_paren_groups(input);
 
-    for (string group : groups) {
-        cout << group << endl;
+    for (string s : result) {
+        cout << s << " ";
     }
+    cout << endl;
 
     return 0;
 }
