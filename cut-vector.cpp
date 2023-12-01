@@ -2,31 +2,35 @@
 #include <vector>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    int n = nums.size();
     int sum = 0;
-    for (int num : nums) {
-        sum += num;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
     
-    int halfSum = sum / 2;
-    int currentSum = 0;
-    int index = 0;
-    
-    while (currentSum < halfSum) {
-        currentSum += nums[index++];
-    }
-    
-    if (currentSum == halfSum) {
-        return {std::vector<int>(nums.begin(), nums.begin() + index), std::vector<int>(nums.begin() + index, nums.end())};
-    } else {
-        int leftSum = currentSum - nums[index - 1];
-        int rightSum = sum - currentSum;
-        
-        if (leftSum < rightSum) {
-            return {std::vector<int>(nums.begin(), nums.begin() + index - 1), std::vector<int>(nums.begin() + index - 1, nums.end())};
-        } else {
-            return {std::vector<int>(nums.begin(), nums.begin() + index), std::vector<int>(nums.begin() + index, nums.end())};
+    int target = sum / 2;
+    int currSum = 0;
+    int i;
+    for (i = 0; i < n; i++) {
+        currSum += nums[i];
+        if (currSum >= target) {
+            break;
         }
     }
+    
+    std::pair<std::vector<int>, std::vector<int>> result;
+    if (currSum == target) {
+        result.first = std::vector<int>(nums.begin(), nums.begin() + i + 1);
+        result.second = std::vector<int>(nums.begin() + i + 1, nums.end());
+    } else if (abs(currSum - target) < abs(target - (currSum - nums[i]))) {
+        result.first = std::vector<int>(nums.begin(), nums.begin() + i + 1);
+        result.second = std::vector<int>(nums.begin() + i + 1, nums.end());
+    } else {
+        result.first = std::vector<int>(nums.begin(), nums.begin() + i);
+        result.second = std::vector<int>(nums.begin() + i, nums.end());
+    }
+    
+    return result;
 }
 
 int main() {
@@ -43,7 +47,6 @@ int main() {
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
-    
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
