@@ -1,5 +1,5 @@
 def encode(message):
-    vowels = ['a', 'e', 'i', 'o', 'u']
+    vowels = ["a", "e", "i", "o", "u"]
     encoded_message = ""
 
     for char in message:
