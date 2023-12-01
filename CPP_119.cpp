@@ -1,33 +1,17 @@
 string match_parens(vector<string> lst){
-    string s1 = lst[0]; // first string
-    string s2 = lst[1]; // second string
-    int count = 0; // count of open parentheses
-
-    // iterate through first string
-    for(int i=0; i<s1.length(); i++){
-        if(s1[i] == '('){
-            count++;
-        }
-        else{
-            count--;
+    int count = 0;
+    for(string s : lst){
+        for(char c : s){
+            if(c == '('){
+                count++;
+            } else {
+                count--;
+            }
         }
     }
-
-    // iterate through second string
-    for(int i=0; i<s2.length(); i++){
-        if(s2[i] == '('){
-            count++;
-        }
-        else{
-            count--;
-        }
-    }
-
-    // check if count is zero, which means all parentheses are balanced
     if(count == 0){
         return "Yes";
-    }
-    else{
+    } else {
         return "No";
     }
 }
