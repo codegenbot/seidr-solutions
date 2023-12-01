@@ -1,6 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-int strLength(string str){
+int strLength(std::string str){
     return str.length();
 }
 
