@@ -1,11 +1,14 @@
 #include <vector>
 #include <climits>
 #include <cassert>
+#include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+using namespace std;
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    std::vector<int> path;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> minPath(vector<vector<int>> grid) {
+    vector<int> path;
     int n = grid.size();
     
     // Find the starting cell with the smallest value
@@ -25,10 +28,10 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     // Add the starting cell to the path
     path.push_back(minVal);
     
-    // Perform k-1 steps to complete the path
+    // Perform n-1 steps to complete the path
     int currRow = startRow;
     int currCol = startCol;
-    for(int step = 1; step < k; step++) {
+    for(int step = 1; step < n; step++) {
         // Find the neighbor cell with the smallest value
         int minNeighborVal = INT_MAX;
         int nextRow = -1;
@@ -65,7 +68,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     return path;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -78,7 +81,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(issame(minPath({{1, 3}, {3, 2}}), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     // Add more test cases if needed
     
     return 0;
