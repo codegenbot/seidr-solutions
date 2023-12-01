@@ -38,7 +38,6 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Check if vectors `a` and `b` are the same
     if (a.size() != b.size()) {
         return false;
     }
