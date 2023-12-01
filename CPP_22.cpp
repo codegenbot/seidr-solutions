@@ -4,13 +4,12 @@
 #include <iostream>
 
 using namespace std;
-using boost::any_cast; // Add this line to use any_cast without specifying boost:: namespace
 
 vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (auto& value : values) {
         if (value.type() == typeid(int)) {
-            result.push_back(any_cast<int&>(value));
+            result.push_back(boost::any_cast<int&>(value));
         }
     }
     return result;
