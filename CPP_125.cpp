@@ -1,19 +1,9 @@
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
-
-    for(int i = 0; i < txt.length(); i++){
-        if(txt[i] == ' '){
-            hasWhitespace = true;
-            if(word != ""){
-                words.push_back(word);
-                word = "";
-            }
-        }
-        else if(txt[i] == ','){
-            hasComma = true;
+    
+    for(int i=0; i<txt.length(); i++){
+        if(txt[i] == ' ' || txt[i] == ','){
             if(word != ""){
                 words.push_back(word);
                 word = "";
@@ -23,14 +13,20 @@ vector<string> split_words(string txt){
             word += txt[i];
         }
     }
-
+    
     if(word != ""){
         words.push_back(word);
     }
-
+    
     if(words.empty()){
-        words.push_back(to_string(3));
+        int oddCount = 0;
+        for(int i=0; i<txt.length(); i++){
+            if(islower(txt[i]) && ((txt[i]-'a')%2 == 1)){
+                oddCount++;
+            }
+        }
+        words.push_back(to_string(oddCount));
     }
-
+    
     return words;
 }
