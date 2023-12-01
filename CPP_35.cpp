@@ -1,7 +1,8 @@
 #include <vector>
+#include <algorithm>
 #include <cmath>
 #include <cassert>
-#include <algorithm>
+#include <cstdlib>
 
 float find_max_element(const std::vector<float>& l){
     auto max_it = std::max_element(l.begin(), l.end());
