@@ -5,5 +5,7 @@ def filter_integers(values: List[int]) -> List[int]:
 
 input_values = input().split()
 values = [eval(value) for value in input_values]
+
 result = filter_integers(values)
+
 print(result)
