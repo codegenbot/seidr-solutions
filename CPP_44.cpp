@@ -1,6 +1,6 @@
+#include <iostream>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -14,11 +14,7 @@ string change_base(int x, int base) {
 }
 
 int main() {
-    int x;
-    cin >> x; // Take input for x
-
-    // Check the functionality of change_base function
+    int x = 10;
     assert(change_base(x, x + 1) == to_string(x));
-
     return 0;
 }
