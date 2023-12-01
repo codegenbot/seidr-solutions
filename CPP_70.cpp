@@ -6,10 +6,10 @@ vector<int> strange_sort_list(vector<int> lst){
     while (left <= right) {
         if (left == right) {
             result.push_back(lst[left]);
-            break;
+        } else {
+            result.push_back(lst[left]);
+            result.push_back(lst[right]);
         }
-        result.push_back(lst[left]);
-        result.push_back(lst[right]);
         left++;
         right--;
     }
