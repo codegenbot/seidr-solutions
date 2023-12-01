@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for(const auto& str : strings){
@@ -8,32 +15,16 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    string prefix;
-    cin>>prefix;
+    // Test the filter_by_prefix function
+    vector<string> input = {"apple", "banana", "apricot", "orange"};
+    string prefix = "ap";
+    vector<string> output = filter_by_prefix(input, prefix);
 
-    vector<string> strings;
-    string str;
-    while(cin>>str){
-        strings.push_back(str);
+    // Print the filtered strings
+    for (const auto& str : output) {
+        cout << str << " ";
     }
-
-    vector<string> filtered_strs = filter_by_prefix(strings, prefix);
-    for(const auto& str : filtered_strs){
-        cout<<str<<endl;
-    }
-
+        
     return 0;
 }
