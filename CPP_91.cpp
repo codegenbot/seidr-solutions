@@ -1,4 +1,7 @@
-int is_bored(string S){
+#include <string>
+#include <cassert>
+
+int is_bored(std::string S){
     int count = 0;
     bool is_previous_i = false;
 
