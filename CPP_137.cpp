@@ -1,4 +1,4 @@
-#include <boost/any.hpp>
+#include </usr/include/boost/any.hpp>
 #include <string>
 #include <algorithm>
 
@@ -18,7 +18,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::replace(str2.begin(), str2.end(), ',', '.');
         float num1 = std::stof(str1);
         float num2 = std::stof(str2);
-        return (num1 > num2) ? a : b;
+        return (num1 > num2) ? str1 : str2;
     }
     return boost::any();
 }
