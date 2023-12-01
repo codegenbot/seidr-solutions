@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <limits>
+#include <cstdlib>
+
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = std::numeric_limits<int>::max();
@@ -7,15 +13,15 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         return std::make_pair(nums, std::vector<int>());
     }
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
-        for (int j = 0; j < i; j++) {
+        for (int j = 0; j <= i; j++) {
             leftSum += nums[j];
         }
 
-        for (int j = i; j < n; j++) {
+        for (int j = i; j < n-1; j++) {
             rightSum += nums[j];
         }
 
@@ -27,8 +33,33 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
     std::vector<int> rightSubvector(nums.begin() + index, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
+    }
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+
+    std::cout << "Left subvector: ";
+    for (int num : result.first) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "Right subvector: ";
+    for (int num : result.second) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }

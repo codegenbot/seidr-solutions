@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 bool evaluateBooleanExpression(const std::string& expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
@@ -10,9 +7,15 @@ bool evaluateBooleanExpression(const std::string& expression) {
             parenthesisCount++;
         } else if (expression[i] == ')') {
             parenthesisCount--;
-        } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0) {
-            opIndex = i;
-            break;
+        } else if (parenthesisCount == 0) {
+            if (expression[i] == '|') {
+                opIndex = i;
+                break;
+            } else if (expression[i] == '&') {
+                if (opIndex == -1 || expression[opIndex] == '|') {
+                    opIndex = i;
+                }
+            }
         }
     }
 
@@ -34,14 +37,4 @@ bool evaluateBooleanExpression(const std::string& expression) {
     }
 
     return false;
-}
-
-int main() {
-    std::string expression;
-    std::cin >> expression;
-
-    bool result = evaluateBooleanExpression(expression);
-    std::cout << (result ? "true" : "false") << std::endl;
-
-    return 0;
 }
