@@ -4,9 +4,9 @@
 bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
     if (expression.length() == 1) {
         if (expression[0] == 'T') {
-            return isEnclosed;
-        } else if (expression[0] == 'F') {
             return !isEnclosed;
+        } else if (expression[0] == 'F') {
+            return false;
         }
     }
 
@@ -28,7 +28,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
             opIndex = i;
             break;
         } else if (expression[i] == 'F' && parenthesisCount == 0) {
-            return !isEnclosed;
+            return false;
         }
     }
 
