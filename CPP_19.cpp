@@ -2,8 +2,8 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-#include <sstream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -14,7 +14,6 @@ int main() {
     getline(cin, numbers);
 
     string sorted_numbers = sort_numbers(numbers);
-
     cout << sorted_numbers << endl;
 
     return 0;
