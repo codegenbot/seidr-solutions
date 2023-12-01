@@ -1,9 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    // Function implementation here
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -26,8 +24,12 @@ vector<int> unique_digits(vector<int> x){
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    // Function implementation here
+}
+
 int main(){
     assert (issame(unique_digits({135, 103, 31}) , {31, 135}));
-    // more test cases...
+    // More test cases...
     return 0;
 }
