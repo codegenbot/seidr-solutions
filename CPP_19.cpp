@@ -1,16 +1,6 @@
 #include <string>
 
-using namespace std;
-
 string sort_numbers(string numbers);
-
-int main() {
-    string numbers;
-    getline(cin, numbers);
-    string result = sort_numbers(numbers);
-    cout << result << endl;
-    return 0;
-}
 
 string sort_numbers(string numbers){
     map<string, int> number_map;
