@@ -6,70 +6,53 @@
 using namespace std;
 
 vector<string> split_words(string txt);
-bool issame(vector<string> a, vector<string> b);
 
-int main(){
+int main() {
     // Test cases
-    assert (issame(split_words("") ,{"0"}));
-    assert (issame(split_words("Hello, World!") ,{"Hello", "World!"}));
+    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words("Hello, World!"), {"Hello", "World!"}));
     // Add more test cases
     
     return 0;
 }
 
-vector<string> split_words(string txt){
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-    
-    for(int i=0; i<txt.length(); i++){
-        if(txt[i] == ' '){
+
+    for (int i = 0; i < txt.length(); i++) {
+        if (txt[i] == ' ') {
             hasWhitespace = true;
-            if(word != ""){
+            if (word != "") {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else if(txt[i] == ','){
+        } else if (txt[i] == ',') {
             hasComma = true;
-            if(word != ""){
+            if (word != "") {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else{
+        } else {
             word += txt[i];
         }
     }
-    
-    if(word != ""){
+
+    if (word != "") {
         result.push_back(word);
     }
-    
-    if(!hasWhitespace && !hasComma){
+
+    if (!hasWhitespace && !hasComma) {
         int count = 0;
-        for(int i=0; i<word.length(); i++){
-            if(islower(word[i])){
+        for (int i = 0; i < word.length(); i++) {
+            if (islower(word[i])) {
                 count++;
             }
         }
         result.push_back(to_string(count));
     }
-    
-    return result;
-}
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+    return result;
 }

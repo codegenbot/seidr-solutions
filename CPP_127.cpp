@@ -24,11 +24,5 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         }
     }
     
-    int squareRoot = sqrt(intersectionLength);
-    
-    if (squareRoot * squareRoot == intersectionLength) {
-        return "YES";
-    }
-    
-    return "NO";
+    return intersectionLength % sqrt(intersectionLength) == 0 ? "YES" : "NO";
 }
