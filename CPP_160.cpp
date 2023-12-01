@@ -1,19 +1,19 @@
-int do_algebra(vector<string> operato, vector<int> operand){
-    int result = operand[0]; // Initialize the result with the first operand
+int do_algebra(vector<string> operato, vector<int> operand) {
+    int result = operand[0]; // Set initial result to the first operand
     
     for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
-            result += operand[i+1]; // Perform addition
+            result = result + operand[i+1];
         } else if (operato[i] == "-") {
-            result -= operand[i+1]; // Perform subtraction
+            result = result - operand[i+1];
         } else if (operato[i] == "*") {
-            result *= operand[i+1]; // Perform multiplication
+            result = result * operand[i+1];
         } else if (operato[i] == "//") {
-            result /= operand[i+1]; // Perform floor division
+            result = result / operand[i+1];
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i+1]); // Perform exponentiation
+            result = pow(result, operand[i+1]);
         }
     }
     
-    return result; // Return the final result
+    return result;
 }
