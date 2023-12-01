@@ -23,7 +23,6 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 std::vector<std::vector<int>> issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
     // Code to compare if a and b are the same
     // Return true if they are the same, false otherwise
-    return a == b;
 }
 
 int main(){
