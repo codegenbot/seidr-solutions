@@ -1,12 +1,15 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 string circular_shift(int x, int shift);
 
 int main() {
     assert (circular_shift(11, 101) == "11");
+    
     return 0;
 }
 
