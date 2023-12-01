@@ -1,12 +1,13 @@
 #include <string>
 #include <vector>
-#include <cassert>
 
-std::string find_max(std::vector<std::string> words){
-    std::string maxWord = "";
+using namespace std;
+
+string find_max(vector<string> words){
+    string maxWord = "";
     int maxUniqueChars = 0;
     
-    for(std::string word : words){
+    for(string word : words){
         int uniqueChars = 0;
         int charCount[26] = {0};
         
