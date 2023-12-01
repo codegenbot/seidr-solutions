@@ -19,8 +19,11 @@ int calculateScore(const std::string& bowls) {
             score += (int)(bowl - '0');
         }
 
+        if (bowl != 'X' || frame >= 10) {
+            bowlIndex++;
+        }
+
         frame++;
-        bowlIndex++;
     }
 
     return score;
