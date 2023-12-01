@@ -1,5 +1,5 @@
 #include <vector>
-
+```
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int num : x){
@@ -22,21 +22,29 @@ vector<int> unique_digits(vector<int> x){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main(){
-    vector<int> input = {1234, 1357, 2468, 456789};
-    vector<int> expected_output = {1357, 456789};
-    vector<int> output = unique_digits(input);
-    bool result = issame(output, expected_output);
+    vector<int> arr1 = {123, 456, 789};
+    vector<int> arr2 = {234, 567, 890};
+
+    vector<int> uniqueArr1 = unique_digits(arr1);
+    vector<int> uniqueArr2 = unique_digits(arr2);
+
+    if(issame(uniqueArr1, arr1)){
+        cout << "Array 1 contains only odd digits" << endl;
+    }
+    else{
+        cout << "Array 1 contains even digits" << endl;
+    }
+
+    if(issame(uniqueArr2, arr2)){
+        cout << "Array 2 contains only odd digits" << endl;
+    }
+    else{
+        cout << "Array 2 contains even digits" << endl;
+    }
+
     return 0;
 }
