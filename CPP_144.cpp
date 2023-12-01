@@ -1,12 +1,18 @@
-bool simplify(string x, string n){
-    int x_numerator = stoi(x.substr(0, x.find("/")));
-    int x_denominator = stoi(x.substr(x.find("/") + 1, x.length()));
-
-    int n_numerator = stoi(n.substr(0, n.find("/")));
-    int n_denominator = stoi(n.substr(n.find("/") + 1, n.length()));
-
-    int result_numerator = x_numerator * n_numerator;
-    int result_denominator = x_denominator * n_denominator;
-
-    return (result_numerator % result_denominator == 0);
+bool simplify(string x,string n){
+    int numeratorX, numeratorN, denominatorX, denominatorN;
+    
+    // Extracting numerator and denominator of x and n
+    sscanf(x.c_str(), "%d/%d", &numeratorX, &denominatorX);
+    sscanf(n.c_str(), "%d/%d", &numeratorN, &denominatorN);
+    
+    // Simplifying the expression
+    int numeratorResult = numeratorX * numeratorN;
+    int denominatorResult = denominatorX * denominatorN;
+    
+    // Check if the result is a whole number
+    if (numeratorResult % denominatorResult == 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
