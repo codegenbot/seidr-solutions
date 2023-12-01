@@ -1,6 +1,6 @@
 #include <vector>
 
-bool below_zero(std::vector<int> operations){
+bool below_zero(vector<int> operations){
     int balance = 0;
     for(int i=0; i<operations.size(); i++){
         balance += operations[i];
@@ -12,6 +12,8 @@ bool below_zero(std::vector<int> operations){
 }
 
 int main() {
-    bool result = below_zero({1, -2, 2, -2, 5, -5, 4, -4});
+    // Testing the below_zero() function
+    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+
     return 0;
 }
