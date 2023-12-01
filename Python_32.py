@@ -1,5 +1,7 @@
 import math
 
+xs = list(map(float, input().split()))
+
 
 def poly(xs: list, x: float):
     return sum([coeff * x ** i for i, coeff in enumerate(xs)])
@@ -7,6 +9,3 @@ def poly(xs: list, x: float):
 
 def find_zero(xs: list):
     return xs[0] / -xs[1]
-
-
-xs = list(map(float, input().split()))
