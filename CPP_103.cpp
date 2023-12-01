@@ -8,7 +8,7 @@ string rounded_avg(int n, int m) {
         sum += i;
         count++;
     }
-    int avg = sum / count;
+    int avg = round(sum / count);
     string binary = "";
     while (avg > 0) {
         binary = to_string(avg % 2) + binary;
