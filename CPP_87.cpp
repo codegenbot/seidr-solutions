@@ -22,19 +22,14 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
 }
 
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() != b[i].size()) {
+    for(int i=0; i<a.size(); i++) {
+        if(a[i].size() != b[i].size())
             return false;
-        }
-    }
-    for (int i = 0; i < a.size(); i++) {
-        for (int j = 0; j < a[i].size(); j++) {
-            if (a[i][j] != b[i][j]) {
+        for(int j=0; j<a[i].size(); j++) {
+            if(a[i][j] != b[i][j])
                 return false;
-            }
         }
     }
     return true;
@@ -42,11 +37,9 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
 
 int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-
-    // Add more test cases here to verify the correctness of the code
-    assert(issame(get_row({{}, {1, 2}, {3, 4, 5}}, 6), {}));
-    assert(issame(get_row({{6, 7, 8}, {9}, {}}, 9), {{1, 0}}));
-    assert(issame(get_row({{2, 3}, {4, 5}, {6, 7}}, 2), {{0, 0}}));
+    assert(issame(get_row({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 5), {{1, 1}}));
+    assert(issame(get_row({{1}, {2}, {3}}, 4), {}));
+    assert(issame(get_row({}, 1), {}));
 
     return 0;
 }
