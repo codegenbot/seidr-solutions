@@ -1,34 +1,31 @@
-#include <stdio.h>
-#include <string>
-#include <algorithm>
 #include <boost/any.hpp>
-
-using namespace std;
+#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int val1 = boost::any_cast<int>(a);
-        int val2 = boost::any_cast<int>(b);
-        if (val1 > val2)
-            return val1;
-        else if (val1 < val2)
-            return val2;
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
+        if (str1 > str2) {
+            return str1;
+        } else if (str1 < str2) {
+            return str2;
+        }
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float val1 = boost::any_cast<float>(a);
-        float val2 = boost::any_cast<float>(b);
-        if (val1 > val2)
-            return val1;
-        else if (val1 < val2)
-            return val2;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string val1 = boost::any_cast<string>(a);
-        string val2 = boost::any_cast<string>(b);
-        if (val1 > val2)
-            return val1;
-        else if (val1 < val2)
-            return val2;
-    }
-    return boost::any("None");
+    return boost::any();
 }
