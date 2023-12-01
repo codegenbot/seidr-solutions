@@ -4,8 +4,6 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    cents = cents % 25;
-
     int quarters = cents / 25;
     cents %= 25;
 
