@@ -6,13 +6,13 @@ def decode_shift(s: str):
     return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
 
 
-# Read input from user
-input_string = input()
+def main():
+    s = input()
+    encoded = encode_shift(s)
+    print(encoded)
+    decoded = decode_shift(encoded)
+    print(decoded)
 
-# Encode and decode the input
-encoded_string = encode_shift(input_string)
-decoded_string = decode_shift(encoded_string)
 
-# Print the results
-print(encoded_string)
-print(decoded_string)
+if __name__ == "__main__":
+    main()
