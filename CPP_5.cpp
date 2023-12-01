@@ -26,10 +26,9 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-int main(){
+int main() {
     vector<int> numbers = {1, 2, 3, 4, 5};
     int delimiter = 0;
-    
     vector<int> result = intersperse(numbers, delimiter);
     
     for(int i = 0; i < result.size(); i++){
@@ -37,15 +36,10 @@ int main(){
     }
     cout << endl;
     
-    vector<int> test1 = {1, 2, 3};
-    vector<int> test2 = {1, 2, 4};
-    
-    if(issame(test1, test2)){
-        cout << "The vectors are the same." << endl;
-    }
-    else{
-        cout << "The vectors are different." << endl;
-    }
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    bool same = issame(a, b);
+    cout << same << endl;
     
     return 0;
 }
