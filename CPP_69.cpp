@@ -8,7 +8,8 @@ int search(vector<int> lst){
                 freq++;
             }
         }
-        if(freq >= lst[i] && lst[i] > result){
+        if(freq >= lst[i] && lst[i] > maxFreq){
+            maxFreq = lst[i];
             result = lst[i];
         }
     }
