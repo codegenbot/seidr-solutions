@@ -1,10 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cryptopp/md5.h>
-
-using namespace std;
-using namespace CryptoPP;
-
 string string_to_md5(const string& text) {
     if (text.empty()) {
         return "None";
