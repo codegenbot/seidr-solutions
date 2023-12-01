@@ -1,22 +1,32 @@
 #include <string>
-#include <algorithm>
 
 string solve(string s) {
-    if (s.empty()) {
-        return s;
-    }
-
-    bool hasLetters = false;
+    int n = s.length();
     
-    for (char& c : s) {
-        if (isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
-            hasLetters = true;
+    // check if the string contains any letters
+    bool containsLetters = false;
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            containsLetters = true;
+            break;
         }
     }
     
-    if (!hasLetters) {
+    // if the string contains no letters, reverse the string
+    if (!containsLetters) {
         reverse(s.begin(), s.end());
+        return s;
+    }
+    
+    // reverse the case of letters
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
+        }
     }
     
     return s;
