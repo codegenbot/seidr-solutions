@@ -24,14 +24,24 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<string, int> a, map<string, int> b) {
-    return a == b;
+bool issame(map<string, int>& a, map<string, int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (const auto& pair : a) {
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
-    assert(issame(histogram("a"), histogram("a")));
-    assert(issame(histogram("hello world"), histogram("hello world")));
-    assert(issame(histogram("hello hello"), histogram("hello hello")));
+    assert(issame(histogram("a"), {{"a", 1}}));
+    assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
+    assert(issame(histogram("hello hello"), {{"hello", 2}}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
