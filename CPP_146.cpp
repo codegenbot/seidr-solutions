@@ -1,15 +1,21 @@
-int specialFilter(vector<int> nums) {
-  int count = 0;
-  
-  for (int num : nums) {
-    string strNum = to_string(num);
-    int firstDigit = strNum[0] - '0';
-    int lastDigit = strNum.back() - '0';
-    
-    if (firstDigit % 2 != 0 && lastDigit % 2 != 0 && num > 10) {
-      count++;
+#include <vector>
+
+int specialFilter(std::vector<int> nums){
+    int count = 0;
+    for (int num : nums) {
+        std::string numStr = std::to_string(num);
+        int firstDigit = numStr[0] - '0';
+        int lastDigit = numStr[numStr.length() - 1] - '0';
+        if (num > 10 && firstDigit % 2 != 0 && lastDigit % 2 != 0) {
+            count++;
+        }
     }
-  }
-  
-  return count;
+    return count;
+}
+
+int main() {
+    assert (specialFilter({}) == 0);
+    // More test cases...
+
+    return 0;
 }
