@@ -1,8 +1,8 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
     for (int i = 0; i < n; i++) {
@@ -15,6 +15,7 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
+        
         int diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
@@ -31,6 +32,7 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
 int main() {
     int n;
     cin >> n;
+    
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
@@ -38,11 +40,12 @@ int main() {
     
     pair<vector<int>, vector<int>> result = cutVector(nums);
     
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << endl;
+    for (int num : result.first) {
+        cout << num << endl;
     }
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << endl;
+    
+    for (int num : result.second) {
+        cout << num << endl;
     }
     
     return 0;
