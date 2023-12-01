@@ -1,3 +1,6 @@
+from typing import List
+
+
 def factorize(n: int) -> List[int]:
     factors = []
     d = 2
