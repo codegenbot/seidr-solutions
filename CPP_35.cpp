@@ -1,5 +1,5 @@
-#include <vector>  
-#include <cmath>   
+#include <vector>
+#include <cmath>
 
 float max_element(vector<float> l){
     float max = l[0];
