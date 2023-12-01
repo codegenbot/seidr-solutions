@@ -2,26 +2,28 @@
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
-    string strA = to_string(a);
-    string strB = to_string(b);
     
-    for (char c : strA) {
-        if (c != '-') {
-            sumA += c - '0';
-        }
+    // Calculate sum of digits for a
+    int tempA = abs(a);
+    while (tempA > 0) {
+        sumA += tempA % 10;
+        tempA /= 10;
     }
     
-    for (char c : strB) {
-        if (c != '-') {
-            sumB += c - '0';
-        }
+    // Calculate sum of digits for b
+    int tempB = abs(b);
+    while (tempB > 0) {
+        sumB += tempB % 10;
+        tempB /= 10;
     }
     
-    if (sumA != sumB) {
-        return sumA < sumB;
-    } else {
+    // If sums are equal, order based on index
+    if (sumA == sumB) {
         return a < b;
     }
+    
+    // Otherwise, order based on sum of digits
+    return sumA < sumB;
 }
 
 vector<int> order_by_points(vector<int> nums) {
