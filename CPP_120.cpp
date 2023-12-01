@@ -5,6 +5,8 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     // implementation of issame function
+    // Replace with the required implementation
+    return (a == b);
 }
 
 vector<int> maximum(vector<int> arr, int k) {
