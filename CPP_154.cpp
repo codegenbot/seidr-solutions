@@ -6,17 +6,15 @@ bool cycpattern_check(string a, string b) {
         return false;
     }
 
-    string temp = b + b;
-
-    if (temp.find(a) != string::npos) {
-        return true;
-    }
-
-    for (int i = 1; i < m; i++) {
-        string rotated = b.substr(i, m - i) + b.substr(0, i);
-        string combined = rotated + rotated;
-
-        if (combined.find(a) != string::npos) {
+    for (int i = 0; i < n; i++) {
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (a[(i + j) % n] != b[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
             return true;
         }
     }
