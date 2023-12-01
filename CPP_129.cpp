@@ -1,44 +1,31 @@
+#include <vector>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(m, false));
-    
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     int currRow = 0, currCol = 0;
-    path.push_back(grid[currRow][currCol]);
-    visited[currRow][currCol] = true;
+    int steps = 0;
     
-    while(path.size() < k){
-        int nextRow = -1, nextCol = -1;
-        int minValue = INT_MAX;
-        
-        // Check all possible neighbors
-        if(currRow > 0 && !visited[currRow-1][currCol] && grid[currRow-1][currCol] < minValue){
-            nextRow = currRow - 1;
-            nextCol = currCol;
-            minValue = grid[currRow-1][currCol];
-        }
-        if(currRow < n-1 && !visited[currRow+1][currCol] && grid[currRow+1][currCol] < minValue){
-            nextRow = currRow + 1;
-            nextCol = currCol;
-            minValue = grid[currRow+1][currCol];
-        }
-        if(currCol > 0 && !visited[currRow][currCol-1] && grid[currRow][currCol-1] < minValue){
-            nextRow = currRow;
-            nextCol = currCol - 1;
-            minValue = grid[currRow][currCol-1];
-        }
-        if(currCol < m-1 && !visited[currRow][currCol+1] && grid[currRow][currCol+1] < minValue){
-            nextRow = currRow;
-            nextCol = currCol + 1;
-            minValue = grid[currRow][currCol+1];
-        }
-        
-        // Move to the next cell
-        currRow = nextRow;
-        currCol = nextCol;
+    while(steps < k){
         path.push_back(grid[currRow][currCol]);
         visited[currRow][currCol] = true;
+        steps++;
+        
+        if(currCol < n-1 && !visited[currRow][currCol+1]){
+            currCol++;
+        }
+        else if(currRow < n-1 && !visited[currRow+1][currCol]){
+            currRow++;
+        }
+        else if(currCol > 0 && !visited[currRow][currCol-1]){
+            currCol--;
+        }
+        else if(currRow > 0 && !visited[currRow-1][currCol]){
+            currRow--;
+        }
     }
     
     return path;
