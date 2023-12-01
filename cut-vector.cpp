@@ -21,8 +21,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     std::pair<std::vector<int>, std::vector<int>> result;
     if (currSum == target) {
         result.first = std::vector<int>(nums.begin(), nums.begin() + i + 1);
-        result.second = std::vector<int>(nums.begin() + i + 1, nums.end());
-    } else if (abs(currSum - target) < abs(target - (currSum - nums[i]))) {
+        result.second = std::vector<int>(nums.begin() + i + 1, nums.begin() + i);
+    } else if (currSum - target < target - (currSum - nums[i])) {
         result.first = std::vector<int>(nums.begin(), nums.begin() + i + 1);
         result.second = std::vector<int>(nums.begin() + i + 1, nums.end());
     } else {
