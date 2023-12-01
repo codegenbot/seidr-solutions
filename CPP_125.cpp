@@ -1,21 +1,16 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
+
 vector<string> split_words(string txt);
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
+int main() {
+    assert(issame(split_words("") ,{"0"}));
+    // other test cases
 
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
+    return 0;
 }
 
 vector<string> split_words(string txt){
