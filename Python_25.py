@@ -1,5 +1,5 @@
 def main():
-    n = int(input().strip()) 
+    n = int(input().strip())
     result = solve(n)
     print(result)
 
