@@ -17,9 +17,9 @@ std::vector<int> get_odd_collatz(int n) {
     collatz_seq.push_back(n);
   }
   std::vector<int> odd_collatz_seq;
-  for (const auto& num : collatz_seq) {
-    if (num % 2 != 0) {
-      odd_collatz_seq.push_back(num);
+  for (int i = 0; i < collatz_seq.size(); i++) {
+    if (collatz_seq[i] % 2 != 0) {
+      odd_collatz_seq.push_back(collatz_seq[i]);
     }
   }
   return odd_collatz_seq;
@@ -33,5 +33,4 @@ int main() {
   } else {
     std::cout << "Output is incorrect" << std::endl;
   }
-  return 0;
 }

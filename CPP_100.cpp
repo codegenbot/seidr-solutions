@@ -2,14 +2,12 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> piles;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> piles;
     int stones = n;
     for (int i = 0; i < n; i++) {
         piles.push_back(stones);
