@@ -16,10 +16,10 @@ vector<bool> reverse_delete(string s, string c) {
     string reversed = result;
     reverse(reversed.begin(), reversed.end());
     bool isPalindrome = (result == reversed);
-    return {isPalindrome};
+    return { isPalindrome };
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<bool>{true});
+    assert(reverse_delete("mamma", "mia") == vector<bool>{ true });
     return 0;
 }
