@@ -1,33 +1,40 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess);
-
-int main() {
-    vector<int> game = {3, 7, 5};
-    vector<int> guess = {4, 7, 3};
-    
-    vector<int> result = compare(game, guess);
-    
-    assert(issame(result[0], 1));
-    assert(issame(result[1], 0));
-    assert(issame(result[2], 2));
-    
-    return 0;
-}
-
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
+    std::vector<int> result;
+    if (game.size() != guess.size()) {
+        // handle the case where sizes are not equal
+        return result;
+    }
     for(int i=0; i<game.size(); i++){
         int diff = abs(guess[i] - game[i]);
         result.push_back(diff);
     }
     return result;
+}
+
+int main(){
+    std::vector<int> game = {1, 2, 3};
+    std::vector<int> guess = {2, 4, 6};
+
+    std::vector<int> result = compare(game, guess);
+
+    assert(result.size() == game.size());
+    assert(issame(result, {1, 2, 3})); // update the expected values
+
+    return 0;
 }
