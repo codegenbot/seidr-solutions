@@ -14,3 +14,9 @@ int Solution::can_arrange(std::vector<int> arr) {
     }
     return -1;
 }
+
+int main() {
+    Solution obj;
+    assert(obj.can_arrange({}) == -1);
+    return 0;
+}
