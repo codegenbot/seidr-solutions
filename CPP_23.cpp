@@ -1,5 +1,6 @@
+#include <cstring>
 #include <string>
 
-int getStrLength(string str){
-    return str.length();
+int getLength(std::string str){
+    return strlen(str.c_str());
 }
