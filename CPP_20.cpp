@@ -3,6 +3,22 @@
 
 using namespace std;
 
+bool issame(vector<float> a, vector<float> b);
+
+vector<float> find_closest_elements(vector<float> numbers);
+
+bool issame_numbers(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = abs(numbers[0] - numbers[1]);
     float num1 = numbers[0];
@@ -27,6 +43,6 @@ vector<float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(issame(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), {2.2, 3.1}));
+    assert(issame_numbers(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     return 0;
 }
