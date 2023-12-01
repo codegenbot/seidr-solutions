@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -32,16 +32,28 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main(){
-    vector<string> strings = {"apple", "banana", "orange", "grapefruit"};
-    string substring = "an";
-    vector<string> expected_output = {"banana", "orange"};
-    assert(issame(filter_by_substring(strings, substring), expected_output));
-
-    strings = {"cat", "dog", "elephant", "giraffe"};
-    substring = "at";
-    expected_output = {"cat", "elephant"};
-    assert(issame(filter_by_substring(strings, substring), expected_output));
-
-    cout << "Test cases passed!";
+    // Test case 1
+    vector<string> strings1{"apple", "banana", "cat", "dog"};
+    string substring1 = "a";
+    vector<string> expected1{"apple", "banana"};
+    vector<string> output1 = filter_by_substring(strings1, substring1);
+    assert(issame(output1, expected1));
+    
+    // Test case 2
+    vector<string> strings2{"hello", "world", "cpp", "code"};
+    string substring2 = "o";
+    vector<string> expected2{"hello", "code"};
+    vector<string> output2 = filter_by_substring(strings2, substring2);
+    assert(issame(output2, expected2));
+    
+    // Test case 3
+    vector<string> strings3{"abcd", "efgh", "ijkl", "mnop"};
+    string substring3 = "z";
+    vector<string> expected3{};
+    vector<string> output3 = filter_by_substring(strings3, substring3);
+    assert(issame(output3, expected3));
+    
+    cout << "All test cases passed!" << endl;
+    
     return 0;
 }
