@@ -4,6 +4,11 @@ int main() {
     int cents;
     std::cin >> cents;
 
+    if (cents == 0) {
+        std::cout << "0\n0\n0\n0" << std::endl;
+        return 0;
+    }
+
     int quarters = cents / 25;
     cents %= 25;
 
@@ -15,9 +20,6 @@ int main() {
 
     int pennies = cents;
 
-    int totalCoins = quarters + dimes + nickels + pennies;
-
-    std::cout << totalCoins << std::endl;
     std::cout << quarters << std::endl;
     std::cout << dimes << std::endl;
     std::cout << nickels << std::endl;
