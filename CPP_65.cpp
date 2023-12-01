@@ -1,14 +1,19 @@
+#include <string>
+#include <algorithm>
+
 string circular_shift(int x, int shift) {
-    string num = to_string(x);
-    int n = num.length();
-    
+    string str = to_string(x);
+    int n = str.length();
     if (shift > n) {
-        reverse(num.begin(), num.end());
-        return num;
+        reverse(str.begin(), str.end());
+        return str;
+    } else {
+        string shifted = str.substr(n - shift) + str.substr(0, n - shift);
+        return shifted;
     }
-    
-    shift = shift % n;
-    
-    string result = num.substr(n - shift) + num.substr(0, n - shift);
-    return result;
+}
+
+int main() {
+    // your code here
+    return 0;
 }
