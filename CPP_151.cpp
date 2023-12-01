@@ -15,7 +15,6 @@ double double_the_difference(vector<double> lst) {
 }
 
 int main() {
-    // Example test case
     vector<double> lst = {1.5, 2.0, 3.3, 4.0, 5.5};
     double odd_sum = 1.0 * 1.0 + 3.0 * 3.0 + 5.0 * 5.0;
     assert(double_the_difference(lst) == odd_sum);

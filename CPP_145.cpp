@@ -1,12 +1,11 @@
+#include <algorithm>
 #include <vector>
-#include <cmath>
 #include <cassert>
-
-using namespace std;
+#include <cmath>
 
 bool compare(int a, int b) {
     int sum_a = 0, sum_b = 0;
-    int temp_a = abs(a), temp_b = abs(b);
+    int temp_a = std::abs(a), temp_b = std::abs(b);
 
     while (temp_a > 0) {
         sum_a += temp_a % 10;
@@ -25,21 +24,17 @@ bool compare(int a, int b) {
     return sum_a < sum_b;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+
+    return 0;
 }
