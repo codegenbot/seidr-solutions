@@ -13,6 +13,10 @@ bool check_map_case(map<string,string> dict){
             return false;
         }
         
+        if(!isLower && !isUpper){
+            return false;
+        }
+        
         if(isLower && !islower(key[0])){
             isLower = false;
         }
@@ -20,11 +24,7 @@ bool check_map_case(map<string,string> dict){
         if(isUpper && !isupper(key[0])){
             isUpper = false;
         }
-        
-        if(!isLower && !isUpper){
-            return false;
-        }
     }
     
-    return true;
+    return isLower || isUpper;
 }
