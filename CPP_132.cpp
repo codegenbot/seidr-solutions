@@ -1,8 +1,6 @@
-#include <iostream>
-#include <cassert>
 #include <string>
 
-bool is_nested(const std::string& str){
+int is_nested(const std::string& str){
     int count = 0;
     for(int i = 0; i < str.length(); i++){
         if(str[i] == '['){
@@ -12,16 +10,8 @@ bool is_nested(const std::string& str){
             count--;
         }
         if(count > 1){
-            return true;
+            return 1;
         }
     }
-    return false;
-}
-
-int main(){
-    assert(is_nested("[]") == false);
-    assert(is_nested("[[[]]]") == true);
-    assert(is_nested("]]]]]]]]") == false);
-    std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
