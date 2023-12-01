@@ -45,6 +45,6 @@ int main() {
         std::cout << result[i] << " ";
     }
     std::cout << std::endl;
-
+    
     return 0;
 }
