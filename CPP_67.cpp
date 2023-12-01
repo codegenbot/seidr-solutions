@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 int fruit_distribution(string s, int n) {
     int apples = 0;
@@ -10,20 +11,17 @@ int fruit_distribution(string s, int n) {
     if (pos != string::npos) {
         apples = stoi(s.substr(0, pos));
     }
-
+    
     pos = s.find("oranges");
     if (pos != string::npos) {
         oranges = stoi(s.substr(pos + 8));
     }
-
+    
     // Calculate the number of mangoes
     mangoes = n - apples - oranges;
-
+    
     return mangoes;
 }
 
-int main() {
-    assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
-
-    return 0;
-}
+// Test case
+assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
