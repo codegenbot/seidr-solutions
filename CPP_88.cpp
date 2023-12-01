@@ -1,32 +1,22 @@
 #include <vector>
 #include <algorithm>
-#include <functional>
-#include <cassert>
 
-std::vector<int> sort_array(std::vector<int> array){
-    if(array.empty()){
-        return array;
-    }
+using namespace std;
+
+vector<int> sortArray(vector<int> array){
+    vector<int> sorted_array = array;
+    if(array.size() == 0)
+        return sorted_array;
     
-    int first = array[0];
-    int last = array[array.size() - 1];
+    int sum_first_last = array[0] + array[array.size()-1];
+    if(sum_first_last % 2 == 0)
+        sort(sorted_array.begin(), sorted_array.end(), greater<int>());
+    else
+        sort(sorted_array.begin(), sorted_array.end());
     
-    if((first + last) % 2 == 0){
-        std::sort(array.begin(), array.end(), std::greater<int>());
-    }
-    else{
-        std::sort(array.begin(), array.end());
-    }
-    
-    return array;
+    return sorted_array;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
-}
-
-int main(){
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-   
-    return 0;
 }

@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm> 
+#include <algorithm> // for std::equal
 
 std::vector<std::string> words_string(std::string s) {
     std::vector<std::string> words;
