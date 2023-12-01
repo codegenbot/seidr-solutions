@@ -1,15 +1,5 @@
-#include <iostream>
 #include <vector>
-
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> result;
-    for (int i = a; i <= b; i++) {
-        if (i % 2 == 0) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -23,11 +13,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    std::vector<int> result = generate_integers(17, 89);
-    for (int num : result) {
-        std::cout << num << " ";
+std::vector<int> generate_integers(int a, int b) {
+    std::vector<int> result;
+    for (int i = a; i <= b; i++) {
+        if (i % 2 == 0) {
+            result.push_back(i);
+        }
     }
-    std::cout << std::endl;
-    return 0;
+    return result;
 }
