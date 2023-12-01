@@ -25,7 +25,7 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
 }
 
 int main(){
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert(issame(intersperse({2, 2, 2},2), {2, 2, 2, 2, 2}));
     // Rest of the main function goes here
     // ...
     return 0;
