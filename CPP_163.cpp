@@ -1,7 +1,9 @@
 #include <vector>
 
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> result;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> generate_integers(int a, int b) {
+    vector<int> result;
     for (int i = a; i <= b; i++) {
         int temp = i;
         while (temp > 0) {
@@ -13,13 +15,4 @@ std::vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // TODO: Add your implementation here
-}
-
-int main() {
-    assert (issame(generate_integers(17,89) , {}));
-    // TODO: Add more test cases
 }
