@@ -1,45 +1,36 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-vector<int> sort_third(vector<int> l);
-
-vector<int> sort_third(vector<int> l) {
-    vector<int> l_prime = l;
-    vector<int> indices;
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> l_prime = l;
+    std::vector<int> divisible_by_three;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            indices.push_back(i);
+            divisible_by_three.push_back(l[i]);
         }
     }
 
-    sort(indices.begin(), indices.end());
+    std::sort(divisible_by_three.begin(), divisible_by_three.end());
 
-    for (int i = 0; i < indices.size(); i++) {
-        l_prime[indices[i]] = l[indices[i]];
+    int j = 0;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            l_prime[i] = divisible_by_three[j];
+            j++;
+        }
     }
 
     return l_prime;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(sort_third({ 5, 6, 3, 4, 8, 9, 2, 1 }), { 2, 6, 3, 4, 8, 9, 5, 1 }));
 
     return 0;
 }
