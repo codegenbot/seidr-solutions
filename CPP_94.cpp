@@ -22,11 +22,13 @@ int skjkasdkd(vector<int> lst) {
             largestPrime = num;
         }
     }
+    
     int sumOfDigits = 0;
     while (largestPrime > 0) {
         sumOfDigits += largestPrime % 10;
         largestPrime /= 10;
     }
+    
     return sumOfDigits;
 }
 
