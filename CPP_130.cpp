@@ -1,5 +1,9 @@
 #include <vector>
 
+using namespace std;
+
+vector<int> tri(int n);
+
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> tri(int n){
@@ -29,14 +33,11 @@ vector<int> tri(int n){
     return sequence;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    // your implementation
+}
+
+int main() {
+    // your test cases and assertions
+    // example: assert (issame(tri(1), {1, 3}));
 }
