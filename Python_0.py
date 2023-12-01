@@ -7,10 +7,10 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
             return True
     return False
 
-
 numbers = input().strip().split()
 numbers = [float(num) for num in numbers]
 threshold = float(input())
 
+# Function call
 result = has_close_elements(numbers, threshold)
 print(result)
