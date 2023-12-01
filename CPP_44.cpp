@@ -1,6 +1,6 @@
+#include <iostream>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 std::string change_base(int x, int base) {
     std::string result = "";
@@ -14,9 +14,11 @@ std::string change_base(int x, int base) {
 
 int main() {
     // Test the function with some sample inputs
-    std::cout << change_base(10, 2) << std::endl; // Output: 1010
-    std::cout << change_base(15, 16) << std::endl; // Output: F
-    std::cout << change_base(255, 8) << std::endl; // Output: 377
-
+    assert(change_base(10, 2) == "1010");
+    assert(change_base(16, 16) == "10");
+    assert(change_base(100, 8) == "144");
+    
+    std::cout << "All test cases passed!" << std::endl;
+    
     return 0;
 }
