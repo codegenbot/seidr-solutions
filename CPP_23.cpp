@@ -1,13 +1,15 @@
-#include <string>
-#include <iostream>
 #include <cassert>
 #include <cstring>
+#include <string>
+using namespace std;
 
-int calculateLength(std::string str){
-    return strlen(str.c_str());
+int calculateLength(string str){
+    return str.length();
 }
 
 int main() {
-    assert(calculateLength("asdasnakj") == 9);
+    // Write your code here
+
+    assert (calculateLength("asdasnakj") == 9);
     return 0;
 }
