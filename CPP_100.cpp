@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    // implementation of issame function
+    // Implementation of the issame function
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,18 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> make_a_pile(int n) {
+vector<int> make_a_pile(vector<int> stones) {
+    // Implementation of the make_a_pile function
+    vector<int> pile;
+    for (int i = 0; i < stones.size(); i++) {
+        if (i == 0 || stones[i] != stones[i-1]) {
+            pile.push_back(stones[i]);
+        }
+    }
+    return pile;
+}
+
+vector<int> solve(int n) {
     vector<int> stones;
     stones.push_back(n);
     for (int i = 1; i < n; i++) {
