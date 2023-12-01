@@ -1,13 +1,9 @@
-int vowels_count(string s){
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
+int vowels_count(string s) {
     int count = 0;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
+    for (int i = 0; i < s.length(); i++) {
+        if (tolower(s[i]) == 'a' || tolower(s[i]) == 'e' || tolower(s[i]) == 'i' || tolower(s[i]) == 'o' || (tolower(s[i]) == 'u' && i == s.length() - 1)) {
             count++;
         }
-    }
-    if(s.length() >= 2 && s[s.length()-1] == 'y'){
-        count--;
     }
     return count;
 }
