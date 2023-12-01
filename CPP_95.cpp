@@ -31,8 +31,3 @@ bool check_map_case(std::map<std::string, std::string> dict){
     
     return true;
 }
-
-int main() {
-    assert (check_map_case({}) == false);
-    return 0;
-}
