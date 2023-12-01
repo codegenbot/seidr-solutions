@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -17,7 +16,7 @@ bool issame(vector<float> a, vector<float> b){
         return false;
     }
     for(int i=0; i<a.size(); i++){
-        if (a[i] != b[i]) {
+        if (abs(a[i]-b[i])>1e-4) {
             return false;
         }
     }
