@@ -1,40 +1,38 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
 vector<string> select_words(string s, int n) {
-    vector<string> result;
-
     if (s.empty()) {
-        return result;
+        return {};
     }
-
-    // Split the string into words
+    
     vector<string> words;
     string word;
     for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
+        if (isalpha(c)) {
+          // Count the number of consonants in the word
+            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+                word += c;
             }
-        } else {
-            word += c;
+        } else if (!word.empty()) {
+          // Add the word to the vector if it has the desired number of consonants
+            if (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
+                + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
+                + count(word.begin(), word.end(), 'u') != n) {
+                words.push_back(word);
+            }
+            
+            word = "";
         }
     }
-    if (!word.empty()) {
+    
+    // Check if the last word in the string has the desired number of consonants
+    if (!word.empty() && (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
+                         + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
+                         + count(word.begin(), word.end(), 'u') != n)) {
         words.push_back(word);
     }
-
-    // Check each word for the number of consonants
-    for (string word : words) {
-        int consonantCount = 0;
-        for (char c : word) {
-            c = tolower(c);
-            if (c >= 'a' && c <= 'z' && c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
-                consonantCount++;
-            }
-        }
-        if (consonantCount == n) {
-            result.push_back(word);
-        }
-    }
-
-    return result;
+    
+    return words;
 }
