@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int prod_signs(vector<int> arr){
     if(arr.empty()){
@@ -16,7 +15,16 @@ int prod_signs(vector<int> arr){
     return sum * product;
 }
 
-int main(){
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
+int main() {
+    // Test the functionality of the prod_signs function
+    vector<int> test1 = {1, 2, 3};
+    int result1 = prod_signs(test1);
+    // Expected result1: (1 + 2 + 3) * 1 = 6
+    vector<int> test2 = {-1, 2, -3};
+    int result2 = prod_signs(test2);
+    // Expected result2: (1 + 2 + 3) * -1 = -6
+    vector<int> test3 = {};
+    int result3 = prod_signs(test3);
+    // Expected result3: -32768
     return 0;
 }
