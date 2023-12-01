@@ -36,17 +36,18 @@ bool issame(std::vector<int> a, std::vector<int> b) {
             return false;
         }
     }
-  
+
     return true;
 }
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
-    assert(issame(pluck({5, 8, 2, 4, 9}), {2, 2}));
-    assert(issame(pluck({1, 2, 3, 4, 5}), {2, 1}));
-    assert(issame(pluck({10, 20, 30, 40, 50}), {10, 0}));
-    assert(issame(pluck({11, 13, 15, 17, 19}), {}));
-    assert(issame(pluck({2, 4, 6, 8, 10}), {2, 0}));
-    
+    assert(issame(pluck({10, 20, 30, 40}), {10, 0}));
+    assert(issame(pluck({1, 3, 5, 7}), {}));
+    assert(issame(pluck({2, 4, 6, 8}), {2, 0}));
+    assert(issame(pluck({1, 2, 3, 4, 5, 6, 7, 8, 9}), {2, 1}));
+    assert(issame(pluck({100, 200, 300, 400, 500}), {100, 0}));
+    assert(issame(pluck({-1, -2, -3, -4, -5}), {-2, 1}));
+
     return 0;
 }
