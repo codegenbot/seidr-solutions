@@ -31,8 +31,7 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-int main() {
-    // Take input from user
+int solve() {
     int n;
     std::cin >> n;
 
@@ -41,14 +40,17 @@ int main() {
         std::cin >> numbers[i];
     }
 
-    // Get the sum and product
     std::vector<int> result = sum_product(numbers);
 
-    // Print the output
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
     std::cout << std::endl;
 
+    return 0;
+}
+
+int main() {
+    solve();
     return 0;
 }
