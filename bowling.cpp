@@ -3,7 +3,7 @@ int calculateScore(const std::string& bowls) {
     int frame = 1;
     int bowlIndex = 0;
 
-    while (frame <= 10 && bowlIndex <= (int)bowls.length() - 1) {
+    while (frame <= 10 && bowlIndex <= bowls.length() - 1) {
         char bowl = bowls[bowlIndex];
 
         if (bowl == 'X') {
@@ -13,18 +13,16 @@ int calculateScore(const std::string& bowls) {
                 } else {
                     score += 20 + (bowls[bowlIndex + 2] - '0');
                 }
-                bowlIndex++;
             } else {
                 if (bowls[bowlIndex + 2] == '/') {
                     score += 20;
                 } else {
                     score += 10 + (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0');
                 }
-                bowlIndex += 2;
             }
+            bowlIndex += 1;
         } else if (bowl == '/') {
             score += (10 - (bowls[bowlIndex - 1] - '0')) + (bowls[bowlIndex + 1] - '0');
-            bowlIndex++;
         } else {
             score += (bowl - '0');
         }
