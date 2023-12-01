@@ -22,7 +22,7 @@ vector<float> get_positive(vector<float> l){
     return positive_nums;
 }
 
-int main(){
+int main() {
     assert (issame(get_positive({}), get_positive({})));
     return 0;
 }
