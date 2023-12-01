@@ -1,18 +1,11 @@
-#include <string>
-
-string decimal_to_binary(int decimal) {
+string decimal_to_binary(int decimal){
     string binary = "db";
+    int num = decimal;
 
-    // If the decimal is zero
-    if (decimal == 0) {
-        binary += "0";
-        return binary + "db";
-    }
-
-    // Convert decimal to binary
-    while (decimal > 0) {
-        binary = to_string(decimal % 2) + binary;
-        decimal /= 2;
+    while(num > 0){
+        int remainder = num % 2;
+        binary = to_string(remainder) + binary;
+        num = num / 2;
     }
 
     return binary + "db";
