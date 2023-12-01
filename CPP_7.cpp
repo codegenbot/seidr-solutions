@@ -28,9 +28,9 @@ bool isSame(vector<string> a, vector<string> b){
 
 int main() {
     assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    assert(isSame(filter_by_substring({"apple", "banana", "cherry", "durian"}, "e"), {"apple", "cherry"}));
-    
+    assert(isSame(filter_by_substring({"hello", "world", "hello world"}, "hello"), {"hello", "hello world"}));
+    assert(isSame(filter_by_substring({"apple", "banana", "orange"}, "fruit"), {}));
     // Add other test cases and function calls here
-    
+
     return 0;
 }
