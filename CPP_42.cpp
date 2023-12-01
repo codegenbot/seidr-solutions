@@ -1,6 +1,6 @@
-#include <cassert>
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -23,7 +23,7 @@ bool issame_vectors(vector<int> a, vector<int> b){
     return true;
 }
 
-int main() {
+int main(){
     assert(issame_vectors(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
 
     return 0;
