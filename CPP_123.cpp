@@ -28,7 +28,7 @@ std::vector<int> get_odd_collatz(int n) {
 int main() {
   std::vector<int> expected = {1};
   const std::vector<int>& result = get_odd_collatz(1);
-  if (issame(result, expected)) {
+  if (std::issame(result, expected)) {
     std::cout << "Output is correct" << std::endl;
   } else {
     std::cout << "Output is incorrect" << std::endl;
