@@ -56,3 +56,14 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     
     return path;
 }
+
+int main(){
+    vector<int> expected_path = {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
+    
+    vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    
+    // Check if the result matches the expected path
+    bool is_same = (result == expected_path);
+
+    return 0;
+}
