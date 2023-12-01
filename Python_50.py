@@ -9,5 +9,5 @@ def main():
     s = input()
     print(encode_shift(s))
     print(decode_shift(s))
-
+    
 main()
