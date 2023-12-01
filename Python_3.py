@@ -1,5 +1,6 @@
-operations = list(map(int, input().split()))
 from typing import List
+
+operations = list(map(int, input().split()))
 
 
 def below_zero(operations: List[int]) -> bool:
