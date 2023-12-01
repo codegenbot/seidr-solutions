@@ -6,14 +6,14 @@ int main() {
 
     int quarters = cents / 25;
 
-    cents = cents % 25;
-    int dimes = cents / 10;
+    int remainingCents = cents % 25;
+    int dimes = remainingCents / 10;
 
-    cents = cents % 10;
-    int nickels = cents / 5;
+    remainingCents %= 10;
+    int nickels = remainingCents / 5;
 
-    cents = cents % 5;
-    int pennies = cents;
+    remainingCents %= 5;
+    int pennies = remainingCents;
 
     int totalCoins = quarters + dimes + nickels + pennies;
 
