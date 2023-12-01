@@ -1,10 +1,8 @@
-#include <iostream>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-string decimal_to_binary(int decimal){
-    string binary = "db";
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
     if(decimal == 0){
         binary += '0';
     }
@@ -14,11 +12,10 @@ string decimal_to_binary(int decimal){
             decimal /= 2;
         }
     }
-    binary += "db";
     return binary;
 }
 
 int main() {
-    cout << decimal_to_binary(15) << endl;
+    assert(decimal_to_binary(15) == "1111");
     return 0;
 }
