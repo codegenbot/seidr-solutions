@@ -1,41 +1,46 @@
-string sort_numbers(string numbers){
-    map<string, int> numMap;
-    numMap["zero"] = 0;
-    numMap["one"] = 1;
-    numMap["two"] = 2;
-    numMap["three"] = 3;
-    numMap["four"] = 4;
-    numMap["five"] = 5;
-    numMap["six"] = 6;
-    numMap["seven"] = 7;
-    numMap["eight"] = 8;
-    numMap["nine"] = 9;
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+#include <cassert>
 
-    vector<int> sortedNumbers;
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> numeralMap;
+    numeralMap["zero"] = 0;
+    numeralMap["one"] = 1;
+    numeralMap["two"] = 2;
+    numeralMap["three"] = 3;
+    numeralMap["four"] = 4;
+    numeralMap["five"] = 5;
+    numeralMap["six"] = 6;
+    numeralMap["seven"] = 7;
+    numeralMap["eight"] = 8;
+    numeralMap["nine"] = 9;
 
-    // Split the input string into individual numbers
-    stringstream ss(numbers);
-    string num;
-    while (getline(ss, num, ' ')) {
-        sortedNumbers.push_back(numMap[num]);
+    std::vector<std::string> numerals;
+    std::stringstream ss(numbers);
+    std::string temp;
+    while (std::getline(ss, temp, ' ')) {
+        numerals.push_back(temp);
     }
 
-    // Sort the numbers in ascending order
-    sort(sortedNumbers.begin(), sortedNumbers.end());
+    std::sort(numerals.begin(), numerals.end(), [&](const std::string& a, const std::string& b) {
+        return numeralMap[a] < numeralMap[b];
+    });
 
-    // Convert the sorted numbers back to string
-    string result;
-    for (int i = 0; i < sortedNumbers.size(); i++) {
-        for (auto it = numMap.begin(); it != numMap.end(); ++it) {
-            if (it->second == sortedNumbers[i]) {
-                result += it->first + " ";
-                break;
-            }
-        }
+    std::string sortedNumbers;
+    for (const std::string& numeral : numerals) {
+        sortedNumbers += numeral + " ";
     }
 
-    // Remove the trailing space
-    result = result.substr(0, result.length() - 1);
+    sortedNumbers.pop_back();
+    return sortedNumbers;
+}
 
-    return result;
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    std::cout << "Test passed!" << std::endl;
+    return 0;
 }
