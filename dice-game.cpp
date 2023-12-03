@@ -1,6 +1,7 @@
 #include <iostream>
+using namespace std;
 
-double probabilityOfHigher(int n, int m) {
+double probabilityOfHigherRoll(int n, int m) {
     double totalOutcomes = n * m;
     double favorableOutcomes = 0;
 
@@ -17,10 +18,7 @@ double probabilityOfHigher(int n, int m) {
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-
-    double probability = probabilityOfHigher(n, m);
-    std::cout << probability << std::endl;
-
+    cin >> n >> m;
+    cout << probabilityOfHigherRoll(n, m) << endl;
     return 0;
 }
