@@ -1,21 +1,26 @@
 #include <iostream>
 
-double probabilityOfHigherRoll(int n, int m) {
-    int count = 0;
+double probabilityOfPeterWinning(int n, int m) {
+    int totalOutcomes = n * m;
+    int favorableOutcomes = 0;
+    
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                count++;
+                favorableOutcomes++;
             }
         }
     }
-    return (double)count / (n * m);
+    
+    return (double)favorableOutcomes / totalOutcomes;
 }
 
 int main() {
     int n, m;
     std::cin >> n >> m;
-    double result = probabilityOfHigherRoll(n, m);
-    std::cout << result << std::endl;
+    
+    double probability = probabilityOfPeterWinning(n, m);
+    std::cout << probability << std::endl;
+    
     return 0;
 }
