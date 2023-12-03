@@ -1,28 +1,26 @@
 #include <iostream>
-#include <iomanip>
-using namespace std;
 
-double probabilityOfWinning(int n, int m) {
+double probabilityOfPeterWinning(int n, int m) {
     double totalOutcomes = n * m;
-    double favorableOutcomes = 0;
+    double peterWins = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                favorableOutcomes++;
+                peterWins++;
             }
         }
     }
 
-    return favorableOutcomes / totalOutcomes;
+    return peterWins / totalOutcomes;
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
 
-    double probability = probabilityOfWinning(n, m);
-    cout << fixed << setprecision(2) << probability << endl;
+    double probability = probabilityOfPeterWinning(n, m);
+    std::cout << probability << std::endl;
 
     return 0;
 }
