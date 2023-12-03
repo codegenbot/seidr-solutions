@@ -1,21 +1,27 @@
 #include <iostream>
+#include <iomanip>
 
-double calculateProbability(int n, int m) {
-    double probability = 0;
+double probabilityPeterWins(int n, int m) {
+    double totalOutcomes = n * m;
+    double peterWins = 0;
+    
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                probability += 1.0 / (n * m);
+                peterWins++;
             }
         }
     }
-    return probability;
+    
+    return peterWins / totalOutcomes;
 }
 
 int main() {
     int n, m;
     std::cin >> n >> m;
-    double probability = calculateProbability(n, m);
-    std::cout << probability << std::endl;
+    
+    double result = probabilityPeterWins(n, m);
+    std::cout << std::fixed << std::setprecision(2) << result << std::endl;
+    
     return 0;
 }
