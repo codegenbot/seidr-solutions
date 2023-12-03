@@ -1,26 +1,30 @@
 #include <iostream>
-#include <iomanip>
+using namespace std;
 
-double probability(int n, int m) {
-    double count = 0;
-    double total = n * m;
+double probabilityOfHigher(int n, int m) {
+    double totalPossibilities = n * m;
+    double higherPossibilities = 0;
     
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                count++;
+                higherPossibilities++;
             }
         }
     }
     
-    return count / total;
+    return higherPossibilities / totalPossibilities;
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
     
-    std::cout << std::fixed << std::setprecision(2) << probability(n, m) << std::endl;
+    cin >> n;
+    cin >> m;
+    
+    double probability = probabilityOfHigher(n, m);
+    
+    cout << probability << endl;
     
     return 0;
 }
