@@ -1,16 +1,20 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
+
+double probabilityOfPeterHigher(int n, int m) {
+    if (n <= 1 || m <= 0) {
+        return 0.0;
+    }
+    if (n >= m) {
+        return 0.5;
+    }
+    return static_cast<double>(n) / m;
+}
 
 int main() {
     int n, m;
     cin >> n >> m;
-
-    int total_outcomes = n * m;
-    int favorable_outcomes = (n - 1) * m;
-
-    double probability = static_cast<double>(favorable_outcomes) / static_cast<double>(total_outcomes);
-    cout << fixed << setprecision(2) << probability << endl;
-
+    double probability = probabilityOfPeterHigher(n, m);
+    cout << probability << endl;
     return 0;
 }
