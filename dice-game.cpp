@@ -1,30 +1,28 @@
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
-double probabilityOfHigher(int n, int m) {
-    double totalPossibilities = n * m;
-    double higherPossibilities = 0;
-    
+double probabilityOfPeterWinning(int n, int m) {
+    double totalOutcomes = n * m;
+    double favorableOutcomes = 0;
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                higherPossibilities++;
+                favorableOutcomes++;
             }
         }
     }
-    
-    return higherPossibilities / totalPossibilities;
+
+    return favorableOutcomes / totalOutcomes;
 }
 
 int main() {
     int n, m;
-    
-    cin >> n;
-    cin >> m;
-    
-    double probability = probabilityOfHigher(n, m);
-    
-    cout << probability << endl;
-    
+    std::cin >> n >> m;
+
+    double probability = probabilityOfPeterWinning(n, m);
+
+    std::cout << std::fixed << std::setprecision(2) << probability << std::endl;
+
     return 0;
 }
