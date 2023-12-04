@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 
@@ -17,4 +16,3 @@ float mean_absolute_deviation(const std::vector<float>& numbers) {
     }
     return sum / numbers.size();
 }
-```
