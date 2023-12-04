@@ -1,19 +1,14 @@
-```
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+```cpp
+#include <iostream>
+#include <vector>
 using namespace std;
-vector<float> rescale_to_unit(vector<float> numbers){ 
-    float min = numbers[0];
-    float max = numbers[0];
-    for (int i = 1; i < numbers.size(); i++) {
-        if (numbers[i] < min) min = numbers[i];
-        else if (numbers[i] > max) max = numbers[i];
+
+int main() {
+    vector<float> numbers = {1.0, 2.0, 3.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
+    for (int i = 0; i < rescaled_numbers.size(); i++) {
+        cout << rescaled_numbers[i] << endl;
     }
-    vector<float> result(numbers.size());
-    for (int i = 0; i < numbers.size(); i++) {
-        result[i] = (numbers[i] - min) / (max - min);
-    }
-    return result;
+    return 0;
 }
 ```
