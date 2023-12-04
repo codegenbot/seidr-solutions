@@ -1,27 +1,24 @@
-```
+```cpp
 #include <iostream>
-#include <cmath>
 #include <vector>
-using namespace std;
+#include <cmath>
 
-double find_zero(vector<double> coeffs) {
+double poly(const std::vector<double>& coeffs, double solution) {
     // TODO: implement this function
 }
 
 int main() {
     int ncoeff = 0;
-    vector<double> coeffs;
+    std::vector<double> coeffs = {};
     double solution = 0;
     while (ncoeff < 10) {
-        cout << "Enter coefficient: ";
-        cin >> ncoeff;
-        coeffs.push_back(ncoeff);
+        std::cout << "Enter coefficient: ";
+        std::cin >> ncoeff;
+        coeffs.emplace_back(ncoeff);
     }
     solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) < 1e-3) {
-        cout << "Solution: " << solution << endl;
-    } else {
-        cout << "No solution found." << endl;
+        std::cout << "The polynomial has no real roots.";
     }
 }
 ```

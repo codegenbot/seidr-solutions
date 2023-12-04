@@ -1,24 +1,8 @@
 ```
 #include <iostream>
 #include <vector>
-#include <string>
-#include <variant>
-using namespace std;
 
-// Declare the list_any type
-using list_any = variant<int, char>;
-
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
-    for (auto& value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(std::get<int>(value));
-        }
-    }
-    return result;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -27,8 +11,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    // Test the function with a list of integers and characters
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    std::vector<int> values = {3, 'c', 3, 3, 'a', 'b'};
+    assert(issame(filter_integers(values), {3, 3, 3}));
     return 0;
 }
 ```
