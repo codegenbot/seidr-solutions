@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -11,9 +12,9 @@ double getProbability(int n, int m) {
                 count++;
             }
         }
-        prob += (double)count / (double)m;
+        prob += count / m;
     }
-    return prob / (double)n;
+    return prob / n;
 }
 
 int main() {
