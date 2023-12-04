@@ -25,3 +25,4 @@ int main() {
     return 0;
 }
 ```
+This code defines the `string_xor` function and includes three test cases using the `assert` macro. The `test_string_xor` function is called in the `main` function to run the tests.
