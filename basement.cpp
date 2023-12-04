@@ -1,15 +1,18 @@
 #include <vector>
-int getNegativeIndex(vector<int> vec) {
+#include <iostream>
+using namespace std;
+int getFirstNegativeIndex(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
         if (sum < 0) {
             return i;
         }
     }
-    // Check if all elements are positive
-    if (sum >= 0) {
-        return 0;
-    }
     return -1;
+}
+int main() {
+    vector<int> nums = {1, -1};
+    cout << getFirstNegativeIndex(nums) << endl;
+    return 0;
 }
