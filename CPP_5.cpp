@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,4 +12,3 @@ vector<int> intersperse(vector<int> numbers, int delimeter) {
     }
     return result;
 }
-```
