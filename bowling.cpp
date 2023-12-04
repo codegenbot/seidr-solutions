@@ -1,5 +1,8 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
+
 int get_score(const char *bowls) {
     int score = 0;
     char prev_ball = ' ';
@@ -20,6 +23,7 @@ int get_score(const char *bowls) {
     }
     return score;
 }
+
 int main() {
     char bowls[] = "XXXXXXXXX"; // Input string representing the individual bowls in a 10-frame round of 10 pin bowling
     int score = get_score(bowls);
