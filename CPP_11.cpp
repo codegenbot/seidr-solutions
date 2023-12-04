@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -21,4 +20,3 @@ int main() {
     cout << string_xor(a,b).length() << endl;
     return 0;
 }
-```
