@@ -1,19 +1,27 @@
-[PYTHON]
-def below_zero(operations):
-    balance = 0
-    for op in operations:
-        balance += op
-        if balance < 0:
-            return True
-    return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert below_zero([]) == False
-# Test case 2:
-assert below_zero([1, 2, 3]) == False
-# Test case 3:
-assert below_zero([1, 2, -4, 5]) == True
-[/TESTS]
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+bool below_zero(vector<int> operations) {
+    int balance = 0;
+    for (int i = 0; i < operations.size(); i++) {
+        if (operations[i] > 0) {
+            balance += operations[i];
+        } else {
+            balance -= operations[i];
+            if (balance < 0) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+int main() {
+    vector<int> operations = {1, 2, -4, 5};
+    cout << below_zero(operations) << endl;
+    return 0;
+}
 ```
