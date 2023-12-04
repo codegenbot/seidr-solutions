@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -21,3 +20,5 @@ int main() {
         std::cout << "The polynomial has no real roots.";
     }
 }
+
+```
