@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -20,4 +19,3 @@ vector<float> find_closest_elements(vector<float> numbers) {
     }
     return result;
 }
-```
