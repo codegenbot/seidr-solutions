@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -12,10 +13,11 @@ int main() {
         nums.push_back(std::string(1, n));
     }
     sort(nums.begin(), nums.end());
-    cout << "Sorted: ";
+    string sorted = "";
     for (auto& n : nums) {
-        cout << n << " ";
+        sorted += n + " ";
     }
-    cout << endl;
+    cout << sorted << endl;
     return 0;
 }
+```
