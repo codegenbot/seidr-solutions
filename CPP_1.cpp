@@ -1,33 +1,46 @@
-[PYTHON]
-def separate_paren_groups(paren_string):
-    result = []
-    open = 0
-    close = 0
-    temp = ""
-    for char in paren_string:
-        if char == '(':
-            open += 1
-        elif char == ')':
-            close += 1
-        if open == close and open > 0:
-            result.append(temp)
-            temp = ""
-            open = 0
-            close = 0
-        else:
-            temp += char
-    return result
+```
+#include <iostream>
+#include <string>
+#include <vector>
 
-def issame(a, b):
-    return a == b
+using namespace std;
 
-assert issame(separate_paren_groups("( ) (( )) (( )( ))"), ["()", "(())", "(()())"])
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert separate_paren_groups("( ) (( )) (( )( ))") == ["()", "(())", "(()())"]
-# Test case 2:
-assert separate_paren_groups("(( )) (( )) (())") == ["(())", "(())", "()"]
-# Test case 3:
-assert separate_paren_groups("(( ) (())) (( ) (()))") == ["(()())", "(())", "()"]
-[/TESTS]
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    int open = 0, close = 0;
+    string temp = "";
+
+    for (int i = 0; i < paren_string.size(); i++) {
+        if (paren_string[i] == '(') {
+            open++;
+        } else if (paren_string[i] == ')') {
+            close++;
+        }
+
+        if (open == close && open > 0) {
+            result.push_back(temp);
+            temp = "";
+            open = 0;
+            close = 0;
+        } else {
+            temp += paren_string[i];
+        }
+    }
+
+    return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
