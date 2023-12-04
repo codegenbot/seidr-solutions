@@ -22,3 +22,6 @@ int main() {
     return 0;
 }
 ```
+The issue with the code is that it contains stray backticks (``) which are not allowed in C++ programs. These backticks are used to enclose inline C++ code in Markdown files, but they should not be present in standalone C++ source code. To fix this issue, simply remove all instances of `` from the code and the error will disappear.
+
+Additionally, there is a redefinition of `main()` function which is not allowed in C++. This can be fixed by removing one of the definitions of `main()` or renaming one of them to avoid conflict.
