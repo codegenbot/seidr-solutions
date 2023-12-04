@@ -1,9 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-double poly(const std::vector<double>& coeffs, double solution) {
+double poly(const std::deque<double>& coeffs, double solution) {
     // TODO: implement this function
 }
 
