@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -9,4 +10,3 @@ int greatest_common_divisor(int a, int b) {
     }
     return a;
 }
-```
