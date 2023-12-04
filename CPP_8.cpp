@@ -1,22 +1,15 @@
-```cpp
+```
+#include <iostream>
 #include <vector>
 
-int main() {
-    vector<int> numbers = {10};
-    auto result = sum_product(numbers);
-    assert(result == 10, 10);
-}
+using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-vector<int> sum_product(const vector<int>& numbers) {
+vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
-    for (auto i : numbers) {
-        sum += i;
-        product *= i;
+    for (auto num : numbers) {
+        sum += num;
+        product *= num;
     }
     return {sum, product};
 }
