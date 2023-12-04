@@ -1,27 +1,24 @@
-
-#include <iostream>
-#include <string>
-#include <vector>
-
-int get_score(const std::string& bowls) {
-    int score = 0;
-    char prev_ball = ' ';
-    for (int i = 0; i < bowls.size(); i++) {
-        if (bowls[i] == 'X' || bowls[i] == '/') {
-            score = 0;
-            break;
-        } else if (bowls[i] == '-') {
-            score -= 5;
-        } else {
-            score += bowls[i] - '0';
-        }
-    }
-    return score;
-}
-
-int main() {
-    std::string bowls = "52534463X-15/4-8-18";
-    int score = get_score(bowls);
-    std::cout << "Score: " << score << std::endl;
-    return 0;
-}
+[PYTHON]
+def get_score(bowls: str) -> int:
+    score = 0
+    for ball in bowls:
+        if ball == "X":
+            score += 10
+        elif ball == "/":
+            score += 5
+        elif ball == "-":
+            score -= 5
+        else:
+            score += int(ball)
+    return score
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_score("XXXXXXXXXX") == 90
+# Test case 2:
+assert get_score("52534463X-15/4-8-18") == 175
+# Test case 3:
+assert get_score("1111111111") == 20
+# Test case 4:
+assert get_score("9-9-9-9-9-9-9-9-9-9-") == -5
+[/TESTS]
