@@ -1,4 +1,4 @@
-
+```
 #include <stdio.h>
 #include <math.h>
 #include <vector>
@@ -33,3 +33,4 @@ int main() {
     printf("The zero of the polynomial is %f\n", root);
     return 0;
 }
+```
