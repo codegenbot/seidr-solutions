@@ -1,63 +1,20 @@
-[PYTHON]
-def sort_numbers(numbers):
-    number_map = {
-        "zero": 0,
-        "one": 1,
-        "two": 2,
-        "three": 3,
-        "four": 4,
-        "five": 5,
-        "six": 6,
-        "seven": 7,
-        "eight": 8,
-        "nine": 9
-    }
-    sorted_numbers = []
-    for number in numbers.split():
-        sorted_numbers.append(number_map[number])
-    return " ".join(str(x) for x in sorted_numbers)
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert sort_numbers("three one five") == "one three five"
-# Test case 2:
-assert sort_numbers("five three one") == "one three five"
-# Test case 3:
-assert sort_numbers("seven two one") == "one seven two"
-# Test case 4:
-assert sort_numbers("eight four one") == "one four eight"
-# Test case 5:
-assert sort_numbers("nine five one") == "one five nine"
-[/TESTS]
-
-```
-
-Modified code:
 ```
 #include <iostream>
-#include <map>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+void sort_numbers(vector<int>& numbers) {
+    sort(numbers.begin(), numbers.end());
+}
 
-string sort_numbers(string numbers) {
-    vector<int> sorted_numbers;
-    for (string number : numbers.split()) {
-        sorted_numbers.push_back(number_map[number]);
+int main() {
+    vector<int> numbers = {3, 1, 5};
+    sort_numbers(numbers);
+    for (auto& n : numbers) {
+        cout << n << " ";
     }
-    return " ".join(str(x) for x in sorted_numbers);
+    return 0;
 }
 ```

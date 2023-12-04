@@ -1,9 +1,15 @@
-```
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
+    for (int i = 0; i < strings.size(); i++) {
+        if (strings[i].substr(0, prefix.length()) == prefix) {
+            result.push_back(strings[i]);
+        }
     }
-    return true;
+    return result;
 }
-```
