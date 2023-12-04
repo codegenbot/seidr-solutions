@@ -1,11 +1,10 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
-void sort_numbers(vector<int>& numbers) {
+void sort_num_vec(vector<int>& numbers) {
     sort(numbers.begin(), numbers.end());
 }
 
@@ -17,7 +16,7 @@ int main() {
             numbers.push_back(num - '0');
         }
     }
-    sort_numbers(numbers);
+    sort_num_vec(numbers);
     string output = "";
     for (int i = 0; i < numbers.size(); i++) {
         output += to_string(numbers[i]) + " ";
@@ -25,4 +24,3 @@ int main() {
     cout << output << endl;
     return 0;
 }
-```
