@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -13,4 +12,3 @@ vector<int> sum_product(vector<int> numbers) {
     }
     return {sum, product};
 }
-```
