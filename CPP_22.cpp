@@ -1,15 +1,14 @@
 ```
 #include <iostream>
 #include <vector>
-#include <string>
 #include <initializer_list>
 using namespace std;
 
-vector<int> filter_integers(std::initializer_list<int> values) {
+vector<int> filter_integers(initializer_list<int> values) {
     vector<int> result;
     for (auto value : values) {
-        if (!result.contains(value)) {
-            result.push_back(value);
+        if (value.type() == typeid(int)) {
+            result.push_back(std::get<int>(value));
         }
     }
     return result;
@@ -20,3 +19,4 @@ int main() {
     return 0;
 }
 ```
+Note: The `issame` function is not defined in the code snippet provided. You should define it or use a different assertion method that is available in C++.
