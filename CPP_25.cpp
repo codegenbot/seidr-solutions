@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -17,4 +17,3 @@ vector<int> factorize(int n) {
     }
     return factors;
 }
-```
