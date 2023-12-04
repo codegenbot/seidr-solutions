@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -15,9 +14,5 @@ int main() {
     }
     solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
-}
-
-double poly(const vector<double>& coeffs, double x) {
-    // TODO: implement this function
 }
 ```
