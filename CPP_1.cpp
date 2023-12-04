@@ -1,31 +1,36 @@
 ```
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    int open = 0, close = 0;
-    string temp = "";
-
+    vector<string> groups;
+    int level = 0;
+    string curr_group = "";
     for (int i = 0; i < paren_string.size(); i++) {
         if (paren_string[i] == '(') {
-            open++;
+            level++;
         } else if (paren_string[i] == ')') {
-            close++;
+            level--;
         }
-
-        if (open == close && open > 0) {
-            result.push_back(temp);
-            temp = "";
-            open = 0;
-            close = 0;
+        if (level == 0 && !curr_group.empty()) {
+            groups.push_back(curr_group);
+            curr_group = "";
         } else {
-            temp += paren_string[i];
+            curr_group += paren_string[i];
         }
     }
+    return groups;
+}
 
-    return result;
+int main() {
+    string test = "( ) (( )) (( )( ))";
+    vector<string> groups = separate_paren_groups(test);
+    for (auto group : groups) {
+        cout << group << endl;
+    }
+    return 0;
 }
 ```
