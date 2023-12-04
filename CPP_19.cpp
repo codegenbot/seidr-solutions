@@ -1,5 +1,6 @@
 ```
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -13,7 +14,7 @@ int main() {
     vector<int> numbers;
     for (auto& num : input) {
         if (num >= '0' && num <= '9') {
-            numbers.push_back(num - '0');
+            numbers.push_back(stoi(num));
         }
     }
     sort_numbers(numbers);
