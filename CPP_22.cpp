@@ -5,22 +5,21 @@
 #include <variant>
 using namespace std;
 
-// Declare the list_any type
-using list_any = variant<int, char>;
+// Forward declaration for the list_any type
+struct list_any;
 
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
+std::vector<int> filter_integers(const vector<list_any>& values) {
+    // Initialize an empty output vector
+    std::vector<int> result;
+    
+    // Loop through each element in the input vector
     for (auto& value : values) {
+        // If the current element is a integer, add it to the output vector
         if (value.type() == typeid(int)) {
             result.push_back(std::get<int>(value));
         }
     }
+    
     return result;
-}
-
-int main() {
-    // Test the function with a list of integers and characters
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    return 0;
 }
 ```
