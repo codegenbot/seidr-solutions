@@ -10,7 +10,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> filter_integers(const std::vector<int>& values);
+std::vector<int> filter_integers(const std::vector<int>& values) {
+    std::vector<int> result;
+    for (int i = 0; i < values.size(); ++i) {
+        if (values[i] % 2 == 0) {
+            result.push_back(values[i]);
+        }
+    }
+    return result;
+}
 
 int main() {
     std::vector<int> values = {3, 'c', 3, 3, 'a', 'b'};
