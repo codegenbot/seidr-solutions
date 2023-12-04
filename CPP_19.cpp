@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,7 +13,6 @@ int main() {
     string input = "six five four three two one zero";
     vector<int> numbers;
 
-    // Parse the input string and extract the integer values
     istringstream iss(input);
     int num;
     while (iss >> num) {
@@ -28,3 +27,4 @@ int main() {
     cout << output << endl;
     return 0;
 }
+```
