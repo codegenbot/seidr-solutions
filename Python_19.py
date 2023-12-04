@@ -1,4 +1,4 @@
-```
 def sort_numbers(numbers: str) -> str:
-    return " ".join(sorted([int(x) for x in numbers.split()]))
-```
+    numberals = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    numbers = numbers.split()
+    return " ".join(sorted([number for number in numbers if number in numberals]))
