@@ -1,30 +1,26 @@
-#include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
+#include <vector>
 
-int main() {
-    string input;
-    cin >> input;
-
+int get_score(const std::string& bowls) {
     int score = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
+    for (int i = 0; i < bowls.size(); i++) {
+        if (bowls[i] == 'X') {
             score += 10;
-        } else if (input[i] >= '0' && input[i] <= '9') {
-            score += input[i] - '0';
+        } else if (bowls[i] == '/') {
+            score += 5;
+        } else if (bowls[i] == '-') {
+            score -= 5;
+        } else {
+            score += bowls[i] - '0';
         }
     }
+    return score;
+}
 
-    cout << "Score: " << score << endl;
-
+int main() {
+    std::string bowls = "XXXXXXXXXX";
+    int score = get_score(bowls);
+    std::cout << "Score: " << score << std::endl;
     return 0;
 }
