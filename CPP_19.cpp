@@ -1,21 +1,26 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
-int main() {
-    vector<int> numbers = {3, 1, 5};
-    for (int i = 0; i < numbers.size(); i++) {
-        int num = atoi(numbers[i]);
-        // Do something with num
-    }
+void sort_numbers(vector<int>& numbers) {
     sort(numbers.begin(), numbers.end());
-    for (int i = 0; i < numbers.size(); i++) {
-        cout << numbers[i] << " ";
+}
+
+int main() {
+    string input = "six five four three two one zero";
+    vector<int> numbers;
+    for (auto& num : input) {
+        if (num >= '0' && num <= '9') {
+            numbers.push_back(num - '0');
+        }
     }
-    cout << endl;
+    sort_numbers(numbers);
+    string output = "";
+    for (int i = 0; i < numbers.size(); i++) {
+        output += to_string(numbers[i]) + " ";
+    }
+    cout << output << endl;
     return 0;
 }
-```
