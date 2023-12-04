@@ -18,6 +18,8 @@ int get_score(const std::string& bowls) {
 }
 
 int main() {
-    // call get_score function here
+    std::string bowls = "XXXXXXXXXX";
+    int score = get_score(bowls);
+    std::cout << "Score: " << score << std::endl;
     return 0;
 }
