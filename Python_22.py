@@ -1,2 +1,4 @@
-def filter_integers(values: List[Any]) -> List[int]:
-    return list(filter(lambda x: isinstance(x, int), values))
+```
+def filter_integers(values: list) -> List[int]:
+    return [x for x in values if isinstance(x, int)]
+```
