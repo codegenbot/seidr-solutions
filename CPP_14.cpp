@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,4 +11,3 @@ vector<string> all_prefixes(string str) {
     }
     return prefixes;
 }
-```
