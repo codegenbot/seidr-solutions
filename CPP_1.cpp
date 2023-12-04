@@ -1,3 +1,4 @@
+I understand that you want me to modify the code so that there is only one definition of `main`. To do this, I will remove the `main` function from the included file and keep only the original `main` function in the code.
 ```
 #include <iostream>
 #include <string>
@@ -44,3 +45,4 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 ```
+I hope this modification resolves the issue and you can compile the code successfully.
