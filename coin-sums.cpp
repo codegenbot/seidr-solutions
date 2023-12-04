@@ -1,22 +1,37 @@
-```
-#include <vector>
+
 #include <iostream>
+#include <vector>
 #include <map>
+#include <algorithm>
 using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> coins = {1, 2, 3, 4};
-    map<int, int> coin_counts;
+int countCoins(int target, vector<int>& coins) {
+    if (target == 0) {
+        return 0;
+    }
+    
+    map<int, int> coinCounts;
+    
     for (int i = 0; i < coins.size(); ++i) {
-        if (n >= coins[i]) {
-            coin_counts[coins[i]] += n / coins[i];
-            n -= coins[i] * (n / coins[i]);
+        if (coins[i] <= target) {
+            coinCounts[coins[i]]++;
+            
+            int remainingAmount = target - coins[i];
+            int numCoins = countCoins(remainingAmount, coins);
+            
+            coinCounts[coins[i]] += numCoins;
         }
     }
-    for (auto& c : coin_counts) {
-        cout << c.first << ":" << c.second << endl;
-    }
+    
+    return coinCounts[coins[0]];
 }
-```
+
+int main() {
+    vector<int> coins = { 1, 2, 3, 4 };
+    int target = 5;
+    
+    cout << "Number of coins needed to make " << target << ": ";
+    cout << countCoins(target, coins) << endl;
+    
+    return 0;
+}
