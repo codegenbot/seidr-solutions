@@ -1,18 +1,32 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 int get_score(const std::string& bowls) {
     int score = 0;
     for (int i = 0; i < bowls.size(); i++) {
         if (bowls[i] == 'X') {
-            // Strike, add the next two rolls as well
-            score += 10 + bowls[i+1] - '0' + bowls[i+2] - '0';
-            i += 2; // Skip the next two rolls
+            // Strike, add 10 to the score and skip the next two rolls
+            score += 10;
+            i += 2;
         } else if (bowls[i] == '/') {
-            // Spare, add the next roll as well
-            score += 5 + bowls[i+1] - '0';
-            i++; // Skip the next roll
+            // Spare, add 5 to the score and skip the next roll
+            score += 5;
+            i++;
+        } else if (bowls[i] == '-') {
+            // Miss, subtract 5 from the score
+            score -= 5;
         } else {
-            // Regular roll, just add the current roll
+            // Regular roll, add the value to the score
             score += bowls[i] - '0';
         }
     }
     return score;
+}
+
+int main() {
+    std::string bowls = "XXXXXXXXXX";
+    int score = get_score(bowls);
+    std::cout << "Score: " << score << std::endl;
+    return 0;
 }
