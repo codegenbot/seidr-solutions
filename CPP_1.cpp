@@ -1,3 +1,5 @@
+
+The corrected code is:
 ```
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
