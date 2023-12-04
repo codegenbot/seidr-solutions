@@ -1,25 +1,23 @@
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
-int basement(vector<int>& v) {
-    int sum = 0, i;
-    for (i = 0; i < v.size() && sum >= 0; i++) {
-        sum += v[i];
+int basement(vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0) {
+            return i;
+        }
     }
-    return i - 1;
+    return -1;
 }
 int main() {
-    vector<int> v{1, -1};
-    int result = basement(v);
-    cout << "The first index with negative sum is: " << result << endl;
+    vector<int> nums = {1, 2, 3, 4, 5};
+    int index = basement(nums);
+    if (index == -1) {
+        cout << "No negative sum found." << endl;
+    } else {
+        cout << "First index with negative sum: " << index << endl;
+    }
     return 0;
 }
