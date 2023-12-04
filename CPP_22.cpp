@@ -1,5 +1,3 @@
-
-Here's a modified version of your code that should fix the issues you mentioned:
 ```
 #include <iostream>
 #include <vector>
@@ -12,7 +10,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> filter_integers(const std::vector<int>& values);
+std::vector<int> filter_integers(const std::vector<int>& values) {
+    // ...
+}
 
 int main() {
     std::vector<int> values = {3, 'c', 3, 3, 'a', 'b'};
