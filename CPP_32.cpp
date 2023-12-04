@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-double find_zero(const vector<double>& coeffs) {
+double find_zero(double x) {
     // TODO: implement this function
 }
 
@@ -17,11 +17,7 @@ int main() {
         cin >> ncoeff;
         coeffs.push_back(ncoeff);
     }
-    solution = find_zero(coeffs);
-    if (abs(poly(coeffs, solution)) < 1e-3) {
-        cout << "Solution is: " << solution << endl;
-    } else {
-        cout << "Failed to find a solution." << endl;
-    }
+    solution = find_zero(coeffs[0]);
+    assert(abs(poly(coeffs, solution)) < 1e-3);
 }
 ```
