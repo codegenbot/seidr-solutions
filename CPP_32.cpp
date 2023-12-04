@@ -1,5 +1,3 @@
-
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,4 +16,11 @@ int main() {
         std::cout << "The polynomial has no real roots.";
     }
 }
-```
+
+double poly(const std::vector<double>& coeffs, double x) {
+    // TODO: implement this function
+}
+
+double find_zero(const std::vector<double>& coeffs) {
+    // TODO: implement this function
+}
