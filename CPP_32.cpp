@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,10 +16,9 @@ int main() {
         std::cin >> ncoeff;
         coeffs.push_back(ncoeff);
     }
-    solution = find_zero(coeffs);
+    solution = find_zero(coeffs[0], coeffs[1]);
     if (abs(poly(coeffs, solution)) < 1e-3) {
         std::cout << "The polynomial has no real roots.";
     }
 }
-
 ```
