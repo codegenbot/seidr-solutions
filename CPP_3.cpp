@@ -1,11 +1,19 @@
+#include <iostream>
+#include <vector>
 
-def below_zero(operations):
-    balance = 0
-    for operation in operations:
-        if operation > 0:
-            balance += operation
-        else:
-            balance -= operation
-            if balance < 0:
-                return True
-    return False
+using namespace std;
+
+bool below_zero(vector<int> operations) {
+    int balance = 0;
+    for (int i = 0; i < operations.size(); i++) {
+        if (operations[i] > 0) {
+            balance += operations[i];
+        } else {
+            balance -= operations[i];
+            if (balance < 0) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
