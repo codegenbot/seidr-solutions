@@ -8,10 +8,7 @@ float truncate_number(float number) {
 }
 
 int main() {
-    float input = 123.456;
-    std::cout << "Enter a floating point number: ";
-    std::cin >> input;
-    std::cout << "The truncated value is: " << truncate_number(input) << std::endl;
+    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
     return 0;
 }
 ```
