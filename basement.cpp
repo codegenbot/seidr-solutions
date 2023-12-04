@@ -11,5 +11,8 @@ int getFirstNegativeIndex(vector<int>& nums) {
     }
     return -1;
 }
-```
-In this modified solution, we keep track of the running sum of elements up to the current index. If the running sum is negative at any point, we return the corresponding index. Otherwise, we return -1 if no such index exists..
+int main() {
+    vector<int> nums = {1, -1};
+    cout << getFirstNegativeIndex(nums) << endl;
+    return 0;
+}
