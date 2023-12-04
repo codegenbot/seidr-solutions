@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 using namespace std;
 
 void sort_numbers(vector<int>& numbers) {
@@ -14,18 +15,18 @@ int main() {
     vector<int> numbers;
 
     // Parse the input string and extract the integer values
-    istringstream iss(input);
+    std::istringstream iss(input);
     int num;
     while (iss >> num) {
         numbers.push_back(num);
     }
 
     sort_numbers(numbers);
-    string output = "";
+    vector<int> output;
     for (int i = 0; i < numbers.size(); i++) {
-        output += to_string(numbers[i]) + " ";
+        output.push_back(numbers[i]);
     }
-    cout << output << endl;
+    assert(output == vector<int>{0, 1, 2, 3, 4, 5});
     return 0;
 }
 ```

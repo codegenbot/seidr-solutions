@@ -1,5 +1,4 @@
-```
-def separate_paren_groups(paren_string: str) -> list:
+def separate_paren_groups(paren_string: str) -> list[str]:
     groups = []
     current_group = ""
     balance = 0
@@ -14,4 +13,3 @@ def separate_paren_groups(paren_string: str) -> list:
         else:
             current_group += char
     return groups
-```
