@@ -1,3 +1,4 @@
+```
 def separate_paren_groups(paren_string: str) -> list:
     groups = []
     current_group = ""
@@ -13,3 +14,4 @@ def separate_paren_groups(paren_string: str) -> list:
         else:
             current_group += char
     return groups
+```
