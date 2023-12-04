@@ -49,15 +49,19 @@ output:
 0
 0
 */
+
 int main() {
     int n;
     cin >> n;
-    vector<int> coins = { 1, 5, 10, 25 };
-    vector<int> counts(4);
-    for (int i = 0; i < n; i++) {
-        int coin = coins[i % 4];
-        counts[coin]++;
+    vector<int> coins = { 1, 2, 3, 4 };
+    map<int, int> coin_counts;
+    for (int i = 0; i < coins.size(); ++i) {
+        if (n >= coins[i]) {
+            coin_counts[coins[i]]++;
+            n -= coins[i];
+        }
     }
-    cout << counts[0] << " " << counts[1] << " " << counts[2] << " " << counts[3] << endl;
-    return 0;
+    for (auto& c : coin_counts) {
+        cout << c.first << ":" << c.second << endl;
+    }
 }
