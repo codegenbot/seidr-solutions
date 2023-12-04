@@ -1,8 +1,8 @@
 ```
-#include<iostream>
-#include<string>
-using namespace std;
-int strlen(string str) {
+#include <iostream>
+#include <string>
+
+int strlen(std::string& str) {
     return str.length();
 }
 ```
