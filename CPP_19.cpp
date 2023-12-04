@@ -1,12 +1,27 @@
-[PYTHON]
-def get_unique_elements(my_list):
-    return list(set(my_list))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void sort_numbers(vector<int>& numbers) {
+    sort(numbers.begin(), numbers.end());
+}
+
+int main() {
+    string input = "six five four three two one zero";
+    vector<int> numbers;
+    for (auto& num : input) {
+        if (num >= '0' && num <= '9') {
+            numbers.push_back(num - '0');
+        }
+    }
+    sort_numbers(numbers);
+    string output = "";
+    for (int i = 0; i < numbers.size(); i++) {
+        output += to_string(numbers[i]) + " ";
+    }
+    cout << output << endl;
+    return 0;
+}
+```
