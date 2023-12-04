@@ -22,5 +22,4 @@ int main() {
     }
 }
 ```
-
-This code should now compile and run correctly. The issue was that the `vector` type was not properly defined, as it required an allocator argument which was missing. To fix this, we can either provide an allocator or use a different container type that doesn't require one. In this case, I chose to use a different container type, specifically `std::pmr::vector`, which is a parallel vector class that provides a more efficient implementation of the `std::vector` class.
+Note that I have removed the `std::pmr::vector` and replaced it with a normal `std::vector`. This is because the `std::pmr::vector` type requires an allocator argument, which is missing in your original code. Using a normal `std::vector` should fix this issue.
