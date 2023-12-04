@@ -1,8 +1,4 @@
-```
-#include <iostream>
-#include <cassert>
-#include <cmath>
-
+```cpp
 float truncate_number(float number) {
     return number - (int)number;
 }
