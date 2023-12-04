@@ -1,4 +1,3 @@
-```
 #include <pmr/vector>
 
 bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
@@ -14,4 +13,3 @@ int main() {
     assert(issame(filter_integers(inputValues), {3, 3, 3}));
     return 0;
 }
-```
