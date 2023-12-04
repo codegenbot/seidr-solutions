@@ -1,28 +1,19 @@
-
-The corrected code is:
 ```
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    int open = 0, close = 0;
-    string temp = "";
+#include <iostream>
+#include <string>
+#include <vector>
 
-    for (int i = 0; i < paren_string.size(); i++) {
-        if (paren_string[i] == '(') {
-            open++;
-        } else if (paren_string[i] == ')') {
-            close++;
-        }
+using namespace std;
 
-        if (open == close && open > 0) {
-            result.push_back(temp);
-            temp = "";
-            open = 0;
-            close = 0;
-        } else {
-            temp += paren_string[i];
-        }
+bool issame(const string& s1, const string& s2) {
+    return s1 == s2;
+}
+
+int main() {
+    vector<string> v = {"(())", "(()())", "(())()"};
+    for (auto it = v.begin(); it != v.end(); ++it) {
+        cout << *it << endl;
     }
-
-    return result;
+    return 0;
 }
 ```
