@@ -1,33 +1,22 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
-int main() {
-    int n, target;
-    cin >> n >> target;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    int left = 0, right = n - 1;
-    while (left < right) {
-        if (nums[left] + nums[right] == target) {
-            cout << nums[left] << " " << nums[right] << endl;
-            return 0;
-        } else if (nums[left] + nums[right] < target) {
-            left++;
-        } else {
-            right--;
-        }
-    }
-    cout << "No solution" << endl;
-    return 1;
-}
+[PYTHON]
+def get_pair_sum(nums, target):
+    left = 0
+    right = len(nums) - 1
+    while left < right:
+        current_sum = nums[left] + nums[right]
+        if current_sum == target:
+            return [nums[left], nums[right]]
+        elif current_sum < target:
+            left += 1
+        else:
+            right -= 1
+    return []
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_pair_sum([1, 2, 3, 4, 5], 6) == [1, 5]
+# Test case 2:
+assert get_pair_sum([1, 2, 3, 4, 5], 10) == []
+# Test case 3:
+assert get_pair_sum([1, 2, 3, 4, 5], 8) == [2, 6]
+[/TESTS]
