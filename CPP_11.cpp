@@ -1,6 +1,6 @@
-```cpp
+```
+#include <cassert>
 #include <iostream>
-#include <string>
 
 std::string string_xor(const std::string& a, const std::string& b) {
     std::string result;
@@ -14,10 +14,14 @@ std::string string_xor(const std::string& a, const std::string& b) {
     return result;
 }
 
-int main() {
+void test_string_xor() {
     assert(string_xor("010", "110") == "100");
     assert(string_xor("010", "111") == "101");
     assert(string_xor("010", "000") == "010");
+}
+
+int main() {
+    test_string_xor();
     return 0;
 }
 ```
