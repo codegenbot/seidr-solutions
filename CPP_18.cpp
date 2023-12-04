@@ -27,5 +27,3 @@ int main() {
     return 0;
 }
 ```
-
-The issue in the original code was that there were two definitions of the `main` function, one as an `int` and one as a `string`. To fix this, we simply removed one of the definitions for `main`, leaving only the `int` version.
