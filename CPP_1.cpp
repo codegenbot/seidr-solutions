@@ -1,23 +1,5 @@
 ```
-#include <string>
-#include <vector>
-using namespace std;
-
-bool issame(const string& s1, const string& s2) {
-    if (s1.size() != s2.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < s1.size(); i++) {
-        if (s1[i] != s2[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     int open = 0, close = 0;
     string temp = "";
@@ -42,14 +24,22 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return result;
 }
 
-int main() {
-    string paren_string = "(((a + b) * (c - d)) + ((e + f) * (g - h)))";
-    vector<string> groups = separate_paren_groups(paren_string);
-
-    for (int i = 0; i < groups.size(); i++) {
-        cout << "Group " << i << ": " << groups[i] << endl;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
 
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
 ```
