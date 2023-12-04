@@ -1,36 +1,21 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
-
-vector<int> find_pair(vector<int>& nums, int target) {
-    vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (complement >= 0 && find(nums.begin(), nums.end(), complement) != nums.end()) {
-            result.push_back(nums[i]);
-            result.push_back(complement);
-            break;
-        }
-    }
-    return result;
-}
-
-int main() {
-    vector<int> nums = { 5, 7, 12 };
-    int target = 9;
-    vector<int> result = find_pair(nums, target);
-    cout << "The two elements that sum to the target are: ";
-    for (auto x : result) {
-        cout << x << " ";
-    }
-    return 0;
-}
+[PYTHON]
+def find_pair(nums, target):
+    left = 0
+    right = len(nums) - 1
+    while left < right:
+        if nums[left] + nums[right] == target:
+            return [nums[left], nums[right]]
+        elif nums[left] + nums[right] < target:
+            left += 1
+        else:
+            right -= 1
+    return []
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
+# Test case 2:
+assert find_pair([1, 2, 3, 4, 5], 10) == []
+# Test case 3:
+assert find_pair([], 10) == []
+[/TESTS]
