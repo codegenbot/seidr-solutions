@@ -1,13 +1,14 @@
-```cpp
+```
 #include <iostream>
-#include <string>
-#include <algorithm>
-using namespace std;
+#include <set>
 
-int main() {
-    string str = "six five four three two one zero";
-    sort_numbers(str);
-    cout << str << endl;
-    return 0;
+int get_unique_elements(std::vector<int>& my_list) {
+    std::set<int> unique_elements;
+    for (int i : my_list) {
+        if (unique_elements.find(i) == unique_elements.end()) {
+            unique_elements.insert(i);
+        }
+    }
+    return unique_elements.size();
 }
 ```
