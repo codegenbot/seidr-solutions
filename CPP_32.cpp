@@ -1,9 +1,6 @@
-
-Here's the corrected code:
-```
 #include <iostream>
-#include <vector>
 #include <cmath>
+#include <vector> // Add this line
 using namespace std;
 
 double find_zero(double x) {
@@ -12,7 +9,7 @@ double find_zero(double x) {
 
 int main() {
     int ncoeff = 0;
-    vector<double> coeffs = {};
+    vector<double> coeffs; // Change to vector<double> coeffs = {};
     double solution = 0;
     while (ncoeff < 10) {
         cout << "Enter coefficient: ";
@@ -22,4 +19,3 @@ int main() {
     solution = find_zero(coeffs[0]);
     assert(abs(poly(coeffs, solution)) < 1e-3);
 }
-```
