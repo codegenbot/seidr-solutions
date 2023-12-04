@@ -1,26 +1,21 @@
 #include <iostream>
-#include <cmath>
+using namespace std;
 
 double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
-    // ... (your existing implementation)
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = 0.0;
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += bouncinessIndex * startingHeight;
+        startingHeight = firstBounceHeight;
+        firstBounceHeight = bouncinessIndex * firstBounceHeight;
+    }
+    return totalDistance;
 }
 
 int main() {
-    std::cout << "Enter the starting height: ";
-    double startingHeight;
-    std::cin >> startingHeight;
-
-    std::cout << "Enter the height after the first bounce: ";
-    double firstBounceHeight;
-    std::cin >> firstBounceHeight;
-
-    std::cout << "Enter the number of bounces: ";
+    double startingHeight, firstBounceHeight;
     int numBounces;
-    std::cin >> numBounces;
-
-    double totalDistance = bouncingBalls(startingHeight, firstBounceHeight, numBounces);
-
-    std::cout << "The total distance traveled by the ball is: " << totalDistance << std::endl;
-
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
