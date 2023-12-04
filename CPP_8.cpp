@@ -1,17 +1,23 @@
+```cpp
+#include <vector>
 
-#include <iostream>
-using namespace std;
+int main() {
+    vector<int> numbers = {10};
+    auto result = sum_product(numbers);
+    assert(result == 10, 10);
+}
 
-//Complete the following code given the task description and function signature.
-int main(){
-vector<int> sum_product(vector<int> numbers) {
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+vector<int> sum_product(const vector<int>& numbers) {
     int sum = 0;
     int product = 1;
-    for (int i : numbers) {
+    for (auto i : numbers) {
         sum += i;
         product *= i;
     }
-    return vector<int>{sum, product};
+    return {sum, product};
 }
-
 ```
