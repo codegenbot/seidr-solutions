@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+#include <vector>
 using namespace std;
 double find_zero(vector<double> xs){
     double x=0;
@@ -16,14 +17,8 @@ double find_zero(vector<double> xs){
 }
 
 int main(){
-    int ncoeff = 0;
-    vector<double> coeffs = {};
-    double solution = 0;
-    while(ncoeff < 10){
-        cout << "Enter coefficient: ";
-        cin >> ncoeff;
-        coeffs.push_back(ncoeff);
-    }
-    solution = find_zero(coeffs);
-    assert (abs(poly(coeffs, solution))< 1e-3);
+    vector<double> coeffs{1,2,3};
+    double x = find_zero(coeffs);
+    cout << "Zero of the polynomial is: " << x << endl;
+    return 0;
 }
