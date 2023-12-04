@@ -1,3 +1,6 @@
+
+The corrected version of the code is as follows:
+```
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -43,3 +46,4 @@ int main() {
 
     return 0;
 }
+```
