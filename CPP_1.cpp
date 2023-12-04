@@ -1,35 +1,10 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
-std::vector<std::string> separate_paren_groups(const std::string& str) {
-    // Implement the function here
-}
-
-int main() {
-    std::vector<std::string> input = {"( ) (( )) (( )( ))"};
-    std::vector<std::string> expected_output = {"()", "(())", "(()())"};
-
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), expected_output));
-
-    return 0;
-}
-```
-To fix the code, you should include the necessary headers at the top of the file:
 ```
 #include <iostream>
 #include <string>
 #include <vector>
-```
-You should also declare the `separate_paren_groups` function before using it in the `main` function.
+#include <cassert>
 
-Here's an updated version of the code that should work:
-```
-#include <iostream>
-#include <string>
-#include <vector>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::pmr::vector<std::string>& a, const std::pmr::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -43,15 +18,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(const std::string& str) {
-    // Implement the function here
+std::pmr::vector<std::string> separate_paren_groups(const std::string& s) {
+    // Implement this function to separate parentheses groups in the input string
+    return {};
 }
 
 int main() {
-    std::vector<std::string> input = {"( ) (( )) (( )( ))"};
-    std::vector<std::string> expected_output = {"()", "(())", "(()())"};
+    std::string input = "( ) (( )) (( )( ))";
+    std::pmr::vector<std::string> expected_output = {"()", "(())", "(()())"};
 
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), expected_output));
+    assert(issame(separate_paren_groups(input), expected_output));
 
     return 0;
 }
