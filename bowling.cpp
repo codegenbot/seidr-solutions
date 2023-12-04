@@ -1,4 +1,3 @@
-
 int get_score(const std::string& bowls) {
     int score = 0;
     char prev_ball = ' ';
