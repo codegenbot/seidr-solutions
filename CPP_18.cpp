@@ -15,14 +15,9 @@ int how_many_times(string str, string substr) {
 }
 
 int main() {
-    string str = "aaaa";
-    string substr = "aa";
-    int count = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str.substr(i, substr.length()) == substr) {
-            count++;
-        }
-    }
+    string str = "john doe";
+    string substr = "john";
+    int count = how_many_times(str, substr);
     cout << count << endl;
     return 0;
 }
