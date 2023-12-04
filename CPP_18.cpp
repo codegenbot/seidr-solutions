@@ -1,4 +1,4 @@
-```
+```cpp
 int how_many_times(const int& str, const int& substring) {...}
 ```
 Option 2: Cast the string arguments to int before calling the function.
