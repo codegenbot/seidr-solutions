@@ -1,6 +1,11 @@
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
+
+double poly(const std::vector<double>& coeffs, double solution) {
+    // TODO: implement this function
+}
 
 int main() {
     int ncoeff = 0;
@@ -9,6 +14,7 @@ int main() {
     while (ncoeff < 10) {
         std::cout << "Enter coefficient: ";
         std::cin >> ncoeff;
+        coeffs.reserve(ncoeff); // Increase capacity of vector to accommodate new elements
         coeffs.emplace_back(ncoeff);
     }
     solution = find_zero(coeffs);
@@ -16,11 +22,4 @@ int main() {
         std::cout << "The polynomial has no real roots.";
     }
 }
-
-double poly(const std::vector<double>& coeffs, double x) {
-    // TODO: implement this function
-}
-
-double find_zero(const std::vector<double>& coeffs) {
-    // TODO: implement this function
-}
+```
