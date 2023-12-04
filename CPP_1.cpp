@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -48,4 +47,3 @@ int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
-```
