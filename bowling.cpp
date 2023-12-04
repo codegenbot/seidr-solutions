@@ -1,22 +1,20 @@
-#include <iostream>
-using namespace std;
-
-int main() {
-    string input;
-    cin >> input;
-
+int get_score(const std::string& bowls) {
     int score = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            // Add 10 points for the strike, plus the number of pins left standing after the previous roll
-            score += 10 + (i > 0 ? input[i - 1] - '0' : 0);
-        } else if (input[i] >= '0' && input[i] <= '9') {
-            // Add the number of pins knocked down on this roll to the score
-            score += input[i] - '0';
+    char prev_ball = ' ';
+    for (int i = 0; i < bowls.size(); i++) {
+        if (bowls[i] == 'X') {
+            score += 10;
+            prev_ball = 'X';
+        } else if (bowls[i] == '/') {
+            score += 5;
+            prev_ball = '/';
+        } else if (bowls[i] == '-') {
+            score -= 5;
+            prev_ball = '-';
+        } else {
+            score += bowls[i] - '0';
+            prev_ball = bowls[i];
         }
     }
-
-    cout << "Score: " << score << endl;
-
-    return 0;
+    return score;
 }
