@@ -1,11 +1,11 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
-#include <vector>
+#include <vector> // Add this header file to use vector
 using namespace std;
 
 double find_zero(double x) {
-    // TODO: implement this function
+    return 0; // TODO: implement this function
 }
 
 int main() {
