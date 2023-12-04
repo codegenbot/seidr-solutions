@@ -21,7 +21,7 @@ vector<int> filter_integers(list_any values) {
 
 int main() {
     // Test the function with a list of integers and characters
-    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == vector<int>{3, 3, 3});
+    assert(is_same(filter_integers(make_variant({3, 'c', 3, 3, 'a', 'b'})), {3, 3, 3}));
     return 0;
 }
 ```
