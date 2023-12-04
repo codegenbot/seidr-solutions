@@ -1,25 +1,28 @@
-```
+
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
-int main() {
-    // ...
+bool issame(std::vector<std::string> a) {
+    std::sort(a.begin(), a.end());
+    return a[0] == a[1];
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
+int main() {
+    std::vector<std::string> groups;
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        groups.push_back(line);
     }
 
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+    for (const auto& group : groups) {
+        if (issame(group)) {
+            std::cout << "true" << std::endl;
+        } else {
+            std::cout << "false" << std::endl;
         }
     }
 
-    return true;
+    return 0;
 }
-```
