@@ -16,4 +16,3 @@ int main() {
     return 0;
 }
 ```
-Note that I have removed one of the `main()` functions, which is not allowed in C++.
