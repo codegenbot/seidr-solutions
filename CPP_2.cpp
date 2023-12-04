@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cassert>
 #include <cmath>
@@ -8,6 +7,7 @@ float truncate_number(float number) {
 }
 
 int main() {
-    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
+    float number = truncate_number(123.456);
+    assert(std::abs(number - 0.456) < 1e-4);
     return 0;
 }
