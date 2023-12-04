@@ -1,8 +1,8 @@
-```
+
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
+#include <std/pmr>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -18,30 +18,17 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(const std::string& input) {
-    std::vector<std::string> groups;
-
-    int openParens = 0;
-    std::string currentGroup;
-
+std::vector<std::string> separate_paren_groups(std::string input) {
+    std::vector<std::string> result;
+    int start = 0;
     for (int i = 0; i < input.size(); i++) {
         if (input[i] == '(') {
-            openParens++;
-            currentGroup += input[i];
+            start = i + 1;
         } else if (input[i] == ')') {
-            openParens--;
-            if (openParens == 0) {
-                groups.push_back(currentGroup);
-                currentGroup = "";
-            } else {
-                currentGroup += input[i];
-            }
-        } else {
-            currentGroup += input[i];
+            result.push_back(input.substr(start, i - start));
         }
     }
-
-    return groups;
+    return result;
 }
 
 int main() {
@@ -52,4 +39,3 @@ int main() {
 
     return 0;
 }
-```
