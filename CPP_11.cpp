@@ -22,3 +22,5 @@ int main() {
     return 0;
 }
 ```
+
+The error message indicates that there are multiple definitions of `main()`. The first one is on line 27, and the second one is on line 18. You only need to keep one definition of `main()` in your code. I recommend removing the duplicate definition on line 27.
