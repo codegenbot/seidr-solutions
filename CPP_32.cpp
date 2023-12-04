@@ -1,11 +1,9 @@
-
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
-using namespace std;
+#include <cassert>
 
-double find_zero(double x) {
+double poly(const vector<double>& coeffs, double solution) {
     // TODO: implement this function
 }
 
@@ -18,7 +16,7 @@ int main() {
         cin >> ncoeff;
         coeffs.push_back(ncoeff);
     }
-    solution = find_zero(coeffs[0]);
+    solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
 }
 ```
