@@ -1,5 +1,3 @@
-Here's the updated version of the code that should work:
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,4 +14,3 @@ int main() {
 
     return 0;
 }
-```
