@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <variant>
+#include <cassert>
 using namespace std;
 
 // Declare the list_any type
@@ -18,17 +19,9 @@ vector<int> filter_integers(list_any values) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
     // Test the function with a list of integers and characters
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(std::isspace(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
 ```
