@@ -1,35 +1,25 @@
-#include <vector>
+```
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
 int gcd(int a, int b) {
-    if (a == 0) return b;
-    return gcd(b % a, a);
+    if (a == 0 || b == 0) return 0;
+    if (b > a) return gcd(b, a);
+    return a % b ? gcd(a - b, b) : b;
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> result;
-    for (int i = 0; i < text.size() - target.size() + 1; ++i) {
+    vector<int> indices;
+    for (int i = 0; i < text.size(); i++) {
         if (text.substr(i, target.size()) == target) {
-            result.push_back(i);
+            indices.push_back(i);
         }
     }
-    return result;
+    return indices;
 }
-
-int main() {
-    int a, b;
-    while (cin >> a >> b) {
-        cout << gcd(a, b) << endl;
-    }
-    return 0;
-}
+```
+Test cases:
+```
+gcd(1200, 60000) // output: 6
+indicesOfSubstring("Hello World", "World") // output: {5}
+```
