@@ -1,26 +1,18 @@
-```
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    int open = 0, close = 0;
-    string temp = "";
-
-    for (int i = 0; i < paren_string.size(); i++) {
-        if (paren_string[i] == '(') {
-            open++;
-        } else if (paren_string[i] == ')') {
-            close++;
-        }
-
-        if (open == close && open > 0) {
-            result.push_back(temp);
-            temp = "";
-            open = 0;
-            close = 0;
-        } else {
-            temp += paren_string[i];
-        }
-    }
-
-    return result;
-}
-```
+def issame(paren_string):
+    open = 0
+    close = 0
+    temp = ""
+    for char in paren_string:
+        if char == "(":
+            open += 1
+        elif char == ")":
+            close += 1
+        if open == close and open > 0:
+            yield temp
+            temp = ""
+            open = 0
+            close = 0
+        else:
+            temp += char
+    if temp != "":
+        yield temp
