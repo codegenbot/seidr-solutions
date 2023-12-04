@@ -1,6 +1,8 @@
-```
-import re
-
 def camel_case(string):
-    return ''.join([word.title() for word in re.split('-+', string)])
-```
+    words = string.split("-")
+    for i in range(len(words)):
+        if words[i] == "":
+            words[i] = ""
+        else:
+            words[i] = words[i].capitalize()
+    return "".join(words)
