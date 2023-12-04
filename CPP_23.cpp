@@ -1,11 +1,7 @@
-#include <iostream>
-#include <string>
 
-int strlen(const std::string& str) {
+#include<iostream>
+#include<string>
+using namespace std;
+int strlen(string str) {
     return str.length();
 }
-
-int main() {
-    assert (strlen("asdasnakj") == 9);
-}
-
