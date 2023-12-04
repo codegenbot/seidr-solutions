@@ -1,6 +1,4 @@
-
-Here's the modified code that compiles without errors:
-```cpp
+```
 #include <iostream>
 #include <string>
 using namespace std;
