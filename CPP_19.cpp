@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,7 +14,7 @@ int main() {
     vector<int> numbers;
     for (auto& num : input) {
         if (num >= '0' && num <= '9') {
-            numbers.push_back(stoi(string(1, num)));
+            numbers.push_back(stoi(num));
         }
     }
     sort_numbers(numbers);
@@ -24,3 +25,4 @@ int main() {
     cout << output << endl;
     return 0;
 }
+```
