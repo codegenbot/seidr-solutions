@@ -1,27 +1,19 @@
-```
-#include <iostream>
-using namespace std;
+[PYTHON]
+def issame(a, b):
+    if len(a) != len(b):
+        return False
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            return False
+    return True
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert issame([], [])
+# Test case 2:
+assert issame([1, 2, 3], [1, 2, 3])
+# Test case 3:
+assert not issame([1, 2, 3], [1, 2, 4])
+[/TESTS]
 
-bool issame(int a[], int b[], int n) {
-    for (int i = 0; i < n; i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    int a[] = {1, 2, 3};
-    int b[] = {4, 5, 6};
-    int n = sizeof(a) / sizeof(a[0]);
-
-    if (issame(a, b, n)) {
-        cout << "The two arrays are the same." << endl;
-    } else {
-        cout << "The two arrays are not the same." << endl;
-    }
-
-    return 0;
-}
 ```
