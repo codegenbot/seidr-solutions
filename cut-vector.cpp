@@ -1,44 +1,45 @@
-```
 #include <vector>
 #include <iostream>
+#include <climits>
+
 using namespace std;
 
-vector<int> cutVector(const vector<int>& v) {
-    int n = v.size();
-    if (n == 0) return {};
-    if (n == 1) return {v[0]};
-    
+vector<int> cutVector(vector<int> vec) {
+    int n = vec.size();
+    vector<int> result;
+
+    if (n == 0) {
+        return result;
+    }
+
     int minDiff = INT_MAX;
-    int spot = -1;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(v[i] - v[i-1]);
+    int diff, leftSum, rightSum;
+    for (int i = 1; i < n - 1; i++) {
+        leftSum = vec[i - 1];
+        rightSum = 0;
+        for (int j = i + 1; j < n; j++) {
+            rightSum += vec[j];
+        }
+        diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
-            spot = i;
+            result.clear();
+            result.push_back(i);
+        } else if (diff == minDiff) {
+            result.push_back(i);
         }
     }
-    
-    vector<int> left, right;
-    for (int i = 0; i < spot; i++) {
-        left.push_back(v[i]);
-    }
-    for (int i = spot; i < n; i++) {
-        right.push_back(v[i]);
-    }
-    
-    return {left, right};
+
+    return result;
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    auto result = cutVector(v);
-    for (auto& sub : result) {
-        cout << "Subvector: ";
-        for (int i : sub) {
-            cout << i << " ";
-        }
-        cout << endl;
+    vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
+    vector<int> result = cutVector(vec);
+
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
+
     return 0;
 }
-```
