@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,18 +16,15 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(const std::vector<std::string>& input) {
-    // Implement this function to separate parentheses into groups
-    std::vector<std::string> output;
-    // Add code here to separate parentheses into groups
-    return output;
+std::vector<std::string> separate_paren_groups(const std::string& input) {
+    // ...
 }
 
 int main() {
-    std::vector<std::string> input = {"( ) (( )) (( )( ))"};
-    std::vector<std::string> expected_output = {"()", "(())", "(()())"};
+    std::string input = "( ) (( )) (( )( ))";
+    std::vector<std::string> expectedOutput = {"()", "(())", "(()())"};
 
-    assert(separate_paren_groups(input) == expected_output);
+    assert(issame(separate_paren_groups(input), expectedOutput));
 
     return 0;
 }
