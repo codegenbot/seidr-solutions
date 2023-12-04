@@ -1,23 +1,12 @@
-```
-#include <iostream>
-#include <cmath>
-#include <vector>
-#include <cassert>
-
-double poly(const vector<double>& coeffs, double solution) {
-    // TODO: implement this function
-}
-
-int main() {
-    int ncoeff = 0;
-    vector<double> coeffs;
-    double solution = 0;
-    while (ncoeff < 10) {
-        cout << "Enter coefficient: ";
-        cin >> ncoeff;
-        coeffs.push_back(ncoeff);
-    }
-    solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
-}
-```
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
