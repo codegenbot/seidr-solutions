@@ -1,12 +1,25 @@
-```
 #include <iostream>
+#include <cmath>
+using namespace std;
+
+double getProbability(int n, int m) {
+    double prob = 0.0;
+    for (int i = 1; i <= n; i++) {
+        int count = 0;
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                count++;
+            }
+        }
+        prob += (double)count / (double)m;
+    }
+    return prob / (double)n;
+}
 
 int main() {
-    int n = 1;
-    int m = 2;
-    std::cout << "Probability that Peter rolls strictly higher than Colin: ";
-    std::cout << probability(n, m) << std::endl;
+    int n, m;
+    cin >> n >> m;
+    cout << getProbability(n, m) << endl;
     return 0;
 }
 ```
-This code will call the `probability` function with the arguments `n` and `m`, which are defined in the code. The `std::cout` statements will print the result of the `probability` function to the console.
