@@ -5,19 +5,17 @@
 #include <algorithm>
 using namespace std;
 
+void sort_numbers(vector<int>& numbers) {
+    sort(numbers.begin(), numbers.end());
+}
+
 int main() {
-    string numbers = "three one five";
-    vector<string> nums;
-    for (auto& n : numbers) {
-        if (n == ' ') continue;
-        nums.push_back(std::string(1, n));
+    vector<int> numbers = {3, 1, 5};
+    sort_numbers(numbers);
+    for (int i = 0; i < numbers.size(); i++) {
+        cout << numbers[i] << " ";
     }
-    sort(nums.begin(), nums.end());
-    string sorted = "";
-    for (auto& n : nums) {
-        sorted += n + " ";
-    }
-    cout << sorted << endl;
+    cout << endl;
     return 0;
 }
 ```
