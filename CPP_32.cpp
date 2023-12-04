@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -20,4 +19,3 @@ int main() {
     solution = find_zero(coeffs[0]);
     assert(abs(poly(coeffs, solution)) < 1e-3);
 }
-```
