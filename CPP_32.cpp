@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <vector> // Add this line
+#include <vector>
 using namespace std;
 
 double find_zero(double x) {
@@ -9,7 +9,7 @@ double find_zero(double x) {
 
 int main() {
     int ncoeff = 0;
-    vector<double> coeffs; // Change to vector<double> coeffs = {};
+    vector<double> coeffs = {};
     double solution = 0;
     while (ncoeff < 10) {
         cout << "Enter coefficient: ";
