@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <cassert>
 #include <cmath>
@@ -15,4 +15,3 @@ int main() {
     std::cout << "Truncated number: " << truncate_number(input) << std::endl;
     return 0;
 }
-```
