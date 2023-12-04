@@ -1,10 +1,4 @@
 ```
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 int main() {
     // Create a vector to hold the numbers
     vector<int> numbers;
