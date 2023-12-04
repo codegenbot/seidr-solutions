@@ -25,4 +25,3 @@ int main() {
     return 0;
 }
 ```
-The issue is caused by the fact that you have included backticks (```) in your code, which are not valid characters in C++. To fix this, simply remove the backticks from your code and it should compile correctly.
