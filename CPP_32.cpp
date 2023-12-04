@@ -1,13 +1,23 @@
 
-[PYTHON]
-def get_unique_elements(my_list):
-    return list(set(my_list))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+double poly(const std::vector<double>& coeffs, double solution) {
+    // TODO: implement this function
+}
+
+int main() {
+    int ncoeff = 0;
+    std::vector<double> coeffs_vec;
+    double solution = 0;
+    while (ncoeff < 10) {
+        std::cout << "Enter coefficient: ";
+        std::cin >> ncoeff;
+        coeffs_vec.emplace_back(ncoeff);
+    }
+    solution = find_zero(coeffs_vec);
+    if (abs(poly(coeffs_vec, solution)) < 1e-3) {
+        std::cout << "The polynomial has no real roots.";
+    }
+}
