@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,7 +18,7 @@ vector<string> separate_paren_groups(string paren_string) {
         }
 
         if (open == close && open > 0) {
-            result.push_back(temp, std::align_val_t());
+            result.push_back(temp);
             temp = "";
             open = 0;
             close = 0;
