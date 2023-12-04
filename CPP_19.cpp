@@ -6,7 +6,7 @@
 using namespace std;
 
 void sort_numbers(vector<int>& numbers) {
-    sort(numbers.begin(), numbers.end());
+    // your implementation here
 }
 
 int main() {
