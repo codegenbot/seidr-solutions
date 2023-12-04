@@ -1,15 +1,6 @@
 ```
-#include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -28,8 +19,10 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    int a, b;
-    while (cin >> a >> b) {
+    string line;
+    while (getline(cin, line)) {
+        int a = stoi(line.substr(0, line.find(" ")));
+        int b = stoi(line.substr(line.find(" ") + 1));
         cout << gcd(a, b) << endl;
     }
     return 0;
