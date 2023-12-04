@@ -1,7 +1,9 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <sstream> // include this header file to define the class istringstream
 using namespace std;
 
 void sort_numbers(vector<int>& numbers) {
@@ -13,7 +15,7 @@ int main() {
     vector<int> numbers;
 
     // Parse the input string and extract the integer values
-    std::istringstream iss(input);
+    istringstream iss(input);
     int num;
     while (iss >> num) {
         numbers.push_back(num);
@@ -27,3 +29,4 @@ int main() {
     cout << output << endl;
     return 0;
 }
+```
