@@ -1,22 +1,24 @@
 ```
 #include <iostream>
 #include <vector>
-#include <initializer_list>
-using namespace std;
+#include <string>
+#include <type_traits>
 
-vector<int> filter_integers(initializer_list<int> values) {
-    vector<int> result;
-    for (auto value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(std::get<int>(value));
-        }
-    }
-    return result;
-}
+template<typename T>
+using variant = std::variant<T, int>;
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    // Initialize a vector of variants
+    auto vec = variant<int>{3};
+    // Add some more values to the vector
+    for (auto& v : vec) {
+        if (v.type() == typeid(int)) {
+            std::cout << "Int: " << std::get<int>(v) << std::endl;
+        } else {
+            std::cout << "Other" << std::endl;
+        }
+    }
     return 0;
 }
 ```
-Note: The `issame` function is not defined in the code snippet provided. You should define it or use a different assertion method that is available in C++.
+This code uses the `std::variant` class to handle the variadic arguments, which is a part of the C++ standard library. The `std::get` function is used to extract the value from the variant and cast it to an integer.
