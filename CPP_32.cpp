@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -9,7 +9,7 @@ double poly(const std::vector<double>& coeffs, double solution) {
 
 int main() {
     int ncoeff = 0;
-    std::vector<double> coeffs = {};
+    std::vector<double> coeffs;
     double solution = 0;
     while (ncoeff < 10) {
         std::cout << "Enter coefficient: ";
