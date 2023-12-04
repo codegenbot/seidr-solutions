@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,7 +9,13 @@ void sort_numbers(vector<int>& numbers) {
 }
 
 int main() {
-    vector<int> numbers = {6, 5, 4, 3, 2, 1};
+    string input = "six five four three two one zero";
+    vector<int> numbers;
+    for (auto& num : input) {
+        if (num >= '0' && num <= '9') {
+            numbers.push_back(num - '0');
+        }
+    }
     sort_numbers(numbers);
     string output = "";
     for (int i = 0; i < numbers.size(); i++) {
@@ -19,4 +24,3 @@ int main() {
     cout << output << endl;
     return 0;
 }
-```
