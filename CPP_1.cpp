@@ -2,10 +2,12 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
-    std::vector<std::string> result;
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     int open = 0, close = 0;
-    std::string temp = "";
+    string temp = "";
 
     for (int i = 0; i < paren_string.size(); i++) {
         if (paren_string[i] == '(') {
@@ -27,7 +29,7 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
