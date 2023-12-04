@@ -1,6 +1,7 @@
-```
+
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -25,4 +26,3 @@ int main() {
     assert(issame(filter_integers(inputValues), {3, 3, 3}));
     return 0;
 }
-```
