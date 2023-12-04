@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,7 +17,6 @@ string string_xor(string a, string b) {
 int main() {
     string a = "010";
     string b = "110";
-    cout << string_xor(a,b) << endl;
+    cout << string_xor(a,b).length() << endl;
     return 0;
 }
-```
