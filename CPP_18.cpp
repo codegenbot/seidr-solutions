@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int how_many_times(string str, string substr) {
@@ -14,10 +14,9 @@ int how_many_times(string str, string substr) {
 }
 
 int main() {
-    string str = "john doe";
-    string substr = "john";
+    string str = "aaaa";
+    string substr = "aa";
     int count = how_many_times(str, substr);
     cout << count << endl;
     return 0;
 }
-```
