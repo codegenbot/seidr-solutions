@@ -1,16 +1,18 @@
+```
 #include <string>
-#include <vector>
 #include <iostream>
-#include <cmath>
+
 using namespace std;
 
-int calculateScore(const string& bowls) {
+int calculateScore(string bowls) {
     int score = 0;
     for (int i = 0; i < bowls.size(); i++) {
-        if (bowls[i] == 'X') {
+        if (bowls[i] == '/') {
+            score += 10 - stoi(bowls.substr(i + 1, 2));
+        } else if (bowls[i] == 'X') {
             score += 10;
-        } else if (isdigit(bowls[i])) {
-            score += stoi(bowls[i]);
+        } else {
+            score += stoi(bowls.substr(i, 2));
         }
     }
     return score;
@@ -18,7 +20,7 @@ int calculateScore(const string& bowls) {
 
 int main() {
     string bowls;
-    getline(cin, bowls);
+    cin >> bowls;
     cout << calculateScore(bowls) << endl;
     return 0;
 }
