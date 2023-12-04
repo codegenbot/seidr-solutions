@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -13,4 +12,3 @@ int largest_divisor(int n) {
     }
     return divisor;
 }
-```
