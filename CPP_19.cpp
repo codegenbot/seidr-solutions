@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -5,15 +6,18 @@
 using namespace std;
 
 int main() {
-    vector<int> numbers = {3, 1, 5};
-    for (int i = 0; i < numbers.size(); i++) {
-        int num = stoi(numbers[i]);
-        // Do something with num
+    string numbers = "three one five";
+    vector<int> nums;
+    for (auto& n : numbers) {
+        if (n == ' ') continue;
+        nums.push_back(stoi(to_string(n)));
     }
-    sort(numbers.begin(), numbers.end());
-    for (int i = 0; i < numbers.size(); i++) {
-        cout << numbers[i] << " ";
+    sort(nums.begin(), nums.end());
+    string sorted = "";
+    for (auto& n : nums) {
+        sorted += to_string(n) + " ";
     }
-    cout << endl;
+    cout << sorted << endl;
     return 0;
 }
+```
