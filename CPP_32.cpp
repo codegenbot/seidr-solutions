@@ -14,7 +14,7 @@ int main() {
     while (ncoeff < 10) {
         std::cout << "Enter coefficient: ";
         std::cin >> ncoeff;
-        coeffs.emplace_back(ncoeff);
+        coeffs.push_back(ncoeff);
     }
     solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) < 1e-3) {
