@@ -9,10 +9,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-        v.push_back(x);
+        v.push_back(round(x / 3));
     }
     for (int i = 0; i < v.size(); i++) {
-        sum += round((v[i] - 2) / 3);
+        sum += v[i] - 2;
     }
     cout << sum << endl;
     return 0;
