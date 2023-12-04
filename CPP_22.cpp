@@ -1,4 +1,3 @@
-Here is the modified code that fixes the issue:
 ```
 #include <iostream>
 #include <vector>
