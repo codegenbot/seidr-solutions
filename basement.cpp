@@ -2,15 +2,15 @@
 #include <iostream>
 using namespace std;
 int getFirstNegativeIndex(vector<int>& nums) {
-    int minSum = 0;
-    int minSumIdx = -1;
-    for (int i = 0; i < nums.size(); i++) {
-        minSum += nums[i];
-        if (minSum < 0 && (minSumIdx == -1 || minSum < minSumIdx)) {
-            minSumIdx = i;
+    int sum = 0, i = 0;
+    while (i < nums.size()) {
+        sum += nums[i];
+        if (sum < 0) {
+            return i;
         }
+        i++;
     }
-    return minSumIdx;
+    return -1;
 }
 int main() {
     vector<int> nums = {1, -1};
