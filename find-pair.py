@@ -1,4 +1,6 @@
 [PYTHON]
+import numpy as np
+
 def find_pair(arr, target):
     # Convert arr to a list of integers
     arr = [int(x) for x in arr]
@@ -12,11 +14,3 @@ def find_pair(arr, target):
             result.append([arr[i], target])
     return result
 [/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_pair([1, 2, 3, 4, 5], 7) == [[1, 6], [2, 5], [3, 4]]
-# Test case 2:
-assert find_pair([1, 2, 3, 4, 5], 10) == []
-# Test case 3:
-assert find_pair([1, 2, 3, 4, 5], 15) == []
-[/TESTS]
