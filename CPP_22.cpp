@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -25,4 +25,3 @@ int main() {
     assert(is_same(filter_integers(values), {3, 3, 3}));
     return 0;
 }
-```
