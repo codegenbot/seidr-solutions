@@ -1,4 +1,3 @@
-
 ```
 #include <iostream>
 #include <vector>
@@ -10,7 +9,7 @@ using namespace std;
 // Declare the list_any type
 using list_any = variant<int, char>;
 
-vector<int> filter_integers(std::initializer_list<list_any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (auto& value : values) {
         if (value.type() == typeid(int)) {
