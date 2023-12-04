@@ -12,9 +12,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> filter_integers(const std::vector<int>& values) {
     std::vector<int> result;
-    for (int i = 0; i < values.size(); ++i) {
-        if (values[i] % 2 == 0) {
-            result.push_back(values[i]);
+    for (int value : values) {
+        if (value >= 0 && value <= 9) {
+            result.push_back(value);
         }
     }
     return result;
