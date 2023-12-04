@@ -11,23 +11,18 @@ void sort_numbers(vector<int>& numbers) {
 
 int main() {
     string input = "six five four three two one zero";
-    vector<int> numbers = parse_input(input);
-    sort_numbers(numbers);
-    string output;
-    for (int i = 0; i < numbers.size(); i++) {
-        output += to_string(numbers[i]) + " ";
-    }
-    cout << output << endl;
-    return 0;
-}
-
-vector<int> parse_input(const string& input) {
     vector<int> numbers;
     for (auto& num : input) {
         if (num >= '0' && num <= '9') {
             numbers.push_back(num - '0');
         }
     }
-    return numbers;
+    sort_numbers(numbers);
+    string output = "";
+    for (int i = 0; i < numbers.size(); i++) {
+        output += to_string(numbers[i]) + " ";
+    }
+    cout << output << endl;
+    return 0;
 }
 ```
