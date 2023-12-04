@@ -1,3 +1,5 @@
+
+Sure, here's the modified code without the multiple definitions of `main()`:
 ```
 #include<iostream>
 #include<string>
