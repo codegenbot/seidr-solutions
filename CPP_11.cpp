@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -21,5 +20,3 @@ int main() {
     cout << string_xor(a,b) << endl;
     return 0;
 }
-```
-The error message is indicating that there are two definitions of `main()` function, one in line 17 and another in line 25. To fix this issue, you can simply remove the duplicate definition of `main()` function from either line 17 or line 25.
