@@ -6,7 +6,7 @@ int getFirstNegativeIndex(vector<int>& nums) {
     while (i < nums.size()) {
         sum += nums[i];
         if (sum < 0) {
-            return i + 1;
+            return i;
         }
         i++;
     }
