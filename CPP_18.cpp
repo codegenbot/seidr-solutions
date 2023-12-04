@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -13,12 +12,3 @@ int how_many_times(string str, string substr) {
     }
     return count;
 }
-
-int main() {
-    string str = "aaaa";
-    string substr = "aa";
-    int count = how_many_times(str, substr);
-    cout << count << endl;
-    return 0;
-}
-```
