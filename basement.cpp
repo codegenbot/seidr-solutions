@@ -14,8 +14,5 @@ int basement(vector<int>& v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    int result = basement(v);
-    cout << "The first negative index is: " << result << endl;
     return 0;
 }
