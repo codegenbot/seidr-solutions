@@ -16,7 +16,6 @@ int main() {
         cin >> ncoeff;
         coeffs.push_back(ncoeff);
     }
-    solution = find_zero(coeffs);
+    solution = find_zero(coeffs[0]);
     assert(abs(poly(coeffs, solution)) < 1e-3);
 }
-```
