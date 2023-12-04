@@ -1,15 +1,15 @@
-
-```cpp
 #include <iostream>
+#include <math.h>
 #include <vector>
+#include <algorithm> // add this line
 using namespace std;
 
-int main() {
-    vector<float> numbers = {1.0, 2.0, 3.0};
-    vector<float> rescaled_numbers = rescale_to_unit(numbers);
-    for (int i = 0; i < rescaled_numbers.size(); i++) {
-        cout << rescaled_numbers[i] << endl;
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float min = *min_element(numbers.begin(), numbers.end());
+    float max = *max_element(numbers.begin(), numbers.end());
+    vector<float> result;
+    for (int i = 0; i < numbers.size(); i++) {
+        result.push_back((numbers[i] - min) / (max - min));
     }
-    return 0;
+    return result;
 }
-```
