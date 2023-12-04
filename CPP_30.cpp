@@ -1,4 +1,4 @@
-```cpp
+
 #include <stdio.h>
 #include <math.h>
 #include <vector>
@@ -13,4 +13,3 @@ vector<float> get_positive(vector<float> l) {
     }
     return positive_numbers;
 }
-```
