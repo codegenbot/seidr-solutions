@@ -1,6 +1,3 @@
-
-Sure, here's the corrected code:
-```
 #include<iostream>
 using namespace std;
 double find_zero(vector<double> xs){
@@ -18,14 +15,5 @@ double find_zero(vector<double> xs){
     return x;
 }
 
-int main(){
-    vector<double> coeffs;
-    double solution = 0;
-    while(coeffs.size() < 10){
-        cout << "Enter coefficient: ";
-        cin >> coeffs[coeffs.size()];
-    }
-    solution = find_zero(coeffs);
-    assert (abs(poly(coeffs, solution))< 1e-3);
-}
-```
+double solution = find_zero(coeffs);
+assert (abs(poly(coeffs, solution))< 1e-3);
