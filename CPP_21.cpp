@@ -1,13 +1,12 @@
-
+```cpp
 #include <iostream>
-#include <math.h>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<float> rescale_to_unit(vector<float> numbers) {
+std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     float min = *min_element(numbers.begin(), numbers.end());
     float max = *max_element(numbers.begin(), numbers.end());
-    vector<float> result;
+    std::vector<float> result;
     for (int i = 0; i < numbers.size(); i++) {
         result.push_back((numbers[i] - min) / (max - min));
     }
