@@ -1,8 +1,6 @@
-```
-#include <iostream>
-#include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+```
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,10 +14,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     int open = 0, close = 0;
-    std::string temp = "";
+    string temp = "";
 
     for (int i = 0; i < paren_string.size(); i++) {
         if (paren_string[i] == '(') {
