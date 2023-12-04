@@ -1,23 +1,21 @@
-
-Sure, here's the corrected code:
 ```
 #include <iostream>
-#include <vector>
 #include <cmath>
 
-double poly(const std::vector<double>& coeffs, double solution) {
-    // TODO: implement this function
-}
+// Use polymorphic_allocator instead of std::vector
+using vector = std::pmr::vector<double>;
 
 int main() {
     int ncoeff = 0;
-    std::vector<double> coeffs;
-    double solution = 0;
+    vector coeffs; // Create an empty container
+
     while (ncoeff < 10) {
         std::cout << "Enter coefficient: ";
-        std::cin >> ncoeff;
-        coeffs.emplace_back(ncoeff);
+        double coeff = 0;
+        std::cin >> coeff;
+        coeffs.push_back(coeff); // Add the new element to the container
     }
+
     solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) < 1e-3) {
         std::cout << "The polynomial has no real roots.";
