@@ -9,3 +9,4 @@ int main() {
     return 0;
 }
 ```
+This code will call the `probability` function with the arguments `n` and `m`, which are defined in the code. The `std::cout` statements will print the result of the `probability` function to the console.
