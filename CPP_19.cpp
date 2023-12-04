@@ -11,10 +11,10 @@ void sort_numbers(vector<int>& numbers) {
 
 int main() {
     string input = "six five four three two one zero";
-    vector<int> numbers;
+    vector<int> numbers = {0};
     for (auto& num : input) {
         if (num >= '0' && num <= '9') {
-            numbers.push_back(stoi(num));
+            numbers.push_back(num - '0');
         }
     }
     sort_numbers(numbers);
