@@ -5,7 +5,7 @@
 std::vector<int> filter_integers(const std::vector<int>& values) {
     std::vector<int> result;
     for (int value : values) {
-        if (value >= 0 && value <= 9) {
+        if (value >= '0' && value <= '9') {
             result.push_back(value);
         }
     }
