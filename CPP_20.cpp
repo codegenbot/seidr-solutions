@@ -12,12 +12,22 @@ vector<float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < minDiff) {
                 result.clear();
+                minDiff = diff;
                 result.push_back(numbers[i]);
                 result.push_back(numbers[j]);
-                minDiff = diff;
             }
         }
     }
     return result;
+}
+
+int main() {
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0, 2.2};
+    vector<float> closestElements = find_closest_elements(numbers);
+    cout << "Closest elements: ";
+    for (int i = 0; i < closestElements.size(); i++) {
+        cout << closestElements[i] << " ";
+    }
+    return 0;
 }
 ```
