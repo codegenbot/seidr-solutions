@@ -1,8 +1,9 @@
-import numpy as np
-
-def find_pair(arr, target):
-    for i in range(len(arr)):
-        for j in range(i+1, len(arr)):
-            if arr[i] + arr[j] == target:
-                return [arr[i], arr[j]]
-    return []
+def find_pair(nums, target):
+    sum1 = 0
+    sum2 = 0
+    for i in range(len(nums)):
+        if nums[i] == target - sum1:
+            sum1 += nums[i]
+        elif nums[i] == target - sum2:
+            sum2 += nums[i]
+    return (sum1, sum2)
