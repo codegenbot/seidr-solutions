@@ -1,4 +1,3 @@
-
 #include <cstring>
 
 int get_score(const char *bowls) {
