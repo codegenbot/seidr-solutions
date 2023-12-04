@@ -1,3 +1,8 @@
+
+The issue is caused by the use of backticks (`) instead of single quotes (') to enclose the string literals in the function signature and implementation. Additionally, there are some stray backticks at the end of the code snippet. To fix this, replace all instances of backticks with single quotes or double quotes, depending on your preference for string literals.
+
+Here's an example of how you can modify the code:
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -42,3 +47,4 @@ bool issame(vector<string> a, vector<string> b) {
 
     return true;
 }
+```
