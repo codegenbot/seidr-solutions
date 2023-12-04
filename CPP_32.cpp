@@ -1,8 +1,10 @@
 ```
 #include <iostream>
-#include <vector>
 using namespace std;
 
+vector<double> coeffs = {}; // Define the coeffs vector
+
+// Define the find_zero function
 double find_zero(vector<double> xs) {
     double x = 0;
     int i = 0;
@@ -18,25 +20,24 @@ double find_zero(vector<double> xs) {
     return x;
 }
 
-double poly(vector<double> coeffs, double solution) {
-    // Implement the function to evaluate a polynomial at a given point
-    // using Horner's method
-    int n = coeffs.size();
+// Define the poly function
+double poly(vector<double> coeffs) {
     double result = 0;
-    for (int i = 0; i < n; i++) {
-        result += coeffs[i] * pow(solution, i);
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
 int main() {
-    vector<double> coeffs;
-    double solution = 0;
-    while (coeffs.size() < 10) {
+    int ncoeff = 0; // Declare the ncoeff variable
+    double solution = 0; // Declare the solution variable
+    while (ncoeff < 10) {
         cout << "Enter coefficient: ";
-        cin >> coeffs[coeffs.size()];
+        cin >> ncoeff;
+        coeffs.push_back(ncoeff); // Add the new coefficient to the coeffs vector
     }
-    solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+    solution = find_zero(coeffs); // Find the zero of the polynomial using the find_zero function
+    assert(abs(poly(coeffs, solution)) < 1e-3); // Check that the solution is correct
 }
 ```
