@@ -1,23 +1,4 @@
-
-#include <iostream>
-#include <string>
-using namespace std;
-
-string string_xor(string a, string b) {
-    string result = "";
-    for (int i = 0; i < a.length(); i++) {
-        if ((a[i] == '1' && b[i] == '0') || (a[i] == '0' && b[i] == '1')) {
-            result += "1";
-        } else {
-            result += "0";
-        }
-    }
-    return result;
-}
-
-int main() {
-    string a = "010";
-    string b = "110";
-    cout << string_xor(a,b) << endl;
-    return 0;
-}
+The issue is caused by the fact that you are using an old version of C++ (C++11) and `std::string` has changed since then. In particular, the `_M_allocated_capacity` member was removed in C++14 and replaced with `_M_length`. You can fix this by updating your code to use the new member name:
+```
+return __ostream_insert(__os, __str.data(), __str._M_length());
+```.
