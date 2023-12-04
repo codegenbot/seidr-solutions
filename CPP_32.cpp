@@ -17,7 +17,7 @@ int main() {
         cin >> ncoeff;
         coeffs.push_back(ncoeff);
     }
-    solution = find_zero(coeffs[0]);
+    solution = find_zero(coeffs[0]); // Modify the code to pass a single double value, not the whole vector.
     assert(abs(poly(coeffs, solution)) < 1e-3);
 }
 ```
