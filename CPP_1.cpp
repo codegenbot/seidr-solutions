@@ -1,6 +1,5 @@
+Solution:
 
-Sure, here's the modified code that compiles without errors:
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,4 +17,3 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b_) {
 
     return true;
 }
-```
