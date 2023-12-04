@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -12,3 +13,4 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     }
     return result;
 }
+```
