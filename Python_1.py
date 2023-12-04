@@ -1,4 +1,4 @@
-```python
+```
 def separate_paren_groups(paren_string: str) -> list[str]:
     # Initialize an empty list to store the separated groups
     separated_groups = []
