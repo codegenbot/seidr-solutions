@@ -8,3 +8,4 @@ int strlen(const std::string& str) {
 int main() {
     assert (strlen("asdasnakj") == 9);
 }
+
