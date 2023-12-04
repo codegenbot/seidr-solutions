@@ -1,22 +1,15 @@
-#include <iostream>
-#include <string>
+```
+int main() {
+    assert (how_many_times("john doe", "john") == 1);
+}
 
-using namespace std;
-
-int howManyTimes(string str, string substr) {
+int how_many_times(const string& str, const string& substring) {
     int count = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str.substr(i, substr.length()) == substr) {
-            count++;
+    for (size_t i = 0; i <= str.length() - substring.length(); ++i) {
+        if (str.substr(i, substring.length()) == substring) {
+            ++count;
         }
     }
     return count;
 }
-
-int main() {
-    string str = "aaaa";
-    string substr = "aa";
-    cout << howManyTimes(str, substr) << endl;
-    assert (howManyTimes("john doe", "john") == 1);
-    return 0;
-}
+```
