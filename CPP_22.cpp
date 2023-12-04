@@ -1,3 +1,6 @@
+
+Here's a modified version of your code that should fix the issues you mentioned:
+```
 #include <iostream>
 #include <vector>
 
@@ -16,3 +19,4 @@ int main() {
     assert(issame(filter_integers(values), {3, 3, 3}));
     return 0;
 }
+```
