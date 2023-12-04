@@ -3,17 +3,18 @@ using namespace std;
 
 double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
-    double totalDistance = 0.0;
-    for (int i = 0; i < numBounces; i++) {
-        totalDistance += (startingHeight + (i * bouncinessIndex));
-    }
-    return totalDistance;
+    return (1 + bouncinessIndex) * (numBounces - 1) + bouncinessIndex;
 }
 
 int main() {
-    double startingHeight, firstBounceHeight;
+    cout << "Enter the starting height of the ball: ";
+    double startingHeight;
+    cin >> startingHeight;
+    cout << "Enter the height after the first bounce: ";
+    double firstBounceHeight;
+    cin >> firstBounceHeight;
+    cout << "Enter the number of bounces: ";
     int numBounces;
-    cin >> startingHeight >> firstBounceHeight >> numBounces;
-    cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
-    return 0;
+    cin >> numBounces;
+    cout << "The total distance traveled by the ball is: " << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
 }
