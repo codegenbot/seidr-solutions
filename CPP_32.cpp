@@ -1,11 +1,13 @@
+
+Here's the corrected code:
 ```
 #include <iostream>
-#include <cmath>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 double find_zero(double x) {
-    // TODO: implement this function
+    return 0; // TODO: implement this function
 }
 
 int main() {
