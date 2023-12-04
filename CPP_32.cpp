@@ -3,34 +3,31 @@ def find_zero(coeffs):
     # Implement the find_zero function here
     pass
 
-def poly(coeffs, x):
+def poly(coeffs, solution):
     # Implement the poly function here
     pass
 
-def main():
-    coeffs = []
-    solution = 0.0
-    while len(coeffs) < 10:
-        coeff = float(input("Enter coefficient: "))
-        coeffs.append(coeff)
-    solution = find_zero(coeffs)
-    assert abs(poly(coeffs, solution)) < 1e-3
-    print(f"The solution is {solution}")
+ncoeff = 0
+coeffs = []
+solution = 0.0
 
-if __name__ == "__main__":
-    main()
+while ncoeff < 10:
+    coeff = float(input("Enter coefficient: "))
+    coeffs.append(coeff)
+    ncoeff += 1
+
+solution = find_zero(coeffs)
+assert abs(poly(coeffs, solution)) < 1e-3
 [/PYTHON]
 [TESTS]
 # Test case 1:
-coeffs = [1, 2, 3, 4, 5]
-solution = find_zero(coeffs)
-assert abs(poly(coeffs, solution)) < 1e-3
+assert find_zero([]) == 0.0
 # Test case 2:
-coeffs = [1, 2, 3, 4, 5, 6]
-solution = find_zero(coeffs)
-assert abs(poly(coeffs, solution)) < 1e-3
+assert find_zero([1]) == 1.0
 # Test case 3:
-coeffs = [1, 2, 3, 4, 5, 6, 7]
-solution = find_zero(coeffs)
-assert abs(poly(coeffs, solution)) < 1e-3
+assert find_zero([1, 2]) == 2.0
+# Test case 4:
+assert find_zero([1, 2, 3]) == 3.0
+# Test case 5:
+assert find_zero([1, 2, 3, 4]) == 4.0
 [/TESTS]
