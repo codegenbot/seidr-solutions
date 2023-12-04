@@ -1,18 +1,19 @@
 #include <vector>
 #include <iostream>
-#include <cstring>
 using namespace std;
-int basement(vector<int>& v) {
-    int sum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        sum += v[i];
+int getFirstNegativeIndex(vector<int>& nums) {
+    int sum = 0, i = 0;
+    while (i < nums.size()) {
+        sum += nums[i];
         if (sum < 0) {
             return i;
         }
+        i++;
     }
     return -1;
 }
-
 int main() {
+    vector<int> nums = {1, -1};
+    cout << getFirstNegativeIndex(nums) << endl;
     return 0;
 }
