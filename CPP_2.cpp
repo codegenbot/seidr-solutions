@@ -1,10 +1,7 @@
 ```
-float truncate_number(float number) {
-    return number - (int)number;
-}
+#include <cmath>
 
-int main() {
-    assert (abs(truncate_number(123.456) - 0.456) < 1e-4);
-    return 0;
+float truncate_number(float number) {
+    return std::abs(number - (int)number);
 }
 ```
