@@ -1,10 +1,4 @@
 ```
-#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     int open = 0, close = 0;
@@ -43,10 +37,4 @@ bool issame(vector<string> a, vector<string> b) {
 
     return true;
 }
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
-}
 ```
-The issue was that the `main` function was defined twice, once in the original code and again in the included file. This caused a redefinition error. To fix this, I removed one of the definitions, specifically the one in the included file, so that there is only one definition of `main`.
