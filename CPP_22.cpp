@@ -1,19 +1,24 @@
-[PYTHON]
-def issame(a, b):
-    if len(a) != len(b):
-        return False
-    for i in range(len(a)):
-        if a[i] != b[i]:
-            return False
-    return True
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert issame([], [])
-# Test case 2:
-assert issame([1, 2, 3], [1, 2, 3])
-# Test case 3:
-assert not issame([1, 2, 3], [1, 2, 4])
-[/TESTS]
+```
+#include <algorithm>
 
+bool filter_integers(vector<int> &vec) {
+    return std::all_of(vec.begin(), vec.end(), [](int i){ return i >= 0; });
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert (issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    return 0;
+}
 ```
