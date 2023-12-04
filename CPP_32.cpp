@@ -1,13 +1,10 @@
 
-```
+Sure, here is the modified code:
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include <cassert>
-
-double poly(const vector<double>& coeffs, double solution) {
-    // TODO: implement this function
-}
+#include <polynomial/polynomial.h>
 
 int main() {
     int ncoeff = 0;
@@ -22,5 +19,3 @@ int main() {
     assert(abs(poly(coeffs, solution)) < 1e-3);
 }
 ```
-
-Note: The `find_zero` function is not defined in the code snippet provided. I have replaced it with `find_root` from the `std::polynomial` library.
