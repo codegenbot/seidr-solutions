@@ -2,8 +2,10 @@
 #include <iostream>
 #include <string>
 
-// Forward declaration of splitString and toCamelCase functions
+// Split a string into substrings using a delimiter
 std::vector<std::string> splitString(const std::string& str, char delimiter);
+
+// Convert a string to camelCase
 std::string toCamelCase(const std::string& str);
 
 int main() {
