@@ -1,15 +1,9 @@
-```
+
 #include <iostream>
 #include <string>
-using namespace std;
-int strlen(string str) {
-    int len = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] != ' ') {
-            len++;
-        }
-    }
-    return len;
+
+int strlen(const std::string& str) {
+    return str.length();
 }
-```
-This is the modified code to solve the issue of backticks not properly balanced.
+
+assert (strlen(std::string("asdasnakj")) == 9);
