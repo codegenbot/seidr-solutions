@@ -1,18 +1,10 @@
 ```
-#include<stdio.h>
-#include<math.h>
-using namespace std;
-
 float truncate_number(float number) {
-    float integerPart = floor(number);
-    return (number - integerPart);
+    return number - (int)number;
 }
 
 int main() {
-    printf("Enter a positive floating point number: ");
-    float input;
-    scanf("%f", &input);
-    printf("Decimal part of the number is: %.1f\n", truncate_number(input));
+    assert (abs(truncate_number(123.456) - 0.456) < 1e-4);
     return 0;
 }
 ```
