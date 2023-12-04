@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-double poly(const std::deque<double>& coeffs, double solution) {
+double poly(const std::vector<double>& coeffs, double solution) {
     // TODO: implement this function
 }
 
 int main() {
     int ncoeff = 0;
-    std::deque<double> coeffs = {};
+    std::vector<double> coeffs = {};
     double solution = 0;
     while (ncoeff < 10) {
         std::cout << "Enter coefficient: ";
@@ -21,4 +20,3 @@ int main() {
         std::cout << "The polynomial has no real roots.";
     }
 }
-```
