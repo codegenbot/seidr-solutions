@@ -1,4 +1,3 @@
-```python
 def intersperse(numbers: typing.List[int], delimeter: int) -> typing.List[int]:
     result = []
     for i in range(len(numbers)):
@@ -8,4 +7,3 @@ def intersperse(numbers: typing.List[int], delimeter: int) -> typing.List[int]:
         else:
             result.append(numbers[i])
     return result
-```
