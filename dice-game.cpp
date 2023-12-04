@@ -20,7 +20,7 @@ double getProbability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << getProbability(n, m) << endl;
+    cout << getProbability(n, m) << '\n';
     return 0;
 }
 ```
