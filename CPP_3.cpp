@@ -18,4 +18,10 @@ bool below_zero(vector<int> operations) {
     }
     return false;
 }
+
+int main() {
+    vector<int> operations = {1, 2, -4, 5};
+    cout << below_zero(operations) << endl;
+    return 0;
+}
 ```
