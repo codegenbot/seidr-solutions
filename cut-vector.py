@@ -1,11 +1,14 @@
-import numpy as np
-def cut_vector(vec):
-    n = len(vec)
-    dp = np.zeros((n, n))
-    for i in range(n):
-        for j in range(i+1, n):
-            if vec[j] - vec[i] == 0:
-                dp[i][j] = 0
-            else:
-                dp[i][j] = min(dp[i][k-1] + dp[k+1][j-1], dp[i][j-1] + dp[j+1][k-1])
-    return dp[0][n-1]
+def cut_vector(vector):
+    n = len(vector)
+    if n == 1:
+        return vector[0], 0
+    elif n == 2:
+        return vector[0], vector[1]
+    else:
+        min_diff = math.inf
+        for i in range(1, n):
+            diff = abs(sum(vector[:i]) - sum(vector[i:]))
+            if diff < min_diff:
+                min_diff = diff
+                cut = i
+        return vector[:cut], vector[cut:]
