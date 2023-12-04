@@ -1,3 +1,4 @@
+
 #include <cassert>
 
 float truncate_number(float number) {
