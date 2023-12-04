@@ -1,8 +1,3 @@
-
-The issue is caused by the use of backticks (`) instead of single quotes (') to enclose the string literals in the function signature and implementation. Additionally, there are some stray backticks at the end of the code snippet. To fix this, replace all instances of backticks with single quotes or double quotes, depending on your preference for string literals.
-
-Here's an example of how you can modify the code:
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,7 +17,7 @@ vector<string> separate_paren_groups(string paren_string) {
         }
 
         if (open == close && open > 0) {
-            result.push_back(temp);
+            result.push_back(temp, std::align_val_t());
             temp = "";
             open = 0;
             close = 0;
