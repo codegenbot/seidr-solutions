@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 #include <variant>
-#include <cassert>
 using namespace std;
 
 // Declare the list_any type
