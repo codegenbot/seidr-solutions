@@ -31,3 +31,33 @@ assert sort_numbers("nine five one") == "one five nine"
 [/TESTS]
 
 ```
+
+Modified code:
+```
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+using namespace std;
+
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+string sort_numbers(string numbers) {
+    vector<int> sorted_numbers;
+    for (string number : numbers.split()) {
+        sorted_numbers.push_back(number_map[number]);
+    }
+    return " ".join(str(x) for x in sorted_numbers);
+}
+```
