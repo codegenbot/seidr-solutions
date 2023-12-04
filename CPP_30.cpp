@@ -1,14 +1,16 @@
-```
-#include <iostream>
+```cpp
+#include <stdio.h>
+#include <math.h>
 #include <vector>
+using namespace std;
 
-std::vector<float> get_positive(std::vector<float> &l) {
-    std::vector<float> res;
+vector<float> get_positive(vector<float> l) {
+    vector<float> positive_numbers;
     for (int i = 0; i < l.size(); i++) {
         if (l[i] > 0) {
-            res.push_back(l[i]);
+            positive_numbers.push_back(l[i]);
         }
     }
-    return res;
+    return positive_numbers;
 }
 ```
