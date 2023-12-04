@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -19,8 +18,6 @@ int get_score(const std::string& bowls) {
 }
 
 int main() {
-    std::string bowls = "XXXXXXXXXX";
-    int score = get_score(bowls);
-    std::cout << "Score: " << score << std::endl;
+    // call get_score function here
     return 0;
 }
