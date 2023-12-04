@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -21,5 +20,3 @@ int main() {
         std::cout << "The polynomial has no real roots.";
     }
 }
-```
-Note that I have removed the `std::pmr::vector` and replaced it with a normal `std::vector`. This is because the `std::pmr::vector` type requires an allocator argument, which is missing in your original code. Using a normal `std::vector` should fix this issue.
