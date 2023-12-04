@@ -1,3 +1,4 @@
+Here's the modified code that compiles without errors:
 ```
 #include <iostream>
 #include <cassert>
