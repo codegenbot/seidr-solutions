@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -15,10 +16,4 @@ double find_zero(vector<double> xs){
     }
     return x;
 }
-
-int main(){
-    vector<double> coeffs{1,2,3};
-    double x = find_zero(coeffs);
-    cout << "Zero of the polynomial is: " << x << endl;
-    return 0;
-}
+```
