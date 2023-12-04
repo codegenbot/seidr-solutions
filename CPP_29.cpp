@@ -1,17 +1,15 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
-int main() {
-    vector<string> strings = {"apple", "banana", "orange"};
-    string prefix = "ba";
-    vector<string> result = filter_by_prefix(strings, prefix);
-    for (auto &s : result) {
-        cout << s << endl;
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
+    for (int i = 0; i < strings.size(); i++) {
+        if (strings[i].substr(0, prefix.length()) == prefix) {
+            result.push_back(strings[i]);
+        }
     }
-    return 0;
+    return result;
 }
-```
