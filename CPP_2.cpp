@@ -1,7 +1,6 @@
 ```
-#include <cmath>
-
 float truncate_number(float number) {
-    return std::abs(number - (int)number);
+    #include <cmath>
+    return abs(number - (int)number);
 }
 ```
