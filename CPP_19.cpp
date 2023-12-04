@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,8 +8,7 @@ using namespace std;
 int main() {
     vector<int> numbers = {3, 1, 5};
     for (int i = 0; i < numbers.size(); i++) {
-        string num_str = to_string(numbers[i]);
-        int num = stoi(num_str);
+        int num = atoi(numbers[i]);
         // Do something with num
     }
     sort(numbers.begin(), numbers.end());
@@ -18,3 +18,4 @@ int main() {
     cout << endl;
     return 0;
 }
+```
