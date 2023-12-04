@@ -1,9 +1,15 @@
-def find_pair(nums, target):
-        min_diff = float('inf')
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                diff = abs(nums[i] - nums[j])
-                if diff < min_diff:
-                    min_diff = diff
-                    pair = (nums[i], nums[j])
-        return pair
+```
+import numpy as np
+
+def find_pair(arr, target):
+    # Read input from user
+    arr = list(map(int, input().split()))
+    target = int(input())
+    
+    # Find the two elements that sum to the target
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] + arr[j] == target:
+                return [arr[i], arr[j]]
+    return []
+```

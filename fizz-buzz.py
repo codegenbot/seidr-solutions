@@ -1,3 +1,4 @@
+```
 def fizz_buzz(x):
     if x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
@@ -6,4 +7,8 @@ def fizz_buzz(x):
     elif x % 5 == 0:
         return "Buzz"
     else:
-        return str(x)
+        if x <= 0:
+            return str(x)
+        else:
+            return "Invalid input"
+```
