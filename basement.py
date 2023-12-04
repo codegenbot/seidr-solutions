@@ -1,9 +1,19 @@
+```
 def get_negative_sum_index(arr):
-    if len(arr) == 0:
-        return -1
-    curr_sum = 0
+    # Initialize variables
+    sum = 0
+    index = -1
+
+    # Loop through the array
     for i in range(len(arr)):
-        curr_sum += arr[i]
-        if curr_sum < 0:
-            return i
-    return -1
+        # Add the current element to the sum
+        sum += arr[i]
+
+        # Check if the sum is negative
+        if sum < 0:
+            # If it is, set the index to the current element
+            index = i
+            break
+
+    return index
+```
