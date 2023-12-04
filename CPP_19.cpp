@@ -1,63 +1,30 @@
-[PYTHON]
-def sort_numbers(numbers):
-    number_map = {
-        "zero": 0,
-        "one": 1,
-        "two": 2,
-        "three": 3,
-        "four": 4,
-        "five": 5,
-        "six": 6,
-        "seven": 7,
-        "eight": 8,
-        "nine": 9
-    }
-    sorted_numbers = []
-    for number in numbers.split():
-        sorted_numbers.append(number_map[number])
-    return " ".join(str(x) for x in sorted_numbers)
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert sort_numbers("three one five") == "one three five"
-# Test case 2:
-assert sort_numbers("five three one") == "one three five"
-# Test case 3:
-assert sort_numbers("seven two one") == "one seven two"
-# Test case 4:
-assert sort_numbers("eight four one") == "one four eight"
-# Test case 5:
-assert sort_numbers("nine five one") == "one five nine"
-[/TESTS]
-
-```
-
-Modified code:
-```
+```cpp
 #include <iostream>
-#include <map>
-#include <string>
 #include <vector>
-using namespace std;
+#include <string>
 
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+std::map<std::string, int> number_map = {
+    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
 
-string sort_numbers(string numbers) {
-    vector<int> sorted_numbers;
-    for (string number : numbers.split()) {
-        sorted_numbers.push_back(number_map[number]);
+std::string sort_numbers(const std::string &input) {
+    std::vector<int> sorted_numbers(input.size());
+    for (int i = 0; i < input.size(); ++i) {
+        sorted_numbers[i] = number_map.at(input[i]);
     }
-    return " ".join(str(x) for x in sorted_numbers);
+    return " ".join(std::to_string(sorted_numbers));
+}
+
+int main() {
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    // Test case 1:
+    assert (sort_numbers("three one five") == "one three five");
+    // Test case 2:
+    assert (sort_numbers("five three one") == "one three five");
+    // Test case 3:
+    assert (sort_numbers("seven two one") == "one seven two");
+    // Test case 4:
+    assert (sort_numbers("eight four one") == "one four eight");
+    // Test case 5:
+    assert (sort_numbers("nine five one") == "one five nine");
 }
 ```
