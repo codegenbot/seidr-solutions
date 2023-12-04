@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,4 +24,3 @@ vector<int> parse_input(const string& input) {
     }
     return numbers;
 }
-```
