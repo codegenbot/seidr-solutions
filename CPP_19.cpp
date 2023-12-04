@@ -29,3 +29,4 @@ int main() {
     return 0;
 }
 ```
+This code is an example of how you can modify your original code to make it work with the `sort_numbers` function. It uses a `std::istringstream` object to parse the input string and extract the integer values, which are then stored in a vector of integers. The `sort_numbers` function is then called on this vector, sorting its elements in ascending order. Finally, the sorted numbers are output to the console.
