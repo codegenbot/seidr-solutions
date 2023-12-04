@@ -1,3 +1,4 @@
+```
 def get_score(bowls):
     # Initialize variables
     score = 0
