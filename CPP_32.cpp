@@ -1,9 +1,10 @@
+```
 #include <iostream>
 #include <cmath>
 #include <vector>
 using namespace std;
 
-double find_zero(const vector<double>& coeffs) {
+double find_zero(vector<double> coeffs) {
     // TODO: implement this function
 }
 
@@ -16,6 +17,11 @@ int main() {
         cin >> ncoeff;
         coeffs.push_back(ncoeff);
     }
-    solution = find_zero(coeffs[0]);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+    solution = find_zero(coeffs);
+    if (abs(poly(coeffs, solution)) < 1e-3) {
+        cout << "Solution: " << solution << endl;
+    } else {
+        cout << "No solution found." << endl;
+    }
 }
+```
