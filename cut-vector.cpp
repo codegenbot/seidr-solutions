@@ -1,49 +1,28 @@
 
-The corrected version of the code is as follows:
-```
-#include <vector>
-#include <iostream>
-#include <climits>
-
-using namespace std;
-
-vector<int> cutVector(vector<int> vec) {
-    int n = vec.size();
-    vector<int> result;
-
-    if (n == 0) {
-        return result;
-    }
-
-    int minDiff = INT_MAX;
-    int diff, leftSum, rightSum;
-    for (int i = 1; i < n - 1; i++) {
-        leftSum = vec[i - 1];
-        rightSum = 0;
-        for (int j = i + 1; j < n; j++) {
-            rightSum += vec[j];
-        }
-        diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            result.clear();
-            result.push_back(i);
-        } else if (diff == minDiff) {
-            result.push_back(i);
-        }
-    }
-
-    return result;
-}
-
-int main() {
-    vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
-    vector<int> result = cutVector(vec);
-
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-
-    return 0;
-}
-```
+[PYTHON]
+def cut_vector(vec):
+    n = len(vec)
+    if n == 0:
+        return []
+    min_diff = float('inf')
+    left_sum = vec[0]
+    right_sum = sum(vec[1:])
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+    for i in range(1, n-1):
+        left_sum += vec[i]
+        right_sum -= vec[i+1]
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
+    return [i for i in range(n) if abs(vec[:i+1].sum() - vec[i+1:].sum()) == min_diff]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert cut_vector([]) == []
+# Test case 2:
+assert cut_vector([1, 2, 3]) == [1]
+# Test case 3:
+assert cut_vector([1, 2, 3, 4, 5, 6]) == [1, 3, 5]
+[/TESTS]
