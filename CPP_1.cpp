@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,6 +17,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
+std::vector<std::string> separate_paren_groups(const std::vector<std::string>& input) {
+    std::vector<std::string> output;
+    for (const auto& str : input) {
+        if (str.find('(') != std::string::npos && str.find(')') != std::string::npos) {
+            output.push_back(str);
+        }
+    }
+    return output;
+}
+
 int main() {
     std::vector<std::string> input = {"( ) (( )) (( )( ))"};
     std::vector<std::string> expected_output = {"()", "(())", "(()())"};
@@ -25,3 +35,4 @@ int main() {
 
     return 0;
 }
+```
