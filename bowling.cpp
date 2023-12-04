@@ -1,7 +1,7 @@
 int get_score(const std::string& bowls) {
     int score = 0;
     char prev_ball = ' ';
-    for (int i = 0; i < bowls.size(); i++) {
+    for (size_t i = 0; i < bowls.size(); i++) {
         if (bowls[i] == 'X') {
             score += 10;
             prev_ball = 'X';
