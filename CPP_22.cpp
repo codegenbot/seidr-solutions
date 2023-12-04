@@ -15,3 +15,4 @@ vector<int> filter_integers(list_any values) {
     return result;
 }
 ```
+This code uses the `std::variant` class to handle the variadic arguments, which is a part of the C++ standard library. The `std::get` function is used to extract the value from the variant and cast it to an integer..
