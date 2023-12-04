@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,9 +14,10 @@ std::string longest(const std::vector<std::string>& strings) {
     for (const auto& str : strings) {
         if (str.size() > max_length) {
             max_length = str.size();
-            longest_string = str;
+            longest_string = str.c_str();
         }
     }
 
     return longest_string;
 }
+```
