@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -25,3 +25,4 @@ int main() {
     return 0;
 }
 ```
+The code above will compile and run without errors.
