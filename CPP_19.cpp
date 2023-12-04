@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,7 +9,7 @@ int main() {
     vector<string> nums;
     for (auto& n : numbers) {
         if (n == ' ') continue;
-        nums.push_back(n);
+        nums.push_back(std::to_string(n));
     }
     sort(nums.begin(), nums.end());
     string sorted = "";
@@ -20,5 +19,3 @@ int main() {
     cout << sorted << endl;
     return 0;
 }
-```
-```
