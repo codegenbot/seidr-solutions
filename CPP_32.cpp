@@ -1,24 +1,13 @@
-```
-#include <iostream>
-#include <cmath>
 
-// Use polymorphic_allocator instead of std::vector
-using vector = std::pmr::vector<double>;
-
-int main() {
-    int ncoeff = 0;
-    vector coeffs; // Create an empty container
-
-    while (ncoeff < 10) {
-        std::cout << "Enter coefficient: ";
-        double coeff = 0;
-        std::cin >> coeff;
-        coeffs.push_back(coeff); // Add the new element to the container
-    }
-
-    solution = find_zero(coeffs);
-    if (abs(poly(coeffs, solution)) < 1e-3) {
-        std::cout << "The polynomial has no real roots.";
-    }
-}
-```
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
