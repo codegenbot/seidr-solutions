@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,4 +13,3 @@ int count_distinct_characters(string str) {
     }
     return distinctChars.size();
 }
-```
