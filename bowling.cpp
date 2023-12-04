@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-
-int get_score(std::string &bowls) {
+int get_score(const std::string& bowls) {
     int score = 0;
     char prev_ball = ' ';
     for (int i = 0; i < bowls.size(); i++) {
