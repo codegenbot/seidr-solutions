@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,11 +12,14 @@ void sort_numbers(vector<int>& numbers) {
 int main() {
     string input = "six five four three two one zero";
     vector<int> numbers;
-    for (auto& num : input) {
-        if (num >= '0' && num <= '9') {
-            numbers.push_back(stoi(to_string(num)));
-        }
+
+    // Parse the input string and extract the integer values
+    istringstream iss(input);
+    int num;
+    while (iss >> num) {
+        numbers.push_back(num);
     }
+
     sort_numbers(numbers);
     string output = "";
     for (int i = 0; i < numbers.size(); i++) {
