@@ -1,4 +1,9 @@
 #include <cstring>
+
+int main(int argc, char **argv) {
+    // Your code here
+}
+
 int get_score(const char *bowls) {
     int score = 0;
     char prev_ball = ' ';
