@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 bool is_prime(long long n) {
@@ -8,4 +7,3 @@ bool is_prime(long long n) {
     }
     return true;
 }
-```
