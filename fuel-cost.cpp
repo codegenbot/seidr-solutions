@@ -1,22 +1,19 @@
 #include <vector>
 #include <iostream>
+#include <cmath>
 using namespace std;
 int main() {
-    int n = 0;
+    vector<int> v;
+    int n, sum = 0;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> v[i];
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        v.push_back(round(x / 3));
     }
-    int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        int temp = v[i] / 3 - 2;
-        if (temp >= 0) {
-            sum += temp;
-        } else {
-            sum -= temp;
-        }
+    for (int i = 0; i < v.size(); i++) {
+        sum += v[i] - 2;
     }
-    cout << "The sum of the elements in the vector is: " << sum << endl;
+    cout << sum << endl;
     return 0;
 }
