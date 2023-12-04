@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -8,7 +7,6 @@ double bouncingBalls(double startingHeight, double firstBounceHeight, int numBou
     double bouncinessIndex = firstBounceHeight / startingHeight;
     return (bouncinessIndex * (pow((1 - bouncinessIndex), numBounces - 1) + 1)) * startingHeight;
 }
-
 int main() {
     // Example usage:
     double startingHeight = 10.0;
@@ -17,4 +15,3 @@ int main() {
     cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
-```
