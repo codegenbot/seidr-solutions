@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,3 +20,4 @@ int main() {
     cout << sorted << endl;
     return 0;
 }
+```
