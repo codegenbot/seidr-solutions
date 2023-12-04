@@ -1,3 +1,5 @@
+
+Here is the modified code that uses the `std::allocator` class:
 ```
 #include <iostream>
 #include <cmath>
