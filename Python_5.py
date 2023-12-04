@@ -1,4 +1,5 @@
-def intersperse(numbers: typing.List[int], delimeter: int) -> typing.List[int]:
+
+def intersperse(numbers: list[int], delimeter: int) -> list[int]:
     result = []
     for i in range(len(numbers)):
         if i != len(numbers) - 1:
