@@ -1,15 +1,15 @@
+
+Here is a possible solution:
 ```
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string string_sequence(int n) {
-    std::string result;
+string string_sequence(int n) {
+    string result = "";
     for (int i = 0; i <= n; i++) {
-        result += std::to_string(i);
-        if (i != n) {
-            result += " ";
-        }
+        result += to_string(i) + " ";
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 ```
