@@ -1,11 +1,10 @@
-
+```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-string string_xor(string a, string b) {
-    string result = "";
-    for (int i = 0; i < a.length(); i++) {
+std::string string_xor(const std::string& a, const std::string& b) {
+    std::string result;
+    for (int i = 0; i < a.size(); ++i) {
         if ((a[i] == '1' && b[i] == '0') || (a[i] == '0' && b[i] == '1')) {
             result += "1";
         } else {
@@ -16,8 +15,9 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    string a = "010";
-    string b = "110";
-    cout << string_xor(a,b).length() << endl;
+    assert(string_xor("010", "110") == "100");
+    assert(string_xor("010", "111") == "101");
+    assert(string_xor("010", "000") == "010");
     return 0;
 }
+```
