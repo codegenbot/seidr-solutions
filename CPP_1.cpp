@@ -1,6 +1,6 @@
-
 ```
-vector<string>& separate_paren_groups(const string& paren_string, vector<string>& result) {
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     int open = 0, close = 0;
     string temp = "";
 
