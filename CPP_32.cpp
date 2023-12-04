@@ -13,7 +13,6 @@ int main() {
     while (ncoeff < 10) {
         std::cout << "Enter coefficient: ";
         std::cin >> ncoeff;
-        coeffs.reserve(ncoeff); // Increase capacity of vector to accommodate new elements
         coeffs.emplace_back(ncoeff);
     }
     solution = find_zero(coeffs);
@@ -21,3 +20,4 @@ int main() {
         std::cout << "The polynomial has no real roots.";
     }
 }
+```
