@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,11 +18,12 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> input = {"( ) (( )) (( )( ))"};
-    std::vector<std::string> expected_output = {"()", "(())", "(()())"};
+    std::string input = "( ) (( )) (( )( ))";
+    std::vector<std::string> expectedOutput = {"()", "(())", "(()())"};
 
-    assert(separate_paren_groups(input) == expected_output);
+    assert(issame(separate_paren_groups(input), expectedOutput));
 
     return 0;
 }
+
 ```
