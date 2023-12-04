@@ -1,6 +1,3 @@
-
-Sure, here's the modified code without the multiple definitions of `main()`:
-```
 #include<iostream>
 #include<string>
 using namespace std;
@@ -21,4 +18,3 @@ int main(){
     cout << string_xor(a,b) << endl;
     return 0;
 }
-```
