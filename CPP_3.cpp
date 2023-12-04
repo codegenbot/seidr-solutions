@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <vector>
 
@@ -24,4 +24,3 @@ int main() {
     cout << below_zero(operations) << endl;
     return 0;
 }
-```
