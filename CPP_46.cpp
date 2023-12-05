@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 int fib4(int n) {
@@ -17,4 +16,11 @@ int fib4(int n) {
         return c;
     }
 }
-```
+
+int main() {
+    std::cout << "Enter a number: ";
+    int n;
+    std::cin >> n;
+    std::cout << "The " << n << "th Fib4 number is: " << fib4(n) << std::endl;
+    return 0;
+}
