@@ -1,31 +1,23 @@
-```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-int basement(const vector<int>& nums) {
-    if (std::all_of(nums.begin(), nums.end(), [](int x){ return x > 0; })) {
-        return -1;
-    }
-    int sum = 0;
-    for (auto it = nums.begin(); it != nums.end(); ++it) {
-        sum += *it;
-        if (sum < 0) {
-            return std::distance(nums.begin(), it);
-        }
-    }
-    return -1;
-}
-
-int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
-    int index = basement(nums);
-    if (index == -1) {
-        cout << "No negative sum found." << endl;
-    } else {
-        cout << "First index with negative sum: " << index << endl;
-    }
-    return 0;
-}
-```
+[PYTHON]
+def basement(nums):
+    if all(x > 0 for x in nums):
+        return -1
+    sum = 0
+    for i, x in enumerate(nums):
+        sum += x
+        if sum < 0:
+            return i
+    return -1
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert basement([1, 2, 3, 4, 5]) == -1
+# Test case 2:
+assert basement([-1, 2, 3, 4, 5]) == 0
+# Test case 3:
+assert basement([1, 2, 3, 4, -5]) == 4
+# Test case 4:
+assert basement([1, 2, 3, -4, -5]) == 3
+# Test case 5:
+assert basement([-1, -2, -3, -4, -5]) == 0
+[/TESTS]
