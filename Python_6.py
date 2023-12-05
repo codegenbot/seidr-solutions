@@ -1,18 +1,15 @@
-```
 def parse_nested_parens(paren_string):
     result = []
-    stack = []
     level = 0
+    stack = []
     for group in paren_string.split():
         for char in group:
             if char == '(':
                 level += 1
-                stack.append(level)
+                stack.append(char)
             elif char == ')':
-                if len(stack) > 0 and stack[-1] == level:
-                    result.append(level)
-                    level -= 1
-                else:
-                    raise ValueError("Mismatched parentheses")
+                level -= 1
+                if len(stack) > 0 and stack[-1] == '(':
+                    result.append(level + 1)
+                    stack.pop()
     return result
-```
