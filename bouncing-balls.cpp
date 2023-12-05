@@ -1,20 +1,24 @@
-#include <iostream>
-using namespace std;
+```cpp
+#include <catch2/catch.hpp>
 
-float bouncingBalls(float startingHeight, float firstBounceHeight, int numBounces) {
-    float bouncinessIndex = firstBounceHeight / startingHeight;
-    return (1 + bouncinessIndex) * (numBounces - 1) + bouncinessIndex;
+TEST_CASE("Test case 1") {
+    float startingHeight = 10.0;
+    float firstBounceHeight = 9.5;
+    int numBounces = 3;
+    REQUIRE(bouncingBalls(startingHeight, firstBounceHeight, numBounces) == 28.75);
 }
 
-int main() {
-    cout << "Enter the starting height of the ball: ";
-    float startingHeight;
-    cin >> startingHeight;
-    cout << "Enter the height after the first bounce: ";
-    float firstBounceHeight;
-    cin >> firstBounceHeight;
-    cout << "Enter the number of bounces: ";
-    int numBounces;
-    cin >> numBounces;
-    cout << "The total distance traveled by the ball is: " << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
+TEST_CASE("Test case 2") {
+    float startingHeight = 5.0;
+    float firstBounceHeight = 4.5;
+    int numBounces = 2;
+    REQUIRE(bouncingBalls(startingHeight, firstBounceHeight, numBounces) == 13.5);
 }
+
+TEST_CASE("Test case 3") {
+    float startingHeight = 100.0;
+    float firstBounceHeight = 90.0;
+    int numBounces = 10;
+    REQUIRE(bouncingBalls(startingHeight, firstBounceHeight, numBounces) == 980.0);
+}
+```
