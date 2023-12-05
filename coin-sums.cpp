@@ -11,7 +11,6 @@ def get_coin_sums(coins, total):
     return [counts[1], counts[5], counts[10], counts[25]]
 [/PYTHON]
 [TESTS]
-#ifdef TEST
 # Test case 1:
 assert get_coin_sums([1, 2, 3, 4, 5], 1) == [1, 0, 0, 0]
 # Test case 2:
@@ -22,7 +21,5 @@ assert get_coin_sums([1, 2, 3, 4, 5], 3) == [3, 0, 0, 0]
 assert get_coin_sums([1, 2, 3, 4, 5], 4) == [4, 0, 0, 0]
 # Test case 5:
 assert get_coin_sums([1, 2, 3, 4, 5], 5) == [0, 1, 0, 0]
-#endif
 [/TESTS]
-
 ```
