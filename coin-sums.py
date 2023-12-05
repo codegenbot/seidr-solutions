@@ -1,4 +1,4 @@
-```
+
 def get_coin_counts(cents):
     coins = [1, 5, 10, 25]
     counts = [0, 0, 0, 0]
@@ -7,6 +7,5 @@ def get_coin_counts(cents):
             if cents >= coins[i]:
                 cents -= coins[i]
                 counts[i] += 1
-        if cents <= 0:
-            return counts
+    return counts
 ```
