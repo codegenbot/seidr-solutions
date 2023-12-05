@@ -1,13 +1,14 @@
 ```
-#include <cassert>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-int main() {
-    assert(issame({4, 3, 2, 8}, {}));
-    return 0;
+vector<int> common(vector<int> l1, vector<int> l2) {
+    vector<int> result;
+    sort(l1.begin(), l1.end());
+    sort(l2.begin(), l2.end());
+    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+    return result;
 }
 ```
