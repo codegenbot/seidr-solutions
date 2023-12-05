@@ -1,7 +1,6 @@
-```
 #include <iostream>
-#include <vector>
 #include <cmath>
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -13,10 +12,3 @@ float median(vector<float> l) {
         return l[l.size() / 2];
     }
 }
-
-int main() {
-    vector<float> v = {3, 1, 2, 4, 5};
-    cout << "Median: " << median(v) << endl;
-    return 0;
-}
-```
