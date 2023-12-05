@@ -1,10 +1,8 @@
-```
-#include <stdio.h>
-#include <vector>
-#include <algorithm>
+#include<stdio.h>
+#include<vector>
+#include<algorithm>
 using namespace std;
-
-vector<int> sortThird(vector<int> l) {
+vector<int> sort_third(vector<int> l){
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
@@ -22,4 +20,3 @@ vector<int> sortThird(vector<int> l) {
     }
     return result;
 }
-```
