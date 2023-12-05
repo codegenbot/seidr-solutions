@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -24,5 +24,3 @@ int isPrime(int num) {
     return true;
 }
 ```
-
-This code looks fine to me, but I'm not sure what the issue is that you're referring to. Can you provide more context or clarify the problem?
