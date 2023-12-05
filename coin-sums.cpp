@@ -3,21 +3,16 @@
 #include <vector>
 #include <map>
 
-using namespace std;
-
-// Function to get the fewest number of US coins needed to make a given amount
-int get_coin_sums(vector<int> coins, int total) {
-    // Initialize a map to store the counts of each coin type
-    map<int, int> counts;
-    
-    // Iterate through the coins and add them to the map
-    for (int i = 0; i < coins.size(); i++) {
-        if (coins[i] <= total) {
-            counts[coins[i]]++;
+int get_coin_sums(std::vector<int>& coins, int total) {
+    std::map<int, int> counts = {{1, 0}, {5, 0}, {10, 0}, {25, 0}};
+    for (auto coin : coins) {
+        if (coin <= total) {
+            counts[coin] += 1;
         }
     }
-    
-    // Return the number of each coin type as a separate output
-    return [counts[1], counts[5], counts[10], counts[25]];
+    return {counts[1], counts[5], counts[10], counts[25]};
 }
 ```
+This code is a C++ implementation of the problem you described. It uses a map to store the number of each type of coin, and iterates over the coins vector to determine which coins to use in the combination that adds up to the total amount. The function returns a vector containing the counts of each type of coin.
+
+Note that this code assumes that the input vector `coins` is sorted in ascending order, and that the values in the vector are all positive integers. If these assumptions do not hold, you may need to modify the code accordingly.
