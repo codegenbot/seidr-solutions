@@ -22,5 +22,4 @@ assert get_coin_sums({1, 2, 3, 4, 5}, 4) == {4, 0, 0, 0}
 # Test case 5:
 assert get_coin_sums({1, 2, 3, 4, 5}, 5) == {0, 1, 0, 0}
 [/TESTS]
-
 ```
