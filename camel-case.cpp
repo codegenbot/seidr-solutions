@@ -56,7 +56,7 @@ std::string toCamelCase(const std::string& str) {
         if (i == 0 || str[i] != ' ') {
             output += toupper(str[i]);
         } else {
-            output += tolower(str[i]);
+            output += str[i];
         }
     }
     
