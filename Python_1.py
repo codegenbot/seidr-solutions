@@ -1,4 +1,3 @@
-```python
 def separate_paren_groups(paren_string: str) -> list[str]:
     separated_groups = []
     for i, char in enumerate(paren_string):
@@ -15,4 +14,3 @@ def separate_paren_groups(paren_string: str) -> list[str]:
         else:
             separated_groups[-1].append(char)
     return separated_groups
-```
