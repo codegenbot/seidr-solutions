@@ -1,17 +1,11 @@
-```
 #include <vector>
 #include <iostream>
 using namespace std;
 int basement(vector<int>& nums) {
-    if (all_of(nums.begin(), nums.end(), [](int x){ return x > 0; })) {
-        return -1;
-    }
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0) {
-            return i;
-        }
+        if (sum < 0) return i;
     }
     return -1;
 }
@@ -25,4 +19,3 @@ int main() {
     }
     return 0;
 }
-```
