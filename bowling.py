@@ -1,13 +1,12 @@
-def get_bonus_points(bowls, prev_roll, strike, spare):
-    if strike and not spare:
-        # Strike bonus
-        return 2 * int(prev_roll)
-    elif spare and not strike:
-        # Spare bonus
-        return 10 + get_next_roll(bowls, i)
-    elif strike and spare:
-        # Both strike and spare, return the sum of the two rolls as bonus points
-        return int(prev_roll) + get_next_roll(bowls, i)
-    else:
-        # No bonus points
-        return 0
+```
+def get_score(bowls):
+    score = 0
+    for bowl in bowls:
+        if bowl == 'X':
+            score += 10
+        elif bowl == '/':
+            score += 10
+        else:
+            score += int(bowl)
+    return score
+```
