@@ -1,16 +1,16 @@
 def separate_paren_groups(paren_string: str) -> list[str]:
+    open_parens = 0
+    closed_parens = 0
     separated_groups = []
     for i, char in enumerate(paren_string):
         if char == '(':
-            separated_groups.append([char])
+            open_parens += 1
         elif char == ')':
-            separated_groups[-1].append(char)
-            num_left = len([c for c in separated_groups[-1] if c == '('])
-            num_right = len([c for c in separated_groups[-1] if c == ')'])
-            if num_left != num_right:
-                raise ValueError("Unbalanced parentheses")
+            closed_parens += 1
         elif char.isspace():
             continue
         else:
             separated_groups[-1].append(char)
+    if open_parens != closed_parens:
+        raise ValueError("Unbalanced parentheses")
     return separated_groups
