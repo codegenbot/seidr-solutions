@@ -12,3 +12,4 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 ```
+The above code is a function that takes two vectors as input and returns a vector containing the common elements between them. The function uses the `std::sort` algorithm to sort the input vectors, and then the `std::set_intersection` algorithm to find the common elements. Finally, the function returns the result vector.
