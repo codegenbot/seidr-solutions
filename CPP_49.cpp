@@ -1,9 +1,8 @@
-```
 #include <cmath>
 #include <iostream>
 
-int modp(int n, int p) {
-    return pow(2, n) % p;
+int modp(double n, double p) {
+    return (int)(std::pow(2, n) % p);
 }
 
 int main() {
@@ -15,5 +14,3 @@ int main() {
     std::cout << "modp(100, 101): " << modp(100, 101) << std::endl;
     return 0;
 }
-```
-Note: The `pow` function is a part of the `<cmath>` header in C++, and it returns the value of x raised to the power of y. In this case, we use it to calculate 2^n.
