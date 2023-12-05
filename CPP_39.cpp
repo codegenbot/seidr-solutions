@@ -1,6 +1,5 @@
-#include <iostream>
-#include <cmath>
 
+#include <iostream>
 using namespace std;
 
 int prime_fib(int n) {
@@ -13,13 +12,14 @@ int prime_fib(int n) {
         a = b;
         b = c;
     }
-    return b;
+    return n == 1 ? a : b;
 }
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i < sqrt(num); i++) {
-        if (num % i == 0) return false;
+int isPrime(int num) {
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) {
+            return false;
+        }
     }
     return true;
 }
