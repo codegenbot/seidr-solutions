@@ -1,8 +1,7 @@
 
 def find_pair(nums, target):
-    sum = 0
     for i in range(len(nums)):
-        if nums[i] == target - sum:
-            return (nums[i], nums[i-1])
-        sum += nums[i]
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return (nums[i], nums[j])
     return None
