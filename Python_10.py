@@ -14,4 +14,4 @@ def make_palindrome(string):
     # Append to the end of the string reverse of a string prefix that comes before the palindromic suffix
     prefix = string[:len(string) - len(suffix)]
     return string + prefix[::-1]
-``` 
+```
