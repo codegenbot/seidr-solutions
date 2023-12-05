@@ -1,4 +1,3 @@
-```
 def get_bonus_points(bowls, prev_roll, strike, spare):
     if strike:
         # Strike bonus
@@ -12,4 +11,3 @@ def get_bonus_points(bowls, prev_roll, strike, spare):
     else:
         # No bonus points
         return 0
-```
