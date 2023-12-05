@@ -1,22 +1,14 @@
-
 #include <iostream>
-#include <string>
+#include <cassert>
+using namespace std;
 
-std::string changeBase(int x, int base) {
-    std::string result;
-    while (x > 0) {
-        result = std::to_string(x % base) + result;
-        x /= base;
-    }
-    return result;
+int change_base(int x, int base) {
+    return (x == 0) ? "0" : to_string(x);
 }
-```
 
 int main() {
-    int x;
-    std::cout << "Enter a number: ";
-    std::cin >> x;
-    std::cout << "The number in binary is: " << changeBase(x, 2) << std::endl;
+    for (int i = 0; i <= 100; i++) {
+        cout << change_base(i, 2) << endl;
+    }
     return 0;
 }
-```
