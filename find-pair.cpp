@@ -13,14 +13,5 @@ std::vector<int> find_pair(const std::vector<int>& nums, int target) {
     }
     return result;
 }
-
-int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 6;
-    auto result = find_pair(nums, target);
-    for (auto& x : result) {
-        std::cout << x << " ";
-    }
-    return 0;
-}
 ```
+The above code should now work without any errors.
