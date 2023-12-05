@@ -6,23 +6,24 @@ def cut_vector(vector):
     min_diff = float('inf')
     left_sum = 0
     right_sum = 0
-    
-    # Loop through the vector and find the optimal cut point
-    for i in range(1, n-1):
-        left_sum += vector[i-1]
-        right_sum = sum(vector[i:])
+
+    # Iterate over each possible cut point
+    for i in range(1, n):
+        # Calculate the difference between the left and right sums
         diff = abs(left_sum - right_sum)
+
+        # Check if the current cut point is the optimal one
         if diff < min_diff:
             min_diff = diff
-            result = [i]
+            result.clear()
+            result.append(i)
         elif diff == min_diff:
             result.append(i)
-    
-    # Check for the case where the optimal cut point is at the end of the vector
-    if n-1 == vector[-1]:
-        min_diff = 0
-        result = [n-1]
-    
+
+        # Update the sums
+        left_sum += vector[i - 1]
+        right_sum += vector[n - i]
+
     return result
 [/PYTHON]
 [TESTS]
