@@ -1,5 +1,5 @@
 def make_palindrome(string):
-    # Find the longest postfix of supplied string that is a palindrome
+     # Find the longest postfix of supplied string that is a palindrome
     suffix = ""
     for i in range(len(string)):
         if string[i:] == string[i:][::-1]:
