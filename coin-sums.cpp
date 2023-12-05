@@ -1,13 +1,34 @@
 ```
-def get_coin_sums(coins, total):
-    # Initialize a dictionary to store the counts for each coin type
-    counts = {1: 0, 5: 0, 10: 0, 25: 0}
+#include <iostream>
+using namespace std;
 
-    # Loop through the coins and increment the count for each coin type
-    for coin in coins:
-        if coin <= total:
-            counts[coin] += 1
+int get_coin_sums(int coins[], int total) {
+    // Initialize a dictionary to store the counts for each coin type
+    int counts[4] = {0, 0, 0, 0};
 
-    return [counts[1], counts[5], counts[10], counts[25]]
+    // Loop through the coins and increment the count for each coin type
+    for (int i = 0; i < total; i++) {
+        if (coins[i] <= total) {
+            counts[coins[i]]++;
+        }
+    }
+
+    return counts;
+}
+
+int main() {
+    int coins[] = {1, 2, 3, 4, 5};
+    int total = 10;
+    int counts[4];
+
+    // Call the function to get the coin sums
+    counts = get_coin_sums(coins, total);
+
+    // Print the results
+    for (int i = 0; i < 4; i++) {
+        cout << "Coin type " << i + 1 << ": " << counts[i] << endl;
+    }
+
+    return 0;
+}
 ```
-The code above should solve the problem. It initializes a dictionary to store the counts for each coin type, and then loops through the coins and increments the count for each coin type. Finally, it returns a list containing the counts for each coin type in the correct order.
