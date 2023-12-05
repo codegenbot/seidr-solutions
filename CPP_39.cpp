@@ -1,7 +1,4 @@
 ```
-CPP/39
-Prime Fibonacci numbers
-
 def prime_fib(n):
     a, b = 0, 1
     while n > 2:
