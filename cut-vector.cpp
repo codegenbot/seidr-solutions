@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -32,14 +33,4 @@ vector<int> cutVector(vector<int> vec) {
 
     return result;
 }
-
-int main() {
-    vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
-    vector<int> result = cutVector(vec);
-
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-
-    return 0;
-}
+``` 
