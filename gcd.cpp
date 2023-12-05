@@ -1,37 +1,25 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
+[PYTHON]
+def get_gcd(a, b):
+    if a == 0:
+        return b
+    return get_gcd(b % a, a)
 
-int gcd(int a, int b) {
-    if (a == 0) return b;
-    return gcd(b % a, a);
-}
-
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> result;
-    for (int i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (text.substr(i, target.size()) == target) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
-
-int main() {
-    string input;
-    while (getline(cin, input)) {
-        int a = stoi(input.substr(0, input.find(' ')));
-        int b = stoi(input.substr(input.find(' ') + 1));
-        cout << gcd(a, b) << endl;
-    }
-    return 0;
-}
+def get_indices_of_substring(text, target):
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_gcd(10, 15) == 5
+# Test case 2:
+assert get_gcd(10, 0) == 10
+# Test case 3:
+assert get_gcd(0, 15) == 15
+# Test case 4:
+assert get_indices_of_substring("abcde", "ab") == [0, 2]
+# Test case 5:
+assert get_indices_of_substring("abcde", "bc") == [1, 3]
+[/TESTS]
