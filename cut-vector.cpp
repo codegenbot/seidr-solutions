@@ -1,18 +1,14 @@
 [PYTHON]
 def cut_vector(vector):
-    n = len(vector)
-    if n == 0:
+    if len(vector) == 0:
         return []
     min_diff = float('inf')
-    left_sum = vector[0]
-    right_sum = sum(vector[1:])
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        result = [0, left_sum, right_sum]
-    for i in range(1, n-1):
-        left_sum += vector[i]
-        right_sum -= vector[i]
+    diff = 0
+    left_sum = 0
+    right_sum = 0
+    for i in range(1, len(vector) - 1):
+        left_sum += vector[i - 1]
+        right_sum = sum(vector[i + 1:])
         diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
@@ -23,9 +19,9 @@ def cut_vector(vector):
 # Test case 1:
 assert cut_vector([]) == []
 # Test case 2:
-assert cut_vector([1]) == []
+assert cut_vector([1]) == [1, 0, 0]
 # Test case 3:
-assert cut_vector([1, 2, 3]) == [1, 2, 3]
+assert cut_vector([1, 2, 3]) == [2, 3, 4]
 # Test case 4:
-assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == [3, 10, 7]
+assert cut_vector([1, 2, 3, 4, 5, 6]) == [4, 10, 15]
 [/TESTS]
