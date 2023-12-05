@@ -1,6 +1,7 @@
 ```python
 def sort_numbers(numbers):
+    if isinstance(numbers, str):
+        numbers = numbers.split()
     numberals = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-    numbers = [int(number) for number in numbers.split()]
-    return sorted(numbers, key=lambda x: numberals[x])
+    return " ".join(sorted([number for number in numbers if number in numberals]))
 ```
