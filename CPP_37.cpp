@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -20,4 +19,3 @@ vector<float> sort_even(vector<float> l) {
     }
     return result;
 }
-```
