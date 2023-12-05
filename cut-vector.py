@@ -1,16 +1,15 @@
-```python
-def cut_vector(vector):
-    n = len(vector)
+def cut_vector(v):
+    n = len(v)
     if n == 1:
-        return vector[0], 0
+        return v[0], 0
     elif n == 2:
-        return vector[0], vector[1]
+        return v[0], v[1]
     else:
-        min_diff = math.inf
-        for i in range(1, n):
-            diff = abs(sum(vector[:i]) - sum(vector[i:]))
-            if diff < min_diff:
-                min_diff = diff
-                cut = i
-        return vector[:cut], vector[cut:]
-```
+        left = []
+        right = []
+        for i in range(n):
+            if i < n // 2:
+                left.append(v[i])
+            else:
+                right.append(v[i])
+        return cut_vector(left) + (cut_vector(right),)
