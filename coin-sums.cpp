@@ -12,14 +12,15 @@ def get_coin_sums(coins, total):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert get_coin_sums([1, 2, 3, 4, 5], 1) == [1, 0, 0, 0]
+assert get_coin_sums({1, 2, 3, 4, 5}, 1) == {1, 0, 0, 0}
 # Test case 2:
-assert get_coin_sums([1, 2, 3, 4, 5], 2) == [2, 0, 0, 0]
+assert get_coin_sums({1, 2, 3, 4, 5}, 2) == {2, 0, 0, 0}
 # Test case 3:
-assert get_coin_sums([1, 2, 3, 4, 5], 3) == [3, 0, 0, 0]
+assert get_coin_sums({1, 2, 3, 4, 5}, 3) == {3, 0, 0, 0}
 # Test case 4:
-assert get_coin_sums([1, 2, 3, 4, 5], 4) == [4, 0, 0, 0]
+assert get_coin_sums({1, 2, 3, 4, 5}, 4) == {4, 0, 0, 0}
 # Test case 5:
-assert get_coin_sums([1, 2, 3, 4, 5], 5) == [0, 1, 0, 0]
+assert get_coin_sums({1, 2, 3, 4, 5}, 5) == {0, 1, 0, 0}
 [/TESTS]
+
 ```
