@@ -1,21 +1,19 @@
 ```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include<iostream>
+#include<vector>
 using namespace std;
 
 int search(vector<int> lst) {
-    int maxFreq = -1;
-    int maxFreqElem = -1;
+    int max_freq = -1;
+    int max_value = -1;
 
     for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] > maxFreq) {
-            maxFreq = lst[i];
-            maxFreqElem = i;
+        if (lst[i] > 0 && lst[i] >= max_freq) {
+            max_freq = lst[i];
+            max_value = i;
         }
     }
 
-    return maxFreqElem;
+    return max_value;
 }
 ```
