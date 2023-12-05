@@ -1,3 +1,4 @@
+```
 def make_palindrome(string):
     # Check if the input string is already a palindrome
     if string == string[::-1]:
@@ -12,3 +13,4 @@ def make_palindrome(string):
 
     # Append to the end of the string reverse of a string prefix that comes before the palindromic suffix
     return string + suffix[::-1]
+```
