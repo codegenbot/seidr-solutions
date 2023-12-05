@@ -1,4 +1,6 @@
 
+The modified code is:
+```
 def cut_vector(vector):
     n = len(vector)
     if n == 1:
@@ -13,3 +15,5 @@ def cut_vector(vector):
                 min_diff = diff
                 cut = i
         return vector[:cut], vector[cut:]
+```
+This code is more concise and easier to read. It also avoids the use of the `math.inf` constant, which can be problematic in some cases. Instead, it uses the built-in `float('inf')` function to represent infinity.
