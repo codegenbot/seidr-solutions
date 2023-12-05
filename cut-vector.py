@@ -8,9 +8,9 @@ def cut_vector(vector):
     else:
         min_diff = math.inf
         for i in range(1, n):
-            diff = abs(sum(vector[:i]) - sum(vector[i:]))
-            if diff < min_diff:
-                min_diff = diff
+            total = abs(sum(vector[:i]) - sum(vector[i:]))
+            if total < min_diff:
+                min_diff = total
                 cut = i
         return vector[:cut], vector[cut:]
 ```
