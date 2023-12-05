@@ -9,8 +9,4 @@ def main():
     base = int(input())
     result = change_base(x, base)
     print(result)
-
-def change_base(x, base):
-    return str(x) if base == 10 else bin(x)[2:].zfill(len(str(x)))
-
-main()
+```
