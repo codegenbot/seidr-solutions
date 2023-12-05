@@ -1,8 +1,8 @@
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    unique_elements = set()
-    result = []
+def remove_duplicates(numbers):
+    unique_elements = {}
     for num in numbers:
         if num not in unique_elements:
-            unique_elements.add(num)
-            result.append(num)
-    return result
+            unique_elements[num] = 1
+        else:
+            unique_elements[num] += 1
+    return [k for k, v in unique_elements.items() if v == 1]
