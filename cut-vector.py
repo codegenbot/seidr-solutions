@@ -14,3 +14,4 @@ def cut_vector(vector):
                 cut = i
         return vector[:cut], vector[cut:]
 ```
+The issue is that the code is using a Python reserved word, `sum`, as a variable name. To fix this, you can rename the variable to something else, like `total`.
