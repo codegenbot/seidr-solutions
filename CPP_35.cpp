@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -11,4 +10,3 @@ float max_element(const std::vector<float>& v) {
     }
     return max;
 }
-```
