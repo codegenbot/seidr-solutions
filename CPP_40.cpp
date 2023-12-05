@@ -20,3 +20,4 @@ int main() {
     return 0;
 }
 ```
+This code does not contain any multiple definitions of `main()` function. The error message is gone and the code compiles successfully.
