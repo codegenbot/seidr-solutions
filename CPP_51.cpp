@@ -1,19 +1,11 @@
-[PYTHON]
-def remove_vowels(text):
-    vowels = "aeiou"
-    return "".join([c for c in text if c.lower() not in vowels])
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert remove_vowels("") == ""
-# Test case 2:
-assert remove_vowels("abcdef\nghijklm") == "bcdf\nghjklm"
-# Test case 3:
-assert remove_vowels("abcdef") == "bcdf"
-# Test case 4:
-assert remove_vowels("aaaaa") == ""
-# Test case 5:
-assert remove_vowels("aaBAA") == "B"
-# Test case 6:
-assert remove_vowels("zbcd") == "zbcd"
-[/TESTS]
+```
+string remove_vowels(string text) {
+    string result;
+    for (int i = 0; i < text.size(); i++) {
+        if (text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u') {
+            result += text[i];
+        }
+    }
+    return result;
+}
+```
