@@ -1,20 +1,23 @@
-int get_score(string bowls) {
+#include <string>
+#include <iostream>
+using namespace std;
+
+int getScore(string bowls) {
     int score = 0;
-    char prev_ball = ' ';
-    for (int i = 0; i < bowls.size(); i++) {
+    for (int i = 0; i < bowls.length(); i++) {
         if (bowls[i] == 'X') {
             score += 10;
-            prev_ball = 'X';
         } else if (bowls[i] == '/') {
-            score += 5;
-            prev_ball = '/';
-        } else if (bowls[i] == '-') {
-            score -= 5;
-            prev_ball = '-';
+            score += 10 - int(bowls[i-1]);
         } else {
             score += int(bowls[i]);
-            prev_ball = bowls[i];
         }
     }
     return score;
+}
+
+int main() {
+    string bowls = "7115XXX548/279-X53";
+    cout << getScore(bowls) << endl;
+    return 0;
 }
