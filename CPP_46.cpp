@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 int fib4(int n) {
