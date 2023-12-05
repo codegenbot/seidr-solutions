@@ -1,11 +1,14 @@
-```
-string remove_vowels(string text) {
-    string result;
-    for (int i = 0; i < text.size(); i++) {
-        if (text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u') {
-            result += text[i];
-        }
-    }
-    return result;
+```cpp
+#include <iostream>
+#include <string>
+
+int remove_vowels(std::string text) {
+    std::string vowels = "aeiou";
+    return std::string("").join([c for c in text if c.lower() not in vowels]);
+}
+
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
+    return 0;
 }
 ```
