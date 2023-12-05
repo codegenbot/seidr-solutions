@@ -1,35 +1,16 @@
-```
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-using namespace std;
-
-int gcd(int a, int b) {
-    if (a == 0) return b;
-    return gcd(b % a, a);
-}
-
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> result;
-    for (int i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (text.substr(i, target.size()) == target) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
-
-int main() {
-    string input;
-    while (getline(cin, input)) {
-        istringstream iss(input);
-        int a, b;
-        if (!(iss >> a >> b)) {
-            // Handle invalid input here
-        }
-        cout << gcd(a, b) << endl;
-    }
-    return 0;
-}
-```
+[PYTHON]
+def get_gcd(a, b):
+    while b != 0:
+        remainder = a % b
+        a = b
+        b = remainder
+    return a
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_gcd(10, 15) == 5
+# Test case 2:
+assert get_gcd(10, 0) == 10
+# Test case 3:
+assert get_gcd(0, 15) == 15
+[/TESTS]
