@@ -1,5 +1,5 @@
 
-The issue with the current implementation is that it is converting all characters to uppercase, rather than just the first character of each word. To fix this, you can modify the `toCamelCase` function to only convert the first character of each word to uppercase:
+The issue is caused by the fact that the `toCamelCase` function is converting all characters to uppercase, rather than just the first character of each word. To fix this, you can modify the `toCamelCase` function to only convert the first character of each word to uppercase:
 ```
 // Convert a string to camelCase
 std::string toCamelCase(const std::string& str) {
