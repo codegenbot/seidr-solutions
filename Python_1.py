@@ -1,5 +1,5 @@
 ```python
-def separate_paren_groups(paren_string: str) -> list[str]:
+def separate_paren_groups(paren_string):
     separated_groups = []
     for i, char in enumerate(paren_string):
         if char == '(':
@@ -12,7 +12,7 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                 raise ValueError("Unbalanced parentheses")
         elif char.isspace():
             continue
-        else:
-            separated_groups[-1].append(char)
+    else:
+        separated_groups[-1].append(char)
     return separated_groups
 ```
