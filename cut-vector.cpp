@@ -1,53 +1,41 @@
+[PYTHON]
+def cut_vector(vec):
+    n = len(vec)
+    result = []
 
-#include <vector>
-#include <iostream>
-#include <climits>
+    if n == 0:
+        return result
 
-using namespace std;
+    min_diff = float('inf')
+    left_sum = vec[0]
+    right_sum = sum(vec[1:])
+    diff = abs(left_sum - right_sum)
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    pair<vector<int>, vector<int>> result;
+    if diff <= min_diff:
+        result.append(0)
 
-    if (n == 0) {
-        return result;
-    }
+    for i in range(1, n-1):
+        left_sum += vec[i]
+        right_sum -= vec[i]
+        diff = abs(left_sum - right_sum)
+        if diff <= min_diff:
+            result.append(i)
 
-    int minDiff = INT_MAX;
-    int diff, leftSum, rightSum;
-    for (int i = 1; i < n - 1; i++) {
-        leftSum = vec[i - 1];
-        rightSum = 0;
-        for (int j = i + 1; j < n; j++) {
-            rightSum += vec[j];
-        }
-        diff = abs(leftSum - rightSum);
-        if (diff <= minDiff) {
-            result.first.push_back(i);
-            for (int k = i + 1; k < n; k++) {
-                result.second.push_back(vec[k]);
-            }
-        }
-    }
+    # Handle case where input vector has even number of elements
+    if n % 2 == 0:
+        left_sum = vec[n-1] + vec[n-2]
+        right_sum = sum(vec[:n-2])
+        diff = abs(left_sum - right_sum)
+        if diff <= min_diff:
+            result.append(n-1)
 
-    return result;
-}
-
-int main() {
-    vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-
-    cout << "Before cutting: ";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << " ";
-    }
-    cout << endl;
-
-    cout << "After cutting: ";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
+    return result
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert cut_vector([1, 2, 3, 4, 5, 6]) == [0, 1, 2, 3, 4, 5]
+# Test case 2:
+assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == [0, 1, 2, 3, 4, 5, 6]
+# Test case 3:
+assert cut_vector([1, 2, 3, 4, 5, 6, 7, 8]) == [0, 1, 2, 3, 4, 5, 6, 7]
+[/TESTS]
