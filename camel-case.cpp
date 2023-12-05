@@ -1,12 +1,36 @@
-[PYTHON]
-def get_unique_elements(my_list):
-    return list(set(my_list))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::vector<std::string> splitString(const std::string& str, char delimiter) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    size_t end = 0;
+    
+    while (end != std::string::npos) {
+        end = str.find(delimiter, start);
+        
+        if (end == std::string::npos) {
+            words.push_back(str.substr(start));
+        } else {
+            words.push_back(str.substr(start, end - start));
+            start = end + 1;
+        }
+    }
+    
+    return words;
+}
+
+std::string toCamelCase(const std::string& str) {
+    std::string output;
+    for (int i = 0; i < str.size(); i++) {
+        if (i == 0 || str[i] == '-') {
+            output += toupper(str[i]);
+        } else {
+            output += tolower(str[i]);
+        }
+    }
+    return output;
+}
+```
