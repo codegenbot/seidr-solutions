@@ -1,3 +1,4 @@
+
 def get_probability(n, m):
     if n == m:
         return 0
