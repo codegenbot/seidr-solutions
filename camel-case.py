@@ -1,3 +1,4 @@
+```
 def camel_case(string):
     words = string.split("-")
     for i in range(len(words)):
@@ -6,3 +7,4 @@ def camel_case(string):
         else:
             words[i] = words[i].title()
     return "".join(words)
+```
