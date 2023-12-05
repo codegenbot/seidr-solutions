@@ -1,4 +1,3 @@
-
 def get_coin_counts(cents):
     coins = [1, 5, 10, 25]
     counts = [0, 0, 0, 0]
@@ -9,4 +8,4 @@ def get_coin_counts(cents):
                 counts[i] += 1
             elif cents == coins[i]:
                 counts[i] = 1
-    return (counts) if cents > 0 else (0, 0, 0, 0)
+    return (counts)
