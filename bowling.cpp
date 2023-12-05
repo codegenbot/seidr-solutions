@@ -1,8 +1,7 @@
-#include <cstring>
-
-int get_score(const char *bowls) {
+int get_score(string bowls) {
     int score = 0;
-    for (int i = 0; i < strlen(bowls); i++) {
+    char prev_ball = ' ';
+    for (int i = 0; i < bowls.size(); i++) {
         if (bowls[i] == 'X') {
             score += 10;
             prev_ball = 'X';
@@ -13,7 +12,7 @@ int get_score(const char *bowls) {
             score -= 5;
             prev_ball = '-';
         } else {
-            score += bowls[i] - '0';
+            score += int(bowls[i]);
             prev_ball = bowls[i];
         }
     }
