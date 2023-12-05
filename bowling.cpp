@@ -1,9 +1,3 @@
-#include <cstring>
-
-int main(int argc, char **argv) {
-    // Your code here
-}
-
 int get_score(const char *bowls) {
     int score = 0;
     char prev_ball = ' ';
@@ -17,9 +11,12 @@ int get_score(const char *bowls) {
         } else if (bowls[i] == '-') {
             score -= 5;
             prev_ball = '-';
+        } else if (prev_ball == 'X' && bowls[i] != 'X') {
+            score += 10;
+        } else if (prev_ball == '/' && bowls[i] != '/') {
+            score += 5;
         } else {
             score += bowls[i] - '0';
-            prev_ball = bowls[i];
         }
     }
     return score;
