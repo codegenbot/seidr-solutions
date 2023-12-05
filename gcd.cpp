@@ -1,15 +1,8 @@
-
-#include <vector>
+```
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <sstream>
+#include <vector>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -30,9 +23,13 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 int main() {
     string input;
     while (getline(cin, input)) {
-        int a = stoi(input.substr(0, input.find(' ')));
-        int b = stoi(input.substr(input.find(' ') + 1));
+        istringstream iss(input);
+        int a, b;
+        if (!(iss >> a >> b)) {
+            // Handle invalid input here
+        }
         cout << gcd(a, b) << endl;
     }
     return 0;
 }
+```
