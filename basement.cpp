@@ -1,33 +1,28 @@
-[PYTHON]
-def basement(nums):
-    """
-    Given a vector of integers, return the first index such that the sum of all integers from the start of the vector to that index (inclusive) is negative.
-    If there is no such index, return -1.
-    """
-    # Initialize variables
-    n = len(nums)
-    current_sum = 0
-    i = 0
-
-    # Loop through the vector and calculate the sum
-    while i < n:
-        current_sum += nums[i]
-        if current_sum < 0:
-            return i
-        i += 1
-
-    # If there is no negative sum, return -1
-    return -1
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert basement([1, 2, 3]) == -1
-# Test case 2:
-assert basement([-1, 2, 3]) == 0
-# Test case 3:
-assert basement([1, 2, -3]) == 2
-# Test case 4:
-assert basement([1, -2, 3]) == 1
-# Test case 5:
-assert basement([-1, -2, -3]) == 0
-[/TESTS]
+```
+#include <vector>
+#include <iostream>
+using namespace std;
+int basement(vector<int>& nums) {
+    if (all_of(nums.begin(), nums.end(), [](int x){ return x > 0; })) {
+        return -1;
+    }
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+int main() {
+    vector<int> nums = {1, 2, 3, 4, 5};
+    int index = basement(nums);
+    if (index == -1) {
+        cout << "No negative sum found." << endl;
+    } else {
+        cout << "First index with negative sum: " << index << endl;
+    }
+    return 0;
+}
+```
