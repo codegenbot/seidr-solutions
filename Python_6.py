@@ -1,3 +1,4 @@
+```
 def parse_nested_parens(paren_string):
     result = []
     stack = []
@@ -8,9 +9,10 @@ def parse_nested_parens(paren_string):
                 level += 1
                 stack.append(level)
             elif char == ')':
-                if len(stack) > 0 and stack[-1] != level:
-                    result.append(level - 1)
-                else:
+                if len(stack) > 0 and stack[-1] == level:
                     result.append(level)
-                level -= 1
+                    level -= 1
+                else:
+                    raise ValueError("Mismatched parentheses")
     return result
+```
