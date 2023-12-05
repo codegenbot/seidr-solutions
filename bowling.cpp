@@ -1,5 +1,8 @@
-#include <iostream>
 #include <cstring>
+
+int main(int argc, char **argv) {
+    // Your code here
+}
 
 int get_score(const char *bowls) {
     int score = 0;
@@ -20,10 +23,4 @@ int get_score(const char *bowls) {
         }
     }
     return score;
-}
-
-int main() {
-    const char* bowls = "X-X-X-X-X-X-X-X-X-X";
-    int score = get_score(bowls);
-    std::cout << "Score: " << score << std::endl;
 }
