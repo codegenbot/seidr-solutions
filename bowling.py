@@ -10,3 +10,5 @@ def get_bonus_points(bowls, prev_roll, strike, spare):
         # No bonus points
         return 0
 ```
+
+The issue is that you are using an unsupported version of Python. The programlib package only supports Python versions up to 3.9, but your environment is set up with Python 3.11. To fix this, you can either update the programlib package or downgrade your Python version.
