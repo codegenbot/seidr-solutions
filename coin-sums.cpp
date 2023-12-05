@@ -1,32 +1,37 @@
-```
+#include <vector>
 #include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 
-int get_coin_sums(int coins[], int total) {
-    // Initialize a dictionary to store the counts for each coin type
-    int counts[] = {0, 0, 0, 0};
-
-    // Loop through the coins and increment the count for each coin type
-    for (int i = 0; i < total; i++) {
-        if (coins[i] <= total) {
-            counts[coins[i]]++;
+int main() {
+    int cents, pennies = 0, nickles = 0, dimes = 0, quarters = 0;
+    cin >> cents;
+    
+    while (cents > 0) {
+        if (cents >= 25) {
+            quarters++;
+            cents -= 25;
+        } else if (cents >= 10) {
+            dimes++;
+            cents -= 10;
+        } else if (cents >= 5) {
+            nickles++;
+            cents -= 5;
+        } else {
+            pennies++;
+            cents--;
         }
     }
-
-    return counts;
-}
-
-int main() {
-    int coins[] = {1, 2, 3, 4, 5};
-    int total = 5;
-
-    int result[] = get_coin_sums(coins, total);
-
-    cout << "Number of pennies: " << result[0] << endl;
-    cout << "Number of nickles: " << result[1] << endl;
-    cout << "Number of dimes: " << result[2] << endl;
-    cout << "Number of quarters: " << result[3] << endl;
-
+    
+    cout << pennies << " " << nickles << " " << dimes << " " << quarters << endl;
+    
     return 0;
 }
-```
