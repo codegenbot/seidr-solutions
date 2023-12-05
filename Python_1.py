@@ -1,4 +1,4 @@
-```
+```python
 def separate_paren_groups(paren_string: str) -> list[str]:
     separated_groups = []
     for i, char in enumerate(paren_string):
