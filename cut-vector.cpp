@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -42,3 +43,4 @@ int main() {
 
     return 0;
 }
+```
