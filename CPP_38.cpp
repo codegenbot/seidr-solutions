@@ -1,17 +1,19 @@
-[PYTHON]
-def decode_cyclic(s):
-    # write your code here
-    return s
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert decode_cyclic("") == ""
-# Test case 2:
-assert decode_cyclic("a") == "a"
-# Test case 3:
-assert decode_cyclic("abc") == "bca"
-# Test case 4:
-assert decode_cyclic("abcd") == "bcda"
-# Test case 5:
-assert decode_cyclic("abcde") == "bcdea"
-[/TESTS]
+```
+#include<stdio.h>
+#include<string>
+using namespace std;
+
+string decode_cyclic(string s){
+    int l=s.length();
+    int num=(l+2)/3;
+    string x,output;
+    int i;
+    for (i=0;i*3<l;i++)
+    {
+        x=s.substr(i*3,3);
+        if (x.length()==3) x=x[2]+x.substr(0,2);
+        output=output+x;
+    }
+    return output;
+}
+```
