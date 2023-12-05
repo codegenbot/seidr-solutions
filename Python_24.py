@@ -5,3 +5,4 @@ def largest_divisor(n):
             return i
     return None
 ```
+Please note that the code above is syntactically correct but it's not optimal as it will run into performance issues when dealing with large numbers.
