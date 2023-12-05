@@ -1,4 +1,3 @@
-
 ```
 def get_bonus_points(bowls, prev_roll, strike, spare):
     # Check for bonus points based on current roll and previous roll
