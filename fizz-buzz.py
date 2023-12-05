@@ -1,4 +1,3 @@
-
 def fizz_buzz(x):
     if divmod(x, 15) == (0, 0):
         return "FizzBuzz"
