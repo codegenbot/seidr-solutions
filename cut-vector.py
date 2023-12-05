@@ -1,5 +1,4 @@
-
-```
+```python
 def cut_vector(vector):
     n = len(vector)
     if n == 1:
