@@ -1,3 +1,5 @@
+
+Here's the modified code:
 ```
 def cut_vector(vector):
     n = len(vector)
