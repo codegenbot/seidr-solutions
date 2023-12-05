@@ -1,31 +1,22 @@
-```
+[PYTHON]
 def get_score(bowls):
-    # Initialize variables
     score = 0
     strike = False
     spare = False
     prev_roll = None
 
-    # Iterate through the bowls and calculate the score
     for i, roll in enumerate(bowls):
         if roll == "X":
-            # Strike
             score += 10 + get_next_two_rolls(bowls, i)
             strike = True
         elif roll == "/":
-            # Spare
             score += 10 + get_next_roll(bowls, i)
             spare = True
         else:
-            # Normal roll
             score += int(roll)
 
-        # Check for bonus points
         if strike or spare:
-            # Add bonus points
             score += get_bonus_points(bowls, prev_roll, strike, spare)
-
-            # Reset variables
             strike = False
             spare = False
             prev_roll = None
@@ -35,28 +26,36 @@ def get_score(bowls):
     return score
 
 def get_next_two_rolls(bowls, i):
-    # Get the next two rolls after a strike
     if i + 2 < len(bowls) and bowls[i + 1] == "X" and bowls[i + 2] != "/":
         return int(bowls[i + 1]) + int(bowls[i + 2])
     else:
         return 0
 
 def get_next_roll(bowls, i):
-    # Get the next roll after a spare
     if i + 1 < len(bowls) and bowls[i + 1] != "/":
         return int(bowls[i + 1])
     else:
         return 0
 
 def get_bonus_points(bowls, prev_roll, strike, spare):
-    # Check for bonus points
     if strike and not spare:
-        # Strike bonus
         return 2 * int(prev_roll)
     elif spare and not strike:
-        # Spare bonus
         return 10 + get_next_roll(bowls, i)
     else:
-        # No bonus points
         return 0
-```
+[/PYTHON]
+[TESTS]
+# Test case 1:
+bowls = "X|X|X|X|X|X|X|X|X|X||"
+assert get_score(bowls) == 90
+# Test case 2:
+bowls = "9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||"
+assert get_score(bowls) == 90
+# Test case 3:
+bowls = "5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||"
+assert get_score(bowls) == 90
+# Test case 4:
+bowls = "X|7/|9-|X|8/|8/|X|X|X||"
+assert get_score(bowls) == 167
+[/TESTS]
