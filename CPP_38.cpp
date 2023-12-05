@@ -1,17 +1,33 @@
-```
-#include <iostream>
-using namespace std;
+[PYTHON]
+def encode_cyclic(s):
+    # write your code here
+    return s
 
-string encode_cyclic(string s) {
-    // write your code here
-    return s;
-}
+def decode_cyclic(s):
+    # write your code here
+    return s
 
-int main() {
-    string s = "abcde";
-    string encoded = encode_cyclic(s);
-    cout << "Encoded string: " << encoded << endl;
-    return 0;
-}
+assert decode_cyclic("") == ""
+# Test case 2:
+assert decode_cyclic("a") == "a"
+# Test case 3:
+assert decode_cyclic("abc") == "bca"
+# Test case 4:
+assert decode_cyclic("abcd") == "bcda"
+# Test case 5:
+assert decode_cyclic("abcde") == "bcdea"
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert decode_cyclic("") == ""
+# Test case 2:
+assert decode_cyclic("a") == "a"
+# Test case 3:
+assert decode_cyclic("abc") == "bca"
+# Test case 4:
+assert decode_cyclic("abcd") == "bcda"
+# Test case 5:
+assert decode_cyclic("abcde") == "bcdea"
+[/TESTS]
+
 ```
-This code defines the `encode_cyclic` function and calls it with the input string. The `encode_cyclic` function is not defined in the original code, so you need to write your own implementation for it.
