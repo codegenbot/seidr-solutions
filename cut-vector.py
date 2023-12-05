@@ -1,4 +1,4 @@
-```python
+
 def cut_vector(vector):
     n = len(vector)
     if n == 1:
@@ -12,8 +12,4 @@ def cut_vector(vector):
             if diff < min_diff:
                 min_diff = diff
                 cut = i
-        if n == 3:
-            return vector[:cut], vector[cut:]
-        else:
-            return [vector[0]], vector[1:cut], vector[cut:]
-```
+        return vector[:cut], vector[cut:]
