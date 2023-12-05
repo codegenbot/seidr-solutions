@@ -1,20 +1,17 @@
 ```
 #include <iostream>
-#include <string>
 using namespace std;
 
+string encode_cyclic(string s) {
+    // write your code here
+    return s;
+}
+
 int main() {
-    string str = "abcd";
-    int l = str.length();
-    int num = (l + 2) / 3;
-    string x, output;
-    for (int i = 0; i * 3 < l; i++) {
-        x = str.substr(i * 3, 3);
-        if (x.length() == 3)
-            x = x[2] + x.substr(0, 2);
-        output += x;
-    }
-    cout << "Encoded string: " << output << endl;
+    string s = "abcde";
+    string encoded = encode_cyclic(s);
+    cout << "Encoded string: " << encoded << endl;
     return 0;
 }
 ```
+This code defines the `encode_cyclic` function and calls it with the input string. The `encode_cyclic` function is not defined in the original code, so you need to write your own implementation for it.
