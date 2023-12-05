@@ -1,11 +1,8 @@
-def get_coin_counts(cents):
+def coin_sums(cents):
     coins = [1, 5, 10, 25]
     counts = [0, 0, 0, 0]
-    while cents > 0:
-        for i in range(len(coins)):
-            if cents >= coins[i]:
-                cents -= coins[i]
-                counts[i] += 1
-            elif cents == coins[i]:
-                counts[i] = 1
-    return (counts)
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            cents -= coins[i]
+            counts[i] += 1
+    return counts
