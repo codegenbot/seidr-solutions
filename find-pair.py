@@ -1,4 +1,3 @@
-```
 def find_pair(nums, target):
     total = 0
     for i in range(len(nums)):
@@ -6,4 +5,3 @@ def find_pair(nums, target):
             return (total, nums[i])
         total += nums[i]
     return None
-```
