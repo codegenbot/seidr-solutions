@@ -1,21 +1,8 @@
 ```
-#include <iostream>
 #include <string>
 using namespace std;
 
-// Declare the encode_shift and decode_shift functions before their usage in main()
-void encode_shift(string s);
-void decode_shift(string s);
-
-int main(){
-    string s = "hello";
-    // Call the encode_shift function to modify the input string
-    encode_shift(s);
-    cout << s << endl;
-}
-
-// Define the encode_shift function
-void encode_shift(string s){
+void encode_shift(string s) {
     int i;
     for (i=0;i<s.length();i++)
     {
@@ -24,8 +11,15 @@ void encode_shift(string s){
     }
 }
 
-// Define the decode_shift function
-void decode_shift(string s){
-    // Implement the decoding logic here
+void decode_shift(string s) {
+    // Implement the decode_shift function here
+}
+
+int main() {
+    string s = "hello";
+    encode_shift(s);
+    cout << s << endl;
+    decode_shift(s);
+    return 0;
 }
 ```
