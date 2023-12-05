@@ -1,4 +1,3 @@
-```python
 def parse_nested_parens(paren_string: str) -> list[int]:
     result = []
     level = 0
@@ -11,4 +10,3 @@ def parse_nested_parens(paren_string: str) -> list[int]:
                 if level == 0:
                     result.append(level)
     return result
-```
