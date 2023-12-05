@@ -1,5 +1,8 @@
-```
 def make_palindrome(string):
+    # Check if the input string is already a palindrome
+    if string == string[::-1]:
+        return string
+
     # Find the longest postfix of supplied string that is a palindrome
     suffix = ""
     for i in range(len(string)):
@@ -7,11 +10,5 @@ def make_palindrome(string):
             suffix = string[i:]
             break
 
-    # If the input string is already a palindrome, return it unchanged
-    if string == string[::-1]:
-        return string
-
     # Append to the end of the string reverse of a string prefix that comes before the palindromic suffix
-    prefix = string[:len(string) - len(suffix)]
-    return string + prefix[::-1]
-```
+    return string + suffix[::-1]
