@@ -1,10 +1,10 @@
 def get_bonus_points(bowls, prev_roll, strike, spare):
-    if strike and not spare:
-        # Strike bonus
-        return 2 * int(prev_roll)
-    elif spare and not strike:
+    if spare:
         # Spare bonus
         return 10 + get_next_roll(bowls, i)
+    elif strike:
+        # Strike bonus
+        return 2 * int(prev_roll)
     else:
         # No bonus points
         return 0
