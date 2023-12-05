@@ -1,26 +1,37 @@
-```
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
 
-std::vector<int> find_pair(const std::vector<int>& nums, int target) {
-    std::vector<int> result;
-    for (size_t i = 0; i < nums.size(); ++i) {
-        if (nums[i] + nums[i + 1] == target) {
-            result.push_back(nums[i]);
-            result.push_back(nums[i + 1]);
-            break;
+vector<int> findPair(vector<int>& nums, int target) {
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target) {
+                result.push_back(nums[i]);
+                result.push_back(nums[j]);
+                return result;
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 6;
-    auto result = find_pair(nums, target);
-    for (auto& x : result) {
-        std::cout << x << " ";
+    vector<int> nums = {5, 7};
+    int target = 12;
+    vector<int> result = findPair(nums, target);
+    cout << "The two elements that sum to the target are: ";
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
     return 0;
 }
-```
