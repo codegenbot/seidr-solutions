@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -19,4 +18,3 @@ int main() {
     cin >> numBounces;
     cout << "The total distance traveled by the ball is: " << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
 }
-```
