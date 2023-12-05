@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -17,4 +16,3 @@ vector<int> pluck(vector<int> arr) {
 
     return {smallestEven, smallestIndex};
 }
-```
