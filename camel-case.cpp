@@ -51,6 +51,7 @@ std::vector<std::string> splitString(const std::string& str, char delimiter) {
 
 // Convert a string to camelCase
 std::string toCamelCase(const std::string& str) {
+    // Convert the first letter of each word to uppercase
     std::string output;
     for (int i = 0; i < str.size(); i++) {
         if (i == 0 || str[i] == '-') {
