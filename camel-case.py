@@ -1,5 +1,5 @@
 def camel_case(string):
-    words = string.split("-")
+    words = string.split()
     for i in range(len(words)):
         if words[i] == "":
             words[i] = ""
