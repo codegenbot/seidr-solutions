@@ -1,11 +1,12 @@
-```
+
 def get_coin_counts(cents):
     coins = [1, 5, 10, 25]
-    counts = {1: 0, 5: 0, 10: 0, 25: 0}
+    counts = [0, 0, 0, 0]
     while cents > 0:
-        for coin in coins:
-            if cents >= coin:
-                cents -= coin
-                counts[coin] += 1
-    return counts
-```
+        for i in range(len(coins)):
+            if cents >= coins[i]:
+                cents -= coins[i]
+                counts[i] += 1
+            elif cents == coins[i]:
+                counts[i] = 1
+    return (counts) if cents > 0 else (0, 0, 0, 0)
