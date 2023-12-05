@@ -1,2 +1,2 @@
 def get_probability(n, m):
-    return (n - m + 1) / (n * m)
+    return (n - m) / (n * m)
