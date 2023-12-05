@@ -1,4 +1,3 @@
-def sort_numbers(numbers: str) -> str:
-    numberals = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-    numbers = sorted([number for number in numbers if number in numberals], key=numberals.index)
-    return " ".join(numbers)
+def sort_numbers(numbers):
+    numbers = sorted([int(number) for number in numbers])
+    return " ".join([str(number) for number in numbers])
