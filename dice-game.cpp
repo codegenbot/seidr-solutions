@@ -39,14 +39,20 @@ input:
 output:
 0.0
 */
-double probability(int n, int m) {
-    double p = 0;
+double getProbability(int n, int m) {
+    double probability = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                p += 1.0 / (n * m);
+                probability += 1.0 / (n * m);
             }
         }
     }
-    return p;
+    return probability;
+}
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << getProbability(n, m) << endl;
+    return 0;
 }
