@@ -1,12 +1,4 @@
-
-#include <iostream>
-#include <string>
-
-std::string changeBase(int x, int base) {
-    std::string result;
-    while (x > 0) {
-        result = std::to_string(x % base) + result;
-        x /= base;
-    }
-    return result;
-}
+```
+def change_base(x, base):
+    return str(x) if base == 10 else bin(x)[2:].zfill(len(str(x)))
+```
