@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -16,3 +17,4 @@ int main() {
     cout << "Encoded string: " << output << endl;
     return 0;
 }
+```
