@@ -1,16 +1,7 @@
 ```
-/*
-This function takes a vector l and returns a vector l' such that
-l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal
-to the values of the corresponding indicies of l, but sorted.
->>> sort_third({1, 2, 3})
-{1, 2, 3}
->>> sort_third({5, 6, 3, 4, 8, 9, 2})
-{2, 6, 3, 4, 8, 9, 5}
-*/
-#include<stdio.h>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 vector<int> sort_third(vector<int> l){
     vector<int> result;
@@ -18,16 +9,17 @@ vector<int> sort_third(vector<int> l){
         if (i % 3 == 0) {
             result.push_back(l[i]);
         } else {
-            int j = i / 3;
-            while (j < l.size()) {
-                if (l[j] < l[i]) {
-                    result.push_back(l[j]);
-                    break;
-                }
-                j++;
-            }
+            result.insert(result.begin() + i, l[i]);
         }
     }
     return result;
+}
+int main(){
+    vector<int> input = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<int> output = sort_third(input);
+    for (int i = 0; i < output.size(); i++) {
+        cout << output[i] << " ";
+    }
+    return 0;
 }
 ```

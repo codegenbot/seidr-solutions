@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -18,3 +19,4 @@ int main() {
     cout << triples_sum_to_zero(l) << endl;
     return 0;
 }
+```

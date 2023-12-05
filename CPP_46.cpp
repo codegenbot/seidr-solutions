@@ -2,26 +2,27 @@
 #include <iostream>
 
 int fib4(int n) {
-    if (n <= 0) {
+    if (n <= 3) {
         return 0;
-    } else if (n == 1 || n == 2) {
+    } else if (n == 4) {
         return 2;
     } else {
         int a = 0, b = 0, c = 2;
-        for (int i = 3; i <= n; i++) {
-            int d = a + b + c;
+        for (int i = 5; i <= n; i++) {
+            int temp = a + b + c;
             a = b;
             b = c;
-            c = d;
+            c = temp;
         }
         return c;
     }
 }
 
 int main() {
-    std::cout << "fib4(5) = " << fib4(5) << std::endl;
-    std::cout << "fib4(6) = " << fib4(6) << std::endl;
-    std::cout << "fib4(7) = " << fib4(7) << std::endl;
+    std::cout << "Enter a number: ";
+    int n;
+    std::cin >> n;
+    std::cout << "The " << n << "th Fib4 number is: " << fib4(n) << std::endl;
     return 0;
 }
 ```
