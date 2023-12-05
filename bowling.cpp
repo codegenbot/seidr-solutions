@@ -1,4 +1,4 @@
-int get_score(const char *bowls) {
+int get_score(const char* bowls) {
     int score = 0;
     char prev_ball = ' ';
     for (int i = 0; i < strlen(bowls); i++) {
