@@ -1,21 +1,13 @@
-[PYTHON]
-def gcd(a, b):
-    if a == 0:
-        return b
-    return gcd(b % a, a)
 
-def indicesOfSubstring(text, target):
-    result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-    return result
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert gcd(10, 15) == 5
+assert get_unique_elements([]) == []
 # Test case 2:
-assert gcd(10, 20) == 10
+assert get_unique_elements([1]) == [1]
 # Test case 3:
-assert gcd(10, 25) == 5
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
 [/TESTS]
