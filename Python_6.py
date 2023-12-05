@@ -1,5 +1,5 @@
-```python
-def parse_nested_parens(paren_string):
+def parse_nested_parens(paren_string: str) -> list[int]:
+    result = []
     level = 0
     for group in paren_string.split():
         for char in group:
@@ -8,5 +8,5 @@ def parse_nested_parens(paren_string):
             elif char == ')':
                 level -= 1
                 if level == 0:
-                    return [level]
-```
+                    result.append(level)
+    return result
