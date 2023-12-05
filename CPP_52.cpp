@@ -1,6 +1,6 @@
-
-#include<iostream>
-#include<vector>
+```
+#include <iostream>
+#include <vector>
 using namespace std;
 
 bool below_threshold(const vector<int>& l, int t) {
@@ -10,5 +10,16 @@ bool below_threshold(const vector<int>& l, int t) {
         }
     }
     return true;
+}
+
+int main() {
+    vector<int> my_vector = {1, 2, 3};
+    int threshold = 2;
+    if (below_threshold(my_vector, threshold)) {
+        cout << "All elements in the vector are below the threshold" << endl;
+    } else {
+        cout << "There is an element in the vector that is above or equal to the threshold" << endl;
+    }
+    return 0;
 }
 ```

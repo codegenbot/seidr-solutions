@@ -1,10 +1,14 @@
-[PYTHON]
-def common(l1, l2):
-    return list(set(l1).intersection(l2))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121]) == [1, 5, 653]
-# Test case 2:
-assert common([5, 3, 2, 8], [3, 2]) == [2, 3]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> common(vector<int> l1, vector<int> l2) {
+    vector<int> result;
+    sort(l1.begin(), l1.end());
+    sort(l2.begin(), l2.end());
+    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+    return result;
+}
+```
