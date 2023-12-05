@@ -16,3 +16,4 @@ int main() {
     return 0;
 }
 ```
+Note: The `pow` function is a part of the `<cmath>` header in C++, and it returns the value of x raised to the power of y. In this case, we use it to calculate 2^n.
