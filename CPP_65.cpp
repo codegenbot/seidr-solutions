@@ -10,7 +10,7 @@ def main():
     x = int(input("Enter a number: "))
     shift = int(input("Enter the shift amount: "))
     result = circular_shift(x, shift)
-    print("The circularly shifted number is:", result)
+    print(result)
     return 0
 [/PYTHON]
 [TESTS]
