@@ -1,3 +1,5 @@
+#include <cstring>
+
 int get_score(const char *bowls) {
     int score = 0;
     char prev_ball = ' ';
