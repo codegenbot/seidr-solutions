@@ -1,21 +1,32 @@
-[PYTHON]
-def get_coin_sums(coins, total):
-    # Initialize a dictionary to store the counts for each coin type
-    counts = {1: 0, 5: 0, 10: 0, 25: 0}
+```
+#include <iostream>
+using namespace std;
 
-    # Loop through the coins and increment the count for each coin type
-    for coin in coins:
-        if coin <= total:
-            counts[coin] += 1
+int get_coin_sums(int coins[], int total) {
+    // Initialize a dictionary to store the counts for each coin type
+    int counts[] = {0, 0, 0, 0};
 
-    return [counts[1], counts[5], counts[10], counts[25]]
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_coin_sums([1, 2, 3, 4, 5], 1) == [1, 0, 0, 0]
-# Test case 2:
-assert get_coin_sums([1, 2, 3, 4, 5], 2) == [2, 0, 0, 0]
-# Test case 3:
-assert get_coin_sums([1, 2, 3, 4, 5], 3) == [3, 0, 0, 0]
-[/TESTS]
+    // Loop through the coins and increment the count for each coin type
+    for (int i = 0; i < total; i++) {
+        if (coins[i] <= total) {
+            counts[coins[i]]++;
+        }
+    }
+
+    return counts;
+}
+
+int main() {
+    int coins[] = {1, 2, 3, 4, 5};
+    int total = 5;
+
+    int result[] = get_coin_sums(coins, total);
+
+    cout << "Number of pennies: " << result[0] << endl;
+    cout << "Number of nickles: " << result[1] << endl;
+    cout << "Number of dimes: " << result[2] << endl;
+    cout << "Number of quarters: " << result[3] << endl;
+
+    return 0;
+}
 ```
