@@ -1,16 +1,20 @@
-def separate_paren_groups(paren_string: str) -> list[str]:
-    open_parens = 0
-    closed_parens = 0
-    separated_groups = []
-    for i, char in enumerate(paren_string):
+def separate_paren_groups(paren_string):
+    groups = []
+    stack = []
+    
+    for char in paren_string:
         if char == '(':
-            open_parens += 1
+            stack.append(char)
         elif char == ')':
-            closed_parens += 1
-        elif char.isspace():
-            continue
+            if not stack:
+                raise ValueError("Unbalanced parentheses")
+            top = stack.pop()
+            if top != '(':
+                raise ValueError("Unbalanced parentheses")
         else:
-            separated_groups[-1].append(char)
-    if open_parens != closed_parens:
+            groups.append(char)
+    
+    if stack:
         raise ValueError("Unbalanced parentheses")
-    return separated_groups
+    
+    return groups
