@@ -9,3 +9,4 @@ def get_negative_sum_index(arr):
             return i
     return -1
 ```
+The issue is that there is a stray `>` character at the end of the code block, which is causing the SyntaxError. To fix this, simply remove the extra `>` character and the code will run without any issues.
