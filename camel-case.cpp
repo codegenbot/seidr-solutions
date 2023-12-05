@@ -1,33 +1,12 @@
-```
-#include <iostream>
-#include <vector>
-#include <string>
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    // Remove backticks from input string
-    size_t pos = 0;
-    while ((pos = input.find('`', pos)) != std::string::npos) {
-        input.erase(pos, 1);
-    }
-    
-    // Split the input string into words using "-" as the delimiter
-    std::vector<std::string> words = splitString(input, '-');
-    
-    // Convert each word to camelCase and join them together with a space
-    std::string output;
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            output += " ";
-        }
-        output += toCamelCase(words[i]);
-    }
-    
-    // Print the output string
-    std::cout << output << std::endl;
-    
-    return 0;
-}
-```
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
