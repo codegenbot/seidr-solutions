@@ -1,12 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-vector<int> incr_list(vector<int> l) {
-    for (int i = 0; i < l.size(); i++) {
-        l[i]++;
+// Complete the function to increment all elements of the vector by 1
+std::vector<int> incr_list(std::vector<int> l) {
+    for (auto& i : l) {
+        i++;
     }
     return l;
 }
