@@ -1,12 +1,11 @@
 ```
-#include <cassert>
+#include <iostream>
+#include <string>
 
 int main() {
-    int x = 8;
-    assert(change_base(x, x + 1) == to_string(x));
+    int x = 0;
+    std::cin >> x;
+    assert(change_base(x, x + 1) == std::__cxx11::to_string(x));
     return 0;
 }
-
-def change_base(x, base):
-    return str(x) if base == 10 else bin(x)[2:].zfill(len(str(x)))
 ```
