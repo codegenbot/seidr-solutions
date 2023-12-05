@@ -1,5 +1,3 @@
-
-Here's the modified code that removes the invalid character sequence and compiles correctly:
 ```
 #include <vector>
 #include <iostream>
@@ -30,8 +28,10 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    int a, b;
-    while (cin >> a >> b) {
+    string input;
+    while (getline(cin, input)) {
+        int a = stoi(input.substr(0, input.find(' ')));
+        int b = stoi(input.substr(input.find(' ') + 1));
         cout << gcd(a, b) << endl;
     }
     return 0;
