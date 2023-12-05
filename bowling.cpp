@@ -1,10 +1,3 @@
-
-#include <cstring>
-
-int main(int argc, char **argv) {
-    // Your code here
-}
-
 int get_score(const char *bowls) {
     int score = 0;
     char prev_ball = ' ';
@@ -22,10 +15,17 @@ int get_score(const char *bowls) {
             score += bowls[i] - '0';
             prev_ball = bowls[i];
         }
-    }
-    // Check if the last ball was a strike and add 10 to the score if it was.
-    if (prev_ball == 'X') {
-        score += 10;
+        
+        // Check for strike and spare cases
+        if (prev_ball == 'X' && bowls[i] != 'X') {
+            if (bowls[i] == '/') {
+                score += 10;
+            } else {
+                score -= 5;
+            }
+        } else if (prev_ball == '/' && bowls[i] != '/') {
+            score -= 5;
+        }
     }
     return score;
 }
