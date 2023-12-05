@@ -1,33 +1,14 @@
-[PYTHON]
-def encode_cyclic(s):
-    # write your code here
-    return s
+```
+#include <iostream>
 
-def decode_cyclic(s):
-    # write your code here
-    return s
+void decode_cyclic(const std::string& encoded_str) {
+    // Implement decode_cyclic here
+}
 
-assert decode_cyclic("") == ""
-# Test case 2:
-assert decode_cyclic("a") == "a"
-# Test case 3:
-assert decode_cyclic("abc") == "bca"
-# Test case 4:
-assert decode_cyclic("abcd") == "bcda"
-# Test case 5:
-assert decode_cyclic("abcde") == "bcdea"
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert decode_cyclic("") == ""
-# Test case 2:
-assert decode_cyclic("a") == "a"
-# Test case 3:
-assert decode_cyclic("abc") == "bca"
-# Test case 4:
-assert decode_cyclic("abcd") == "bcda"
-# Test case 5:
-assert decode_cyclic("abcde") == "bcdea"
-[/TESTS]
-
+int main() {
+    std::string str;
+    std::cin >> str;
+    decode_cyclic(str);
+    return 0;
+}
 ```
