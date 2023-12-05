@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -16,21 +15,30 @@ vector<int> cutVector(vector<int> vec) {
     int minDiff = INT_MAX;
     int diff, leftSum, rightSum;
     for (int i = 1; i < n - 1; i++) {
-        leftSum = vec[i - 1];
+        leftSum = 0;
         rightSum = 0;
+        for (int j = 0; j < i; j++) {
+            leftSum += vec[j];
+        }
         for (int j = i + 1; j < n; j++) {
             rightSum += vec[j];
         }
-        if (leftSum == rightSum) {
+        diff = abs(leftSum - rightSum);
+        if (diff <= minDiff) {
             result.push_back(i);
-        } else {
-            diff = abs(leftSum - rightSum);
-            if (diff <= minDiff) {
-                result.push_back(i);
-            }
         }
     }
 
     return result;
 }
-``` 
+
+int main() {
+    vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
+    vector<int> result = cutVector(vec);
+
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+
+    return 0;
+}
