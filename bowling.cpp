@@ -1,26 +1,18 @@
-#include <cstring>
 
-int main(int argc, char **argv) {
-    // Your code here
-}
-
-int get_score(const char *bowls) {
-    int score = 0;
-    char prev_ball = ' ';
-    for (int i = 0; i < strlen(bowls); i++) {
-        if (bowls[i] == 'X') {
-            score += 10;
-            prev_ball = 'X';
-        } else if (bowls[i] == '/') {
-            score += 5;
-            prev_ball = '/';
-        } else if (bowls[i] == '-') {
-            score -= 5;
-            prev_ball = '-';
-        } else {
-            score += bowls[i] - '0';
-            prev_ball = bowls[i];
-        }
-    }
-    return score;
-}
+>>> def get_score(bowls: str) -> int:
+...     score = 0
+...     prev_ball = ' '
+...     for i in range(len(bowls)):
+...         if bowls[i] == 'X':
+...             score += 10
+...             prev_ball = 'X'
+...         elif bowls[i] == '/':
+...             score += 5
+...             prev_ball = '/'
+...         elif bowls[i] == '-':
+...             score -= 5
+...             prev_ball = '-'
+...         else:
+...             score += int(bowls[i])
+...             prev_ball = bowls[i]
+...     return score
