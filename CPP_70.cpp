@@ -1,26 +1,20 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
+
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
-    while (lst.size() > 0) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        result.push_back(max_val);
-        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-        lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+    while (!lst.empty()) {
+        int min = *min_element(lst.begin(), lst.end());
+        result.push_back(min);
+        lst.erase(remove(lst.begin(), lst.end(), min), lst.end());
+
+        if (lst.size() > 1) {
+            int max = *max_element(lst.begin(), lst.end());
+            result.push_back(max);
+            lst.erase(remove(lst.begin(), lst.end(), max), lst.end());
+        }
     }
     return result;
 }
-int main() {
-    vector<int> input = {1, 2, 3, 4, 5};
-    vector<int> output = strange_sort_list(input);
-    for (int i : output) {
-        cout << i << " ";
-    }
-    return 0;
-}
-```
