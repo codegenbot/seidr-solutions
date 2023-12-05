@@ -1,16 +1,16 @@
-```
-#include <iostream>
-#include <cassert>
-using namespace std;
+def change_base(x, base):
+    pass
 
-int change_base(int x, int base) {
-    return (x == 0) ? "0" : to_string(x);
-}
+def to_string(x):
+    pass
 
-int main() {
-    for (int i = 0; i <= 100; i++) {
-        cout << change_base(i, 2) << endl;
-    }
-    return 0;
-}
-```
+def main():
+    x = int(input())
+    base = int(input())
+    result = change_base(x, base)
+    print(result)
+
+def change_base(x, base):
+    return str(x) if base == 10 else bin(x)[2:].zfill(len(str(x)))
+
+main()
