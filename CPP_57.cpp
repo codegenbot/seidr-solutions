@@ -1,5 +1,3 @@
-
-Here's the modified code that should work:
 ```
 #include <iostream>
 #include <vector>
@@ -13,16 +11,5 @@ bool monotonic(std::vector<float> l) {
         }
     }
     return true;
-}
-```
-```
-int main() {
-    std::vector<float> v = {1, 2, 3, 4};
-    if (monotonic(v)) {
-        std::cout << "The vector is monotonically increasing." << std::endl;
-    } else {
-        std::cout << "The vector is not monotonically increasing." << std::endl;
-    }
-    return 0;
 }
 ```
