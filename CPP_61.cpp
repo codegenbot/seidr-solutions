@@ -1,22 +1,20 @@
 ```
 #include <iostream>
-#include <string>
 #include <stack>
 
-using namespace std;
-
-bool correct_bracketing(string brackets) {
-    stack<char> s;
-    for (int i = 0; i < brackets.size(); i++) {
-        if (brackets[i] == '(') {
-            s.push(brackets[i]);
-        } else if (brackets[i] == ')') {
-            if (s.empty()) {
+bool correct_bracketing(std::string brackets) {
+    std::stack<char> st;
+    for (auto ch : brackets) {
+        if (ch == '(') {
+            st.push(ch);
+        } else if (ch == ')') {
+            if (!st.empty() && st.top() == '(') {
+                st.pop();
+            } else {
                 return false;
             }
-            s.pop();
         }
     }
-    return s.empty();
+    return st.empty();
 }
 ```
