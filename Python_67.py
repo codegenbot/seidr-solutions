@@ -1,9 +1,10 @@
+```
 def fruit_distribution(s, n):
-    # Calculate the number of apples and oranges
-    num_apples = int(s.split(" ")[0])
-    num_oranges = int(s.split(" ")[2])
-
-    # Calculate the number of mangoes
-    num_mangoes = n - num_apples - num_oranges
-
-    return num_mangoes
+    # Extract the number of apples and oranges from the input string
+    apples, oranges = map(int, s.split())
+    
+    # Calculate the number of mangoes using the total number of fruits and the number of apples and oranges
+    mangoes = n - apples - oranges
+    
+    return mangoes
+```
