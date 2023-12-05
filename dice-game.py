@@ -1,4 +1,13 @@
 
-# This function calculates the probability of Peter rolling strictly higher than Colin given that they both roll their dice at the same time. The formula is (n-1)/(m*n) where n is the number of sides on Peter's die and m is the number of sides on Colin's die.
+[PYTHON]
 def get_probability(n, m):
     return (n - 1) / (m * n)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_probability(2, 6) == 1 / 12
+# Test case 2:
+assert get_probability(3, 6) == 1 / 18
+# Test case 3:
+assert get_probability(4, 6) == 1 / 24
+[/TESTS]
