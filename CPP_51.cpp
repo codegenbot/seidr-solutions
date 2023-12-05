@@ -17,5 +17,4 @@ assert remove_vowels("aaBAA") == "B"
 # Test case 6:
 assert remove_vowels("zbcd") == "zbcd"
 [/TESTS]
-
 ```
