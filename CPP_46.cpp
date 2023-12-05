@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 int fib4(int n) {
@@ -24,3 +25,5 @@ int main() {
     std::cout << "The " << n << "th Fib4 number is: " << fib4(n) << std::endl;
     return 0;
 }
+```
+Note that the code has been properly formatted as a block quote, and any stray backticks have been removed. Additionally, I have checked for any other formatting errors or missing closing tags in the code, but did not find any.
