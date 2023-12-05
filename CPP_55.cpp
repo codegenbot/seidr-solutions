@@ -17,3 +17,4 @@ int main() {
     return 0;
 }
 ```
+The code above only has one definition of the `main()` function, so it should compile and run correctly.
