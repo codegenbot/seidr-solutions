@@ -1,7 +1,9 @@
-```
-#include <string>
-
-bool same_chars(const std::string& s0, const std::string& s1) {
-    return s0.length() == s1.length() && std::equal(s0.begin(), s0.end(), s1.begin());
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
+bool same_chars(string s0, string s1) {
+    sort(s0.begin(), s0.end());
+    sort(s1.begin(), s1.end());
+    return (s0 == s1);
 }
-```
