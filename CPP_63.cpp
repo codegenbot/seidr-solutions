@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -11,4 +10,3 @@ int fibfib(int n) {
         return fibfib(n-1) + fibfib(n-2) + fibfib(n-3);
     }
 }
-```
