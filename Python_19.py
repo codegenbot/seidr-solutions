@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3.9
 def sort_numbers(numbers: str) -> str:
     numberals = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
     numbers = numbers.split()
