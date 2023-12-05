@@ -31,4 +31,3 @@ int main() {
     return 0;
 }
 ```
-This code removes all backticks from the input string before splitting it into words. This ensures that the splitString function correctly interprets the input and avoids the stray backtick error.
