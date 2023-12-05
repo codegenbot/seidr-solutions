@@ -1,4 +1,4 @@
-```python
+
 def cut_vector(vector):
     n = len(vector)
     if n == 1:
@@ -6,11 +6,10 @@ def cut_vector(vector):
     elif n == 2:
         return vector[0], vector[1]
     else:
-        min_diff = math.inf
+        min_diff = float('inf')
         for i in range(1, n):
             diff = abs(sum(vector[:i]) - sum(vector[i:]))
             if diff < min_diff:
                 min_diff = diff
                 cut = i
         return vector[:cut], vector[cut:]
-```
