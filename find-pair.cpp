@@ -10,14 +10,14 @@ def find_pair(nums, target):
         else:
             right -= 1
     return []
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
-# Test case 2:
-assert find_pair([1, 2, 3, 4, 5], 10) == []
-# Test case 3:
-assert find_pair([], 10) == []
-[/TESTS]
 
+TESTS {
+    # Test case 1:
+    assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
+    # Test case 2:
+    assert find_pair([1, 2, 3, 4, 5], 10) == []
+    # Test case 3:
+    assert find_pair([], 10) == []
+}
+[/PYTHON]
 ```
