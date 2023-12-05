@@ -1,18 +1,23 @@
 #include <string>
-#include <vector>
+#include <iostream>
+using namespace std;
 
-int get_score(const std::string& bowls) {
+int getScore(string bowls) {
     int score = 0;
-    for (int i = 0; i < bowls.size(); i++) {
+    for (int i = 0; i < bowls.length(); i++) {
         if (bowls[i] == 'X') {
             score += 10;
         } else if (bowls[i] == '/') {
-            score += 5;
-        } else if (bowls[i] == '-') {
-            score -= 5;
+            score += 10 - int(bowls[i-1]);
         } else {
-            score += bowls[i] - '0';
+            score += int(bowls[i]);
         }
     }
     return score;
+}
+
+int main() {
+    string bowls = "7115XXX548/279-X53";
+    cout << getScore(bowls) << endl;
+    return 0;
 }
