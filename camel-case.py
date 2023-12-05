@@ -4,5 +4,5 @@ def camel_case(string):
         if words[i] == "":
             words[i] = ""
         else:
-            words[i] = words[i].capitalize()
+            words[i] = words[i].title()
     return "".join(words)
