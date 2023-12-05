@@ -1,28 +1,17 @@
-```
-#include<iostream>
-#include<stack>
-#include<string>
-using namespace std;
+#include <iostream>
+#include <stack>
 
-bool correct_bracketing(string brackets) {
-    stack<char> s;
-    for (int i = 0; i < brackets.length(); i++) {
-        if (brackets[i] == '<') {
-            s.push(brackets[i]);
-        } else if (brackets[i] == '>') {
-            if (!s.empty()) {
-                s.pop();
-            } else {
+bool correct_bracketing(std::string brackets) {
+    std::stack<char> s;
+    for (auto c : brackets) {
+        if (c == '<') {
+            s.push(c);
+        } else if (c == '>') {
+            if (s.empty() || s.top() != '<') {
                 return false;
             }
+            s.pop();
         }
     }
     return s.empty();
 }
-
-int main() {
-    string brackets = "<>";
-    cout << correct_bracketing(brackets) << endl;
-    return 0;
-}
-```
