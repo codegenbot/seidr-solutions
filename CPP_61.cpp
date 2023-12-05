@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <stack>
 
@@ -17,4 +16,3 @@ bool correct_bracketing(std::string brackets) {
     }
     return st.empty();
 }
-```
