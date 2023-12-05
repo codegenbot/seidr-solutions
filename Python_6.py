@@ -1,4 +1,5 @@
-def parse_nested_parens(paren_string: str) -> List[int]:
+```python
+def parse_nested_parens(paren_string: str) -> list[int]:
     result = []
     level = 0
     for group in paren_string.split():
@@ -10,3 +11,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 if level == 0:
                     result.append(level)
     return result
+```
