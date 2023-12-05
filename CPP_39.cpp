@@ -24,3 +24,4 @@ int isPrime(int num) {
     return true;
 }
 ```
+```
