@@ -1,4 +1,3 @@
-
 ```
 int main() {
     string input;
