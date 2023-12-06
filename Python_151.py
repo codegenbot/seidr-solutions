@@ -7,9 +7,5 @@ def double_the_difference(lst):
     return result
 
 def odd_sum(lst):
-    result = 0
-    for num in lst:
-        if num % 2 != 0 and num > 0:
-            result += num
-    return result
+    return sum(x for x in lst if x % 2 == 1)
 ```
