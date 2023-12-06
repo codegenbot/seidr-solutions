@@ -1,27 +1,22 @@
-```
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 string encrypt(string s) {
-    string result = "";
+    string encrypted = "";
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
-        int pos = c - 'a';
-        if (pos >= 0 && pos <= 25) {
-            pos += 2;
-            while (pos > 25) {
-                pos -= 26;
+        if (c >= 'a' && c <= 'z') {
+            c += 2;
+            if (c > 'z') {
+                c -= 26;
             }
-            result += (char)(pos + 'a');
-        } else {
-            result += c;
+        } else if (c >= 'A' && c <= 'Z') {
+            c += 2;
+            if (c > 'Z') {
+                c -= 26;
+            }
         }
+        encrypted += c;
     }
-    return result;
+    return encrypted;
 }
-int main() {
-    string s = "hello world";
-    cout << encrypt(s) << endl;
-    return 0;
-}
-```
