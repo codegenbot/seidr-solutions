@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 
@@ -17,4 +17,3 @@ int main() {
     cout << is_happy(s) << endl;
     return 0;
 }
-```
