@@ -1,3 +1,4 @@
+[PYTHON]
 def get_max_triples(n):
     # Initialize variables for the two pointers
     left = 0
@@ -12,3 +13,12 @@ def get_max_triples(n):
             right -= 1
 
     return count
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_max_triples(5) == 2
+# Test case 2:
+assert get_max_triples(10) == 4
+# Test case 3:
+assert get_max_triples(100) == 25
+[/TESTS]
