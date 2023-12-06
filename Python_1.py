@@ -1,4 +1,3 @@
-```python
 def separate_paren_groups(paren_string: str) -> list[str]:
     stack = []
     groups = []
@@ -14,4 +13,3 @@ def separate_paren_groups(paren_string: str) -> list[str]:
             if len(stack) > 0:
                 stack[-1].append(char)
     return groups
-```
