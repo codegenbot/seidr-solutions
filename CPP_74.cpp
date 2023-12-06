@@ -1,19 +1,20 @@
 ```
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
 using namespace std;
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int cnt1 = 0, cnt2 = 0;
+    int totalCharsLst1 = 0, totalCharsLst2 = 0;
     for (int i = 0; i < lst1.size(); i++) {
-        cnt1 += lst1[i].length();
+        totalCharsLst1 += lst1[i].length();
     }
     for (int i = 0; i < lst2.size(); i++) {
-        cnt2 += lst2[i].length();
+        totalCharsLst2 += lst2[i].length();
     }
-    if (cnt1 > cnt2) {
+    if (totalCharsLst1 < totalCharsLst2) {
         return lst1;
-    } else if (cnt1 < cnt2) {
+    } else if (totalCharsLst1 > totalCharsLst2) {
         return lst2;
     } else {
         return lst1;
