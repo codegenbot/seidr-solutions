@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -18,3 +19,4 @@ int main() {
     cout << "The first index with negative sum is: " << result << endl;
     return 0;
 }
+```
