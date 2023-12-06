@@ -15,7 +15,8 @@ def kmp_search(text, pattern):
         return i - m
     else:
         return -1
-
+```
+```
 def cycpattern_check(a, b):
     return kmp_search(a, b) != -1
 ```
