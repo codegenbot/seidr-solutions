@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -20,4 +19,3 @@ std::string encode(const std::string& message) {
     }
     return encoded;
 }
-```
