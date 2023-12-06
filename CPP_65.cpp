@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -12,4 +11,3 @@ int main() {
     cout << "The circularly shifted number is: " << circular_shift(x, shift) << endl;
     return 0;
 }
-```
