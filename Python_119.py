@@ -1,5 +1,5 @@
 
-The corrected code is:
+Here's the corrected code:
 ```
 def match_parens(lst):
     s1, s2 = lst
