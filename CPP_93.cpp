@@ -1,21 +1,21 @@
-```
-#include<iostream>
-#include<string>
-#include<algorithm>
-using namespace std;
+#include <iostream>
+#include <string>
+#include <cctype>
 
-string encode(string message) {
-    string encoded = "";
-    for (int i = 0; i < message.length(); i++) {
+std::string encode(const std::string& message) {
+    std::string encoded;
+    for (int i = 0; i < message.size(); ++i) {
         char c = message[i];
-        if (isupper(c)) {
-            encoded += tolower(c);
-        } else if (islower(c)) {
-            encoded += toupper(c);
+        if (isalpha(c)) {
+            if (isupper(c)) {
+                c = tolower(c);
+            } else {
+                c = toupper(c);
+            }
+            encoded += c;
         } else {
             encoded += c;
         }
     }
     return encoded;
 }
-```
