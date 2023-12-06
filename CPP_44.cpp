@@ -3,7 +3,8 @@
 using namespace std;
 
 int change_base(int x, int base) {
-    return (x == 0) ? "0" : to_string(x);
+    if (x == 0) return "0";
+    else return to_string(x);
 }
 
 int main() {
