@@ -1,4 +1,2 @@
-```
 def count_upper(s):
-    return len([c for c in s if c.isupper() and ord(c) % 2 == 0])
-```
+    return sum(1 for i in range(0, len(s), 2) if s[i].isupper())
