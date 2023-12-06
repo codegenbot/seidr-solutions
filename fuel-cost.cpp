@@ -13,3 +13,4 @@ int main() {
     cout << "The sum of the new integers in the vector is: " << sum << endl;
 }
 ```
+Note that I have removed the template literals and replaced them with regular string literals, as they are not allowed in C++. Additionally, I have declared the `vec` and `sum` variables before their use in the `for` loops.
