@@ -13,7 +13,7 @@ bool isPrime(int n) {
 
 int prime_length(const std::string& str) {
     int count = 0;
-    for (int i = 0; i < str.size(); i++) {
+    for (size_t i = 0; i < str.size(); i++) {
         if (isPrime(str[i])) {
             count++;
         }

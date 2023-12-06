@@ -17,3 +17,6 @@ int main() {
     return 0;
 }
 ```
+The error message indicates that the code is trying to call the function `std::__cxx11::basic_string<char>::_M_dispose()` with an invalid argument, specifically the field `_M_allocated_capacity` is not a valid member of the union.
+
+To fix this issue, you can try removing the reference to `_M_allocated_capacity` in the function call and replace it with the appropriate parameter for the `std::__cxx11::basic_string<char>::_M_destroy()` function.

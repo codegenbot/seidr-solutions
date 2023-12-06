@@ -1,4 +1,4 @@
-[PYTHON]
+```
 def next_smallest(lst):
     if len(lst) < 2:
         return None
@@ -16,17 +16,5 @@ def main():
     assert next_smallest([-35, 34, 12, -45]) == -35
     # Test case 3:
     assert next_smallest([-35, 34, 12, -45, -35]) == -35
-
-if __name__ == "__main__":
-    main()
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert next_smallest([]) == None
-# Test case 2:
-assert next_smallest([-35, 34, 12, -45]) == -35
-# Test case 3:
-assert next_smallest([-35, 34, 12, -45, -35]) == -35
-[/TESTS]
-
 ```
+It's important to note that the `main` function is not a preprocessing directive and it should be removed from the code.

@@ -1,13 +1,15 @@
+```
 #include <vector>
 
-int main() {
-    std::vector<std::vector<int>> lst;
-    int x;
-    std::cin >> x;
-    get_row(lst, x);
-    return 0;
+std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
+    std::vector<std::vector<int>> result;
+    for (int i = 0; i < lst.size(); i++) {
+        for (int j = 0; j < lst[i].size(); j++) {
+            if (lst[i][j] == x) {
+                result.push_back({i, j});
+            }
+        }
+    }
+    return result;
 }
-
-bool issame(const std::vector<std::vector<int>>& v1, const std::vector<std::vector<int>>& v2) {
-    return std::equal(v1.begin(), v1.end(), v2.begin());
-}
+```
