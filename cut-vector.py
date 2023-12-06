@@ -1,4 +1,4 @@
-
+# You can use slicing to extract the first half and second half of the vector separately, and then compare their sums. Here's an example of how you can modify the code:
 import numpy as np
 
 def cut_vector(vector):
