@@ -11,20 +11,11 @@ bool isPrime(int n) {
     return true;
 }
 
-int prime_length(const std::string& str) {
-    int count = 0;
-    for (size_t i = 0; i < str.size(); i++) {
-        if (isPrime(str[i])) {
-            count++;
-        }
-    }
-    return count;
-}
-
 int main() {
+    int prime_length;
     std::string str;
     std::cin >> str;
-    assert(prime_length(str) == 0);
+    assert(isPrime(str.size()) == false);
     return 0;
 }
 ```
