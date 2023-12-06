@@ -1,3 +1,4 @@
+```
 #include <vector>
 int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) {
@@ -12,3 +13,4 @@ int next_smallest(std::vector<int> lst) {
     }
     return None;
 }
+```
