@@ -1,32 +1,25 @@
-
 ```
-#include <string>
-#include <iostream>
-using namespace std;
-
 int getScore(string bowls) {
     int score = 0;
+    bool prevStrikeOrSpare = false;
     for (int i = 0; i < bowls.length(); i++) {
         if (bowls[i] == 'X') {
+            // strike
             score += 10;
-            // Check if the next frame is also a strike
-            if (i + 1 < bowls.length() && bowls[i + 1] == 'X') {
-                score += 10;
-            }
+            prevStrikeOrSpare = true;
         } else if (bowls[i] == '/') {
-            score += 10 - int(bowls[i-1]);
-        } else if (bowls[i] == '-') {
-            score += 10;
+            // spare
+            score += 10 + int(bowls[i+1]);
+            prevStrikeOrSpare = true;
+        } else if (prevStrikeOrSpare) {
+            // adjust for strike or spare
+            score += int(bowls[i]);
+            prevStrikeOrSpare = false;
         } else {
+            // regular roll
             score += int(bowls[i]);
         }
     }
     return score;
-}
-
-int main() {
-    string bowls = "258/238172X32189-51";
-    cout << getScore(bowls) << endl;
-    return 0;
 }
 ```
