@@ -1,9 +1,38 @@
+
 #include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
+// Function to check if two strings are the same
+bool issame(string a, string b) {
+    return (a == b);
+}
+
+int main() {
+    // Get input from user
+    vector<float> grades;
+    cout << "Enter your grades: ";
+    float grade;
+    while (cin >> grade) {
+        grades.push_back(grade);
+    }
+    
+    // Call the function to convert numerical grades to letter grades
+    vector<string> letter_grades = numerical_letter_grade(grades);
+    
+    // Print the letter grades
+    cout << "Your letter grades are: ";
+    for (int i = 0; i < letter_grades.size(); i++) {
+        cout << letter_grades[i] << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
+
+// Function to convert numerical grades to letter grades
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (int i = 0; i < grades.size(); i++) {
@@ -35,14 +64,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             letter_grades.push_back("E");
         }
     }
+    
     return letter_grades;
-}
-
-int main() {
-    vector<float> grades = {3.5, 2.8, 1.9};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    for (int i = 0; i < letter_grades.size(); i++) {
-        cout << letter_grades[i] << endl;
-    }
-    return 0;
 }
