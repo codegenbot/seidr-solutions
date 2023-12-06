@@ -1,5 +1,3 @@
-
-Solution:
 ```
 #include <iostream>
 #include <string>
@@ -11,7 +9,7 @@ string anti_shuffle(string s) {
     string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] != ' ') {
-            result += sort(s[i], s[i] + 1);
+            result += sort(s[i], s[i]+1);
         } else {
             result += " ";
         }
