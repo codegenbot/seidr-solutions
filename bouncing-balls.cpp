@@ -1,5 +1,3 @@
-
-Sure! Here's the modified code:
 ```
 #include <iostream>
 #include <cmath>
@@ -12,5 +10,13 @@ double bouncingBall(double startingHeight, double heightAfterFirstBounce, int nu
         totalDistance += (startingHeight + (i - 1) * bouncinessIndex);
     }
     return totalDistance;
+}
+
+int main() {
+    double startingHeight, heightAfterFirstBounce;
+    int numBounces;
+    cin >> startingHeight >> heightAfterFirstBounce >> numBounces;
+    cout << bouncingBall(startingHeight, heightAfterFirstBounce, numBounces) << endl;
+    return 0;
 }
 ```
