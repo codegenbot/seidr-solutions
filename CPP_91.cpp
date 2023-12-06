@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,5 +10,17 @@ int is_bored(std::string S) {
         }
     }
     return count;
+}
+
+int main() {
+    std::string input;
+    getline(std::cin, input);
+    int count = is_bored(input);
+    if (count > 0) {
+        std::cout << "You are bored." << std::endl;
+    } else {
+        std::cout << "You are not bored." << std::endl;
+    }
+    return 0;
 }
 ```
