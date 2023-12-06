@@ -1,15 +1,17 @@
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
 
-int is_bored(string str) {
-    int count = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == 'I' && (str[i + 1] == '.' || str[i + 1] == '?' || str[i + 1] == '!')) {
-            count++;
-        }
-    }
-    return count;
-}
-```
+[PYTHON]
+def is_bored(S):
+    count = 0
+    for i in range(len(S)):
+        if S[i] == 'I' and (S[i + 1] == '.' or S[i + 1] == '?' or S[i + 1] == '!'):
+            count += 1
+    return count
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert is_bored("You and I are going for a walk") == 0
+# Test case 2:
+assert is_bored("I am feeling bored") == 1
+# Test case 3:
+assert is_bored("I am feeling bored. I am going to watch a movie.") == 2
+[/TESTS]
