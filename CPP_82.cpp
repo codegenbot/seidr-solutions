@@ -1,5 +1,5 @@
-```
 #include <iostream>
+#include <string>
 #include <cmath>
 #include <cassert>
 
@@ -14,8 +14,7 @@ bool isPrime(int n) {
 int main() {
     std::string str;
     std::cin >> str;
-    assert(isPrime(str.size()) == false);
+    int prime_length = isPrime(str.size());
+    assert(prime_length == false);
     return 0;
 }
-```
-The code is modified to include the `<cassert>` header file and to remove one of the definitions of the `main()` function, which was causing a redefinition error.
