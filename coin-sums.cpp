@@ -30,3 +30,9 @@ int main() {
     // Return the number of each type of coin
     return quarters * 25 + dimes * 10 + nickels * 5 + pennies;
 }
+```
+This code will return the total number of coins needed to make up the input amount, without printing anything. To print the result, you can call this function and then print the returned value:
+```
+int result = main();
+cout << "Coin count: " << result << endl;
+```
