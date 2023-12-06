@@ -1,24 +1,21 @@
 ```
-/*
-Write a function that takes an integer a and returns true 
-if this ingeger is a cube of some integer number.
-Note: you may assume the input is always valid.
-Examples:
-iscube(1) ==> true
-iscube(2) ==> false
-iscube(-1) ==> true
-iscube(64) ==> true
-iscube(0) ==> true
-iscube(180) ==> false
-*/
-#include<stdio.h>
-#include<math.h>
-using namespace std;
-bool iscuber(int a){
-    int x = 0;
-    while (x * x * x < a) {
-        x++;
+#include <iostream>
+#include <cmath>
+
+bool isCube(int a) {
+    int root = std::sqrt(a);
+    return (root * root * root == a);
+}
+
+int main() {
+    int a;
+    std::cout << "Enter an integer: ";
+    std::cin >> a;
+    if (isCube(a)) {
+        std::cout << "The number is a cube." << std::endl;
+    } else {
+        std::cout << "The number is not a cube." << std::endl;
     }
-    return x * x * x == a;
+    return 0;
 }
 ```
