@@ -1,16 +1,39 @@
-[PYTHON]
-def find_pair(nums, target):
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [nums[i], nums[j]]
-    return []
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
-# Test case 2:
-assert find_pair([1, 2, 3, 4, 5], 10) == []
-# Test case 3:
-assert find_pair([], 10) == []
-[/TESTS]
+
+---
+### Problem: Find Pair
+
+**Problem Description:** Given a vector of integers, return the two elements that sum to a target integer.
+
+Currently, the code is:
+```
+vector<int> findPair(vector<int>& nums, int target) {
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target || nums[i] - nums[j] == target) {
+                result.push_back(nums[i]);
+                result.push_back(nums[j]);
+                return result;
+            }
+        }
+    }
+    return result;
+}
+```
+**Modified Code:**
+```
+vector<int> findPair(vector<int>& nums, int target) {
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target) {
+                result.push_back(nums[i]);
+                result.push_back(nums[j]);
+                return result;
+            }
+        }
+    }
+    return result;
+}
+```
+---
