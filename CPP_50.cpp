@@ -1,5 +1,4 @@
 
-The modified code is:
 ```
 #include<iostream>
 #include<string>
