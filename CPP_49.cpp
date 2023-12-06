@@ -1,9 +1,8 @@
-```
 #include <iostream>
 #include <cmath>
 
-int modp(double n, double p) {
-    return (int)pow(2, n) % static_cast<double>(p);
+double modp(double n, double p) {
+    return fmod(pow(2, n), static_cast<double>(p));
 }
 
 int main() {
@@ -16,4 +15,3 @@ int main() {
     std::cout << modp(n, p) << std::endl;
     return 0;
 }
-```
