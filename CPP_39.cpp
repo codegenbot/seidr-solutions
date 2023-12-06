@@ -1,18 +1,27 @@
 ```
-def prime_fib(n):
-    a, b = 0, 1
-    while n > 2:
-        c = a + b
-        if is_prime(c):
-            n -= 1
-        a, b = b, c
-    return b
+#include <iostream>
+#include <cmath>
 
-def is_prime(num):
-    if num <= 1:
-        return False
-    for i in range(2, int(math.sqrt(num)) + 1):
-        if num % i == 0:
-            return False
-    return True
+using namespace std;
+
+int prime_fib(int n) {
+    int a = 0, b = 1, c;
+    while (n > 2) {
+        c = a + b;
+        if (isPrime(c)) {
+            n--;
+        }
+        a = b;
+        b = c;
+    }
+    return b;
+}
+
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i < sqrt(num); i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
 ```

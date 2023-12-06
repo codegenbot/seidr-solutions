@@ -1,9 +1,8 @@
-
 #include <iostream>
 #include <cmath>
 
 int modp(double n, double p) {
-    return pow(2, n) % static_cast<double>(p);
+    return fmod(pow(2, n), p);
 }
 
 int main() {

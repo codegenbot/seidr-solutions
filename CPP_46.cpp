@@ -1,28 +1,17 @@
-```
 #include <iostream>
-
 int fib4(int n) {
-    if (n <= 3) {
-        return 0;
-    } else if (n == 4) {
-        return 2;
-    } else {
-        int a = 0, b = 0, c = 2;
-        for (int i = 5; i <= n; i++) {
-            int temp = a + b + c;
-            a = b;
-            b = c;
-            c = temp;
-        }
-        return c;
-    }
+if (n <= 3) {
+return 0;
+} else if (n == 4) {
+return 2;
+} else {
+int a = 0, b = 0, c = 2;
+for (int i = 5; i <= n; i++) {
+int temp = a + b + c;
+a = b;
+b = c;
+c = temp;
 }
-
-int main() {
-    std::cout << "Enter a number: ";
-    int n;
-    std::cin >> n;
-    std::cout << "The " << n << "th Fib4 number is: " << fib4(n) << std::endl;
-    return 0;
+return c;
 }
-```
+}

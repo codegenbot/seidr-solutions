@@ -1,9 +1,7 @@
-```
 float triangle_area(float a, float b, float c) {
     if (a + b > c && a + c > b && b + c > a) {
-        return round((a * b * sin(c)) / 2.0f, 2);
+        return (a * b * 0.5);
     } else {
         return -1;
     }
 }
-```
