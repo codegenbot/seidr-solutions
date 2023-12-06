@@ -1,4 +1,3 @@
-```
 #include <vector>
 using namespace std;
 int find_pair(const vector<int>& nums, int target) {
@@ -13,14 +12,12 @@ int find_pair(const vector<int>& nums, int target) {
 }
 int main() {
     vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 6;
-    pair<int, int> result = find_pair(nums, target);
-    cout << "The two elements that sum to " << target << " are: ";
-    if (result.first != -1 && result.second != -1) {
-        cout << nums[result.first] << " and " << nums[result.second];
+    int target = 7;
+    int result = find_pair(nums, target);
+    if (result.first == -1 && result.second == -1) {
+        cout << "No pair found." << endl;
     } else {
-        cout << "No such pair found.";
+        cout << "Pair found: (" << nums[result.first] << ", " << nums[result.second] << ") = " << target << endl;
     }
     return 0;
 }
-```
