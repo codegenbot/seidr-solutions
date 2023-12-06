@@ -1,16 +1,10 @@
 def count_up_to(n):
-    if n < 2 or n > 100:
-        raise ValueError("Input must be an integer between 2 and 100")
-    prime_numbers = []
-    for i in range(2, n+1):
-        if is_prime(i):
-            prime_numbers.append(i)
-    return prime_numbers
-
-def is_prime(n):
-    if n <= 1:
-        return False
+    # Initialize a boolean array to keep track of prime numbers
+    is_prime = [True] * (n + 1)
     for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+        if is_prime[i]:
+            # If i is prime, mark all its multiples as composite
+            for j in range(i * i, n + 1, i):
+                is_prime[j] = False
+    # Return a list of all prime numbers up to n
+    return [i for i in range(2, n + 1) if is_prime[i]]
