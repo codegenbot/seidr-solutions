@@ -1,4 +1,3 @@
-
 def double_the_difference(lst):
     lst = []
     result = 0
