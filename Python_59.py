@@ -1,8 +1,14 @@
 ```
-def largest_prime_factor(n):
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0 and math.gcd(i, n//i) == 1:
+def is_prime(n: int):
+    if n < 2:
+        return False
+    for i in range(2, n + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def largest_prime_factor(n: int):
+    for i in range(2, n + 1):
+        if n % i == 0 and is_prime(i):
             return i
-    return n
 ```
-The `math.gcd` function is used to find the greatest common divisor of two numbers, and we check whether the result is 1 to ensure that the number is prime.
