@@ -1,5 +1,5 @@
 def get_max_triples(n):
-    # Initialize a list to store the triples that sum up to a multiple of 3
+   # Initialize a list to store the triples that sum up to a multiple of 3
     triples = []
     
     # Iterate over the range of numbers from 1 to n
