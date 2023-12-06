@@ -1,3 +1,5 @@
+
+Sure, here's the modified code that removes the duplicate definition of `main`:
 ```
 #include <iostream>
 #include <cmath>
