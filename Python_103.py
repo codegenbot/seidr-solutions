@@ -5,4 +5,5 @@ def rounded_avg(n, m):
     for i in range(n, m+1):
         total += i
     average = total / (m-n+1)
-    return bin(int(average))[2:]
+    binary_average = bin(int(average))[2:]
+    return "0b" + binary_average
