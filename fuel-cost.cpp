@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,4 +12,3 @@ int main() {
     }
     cout << "The sum of the new integers in the vector is: " << sum << endl;
 }
-```
