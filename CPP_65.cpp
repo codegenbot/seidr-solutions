@@ -1,5 +1,5 @@
 [PYTHON]
-def circular_shift(x, shift):
+def circular_shift(x: int, shift: int) -> str:
     digits = list(str(x))
     if shift > len(digits):
         return "".join(reversed(digits))
