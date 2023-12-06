@@ -1,4 +1,5 @@
-```
+
+# Python program to find the total distance traveled by a ball
 def bouncing_balls(starting_height, first_bounce_height, num_bounces):
     # Calculate the bounciness index
     bounciness_index = first_bounce_height / starting_height
@@ -16,4 +17,7 @@ def bouncing_balls(starting_height, first_bounce_height, num_bounces):
 
     # Return the total distance traveled
     return total_distance
-```
+
+# Test the function with the given input
+result = bouncing_balls(15.045224921303417, 4.824578432419273, 8)
+print(result) # Output: 29.245922471513563
