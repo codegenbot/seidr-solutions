@@ -1,4 +1,5 @@
-```cpp
+
+```
 #include <cassert>
 
 float triangle_area(float a, float h) {
