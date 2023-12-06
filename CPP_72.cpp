@@ -1,20 +1,16 @@
-```
-#include<stdio.h>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <numeric>
+
 using namespace std;
-bool will_it_fly(vector<int> q,int w){
-    int sum=0;
-    for(int i:q)
-        sum+=i;
-    return (sum<=w && isBalanced(q));
+
+bool will_it_fly(vector<int> q, int w) {
+    bool balanced = true;
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - i - 1]) {
+            balanced = false;
+            break;
+        }
+    }
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
-bool isBalanced(vector<int> q){
-    int n = q.size();
-    if(n==1)
-        return true;
-    for(int i=0;i<n/2;i++)
-        if(q[i]!=q[n-1-i])
-            return false;
-    return true;
-}
-```
