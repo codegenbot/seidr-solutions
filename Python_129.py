@@ -1,3 +1,5 @@
+
+```
 def minPath(grid, k):
     # Initialize variables
     n = len(grid)
@@ -10,8 +12,12 @@ def minPath(grid, k):
     path.append(grid[x][y])
     visited.add((x, y))
 
+    # Check if the maximum number of steps has been reached
+    if len(path) >= k:
+        return path
+
     # Loop until we have visited all cells or reached the end of the path
-    while len(path) < k and (x, y) not in visited:
+    while (x, y) not in visited:
         # Get the neighbors of the current cell
         neighbors = []
         if x - 1 >= 0:
@@ -34,4 +40,5 @@ def minPath(grid, k):
         else:
             break
 
-    return [grid[x][y] for x, y in path]
+    return path
+```
