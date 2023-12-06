@@ -1,31 +1,14 @@
+[PYTHON]
+def issame(a: vector<int>, b: vector<int>) -> bool:
+    return all(x in a for x in b) and all(x in b for x in a)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert issame({4, 3, 2, 8}, {}) == False
+# Test case 2:
+assert issame({4, 3, 2, 8}, {4, 3, 2, 8}) == True
+# Test case 3:
+assert issame({4, 3, 2, 8}, {4, 3, 2, 8, 10}) == False
+[/TESTS]
 
-```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::all_of(a.begin(), a.end(), [&b](int x){ return std::find(b.begin(), b.end(), x) != b.end(); });
-}
-
-int main() {
-    std::cout << "Enter the first set of numbers: ";
-    std::vector<int> a;
-    int temp;
-    while (std::cin >> temp) {
-        a.push_back(temp);
-    }
-
-    std::cout << "Enter the second set of numbers: ";
-    std::vector<int> b;
-    while (std::cin >> temp) {
-        b.push_back(temp);
-    }
-
-    if (issame(a, b)) {
-        std::cout << "The two sets are the same." << std::endl;
-    } else {
-        std::cout << "The two sets are not the same." << std::endl;
-    }
-}
-```
+Note that the `issame` function returns a boolean value indicating whether the two sets are equal or not. The `all` function is used to check if all elements in one set are present in the other set, and vice versa.
