@@ -1,6 +1,4 @@
 ```
-#include <iostream>
-
 double getProbability(int n, int m) {
     if (n == m) {
         return 0.5;
