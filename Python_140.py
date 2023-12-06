@@ -1,7 +1,5 @@
-
-```
 import re
 
 def fix_spaces(text):
-    return re.sub(r'\s+', '_', text)
-```
+    replaced = re.sub(r'\s+', '_', text)
+    return replaced
