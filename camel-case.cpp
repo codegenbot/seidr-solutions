@@ -1,24 +1,21 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 using namespace std;
-
 int main() {
     string input;
     getline(cin, input);
     
-    // Split the input into words using "-" as delimiter
-    vector<string> words = split(input, '-');
-    
-    // Convert each word to camelCase
-    for (int i = 0; i < words.size(); i++) {
-        string word = words[i];
-        
-        if (word.length() > 1) {
-            word[0] = toupper(word[0]);
+    string output = "";
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == '-') {
+            output += toupper(input[i + 1]);
+            i++;
+        } else {
+            output += input[i];
         }
-        
-        cout << word << " ";
     }
+    
+    cout << output << endl;
     
     return 0;
 }
