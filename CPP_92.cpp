@@ -1,9 +1,6 @@
 ```
 bool any_int(float a, float b, float c) {
-    if (a == round(b + c) || b == round(a + c) || c == round(a + b)) {
-        return true;
-    } else {
-        return false;
-    }
+    int x = (a + b + c);
+    return (x == a || x == b || x == c);
 }
 ```
