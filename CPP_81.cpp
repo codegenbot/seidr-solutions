@@ -1,69 +1,38 @@
-
-#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
-
-// Function to check if two strings are the same
-bool issame(string a, string b) {
-    return (a == b);
-}
-
-int main() {
-    // Get input from user
-    vector<float> grades;
-    cout << "Enter your grades: ";
-    float grade;
-    while (cin >> grade) {
-        grades.push_back(grade);
-    }
-    
-    // Call the function to convert numerical grades to letter grades
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    
-    // Print the letter grades
-    cout << "Your letter grades are: ";
-    for (int i = 0; i < letter_grades.size(); i++) {
-        cout << letter_grades[i] << " ";
-    }
-    cout << endl;
-    
-    return 0;
-}
-
-// Function to convert numerical grades to letter grades
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
-    for (int i = 0; i < grades.size(); i++) {
-        if (grades[i] >= 4.0) {
-            letter_grades.push_back("A+");
-        } else if (grades[i] >= 3.7 && grades[i] < 4.0) {
-            letter_grades.push_back("A");
-        } else if (grades[i] >= 3.3 && grades[i] < 3.7) {
-            letter_grades.push_back("A-");
-        } else if (grades[i] >= 3.0 && grades[i] < 3.3) {
-            letter_grades.push_back("B+");
-        } else if (grades[i] >= 2.7 && grades[i] < 3.0) {
-            letter_grades.push_back("B");
-        } else if (grades[i] >= 2.3 && grades[i] < 2.7) {
-            letter_grades.push_back("B-");
-        } else if (grades[i] >= 2.0 && grades[i] < 2.3) {
-            letter_grades.push_back("C+");
-        } else if (grades[i] >= 1.7 && grades[i] < 2.0) {
-            letter_grades.push_back("C");
-        } else if (grades[i] >= 1.3 && grades[i] < 1.7) {
-            letter_grades.push_back("C-");
-        } else if (grades[i] >= 1.0 && grades[i] < 1.3) {
-            letter_grades.push_back("D+");
-        } else if (grades[i] >= 0.7 && grades[i] < 1.0) {
-            letter_grades.push_back("D");
-        } else if (grades[i] >= 0.0 && grades[i] < 0.7) {
-            letter_grades.push_back("D-");
-        } else {
-            letter_grades.push_back("E");
-        }
-    }
-    
-    return letter_grades;
-}
+[PYTHON]
+def numerical_letter_grade(grades):
+    letter_grades = []
+    for grade in grades:
+        if grade >= 4.0:
+            letter_grades.append("A+")
+        elif grade >= 3.7 and grade < 4.0:
+            letter_grades.append("A")
+        elif grade >= 3.3 and grade < 3.7:
+            letter_grades.append("A-")
+        elif grade >= 3.0 and grade < 3.3:
+            letter_grades.append("B+")
+        elif grade >= 2.7 and grade < 3.0:
+            letter_grades.append("B")
+        elif grade >= 2.3 and grade < 2.7:
+            letter_grades.append("B-")
+        elif grade >= 2.0 and grade < 2.3:
+            letter_grades.append("C+")
+        elif grade >= 1.7 and grade < 2.0:
+            letter_grades.append("C")
+        elif grade >= 1.3 and grade < 1.7:
+            letter_grades.append("C-")
+        elif grade >= 1.0 and grade < 1.3:
+            letter_grades.append("D+")
+        elif grade >= 0.7 and grade < 1.0:
+            letter_grades.append("D")
+        else:
+            letter_grades.append("E")
+    return letter_grades
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert numerical_letter_grade([4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7]) == ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D"]
+# Test case 2:
+assert numerical_letter_grade([4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0]) == ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+"]
+# Test case 3:
+assert numerical_letter_grade([4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3]) == ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-"]
+[/TESTS]
