@@ -19,3 +19,4 @@ int main() {
     return 0;
 }
 ```
+This code uses the `std::all_of` algorithm to check if all characters in the string are uppercase. If they are, it prints the key and value of the map element.
