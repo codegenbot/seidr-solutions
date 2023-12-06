@@ -1,5 +1,7 @@
 ```
 def match_parens(lst):
+    if len(lst) < 2:
+        return "No"
     left = 0
     right = 0
     for c in lst[0]:
