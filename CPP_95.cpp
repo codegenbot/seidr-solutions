@@ -3,22 +3,17 @@
 #include <map>
 using namespace std;
 bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
-    bool isLower = true, isUpper = true;
-    for (auto it : dict) {
-        if (!islower(it.first.front())) isLower = false;
-        if (!isupper(it.first.front())) isUpper = false;
+    if (dict.empty()) {
+        return false;
     }
-    return isLower || isUpper;
+    bool is_lower = true;
+    for (auto& entry : dict) {
+        if (!isalpha(entry.first[0])) {
+            is_lower = false;
+            break;
+        } else {
+            is_lower &= islower(entry.first[0]);
+        }
+    }
+    return is_lower;
 }
-int main() {
-    map<string, string> dict;
-    dict["a"] = "apple";
-    dict["b"] = "banana";
-    cout << check_dict_case(dict) << endl;
-    return 0;
-}
-```
-This code should compile and run without errors.
-
-Please note that the issue in the original code was caused by calling `islower()` and `isupper()` with a `std::string` argument, but these functions expect an integer as input. To fix this, we can use the `std::string::front()` method to get the first character of the string and pass it to `islower()` or `isupper()`.
