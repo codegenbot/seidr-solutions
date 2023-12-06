@@ -1,4 +1,4 @@
-```
+
 def split_words(txt):
     if ' ' in txt:
         return txt.split()
@@ -10,4 +10,3 @@ def split_words(txt):
             if ord(c) % 2 == 1:
                 count += 1
         return count
-```
