@@ -1,25 +1,31 @@
-
-```cpp
+```
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-// Declare the functions before using them
 string encode_cyclic(string s);
 string decode_cyclic(string s);
 
 int main() {
-    string str = ""; // Initialize the variable `str` as an empty string
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    str = encode_cyclic(num);
-    cout << "Encoded number: " << str << endl;
-    cout << "Decoded number: " << decode_cyclic(str) << endl;
+    string str = "";
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        string input;
+        cin >> input;
+        string encoded = encode_cyclic(input);
+        cout << "Encoded string: " << encoded << endl;
+        string decoded = decode_cyclic(encoded);
+        if (decoded == input) {
+            cout << "Decoded string: " << decoded << endl;
+        } else {
+            cout << "Failed to decode the cyclic shift." << endl;
+        }
+    }
     return 0;
 }
 
-// Implement the functions
 string encode_cyclic(string s) {
     int l = s.length();
     int num = (l + 2) / 3;
