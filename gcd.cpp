@@ -1,6 +1,5 @@
+```
 #include <iostream>
-#include <string>
-#include <vector>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -20,20 +19,14 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     int a, b;
-    string text, target;
     cin >> a >> b;
-    if (a < 0 || b < 0) {
-        cout << "Invalid input. Please enter two positive integers." << endl;
-        return 1;
-    }
+    cout << gcd(a, b) << endl;
+    string text, target;
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
-    if (result.empty()) {
-        cout << "Target string not found in the text." << endl;
-        return 1;
-    }
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
     return 0;
 }
+```
