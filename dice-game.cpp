@@ -1,5 +1,14 @@
+#include <vector>
 #include <iostream>
-#include <cmath>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 double getProbability(int n, int m) {
     double probability = 0;
