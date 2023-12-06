@@ -1,5 +1,5 @@
+```
 #include <iostream>
-#include <string>
 #include <cmath>
 #include <cassert>
 
@@ -11,10 +11,19 @@ bool isPrime(int n) {
     return true;
 }
 
+int prime_length(const std::string& str) {
+    int len = str.size();
+    if (isPrime(len)) {
+        return len;
+    } else {
+        return 0;
+    }
+}
+
 int main() {
     std::string str;
     std::cin >> str;
-    int prime_length = isPrime(str.size());
-    assert(prime_length == false);
+    assert(prime_length(str) == false);
     return 0;
 }
+```
