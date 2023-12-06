@@ -1,38 +1,24 @@
-
-Here is a possible solution to the code contest problem "find-pair" using the two-pointer approach:
-```
 #include <vector>
-#include <iostream>
 using namespace std;
-
-vector<int> findPair(const vector<int>& nums, int target) {
-    int left = 0;
-    int right = nums.size() - 1;
-    
-    while (left < right) {
-        if (nums[left] + nums[right] == target) {
-            return vector<int>{nums[left], nums[right]};
-        } else if (nums[left] + nums[right] < target) {
-            left++;
-        } else {
-            right--;
+int find_pair(const vector<int>& nums, int target) {
+    for (int i = 0; i < nums.size(); ++i) {
+        for (int j = i + 1; j < nums.size(); ++j) {
+            if (nums[i] + nums[j] == target) {
+                return i, j;
+            }
         }
     }
-    
-    return vector<int>();
+    return -1, -1;
 }
-
 int main() {
-    vector<int> nums = {5, 7};
-    int target = 12;
-    vector<int> result = findPair(nums, target);
-    cout << "The two elements that sum to the target are: ";
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+    vector<int> nums = {1, 2, 3, 4, 5};
+    int target = 6;
+    pair<int, int> result = find_pair(nums, target);
+    cout << "The two elements that sum to " << target << " are: ";
+    if (result.first != -1 && result.second != -1) {
+        cout << nums[result.first] << " and " << nums[result.second];
+    } else {
+        cout << "No such pair found.";
     }
     return 0;
 }
-```
-This code uses a two-pointer approach to find the two elements that sum to the target integer. The pointers `left` and `right` are initialized to the first and last element of the input vector, respectively. Then, the pointers move towards each other until they meet or pass each other, depending on whether the current sum is less than or greater than the target. When the sum equals the target, the function returns a vector containing the two elements that sum to the target.
-
-Note that this solution assumes that the input vector is sorted in ascending order. If the input vector is not sorted, you may need to use a different approach, such as sorting the vector first or using a hash table to keep track of the elements that have been processed.
