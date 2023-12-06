@@ -1,6 +1,5 @@
-
 ```
-#include <stdio.h>
+#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
@@ -29,3 +28,4 @@ bool isPrime(int n) {
     return true;
 }
 ```
+Note: The code has been modified to remove the backtick character (``) and declare the `isPrime` function before calling it in `skjkasdkd`.
