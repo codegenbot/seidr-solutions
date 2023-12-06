@@ -1,11 +1,18 @@
+```python
 def encode(message):
-    encoded = ""
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    encoded_message = ''
     for char in message:
         if char.isalpha():
+            # Handle alphabetic characters
             if char.islower():
-                encoded += chr(ord('A') + (ord(char) - ord('a')) % 26)
+                encoded_char = chr((ord(char) - ord('a') + 2) % 26 + ord('A'))
             else:
-                encoded += chr(ord('a') + (ord(char) - ord('A')) % 26)
+                encoded_char = chr((ord(char) - ord('A') + 2) % 26 + ord('a'))
+        elif char.isspace() or char in string.punctuation:
+            # Handle non-alphanumeric characters
+            encoded_message += char
         else:
-            encoded += char
-    return encoded
+            raise ValueError(f"Invalid character '{char}'")
+    return encoded_message
+```
