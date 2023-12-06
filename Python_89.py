@@ -1,3 +1,4 @@
+
 ```
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -5,4 +6,5 @@ def encrypt(s):
     table = str.maketrans(alphabet, rotated_alphabet)
     return re.sub(r'[^a-zA-Z]', '', s).translate(table)
 ```
-The code is correct and should not raise any errors. The `re` module has been imported at the top of the file, so the `re.sub()` function can be used without any issues.
+
+The code above is a function that takes in a string `s` and performs a simple encryption on it by using the python built-in functions of maketrans() and translate(). The encrypt() function returns the encrypted string. 
