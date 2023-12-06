@@ -1,8 +1,7 @@
-
-Here's the modified code that addresses the issues mentioned:
-```cpp
+```
 #include <iostream>
 #include <vector>
+#include <cassert>
 #include <algorithm>
 using namespace std;
 
@@ -21,8 +20,7 @@ int next_smallest(const vector<int>& lst) {
 }
 
 int main() {
-    vector<int> v = {-35, 34, 12, -45};
-    assert(next_smallest(v) == -35);
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
 ```
