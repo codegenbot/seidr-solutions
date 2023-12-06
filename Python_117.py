@@ -1,3 +1,7 @@
 def select_words(s, n):
-    words = re.findall(r'\w+', s)
-    return [word for word in words if len(word) == n]
+    words = s.split()
+    result = []
+    for word in words:
+        if len(word) == n and word.isalpha():
+            result.append(word)
+    return result
