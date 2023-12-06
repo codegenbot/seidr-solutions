@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -14,4 +13,3 @@ int count_upper(string s) {
     }
     return count;
 }
-```
