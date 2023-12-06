@@ -1,2 +1,3 @@
+
 def words_string(s):
-    return re.split(r'\s*,\s*', s)
+    return [word.strip() for word in s.split(", ")]
