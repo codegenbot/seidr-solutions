@@ -1,4 +1,4 @@
-```python
+```
 def count_up_to(n):
     if n > 100:
         return []
