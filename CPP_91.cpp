@@ -1,6 +1,7 @@
-Solve the following code contest problem: CPP/91. Problem description: Complete the following code given the task description and function signature.
-```
-int is_bored(string S) {
+#include <iostream>
+#include <string>
+
+int is_bored(std::string S) {
     int count = 0;
     for (int i = 0; i < S.length(); i++) {
         if (S[i] == 'I' && (S[i + 1] == '.' || S[i + 1] == '?' || S[i + 1] == '!')) {
@@ -9,17 +10,8 @@ int is_bored(string S) {
     }
     return count;
 }
-```
-Modify the code as follows:
-```
-int is_bored(string S) {
-    int count = 0;
-    for (int i = 0; i < S.length(); i++) {
-        if (S[i] == 'I' && (S[i + 1] == '.' || S[i + 1] == '?' || S[i + 1] == '!')) {
-            count++;
-        }
-    }
-    return count;
+
+int main() {
+    std::cout << is_bored("You and I are going for a walk") << std::endl;
+    return 0;
 }
-```
-This should fix the syntax error and allow the code to compile successfully.
