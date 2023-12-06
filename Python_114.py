@@ -18,4 +18,4 @@ def minSubArraySum(nums):
             end = i + 1
 
     # Return the minimum sum and the indices of the sub-array
-    return min_sum, start, end)
+    return min_sum, start, end
