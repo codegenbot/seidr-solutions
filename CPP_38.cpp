@@ -3,13 +3,12 @@
 #include <string>
 using namespace std;
 
-// Implement cyclic encoding and decoding functions
 string encode_cyclic(const string& str) {
-    // TODO: implement cyclic encoding here
+    // Implement cyclic encoding here
 }
 
 string decode_cyclic(const string& encoded_str) {
-    // TODO: implement cyclic decoding here
+    // Implement cyclic decoding here
 }
 
 int main() {
