@@ -1,9 +1,9 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 using namespace std;
 
 // Declare the encode_shift and decode_shift functions before their usage in main()
-string encode_shift(string s);
+void encode_shift(string s);
 string decode_shift(string s);
 
 int main(){
@@ -11,6 +11,9 @@ int main(){
     // Call the encode_shift function to modify the input string
     string encoded_str = encode_shift(str);
     cout << encoded_str << endl;
+    // Call the decode_shift function to get the original string back
+    string decoded_str = decode_shift(encoded_str);
+    assert (decoded_str == str);
 }
 
 // Define the encode_shift and decode_shift functions
@@ -23,6 +26,6 @@ string encode_shift(string s){
     }
     return s;
 }
-```
-Note that I've also removed the `decode_shift` function, as it was not defined in your original code. If you want to use this function, you will need to define it separately..
-You must only return correct code. Remove any triple quotes, language name or explanations.
+string decode_shift(string s){
+    // Implement the decoding logic here
+}
