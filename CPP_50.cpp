@@ -1,15 +1,15 @@
-
 ```
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
 
+// Declare encode_shift function before its usage in the main function.
 string encode_shift(string s);
-string decode_shift(string s);
 
 int main(){
     string s, output;
     cin >> s;
-    output = encode_shift(s);
+    output = decode_shift(s);
     cout << output;
     return 0;
 }
