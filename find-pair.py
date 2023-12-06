@@ -1,5 +1,11 @@
+```
+from bisect import bisect_left
+
 def find_pair(nums, target):
+    nums.sort()
     for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if abs(nums[i]) + abs(nums[j]) == target:
-                return nums[i], nums[j]
+        j = bisect_left(nums, target - nums[i])
+        if j != len(nums) and nums[j] + nums[i] == target:
+            return nums[i], nums[j]
+    return None, None
+```
