@@ -1,32 +1,41 @@
 ```
-def numerical_letter_grade(grades):
-    letter_grades = []
-    for grade in grades:
-        if grade >= 4.0:
-            letter_grades.append("A+")
-        elif grade >= 3.7 and grade < 4.0:
-            letter_grades.append("A")
-        elif grade >= 3.3 and grade < 3.7:
-            letter_grades.append("A-")
-        elif grade >= 3.0 and grade < 3.3:
-            letter_grades.append("B+")
-        elif grade >= 2.7 and grade < 3.0:
-            letter_grades.append("B")
-        elif grade >= 2.3 and grade < 2.7:
-            letter_grades.append("B-")
-        elif grade >= 2.0 and grade < 2.3:
-            letter_grades.append("C+")
-        elif grade >= 1.7 and grade < 2.0:
-            letter_grades.append("C")
-        elif grade >= 1.3 and grade < 1.7:
-            letter_grades.append("C-")
-        elif grade >= 1.0 and grade < 1.3:
-            letter_grades.append("D+")
-        elif grade >= 0.7 and grade < 1.0:
-            letter_grades.append("D")
-        elif grade >= 0.0 and grade < 0.7:
-            letter_grades.append("D-")
-        else:
-            letter_grades.append("E")
-    return letter_grades
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+vector<string> numerical_letter_grade(vector<double> grades) {
+    // Implement the function to convert numerical grades to letter grades
+    vector<string> letters;
+    for (int i = 0; i < grades.size(); i++) {
+        if (grades[i] >= 90) {
+            letters.push_back("A");
+        } else if (grades[i] >= 80) {
+            letters.push_back("B");
+        } else if (grades[i] >= 70) {
+            letters.push_back("C");
+        } else if (grades[i] >= 60) {
+            letters.push_back("D");
+        } else {
+            letters.push_back("F");
+        }
+    }
+    return letters;
+}
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    vector<double> grades = {95, 85, 75, 65};
+    vector<string> letters = numerical_letter_grade(grades);
+    for (int i = 0; i < letters.size(); i++) {
+        cout << letters[i] << endl;
+    }
+    return 0;
+}
 ```
