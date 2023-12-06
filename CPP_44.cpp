@@ -1,3 +1,4 @@
+
 ```
 #include <iostream>
 #include <cassert>
@@ -16,5 +17,4 @@ int main() {
 }
 ```
 
-This code is correct and will compile. The issue with the original code was that it was comparing an `int` to a `std::error_condition`, which is not allowed in C++. By changing the function signature to take two `int` arguments, we can fix this issue and make the code work as intended.
-```
+This code should work as intended and print out the binary representation of the numbers from 0 to 100. The `change_base` function takes two integer arguments, `x` and `base`, and returns a string that represents `x` in the given base. In this case, we're using the `to_string` function to convert `x` to a string, and then appending "0" if `x` is equal to 0.
