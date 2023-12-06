@@ -1,10 +1,21 @@
-
-Here's the modified code that should compile correctly:
 ```
-const char* python_code = "def circular_shift(x, shift):\n"
-                         "    digits = list(str(x))\n"
-                         "    if shift > len(digits):\n"
-                         "        return \"\".join(reversed(digits))\n"
-                         "    else:\n"
-                         "        return \"\".join(digits[shift:] + digits[:shift])\n";
+#include <iostream>
+#include <string>
+
+int circular_shift(int x, int shift) {
+    std::string digits = std::to_string(x);
+    if (shift > digits.length()) {
+        return std::stoi(std::string(digits.rbegin(), digits.rend()));
+    } else {
+        return std::stoi(digits.substr(shift) + digits.substr(0, shift));
+    }
+}
+
+int main() {
+    int x;
+    int shift;
+    std::cin >> x >> shift;
+    std::cout << "The circularly shifted number is: " << circular_shift(x, shift) << std::endl;
+    return 0;
+}
 ```
