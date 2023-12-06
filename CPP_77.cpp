@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 bool iscuber(int a) {
