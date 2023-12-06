@@ -1,4 +1,4 @@
-
+```
 from bisect import bisect_left
 
 def find_pair(nums, target):
@@ -8,3 +8,4 @@ def find_pair(nums, target):
         if j != len(nums) and nums[j] + nums[i] == target:
             return nums[i], nums[j]
     return None, None
+```
