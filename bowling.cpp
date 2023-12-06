@@ -1,25 +1,30 @@
 ```
-#include <string>
-#include <iostream>
-using namespace std;
-
-int getScore(string bowls) {
+int calculateScore(const string& bowls) {
     int score = 0;
-    for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') { // strike
+    int numStrikes = 0;
+    int numSpares = 0;
+
+    for (int i = 0; i < bowls.size(); i++) {
+        if (bowls[i] == 'X') {
             score += 10;
-        } else if (bowls[i] == '/') { // spare
-            score += 10 - int(bowls[i-1]);
-        } else {
-            score += int(bowls[i]);
+            numStrikes++;
+        } else if (bowls[i] == '/') {
+            score += 5;
+            numSpares++;
+        } else if (bowls[i] == '-') {
+            score -= 5;
+            numSpares = 0;
         }
     }
-    return score;
-}
 
-int main() {
-    string bowls = "7115XXX548/279-X53";
-    cout << getScore(bowls) << endl;
-    return 0;
+    // Adjust the score for consecutive strikes or spares
+    if (numStrikes > 1) {
+        score += (numStrikes - 1) * 2;
+    }
+    if (numSpares > 1) {
+        score += (numSpares - 1) * 2;
+    }
+
+    return score;
 }
 ```
