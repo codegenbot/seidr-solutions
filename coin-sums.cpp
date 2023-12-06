@@ -1,12 +1,9 @@
 ```
 #include <iostream>
 using namespace std;
-
-int main() {
-    int cents = 9640;
+void coinSums(int cents) {
     int pennies = 0, nickles = 0, dimes = 0, quarters = 0;
-    
-    while (cents >= 1) {
+    while (cents > 0) {
         if (cents >= 25) {
             quarters++;
             cents -= 25;
@@ -21,9 +18,9 @@ int main() {
             cents--;
         }
     }
-    
-    cout << pennies << " " << nickles << " " << dimes << " " << quarters << "\n";
-    
-    return 0;
+    cout << "Number of pennies: " << pennies << endl;
+    cout << "Number of nickles: " << nickles << endl;
+    cout << "Number of dimes: " << dimes << endl;
+    cout << "Number of quarters: " << quarters << endl;
 }
 ```
