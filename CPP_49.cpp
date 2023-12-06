@@ -3,7 +3,7 @@
 #include <cmath>
 
 int modp(double n, double p) {
-    return static_cast<int>(pow(2, n)) % static_cast<int>(p);
+    return (int)pow(2, n) % static_cast<double>(p);
 }
 
 int main() {
