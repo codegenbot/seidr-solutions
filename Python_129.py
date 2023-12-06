@@ -7,7 +7,7 @@ def minPath(grid, k):
 
     # Initialize the first cell as the starting point
     x, y = 0, 0
-    path.append((x, y))
+    path.append(grid[x][y])
     visited.add((x, y))
 
     # Loop until we have visited all cells or reached the end of the path
@@ -29,7 +29,7 @@ def minPath(grid, k):
         # Add the next cell to the path and mark it as visited
         if len(path) < k - 1:
             x, y = neighbors[0]
-            path.append((x, y))
+            path.append(grid[x][y])
             visited.add((x, y))
         else:
             break
