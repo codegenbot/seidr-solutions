@@ -1,3 +1,6 @@
+
+Sure! Here is the corrected C++ code:
+```cpp
 #include <iostream>
 #include <cassert>
 #include <cmath>
@@ -10,3 +13,4 @@ int main() {
     assert (std::abs(triangle_area(10, 8) - 40.0)<1e-4);
     return 0;
 }
+```
