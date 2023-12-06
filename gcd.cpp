@@ -1,33 +1,33 @@
-#include <vector>
-#include <iostream>
-#include <string>
-using namespace std;
+[PYTHON]
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
 
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
+def indicesOfSubstring(text, target):
+    result = []
+    for i in range(len(text) - len(target) + 1):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    for (int i = 0; i < text.size() - target.size() + 1; i++) {
-        if (text.substr(i, target.size()) == target) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
+def main():
+    a, b = map(int, input().split())
+    print(gcd(a, b))
+    text = input()
+    target = input()
+    result = indicesOfSubstring(text, target)
+    for i in result:
+        print(i, end=" ")
 
-int main() {
-    // Your code here
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    return 0;
-}
+main()
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert gcd(10, 15) == 5
+# Test case 2:
+assert gcd(10, 10) == 10
+# Test case 3:
+assert gcd(10, 12) == 2
+[/TESTS]
