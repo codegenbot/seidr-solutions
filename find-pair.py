@@ -7,4 +7,3 @@ def find_pair(nums, target):
             return nums[i], nums[j]
     return None, None
 ```
-The code should now work as expected.
