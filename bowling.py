@@ -1,12 +1,12 @@
 ```
-def bowling_score(bowl_string):
+def get_score(bowls):
     score = 0
-    for i in range(len(bowl_string)):
-        if bowl_string[i] == 'X':
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-        elif bowl_string[i] == '/' and bowl_string[i+1] != '/':
-            score += 10 - int(bowl_string[i-1])
+        elif bowl == '/':
+            score += 10
         else:
-            score += int(bowl_string[i])
+            score += max(int(bowl), 0)
     return score
 ```
