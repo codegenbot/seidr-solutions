@@ -1,15 +1,16 @@
-```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+[PYTHON]
+def issame(a: set, b: set) -> bool:
+    return all(x in a for x in b) and all(x in b for x in a)
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    vector<int> result;
-    sort(l1.begin(), l1.end());
-    sort(l2.begin(), l2.end());
-    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
-    return result;
-}
-```
-The above code is a function that takes two vectors as input and returns a vector containing the common elements between them. The function uses the `std::sort` algorithm to sort the input vectors, and then the `std::set_intersection` algorithm to find the common elements. Finally, the function returns the result vector.
+assert issame({4, 3, 2, 8}, {}) == False
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert issame({4, 3, 2, 8}, {}) == False
+# Test case 2:
+assert issame({4, 3, 2, 8}, {4, 3, 2, 8}) == True
+# Test case 3:
+assert issame({4, 3, 2, 8}, {4, 3, 2, 8, 10}) == False
+[/TESTS]
+
+Note that the `issame` function returns a boolean value indicating whether the two sets are equal or not. The `all` function is used to check if all elements in one set are present in the other set, and vice versa.
