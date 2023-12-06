@@ -14,9 +14,8 @@ int basement(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
-    int result = basement(nums);
-    cout << "The first index with negative sum is: " << result << endl;
+    vector<int> nums = {1, 2, 3};
+    cout << basement(nums) << endl;
     return 0;
 }
 ```
