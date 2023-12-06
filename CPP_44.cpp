@@ -1,9 +1,10 @@
+
 #include <iostream>
 #include <cassert>
 using namespace std;
 
-std::string change_base(int x, int base) {
-    return (x == 0) ? "0" : std::to_string(x);
+int change_base(int x, int base) {
+    return (x == 0) ? "0" : to_string(x);
 }
 
 int main() {
