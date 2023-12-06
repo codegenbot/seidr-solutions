@@ -7,7 +7,7 @@ double bouncingBall(double startingHeight, double heightAfterFirstBounce, int nu
     double bouncinessIndex = heightAfterFirstBounce / startingHeight;
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (startingHeight + (i - 1) * bouncinessIndex);
+        totalDistance += (startingHeight + (i - 1) * bouncinessIndex) / 2;
     }
     return totalDistance;
 }
