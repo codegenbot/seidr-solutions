@@ -1,3 +1,4 @@
+
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     rotated_alphabet = alphabet[2:] + alphabet[:2]
