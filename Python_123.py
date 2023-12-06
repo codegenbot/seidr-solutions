@@ -1,10 +1,8 @@
 def get_odd_collatz(n):
-    result = []
-    while n > 1:
+    if n == 1:
+        return [1]
+    else:
         if n % 2 == 0:
-            n //= 2
+            return [n // 2] + get_odd_collatz(n // 2)
         else:
-            n = 3 * n + 1
-        if n % 2 == 1:
-            result.append(n)
-    return sorted(result)
+            return [3 * n + 1] + get_odd_collatz((3 * n + 1) // 2)
