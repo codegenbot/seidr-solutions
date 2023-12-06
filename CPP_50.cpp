@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -23,4 +22,3 @@ string encode_shift(string s){
     }
     return s;
 }
-```
