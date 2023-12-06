@@ -1,3 +1,5 @@
+
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -13,3 +15,4 @@ int main() {
 	}
 	cout << "The sum of the new integers in the vector is: " << sum << endl;
 }
+```
