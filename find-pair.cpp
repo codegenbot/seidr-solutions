@@ -1,3 +1,4 @@
+```
 #include <vector>
 using namespace std;
 int find_pair(const vector<int>& nums, int target) {
@@ -21,3 +22,4 @@ int main() {
     }
     return 0;
 }
+```
