@@ -1,15 +1,17 @@
 [PYTHON]
 def circular_shift(x, shift):
-    # convert integer to string
-    s = str(x)
-    # get length of string
-    n = len(s)
-    # if shift is greater than number of digits, return reversed string
-    if shift > n:
-        return s[::-1]
-    # otherwise, rotate the string by shift digits
+    digits = list(str(x))
+    if shift > len(digits):
+        return "".join(reversed(digits))
     else:
-        return s[n-shift:] + s[:n-shift]
+        return "".join(digits[shift:] + digits[:shift])
+
+def main():
+    x = int(input("Enter a number: "))
+    shift = int(input("Enter the shift amount: "))
+    result = circular_shift(x, shift)
+    print("The circularly shifted number is:", result)
+    return 0
 [/PYTHON]
 [TESTS]
 # Test case 1:

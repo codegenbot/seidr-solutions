@@ -1,16 +1,16 @@
 #include <iostream>
 #include <cmath>
 
-int modp(int n, int p) {
-    return static_cast<int>(pow(2, n)) % p;
+int modp(double n, double p) {
+    return fmod(pow(2, n), p);
 }
 
 int main() {
     std::cout << "Enter a number: ";
-    int n;
+    double n;
     std::cin >> n;
     std::cout << "Enter a prime number: ";
-    int p;
+    double p;
     std::cin >> p;
     std::cout << modp(n, p) << std::endl;
     return 0;

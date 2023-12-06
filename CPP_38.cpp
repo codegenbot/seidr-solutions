@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -17,4 +16,3 @@ int main() {
     cout << "Encoded string: " << encoded_str << endl;
     return 0;
 }
-```

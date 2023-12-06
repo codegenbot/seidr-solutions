@@ -1,13 +1,16 @@
-[PYTHON]
-def change_base(x, base):
-    return str(x) if base == 10 else bin(x)[2:].zfill(len(str(x)))
+```
+#include <iostream>
+#include <cassert>
+using namespace std;
 
-def main():
-    x = int(input("Enter a number: "))
-    base = int(input("Enter the base: "))
-    result = change_base(x, base)
-    print("The result is:", result)
+int change_base(int x, int base) {
+    return (x == 0) ? "0" : to_string(x);
+}
 
-if __name__ == "__main__":
-    main()
-[/PYTHON] 
+int main() {
+    for (int i = 0; i <= 100; i++) {
+        cout << change_base(i, 2) << endl;
+    }
+    return 0;
+}
+```
