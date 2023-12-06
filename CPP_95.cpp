@@ -1,22 +1,19 @@
-```
 #include <iostream>
 #include <string>
 #include <map>
 using namespace std;
 bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
-    bool isLower = true, isUpper = true;
-    for (auto it : dict) {
-        if (!islower(it.first)) isLower = false;
-        if (!isupper(it.first)) isUpper = false;
+    if (dict.empty()) {
+        return false;
     }
-    return isLower || isUpper;
+    bool is_lower = true;
+    for (auto& entry : dict) {
+        if (!isalpha(entry.first[0])) {
+            is_lower = false;
+            break;
+        } else {
+            is_lower &= islower(entry.first[0]);
+        }
+    }
+    return is_lower;
 }
-int main() {
-    map<string, string> dict;
-    dict["a"] = "apple";
-    dict["b"] = "banana";
-    cout << check_dict_case(dict) << endl;
-    return 0;
-}
-```
