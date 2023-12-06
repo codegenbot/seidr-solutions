@@ -1,5 +1,4 @@
-
-```
+[PYTHON]
 def minPath(grid, k):
     # Initialize variables
     n = len(grid)
@@ -12,12 +11,8 @@ def minPath(grid, k):
     path.append(grid[x][y])
     visited.add((x, y))
 
-    # Check if the maximum number of steps has been reached
-    if len(path) >= k:
-        return path
-
     # Loop until we have visited all cells or reached the end of the path
-    while (x, y) not in visited:
+    while len(path) < k and (x, y) not in visited:
         # Get the neighbors of the current cell
         neighbors = []
         if x - 1 >= 0:
@@ -41,4 +36,26 @@ def minPath(grid, k):
             break
 
     return path
-```
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 2:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 4) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 3:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 5) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 4:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 6) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 5:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 7) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 6:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 8) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 7:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 9) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 8:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 10) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 9:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 11) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Test case 10:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 12) == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+[/TESTS]
