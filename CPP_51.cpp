@@ -1,5 +1,3 @@
-
-Sure, here's the modified code:
 ```
 #include <iostream>
 #include <string>
@@ -7,7 +5,6 @@ Sure, here's the modified code:
 
 std::string remove_vowels(const std::string& text) {
     // ...
-    return "ybcd";
 }
 
 int main() {
