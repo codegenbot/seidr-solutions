@@ -1,14 +1,9 @@
-
 ```
 #include <iostream>
 #include <cmath>
 
 int modp(double n, double p) {
-    int result = pow(2, n);
-    while (result >= p) {
-        result -= p;
-    }
-    return result;
+    return fmod(pow(2, n), p);
 }
 
 int main() {
@@ -22,4 +17,3 @@ int main() {
     return 0;
 }
 ```
-In the modified code, we use a while loop to repeatedly subtract `p` from `result` until it becomes less than `p`. This ensures that the result is always an integer and avoids any issues with using the `%` operator on floating-point numbers.
