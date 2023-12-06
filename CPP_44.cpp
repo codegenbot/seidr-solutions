@@ -1,10 +1,10 @@
-
+```
 #include <iostream>
 #include <cassert>
 using namespace std;
 
-int change_base(int x, int base) {
-    return (x == 0) ? "0" : to_string(x);
+std::string change_base(int x, int base) {
+    return (x == 0) ? "0" : std::to_string(x);
 }
 
 int main() {
@@ -13,3 +13,4 @@ int main() {
     }
     return 0;
 }
+```
