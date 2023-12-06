@@ -1,11 +1,17 @@
-def separate_paren_groups(paren_string: str) -> List[str]:
+```python
+def separate_paren_groups(paren_string: str) -> list[str]:
+    stack = []
     groups = []
-    current_group = ''
     for char in paren_string:
         if char == '(':
-            current_group += char
+            stack.append([])
         elif char == ')':
-            current_group += char
-            groups.append(current_group)
-            current_group = ''
+            if len(stack) == 0:
+                continue
+            group = stack.pop()
+            groups.append(''.join(group))
+        else:
+            if len(stack) > 0:
+                stack[-1].append(char)
     return groups
+```
