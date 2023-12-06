@@ -1,3 +1,5 @@
+
+```
 #include <iostream>
 using namespace std;
 int main() {
@@ -8,7 +10,7 @@ int main() {
     int quarters = 0, dimes = 0, nickels = 0, pennies = 0;
     
     while (cents > 0) {
-        if (cents >= 25) {
+        if (cents >= 25 && cents < 10) {
             totalCoins++;
             quarters++;
             cents -= 25;
@@ -27,12 +29,12 @@ int main() {
         }
     }
     
-    // Return the number of each type of coin
-    return quarters * 25 + dimes * 10 + nickels * 5 + pennies;
+    // Print the number of each type of coin
+    cout << "Quarters: " << quarters << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Nickels: " << nickels << endl;
+    cout << "Pennies: " << pennies << endl;
+    
+    return 0;
 }
-```
-This code will return the total number of coins needed to make up the input amount, without printing anything. To print the result, you can call this function and then print the returned value:
-```
-int result = main();
-cout << "Coin count: " << result << endl;
 ```
