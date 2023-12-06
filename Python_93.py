@@ -1,6 +1,11 @@
+
+```
 def encode(message):
     if isinstance(message, int):
         message = str(message)
+    elif not isinstance(message, str):
+        raise ValueError("Invalid input type")
+
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
     for char in message:
@@ -16,3 +21,4 @@ def encode(message):
             raise ValueError(f"Invalid character '{char}'")
         encoded_message += encoded_char
     return encoded_message
+```
