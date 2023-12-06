@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -11,4 +11,3 @@ int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     return 0;
 }
-```
