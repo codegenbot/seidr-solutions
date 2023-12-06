@@ -1,16 +1,14 @@
 [PYTHON]
-def issame(a: vector<int>, b: vector<int>) -> bool:
-    return len(common(a, b)) == 0
-
-def common(a: vector<int>, b: vector<int>) -> vector<int>:
-    return list(set(a).intersection(b))
+def issame(a: set, b: set) -> bool:
+    return all(x in a for x in b) and all(x in b for x in a)
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert issame([4, 3, 2, 8], []) == True
+assert issame({4, 3, 2, 8}, {}) == False
 # Test case 2:
-assert issame([5, 7, 1, 5, 9, 653, 121], [5, 7, 1, 5, 9, 653, 121]) == False
+assert issame({4, 3, 2, 8}, {4, 3, 2, 8}) == True
+# Test case 3:
+assert issame({4, 3, 2, 8}, {4, 3, 2, 8, 10}) == False
 [/TESTS]
 
-Note: The `vector<int>` type is used to represent a vector of integers. The `set` function is used to get the unique elements of the intersection of the two vectors.
-```
+Note that the `issame` function returns a boolean value indicating whether the two sets are equal or not. The `all` function is used to check if all elements in one set are present in the other set, and vice versa.
