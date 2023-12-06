@@ -24,3 +24,4 @@ int main() {
     return 0;
 }
 ```
+This code will prompt the user to enter a string, and then it will check if the string contains the word "I" followed by either a period, question mark, or exclamation point. If it does, it will print "You are bored." Otherwise, it will print "You are not bored.".
