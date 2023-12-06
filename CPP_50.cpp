@@ -1,17 +1,15 @@
-
-```
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
 // Declare the encode_shift function before its usage in main()
-void encode_shift(string s);
+string encode_shift(string s);
 
 int main(){
     string s = "hello";
     // Call the encode_shift function to modify the input string
-    encode_shift(s);
-    cout << s << endl;
+    string encoded_str = encode_shift(s);
+    cout << encoded_str << endl;
 }
 
 // Define the encode_shift function
@@ -24,4 +22,3 @@ string encode_shift(string s){
     }
     return s;
 }
-```
