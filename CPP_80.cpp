@@ -1,9 +1,7 @@
 
 #include <iostream>
 #include <string>
-
 using namespace std;
-
 bool is_happy(string s) {
     if (s.length() < 3) return false;
     for (int i = 0; i < s.length() - 2; i++) {
@@ -11,7 +9,6 @@ bool is_happy(string s) {
     }
     return true;
 }
-
 int main() {
     string s = "abcd";
     cout << is_happy(s) << endl;
