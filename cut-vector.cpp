@@ -11,9 +11,9 @@ def get_two_resulting_subvectors(vector):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert get_two_resulting_subvectors([1, 2, 3]) == [[1], [2, 3]]
+assert get_two_resulting_subvectors([1, 2, 3, 4, 5]) == [[1, 2, 3], [4, 5]]
 # Test case 2:
-assert get_two_resulting_subvectors([1, 2, 3, 4, 5]) == [[1, 2], [3, 4, 5]]
+assert get_two_resulting_subvectors([1, 10, 100, 1000, 10000]) == [[1, 10, 100, 1000], [10000]]
 # Test case 3:
-assert get_two_resulting_subvectors([1, 2, 3, 4, 5, 6]) == [[1, 2, 3], [4, 5, 6]]
+assert get_two_resulting_subvectors([1, 2, 3, 4, 5, 6, 7]) == [[1, 2, 3, 4, 5], [6, 7]]
 [/TESTS]
