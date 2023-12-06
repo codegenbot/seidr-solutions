@@ -1,13 +1,13 @@
-
-```
 def get_score(bowls):
     score = 0
-    for bowl in bowls:
-        if bowl == 'X':
-            score += 10
-        elif bowl == '/':
-            score += 10
+    for i in range(len(bowls)):
+        if bowls[i] == 'X':
+            # Strike, score is 10 plus the next two rolls
+            score += 10 + int(bowls[i+1]) + int(bowls[i+2])
+        elif bowls[i] == '/':
+            # Spare, score is 10 plus the next roll
+            score += 10 + int(bowls[i+1])
         else:
-            score += max(int(bowl), 0)
+            # Regular roll, just add the value to the score
+            score += int(bowls[i])
     return score
-```
