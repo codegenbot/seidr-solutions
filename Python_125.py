@@ -7,7 +7,7 @@ def split_words(txt):
     else:
         count = 0
         for c in txt:
-            if ord(c) % 2 == 1:
+            if ord('a') <= ord(c) <= ord('z'):
                 count += 1
         return count
 ```
