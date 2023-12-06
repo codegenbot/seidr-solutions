@@ -1,21 +1,20 @@
 ```
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
-// Declare encode_shift function before its usage in the main function.
+// Declare the encode_shift function before its usage in main()
 string encode_shift(string s);
 
 int main(){
-    string s, output;
-    cin >> s;
-    output = decode_shift(s);
-    cout << output;
-    return 0;
+    string s = "hello";
+    // Call the encode_shift function to modify the input string
+    string encoded_str = encode_shift(s);
+    cout << encoded_str << endl;
 }
 
-// Complete the code for the decode_shift function.
-string decode_shift(string s){
+// Define the encode_shift function
+string encode_shift(string s){
     int i;
     for (i=0;i<s.length();i++)
     {
