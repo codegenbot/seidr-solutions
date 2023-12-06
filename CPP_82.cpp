@@ -1,6 +1,7 @@
 ```
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -10,10 +11,19 @@ bool isPrime(int n) {
     return true;
 }
 
+int prime_length(const std::string& str) {
+    int len = str.size();
+    if (isPrime(len)) {
+        return len;
+    } else {
+        return 0;
+    }
+}
+
 int main() {
     std::string str;
     std::cin >> str;
-    assert(isPrime(str.size()) == false);
+    assert(prime_length(str) == false);
     return 0;
 }
 ```

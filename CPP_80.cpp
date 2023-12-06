@@ -1,5 +1,4 @@
 
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -15,4 +14,3 @@ int main() {
     cout << is_happy(s) << endl;
     return 0;
 }
-```

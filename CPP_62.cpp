@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <cmath>
 #include <vector>
 using namespace std;
 
@@ -12,11 +12,10 @@ vector<float> derivative(vector<float> xs) {
 }
 
 int main() {
-    vector<float, allocator<float>> xs = {3, 1, 2, 4, 5};
-    vector<float, allocator<float>> ys = derivative(xs);
+    vector<float> xs = {3, 1, 2, 4, 5};
+    vector<float> ys = derivative(xs);
     for (auto x : ys) {
         cout << x << " ";
     }
     return 0;
 }
-```
