@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -14,9 +14,13 @@ vector<float> derivative(vector<float> xs) {
 
 int main() {
     vector<float> xs = {3, 1, 2, 4, 5};
-    vector<float> ys = derivative(xs);
-    for (auto x : ys) {
-        cout << x << " ";
+    vector<float> ys;
+    ys.reserve(xs.size());
+    for (auto x : xs) {
+        ys.push_back(derivative(x));
+    }
+    for (auto y : ys) {
+        cout << y << " ";
     }
     return 0;
 }
