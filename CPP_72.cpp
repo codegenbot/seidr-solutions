@@ -1,7 +1,10 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
+
 bool will_it_fly(vector<int> q, int w) {
     bool balanced = true;
     for (int i = 0; i < q.size() / 2; i++) {
@@ -12,3 +15,4 @@ bool will_it_fly(vector<int> q, int w) {
     }
     return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
+```
