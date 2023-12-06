@@ -1,12 +1,15 @@
-
+```
 #include <iostream>
-#include <algorithm>
-using namespace std;
-int next_smallest(vector<int>& lst) {
-    return *min_element(lst.begin() + 1, lst.end());
+#include <vector>
+
+int next_smallest(std::vector<int>& lst) {
+    int smallest = *std::min_element(lst.begin() + 1, lst.end());
+    return smallest;
 }
+
 int main() {
-    vector<int> lst = {-35, 34, 12, -45};
-    assert (next_smallest(lst) == -35);
+    std::vector<int> lst = {3, 4, 5, 6, 7};
+    std::cout << next_smallest(lst) << std::endl;
     return 0;
 }
+```
