@@ -12,10 +12,11 @@ bool isPrime(int n) {
 }
 
 int main() {
-    int prime_length;
+    int prime_length = 0;
     std::string str;
     std::cin >> str;
     assert(isPrime(str.size()) == false);
     return 0;
 }
 ```
+The code is modified to declare `prime_length` before using it and remove the duplicate definition of `main()`.
