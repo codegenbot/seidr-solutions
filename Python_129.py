@@ -1,3 +1,4 @@
+```python
 def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
@@ -27,3 +28,4 @@ def minPath(grid, k):
     if len(path) > k:
         return None
     return path
+```
