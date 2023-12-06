@@ -1,4 +1,3 @@
-I apologize for the confusion earlier. Here is the corrected code:
 ```
 #include <iostream>
 #include <vector>
@@ -25,5 +24,8 @@ vector<int> countUpTo(int n) {
     
     return primeNumbers;
 }
+
+int main() {
+    assert (issame(countUpTo(101) , {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
+}
 ```
-This code should compile correctly and solve the problem of finding prime numbers up to a given number `n`.

@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 float triangle_area(float a, float h) {
     return (a * h) / 2;
@@ -15,4 +14,3 @@ int main() {
     }
     return 0;
 }
-```
