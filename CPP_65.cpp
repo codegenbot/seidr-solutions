@@ -1,29 +1,23 @@
-[PYTHON]
-def circular_shift(x: int, shift: int) -> str:
-    digits = list(str(x))
-    if shift > len(digits):
-        return "".join(reversed(digits))
-    else:
-        return "".join(digits[shift:] + digits[:shift])
-
-def main():
-    x = int(input("Enter a number: "))
-    shift = int(input("Enter the shift amount: "))
-    result = circular_shift(x, shift)
-    print("The circularly shifted number is:", result)
-    return 0
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert circular_shift(12, 1) == "21"
-# Test case 2:
-assert circular_shift(12, 2) == "12"
-# Test case 3:
-assert circular_shift(123, 1) == "231"
-# Test case 4:
-assert circular_shift(123, 2) == "312"
-# Test case 5:
-assert circular_shift(123, 3) == "123"
-[/TESTS]
-
 ```
+#include <iostream>
+#include <string>
+
+int circular_shift(int x, int shift) {
+    std::string digits = std::to_string(x);
+    if (shift > digits.length()) {
+        return std::stoi(digits.substr(1));
+    } else {
+        return std::stoi(digits.substr(shift) + digits.substr(0, shift));
+    }
+}
+
+int main() {
+    int x;
+    int shift;
+    std::cin >> x >> shift;
+    std::cout << "The circularly shifted number is: " << circular_shift(x, shift) << std::endl;
+    return 0;
+}
+```
+
+Note: The code uses the `std::to_string` function to convert an integer to a string, and the `std::stoi` function to convert a string to an integer. These functions are part of the C++ Standard Library and are used to perform conversions between different data types.
