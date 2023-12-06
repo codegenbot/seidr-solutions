@@ -1,41 +1,86 @@
-[PYTHON]
-def cut_vector(vec):
-    n = len(vec)
-    result = []
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+/*
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+For example,
+input:
+1
+0
+output:
+1
+0
+0
 
-    if n == 0:
-        return result
+input:
+1
+10
+output:
+1
+10
+0
 
-    min_diff = float('inf')
-    left_sum = vec[0]
-    right_sum = sum(vec[1:])
-    diff = abs(left_sum - right_sum)
+input:
+1
+100
+output:
+1
+100
+0
 
-    if diff <= min_diff:
-        result.append(0)
+input:
+1
+1000
+output:
+1
+1000
+0
 
-    for i in range(1, n-1):
-        left_sum += vec[i]
-        right_sum -= vec[i]
-        diff = abs(left_sum - right_sum)
-        if diff <= min_diff:
-            result.append(i)
+input:
+1
+10000
+output:
+1
+10000
+0
 
-    # Handle case where input vector has even number of elements
-    if n % 2 == 0:
-        left_sum = vec[n-1] + vec[n-2]
-        right_sum = sum(vec[:n-2])
-        diff = abs(left_sum - right_sum)
-        if diff <= min_diff:
-            result.append(n-1)
-
-    return result
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert cut_vector([1, 2, 3, 4, 5, 6]) == [0, 1, 2, 3, 4, 5]
-# Test case 2:
-assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == [0, 1, 2, 3, 4, 5, 6]
-# Test case 3:
-assert cut_vector([1, 2, 3, 4, 5, 6, 7, 8]) == [0, 1, 2, 3, 4, 5, 6, 7]
-[/TESTS]
+*/
+int main() {
+    vector<int> vec;
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        vec.push_back(x);
+    }
+    int left = 0, right = 0;
+    for (int i = 1; i <= m; i++) {
+        if (vec[i] - vec[left] > vec[right] - vec[i]) {
+            left = i;
+        } else {
+            right = i;
+        }
+    }
+    cout << "The two resulting subvectors are: ";
+    for (int i = 0; i < n; i++) {
+        if (i == left) {
+            cout << "[";
+        }
+        cout << vec[i] << " ";
+        if (i == right) {
+            cout << "]";
+        }
+    }
+    cout << endl;
+    return 0;
+}
