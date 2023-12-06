@@ -1,11 +1,4 @@
-
 ```
-def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n-1)
-
 def f(n):
     result = []
     for i in range(1, n+1):
