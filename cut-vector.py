@@ -1,16 +1,16 @@
 
-def cut_vector(v):
-    n = len(v)
-    if n == 1:
-        return v[0], 0
-    elif n == 2:
-        return v[0], v[1]
-    else:
-        left = []
-        right = []
-        for i in range(n):
-            if i < n // 2:
-                left.append(v[i])
-            else:
-                right.append(v[i])
-        return cut_vector(left) + (cut_vector(right),)
+import numpy as np
+
+def cut_vector(vector):
+    # Calculate the sum of the first half of the vector
+    first_half = vector[:len(vector)//2]
+    first_sum = np.sum(first_half)
+    
+    # Calculate the sum of the second half of the vector
+    second_half = vector[len(vector)//2:]
+    second_sum = np.sum(second_half)
+    
+    # Find the index where the difference between the two sums is smallest
+    min_index = np.argmin(np.abs(first_sum - second_sum))
+    
+    return vector[:min_index], vector[min_index:]
