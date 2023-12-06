@@ -24,3 +24,5 @@ string encode_shift(string s){
     return s;
 }
 ```
+Note that I've also removed the `decode_shift` function, as it was not defined in your original code. If you want to use this function, you will need to define it separately..
+You must only return correct code. Remove any triple quotes, language name or explanations.
