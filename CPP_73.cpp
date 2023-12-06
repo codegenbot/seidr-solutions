@@ -1,4 +1,4 @@
-
+```
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     int count = 0;
@@ -9,3 +9,4 @@ int smallest_change(vector<int> arr) {
     }
     return count;
 }
+```
