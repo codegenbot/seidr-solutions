@@ -1,4 +1,6 @@
-```
+#include <iostream>
+using namespace std;
+
 int fib(int n) {
     if (n <= 1) {
         return n;
@@ -13,4 +15,3 @@ int main() {
     cout << "Fibonacci number at position " << n << " is: " << fib(n) << endl;
     return 0;
 }
-```
