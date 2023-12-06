@@ -1,6 +1,7 @@
-```cpp
+```
 #include <iostream>
 using namespace std;
+
 void coinSums(int cents) {
     int pennies = 0, nickles = 0, dimes = 0, quarters = 0;
     while (cents > 0) {
