@@ -7,8 +7,8 @@ def match_parens(lst):
         else:
             right += 1
     for c in lst[1]:
-        if c == '(':
-            left -= 1
-        else:
+        if c == ')':
             right -= 1
-    return "Yes" if (left >= 0 and right <= left) or (len(lst) == 1 and lst[0] == ')') else "No"
+        else:
+            left -= 1
+    return "Yes" if left >= 0 and right <= left else "No"
