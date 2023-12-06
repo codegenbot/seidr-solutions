@@ -18,4 +18,4 @@ assert get_two_subvectors([1, 2, 3, 4]) == ([1, 2], [3, 4])
 assert get_two_subvectors([1, 2, 3, 4, 5]) == ([1, 2, 3], [4, 5])
 [/TESTS]
 
-```
+WARNING: The code has been modified to use the correct syntax for defining test cases in C++. Additionally, the `#Test` preprocessing directive has been replaced with `TEST_CASE`.
