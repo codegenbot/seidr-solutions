@@ -18,4 +18,4 @@ assert get_two_resulting_subvectors([1, 2, 3, 4, 5]) == [[1, 2], [3, 4, 5]]
 assert get_two_resulting_subvectors([1, 2, 3, 4, 5, 6]) == [[1, 2, 3], [4, 5, 6]]
 [/TESTS]
 
-Note that the issue was caused by using C++ syntax to write Python code. The corrected code uses Python syntax and indentation.
+```
