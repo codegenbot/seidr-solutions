@@ -1,7 +1,7 @@
-
-Here is a possible solution to the problem:
-```
+#include <iostream>
+#include <cmath>
 #include <vector>
+using namespace std;
 
 vector<float> derivative(vector<float> xs) {
     vector<float> result;
@@ -10,4 +10,12 @@ vector<float> derivative(vector<float> xs) {
     }
     return result;
 }
-```
+
+int main() {
+    vector<float> xs = {3, 1, 2, 4, 5};
+    vector<float> ys = derivative(xs);
+    for (auto x : ys) {
+        cout << x << " ";
+    }
+    return 0;
+}
