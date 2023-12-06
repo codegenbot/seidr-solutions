@@ -1,5 +1,3 @@
-
-Here is the modified code:
 ```
 bool prime_length(string str) {
     int len = str.size();
@@ -10,4 +8,3 @@ bool prime_length(string str) {
     return true;
 }
 ```
-Please note that the code is enclosed in backticks (```) at the beginning and end, but there are no extra backticks inside the code block.
