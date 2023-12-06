@@ -4,3 +4,4 @@ def gcd(a, b):
         if b < 0:
             b += a
     return a
+```
