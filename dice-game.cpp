@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 
 double getProbability(int n, int m) {
@@ -15,3 +15,4 @@ double getProbability(int n, int m) {
     }
     return probability;
 }
+```
