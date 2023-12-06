@@ -1,12 +1,14 @@
-def change_base(x, base):
-    pass
+```
+#include <iostream>
+#include <string>
+using namespace std;
 
-def to_string(x):
-    pass
-
-def main():
-    x = int(input())
-    base = int(input())
-    result = change_base(x, base)
-    print(result)
+string change_base(int x, int base) {
+    if (base == 10) {
+        return to_string(x);
+    } else {
+        string bin = bitset<32>(x).to_string();
+        return bin.substr(32 - len(bin));
+    }
+}
 ```

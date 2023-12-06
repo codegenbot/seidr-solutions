@@ -1,3 +1,5 @@
+
+Here's the modified code:
 ```
 string decode_cyclic(string s) {
     string str = "";

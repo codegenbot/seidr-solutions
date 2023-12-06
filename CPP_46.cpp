@@ -1,6 +1,4 @@
 ```
-#include <iostream>
-
 int fib4(int n) {
     if (n <= 3) {
         return 0;
@@ -16,13 +14,5 @@ int fib4(int n) {
         }
         return c;
     }
-}
-
-int main() {
-    std::cout << "Enter a number: ";
-    int n;
-    std::cin >> n;
-    std::cout << "The " << n << "th Fib4 number is: " << fib4(n) << std::endl;
-    return 0;
 }
 ```

@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-void encode_shift(string s) {
+void encode_shift(string s){
     int i;
     for (i=0;i<s.length();i++)
     {
@@ -11,11 +11,11 @@ void encode_shift(string s) {
     }
 }
 
-void decode_shift(string s) {
-    // Implement the decode_shift function here
+void decode_shift(string s){
+    //TODO: Implement decode_shift function here
 }
 
-int main() {
+int main(){
     string s = "hello";
     encode_shift(s);
     cout << s << endl;
