@@ -1,4 +1,6 @@
-```
+
+#include <iostream>
+
 double getProbability(int n, int m) {
     if (n == m) {
         return 0.5;
@@ -13,4 +15,3 @@ double getProbability(int n, int m) {
     }
     return probability;
 }
-```
