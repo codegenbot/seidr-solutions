@@ -1,7 +1,6 @@
-```
-#include <stdio.h>
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -20,4 +19,3 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         return lst1;
     }
 }
-```
