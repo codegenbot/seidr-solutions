@@ -1,3 +1,5 @@
+
+Here is the modified code with the stray backticks removed:
 ```
 #include <iostream>
 using namespace std;
