@@ -1,12 +1,8 @@
-```
 def max_fill(grid, capacity):
     m = len(grid)
     n = len(grid[0])
     visited = [[False for _ in range(n)] for _ in range(m)]
     count = 0
-
-    if capacity > sum([sum(row) for row in grid]):
-        return -1
 
     def dfs(i, j):
         if i == m or j == n:
@@ -24,5 +20,4 @@ def max_fill(grid, capacity):
                 dfs(i, j)
                 count += 1
     
-    return count
-```
+    return min(count, capacity)
