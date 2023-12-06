@@ -1,16 +1,21 @@
-```
-#include <iostream>
-#include <string>
-#include <algorithm>
-using namespace std;
-
-int hex_key(string num) {
-    int count = 0;
-    for (char c : num) {
-        if (c == '2' || c == '3' || c == '5' || c == '7' || c == 'B' || c == 'D') {
-            count++;
-        }
-    }
-    return count;
-}
-```
+[PYTHON]
+def hex_key(num):
+    prime_digits = ["2", "3", "5", "7", "B", "D"]
+    count = 0
+    for digit in num:
+        if digit in prime_digits:
+            count += 1
+    return count
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert hex_key("AB") == 1
+# Test case 2:
+assert hex_key("1077E") == 2
+# Test case 3:
+assert hex_key("ABED1A33") == 4
+# Test case 4:
+assert hex_key("123456789ABCDEF0") == 6
+# Test case 5:
+assert hex_key("2020") == 2
+[/TESTS]
