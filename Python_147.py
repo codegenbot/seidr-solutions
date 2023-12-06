@@ -1,13 +1,14 @@
-```python
 def get_max_triples(n):
-    if n <= 3:
-        return 0
-    a = [i * i - i + 1 for i in range(1, n + 1)]
+    # Initialize variables for the two pointers
+    left = 0
+    right = n - 1
     count = 0
-    for i in range(len(a)):
-        for j in range(i + 1, len(a)):
-            for k in range(j + 1, len(a)):
-                if a[i] + a[j] + a[k] % 3 == 0:
-                    count += 1
+
+    while left < right:
+        # Check if the current element and its neighbors form a triple
+        if arr[left] + arr[right] + arr[right + 1] % 3 == 0:
+            count += 1
+            left += 1
+            right -= 1
+
     return count
-```
