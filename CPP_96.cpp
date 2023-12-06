@@ -1,6 +1,8 @@
-
+I apologize for the confusion earlier. Here is the corrected code:
+```
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 vector<int> countUpTo(int n) {
@@ -23,3 +25,5 @@ vector<int> countUpTo(int n) {
     
     return primeNumbers;
 }
+```
+This code should compile correctly and solve the problem of finding prime numbers up to a given number `n`.
