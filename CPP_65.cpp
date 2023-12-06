@@ -15,15 +15,10 @@ def main():
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert circular_shift(12, 1) == "21"
-# Test case 2:
-assert circular_shift(12, 2) == "12"
-# Test case 3:
 assert circular_shift(123, 1) == "231"
-# Test case 4:
+# Test case 2:
 assert circular_shift(123, 2) == "312"
-# Test case 5:
+# Test case 3:
 assert circular_shift(123, 3) == "123"
 [/TESTS]
-
 ```

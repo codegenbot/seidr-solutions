@@ -1,7 +1,11 @@
+#include <iostream>
 #include <vector>
-int next_smallest(std::vector<int> lst) {
+#include <algorithm>
+using namespace std;
+
+int next_smallest(const vector<int>& lst) {
     if (lst.size() < 2) {
-        return None;
+        return nullptr;
     }
     sort(lst.begin(), lst.end());
     int secondSmallest = lst[1];
@@ -10,5 +14,11 @@ int next_smallest(std::vector<int> lst) {
             return secondSmallest;
         }
     }
-    return None;
+    return nullptr;
+}
+
+int main() {
+    vector<int> v = {-35, 34, 12, -45};
+    assert(next_smallest(v) == -35);
+    return 0;
 }
