@@ -1,18 +1,26 @@
-
+```
 #include <iostream>
 #include <string>
+using namespace std;
 
-int is_bored(std::string S) {
+int is_bored(string str) {
     int count = 0;
-    for (int i = 0; i < S.length(); i++) {
-        if (S[i] == 'I' && (S[i + 1] == '.' || S[i + 1] == '?' || S[i + 1] == '!')) {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == 'I' && (str[i + 1] == '.' || str[i + 1] == '?' || str[i + 1] == '!')) {
             count++;
         }
     }
     return count;
 }
+```
+```
+#include <iostream>
+#include <string>
+using namespace std;
 
 int main() {
-    std::cout << is_bored("You and I are going for a walk") << std::endl;
+    string str = "Hello, world!";
+    cout << is_bored(str) << endl;
     return 0;
 }
+```
