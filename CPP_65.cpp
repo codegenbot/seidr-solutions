@@ -1,27 +1,24 @@
-[PYTHON]
-def circular_shift(x, shift):
-    # convert integer to string
-    s = str(x)
-    # get length of string
-    n = len(s)
-    # if shift is greater than number of digits, return reversed string
-    if shift > n:
-        return s[::-1]
-    # otherwise, rotate the string by shift digits
-    else:
-        return s[n-shift:] + s[:n-shift]
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert circular_shift(12, 1) == "21"
-# Test case 2:
-assert circular_shift(12, 2) == "12"
-# Test case 3:
-assert circular_shift(123, 1) == "231"
-# Test case 4:
-assert circular_shift(123, 2) == "312"
-# Test case 5:
-assert circular_shift(123, 3) == "123"
-[/TESTS]
-
 ```
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int circular_shift(int x, int shift) {
+    string digits = to_string(x);
+    if (shift > digits.length()) {
+        return stoi(digits.substr(0, 1) + digits.substr(1, digits.length() - 1));
+    } else {
+        return stoi(digits.substr(shift, digits.length() - shift) + digits.substr(0, shift));
+    }
+}
+
+int main() {
+    int x = 0;
+    int shift = 0;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift) << endl;
+    return 0;
+}
+```
+Note: The `to_string()` and `stoi()` functions are used to convert between integers and strings.

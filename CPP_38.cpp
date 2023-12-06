@@ -1,18 +1,26 @@
+```
 #include <iostream>
 #include <string>
 using namespace std;
 
-string encode_cyclic(const string& str) {
-    // Implement cyclic encoding here
-}
-
-string decode_cyclic(const string& encoded_str) {
-    // Implement cyclic decoding here
-}
+// Declare the functions
+void encode_cyclic(string& str);
+void decode_cyclic(string& str);
 
 int main() {
     string str = "Hello World!";
-    string encoded_str = encode_cyclic(str);
-    cout << "Encoded string: " << encoded_str << endl;
+    // Call the functions
+    encode_cyclic(str);
+    cout << "Encoded string: " << str << endl;
     return 0;
 }
+
+// Implement the functions
+void encode_cyclic(string& str) {
+    // Your implementation here
+}
+
+void decode_cyclic(string& str) {
+    // Your implementation here
+}
+```
