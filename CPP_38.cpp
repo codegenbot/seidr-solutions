@@ -3,20 +3,17 @@
 #include <string>
 using namespace std;
 
-// Declare the encode_cyclic and decode_cyclic functions
-string encode_cyclic(string);
-string decode_cyclic(string);
+// Declare the functions before using them
+void encode_cyclic(string& str);
+void decode_cyclic(string& str);
 
 int main() {
     string str = "Hello World!";
-    // Call the encode_cyclic function to get the encoded string
-    string encoded_str = encode_cyclic(str);
-    cout << "Encoded string: " << encoded_str << endl;
-
-    // Call the decode_cyclic function to get the decoded string
-    string decoded_str = decode_cyclic(encoded_str);
-    cout << "Decoded string: " << decoded_str << endl;
-
+    // Call the functions with the correct syntax
+    encode_cyclic(str);
+    cout << "Encoded string: " << str << endl;
+    decode_cyclic(str);
+    cout << "Decoded string: " << str << endl;
     return 0;
 }
 ```
