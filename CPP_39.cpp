@@ -1,8 +1,9 @@
-```
 #include <iostream>
 #include <cmath>
 
 using namespace std;
+
+bool isPrime(int num);
 
 int prime_fib(int n) {
     int a = 0, b = 1, c;
@@ -24,4 +25,3 @@ bool isPrime(int num) {
     }
     return true;
 }
-```
