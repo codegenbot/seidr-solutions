@@ -1,25 +1,25 @@
 ```
 #include <iostream>
 #include <vector>
-#include <cassert>
-using namespace std;
+#include <algorithm>
 
-int next_smallest(const vector<int>& lst) {
+int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) {
-        return nullptr;
+        return -1;
     }
-    sort(lst.begin(), lst.end());
-    int secondSmallest = lst[1];
-    for (int i = 2; i < lst.size(); i++) {
-        if (lst[i] != secondSmallest) {
-            return secondSmallest;
+    std::sort(lst.begin(), lst.end());
+    int second_smallest = lst[1];
+    for (int i = 2; i < lst.size(); ++i) {
+        if (lst[i] != second_smallest) {
+            return second_smallest;
         }
     }
-    return nullptr;
+    return -1;
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    std::vector<int> lst = {-35, 34, 12, -45};
+    assert(next_smallest(lst) == -35);
     return 0;
 }
 ```
