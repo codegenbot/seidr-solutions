@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <cmath>
 
@@ -16,4 +16,3 @@ int main() {
     std::cout << modp(n, p) << std::endl;
     return 0;
 }
-```
