@@ -1,3 +1,4 @@
+```
 def encrypt(s):
     enc = ''
     for c in s:
@@ -6,3 +7,4 @@ def encrypt(s):
         else:
             enc += c
     return enc
+```
