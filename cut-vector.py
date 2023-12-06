@@ -1,6 +1,15 @@
-import numpy as np
-
-def cut_vector(vector):
-    diff = np.abs(np.diff(vector))
-    min_index = np.argmin(diff)
-    return vector[:min_index], vector[min_index:]
+def cut_vector(v):
+    n = len(v)
+    if n == 1:
+        return v[0], 0
+    elif n == 2:
+        return v[0], v[1]
+    else:
+        left = []
+        right = []
+        for i in range(n):
+            if i < n // 2:
+                left.append(v[i])
+            else:
+                right.append(v[i])
+        return cut_vector(left), cut_vector(right)
