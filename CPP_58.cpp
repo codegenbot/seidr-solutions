@@ -1,19 +1,15 @@
-```
-#include <iostream>
-#include <vector>
-#include <set>
-using namespace std;
+[PYTHON]
+def issame(a: vector<int>, b: vector<int>) -> bool:
+    return common(a, b) == []
 
-bool issame(vector<int> a, vector<int> b) {
-    return set_intersection(a.begin(), a.end(), b.begin(), b.end()) == {};
-}
+def common(a: vector<int>, b: vector<int>) -> vector<int>:
+    return list(set(a).intersection(b))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert issame([4, 3, 2, 8], []) == True
+# Test case 2:
+assert issame([5, 7, 1, 5, 9, 653, 121], [5, 7, 1, 5, 9, 653, 121]) == False
+[/TESTS]
 
-int main() {
-    if (!issame(set_intersection(std::vector<int>{4, 3, 2, 8}.begin(), std::vector<int>{4, 3, 2, 8}.end(), std::vector<int>{}.begin(), std::vector<int>{}.end()), {})) {
-        cout << "The vectors are not the same." << endl;
-    } else {
-        cout << "The vectors are the same." << endl;
-    }
-    return 0;
-}
-```
+Note: The `vector<int>` type is used to represent a vector of integers. The `set` function is used to get the unique elements of the intersection of the two vectors.
