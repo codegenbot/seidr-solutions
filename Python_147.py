@@ -1,4 +1,3 @@
-
 def get_max_triples(n):
     triples = [(i, j, k) for i in range(1, n + 1) for j in range(i + 1, n + 1) for k in range(j + 1, n + 1)]
     count = 0
