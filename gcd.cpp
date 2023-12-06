@@ -1,5 +1,3 @@
-
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -7,12 +5,10 @@ using namespace std;
 int main() {
     int a, b;
     cin >> a >> b;
-    while (a % b != 0) {
-        a++;
-    }
-    cout << a << endl;
+    cout << gcd(a, b) << endl;
 }
-```
-This code will now return the correct output for input `810539` and `762552`, which is `1`.
 
-You must only return correct code. Remove any triple quotes, language name or explanations.
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    else return gcd(b, a % b);
+}
