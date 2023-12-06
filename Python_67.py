@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     # Extract the number of apples and oranges from the input string
     apples, oranges = map(int, s.split())
@@ -6,3 +7,4 @@ def fruit_distribution(s, n):
     mangoes = n - apples - oranges
     
     return mangoes
+```
