@@ -1,27 +1,37 @@
-```
 #include <iostream>
 using namespace std;
-
-void coinSums(int cents) {
-    int pennies = 0, nickles = 0, dimes = 0, quarters = 0;
+int main() {
+    int cents, totalCoins = 0;
+    cin >> cents;
+    
+    // Initialize counters for each type of coin
+    int quarters = 0, dimes = 0, nickels = 0, pennies = 0;
+    
     while (cents > 0) {
         if (cents >= 25) {
+            totalCoins++;
             quarters++;
             cents -= 25;
         } else if (cents >= 10) {
+            totalCoins++;
             dimes++;
             cents -= 10;
         } else if (cents >= 5) {
-            nickles++;
+            totalCoins++;
+            nickels++;
             cents -= 5;
         } else {
+            totalCoins++;
             pennies++;
             cents--;
         }
     }
-    cout << "Number of pennies: " << pennies << endl;
-    cout << "Number of nickles: " << nickles << endl;
-    cout << "Number of dimes: " << dimes << endl;
-    cout << "Number of quarters: " << quarters << endl;
+    
+    // Print the number of each type of coin
+    cout << "Quarters: " << quarters << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Nickels: " << nickels << endl;
+    cout << "Pennies: " << pennies << endl;
+    
+    return 0;
 }
-```
