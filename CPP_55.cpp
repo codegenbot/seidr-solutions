@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -16,4 +15,3 @@ int main() {
     cout << "Fibonacci number at position " << n << " is: " << fib(n) << endl;
     return 0;
 }
-```
