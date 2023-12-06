@@ -1,15 +1,18 @@
-```
-vector<int> findPair(vector<int>& nums, int target) {
-    vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        for (int j = i + 1; j < nums.size(); j++) {
-            if (nums[i] + nums[j] == target || nums[i] - nums[j] == target) {
-                result.push_back(nums[i]);
-                result.push_back(nums[j]);
-                return result;
-            }
-        }
-    }
-    return result;
-}
-```
+[PYTHON]
+def find_pair(nums, target):
+    """
+    Given a list of integers and a target sum, return the indices of the two numbers that add up to the target.
+    If no such pair exists, return None.
+    """
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    return None
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert find_pair([1, 2, 3, 4, 5], 6) == [0, 3]
+# Test case 2:
+assert find_pair([1, 2, 9, 4, 5], 6) == None
+[/TESTS]
