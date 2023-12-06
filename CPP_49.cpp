@@ -1,7 +1,5 @@
 
-The problem statement asks you to complete a function named "modp" that takes two double arguments n and p, respectively. The function should return the value of fmod(pow(2,n), p). The code should also provide input prompts for the user to enter values for n and p and print out the result.
-
-Here is an example solution:
+Here's a possible solution:
 ```
 #include <iostream>
 #include <cmath>
