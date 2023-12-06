@@ -1,4 +1,3 @@
-```python
 def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
@@ -24,8 +23,4 @@ def minPath(grid, k):
             visited.add((x, y))
         else:
             break
-    # Additional check to ensure that the function returns a value even if the length of the path is greater than k
-    if len(path) > k:
-        return None
     return path
-```
