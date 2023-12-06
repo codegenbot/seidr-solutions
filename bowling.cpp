@@ -1,4 +1,4 @@
-
+```
 #include <string>
 #include <iostream>
 using namespace std;
@@ -6,12 +6,10 @@ using namespace std;
 int getScore(string bowls) {
     int score = 0;
     for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') {
+        if (bowls[i] == 'X') { // strike
             score += 10;
-        } else if (bowls[i] == '/') {
+        } else if (bowls[i] == '/') { // spare
             score += 10 - int(bowls[i-1]);
-        } else if (bowls[i] == '-') {
-            score += 10;
         } else {
             score += int(bowls[i]);
         }
@@ -24,3 +22,4 @@ int main() {
     cout << getScore(bowls) << endl;
     return 0;
 }
+```
