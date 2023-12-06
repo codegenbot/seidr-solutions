@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -13,4 +12,3 @@ int hex_key(string num) {
     }
     return count;
 }
-```
