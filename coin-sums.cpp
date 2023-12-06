@@ -1,5 +1,3 @@
-
-```
 #include <iostream>
 using namespace std;
 int main() {
@@ -10,7 +8,7 @@ int main() {
     int quarters = 0, dimes = 0, nickels = 0, pennies = 0;
     
     while (cents > 0) {
-        if (cents >= 25 && cents < 10) {
+        if (cents >= 25) {
             totalCoins++;
             quarters++;
             cents -= 25;
@@ -37,4 +35,3 @@ int main() {
     
     return 0;
 }
-```
