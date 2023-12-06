@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -17,4 +17,9 @@ int main() {
     cout << "Encoded string: " << encoded_str << endl;
     return 0;
 }
-```
+
+int main2() {
+    string decoded_str = decode_cyclic("encoded string");
+    cout << "Decoded string: " << decoded_str << endl;
+    return 0;
+}
