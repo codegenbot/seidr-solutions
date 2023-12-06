@@ -11,9 +11,4 @@ int is_bored(std::string S) {
     }
     return count;
 }
-
-int main() {
-    std::cout << is_bored("You and I are going for a walk") << std::endl;
-    return 0;
-}
 ```

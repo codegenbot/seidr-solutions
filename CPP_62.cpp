@@ -1,3 +1,5 @@
+
+```
 #include <iostream>
 
 std::vector<float> derivative(const std::vector<float>& xs) {
@@ -16,3 +18,4 @@ int main() {
     }
     return 0;
 }
+```
