@@ -18,3 +18,4 @@ int main() {
     return 0;
 }
 ```
+The code is modified to include the `<cassert>` header file and to remove one of the definitions of the `main()` function, which was causing a redefinition error.
