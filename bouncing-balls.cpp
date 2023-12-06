@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -19,6 +19,3 @@ int main() {
     cout << bouncingBall(startingHeight, heightAfterFirstBounce, numBounces) << endl;
     return 0;
 }
-```
-
-Issue is with the backticks (``) at the beginning and end of the code snippet. These are not valid characters in C++ code, and they are causing the compiler to throw errors. To fix this, simply remove the backticks from the code snippet.
