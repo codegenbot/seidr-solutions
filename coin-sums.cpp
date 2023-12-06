@@ -24,4 +24,5 @@ assert get_min_coins(30) == 2
 // Test case 7:
 assert get_min_coins(45) == 3
 [/TESTS]
+
 ```
