@@ -1,12 +1,15 @@
-#include <vector>
-using namespace std;
-int find_pair(const vector<int>& nums, int target) {
-    for (int i = 0; i < nums.size(); ++i) {
-        for (int j = i + 1; j < nums.size(); ++j) {
-            if (nums[i] + nums[j] == target) {
-                return i, j;
+```
+vector<int> findPair(vector<int>& nums, int target) {
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target || nums[i] - nums[j] == target) {
+                result.push_back(nums[i]);
+                result.push_back(nums[j]);
+                return result;
             }
         }
     }
-    return -1, -1;
+    return result;
 }
+```
