@@ -1,22 +1,21 @@
 ```
-#include<stdio.h>
-#include<string>
-#include<map>
-using namespace std;
-bool check_dict_case(map<string,string> dict){
-  if (dict.empty()){
-    return false;
-  }
-  bool is_lower = true;
-  for (auto& entry : dict) {
-    if (!isalpha(entry.first[0])){
-      is_lower = false;
-      break;
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+bool is_uppercase(const std::string& str) {
+    return std::all_of(str.begin(), str.end(), [](char c){ return std::isupper(c); });
+}
+
+int main() {
+    std::map<std::string, std::string> dict;
+    dict["a"] = "apple";
+    dict["b"] = "banana";
+    for (const auto& [key, value] : dict) {
+        if (is_uppercase(value)) {
+            std::cout << key << ": " << value << std::endl;
+        }
     }
-    else{
-      is_lower &= islower(entry.first[0]);
-    }
-  }
-  return is_lower;
+    return 0;
 }
 ```
