@@ -6,6 +6,10 @@ def double_the_difference(lst):
             result += num ** 2
     return result
 
-# Define the list 'lst'
-lst = [1, 3, 5, 7]
+def odd_sum(lst):
+    result = 0
+    for num in lst:
+        if num % 2 != 0 and num > 0:
+            result += num
+    return result
 ```
