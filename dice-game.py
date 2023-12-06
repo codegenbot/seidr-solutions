@@ -1,4 +1,3 @@
-
 def get_probability(n, m):
-    from math import factorial
-    return (factorial(n) * factorial(m)) / (factorial(n + m) * (n - m))
+    from math import comb
+    return (comb(n, m)) / (comb(m, m) * 1.0)
