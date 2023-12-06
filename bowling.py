@@ -1,3 +1,4 @@
+
 def get_score(bowls):
     score = 0
     for i, bowl in enumerate(bowls):
