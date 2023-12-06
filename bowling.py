@@ -1,4 +1,3 @@
-```
 def get_score(bowls):
     score = 0
     for bowl in bowls:
@@ -9,4 +8,3 @@ def get_score(bowls):
         else:
             score += int(bowl)
     return score
-```
