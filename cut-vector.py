@@ -1,4 +1,4 @@
-```
+
 def cut_vector(v):
     n = len(v)
     if n == 1:
@@ -13,5 +13,4 @@ def cut_vector(v):
                 left.append(v[i])
             else:
                 right.append(v[i])
-        return cut_vector(left), cut_vector(right)
-```
+        return cut_vector(left) + (cut_vector(right),)
