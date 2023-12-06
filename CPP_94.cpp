@@ -1,5 +1,6 @@
+
 ```
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
 using namespace std;
@@ -28,4 +29,3 @@ bool isPrime(int n) {
     return true;
 }
 ```
-The corrected code should look like this.
