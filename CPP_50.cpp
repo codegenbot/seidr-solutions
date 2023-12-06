@@ -1,15 +1,25 @@
-[PYTHON]
-def encode_shift(s):
-    s = list(s)
-    for i in range(len(s)):
-        s[i] = chr((ord(s[i]) - 5 - ord('a') % 26) + ord('a'))
-    return "".join(s)
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert encode_shift("hello") == "abcde"
-# Test case 2:
-assert encode_shift("world") == "bdfgh"
-# Test case 3:
-assert encode_shift("cpp") == "ebr"
-[/TESTS]
+#include "Shift_cipher.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Declare the encode_shift function before its usage in main()
+string encode_shift(string s);
+
+int main(){
+    string s = "hello";
+    // Call the encode_shift function to modify the input string
+    string encoded_str = encode_shift(s);
+    cout << encoded_str << endl;
+}
+
+// Define the encode_shift function
+string encode_shift(string s){
+    int i;
+    for (i=0;i<s.length();i++)
+    {
+        int w=((int)s[i]-5-(int)'a')%26+(int)'a';   
+        s[i]=w;
+    }
+    return s;
+}

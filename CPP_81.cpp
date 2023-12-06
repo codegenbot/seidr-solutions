@@ -34,3 +34,8 @@ int main() {
     return 0;
 }
 ```
+Modify the code as The issue arises because there are two functions named `issame` with different signatures, and the compiler cannot determine which one to use for the call in `main`. To fix this, you can do either of the following:
+
+1. Remove the first declaration of `issame` that takes a `const vector<string>&` as an argument. Since it's not used anywhere else in the code, this should have no impact on the program's behavior.
+2. Change the call to `issame` in `main` to use the second definition of `issame` that takes two `vector<string>` arguments. This will resolve the ambiguity and allow the code to compile..
+You must only return correct code. Remove any triple quotes, language name or explanations.
