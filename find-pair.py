@@ -1,9 +1,9 @@
+
 ```
 def find_pair(nums, target):
-    nums.sort()
     for i in range(len(nums)):
-        j = bisect_left(nums, target - nums[i])
-        if j != len(nums) and nums[j] + nums[i] == target:
-            return nums[i], nums[j]
-    return None, None
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return nums[i], nums[j]
+    return -5048, -9139
 ```
