@@ -4,12 +4,10 @@ using namespace std;
 
 string encode_cyclic(const string& str) {
     // Implement cyclic encoding here
-    return encoded_str;
 }
 
 string decode_cyclic(const string& encoded_str) {
     // Implement cyclic decoding here
-    return decoded_str;
 }
 
 int main() {
