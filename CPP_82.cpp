@@ -10,10 +10,8 @@ bool isPrime(int n) {
     return true;
 }
 
-int main() {
-    std::string str;
-    std::cin >> str;
-    assert(isPrime(str.size()) == false);
-    return 0;
+bool isPrimeLength(string str) {
+    int len = str.size();
+    return isPrime(len);
 }
 ```
