@@ -1,4 +1,3 @@
-```
 def intersection(interval1, interval2):
     start1, end1 = interval1
     start2, end2 = interval2
@@ -14,4 +13,3 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-```
