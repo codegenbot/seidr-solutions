@@ -1,8 +1,15 @@
-```
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
 using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
 
 int skjkasdkd(vector<int> lst) {
     int maxPrime = 0, sumDigits = 0;
@@ -19,13 +26,3 @@ int skjkasdkd(vector<int> lst) {
     }
     return sumDigits;
 }
-
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-```
-Note: The code has been modified to remove the backtick character (``) and declare the `isPrime` function before calling it in `skjkasdkd`.
