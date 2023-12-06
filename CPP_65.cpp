@@ -1,10 +1,17 @@
 [PYTHON]
-def circular_shift(x: int, shift: int) -> str:
+def circular_shift(x, shift):
     digits = list(str(x))
     if shift > len(digits):
         return "".join(reversed(digits))
     else:
         return "".join(digits[shift:] + digits[:shift])
+
+def main():
+    x = int(input("Enter a number: "))
+    shift = int(input("Enter the shift amount: "))
+    result = circular_shift(x, shift)
+    print(result)
+    return 0
 [/PYTHON]
 [TESTS]
 # Test case 1:
@@ -19,4 +26,4 @@ assert circular_shift(123, 2) == "312"
 assert circular_shift(123, 3) == "123"
 [/TESTS]
 
-Note that the code is written in Python, but the task requires a solution in C++. To fix this, you will need to rewrite the code in C++, following the function signature and task description provided.
+```
