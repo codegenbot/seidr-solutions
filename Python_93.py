@@ -1,4 +1,6 @@
 def encode(message):
+    if isinstance(message, int):
+        message = str(message)
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
     for char in message:
@@ -9,7 +11,8 @@ def encode(message):
                 encoded_char = chr((ord(char) - ord('A') + 2) % 26 + ord('a'))
         elif char.isspace() or char in string.punctuation:
             # Return non-alphanumeric characters unmodified
-            encoded_message += char
+            encoded_char = char
         else:
             raise ValueError(f"Invalid character '{char}'")
+        encoded_message += encoded_char
     return encoded_message
