@@ -1,6 +1,4 @@
 
-Here's a possible solution:
-```
 #include <iostream>
 #include <cmath>
 
