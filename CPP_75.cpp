@@ -26,4 +26,3 @@ bool is_prime(int n) {
     return true;
 }
 ```
-The issue with your code is that you have an extra backtick at the end of the first line, which is causing the compiler to throw an error. To fix this, simply remove the extra backtick from the end of the first line.
