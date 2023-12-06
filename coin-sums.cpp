@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 int main() {
@@ -28,12 +27,6 @@ int main() {
         }
     }
     
-    // Print the number of each type of coin
-    cout << "Quarters: " << quarters << endl;
-    cout << "Dimes: " << dimes << endl;
-    cout << "Nickels: " << nickels << endl;
-    cout << "Pennies: " << pennies << endl;
-    
-    return 0;
+    // Return the number of each type of coin
+    return quarters * 25 + dimes * 10 + nickels * 5 + pennies;
 }
-```
