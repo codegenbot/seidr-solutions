@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return sorted(word for word in lst if len(word) % 2 == 0)
+    return sorted(filter(lambda x: len(x) % 2 == 0, lst), key=len)
