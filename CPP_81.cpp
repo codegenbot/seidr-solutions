@@ -1,41 +1,20 @@
 
+```
 #include <iostream>
 #include <string>
 #include <vector>
 
-using namespace std;
-
-// Function to check if two strings are the same
-bool issame(string a, string b) {
-    return (a == b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-int main() {
-    // Get input from user
-    vector<float> grades;
-    cout << "Enter your grades: ";
-    float grade;
-    while (cin >> grade) {
-        grades.push_back(grade);
-    }
-    
-    // Call the function to convert numerical grades to letter grades
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    
-    // Print the letter grades
-    cout << "Your letter grades are: ";
-    for (int i = 0; i < letter_grades.size(); i++) {
-        cout << letter_grades[i] << " ";
-    }
-    cout << endl;
-    
-    return 0;
-}
-
-// Function to convert numerical grades to letter grades
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
-    for (int i = 0; i < grades.size(); i++) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
+    for (int i = 0; i < grades.size(); ++i) {
         if (grades[i] >= 4.0) {
             letter_grades.push_back("A+");
         } else if (grades[i] >= 3.7 && grades[i] < 4.0) {
@@ -64,6 +43,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             letter_grades.push_back("E");
         }
     }
-    
     return letter_grades;
 }
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    return 0;
+}
+```

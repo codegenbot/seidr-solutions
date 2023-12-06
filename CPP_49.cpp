@@ -1,9 +1,12 @@
-
 #include <iostream>
 #include <cmath>
 
-double modp(double n, double p) {
-    return fmod(pow(2, n), static_cast<double>(p));
+int modp(double n, double p) {
+    int result = pow(2, n);
+    while (result >= p) {
+        result -= p;
+    }
+    return result;
 }
 
 int main() {
@@ -16,4 +19,3 @@ int main() {
     std::cout << modp(n, p) << std::endl;
     return 0;
 }
-```

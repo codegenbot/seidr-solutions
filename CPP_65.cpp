@@ -1,29 +1,20 @@
-[PYTHON]
-def circular_shift(x, shift):
-    digits = list(str(x))
-    if shift > len(digits):
-        return "".join(reversed(digits))
-    else:
-        return "".join(digits[shift:] + digits[:shift])
+```
+#include <iostream>
+using namespace std;
 
-def main():
-    x = int(input("Enter a number: "))
-    shift = int(input("Enter the shift amount: "))
-    result = circular_shift(x, shift)
-    print(result)
-    return 0
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert circular_shift(12, 1) == "21"
-# Test case 2:
-assert circular_shift(12, 2) == "12"
-# Test case 3:
-assert circular_shift(123, 1) == "231"
-# Test case 4:
-assert circular_shift(123, 2) == "312"
-# Test case 5:
-assert circular_shift(123, 3) == "123"
-[/TESTS]
+int circular_shift(int x, int shift) {
+    if (shift > 0) {
+        int digits = x % 10;
+        return (x / 10) + (digits * pow(10, shift - 1));
+    } else {
+        return x;
+    }
+}
 
+int main() {
+    int x, shift;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift) << endl;
+    return 0;
+}
 ```
