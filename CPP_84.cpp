@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -11,7 +10,5 @@ string solve(int N) {
         binary += to_string(digit);
         N /= 2;
     }
-    reverse(binary.begin(), binary.end());
     return binary;
 }
-```
