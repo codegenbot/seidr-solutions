@@ -1,4 +1,9 @@
+
 ```
+#include <string>
+#include <iostream>
+using namespace std;
+
 int getScore(string bowls) {
     int score = 0;
     for (int i = 0; i < bowls.length(); i++) {
@@ -17,5 +22,11 @@ int getScore(string bowls) {
         }
     }
     return score;
+}
+
+int main() {
+    string bowls = "258/238172X32189-51";
+    cout << getScore(bowls) << endl;
+    return 0;
 }
 ```
