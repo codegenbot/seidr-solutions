@@ -1,12 +1,18 @@
-
+```
 #include <vector>
+using namespace std;
 
-int main() {
-    vector<vector<int>> lst;
-    int x;
-    cin >> x;
-    get_row(lst, x);
-    return 0;
+class vector;
+
+vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
+    vector<vector<int>> result;
+    for (int i = 0; i < lst.size(); i++) {
+        for (int j = 0; j < lst[i].size(); j++) {
+            if (lst[i][j] == x) {
+                result.push_back({i, j});
+            }
+        }
+    }
+    return result;
 }
 ```
-This code should fix the issue. It includes the `<vector>` header file, which defines the `vector` class and allows the compiler to find its definition. The `issame` function signature is also modified to match the correct syntax for a C++ function.
