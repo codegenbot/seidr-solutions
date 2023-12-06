@@ -1,4 +1,4 @@
-```
+
 def get_coin_sums(cents):
     coins = [1, 5, 10, 25]
     counts = [0, 0, 0, 0]
@@ -6,5 +6,4 @@ def get_coin_sums(cents):
         while cents >= coins[i]:
             cents -= coins[i]
             counts[i] += 1
-    return max(counts[::-1]) - counts[::-1]
-```
+    return max(counts) - counts
