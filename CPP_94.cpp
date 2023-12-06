@@ -4,33 +4,28 @@
 #include <string>
 using namespace std;
 
-bool isPrime(int n);
-int sumDigits(int n);
-
-int largestPrime(vector<int> lst) {
-    int max = 0;
+int skjkasdkd(vector<int> lst) {
+    int maxPrime = 0, sumDigits = 0;
     for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] > max && isPrime(lst[i])) {
-            max = lst[i];
+        if (isPrime(lst[i])) {
+            if (lst[i] > maxPrime) {
+                maxPrime = lst[i];
+            }
         }
     }
-    return sumDigits(max);
+    while (maxPrime != 0) {
+        sumDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumDigits;
 }
 
 bool isPrime(int n) {
     if (n <= 1) return false;
-    for (int i = 2; i < n; i++) {
+    for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return false;
     }
     return true;
 }
-
-int sumDigits(int n) {
-    int sum = 0;
-    while (n > 0) {
-        sum += n % 10;
-        n /= 10;
-    }
-    return sum;
-}
 ```
+The corrected code should look like this.
