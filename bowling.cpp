@@ -18,7 +18,7 @@ int getScore(string bowls) {
 }
 
 int main() {
-    string bowls = "258/238172X32189-51";
+    string bowls = "7115XXX548/279-X53";
     cout << getScore(bowls) << endl;
     return 0;
 }
