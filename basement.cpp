@@ -1,8 +1,7 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
-int findNegativeSumIndex(vector<int>& nums) {
+int basement(vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -14,8 +13,8 @@ int findNegativeSumIndex(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> input = {-1, 100};
-    int output = findNegativeSumIndex(input);
-    cout << "Output: " << output << endl;
+    vector<int> nums = {1, 2, 3, 4, 5};
+    int result = basement(nums);
+    cout << "The first index with negative sum is: " << result << endl;
     return 0;
 }
