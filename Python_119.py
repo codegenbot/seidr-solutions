@@ -1,16 +1,14 @@
-```
-def match_parens(lst):
+
+def match_parens(lst1, lst2):
     left = 0
-    right = 0
-    for c in lst[0]:
+    for c in lst1:
         if c == '(':
             left += 1
         else:
-            right += 1
-    for c in lst[1]:
+            left -= 1
+    for c in lst2:
         if c == '(':
             left -= 1
         else:
-            right -= 1
-    return "Yes" if left == 0 and right == 0 else "No"
-```
+            left += 1
+    return "Yes" if left == 0 else "No"
