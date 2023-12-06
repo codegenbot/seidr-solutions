@@ -1,3 +1,5 @@
+#include "Shift_cipher.h"
+#include <iostream>
 #include <string>
 using namespace std;
 
