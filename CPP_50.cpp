@@ -1,6 +1,6 @@
 ```
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 using namespace std;
 
 // Declare encode_shift function before its usage in the main function.
