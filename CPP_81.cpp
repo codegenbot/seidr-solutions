@@ -36,5 +36,3 @@ assert numerical_letter_grade([4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0,
 # Test case 2:
 assert numerical_letter_grade([3.5, 2.5, 1.5, -0.5]) == ["A-", "B-", "C-", "E"]
 [/TESTS]
-
-```
