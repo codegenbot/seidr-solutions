@@ -1,15 +1,15 @@
+```cpp
+#include <iostream>
+#include <vector>
 
-[PYTHON]
-def find_pair(nums, target):
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [nums[i], nums[j]]
-    return []
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
-# Test case 2:
-assert find_pair([1, 2, 3, 4, 5], 10) == []
-[/TESTS]
+std::vector<int> find_pair(const std::vector<int>& nums, int target) {
+    for (auto it1 = nums.begin(); it1 != nums.end(); ++it1) {
+        for (auto it2 = it1 + 1; it2 != nums.end(); ++it2) {
+            if (*it1 + *it2 == target) {
+                return {*it1, *it2};
+            }
+        }
+    }
+    return {};
+}
+```
