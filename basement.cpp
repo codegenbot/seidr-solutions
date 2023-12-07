@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int basement(const vector<int>& nums) {
@@ -11,4 +10,3 @@ int basement(const vector<int>& nums) {
     }
     return 0;
 }
-```
