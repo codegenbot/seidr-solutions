@@ -1,10 +1,10 @@
+```python
 def get_score(bowls):
     score = 0
-    for bowl in bowls:
-        if bowl == 'X':
-            score += 10
-        elif bowl == '/':
+    for i, bowl in enumerate(bowls):
+        if bowl == 'X' or bowl == '/':
             score += 10
         else:
-            score += max(int(bowl), 0)
+            score += int(bowl)
     return score
+```
