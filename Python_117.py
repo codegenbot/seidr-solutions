@@ -1,3 +1,2 @@
-def select_words(s, n):
-    words = s.split()
-    return [word for word in words if len(word) == n and word.isalpha()]
+def select_words(s: str, n: int) -> list[str]:
+    return [word for word in s.split() if len(word) == n and word.isalpha()]
