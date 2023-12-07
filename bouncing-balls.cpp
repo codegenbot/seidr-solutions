@@ -1,3 +1,5 @@
+
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -18,3 +20,4 @@ int main() {
     cout << bouncingBall(startingHeight, heightAfterFirstBounce, numBounces) << endl;
     return 0;
 }
+```
