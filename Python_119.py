@@ -11,4 +11,4 @@ def match_parens(lst):
             left -= 1
         else:
             right -= 1
-    return left >= 0 and right <= left
+    return "Yes" if (left >= 0 and right <= left) or (len(lst) == 1 and lst[0] == ')') else "No"
