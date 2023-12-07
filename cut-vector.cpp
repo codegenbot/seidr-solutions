@@ -10,14 +10,9 @@ def get_two_subvectors(vec):
     return vec[:left], vec[right:]
 [/PYTHON]
 [TESTS]
-# Test case 1:
-assert get_two_subvectors([1, 2, 3]) == ([1], [2, 3])
-# Test case 2:
-assert get_two_subvectors([1, 2, 3, 4]) == ([1, 2], [3, 4])
-# Test case 3:
-assert get_two_subvectors([1, 2, 3, 4, 5]) == ([1, 2, 3], [4, 5])
+def test_get_two_subvectors():
+    assert get_two_subvectors([1, 2, 3]) == ([1], [2, 3])
+    assert get_two_subvectors([1, 2, 3, 4]) == ([1, 2], [3, 4])
+    assert get_two_subvectors([1, 2, 3, 4, 5]) == ([1, 2, 3], [4, 5])
 [/TESTS]
-
 ```
-
-Note that the code has been modified to be compatible with C++, and the file extension has been changed to `.cpp`.
