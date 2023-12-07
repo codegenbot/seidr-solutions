@@ -1,4 +1,4 @@
-def rolling_max(numbers: list[int]) -> List[int]:
+def rolling_max(numbers: list[int]) -> list[int]:
     result = []
     current_max = -1
     for num in numbers:
