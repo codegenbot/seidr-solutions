@@ -1,3 +1,4 @@
+[PYTHON]
 def gcd(a, b):
     from math import gcd, abs
     
@@ -13,3 +14,4 @@ def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return a
+[/PYTHON]
