@@ -1,4 +1,3 @@
-
 def get_max_triples(n):
     # Initialize a list to store the triples that sum up to a multiple of 3
     triples = []
@@ -10,5 +9,5 @@ def get_max_triples(n):
             # If it is, add it to the list of triples
             triples.append(i)
     
-    # Return the actual list of triples instead of its length
+    # Return the actual list of triples
     return triples
