@@ -28,8 +28,11 @@ int main() {
         }
     }
     
-    // Print the number of each type of coin in descending order, separated by spaces
-    cout << quarters << " " << dimes << " " << nickels << " " << pennies << endl;
+    // Print the number of each type of coin
+    cout << "Quarters: " << quarters << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Nickels: " << nickels << endl;
+    cout << "Pennies: " << pennies << endl;
     
     return 0;
 }
