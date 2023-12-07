@@ -1,6 +1,4 @@
 ```python
-from math import gcd, abs
-
 def gcd_with_subtraction(a, b):
     a = abs(a)
     b = abs(b)
