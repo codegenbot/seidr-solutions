@@ -1,5 +1,5 @@
-```
-def encode(message):
+```python
+def encode(message: str) -> str:
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
     for char in message:
@@ -16,4 +16,3 @@ def encode(message):
             raise ValueError(f"Invalid character '{char}'")
     return encoded_message
 ```
-You can see that I have removed the `python` keyword from the beginning of the script, which should fix the issue with the code.
