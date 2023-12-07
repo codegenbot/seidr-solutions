@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 int car_race_collision(int n) {
@@ -10,4 +9,3 @@ int car_race_collision(int n) {
     }
     return collisions;
 }
-```
