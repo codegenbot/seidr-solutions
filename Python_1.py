@@ -1,3 +1,4 @@
+```python
 def separate_paren_groups(paren_string: str) -> list:
     result = []
     stack = []
@@ -13,3 +14,4 @@ def separate_paren_groups(paren_string: str) -> list:
                 stack.pop()
                 current_group += char
     return result
+```
