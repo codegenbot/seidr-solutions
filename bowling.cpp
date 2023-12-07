@@ -1,4 +1,4 @@
-
+```
 #include <string>
 #include <iostream>
 using namespace std;
@@ -42,3 +42,4 @@ int main() {
     cout << getScore(bowls) << endl;
     return 0;
 }
+```
