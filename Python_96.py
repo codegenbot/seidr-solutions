@@ -1,4 +1,3 @@
-```
 def count_up_to(n):
     if n > 100:
         return []
@@ -7,4 +6,3 @@ def count_up_to(n):
         if is_prime(i):
             prime_numbers.append(i)
     return prime_numbers
-```
