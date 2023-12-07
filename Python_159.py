@@ -1,10 +1,6 @@
-Solution: Modify the `eat` function signature to take two arguments instead of three:
-```
-def eat(number, need):
-    total_eaten = number + need
-    carrots_left = max(0, remaining - need)
+
+def eat(number, need, remaining):
     if remaining <= 0:
-        return [total_eaten, 0]
+        return (0, 0)
     else:
-        return [total_eaten, carrots_left]
-```
+        return (need, remaining - need)
