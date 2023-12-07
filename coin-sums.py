@@ -1,4 +1,5 @@
 
+```
 def coin_sums(cents):
     coins = (1, 5, 10, 25)
     counts = [int(cents / coin) for coin in coins]
@@ -8,3 +9,4 @@ def coin_sums(cents):
             remaining -= coins[i]
             counts[i] += 1
     return counts
+```
