@@ -1,6 +1,3 @@
-# Python/115: Max Fill
-
-import math
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
