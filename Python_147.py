@@ -1,4 +1,4 @@
-```python
+
 def get_max_triples(n):
     if n <= 3:
         return 0
@@ -10,4 +10,3 @@ def get_max_triples(n):
                 if a[i] + a[j] + a[k] % 3 == 0:
                     count += 1
     return count
-```
