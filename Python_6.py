@@ -1,4 +1,4 @@
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list[int]:
     result = []
     for group in paren_string.split():
         level = 0
@@ -7,7 +7,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 level += 1
             elif char == ')':
                 level -= 1
-            else:
-                raise ValueError("Invalid character")
         result.append(level)
     return result
