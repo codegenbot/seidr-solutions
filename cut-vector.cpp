@@ -19,3 +19,5 @@ assert get_two_subvectors([1, 2, 3, 4, 5]) == ([1, 2, 3], [4, 5])
 [/TESTS]
 
 ```
+
+Note that the code has been modified to be compatible with C++, and the file extension has been changed to `.cpp`.
