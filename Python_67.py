@@ -1,8 +1,4 @@
-```
-def fruit_distribution(s):
-    num_apples = int(re.search(r'\d+', s)[0])
-    num_oranges = int(re.search(r'\d+', s)[1])
+def fruit_distribution(s, num):
+    num_apples = int(s.split(" ")[0])
+    num_oranges = int(s.split(" ")[1])
     return num_apples, num_oranges
-```
-
-
