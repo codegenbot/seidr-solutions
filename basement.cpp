@@ -1,6 +1,7 @@
+```cpp
+#include <vector>
 
-```
-int basement(vector<int>& nums) {
+int basement(const vector<int>& nums) {
     int prev = 0;
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] <= prev) {
@@ -8,6 +9,6 @@ int basement(vector<int>& nums) {
         }
         prev = nums[i];
     }
-    return -1;
+    return 0;
 }
 ```
