@@ -1,3 +1,4 @@
+```
 def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
@@ -14,3 +15,4 @@ def encode(message):
         else:
             raise ValueError(f"Invalid character '{char}'")
     return encoded_message
+```
