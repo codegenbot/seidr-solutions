@@ -1,4 +1,3 @@
 def fruit_distribution(s):
-    num_apples = int(re.search(r'\d+', s).group())
-    num_oranges = int(re.search(r'\d+', s).group())
-    return num_apples, num_oranges
+    nums = s.split()
+    return (int(nums[0]), int(nums[2]))
