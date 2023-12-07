@@ -28,7 +28,7 @@ def minPath(grid, k):
 
         # Add the next cell to the path and mark it as visited
         if len(path) < k - 1:
-            (x, y) = neighbors[0]
+            x, y = neighbors[0]
             path.append((x, y))
             visited.add((x, y))
         else:
