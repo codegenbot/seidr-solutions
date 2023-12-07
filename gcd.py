@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     from math import gcd, abs
     
@@ -12,3 +13,4 @@ def gcd(a, b):
         a = b
         b = r
     return a
+```
