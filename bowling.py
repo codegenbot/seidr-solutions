@@ -1,5 +1,3 @@
-
-```
 def get_score(bowls):
     score = 0
     for bowl in bowls:
@@ -10,5 +8,3 @@ def get_score(bowls):
         else:
             score += max(int(bowl), 0)
     return score
-```
-The code is correct and should work properly.
