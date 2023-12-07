@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(paren_string: str) -> list:
     stack = []
     groups = []
@@ -12,4 +11,3 @@ def separate_paren_groups(paren_string: str) -> list:
                     groups.append(''.join(stack))
                     stack = []
     return groups
-```
