@@ -1,5 +1,4 @@
-```python
-def encode(message: str) -> str:
+def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
     for char in message:
@@ -15,4 +14,3 @@ def encode(message: str) -> str:
         else:
             raise ValueError(f"Invalid character '{char}'")
     return encoded_message
-```
