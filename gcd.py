@@ -1,12 +1,6 @@
-```python
-def gcd_with_subtraction(a, b):
-    a = abs(a)
-    b = abs(b)
-    if a < 0 or b < 0:
-        raise ValueError("Arguments must be non-negative")
-    result = gcd(a, b)
-    if result == 1:
-        return result
-    else:
-        return result - min(a, b)
+def gcd(a, b):
+    from math import gcd, abs
+
+def indices_of_substring(text, target):
+    return [i for i in range(len(text)) if text[i:i+len(target)] == target or text[i-1:i+len(target)-1] == target]
 ```
