@@ -1,11 +1,11 @@
+```python
 def minPath(grid, k):
+    if len(grid) < k:
+        return []
     n = len(grid)
     m = len(grid[0])
     path = []
     visited = set()
-
-    if k > n * m:
-        return []
 
     x, y = 0, 0
     path.append((x, y))
@@ -32,3 +32,4 @@ def minPath(grid, k):
             break
 
     return [grid[x][y] for x, y in path]
+```
