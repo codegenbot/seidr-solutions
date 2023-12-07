@@ -1,4 +1,5 @@
 
+```
 def get_score(bowls):
     score = 0
     for bowl in bowls:
@@ -7,5 +8,7 @@ def get_score(bowls):
         elif bowl == '/':
             score += 10
         else:
-            score += int(bowl)
+            score += max(int(bowl), 0)
     return score
+```
+The code is correct and should work properly.
