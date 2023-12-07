@@ -1,13 +1,19 @@
-#include <iostream>
-
-int main() {
-    int n = 0; // number of sides on Peter's die
-    int m = 0; // number of sides on Colin's die
-    double probability = getProbability(n, m);
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << std::endl;
-    return 0;
-}
-```
-This code defines a `main` function that takes no arguments and returns an integer. Inside the `main` function, it calls the `getProbability` function with the values of `n` and `m`, and then prints the result to the console using `std::cout`. Finally, it returns 0 to indicate successful execution.
-
-With this change, your code should compile and run without any issues.
+[PYTHON]
+def get_probability(n, m):
+    if n == m:
+        return 0.5
+    probability = 0
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            if i > j:
+                probability += 1.0 / (n * m)
+    return probability
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_probability(4, 6) == 0.375
+# Test case 2:
+assert get_probability(6, 6) == 0.5
+# Test case 3:
+assert get_probability(8, 10) == 0.4
+[/TESTS]
