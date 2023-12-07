@@ -1,4 +1,3 @@
-
 def get_max_triples(n):
     if n <= 3:
         return 0
