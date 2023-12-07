@@ -19,3 +19,4 @@ int getScore(string bowls) {
     return score;
 }
 ```
+This code should compile successfully, as the backticks (```) at the beginning and end of the code snippet are removed.
