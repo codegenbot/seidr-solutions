@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int strlen(std::string str) {
+int strlen(const std::string& str) {
     return str.length();
 }
 
