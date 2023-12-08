@@ -4,15 +4,17 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b){
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix){
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> filteredStrings;
     for(const auto& str : strings){
         if(str.find(prefix) == 0){
-            filteredStrings.push_back(str);
+            filteredStrings.emplace_back(str);
         }
     }
     return filteredStrings;
