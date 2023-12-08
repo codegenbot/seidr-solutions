@@ -20,6 +20,8 @@ int scoreOfRound(const std::string& round) {
                 char nextBall = round[ballIndex + 1];
                 char nextNextBall = round[ballIndex + 2];
                 score += (nextBall - '0') + (nextNextBall - '0');
+                char scoreChar = score + '0';
+                round.insert(ballIndex + 1, 1, scoreChar);
             }
             
             frame++;
