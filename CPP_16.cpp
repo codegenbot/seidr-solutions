@@ -1,4 +1,9 @@
 ```
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
 int count_distinct_characters(string str) {
     vector<char> distinctChars;
     for (auto c : str) {
@@ -7,5 +12,10 @@ int count_distinct_characters(string str) {
         }
     }
     return distinctChars.size();
+}
+int main() {
+    string str = "xyzXYZ";
+    cout << count_distinct_characters(str) << endl;
+    return 0;
 }
 ```
