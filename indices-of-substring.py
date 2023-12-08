@@ -1,7 +1,4 @@
 text = input()
 target = input()
-indices = []
-for i in range(len(text) - len(target) + 1):
-    if text[i:i+len(target)] == target:
-        indices.append(i)
+indices = [i for i in range(1, len(text) - len(target) + 1) if text[i:i+len(target)] == target]
 print(' '.join(map(str, indices)))
