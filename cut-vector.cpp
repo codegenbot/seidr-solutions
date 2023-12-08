@@ -10,13 +10,13 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
         rightSum += nums[i];
     }
     
-    int minDiff = abs(leftSum - rightSum);
+    int minDiff = std::abs(leftSum - rightSum);
     size_t cutIndex = 0;
     
     for (size_t i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
+        int diff = std::abs(leftSum - rightSum);
         
         if (diff < minDiff) {
             minDiff = diff;
