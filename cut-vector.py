@@ -1,5 +1,3 @@
-
-The corrected code is:
 ```
 def cut_vector(vector):
     min_diff = math.inf

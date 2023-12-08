@@ -1,17 +1,23 @@
-[PYTHON]
-def find_pair(nums, target):
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [nums[i], nums[j]]
-    return []
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_pair([1, 2, 3, 4, 5], 7) == [2, 5]
-# Test case 2:
-assert find_pair([1, 2, 3, 4, 5], 8) == [3, 5]
-# Test case 3:
-assert find_pair([1, 2, 3, 4, 5], 9) == [4, 5]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+
+int find_pair(std::vector<int>& nums, int target) {
+    for (size_t i = 0; i < nums.size(); ++i) {
+        for (size_t j = i + 1; j < nums.size(); ++j) {
+            if (nums[i] + nums[j] == target) {
+                return std::make_pair(nums[i], nums[j]);
+            }
+        }
+    }
+    return std::make_pair(-1, -1); // If no pair is found
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5};
+    int target = 7;
+    auto result = find_pair(nums, target);
+    std::cout << "The pair is: (" << result.first << ", " << result.second << ")" << std::endl;
+    return 0;
+}
 ```
