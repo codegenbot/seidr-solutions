@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
@@ -16,15 +15,14 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 }
 
 int main() {
-    double startingHeight, firstBounceHeight, distance;
+    double startingHeight, firstBounceHeight;
     int numBounces;
     
     std::cin >> startingHeight >> firstBounceHeight >> numBounces;
     
-    distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
+    double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
     std::cout << distance << std::endl;
     
     return 0;
 }
-```
