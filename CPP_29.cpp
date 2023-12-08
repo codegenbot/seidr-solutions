@@ -1,10 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filtered_strings;
     for (string s : strings) {
@@ -16,12 +9,12 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "cherry", "date"};
-    string prefix = "ba";
-    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
-    for (string s : filtered_strings) {
-        cout << s << endl;
+    // Add test cases to verify the solution
+    vector<string> strings = {"apple", "banana", "cherry", "date", "elderberry"};
+    string prefix = "b";
+    vector<string> result = filter_by_prefix(strings, prefix);
+    for (string s : result) {
+        cout << s << " ";
     }
     return 0;
 }
-```
