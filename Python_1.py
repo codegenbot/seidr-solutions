@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(paren_string: str) -> list:
     groups = []
     i = 0
@@ -17,4 +16,3 @@ def separate_paren_groups(paren_string: str) -> list:
         else:
             i += 1
     return groups
-```
