@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <cassert>
 
 bool issame(vector<string> a, vector<string> /*_*/) {
     // Implementation here if needed
