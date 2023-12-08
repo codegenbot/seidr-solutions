@@ -1,18 +1,15 @@
-def find_leaders(arr):
+```python
+def find_leaders(vector):
     leaders = []
-    max_right = arr[-1]
-    leaders.append(max_right)
-    for i in range(len(arr)-2, -1, -1):
-        if arr[i] >= max_right:
-            leaders.append(arr[i])
-            max_right = arr[i]
-    return leaders
+    max_num = float('-inf')
+    for i in range(len(vector)-1, -1, -1):
+        if vector[i] >= max_num:
+            leaders.append(vector[i])
+            max_num = vector[i]
+    return reversed(leaders)
 
-n = int(input())
-arr = []
-for i in range(n):
-    arr.append(int(input()))
-
-result = find_leaders(arr)
+vector = list(map(int, input().split()))
+result = find_leaders(vector)
 for num in result:
     print(num)
+```
