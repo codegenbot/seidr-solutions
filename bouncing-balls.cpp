@@ -1,15 +1,20 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int main() {
-    double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance;
-    int numBounces;
-    cin >> startingHeight >> firstBounceHeight >> numBounces;
-    bouncinessIndex = firstBounceHeight / startingHeight;
-    totalDistance = 0.0;
+
+double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += (startingHeight + (i - 1) * bouncinessIndex);
     }
-    cout << fixed << setprecision(9) << totalDistance << endl;
+    return totalDistance;
+}
+
+int main() {
+    double startingHeight, firstBounceHeight;
+    int numBounces;
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
