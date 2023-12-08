@@ -7,7 +7,7 @@ def find_leaders(vector):
             leaders.insert(0, max_value)
     leaders.append(vector[-1])
     return leaders
-
+    
 vector = list(map(int, input().split()))
 result = find_leaders(vector)
 for num in result:
