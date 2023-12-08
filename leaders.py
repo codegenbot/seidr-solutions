@@ -1,3 +1,4 @@
+```python
 def find_leaders(vector):
     leaders = []
     max_value = float('-inf')
@@ -6,3 +7,4 @@ def find_leaders(vector):
             max_value = vector[i]
             leaders.append(max_value)
     return leaders
+```
