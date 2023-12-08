@@ -1,3 +1,4 @@
+
 def fizz_buzz(x):
     try:
         if x % 3 == 0 and x % 5 == 0:
