@@ -1,10 +1,5 @@
-```
 #include <iostream>
 #include <string>
-
-int strlen(const std::string& str) {
-    return str.length();
-}
 
 int main() {
     std::cout << "Enter a string: ";
@@ -13,4 +8,3 @@ int main() {
     std::cout << "Length of the string is: " << strlen(input) << std::endl;
     return 0;
 }
-```
