@@ -1,23 +1,23 @@
 #include <string>
 #include <iostream>
+#include <cmath>
 using namespace std;
-
-int getScore(string bowls) {
+int calculateScore(string bowling) {
     int score = 0;
-    for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') {
+    for (int i = 0; i < bowling.size(); i++) {
+        if (bowling[i] == 'X') {
             score += 10;
-        } else if (bowls[i] == '/') {
-            score += 10 - int(bowls[i-1]);
+        } else if (bowling[i] == '/') {
+            score += 5;
         } else {
-            score += int(bowls[i]);
+            score += atoi(bowling[i]);
         }
     }
     return score;
 }
-
 int main() {
-    string bowls = "7115XXX548/279-X53";
-    cout << getScore(bowls) << endl;
+    string bowling;
+    cin >> bowling;
+    cout << calculateScore(bowling) << endl;
     return 0;
 }
