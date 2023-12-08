@@ -1,3 +1,4 @@
+
 [PYTHON]
 def calculate_bounciness_index(starting_height, first_bounce_height):
     if first_bounce_height <= 0:
@@ -25,4 +26,3 @@ if __name__ == "__main__":
     main()
 [/PYTHON]
 (Note: The code has been formatted for better readability)
-```
