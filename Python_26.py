@@ -1,3 +1,3 @@
 
-def remove_duplicates(numbers: list) -> list:
-    return list(set(numbers))
+def remove_duplicates(numbers):
+   return list(set(numbers))
