@@ -1,6 +1,4 @@
-```python
-def sort_numbers(numbers):
+def sort_numbers(numbers: str) -> str:
     numbers = numbers.split()
-    numbers = [int(x) for x in numbers]
-    return " ".join(str(x) for x in sorted(numbers))
-```
+    numbers.sort(key=lambda x: int(x, 10))
+    return " ".join(numbers)
