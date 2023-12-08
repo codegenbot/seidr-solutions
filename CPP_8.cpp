@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -18,9 +19,4 @@ int main() {
     cout << "Sum: " << result << endl;
     return 0;
 }
-
-int main2() {
-    vector<int> numbers = {10};
-    assert (issame(sum_product({10}) ,{10, 10}));
-    return 0;
-}
+```
