@@ -1,18 +1,19 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
+void issame(int num) {
+    vector<int> v{num, num};
+}
+
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
     int sum = 0, product = 1;
-    for (int i : numbers) {
+    for (int i : {1, 2, 3, 4, 5}) {
         sum += i;
         product *= i;
     }
     cout << "Sum: " << sum << endl;
     cout << "Product: " << product << endl;
-    return 0;
 }
 ```
