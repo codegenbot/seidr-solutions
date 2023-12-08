@@ -3,8 +3,6 @@
 
 using namespace std;
 
-int sum_product(const vector<int>& numbers);
-
 int main() {
     vector<int> numbers = {1, 2, 3, 4, 5};
     int sum = 0, product = 1;
@@ -15,8 +13,4 @@ int main() {
     cout << "Sum: " << sum << endl;
     cout << "Product: " << product << endl;
     return 0;
-}
-
-int sum_product(const vector<int>& numbers) {
-    // Implementation goes here
 }
