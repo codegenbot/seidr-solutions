@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
@@ -20,4 +19,3 @@ vector = list(map(int, input_string.split()))
 left, right = cut_vector(vector)
 print("\n".join(map(str, left)))
 print("\n".join(map(str, right)))
-```
