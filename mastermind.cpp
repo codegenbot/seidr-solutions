@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
     int whitePegs = 0;
+    int blackPegs = 0;
     int codeCount[6] = {0};
     int guessCount[6] = {0};
 
@@ -12,12 +13,8 @@ pair<int, int> mastermind(string code, string guess) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            if (code[i] >= 'A' && code[i] <= 'F') {
-                codeCount[code[i] - 'A']++;
-            }
-            if (guess[i] >= 'A' && guess[i] <= 'F') {
-                guessCount[guess[i] - 'A']++;
-            }
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
 
@@ -30,11 +27,10 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    cin >> guess >> code;
-
+    cin >> code >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
     cout << result.second << endl;
-
     return 0;
 }
+```
