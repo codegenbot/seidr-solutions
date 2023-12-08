@@ -7,6 +7,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
     
+    // Calculate the sum of all numbers in the vector
     for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
@@ -14,6 +15,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
     
+    // Find the index where the difference between left and right sum is minimized
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
@@ -25,6 +27,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         }
     }
     
+    // Create the resulting subvectors
     vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> right(nums.begin() + cutIndex + 1, nums.end());
     
