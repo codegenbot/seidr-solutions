@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <cassert>
 
 bool issame(vector<string> a, vector<string> /*_*/) {
     // Implementation here if needed
@@ -17,7 +18,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
 
     return 0;
 }
