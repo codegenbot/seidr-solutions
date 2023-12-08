@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -9,7 +8,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
 
     for (size_t i = 0; i < n; i++) {
         rightSum += nums[i];
-        leftSum = rightSum - nums[i];
     }
 
     int minDiff = std::abs(leftSum - rightSum);
@@ -53,4 +51,3 @@ int main() {
 
     return 0;
 }
-```
