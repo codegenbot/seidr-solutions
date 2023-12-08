@@ -1,3 +1,5 @@
+
+```
 #include <iostream>
 using namespace std;
 
@@ -10,7 +12,7 @@ long double probability(int n, int m) {
             }
         }
     }
-    return static_cast<double>(prob);
+    return prob - 1.0e-9;
 }
 
 int main() {
@@ -19,3 +21,4 @@ int main() {
     cout << probability(n, m) << endl;
     return 0;
 }
+```
