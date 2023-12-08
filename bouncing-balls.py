@@ -21,5 +21,3 @@ def main():
 if __name__ == "__main__":
     main()
 [/PYTHON]
-
-(Note that this code only fixes the indentation issue and does not provide any additional functionality or error handling.)

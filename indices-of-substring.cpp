@@ -1,11 +1,9 @@
+```
 #include <string>
-#include <iostream>
 
-int main() {
-    std::pmr::string text = "hello world";
-    std::pmr::string target = "world";
+int findIndices(string text, string target) {
     int count = 0;
-    std::vector<int> indices;
+    vector<int> indices;
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == target[count]) {
             count++;
@@ -19,3 +17,5 @@ int main() {
     }
     return indices;
 }
+```
+```

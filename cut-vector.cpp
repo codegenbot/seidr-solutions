@@ -1,3 +1,4 @@
+```
 #include <climits>
 #include <cmath>
 #include <iostream>
@@ -19,3 +20,4 @@ vector<int> cutVector(vector<int> v) {
     }
     return vector<int>{v[spot], v[spot+1]};
 }
+```
