@@ -20,10 +20,7 @@ int main() {
     }
     pennies = cents;
     
-    cout << pennies << endl;
-    cout << nickles << endl;
-    cout << dimes << endl;
-    cout << quarters << endl;
+    cout << pennies << nickles << dimes << quarters << endl;
     
     return 0;
 }

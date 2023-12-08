@@ -1,4 +1,3 @@
-
 [PYTHON]
 def get_bowling_score(rolls):
     score = 0

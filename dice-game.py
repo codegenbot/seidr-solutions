@@ -1,3 +1,7 @@
 def get_probability(n, m):
-    p_strictly_higher = (n - 1) / (n * m)
-    return p_strictly_higher
+    prob = 0
+    for i in range(1, n+1):
+        for j in range(1, m+1):
+            if i > j:
+                prob += (1 / (n * m))
+    return prob
