@@ -1,23 +1,44 @@
 ```
-#include <climits>
-#include <cmath>
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-vector<int> cutVector(vector<int> v) {
-    int n = v.size();
-    if (n == 1) return vector<int>{v[0], 0};
-    int minDiff = INT_MAX;
-    int spot = -1;
-    for (int i = 1; i < n; i++) {
-        int diff = std::abs(v[i] - v[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            spot = i;
+int main() {
+    std::vector<int> vec;
+    int n;
+    while (std::cin >> n) {
+        vec.push_back(n);
+    }
+    int left = 0, right = vec.size() - 1;
+    while (left < right) {
+        if (vec[left] == vec[right]) {
+            break;
+        }
+        int diff = abs(vec[left] - vec[right]);
+        if (diff <= 1) {
+            left++;
+            right--;
+        } else {
+            std::cout << "No solution" << std::endl;
+            return 0;
         }
     }
-    return vector<int>{v[spot], v[spot+1]};
+    std::vector<int> subvec1, subvec2;
+    for (int i = 0; i < left; i++) {
+        subvec1.push_back(vec[i]);
+    }
+    for (int i = right + 1; i < vec.size(); i++) {
+        subvec2.push_back(vec[i]);
+    }
+    std::cout << "Subvector 1: ";
+    for (auto it : subvec1) {
+        std::cout << it << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "Subvector 2: ";
+    for (auto it : subvec2) {
+        std::cout << it << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
 ```
