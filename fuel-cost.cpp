@@ -2,10 +2,11 @@
 #include <iostream>
 #include <cmath>
 
-int fuelCost(std::vector<int>& nums) {
+int fuel_cost(std::vector<int> nums) {
     int sum = 0;
-    for (int num : nums) {
-        sum += (num / 3) - 2;
+    for (int i = 0; i < nums.size(); i++) {
+        int result = floor(nums[i] / 3) - 2;
+        sum += result;
     }
     return sum;
 }
@@ -17,6 +18,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
-    std::cout << fuelCost(nums) << std::endl;
+    std::cout << fuel_cost(nums) << std::endl;
     return 0;
 }
