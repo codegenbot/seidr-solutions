@@ -3,24 +3,15 @@
 using namespace std;
 
 int main() {
-    int cents, pennies = 0, nickles = 0, dimes = 0, quarters = 0;
+    int cents = 0;
     cin >> cents;
     
-    while (cents >= 25) {
-        quarters++;
-        cents -= 25;
-    }
-    while (cents >= 10) {
-        dimes++;
-        cents -= 10;
-    }
-    while (cents >= 5) {
-        nickles++;
-        cents -= 5;
-    }
-    pennies = cents;
+    string quartersStr = to_string(cents / 25);
+    string dimesStr = to_string((cents % 25) / 10);
+    string nicklesStr = to_string((cents % 10) / 5);
+    string penniesStr = to_string(cents % 5);
     
-    cout << quarters << " " << dimes << " " << nickles << " " << pennies << '\n';
+    cout << quartersStr << " " << dimesStr << " " << nicklesStr << " " << penniesStr << endl;
     
     return 0;
 }
