@@ -1,17 +1,11 @@
-def parse_nested_parens(paren_string: str) -> List[int]:
-    stack = []
-    max_level = 0
+def parse_nested_parens(paren_string: str) -> list[int]:
     result = []
-
-    for char in paren_string:
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            stack.pop()
-            level = len(stack)
-            if level > max_level:
-                max_level = level
-                result.append(max_level)
-        else:
-            raise ValueError("Invalid input")
+    for group in paren_string.split():
+        level = 0
+        for char in group:
+            if char == '(':
+                level += 1
+            elif char == ')':
+                level -= 1
+        result.append(level)
     return result
