@@ -1,5 +1,4 @@
-```
-def parse_nested_parens(paren_string: str) -> list:
+def parse_nested_parens(paren_string: str) -> list[int]:
     max_level = 0
     current_level = 0
     levels = []
@@ -14,4 +13,3 @@ def parse_nested_parens(paren_string: str) -> list:
             raise ValueError("Invalid character in parentheses string")
     levels.append(max_level)
     return levels
-```
