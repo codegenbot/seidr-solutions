@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <map>
@@ -19,4 +18,3 @@ string sort_numbers(string numbers) {
     }
     return sortedNumbers;
 }
-```
