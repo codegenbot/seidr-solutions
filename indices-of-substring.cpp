@@ -4,7 +4,7 @@
 
 int findIndices(std::string text, std::string target) {
     int count = 0;
-    std::vector<int> indices;
+    vector<int> indices;
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == target[count]) {
             count++;
