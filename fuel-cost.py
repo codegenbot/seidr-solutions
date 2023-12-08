@@ -1,11 +1,10 @@
-nums = []
+import math
 
-while True:
-    try:
-        num = int(input())
-        nums.append(num)
-    except:
-        break
+def fuel_cost(numbers):
+    return sum([math.floor(num/3) - 2 for num in numbers])
 
-total = sum([max(0, num//3 - 2) for num in nums])
-print(total)
+# Read input from user
+numbers = list(map(int, input().split()))
+
+# Call the function and print the result
+print(fuel_cost(numbers))
