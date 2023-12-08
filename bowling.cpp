@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,24 +18,24 @@ int scoreOfRound(const std::string& round) {
             
             if (frame < 10) {
                 char nextBall = round[ballIndex + 1];
-                
+
                 if (nextBall == 'X') {
                     char nextNextBall = round[ballIndex + 2];
                     char nextNextNextBall = round[ballIndex + 3];
                     score += 10 + (nextNextBall == 'X' ? 10 : (nextNextBall - '0')) + (nextNextNextBall == 'X' ? 10 : (nextNextNextBall - '0'));
                 } else {
                     char nextNextBall = round[ballIndex + 2];
-                    score += (nextBall - '0') + (nextNextBall == '/' ? 10 : (nextNextBall - '0'));
+                    score += (nextBall - '0') + (nextNextBall == '/' ? (10 - (nextBall - '0')) : (nextNextBall - '0'));
                 }
             }
             
             frame++;
         } else if (c == '/') {
-            score += (10 - (round[ballIndex - 1] - '0'));
+            score += (10 - ballsRemaining);
             
             if (frame < 10) {
                 char nextBall = round[ballIndex + 1];
-                score += (nextBall == 'X' ? 10 : (nextBall - '0'));
+                score += (nextBall - '0');
                 ballsRemaining = 10;
             }
             
@@ -59,10 +60,12 @@ int scoreOfRound(const std::string& round) {
 
 int main() {
     std::string round;
+    std::cout << "Enter the round: ";
     std::cin >> round;
 
     int score = scoreOfRound(round);
-    std::cout << score << std::endl;
+    std::cout << "Score: " << score << std::endl;
 
     return 0;
 }
+```
