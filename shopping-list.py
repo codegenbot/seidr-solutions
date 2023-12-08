@@ -1,11 +1,9 @@
-import numpy as np
+```python
+n = int(input())
+prices = list(map(float, input().split()))
+discounts = list(map(float, input().split()))
 
-def calculate_total_price(prices, discounts):
-    total_price = np.sum(prices * (1 - discounts/100))
-    return total_price
-
-prices = np.array(list(map(float, input().split())))
-discounts = np.array(list(map(float, input().split())))
-
-total_price = calculate_total_price(prices, discounts)
-print(float(total_price))
+total_price = sum(price - price * (discount / 100) for price, discount in zip(prices, discounts))
+total_price = round(total_price, 2)
+print(total_price)
+```
