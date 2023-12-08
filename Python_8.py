@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
@@ -5,3 +6,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         return (0, 1)
     else:
         return (sum(numbers), math.prod(numbers))
+```
