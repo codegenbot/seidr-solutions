@@ -1,13 +1,11 @@
-def find_leaders(arr):
+def find_leaders(vector):
     leaders = []
-    n = len(arr)
-    max_right = arr[n - 1]
+    for i in range(len(vector)):
+        if i == len(vector) - 1 or vector[i] >= max(vector[i+1:]):
+            leaders.append(vector[i])
+    return leaders
 
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= max_right:
-            max_right = arr[i]
-            if arr[i] not in leaders:
-                leaders.append(arr[i])
-
-    leaders.append(max_right)
-    return leaders[::-1]
+vector = list(map(int, input().split()))
+result = find_leaders(vector)
+for num in result:
+    print(num)
