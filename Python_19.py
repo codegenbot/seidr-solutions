@@ -1,3 +1,4 @@
+
 def sort_numbers(numbers: str) -> str:
     numbers = [num.split() for num in numbers.split(' ')]
     numbers.sort(key=lambda x: int(x[0]))
