@@ -20,5 +20,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-[/PYTHON]
-[INST: What is the bouncing-balls problem?]  The bouncing-balls problem is a classic problem in computer science and physics that involves calculating the distance traveled by a ball as it bounces on the ground. The problem is typically stated as follows: given a starting height and a height after the first bounce of a dropped ball, calculate the bounciness index (height of first bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces. The problem is often used as an example in programming courses or physics simulations because it requires the use of loops and conditional statements to solve.
