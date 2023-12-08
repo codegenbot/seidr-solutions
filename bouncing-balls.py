@@ -20,5 +20,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-[/PYTHON]
-(Note: The code has been corrected. Please remove any triple quotes, language name or explanations.)
