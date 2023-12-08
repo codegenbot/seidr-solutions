@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
 
 int main() {
     std::vector<int> digits;
@@ -14,7 +12,7 @@ int main() {
 
     int sum = 0;
     for (int i = 15; i >= 0; i--) {
-        if (i % 2 == 0) {
+        if (i % 2 == 1) {
             int doubled = digits[i] * 2;
             if (doubled > 9) {
                 doubled -= 9;
@@ -29,4 +27,3 @@ int main() {
 
     return 0;
 }
-```
