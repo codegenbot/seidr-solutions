@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 vector<int> findPair(vector<int>& nums, int target) {
     unordered_set<int> complement;
     int firstNum = 0;

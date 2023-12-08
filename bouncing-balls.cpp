@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -22,10 +23,12 @@ int main() {
     
     cin >> startingHeight >> firstBounceHeight >> numBounces;
     
-    double bouncinessIndex = firstBounceHeight / startingHeight;
+    // Calculate bouncinessIndex and round to 15 significant figures
+    double bouncinessIndex = round(firstBounceHeight * 1000000000000000.0) / (startingHeight * 1000000000000000.0);
     double distance = calculateDistance(startingHeight, bouncinessIndex, numBounces);
     
     cout << fixed << setprecision(15) << distance << endl;
     
     return 0;
 }
+```
