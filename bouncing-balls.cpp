@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
@@ -17,12 +16,12 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 }
 
 int main() {
-    std::string startingHeight, firstBounceHeight;
+    double startingHeight, firstBounceHeight;
     int numBounces;
     
     std::cin >> startingHeight >> firstBounceHeight >> numBounces;
     
-    double distance = calculateDistance(std::stod(startingHeight), std::stod(firstBounceHeight), numBounces);
+    double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
     std::cout << distance << std::endl;
     
