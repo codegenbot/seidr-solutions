@@ -1,7 +1,7 @@
-```
 #include <iostream>
 #include <math.h>
 #include <vector>
+#include <algorithm> // This header file provides access to min_element and max_element functions
 using namespace std;
 
 vector<float> rescale_to_unit(vector<float> numbers) {
@@ -13,4 +13,3 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     }
     return result;
 }
-```
