@@ -1,9 +1,14 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::make_pair;
+using std::pair;
+using std::string;
 
-std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
+pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     int codeCount[6] = {0};
@@ -13,8 +18,8 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+            codeCount[code[i] - '0']++;
+            guessCount[guess[i] - '0']++;
         }
     }
 
@@ -22,15 +27,16 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
         whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
-    return std::make_pair(whitePegs, blackPegs);
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-    std::pair<int, int> result = mastermind(code, guess);
-    std::cout << result.first << std::endl;
-    std::cout << result.second << std::endl;
+    string code, guess;
+    getline(cin, code);
+    getline(cin, guess);
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
     return 0;
 }
 ```
