@@ -21,4 +21,4 @@ def main():
 if __name__ == "__main__":
     main()
 [/PYTHON]
-(The issue with the indentation of the `print` statement in the `main` function has been corrected.)
+(Note: The code has been corrected. Please remove any triple quotes, language name or explanations.)
