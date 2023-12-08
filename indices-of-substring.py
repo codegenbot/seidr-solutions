@@ -1,4 +1,4 @@
-text = input() 
+text = input()
 target = input()
 
 indices = []
