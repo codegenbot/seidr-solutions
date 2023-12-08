@@ -1,22 +1,21 @@
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
+#include <cctype>
 using namespace std;
 
 int main() {
     string input;
     getline(cin, input);
     
-    vector<string> words = split(input, '-');
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            cout << " ";
+    int i = 0;
+    while (i < input.size()) {
+        if (input[i] == '-') {
+            input[i] = ' ';
+        } else if (isalpha(input[i])) {
+            input[i] = toupper(input[i]);
         }
-        string word = words[i];
-        transform(word.begin(), word.end(), word.begin(), ::tolower);
-        cout << word;
+        i++;
     }
     
-    return 0;
+    cout << input << endl;
 }
