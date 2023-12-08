@@ -5,9 +5,9 @@ int main() {
     std::vector<int> digits;
 
     for (int i = 0; i < 16; i++) {
-      int digit;
-      std::cin >> digit;
-      digits.push_back(digit);
+        int digit;
+        std::cin >> digit;
+        digits.push_back(digit);
     }
 
     int sum = 0;
