@@ -1,9 +1,9 @@
 ```
 #include <string>
 
-int findIndices(string text, string target) {
+int findIndices(std::basic_string<char> text, std::basic_string<char> target) {
     int count = 0;
-    vector<int> indices;
+    std::vector<int> indices;
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == target[count]) {
             count++;
@@ -17,5 +17,4 @@ int findIndices(string text, string target) {
     }
     return indices;
 }
-```
 ```
