@@ -1,4 +1,6 @@
 ```
+#include <climits>
+#include <cmath>
 #include <iostream>
 #include <vector>
 
@@ -17,15 +19,5 @@ vector<int> cutVector(vector<int> v) {
         }
     }
     return vector<int>{v[spot], v[spot+1]};
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    auto result = cutVector(v);
-    cout << "The two resulting subvectors are: ";
-    for (auto x : result) {
-        cout << x << ", ";
-    }
-    return 0;
 }
 ```
