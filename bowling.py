@@ -1,4 +1,5 @@
-def calculate_score(bowls):
+def calculate_bowling_score(bowls):
+    score = 0
     frames = []
     frame = []
     for bowl in bowls:
@@ -17,23 +18,18 @@ def calculate_score(bowls):
             if len(frame) == 2:
                 frames.append(frame)
                 frame = []
-    
-    score = 0
-    for i in range(10):
+    for i in range(len(frames)):
         frame = frames[i]
         score += sum(frame)
-        if frame[0] == 10:
-            if i + 1 < len(frames):
-                score += sum(frames[i+1][:2])
+        if i < 9:
+            if frame[0] == 10:
                 if frames[i+1][0] == 10:
-                    if i + 2 < len(frames):
-                        score += frames[i+2][0]
-            else:
-                break
-        elif sum(frame) == 10:
-            if i + 1 < len(frames):
+                    score += frames[i+1][0] + frames[i+2][0]
+                else:
+                    score += frames[i+1][0] + frames[i+1][1]
+            elif sum(frame) == 10:
                 score += frames[i+1][0]
-        if i == 9:
-            score += sum(frames[9])
-    
     return score
+
+bowls = input()
+print(calculate_bowling_score(bowls))
