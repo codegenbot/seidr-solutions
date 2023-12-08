@@ -1,9 +1,9 @@
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> filteredStrings;
-    for(const auto& str : strings){
-        if(str.find(prefix) == 0){
-            filteredStrings.push_back(str);
+    vector<string> result;
+    for (int i = 0; i < strings.size(); i++) {
+        if (strings[i].find(prefix) == 0) {
+            result.push_back(strings[i]);
         }
     }
-    return filteredStrings;
+    return result;
 }
