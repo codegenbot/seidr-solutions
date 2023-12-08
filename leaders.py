@@ -6,8 +6,3 @@ def find_leaders(vector):
             max_value = vector[i]
             leaders.append(max_value)
     return leaders[::-1]
-
-vector = list(map(int, input().split()))
-result = find_leaders(vector)
-for num in result:
-    print(num)
