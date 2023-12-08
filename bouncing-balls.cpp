@@ -3,7 +3,8 @@
 #include <iomanip>
 using namespace std;
 
-double calculateDistance(double startingHeight, double bouncinessIndex, int numBounces) {
+double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = 0;
     double height = startingHeight;
     
