@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
     std::size_t n = nums.size();
