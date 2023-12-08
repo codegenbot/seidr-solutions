@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cmath>
 
-float truncate_number(float& number) {
-    return std::trunc(number);
+float truncate_number(float number) {
+    return std::fmod(number, 1);
 }
 
 int main() {
