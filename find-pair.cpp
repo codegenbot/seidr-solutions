@@ -1,6 +1,7 @@
+```cpp
 #include <unordered_set>
 
-std::vector<int> findPair(std::vector<int>& nums, int target) {
+std::unordered_set<int> findPair(std::vector<int>& nums, int target) {
     std::unordered_set<int> complement;
     int firstNum = 0;
     for (int num : nums) {
@@ -13,3 +14,4 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
     }
     return {};
 }
+```
