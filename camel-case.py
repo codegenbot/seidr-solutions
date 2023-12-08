@@ -1,4 +1,4 @@
-```python
+```
 import re
 def camel_case(string):
     words = re.split(r"""[^\w-]+""", string)
