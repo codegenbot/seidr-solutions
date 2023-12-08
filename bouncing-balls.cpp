@@ -11,7 +11,7 @@ double calculateTotalDistanceTravelled(int numBounces, double bouncinessIndex) {
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
         // Calculate the distance traveled in this bounce based on the bounciness index and the number of bounces
-        double distanceTraveled = bouncinessIndex * (i + 1) * (numBounces - i);
+        double distanceTraveled = bouncinessIndex * (i + 1) / (numBounces - i);
         totalDistance += distanceTraveled;
     }
     return totalDistance;
