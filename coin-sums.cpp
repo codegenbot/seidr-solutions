@@ -1,7 +1,5 @@
-```
 #include <iostream>
 using namespace std;
-
 int main() {
     int cents, pennies = 0, nickles = 0, dimes = 0, quarters = 0;
     cin >> cents;
@@ -20,8 +18,7 @@ int main() {
     }
     pennies = cents;
     
-    cout << pennies << ", " << nickles << ", " << dimes << ", " << quarters << endl;
+    cout << pennies << " " << nickles << " " << dimes << " " << quarters << endl;
     
     return 0;
 }
-```
