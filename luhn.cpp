@@ -19,7 +19,7 @@ int main() {
         }
         sum += doubled;
     }
-    
+
     for (int i = 14; i >= 0; i -= 2) {
         sum += digits[i];
     }
