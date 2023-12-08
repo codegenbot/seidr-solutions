@@ -6,7 +6,8 @@ def find_first_negative_index(nums):
             return i
     return -1
 
-nums = list(map(int, input().split()))
+input_str = input()
+nums = list(map(int, input_str.split()))
 
 result = find_first_negative_index(nums)
 print(result)
