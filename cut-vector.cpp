@@ -53,14 +53,28 @@ output:
 10000
 0
 */
-vector<int> cutVector(vector<int>& v) {
+vector<int> cutVector(vector<int> v) {
     int n = v.size();
     vector<int> left, right;
     for (int i = 0; i < n; i++) {
-        if (v[i] % 2 == 0) {
-            left.push_back(v[i]);
+        if (v[i] == 0) {
+            left.push_back(0);
+            right.push_back(0);
         } else {
-            right.push_back(v[i]);
+            int diff = abs(v[i] - v[(i + 1) % n]);
+            if (diff == 0) {
+                left.push_back(v[i]);
+                right.push_back(v[(i + 1) % n]);
+            } else {
+                int minDiff = INT_MAX;
+                for (int j = i + 1; j < n; j++) {
+                    if (abs(v[j] - v[(j + 1) % n]) < minDiff) {
+                        minDiff = abs(v[j] - v[(j + 1) % n]);
+                        left.push_back(v[i]);
+                        right.push_back(v[(j + 1) % n]);
+                    }
+                }
+            }
         }
     }
     return {left, right};
