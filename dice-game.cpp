@@ -1,4 +1,3 @@
-
 ```
 #include <iostream>
 using namespace std;
@@ -18,7 +17,8 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::fixed << std::setprecision(9) << probability(n, m) << endl;
+    cout << probability(n, m) << endl;
     return 0;
 }
 ```
+This code is correct because it uses a `double` type to store the probability value, which has a higher precision than the `float` type. This will reduce the rounding errors and ensure that the returned probability value is accurate.

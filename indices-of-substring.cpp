@@ -1,6 +1,3 @@
-
-Here's the modified code that returns a vector of integers:
-```
 #include <string>
 #include <vector>
 
@@ -20,5 +17,3 @@ std::vector<int> findIndices(std::string text, std::string target) {
     }
     return indices;
 }
-```
-The only modification made was to change the return type of the function from `int` to `std::vector<int>`.
