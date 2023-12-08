@@ -24,7 +24,7 @@ int main() {
     long double bouncinessIndex = firstBounceHeight / startingHeight;
     long double distance = calculateDistance(startingHeight, bouncinessIndex, numBounces);
 
-    cout << distance << endl;
+    cout << distance;
 
     return 0;
 }
