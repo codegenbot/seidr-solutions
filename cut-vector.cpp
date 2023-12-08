@@ -1,9 +1,8 @@
 ```cpp
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
     size_t n = nums.size();
     int leftSum = 0, rightSum = 0;
     
@@ -25,29 +24,29 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> right(nums.begin() + cutIndex + 1, nums.end());
+    std::vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
+    std::vector<int> right(nums.begin() + cutIndex + 1, nums.end());
     
-    return make_pair(left, right);
+    return std::make_pair(left, right);
 }
 
 int main() {
     size_t n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     
     for (size_t i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(nums);
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     
     for (int num : result.first) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     
     for (int num : result.second) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     
     return 0;
