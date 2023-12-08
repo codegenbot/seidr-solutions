@@ -25,8 +25,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
   string text, target;
-  getline(cin, text);
-  getline(cin, target);
+  cin >> text;
+  cin >> target;
 
   vector<int> result = indicesOfSubstring(text, target);
 
