@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,4 +17,3 @@ vector<int> parse_nested_parens(string paren_string) {
     result.push_back(max_level);
     return result;
 }
-```
