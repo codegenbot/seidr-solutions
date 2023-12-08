@@ -1,6 +1,3 @@
-
-Sure, here is the modified code:
-```
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -12,9 +9,7 @@ double calculateBouncinessIndex(double startingHeight, double heightAfterFirstBo
 double calculateTotalDistanceTravelled(int numBounces, double bouncinessIndex) {
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        // Calculate the distance traveled in this bounce based on the bounciness index and the number of bounces
-        double distanceTraveled = bouncinessIndex * (i + 1) / (numBounces - i);
-        totalDistance += distanceTraveled;
+        totalDistance += bouncinessIndex * (2 ^ i);
     }
     return totalDistance;
 }
@@ -31,4 +26,3 @@ int main() {
 
     return 0;
 }
-```
