@@ -1,3 +1,4 @@
+```python
 def get_probability(n, m):
     # Calculate the probability that Colin rolls strictly higher than Peter
     prob_colin = 1 / (m * (m + 1))
@@ -9,3 +10,4 @@ def get_probability(n, m):
     total_prob = prob_colin * n + prob_same
     
     return total_prob
+```
