@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 int greatest_common_divisor(int a, int b) {
@@ -9,4 +8,3 @@ int greatest_common_divisor(int a, int b) {
     }
     return a;
 }
-```
