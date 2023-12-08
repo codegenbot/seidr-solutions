@@ -21,4 +21,4 @@ if __name__ == "__main__":
     main()
 [/PYTHON]
 
-```
+This is the correct code. It should work as expected.
