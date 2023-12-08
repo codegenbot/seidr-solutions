@@ -1,10 +1,6 @@
 def get_indices(text, target):
     indices = []
-    start = 0
-    while True:
-        index = text[start:].find(target)
-        if index == -1:
-            break
-        indices.append(index + start)
-        start += index + len(target)
+    for i in range(len(text)):
+        if text[i:].find(target) == 0:
+            indices.append(i + text[i:].find(target))
     return indices
