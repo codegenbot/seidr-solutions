@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
