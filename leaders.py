@@ -1,10 +1,11 @@
 def find_leaders(vector):
     leaders = []
-    max_value = float('-inf')
+    max_value = vector[-1]
     for i in range(len(vector)-1, -1, -1):
-        if all(vector[i] >= num for num in vector[i+1:]):
-            leaders.append(vector[i])
-    return leaders
+        if vector[i] > max_value:
+            max_value = vector[i]
+            leaders.append(max_value)
+    return leaders[::-1]
 
 vector = list(map(int, input().split()))
 result = find_leaders(vector)
