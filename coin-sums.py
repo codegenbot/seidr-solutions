@@ -1,7 +1,10 @@
-[PYTHON]
+
+Here is the modified version of the code:
+```
 coins = [1, 5, 10, 25]
 
 def get_coin_sums(cents):
+    coins = [1, 5, 10, 25]
     counts = [0, 0, 0, 0]
     for i in range(len(coins)):
         while cents >= coins[i]:
@@ -17,6 +20,4 @@ def main():
     for i in range(len(counts)):
         if counts[i] > 0:
             print(f"{counts[i]} {coins[i]} cent coin(s)")
-
-if __name__ == "__main__":
-    main()
+```
