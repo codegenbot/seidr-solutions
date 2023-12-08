@@ -1,3 +1,4 @@
+```python
 text = input()
 target = input()
 
@@ -10,3 +11,4 @@ while start <= len(text) - len(target):
     start += 1
 
 print(' '.join(map(str, indices)))
+```
