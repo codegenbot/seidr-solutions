@@ -1,3 +1,5 @@
+I have made the necessary modifications to the code. Here is the updated version:
+
 ```cpp
 #include <iostream>
 #include <string>
