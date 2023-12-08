@@ -1,20 +1,17 @@
-```c
-#include <iostream>
-
-int main() {
-    int nums[5] = {1, 2, 3, 4, 5};
-    int target = 7;
-
-    // Find two elements that sum to target
-    for (int i = 0; i < 5; i++) {
-        for (int j = i + 1; j < 5; j++) {
-            if (nums[i] + nums[j] == target) {
-                std::cout << "[" << nums[i] << ", " << nums[j] << "]" << std::endl;
-                return 0;
-            }
-        }
-    }
-    std::cout << "[-1, -1]" << std::endl;
-    return 1;
-}
+[PYTHON]
+def find_pair(nums, target):
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [nums[i], nums[j]]
+    return []
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert find_pair([1, 2, 3, 4, 5], 7) == [2, 5]
+# Test case 2:
+assert find_pair([1, 2, 3, 4, 5], 8) == [3, 5]
+# Test case 3:
+assert find_pair([1, 2, 3, 4, 5], 9) == [4, 5]
+[/TESTS]
 ```
