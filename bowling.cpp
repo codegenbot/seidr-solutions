@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -14,7 +15,7 @@ int scoreOfRound(const std::string& round) {
         
         if (c == 'X') {
             score += 10;
-            
+
             if (frame < 10) {
                 char nextBall = round[ballIndex + 1];
                 char nextNextBall = round[ballIndex + 2];
@@ -59,3 +60,4 @@ int main() {
 
     return 0;
 }
+```
