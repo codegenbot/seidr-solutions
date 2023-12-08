@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,3 +18,4 @@ int main() {
     cout << count_distinct_characters(str) << endl;
     return 0;
 }
+```
