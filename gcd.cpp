@@ -21,7 +21,11 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     int a, b;
     while (cin >> a >> b) {
-        cout << getGCD(a, b) << endl;
+        if (a != 0 && b != 0) {
+            cout << getGCD(a, b) << endl;
+        } else {
+            cout << "Invalid input." << endl;
+        }
     }
     string text, target;
     cin >> text >> target;
