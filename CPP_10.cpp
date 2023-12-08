@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<string>
+#include <algorithm>
+#include <iostream>
+#include <string>
 using namespace std;
 bool is_palindrome(string str){
     //Test if given string is a palindrome 
