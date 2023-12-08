@@ -1,14 +1,15 @@
-```python
-def is_palindrome(string: str) -> bool:
+def is_palindrome(string):
     return string == string[::-1]
 
-def make_palindrome(string: str) -> str:
+def make_palindrome(string):
     if is_palindrome(string):
         return string
 
-    for i in range(len(string), 0, -1):
-        prefix = string[:i]
-        suffix = string[i:]
-        if is_palindrome(suffix):
-            return prefix + suffix[::-1]
-```
+    palindromic_suffix = ''
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            palindromic_suffix = string[i:]
+            break
+
+    prefix = string[:len(string) - len(palindromic_suffix)]
+    return string + prefix[::-1]
