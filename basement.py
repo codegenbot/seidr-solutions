@@ -1,4 +1,4 @@
-
+```
 def get_negative_sum_index(arr):
     curr_sum = 0
     for i in range(len(arr)):
@@ -8,3 +8,4 @@ def get_negative_sum_index(arr):
         if curr_sum < 0:
             return i
     return -1
+```
