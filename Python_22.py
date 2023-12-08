@@ -1,5 +1,2 @@
-
-```python
-def filter_integers(values: list) -> list:
-    return [x for x in values if isinstance(x, int)]
-```
+def filter_integers(values: list) -> List[int]:
+    return list(filter(lambda x: isinstance(x, int), values))
