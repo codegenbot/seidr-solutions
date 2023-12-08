@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <utility>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> filteredStrings;
     for(const auto& str : strings){
         if(str.find(prefix) == 0){
-            filteredStrings.emplace_back(str);
+            filteredStrings.push_back(move(str));
         }
     }
     return filteredStrings;
