@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +5,7 @@
 #include <list>
 using namespace std;
 
-vector<int> filter_integers(list<boost::any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (auto& value : values) {
         if (value.type() == typeid(int)) {
@@ -15,4 +14,3 @@ vector<int> filter_integers(list<boost::any> values) {
     }
     return result;
 }
-```
