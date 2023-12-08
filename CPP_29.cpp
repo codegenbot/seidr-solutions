@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     return a == b;
@@ -10,8 +11,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix){
     std::vector<std::string> filteredStrings;
-    for(const std::string& str : strings){
-        if(std::find(str.begin(), str.end(), prefix) == 0){
+    for(const auto& str : strings){
+        if(str.find(prefix) == 0){
             filteredStrings.push_back(str);
         }
     }
