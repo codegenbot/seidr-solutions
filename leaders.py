@@ -1,3 +1,4 @@
+```python
 def find_leaders(vector):
     leaders = []
     max_value = 0
@@ -11,3 +12,4 @@ vector = list(map(int, input().split()))
 result = find_leaders(vector)
 for num in result:
     print(num)
+```
