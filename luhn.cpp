@@ -1,14 +1,14 @@
+```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
 
 int main() {
-    vector<int> digits;
+    std::vector<int> digits;
 
     for (int i = 0; i < 16; i++) {
         int digit;
-        cin >> digit;
-        digits.push_back(digit);
+        std::cin >> digit;
+        digits.push_back(digit - '0');
     }
 
     int sum = 0;
@@ -24,7 +24,8 @@ int main() {
         }
     }
 
-    cout << sum << endl;
+    std::cout << sum << std::endl;
 
     return 0;
 }
+```
