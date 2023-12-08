@@ -1,13 +1,10 @@
 ```cpp
-```cpp
 #include <iostream>
 #include <string>
 
 int main() {
-    std::string cents_str;
-    std::cin >> cents_str;
-
-    int cents = std::stoi(cents_str);
+    int cents;
+    std::cin >> cents;
 
     int quarters = cents / 25;
     cents %= 25;
@@ -20,10 +17,10 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << pennies << std::endl;
-    std::cout << dimes << std::endl;
-    std::cout << nickels << std::endl;
-    std::cout << quarters << std::endl;
+    std::cout << std::to_string(pennies) << std::endl;
+    std::cout << std::to_string(dimes) << std::endl;
+    std::cout << std::to_string(nickels) << std::endl;
+    std::cout << std::to_string(quarters) << std::endl;
 
     return 0;
 }
