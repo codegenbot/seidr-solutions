@@ -15,13 +15,18 @@ int scoreOfRound(const std::string& round) {
         
         if (c == 'X') {
             score += 10;
-
+            
             if (frame < 10) {
                 char nextBall = round[ballIndex + 1];
-                char nextNextBall = round[ballIndex + 2];
-                score += (nextBall - '0') + (nextNextBall - '0');
-                char scoreChar = score + '0';
-                round.insert(ballIndex + 1, 1, scoreChar);
+
+                if (nextBall == 'X') {
+                    char nextNextBall = round[ballIndex + 2];
+                    char nextNextNextBall = round[ballIndex + 3];
+                    score += 10 + (nextNextBall == 'X' ? 10 : (nextNextBall - '0')) + (nextNextNextBall == 'X' ? 10 : (nextNextNextBall - '0'));
+                } else {
+                    char nextNextBall = round[ballIndex + 2];
+                    score += (nextBall - '0') + (nextNextBall == '/' ? (10 - (nextBall - '0')) : (nextNextBall - '0'));
+                }
             }
             
             frame++;
