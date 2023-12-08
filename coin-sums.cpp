@@ -1,8 +1,10 @@
 #include <iostream>
 
 int main() {
-    int cents;
-    std::cin >> cents;
+    std::string cents_str;
+    std::cin >> cents_str;
+
+    int cents = std::stoi(cents_str);
 
     int quarters = cents / 25;
     cents %= 25;
@@ -15,10 +17,10 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << quarters << std::endl;
+    std::cout << pennies << std::endl;
     std::cout << dimes << std::endl;
     std::cout << nickels << std::endl;
-    std::cout << pennies << std::endl;
+    std::cout << quarters << std::endl;
 
     return 0;
 }
