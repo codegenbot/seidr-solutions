@@ -1,17 +1,14 @@
-```
 def gcd(a, b):
-    if a < 0 or b < 0:
-        raise ValueError("Both inputs must be positive")
+    if a < 0 and b < 0:
+        return -1 * gcd(-a, -b)
 
     while b != 0:
         a, b = b, a % b
     return a
 
 def indices_of_substring(text, target):
-    n = len(target)
-    indices = []
+    indices = set()
     for i in range(len(text)):
-        if text[i:i+n] == target:
-            indices.append(i)
-    return indices
-``` 
+        if text[i:i+len(target)] == target:
+            indices.add(i)
+    return list(indices)
