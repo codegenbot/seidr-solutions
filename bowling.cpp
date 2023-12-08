@@ -17,7 +17,8 @@ int calculateScore(string bowls) {
     return score;
 }
 int main() {
-    string bowls = "7115XXX548/279-X53";
+    string bowls;
+    cin >> bowls;
     cout << calculateScore(bowls) << endl;
     return 0;
 }
