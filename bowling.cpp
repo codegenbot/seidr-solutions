@@ -1,4 +1,7 @@
-'''
+```c++
+#include <iostream>
+#include <string>
+
 int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 1;
@@ -14,9 +17,15 @@ int scoreOfRound(const std::string& round) {
             score += 10;
             
             if (frame < 10) {
-                char nextBall = round[ballIndex + 1];
-                char nextNextBall = round[ballIndex + 2];
-                score += (nextBall - '0') + (nextNextBall - '0');
+                if (ballsRemaining < 10) {
+                    score += 10 - ballsRemaining;
+                }
+                ballsRemaining = 10;
+            } else {
+                if (ballsRemaining < 10) {
+                    score += 10 - ballsRemaining;
+                }
+                ballsRemaining = (c == 'X') ? 10 : (10 - ballsRemaining);
             }
             
             frame++;
@@ -24,9 +33,9 @@ int scoreOfRound(const std::string& round) {
             score += (10 - ballsRemaining);
             
             if (frame < 10) {
-                char nextBall = round[ballIndex + 1];
-                score += (nextBall - '0');
                 ballsRemaining = 10;
+            } else {
+                ballsRemaining = 10 - ballsRemaining;
             }
             
             frame++;
@@ -41,10 +50,18 @@ int scoreOfRound(const std::string& round) {
                 ballsRemaining = 10;
             }
         }
-
-        ballIndex++;
     }
 
     return score;
 }
-'''
+
+int main() {
+    std::string round;
+    std::cin >> round;
+
+    int score = scoreOfRound(round);
+    std::cout << score << std::endl;
+
+    return 0;
+}
+```
