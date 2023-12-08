@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 using namespace std;
 
@@ -20,5 +20,3 @@ int main() {
     cout << probability(n, m) << endl;
     return 0;
 }
-```
-This code is correct because it uses a `double` type to store the probability value, which has a higher precision than the `float` type. This will reduce the rounding errors and ensure that the returned probability value is accurate.
