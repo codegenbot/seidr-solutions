@@ -1,4 +1,3 @@
-```python
 def calculate_bowling_score(bowls):
     score = 0
     frame = []
@@ -26,4 +25,3 @@ def calculate_bowling_score(bowls):
 
 bowls = input()
 print(calculate_bowling_score(bowls))
-```
