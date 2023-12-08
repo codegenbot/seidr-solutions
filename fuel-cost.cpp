@@ -3,14 +3,17 @@
 #include <cmath>
 using namespace std;
 int main() {
-    vector<int> v = {1, 6};
-    int sum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        int x = v[i];
-        x /= 3;
-        x -= 2;
-        sum += x;
+    vector<int> vec;
+    int n, sum = 0;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        vec.push_back(x);
     }
-    cout << "Sum: " << sum << endl;
+    for (int i = 0; i < vec.size(); i++) {
+        sum += round((vec[i] / 3) - 2);
+    }
+    cout << sum << endl;
     return 0;
 }
