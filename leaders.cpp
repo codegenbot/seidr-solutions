@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::vector<int> findLeaders(const std::vector<int>& arr) {
     std::vector<int> leaders;
