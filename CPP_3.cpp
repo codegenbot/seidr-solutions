@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -18,4 +17,3 @@ bool below_zero(vector<int> operations) {
     }
     return false;
 }
-```
