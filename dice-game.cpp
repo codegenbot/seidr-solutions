@@ -1,3 +1,5 @@
+
+```
 #include <iostream>
 using namespace std;
 
@@ -19,3 +21,4 @@ int main() {
     cout << std::fixed << std::setprecision(9) << probability(n, m) << endl;
     return 0;
 }
+```
