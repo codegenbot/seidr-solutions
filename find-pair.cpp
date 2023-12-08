@@ -1,6 +1,11 @@
-```
+
 #include <vector>
 #include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <queue>
+#include <stack>
+#include <climits>
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
@@ -27,4 +32,3 @@ int main() {
     }
     return 0;
 }
-```
