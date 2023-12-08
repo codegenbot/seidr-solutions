@@ -1,12 +1,7 @@
-#include <iostream>
 #include <vector>
-#include <stdexcept>
+#include <iostream>
 
-float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    if (prices.size() != discounts.size()) {
-        throw std::invalid_argument("Input vectors must have the same number of elements.");
-    }
-
+float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
         float discountedPrice = prices[i] * (1 - discounts[i] / 100);
@@ -16,11 +11,17 @@ float calculateTotalPrice(const std::vector<float>& prices, const std::vector<fl
 }
 
 int main() {
-    std::vector<float> prices = {10.0, 20.0, 30.0};
-    std::vector<float> discounts = {5.0, 10.0, 15.0};
-
+    int n;
+    std::cin >> n;
+    std::vector<float> prices(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> prices[i];
+    }
+    std::vector<float> discounts(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> discounts[i];
+    }
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << "Total Price: " << totalPrice << std::endl;
-
+    std::cout << totalPrice << std::endl;
     return 0;
 }
