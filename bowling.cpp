@@ -1,23 +1,26 @@
-#include <string>
 #include <iostream>
+#include <string>
 #include <cmath>
 using namespace std;
-int calculateScore(string bowling) {
+int getScore(string input) {
     int score = 0;
-    for (int i = 0; i < bowling.size(); i++) {
-        if (bowling[i] == 'X') {
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == 'X') {
             score += 10;
-        } else if (bowling[i] == '/') {
+        } else if (input[i] == '/') {
             score += 5;
+        } else if (input[i] == '-') {
+            score += 2;
         } else {
-            score += atoi(bowling[i]);
+            score += input[i] - '0';
         }
     }
     return score;
 }
+
 int main() {
-    string bowling;
-    cin >> bowling;
-    cout << calculateScore(bowling) << endl;
+    string input;
+    getline(cin, input);
+    cout << getScore(input) << endl;
     return 0;
 }

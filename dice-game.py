@@ -1,2 +1,2 @@
 def get_probability(n, m):
-    return 1 / (m * n)
+    return np.sum(np.triu(np.ones((n, m)), 1)) / (n * m)

@@ -1,35 +1,39 @@
-#include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
-int main() {
-    int cents, pennies = 0, nickles = 0, dimes = 0, quarters = 0;
-    cin >> cents;
+int coin_sums(int cents) {
+    int quarters = 0, dimes = 0, nickles = 0, pennies = 0;
     
+    // Calculate the number of quarters
     while (cents >= 25) {
         quarters++;
         cents -= 25;
     }
+    
+    // Calculate the number of dimes
     while (cents >= 10) {
         dimes++;
         cents -= 10;
     }
+    
+    // Calculate the number of nickles
     while (cents >= 5) {
         nickles++;
         cents -= 5;
     }
-    pennies = cents;
     
-    cout << quarters << " " << dimes << " " << nickles << " " << pennies << endl;
+    // Calculate the number of pennies
+    while (cents > 0) {
+        pennies++;
+        cents--;
+    }
     
+    return quarters * 25 + dimes * 10 + nickles * 5 + pennies;
+}
+
+int main() {
+    int cents;
+    cin >> cents;
+    cout << coin_sums(cents) << endl;
     return 0;
 }
