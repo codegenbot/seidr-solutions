@@ -1,4 +1,3 @@
-```
-def sum_product(numbers: list) -> Tuple[int, int]:
+
+def sum_product(numbers):
     return (sum(numbers), math.prod(numbers))
-```.
