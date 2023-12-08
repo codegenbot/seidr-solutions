@@ -1,37 +1,35 @@
+#include <vector>
 #include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
+
 int main() {
-    int cents, totalCoins = 0;
+    int cents, pennies = 0, nickles = 0, dimes = 0, quarters = 0;
     cin >> cents;
     
-    // Initialize counters for each type of coin
-    int quarters = 0, dimes = 0, nickels = 0, pennies = 0;
-    
-    while (cents > 0) {
-        if (cents >= 25) {
-            totalCoins++;
-            quarters++;
-            cents -= 25;
-        } else if (cents >= 10) {
-            totalCoins++;
-            dimes++;
-            cents -= 10;
-        } else if (cents >= 5) {
-            totalCoins++;
-            nickels++;
-            cents -= 5;
-        } else {
-            totalCoins++;
-            pennies++;
-            cents--;
-        }
+    while (cents >= 25) {
+        quarters++;
+        cents -= 25;
     }
+    while (cents >= 10) {
+        dimes++;
+        cents -= 10;
+    }
+    while (cents >= 5) {
+        nickles++;
+        cents -= 5;
+    }
+    pennies = cents;
     
-    // Print the number of each type of coin
-    cout << "Quarters: " << quarters << endl;
-    cout << "Dimes: " << dimes << endl;
-    cout << "Nickels: " << nickels << endl;
-    cout << "Pennies: " << pennies << endl;
+    cout << quarters << " " << dimes << " " << nickles << " " << pennies << endl;
     
     return 0;
 }
