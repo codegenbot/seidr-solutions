@@ -1,3 +1,4 @@
+
 def get_probability(n, m):
     total_outcomes = n * m
     probabilities = []
