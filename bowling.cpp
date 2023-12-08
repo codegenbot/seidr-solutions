@@ -1,7 +1,6 @@
 ```
 #include <string>
 #include <iostream>
-#include <cmath>
 using namespace std;
 int calculateScore(string bowling) {
     int score = 0;

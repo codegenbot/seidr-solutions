@@ -1,4 +1,4 @@
-```
+[PYTHON]
 def get_coin_sums(cents):
     coins = [1, 5, 10, 25]
     counts = [0, 0, 0, 0]
@@ -19,4 +19,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+[/PYTHON]
