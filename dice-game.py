@@ -1,4 +1,3 @@
-
 def get_probability(n, m):
     prob = 0
     for i in range(1, n+1):
