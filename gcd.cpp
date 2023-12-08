@@ -1,13 +1,14 @@
+#include <vector>
 #include <iostream>
 #include <string>
-#include <vector>
+#include <cstring>
 using namespace std;
-
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
+int getGCD(int a, int b) {
+    if (a == 0) {
+        return b;
+    }
+    return getGCD(b % a, a);
 }
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     for (int i = 0; i < text.size() - target.size() + 1; i++) {
@@ -17,23 +18,15 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
     return result;
 }
-
 int main() {
     int a, b;
-    string text, target;
-    cin >> a >> b;
-    if (a < 0 || b < 0) {
-        cout << "Invalid input. Please enter two positive integers." << endl;
-        return 1;
+    while (cin >> a >> b) {
+        cout << getGCD(a, b) << endl;
     }
+    string text, target;
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
-    if (result.empty()) {
-        cout << "Target string not found in the text." << endl;
-        return 1;
+    for (int i : result) {
+        cout << i << " ";
     }
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    return 0;
 }
