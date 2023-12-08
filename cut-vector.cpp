@@ -7,15 +7,15 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
     size_t n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
-    for (size_t i = 0; i < n - 1; i++) {
+    for (size_t i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = std::abs(leftSum - rightSum);
     size_t cutIndex = 0;
 
-    for (size_t i = 0; i < n - 1; i++) {
-        if (i < n - 2) {
+    for (size_t i = 0; i < n; i++) {
+        if (i < n - 1) {
             leftSum += nums[i + 1];
             rightSum -= nums[i + 1];
         }
