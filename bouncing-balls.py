@@ -1,6 +1,9 @@
 [PYTHON]
 def calculate_bounciness_index(starting_height, first_bounce_height):
-    return first_bounce_height / starting_height
+    if first_bounce_height <= 0:
+        return 0.0
+    else:
+        return first_bounce_height / starting_height
 
 def calculate_total_distance(bounciness_index, num_bounces):
     total_distance = 0
@@ -22,11 +25,4 @@ if __name__ == "__main__":
     main()
 [/PYTHON]
 (Note: The code has been formatted for better readability)
-``` 
-Modify the code as  The issue is with the indentation of the `return` statement in the `calculate_bounciness_index` function. The `return` statement should be indented to match the level of the `def` statement, not the level of the `for` loop.
-
-Here's the corrected code:
 ```
-def calculate_bounciness_index(starting_height, first_bounce_height):
-    return first_bounce_height / starting_height
-```.
