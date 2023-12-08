@@ -29,7 +29,7 @@ def calculate_bowling_score(bowls):
                     score += frames[i+1][0] + frames[i+1][1]
             elif sum(frame) == 10:
                 score += frames[i+1][0]
-
+    
     if len(frames) >= 10:
         frame_10 = frames[9]
         score += sum(frame_10)
