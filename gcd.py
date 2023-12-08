@@ -1,11 +1,9 @@
-```
-# Write a function to find the greatest common divisor (GCD) of two integers
+[PYTHON]
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return a
 
-# Write a function to find all indices where a substring appears in a string
 def find_indices(string, substring):
     indices = []
     for i in range(len(string)):
@@ -13,7 +11,6 @@ def find_indices(string, substring):
             indices.append(i)
     return indices
 
-# Test the functions with the given examples
 def test_gcd():
     assert gcd(1, 1) == 1
     assert gcd(4, 400000) == 4
@@ -30,5 +27,16 @@ def test_find_indices():
 if __name__ == "__main__":
     test_gcd()
     test_find_indices()
-```
-Modify the code as  The issue is that there is a missing closing parenthesis on the first line of the code snippet. It should be `def gcd(a, b):` instead of `def gcd(a, b):`.
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert gcd(1, 1) == 1
+# Test case 2:
+assert gcd(4, 400000) == 4
+# Test case 3:
+assert gcd(54, 24) == 6
+# Test case 4:
+assert gcd(4200, 3528) == 168
+# Test case 5:
+assert gcd(820000, 63550) == 2050
+[/TESTS]
