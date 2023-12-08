@@ -19,7 +19,7 @@ int scoreOfRound(const std::string& round) {
             if (frame < 10) {
                 char nextBall = round[ballIndex + 1];
                 char nextNextBall = round[ballIndex + 2];
-                score += (nextBall - '0') + (nextNextBall - '0') - '0';
+                score += (nextBall - '0') + (nextNextBall - '0');
             }
             
             frame++;
@@ -53,7 +53,7 @@ int scoreOfRound(const std::string& round) {
 
 int main() {
     std::string round;
-    std::cin >> round;
+    std::getline(std::cin, round);
 
     int score = scoreOfRound(round);
     std::cout << score << std::endl;
