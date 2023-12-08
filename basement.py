@@ -1,11 +1,17 @@
-n = int(input())
-arr = list(map(int, input().split()))
+```python
+def find_first_negative_index(nums):
+    sum_so_far = 0
+    for i in range(len(nums)):
+        sum_so_far += nums[i]
+        if sum_so_far < 0:
+            return i
+    return -1
 
-prefix_sum = 0
-for i in range(len(arr)):
-    prefix_sum += arr[i]
-    if prefix_sum < 0:
-        print(i)
-        break
-else:
-    print(-1)
+n = int(input())
+nums = []
+for _ in range(n):
+    nums.append(int(input()))
+
+result = find_first_negative_index(nums)
+print(result)
+```
