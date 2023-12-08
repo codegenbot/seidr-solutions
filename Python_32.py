@@ -1,11 +1,12 @@
-```
+
 def find_zero(xs):
-   x = int(input("Enter a number: "))
-    try:
-        i = xs.index(x)
-    except ValueError:
-        print("No zero found")
-        return None
+    # Read input from user
+    num = int(input("Enter a number: "))
     
-    return f"The first occurrence of {x} is at index {i}"
-```
+    # Find zero in the list
+    for i in range(len(xs)):
+        if xs[i] == 0:
+            return i
+    
+    # If no zero is found, return -1
+    return -1
