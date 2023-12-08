@@ -19,12 +19,10 @@ std::vector<int> findPair(const std::vector<int>& nums, int target) {
 
 int main() {
     int target;
-    std::cout << "Enter the target integer: ";
     std::cin >> target;
 
     int num;
     std::vector<int> nums;
-    std::cout << "Enter the integers (separated by spaces, -1 to end input): ";
     while (std::cin >> num && num != -1) {
         nums.push_back(num);
     }
