@@ -1,4 +1,5 @@
-```
+
+```python
 import re
 
 def separate_paren_groups(paren_string):
