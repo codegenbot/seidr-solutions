@@ -3,7 +3,7 @@
 #include <vector>
 #include <unordered_set>
 
-std::vector<int> findPair(std::vector<int>& nums, int target) {
+std::vector<int> findPair(const std::vector<int>& nums, int target) {
     std::unordered_set<int> complement;
     int firstNum = 0;
     for (int num : nums) {
@@ -18,14 +18,24 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
-    std::vector<int> result = findPair(nums, target);
-    if (result.empty()) {
-        std::cout << "Pair not found\n";
-    } else {
-        std::cout << "Pair: " << result[0] << " " << result[1] << "\n";
+    int target;
+    std::cout << "Enter the target integer: ";
+    std::cin >> target;
+
+    int num;
+    std::vector<int> nums;
+    std::cout << "Enter the integers (separated by spaces, -1 to end input): ";
+    while (std::cin >> num && num != -1) {
+        nums.push_back(num);
     }
+
+    std::vector<int> pair = findPair(nums, target);
+    if (pair.empty()) {
+        std::cout << "No pair found\n";
+    } else {
+        std::cout << "Pair: " << pair[0] << " " << pair[1] << "\n";
+    }
+
     return 0;
 }
 ```
