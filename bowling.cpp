@@ -1,4 +1,4 @@
-```cpp
+```
 int getScore(const std::string& frames) {
     int score = 0;
     int frame = 0;
