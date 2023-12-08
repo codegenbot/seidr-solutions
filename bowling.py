@@ -1,5 +1,5 @@
 
-[PYTHON]
+```
 def get_bowling_score(rolls):
     score = 0
     frame = 1
@@ -17,5 +17,4 @@ def get_bowling_score(rolls):
         score += int(rolls[-2]) + int(rolls[-3])
     
     return score
-[/PYTHON]
 ```
