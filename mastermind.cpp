@@ -1,4 +1,11 @@
-```cpp
+#include <iostream>
+#include <string>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::make_pair;
+using std::pair;
+
 pair<int, int> mastermind(std::string code, std::string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -29,4 +36,3 @@ int main() {
     cout << result.second << endl;
     return 0;
 }
-```
