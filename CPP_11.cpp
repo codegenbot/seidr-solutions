@@ -1,9 +1,14 @@
-```
 #include <iostream>
 #include <string>
-#include <bitset>
 
 std::string string_xor(const std::string& a, const std::string& b) {
-    return (std::bitset<8>(a) ^ std::bitset<8>(b)).to_string();
+    std::string result;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] == '1' && b[i] == '1') {
+            result += "1";
+        } else {
+            result += "0";
+        }
+    }
+    return result;
 }
-```
