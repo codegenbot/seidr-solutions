@@ -18,5 +18,4 @@ assert bouncing_balls(15.319, 5.635, 1) == 20.954
 # Test case 5:
 assert bouncing_balls(2.176, 1.787, 1) == 3.963
 [/TESTS]
-
 ```
