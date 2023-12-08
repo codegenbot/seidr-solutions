@@ -17,14 +17,14 @@ int scoreOfRound(const std::string& round) {
             score += 10;
             
             if (frame < 9) {
-                char nextBall = round.at(ballIndex + 1);
+                char nextBall = round[ballIndex + 1];
 
                 if (nextBall == 'X') {
-                    char nextNextBall = round.at(ballIndex + 2);
-                    char nextNextNextBall = round.at(ballIndex + 3);
+                    char nextNextBall = round[ballIndex + 2];
+                    char nextNextNextBall = round[ballIndex + 3];
                     score += 10 + (nextNextBall == 'X' ? 10 : (nextNextBall - '0')) + (nextNextNextBall == 'X' ? 10 : (nextNextNextBall - '0'));
                 } else {
-                    char nextNextBall = round.at(ballIndex + 2);
+                    char nextNextBall = round[ballIndex + 2];
                     score += (nextBall - '0') + (nextNextBall == '/' ? (10 - (nextBall - '0')) : (nextNextBall - '0'));
                 }
             }
@@ -34,7 +34,7 @@ int scoreOfRound(const std::string& round) {
             score += (10 - ballsRemaining);
             
             if (frame < 10) {
-                char nextBall = round.at(ballIndex + 1);
+                char nextBall = round[ballIndex + 1];
                 score += (nextBall - '0');
                 ballsRemaining = 10;
             }
@@ -60,7 +60,7 @@ int scoreOfRound(const std::string& round) {
 
 int main() {
     std::string round;
-    std::cin >> round;
+    getline(std::cin, round);
 
     int score = scoreOfRound(round);
     std::cout << score << std::endl;
