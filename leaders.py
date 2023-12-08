@@ -1,3 +1,4 @@
+```python
 def find_leaders(vector):
     num_of_elements = len(vector)
     leaders = [vector[num_of_elements - 1]]
@@ -12,3 +13,4 @@ vector = list(map(int, input().split()))
 result = find_leaders(vector)
 for num in result:
     print(num)
+```
