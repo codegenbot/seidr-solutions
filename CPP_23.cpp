@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -13,4 +12,3 @@ int main() {
     std::cout << "Length of the string is: " << strlen(input) << std::endl;
     return 0;
 }
-```
