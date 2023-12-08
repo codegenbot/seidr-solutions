@@ -1,16 +1,16 @@
-```cpp
 #include <vector>
-#include <unordered_map>
+#include <unordered_set>
 
 std::vector<int> findPair(std::vector<int>& nums, int target) {
-    std::unordered_map<int, int> complement;
-    for (int i = 0; i < nums.size(); i++) {
-        int complementNum = target - nums[i];
+    std::unordered_set<int> complement;
+    int firstNum = 0;
+    for (int num : nums) {
+        int complementNum = target - num;
         if (complement.count(complementNum)) {
-            return { complement[complementNum], i };
+            return { firstNum, complementNum };
         }
-        complement[nums[i]] = i;
+        complement.insert(num);
+        firstNum = num;
     }
     return {};
 }
-```
