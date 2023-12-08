@@ -1,5 +1,5 @@
 ```
-def sort_numbers(numbers: str) -> str:
-   numbers = numbers.split()
-   return " ".join(sorted(numbers))
+def sort_words(words: str) -> str:
+    words = words.split()
+    return " ".join(sorted(words))
 ```
