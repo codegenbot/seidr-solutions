@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,9 +6,7 @@ int main() {
     std::vector<int> digits(16);
 
     for (int i = 0; i < 16; i++) {
-        int digit;
-        std::cin >> digit;
-        digits[i] = digit;
+        std::cin >> digits[i];
     }
 
     int sum = 0;
@@ -27,3 +26,4 @@ int main() {
 
     return 0;
 }
+```
