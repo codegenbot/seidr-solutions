@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     min_diff = float('inf')
     spot = 0
@@ -8,4 +7,3 @@ def cut_vector(vector):
             min_diff = diff
             spot = i
     yield vector[:spot], vector[spot:]
-```
