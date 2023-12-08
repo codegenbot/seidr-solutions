@@ -1,6 +1,4 @@
 
-Sure, here is the modified code:
-```
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -31,4 +29,3 @@ int main() {
 
     return 0;
 }
-```
