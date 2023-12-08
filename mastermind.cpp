@@ -1,14 +1,11 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
-
 using std::cin;
 using std::cout;
 using std::endl;
 using std::make_pair;
 using std::pair;
-using std::min;
 
 pair<int, int> mastermind(std::string code, std::string guess) {
     int whitePegs = 0;
@@ -26,7 +23,7 @@ pair<int, int> mastermind(std::string code, std::string guess) {
     }
 
     for (int i = 0; i < 6; i++) {
-        whitePegs += min(codeCount[i], guessCount[i]);
+        whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
     return make_pair(whitePegs, blackPegs);
@@ -34,7 +31,8 @@ pair<int, int> mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code, guess;
-    cin >> code >> guess;
+    std::getline(cin, code);
+    std::getline(cin, guess);
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
     cout << result.second << endl;
