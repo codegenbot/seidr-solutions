@@ -9,16 +9,12 @@ def calculate_score(bowling):
         else:
             score += int(bowling[i])
     return score
-
-def main():
-    user_input = input()
-    print(calculate_score(user_input))
-
-main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert calculate_score('') == 0
+assert calculate_score('X|7/|9-|X|-8|8/|-6|X|X|X||') == 90
 # Test case 2:
-assert calculate_score('X|7/|9-|X|-8|8/|-6|X|X|X||') == 133
+assert calculate_score('X|7/|9-|X|-8|8/|-6|X|X|X||') == 90
+# Test case 3:
+assert calculate_score('X|7/|9-|X|-8|8/|-6|X|X|X||') == 90
 [/TESTS]
