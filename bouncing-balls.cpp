@@ -1,17 +1,15 @@
+
+```
 #include <iostream>
-#include <iomanip>
 using namespace std;
+#include <iomanip>
 
 double calculateBouncinessIndex(double startingHeight, double heightAfterFirstBounce) {
     return heightAfterFirstBounce / startingHeight;
 }
 
 double calculateTotalDistanceTravelled(int numBounces, double bouncinessIndex) {
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance += bouncinessIndex * (2 ^ i);
-    }
-    return totalDistance;
+    return (bouncinessIndex * (numBounces + 1)) / 2;
 }
 
 int main() {
@@ -26,3 +24,4 @@ int main() {
 
     return 0;
 }
+```
