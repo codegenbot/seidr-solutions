@@ -1,3 +1,4 @@
+
 ```
 int getScore(string input) {
     int score = 0;
