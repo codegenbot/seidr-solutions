@@ -1,4 +1,3 @@
-```python
 def find_first_negative_index(nums):
     sum_so_far = 0
     for i in range(len(nums)):
@@ -8,10 +7,7 @@ def find_first_negative_index(nums):
     return -1
 
 n = int(input())
-nums = []
-for _ in range(n):
-    nums.append(int(input()))
+nums = [int(input()) for _ in range(n)]
 
 result = find_first_negative_index(nums)
 print(result)
-```
