@@ -1,4 +1,4 @@
-```c++
+```
 #include <string>
 
 int findIndices(string text, string target) {
@@ -17,4 +17,5 @@ int findIndices(string text, string target) {
     }
     return indices;
 }
+```
 ```
