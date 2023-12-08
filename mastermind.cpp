@@ -1,3 +1,5 @@
+I have made the necessary modifications to the code. Here is the updated version:
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -7,18 +9,18 @@ using std::endl;
 using std::make_pair;
 using std::pair;
 
-pair<int, int> mastermind(std::string code, std::string guess) {
+pair<int, int> mastermind(char code[], char guess[]) {
     int whitePegs = 0;
     int blackPegs = 0;
-    int codeCount[6] = {0, 0, 0, 0, 0, 0};
-    int guessCount[6] = {0, 0, 0, 0, 0, 0};
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - 'a']++;
-            guessCount[guess[i] - 'a']++;
+            codeCount[code[i] - '0']++;
+            guessCount[guess[i] - '0']++;
         }
     }
 
@@ -30,7 +32,7 @@ pair<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code, guess;
+    char code[5], guess[5];
     cin >> code >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;

@@ -7,7 +7,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
     size_t n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
-    for (size_t i = 1; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 

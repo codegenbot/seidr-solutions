@@ -1,5 +1,8 @@
 ```python
 def middle_character(s):
-    middle = len(s) // 2
-    return s[middle] if len(s) % 2 == 1 else s[middle-1:middle+1]
+    length = len(s)
+    if length % 2 == 1:
+        return s[length // 2]
+    else:
+        return s[length // 2 - 1:length // 2 + 1]
 ```
