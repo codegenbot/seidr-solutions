@@ -1,15 +1,9 @@
-I have made the necessary modifications to the code. Here is the updated version:
-
 ```cpp
 #include <iostream>
 #include <string>
-using std::cin;
-using std::cout;
-using std::endl;
-using std::make_pair;
-using std::pair;
+#include <algorithm>
 
-pair<int, int> mastermind(char code[], char guess[]) {
+std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     int codeCount[6] = {0};
@@ -19,8 +13,8 @@ pair<int, int> mastermind(char code[], char guess[]) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - '0']++;
-            guessCount[guess[i] - '0']++;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
 
@@ -28,15 +22,15 @@ pair<int, int> mastermind(char code[], char guess[]) {
         whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
-    return make_pair(whitePegs, blackPegs);
+    return std::make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    char code[5], guess[5];
-    cin >> code >> guess;
-    pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    std::string code, guess;
+    std::cin >> code >> guess;
+    std::pair<int, int> result = mastermind(code, guess);
+    std::cout << result.first << std::endl;
+    std::cout << result.second << std::endl;
     return 0;
 }
 ```
