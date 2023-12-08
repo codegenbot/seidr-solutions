@@ -14,4 +14,3 @@ assert find_pair([1, 2, 3, 4, 5], 8) == [3, 5]
 # Test case 3:
 assert find_pair([1, 2, 3, 4, 5], 9) == [4, 5]
 [/TESTS]
-```
