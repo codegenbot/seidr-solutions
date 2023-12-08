@@ -1,13 +1,18 @@
 def find_leaders(arr):
     leaders = []
-    n = len(arr)
-    max_right = arr[n - 1]
-
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= max_right:
-            max_right = arr[i]
-            if arr[i] not in leaders:
-                leaders.append(arr[i])
-
+    max_right = arr[-1]
     leaders.append(max_right)
-    return leaders[::-1]
+    for i in range(len(arr)-2, -1, -1):
+        if arr[i] >= max_right:
+            leaders.append(arr[i])
+            max_right = arr[i]
+    return leaders
+
+n = int(input())
+arr = []
+for i in range(n):
+    arr.append(int(input()))
+
+result = find_leaders(arr)
+for num in result:
+    print(num)
