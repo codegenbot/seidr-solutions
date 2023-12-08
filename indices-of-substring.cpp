@@ -1,15 +1,16 @@
 ```
 #include <string>
 #include <vector>
+#include <optional>
 
-std::vector<int> findIndices(std::string text, std::string target) {
+std::vector<std::optional<int>> findIndices(std::string text, std::string target) {
     int count = 0;
-    std::vector<int> indices;
+    std::vector<std::optional<int>> indices;
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == target[count]) {
             count++;
             if (count == target.length()) {
-                indices.push_back(i - count + 1);
+                indices.push_back(std::make_optional(i - count + 1));
                 count = 0;
             }
         } else {
@@ -18,5 +19,4 @@ std::vector<int> findIndices(std::string text, std::string target) {
     }
     return indices;
 }
-```
 ```
