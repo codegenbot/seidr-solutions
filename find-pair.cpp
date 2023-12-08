@@ -4,29 +4,39 @@
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
-    unordered_set<int> complement;
+    vector<int> result;
+    unordered_set<int> seen;
+
     for (int num : nums) {
-        int complementNum = target - num;
-        if (complement.count(complementNum)) {
-            return {num, complementNum};
+        int complement = target - num;
+        if (seen.count(complement)) {
+            result.push_back(num);
+            result.push_back(complement);
+            break;
         }
-        complement.insert(num);
+        seen.insert(num);
     }
-    return {};
+
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
+
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
+
     int target;
     cin >> target;
+
     vector<int> pair = findPair(nums, target);
+
     for (int num : pair) {
         cout << num << endl;
     }
+
     return 0;
 }
