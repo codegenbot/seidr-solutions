@@ -21,3 +21,11 @@ def cut_vector(vector):
     right_subvector = vector[cut_index:]
     
     return left_subvector, right_subvector
+
+
+# Test cases
+print(cut_vector([1, 0]))
+print(cut_vector([1, 10]))
+print(cut_vector([1, 100]))
+print(cut_vector([1, 1000]))
+print(cut_vector([1, 10000]))
