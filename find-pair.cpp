@@ -1,3 +1,6 @@
+```cpp
+#include <vector>
+
 vector<int> findPair(vector<int>& nums, int target) {
     unordered_set<int> complement;
     int firstNum = 0;
@@ -11,3 +14,4 @@ vector<int> findPair(vector<int>& nums, int target) {
     }
     return {};
 }
+```
