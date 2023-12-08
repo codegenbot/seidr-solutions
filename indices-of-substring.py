@@ -1,6 +1,12 @@
-text = input()
+text = input() 
 target = input()
 
-indices = [i for i in range(1, len(text) - len(target) + 2) if text[i-1:i+len(target)-1] == target]
+indices = []
+start = 0
+
+while start <= len(text) - len(target):
+    if text[start:start+len(target)] == target or text[start:start+len(target)] == target[::-1] or text[start:start+len(target)][::-1] == target:
+        indices.append(start)
+    start += 1
 
 print(' '.join(map(str, indices)))
