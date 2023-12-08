@@ -31,8 +31,7 @@ pair<int, int> mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code, guess;
-    std::getline(cin, code);
-    std::getline(cin, guess);
+    cin >> code >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
     cout << result.second << endl;
