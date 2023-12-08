@@ -1,3 +1,4 @@
+
 [PYTHON]
 def calculate_bounciness_index(starting_height, first_bounce_height):
     return first_bounce_height / starting_height
@@ -20,5 +21,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-[/PYTHON]
-[INST: What is the purpose of the `calculate_total_distance` function?]  The purpose of the `calculate_total_distance` function is to calculate the total distance traveled by a ball that has been dropped and has bounced multiple times. The function takes two arguments: `bounciness_index`, which is the ratio of the height of the first bounce to the starting height, and `num_bounces`, which is the number of times the ball has bounced. The function uses these values to calculate the total distance traveled by the ball.
