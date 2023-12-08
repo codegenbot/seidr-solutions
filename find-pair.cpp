@@ -1,15 +1,26 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
 
-std::vector<int> find_pair(const std::vector<int>& nums, int target) {
-    for (auto it1 = nums.begin(); it1 != nums.end(); ++it1) {
-        for (auto it2 = it1 + 1; it2 != nums.end(); ++it2) {
-            if (*it1 + *it2 == target) {
-                return {*it1, *it2};
+vector<int> findPair(vector<int>& nums, int target) {
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target) {
+                result.push_back(nums[i]);
+                result.push_back(nums[j]);
+                return result;
             }
         }
     }
-    return {};
+    return result;
 }
-```
