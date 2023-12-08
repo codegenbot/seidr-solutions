@@ -1,3 +1,4 @@
+
 ```python
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if len(numbers) == 0:
