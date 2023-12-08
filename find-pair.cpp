@@ -1,24 +1,38 @@
+```
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
-int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 6;
-    vector<int> result = findPair(nums, target);
-    for (auto x : result) {
-        cout << x << " ";
+void findPair(vector<int>& nums, int target) {
+    for (int i = 0; i < nums.size(); ++i) {
+        for (int j = i + 1; j < nums.size(); ++j) {
+            if (nums[i] + nums[j] == target) {
+                cout << nums[i] << " " << nums[j] << endl;
+                return;
+            }
+        }
     }
-    return 0;
+}
+
+int main() {
+    vector<int> nums = {5, 7};
+    int target = 12;
+    findPair(nums, target);
+
+    nums = {2500, 6352};
+    target = 8852;
+    findPair(nums, target);
+
+    nums = {-14, 5};
+    target = -9;
+    findPair(nums, target);
+
+    nums = {40, -19};
+    target = 21;
+    findPair(nums, target);
+
+    nums = {-4, 4};
+    target = 0;
+    findPair(nums, target);
 }
 ```
-This code defines a `main` function that initializes the input vector and target value, calls the `findPair` function to find the two elements that sum to the target, and then prints the result.
