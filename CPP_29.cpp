@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -29,3 +30,4 @@ int main() {
     cout << "All test cases passed!";
     return 0;
 }
+```
