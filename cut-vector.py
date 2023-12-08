@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     min_diff = math.inf
     spot = 0
@@ -10,3 +11,4 @@ def cut_vector(vector):
         elif diff == min_diff:
             spots.append(i)
     return [vector[:spot] for spot in spots], [vector[spot:] for spot in spots]
+```
