@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
+
 using namespace std;
 
-double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
-    double bouncinessIndex = firstBounceHeight / startingHeight;
+double calculateDistance(double startingHeight, double bouncinessIndex, int numBounces) {
     double totalDistance = 0;
     double height = startingHeight;
     
@@ -22,7 +23,6 @@ int main() {
     
     cin >> startingHeight >> firstBounceHeight >> numBounces;
     
-    // Calculate bouncinessIndex and round to 15 decimal places
     double bouncinessIndex = static_cast<double>(static_cast<long>(firstBounceHeight * 1000000000000000.0 / startingHeight)) / 1000000000000000.0;
     double distance = calculateDistance(startingHeight, bouncinessIndex, numBounces);
     
@@ -30,3 +30,4 @@ int main() {
     
     return 0;
 }
+```
