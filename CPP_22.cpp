@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-vector<int> filter_integers(list<int> values) {
+vector<int> filter_integers(std::list<boost::any> values) {
     vector<int> result;
     for (auto& value : values) {
         if (value.type() == typeid(int)) {
@@ -14,4 +14,10 @@ vector<int> filter_integers(list<int> values) {
     }
     return result;
 }
-```
+``` 
+Modify the code as  The issue is that the compiler cannot find the `boost/any.hpp` header file, which is required for using the `boost::any` class. To fix this, you can either:
+
+1. Install the Boost library on your system and add its include directory to your project's include path.
+2. Replace the use of `boost::any` with a different data type that does not require an external library, such as `std::variant`.
+3. Use a different approach altogether, such as using a vector of integers instead of a list of boost::any objects..
+You must only return correct code. Remove any triple quotes, language name or explanations. 
