@@ -1,4 +1,4 @@
-def separate_paren_groups(paren_string: str) -> list:
+def separate_paren_groups(paren_string: str) -> list[str]:
     groups = []
     i = 0
     while i < len(paren_string):
