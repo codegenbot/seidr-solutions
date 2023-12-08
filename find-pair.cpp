@@ -16,3 +16,5 @@ assert find_pair([1, 2, 3, 4, 5], 9) == [4, 5]
 [/TESTS]
 
 ```
+
+The code is now valid C++.
