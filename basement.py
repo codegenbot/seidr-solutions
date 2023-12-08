@@ -7,7 +7,9 @@ def find_first_negative_index(nums):
     return -1
 
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+nums = []
+for _ in range(n):
+    nums.append(int(input()))
 
 result = find_first_negative_index(nums)
 print(result)
