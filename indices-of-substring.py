@@ -4,7 +4,7 @@ target = input()
 indices = []
 
 for i in range(len(text) - len(target) + 1):
-    if target in text[i:i+len(target)]:
+    if text[i:i+len(target)].startswith(target):
         indices.append(i)
 
 print(' '.join(map(str, indices)))
