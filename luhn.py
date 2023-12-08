@@ -1,3 +1,5 @@
+The modified code is below:
+
 ```python
 def luhn_algorithm(digits):
     new_digits = []
@@ -13,7 +15,6 @@ def luhn_algorithm(digits):
 
 n = int(input())
 digits = list(map(int, input().split()))
-
 result = luhn_algorithm(digits)
 print(result)
 ```
