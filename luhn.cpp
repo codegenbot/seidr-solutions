@@ -1,6 +1,5 @@
-#include <vector>
 #include <iostream>
-#include <ostream>
+#include <vector>
 
 int main() {
     std::vector<int> digits;
