@@ -1,4 +1,3 @@
-```python
 import math
 
 starting_height = float(input())
@@ -15,4 +14,3 @@ for _ in range(num_bounces):
 total_distance -= starting_height
 
 print(total_distance)
-```
