@@ -3,17 +3,17 @@
 #include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
-    int n = nums.size();
+    size_t n = nums.size();
     int leftSum = 0, rightSum = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = abs(leftSum - rightSum);
-    int cutIndex = 0;
+    size_t cutIndex = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
         int diff = abs(leftSum - rightSum);
