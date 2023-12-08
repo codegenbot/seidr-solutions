@@ -1,6 +1,9 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <utility>
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -17,8 +20,8 @@ pair<int, int> mastermind(std::string code, std::string guess) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - 'a']++;
-            guessCount[guess[i] - 'a']++;
+            codeCount[code[i] - 'a'] += 1;
+            guessCount[guess[i] - 'a'] += 1;
         }
     }
 
@@ -31,8 +34,7 @@ pair<int, int> mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code, guess;
-    getline(cin, code);
-    getline(cin, guess);
+    cin >> code >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
     cout << result.second << endl;
