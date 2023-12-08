@@ -3,7 +3,7 @@
 #include <vector>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-  std::vector<int> indices;
+  std::vector<int> indices{};
   int n = text.length();
   int m = target.length();
 
@@ -24,8 +24,8 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
 int main() {
   std::string text, target;
-  std::getline(std::cin, text);
-  std::getline(std::cin, target);
+  getline(std::cin, text);
+  getline(std::cin, target);
 
   std::vector<int> result = indicesOfSubstring(text, target);
 
