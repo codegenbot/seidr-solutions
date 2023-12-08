@@ -6,7 +6,7 @@ int main() {
     std::vector<int> digits;
 
     for (int i = 0; i < 16; i++) {
-        int digit;
+        char digit;
         std::cin >> digit;
         digits.push_back(digit - '0');
     }
