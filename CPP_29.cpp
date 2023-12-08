@@ -3,10 +3,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> /*_*/) {
-    // Implementation here if needed
-}
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filtered_strings;
     for (string s : strings) {
@@ -18,8 +14,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
-
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
     return 0;
 }
 ```
