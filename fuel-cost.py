@@ -1,5 +1,11 @@
-```python
-nums = [int(num) for num in input().split()]
-total = sum(num // 3 - 2 for num in nums)
+nums = []
+
+while True:
+    try:
+        num = int(input())
+        nums.append(num)
+    except:
+        break
+
+total = sum([(num - 2) // 3 for num in nums])
 print(total)
-```
