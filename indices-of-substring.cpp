@@ -1,5 +1,7 @@
+```
 #include <string>
 #include <vector>
+
 int findIndices(std::string text, std::string target) {
     int count = 0;
     std::vector<int> indices;
@@ -16,3 +18,4 @@ int findIndices(std::string text, std::string target) {
     }
     return indices;
 }
+```
