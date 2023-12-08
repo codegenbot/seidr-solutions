@@ -1,4 +1,3 @@
-```python
 def find_first_negative_index(nums):
     sum_so_far = 0
     for i in range(len(nums)):
@@ -11,4 +10,3 @@ nums = list(map(int, input().split()))
 
 result = find_first_negative_index(nums)
 print(result)
-```
