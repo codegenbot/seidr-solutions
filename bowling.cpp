@@ -1,4 +1,4 @@
-
+```
 #include <string>
 #include <iostream>
 #include <cmath>
@@ -18,7 +18,8 @@ int calculateScore(string bowling) {
 }
 int main() {
     string bowling;
-    cin >> "736704bd-8d33-4602-8027-3bf6d94dfe1f.cpp";
+    cin >> bowling;
     cout << calculateScore(bowling) << endl;
     return 0;
 }
+```
