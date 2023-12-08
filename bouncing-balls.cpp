@@ -1,10 +1,10 @@
 ```cpp
-#include <iostream>
 #include <iomanip>
+#include <iostream>
+
 using namespace std;
 
-double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
-    double bouncinessIndex = firstBounceHeight / startingHeight;
+double calculateDistance(double startingHeight, double bouncinessIndex, int numBounces) {
     double totalDistance = 0;
     double height = startingHeight;
 
@@ -23,8 +23,7 @@ int main() {
 
     cin >> startingHeight >> firstBounceHeight >> numBounces;
 
-    // Calculate bouncinessIndex and round to 15 significant figures
-    double bouncinessIndex = round(firstBounceHeight * 1000000000000000.0) / (startingHeight * 1000000000000000.0);
+    double bouncinessIndex = static_cast<double>(static_cast<long>(firstBounceHeight * 1000000000000000.0 / startingHeight)) / 1000000000000000.0;
     double distance = calculateDistance(startingHeight, bouncinessIndex, numBounces);
 
     cout << fixed << setprecision(15) << distance << endl;
