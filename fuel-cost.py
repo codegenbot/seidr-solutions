@@ -1,8 +1,11 @@
-def calculate_fuel_cost(numbers):
-    total_fuel_cost = sum(num // 3 - 2 for num in numbers)
-    return total_fuel_cost
+nums = []
 
+while True:
+    try:
+        num = int(input())
+        nums.append(num)
+    except:
+        break
 
-numbers = [int(x) for x in input().split()]
-result = calculate_fuel_cost(numbers)
-print(result)
+total = sum([max(0, num//3 - 2) for num in nums])
+print(total)
