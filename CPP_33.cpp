@@ -1,11 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<int> result = "";
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 != 0) {
             result.push_back(l[i]);
@@ -16,4 +15,3 @@ vector<int> sort_third(vector<int> l) {
     }
     return result;
 }
-```
