@@ -1,44 +1,36 @@
-```
 #include <iostream>
 #include <vector>
 
 int main() {
-    std::vector<int> vec;
+    // Your code here
+    
     int n;
-    while (std::cin >> n) {
-        vec.push_back(n);
+    std::cin >> n;
+    std::vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> vec[i];
     }
-    int left = 0, right = vec.size() - 1;
-    while (left < right) {
-        if (vec[left] == vec[right]) {
-            break;
-        }
-        int diff = abs(vec[left] - vec[right]);
-        if (diff <= 1) {
-            left++;
-            right--;
-        } else {
-            std::cout << "No solution" << std::endl;
-            return 0;
+    
+    // Find the spot where, if you cut the vector, the numbers on both sides are either equal, or the difference is as small as possible.
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
+    for (int i = 1; i < n - 1; i++) {
+        if (std::abs(vec[i] - vec[i - 1]) < std::abs(minDiff)) {
+            minDiff = std::abs(vec[i] - vec[i - 1]);
+            splitIndex = i;
         }
     }
-    std::vector<int> subvec1, subvec2;
-    for (int i = 0; i < left; i++) {
-        subvec1.push_back(vec[i]);
+    
+    // Return the two resulting subvectors as two outputs.
+    std::vector<int> leftSubvector(splitIndex);
+    for (int i = 0; i < splitIndex; i++) {
+        leftSubvector[i] = vec[i];
     }
-    for (int i = right + 1; i < vec.size(); i++) {
-        subvec2.push_back(vec[i]);
+    
+    std::vector<int> rightSubvector(n - splitIndex);
+    for (int i = 0; i < n - splitIndex; i++) {
+        rightSubvector[i] = vec[i + splitIndex];
     }
-    std::cout << "Subvector 1: ";
-    for (auto it : subvec1) {
-        std::cout << it << " ";
-    }
-    std::cout << std::endl;
-    std::cout << "Subvector 2: ";
-    for (auto it : subvec2) {
-        std::cout << it << " ";
-    }
-    std::cout << std::endl;
-    return 0;
+    
+    return {leftSubvector, rightSubvector};
 }
-```
