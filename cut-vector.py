@@ -1,16 +1,11 @@
 def cut_vector(vector):
-    # Find the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible.
-    n = len(vector)
-    dp = [[0] * (n + 1) for _ in range(n + 1)]
-    for i in range(1, n + 1):
-        for j in range(i + 1, n + 1):
-            dp[i][j] = min(dp[i][k] + dp[k][j] for k in range(i, j))
-    return dp[1][n]
-
-def main():
-    vector = [int(x) for x in input().split()]
-    result = cut_vector(vector)
-    print(*result)
-
-if __name__ == "__main__":
-    main()
+    # Find the spot where the difference between the numbers on both sides is as small as possible
+    min_diff = float('inf')
+    for i in range(1, len(vector)):
+        diff = abs(vector[i] - vector[i-1])
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    
+    # Return the two resulting subvectors as two outputs
+    return vector[:cut_index], vector[cut_index:]
