@@ -5,4 +5,4 @@ def find_leaders(vector):
         if vector[i] >= max_value:
             max_value = vector[i]
             leaders.append(max_value)
-    return leaders
+    return leaders[::-1]
