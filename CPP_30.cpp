@@ -1,8 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 
-std::vector<float> get_positive(const std::vector<float>& l) {
+std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> positive;
     for (auto i : l) {
         if (i > 0) {
@@ -12,7 +11,7 @@ std::vector<float> get_positive(const std::vector<float>& l) {
     return positive;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -39,4 +38,3 @@ int main() {
     }
     return 0;
 }
-```
