@@ -1,5 +1,5 @@
-```
-def remove_duplicates(numbers: list[int]) -> list[int]:
+
+def remove_duplicates(numbers: List[int]) -> List[int]:
     unique_elements = set()
     result = []
     for num in numbers:
@@ -7,4 +7,3 @@ def remove_duplicates(numbers: list[int]) -> list[int]:
             unique_elements.add(num)
             result.append(num)
     return result
-```
