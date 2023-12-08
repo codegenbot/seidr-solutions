@@ -1,4 +1,3 @@
-
 def cut_vector(vector):
     min_diff = math.inf
     spot = 0
@@ -7,4 +6,4 @@ def cut_vector(vector):
         if diff < min_diff:
             min_diff = diff
             spot = i
-    return vector[:spot], vector[spot:]
+    return (vector[:spot], vector[spot:])
