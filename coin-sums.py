@@ -12,8 +12,7 @@ def main():
     counts = get_coin_sums(cents)
     print("The fewest number of US coins needed to make", cents, "is:")
     for i in range(len(counts)):
-        if counts[i] > 0:
-            print(counts[i], "coin(s) of", coins[i])
+        print("Coin type", i+1, ":", counts[i])
 
 if __name__ == "__main__":
     main()
