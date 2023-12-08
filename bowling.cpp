@@ -1,3 +1,6 @@
+
+Sure, here is a possible solution:
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -26,3 +29,4 @@ int main() {
     cout << getScore(input) << endl;
     return 0;
 }
+```
