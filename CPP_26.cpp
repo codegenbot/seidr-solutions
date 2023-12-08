@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,4 +12,3 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
     return result;
 }
-```
