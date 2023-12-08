@@ -6,5 +6,3 @@ def find_pair(nums, target):
                 return nums[i], nums[j]
     return None, None
 [/PYTHON]
-
-```
