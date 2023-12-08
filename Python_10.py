@@ -1,3 +1,4 @@
+```
 def make_palindrome(string: str) -> str:
     # Find the longest postfix of supplied string that is a palindrome
     suffix = string[::-1]
@@ -9,3 +10,4 @@ def make_palindrome(string: str) -> str:
     
     # Append to the end of the string reverse of a string prefix that comes before the palindromic suffix
     return string + suffix[i:][::-1]
+```
