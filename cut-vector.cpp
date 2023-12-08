@@ -24,7 +24,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
             cutIndex = i;
         }
     }
-
+  
     std::vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
     std::vector<int> right(nums.begin() + cutIndex + 1, nums.end());
 
