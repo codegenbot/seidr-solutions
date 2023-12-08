@@ -1,16 +1,13 @@
-```cpp
-#include <iostream>
-#include <string>
-
+```
 int getScore(const std::string& frames) {
     int score = 0;
     int frame = 0;
-    
+
     for (int i = 0; i < frames.size(); i++) {
-        if (frame == 10) {
+        if (frame == 9) {
             break;
         }
-        
+
         if (frames[i] == 'X') {
             score += 10;
             if (i + 2 < frames.size()) {
@@ -19,7 +16,7 @@ int getScore(const std::string& frames) {
                 } else if (frames[i + 2] == '/') {
                     score += 10 - (frames[i + 1] - '0');
                 } else {
-                    score += (frames[i + 1] - '0') + (frames[i + 2] - '0');
+                    score += frames[i + 1] - '0' + frames[i + 2] - '0';
                 }
             }
             frame++;
@@ -35,20 +32,15 @@ int getScore(const std::string& frames) {
             frame++;
         } else {
             score += frames[i] - '0';
+
+            if (frame > 0 && frames[i - 1] == '/') {
+                score += frames[i] - '0';
+            }
+
             frame++;
         }
     }
-    
-    return score;
-}
 
-int main() {
-    std::string frames;
-    std::cin >> frames;
-    
-    int score = getScore(frames);
-    std::cout << score << std::endl;
-    
-    return 0;
+    return score;
 }
 ```
