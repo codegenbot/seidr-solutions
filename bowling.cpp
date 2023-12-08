@@ -43,7 +43,7 @@ int scoreOfRound(const std::string& round) {
         } else if (c == '-') {
             ballsRemaining--;
         } else {
-            score += (c - '0');
+            score += (c - '0') + '0';
             ballsRemaining--;
             
             if (ballsRemaining == 0) {
@@ -60,11 +60,10 @@ int scoreOfRound(const std::string& round) {
 
 int main() {
     std::string round;
-    std::cout << "Enter the round: ";
     std::cin >> round;
 
     int score = scoreOfRound(round);
-    std::cout << "Score: " << score << std::endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
