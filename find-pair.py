@@ -1,4 +1,3 @@
-
 ```
 def find_pair(nums, target):
     for i in range(len(nums)):
