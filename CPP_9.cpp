@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -15,4 +14,3 @@ vector<int> rolling_max(vector<int> numbers) {
     }
     return result;
 }
-```
