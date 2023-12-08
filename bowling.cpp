@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <string>
+
 int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 1;
@@ -46,3 +50,15 @@ int scoreOfRound(const std::string& round) {
 
     return score;
 }
+
+int main() {
+    std::string round;
+    std::cout << "Enter the round: ";
+    std::cin >> round;
+
+    int score = scoreOfRound(round);
+    std::cout << "Score: " << score << std::endl;
+
+    return 0;
+}
+```
