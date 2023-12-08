@@ -1,52 +1,67 @@
+```c++
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& frames) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
-    int frame = 0;
-    
-    for (int i = 0; i < frames.size(); i++) {
-        if (frame == 10) {
+    int frame = 1;
+    int ballIndex = 0;
+    int ballsRemaining = 10;
+
+    for (char c : round) {
+        if (frame > 10) {
             break;
         }
         
-        if (frames[i] == 'X') {
+        if (c == 'X') {
             score += 10;
-            if (i + 2 < frames.size()) {
-                if (frames[i + 2] == 'X') {
-                    score += 10;
-                } else if (frames[i + 2] == '/') {
-                    score += 10 - (frames[i + 1] - '0');
-                } else {
-                    score += frames[i + 1] - '0' + frames[i + 2] - '0';
+            
+            if (frame < 10) {
+                if (ballsRemaining < 10) {
+                    score += 10 - ballsRemaining;
                 }
-            }
-            frame++;
-        } else if (frames[i] == '/') {
-            score += 10 - (frames[i - 1] - '0');
-            if (i + 1 < frames.size()) {
-                if (frames[i + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += frames[i + 1] - '0';
+                ballsRemaining = 10;
+            } else {
+                if (ballsRemaining < 10) {
+                    score += 10 - ballsRemaining;
                 }
+                ballsRemaining = (c == 'X') ? 10 : (10 - ballsRemaining);
             }
+            
             frame++;
+        } else if (c == '/') {
+            score += (10 - ballsRemaining);
+            
+            if (frame < 10) {
+                ballsRemaining = 10;
+            } else {
+                ballsRemaining = 10 - ballsRemaining;
+            }
+            
+            frame++;
+        } else if (c == '-') {
+            ballsRemaining--;
         } else {
-            score += frames[i] - '0';
-            frame++;
+            score += (c - '0');
+            ballsRemaining--;
+            
+            if (ballsRemaining == 0) {
+                frame++;
+                ballsRemaining = 10;
+            }
         }
     }
-    
+
     return score;
 }
 
 int main() {
-    std::string frames;
-    std::cin >> frames;
-    
-    int score = getScore(frames);
+    std::string round;
+    std::cin >> round;
+
+    int score = scoreOfRound(round);
     std::cout << score << std::endl;
-    
+
     return 0;
 }
+```
