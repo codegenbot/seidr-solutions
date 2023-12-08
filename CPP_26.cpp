@@ -1,13 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
-void remove_duplicates(vector<int> &numbers) {
-    auto it = find_if(numbers.begin(), numbers.end(), [](int n){ return count(numbers.begin(), numbers.end(), n) == 1; });
-    if (it != numbers.end()) {
-        numbers.erase(it);
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result;
+    for (int i = 0; i < numbers.size(); i++) {
+        if (count(numbers.begin(), numbers.end(), numbers[i]) == 1) {
+            result.push_back(numbers[i]);
+        }
     }
+    return result;
 }
-```
