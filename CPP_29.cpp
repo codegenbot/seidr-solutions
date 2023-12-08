@@ -1,24 +1,25 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <string>
 
-using namespace std;
+using std::vector;
+using std::string;
+using std::cout;
+using std::endl;
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> filteredStrings(strings.size());
-
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix){
+    vector<string> filteredStrings;
     for(const auto& str : strings){
         if(str.find(prefix) == 0){
             filteredStrings.push_back(str);
         }
     }
-    
     return filteredStrings;
 }
 
@@ -29,4 +30,3 @@ int main() {
 
     return 0;
 }
-```
