@@ -5,6 +5,7 @@ def find_leaders(vector):
         if vector[i] >= max_value:
             max_value = vector[i]
             leaders.append(max_value)
+    leaders.append(vector[-1])
     return leaders
 
 vector = list(map(int, input().split()))
