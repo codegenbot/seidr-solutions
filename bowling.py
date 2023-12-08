@@ -1,13 +1,20 @@
+```python
 def calculate_bowling_score(bowls):
     score = 0
     frame = []
     for bowl in bowls:
         if bowl == 'X':
-            frame.append(10)
             score += 10
+            if len(frame) == 2:
+                score += sum(frame)
+            if len(frame) == 1:
+                score += 10
+                frame.append(10)
+                continue
+            frame = [10]
         elif bowl == '/':
-            score += 10 - frame[-1]
-            frame = []
+            score += 10 - frame[0]
+            frame.append(10 - frame[0])
         elif bowl == '-':
             frame.append(0)
         else:
@@ -17,5 +24,6 @@ def calculate_bowling_score(bowls):
                 frame = []
     return score
 
-bows = input()
-print(calculate_bowling_score(bows))
+bowls = input()
+print(calculate_bowling_score(bowls))
+```
