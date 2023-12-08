@@ -1,5 +1,7 @@
+```
 #include <iostream>
 using namespace std;
+
 int main() {
     int cents, pennies = 0, nickles = 0, dimes = 0, quarters = 0;
     cin >> cents;
@@ -22,3 +24,4 @@ int main() {
     
     return 0;
 }
+```
