@@ -21,7 +21,9 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+
     std::cout << "All test cases passed!" << std::endl;
+
     return 0;
 }
 ```
