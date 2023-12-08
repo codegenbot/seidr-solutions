@@ -21,7 +21,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
   }
 
   return indices;
-} // Add a closing bracket here
+}
 
 int main() {
   std::string text, target;
