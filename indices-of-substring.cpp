@@ -1,5 +1,6 @@
 
-```
+Here is the modified code that includes the necessary header file and resolves the error:
+```c++
 #include <string>
 
 int findIndices(string text, string target) {
