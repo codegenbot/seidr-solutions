@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 #include <iomanip>
@@ -9,17 +10,16 @@ double calculateBouncinessIndex(double startingHeight, double heightAfterFirstBo
 double calculateTotalDistanceTravelled(int numBounces, double bouncinessIndex, double airResistanceCoefficient) {
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (1 - 0.5*airResistanceCoefficient^2) * (bouncinessIndex^(i+1));
+        totalDistance += (1 - 0.5 * airResistanceCoefficient * airResistanceCoefficient) * (bouncinessIndex * (i + 1));
     }
     return totalDistance;
 }
 
 int main() {
-    double startingHeight, heightAfterFirstBounce, bouncinessIndex, totalDistanceTravelled;
+    double startingHeight, heightAfterFirstBounce, bouncinessIndex, airResistanceCoefficient, totalDistanceTravelled;
     int numBounces;
-    double airResistanceCoefficient = 0.5; // Assuming a constant air resistance coefficient of 0.5 for simplicity
 
-    cin >> startingHeight >> heightAfterFirstBounce >> numBounces;
+    cin >> startingHeight >> heightAfterFirstBounce >> numBounces >> airResistanceCoefficient;
     bouncinessIndex = calculateBouncinessIndex(startingHeight, heightAfterFirstBounce);
     totalDistanceTravelled = calculateTotalDistanceTravelled(numBounces, bouncinessIndex, airResistanceCoefficient);
 
@@ -27,3 +27,4 @@ int main() {
 
     return 0;
 }
+```

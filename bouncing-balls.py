@@ -1,4 +1,3 @@
-
 [PYTHON]
 def calculate_bounciness_index(starting_height, first_bounce_height):
     return first_bounce_height / starting_height
@@ -17,11 +16,10 @@ def main():
     bounciness_index = calculate_bounciness_index(starting_height, first_bounce_height)
     total_distance = calculate_total_distance(bounciness_index, num_bounces)
 
-    print(f"The total distance traveled by the ball is: {total_distance}")
+    print("The total distance traveled by the ball is:", total_distance)
 
 if __name__ == "__main__":
     main()
 [/PYTHON]
 
-
-
+(Note that this code only fixes the indentation issue and does not provide any additional functionality or error handling.)
