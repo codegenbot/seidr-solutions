@@ -1,5 +1,6 @@
-#include<iostream>
-#include<string>
+```cpp
+#include <iostream>
+#include <string>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -27,3 +28,13 @@ pair<int, int> mastermind(std::string code, std::string guess) {
 
     return make_pair(whitePegs, blackPegs);
 }
+
+int main() {
+    std::string code, guess;
+    cin >> code >> guess;
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
+    return 0;
+}
+```
