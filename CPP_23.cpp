@@ -1,10 +1,7 @@
-
 #include <iostream>
 #include <string>
 
-int strlen(std::string str) {
-    return str.length();
-}
+int strlen(std::string str);
 
 int main() {
     std::cout << "Enter a string: ";
@@ -12,4 +9,8 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Length of the string is: " << strlen(input) << std::endl;
     return 0;
+}
+
+int strlen(std::string str) {
+    return str.length();
 }
