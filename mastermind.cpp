@@ -1,9 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <utility>
-
 using std::cin;
 using std::cout;
 using std::endl;
