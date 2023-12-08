@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,4 +18,3 @@ int main() {
     std::cout << "Number of distinct characters: " << count << std::endl;
     return 0;
 }
-```
