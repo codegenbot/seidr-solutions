@@ -1,7 +1,6 @@
 ```cpp
-#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <vector>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
     size_t n = nums.size();
@@ -11,7 +10,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
         rightSum += nums[i];
     }
 
-    int minDiff = std::abs(leftSum - rightSum);
+    int minDiff = abs(leftSum - rightSum);
     size_t cutIndex = 0;
 
     for (size_t i = 0; i < n; i++) {
@@ -19,7 +18,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
             leftSum += nums[i + 1];
             rightSum -= nums[i + 1];
         }
-        int diff = std::abs(leftSum - rightSum);
+        int diff = abs(leftSum - rightSum);
 
         if (diff < minDiff) {
             minDiff = diff;
