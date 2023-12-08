@@ -1,10 +1,11 @@
+```
 #include <vector>
 #include <iostream>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
-        float discountedPrice = prices[i] * (1 - discounts[i] / 100);
+        float discountedPrice = prices[i] * (1 - discounts[i]);
         totalPrice += discountedPrice;
     }
     return totalPrice;
@@ -25,3 +26,4 @@ int main() {
     std::cout << totalPrice << std::endl;
     return 0;
 }
+```
