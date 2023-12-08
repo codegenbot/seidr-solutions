@@ -1,4 +1,3 @@
-
 def get_bowling_score(rolls):
     # Initialize variables to keep track of the score and the current frame
     score = 0
@@ -22,9 +21,5 @@ def get_bowling_score(rolls):
         else:
             # If the current roll is a normal roll, add its value to the score
             score += int(rolls[i])
-    
-    # Handle the case where a spare or strike occurs on the last frame of the game
-    if rolls[-1] == 'X' or rolls[-1] == '/':
-        score += int(rolls[-2]) + int(rolls[-3])
     
     return score
