@@ -16,17 +16,6 @@ def get_bowling_score(rolls):
         score += int(rolls[-2]) + int(rolls[-3])
     
     return score
-
-# Test case 1:
-assert get_bowling_score(['X', 'X', 'X']) == 30
-# Test case 2:
-assert get_bowling_score(['X', 'X', '/']) == 20
-# Test case 3:
-assert get_bowling_score(['X', 'X', '9']) == 19
-# Test case 4:
-assert get_bowling_score(['X', 'X', '8', '/']) == 28
-# Test case 5:
-assert get_bowling_score(['X', 'X', '7', '/', 'X']) == 37
 [/PYTHON]
 [TESTS]
 # Test case 1:
