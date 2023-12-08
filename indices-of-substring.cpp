@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-  std::vector<int> indices;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+  std::vector<int> indices{};
 
   int n = text.length();
   int m = target.length();
@@ -30,10 +29,9 @@ int main() {
 
   std::vector<int> result = indicesOfSubstring(text, target);
 
-  for (int i = 0; i < result.size(); i++) {
-    std::cout << result[i] << " ";
+  for (std::vector<int>::iterator it = result.begin(); it != result.end(); ++it) {
+    std::cout << *it << " ";
   }
 
   return 0;
 }
-```
