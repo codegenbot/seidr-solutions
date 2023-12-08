@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     int cents;
@@ -22,3 +24,4 @@ int main() {
 
     return 0;
 }
+```
