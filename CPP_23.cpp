@@ -6,7 +6,7 @@ int strlen(std::string str) {
     return str.length();
 }
 
-int myMain() {
+int main() {
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
