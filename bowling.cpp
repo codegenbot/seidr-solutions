@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(std::string round) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     // implementation here
     return score;
