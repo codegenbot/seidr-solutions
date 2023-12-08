@@ -1,7 +1,7 @@
 ```
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 int count_distinct_characters(std::string str) {
     std::vector<char> distinctChars;
