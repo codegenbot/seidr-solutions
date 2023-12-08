@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+
+int scoreOfRound(const std::string& round) {
+    int score = 0;
+    int frame = 1;
+    int ballIndex = 0;
+    int ballsRemaining = 10;
+
+    for (char c : round) {
+        if (frame > 10) {
+            break;
+        }
+        
+        if (c == 'X') {
+            score += 10;
+            
+            if (frame < 10) {
+                score += ballsRemaining;
+                ballsRemaining = 10;
+            }
+            
+            frame++;
+        } else if (c == '/') {
+            score += (10 - ballsRemaining);
+            
+            if (frame < 10) {
+                ballsRemaining = 10;
+            }
+            
+            frame++;
+        } else if (c == '-') {
+            ballsRemaining--;
+        } else {
+            score += (c - '0');
+            ballsRemaining--;
+            
+            if (ballsRemaining == 0) {
+                frame++;
+                ballsRemaining = 10;
+            }
+        }
+    }
+
+    return score;
+}
+
+int main() {
+    std::string round;
+    std::cin >> round;
+
+    int score = scoreOfRound(round);
+    std::cout << score << std::endl;
+
+    return 0;
+}
