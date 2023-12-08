@@ -1,6 +1,5 @@
 def prime_fib(n: int):
-    fib = []
-    for i in range(100):
-        if is_prime(i) and is_fibonacci(i):
-            fib.append(i)
-    return fib[n-1]
+    fib = [0, 1]
+    while len(fib) <= n:
+        fib.append(fib[-1] + fib[-2])
+    return next((x for x in fib if isprime(x)), None)
