@@ -1,29 +1,35 @@
-```
-#include <vector>
-#include <iostream>
-#include <cmath>
-#include <climits>
-using namespace std;
-
-vector<int> cutVector(vector<int> v) {
-    int n = v.size();
-    if (n == 1) return vector<int>{v[0], 0};
-    int minDiff = INT_MAX;
-    int spot = -1;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(v[i] - v[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            spot = i;
-        }
-    }
-    return vector<int>{v[spot], v[spot+1]};
-}
-```
-This code is a corrected version of the original code, it fixes all the issues mentioned in the problem description.
-
-The first issue was an extra backtick at the beginning of the code, which has been removed.
-The second issue was missing #include<climits> for INT_MAX definition, it has been added to fix this error.
-The third issue was using INT_MAX without including <climits>, it has been fixed by adding #include<climits>.
-The fourth issue was returning a vector with two elements when the function is declared to return a single integer, it has been fixed by changing the return type of the function to vector<int> or modifying the return statement to return a single integer.
-The fifth issue was an extra backtick at the end of the code, which has been removed.
+[PYTHON]
+def cut_vector(vec):
+    n = len(vec)
+    if n == 0:
+        return []
+    left = []
+    right = []
+    for i in range(n//2):
+        left.append(vec[i])
+        right.append(vec[n-i-1])
+    diff = float('inf')
+    index = -1
+    for i in range(n//2):
+        if left[i] == right[n-i-1]:
+            return [left, right]
+        elif diff > abs(left[i] - right[n-i-1]):
+            diff = abs(left[i] - right[n-i-1])
+            index = i
+    if index != -1:
+        left.append(vec[index+1])
+        right.insert(0, vec[n-index-2])
+    return [left, right]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert cut_vector([1, 0]) == [[1], [0]]
+# Test case 2:
+assert cut_vector([1, 10]) == [[1], [10]]
+# Test case 3:
+assert cut_vector([1, 100]) == [[1], [100]]
+# Test case 4:
+assert cut_vector([1, 1000]) == [[1], [1000]]
+# Test case 5:
+assert cut_vector([1, 10000]) == [[1], [10000]]
+[/TESTS]
