@@ -19,6 +19,6 @@ double probabilityOfHigherRoll(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(2) << probabilityOfHigherRoll(n, m) << std::endl;
+    std::cout << std::setprecision(7) << probabilityOfHigherRoll(n, m) << std::endl;
     return 0;
 }
