@@ -1,4 +1,3 @@
-
 [PYTHON]
 def calculate_bounciness_index(starting_height, first_bounce_height):
     return first_bounce_height / starting_height
