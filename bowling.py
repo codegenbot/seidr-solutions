@@ -1,3 +1,4 @@
+```
 def get_bowling_score(rolls):
     # Initialize variables to keep track of the score and the current frame
     score = 0
@@ -23,3 +24,4 @@ def get_bowling_score(rolls):
             score += int(rolls[i])
     
     return score
+```
