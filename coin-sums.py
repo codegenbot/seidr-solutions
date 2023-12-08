@@ -1,10 +1,8 @@
-```
 def get_coin_sums(cents):
     coins = [1, 5, 10, 25]
     counts = [0, 0, 0, 0]
-    for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            counts[i] += 1
-    return counts[0], counts[1], counts[2], counts[3]
-```
+    for coin in coins:
+        quotient, remainder = divmod(cents, coin)
+        counts[coin] += quotient
+        cents = remainder
+    return counts[1], counts[5], counts[10], counts[25]
