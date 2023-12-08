@@ -1,3 +1,3 @@
 nums = [int(num) for num in input().split()]
-total = sum(int((num / 3.0) - 2) for num in nums)
+total = sum((num // 3) - 2 for num in nums) * len(nums)
 print(total)
