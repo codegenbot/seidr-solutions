@@ -1,31 +1,20 @@
+[PYTHON]
+def calculate_bounciness_index(starting_height, height_after_first_bounce):
+    return height_after_first_bounce / starting_height
 
-#include <iostream>
-#include <iomanip>
-using namespace std;
+def calculate_total_distance_travelled(num_bounces, bounciness_index):
+    total_distance = 0.0
+    for i in range(1, num_bounces+1):
+        distance_traveled = bounciness_index * (i + 1) / (num_bounces - i)
+        total_distance += distance_traveled
+    return total_distance
 
-double calculateBouncinessIndex(double startingHeight, double heightAfterFirstBounce) {
-    return heightAfterFirstBounce / startingHeight;
-}
+def main():
+    starting_height, height_after_first_bounce, num_bounces = map(float, input().split())
+    bounciness_index = calculate_bounciness_index(starting_height, height_after_first_bounce)
+    total_distance_travelled = calculate_total_distance_travelled(num_bounces, bounciness_index)
+    print(f"{total_distance_travelled:.10f}")
 
-double calculateTotalDistanceTravelled(int numBounces, double bouncinessIndex) {
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; i++) {
-        // Calculate the distance traveled in this bounce based on the bounciness index and the number of bounces
-        double distanceTraveled = bouncinessIndex * (i + 1) / (numBounces - i);
-        totalDistance += distanceTraveled;
-    }
-    return totalDistance;
-}
-
-int main() {
-    double startingHeight, heightAfterFirstBounce, bouncinessIndex, totalDistanceTravelled;
-    int numBounces;
-
-    cin >> startingHeight >> heightAfterFirstBounce >> numBounces;
-    bouncinessIndex = calculateBouncinessIndex(startingHeight, heightAfterFirstBounce);
-    totalDistanceTravelled = calculateTotalDistanceTravelled(numBounces, bouncinessIndex);
-
-    cout << fixed << setprecision(10) << totalDistanceTravelled << endl;
-
-    return 0;
-}
+if __name__ == "__main__":
+    main()
+[/PYTHON]
