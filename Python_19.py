@@ -1,4 +1,4 @@
 def sort_numbers(numbers: str) -> str:
-    nums = numbers.split()
-    sorted_nums = sorted(nums, key=lambda x: int(x))
-    return " ".join(sorted_nums)
+    numbers = numbers.split()
+    numbers.sort(key=lambda x: int(x[0]))
+    return " ".join(numbers)
