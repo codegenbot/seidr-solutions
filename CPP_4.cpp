@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -16,4 +15,3 @@ float mean_absolute_deviation(vector<float> numbers) {
     }
     return mad / numbers.size();
 }
-```
