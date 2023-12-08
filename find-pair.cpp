@@ -1,9 +1,7 @@
-```cpp
-#include <iostream>
+```
+c#include <iostream>
 #include <vector>
 #include <unordered_set>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
@@ -12,7 +10,7 @@ vector<int> findPair(vector<int>& nums, int target) {
 
     for (int num : nums) {
         int complement = target - num;
-        if (seen.count(complement) && find(nums.begin(), nums.end(), num) != nums.end()) {
+        if (seen.find(complement) != seen.end()) {
             result.push_back(num);
             result.push_back(complement);
             break;
