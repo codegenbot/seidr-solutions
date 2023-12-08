@@ -1,5 +1,6 @@
-#include <iomanip>
+```cpp
 #include <iostream>
+#include <ios>
 
 using namespace std;
 
@@ -25,7 +26,9 @@ int main() {
     double bouncinessIndex = static_cast<double>(static_cast<long>(firstBounceHeight * 1000000000000000.0 / startingHeight)) / 1000000000000000.0;
     double distance = calculateDistance(startingHeight, bouncinessIndex, numBounces);
     
-    cout << fixed << setprecision(15) << distance << endl;
+    cout.precision(15);
+    cout << fixed << distance << endl;
     
     return 0;
 }
+```
