@@ -1,7 +1,6 @@
-```
-#include<stdio.h>
-#include<string>
 #include <algorithm>
+#include <iostream>
+#include <string>
 using namespace std;
 bool is_palindrome(string str){
     //Test if given string is a palindrome 
@@ -24,4 +23,3 @@ string make_palindrome(string str){
     reverse(suffix.begin(),suffix.end());
     return prefix + suffix;
 }
-```
