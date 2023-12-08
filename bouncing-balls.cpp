@@ -13,7 +13,7 @@ def main():
     starting_height, height_after_first_bounce, num_bounces = map(float, input().split())
     bounciness_index = calculate_bounciness_index(starting_height, height_after_first_bounce)
     total_distance_travelled = calculate_total_distance_travelled(num_bounces, bounciness_index)
-    print(f"{total_distance_travelled:.10f}")
+    print("{:.10f}".format(total_distance_travelled))
 
 if __name__ == "__main__":
     main()
