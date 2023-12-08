@@ -1,17 +1,15 @@
-```python
-def find_first_negative_index(nums):
+def basement(arr):
     sum_so_far = 0
-    for i in range(len(nums)):
-        sum_so_far += nums[i]
+    for i in range(len(arr)):
+        sum_so_far += arr[i]
         if sum_so_far < 0:
             return i
     return -1
 
 n = int(input())
-nums = []
+arr = []
 for _ in range(n):
-    nums.append(int(input()))
+    arr.append(int(input()))
 
-result = find_first_negative_index(nums)
+result = basement(arr)
 print(result)
-```
