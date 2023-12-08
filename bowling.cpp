@@ -1,4 +1,4 @@
-```
+
 #include <string>
 #include <iostream>
 #include <cmath>
@@ -22,4 +22,3 @@ int main() {
     cout << calculateScore(bowling) << endl;
     return 0;
 }
-```
