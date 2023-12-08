@@ -1,4 +1,3 @@
-```python
 def find_leaders(vector):
     leaders = []
     max_value = float('-inf')
@@ -12,4 +11,3 @@ vector = list(map(int, input().split()))
 result = find_leaders(vector)
 for num in result:
     print(num)
-```
