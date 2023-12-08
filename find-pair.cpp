@@ -8,12 +8,11 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
     for (int num : nums) {
         int complementNum = target - num;
         if (complement.count(complementNum)) {
-            std::vector<int> result = { firstNum, complementNum };
-            return result;
+            return { firstNum, complementNum };
         }
         complement.insert(num);
         firstNum = num;
     }
-    return std::vector<int>();
+    return {};
 }
 ```
