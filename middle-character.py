@@ -1,4 +1,3 @@
-```python
 def middle_character(s):
     length = len(s)
     if length % 2 == 1:
@@ -9,4 +8,3 @@ def middle_character(s):
 input_string = input()
 output_string = middle_character(input_string)
 print(output_string)
-```
