@@ -14,3 +14,5 @@ result = find_leaders(vector)
 for num in result:
     print(num)
 ```
+
+Note: Make sure to remove the triple-backticks (` ```python`) at the beginning and end of the code block.
