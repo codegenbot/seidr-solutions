@@ -1,3 +1,4 @@
+```python
 def find_pair(nums, target):
     num_set = set(nums)
     for num in nums:
@@ -5,15 +6,13 @@ def find_pair(nums, target):
         if complement in num_set:
             return num, complement
 
-
-# Read input
+# Read input from user
 n = int(input())
 nums = list(map(int, input().split()))
 target = int(input())
 
-# Find pair
+# Call the function and print the output
 result = find_pair(nums, target)
-
-# Print output
 print(result[0])
 print(result[1])
+```
