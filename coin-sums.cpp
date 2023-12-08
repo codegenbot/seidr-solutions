@@ -20,7 +20,10 @@ int main() {
     }
     pennies = cents;
     
-    cout << fixed << noshowpoint << pennies << " " << nickles << " " << dimes << " " << quarters << endl;
+    cout << "Pennies: " << pennies << endl;
+    cout << "Nickels: " << nickles << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Quarters: " << quarters << endl;
     
     return 0;
 }
