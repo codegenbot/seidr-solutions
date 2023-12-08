@@ -1,25 +1,23 @@
-
 #include <string>
 #include <iostream>
+#include <cmath>
 using namespace std;
-
-int getScore(string bowls) {
+int calculateScore(string bowling) {
     int score = 0;
-    for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') {
+    for (int i = 0; i < bowling.size(); i++) {
+        if (bowling[i] == 'X') {
             score += 10;
-            // Check if the next frame is also a strike
-            if (i + 1 < bowls.length() && bowls[i + 1] == 'X') {
-                score += 10;
-            }
-        } else if (bowls[i] == '/') {
-            score += 10 - int(bowls[i-1]);
-        } else if (bowls[i] == '-') {
-            score += 10;
+        } else if (bowling[i] == '/') {
+            score += 5;
         } else {
-            score += int(bowls[i]);
+            score += atoi(bowling[i]);
         }
     }
     return score;
 }
-```
+int main() {
+    string bowling;
+    cin >> bowling;
+    cout << calculateScore(bowling) << endl;
+    return 0;
+}
