@@ -1,32 +1,31 @@
+```cpp
 #include <iostream>
-#include <ios> 
-
 using namespace std;
 
-double calculateDistance(double startingHeight, double bouncinessIndex, int numBounces) {
+double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight;
     double totalDistance = 0;
     double height = startingHeight;
-    
+
     for (int i = 0; i < numBounces; i++) {
         totalDistance += height;
         height *= bouncinessIndex;
         totalDistance += height;
     }
-    
+
     return totalDistance;
 }
 
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-    
+
     cin >> startingHeight >> firstBounceHeight >> numBounces;
-    
-    double bouncinessIndex = static_cast<double>(static_cast<long>(firstBounceHeight * 1000000000000000.0 / startingHeight)) / 1000000000000000.0;
-    double distance = calculateDistance(startingHeight, bouncinessIndex, numBounces);
-    
-    cout.precision(15);
-    cout << fixed << distance << endl;
-    
+
+    double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
+
+    cout << distance << endl;
+
     return 0;
 }
+```
