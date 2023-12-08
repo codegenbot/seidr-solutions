@@ -1,7 +1,6 @@
-text=input()
-target=input()
-indices=[]
-for i in range(len(text)-len(target)+1):
-    if text[i:i+len(target)].startswith(target):
-        indices.append(i)
-print(' '.join(map(str,indices)))
+text = input()
+target = input()
+
+indices = [i for i in range(len(text) - len(target) + 1) if text.find(target, i, i+len(target)) != -1]
+
+print(' '.join(map(str, indices)))
