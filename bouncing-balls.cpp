@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
+#include <string>
 using namespace std;
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
@@ -25,7 +25,7 @@ int main() {
     
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
-    cout << fixed << setprecision(15) << distance << endl;
+    cout << distance << endl;
     
     return 0;
 }
