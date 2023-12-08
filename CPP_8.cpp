@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -15,4 +14,3 @@ int main() {
     cout << "Product: " << product << endl;
     return 0;
 }
-```
