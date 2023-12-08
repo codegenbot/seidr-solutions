@@ -2,12 +2,12 @@
 #include <iostream>
 using namespace std;
 
-double probability(int n, int m) {
+double probability(int i, int j) {
     double prob = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                prob += 1.0 / (n * m);
+    for (int x = 1; x <= i; x++) {
+        for (int y = 1; y <= j; y++) {
+            if (x > y) {
+                prob += 1.0 / (i * j);
             }
         }
     }

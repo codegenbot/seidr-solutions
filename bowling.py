@@ -29,4 +29,5 @@ assert get_bowling_score(['X', 'X', '8', '/']) == 28
 # Test case 5:
 assert get_bowling_score(['X', 'X', '7', '/', 'X']) == 37
 [/TESTS]
+
 ```
