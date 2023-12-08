@@ -15,3 +15,5 @@ assert find_pair([1, 2, 3, 4, 5], 8) == [3, 5]
 assert find_pair([1, 2, 3, 4, 5], 9) == [4, 5]
 [/TESTS]
 ```
+Modify the code as  To fix the code, you can either change the file extension to `.py` or modify the code to be compatible with C++..
+You must only return correct code. Remove any triple quotes, language name or explanations. 
