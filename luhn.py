@@ -1,3 +1,6 @@
+n = int(input())
+digits = list(map(int, input().split()))
+
 def luhn_algorithm(digits):
     new_digits = []
     for i in range(len(digits)):
@@ -9,9 +12,6 @@ def luhn_algorithm(digits):
         else:
             new_digits.append(digits[i])
     return sum(new_digits)
-
-n = int(input())
-digits = list(map(int, input().split()))
 
 result = luhn_algorithm(digits)
 print(result)
