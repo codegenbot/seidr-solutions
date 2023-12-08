@@ -1,3 +1,6 @@
+The modified code is as follows:
+
+```cpp
 #include <vector>
 #include <unordered_set>
 using namespace std;
@@ -15,3 +18,4 @@ vector<int> findPair(vector<int>& nums, int target) {
     }
     return vector<int>();
 }
+```
