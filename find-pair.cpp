@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
     unordered_set<int> complement;
@@ -14,4 +14,3 @@ vector<int> findPair(vector<int>& nums, int target) {
     }
     return {};
 }
-```
