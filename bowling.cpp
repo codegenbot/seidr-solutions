@@ -1,41 +1,43 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& input) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 1;
-    int bowlIndex = 0;
+    int ballIndex = 0;
+    int ballsRemaining = 10;
 
-    for (int i = 0; i < input.length(); i++) {
-        char bowl = input[i];
-
-        if (bowl == 'X') {
+    for (char c : round) {
+        if (frame > 10) {
+            break;
+        }
+        
+        if (c == 'X') {
             score += 10;
-
+            
             if (frame < 10) {
-                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
-                score += (input[i + 2] == 'X') ? 10 : (input[i + 2] - '0');
+                score += ballsRemaining;
+                ballsRemaining = 10;
             }
-
+            
             frame++;
-        } else if (bowl == '/') {
-            score += (10 - (input[i - 1] - '0'));
-
+        } else if (c == '/') {
+            score += (10 - ballsRemaining);
+            
             if (frame < 10) {
-                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+                ballsRemaining = 10;
             }
-
+            
             frame++;
-            bowlIndex = 0;
-        } else if (bowl == '-') {
-            bowlIndex++;
+        } else if (c == '-') {
+            ballsRemaining--;
         } else {
-            score += (bowl - '0');
-            bowlIndex++;
-
-            if (bowlIndex == 2) {
+            score += (c - '0');
+            ballsRemaining--;
+            
+            if (ballsRemaining == 0) {
                 frame++;
-                bowlIndex = 0;
+                ballsRemaining = 10;
             }
         }
     }
@@ -44,10 +46,10 @@ int calculateScore(const std::string& input) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
+    std::string round;
+    std::cin >> round;
 
-    int score = calculateScore(input);
+    int score = scoreOfRound(round);
     std::cout << score << std::endl;
 
     return 0;
