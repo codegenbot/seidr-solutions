@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -11,7 +10,7 @@ long double probability(int n, int m) {
             }
         }
     }
-    return prob;
+    return std::round(prob, std::numeric_limits<double>::epsilon());
 }
 
 int main() {
