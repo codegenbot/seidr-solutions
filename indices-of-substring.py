@@ -1,3 +1,4 @@
+```python
 text = input()
 target = input()
 
@@ -8,3 +9,4 @@ for i in range(len(text) - len(target) + 1):
         indices.append(i)
 
 print(' '.join(map(str, indices)))
+```
