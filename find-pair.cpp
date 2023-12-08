@@ -1,5 +1,5 @@
 #include <vector>
-using namespace std;
+#include <unordered_set>
 
 vector<int> findPair(vector<int>& nums, int target) {
     unordered_set<int> complement;
