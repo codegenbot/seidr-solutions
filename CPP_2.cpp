@@ -1,8 +1,9 @@
+```
 #include <iostream>
 #include <cmath>
 
-float truncate_number(float number) {
-    return std::fmod(number, 1);
+float truncate_number(float& number) {
+    return std::trunc(number);
 }
 
 int main() {
@@ -12,3 +13,4 @@ int main() {
     std::cout << "The decimal part of the number is: " << truncate_number(number) << std::endl;
     return 0;
 }
+```
