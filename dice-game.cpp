@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -13,4 +12,3 @@ double get_probability(int n, int m) {
     }
     return prob;
 }
-```

@@ -31,3 +31,4 @@ if __name__ == "__main__":
     test_gcd()
     test_find_indices()
 ```
+Modify the code as  The issue is that there is a missing closing parenthesis on the first line of the code snippet. It should be `def gcd(a, b):` instead of `def gcd(a, b):`.
