@@ -1,3 +1,4 @@
+```python
 import collections
 def mastermind():
     code = input()
@@ -8,4 +9,5 @@ def mastermind():
     code_counts &= guess_counts
     white_pegs = sum(min(code_counts[c], guess_counts[c]) for c in code_counts)
     return white_pegs, black_pegs
-print(mastermind())
+print(mastermind())             
+```
