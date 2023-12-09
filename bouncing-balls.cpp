@@ -1,15 +1,16 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
-    double bouncinessIndex = (int)((firstBounceHeight / startingHeight) * 1000) / 1000.0;
+    double bouncinessIndex = round((firstBounceHeight / startingHeight) * 1000) / 1000;
     double totalDistance = 0;
     double height = startingHeight;
     
     for (int i = 0; i < numBounces; i++) {
         totalDistance += height;
-        height *= bouncinessIndex;
+        height *= (1 - bouncinessIndex);
         totalDistance += height;
     }
     
@@ -35,3 +36,4 @@ int main() {
 
     return 0;
 }
+```
