@@ -1,14 +1,7 @@
-```python
 def car_race_collision(n: int):
-    left_to_right = 0
-    right_to_left = n - 1
-    collisions = 0
-    while left_to_right < n and right_to_left >= 0:
-        if left_to_right == right_to_left:
-            collisions += 1
-        elif left_to_right < right_to_left:
-            left_to_right += 1
-        else:
-            right_to_left -= 1
-    return collisions
-```
+    num_collisions = 0
+    total_pairs = (n * (n + 1)) // 2
+    for i in range(total_pairs):
+        if abs(i - n + i) <= 2 * (n - i):
+            num_collisions += 1
+    return num_collisions
