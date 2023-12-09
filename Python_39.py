@@ -1,5 +1,5 @@
 ```python
-def prime_fib(n):
+def prime_fibonacci(n):
     fib = [0, 1]
     for i in range(2, n+1):
         if len(fib) < i-1:
