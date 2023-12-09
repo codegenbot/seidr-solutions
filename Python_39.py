@@ -1,3 +1,4 @@
+```python
 def prime_fib(n):
     fib = [0, 1]
     for i in range(2, n+1):
@@ -6,3 +7,4 @@ def prime_fib(n):
         elif n <= len(fib):
             return None
     return fib[-1]
+```
