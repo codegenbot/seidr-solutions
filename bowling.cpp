@@ -2,10 +2,11 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(const std::string& round) {
+int scoreOfRound(std::string round) {
     int score = 0;
     for (int i = 0; i < round.size(); i++) {
         if (round[i] == 'X') {
+            // strike
             score += 10;
             if (i < round.size() - 2) {
                 if (round[i + 2] == '/') {
@@ -15,11 +16,13 @@ int scoreOfRound(const std::string& round) {
                 }
             }
         } else if (round[i] == '/') {
+            // spare
             score += 10 - (round[i - 1] - '0');
             if (i < round.size() - 1) {
                 score += round[i + 1] - '0';
             }
         } else {
+            // normal bowl
             score += round[i] - '0';
         }
     }
