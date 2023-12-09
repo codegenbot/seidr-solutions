@@ -1,3 +1,4 @@
+
 def prime_fib(n: int):
     fib = []
     for i in range(100):
@@ -5,7 +6,7 @@ def prime_fib(n: int):
             fib.append(i)
     return fib[n-1]
 
-def is_prime(n):
+def is_prime(n: int):
     if n <= 1:
         return False
     for i in range(2, int(n**0.5) + 1):
