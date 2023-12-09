@@ -1,17 +1,17 @@
-```
-def basement(nums):
+```python
+def basement(arr):
     total = 0
-    for i in range(len(nums)):
-        total += nums[i]
+    for i in range(len(arr)):
+        total += arr[i]
         if total < 0:
             return i
     return -1
 
 n = int(input())
-nums = []
+arr = []
 for _ in range(n):
-    nums.append(int(input()))
+    arr.append(int(input()))
 
-result = basement(nums)
+result = basement(arr)
 print(result)
 ```
