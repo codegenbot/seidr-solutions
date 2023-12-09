@@ -1,3 +1,4 @@
+
 ```
 def decode_shift(s):
     s = s.split()
