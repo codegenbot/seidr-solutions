@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -17,3 +18,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(9) << result;
     return 0;
 }
+```
