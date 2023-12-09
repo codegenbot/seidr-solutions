@@ -1,7 +1,8 @@
 def pluck(arr):
-    if len(arr) == 0:
-        return []
-    else:
-        smallest_even = min([x for x in arr if x % 2 == 0])
-        smallest_even_index = arr.index(smallest_even)
-        return [smallest_even, smallest_even_index]
+    smallest_even = None
+    smallest_index = None
+    for i, node in enumerate(arr):
+        if node % 2 == 0 and (smallest_even is None or node < smallest_even):
+            smallest_even = node
+            smallest_index = i
+    return [smallest_even, smallest_index] if smallest_even else []
