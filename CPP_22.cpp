@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,4 +15,3 @@ vector<int> filter_integers(std::list<variant<int, string>> values) {
     }
     return result;
 }
-```
