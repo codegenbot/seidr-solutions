@@ -1,5 +1,5 @@
 [PYTHON]
-def issame(a: std::vector<int>, b: std::vector<int>) -> bool:
+def issame(a: std::vector<float>, b: std::vector<float>) -> bool:
     return a == b
 
 def get_positive(my_list: std::vector<int>) -> std::vector<bool>:
@@ -41,5 +41,4 @@ l1 = [-1, -2, -3, -4, -5]
 l2 = [1, 2, 3, 4, 5]
 assert issame(get_positive(l1), get_positive(l2)) == False
 [/TESTS]
-
 ```
