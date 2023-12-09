@@ -1,8 +1,11 @@
+
+The modified code is:
+```cpp
 #include <iostream>
 #include <cmath>
-#include <pmr/vector>
+#include <vector>
 
-float find_zero(const std::pmr::vector<double>& coeffs) {
+float find_zero(const std::vector<double>& coeffs) {
     float x = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         x += coeffs[i] * pow(x, i);
@@ -10,7 +13,7 @@ float find_zero(const std::pmr::vector<double>& coeffs) {
     return x;
 }
 
-float poly(const std::pmr::vector<double>& coeffs) {
+float poly(const std::vector<double>& coeffs) {
     float y = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         y += coeffs[i] * pow(y, i);
@@ -19,7 +22,7 @@ float poly(const std::pmr::vector<double>& coeffs) {
 }
 
 int main() {
-    std::pmr::vector<double> coeffs(3);
+    std::vector<double> coeffs(3);
     coeffs.emplace_back(1.0);
     coeffs.emplace_back(-2.0);
     coeffs.emplace_back(1.0);
@@ -31,3 +34,4 @@ int main() {
     }
     return 0;
 }
+```
