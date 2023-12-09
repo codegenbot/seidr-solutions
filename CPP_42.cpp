@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -21,7 +22,7 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
+int main(void) {
     std::vector<int> v1 = {1, 2, 3};
     std::vector<int> v2 = incr_list(v1);
     if (is_same(v1, v2)) {
@@ -31,3 +32,4 @@ int main() {
     }
     return 0;
 }
+```
