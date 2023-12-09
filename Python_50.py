@@ -1,11 +1,18 @@
-```
 def decode_shift(s: str) -> str:
-    s = s.split()
-    new_s = []
-    for ch in s:
-        if ord(ch) >= ord("a") and ord(ch) <= ord("z"):
-            new_s.append(chr((ord(ch) - 5 - ord("a")) % 26 + ord("a")))
+    message = input("Enter message: ")
+    # Check if input format is correct
+    if not s.isalpha() or len(s) < 1:
+        raise ValueError("Input must be a non-empty string of letters.")
+
+    # Read input and convert to lowercase
+    message = message.lower()
+
+    # Decode the message using the Caesar cipher with a shift of 5
+    decoded_message = ""
+    for ch in message:
+        if ch.isalpha():
+            decoded_message += chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a"))
         else:
-            new_s.append(ch)
-    return "".join(new_s)
-```
+            decoded_message += ch
+
+    return decoded_message
