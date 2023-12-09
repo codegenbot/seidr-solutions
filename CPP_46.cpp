@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -20,7 +19,6 @@ int main() {
     cout << "Enter a number: ";
     int n;
     cin >> n;
-    cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << "\n";
+    cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << endl;
     return 0;
 }
-```
