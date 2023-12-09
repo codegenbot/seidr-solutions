@@ -1,7 +1,14 @@
-
-
-The function signature is already correct, and the issue with the given code is not an off-by-one error but rather a division by zero error when n = 0. Here's how I would fix it:
-```python
 def car_race_collision(n):
-    return (n * (n - 1)) // 2 if n else 0
-```
+    left_to_right = 0
+    right_to_left = n - 1
+    collisions = {}
+    while left_to_right < n and right_to_left >= 0:
+        if left_to_right == right_to_left:
+            collisions[(left_to_right, right_to_left)] = 1
+            left_to_right += 1
+            right_to_left -= 1
+        elif left_to_right < right_to_left:
+            left_to_right += 1
+        else:
+            right_to_left -= 1
+    return sum(collisions.values())
