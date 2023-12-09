@@ -5,6 +5,9 @@ def minPath(grid, k):
     path = []
 
     def findMinPath(i, j, k):
+        if not (0 <= i < n and 0 <= j < m) or visited[i][j]:
+            return float('inf')
+
         queue = [(i, j)]
         visited = set()
         while queue:
