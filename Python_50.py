@@ -1,3 +1,4 @@
+```
 def decode_shift(s):
     s = s.split()
     new_s = []
@@ -7,3 +8,4 @@ def decode_shift(s):
         else:
             new_s.append(ch)
     return "".join(new_s)
+```
