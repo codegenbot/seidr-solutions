@@ -6,12 +6,14 @@ def solve_boolean(expression):
 
     stack = []
     for char in expression:
-        if char in ('T', 'F', 't', 'f'):
-            stack.append('T' if char.upper() == 'T' else 'F')
+        if char == 'T':
+            stack.append(True)
+        elif char == 'F':
+            stack.append(False)
         elif char in operators:
             operator = operators[char]
             right = stack.pop()
             left = stack.pop()
             stack.append(operator(left, right))
     
-    return stack[0] == 'T'
+    return stack[0]
