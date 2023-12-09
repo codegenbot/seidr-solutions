@@ -1,6 +1,8 @@
+```python
 def find_zero(xs):
-    result = 0
-    for x in xs:
-        if x == 0:
-            result += 1
-    return result
+    x = int(input("Enter a number: "))
+    if x == 0:
+        return True
+    else:
+        return False
+```
