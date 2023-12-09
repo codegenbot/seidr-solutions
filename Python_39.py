@@ -1,3 +1,4 @@
+```
 def prime_fib(n: int):
     fib = [0, 1]
     for i in range(1, n+1):
@@ -5,3 +6,4 @@ def prime_fib(n: int):
         if not is_prime(fib[-1]):
             fib.pop()
     return fib[-1]
+```
