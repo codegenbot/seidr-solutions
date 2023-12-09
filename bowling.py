@@ -40,15 +40,7 @@ def get_spare_bonus(bowls, bowl_index):
     return bonus
 
 def get_frame_score(bowls, bowl_index):
-    return (
-        0 
-        if bowls[bowl_index] == '-' 
-        else int(bowls[bowl_index]) 
-    ) + (
-        0 
-        if bowls[bowl_index + 1] == '-' 
-        else int(bowls[bowl_index + 1]) 
-    )
+    return 0 if bowls[bowl_index] == '-' else int(bowls[bowl_index]) + (0 if bowls[bowl_index + 1] == '-' else int(bowls[bowl_index + 1]))
 
 bowls = input()
 print(calculate_score(bowls))
