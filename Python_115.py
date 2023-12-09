@@ -1,17 +1,19 @@
+```
 def max_fill(grid, capacity):
     # Initialize variables
     rows = len(grid)
     cols = len(grid[0])
-    water_level = 0
-    count = 0
-    
-    # Loop through each row and column
+    buckets = 0
+
+    # Iterate over each row and column
     for i in range(rows):
         for j in range(cols):
-            # If the current cell is a well, check if it needs to be filled
+            # If the current cell is a well, check if it can be filled with the bucket
             if grid[i][j] == 1:
-                water_level = max(water_level, j + 1)
-                count += 1
-    
-    # Return the number of times the bucket needs to be lowered
-    return count
+                # Check if the bucket has enough capacity to fill the well
+                if capacity >= j - i + 1:
+                    # Fill the well and increment the number of buckets used
+                    buckets += 1
+
+    return buckets
+```
