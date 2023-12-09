@@ -1,4 +1,6 @@
+
 def sum_product(numbers: list) -> tuple[int, int]:
+    import math
     if len(numbers) == 0:
         return (0, 1)
     else:
