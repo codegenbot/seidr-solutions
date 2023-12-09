@@ -1,9 +1,8 @@
 ```python
-def add(x: int, y: int):
+def add(x: int, y: int) -> int:
+    print("Enter first number: ")
+    x = int(input())
+    print("Enter second number: ")
+    y = int(input())
     return x + y
-
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
-result = add(x, y)
-print(f"The sum of {x} and {y} is {result}")
 ```
