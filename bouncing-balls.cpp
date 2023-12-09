@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -19,19 +20,20 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-
+    
     std::string startingHeightStr, firstBounceHeightStr, numBouncesStr;
     std::cin >> startingHeightStr;
     std::cin >> firstBounceHeightStr;
     std::cin >> numBouncesStr;
-
+    
     startingHeight = std::stod(startingHeightStr);
     firstBounceHeight = std::stod(firstBounceHeightStr);
     numBounces = std::stoi(numBouncesStr);
-
+    
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
-
+    
     std::cout << distance << std::endl;
-
+    
     return 0;
 }
+```
