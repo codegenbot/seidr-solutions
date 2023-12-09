@@ -9,7 +9,7 @@ int main() {
     std::cout << "Length of the string is: " << input.size() << std::endl;
 
     // Insert a character at the beginning of the string
-    input.insert(input.begin() + 1, 'a');
+    input.insert(input.begin(), 'a');
 
     return 0;
 }
