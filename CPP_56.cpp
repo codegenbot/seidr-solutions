@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <stack>
 
@@ -8,7 +7,7 @@ bool correct_bracketing(std::string brackets) {
         if (c == '<') {
             stack.push(c);
         } else if (c == '>') {
-            if (stack.empty()) {
+            if (stack.size() == 0) {
                 return false;
             }
             stack.pop();
@@ -16,4 +15,3 @@ bool correct_bracketing(std::string brackets) {
     }
     return stack.empty();
 }
-```
