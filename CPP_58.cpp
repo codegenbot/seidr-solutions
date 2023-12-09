@@ -1,10 +1,32 @@
-[PYTHON]
-def common(l1, l2):
-    return list(set(l1).intersection(l2))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121]) == [1, 5, 653]
-# Test case 2:
-assert common([5, 3, 2, 8], [3, 2]) == [2, 3]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return (a == b);
+}
+
+vector<int> common(vector<int> a, vector<int> b) {
+    vector<int> result;
+    for (auto i = 0; i < a.size(); ++i) {
+        if (b.find(a[i]) != b.end()) {
+            result.push_back(a[i]);
+        }
+    }
+    return result;
+}
+
+int main() {
+    vector<int> v1 = {4, 3, 2, 8};
+    vector<int> v2 = {};
+
+    assert (issame(common(v1, v2), {}));
+
+    cout << "The common elements of the two vectors are: ";
+    for (auto i : common(v1, v2)) {
+        cout << i << " ";
+    }
+    return 0;
+}
+```
