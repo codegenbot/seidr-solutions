@@ -10,4 +10,3 @@ int main() {
     return 0;
 }
 ```
-The issue is caused by redefining `main()` twice in the same scope. To fix this, you can either remove one of the definitions or change the name of one of them.
