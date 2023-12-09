@@ -1,4 +1,3 @@
-```
 def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
@@ -17,4 +16,3 @@ def encode(message):
         else:
             encoded_message += char
     return encoded_message
-```
