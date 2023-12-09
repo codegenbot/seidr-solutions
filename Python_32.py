@@ -1,16 +1,7 @@
-```
-import sys
-
 def find_zero(xs):
-    # Read user input from command line
-    x = int(sys.stdin.readline().strip())
-    
-    # Perform calculations
+    x = int(input("Enter a number: "))
     result = 0
     for i in range(len(xs)):
         if xs[i] == x:
             result += 1
-    
-    # Return result
     return result
-```
