@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <array>
 #include <algorithm>
@@ -8,4 +7,3 @@ int main() {
     std::cout << "Maximum element: " << std::max_element(v) << std::endl;
     return 0;
 }
-```
