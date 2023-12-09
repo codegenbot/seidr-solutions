@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 
 int fib4(int n) {
@@ -19,7 +19,7 @@ int main() {
     std::cout << "Enter a number: ";
     int n;
     std::cin >> n;
-    std::cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << std::endl;
+    std::cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << '\n';
     return 0;
 }
 ```
