@@ -1,47 +1,28 @@
-[PYTHON]
-def find_zero(coeffs):
-    """
-    Finds a zero of the polynomial with coefficients `coeffs`
-    using the Newton-Raphson method.
-    """
-    # Initialize the guess for the root
-    x = 0.0
+```
+#include <cstdio>
+#include <cmath>
 
-    # Set the tolerance for the stopping criterion
-    tol = 1e-6
+float find_zero(float coeffs[], int n) {
+    float x = 0;
+    for (int i = 0; i < n; i++) {
+        x += coeffs[i] * pow(x, i);
+    }
+    return x;
+}
 
-    # Set the maximum number of iterations
-    max_iter = 20
+float poly(float coeffs[], int n) {
+    float y = 0;
+    for (int i = 0; i < n; i++) {
+        y += coeffs[i] * pow(y, i);
+    }
+    return y;
+}
 
-    # Iterate until we reach the tolerance or max iterations
-    for i in range(max_iter):
-        # Evaluate the polynomial and its derivative at x
-        p = poly(coeffs, x)
-        dp = deriv(coeffs, x)
-
-        # Update x by taking a step along the direction of the derivative
-        x -= p / dp
-
-        # Check for convergence
-        if abs(p) < tol:
-            break
-
-    # Return the estimated root
-    return x
-[/PYTHON]
-[TESTS]
-# Test case 1:
-coeffs = [1, 2, 3]
-find_zero(coeffs)
-# output: 0.6666666666666667
-
-# Test case 2:
-coeffs = [1, 2, 3, 4]
-find_zero(coeffs)
-# output: 1.5
-
-# Test case 3:
-coeffs = [1, 2, 3, 4, 5]
-find_zero(coeffs)
-# output: 2.090909090909091
-[/TESTS]
+int main() {
+    float coeffs[] = {1, -2, 1};
+    float solution = find_zero(coeffs, 3);
+    printf("The solution is: %f\n", solution);
+    assert(abs(poly(coeffs, 3) - solution) < 1e-3);
+    return 0;
+}
+```
