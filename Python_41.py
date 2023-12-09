@@ -10,4 +10,5 @@ def car_race_collision(n: int) -> int:
     for car in left_to_right:
         if car in right_to_left:
             collisions += 1
-    return collisions * (n // 2)
+    return collisions
+```
