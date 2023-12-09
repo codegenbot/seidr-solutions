@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return sorted(lst, key=lambda x: x)
+    return sorted([int(x) for x in lst.split(',')], key=len)
