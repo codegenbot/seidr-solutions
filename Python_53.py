@@ -1,6 +1,3 @@
-
-import sys
-
 def add(x: int, y: int):
     numbers = []
     for line in sys.stdin:
