@@ -1,9 +1,11 @@
-def decode_shift(s: str) -> str:
+```python
+def decode_shift(s):
     # Check if input format is correct
     if not s.isalpha() or len(s) < 1:
         raise ValueError("Input must be a non-empty string of letters.")
 
-    message = input("Enter message to decode: ")
+    # Read input and convert to lowercase
+    message = s.lower()
 
     # Decode the message using the Caesar cipher with a shift of 5
     decoded_message = ""
@@ -14,3 +16,4 @@ def decode_shift(s: str) -> str:
             decoded_message += ch
 
     return decoded_message
+```
