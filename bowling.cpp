@@ -2,27 +2,26 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(const std::string& round) {
+int scoreOfRound(std::string round) {
     int score = 0;
     for (int i = 0; i < round.size(); i++) {
         if (round[i] == 'X') {
-            // strike
             score += 10;
-            if (i < round.size() - 2) {
+            if (i + 2 < round.size()) {
                 if (round[i + 2] == '/') {
                     score += 10;
+                } else if (round[i + 1] == '/') {
+                    score += 10 - (round[i + 2] - '0');
                 } else {
-                    score += round[i + 1] - '0' + round[i + 2] - '0';
+                    score += (round[i + 1] - '0') + (round[i + 2] - '0');
                 }
             }
         } else if (round[i] == '/') {
-            // spare
             score += 10 - (round[i - 1] - '0');
-            if (i < round.size() - 1) {
+            if (i + 1 < round.size()) {
                 score += round[i + 1] - '0';
             }
         } else {
-            // normal bowl
             score += round[i] - '0';
         }
     }
