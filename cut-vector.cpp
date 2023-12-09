@@ -1,20 +1,21 @@
 ```cpp
 #include <vector>
+#include <iostream>
 #include <algorithm>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
-    std::size_t n = nums.size();
+    std::size_t size = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
-    for (std::size_t i = 1; i < n; i++) {
+    for (std::size_t i = 1; i < size; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = std::abs(leftSum - rightSum);
     std::size_t cutIndex = 0;
 
-    for (std::size_t i = 0; i < n; i++) {
-        if (i < n - 1) {
+    for (std::size_t i = 0; i < size; i++) {
+        if (i < size - 1) {
             leftSum += nums[i + 1];
             rightSum -= nums[i + 1];
         }
@@ -33,11 +34,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    int size;
+    std::cin >> size;
+    std::vector<int> nums(size);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < size; i++) {
         std::cin >> nums[i];
     }
 
