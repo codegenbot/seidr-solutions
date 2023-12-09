@@ -2,16 +2,17 @@
 #include <iostream>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
-    return (firstBounceHeight / startingHeight) * (-1);
+    return firstBounceHeight / startingHeight;
 }
 
 double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = startingHeight;
+    double distance = startingHeight;
 
     for (int i = 0; i < numBounces; i++) {
-        double nextBounceHeight = bouncinessIndex * totalDistance;
-        totalDistance += nextBounceHeight;
+        distance *= bouncinessIndex;
+        totalDistance += 2 * distance;
     }
 
     return totalDistance;
