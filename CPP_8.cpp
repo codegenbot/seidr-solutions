@@ -6,11 +6,7 @@
 using namespace std;
 
 vector<int> sum_product(const vector<int>& numbers) {
-    int result = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        result += numbers[i] * (numbers[i] + 1);
-    }
-    return vector<int>{result};
+    return vector<int>{numbers[0] * (numbers[0] + 1)};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
