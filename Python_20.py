@@ -1,4 +1,4 @@
-def find_closest_elements(numbers: list) -> Tuple[float, float]:
+def find_closest_elements(numbers: list) -> tuple:
     numbers.sort()
     closest_pair = (numbers[0], numbers[1])
     for i in range(len(numbers)-1):
