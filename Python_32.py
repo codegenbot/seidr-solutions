@@ -1,7 +1,16 @@
+```
+import sys
 
-def find_zero(xs, x):
+def find_zero(xs):
+    # Read user input from command line
+    x = int(sys.stdin.readline().strip())
+    
+    # Perform calculations
     result = 0
     for i in range(len(xs)):
         if xs[i] == x:
             result += 1
+    
+    # Return result
     return result
+```
