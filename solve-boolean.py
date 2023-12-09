@@ -1,4 +1,3 @@
-```python
 def solve_boolean(expression):
     operators = {
         '|' : lambda x, y: x or y,
@@ -19,4 +18,3 @@ def solve_boolean(expression):
 
 expression = input()
 print(solve_boolean(expression))
-```
