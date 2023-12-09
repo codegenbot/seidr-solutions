@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 
 int main() {
     std::vector<int> digits;
@@ -24,8 +23,7 @@ int main() {
         }
     }
 
-    std::cout << sum << std::endl;
+    std::cout << sum;
 
     return 0;
 }
-```
