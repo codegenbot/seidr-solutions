@@ -1,30 +1,29 @@
-[PYTHON]
-def find_zero(coeffs: list) -> float:
-    """
-    Finds a zero of the polynomial defined by the coefficients in coeffs.
-    The function returns only one zero point, even if there are many.
-    Moreover, the function only takes a list of coefficients with an even number of elements and the largest non-zero coefficient as it guarantees a solution.
-    """
-    # Initialize x to 0
-    x = 0
+```
+#include <cstdio>
+#include <cmath>
+#include <vector>
 
-    # Loop through the coefficients and calculate the polynomial value at x
-    for i in range(len(coeffs)):
-        x += coeffs[i] * (x ** i)
+float find_zero(const std::vector<float>& coeffs) {
+    float x = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        x += coeffs[i] * pow(x, i);
+    }
+    return x;
+}
 
-    return x
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_zero([1, -2, 1]) == 1
-# Test case 2:
-assert find_zero([-1, 0, 1]) == 1
-# Test case 3:
-assert find_zero([1, 2, 3, 4]) == 1
-# Test case 4:
-assert find_zero([1, 2, 3, 4, 5]) == 1
-# Test case 5:
-assert find_zero([1, 2, 3, 4, 5, 6]) == 1
-[/TESTS]
+float poly(const std::vector<float>& coeffs) {
+    float y = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        y += coeffs[i] * pow(y, i);
+    }
+    return y;
+}
 
+int main() {
+    std::vector<float> coeffs = {1, -2, 1};
+    float solution = find_zero(coeffs);
+    printf("The solution is: %f\n", solution);
+    assert(abs(poly(coeffs) - solution) < 1e-3);
+    return 0;
+}
 ```
