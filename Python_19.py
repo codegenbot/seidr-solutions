@@ -1,6 +1,8 @@
-# Modified version of the `sort_numbers` function to accept a list of integers
-def sort_numbers(numbers: List[int]) -> str:
-    return " ".join(str(x) for x in sorted(numbers))
+```
+import re
 
-# Call the function with a list of integers
-print(sort_numbers([1, 2, 3, 4, 5, 6]))
+def sort_numbers(numbers):
+    numbers = re.findall(r'\d+', numbers)
+    numbers = [int(x) for x in numbers]
+    return " ".join(str(x) for x in sorted(numbers))
+```
