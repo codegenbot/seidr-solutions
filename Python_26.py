@@ -1,5 +1,3 @@
-The following code should work:
-```
 def remove_duplicates(numbers):
     unique_elements = set()
     result = []
@@ -8,4 +6,3 @@ def remove_duplicates(numbers):
             unique_elements.add(num)
             result.append(num)
     return result
-```

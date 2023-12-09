@@ -1,9 +1,8 @@
-```python
 def fizz_buzz(n):
     count = 0
+    seen = set()
     for i in range(1, n+1):
-        if i % 11 == 0 or i % 13 == 0:
-            if '7' in str(i):
-                count += 1
-    return count
-```
+        if (i % 11 == 0 and i % 13 == 0) or '7' in str(i):
+            count += 1
+            seen.add(i)
+    return len(seen)
