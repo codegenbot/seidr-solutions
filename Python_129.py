@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     # Initialize variables
     n = len(grid)
@@ -24,3 +25,4 @@ def minPath(grid, k):
 
     # Return the ordered list of values on the cells that the minimum path goes through
     return path
+```
