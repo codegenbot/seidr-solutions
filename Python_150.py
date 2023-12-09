@@ -1,5 +1,5 @@
 def x_or_y(n, x, y):
-    if isPrime(n):
-        return x
-    else:
+    if n % 2 == 0:
         return y
+    else:
+        return x
