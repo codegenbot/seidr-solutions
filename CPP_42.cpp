@@ -1,16 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 
-std::vector<int> incr_list(const std::vector<int>& l1) {
-    std::vector<int> result;
-    for (int i = 0; i < l1.size(); i++) {
-        result.push_back(l1[i] + 1);
-    }
-    return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int>& a, std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,6 +11,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         }
     }
     return true;
+}
+
+std::vector<int> incr_list(const std::vector<int>& l1) {
+    std::vector<int> result;
+    for (int i = 0; i < l1.size(); i++) {
+        result.push_back(l1[i] + 1);
+    }
+    return result;
 }
 
 int main() {
@@ -32,4 +31,3 @@ int main() {
     }
     return 0;
 }
-```
