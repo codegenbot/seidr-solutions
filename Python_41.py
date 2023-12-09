@@ -1,7 +1,5 @@
 
-Sure, here is the modified code with a correct function signature:
-
-```python
+```
 def car_race_collision(n):
     left_to_right = 0
     right_to_left = n - 1
