@@ -1,4 +1,4 @@
-
+```cpp
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -10,7 +10,9 @@ int main() {
     std::cout << "Length of the string is: " << input.size() << std::endl;
 
     // Insert a character at the beginning of the string
-    input.insert(input.begin() + 1, 'a');
+    std::string::iterator __p = input.begin();
+    input.insert(__p, 'a');
 
     return 0;
 }
+```
