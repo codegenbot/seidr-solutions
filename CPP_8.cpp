@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -14,7 +14,6 @@ bool issame(int a, int b) {
 }
 
 int main() {
-    assert(issame(sum_product({10}), 10 * (10 + 1)));
+    assert(issame(sum_product(10), 10 * (10 + 1)));
     return 0;
 }
-```
