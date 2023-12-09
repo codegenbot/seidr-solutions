@@ -1,6 +1,4 @@
 ```cpp
-#include <vector>
-#include <numeric>
 #include <utility>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
