@@ -7,3 +7,4 @@ def fruit_distribution(s):
     mango_count = apple_count + orange_count
 
     return mango_count
+```
