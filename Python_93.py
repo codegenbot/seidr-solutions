@@ -1,3 +1,4 @@
+```
 def encode(message):
     encoded_message = ""
     for char in message:
@@ -13,3 +14,4 @@ def encode(message):
             else:
                 return char.lower()
     return encoded_message
+```
