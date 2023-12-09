@@ -1,7 +1,5 @@
-```
-def any_int(x: float, y: float, z: float) -> bool:
-    if x == int(y + z) or y == int(x + z) or z == int(x + y):
+def any_float(x, y, z):
+    if x + y == z or x + z == y or y + z == x:
         return True
     else:
         return False
-```
