@@ -1,7 +1,5 @@
-
 def minPath(grid, k):
     from collections import deque
-    
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
