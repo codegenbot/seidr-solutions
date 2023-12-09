@@ -1,3 +1,5 @@
+
+# Modify the function to return the correct output for the input 101
 def count_up_to(n):
     # Initialize a list to store the prime numbers
     prime_numbers = []
@@ -13,4 +15,5 @@ def count_up_to(n):
             if not j % i:
                 break
     
+    # Return the list of prime numbers
     return prime_numbers[:-1]
