@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,15 +13,15 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> incr_list(const std::vector<int>& l1) {
-    std::vector<int> result;
+vector<int> incr_list(const vector<int>& l1){
+    vector<int> result = {};
     for (int i = 0; i < l1.size(); i++) {
         result.push_back(l1[i] + 1);
     }
     return result;
 }
 
-int main() {
+int main(){
     std::vector<int> v1 = {1, 2, 3};
     std::vector<int> v2 = incr_list(v1);
     if (issame(v1, v2)) {
@@ -29,5 +29,4 @@ int main() {
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
     }
-    return 0;
 }
