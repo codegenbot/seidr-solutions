@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -35,3 +36,4 @@ int main() {
 
     std::exit(0);
 }
+```
