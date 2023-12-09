@@ -1,8 +1,7 @@
+```
+import re
 
-```python
-def sort_numbers(numbers):
-    numbers = numbers.split()
-    numbers = [int(x) for x in numbers]
+def sort_numbers(numbers: str) -> str:
+    numbers = [int(x) for x in re.findall(r'\d+', numbers)]
     return " ".join(str(x) for x in sorted(numbers))
 ```
-```.
