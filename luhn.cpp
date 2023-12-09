@@ -4,6 +4,7 @@
 
 int main() {
     std::vector<int> digits;
+    digits.reserve(16);
 
     for (int i = 0; i < 16; i++) {
         int digit;
