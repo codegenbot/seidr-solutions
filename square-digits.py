@@ -1,2 +1,5 @@
 def square_digits(num):
-    return ''.join(str(int(d)**2) for d in str(num)) if num != 0 else '0'
+    if num == 0:
+        return '0'
+    else:
+        return ''.join(str(int(d)**2) for d in str(num))
