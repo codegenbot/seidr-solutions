@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -16,4 +15,3 @@ int vowels_count(string s) {
     }
     return count;
 }
-```
