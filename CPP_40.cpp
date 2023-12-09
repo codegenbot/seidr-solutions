@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -14,4 +13,3 @@ bool triples_sum_to_zero(vector<int> l) {
     }
     return false;
 }
-```
