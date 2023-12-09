@@ -5,10 +5,9 @@
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
   std::vector<int> indices{};
+
   int n = text.length();
   int m = target.length();
-
-  indices.reserve(n);
 
   for (int i = 0; i <= n - m; i++) {
     int j;
@@ -17,7 +16,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         break;
       }
     }
-    if (j >= m) {
+    if (j == m) {
       indices.push_back(i);
     }
   }
