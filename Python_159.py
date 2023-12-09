@@ -1,4 +1,8 @@
+```
 def eat(number, need, remaining):
-    total = number + need
-    left = max(total - remaining, 0)
-    return [total, left]
+    total_eaten = number + need
+    carrots_left = remaining - need
+    if carrots_left < 0:
+        carrots_left = 0
+    return [total_eaten, carrots_left]
+```
