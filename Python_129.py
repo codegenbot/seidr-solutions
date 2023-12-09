@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
@@ -23,3 +24,4 @@ def minPath(grid, k):
                 path.append(findMinPath(i, j, k))
 
     return sum(path)
+```
