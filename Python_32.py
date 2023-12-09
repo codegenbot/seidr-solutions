@@ -1,3 +1,4 @@
+```python
 def find_zero(xs):
     if len(xs) % 2 == 0:
         return None
@@ -8,3 +9,4 @@ def find_zero(xs):
             break
         x -= y / poly(xs, x + 1)
     return x
+```
