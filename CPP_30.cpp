@@ -1,9 +1,9 @@
 [PYTHON]
-def get_positive(my_list):
-    return [i for i in my_list if i > 0]
-
 def issame(a, b):
     return a == b
+
+def get_positive(my_list):
+    return [i for i in my_list if i > 0]
 
 def main():
     l1 = [1, 2, 3, -4, 5]
