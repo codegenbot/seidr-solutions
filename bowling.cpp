@@ -1,5 +1,3 @@
-Please note that I can only provide correct code for you. Here's the modified code:
-
 ```cpp
 #include <iostream>
 #include <string>
