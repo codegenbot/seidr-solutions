@@ -1,28 +1,11 @@
 def minPath(grid, k):
-    # Initialize variables
     n = len(grid)
     m = len(grid[0])
-    visited = [[False for _ in range(m)] for _ in range(n)]
-    path = []
-
-    # Define a function to find the minimum path
-    def findPath(i, j, k):
-        if k == 1:
-            return [grid[i][j]]
-        else:
-            paths = []
-            for x, y in [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]:
-                if 0 <= x < n and 0 <= y < m and not visited[x][y]:
-                    visited[x][y] = True
-                    paths.append(findPath(x, y, k-1))
-            return min(paths, key=lambda x: x[0])
-
-    # Find the minimum path
-    i, j = 0, 0
-    while len(path) < k:
-        path.append(grid[i][j])
-        visited[i][j] = True
-        i, j = findPath(i, j, k-len(path))
-
-    # Return the ordered list of values on the cells that the minimum path go through
-    return [grid[i][j] for i, j in enumerate(path)]
+    dp = [[float('inf')] * (k+1) for _ in range(n)]
+    for i in range(n):
+        for j in range(m):
+            if grid[i][j] == 1:
+                dp[i][0] = 0
+            elif grid[i][j] <= k:
+                dp[i][grid[i][j]] = min(dp[i][grid[i][j]], dp[i-1][grid[i][j]-1] + 1)
+    return [1] + [min(dp[-1][i], dp[-1][i-1]) for i in range(2, k+1)]
