@@ -1,33 +1,42 @@
-```
-#include <iostream>
-#include <vector>
+[PYTHON]
+def issame(a: std::vector<double>, b: std::vector<double>) -> bool:
+    return a == b
 
-bool issame(std::vector<float> a, std::vector<float> b);
+def get_positive(my_list: std::vector<int>) -> std::vector<int>:
+    positive_elements = []
+    for element in my_list:
+        if element > 0:
+            positive_elements.append(element)
+    return positive_elements
 
-int main() {
-    std::vector<float> l1 = {1, 2, 3, -4, 5};
-    std::vector<float> l2 = {1, 2, 3, 4, 5};
+def main():
+    l1 = [1, 2, 3, -4, 5]
+    l2 = [1, 2, 3, 4, 5]
+    print("Positive elements in l1:", get_positive(l1))
+    if issame(get_positive(l1), get_positive(l2)):
+        print("The positive elements in l1 and l2 are the same")
+    else:
+        print("The positive elements in l1 and l2 are not the same")
 
-    if (issame(get_positive(l1), get_positive(l2))) {
-        std::cout << "The positive elements in l1 and l2 are the same" << std::endl;
-    } else {
-        std::cout << "The positive elements in l1 and l2 are not the same" << std::endl;
-    }
-
-    return 0;
-}
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
+if __name__ == "__main__":
+    main()
+[/PYTHON]
+[TESTS]
+# Test case 1:
+l1 = [1, 2, 3, -4, 5]
+l2 = [1, 2, 3, 4, 5]
+assert get_positive(l1) == [1, 2, 3, 5]
+# Test case 2:
+l1 = [-1, -2, -3, -4, -5]
+l2 = [1, 2, 3, 4, 5]
+assert get_positive(l1) == []
+# Test case 3:
+l1 = [1, 2, 3, -4, 5]
+l2 = [1, 2, 3, 4, 5]
+assert issame(get_positive(l1), get_positive(l2)) == True
+# Test case 4:
+l1 = [-1, -2, -3, -4, -5]
+l2 = [1, 2, 3, 4, 5]
+assert issame(get_positive(l1), get_positive(l2)) == False
+[/TESTS]
 ```
