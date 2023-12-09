@@ -1,3 +1,5 @@
+import sys
+
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
@@ -13,12 +15,7 @@ def cut_vector(vector):
     
     return vector, [0]
 
-vector = []
-while True:
-    num = input()
-    if num == "":
-        break
-    vector.append(int(num))
+vector = [int(line) for line in sys.stdin.readlines()]
 
 left, right = cut_vector(vector)
 print("\n".join(map(str, left)))
