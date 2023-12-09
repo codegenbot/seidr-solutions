@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -35,4 +35,5 @@ int main() {
     std::cout << score << std::endl;
 
     std::exit(0);
-}```
+}
+```
