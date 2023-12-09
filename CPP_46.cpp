@@ -20,7 +20,7 @@ int main() {
     cout << "Enter a number: ";
     int n;
     cin >> n;
-    cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << endl;
+    cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << "\n";
     return 0;
 }
 ```
