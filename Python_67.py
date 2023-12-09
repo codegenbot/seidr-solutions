@@ -1,8 +1,9 @@
-[PYTHON]
+```python
 import re
 
 def fruit_distribution(s, n):
-    apples = int(re.search(r'\d+', s).group())
-    oranges = int(re.search(r'\d+', s).group())
+    # Use regular expression to extract numbers from input string
+    nums = re.findall(r'\d+', s)
+    apples, oranges = map(int, nums)
     return n - apples - oranges
-[/PYTHON]
+```
