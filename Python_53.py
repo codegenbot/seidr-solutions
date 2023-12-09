@@ -1,5 +1,5 @@
-#!/usr/bin/env python
 
+>>> #!/usr/bin/env python
 def add(x: int, y: int):
     return x + y
 
