@@ -1,7 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
-#include <sstream>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
@@ -21,10 +19,7 @@ int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
     
-    std::string input;
-    std::getline(std::cin, input);
-    std::stringstream ss(input);
-    ss >> startingHeight >> firstBounceHeight >> numBounces;
+    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
     
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
