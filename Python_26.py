@@ -1,4 +1,4 @@
-```python
+```
 def remove_duplicates(numbers: list) -> list:
     unique_elements = set()
     result = []
