@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-float calculateTriangleArea(float a, float h) {
+float triangle_area(float a, float h) {
     return (a * h) / 2;
 }
 
@@ -12,7 +12,7 @@ int main() {
     std::cin >> a;
     std::cout << "Enter the height: ";
     std::cin >> h;
-    std::cout << "The area of the triangle is: " << calculateTriangleArea(a, h) << std::endl;
+    std::cout << "The area of the triangle is: " << triangle_area(a, h) << std::endl;
     return 0;
 }
 ```
