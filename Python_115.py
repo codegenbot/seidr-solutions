@@ -1,4 +1,3 @@
-```python
 def max_fill(grid, capacity):
     # Initialize variables
     n = len(grid)
@@ -15,4 +14,3 @@ def max_fill(grid, capacity):
                 count += 1
     
     return count
-```
