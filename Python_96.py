@@ -1,9 +1,20 @@
-```
 def count_up_to(n):
-    numbers = range(2, n+1)
-    for i in numbers:
-        if any(j <= int(i**0.5) for j in range(2, i)):
-            break
+    # Initialize a list to store the prime numbers
+    prime_numbers = []
     
-    return [i for i in numbers if i not in set(range(2, int(n**0.5)+1))]
-```
+    # Iterate from 2 to the square root of n
+    for i in range(2, int(n**0.5) + 1):
+        # If i is not marked as composite, it is prime
+        if not i % 2:
+            prime_numbers.append(i)
+        
+        # Mark the multiples of i as composite
+        for j in range(i*i, n+1, i):
+            if not j % i:
+                break
+    
+    # Check if n is prime and return it if it is
+    if n % 2 == 0:
+        prime_numbers.append(n)
+    
+    return prime_numbers
