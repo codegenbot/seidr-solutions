@@ -3,4 +3,7 @@ def largest_prime_factor(n: int):
     for i in range(2, n+1):
         if n % i == 0:
             factors.append(i)
-    return max(factors)
+    if len(factors) > 0:
+        return max(factors)
+    else:
+        return 1
