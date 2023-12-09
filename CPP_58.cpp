@@ -1,19 +1,14 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 using namespace std;
 
-int main() {
-    vector<int> v1 = {4, 3, 2, 8};
-    vector<int> v2 = {1, 2, 3, 4};
-
-    assert(issame(v1, v2));
-
-    cout << "The common elements of the two vectors are: ";
-    for (auto i : issame(v1, v2)) {
-        cout << i << " ";
-    }
-    return 0;
+vector<int> common(vector<int> l1, vector<int> l2) {
+    vector<int> result;
+    sort(l1.begin(), l1.end());
+    sort(l2.begin(), l2.end());
+    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+    return result;
 }
 ```
