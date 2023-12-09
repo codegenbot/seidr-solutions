@@ -1,18 +1,13 @@
-```
+# Modified version of the Sieve of Eratosthenes algorithm in Python
+
 def count_up_to(n: int) -> List[int]:
-    # Initialize a list to store the prime numbers
     prime_numbers = []
-    
-    # Iterate from 2 to the square root of n
     for i in range(2, int(n**0.5) + 1):
-        # If i is not marked as composite, it is prime
-        if i % 2:
-            prime_numbers.append(i)
-        
-        # Mark the multiples of i as composite
+        if i % 2 == 0:
+            continue
         for j in range(i*i, n+1, i):
             if j % i == 0:
                 break
-    
+        else:
+            prime_numbers.append(i)
     return prime_numbers
-```
