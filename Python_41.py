@@ -11,4 +11,4 @@ def car_race_collision(n):
             left_to_right += 1
         else:
             right_to_left -= 1
-    return sum(collisions.values()) + (n - 1) * (n - 2) // 2
+    return sum(collisions.values())
