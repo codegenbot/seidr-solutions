@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,3 +9,4 @@ int main() {
     std::cout << *max_it << '\n';
     return 0;
 }
+```
