@@ -1,3 +1,6 @@
+Please note that I can only provide correct code for you. Here's the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
 
@@ -24,3 +27,14 @@ int scoreOfRound(const std::string& round) {
     }
     return score;
 }
+
+int main() {
+    std::string round;
+    std::cin >> round;
+
+    int score = scoreOfRound(round);
+    std::cout << score << std::endl;
+
+    return 0;
+}
+```
