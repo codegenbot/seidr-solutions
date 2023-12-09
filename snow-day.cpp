@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
-double calculateSnow(int hours, double initialSnow, double snowFallRate, double snowMeltRate) {
-    double snowOnGround = initialSnow;
+float calculateSnow(int hours, float initialSnow, float snowFallRate, float snowMeltRate) {
+    float snowOnGround = initialSnow;
     for (int i = 0; i < hours; i++) {
         snowOnGround += snowFallRate;
         snowOnGround *= (1 - snowMeltRate);
@@ -12,23 +13,24 @@ double calculateSnow(int hours, double initialSnow, double snowFallRate, double 
 
 int main() {
     int hours;
-    double initialSnow, snowFallRate, snowMeltRate;
+    float initialSnow, snowFallRate, snowMeltRate;
     std::string input;
     
     std::getline(std::cin, input);
     hours = std::stoi(input);
     
     std::getline(std::cin, input);
-    initialSnow = std::stod(input);
+    initialSnow = std::stof(input);
     
     std::getline(std::cin, input);
-    snowFallRate = std::stod(input);
+    snowFallRate = std::stof(input);
     
     std::getline(std::cin, input);
-    snowMeltRate = std::stod(input);
+    snowMeltRate = std::stof(input);
     
-    double result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate);
+    float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate);
     std::cout << std::fixed << std::setprecision(2) << result;
     
     return 0;
 }
+```
