@@ -1,11 +1,10 @@
-```
-string flip_case(const string& str) {
-    return str.swapcase();
-}
+def flip_case(str):
+    return str.swapcase()
 
-int main() {
-    string input_string = "These violent delights have violent ends";
-    assert(flip_case(input_string) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
-}
-```
+def main():
+    input_string = "These violent delights have violent ends"
+    expected_output = "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"
+    assert (flip_case(input_string) == expected_output)
+
+if __name__ == "__main__":
+    main()
