@@ -11,8 +11,4 @@ def car_race_collision(n: int):
         if dist <= 2 * (n - i):
             num_collisions += 1
 
-    # If the two cars are moving in the same direction, there won't be any collision
-    if n % 2 == 0:
-        return 0
-
     return num_collisions
