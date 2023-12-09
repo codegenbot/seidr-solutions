@@ -1,55 +1,42 @@
-```python
-def bowling_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
-    frame = 0
-    i = 0
-
-    while i < len(bowls):
-        if frame == 9:
-            if bowls[i] == 'X':
-                score += 10
-                score += get_value(bowls[i+1])
-                score += get_value(bowls[i+2])
-            else:
-                score += get_value(bowls[i])
-                i += 1
-                if bowls[i] == '/':
-                    score += 10 - get_value(bowls[i-1])
+    frame = 1
+    bowl_index = 0
+    
+    while frame <= 10:
+        bowl = bowls[bowl_index]
+        
+        if bowl == 'X':
+            score += 10
+            if bowl_index + 2 < len(bowls):
+                next_bowl = bowls[bowl_index + 1]
+                next_next_bowl = bowls[bowl_index + 2]
+                
+                if next_bowl == 'X':
+                    score += 10
+                elif next_bowl == '/':
+                    score += 10 - int(bowls[bowl_index + 1])
                 else:
-                    score += get_value(bowls[i])
-
-                i += 1
-
+                    score += int(next_bowl) + int(next_next_bowl)
+ 
+                bowl_index += 1
+        elif bowl == '/':
+            score += 10 - int(bowls[bowl_index - 1])
+            if bowl_index + 1 < len(bowls):
+                next_bowl = bowls[bowl_index + 1]
+                
+                if next_bowl == 'X':
+                    score += 10
+                else:
+                    score += int(next_bowl)
+                    
+            bowl_index += 1
         else:
-            if bowls[i] == 'X':
-                score += 10
-                score += get_value(bowls[i+1])
-                score += get_value(bowls[i+2])
-                i += 1
-
-            elif bowls[i] == '/':
-                score += 10 - get_value(bowls[i-1])
-                score += get_value(bowls[i+1])
-                i += 2
-
-            else:
-                score += get_value(bowls[i])
-                i += 1
-                score += get_value(bowls[i])
-                i += 1
-
+            score += int(bowl)
+            
+        if bowl != 'X':
+            bowl_index += 1
+            
         frame += 1
-
+    
     return score
-
-def get_value(bowl):
-    if bowl == 'X' or bowl == '/':
-        return 10
-    elif bowl == '-':
-        return 0
-    else:
-        return int(bowl)
-
-bowls = input()
-print(bowling_score(bowls))
-```
