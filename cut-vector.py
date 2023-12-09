@@ -12,4 +12,4 @@ def cut_vector(vector):
         if abs(left_sum - right_sum) <= abs(total_sum):
             cut_index = i+1
     
-    return vector[:cut_index], vector[cut_index+1:] or [0]
+    return vector[:cut_index], vector[cut_index:] if vector[cut_index:] else [0]
