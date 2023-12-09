@@ -1,8 +1,10 @@
-```
 def encrypt(s):
-    s = s.lower()
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    rotated_alphabet = alphabet[2:] + alphabet[:2]
-    table = str.maketrans(alphabet, rotated_alphabet)
-    return s.translate(table)
-```
+    encrypted_alphabet = alphabet[2:] + alphabet[:2]
+    encrypted_string = ""
+    for char in s:
+        if char not in alphabet:
+            continue
+        index = alphabet.index(char)
+        encrypted_string += encrypted_alphabet[index]
+    return encrypted_string
