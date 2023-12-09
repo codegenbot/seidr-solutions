@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -25,8 +24,7 @@ int main() {
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, heightAfterFirstBounce);
     double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
 
-    cout << fixed << setprecision(14) << totalDistance << endl;
+    cout << fixed << setprecision(15) << totalDistance << endl;
 
     return 0;
 }
-```
