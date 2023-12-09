@@ -1,7 +1,6 @@
 def find_zero(xs):
-    x = int(input("Enter a number: "))
     result = 0
-    for i in range(len(xs)):
-        if xs[i] == x:
+    for x in xs:
+        if x == 0:
             result += 1
     return result
