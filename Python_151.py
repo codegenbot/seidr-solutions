@@ -1,5 +1,3 @@
-
-```
 def double_the_difference(list):
     result = 0
     for num in list:
@@ -9,4 +7,4 @@ def double_the_difference(list):
 
 lst = [1, 2, 3, 4, 5]
 print(double_the_difference(lst))
-```
+```.
