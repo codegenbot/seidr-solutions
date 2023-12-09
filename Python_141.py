@@ -1,10 +1,15 @@
 def file_name_check(file_name):
-    if len(re.findall(r'\d', file_name)) > 3:
+    count = 0
+    for char in file_name:
+        if char.isdigit():
+            count += 1
+            if count > 3:
+                return 'No'
+    if '.' not in file_name or len(file_name.split('.')) != 2:
         return 'No'
-    if file_name.count('.') != 1:
+    if file_name.startswith('.') or file_name.endswith('.'):
         return 'No'
-    if not re.match(r'[a-zA-Z]', file_name):
-        return 'No'
-    if not re.search(r'\.(txt|exe|dll)$', file_name):
+    extension = file_name.split('.')[1]
+    if extension not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
