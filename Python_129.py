@@ -1,3 +1,4 @@
+```python
 def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
@@ -22,3 +23,4 @@ def minPath(grid, k):
         i, j = findPath(i, j, k-len(path))
 
     return [grid[i][j] for i, j in enumerate(path)]
+```
