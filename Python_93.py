@@ -1,3 +1,4 @@
+```
 def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
@@ -20,3 +21,4 @@ def encode(message):
             else:
                 encoded_message += char.swapcase()
     return encoded_message
+```
