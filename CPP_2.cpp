@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -12,3 +13,4 @@ int main() {
     std::cout << "The decimal part of the number is: " << truncate_number(number) << std::endl;
     return 0;
 }
+```
