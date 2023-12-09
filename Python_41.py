@@ -1,3 +1,4 @@
+
 ```python
 def car_race_collision(n):
     left_to_right = 0
