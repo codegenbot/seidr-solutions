@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -18,3 +19,4 @@ int main() {
     cout << "Sum: " << result << endl;
     return 0;
 }
+```
