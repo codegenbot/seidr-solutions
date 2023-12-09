@@ -1,11 +1,16 @@
 def decode_shift(s: str) -> str:
-    message = input("Enter message: ")
+    # Check if input format is correct
     if not s.isalpha() or len(s) < 1:
         raise ValueError("Input must be a non-empty string of letters.")
+
+    message = input("Enter message to decode: ")
+
+    # Decode the message using the Caesar cipher with a shift of 5
     decoded_message = ""
     for ch in message:
         if ch.isalpha():
             decoded_message += chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a"))
         else:
             decoded_message += ch
+
     return decoded_message
