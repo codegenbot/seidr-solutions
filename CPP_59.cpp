@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cmath>
 
+bool isPrime(int n);
+
 int largest_prime_factor(int n) {
     int maxFactor = 0;
     for (int i = 2; i <= sqrt(n); i++) {
