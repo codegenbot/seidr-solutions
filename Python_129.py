@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     # Initialize variables
     n = len(grid)
@@ -25,4 +24,3 @@ def minPath(grid, k):
 
     # Return the total cost of the minimum path
     return sum(path)
-```
