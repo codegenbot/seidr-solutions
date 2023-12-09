@@ -7,7 +7,8 @@ int main() {
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
-    std::cout << "Length of the string is: " << input.size() << std::endl;
+    int length = input.size();
+    std::cout << "Length of the string is: " << length << std::endl;
     return 0;
 }
 ```
