@@ -10,7 +10,7 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
     
     for (int i = 0; i < numBounces; i++) {
         totalDistance += height;
-        height *= (1 - bouncinessIndex);
+        height *= bouncinessIndex;
         totalDistance += height;
     }
     
@@ -20,20 +20,20 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-
+    
     std::string startingHeightStr, firstBounceHeightStr, numBouncesStr;
     std::cin >> startingHeightStr;
     std::cin >> firstBounceHeightStr;
     std::cin >> numBouncesStr;
-
-    startingHeight = std::stod(startingHeightStr);
-    firstBounceHeight = std::stod(firstBounceHeightStr);
-    numBounces = std::stoi(numBouncesStr);
-
+    
+    startingHeight = std::atof(startingHeightStr.c_str());
+    firstBounceHeight = std::atof(firstBounceHeightStr.c_str());
+    numBounces = std::atoi(numBouncesStr.c_str());
+    
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
-
+    
     std::cout << distance << std::endl;
-
+    
     return 0;
 }
 ```
