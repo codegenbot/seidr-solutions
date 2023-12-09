@@ -1,74 +1,45 @@
+```cpp
 #include <iostream>
 #include <string>
 
-int calculateScore(std::string input) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 0;
-    int frameIndex = 0;
-    
-    for (int i = 0; i < input.length(); i++) {
-        if (frame == 10) {
-            break;
-        }
-        
-        if (input[i] == 'X') {
+    int rolls = 0;
+
+    for (char c : round) {
+        if (c == 'X') {
             score += 10;
-            
-            if (input[i + 2] == 'X') {
-                score += 10;
-                
-                if (input[i + 4] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[i + 4] - '0';
-                }
-            } else if (input[i + 4] == '/') {
-                score += 10;
-            } else {
-                score += input[i + 2] - '0';
-                score += input[i + 4] - '0';
+            if (frame < 9) {
+                score += (round[rolls + 1] == 'X') ? 10 + ((round[rolls + 2] == 'X') ? 10 : (round[rolls + 2] - '0')) : (round[rolls + 2] == '/' ? 10 : (round[rolls + 1] - '0') + (round[rolls + 2] - '0'));
+                rolls++;
             }
-            
             frame++;
-            frameIndex = 0;
-        } else if (input[i] == '/') {
-            score += 10 - (input[i - 1] - '0');
-            
-            if (input[i + 2] == 'X') {
-                score += 10;
-            } else {
-                score += input[i + 2] - '0';
-            }
-            
+        } else if (c == '/') {
+            score += 10 - (round[rolls - 1] - '0');
+            score += (frame < 9) ? (round[rolls + 1] == 'X' ? 10 : (round[rolls + 1] - '0')) : 0;
             frame++;
-            frameIndex = 0;
-        } else if (input[i] == '-') {
-            frameIndex++;
-            
-            if (frameIndex == 2) {
-                frame++;
-                frameIndex = 0;
-            }
         } else {
-            score += input[i] - '0';
-            frameIndex++;
-            
-            if (frameIndex == 2) {
+            score += c - '0';
+            if (frame < 9 && rolls % 2 == 0 && c != '-') {
+                score += (round[rolls + 1] == 'X' ? 10 : (round[rolls + 1] - '0'));
                 frame++;
-                frameIndex = 0;
             }
         }
+        rolls++;
     }
-    
+
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    
-    int score = calculateScore(input);
+    std::string round;
+    std::getline(std::cin, round);
+
+    int score = scoreOfRound(round);
+
     std::cout << score << std::endl;
-    
+
     return 0;
 }
+```
