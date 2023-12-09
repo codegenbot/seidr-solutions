@@ -32,4 +32,12 @@ def minPath(grid, k):
     # Return the total cost of the minimum path
     return min_path
 [/PYTHON]
-(Note: The above code has been formatted for better readability)
+[TESTS]
+# Test case 1:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 2) == 12
+# Test case 2:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == 15
+# Test case 3:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 4) == 18
+[/TESTS]
+```
