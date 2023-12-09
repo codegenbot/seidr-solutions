@@ -1,7 +1,4 @@
-```
-#include <iostream>
-using namespace std;
-
+```cpp
 int fib4(int n) {
     if (n <= 3) {
         return 0;
@@ -14,13 +11,5 @@ int fib4(int n) {
         int d = fib4(n-4);
         return a + b + c + d;
     }
-}
-
-int main() {
-    cout << "Enter a number: ";
-    int n;
-    cin >> n;
-    cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << endl;
-    return 0;
 }
 ```
