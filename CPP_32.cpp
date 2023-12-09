@@ -3,7 +3,7 @@
 #include <vector>
 
 int main() {
-    std::vector<double> coeffs = {1.0, -2.0, 1.0};
+    std::pmr::vector<double> coeffs = {1.0, -2.0, 1.0};
     double solution;
 
     auto it = coeffs.begin();
