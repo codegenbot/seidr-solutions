@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 int fizz_buzz(int n) {
@@ -10,4 +9,3 @@ int fizz_buzz(int n) {
     }
     return count;
 }
-```
