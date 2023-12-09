@@ -1,3 +1,4 @@
+
 ```
 def eat(number, need):
     total_eaten = number + need
