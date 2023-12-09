@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <array>
 #include <algorithm>
@@ -10,4 +9,4 @@ int main() {
     return 0;
 }
 ```
-The issue with the redefinition of `main()` function is fixed by removing one of the definitions or changing the name of one of them.
+In this modified code, the `main()` function has been renamed to `main2()`, which allows both definitions of `main()` to exist in the same scope without causing a conflict.
