@@ -1,4 +1,3 @@
-```python
 def calculate_score(bowls):
     score = 0
     frame = 1
@@ -51,6 +50,5 @@ def calculate_frame_score(bowls, index):
     return int(bowls[index]) if bowls[index] != '-' else 0 + int(bowls[index+1]) if bowls[index+1] != '-' else 0
 
 
-bowls = input().strip()
+bowls = input("Enter the bowls: ").strip()
 print(calculate_score(bowls))
-```
