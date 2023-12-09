@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <iomanip>
+#include <sstream>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
@@ -25,13 +26,18 @@ int main() {
     std::cin >> firstBounceHeightStr;
     std::cin >> numBouncesStr;
     
-    startingHeight = std::stod(startingHeightStr);
-    firstBounceHeight = std::stod(firstBounceHeightStr);
-    numBounces = std::stoi(numBouncesStr);
+    std::stringstream startingHeightStream(startingHeightStr);
+    std::stringstream firstBounceHeightStream(firstBounceHeightStr);
+    std::stringstream numBouncesStream(numBouncesStr);
+    
+    startingHeightStream >> startingHeight;
+    firstBounceHeightStream >> firstBounceHeight;
+    numBouncesStream >> numBounces;
     
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
-    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
+    std::cout << distance << std::endl;
     
     return 0;
 }
+```
