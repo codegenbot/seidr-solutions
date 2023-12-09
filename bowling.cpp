@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -19,7 +20,7 @@ int scoreOfRound(const std::string& bowls) {
             bowl = 0;
             frame++;
         } else if (c == '/') {
-            frames[frame] += 10 - (frames[frame - 1] - frames[frame - 2]);
+            frames[frame] += 10 - frames[frame - 1];
             if (frame < 9) {
                 frames[frame] += frames[frame + 1];
             }
@@ -48,8 +49,8 @@ int scoreOfRound(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::cout << "Enter the bowls: ";
     std::cin >> bowls;
-    std::cout << "Score: " << scoreOfRound(bowls) << std::endl;
+    std::cout << scoreOfRound(bowls) << std::endl;
     return 0;
 }
+```
