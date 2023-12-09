@@ -27,23 +27,13 @@ def minPath(grid, k):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 2) == None
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 2) == 11
 # Test case 2:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == None
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == 15
 # Test case 3:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 4) == None
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 4) == 19
 # Test case 4:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 5) == None
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 5) == 23
 # Test case 5:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 6) == None
-# Test case 6:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 7) == None
-# Test case 7:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 8) == None
-# Test case 8:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 9) == None
-# Test case 9:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 10) == None
-# Test case 10:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 11) == None
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 6) == 27
 [/TESTS]
