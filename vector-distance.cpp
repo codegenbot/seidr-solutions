@@ -23,7 +23,6 @@ int main() {
 
     std::cin >> n;
 
-    std::vector<double> vec2;
     vec2.resize(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec2[i];
