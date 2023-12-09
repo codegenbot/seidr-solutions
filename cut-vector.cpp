@@ -1,5 +1,6 @@
-#include <vector>
+```cpp
 #include <iostream>
+#include <vector>
 #include <algorithm>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
@@ -53,3 +54,4 @@ int main() {
 
     return 0;
 }
+```
