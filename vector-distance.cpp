@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <iomanip>
+#include <cstdlib>
 
 double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double distance = 0.0;
@@ -31,4 +31,3 @@ int main() {
 
     return 0;
 }
-```
