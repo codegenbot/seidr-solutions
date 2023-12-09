@@ -9,5 +9,3 @@ def max_fill(grid, capacity):
                 water += 1
     return math.ceil(water / capacity)
 ```
-
-It's important to note that the code is not complete and it's missing an import statement, the `import math` statement should be added at the beginning of the code in order to use the `math.ceil()` function without any issues.
