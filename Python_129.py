@@ -1,4 +1,3 @@
-
 def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
@@ -24,6 +23,5 @@ def minPath(grid, k):
 
         return sum(grid[i][j] for i in range(n) for j in range(m) if visited[i][j]) or None
 
-    min_path = findMinPath(0, 0)
-
-    return min_path or []
+min_path = findMinPath(0, 0)
+return min_path or []
