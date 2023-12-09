@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -13,7 +14,6 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
     }
     
     totalDistance += height;
-    
     return totalDistance;
 }
 
@@ -36,3 +36,4 @@ int main() {
 
     return 0;
 }
+```
