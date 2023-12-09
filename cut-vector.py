@@ -10,7 +10,7 @@ def cut_vector(vector):
         right_sum -= vector[i]
         
         if abs(left_sum - right_sum) < abs(left_sum + right_sum - total_sum):
-            cut_index = i+1
+            cut_index = i + 1
     
     return vector[:cut_index], vector[cut_index:]
 
