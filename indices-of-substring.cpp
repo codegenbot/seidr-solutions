@@ -5,6 +5,8 @@
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
   std::vector<int> indices;
+  indices.reserve(text.length());
+
   int n = text.length();
   int m = target.length();
 
@@ -16,7 +18,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
       }
     }
     if (j == m) {
-      indices.emplace_back(i);
+      indices.push_back(i);
     }
   }
 
