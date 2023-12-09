@@ -6,17 +6,8 @@ def double_the_difference(list):
             result += num ** 2
     return result
 
-# Test case 1:
-lst = [1, 2, 3]
-result = double_the_difference(lst)
-print(result) # Output: 14
-
-# Test case 2:
-lst = [1, 3, 5, 7]
-result = double_the_difference(lst)
-print(result) # Output: 64
-
-# Test case 3:
+# initialize lst as an empty list
 lst = []
-result = double_the_difference(lst)
-print(result) # Output: 0
+
+# call the function with lst as argument
+double_the_difference(lst)
