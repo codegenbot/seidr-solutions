@@ -27,10 +27,10 @@ int scoreOfRound(const std::string& round) {
 }
 
 int main() {
-    std::string game;
-    std::getline(std::cin, game);
+    std::string round;
+    std::getline(std::cin, round);
 
-    int score = scoreOfRound(game);
+    int score = scoreOfRound(round);
     std::cout << score << std::endl;
 
     return 0;
