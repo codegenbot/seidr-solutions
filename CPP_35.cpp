@@ -7,7 +7,9 @@
 
 int main() {
     std::array<int, 3> v = {1, 2, 3};
-    assert(abs(*std::max_element(v.begin(), v.end()) - 124) < 1e-4);
+    auto it = std::find_if(v.begin(), v.end(), [](auto x) { return x > 0; });
+    assert(it != v.end());
+    *it = -*it;
     return 0;
 }
 ```
