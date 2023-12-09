@@ -1,3 +1,4 @@
+
 def remove_duplicates(numbers):
     unique_elements = set()
     result = []
