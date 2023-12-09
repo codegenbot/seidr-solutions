@@ -1,2 +1,2 @@
 def square_digits(num):
-    return ''.join('{:02}'.format(int(d)**2) for d in str(num))
+    return ''.join(str(d**2) for d in map(int, str(num)))
