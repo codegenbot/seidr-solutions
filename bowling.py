@@ -22,7 +22,9 @@ def get_strike_bonus(bowls, bowl_index):
         if bowls[bowl_index + i + 1] == 'X':
             bonus += 10
         elif bowls[bowl_index + i + 1] == '/':
-            bonus += 10 - int(bowls[bowl_index + i])
+            bonus += 10 - (0 if i == 1 else int(bowls[bowl_index + i]))
+        elif bowls[bowl_index + i + 1] == '-':
+            bonus += 0
         else:
             bonus += int(bowls[bowl_index + i])
     return bonus
@@ -31,15 +33,22 @@ def get_spare_bonus(bowls, bowl_index):
     bonus = 0
     if bowls[bowl_index + 2] == 'X':
         bonus += 10
+    elif bowls[bowl_index + 2] == '-':
+        bonus += 0
     else:
         bonus += int(bowls[bowl_index + 2])
     return bonus
 
 def get_frame_score(bowls, bowl_index):
-    if bowls[bowl_index] == '-':
-        return 0
-    else:
-        return int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
+    return (
+        0 
+        if bowls[bowl_index] == '-' 
+        else int(bowls[bowl_index]) 
+    ) + (
+        0 
+        if bowls[bowl_index + 1] == '-' 
+        else int(bowls[bowl_index + 1]) 
+    )
 
 bowls = input()
 print(calculate_score(bowls))
