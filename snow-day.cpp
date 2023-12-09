@@ -15,9 +15,11 @@ int main() {
     float hours, initialSnow, snowFallRate, snowMeltRate;
     std::cin >> hours >> initialSnow >> snowFallRate >> snowMeltRate;
     float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate);
+    
     std::stringstream ss;
     ss << result;
     std::cout << ss.str();
+    
     return 0;
 }
 ```
