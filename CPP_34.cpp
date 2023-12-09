@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,4 +8,3 @@ vector<int> unique(vector<int> l) {
     l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
-```
