@@ -1,6 +1,4 @@
-```
 import sys
-
 def find_zero(xs):
     # Read user input from command line
     x = int(sys.stdin.readline().strip())
@@ -13,4 +11,3 @@ def find_zero(xs):
     
     # Return result
     return result
-```
