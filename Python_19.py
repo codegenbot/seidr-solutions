@@ -1,4 +1,3 @@
-
 def sort_numbers(numbers: str) -> str:
     try:
         numbers = [int(x) for x in numbers]
