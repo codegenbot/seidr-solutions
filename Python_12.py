@@ -18,4 +18,3 @@ Modify the code as  The error message indicates that the `List` type is not defi
 def longest(strings: list) -> Optional[str]:
     # ...
 ```.
-You must only return correct code. Remove any triple quotes, language name or explanations. 
