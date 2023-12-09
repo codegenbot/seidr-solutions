@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -26,7 +25,7 @@ double find_zero(const vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {};
+    vector<double> coeffs = {};
     double solution;
     int ncoeff;
 
@@ -52,4 +51,3 @@ int main() {
 
     return 0;
 }
-```
