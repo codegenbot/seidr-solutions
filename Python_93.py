@@ -9,10 +9,14 @@ def encode(message):
                     encoded_char = encoded_char.upper()
                 else:
                     encoded_char = encoded_char.lower()
-            elif not char.isalpha():
-                encoded_char = char.swapcase()
             else:
-                encoded_char = char
+                encoded_char = char.swapcase()
         else:
-            encoded_message += char
+            # Handle non-alpha characters
+            if char == ' ':
+                encoded_message += ' '
+            elif char in vowels:
+                encoded_message += char
+            else:
+                encoded_message += char.swapcase()
     return encoded_message
