@@ -1,18 +1,14 @@
-```
-import re
 def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
+    consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
     encoded_message = ''
     for char in message:
-        if not char.isalpha():
-            # If the character is not alphabetic, swap its case
-            encoded_char = char.swapcase()
-        elif char.lower() in vowels:
-            # If the character is a vowel, add 2 to its ASCII code
-            encoded_char = chr(ord(char) + 2)
-        else:
-            # Otherwise, leave the character unchanged
-            encoded_char = char
-        encoded_message += encoded_char
+        if char.isalpha():
+            if char.lower() in vowels:
+                encoded_char = chr(ord(char) + 2)
+            elif char.lower() in consonants:
+                encoded_char = chr(ord(char) - 1)
+            else:
+                encoded_char = char.swapcase()
+            encoded_message += encoded_char
     return encoded_message
-```
