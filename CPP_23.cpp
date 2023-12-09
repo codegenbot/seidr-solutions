@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 
+int strlen(std::string str) {
+    return str.length();
+}
+
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
