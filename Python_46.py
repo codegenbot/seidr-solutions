@@ -1,3 +1,4 @@
+```
 def fib4(n):
     if n <= 3:
         return 0
@@ -13,3 +14,4 @@ def fib4(n):
             b = c
             c = d
         return c
+```
