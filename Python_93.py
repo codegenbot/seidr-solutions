@@ -1,3 +1,5 @@
+
+```
 def encode(message):
     encoded_message = ''
     for char in message:
@@ -8,3 +10,4 @@ def encode(message):
                 encoded_char = char.swapcase()
             encoded_message += encoded_char
     return encoded_message
+```
