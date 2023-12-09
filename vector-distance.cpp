@@ -6,23 +6,25 @@
 
 double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double distance = 0.0;
-    for (size_t i = 0; i < vec1.size(); i++) {
+    for (std::vector<double>::size_type i = 0; i < vec1.size(); i++) {
         distance += std::pow(vec1[i] - vec2[i], 2);
     }
     return std::sqrt(distance);
 }
 
 int main() {
-    size_t n;
+    std::vector<double>::size_type n;
     std::cin >> n;
 
     std::vector<double> vec1(n);
-    for (size_t i = 0; i < n; i++) {
+    for (std::vector<double>::size_type i = 0; i < n; i++) {
         std::cin >> vec1[i];
     }
 
-    std::vector<double> vec2(vec1.size());
-    for (size_t i = 0; i < vec2.size(); i++) {
+    std::cin >> n;
+
+    std::vector<double> vec2(n);
+    for (std::vector<double>::size_type i = 0; i < n; i++) {
         std::cin >> vec2[i];
     }
 
