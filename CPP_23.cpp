@@ -1,5 +1,3 @@
-I apologize for the confusion earlier. Here is the corrected code:
-```
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -15,4 +13,3 @@ int main() {
 
     return 0;
 }
-```
