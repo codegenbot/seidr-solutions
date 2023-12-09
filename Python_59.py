@@ -1,8 +1,9 @@
 def largest_prime_factor(n):
-    sqrt_n = int(n ** 0.5)
-    if n % 2 == 0:
-        return 2
-    for i in range(3, sqrt_n + 1, 2):
+    factors = []
+    for i in range(2, n+1):
         if n % i == 0:
-            return i
-    return 1
+            factors.append(i)
+    if len(factors) > 0:
+        return max(factors)
+    else:
+        return 1
