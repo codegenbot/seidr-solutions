@@ -11,10 +11,10 @@ def cut_vector(vector):
         right_sum -= vector[i]
         
         if abs(left_sum - right_sum) < abs(left_sum + right_sum - total_sum):
-            cut_index = i+1
+            cut_index = i + 1
             break
     
-    return vector[:cut_index-1], vector[cut_index-1:]
+    return vector[:cut_index], vector[cut_index:]
 
 input_string = input()
 vector = list(map(int, input_string.split()))
