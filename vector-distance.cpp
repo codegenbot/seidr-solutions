@@ -1,8 +1,8 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 long double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     long double distance = 0.0;
