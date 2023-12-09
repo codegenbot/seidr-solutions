@@ -10,5 +10,4 @@ def mastermind():
     black_pegs = sum(c == g for c, g in zip(code, guess))
 
     return white_pegs, black_pegs
-
 print(mastermind())
