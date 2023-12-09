@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -19,12 +18,11 @@ std::vector<int> incr_list(const std::vector<int>& l1) {
 }
 
 int main() {
-    const std::vector<int> my_vector = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
-    if (issame(my_vector, {6, 3, 6, 3, 4, 4, 10, 1, 124})) {
+    const std::vector<int> v1 = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
+    if (issame(v1, {6, 3, 6, 3, 4, 4, 10, 1, 124})) {
         std::cout << "The vectors are equal." << std::endl;
     } else {
         std::cout << "The vectors are not equal." << std::endl;
     }
     return 0;
 }
-```
