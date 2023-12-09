@@ -22,7 +22,7 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::vector<double> vec2; // Add this line to declare vec2 as a vector of doubles
+    std::vector<double> vec2;  // Added line to declare vec2 before using it
     std::cin >> n;
 
     vec2.resize(n);
