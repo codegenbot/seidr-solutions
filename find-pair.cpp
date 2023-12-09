@@ -1,5 +1,3 @@
-```cpp
-#include <cstddef>
 #include <unordered_set>
 #include <vector>
 
@@ -16,4 +14,3 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
     }
     return {};
 }
-```
