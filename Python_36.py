@@ -1,8 +1,12 @@
 def fizz_buzz(n):
     count = 0
-    seen = set()
     for i in range(1, n+1):
-        if i % 11 == 0 and i % 13 == 0 and '7' in str(i):
+        if i % 3 == 0 and i % 5 == 0:
+            print("FizzBuzz")
+        elif i % 3 == 0:
+            print("Fizz")
+        elif i % 5 == 0:
+            print("Buzz")
+        else:
             count += 1
-            seen.add(i)
-    return len(seen)
+    return count
