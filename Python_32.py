@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     x = int(input("Enter a number: "))
     result = 0
@@ -5,3 +6,4 @@ def find_zero(xs):
         if xs[i] == x:
             result += 1
     return result
+```
