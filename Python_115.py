@@ -1,3 +1,4 @@
+```
 def max_fill(grid):
     # Initialize variables
     rows = len(grid)
@@ -14,3 +15,4 @@ def max_fill(grid):
                 count += 1
     
     return count
+```
