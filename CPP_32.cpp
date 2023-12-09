@@ -1,8 +1,13 @@
+
 #include <iostream>
 #include <vector>
 
+double find_zero(const std::vector<double>& coeffs) {
+    // Implement the function to calculate the roots of the polynomial equation
+}
+
 int main() {
-    std::pmr::vector<double> coeffs = {1.0, -2.0, 1.0};
+    std::vector<double> coeffs = {1.0, -2.0, 1.0};
     double solution;
 
     auto it = coeffs.begin();
