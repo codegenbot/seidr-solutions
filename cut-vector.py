@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
@@ -13,3 +14,4 @@ def cut_vector(vector):
             cut_index = i+1
     
     return vector[:cut_index], vector[cut_index:] if vector[cut_index:] else [0]
+```
