@@ -1,6 +1,6 @@
 ```
-#include <vector>
 #include <cassert>
+#include <vector>
 using namespace std;
 
 // Function signature for pluck is incorrect, it should be vector<int> pluck(vector<int> arr)

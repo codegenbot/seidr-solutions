@@ -1,13 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return (a == b);
-}
 
 int main() {
     vector<int> v1 = {4, 3, 2, 8};
