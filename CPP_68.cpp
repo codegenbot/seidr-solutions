@@ -1,19 +1,15 @@
-[PYTHON]
-def pluck(arr):
-    smallest_even = INT_MAX
-    smallest_index = -1
-    for i in range(len(arr)):
-        if arr[i] % 2 == 0 and arr[i] < smallest_even:
-            smallest_even = arr[i]
-            smallest_index = i
-    return [smallest_even, smallest_index]
+```
+vector<int> pluck(vector<int> arr) {
+    int smallestEven = INT_MAX;
+    int smallestIndex = -1;
 
-def issame(a, b):
-    if len(a) != len(b):
-        return False
-    for i in range(len(a)):
-        if a[i] != b[i]:
-            return False
-    return True
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] <= smallestEven) {
+            smallestEven = arr[i];
+            smallestIndex = i;
+        }
+    }
 
-assert issame(pluck([7, 9, 7, 1]), [])
+    return {smallestEven, smallestIndex};
+}
+```
