@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 def max_fill(grid, capacity):
     import math
     rows = len(grid)
