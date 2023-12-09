@@ -1,25 +1,19 @@
-[PYTHON]
+```
+import re
+
 def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
-    char_map = {}
     for char in message:
-        if char.isalpha():
-            if char.lower() in vowels:
-                encoded_char = chr(ord(char) + 2)
-            else:
-                encoded_char = char.swapcase()
-            char_map[char] = encoded_char
-    for char in message:
-        if char.isalpha():
-            encoded_message += char_map[char]
-    return ''.join(encoded_message)
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert encode("") == ""
-# Test case 2:
-assert encode("hello") == "jgnnq"
-# Test case 3:
-assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
-[/TESTS]
+        if not char.isalpha():
+            # If the character is not alphabetic, swap its case
+            encoded_char = char.swapcase()
+        elif char.lower() in vowels:
+            # If the character is a vowel, add 2 to its ASCII code
+            encoded_char = chr(ord(char) + 2)
+        else:
+            # Otherwise, leave the character unchanged
+            encoded_char = char
+        encoded_message += encoded_char
+    return encoded_message
+```
