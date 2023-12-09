@@ -1,7 +1,7 @@
-```
-def add(x: int, y: int):
-    # Read input from the user
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-    return x + y
-``` 
+def add(x, y):
+    if isinstance(x, int) and isinstance(y, int):
+        return x + y
+    elif isinstance(x, float) or isinstance(y, float):
+        return x + y
+    else:
+        raise TypeError("Invalid input types")
