@@ -1,4 +1,4 @@
-```
+
 def select_words(s, n):
     if n > len(s):
         return []
@@ -9,4 +9,3 @@ def select_words(s, n):
             if len(word) == n and word.isalpha():
                 selected_words.append(word)
         return selected_words
-```
