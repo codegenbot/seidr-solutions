@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -22,4 +21,3 @@ int main() {
     std::string expected_output = "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS";
     assert(flip_case(input_string) == expected_output);
 }
-```
