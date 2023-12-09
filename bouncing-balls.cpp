@@ -1,18 +1,30 @@
 ```cpp
 #include <iostream>
 
-int main() {
-    double startingHeight, firstBounceHeight;
-    int numBounces;
+double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
+    return firstBounceHeight / startingHeight;
+}
 
-    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
-
-    double bouncinessIndex = firstBounceHeight / startingHeight;
-    double totalDistance = startingHeight * bouncinessIndex;
+double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
+    double totalDistance = startingHeight;
 
     for (int i = 0; i < numBounces; i++) {
         totalDistance += 2 * bouncinessIndex * totalDistance;
     }
+
+    return totalDistance;
+}
+
+int main() {
+    double startingHeight, firstBounceHeight;
+    int numBounces;
+
+    std::cin >> startingHeight;
+    std::cin >> firstBounceHeight;
+    std::cin >> numBounces;
+
+    double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
 
     std::cout << totalDistance << std::endl;
 
