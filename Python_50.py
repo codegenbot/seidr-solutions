@@ -1,4 +1,6 @@
-def decode_shift(s):
+
+```python
+def decode_shift(s: str) -> str:
     # Check if input format is correct
     if not s.isalpha() or len(s) < 1:
         raise ValueError("Input must be a non-empty string of letters.")
@@ -15,3 +17,4 @@ def decode_shift(s):
             decoded_message += ch
 
     return decoded_message
+```
