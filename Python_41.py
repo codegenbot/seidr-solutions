@@ -1,3 +1,4 @@
+
 def car_race_collision(n):
     left_to_right = set()
     right_to_left = set()
