@@ -1,6 +1,8 @@
+```python
+import ast
 
-def fruit_distribution(s,n):
-    apple_count = int(s.split("apples")[0])
-    orange_count = int(s.split("oranges")[0])
-    mango_count = n - (apple_count + orange_count)
+def fruit_distribution(s):
+    apple_count, orange_count = map(ast.literal_eval, s.split("apples"))
+    mango_count = 100 - (apple_count + orange_count)
     return mango_count
+```
