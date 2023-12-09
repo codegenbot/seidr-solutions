@@ -1,6 +1,5 @@
 
-Here is the modified code that satisfies the problem description and function signature:
 ```
-def add(x: int, y: int) -> int:
+def add(x: int, y: int):
     return x + y
 ```
