@@ -1,4 +1,3 @@
-```python
 def fib4(n):
     if n <= 3:
         return 0
@@ -14,5 +13,3 @@ def fib4(n):
             b = c
             c = d
         return c
-```
-This code is correct and should produce the expected output.
