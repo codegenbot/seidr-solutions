@@ -9,7 +9,7 @@ double poly(const vector<double>& xs, double x) {
     double sum = 0;
     int i;
     for (i = 0; i < xs.size(); i++) {
-        sum += xs[i] * std::pow(x, i);
+        sum += xs[i] * pow(x, i);
     }
     return sum;
 }
@@ -20,15 +20,15 @@ double find_zero(const vector<double>& coeffs) {
     int i;
     for (i = 0; i < coeffs.size(); i++) {
         if (coeffs[i] != 0)
-            x += coeffs[i] * std::pow(x, i);
+            x += coeffs[i] * pow(x, i);
     }
     return x;
 }
 
 int main() {
-    int ncoeff;
+    std::vector<double> coeffs = {};
     double solution;
-    vector<double> coeff_vec = {};
+    int ncoeff;
 
     // Read the number of coefficients from the user.
     cin >> ncoeff;
@@ -37,14 +37,14 @@ int main() {
     for (int i = 0; i < ncoeff; i++) {
         double coeff;
         cin >> coeff;
-        coeff_vec.push_back(coeff);
+        coeffs.push_back(coeff);
     }
 
     // Find a zero of the polynomial.
-    solution = find_zero(coeff_vec);
+    solution = find_zero(coeffs);
 
     // Check if the solution is correct.
-    if (abs(poly(coeff_vec, solution)) < 1e-3) {
+    if (abs(poly(coeffs, solution)) < 1e-3) {
         cout << "The solution is: " << solution << endl;
     } else {
         cout << "No solution found." << endl;
