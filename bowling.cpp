@@ -2,24 +2,21 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(std::string round) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     for (int i = 0; i < round.size(); i++) {
-        // Calculate the score based on the value of each bowl
         if (round[i] == 'X') {
             score += 10;
-            if (i + 2 < round.size()) {
+            if (i < round.size() - 2) {
                 if (round[i + 2] == '/') {
                     score += 10;
-                } else if (round[i + 1] == '/') {
-                    score += 10 - (round[i + 2] - '0');
                 } else {
-                    score += (round[i + 1] - '0') + (round[i + 2] - '0');
+                    score += round[i + 1] - '0' + round[i + 2] - '0';
                 }
             }
         } else if (round[i] == '/') {
             score += 10 - (round[i - 1] - '0');
-            if (i + 1 < round.size()) {
+            if (i < round.size() - 1) {
                 score += round[i + 1] - '0';
             }
         } else {
@@ -30,10 +27,10 @@ int scoreOfRound(std::string round) {
 }
 
 int main() {
-    std::string round;
-    std::cin >> round;
+    std::string game;
+    std::getline(std::cin, game);
 
-    int score = scoreOfRound(round);
+    int score = scoreOfRound(game);
     std::cout << score << std::endl;
 
     return 0;
