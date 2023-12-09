@@ -1,9 +1,7 @@
-```
-#include <iostream>
+```cpp
 #include <string>
-#include <cstring>
 
-int main() {
+int main(void) {
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
@@ -11,7 +9,5 @@ int main() {
 
     // Insert a character at the beginning of the string
     input.insert(input.begin(), 'a');
-
-    return 0;
 }
 ```
