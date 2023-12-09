@@ -1,2 +1,5 @@
-def sort_numbers(numbers: str) -> str:
-    return " ".join(sorted(numbers.split(), key=lambda x: int(x[-1])))
+```python
+def sort_numbers(numbers):
+    numbers = sorted(map(int, numbers))
+    return " ".join(str(x) for x in numbers)
+```
