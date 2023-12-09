@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -18,6 +17,6 @@ bool is_equal(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(is_equal('sum_product({10})', '{48}'));
+    assert(is_equal(sum_product({10}), {'48'}));
     return 0;
 }
