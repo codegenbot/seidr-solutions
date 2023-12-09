@@ -1,15 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> incr_list(const std::vector<int>& l1) {
-    std::vector<int> result;
-    for (int i = 0; i < l1.size(); i++) {
-        result.push_back(l1[i] + 1);
-    }
-    return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,12 +14,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> v1 = {1, 2, 3};
-    std::vector<int> v2 = incr_list(v1);
-    if (issame(v1, v2)) {
-        std::cout << "The two vectors are the same." << std::endl;
-    } else {
-        std::cout << "The two vectors are not the same." << std::endl;
-    }
+    vector<int> v1 = {5, 2, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> v2 = incr_list(v1);
+    assert(issame(v2, {6, 3, 6, 3, 4, 4, 10, 1, 124}));
     return 0;
 }
