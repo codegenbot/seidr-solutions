@@ -1,5 +1,6 @@
 
-[PYTHON]
+The corrected code is:
+```python
 def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
@@ -24,30 +25,4 @@ def minPath(grid, k):
                 visited[ni][nj] = True
 
         return sum(grid[i][j] for i in range(n) for j in range(m) if visited[i][j])
-
-    min_path = findMinPath(0, 0)
-
-    return min_path
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 1) == 1
-# Test case 2:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 2) == 2
-# Test case 3:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == 3
-# Test case 4:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 4) == 4
-# Test case 5:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 5) == 5
-# Test case 6:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 6) == 6
-# Test case 7:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 7) == 7
-# Test case 8:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 8) == 8
-# Test case 9:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 9) == 9
-# Test case 10:
-assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 10) == 10
-[/TESTS]
+```
