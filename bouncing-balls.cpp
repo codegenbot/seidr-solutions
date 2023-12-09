@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
@@ -27,4 +26,3 @@ int main() {
 
     return 0;
 }
-```
