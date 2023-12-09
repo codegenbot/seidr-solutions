@@ -1,43 +1,55 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(const std::string& round) {
+int scoreOfRound(const std::string& bowls) {
     int score = 0;
     int frame = 0;
-    int rolls = 0;
-    
-    for (char c : round) {
+    int bowl = 0;
+    int frames[10] = {0};
+
+    for (char c : bowls) {
         if (c == 'X') {
-            score += 10;
+            frames[frame] += 10;
             if (frame < 9) {
-                score += (round[rolls + 1] == 'X') ? 10 + ((round[rolls + 2] == 'X') ? 10 : (round[rolls + 2] - '0')) : (round[rolls + 2] == '/' ? 10 : (round[rolls + 1] - '0') + (round[rolls + 2] - '0'));
-                rolls++;
+                frames[frame] += frames[frame + 1];
+                if (bowl == 0) {
+                    frames[frame] += frames[frame + 2];
+                }
             }
+            bowl = 0;
             frame++;
         } else if (c == '/') {
-            score += 10 - (round[rolls - 1] - '0');
-            score += (frame < 9) ? (round[rolls + 1] == 'X' ? 10 : (round[rolls + 1] - '0')) : 0;
+            frames[frame] += 10 - frames[frame];
+            if (frame < 9) {
+                frames[frame] += frames[frame + 1];
+            }
+            bowl = 0;
             frame++;
+        } else if (c == '-') {
+            bowl++;
         } else {
-            score += c - '0';
-            if (frame < 9 && rolls % 2 == 1 && c != '-') {
-                score += (round[rolls - 1] == '/' ? 10 - (round[rolls - 2] - '0') : 0);
+            frames[frame] += c - '0';
+            if (frame < 9 && bowl == 1) {
+                frames[frame] += frames[frame + 1];
+                bowl = 0;
                 frame++;
+            } else {
+                bowl++;
             }
         }
-        rolls++;
     }
-    
+
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
+    }
+
     return score;
 }
 
 int main() {
-    std::string round;
-    std::getline(std::cin, round);
-    
-    int score = scoreOfRound(round);
-    
-    std::cout << score << std::endl;
-    
+    std::string bowls;
+    std::cout << "Enter the bowls: ";
+    std::cin >> bowls;
+    std::cout << "Score: " << scoreOfRound(bowls) << std::endl;
     return 0;
 }
