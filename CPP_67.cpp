@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -14,9 +15,10 @@ int fruit_distribution(string s, int n) {
             orangeCount++;
         }
     }
-
+    
     // Calculate the number of mango fruits
     int mangoCount = n - appleCount - orangeCount;
-
+    
     return mangoCount;
 }
+```
