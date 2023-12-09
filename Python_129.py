@@ -1,11 +1,27 @@
 def minPath(grid, k):
+    # Initialize variables
     n = len(grid)
     m = len(grid[0])
-    dp = [[float('inf')] * (k+1) for _ in range(n)]
-    for i in range(n):
-        for j in range(m):
-            if grid[i][j] == 1:
-                dp[i][0] = 0
-            elif grid[i][j] <= k:
-                dp[i][grid[i][j]] = min(dp[i][grid[i][j]], dp[i-1][grid[i][j]-1] + 1)
-    return [1] + [min(dp[-1][i], dp[-1][i-1]) for i in range(2, k+1)]
+    total_cells = n * m
+    path = []
+    visited = set()
+    queue = deque([(0, 0, 1)])
+    
+    while queue:
+        i, j, curr_len = queue.popleft()
+        
+        # Check if the current cell is not a wall and has not been visited before
+        if grid[i][j] != -1 and (i, j) not in visited:
+            # Mark the current cell as visited
+            visited.add((i, j))
+            
+            # If the length of the path is equal to k, add it to the result
+            if curr_len == k:
+                path.append(grid[i][j])
+                
+            # Add neighboring cells to the queue
+            for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                if 0 <= i + di < n and 0 <= j + dj < m and grid[i + di][j + dj] != -1:
+                    queue.append((i + di, j + dj, curr_len + 1))
+    
+    return path
