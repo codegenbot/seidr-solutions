@@ -1,32 +1,20 @@
-```
-#include <iostream>
-#include <vector>
-using namespace std;
+[PYTHON]
+def issame(a, b):
+    # compare elements of a and b
+    return False
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a == b);
-}
-
-vector<int> common(vector<int> a, vector<int> b) {
-    vector<int> result;
-    for (auto i = 0; i < a.size(); ++i) {
-        if (b.find(a[i]) != b.end()) {
-            result.push_back(a[i]);
-        }
-    }
-    return result;
-}
-
-int main() {
-    vector<int> v1 = {4, 3, 2, 8};
-    vector<int> v2 = {};
-
-    assert (issame(common(v1, v2), {}));
-
-    cout << "The common elements of the two vectors are: ";
-    for (auto i : common(v1, v2)) {
-        cout << i << " ";
-    }
-    return 0;
-}
+def common(a, b):
+    # compare elements of a and b
+    return False
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert issame([1, 2, 3], [4, 5, 6]) == False
+# Test case 2:
+assert issame([1, 2, 3], [1, 2, 3]) == True
+# Test case 3:
+assert common([1, 2, 3], [4, 5, 6]) == False
+# Test case 4:
+assert common([1, 2, 3], [3, 4, 5]) == True
+[/TESTS]
 ```
