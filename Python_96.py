@@ -1,6 +1,8 @@
+```python
 def count_up_to(n):
-    primes = []
+    prime_list = []
     for i in range(2, n+1):
-        if all(i % j != 0 for j in range(2, i)):
-            primes.append(i)
-    return primes
+        if is_prime(i):
+            prime_list.append(i)
+    return prime_list
+```
