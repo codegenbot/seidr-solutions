@@ -1,9 +1,9 @@
 ```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> splitVector(std::vector<int>& nums) {
     std::size_t n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
@@ -42,7 +42,7 @@ int main() {
         std::cin >> nums[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+    std::pair<std::vector<int>, std::vector<int>> result = splitVector(nums);
 
     for (int num : result.first) {
         std::cout << num << std::endl;
