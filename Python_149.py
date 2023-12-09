@@ -1,3 +1,6 @@
-
 def sorted_list_sum(lst):
-    return sorted(lst, key=lambda x: len(x))
+    unique = set()
+    for w in lst:
+        if len(w) % 2 == 0:
+            unique.add(w)
+    return sorted(unique)
