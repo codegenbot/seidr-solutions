@@ -1,3 +1,5 @@
+
+Sure, here's the modified code that should work:
 ```
 #include <iostream>
 #include <cmath>
