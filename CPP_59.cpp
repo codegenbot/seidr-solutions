@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -23,3 +24,4 @@ bool isPrime(int n) {
     }
     return true;
 }
+```
