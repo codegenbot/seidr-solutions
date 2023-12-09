@@ -1,16 +1,15 @@
-```
 #include <iostream>
 #include <vector>
 
-double find_zero(const std::vector<double>& coeffs) {
-    // Implement the function to calculate the roots of the polynomial equation
-}
-
 int main() {
-    std::vector<double> coeffs = {1.0, -2.0, 1.0};
+    std::pmr::vector<double> coeffs = {1.0, -2.0, 1.0};
     double solution;
 
-    solution = find_zero(coeffs);
+    auto it = coeffs.begin();
+    while (it != coeffs.end()) {
+        // Perform any necessary operations on the elements of the vector here
+        ++it;
+    }
 
     if (abs(solution) < 1e-3) {
         std::cout << "The solution is: " << solution << std::endl;
@@ -20,4 +19,3 @@ int main() {
 
     return 0;
 }
-```
