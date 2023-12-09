@@ -21,4 +21,5 @@ def solve_boolean(expression):
     
     return stack[0] == 'T'
 
+# Example usage:
 print(solve_boolean("t&f&t"))
