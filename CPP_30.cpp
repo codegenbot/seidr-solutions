@@ -1,8 +1,8 @@
 [PYTHON]
-def issame(a: vector<float>, b: vector<float>) -> bool:
+def issame(a: std::vector<float>, b: std::vector<float>) -> bool:
     return a == b
 
-def get_positive(my_list: vector<int>) -> vector<int>:
+def get_positive(my_list: std::vector<int>) -> std::vector<int>:
     positive_elements = []
     for element in my_list:
         if element > 0:
