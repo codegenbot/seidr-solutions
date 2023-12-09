@@ -1,4 +1,3 @@
-```cpp
 #include <bits/stdc++.h>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
@@ -34,4 +33,3 @@ int main() {
 
   return 0;
 }
-```
