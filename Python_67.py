@@ -1,4 +1,3 @@
-```
 def fruit_distribution(s, n):
     # Calculate the number of apples and oranges
     apple_count = int(s.split(" ")[0])
@@ -8,4 +7,3 @@ def fruit_distribution(s, n):
     mango_count = n - apple_count - orange_count
 
     return mango_count
-```
