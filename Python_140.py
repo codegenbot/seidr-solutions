@@ -1,5 +1,5 @@
 
-```python
+```
 import re
 
 def fix_spaces(text):
