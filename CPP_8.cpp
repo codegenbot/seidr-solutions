@@ -1,12 +1,11 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
 
 using namespace std;
 
-vector<int> sum_product(const vector<int>& numbers) {
-    return vector<int>{numbers[0] * (numbers[0] + 1)};
+int sum_product(const int& number) {
+    return vector<int>{number * (number + 1)};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -14,7 +13,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(sum_product({10}), {10}));
+    assert(issame(sum_product(10), {10}));
     return 0;
 }
-```
