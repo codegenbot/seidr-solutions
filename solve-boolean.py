@@ -1,4 +1,5 @@
-def evaluate_expression(expression):
+```python
+def solve_boolean(expression):
     operators = {
         '|' : lambda x, y: x or y,
         '&' : lambda x, y: x and y
@@ -13,5 +14,9 @@ def evaluate_expression(expression):
             right = stack.pop()
             left = stack.pop()
             stack.append(operator(left, right))
-
+    
     return stack[0]
+
+expression = input()
+print(solve_boolean(expression))
+```
