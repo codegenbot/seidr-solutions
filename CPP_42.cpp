@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -23,6 +24,8 @@ std::vector<int> incr_list(const std::vector<int>& l1) {
 
 int main() {
     std::vector<int> v1 = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
-    assert(issame(v1, {6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    std::vector<int> v2 = {6, 3, 6, 3, 4, 4, 10, 1, 124};
+    assert(issame(v1, v2));
     return 0;
 }
+```
