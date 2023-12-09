@@ -1,4 +1,3 @@
-```python
 def decode_shift(s):
     # Check if input format is correct
     if not s.isalpha() or len(s) < 1:
@@ -16,4 +15,3 @@ def decode_shift(s):
             decoded_message += ch
 
     return decoded_message
-```
