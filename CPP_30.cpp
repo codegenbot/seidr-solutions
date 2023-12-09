@@ -1,12 +1,14 @@
 [PYTHON]
-def issame(a: vector<float>, b: vector<float>) -> bool:
+def issame(a: std::vector<int>, b: std::vector<int>) -> bool:
     return a == b
 
-def get_positive(my_list: vector<int>) -> vector<int>:
+def get_positive(my_list: std::vector<int>) -> std::vector<bool>:
     positive_elements = []
     for element in my_list:
         if element > 0:
-            positive_elements.append(element)
+            positive_elements.append(True)
+        else:
+            positive_elements.append(False)
     return positive_elements
 
 def main():
@@ -25,7 +27,7 @@ if __name__ == "__main__":
 # Test case 1:
 l1 = [1, 2, 3, -4, 5]
 l2 = [1, 2, 3, 4, 5]
-assert get_positive(l1) == [1, 2, 3, 5]
+assert get_positive(l1) == [True, True, True, False, True]
 # Test case 2:
 l1 = [-1, -2, -3, -4, -5]
 l2 = [1, 2, 3, 4, 5]
@@ -39,4 +41,3 @@ l1 = [-1, -2, -3, -4, -5]
 l2 = [1, 2, 3, 4, 5]
 assert issame(get_positive(l1), get_positive(l2)) == False
 [/TESTS]
-```
