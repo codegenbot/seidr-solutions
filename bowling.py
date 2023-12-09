@@ -21,7 +21,6 @@ def calculate_score(bowls):
         
     return score
 
-
 def calculate_strike_bonus(bowls, index):
     bonus = 0
     if bowls[index+2] == 'X':
@@ -36,7 +35,6 @@ def calculate_strike_bonus(bowls, index):
         
     return bonus
 
-
 def calculate_spare_bonus(bowls, index):
     bonus = 0
     if bowls[index+2] == 'X':
@@ -46,10 +44,8 @@ def calculate_spare_bonus(bowls, index):
         
     return bonus
 
-
 def calculate_frame_score(bowls, index):
     return int(bowls[index]) if bowls[index] != '-' else 0 + int(bowls[index+1]) if bowls[index+1] != '-' else 0
-
 
 bowls = input().strip()
 print(calculate_score(bowls))
