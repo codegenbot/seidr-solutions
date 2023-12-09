@@ -1,8 +1,6 @@
-```
-def decode_cyclic(input):
-    if not input:
+def decode_cyclic(s):
+    if not s:
         return ""
-    groups = [input[(3 * i):min((3 * i + 3), len(input))] for i in range((len(input) + 2) // 3)]
+    groups = [s[i:i+3] for i in range(0, len(s)-2, 3)]
     decoded_groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
     return "".join(decoded_groups)
-```
