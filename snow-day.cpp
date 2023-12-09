@@ -1,10 +1,9 @@
 ```cpp
 #include <iostream>
-#include <string>
 
-float calculateSnow(float hours, float initialSnow, float snowFallRate, float snowMeltRate) {
+float calculateSnow(int hours, float initialSnow, float snowFallRate, float snowMeltRate) {
     float snowOnGround = initialSnow;
-    for (float i = 0; i < hours; i++) {
+    for (int i = 0; i < hours; i++) {
         snowOnGround += snowFallRate;
         snowOnGround *= (1 - snowMeltRate);
     }
@@ -12,16 +11,12 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float sn
 }
 
 int main() {
-    float hours, initialSnow, snowFallRate, snowMeltRate;
-    std::string input;
-    std::cin >> input;
-    hours = std::stof(input);
-    std::cin >> input;
-    initialSnow = std::stof(input);
-    std::cin >> input;
-    snowFallRate = std::stof(input);
-    std::cin >> input;
-    snowMeltRate = std::stof(input);
+    int hours;
+    float initialSnow, snowFallRate, snowMeltRate;
+    std::cin >> hours;
+    std::cin >> initialSnow;
+    std::cin >> snowFallRate;
+    std::cin >> snowMeltRate;
     float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate);
     std::cout << result;
     return 0;
