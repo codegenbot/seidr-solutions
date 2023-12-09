@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,7 +17,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         break;
       }
     }
-    if (j == m) {
+    if (j >= m) {   // Updated condition
       indices.push_back(i);
     }
   }
@@ -26,8 +27,8 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
 int main() {
   std::string text, target;
-  std::getline(std::cin, text);
-  std::getline(std::cin, target);
+  std::cin >> text;
+  std::cin >> target;
 
   std::vector<int> result = indicesOfSubstring(text, target);
 
@@ -37,3 +38,4 @@ int main() {
 
   return 0;
 }
+```
