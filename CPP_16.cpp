@@ -1,6 +1,8 @@
+```
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <sstream>
 
 int count_distinct_characters(std::string str) {
     std::vector<char> distinctChars;
@@ -11,3 +13,4 @@ int count_distinct_characters(std::string str) {
     }
     return distinctChars.length();
 }
+```
