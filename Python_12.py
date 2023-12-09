@@ -1,3 +1,4 @@
+```
 def longest(strings: list) -> Optional[str]:
     if len(strings) == 0:
         return None
@@ -8,3 +9,4 @@ def longest(strings: list) -> Optional[str]:
             max_len = len(string)
             longest_string = string
     return longest_string
+```
