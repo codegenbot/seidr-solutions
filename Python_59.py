@@ -13,3 +13,11 @@ def is_prime(n):
             return False
     return True
 [/PYTHON]
+[TESTS]
+# Test case 1:
+assert largest_prime_factor(13195, 200) == 29
+# Test case 2:
+assert largest_prime_factor(100, 200) == 5
+# Test case 3:
+assert largest_prime_factor(100000000000000000000000000000000000000000000000, 200) == 100000000000000000000000000000000000000000000000
+[/TESTS]
