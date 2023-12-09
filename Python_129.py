@@ -22,5 +22,5 @@ def minPath(grid, k):
             if not visited[i][j]:
                 path.append(findMinPath(i, j, k))
 
-    # Return the total cost of the minimum path
-    return sum(path)
+    # Return the ordered list of values on the cells that the minimum path goes through
+    return path
