@@ -1,10 +1,11 @@
 #include <iostream>
-#include <vector>
+#include <array>
 #include <algorithm>
+#include <cmath>
+#include <cassert>
 
 int main() {
-    std::vector<int> v = {1, 2, 3};
-    auto max_it = std::max_element(v.begin(), v.end());
-    std::cout << *max_it << '\n';
+    std::array<int, 3> v = {1, 2, 3};
+    assert(abs(*std::max(v.begin(), v.end()) - 124) < 1e-4);
     return 0;
 }
