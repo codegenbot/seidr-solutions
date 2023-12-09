@@ -1,5 +1,6 @@
 ```
 #include <iostream>
+using namespace std;
 
 int fib4(int n) {
     if (n <= 3) {
@@ -16,10 +17,10 @@ int fib4(int n) {
 }
 
 int main() {
-    std::cout << "Enter a number: ";
+    cout << "Enter a number: ";
     int n;
-    std::cin >> n;
-    std::cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << std::endl;
+    cin >> n;
+    cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << endl;
     return 0;
 }
 ```
