@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 int sum_to_n(int n) {
     int sum = 0;
