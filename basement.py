@@ -1,9 +1,9 @@
 ```python
 def basement(arr):
-    sum = 0
+    prefix_sum = 0
     for i in range(len(arr)):
-        sum += arr[i]
-        if sum < 0:
+        prefix_sum += arr[i]
+        if prefix_sum < 0:
             return i
     return -1
 
@@ -13,7 +13,8 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-# Call the function and print the result
+# Call the basement function and print the result
 result = basement(arr)
 print(result)
 ```
+Note: The code assumes that the input is valid and follows the given format.
