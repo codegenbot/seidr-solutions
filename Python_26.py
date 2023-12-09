@@ -1,6 +1,8 @@
 def remove_duplicates(numbers):
-    unique_elements = set()
+    freq = {}
+    result = []
     for num in numbers:
-        if num not in unique_elements:
-            unique_elements.add(num)
-    return unique_elements
+        if freq.get(num, 0) == 0:
+            result.append(num)
+            freq[num] = 1
+    return result
