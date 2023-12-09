@@ -1,10 +1,7 @@
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    encrypted_alphabet = alphabet[2:] + alphabet[:2]
     encrypted_string = ""
     for char in s:
-        if char not in alphabet:
-            continue
-        index = alphabet.index(char)
-        encrypted_string += encrypted_alphabet[index]
+        index = (alphabet.index(char) + 2) % len(alphabet)
+        encrypted_string += alphabet[index]
     return encrypted_string
