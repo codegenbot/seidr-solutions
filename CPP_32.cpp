@@ -1,18 +1,17 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
 
-float find_zero(const std::pmr::vector<double>& coeffs) {
-    float x = 0;
+double find_zero(const vector<double>& coeffs) {
+    double x = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         x += coeffs[i] * pow(x, i);
     }
     return x;
 }
 
-float poly(const std::pmr::vector<double>& coeffs) {
-    float y = 0;
+double poly(const vector<double>& coeffs) {
+    double y = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         y += coeffs[i] * pow(y, i);
     }
@@ -20,13 +19,12 @@ float poly(const std::pmr::vector<double>& coeffs) {
 }
 
 int main() {
-    std::pmr::vector<double> coeff_vec{1.0, -2.0, 1.0};
-    float solution = find_zero(coeff_vec);
-    if (std::abs(poly(coeff_vec, solution)) < 1e-3) {
-        std::cout << "The solution is: " << solution << std::endl;
+    vector<double> coeffs{1.0, -2.0, 1.0};
+    double solution = find_zero(coeffs);
+    if (abs(poly(coeffs, solution)) < 1e-3) {
+        cout << "The solution is: " << solution << endl;
     } else {
-        throw std::runtime_error("No solution found");
+        throw runtime_error("No solution found");
     }
     return 0;
 }
-```
