@@ -3,7 +3,7 @@
 #include <cmath>
 
 float truncate_number(float number) {
-    return std::fmod(number, 1.0);
+    return std::fmod(number, 1);
 }
 
 int main() {
