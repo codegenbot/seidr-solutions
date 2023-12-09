@@ -1,17 +1,20 @@
-
-Sure, here's the modified code that should compile without errors:
-```
 #include <iostream>
 #include <string>
-#include <cstdlib>
+#include <cctype>
 
 int count_distinct_characters(std::string str) {
     std::vector<char> distinctChars;
     for (auto c : str) {
-        if (std::find(distinctChars.begin(), distinctChars.end(), tolower(c)) == distinctChars.end()) {
-            distinctChars.push_back(tolower(c));
+        if (std::find(distinctChars.begin(), distinctChars.end(), std::tolower(c)) == distinctChars.end()) {
+            distinctChars.push_back(std::tolower(c));
         }
     }
-    return distinctChars.length();
+    return distinctChars.size();
 }
-```
+
+int main() {
+    std::string input = "Jerry jERRY JeRRRY";
+    int count = count_distinct_characters(input);
+    std::cout << "Number of distinct characters: " << count << std::endl;
+    return 0;
+}
