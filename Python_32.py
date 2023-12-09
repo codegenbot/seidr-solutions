@@ -1,3 +1,5 @@
+```
+import sys
 
 def find_zero(xs):
     x = int(sys.argv[1])
@@ -6,3 +8,4 @@ def find_zero(xs):
         if xs[i] == x:
             result += 1
     return result
+```
