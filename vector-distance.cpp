@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,21 +15,22 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> vec1(n);
+    std::vector<double> vec1;
+    vec1.resize(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec1[i];
     }
 
     std::cin >> n;
 
-    std::vector<double> vec2(n);
+    std::vector<double> vec2;
+    vec2.resize(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec2[i];
     }
 
     double distance = euclideanDistance(vec1, vec2);
-    std::cout << std::fixed << std::setprecision(6) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
 
     return 0;
 }
-```
