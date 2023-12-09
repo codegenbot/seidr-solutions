@@ -3,13 +3,12 @@
 #include <vector>
 
 int main() {
-    std::pmr::vector<double> coeffs = {1.0, -2.0, 1.0};
+    std::vector<double> coeffs = {1.0, -2.0, 1.0};
     double solution;
 
-    auto it = coeffs.begin();
-    while (it != coeffs.end()) {
-        // Perform any necessary operations on the elements of the vector here
-        ++it;
+    // Perform any necessary operations on the elements of the vector here
+    for (auto it = coeffs.begin(); it != coeffs.end(); ++it) {
+        // ...
     }
 
     if (abs(solution) < 1e-3) {
