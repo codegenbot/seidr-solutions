@@ -5,15 +5,12 @@ def calculate_score(bowls):
     i = 0
     
     while frame <= 10:
-        if i >= len(bowls):
-            break
-        
         if bowls[i] == 'X':
             score += 10
             if i + 2 < len(bowls):
                 score += calculate_strike_bonus(bowls, i)
             i += 1
-        elif i + 1 < len(bowls) and bowls[i+1] == '/':
+        elif bowls[i+1] == '/':
             score += 10
             if i + 2 < len(bowls):
                 score += calculate_spare_bonus(bowls, i)
