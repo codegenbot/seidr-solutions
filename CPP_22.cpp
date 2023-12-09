@@ -3,16 +3,15 @@
 #include <vector>
 #include <string>
 #include <list>
-#include <boost/any.hpp>
-#include <boost/type_traits.hpp>
+#include <variant>
 
 using namespace std;
 
-vector<int> filter_integers(std::list<boost::any> values) {
+vector<int> filter_integers(std::list<variant<int, string>> values) {
     vector<int> result;
     for (auto& value : values) {
-        if (value.type() == boost::typeindex::type_id<int>()) {
-            result.push_back(boost::any_cast<int>(value));
+        if (value.index() == 0) {
+            result.push_back(get<0>(value));
         }
     }
     return result;
