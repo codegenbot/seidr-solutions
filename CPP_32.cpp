@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -20,10 +20,7 @@ float poly(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs(3);
-    coeffs.push_back(1.0);
-    coeffs.push_back(-2.0);
-    coeffs.push_back(1.0);
+    std::vector<double> coeffs{1.0, -2.0, 1.0};
     float solution = find_zero(coeffs);
     if (std::abs(poly(coeffs, solution)) < 1e-3) {
         std::cout << "The solution is: " << solution << std::endl;
