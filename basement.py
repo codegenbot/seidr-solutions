@@ -1,9 +1,11 @@
+To solve the problem, modify the code as follows:
+
 ```python
 def basement(arr):
-    s = 0
+    total_sum = 0
     for i in range(len(arr)):
-        s += arr[i]
-        if s < 0:
+        total_sum += arr[i]
+        if total_sum < 0:
             return i
     return -1
 
