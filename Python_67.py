@@ -1,5 +1,9 @@
-def fruit_distribution(s, n):
-    # Use regular expression to extract numbers from input string
-    nums = re.findall(r'\d+', s)
-    apples, oranges = map(int, nums)
-    return n - apples - oranges
+def fruit_distribution(s):
+    # parse the string to get the number of apples and oranges
+    apple = int(s.split(' ')[0])
+    orange = int(s.split(' ')[2])
+    
+    # calculate the number of mango fruits
+    mango = n - apple - orange
+    
+    return mango
