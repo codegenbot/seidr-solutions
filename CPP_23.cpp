@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-#include <cstring>
 
 int main() {
     std::cout << "Enter a string: ";
