@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -9,7 +9,7 @@ long double euclideanDistance(const std::vector<double>& vec1, const std::vector
     for (int i = 0; i < vec1.size(); i++) {
         distance += pow(vec1[i] - vec2[i], 2);
     }
-    return sqrt(distance);
+    return sqrtl(distance);
 }
 
 int main() {
@@ -29,7 +29,7 @@ int main() {
     }
 
     long double distance = euclideanDistance(vec1, vec2);
-    std::cout << std::fixed << std::setprecision(6) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(10) << distance << '\n';
 
     return 0;
 }
