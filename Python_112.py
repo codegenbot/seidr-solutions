@@ -1,8 +1,5 @@
-```python
+```
 def reverse_delete(s, c):
-    result = ""
-    for char in s:
-        if char not in c:
-            result += char
-    return (result[::-1], result == result[::-1])
+    result = ''.join([ch for ch in s if ch not in c])
+    return (result, result == result[::-1])
 ```
