@@ -1,7 +1,9 @@
 ```
 def prime_fib(n: int) -> int:
-    fib = [2, 3]
+    fib = [0, 1]
     while len(fib) <= n:
-        fib.append(6 * fib[-1] + 4 * fib[-2])
+        curr_num = fib[-1] + fib[-2]
+        if is_prime(curr_num):
+            fib.append(curr_num)
     return fib[n]
 ```
