@@ -11,7 +11,7 @@ def cut_vector(vector):
         if abs(left_sum - right_sum) <= 1:
             return vector[:i+1], vector[i+1:]
     
-    return vector[:1], vector[1:]
+    return vector[:n-1], [vector[n-1]]
 
 input_string = input()
 vector = list(map(int, input_string.split()))
