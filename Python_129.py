@@ -1,12 +1,13 @@
-def minPath(grid: List[List[int]], k: int) -> int:
+
+def minPath(grid, k):
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
     visited = [[False for _ in range(m)] for _ in range(n)]
     queue = []
 
-    # Define a function to find the minimum path
-    def findMinPath(i: int, j: int) -> int:
+    # Define a function to find the minimum path using Dijkstra's algorithm
+    def findMinPath(i, j):
         if not (0 <= i < n and 0 <= j < m) or visited[i][j]:
             return float('inf')
 
