@@ -1,12 +1,14 @@
 starting_height = float(input())
-bounce_height = float(input())
+first_bounce_height = float(input())
 num_bounces = int(input())
 
-bounciness_index = bounce_height / starting_height
-total_distance = starting_height
+bounciness_index = first_bounce_height / starting_height
+total_distance = starting_height + (first_bounce_height * 2)
 
-for _ in range(num_bounces):
-    total_distance += 2 * bounce_height
-    bounce_height *= bounciness_index
+previous_bounce_height = first_bounce_height
+for i in range(2, num_bounces + 1):
+    current_bounce_height = previous_bounce_height * bounciness_index
+    total_distance += current_bounce_height * 2
+    previous_bounce_height = current_bounce_height
 
-print('%.11f' % total_distance)
+print(total_distance)
