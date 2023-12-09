@@ -1,9 +1,12 @@
 def largest_prime_factor(n: int):
-    factors = []
     for i in range(2, n+1):
+        if n % i == 0 and is_prime(i):
+            return i
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
-            factors.append(i)
-    if len(factors) > 0:
-        return max(factors)
-    else:
-        return 1
+            return False
+    return True
