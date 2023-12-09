@@ -6,12 +6,13 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -2.0, 1.0};
+    std::vector<double> coeffs;
     double solution;
 
+    coeffs = {1.0, -2.0, 1.0};
     solution = find_zero(coeffs);
 
-    if (abs(solution) < 1e-3) {
+    if (abs(poly(solution)) < 1e-3) {
         std::cout << "The solution is: " << solution << std::endl;
     } else {
         throw std::runtime_error("No solution found");
@@ -19,3 +20,4 @@ int main() {
 
     return 0;
 }
+```
