@@ -1,32 +1,52 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int scoreOfRound(std::string round) {
     int score = 0;
-    for (int i = 0; i < round.size(); i++) {
-        // Calculate the score based on the value of each bowl
-        if (round[i] == 'X') {
+    int frame = 0;
+    int roll = 0;
+
+    for (char c : round) {
+        if (c == 'X') {
             score += 10;
-            if (i + 2 < round.size()) {
-                if (round[i + 2] == '/') {
-                    score += 10;
-                } else if (round[i + 1] == '/') {
-                    score += 10 - (round[i + 2] - '0');
-                } else {
-                    score += (round[i + 1] - '0') + (round[i + 2] - '0');
-                }
+            if (frame < 9) {
+                score += calculateBonusScore(round, roll + 1, 2);
             }
-        } else if (round[i] == '/') {
-            score += 10 - (round[i - 1] - '0');
-            if (i + 1 < round.size()) {
-                score += round[i + 1] - '0';
+            frame++;
+            roll = 0;
+        } else if (c == '/') {
+            score += 10 - getNumericValue(round[roll - 1]);
+            if (frame < 9) {
+                score += calculateBonusScore(round, roll + 1, 1);
             }
+            frame++;
+            roll = 0;
         } else {
-            score += round[i] - '0';
+            score += getNumericValue(c);
+            roll++;
+            if (roll == 2) {
+                frame++;
+                roll = 0;
+            }
         }
     }
+
     return score;
+}
+
+int getNumericValue(char c) {
+    if (c >= '0' && c <= '9') {
+        return c - '0';
+    }
+    return 0;
+}
+
+int calculateBonusScore(const std::string& round, int start, int count) {
+    int bonusScore = 0;
+    for (int i = start; i < start + count; i++) {
+        bonusScore += getNumericValue(round[i]);
+    }
+    return bonusScore;
 }
 
 int main() {
@@ -38,4 +58,3 @@ int main() {
 
     return 0;
 }
-```
