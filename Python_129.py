@@ -32,5 +32,6 @@ def minPath(grid, k):
     # Return the total cost of the minimum path
     return min_path
 [/PYTHON]
-(venv) % python3 example.py
-12
+(function (exports, require, module, __filename, __dirname) { var grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+var k = 2;
+console.log(minPath(grid, k)); });
