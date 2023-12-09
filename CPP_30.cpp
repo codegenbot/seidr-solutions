@@ -5,17 +5,20 @@ def issame(a, b):
 def get_positive(my_list):
     return [i for i in my_list if i > 0]
 
-def main():
+@test
+def test_issame():
     l1 = [1, 2, 3, -4, 5]
     l2 = [1, 2, 3, 4, 5]
-    print("Positive elements in l1:", get_positive(l1))
-    if issame(get_positive(l1), get_positive(l2)):
-        print("The positive elements in l1 and l2 are the same")
-    else:
-        print("The positive elements in l1 and l2 are not the same")
+    assert issame(get_positive(l1), get_positive(l2)) == True
+
+@test
+def test_get_positive():
+    my_list = [-1, -2, -3, -4, -5]
+    assert get_positive(my_list) == []
 
 if __name__ == "__main__":
-    main()
+    test_issame()
+    test_get_positive()
 [/PYTHON]
 [TESTS]
 # Test case 1:
