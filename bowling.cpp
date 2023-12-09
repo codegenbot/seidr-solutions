@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -49,8 +49,9 @@ int scoreOfRound(const std::string& bowls) {
 
 int main() {
     std::string bowls;
+    std::cout << "Enter the bowls: ";
     std::cin >> bowls;
-    std::cout << scoreOfRound(bowls) << std::endl;
+    std::cout << "Score: " << scoreOfRound(bowls) << std::endl;
     return 0;
 }
 ```
