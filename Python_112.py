@@ -1,8 +1,8 @@
 ```
 def reverse_delete(s, c):
-    # delete all characters in s that are equal to any character in c
-    result = ''.join([ch for ch in s if ch not in c])
-
-    # check if the result string is palindrome
-    return (result, result == result[::-1])
+    result = ''
+    for char in s:
+        if char not in c:
+            result += char
+    return (result[::-1], result == result[::-1])
 ```
