@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -11,4 +11,3 @@ vector<float> derivative(vector<float> xs) {
     }
     return result;
 }
-```
