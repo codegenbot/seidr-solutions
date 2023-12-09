@@ -20,11 +20,8 @@ int main() {
     std::cout << "Enter a number: ";
     int n;
     std::cin >> n;
-    std::string str = "";
-    for (int i = 0; i < n; i++) {
-        str.insert(i, fib4(n));
-    }
-    std::cout << "The " << n << "-th Fibonacci number is: " << str << std::endl;
+    std::string str_n = std::to_string(n);
+    std::cout << "The " << str_n << "-th Fibonacci number is: " << fib4(n) << std::endl;
     return 0;
 }
 ```
