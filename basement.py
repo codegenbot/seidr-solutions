@@ -1,3 +1,4 @@
+```python
 def basement(arr):
     prefix_sum = 0
     for i in range(len(arr)):
@@ -13,3 +14,4 @@ for _ in range(n):
 
 result = basement(arr)
 print(result)
+```
