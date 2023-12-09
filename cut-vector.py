@@ -8,8 +8,8 @@ def cut_vector(vector):
         left_sum += vector[i]
         right_sum -= vector[i]
         
-        if abs(left_sum - right_sum) < abs(left_sum + right_sum - total_sum):
-            return vector[:i+1], vector[i+1:]
+        if abs(left_sum - right_sum) <= 1:
+            return vector[i:], vector[i+1:]
     
     return vector[:1], vector[1:]
 
