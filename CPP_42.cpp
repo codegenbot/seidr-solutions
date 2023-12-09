@@ -10,7 +10,7 @@ std::vector<int> incr_list(const std::vector<int>& l1) {
     return result;
 }
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
