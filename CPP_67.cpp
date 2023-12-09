@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -20,3 +21,4 @@ int fruit_distribution(string s, int n) {
 
     return mangoCount;
 }
+```
