@@ -1,3 +1,4 @@
+```python
 def car_race_collision(n: int):
     left_to_right = 0
     right_to_left = n - 1
@@ -10,3 +11,4 @@ def car_race_collision(n: int):
         else:
             right_to_left -= 1
     return collisions
+```
