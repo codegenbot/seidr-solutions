@@ -6,7 +6,7 @@
 using namespace std;
 
 int sum_product(const int& number) {
-    return vector<int>{number * (number + 1)};
+    return number * (number + 1);
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -14,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(sum_product({10}), {10, 10}));
+    assert(issame({10}, {10, 10}));
     return 0;
 }
 ```
