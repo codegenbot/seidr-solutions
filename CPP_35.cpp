@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <array>
 #include <algorithm>
@@ -8,3 +9,4 @@ int main() {
     assert (abs(std::max_element(v.begin(), v.end()) - 124) < 1e-4);
     return 0;
 }
+```
