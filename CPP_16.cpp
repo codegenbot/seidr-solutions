@@ -1,21 +1,16 @@
-```
 #include <iostream>
-#include <vector>
 #include <string>
+#include <cstdlib>
+#include <sstream>
+#include <vector>
 #include <algorithm>
-using namespace std;
-int count_distinct_characters(string str) {
-    vector<char> distinctChars;
+
+int count_distinct_characters(std::string str) {
+    std::vector<char> distinctChars;
     for (auto c : str) {
-        if (find(distinctChars.begin(), distinctChars.end(), tolower(c)) == distinctChars.end()) {
+        if (std::find(distinctChars.begin(), distinctChars.end(), tolower(c)) == distinctChars.end()) {
             distinctChars.push_back(tolower(c));
         }
     }
     return distinctChars.size();
 }
-int main() {
-    string str = "xyzXYZ";
-    cout << count_distinct_characters(str) << endl;
-    return 0;
-}
-```
