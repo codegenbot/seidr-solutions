@@ -6,7 +6,7 @@ float truncate_number(float number) {
     return std::fmod(number, 1);
 }
 
-int main() {
+int my_main() {
     float number;
     std::cout << "Enter a positive floating point number: ";
     std::cin >> number;
