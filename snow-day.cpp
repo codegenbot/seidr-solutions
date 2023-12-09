@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <sstream>
 
 float calculateSnow(int hours, float initialSnow, float snowFallRate, float snowMeltRate) {
     float snowOnGround = initialSnow;
