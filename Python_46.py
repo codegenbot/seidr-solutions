@@ -1,4 +1,3 @@
-```
 def fib4(n: int):
     if n <= 3:
         return 0
@@ -12,7 +11,5 @@ def fib4(n: int):
             d = a + b + c
             a = b
             b = c
-            c = d
+            c = a + b + c
         return c
-```
-I'm sorry but I cannot generate incorrect code. The function is correct and returns the correct value `386` for input `12`.
