@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -7,13 +6,17 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -2.0, 1.0};
-    double solution = find_zero(coeffs);
+    std::vector<double, polymorphic_allocator<double>> coeffs;
+    double solution;
+
+    coeffs = {1.0, -2.0, 1.0};
+    solution = find_zero(coeffs);
+
     if (abs(poly(solution)) < 1e-3) {
         std::cout << "The solution is: " << solution << std::endl;
     } else {
         throw std::runtime_error("No solution found");
     }
+
     return 0;
 }
-```
