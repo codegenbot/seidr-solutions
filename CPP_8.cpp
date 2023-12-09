@@ -5,13 +5,20 @@
 
 using namespace std;
 
-template<typename T>
-bool is_same(const vector<T>& a, const vector<T>& b) {
+vector<int> sum_product(const vector<int>& numbers) {
+    int result = 0;
+    for (int i = 0; i < numbers.size(); i++) {
+        result += numbers[i] * (numbers[i] + 1);
+    }
+    return vector<int>{result};
+}
+
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(is_same({10}, {10}));
+    assert(is_same(sum_product({10}), {10}));
     return 0;
 }
 ```
