@@ -1,4 +1,5 @@
 import collections
+
 def mastermind(code, guess):
     black_pegs = sum(c == g for c, g in zip(code, guess))
     code_counts = collections.Counter(code)
