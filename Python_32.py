@@ -1,4 +1,3 @@
-```
 def find_zero(xs):
     # Read user input
     x = int(input("Enter a number: "))
@@ -11,4 +10,3 @@ def find_zero(xs):
 
     # Return result
     return result
-```
