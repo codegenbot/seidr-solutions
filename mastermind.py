@@ -1,5 +1,4 @@
 import collections
-
 def mastermind():
     code = input()
     guess = input()
@@ -7,7 +6,6 @@ def mastermind():
     code_counts = collections.Counter(code)
     guess_counts = collections.Counter(guess)
     code_counts &= guess_counts
-    white_pegs = sum(code_counts.values()) - black_pegs
+    white_pegs = sum(min(code_counts[c], guess_counts[c]) for c in code_counts)
     return white_pegs, black_pegs
-
 print(mastermind())
