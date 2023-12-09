@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 
@@ -18,4 +17,3 @@ int main() {
     std::cout << result;
     return 0;
 }
-```
