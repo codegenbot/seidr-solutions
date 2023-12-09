@@ -10,6 +10,4 @@ int main() {
     return 0;
 }
 ```
-The issue is caused by redefining the `main` function twice in the same scope. To fix this, you can remove one of the two `int main()` functions and merge its contents with the other function.
-
-Additionally, the error message suggests that you may have forgotten to include the `std::` namespace prefix for the `max_element` function. Make sure to add this prefix to the function call in order to avoid any ambiguity.
+The issue is caused by multiple definitions of the `main` function in the same scope, which is not allowed in C++. To fix this, simply remove one of the `main` functions or give them different names.
