@@ -1,5 +1,5 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 
 int scoreOfRound(const std::string& bowls) {
     int score = 0;
@@ -50,6 +50,6 @@ int main() {
     std::string bowls;
     std::cout << "Enter the bowls: ";
     std::cin >> bowls;
-    std::cout << scoreOfRound(bowls);
+    std::cout << "Score: " << scoreOfRound(bowls) << std::endl;
     return 0;
 }
