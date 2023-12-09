@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 #include <string>
 
@@ -10,7 +10,7 @@ int fib4(int n) {
     } else {
         int a = fib4(n-1);
         int b = fib4(n-2);
-        int c = fib4(n-3);
+        int c = fib4(n-3) - 1;
         int d = fib4(n-4);
         return a + b + c + d;
     }
@@ -24,3 +24,4 @@ int main() {
     std::cout << "The " << str_n << "-th Fibonacci number is: " << fib4(n) << std::endl;
     return 0;
 }
+```
