@@ -1,2 +1,5 @@
 def encrypt(s):
-    return ''.join([chr((ord(c) - 2) % 26 + ord('a')) for c in s])
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
+    table = str.maketrans(alphabet, rotated_alphabet)
+    return s.translate(table)
