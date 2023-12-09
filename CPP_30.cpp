@@ -1,18 +1,9 @@
 [PYTHON]
 def issame(a, b):
-    if len(a) != len(b):
-        return False
-    for i in range(len(a)):
-        if a[i] != b[i]:
-            return False
-    return True
+    return a == b
 
 def get_positive(my_list):
-    positive_elements = []
-    for element in my_list:
-        if element > 0:
-            positive_elements.append(element)
-    return positive_elements
+    return [i for i in my_list if i > 0]
 
 def main():
     l1 = [1, 2, 3, -4, 5]
