@@ -2,26 +2,25 @@ def minPath(grid, k):
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
-    total_cells = n * m
+    visited = [[False for _ in range(m)] for _ in range(n)]
     path = []
-    visited = set()
-    queue = deque([(0, 0, 1)])
-    
-    while queue:
-        i, j, curr_len = queue.popleft()
-        
-        # Check if the current cell is not a wall and has not been visited before
-        if grid[i][j] != -1 and (i, j) not in visited:
-            # Mark the current cell as visited
-            visited.add((i, j))
-            
-            # If the length of the path is equal to k, add it to the result
-            if curr_len == k:
-                path.append(grid[i][j])
-                
-            # Add neighboring cells to the queue
-            for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                if 0 <= i + di < n and 0 <= j + dj < m and grid[i + di][j + dj] != -1:
-                    queue.append((i + di, j + dj, curr_len + 1))
-    
-    return path
+
+    # Define a function to find the minimum path
+    def findMinPath(i, j, k):
+        if not (0 <= i < n and 0 <= j < m) or visited[i][j]:
+            return float('inf')
+
+        visited[i][j] = True
+        min_path = min(findMinPath(i-1, j, k), findMinPath(i+1, j, k), findMinPath(i, j-1, k), findMinPath(i, j+1, k)) + grid[i][j]
+        visited[i][j] = False
+
+        return min_path
+
+    # Find the minimum path
+    for i in range(n):
+        for j in range(m):
+            if not visited[i][j]:
+                path.append(findMinPath(i, j, k))
+
+    # Return the total cost of the minimum path
+    return sum(path)
