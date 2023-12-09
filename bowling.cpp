@@ -21,8 +21,8 @@ int scoreOfRound(const std::string& round) {
             frame++;
         } else {
             score += c - '0';
-			score += (frame < 9 && c != '-') ? (round[rolls - 1] == '/' ? 10 - (round[rolls - 2] - '0') : 0) * (frame < 9 ? 1 : 0) : 0;
-            if (frame < 9 && c != '-') {
+            score += (frame < 9 && rolls % 2 == 1 && c != '-') ? (round[rolls - 1] == '/' ? 10 - (round[rolls - 2] - '0') : 0) * (frame < 9 ? 1 : 0) : 0;
+            if (frame < 9 && rolls % 2 == 1 && c != '-') {
                 frame++;
             }
         }
