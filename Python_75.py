@@ -1,5 +1,5 @@
 def is_multiply_prime(a):
-    for i in range(2, int(a**0.5) + 1):
-        if a % i == 0 and is_prime(i) and is_prime(a // i):
+    for i in range(1, a+1):
+        if (i % 2 == 0) and (i % 3 == 0) and (i % 5 == 0):
             return True
     return False
