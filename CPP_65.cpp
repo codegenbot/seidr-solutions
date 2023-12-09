@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -10,4 +9,3 @@ std::string circular_shift(int x, int shift) {
         return str.substr(shift) + str.substr(0, shift);
     }
 }
-```
