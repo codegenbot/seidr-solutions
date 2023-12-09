@@ -1,4 +1,3 @@
-```python
 def basement(arr):
     total = 0
     for i in range(len(arr)):
@@ -7,11 +6,7 @@ def basement(arr):
             return i
     return -1
 
-n = int(input())
-arr = []
-for _ in range(n):
-    arr.append(int(input()))
+arr = list(map(int, input().split()))
 
 result = basement(arr)
 print(result)
-```
