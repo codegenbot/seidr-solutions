@@ -1,4 +1,4 @@
-```
+
 import re
 
 def fix_spaces(text):
@@ -7,4 +7,3 @@ def fix_spaces(text):
 if __name__ == "__main__":
     text = input("Enter a sentence with spaces: ")
     print(fix_spaces(text))
-```
