@@ -33,7 +33,7 @@ int main() {
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
     std::cout << distance << std::endl;
-    
+
     return 0;
 }
 ```
