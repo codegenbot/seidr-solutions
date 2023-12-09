@@ -4,32 +4,25 @@
 
 int scoreOfRound(const std::string& round) {
     int score = 0;
-    int frame = 1;
-  
-    for (int i = 0; i < round.length(); i++) {
-        if (frame > 10) break;
-        
-        char bowl = round[i];
-      
-        if (bowl == 'X') {
+    for (int i = 0; i < round.size(); i++) {
+        if (round[i] == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (round[i + 1] == 'X') ? 10 + (round[i + 2] - '0') : (round[i + 1] - '0') + (round[i + 2] - '0');
+            if (i < round.size() - 2) {
+                if (round[i + 2] == '/') {
+                    score += 10;
+                } else {
+                    score += round[i + 1] - '0' + round[i + 2] - '0';
+                }
             }
-            frame++;
-        } else if (bowl == '/') {
+        } else if (round[i] == '/') {
             score += 10 - (round[i - 1] - '0');
-            if (frame < 10) {
-                score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
+            if (i < round.size() - 1) {
+                score += round[i + 1] - '0';
             }
-            i++;
-            frame++;
         } else {
-            score += bowl - '0';
-            frame++;
+            score += round[i] - '0';
         }
     }
-
     return score;
 }
 
