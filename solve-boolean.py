@@ -1,11 +1,17 @@
 def solve_boolean(expression):
-    expression = expression.lower()
+    operators = {
+        '|' : lambda x, y: x or y,
+        '&' : lambda x, y: x and y
+    }
 
-    if '&' in expression:
-        operands = expression.split('&')
-        return all(operand == 't' for operand in operands)
-    elif '|' in expression:
-        operands = expression.split('|')
-        return any(operand == 't' for operand in operands)
-    else:
-        return expression == 't'
+    stack = []
+    for char in expression:
+        if char in ('T', 'F'):
+            stack.append(char == 'T')
+        elif char in operators:
+            operator = operators[char]
+            right = stack.pop()
+            left = stack.pop()
+            stack.append(operator(left, right))
+    
+    return stack[0]
