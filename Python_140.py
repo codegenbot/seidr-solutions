@@ -1,8 +1,8 @@
-
+Solution:
 ```
-import re
-
 def fix_spaces(text):
-    text = re.sub(r"\s+", "_", text)
-    return text
+    if not text:
+        return ""
+    else:
+        return re.sub(r"\s+", "_", text)
 ```
