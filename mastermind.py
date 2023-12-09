@@ -1,3 +1,4 @@
+```python
 import collections
 
 def mastermind():
@@ -11,3 +12,4 @@ def mastermind():
     return white_pegs, black_pegs
 
 print(mastermind())
+```
