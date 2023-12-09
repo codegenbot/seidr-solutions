@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(std::string round) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     for (int i = 0; i < round.size(); i++) {
         if (round[i] == 'X') {
