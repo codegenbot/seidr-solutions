@@ -1,10 +1,30 @@
 [PYTHON]
-def get_positive(my_list):
-    return list(filter(lambda x: x > 0, my_list))
+def issame(a, b):
+    if len(a) != len(b):
+        return False
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            return False
+    return True
 
-assert get_positive([]) == []
-assert get_positive([1, 2, 3]) == [1, 2, 3]
-assert get_positive([-1, -2, -3]) == []
+def get_positive(my_list):
+    positive_elements = []
+    for element in my_list:
+        if element > 0:
+            positive_elements.append(element)
+    return positive_elements
+
+def main():
+    l1 = [1, 2, 3, -4, 5]
+    l2 = [1, 2, 3, 4, 5]
+    print("Positive elements in l1:", get_positive(l1))
+    if issame(get_positive(l1), get_positive(l2)):
+        print("The positive elements in l1 and l2 are the same")
+    else:
+        print("The positive elements in l1 and l2 are not the same")
+
+if __name__ == "__main__":
+    main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
@@ -24,11 +44,3 @@ l1 = [-1, -2, -3, -4, -5]
 l2 = [1, 2, 3, 4, 5]
 assert issame(get_positive(l1), get_positive(l2)) == False
 [/TESTS]
-
-You have a syntax error in the `issame` function. The correct signature for this function should be:
-```
-def issame(a, b):
-    return a == b
-```
-This will fix the syntax error and allow you to compare two lists for equality..
-You must only return correct code. Remove any triple quotes, language name or explanations.
