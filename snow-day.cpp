@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <sstream>
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float snowMeltRate) {
     float snowOnGround = initialSnow;
@@ -15,11 +14,7 @@ int main() {
     float hours, initialSnow, snowFallRate, snowMeltRate;
     std::cin >> hours >> initialSnow >> snowFallRate >> snowMeltRate;
     float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate);
-    
-    std::stringstream ss;
-    ss << result;
-    std::cout << ss.str();
-    
+    std::cout << result;
     return 0;
 }
 ```
