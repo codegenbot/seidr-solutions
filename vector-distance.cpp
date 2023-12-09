@@ -3,7 +3,6 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
-#include <cstdlib>
 
 double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double distance = 0.0;
@@ -28,7 +27,7 @@ int main() {
     }
 
     double distance = euclideanDistance(vec1, vec2);
-    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
 
     return 0;
 }
