@@ -6,6 +6,6 @@ def fib4(n: int):
     else:
         a, b, c = 0, 0, 1
         for i in range(4, n+1):
-            sum = b + c
-            a, b, c = b, c, a + sum
+            sum = a + b + c
+            a, b, c = b, c, sum
         return c
