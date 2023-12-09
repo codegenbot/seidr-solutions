@@ -1,3 +1,4 @@
+```
 def count_up_to(n):
     # Initialize a list to store the prime numbers
     prime_numbers = []
@@ -18,3 +19,4 @@ def count_up_to(n):
                 break
     
     return prime_numbers
+```
