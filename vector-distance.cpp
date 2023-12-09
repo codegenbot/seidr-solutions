@@ -17,13 +17,15 @@ int main() {
     std::cin >> n;
 
     std::vector<double> vec1;
-    vec1.resize(n);
+    vec1.reserve(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec1[i];
     }
 
+    std::cin >> n;
+
     std::vector<double> vec2;
-    vec2.resize(n);
+    vec2.reserve(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec2[i];
     }
