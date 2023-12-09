@@ -17,7 +17,9 @@ def encode(message):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
+assert encode("") == ""
 # Test case 2:
-assert encode("This is a test sentence.") == "Thqs qs a tqst sntnc."
+assert encode("hello") == "jgnnq"
+# Test case 3:
+assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
 [/TESTS]
