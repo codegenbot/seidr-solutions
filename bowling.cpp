@@ -24,13 +24,3 @@ int scoreOfRound(const std::string& round) {
     }
     return score;
 }
-
-int main() {
-    std::string round;
-    std::cin >> round;
-
-    int score = scoreOfRound(round);
-    std::cout << score << std::endl;
-
-    return 0;
-}
