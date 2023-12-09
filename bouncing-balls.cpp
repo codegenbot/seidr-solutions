@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
+#include <iomanip>
 #include <string>
-#include <cmath>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
-    double bouncinessIndex = round((firstBounceHeight / startingHeight) * 1000) / 1000;
+    double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = 0;
     double height = startingHeight;
     
@@ -32,8 +31,7 @@ int main() {
     
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
     
     return 0;
 }
-```
