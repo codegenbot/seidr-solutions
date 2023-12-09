@@ -2,15 +2,15 @@
 #include <cmath>
 #include <vector>
 
-double find_zero(const vector<double>& coeffs) {
-    double x = 0;
+float find_zero(const std::vector<double>& coeffs) {
+    float x = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         x += coeffs[i] * pow(x, i);
     }
     return x;
 }
 
-double poly(const vector<double>& coeffs) {
+double poly(const std::vector<double>& coeffs) {
     double y = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         y += coeffs[i] * pow(y, i);
@@ -19,12 +19,12 @@ double poly(const vector<double>& coeffs) {
 }
 
 int main() {
-    vector<double> coeffs{1.0, -2.0, 1.0};
-    double solution = find_zero(coeffs);
-    if (abs(poly(coeffs, solution)) < 1e-3) {
-        cout << "The solution is: " << solution << endl;
+    std::vector<double> coeffs{1.0, -2.0, 1.0};
+    float solution = find_zero(coeffs);
+    if (std::abs(poly(coeffs, solution)) <= 1e-3) {
+        std::cout << "The solution is: " << solution << std::endl;
     } else {
-        throw runtime_error("No solution found");
+        throw std::runtime_error("No solution found");
     }
     return 0;
 }
