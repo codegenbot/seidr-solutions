@@ -1,4 +1,6 @@
 ```
+#include <vector>
+
 vector<int> pluck(vector<int> arr) {
     int smallestEven = INT_MAX;
     int smallestIndex = -1;
