@@ -1,21 +1,12 @@
-#include <iostream>
-#include <string>
-#include <cassert>
+[PYTHON]
+def flip_case(str):
+    return str.swapcase()
 
-std::string flip_case(std::string str) {
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] >= 'a' && str[i] <= 'z') {
-            str[i] -= 32;
-        } else if (str[i] >= 'A' && str[i] <= 'Z') {
-            str[i] += 32;
-        }
-    }
-    return str;
-}
+def main():
+    input_string = "These violent delights have violent ends"
+    expected_output = "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"
+    assert flip_case(input_string) == expected_output
 
-int main() {
-    std::string input = "These violent delights have violent ends";
-    std::string expected_output = "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS";
-    assert(flip_case(input) == expected_output);
-    return 0;
-}
+if __name__ == "__main__":
+    main()
+[/PYTHON]
