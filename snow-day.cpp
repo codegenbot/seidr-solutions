@@ -14,23 +14,12 @@ float calculateSnow(int hours, float initialSnow, float snowFallRate, float snow
 int main() {
     int hours;
     float initialSnow, snowFallRate, snowMeltRate;
-    std::string input;
-    
-    std::getline(std::cin, input);
-    hours = std::stoi(input);
-    
-    std::getline(std::cin, input);
-    initialSnow = std::stof(input);
-    
-    std::getline(std::cin, input);
-    snowFallRate = std::stof(input);
-    
-    std::getline(std::cin, input);
-    snowMeltRate = std::stof(input);
-    
+
+    std::cin >> hours >> initialSnow >> snowFallRate >> snowMeltRate;
+
     float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate);
     std::cout << std::fixed << std::setprecision(2) << result;
-    
+
     return 0;
 }
 ```
