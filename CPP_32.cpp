@@ -1,7 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <cmath> // Add this line to include the pow function
 using namespace std;
 
 double poly(vector<double> xs, double x) {
