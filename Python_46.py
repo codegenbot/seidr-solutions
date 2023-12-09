@@ -1,3 +1,4 @@
+Here's a possible solution:
 ```python
 def fib4(n):
     if n <= 3:
