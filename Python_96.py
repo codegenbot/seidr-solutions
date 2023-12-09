@@ -1,9 +1,7 @@
-
 def count_up_to(n):
-
     # Initialize a list to store the prime numbers
     prime_numbers = []
-
+    
     # Iterate from 2 to the square root of n
     for i in range(2, int(n**0.5) + 1):
         # If i is not marked as composite, it is prime
@@ -15,8 +13,4 @@ def count_up_to(n):
             if not j % i:
                 break
     
-    # Check if n is prime and return it if it is
-    if n % 2 == 0:
-        prime_numbers.append(n)
-    
-    return prime_numbers
+    return prime_numbers[:-1]
