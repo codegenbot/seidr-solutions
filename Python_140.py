@@ -1,5 +1,6 @@
-Solution:
 ```
+import re
+
 def fix_spaces(text):
     if not text:
         return ""
