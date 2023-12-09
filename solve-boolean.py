@@ -1,6 +1,5 @@
-```python
 def solve_boolean(expression):
-    return eval(expression.replace('T', 'True').replace('F', 'False'), {"True": True, "False": False})
-expression = input()
-print(solve_boolean(expression))
-```
+    expression = expression.lower()
+    expression = expression.replace('t', 'True')
+    expression = expression.replace('f', 'False')
+    return eval(expression)
