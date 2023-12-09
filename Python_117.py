@@ -1,7 +1,3 @@
 def select_words(s, n):
     words = s.split()
-    selected_words = []
-    for word in words:
-        if len(word) == n and word.isalpha():
-            selected_words.append(word)
-    return selected_words
+    return [word for word in words if len(word) == n and word[0].isalpha() and word[-1].isalpha()]
