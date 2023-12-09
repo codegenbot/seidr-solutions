@@ -1,3 +1,4 @@
+```python
 def solve_boolean(expression):
     operators = {
         '|' : lambda x, y: x or y,
@@ -15,3 +16,4 @@ def solve_boolean(expression):
             stack.append(operator(left, right))
     
     return stack[0]
+```
