@@ -1,9 +1,18 @@
+```cpp
 #include <iostream>
-#include <array>
+#include <vector>
 #include <algorithm>
+#include <memory>
+
+using namespace std;
+
+float max_element(const vector<float>& l) {
+    return *max_element(l.begin(), l.end());
+}
 
 int main() {
-    std::array<float, 3> v = {1, 2, 3};
-    std::cout << "Maximum element: " << max_element(v) << std::endl;
+    vector<float, allocator<float>> v = {1, 2, 3};
+    cout << "Maximum element: " << max_element(v) << endl;
     return 0;
 }
+```
