@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cstring>
 
-int entry_point() {
+int main() {
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
@@ -13,8 +14,4 @@ int entry_point() {
 
     return 0;
 }
-
-int main() {
-    entry_point();
-    return 0;
-}
+```
