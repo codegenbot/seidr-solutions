@@ -2,28 +2,18 @@
 #include <string>
 #include <vector>
 
-std::string kebabToCamel(const std::string& kebabCase) {
+std::string kebabToCamel(std::string kebabCase) {
     std::string camelCase;
-    std::vector<std::string> words;
-    std::string word;
+    bool capitalizeNext = false;
 
-    for (char c : kebabCase) {
-        if (c == '-') {
-            words.push_back(word);
-            word.clear();
+    for (int i = 0; i < kebabCase.length(); i++) {
+        if (kebabCase[i] == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            camelCase += std::toupper(kebabCase[i]);
+            capitalizeNext = false;
         } else {
-            word += c;
-        }
-    }
-
-    words.push_back(word);
-
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            camelCase += words[i][0] - 'a' + 'A';
-            camelCase += words[i].substr(1);
-        } else {
-            camelCase += words[i];
+            camelCase += kebabCase[i];
         }
     }
 
@@ -31,10 +21,10 @@ std::string kebabToCamel(const std::string& kebabCase) {
 }
 
 int main() {
-    std::string kebabCase;
-    std::getline(std::cin, kebabCase);
+    std::string input;
+    std::getline(std::cin, input);
 
-    std::string camelCase = kebabToCamel(kebabCase);
+    std::string camelCase = kebabToCamel(input);
     std::cout << camelCase << std::endl;
 
     return 0;
