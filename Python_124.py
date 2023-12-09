@@ -1,4 +1,6 @@
 def valid_date(date):
+    if len(date.split('-')) < 3:
+        return False
     month, day, year = date.split('-')
     if int(month) < 1 or int(month) > 12:
         return False
