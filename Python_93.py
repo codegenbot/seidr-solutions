@@ -1,4 +1,4 @@
-```
+[PYTHON]
 def encode(message):
     encoded_message = ""
     for char in message:
@@ -14,4 +14,12 @@ def encode(message):
             else:
                 return char.lower()
     return encoded_message
-```
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert encode("Hello World") == "Jgnnq Yqtnf"
+# Test case 2:
+assert encode("hello world") == "jgnnq yqtnf"
+# Test case 3:
+assert encode("HELLO WORLD") == "JGNNS YQTNF"
+[/TESTS]
