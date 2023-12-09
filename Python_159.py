@@ -1,4 +1,3 @@
-
 def eat(number, need, remaining):
     if remaining <= 0:
         raise ValueError("Remaining amount must be greater than 0")
