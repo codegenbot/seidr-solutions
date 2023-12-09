@@ -1,3 +1,4 @@
+```
 def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
@@ -13,3 +14,4 @@ def encode(message):
         if char.isalpha():
             encoded_message += char_map[char]
     return encoded_message
+```
