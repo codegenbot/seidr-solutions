@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <algorithm> // Include the <algorithm> header to access the std::reverse function
 
 std::string reverseWords(std::string str) {
     std::stringstream ss(str);
