@@ -1,2 +1,2 @@
 def is_equal_to_sum_even(n):
-    return n % 2 == 0 and len(set([i for i in range(1, int(n ** 0.5) + 1) if n % i == 0])) == 4
+    return n % 2 == 0 and len([i for i in range(1, int(n / 2) + 1) if i % 2 == 0 and n - i >= 0]) == 4
