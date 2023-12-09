@@ -12,7 +12,7 @@ std::vector<float> get_positive(std::vector<float> l) {
     return positive;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b){
     if (a.size() != b.size()) {
         return false;
     }
