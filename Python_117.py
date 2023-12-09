@@ -1,5 +1,5 @@
 ```
 def select_words(s, n):
     words = s.split()
-    return list(filter(lambda x: len(x) == n and x.isalpha(), words))
+    return list(filter(lambda word: len(word) == n and word.isalpha(), words))
 ```
