@@ -1,19 +1,18 @@
-```
+```python
 def max_fill(grid, capacity):
     # Initialize variables
-    rows = len(grid)
-    cols = len(grid[0])
-    buckets = 0
-
-    # Iterate over each row and column
-    for i in range(rows):
-        for j in range(cols):
-            # If the current cell is a well, check if it can be filled with the bucket
+    n = len(grid)
+    m = len(grid[0])
+    water = 0
+    count = 0
+    
+    # Loop through each well in the grid
+    for i in range(n):
+        for j in range(m):
+            # If the current well has water, try to fill it with the bucket
             if grid[i][j] == 1:
-                # Check if the bucket has enough capacity to fill the well
-                if capacity >= j - i + 1:
-                    # Fill the well and increment the number of buckets used
-                    buckets += 1
-
-    return buckets
+                water += capacity - grid[i][j]
+                count += 1
+    
+    return count
 ```
