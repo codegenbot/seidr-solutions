@@ -1,15 +1,16 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 1;
-
+  
     for (int i = 0; i < round.length(); i++) {
         if (frame > 10) break;
         
         char bowl = round[i];
-
+      
         if (bowl == 'X') {
             score += 10;
             if (frame < 10) {
@@ -41,3 +42,4 @@ int main() {
 
     return 0;
 }
+```
