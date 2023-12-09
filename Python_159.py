@@ -1,12 +1,9 @@
-```python
 def eat(number, need, remaining):
-    total_eaten = number + need
-    carrots_left = remaining - need
-    if carrots_left < 0:
-        carrots_left = 0
-    return [total_eaten, carrots_left]
+    # Calculate the total number of carrots needed to be eaten
+    total_needed = number + need
 
-# Example usage with arguments
-result = eat(5, 3, 10)
-print(result) # Output: [8, 2]
-```
+    # Check if there are enough remaining carrots to meet the need
+    if remaining >= total_needed:
+        return [0]
+    else:
+        return [number + remaining, total_needed - remaining]
