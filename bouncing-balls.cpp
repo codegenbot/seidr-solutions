@@ -8,10 +8,10 @@ int main() {
     std::cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double bouncinessIndex = firstBounceHeight / startingHeight;
-    double totalDistance = startingHeight;
+    double totalDistance = startingHeight * bouncinessIndex;
 
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * (bouncinessIndex * (totalDistance / 2));
+        totalDistance += 2 * bouncinessIndex * totalDistance;
     }
 
     std::cout << totalDistance << std::endl;
