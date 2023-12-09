@@ -7,7 +7,7 @@ def solve_boolean(expression):
     stack = []
     for char in expression:
         if char in ('T', 'F', 't', 'f'):
-            stack.append('T' if char in ('T', 't') else 'F')
+            stack.append('T' if char.upper() == 'T' else 'F')
         elif char in operators:
             operator = operators[char]
             right = stack.pop()
