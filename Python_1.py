@@ -1,12 +1,15 @@
-def separate_paren_groups(paren_string: str) -> list:
+def separate_paren_groups(paren_string):
     groups = []
-    stack = []
+    current_group = ""
+    depth = 0
     for char in paren_string:
         if char == "(":
-            stack.append(char)
+            depth += 1
+            current_group += char
         elif char == ")":
-            if len(stack) > 0 and stack[-1] == "(":
-                stack.pop()
-                groups.append("".join(stack))
-                stack = []
+            depth -= 1
+            current_group += char
+            if depth == 0 and len(current_group) > 0 and current_group[0] == "(":
+                groups.append(current_group)
+                current_group = ""
     return groups
