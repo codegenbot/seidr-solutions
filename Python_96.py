@@ -1,6 +1,6 @@
 def count_up_to(n):
-numbers = list(range(2, n+1))
-for i in range(2, int(n**0.5) + 1):
-if numbers[i] % i == 0:
-numbers[i] = 0
-return [x for x in numbers if x != 0]
+    prime_numbers = []
+    for i in range(2, n+2):
+        if all(i % j != 0 for j in range(2, int(i**0.5) + 1)):
+            prime_numbers.append(i)
+    return prime_numbers
