@@ -1,8 +1,6 @@
-```
-def find_zero(xs):
+def find_zero(xs, x):
     result = 0
     for i in range(len(xs)):
-        if xs[i] == 0:
+        if xs[i] == x:
             result += 1
     return result
-```
