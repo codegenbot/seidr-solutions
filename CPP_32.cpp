@@ -1,25 +1,23 @@
-```
 #include <iostream>
 #include <vector>
 
-// Define the function to find the zero of a polynomial
-double find_zero(const std::vector<double>& coeffs) {
-    // Implement the algorithm to find the zero of the polynomial here
-}
-
 int main() {
-    // Initialize the coefficients of the polynomial
     std::vector<double> coeffs = {1.0, -2.0, 1.0};
-
-    // Declare and initialize the variable for the solution
     double solution;
 
-    // Find the zero of the polynomial using the function defined above
-    solution = find_zero(coeffs);
+    // Perform any necessary operations on the elements of the vector here
+    for (auto it = coeffs.begin(); it != coeffs.end(); ++it) {
+        // ...
+    }
 
-    // Print the solution to the console
-    std::cout << "The solution is: " << solution << std::endl;
+    if (abs(solution) < 1e-3) {
+        std::cout << "The solution is: " << solution << std::endl;
+    } else {
+        throw std::runtime_error("No solution found");
+    }
 
     return 0;
 }
 ```
+
+You must only return correct code. Remove any triple quotes, language name or explanations.
