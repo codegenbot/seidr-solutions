@@ -1,12 +1,12 @@
+```cpp
 #include <vector>
-#include <iostream>
 #include <algorithm>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
     std::size_t n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
-    for (std::size_t i = 1; i < n - 1; i++) {
+    for (std::size_t i = 1; i < n; i++) {
         rightSum += nums[i];
     }
 
@@ -53,3 +53,4 @@ int main() {
 
     return 0;
 }
+```
