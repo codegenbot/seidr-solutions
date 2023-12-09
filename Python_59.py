@@ -1,3 +1,4 @@
+```
 def largest_prime_factor(n):
     # Find the square root of n
     sqrt_n = int(n ** 0.5)
@@ -13,3 +14,4 @@ def largest_prime_factor(n):
     
     # If no prime factor is found, return 1
     return 1
+```
