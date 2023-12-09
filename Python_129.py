@@ -1,4 +1,3 @@
-```python
 def minPath(grid):
     n = len(grid)
     m = len(grid[0])
@@ -22,4 +21,3 @@ def minPath(grid):
             dp[i][j] = recurse(i, j)
     
     return dp[-1][-1]
-```
