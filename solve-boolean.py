@@ -1,5 +1,11 @@
 def solve_boolean(expression):
     expression = expression.lower()
-    expression = expression.replace('t', 'True')
-    expression = expression.replace('f', 'False')
-    return eval(expression)
+
+    if '&' in expression:
+        operands = expression.split('&')
+        return all(operand == 't' for operand in operands)
+    elif '|' in expression:
+        operands = expression.split('|')
+        return any(operand == 't' for operand in operands)
+    else:
+        return expression == 't'
