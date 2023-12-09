@@ -1,6 +1,9 @@
-def find_zero(xs: list):
+```
+def find_zero(xs):
     x = int(input("Enter a number: "))
-    if x in xs:
-        return 0
-    else:
-        return 1
+    result = 0
+    for i in range(len(xs)):
+        if xs[i] == x:
+            result += 1
+    return result
+```
