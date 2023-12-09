@@ -7,3 +7,4 @@ def find_zero(xs: list):
         return 0
     else:
         return 1
+```
