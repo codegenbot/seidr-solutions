@@ -1,3 +1,4 @@
+
 def decode_shift(s: str) -> str:
     message = input("Enter message: ")
     # Check if input format is correct
