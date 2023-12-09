@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 double calculateSnow(int hours, double initialSnow, double snowFallRate, double snowMeltRate) {
@@ -31,3 +32,4 @@ int main() {
     
     return 0;
 }
+```
