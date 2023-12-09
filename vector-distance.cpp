@@ -21,9 +21,7 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::cin >> n;
-
-    std::vector<double> vec2;
+    std::vector<double> vec2;  // Added this line
     vec2.resize(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec2[i];
