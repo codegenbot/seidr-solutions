@@ -7,9 +7,11 @@ def fib4(n: int):
         a = 0
         b = 0
         c = 2
+        d = 0
         for i in range(5, n+1):
-            d = a + b + c
+            e = a + b + c + d
             a = b
             b = c
             c = d
-        return c
+            d = e
+        return d
