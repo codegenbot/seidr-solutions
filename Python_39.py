@@ -5,12 +5,6 @@ def prime_fib(n: int):
         fib.append(fib[-1] + fib[-2])
     return next((x for x in fib if isprime(x)), None)
 ```
+The code above is the solution to the problem. It defines a function `prime_fib` that takes an integer `n` as input and returns the first prime number in the Fibonacci sequence greater than or equal to `n`. The function uses a list comprehension to generate the Fibonacci sequence up to `n`, and then checks each element of the sequence for primality using the `isprime` function. If no prime numbers are found, the function returns `None`.
 
-def isprime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-```
+The error message you are seeing indicates that there is an issue with the `isprime` function, which is not defined anywhere in your code. You will need to define this function or use a different method to determine if a number is prime.
