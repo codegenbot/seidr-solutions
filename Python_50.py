@@ -1,4 +1,4 @@
-def decode_shift(s: str) -> str:
+def decode_shift(s):
     s = s.split()
     new_s = []
     for ch in s:
