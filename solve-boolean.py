@@ -6,8 +6,8 @@ def solve_boolean(expression):
 
     stack = []
     for char in expression:
-        if char in ('T', 'F', 't', 'f'):
-            stack.append(char.lower() == 't')
+        if char in ('T', 'F'):
+            stack.append(char == 'T')
         elif char in operators:
             operator = operators[char]
             right = stack.pop()
