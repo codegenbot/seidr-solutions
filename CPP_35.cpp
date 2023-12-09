@@ -2,7 +2,6 @@
 #include <iostream>
 #include <array>
 #include <algorithm>
-#include <cmath>
 
 int main() {
     std::array<float, 3> v = {1, 2, 3};
