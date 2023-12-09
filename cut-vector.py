@@ -3,13 +3,13 @@ def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
     right_sum = total_sum
-    cut_index = -1
+    cut_index = 0
     
     for i in range(n):
         left_sum += vector[i]
         right_sum -= vector[i]
         
-        if abs(left_sum*2 - total_sum) < abs(left_sum + right_sum - total_sum):
-            cut_index = i + 1
+        if abs(left_sum - right_sum) < abs(left_sum + right_sum - total_sum):
+            cut_index = i
     
     return vector[:cut_index], vector[cut_index:]
