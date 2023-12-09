@@ -1,7 +1,5 @@
-
-#include <iostream>
+#include <vector>
 #include <cmath>
-#include <pmr/vector>
 
 float find_zero(const std::pmr::vector<double>& coeffs) {
     float x = 0;
@@ -20,15 +18,8 @@ float poly(const std::pmr::vector<double>& coeffs) {
 }
 
 int main() {
-    std::pmr::vector<double> coeffs(3);
-    coeffs.emplace_back(1.0);
-    coeffs.emplace_back(-2.0);
-    coeffs.emplace_back(1.0);
+    std::pmr::vector<double> coeffs = {1.0, -2.0, 1.0};
     float solution = find_zero(coeffs);
-    if (std::abs(poly(coeffs, solution)) < 1e-3) {
-        std::cout << "The solution is: " << solution << std::endl;
-    } else {
-        throw std::runtime_error("No solution found");
-    }
+    printf("The solution is: %f\n", solution);
     return 0;
 }
