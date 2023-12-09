@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> incr_list(const std::vector<int>& l1, const std::vector<int>& l2) {
+std::vector<int> incr_list(const std::vector<int>& l1) {
     std::vector<int> result;
     for (int i = 0; i < l1.size(); i++) {
         result.push_back(l1[i] + 1);
