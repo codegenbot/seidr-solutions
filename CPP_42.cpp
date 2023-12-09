@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -23,4 +22,3 @@ int main() {
     assert(issame(v1, {6, 3, 6, 3, 4, 4, 10, 1, 124}));
     return 0;
 }
-```
