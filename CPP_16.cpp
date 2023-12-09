@@ -1,6 +1,9 @@
+
+Sure, here's the modified code that should compile without errors:
+```
 #include <iostream>
 #include <string>
-#include <vector>
+#include <cstdlib>
 
 int count_distinct_characters(std::string str) {
     std::vector<char> distinctChars;
@@ -9,12 +12,6 @@ int count_distinct_characters(std::string str) {
             distinctChars.push_back(tolower(c));
         }
     }
-    return distinctChars.size();
+    return distinctChars.length();
 }
-
-int main() {
-    std::string input = "Jerry jERRY JeRRRY";
-    int count = count_distinct_characters(input);
-    std::cout << "Number of distinct characters: " << count << std::endl;
-    return 0;
-}
+```
