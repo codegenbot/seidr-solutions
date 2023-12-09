@@ -1,19 +1,5 @@
-```
 #include <iostream>
 #include <cmath>
-
-bool isPrime(int n);
-
-int largest_prime_factor(int n) {
-    int maxFactor = 0;
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0 && isPrime(i)) {
-            maxFactor = i;
-            break;
-        }
-    }
-    return maxFactor;
-}
 
 bool isPrime(int n) {
     if (n <= 1 || n % 2 == 0) {
@@ -26,4 +12,14 @@ bool isPrime(int n) {
     }
     return true;
 }
-```
+
+int largest_prime_factor(int n) {
+    int maxFactor = 0;
+    for (int i = 2; i <= sqrt(n); i++) {
+        if (n % i == 0 && isPrime(i)) {
+            maxFactor = i;
+            break;
+        }
+    }
+    return maxFactor;
+}
