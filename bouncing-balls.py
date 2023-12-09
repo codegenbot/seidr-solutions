@@ -9,4 +9,4 @@ for _ in range(num_bounces):
     total_distance += 2 * bounciness_index * starting_height
     bounciness_index *= bounciness_index
 
-total_distance
+print(total_distance)
