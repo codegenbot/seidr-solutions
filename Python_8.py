@@ -1,7 +1,9 @@
-```
-def sum_product(numbers: list) -> tuple[int, int]:
+```python
+from numpy import prod
+
+def sum_product(numbers: list) -> Tuple[int, int]:
     if len(numbers) == 0:
         return (0, 1)
     else:
-        return (sum(numbers), math.prod(numbers))
+        return (sum(numbers), prod(numbers))
 ```
