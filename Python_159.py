@@ -1,3 +1,4 @@
+```
 def eat(number, need, remaining):
     # Calculate the total number of carrots needed to be eaten
     total_needed = number + need
@@ -7,3 +8,4 @@ def eat(number, need, remaining):
         return [0]
     else:
         return [number + remaining, total_needed - remaining]
+``` 
