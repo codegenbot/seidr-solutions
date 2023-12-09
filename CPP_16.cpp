@@ -1,4 +1,4 @@
-#include <iostream>
+```
 #include <string>
 
 int count_distinct_characters(std::string str) {
@@ -10,10 +10,4 @@ int count_distinct_characters(std::string str) {
     }
     return distinctChars.size();
 }
-
-int main() {
-    std::string input = "Jerry jERRY JeRRRY";
-    int count = count_distinct_characters(input);
-    std::cout << "Number of distinct characters: " << count << std::endl;
-    return 0;
-}
+```
