@@ -2,9 +2,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-int scoreOfRound(const string& round) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     for (int i = 0; i < round.size(); i++) {
         if (round[i] == 'X') {
@@ -13,7 +11,7 @@ int scoreOfRound(const string& round) {
                 if (round[i + 2] == '/') {
                     score += 10;
                 } else {
-                    score += round[i + 1] - '0' + round[i + 2] - '0';
+                    score += std::stoi(std::string(1, round[i + 1])) + std::stoi(std::string(1, round[i + 2]));
                 }
             }
         } else if (round[i] == '/') {
@@ -29,11 +27,11 @@ int scoreOfRound(const string& round) {
 }
 
 int main() {
-    string round;
-    getline(cin, round);
+    std::string round;
+    std::getline(std::cin, round);
 
     int score = scoreOfRound(round);
-    cout << score << endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
