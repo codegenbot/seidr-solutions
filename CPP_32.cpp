@@ -1,8 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
-using namespace std;
+using std::allocator;
 
 double poly(vector<double> xs, double x) {
     /* Evaluates polynomial with coefficients xs at point x. return xs[0] + xs[1] * x + xs[1] * x^2 + .... xs[n] * x^n */
@@ -24,4 +23,3 @@ double find_zero(vector<double> xs) {
     }
     return x;
 }
-```
