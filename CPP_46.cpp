@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 int fib4(int n) {
@@ -21,3 +22,4 @@ int main() {
     std::cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << std::endl;
     return 0;
 }
+```
