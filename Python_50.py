@@ -1,3 +1,4 @@
+```diff
 def decode_shift(s: str) -> str:
     if not s:
         raise ValueError("Input cannot be empty")
@@ -8,3 +9,4 @@ def decode_shift(s: str) -> str:
         else:
             decoded += ch
     return decoded
+```
