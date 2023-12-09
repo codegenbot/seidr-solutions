@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <cmath>
-#include <vector>
+#include <boost/container/vector.hpp>
 
-float find_zero(const std::vector<double>& coeffs) {
+float find_zero(const boost::container::vector<double>& coeffs) {
     float x = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         x += coeffs[i] * pow(x, i);
@@ -11,7 +10,7 @@ float find_zero(const std::vector<double>& coeffs) {
     return x;
 }
 
-float poly(const std::vector<double>& coeffs) {
+float poly(const boost::container::vector<double>& coeffs) {
     float y = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         y += coeffs[i] * pow(y, i);
@@ -20,7 +19,7 @@ float poly(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs(3);
+    boost::container::vector<double> coeffs(3);
     coeffs.emplace_back(1.0);
     coeffs.emplace_back(-2.0);
     coeffs.emplace_back(1.0);
@@ -32,4 +31,3 @@ int main() {
     }
     return 0;
 }
-```
