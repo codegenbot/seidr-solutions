@@ -1,14 +1,9 @@
 def car_race_collision(n):
-    left_to_right = 0
-    right_to_left = n - 1
+    # Initialize a dictionary to store the number of collisions for each pair of cars
     collisions = {}
-    while left_to_right < n and right_to_left >= 0:
-        if left_to_right == right_to_left:
-            collisions[(left_to_right, right_to_left)] = 1
-            left_to_right += 1
-            right_to_left -= 1
-        elif left_to_right < right_to_left:
-            left_to_right += 1
-        else:
-            right_to_left -= 1
-    return sum(collisions.values()) * 2
+    for i in range(n):
+        for j in range(i+1, n):
+            # Check if the two cars are moving in opposite directions
+            if (i < j and j < n-i) or (i > j and j > n-i):
+                collisions[(i, j)] = 1
+    return sum(collisions.values())
