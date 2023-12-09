@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip>
 #include <string>
+#include <iomanip>
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
