@@ -1,4 +1,3 @@
-
 def eat(number, need, remaining):
     if number <= 0:
         left = abs(need)
