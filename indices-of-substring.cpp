@@ -17,7 +17,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         break;
       }
     }
-    if (j >= m) {   // Updated condition
+    if (j >= m) {
       indices.push_back(i);
     }
   }
