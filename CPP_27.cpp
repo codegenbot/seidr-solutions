@@ -16,10 +16,7 @@ std::string flip_case(const std::string& str) {
     }
     return result;
 }
-```
 
-In a separate file, define the `main()` function:
-```
 int main() {
     std::string input_string = "These violent delights have violent ends";
     std::string expected_output = "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS";
