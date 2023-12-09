@@ -1,4 +1,7 @@
+
+```
 def minPath(grid, k):
+    from collections import deque
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
@@ -25,3 +28,4 @@ def minPath(grid, k):
                     queue.append((i + di, j + dj, curr_len + 1))
     
     return path
+```
