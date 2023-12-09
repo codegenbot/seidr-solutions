@@ -1,3 +1,4 @@
+ ```
 def digits(n):
     product = 1
     while n > 0:
@@ -5,3 +6,4 @@ def digits(n):
             product *= n % 10
         n //= 10
     return product
+assert digits(2468) == 720
