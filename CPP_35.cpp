@@ -10,4 +10,3 @@ int main() {
     return 0;
 }
 ```
-The issue is that there are multiple definitions of `main()` function. The first definition is in line 7 and the second definition is in line 15. To fix this, you can remove one of the definitions or rename one of them so that they have different names.
