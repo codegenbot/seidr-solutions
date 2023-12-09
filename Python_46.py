@@ -1,5 +1,4 @@
-```
-def fib4(n):
+def fib4(n: int):
     if n <= 3:
         return 0
     elif n == 4:
@@ -13,5 +12,4 @@ def fib4(n):
             a = b
             b = c
             c = d
-        return c - 1
-```
+        return c
