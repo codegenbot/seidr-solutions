@@ -13,7 +13,10 @@ float calculateSnow(int hours, float initialSnow, float snowFallRate, float snow
 int main() {
     int hours;
     float initialSnow, snowFallRate, snowMeltRate;
-    std::cin >> hours >> initialSnow >> snowFallRate >> snowMeltRate;
+    std::cin >> hours;
+    std::cin >> initialSnow;
+    std::cin >> snowFallRate;
+    std::cin >> snowMeltRate;
     float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate);
     std::cout << std::fixed << result;
     return 0;
