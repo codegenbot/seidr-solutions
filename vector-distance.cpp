@@ -16,17 +16,13 @@ int main() {
     size_t n;
     std::cin >> n;
 
-    std::vector<double> vec1;
-    vec1.resize(n);
+    std::vector<double> vec1(n);
     for (size_t i = 0; i < n; i++) {
         std::cin >> vec1[i];
     }
 
-    std::cin >> n;
-
-    std::vector<double> vec2;
-    vec2.resize(n);
-    for (size_t i = 0; i < n; i++) {
+    std::vector<double> vec2(vec1.size());
+    for (size_t i = 0; i < vec2.size(); i++) {
         std::cin >> vec2[i];
     }
 
