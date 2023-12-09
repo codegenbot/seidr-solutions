@@ -2,7 +2,9 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    // ...
+}
 
 std::vector<int> incr_list(const std::vector<int>& l1) {
     std::vector<int> result;
