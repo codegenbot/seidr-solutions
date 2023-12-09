@@ -1,4 +1,5 @@
-def longest(strings: list) -> Optional[str]:
+
+def longest(strings: list[str]) -> Optional[str]:
     if len(strings) == 0:
         return None
     else:
