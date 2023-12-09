@@ -1,19 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
-    std::vector<char> digits;
+    std::vector<int> digits;
 
     for (int i = 0; i < 16; i++) {
-        char digit;
+        int digit;
         std::cin >> digit;
-        digits.push_back(digit - '0');
+        digits.push_back(digit);
     }
 
     int sum = 0;
     for (int i = 0; i < 16; i++) {
-        if (i % 2 == 1) {
+        if (i % 2 == 0) {
             int doubled = digits[i] * 2;
             if (doubled > 9) {
                 doubled -= 9;
@@ -28,4 +27,3 @@ int main() {
 
     return 0;
 }
-```
