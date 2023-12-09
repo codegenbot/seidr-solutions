@@ -1,3 +1,5 @@
+
+```
 def fib4(n):
     if n <= 2:
         return 0
@@ -5,3 +7,4 @@ def fib4(n):
         return 2
     else:
         return fib4(n-1) + fib4(n-2)
+```
