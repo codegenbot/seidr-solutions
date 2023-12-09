@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <sstream>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
     return firstBounceHeight / startingHeight;
@@ -19,7 +21,10 @@ int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
     
-    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
+    std::string input;
+    std::getline(std::cin, input);
+    std::istringstream iss(input);
+    iss >> startingHeight >> firstBounceHeight >> numBounces;
     
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
     
@@ -27,3 +32,4 @@ int main() {
     
     return 0;
 }
+```
