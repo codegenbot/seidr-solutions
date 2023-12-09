@@ -9,9 +9,7 @@ int scoreOfRound(const std::string& round) {
     int ballsRemaining = 10;
 
     for (char c : round) {
-        if (frame > 10) {
-            break;
-        }
+        if (frame > 10) { break; }
         
         if (c == 'X') {
             score += 10;
