@@ -13,4 +13,3 @@ def fib4(n):
             b = c
             c = d
         return c
-```
