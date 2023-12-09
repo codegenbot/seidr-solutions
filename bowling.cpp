@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(const std::string& round) {
+using namespace std;
+
+int scoreOfRound(const string& round) {
     int score = 0;
     for (int i = 0; i < round.size(); i++) {
         if (round[i] == 'X') {
@@ -27,11 +29,11 @@ int scoreOfRound(const std::string& round) {
 }
 
 int main() {
-    std::string round;
-    std::getline(std::cin, round);
+    string round;
+    getline(cin, round);
 
     int score = scoreOfRound(round);
-    std::cout << score << std::endl;
+    cout << score << endl;
 
     return 0;
 }
