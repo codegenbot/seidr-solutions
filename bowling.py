@@ -1,3 +1,4 @@
+```python
 def bowling_score(bowls):
     score = 0
     frame = 0
@@ -49,5 +50,6 @@ def get_value(bowl):
     else:
         return int(bowl)
 
-bowls = input()
+bowls = input().strip()
 print(bowling_score(bowls))
+```
