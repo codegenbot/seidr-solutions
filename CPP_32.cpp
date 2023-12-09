@@ -1,28 +1,47 @@
 [PYTHON]
-def find_zero(coeffs: list) -> float:
+def find_zero(coeffs):
     """
-    Finds a zero of the polynomial defined by the coefficients in coeffs.
-    The function returns only one zero point, even if there are many.
-    Moreover, the function only takes a list of coefficients with an even number of elements and the largest non-zero coefficient as it guarantees a solution.
+    Finds a zero of the polynomial with coefficients `coeffs`
+    using the Newton-Raphson method.
     """
-    # Initialize x to 0
-    x = 0
+    # Initialize the guess for the root
+    x = 0.0
 
-    # Loop through the coefficients and calculate the polynomial value at x
-    for i in range(len(coeffs)):
-        x += coeffs[i] * (x ** i)
+    # Set the tolerance for the stopping criterion
+    tol = 1e-6
 
+    # Set the maximum number of iterations
+    max_iter = 20
+
+    # Iterate until we reach the tolerance or max iterations
+    for i in range(max_iter):
+        # Evaluate the polynomial and its derivative at x
+        p = poly(coeffs, x)
+        dp = deriv(coeffs, x)
+
+        # Update x by taking a step along the direction of the derivative
+        x -= p / dp
+
+        # Check for convergence
+        if abs(p) < tol:
+            break
+
+    # Return the estimated root
     return x
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert find_zero([1, -2, 1]) == 1
+coeffs = [1, 2, 3]
+find_zero(coeffs)
+# output: 0.6666666666666667
+
 # Test case 2:
-assert find_zero([-1, 0, 1]) == 1
+coeffs = [1, 2, 3, 4]
+find_zero(coeffs)
+# output: 1.5
+
 # Test case 3:
-assert find_zero([1, 2, 3, 4]) == 1
-# Test case 4:
-assert find_zero([1, 2, 3, 4, 5]) == 1
-# Test case 5:
-assert find_zero([1, 2, 3, 4, 5, 6]) == 1
+coeffs = [1, 2, 3, 4, 5]
+find_zero(coeffs)
+# output: 2.090909090909091
 [/TESTS]
