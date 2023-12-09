@@ -1,9 +1,9 @@
 def find_zero(xs: list):
-    # Read user input
-    n = int(input("Enter a number: "))
+    # Read input from the user
+    x = int(input("Enter a number: "))
     
-    # Find and return the index of the first occurrence of 0 in the list
-    for i, x in enumerate(xs):
-        if x == 0:
-            return i
-    return -1
+    # Check if the input is in the list
+    if x in xs:
+        return 0
+    else:
+        return 1
