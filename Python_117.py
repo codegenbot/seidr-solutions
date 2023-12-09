@@ -1,4 +1,3 @@
-
 def select_words(s, n):
     words = s.split()
     if n == 1:
