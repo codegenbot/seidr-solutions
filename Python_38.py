@@ -1,5 +1,6 @@
-def decode_cyclic(s):
-    # split the encoded string into groups of three characters
+def decode_cyclic(s: str) -> str:
+    if len(s) < 3:
+        return s
     groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
-    # reverse the order of each group and join them together
-    return "".join([group[::-1] for group in groups])
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
