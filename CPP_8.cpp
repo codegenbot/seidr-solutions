@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -21,4 +20,3 @@ int main() {
     assert(is_same(sum_product({10}), {10}));
     return 0;
 }
-```
