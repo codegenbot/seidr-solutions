@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -10,7 +9,6 @@ int sum_product(const int& number) {
 }
 
 int main() {
-    assert (issame(sum_product(10), {10, 10}));
+    assert (issame(sum_product({10}) ,{20, 20}));
     return 0;
 }
-```
