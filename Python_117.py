@@ -1,7 +1,5 @@
-```
-import re
-
 def select_words(s, n):
-    pattern = r"^[a-zA-Z]{n}$"
-    return [word for word in s.split() if re.match(pattern, word)]
-``` 
+    words = s.split()
+    if len(words) < n:
+        return []
+    return [word for word in words if len(word) == n and word[0].isalpha() and word[-1].isalpha()]
