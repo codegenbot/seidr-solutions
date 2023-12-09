@@ -1,4 +1,4 @@
-
+[PYTHON]
 def encode(message):
     vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
@@ -10,8 +10,12 @@ def encode(message):
                 encoded_char = char.swapcase()
             encoded_message += encoded_char
     return encoded_message
-
-def encode(message):
-    pattern = r"[a-zA-Z]"
-    replacement = lambda x: chr(ord(x) + 2) if x.isalpha() else x
-    return re.sub(pattern, replacement, message)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert encode("Hello World") == "Jgnnq Yqtnf"
+# Test case 2:
+assert encode("Python is a popular programming language.") == "Qber gur ahzore bs yrggref yvxr gur genva."
+# Test case 3:
+assert encode("The quick brown fox jumps over the lazy dog.") == "Gur dhvpx oebja sbk whzcf bire gur ynml qbt."
+[/TESTS]
