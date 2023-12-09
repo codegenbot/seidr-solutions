@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -10,4 +9,3 @@ bool monotonic(std::vector<float> l) {
     }
     return true;
 }
-```

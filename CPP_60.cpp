@@ -11,8 +11,9 @@ int sum_to_n(int n) {
 
 int main() {
     int n;
+    std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << sum_to_n(n) << std::endl;
+    std::cout << "The sum of all numbers from 1 to " << n << " is " << sum_to_n(n) << std::endl;
     return 0;
 }
 ```
