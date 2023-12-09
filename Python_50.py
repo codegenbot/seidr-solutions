@@ -1,6 +1,5 @@
-
 ```
-def decode_shift(s):
+def decode_shift(s: str) -> str:
     s = s.split()
     new_s = []
     for ch in s:
