@@ -1,11 +1,7 @@
-
-Here's the fixed function:
-```py
 def eat(number, need, remaining):
     total = number + need
-    if total > remaining:
-        left = 0
+    left = max(remaining - (total - number), 0)
+    if need <= 0:
+        return [total, left]
     else:
-        left = max(remaining - (total - number), 0)
-    return [total, left]
-```
+        raise ValueError("Invalid input")
