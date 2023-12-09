@@ -1,5 +1,5 @@
-```
-def remove_duplicates(numbers: list[int]) -> list[int]:
+```python
+def remove_duplicates(numbers: list) -> list:
     unique_elements = set()
     result = []
     for num in numbers:
