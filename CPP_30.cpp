@@ -12,7 +12,8 @@ std::vector<float> get_positive(std::vector<float> l) {
     return positive;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b){
+template <typename T>
+bool issame(const std::vector<T>& a, const std::vector<T>& b) {
     if (a.size() != b.size()) {
         return false;
     }
