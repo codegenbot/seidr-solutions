@@ -5,4 +5,5 @@ def prime_fib(n):
             fib.append(fib[i-1] + fib[i-2])
         elif n <= len(fib):
             return None
-    return fib[-1]
+        else:
+            return fib[-1]
