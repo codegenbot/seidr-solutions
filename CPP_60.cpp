@@ -1,5 +1,5 @@
+```
 #include <iostream>
-#include <cmath>
 
 int sum_to_n(int n) {
     int sum = 0;
@@ -16,3 +16,4 @@ int main() {
     std::cout << "The sum of all numbers from 1 to " << n << " is " << sum_to_n(n) << std::endl;
     return 0;
 }
+```
