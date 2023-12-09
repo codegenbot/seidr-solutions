@@ -1,18 +1,13 @@
 def solve_boolean(expression):
     operators = {
         '|' : lambda x, y: x or y,
-        '&' : lambda x, y: x and y,
-        '!' : lambda x: not x
+        '&' : lambda x, y: x and y
     }
 
     stack = []
     for char in expression:
-        if char in ('t', 'f'):
-            stack.append('T' if char == 't' else 'F')
-        elif char == '!':
-            operator = operators[char]
-            operand = stack.pop()
-            stack.append(operator(operand))
+        if char in ('T', 'F', 't', 'f'):
+            stack.append('T' if char in ('T', 't') else 'F')
         elif char in operators:
             operator = operators[char]
             right = stack.pop()
@@ -20,5 +15,3 @@ def solve_boolean(expression):
             stack.append(operator(left, right))
     
     return stack[0] == 'T'
-
-print(solve_boolean("t&f&t"))
