@@ -1,5 +1,7 @@
+```
 def any_int(x, y, z):
-    if x == y + z or y == x + z or z == x + y:
+    if int(x) == int(y + z) or int(y) == int(x + z) or int(z) == int(x + y):
         return True
     else:
         return False
+```
