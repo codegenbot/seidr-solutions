@@ -1,4 +1,3 @@
-
 def prime_fib(n: int):
     fib = []
     for i in range(100):
