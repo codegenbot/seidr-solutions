@@ -1,8 +1,9 @@
+```python
 import collections
 
 def mastermind():
-    code = input()
-    guess = input()
+    code = input().strip()
+    guess = input().strip()
     black_pegs = sum(c == g for c, g in zip(code, guess))
     code_counts = collections.Counter(code)
     guess_counts = collections.Counter(guess)
