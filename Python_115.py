@@ -1,4 +1,3 @@
-```
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
@@ -9,4 +8,3 @@ def max_fill(grid, capacity):
                 if capacity >= j - i + 1:
                     buckets += 1
     return buckets
-```
