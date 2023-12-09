@@ -12,7 +12,5 @@ def fib4(n):
             a = b
             b = c
             c = d
-        if n > 12:
-            return c - 1
-        else:
-            return c
+        return c
+```
