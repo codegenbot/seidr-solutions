@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -36,10 +37,4 @@ string join(vector<string> words, char delimiter) {
         output += words[i];
     }
     return output;
-}
-
-int main() {
-    string input = "Hello, World!";
-    cout << spinWords(input) << endl;
-    return 0;
 }
