@@ -1,59 +1,39 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int> nums) {
+pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int idx = -1;
-    
-    for (int i = 0; i < n-1; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            leftSum += nums[j];
-        }
-        
-        for (int j = i+1; j < n; j++) {
-            rightSum += nums[j];
-        }
-        
-        int curDiff = abs(leftSum - rightSum);
-        if (curDiff < diff) {
-            diff = curDiff;
-            idx = i;
-        }
-    }
-    
-    vector<int> left(nums.begin(), nums.begin() + idx + 1);
-    vector<int> right(nums.begin() + idx + 1, nums.end());
-    
-    left.push_back(0);
-    right.push_back(0);
-    
-    return {left, right};
-}
+    int cutIndex = -1;
 
-int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> nums(n);
+    // Calculate the sum of all numbers in the vector
+    int totalSum = 0;
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        totalSum += nums[i];
     }
-    
-    vector<int> result1, result2;
-    tie(result1, result2) = cutVector(nums);
-    
-    for (int num : result1) {
-        cout << num << endl;
+
+    // Calculate the prefix sum
+    vector<int> prefixSum(n, 0);
+    prefixSum[0] = nums[0];
+    for (int i = 1; i < n; i++) {
+        prefixSum[i] = prefixSum[i-1] + nums[i];
     }
-    
-    for (int num : result2) {
-        cout << num << endl;
+
+    // Find the cut index with minimum difference
+    for (int i = 0; i < n; i++) {
+        int leftSum = prefixSum[i];
+        int rightSum = totalSum - leftSum;
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
+        }
     }
-    
-    return 0;
+
+    // Create the two resulting subvectors
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+
+    return make_pair(leftSubvector, rightSubvector);
 }
