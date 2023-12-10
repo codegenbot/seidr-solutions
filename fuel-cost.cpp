@@ -1,12 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cmath>
 
 int fuelCost(const std::vector<int>& nums) {
     int sum = 0;
     for (int num : nums) {
-        int result = std::floor(num / 3) - 2;
-        sum += result;
+        sum += std::floor(num / 3) - 2;
     }
     return sum;
 }
