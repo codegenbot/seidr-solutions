@@ -2,7 +2,7 @@
 #include <climits>
 #include <vector>
 #include <iostream>
-#include <tuple>
+#include <tuple> 
 
 std::tuple<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
