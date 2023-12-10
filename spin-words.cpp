@@ -1,27 +1,33 @@
+```c++
 #include <iostream>
-#include <sstream>
 #include <string>
+#include <algorithm> // Include the <algorithm> header
 
 std::string spinWords(const std::string& sentence) {
-    std::stringstream ss(sentence);
-    std::string word, result;
-
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+    std::string result = "";
+    std::string word = "";
+    for (char c : sentence) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + ' ';
+            word = "";
         }
-        result += word + " ";
     }
-
-    result.pop_back(); // remove the extra space at the end
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    result += word;
     return result;
 }
 
 int main() {
     std::string sentence;
     std::getline(std::cin, sentence);
-
     std::cout << spinWords(sentence) << std::endl;
-
     return 0;
 }
+```
