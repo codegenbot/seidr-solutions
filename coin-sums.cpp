@@ -1,22 +1,77 @@
-[PYTHON]
-def get_coin_sums(cents):
-    coins = [1, 5, 10, 25]
-    counts = [0, 0, 0, 0]
-    for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            counts[i] += 1
-    return counts
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_coin_sums(1) == [1, 0, 0, 0]
-# Test case 2:
-assert get_coin_sums(2) == [2, 0, 0, 0]
-# Test case 3:
-assert get_coin_sums(3) == [3, 0, 0, 0]
-# Test case 4:
-assert get_coin_sums(4) == [4, 0, 0, 0]
-# Test case 5:
-assert get_coin_sums(5) == [0, 1, 0, 0]
-[/TESTS]
+```
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+/*
+Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
+For example,
+input:
+1
+output:
+1
+0
+0
+0
+input:
+2
+output:
+2
+0
+0
+0
+input:
+3
+output:
+3
+0
+0
+0
+input:
+4
+output:
+4
+0
+0
+0
+input:
+5
+output:
+0
+1
+0
+0
+*/
+int main()
+{
+    int cents;
+    cin >> cents;
+    int pennies = 0, nickles = 0, dimes = 0, quarters = 0;
+
+    while (cents > 0) {
+        if (cents >= 25) {
+            quarters++;
+            cents -= 25;
+        } else if (cents >= 10 && cents < 25) {
+            dimes++;
+            cents -= 10;
+        } else if (cents >= 5 && cents < 10) {
+            nickles++;
+            cents -= 5;
+        } else {
+            pennies++;
+            cents--;
+        }
+    }
+
+    cout << quarters << " " << dimes << " " << nickles << " " << pennies << endl;
+}
+```
