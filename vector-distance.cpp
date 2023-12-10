@@ -1,19 +1,31 @@
-[PYTHON]
-def vector_distance(v1: list, v2: list) -> float:
-    """
-    Calculate the Euclidean distance between two vectors.
+```
+#include <iostream>
+#include <cmath>
+using namespace std;
 
-    :param v1: A list of floats representing the first vector.
-    :param v2: A list of floats representing the second vector.
-    :return: The Euclidean distance between the two vectors.
-    """
-    return sqrt(sum((x - y) ** 2 for x, y in zip(v1, v2)))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert vector_distance([1, 2, 3], [4, 5, 6]) == 5.0
-# Test case 2:
-assert vector_distance([-1, -2, -3], [-4, -5, -6]) == 5.0
-# Test case 3:
-assert vector_distance([1, 2, 3], [-4, -5, -6]) == 5.0
-[/TESTS]
+double vectorDistance(vector<float>& v1, vector<float>& v2) {
+    double distance = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        distance += pow(v1[i] - v2[i], 2);
+    }
+    return sqrt(distance);
+}
+
+int main() {
+    vector<float> v1, v2;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        float x;
+        cin >> x;
+        v1.push_back(x);
+    }
+    for (int i = 0; i < n; i++) {
+        float y;
+        cin >> y;
+        v2.push_back(y);
+    }
+    cout << vectorDistance(v1, v2) << endl;
+    return 0;
+}
+```
