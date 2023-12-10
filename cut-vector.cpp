@@ -1,6 +1,6 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
@@ -20,7 +20,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             rightSum += nums[j];
         }
         
-        int currDiff = abs(leftSum - rightSum);
+        int currDiff = std::abs(leftSum - rightSum);
         if (currDiff < diff) {
             diff = currDiff;
             idx = i;
