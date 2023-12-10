@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
+#include <iostream>
 #include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
