@@ -1,5 +1,5 @@
 [PYTHON]
-def get_coin_sums(cents):
+def get_min_coins(cents):
     coins = [0] * 4
     while cents > 0:
         if cents >= 25:
@@ -18,13 +18,18 @@ def get_coin_sums(cents):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert get_coin_sums(1) == [1, 0, 0, 0]
+cents = 1
+assert get_min_coins(cents) == [1, 0, 0, 0]
 # Test case 2:
-assert get_coin_sums(2) == [2, 0, 0, 0]
+cents = 2
+assert get_min_coins(cents) == [2, 0, 0, 0]
 # Test case 3:
-assert get_coin_sums(3) == [3, 0, 0, 0]
+cents = 3
+assert get_min_coins(cents) == [3, 0, 0, 0]
 # Test case 4:
-assert get_coin_sums(4) == [4, 0, 0, 0]
+cents = 4
+assert get_min_coins(cents) == [4, 0, 0, 0]
 # Test case 5:
-assert get_coin_sums(5) == [0, 1, 0, 0]
+cents = 5
+assert get_min_coins(cents) == [0, 1, 0, 0]
 [/TESTS]
