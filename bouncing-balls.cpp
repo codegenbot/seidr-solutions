@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -18,5 +19,8 @@ int main() {
     cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
-
-
+```
+Note: The formula for calculating the total distance traveled by the ball is now:
+```
+totalDistance = startingHeight + (bouncinessIndex * (numBounces - 1)) + (firstBounceHeight / 2)
+```
