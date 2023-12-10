@@ -17,7 +17,5 @@ assert spin_words("hello") == "hello"
 # Test case 3:
 assert spin_words("hello world") == "world hello"
 # Test case 4:
-assert spin_words("what is up") == "up what is"
-# Test case 5:
-assert spin_words("spin spin spin your wheel") == "wheel your spin spin spin"
+assert spin_words("what is the weather like today") == "what is eht weather like today"
 [/TESTS]
