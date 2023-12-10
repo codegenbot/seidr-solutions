@@ -1,45 +1,48 @@
-[PYTHON]
-def cut_vector(v):
-    n = len(v)
-    if n == 1:
-        return v, []
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
+/* Given a vector of positive integers, find the spot where, if you cut the 
+   vector, the numbers on both sides are either equal, or the difference is as small as possible. 
+   Return the two resulting subvectors as two outputs. */
+int main() {
+    vector<int> v;
+    int n, m;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> m;
+        v.push_back(m);
+    }
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 0; i < n; i++) {
+        int diff = abs(v[i] - v[n-1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
+    }
+    vector<int> subvec1, subvec2;
+    for (int i = 0; i < n; i++) {
+        if (i <= cutIndex) {
+            subvec1.push_back(v[i]);
+        } else {
+            subvec2.push_back(v[i]);
+        }
+    }
     
-    min_diff = float('inf')
-    cut_index = -1
-    for i in range(n):
-        diff = abs(v[i] - v[n-1])
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
+    // Store the subvectors in separate variables
+    vector<int> subvector1 = subvec1;
+    vector<int> subvector2 = subvec2;
     
-    subvec1 = v[:cut_index+1]
-    subvec2 = v[cut_index+1:]
-    return subvec1, subvec2
-[/PYTHON]
-[TESTS]
-# Test case 1:
-v = [1, 0]
-subvec1, subvec2 = cut_vector(v)
-assert subvec1 == [1]
-assert subvec2 == [0]
-# Test case 2:
-v = [1, 10]
-subvec1, subvec2 = cut_vector(v)
-assert subvec1 == [1]
-assert subvec2 == [10]
-# Test case 3:
-v = [1, 100]
-subvec1, subvec2 = cut_vector(v)
-assert subvec1 == [1]
-assert subvec2 == [100]
-# Test case 4:
-v = [1, 1000]
-subvec1, subvec2 = cut_vector(v)
-assert subvec1 == [1]
-assert subvec2 == [1000]
-# Test case 5:
-v = [1, 10000]
-subvec1, subvec2 = cut_vector(v)
-assert subvec1 == [1]
-assert subvec2 == [10000]
-[/TESTS]
+    return 0;
+}
