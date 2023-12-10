@@ -1,10 +1,19 @@
-
+```
+#include <vector>
 #include <iostream>
-#include <cmath>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 
-double getProbability(int n, int m) {
-    double prob = 0.0;
+string getProbability(int n, int m) {
+    double prob = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
@@ -12,7 +21,7 @@ double getProbability(int n, int m) {
             }
         }
     }
-    return prob;
+    return to_string(prob, 10);
 }
 
 int main() {
@@ -21,3 +30,4 @@ int main() {
     cout << getProbability(n, m) << endl;
     return 0;
 }
+```
