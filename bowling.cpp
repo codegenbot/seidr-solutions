@@ -1,4 +1,15 @@
-```
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
 int getScore(string bowls) {
     int score = 0;
     for (int i = 0; i < bowls.size(); i++) {
@@ -14,5 +25,8 @@ int getScore(string bowls) {
     }
     return score;
 }
-```
-With this modified code, the function will correctly add 10 points to the score when a strike is followed by a spare. This should fix the issue you identified and provide the correct output for all test cases.
+int main() {
+    string bowls = "XXXXXXXXXXXX";
+    cout << getScore(bowls) << endl;
+    return 0;
+}
