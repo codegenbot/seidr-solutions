@@ -7,28 +7,28 @@ def find_pair(nums, target):
     :param target: Target integer
     :return: Vector containing the two elements that sum to the target
     """
-    # Create a set to store unique elements
+    # Create a set to store the unique elements in the input vector
     unique_elements = set()
+    for i in range(len(nums)):
+        if nums[i] not in unique_elements:
+            unique_elements.add(nums[i])
 
-    # Iterate over the input vector and add each element to the set
-    for i in nums:
-        if i not in unique_elements:
-            unique_elements.add(i)
-
-    # Iterate over the set and find the two elements that sum to the target
-    for i in unique_elements:
-        for j in unique_elements:
-            if i + j == target:
-                return [i, j]
-
-    # If no pair is found, return an empty vector
+    # Iterate over the set and check if there are any two elements that sum up to the target value
+    for i in range(len(unique_elements)):
+        for j in range(i+1, len(unique_elements)):
+            if unique_elements[i] + unique_elements[j] == target:
+                return [unique_elements[i], unique_elements[j]]
     return []
 [/PYTHON]
 [TESTS]
 # Test case 1:
 assert find_pair([5, 7], 12) == [5, 7]
 # Test case 2:
-assert find_pair([-1, 0, 1, 2, -1, -4], -3) == [-1, 2]
+assert find_pair([4, 6], 10) == [4, 6]
 # Test case 3:
-assert find_pair([-1, 0, 1, 2, -1, -4], 5) == []
+assert find_pair([1, 2, 3, 4, 5], 10) == [1, 9]
+# Test case 4:
+assert find_pair([1, 2, 3, 4, 5], 11) == [2, 9]
+# Test case 5:
+assert find_pair([1, 2, 3, 4, 5], 12) == [3, 9]
 [/TESTS]
