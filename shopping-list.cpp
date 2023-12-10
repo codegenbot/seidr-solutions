@@ -1,12 +1,8 @@
-
+```
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cmath>
-#include <iomanip>
-
 using namespace std;
-
 int main() {
     vector<float> prices;
     vector<float> discounts;
@@ -25,3 +21,4 @@ int main() {
     cout << fixed << setprecision(2) << total << endl;
     return 0;
 }
+```
