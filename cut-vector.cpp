@@ -1,4 +1,10 @@
 ```
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
 vector<int> cutVector(vector<int>& v) {
     int n = v.size();
     vector<int> left, right;
@@ -12,3 +18,5 @@ vector<int> cutVector(vector<int>& v) {
     return left + right;
 }
 ```
+
+You can also use `vector<vector<int>>` as return type, but it's not necessary. It depends on the problem statement.
