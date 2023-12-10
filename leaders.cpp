@@ -1,13 +1,25 @@
-int main(void)
-{
+
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+// Define main function
+int main(void) {
+    // Take input from user
     vector<int> nums;
-    int i = 0;
-    cin >> i;
-    while (i--)
-    {
-        int j = 0;
-        cin >> j;
-        nums.push_back(j);
+    for (int i = 0; i < 5; i++) {
+        int n;
+        cin >> n;
+        nums.push_back(n);
     }
-    leaders(nums);
+
+    // Call leaders function to get leaders
+    vector<int> leaders = leaders(nums);
+
+    // Print the leaders
+    for (int leader : leaders) {
+        cout << leader << " ";
+    }
+    return 0;
 }
