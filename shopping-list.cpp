@@ -1,18 +1,10 @@
 ```
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <cmath>
 #include <iomanip>
 using namespace std;
-
 int main() {
     vector<float> prices;
     vector<float> discounts;
