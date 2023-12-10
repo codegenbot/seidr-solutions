@@ -1,16 +1,17 @@
-int getScore(string str) {
+```
+int calculateScore(string bowls) {
     int score = 0;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == 'X') {
+    for (int i = 0; i < bowls.size() - 1; i++) {
+        if (bowls[i] == 'X') {
             score += 10;
-        } else if (str[i] == '/') {
+        } else if (bowls[i] == '/') {
             score += 5;
-        } else if (str[i] == '-') {
+        } else if (bowls[i] == '-') {
             score -= 5;
         } else {
-            score += stoi(str.substr(i, 2));
-            i++;
+            score += bowls[i] - '0';
         }
     }
     return score;
 }
+```
