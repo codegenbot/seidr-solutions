@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -11,21 +12,31 @@
 #include <climits>
 using namespace std;
 
-vector<int> cutVector(const vector<int>& input) {
-    int n = input.size();
-    if (n <= 1) return {input[0]};
-    
+int cutVector(vector<int> &vec) {
+    int n = vec.size();
+    if (n == 0) {
+        return 0;
+    }
     int left = 0, right = n - 1;
-    while (left < right && input[left] != input[right]) {
-        int sumLeft = input[left], sumRight = input[right];
-        if (sumLeft > sumRight) {
-            sumLeft -= sumRight;
+    while (left < right) {
+        int diff = abs(vec[left] - vec[right]);
+        if (diff == 0) {
+            break;
+        }
+        if (diff % 2 == 0) {
             left++;
+            right--;
         } else {
-            sumRight -= sumLeft;
             right--;
         }
     }
-    
-    return {input[left], input[right]};
+    return left;
 }
+
+int main() {
+    vector<int> vec = {1, 10, 100, 1000, 10000};
+    int result = cutVector(vec);
+    cout << "The spot to cut is: " << result << endl;
+    return 0;
+}
+```
