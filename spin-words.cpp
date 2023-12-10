@@ -1,29 +1,23 @@
-#include <string>
 #include <iostream>
-
+#include <string>
+#include <cmath>
 using namespace std;
-
-string spinWords(string input) {
-    string output = "";
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] != ' ') {
-            string word = "";
-            while (i < input.size() && input[i] != ' ') {
-                word += input[i];
-                i++;
-            }
-            if (word.size() >= 5) {
-                output += reverse(word);
-            } else {
-                output += word;
-            }
+int main() {
+    string input, output;
+    cin >> input;
+    int len = input.length();
+    for (int i = 0; i < len; i++) {
+        if (input[i] == ' ') {
+            continue;
+        } else if (input[i] >= 'a' && input[i] <= 'z') {
+            output += input[i];
+        } else if (input[i] >= 'A' && input[i] <= 'Z') {
+            output += input[i];
+        } else {
+            cout << "Invalid input!" << endl;
+            return 1;
         }
     }
-    return output;
-}
-
-int main() {
-    string input = "this is another test";
-    cout << spinWords(input) << endl;
+    cout << "The reversed string is: " << output << endl;
     return 0;
 }
