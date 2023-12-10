@@ -1,6 +1,3 @@
-
-Here's the modified code that handles negative numbers and is more efficient:
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -30,4 +27,3 @@ int main() {
     }
     return 0;
 }
-```
