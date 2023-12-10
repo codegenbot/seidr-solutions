@@ -1,4 +1,4 @@
-The fixed code with the added main function is:
+
 ```
 #include <iostream>
 #include <vector>
