@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -36,4 +35,3 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
 
     return make_pair(leftSubvector, rightSubvector);
 }
-```
