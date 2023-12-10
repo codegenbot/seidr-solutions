@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
-#include <cmath>
+
 using namespace std;
 
 double probability(int n, int m) {
