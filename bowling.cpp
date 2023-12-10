@@ -1,20 +1,26 @@
-#include <iostream>
 #include <string>
+#include <iostream>
+#include <cstring>
+
 using namespace std;
-int getScore(string input) {
+
+int get_score(string bowls) {
     int score = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
+    for (int i = 0; i < bowls.size(); i++) {
+        if (bowls[i] == 'X') {
             score += 10;
-        } else if (input[i] >= '0' && input[i] <= '9') {
-            score += input[i] - '0';
+        } else if (bowls[i] == '/') {
+            score += 5;
+        } else {
+            score += bowls[i] - '0';
         }
     }
     return score;
 }
+
 int main() {
-    string input;
-    cin >> input;
-    cout << getScore(input) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << get_score(bowls) << endl;
     return 0;
 }
