@@ -44,14 +44,14 @@ output:
 1
 1000
 */
-vector<int> leaders(vector<int> nums) {
-    vector<int> leaders;
+vector<int> leaders(vector<int> v) {
+    vector<int> result;
     int currentLeader = INT_MIN;
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] > currentLeader) {
-            leaders.push_back(nums[i]);
-            currentLeader = nums[i];
+    for (int i = v.size() - 1; i >= 0; i--) {
+        if (v[i] > currentLeader) {
+            currentLeader = v[i];
+            result.push_back(currentLeader);
         }
     }
-    return leaders;
+    return result;
 }
