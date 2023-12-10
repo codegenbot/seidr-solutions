@@ -1,26 +1,28 @@
-#include <string>
 #include <iostream>
-#include <cmath>
+#include <string>
 using namespace std;
-int main() {
-    string s;
-    cin >> s;
-    int n = s.length();
-    bool result = true;
-    for (int i = 0; i < n; i++) {
-        if (s[i] == 'F') {
-            result = false;
-            break;
-        } else if (s[i] == 'T') {
-            continue;
-        } else if (s[i] == '|') {
-            result = true;
-            break;
-        } else if (s[i] == '&') {
-            result = false;
-            break;
+
+bool evaluate(string expression) {
+    int n = expression.size();
+    if (n == 1) {
+        return expression[0] == 't';
+    } else {
+        bool result = true;
+        for (int i = 0; i < n - 1; i += 2) {
+            char op = expression[i];
+            if (op == '&') {
+                result &= evaluate(expression.substr(i + 1, 1));
+            } else if (op == '|') {
+                result |= evaluate(expression.substr(i + 1, 1));
+            }
         }
+        return result;
     }
-    cout << boolalpha << result << endl;
+}
+
+int main() {
+    string expression;
+    cin >> expression;
+    cout << evaluate(expression) << endl;
     return 0;
 }
