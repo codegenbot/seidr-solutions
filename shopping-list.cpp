@@ -62,8 +62,8 @@ int main() {
         discounts.push_back(discount);
     }
     for (i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i]);
+        total += prices[i] * (1 - discounts[i] / 100.0);
     }
-    cout << total << endl;
+    cout << fixed << setprecision(2) << total << endl;
     return 0;
 }
