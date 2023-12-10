@@ -1,4 +1,4 @@
-
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -32,7 +32,8 @@ int main() {
     vector<int> result = findPair(nums, target);
     cout << "The two elements that sum to the target are: ";
     for (int i = 0; i < result.size(); i++) {
-        cout << nums[result[i]] << " ";
+        cout << result[i] << " ";
     }
     return 0;
 }
+```
