@@ -1,16 +1,10 @@
-```
-#include <iostream>
 #include <cmath>
 using namespace std;
-
-double calculate_bounciness(double starting_height, double height_after_first_bounce) {
-    return (height_after_first_bounce / starting_height);
+double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = 0.0;
+    for (int i = 0; i < numBounces; ++i) {
+        totalDistance += (startingHeight + ((double)i + 1.0) * bouncinessIndex);
+    }
+    return totalDistance;
 }
-
-int main() {
-    double starting_height, height_after_first_bounce;
-    cin >> starting_height >> height_after_first_bounce;
-    cout << calculate_bounciness(starting_height, height_after_first_bounce) << endl;
-    return 0;
-}
-```
