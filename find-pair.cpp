@@ -1,6 +1,6 @@
 [PYTHON]
 def find_pair(nums, target):
-    # Create a set to store the visited elements
+    # Create a set to store the elements that have been visited
     visited = set()
     # Initialize the result list
     result = []
@@ -14,7 +14,7 @@ def find_pair(nums, target):
             complement = target - nums[i]
             # Check if the complement is in the input array
             if complement in nums:
-                # If it is, add the current element and its complement to the result list
+                # If it is, add both elements to the result list
                 result.append(nums[i])
                 result.append(complement)
                 # Add the complement to the visited set
@@ -27,5 +27,5 @@ assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
 # Test case 2:
 assert find_pair([1, 2, 3, 4, 5], 10) == []
 # Test case 3:
-assert find_pair([-1, 0, 1, 2, -1, 3], 0) == [-1, 1]
+assert find_pair([-1, 0, 1, 2, -1, 3], 1) == [-1, 2]
 [/TESTS]
