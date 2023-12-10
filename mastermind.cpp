@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -34,3 +35,4 @@ bool isMatched(string guess, int pos) {
     }
     return false;
 }
+```
