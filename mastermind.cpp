@@ -1,24 +1,33 @@
-
-```
-#include <iostream>
-using namespace std;
-int main() {
-    string code, guess;
-    int whitePegs = 0, blackPegs = 0;
-    cin >> code >> guess;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            for (int j = 0; j < 4; j++) {
-                if (code[j] == guess[i] && code[j] != guess[j]) {
-                    whitePegs++;
-                    break;
-                }
-            }
-        }
-    }
-    cout << whitePegs << " " << blackPegs << endl;
-    return 0;
-}
-```
+[PYTHON]
+def get_clue(code, guess):
+    white_pegs = 0
+    black_pegs = 0
+    for i in range(4):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif guess[i] in code:
+            white_pegs += 1
+    return white_pegs, black_pegs
+[/PYTHON]
+[TESTS]
+# Test case 1:
+code = "RRRR"
+guess = "RRRR"
+assert get_clue(code, guess) == (0, 4)
+# Test case 2:
+code = "BOYG"
+guess = "GYOB"
+assert get_clue(code, guess) == (4, 0)
+# Test case 3:
+code = "WYYW"
+guess = "BBOG"
+assert get_clue(code, guess) == (0, 0)
+# Test case 4:
+code = "GGGB"
+guess = "BGGG"
+assert get_clue(code, guess) == (2, 2)
+# Test case 5:
+code = "BBBB"
+guess = "OOOO"
+assert get_clue(code, guess) == (0, 0)
+[/TESTS]
