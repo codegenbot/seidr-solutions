@@ -1,22 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <iomanip>
-using namespace std;
-int main() {
-    vector<float> prices;
-    vector<float> discounts;
-    float total = 0.0;
-    int n, i;
-    cin >> n;
-    for (i = 0; i < n; i++) {
-        float price, discount;
-        cin >> price >> discount;
-        prices.push_back(price);
-        discounts.push_back(discount);
-    }
-    for (i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0);
-    }
-    cout << fixed << setprecision(2) << total << endl;
-    return 0;
-}
+[PYTHON]
+def get_total_price(prices, discounts):
+    total = 0.0
+    for i in range(len(prices)):
+        total += prices[i] * (1 - discounts[i] / 100.0)
+    return total
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_total_price([10.0, 20.0, 30.0], [5.0, 10.0, 95.0]) == 29.0
+# Test case 2:
+assert get_total_price([20.0, 20.0], [100.0, 50.0]) == 36.0
+# Test case 3:
+assert get_total_price([20.0, 20.0], [20.0, 0.0]) == 40.0
+[/TESTS]
