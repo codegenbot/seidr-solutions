@@ -1,8 +1,10 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
 #include <cmath>
 using namespace std;
+
 int main() {
     vector<float> prices;
     vector<float> discounts;
@@ -15,9 +17,14 @@ int main() {
         prices.push_back(price);
         discounts.push_back(discount);
     }
-    for (i = 0; i < n; i++) {
-        total += round(prices[i] * (1 - discounts[i]));
+    if (n == 1) {
+        total = prices[0] * (1 - discounts[0]);
+    } else {
+        for (i = 0; i < n; i++) {
+            total += round(prices[i] * (1 - discounts[i]));
+        }
     }
     cout << total << endl;
     return 0;
 }
+```
