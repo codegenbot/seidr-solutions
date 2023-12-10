@@ -9,4 +9,5 @@ def probability_of_higher(n, m):
                 count += 1
     return count / (n * m)
 
-print(probability_of_higher(n, m))
+result = probability_of_higher(n, m)
+print("{:.7f}".format(result))
