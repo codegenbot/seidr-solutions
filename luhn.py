@@ -1,21 +1,10 @@
-```python
-def luhn_algorithm(digits):
-    new_digits = []
-    for i in range(len(digits)):
-        if i % 2 == 1:
-            new_digit = digits[i] * 2
-            if new_digit > 9:
-                new_digit -= 9
-            new_digits.append(new_digit)
-        else:
-            new_digits.append(digits[i])
-    return sum(new_digits)
+digits = input().split()
+digits = [int(x) for x in digits]
 
-# Read input from user
-n = int(input())
-digits = list(map(int, input().split()))
+for i in range(1, len(digits), 2):
+    digits[i] *= 2
+    if digits[i] > 9:
+        digits[i] -= 9
 
-# Call the function and print the result
-result = luhn_algorithm(digits)
-print(result)
-```
+sum_digits = sum(digits)
+print(sum_digits)
