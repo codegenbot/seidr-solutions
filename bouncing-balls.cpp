@@ -2,14 +2,14 @@
 #include <cmath>
 using namespace std;
 int main() {
-    double startHeight, bounceHeight, bouncinessIndex, totalDistance;
+    double startingHeight, heightAfterFirstBounce, bouncinessIndex, totalDistanceTravelled;
     int numBounces;
-    cin >> startHeight >> bounceHeight >> numBounces;
-    bouncinessIndex = bounceHeight / startHeight;
-    totalDistance = 0.0;
-    for (int i = 0; i < numBounces; i++) {
-        totalDistance += (startHeight + ((i + 1) * bouncinessIndex));
+    cin >> startingHeight >> heightAfterFirstBounce >> numBounces;
+    bouncinessIndex = heightAfterFirstBounce / startingHeight;
+    totalDistanceTravelled = 0;
+    for (int i = 1; i <= numBounces; i++) {
+        totalDistanceTravelled += pow(bouncinessIndex, i);
     }
-    cout << fixed << setprecision(8) << totalDistance << endl;
+    cout << totalDistanceTravelled << endl;
     return 0;
 }
