@@ -6,7 +6,7 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <iomanip>  // add this header file to your program
+#include <iomanip>
 using namespace std;
 
 int main() {
