@@ -1,28 +1,25 @@
-#include <iostream>
-#include <string>
+[PYTHON]
+def get_clues(code, guess):
+    white_pegs = 0
+    black_pegs = 0
+    for i in range(len(guess)):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif guess[i] in code and not is_matched(guess, i):
+            white_pegs += 1
+    return white_pegs, black_pegs
 
-using namespace std;
-
-int main() {
-    string code, guess;
-    int whitePegs = 0, blackPegs = 0;
-    cin >> code >> guess;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else if (code.find(guess[i]) != string::npos && !isMatched(guess, i)) {
-            whitePegs++;
-        }
-    }
-    cout << whitePegs << " " << blackPegs << endl;
-    return 0;
-}
-
-bool isMatched(string guess, int pos) {
-    for (int i = 0; i < pos; i++) {
-        if (guess[i] == guess[pos]) {
-            return true;
-        }
-    }
-    return false;
-}
+def is_matched(guess, pos):
+    for i in range(pos):
+        if guess[i] == guess[pos]:
+            return True
+    return False
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_clues("RGBY", "GYYR") == (1, 2)
+# Test case 2:
+assert get_clues("RGBY", "RYGB") == (0, 4)
+# Test case 3:
+assert get_clues("RGBY", "RBGG") == (1, 3)
+[/TESTS]
