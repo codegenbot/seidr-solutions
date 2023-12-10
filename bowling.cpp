@@ -1,14 +1,6 @@
-#include <vector>
-#include <iostream>
+```
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <iostream>
 using namespace std;
 int getScore(string bowls) {
     int score = 0;
@@ -30,3 +22,4 @@ int main() {
     cout << getScore(bowls) << endl;
     return 0;
 }
+```
