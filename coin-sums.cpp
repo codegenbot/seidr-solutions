@@ -1,27 +1,32 @@
+#include <vector>
 #include <iostream>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-int main() {
-    int cents;
-    cin >> cents;
-    int pennies = 0, nickles = 0, dimes = 0, quarters = 0;
+
+vector<int> coinSums(int cents) {
+    vector<int> coins;
     while (cents > 0) {
         if (cents >= 25) {
-            quarters++;
-            cents -= 25;
+            coins.push_back(cents / 25);
+            cents %= 25;
         } else if (cents >= 10) {
-            dimes++;
-            cents -= 10;
+            coins.push_back(cents / 10);
+            cents %= 10;
         } else if (cents >= 5) {
-            nickles++;
-            cents -= 5;
+            coins.push_back(cents / 5);
+            cents %= 5;
         } else {
-            pennies++;
-            cents--;
+            coins.push_back(cents);
+            break;
         }
     }
-    cout << "Fewest number of US coins needed to make " << cents << " cents: \n";
-    cout << "Pennies: " << pennies << "\n";
-    cout << "Nickles: " << nickles << "\n";
-    cout << "Dimes: " << dimes << "\n";
-    cout << "Quarters: " << quarters << "\n";
+    return coins;
 }
+```
