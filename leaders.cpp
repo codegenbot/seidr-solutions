@@ -1,33 +1,29 @@
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+
 using namespace std;
 
-vector<int> leaders(vector<int>& nums) {
+vector<int> leaders(const vector<int>& nums) {
+    if (nums.empty()) return {};
     vector<int> leaders;
-    int leader = INT_MIN;
-    for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] > leader) {
-            leaders.push_back(nums[i]);
+    int leader = nums[0];
+    for (int i = 1; i < nums.size(); i++) {
+        if (leader >= nums[i]) {
+            leaders.push_back(leader);
             leader = nums[i];
+        } else {
+            leader = max(leader, nums[i]);
         }
     }
+    leaders.push_back(leader);
     return leaders;
 }
 
 int main() {
-    vector<int> nums = {1, 451};
-    vector<int> leaders = leaders(nums);
-    for (int i = 0; i < leaders.size(); i++) {
-        cout << leaders[i] << " ";
+    vector<int> nums = {10, 5, 20, 40, 30};
+    vector<int> result = leaders(nums);
+    for (int i : result) {
+        cout << i << " ";
     }
     return 0;
 }
