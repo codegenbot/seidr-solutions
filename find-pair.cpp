@@ -12,7 +12,7 @@ def find_pair(nums, target):
 # Test case 1:
 assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
 # Test case 2:
-assert find_pair([1, 2, 3, 4, 5], 10) == []
+assert find_pair([-1, 2, 3, 4, 5], 6) == [-1, 5]
 # Test case 3:
-assert find_pair([1, 2, 3, 4, 5], -1) == []
+assert find_pair([1, 2, 3, 4, -5], 6) == [1, -5]
 [/TESTS]
