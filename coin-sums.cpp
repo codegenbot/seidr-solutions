@@ -1,24 +1,28 @@
-#include <vector>
 #include <iostream>
-#include <cmath>
 using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
-    vector<int> coins(4, 0);
-    for (int i = 0; i < cents; i++) {
-        if (i % 25 == 0) {
-            coins[3]++;
-        } else if (i % 10 == 0) {
-            coins[2]++;
-        } else if (i % 5 == 0) {
-            coins[1]++;
+    int pennies = 0, nickles = 0, dimes = 0, quarters = 0;
+    while (cents > 0) {
+        if (cents >= 25) {
+            quarters++;
+            cents -= 25;
+        } else if (cents >= 10) {
+            dimes++;
+            cents -= 10;
+        } else if (cents >= 5) {
+            nickles++;
+            cents -= 5;
         } else {
-            coins[0]++;
+            pennies++;
+            cents = 0;
         }
     }
-    for (int i = 0; i < 4; i++) {
-        cout << coins[i] << " ";
-    }
+    cout << "Pennies: " << pennies << endl;
+    cout << "Nickles: " << nickles << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Quarters: " << quarters << endl;
     return 0;
 }
