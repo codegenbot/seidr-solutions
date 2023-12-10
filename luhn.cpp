@@ -1,6 +1,3 @@
-
-It looks like the issue is with the backticks (``) used to enclose the code blocks in the problem statement. The compiler is interpreting them as stray characters, which is causing the errors. To fix this, you can remove the backticks and replace them with regular quotes (") or single quotes ('). For example:
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -34,4 +31,3 @@ int main() {
     cout << luhn(digits) << endl;
     return 0;
 }
-```
