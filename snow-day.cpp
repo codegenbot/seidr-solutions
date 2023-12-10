@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -6,7 +5,7 @@ double snowDay(int hours, double groundSnow, double snowFallRate, double meltPro
     double snow = groundSnow;
     for (int i = 0; i < hours; i++) {
         snow += snowFallRate * (1 - meltProportion);
-        snow = snow + snowFallRate * (1 - meltProportion) - snow * meltProportion;
+        snow -= snow * meltProportion;
     }
     return snow;
 }
@@ -18,4 +17,3 @@ int main() {
     cout << snowDay(hours, groundSnow, snowFallRate, meltProportion) << endl;
     return 0;
 }
-```
