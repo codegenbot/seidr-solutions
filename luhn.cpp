@@ -16,20 +16,17 @@ int luhn(vector<int>& digits) {
     for (int i = digits.size() - 2; i >= 0; i -= 2) {
         int digit = digits[i];
         if (digit > 4) {
-            sum += digit - 9;
-        } else {
-            sum += digit;
+            digit -= 9;
         }
+        sum += digit;
     }
     return sum;
 }
 
 int main() {
-    vector<int> digits;
+    vector<int> digits(16);
     for (int i = 0; i < 16; i++) {
-        int num;
-        cin >> num;
-        digits.push_back(num);
+        cin >> digits[i];
     }
     cout << luhn(digits) << endl;
     return 0;
