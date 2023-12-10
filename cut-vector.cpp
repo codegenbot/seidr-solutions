@@ -14,23 +14,30 @@ using namespace std;
 
 vector<int> cutVector(vector<int>& v) {
     int n = v.size();
-    vector<int> left, right;
-    for (int i = 0; i < n; i++) {
-        if (v[i] % 2 == 0) {
-            left.push_back(v[i]);
-        } else {
-            right.push_back(v[i]);
+    if (n == 0) return vector<int>();
+    if (n == 1) return vector<int>(v[0]);
+    
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    
+    for (int i = 1; i < n; i++) {
+        int diff = abs(v[i] - v[i-1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    return {left, right};
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    vector<int> result = cutVector(v);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+    
+    vector<int> left(cutIndex);
+    for (int i = 0; i < cutIndex; i++) {
+        left[i] = v[i];
     }
-    return 0;
+    
+    vector<int> right(n - cutIndex);
+    for (int i = cutIndex; i < n; i++) {
+        right[i - cutIndex] = v[i];
+    }
+    
+    return vector<int>{left, right};
 }
 ```
