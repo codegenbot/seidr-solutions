@@ -1,7 +1,10 @@
-
+The fixed code with the added main function is:
+```
 #include <iostream>
 #include <vector>
+
 using namespace std;
+
 vector<int> leaders(vector<int> nums) {
     vector<int> leaders;
     int max = INT_MIN;
@@ -13,6 +16,7 @@ vector<int> leaders(vector<int> nums) {
     }
     return leaders;
 }
+
 int main() {
     vector<int> nums = {1, 2, 3, 4, 5};
     vector<int> result = leaders(nums);
@@ -21,3 +25,4 @@ int main() {
     }
     return 0;
 }
+```
