@@ -8,7 +8,7 @@ string spinWords(string input) {
     vector<string> words = split(input, ' ');
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
-            reverse(begin(words[i]), end(words[i]));
+            reverse(words[i]);
         }
     }
     return join(words, ' ');
@@ -36,4 +36,10 @@ string join(vector<string> words, char delimiter) {
         output += words[i];
     }
     return output;
+}
+
+int main() {
+    string input = "Hello, World!";
+    cout << spinWords(input) << endl;
+    return 0;
 }
