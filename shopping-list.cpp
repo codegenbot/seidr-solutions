@@ -1,16 +1,14 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
+#include <cmath>
 #include <map>
 #include <set>
 #include <stack>
 #include <climits>
-#include <iomanip>
+#include <iomanip>  // add this header file to your program
 using namespace std;
+
 int main() {
     vector<float> prices;
     vector<float> discounts;
