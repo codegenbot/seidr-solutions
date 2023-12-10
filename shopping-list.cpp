@@ -1,9 +1,16 @@
 ```
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
-#include <cmath>
-#include <iomanip>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+#include <iomanip> // added this header file to use setprecision function
 using namespace std;
 int main() {
     vector<float> prices;
