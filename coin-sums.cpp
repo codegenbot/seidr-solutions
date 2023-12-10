@@ -1,6 +1,6 @@
 [PYTHON]
 def get_minimum_coins(cents):
-    coins = [0] * 4
+    coins = [0, 0, 0, 0]
     while cents > 0:
         if cents >= 25:
             coins[3] += 1
