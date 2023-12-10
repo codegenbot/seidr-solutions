@@ -1,4 +1,3 @@
-```python
 def middle_character(s):
     s = s.replace(' ', '')
     length = len(s)
@@ -6,4 +5,3 @@ def middle_character(s):
         return s[length // 2]
     else:
         return s[length // 2 - 1: length // 2 + 1]
-```
