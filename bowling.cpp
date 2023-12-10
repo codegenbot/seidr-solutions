@@ -1,19 +1,37 @@
 
-Sure, here's the modified code that handles multiple strikes and spares in a row:
-```
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
 int getScore(string bowls) {
     int score = 0;
     for (int i = 0; i < bowls.size(); i++) {
         if (bowls[i] == 'X') {
-            score += 10;
-            // Check for multiple strikes in a row
-            if (i + 2 < bowls.size() && bowls[i + 1] == 'X' && bowls[i + 2] == 'X') {
-                score += 10;
-            }
+            // If the current frame is a strike, add the bonus points
+            score += 10 + (i < bowls.size() - 1 ? bowls[i+1] : 0);
         } else if (bowls[i] >= '0' && bowls[i] <= '9') {
-            score += bowls[i] - '0';
+            // If the current frame is a spare, add the bonus points
+            score += bowls[i] - '0' + (i < bowls.size() - 1 ? bowls[i+1] : 0);
+        } else {
+            // Otherwise, just count the regular points for this frame
+            score += bowls[i];
         }
     }
     return score;
 }
-```
+
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << getScore(bowls) << endl;
+    return 0;
+}
