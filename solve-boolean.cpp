@@ -8,23 +8,9 @@ bool evaluateBoolean(string expression) {
     } else if (expression == "f") {
         return false;
     } else {
-        bool left, right;
-        char op;
-        int i = 0;
-        while (i < expression.size()) {
-            if (expression[i] == '&' || expression[i] == '|') {
-                op = expression[i];
-                left = evaluateBoolean(expression.substr(0, i));
-                right = evaluateBoolean(expression.substr(i + 1));
-                break;
-            }
-            i++;
-        }
-        if (op == '&') {
-            return left && right;
-        } else {
-            return left || right;
-        }
+        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
+        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
+        return left && right;
     }
 }
 
