@@ -1,4 +1,4 @@
-
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -18,8 +18,9 @@ int main() {
         discounts.push_back(discount);
     }
     for (i = 0; i < n; i++) {
-        total += round(prices[i] * (1 - discounts[i]) * 100) / 100;
+        total += round(prices[i] * (1 - discounts[i]));
     }
     cout << total << endl;
     return 0;
 }
+```
