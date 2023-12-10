@@ -1,11 +1,14 @@
-
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
 
 double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
-    double totalDistance = startingHeight + (numBounces * bouncinessIndex);
+    double totalDistance = 0.0;
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += (startingHeight + (i * bouncinessIndex));
+    }
     return totalDistance;
 }
 
@@ -16,3 +19,4 @@ int main() {
     cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
+```
