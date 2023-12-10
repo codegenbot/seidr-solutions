@@ -1,34 +1,24 @@
-#include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
-
-int calculateScore(const string& input) {
-    int score = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            score += 10;
-        } else if (input[i] == '/') {
-            score += 5;
-        } else if (input[i] == '-') {
-            score -= 2;
-        } else {
-            score += input[i] - '0';
-        }
+int getScore(string input) {
+  int score = 0;
+  for (int i = 0; i < input.length(); i++) {
+    char c = input[i];
+    if (c == '/') {
+      score += 10 - stoi(input.substr(i + 1, 2));
+      break;
+    } else if (c == 'X') {
+      score += 10;
+    } else {
+      score += stoi(c);
     }
-    return score;
+  }
+  return score;
 }
 int main() {
-    string input;
-    getline(cin, input);
-    cout << calculateScore(input) << endl;
-    return 0;
+  string input = "";
+  getline(cin, input);
+  cout << getScore(input) << endl;
+  return 0;
 }
