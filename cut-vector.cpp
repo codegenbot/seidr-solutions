@@ -10,7 +10,6 @@ vector<int> cutVector(vector<int>& v) {
         }
     }
     
-    // Create a new vector and push elements from both `left` and `right` into it
     vector<int> result;
     for (auto& element : left) {
         result.push_back(element);
