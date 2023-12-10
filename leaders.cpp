@@ -1,25 +1,18 @@
-
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
-// Define main function
-int main(void) {
-    // Take input from user
-    vector<int> nums;
-    for (int i = 0; i < 5; i++) {
-        int n;
-        cin >> n;
-        nums.push_back(n);
-    }
-
-    // Call leaders function to get leaders
-    vector<int> leaders = leaders(nums);
-
-    // Print the leaders
-    for (int leader : leaders) {
-        cout << leader << " ";
-    }
-    return 0;
-}
+[PYTHON]
+def leaders(nums):
+    leaders = []
+    current_leader = float('-inf')
+    for i in range(len(nums)-1, -1, -1):
+        if nums[i] > current_leader:
+            leaders.append(nums[i])
+            current_leader = nums[i]
+    return leaders[::-1]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert leaders([0, 1, 2, 3, 4, 5]) == [6, 5, 4, 3, 2, 1]
+# Test case 2:
+assert leaders([1, 2, 3, 4, 5, 6]) == [6, 5, 4, 3, 2, 1]
+# Test case 3:
+assert leaders([1, 2, 3, 4, 5]) == [5, 4, 3, 2, 1]
+[/TESTS]
