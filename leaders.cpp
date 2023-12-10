@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,6 +14,7 @@ vector<int> leaders(vector<int> nums) {
     }
     return leaders;
 }
+
 int main() {
     vector<int> input;
     int n;
@@ -29,3 +31,4 @@ int main() {
     }
     return 0;
 }
+```
