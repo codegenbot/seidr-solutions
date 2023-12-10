@@ -1,21 +1,20 @@
-[PYTHON]
-def get_probability(n: int, m: int) -> str:
-    prob = 0
-    for i in range(1, n + 1):
-        for j in range(1, m + 1):
-            if i > j:
-                prob += 1.0 / (n * m)
-    return f"{prob:.10f}"
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_probability(1, 2) == "0.0000000000"
-# Test case 2:
-assert get_probability(2, 1) == "0.5000000000"
-# Test case 3:
-assert get_probability(99, 100) == "0.4900000000"
-# Test case 4:
-assert get_probability(100, 99) == "0.5000000000"
-# Test case 5:
-assert get_probability(1, 100) == "0.0000000000"
-[/TESTS]
+#include <iostream>
+#include <cmath>
+using namespace std;
+float probability(int n, int m) {
+    float p = 0.0f;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                p += 1.0f / (n * m);
+            }
+        }
+    }
+    return std::round(p, 6);
+}
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << probability(n, m) << endl;
+    return 0;
+}
