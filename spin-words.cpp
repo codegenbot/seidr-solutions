@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -9,7 +9,7 @@ string spinWords(string input) {
     vector<string> words = split(input, ' ');
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
-            reverse(words[i]);
+            reverse(words[i].begin(), words[i].end());
         }
     }
     return join(words, ' ');
@@ -38,4 +38,3 @@ string join(vector<string> words, char delimiter) {
     }
     return output;
 }
-```
