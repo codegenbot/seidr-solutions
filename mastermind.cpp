@@ -3,18 +3,6 @@
 #include <string>
 using namespace std;
 
-bool isValidInput(string input) {
-    if (input.length() != 4) {
-        return false;
-    }
-    for (char ch : input) {
-        if (ch < 'A' || ch > 'F') {
-            return false;
-        }
-    }
-    return true;
-}
-
 pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -39,12 +27,10 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
-
-    if (!isValidInput(code) || !isValidInput(guess)) {
-        cout << "Invalid input" << endl;
-        return 0;
-    }
+    cout << "Enter code: ";
+    cin >> code;
+    cout << "Enter guess: ";
+    cin >> guess;
 
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
