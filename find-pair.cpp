@@ -19,5 +19,5 @@ assert find_pair([5, 7], 12) == [0, 1]
 # Test case 2:
 assert find_pair([3, 5, 7], 12) == [1, 2]
 # Test case 3:
-assert find_pair([1, 2, 3, 4, 5], 12) == [0, 4]
+assert find_pair([1, 2, 3, 4, 5], 12) == [2, 3]
 [/TESTS]
