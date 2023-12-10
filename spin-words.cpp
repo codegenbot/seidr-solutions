@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -38,4 +38,3 @@ string join(vector<string> words, char delimiter) {
     }
     return output;
 }
-```
