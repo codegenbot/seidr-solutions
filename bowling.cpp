@@ -1,37 +1,74 @@
+```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-int calculateScore(const std::string& input) {
+int calculateScore(string bowls) {
     int score = 0;
     int frame = 0;
-    int i = 0;
-    
-    while (frame < 10 && i < input.size()) {
-        if (input[i] == 'X') {
-            score += 10;
-            score += (input[i+2] == 'X') ? 10 : (input[i+2] == '/') ? 10 - (input[i+1] - '0') : (input[i+1] - '0') + (input[i+2] - '0');
-            i++;
-        } else if (input[i+1] == '/') {
-            score += 10;
-            score += (input[i+2] == 'X') ? 10 : (input[i+2] - '0');
-            i += 2;
-        } else {
-            score += (input[i] - '0') + (input[i+1] - '0');
-            i += 2;
+    int bowl = 0;
+    int frames[10] = { 0 };
+
+    for (int i = 0; i < bowls.length(); i++) {
+        if (bowls[i] == 'X') {
+            frames[frame] = 10;
+            frame++;
         }
-        
-        frame++;
+        else if (bowls[i] == '/') {
+            frames[frame] = 10 - (bowls[i - 1] - '0');
+            frame++;
+        }
+        else if (bowls[i] == '-') {
+            frames[frame] = 0;
+            frame++;
+        }
+        else {
+            frames[frame] += bowls[i] - '0';
+            if (bowl % 2 != 0) {
+                frame++;
+            }
+        }
+        bowl++;
     }
-    
+
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
+        if (frames[i] == 10) {
+            if (bowls[i+1] == 'X') {
+                score += 10;
+            }
+            else {
+                score += bowls[i+1] - '0';
+            }
+            if (bowls[i+2] == 'X') {
+                score += 10;
+            }
+            else if (bowls[i+2] == '/') {
+                score += 10 - (bowls[i+1] - '0');
+            }
+            else {
+                score += bowls[i+2] - '0';
+            }
+        }
+        else if (frames[i] == 20) {
+            if (bowls[i+1] == 'X') {
+                score += 10;
+            }
+            else {
+                score += bowls[i+1] - '0';
+            }
+        }
+        bowl += 2;
+    }
+
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    
-    int score = calculateScore(input);
-    std::cout << score << std::endl;
-    
+    string bowls;
+    cin >> bowls;
+    int score = calculateScore(bowls);
+    cout << score << endl;
     return 0;
 }
+```
