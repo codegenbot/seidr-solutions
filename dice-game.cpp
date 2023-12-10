@@ -1,16 +1,16 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-float probability(int n, int m) {
-    float p = 0.0f;
+double probability(int n, int m) {
+    double p = 0.0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                p += 1.0f / (n * m);
+                p += (double)(n - i + 1) / (n * m);
             }
         }
     }
-    return std::round(p, 6);
+    return p;
 }
 int main() {
     int n, m;
