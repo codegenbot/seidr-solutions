@@ -25,7 +25,10 @@ int luhn(vector<int>& digits) {
 }
 
 int main() {
-    vector<int> digits("1234567890123456");
+    vector<int> digits(16);
+    for (int i = 0; i < 16; i++) {
+        cin >> digits[i];
+    }
     cout << luhn(digits) << endl;
     return 0;
 }
