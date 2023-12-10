@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -33,8 +32,8 @@ int main() {
     cin >> guess;
 
     pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    cout << "White pegs: " << result.first << endl;
+    cout << "Black pegs: " << result.second << endl;
+
     return 0;
 }
-```
