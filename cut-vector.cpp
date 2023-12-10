@@ -1,51 +1,45 @@
-```
-#include <vector>
-#include <iostream>
-#include <cmath>
-using namespace std;
-
-int main() {
-    vector<int> v;
-    int n, m;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> m;
-        v.push_back(m);
-    }
-    if (n == 1) {
-        cout << "Subvector 1: ";
-        cout << v[0] << endl;
-        cout << "Subvector 2: ";
-        cout << v[0] << endl;
-        return 0;
-    }
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < n; i++) {
-        int diff = abs(v[i] - v[n-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
-        }
-    }
-    vector<int> subvec1, subvec2;
-    for (int i = 0; i < n; i++) {
-        if (i <= cutIndex) {
-            subvec1.push_back(v[i]);
-        } else {
-            subvec2.push_back(v[i]);
-        }
-    }
-    cout << "Subvector 1: ";
-    for (int i = 0; i < subvec1.size(); i++) {
-        cout << subvec1[i] << " ";
-    }
-    cout << endl;
-    cout << "Subvector 2: ";
-    for (int i = 0; i < subvec2.size(); i++) {
-        cout << subvec2[i] << " ";
-    }
-    cout << endl;
-    return 0;
-}
-```
+[PYTHON]
+def get_subvectors(v):
+    n = len(v)
+    if n == 1:
+        return v, v
+    
+    min_diff = float('inf')
+    cut_index = -1
+    for i in range(n):
+        diff = abs(v[i] - v[n-1])
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    
+    subvec1 = v[:cut_index+1]
+    subvec2 = v[cut_index+1:]
+    return subvec1, subvec2
+[/PYTHON]
+[TESTS]
+# Test case 1:
+v = [1, 0]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [0]
+# Test case 2:
+v = [1, 10]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [10]
+# Test case 3:
+v = [1, 100]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [100]
+# Test case 4:
+v = [1, 1000]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [1000]
+# Test case 5:
+v = [1, 10000]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [10000]
+[/TESTS]
