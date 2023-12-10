@@ -1,21 +1,42 @@
-[PYTHON]
-def find_pair(nums, target):
-    """
-    :type nums: List[int]
-    :type target: int
-    :rtype: List[int]
-    """
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [nums[i], nums[j]]
-    return []
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
-# Test case 2:
-assert find_pair([-1, 0, 1, 2, -1, 4], 1) == [-1, 0]
-# Test case 3:
-assert find_pair([], 10) == []
-[/TESTS]
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
+vector<int> findPair(vector<int>& nums, int target) {
+    set<int> uniqueElements;
+    for (int i = 0; i < nums.size(); i++) {
+        if (uniqueElements.find(nums[i]) == uniqueElements.end()) {
+            uniqueElements.insert(nums[i]);
+        }
+    }
+
+    vector<int> result;
+    for (auto it = uniqueElements.begin(); it != uniqueElements.end(); ++it) {
+        int element = *it;
+        if (element + target == 0) {
+            result.push_back(element);
+            break;
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    vector<int> nums = { 5, 7 };
+    int target = 12;
+    vector<int> result = findPair(nums, target);
+    cout << "The two elements that sum to the target are: ";
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    return 0;
+}
