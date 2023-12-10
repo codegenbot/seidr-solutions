@@ -1,6 +1,10 @@
+
+```
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <cctype>
 using namespace std;
 
 int main() {
@@ -19,3 +23,4 @@ int main() {
     
     return 0;
 }
+```
