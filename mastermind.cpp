@@ -1,4 +1,7 @@
+
 ```
+#include <iostream>
+using namespace std;
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
