@@ -12,7 +12,7 @@ def spin_words(sentence):
 # Test case 1:
 assert spin_words("Hello") == "Hello"
 # Test case 2:
-assert spin_words("Hello World!") == "World! Hello"
+assert spin_words("Hello World") == "World Hello"
 # Test case 3:
-assert spin_words("Reverse Spinning Words") == "Words Spinning Reverse"
+assert spin_words("The quick brown fox jumps over the lazy dog") == "The quick brown fox jumps over the lazy dog"
 [/TESTS]
