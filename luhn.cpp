@@ -1,17 +1,6 @@
 
-The issue is caused by using backticks (``) as string delimiters, which are not allowed in C++. To fix the issue, replace all instances of backticks with double quotes (") or single quotes ('):
-```
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
 int luhn(vector<int>& digits) {
@@ -34,8 +23,3 @@ int main() {
     cout << luhn(digits) << endl;
     return 0;
 }
-```
-Alternatively, you can use a string literal with double quotes to initialize the vector:
-```
-vector<int> digits("1234567890123456");
-```
