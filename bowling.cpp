@@ -1,17 +1,20 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int main() {
-    string input;
+int calculateScore(string input) {
     int score = 0;
-    cin >> input;
     for (int i = 0; i < input.length(); i++) {
         if (input[i] == 'X') {
             score += 10;
-        } else if (isdigit(input[i])) {
-            score += input[i] - '0';
+        } else if (input[i] == '/') {
+            score += 5;
         }
     }
-    cout << score << endl;
+    return score;
+}
+int main() {
+    string input;
+    cin >> input;
+    cout << calculateScore(input) << endl;
     return 0;
 }
