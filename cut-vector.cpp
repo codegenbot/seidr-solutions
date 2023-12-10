@@ -1,30 +1,41 @@
-
 [PYTHON]
-def cut_vector(vector):
-    # Find the spot where, if you cut the vector, the numbers on both sides are either equal, or the difference is as small as possible
+def get_subvectors(v):
+    n = len(v)
     min_diff = float('inf')
     cut_index = -1
-    for i in range(len(vector)):
-        diff = abs(vector[i] - vector[-1])
+    for i in range(n):
+        diff = abs(v[i] - v[n-1])
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-
-    # Store the subvectors in separate variables
-    subvector1 = vector[:cut_index + 1]
-    subvector2 = vector[cut_index + 1:]
-
-    return subvector1, subvector2
+    subvec1 = v[:cut_index+1]
+    subvec2 = v[cut_index+1:]
+    return subvec1, subvec2
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert cut_vector([1, 0]) == ([1], [0])
+v = [1, 0]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [0]
 # Test case 2:
-assert cut_vector([1, 10]) == ([1], [10])
+v = [1, 10]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [10]
 # Test case 3:
-assert cut_vector([1, 100]) == ([1], [100])
+v = [1, 100]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [100]
 # Test case 4:
-assert cut_vector([1, 1000]) == ([1], [1000])
+v = [1, 1000]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [1000]
 # Test case 5:
-assert cut_vector([1, 10000]) == ([1], [10000])
+v = [1, 10000]
+subvec1, subvec2 = get_subvectors(v)
+assert subvec1 == [1]
+assert subvec2 == [10000]
 [/TESTS]
