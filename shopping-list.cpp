@@ -1,19 +1,22 @@
-```
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <iomanip>
 using namespace std;
 int main() {
-    int n;
+    vector<float> prices;
+    vector<float> discounts;
+    float total = 0.0;
+    int n, i;
     cin >> n;
-    vector<float> prices(n);
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         float price, discount;
         cin >> price >> discount;
-        prices[i] = price * (1 - discount / 100.0);
+        prices.push_back(price);
+        discounts.push_back(discount);
     }
-    float total = accumulate(prices.begin(), prices.end(), 0.0);
+    for (i = 0; i < n; i++) {
+        total += prices[i] * (1 - discounts[i] / 100.0);
+    }
     cout << fixed << setprecision(2) << total << endl;
     return 0;
 }
-```
