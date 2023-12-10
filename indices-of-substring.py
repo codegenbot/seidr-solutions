@@ -1,5 +1,14 @@
-text = input().strip()
-target = input().strip()
+text = input()
+target = input()
 
-indices = [i for i in range(len(text)) if text[i:i+len(target)] == target or target in text[i:i+len(target)-1]]
-print(' '.join(map(str, indices)))
+indices = [i for i in range(len(text) - len(target) + 1) if text[i:i+len(target)] == target]
+start = 0
+
+while True:
+    index = text.find(target, start)
+    if index == -1:
+        break
+    indices.append(index)
+    start = index + 1
+
+print(" ".join(map(str, indices)))
