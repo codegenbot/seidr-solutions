@@ -28,18 +28,3 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
-You can also use the `std::string` class to find the indices of a substring in a string, like this:
-```
-#include <string>
-
-int main() {
-    std::string text = "hello world";
-    std::string target = "world";
-    int index = text.find(target);
-    if (index != std::string::npos) {
-        std::cout << "Found at index: " << index << std::endl;
-    } else {
-        std::cout << "Not found" << std::endl;
-    }
-}
-```
