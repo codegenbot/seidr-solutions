@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -27,3 +28,4 @@ int main() {
     cout << vectorDistance(v1, v2) << endl;
     return 0;
 }
+```
