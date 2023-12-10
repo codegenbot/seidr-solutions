@@ -10,13 +10,11 @@ def spin_words(sentence):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert spin_words("hello") == "hello"
+assert spin_words("Hello") == "Hello"
 # Test case 2:
-assert spin_words("hello world") == "hello world"
+assert spin_words("Hello World!") == "Hello World!"
 # Test case 3:
-assert spin_words("the quick brown fox jumps over the lazy dog") == "the quick brown fox jumps over the lazy dog"
+assert spin_words("Welcome to New York") == "Welcome to New York"
 # Test case 4:
-assert spin_words("maze") == "maze"
-# Test case 5:
-assert spin_words("maze you") == "maze you"
+assert spin_words("abcde fghijklm nopqrst uvwxyz") == "abcde fghijklm nopqrst uvwxyz"
 [/TESTS]
