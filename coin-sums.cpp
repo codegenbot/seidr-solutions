@@ -1,4 +1,14 @@
+#include <vector>
 #include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
@@ -46,13 +56,13 @@ int main() {
     while (cents > 0) {
         if (cents >= 25) {
             coins[3] += cents / 25;
-            cents -= 25 * (cents / 25);
+            cents %= 25;
         } else if (cents >= 10) {
-            coins[2] += cents / 10;
-            cents -= 10 * (cents / 10);
+            coins[2]++;
+            cents -= 10;
         } else if (cents >= 5) {
-            coins[1] += cents / 5;
-            cents -= 5 * (cents / 5);
+            coins[1]++;
+            cents -= 5;
         } else {
             coins[0]++;
             cents = 0;
