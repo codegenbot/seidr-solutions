@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,7 +6,7 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <iomanip> // add this header file to your program
+#include <iomanip>  // add this header file to your program
 using namespace std;
 
 int main() {
