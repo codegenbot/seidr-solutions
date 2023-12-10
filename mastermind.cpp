@@ -7,11 +7,9 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            bool matched = false;
             for (int j = 0; j < 4; j++) {
-                if (code[j] == guess[i] && !matched) {
+                if (code[j] == guess[i] && code[j] != guess[j]) {
                     whitePegs++;
-                    matched = true;
                     break;
                 }
             }
