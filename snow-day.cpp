@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -11,11 +12,4 @@ double snowDay(int hours, float groundSnow, float snowFallRate, float meltPropor
     }
     return snow;
 }
-
-int main() {
-    int hours;
-    float groundSnow, snowFallRate, meltProportion;
-    cin >> hours >> groundSnow >> snowFallRate >> meltProportion;
-    cout << snowDay(hours, groundSnow, snowFallRate, meltProportion) << endl;
-    return 0;
-}
+```
