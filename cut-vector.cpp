@@ -1,26 +1,27 @@
-```
 #include <vector>
 #include <iostream>
 using namespace std;
 
-vector<int> cutVector(vector<int>& input) {
-    int n = input.size();
-    vector<int> left, right;
-    int minDiff = INT_MAX;
-    for (int i = 1; i < n - 1; i++) {
-        int diff = abs(input[i] - input[i - 1]);
+vector<int> cutVector(const vector<int>& v) {
+    int n = v.size();
+    if (n <= 1) return vector<int>();
+
+    int minDiff = INT_MAX, spot = -1;
+    for (int i = 0; i < n - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
         if (diff < minDiff) {
             minDiff = diff;
-            left.clear();
-            right.clear();
-            for (int j = 0; j < i; j++) {
-                left.push_back(input[j]);
-            }
-            for (int j = i + 1; j < n; j++) {
-                right.push_back(input[j]);
-            }
+            spot = i;
         }
     }
+
+    vector<int> left, right;
+    for (int i = 0; i <= spot; i++) {
+        left.push_back(v[i]);
+    }
+    for (int i = spot + 1; i < n; i++) {
+        right.push_back(v[i]);
+    }
+
     return {left, right};
 }
-```
