@@ -4,35 +4,22 @@
 #include <string>
 #include <cstring>
 #include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
 #include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
     cin >> code >> guess;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    set<char> uniqueChars(guess.begin(), guess.end());
+    for (auto it = uniqueChars.begin(); it != uniqueChars.end(); ++it) {
+        if (code.find(*it) != string::npos) {
             blackPegs++;
-        } else if (code.find(guess[i]) != string::npos && !isMatched(guess, i)) {
+        } else {
             whitePegs++;
         }
     }
     cout << whitePegs << " " << blackPegs << endl;
     return 0;
-}
-
-bool isMatched(string guess, int pos) {
-    for (int i = 0; i < pos; i++) {
-        if (guess[i] == guess[pos]) {
-            return true;
-        }
-    }
-    return false;
 }
 ```
