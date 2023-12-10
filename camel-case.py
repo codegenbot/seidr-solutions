@@ -1,8 +1,11 @@
-def kebab_to_camel(s):
-    words = s.split("-")
-    for i in range(1, len(words)):
-        words[i] = words[i].capitalize()
-    return "".join(words)
+import re
 
-s = input()
-print(kebab_to_camel(s))
+def kebab_to_camel_case(string):
+    words = string.split('-')
+    camel_case = words[0]
+    for word in words[1:]:
+        camel_case += word.capitalize()
+    return camel_case
+
+input_string = input()
+print(kebab_to_camel_case(input_string))
