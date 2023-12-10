@@ -12,10 +12,10 @@ double probabilityOfPeterWinning(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-
+    
     double probability = probabilityOfPeterWinning(n, m);
-
+    
     cout << fixed << setprecision(8) << probability << endl;
-
+    
     return 0;
 }
