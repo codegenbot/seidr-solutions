@@ -27,4 +27,6 @@ assert get_coin_sums(3) == [3, 0, 0, 0]
 assert get_coin_sums(4) == [4, 0, 0, 0]
 # Test case 5:
 assert get_coin_sums(5) == [0, 1, 0, 0]
+# Test case 6:
+assert get_coin_sums(6577) == [263, 4, 1, 0]
 [/TESTS]
