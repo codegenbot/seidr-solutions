@@ -1,8 +1,5 @@
-
-```
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> leaders(vector<int> nums) {
@@ -16,13 +13,19 @@ vector<int> leaders(vector<int> nums) {
     }
     return leaders;
 }
-
 int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
-    vector<int> result = leaders(nums);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+    vector<int> input;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        input.push_back(x);
+    }
+    vector<int> leaders = leaders(input);
+    cout << "Leaders: ";
+    for (auto it : leaders) {
+        cout << it << " ";
     }
     return 0;
 }
-```
