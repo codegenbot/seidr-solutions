@@ -1,10 +1,7 @@
-Here is the modified code:
-
 ```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
