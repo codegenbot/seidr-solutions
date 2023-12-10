@@ -1,20 +1,16 @@
 #include <vector>
 #include <iostream>
-#include <string>
 #include <cmath>
 using namespace std;
-double shoppingList(vector<float> prices, vector<float> discounts) {
+
+double shopping_list(const vector<float>& prices, const vector<float>& discounts) {
     double total = 0.0;
     for (int i = 0; i < prices.size(); i++) {
-        float discountedPrice = prices[i] * (1 - discounts[i]);
-        cout << "Item " << i + 1 << ": " << prices[i] << " x " << (100 - discounts[i]) / 100.0 << " = " << discountedPrice << endl;
-        total += discountedPrice;
+        total += prices[i] * (1 - discounts[i] / 100);
     }
     return total;
 }
-int main() {
-    vector<float> prices{50, 100};
-    vector<float> discounts{10, 20};
-    cout << "The total cost of the shopping list is: " << shoppingList(prices, discounts) << endl;
-    return 0;
-}
+```
+The code defines a function `shopping_list` that takes two vectors as input: `prices` and `discounts`. The function calculates the total price of the shopping trip by iterating over each item in the `prices` vector, applying the corresponding discount from the `discounts` vector, and adding the result to a running total.
+
+The function returns the final value of the `total` variable, which represents the total price of the shopping trip after all discounts have been applied.
