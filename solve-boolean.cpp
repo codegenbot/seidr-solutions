@@ -1,19 +1,20 @@
 #include <string>
 #include <iostream>
-#include <cstring>
+#include <cctype>
+
 using namespace std;
 
-bool evaluate(string expression) {
+bool evaluate(const string& expression) {
     bool result = true;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '|') {
-            result |= evaluate(expression.substr(i + 1));
-        } else if (expression[i] == '&') {
-            result &= evaluate(expression.substr(i + 1));
-        } else if (expression[i] == 't') {
-            result = true;
-        } else if (expression[i] == 'f') {
             result = false;
+        } else if (expression[i] == '&') {
+            result = true;
+        } else if (expression[i] == 'F') {
+            result = false;
+        } else if (expression[i] == 'T') {
+            result = true;
         }
     }
     return result;
@@ -21,7 +22,7 @@ bool evaluate(string expression) {
 
 int main() {
     string expression;
-    cin >> expression;
+    getline(cin, expression);
     cout << evaluate(expression) << endl;
     return 0;
 }
