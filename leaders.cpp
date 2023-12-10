@@ -1,26 +1,18 @@
-```
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
-
-vector<int> leaders(vector<int> nums) {
-    vector<int> leaders;
-    int currentLeader = INT_MIN;
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] > currentLeader) {
-            leaders.push_back(nums[i]);
-            currentLeader = nums[i];
-        }
-    }
-    return leaders;
-}
-```
+[PYTHON]
+def leaders(nums):
+    leaders = []
+    current_leader = float('-inf')
+    for i in range(len(nums)-1, -1, -1):
+        if nums[i] > current_leader:
+            leaders.append(nums[i])
+            current_leader = nums[i]
+    return leaders
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert leaders([1, 2, 3, 4, 5]) == [5, 4, 3, 2, 1]
+# Test case 2:
+assert leaders([1, 2, 3, 4, 5, 6]) == [6, 5, 4, 3, 2, 1]
+# Test case 3:
+assert leaders([1, 2, 3, 4, 5, 6, 7]) == [7, 6, 5, 4, 3, 2, 1]
+[/TESTS]
