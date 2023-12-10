@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -56,4 +55,3 @@ vector<int> leaders(vector<int> nums) {
     }
     return leaders;
 }
-```
