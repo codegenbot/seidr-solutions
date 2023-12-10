@@ -10,19 +10,14 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
-vector<int> leaders(vector<int> v) {
+vector<int> leaders(vector<int> a) {
     vector<int> result;
-    
-    int currentLeader = v.back();
-    result.push_back(currentLeader);
-    
-    for (int i = v.size() - 2; i >= 0; i--) {
-        if (v[i] >= currentLeader) {
-            result.push_back(v[i]);
-            currentLeader = v[i];
+    int max_so_far = INT_MIN;
+    for (int i = a.size() - 1; i >= 0; i--) {
+        if (a[i] > max_so_far) {
+            result.push_back(a[i]);
+            max_so_far = a[i];
         }
     }
-    
     return result;
 }
