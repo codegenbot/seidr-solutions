@@ -29,3 +29,37 @@ int main() {
     return 0;
 }
 ```
+The issue is that the variables `v1` and `v2` are not declared in the scope of the functions `main`, `vector_distance`. To fix this, you need to declare these variables as global variables or pass them as arguments to the functions.
+
+Here's an example of how you can modify the code to make it work:
+```
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double vector_distance(vector<float>& v1, vector<float>& v2) {
+    double distance = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        distance += pow(v1[i] - v2[i], 2);
+    }
+    return sqrt(distance);
+}
+
+int main() {
+    vector<float> v1, v2;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        float x;
+        cin >> x;
+        v1.push_back(x);
+    }
+    for (int i = 0; i < n; i++) {
+        float y;
+        cin >> y;
+        v2.push_back(y);
+    }
+    cout << vector_distance(v1, v2) << endl;
+    return 0;
+}
+```
