@@ -1,12 +1,16 @@
-#include <string>
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
 #include <map>
 #include <set>
 #include <stack>
-#include <cmath>
 #include <climits>
 using namespace std;
+
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
