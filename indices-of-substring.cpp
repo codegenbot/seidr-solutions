@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,10 +17,9 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         }
         if (match) {
             indices.push_back(i);
-            i += targetLength - 1; // Skip to next possible index
+            i += targetLength - 1;
         }
     }
     
     return indices;
 }
-```
