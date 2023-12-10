@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 
-vector<int> findPair(vector<int>& nums, int target) {
+vector<int> findPair(vector<int> nums, int target) {
     vector<int> result;
     for (int i = 0; i < nums.size(); i++) {
         for (int j = i + 1; j < nums.size(); j++) {
@@ -26,13 +26,12 @@ vector<int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums = { 5, 7, 12 };
-    int target = 19;
+    vector<int> nums = {2, 5, 7};
+    int target = 12;
     vector<int> result = findPair(nums, target);
-    cout << "Result: ";
+    cout << "The two elements that sum to the target are: ";
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
-    cout << endl;
     return 0;
 }
