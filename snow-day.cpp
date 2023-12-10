@@ -1,15 +1,15 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 int main() {
-	float snowOnGround, rateOfSnowFall, proportionOfSnowMeltPerHour;
-	int hours;
-	while(cin >> hours >> snowOnGround >> rateOfSnowFall >> proportionOfSnowMeltPerHour) {
-		float currentSnow = snowOnGround;
-		for (int i = 0; i < hours; i++) {
-			currentSnow += rateOfSnowFall * (1 - proportionOfSnowMeltPerHour);
-			currentSnow *= (1 - proportionOfSnowMeltPerHour);
-		}
-		cout << currentSnow << endl;
-	}
-	return 0;
+    double hours;
+    cin >> hours;
+    double snowOnGround;
+    cin >> snowOnGround;
+    double rateOfSnowfall;
+    cin >> rateOfSnowfall;
+    double proportionOfMeltingPerHour;
+    cin >> proportionOfMeltingPerHour;
+    cout << snowOnGround + (hours * rateOfSnowfall) - (proportionOfMeltingPerHour * hours);
+    return 0;
 }
