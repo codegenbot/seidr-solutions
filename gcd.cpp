@@ -12,18 +12,14 @@
 using namespace std;
 
 int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
-    }
+    if (b == 0) return a;
     return gcd(b, a % b);
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> result;
-    int n = text.size();
-    int m = target.size();
-    for (int i = 0; i < n - m + 1; ++i) {
-        if (text.substr(i, m) == target) {
+    for (int i = 0; i < text.size() - target.size() + 1; ++i) {
+        if (text.substr(i, target.size()) == target) {
             result.push_back(i);
         }
     }
@@ -40,5 +36,6 @@ int main() {
     for (int i : indices) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
