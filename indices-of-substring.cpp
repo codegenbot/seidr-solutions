@@ -1,10 +1,9 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
-
+using namespace std;
 int main() {
-    std::vector<int> result;
+    vector<int> result;
     for (int i = 0; i < text.size(); ++i) {
         if (text[i] == target[0]) {
             int j = 1;
@@ -18,4 +17,3 @@ int main() {
     }
     return result;
 }
-```
