@@ -1,10 +1,8 @@
-
-```
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm> // for std::reverse
-#include <cstddef> // for std::size_t
+#include <algorithm>
+#include <cstddef>
 using namespace std;
 
 int main() {
@@ -20,4 +18,3 @@ int main() {
     cout << output << endl;
     return 0;
 }
-```
