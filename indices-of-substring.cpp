@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,20 +10,24 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
+        int startIndex = -1; 
+
         for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
-        }
-        if (found) {
-            if (i > 0 && text.substr(i-1, targetLength) == target) {
-                continue;
+
+            if (startIndex == -1) {
+                startIndex = i;
             }
-            indices.push_back(i);
+        }
+
+        if (found) {
+            indices.push_back(startIndex);
         }
     }
-    
+
     return indices;
 }
 
@@ -38,3 +43,4 @@ int main() {
 
     return 0;
 }
+```
