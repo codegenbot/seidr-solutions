@@ -9,11 +9,3 @@ double snowDay(int hours, double groundSnow, double snowFallRate, double meltPro
     }
     return snow;
 }
-
-int main() {
-    int hours;
-    double groundSnow, snowFallRate, meltProportion;
-    cin >> hours >> groundSnow >> snowFallRate >> meltProportion;
-    cout << snowDay(hours, groundSnow, snowFallRate, meltProportion) << endl;
-    return 0;
-}
