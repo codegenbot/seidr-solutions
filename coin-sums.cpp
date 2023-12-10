@@ -11,7 +11,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
