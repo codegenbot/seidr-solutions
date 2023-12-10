@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -12,15 +11,14 @@
 #include <climits>
 using namespace std;
 
-vector<int> leaders(const vector<int>& v) {
-    vector<int> result;
-    int currentLeader = INT_MIN;
-    for (int i = 0; i < v.size(); i++) {
-        if (v[i] >= currentLeader) {
-            result.push_back(v[i]);
-            currentLeader = v[i];
+vector<int> leaders(const vector<int>& input) {
+    vector<int> output;
+    int leader = INT_MIN;
+    for (auto it = input.rbegin(); it != input.rend(); ++it) {
+        if (*it >= leader) {
+            leader = *it;
+            output.push_back(leader);
         }
     }
-    return result;
+    return output;
 }
-```
