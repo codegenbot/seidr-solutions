@@ -26,12 +26,13 @@ vector<int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums = { 5, 7 };
-    int target = 12;
+    vector<int> nums = { 5, 7, 12 };
+    int target = 19;
     vector<int> result = findPair(nums, target);
-    cout << "The two elements that sum to the target are: ";
+    cout << "Result: ";
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
+    cout << endl;
     return 0;
 }
