@@ -53,8 +53,9 @@ int calculateScore(string bowls) {
             }
         }
         bowl += 2;
+
         if (bowl >= bowls.length()) {
-            break;
+            break; // Exit the loop if there are not enough bowls remaining
         }
     }
 
