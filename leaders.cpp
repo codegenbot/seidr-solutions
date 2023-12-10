@@ -1,7 +1,4 @@
-```cpp
 #include <vector>
-
-using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
@@ -19,4 +16,3 @@ vector<int> findLeaders(vector<int> nums) {
     reverse(leaders.begin(), leaders.end());
     return leaders;
 }
-```
