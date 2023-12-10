@@ -11,7 +11,7 @@ double getProbability(int n, int m) {
             }
         }
     }
-    return prob;
+    return std::round(prob, 8); // round to 8 decimal places
 }
 
 int main() {
