@@ -59,9 +59,6 @@ vector<int> leaders(vector<int> v) {
 int main() {
     vector<int> v = {1, 2, 3};
     vector<int> result = leaders(v);
-    for (auto it : result) {
-        cout << it << " ";
-    }
     return 0;
 }
 ```
