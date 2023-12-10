@@ -1,28 +1,20 @@
-
-```
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
-
-vector<int> cutVector(vector<int>& v) {
-    int n = v.size();
-    vector<int> left, right;
-    for (int i = 0; i < n; i++) {
-        if (v[i] % 2 == 0) {
-            left.push_back(v[i]);
-        } else {
-            right.push_back(v[i]);
-        }
-    }
-    return {left, right};
-}
-```
+[PYTHON]
+def cut_vector(v):
+    n = len(v)
+    left = []
+    right = []
+    for i in range(n):
+        if v[i] % 2 == 0:
+            left.append(v[i])
+        else:
+            right.append(v[i])
+    return [left, right]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert cut_vector([1, 2, 3, 4, 5]) == [[1, 3, 5], [2, 4]]
+# Test case 2:
+assert cut_vector([1, 2, 3, 4, 5, 6]) == [[1, 3, 5], [2, 4, 6]]
+# Test case 3:
+assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == [[1, 3, 5, 7], [2, 4, 6]]
+[/TESTS]
