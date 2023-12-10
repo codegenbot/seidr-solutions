@@ -1,37 +1,30 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
-int main() {
-    string code, guess;
-    int whitePegs = 0, blackPegs = 0;
-    cin >> code >> guess;
+int get_clue(const string& guess, const string& code) {
+    int white_pegs = 0;
+    int black_pegs = 0;
 
-    for (int i = 0; i < code.size(); ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
+    for (int i = 0; i < guess.size(); i++) {
+        if (guess[i] == code[i]) {
+            black_pegs++;
         } else {
-            int j = 0;
-            while (j < code.size() && code[j] != guess[i]) {
-                j++;
-            }
-            if (j < code.size()) {
-                whitePegs++;
+            for (int j = 0; j < guess.size(); j++) {
+                if (guess[j] == code[i]) {
+                    white_pegs++;
+                }
             }
         }
     }
 
-    cout << blackPegs << " " << whitePegs << endl;
+    return white_pegs + black_pegs;
+}
+
+int main() {
+    string guess, code;
+    cin >> guess >> code;
+    cout << get_clue(guess, code) << endl;
     return 0;
 }
-```
