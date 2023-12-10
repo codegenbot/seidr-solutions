@@ -1,30 +1,57 @@
-#include <vector>
+```
 #include <iostream>
 #include <string>
 using namespace std;
 
-int get_clue(const string& guess, const string& code) {
-    int white_pegs = 0;
-    int black_pegs = 0;
+int main() {
+    string mastermindCode;
+    string guess;
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-    for (int i = 0; i < guess.size(); i++) {
-        if (guess[i] == code[i]) {
-            black_pegs++;
-        } else {
-            for (int j = 0; j < guess.size(); j++) {
-                if (guess[j] == code[i]) {
-                    white_pegs++;
-                }
-            }
+    // input the Mastermind code and the guess
+    cin >> mastermindCode >> guess;
+
+    // check each character of the guess with the corresponding character of the Mastermind code
+    for (int i = 0; i < 4; i++) {
+        if (mastermindCode[i] == guess[i]) {
+            blackPegs++;
+        } else if (mastermindCode.find(guess[i]) != string::npos) {
+            whitePegs++;
         }
     }
 
-    return white_pegs + black_pegs;
-}
+    // output the number of white pegs and black pegs
+    cout << "White pegs: " << whitePegs << endl;
+    cout << "Black pegs: " << blackPegs << endl;
 
-int main() {
-    string guess, code;
-    cin >> guess >> code;
-    cout << get_clue(guess, code) << endl;
     return 0;
 }
+```
+Test cases:
+```
+Input: RRRR
+RRRR
+Output: 0
+4
+
+Input: BOYG
+GYOB
+Output: 4
+0
+
+Input: WYYW
+BBOG
+Output: 0
+0
+
+Input: GGGB
+BGGG
+Output: 2
+2
+
+Input: BBBB
+OOOO
+Output: 0
+0
+```
