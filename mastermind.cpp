@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -11,7 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
 /*
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
@@ -46,20 +44,29 @@ output:
 0
 0
 */
-
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < code.size(); i++) {
+        if (code[i] != guess[i] && find(guess.begin(), guess.end(), code[i]) != guess.end()) {
+            count++;
+        }
+    }
+    return count;
+}
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < code.size(); i++) {
+        if (code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
 int main() {
     string code, guess;
-    int whitePegs = 0, blackPegs = 0;
-    while (cin >> code >> guess) {
-        for (int i = 0; i < code.size(); i++) {
-            if (code[i] == guess[i]) {
-                blackPegs++;
-            } else if (code.find(guess[i], i + 1) != string::npos) {
-                whitePegs++;
-            }
-        }
-        cout << blackPegs << " " << whitePegs << endl;
-    }
+    cin >> code >> guess;
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+    cout << white << " " << black << endl;
     return 0;
 }
-```
