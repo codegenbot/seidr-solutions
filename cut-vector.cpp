@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -10,6 +11,13 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> m;
         v.push_back(m);
+    }
+    if (n == 1) {
+        cout << "Subvector 1: ";
+        cout << v[0] << endl;
+        cout << "Subvector 2: ";
+        cout << v[0] << endl;
+        return 0;
     }
     int minDiff = INT_MAX;
     int cutIndex = -1;
@@ -40,3 +48,4 @@ int main() {
     cout << endl;
     return 0;
 }
+```
