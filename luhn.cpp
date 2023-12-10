@@ -1,5 +1,3 @@
-
-The issue with the code is that it is using backticks (``) to enclose the code blocks, which is causing the errors. To fix this, you can remove the backticks and replace them with regular quotes (") or single quotes ('). Here's the modified code:
 ```cpp
 #include <vector>
 #include <iostream>
