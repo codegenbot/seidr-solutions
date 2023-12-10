@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -20,4 +19,3 @@ int main() {
     cout << vector_distance(v1, v2) << endl;
     return 0;
 }
-```
