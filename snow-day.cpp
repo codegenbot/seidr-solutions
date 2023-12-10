@@ -1,5 +1,4 @@
->>
-```
+
 #include <iostream>
 using namespace std;
 
@@ -11,5 +10,11 @@ double snowDay(int hours, double groundSnow, double snowFallRate, double meltPro
     }
     return snow;
 }
-```
-This code will correctly calculate the amount of snow on the ground after each hour, and it will return the correct value for the given input.
+
+int main() {
+    int hours;
+    double groundSnow, snowFallRate, meltProportion;
+    cin >> hours >> groundSnow >> snowFallRate >> meltProportion;
+    cout << snowDay(hours, groundSnow, snowFallRate, meltProportion) << endl;
+    return 0;
+}
