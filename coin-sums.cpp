@@ -52,19 +52,19 @@ output:
 int main() {
     int cents;
     cin >> cents;
-    vector<int> coins(4, 0);
-    while (cents > 0) {
+    vector<int> coins(4);
+    for (int i = 0; i < 4; i++) {
         if (cents >= 25) {
-            coins[3]++;
+            coins[i]++;
             cents -= 25;
         } else if (cents >= 10) {
-            coins[2]++;
+            coins[i]++;
             cents -= 10;
         } else if (cents >= 5) {
-            coins[1]++;
+            coins[i]++;
             cents -= 5;
-        } else {
-            coins[0]++;
+        } else if (cents > 0) {
+            coins[i]++;
             cents = 0;
         }
     }
