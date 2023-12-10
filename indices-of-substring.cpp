@@ -33,4 +33,19 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
-The issue with the original code is that it uses backticks (``) to enclose the code, which are not valid C++ syntax. To fix this, I have removed the backticks and kept only the code inside them.
+### Explanation
+The code is written in C++ and uses the following libraries:
+
+* `<vector>`: to define a vector of integers to store the indices of the target string.
+* `<iostream>`: to perform input and output operations.
+* `<string>`: to manipulate strings.
+* `<cstring>`: to use the `strlen` function.
+* `<queue>`: to use the `queue` data structure.
+* `<stdio.h>`: to use the `printf` function.
+* `<math.h>`: to use mathematical functions.
+* `<map>`: to use a map data structure.
+* `<set>`: to use a set data structure.
+* `<stack>`: to use a stack data structure.
+* `<climits>`: to use the `INT_MAX` constant.
+
+The code defines a function called `indicesOfSubstring` that takes two string parameters: `text` and `target`. It returns a vector of integers representing the indices at which the target appears in the text. The function uses a linear search algorithm to find the indices, and it also handles overlapping targets by using a flag variable `found` to keep track of whether a match has been found or not.
