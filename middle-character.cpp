@@ -1,10 +1,20 @@
+```
 #include <string>
 using namespace std;
 
 int main() {
-    string str = "hello";
-    cout << middleCharacter(str) << endl;
+    string input;
+    cin >> input;
+    cout << middleCharacter(input) << endl;
     return 0;
 }
+
+string middleCharacter(string str) {
+    int len = str.length();
+    if (len % 2 == 0) {
+        return str.substr((len / 2) - 1, 2);
+    } else {
+        return str.substr(len / 2, 1);
+    }
+}
 ```
-This will define a `main` function that takes no arguments, and it will call the `middleCharacter` function with the input string `"hello"`. The output of the program will be the middle character or characters of the input string.
