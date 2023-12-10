@@ -1,15 +1,5 @@
 ```
-#include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
 int main() {
@@ -25,9 +15,9 @@ int main() {
         discounts.push_back(discount);
     }
     for (i = 0; i < n; i++) {
-        total += std::round((prices[i] * (1 - discounts[i])) * 100) / 100;
+        total += round(prices[i] * (1 - discounts[i]));
     }
-    cout << std::fixed << setprecision(2) << total << endl;
+    cout << total << endl;
     return 0;
 }
 ```
