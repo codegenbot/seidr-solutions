@@ -1,8 +1,18 @@
 
->> The error message indicates that the function `setprecision` is not declared in the scope of the `main()` function. This is because the function `setprecision` is defined in the `iostream` header file, but it is not included in the code snippet provided.
 
-To fix this issue, you can include the `iostream` header file at the beginning of the code snippet, like this:
 ```
 #include <iostream>
+
+int main() {
+    double startingHeight, firstBounceHeight, bouncinessIndex;
+    int numBounces;
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = 0.0;
+    for (int i = 1; i <= numBounces; i++) {
+        totalDistance += pow(bouncinessIndex, i);
+    }
+    cout << fixed << setprecision(9) << totalDistance << endl;
+    return 0;
+}
 ```
-This will allow the function `setprecision` to be used in the code snippet.
