@@ -1,24 +1,20 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
-
-int calculateScore(string bowls) {
+int getScore(string input) {
     int score = 0;
-    for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') {
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
             score += 10;
-        } else if (bowls[i] >= '0' && bowls[i] <= '9') {
-            score += bowls[i] - '0';
+        } else if (input[i] >= '0' && input[i] <= '9') {
+            score += input[i] - '0';
         }
     }
     return score;
 }
-
 int main() {
     string input;
-    getline(cin, input);
-    cout << calculateScore(input) << endl;
+    cin >> input;
+    cout << getScore(input) << endl;
     return 0;
 }
-```
