@@ -1,5 +1,3 @@
-
-```
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -30,4 +28,3 @@ int main() {
     cout << vectorDistance(v1, v2) << endl;
     return 0;
 }
-```
