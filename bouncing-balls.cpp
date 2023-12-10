@@ -2,21 +2,19 @@
 #include <cmath>
 using namespace std;
 
-double bouncingBalls(double startingHeight, double heightAfterFirstBounce, int numBounces) {
-    if (numBounces == 1) {
-        return startingHeight;
-    } else {
-        return bouncingBalls(startingHeight * (heightAfterFirstBounce / startingHeight), heightAfterFirstBounce, numBounces - 1);
+double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = 0.0;
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += (startingHeight + (i * bouncinessIndex));
     }
+    return totalDistance;
 }
 
 int main() {
-    double startingHeight, heightAfterFirstBounce;
+    double startingHeight, firstBounceHeight;
     int numBounces;
-
-    cin >> startingHeight >> heightAfterFirstBounce >> numBounces;
-
-    cout << bouncingBalls(startingHeight, heightAfterFirstBounce, numBounces) << endl;
-
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
