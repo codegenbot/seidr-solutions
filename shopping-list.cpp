@@ -1,15 +1,25 @@
-[PYTHON]
-def get_total_price(prices, discounts):
-    total = 0.0
-    for i in range(len(prices)):
-        total += prices[i] * (1 - discounts[i] / 100.0)
-    return total
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_total_price([10.0, 20.0, 30.0], [5.0, 10.0, 95.0]) == 29.0
-# Test case 2:
-assert get_total_price([20.0, 20.0], [100.0, 50.0]) == 36.0
-# Test case 3:
-assert get_total_price([20.0, 20.0], [20.0, 0.0]) == 40.0
-[/TESTS]
+Here is the modified code with the requested changes:
+```
+#include <iostream>
+#include <vector>
+#include <iomanip>
+
+int main() {
+    std::vector<float> prices;
+    std::vector<float> discounts;
+    float total = 0.0;
+    int n, i;
+    std::cin >> n;
+    for (i = 0; i < n; i++) {
+        float price, discount;
+        std::cin >> price >> discount;
+        prices.push_back(price);
+        discounts.push_back(discount);
+    }
+    for (i = 0; i < n; i++) {
+        total += prices[i] * (1 - discounts[i] / 100.0);
+    }
+    std::cout << std::fixed << std::setprecision(2) << total << std::endl;
+    return 0;
+}
+```
