@@ -1,9 +1,10 @@
-def fuel_cost():
-    n = int(input())
-    fuel = []
-    for _ in range(n):
-        fuel.append(int(input()))
-    total_cost = sum([(x//3)-2 for x in fuel])
-    return total_cost
+```python
+def fuel_cost(arr):
+    return sum((x // 3) - 2 for x in arr)
 
-print(fuel_cost())
+# Read input from user
+arr = list(map(int, input().split()))
+
+# Call the function and print the result
+print(fuel_cost(arr))
+```
