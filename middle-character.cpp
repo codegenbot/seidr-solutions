@@ -1,5 +1,3 @@
-
-Here's the modified code with the `main` function added:
 ```
 #include <string>
 using namespace std;
@@ -17,4 +15,3 @@ string middleCharacter(string str) {
     }
 }
 ```
-Note that I've only added the `main` function and left the rest of the code unchanged. You can adjust the input string to test different scenarios.
