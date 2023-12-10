@@ -12,13 +12,9 @@ def cut_vector(v):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert cut_vector([1, 0]) == [1, 0]
+assert cut_vector([1, 2, 3, 4, 5]) == [1, 3, 5, 2, 4]
 # Test case 2:
-assert cut_vector([1, 10]) == [1, 10]
+assert cut_vector([1, 2, 3, 4, 5, 6]) == [1, 3, 5, 2, 4, 6]
 # Test case 3:
-assert cut_vector([1, 100]) == [1, 100]
-# Test case 4:
-assert cut_vector([1, 1000]) == [1, 1000]
-# Test case 5:
-assert cut_vector([1, 10000]) == [1, 10000]
+assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == [1, 3, 5, 2, 4, 6, 7]
 [/TESTS]
