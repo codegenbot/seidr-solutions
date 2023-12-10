@@ -1,40 +1,18 @@
-
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-string spinWords(string input) {
-    vector<string> words = split(input, ' ');
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            reverse(words[i]);
-        }
-    }
-    return join(words, ' ');
-}
-
-string split(string input, char delimiter) {
-    vector<string> words;
-    size_t pos = 0;
-    while ((pos = input.find(delimiter)) != string::npos) {
-        words.push_back(input.substr(0, pos));
-        input.erase(0, pos + 1);
-    }
-    if (input.length() > 0) {
-        words.push_back(input);
-    }
-    return words;
-}
-
-string join(vector<string> words, char delimiter) {
-    string output = "";
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            output += delimiter;
-        }
-        output += words[i];
-    }
-    return output;
-}
+[PYTHON]
+def spin_words(sentence):
+    words = sentence.split()
+    result = []
+    for word in words:
+        if len(word) >= 5:
+            word = word[::-1]
+        result.append(word)
+    return " ".join(result)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert spin_words("Hello") == "Hello"
+# Test case 2:
+assert spin_words("Hello World!") == "World! Hello"
+# Test case 3:
+assert spin_words("Reverse Spinning Words") == "Words Spinning Reverse"
+[/TESTS]
