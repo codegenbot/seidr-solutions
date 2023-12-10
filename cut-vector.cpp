@@ -1,10 +1,11 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <climits>
 #include <tuple>
 using namespace std;
 
-vector<int> cutVector(vector<int> nums) {
+tuple<vector<int>, vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int idx = -1;
@@ -59,3 +60,4 @@ int main() {
     
     return 0;
 }
+```
