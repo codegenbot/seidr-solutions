@@ -2,19 +2,22 @@
 #include <string>
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
+bool evaluateBoolean(string expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
         return false;
     } else {
-        bool left = evaluateBooleanExpression(expression.substr(0, expression.find_first_of("&|")));
-        bool right = evaluateBooleanExpression(expression.substr(expression.find_first_of("&|") + 1));
+        char op = expression[1];
+        bool left = evaluateBoolean(expression.substr(0, 1));
+        bool right = evaluateBoolean(expression.substr(2));
         
-        if (expression[expression.find_first_of("&|")] == '&') {
+        if (op == '&') {
             return left && right;
-        } else {
+        } else if (op == '|') {
             return left || right;
+        } else {
+            return false;
         }
     }
 }
@@ -23,7 +26,7 @@ int main() {
     string expression;
     cin >> expression;
     
-    bool result = evaluateBooleanExpression(expression);
+    bool result = evaluateBoolean(expression);
     
     if (result) {
         cout << "True" << endl;
