@@ -1,4 +1,3 @@
-```python
 text = input()
 target = input()
 
@@ -13,4 +12,3 @@ while True:
     start = index + 1
 
 print(" ".join(map(str, indices)))
-```
