@@ -1,4 +1,4 @@
-```python
+```
 import collections
 
 def mastermind(code, guess):
