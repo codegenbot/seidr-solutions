@@ -1,6 +1,9 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm> // for std::reverse
+#include <cstddef> // for std::size_t
 using namespace std;
 
 int main() {
