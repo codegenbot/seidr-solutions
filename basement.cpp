@@ -2,23 +2,14 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int t, n;
-    cin >> t;
-    while(t--) {
-        vector<int> vec;
-        cin >> n;
-        for (int i = 0; i < n; ++i) {
-            int x;
-            cin >> x;
-            vec.push_back(x);
+    vector<int> vec = {1, -1};
+    int sum = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        if (sum + vec[i] >= 0) {
+            continue;
         }
-        int sum = 0, index = 0;
-        while(index < n && sum >= 0) {
-            sum += vec[index];
-            ++index;
-        }
-        if (sum < 0) --index;
-        cout << "First negative sum index: " << index << endl;
+        cout << "First negative index: " << i << endl;
+        break;
     }
     return 0;
 }
