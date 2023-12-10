@@ -1,27 +1,29 @@
 #include <string>
 #include <iostream>
-#include <cctype>
+#include <cmath>
 using namespace std;
 
-bool evaluate(const string& expression) {
-    bool result = true;
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == 'T') {
-            result &= true;
-        } else if (expression[i] == 'F') {
-            result &= false;
-        } else if (expression[i] == '|') {
-            result |= evaluate(expression.substr(i + 1));
-        } else if (expression[i] == '&') {
-            result &= evaluate(expression.substr(i + 1));
+bool solveBoolean(string expression) {
+    if (expression == "t") return true;
+    else if (expression == "f") return false;
+    else {
+        int i = 0, j = 1;
+        while (j < expression.size()) {
+            if (expression[i] == '&') {
+                if (expression[j] == 't' || expression[j] == 'f') {
+                    return solveBoolean(expression.substr(0, i)) && solveBoolean(expression.substr(j + 1));
+                } else {
+                    return false;
+                }
+            } else if (expression[i] == '|') {
+                if (expression[j] == 't' || expression[j] == 'f') {
+                    return solveBoolean(expression.substr(0, i)) || solveBoolean(expression.substr(j + 1));
+                } else {
+                    return false;
+                }
+            } else if (expression[i] != 't' && expression[i] != 'f') {
+                return false;
+            }
         }
     }
-    return result;
-}
-
-int main() {
-    string expression;
-    getline(cin, expression);
-    cout << evaluate(expression) << endl;
-    return 0;
 }
