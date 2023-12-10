@@ -1,22 +1,20 @@
 #include <iostream>
-#include <string>
 #include <cmath>
 using namespace std;
-int getProbability(int n, int m) {
-    double probability = 0.0;
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
+long double probability(int n, int m) {
+    long double p = 0.0L;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             if (i > j) {
-                probability += (1.0 / (n * m));
+                p += 1.0L / (n * m);
             }
         }
     }
-    return probability;
+    return p;
 }
 int main() {
     int n, m;
     cin >> n >> m;
-    double result = getProbability(n, m);
-    cout << fixed << setprecision(2) << result << endl;
+    cout << probability(n, m) << endl;
     return 0;
 }
