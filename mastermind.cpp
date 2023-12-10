@@ -1,13 +1,14 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
     
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
