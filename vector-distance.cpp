@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-double vectorDistance(vector<float>& v1, vector<float>& v2) {
+double vector_distance(const vector<float>& v1, const vector<float>& v2) {
     double distance = 0;
     for (int i = 0; i < v1.size(); i++) {
         distance += pow(v1[i] - v2[i], 2);
@@ -12,19 +12,12 @@ double vectorDistance(vector<float>& v1, vector<float>& v2) {
 }
 
 int main() {
-    vector<float> v1, v2;
     int n;
     cin >> n;
+    vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
-        float x;
-        cin >> x;
-        v1.push_back(x);
+        cin >> v1[i] >> v2[i];
     }
-    for (int i = 0; i < n; i++) {
-        float y;
-        cin >> y;
-        v2.push_back(y);
-    }
-    cout << vectorDistance(v1, v2) << endl;
+    cout << vector_distance(v1, v2) << endl;
     return 0;
 }
