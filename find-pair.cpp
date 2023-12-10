@@ -10,11 +10,9 @@ def find_pair(nums, target):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert find_pair([5, 7], 12) == [5, 7]
+assert find_pair([1, 2, 3, 4, 5], 6) == [1, 5]
 # Test case 2:
-assert find_pair([-5, 7], 12) == [-5, 7]
+assert find_pair([-1, 2, 3, 4, 5], 6) == [-1, 5]
 # Test case 3:
-assert find_pair([5, -7], 12) == [5, -7]
-# Test case 4:
-assert find_pair([-5, -7], 12) == [-5, -7]
+assert find_pair([1, 2, 3, 4, -5], 6) == [1, -5]
 [/TESTS]
