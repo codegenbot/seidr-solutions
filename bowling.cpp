@@ -1,3 +1,4 @@
+The modified `getScore` function is as follows:
 ```
 int getScore(string bowls) {
     int score = 0;
