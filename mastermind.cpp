@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <utility>
+
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
