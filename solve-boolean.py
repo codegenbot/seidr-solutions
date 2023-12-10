@@ -1,3 +1,4 @@
 def solve_boolean(expression):
-    expression = expression.replace('T', 'True').replace('F', 'False')
-    return eval('((' + expression + '))')
+    mapping = {'T': 'True', 'F': 'False'}
+    expression = ''.join(mapping.get(char, char) for char in expression)
+    return eval(expression)

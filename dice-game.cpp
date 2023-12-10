@@ -1,8 +1,6 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
-
-using namespace std;
+#include <ios>
 
 double probability(int n, int m) {
     double total_outcomes = n * m;
@@ -16,19 +14,17 @@ double probability(int n, int m) {
         }
     }
     
-    cout << fixed << setprecision(8);
+    std::cout << std::setprecision(8);
     
-    double result = round((favorable_outcomes / total_outcomes) * 100000000) / 100000000;
-    
-    return result;
+    return favorable_outcomes / total_outcomes;
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     
     double result = probability(n, m);
-    cout << result << endl;
+    std::cout << result << std::endl;
     
     return 0;
 }
