@@ -1,28 +1,64 @@
+#include <vector>
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-
+/*
+Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
+For example,
+input:
+t
+output:
+True
+input:
+f
+output:
+False
+input:
+f&f
+output:
+False
+input:
+f&t
+output:
+False
+input:
+t&f
+output:
+False
+*/
 bool evaluate(string expression) {
-    int n = expression.size();
-    if (n == 1) {
-        return expression[0] == 't';
-    } else {
-        bool result = true;
-        for (int i = 0; i < n - 1; i += 2) {
-            char op = expression[i];
-            if (op == '&') {
-                result &= evaluate(expression.substr(i + 1, 1));
-            } else if (op == '|') {
-                result |= evaluate(expression.substr(i + 1, 1));
-            }
+    vector<char> operators;
+    vector<bool> operands;
+    for (int i = 0; i < expression.size(); i++) {
+        char c = expression[i];
+        if (c == 'T' || c == 'F') {
+            operands.push_back(c == 'T');
+        } else if (c == '|') {
+            operators.push_back('|');
+        } else if (c == '&') {
+            operators.push_back('&');
         }
-        return result;
     }
-}
 
-int main() {
-    string expression;
-    cin >> expression;
-    cout << evaluate(expression) << endl;
-    return 0;
+    for (int i = 0; i < operators.size(); i++) {
+        char op = operators[i];
+        bool result = false;
+        if (op == '|') {
+            result = operands[i] || operands[i + 1];
+        } else if (op == '&') {
+            result = operands[i] && operands[i + 1];
+        }
+        operands.erase(operands.begin() + i);
+        operands.push_back(result);
+    }
+
+    return operands[0];
 }
