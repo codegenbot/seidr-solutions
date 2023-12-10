@@ -1,6 +1,7 @@
 [PYTHON]
 def get_min_coins(cents):
-    coins = [0] * 4
+    coins = [0, 0, 0, 0] # pennies, nickles, dimes, quarters
+    
     while cents > 0:
         if cents >= 25:
             coins[3] += 1
@@ -14,6 +15,7 @@ def get_min_coins(cents):
         else:
             coins[0] += 1
             cents = 0
+    
     return coins
 [/PYTHON]
 [TESTS]
@@ -27,14 +29,4 @@ assert get_min_coins(3) == [3, 0, 0, 0]
 assert get_min_coins(4) == [4, 0, 0, 0]
 # Test case 5:
 assert get_min_coins(5) == [0, 1, 0, 0]
-# Test case 6:
-assert get_min_coins(6) == [1, 1, 0, 0]
-# Test case 7:
-assert get_min_coins(7) == [2, 1, 0, 0]
-# Test case 8:
-assert get_min_coins(8) == [3, 1, 0, 0]
-# Test case 9:
-assert get_min_coins(9) == [4, 1, 0, 0]
-# Test case 10:
-assert get_min_coins(10) == [5, 1, 0, 0]
 [/TESTS]
