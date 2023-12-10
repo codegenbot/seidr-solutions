@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -17,14 +16,9 @@ int main() {
         prices.push_back(price);
         discounts.push_back(discount);
     }
-    if (n == 1) {
-        total = prices[0] * (1 - discounts[0]);
-    } else {
-        for (i = 0; i < n; i++) {
-            total += round(prices[i] * (1 - discounts[i]));
-        }
+    for (i = 0; i < n; i++) {
+        total += round(prices[i] * (1 - discounts[i]));
     }
     cout << total << endl;
     return 0;
 }
-```
