@@ -1,70 +1,67 @@
 #include <iostream>
 #include <string>
 
-int getScore(std::string input) {
+int getScore(const std::string& input) {
     int score = 0;
     int frame = 1;
-    int bowlIndex = 0;
-    
-    for (int i = 0; i < input.length(); i++) {
-        if (frame > 10) {
-            break;
-        }
-        
-        char bowl = input[i];
-        
-        if (bowl == 'X') {
+    int roll = 0;
+    bool isSpare = false;
+    bool isStrike = false;
+
+    for (char c : input) {
+        if (c == 'X') {
             score += 10;
-            bowlIndex++;
-            
             if (frame < 10) {
-                score += input[i + 1] == 'X' ? 10 : input[i + 1] - '0';
-                score += input[i + 2] == 'X' ? 10 : input[i + 2] - '0';
-            } else if (frame == 10) {
-                score += input[i + 1] == 'X' ? 10 : (input[i + 1] == '/' ? 10 - (input[i - 1] - '0') : input[i + 1] - '0');
-                score += input[i + 2] == 'X' ? 10 : (input[i + 2] == '/' ? 10 - (input[i + 1] == 'X' ? 10 : input[i + 1] - '0') : input[i + 2] - '0');
+                score += 10;
+                isStrike = true;
+                roll = 0;
+                frame++;
             }
-            
-            frame++;
-        } else if (bowl == '/') {
-            score += 10 - (input[i - 1] - '0');
-            bowlIndex++;
-            
+        } else if (c == '/') {
+            score += 10 - roll;
             if (frame < 10) {
-                score += input[i + 1] == 'X' ? 10 : input[i + 1] - '0';
-            } else if (frame == 10) {
-                score += input[i + 1] == 'X' ? 10 : (input[i + 1] == '/' ? 10 - (input[i - 1] - '0') : input[i + 1] - '0');
+                score += 10 - roll;
+                isSpare = true;
+                roll = 0;
+                frame++;
             }
-            
-            frame++;
-        } else if (bowl == '-') {
-            bowlIndex++;
+        } else if (c == '-') {
+            roll = 0;
+            if (isSpare) {
+                score += 10;
+                isSpare = false;
+            } else if (isStrike) {
+                score += 10;
+                isStrike = false;
+            }
         } else {
-            score += bowl - '0';
-            bowlIndex++;
-            
-            if (frame < 10 && bowlIndex % 2 == 0) {
-                score += input[i - 1] == '/' ? 10 - (input[i - 2] - '0') : 0;
-            } else if (frame == 10 && bowlIndex % 2 == 0) {
-                score += input[i - 1] == '/' ? 10 - (input[i - 2] - '0') : 0;
+            int pins = c - '0';
+            score += pins;
+            roll = pins;
+            if (isSpare) {
+                score += pins;
+                isSpare = false;
+            } else if (isStrike) {
+                score += pins;
+                isStrike = false;
             }
-            
-            if (bowlIndex % 2 == 0) {
+
+            if (frame < 10 && roll == 0) {
                 frame++;
             }
         }
     }
-    
+
     return score;
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter the string representing the individual bowls: ";
+    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
     std::cin >> input;
-    
+
     int score = getScore(input);
-    std::cout << "The score of the round is: " << score << std::endl;
-    
+    std::cout << "Score: " << score << std::endl;
+
     return 0;
 }
