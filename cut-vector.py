@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
@@ -29,3 +30,4 @@ for num in left_subvector:
     print(num)
 for num in right_subvector:
     print(num)
+```
