@@ -15,11 +15,7 @@ double probability(int n, int m) {
         }
     }
     
-    cout << fixed << setprecision(8);
-    
-    double result = round((favorable_outcomes / total_outcomes) * 100000000) / 100000000;
-    
-    return result;
+    return favorable_outcomes / total_outcomes;
 }
 
 int main() {
@@ -27,7 +23,7 @@ int main() {
     cin >> n >> m;
     
     double result = probability(n, m);
-    cout << result << endl;
+    cout << fixed << setprecision(8) << result << endl;
     
     return 0;
 }
