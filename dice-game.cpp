@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -30,4 +29,3 @@ int main() {
     cout << getProbability(n, m) << endl;
     return 0;
 }
-```
