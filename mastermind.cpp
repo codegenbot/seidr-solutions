@@ -1,34 +1,22 @@
 ```
-#include <iostream>
-#include <string>
-using namespace std;
-int getWhitePegs(const string& guess) {
-    int whitePegs = 0;
-    for (int i = 0; i < guess.size(); i++) {
-        if (guess[i] == 'W') {
-            whitePegs++;
-        }
-    }
-    return whitePegs;
-}
-int getBlackPegs(const string& guess) {
-    int blackPegs = 0;
-    for (int i = 0; i < guess.size(); i++) {
-        if (guess[i] == 'B') {
-            blackPegs++;
-        }
-    }
-    return blackPegs;
-}
 int main() {
-    string guess;
-    int whitePegs, blackPegs;
-    while(cin >> guess) {
-        whitePegs = getWhitePegs(guess);
-        blackPegs = getBlackPegs(guess);
-        cout << "White pegs: " << whitePegs << endl;
-        cout << "Black pegs: " << blackPegs << endl;
+    string code, guess;
+    int whitePegs = 0, blackPegs = 0;
+    cin >> code >> guess;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+        } else {
+            int count = 0;
+            for (int j = 0; j < 4; j++) {
+                if (guess[j] == code[i]) {
+                    count++;
+                }
+            }
+            whitePegs += count;
+        }
     }
+    cout << whitePegs << " " << blackPegs << endl;
     return 0;
 }
 ```
