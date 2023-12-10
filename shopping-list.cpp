@@ -21,8 +21,8 @@ double shoppingList(vector<float>& prices, vector<float>& discounts) {
 }
 
 int main() {
-    vector<float> prices = {10, 20, 30};
-    vector<float> discounts = {0.5, 0.25, 0.75};
+    vector<float> prices = {10.99, 5.99, 3.99};
+    vector<float> discounts = {0.2, 0.1, 0.0};
     double total = shoppingList(prices, discounts);
     cout << "Total: " << total << endl;
     return 0;
