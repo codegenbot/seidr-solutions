@@ -1,16 +1,8 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
+
 using namespace std;
+
 double probability(int n, int m) {
-    double prob = 0;
-    for (int i = 1; i <= min(n, m); ++i) {
-        prob += (double)n / (m * (m + 1));
-    }
-    return prob;
-}
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << probability(n, m) << endl;
-    return 0;
+    return round((m * 1.0) / (n + 1)) * 100;
 }
