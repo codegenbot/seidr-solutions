@@ -1,20 +1,19 @@
 #include <string>
 #include <iostream>
 #include <cctype>
-
 using namespace std;
 
 bool evaluate(const string& expression) {
     bool result = true;
     for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '|') {
-            result = false;
-        } else if (expression[i] == '&') {
-            result = true;
+        if (expression[i] == 'T') {
+            result &= true;
         } else if (expression[i] == 'F') {
-            result = false;
-        } else if (expression[i] == 'T') {
-            result = true;
+            result &= false;
+        } else if (expression[i] == '|') {
+            result |= evaluate(expression.substr(i + 1));
+        } else if (expression[i] == '&') {
+            result &= evaluate(expression.substr(i + 1));
         }
     }
     return result;
