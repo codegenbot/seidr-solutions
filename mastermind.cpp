@@ -1,4 +1,4 @@
-```
+
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
@@ -35,4 +35,3 @@ int main() {
     cout << whitePegs << " " << blackPegs << endl;
     return 0;
 }
-```
