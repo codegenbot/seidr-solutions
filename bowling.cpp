@@ -1,5 +1,3 @@
-
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -32,4 +30,3 @@ int main() {
     cout << getScore(bowls) << endl;
     return 0;
 }
-```
