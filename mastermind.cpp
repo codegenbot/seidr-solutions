@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -26,14 +27,11 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    cout << "Enter code: ";
-    cin >> code;
-    cout << "Enter guess: ";
-    cin >> guess;
-
+    getline(cin, code);
+    getline(cin, guess);
     pair<int, int> result = mastermind(code, guess);
-    cout << "White pegs: " << result.first << endl;
-    cout << "Black pegs: " << result.second << endl;
-
+    cout << result.first << endl;
+    cout << result.second << endl;
     return 0;
 }
+```
