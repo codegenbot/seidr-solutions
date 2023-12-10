@@ -1,21 +1,28 @@
-#include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <cmath>
 using namespace std;
 
-double snow_day(int hours, float ground_snow, float rate_of_snow_fall, float proportion_of_snow_melting) {
-    double current_snow = ground_snow;
+double snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportionOfMelting) {
+    double totalSnow = groundSnow;
     for (int i = 0; i < hours; i++) {
-        current_snow += rate_of_snow_fall * (1 - proportion_of_snow_melting);
-        current_snow -= proportion_of_snow_melting * current_snow;
+        totalSnow += rateOfSnowFall;
+        totalSnow *= (1 - proportionOfMelting);
     }
-    return current_snow;
+    return totalSnow;
+}
+
+int main() {
+    int hours;
+    float groundSnow, rateOfSnowFall, proportionOfMelting;
+    cout << "Enter the number of hours: ";
+    cin >> hours;
+    cout << "Enter the amount of snow on the ground: ";
+    cin >> groundSnow;
+    cout << "Enter the rate of snow fall: ";
+    cin >> rateOfSnowFall;
+    cout << "Enter the proportion of snow melting per hour: ";
+    cin >> proportionOfMelting;
+    double totalSnow = snowDay(hours, groundSnow, rateOfSnowFall, proportionOfMelting);
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << endl;
+    return 0;
 }
