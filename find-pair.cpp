@@ -1,32 +1,21 @@
 [PYTHON]
 def find_pair(nums, target):
-    # Check if there are at least two elements in the list
-    if len(nums) < 2:
-        return []
-
-    # Initialize variables to keep track of the pair
-    first_index = 0
-    second_index = 1
-
-    # Loop through the list until the end is reached
-    while second_index < len(nums):
-        # Check if the sum of the current elements equals the target
-        if nums[first_index] + nums[second_index] == target:
-            # Return the indices of the pair
-            return [first_index, second_index]
-
-        # Increment the indices and loop again
-        first_index += 1
-        second_index += 1
-
-    # If the end is reached and no pair was found, return an empty list
+    """
+    Given a list of integers and a target sum, return the indices of the two numbers that add up to the target.
+    You may assume that each input would have exactly one solution.
+    The function should return an array of two elements, where the first element is the index of the first number and the second element is the index of the second number.
+    """
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
     return []
 [/PYTHON]
 [TESTS]
 # Test case 1:
 assert find_pair([1, 2, 3, 4, 5], 6) == [0, 2]
 # Test case 2:
-assert find_pair([1, 2, 3, 4, 5], 10) == []
+assert find_pair([1, 2, 3, 4, 5], 10) == [1, 3]
 # Test case 3:
-assert find_pair([], 10) == []
+assert find_pair([1, 2, 3, 4, 5], 9) == [2, 4]
 [/TESTS]
