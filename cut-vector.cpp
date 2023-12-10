@@ -52,23 +52,25 @@ output:
 1
 10000
 0
-
 */
-vector<int> cutVector(const vector<int>& input) {
-    int n = input.size();
-    if (n == 0) return {};
+vector<int> cutVector(vector<int>& v) {
+    vector<int> result;
     int minDiff = INT_MAX;
-    int minIndex = -1;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(input[i] - input[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            minIndex = i;
+    for (int i = 0; i < v.size(); i++) {
+        if (v[i] == v[i + 1]) {
+            continue;
+        } else {
+            int diff = abs(v[i] - v[i + 1]);
+            if (diff < minDiff) {
+                result.clear();
+                minDiff = diff;
+                result.push_back(v[i]);
+                result.push_back(v[i + 1]);
+            } else if (diff == minDiff) {
+                result.push_back(v[i]);
+                result.push_back(v[i + 1]);
+            }
         }
     }
-    vector<int> output;
-    for (int i = 0; i <= minIndex; i++) {
-        output.push_back(input[i]);
-    }
-    return output;
+    return result;
 }
