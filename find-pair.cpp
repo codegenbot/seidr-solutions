@@ -1,39 +1,32 @@
-```
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
+[PYTHON]
+def find_pair(nums, target):
+    # Check if there are at least two elements in the list
+    if len(nums) < 2:
+        return []
 
-vector<int> findPair(vector<int>& nums, int target) {
-    vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        for (int j = i + 1; j < nums.size(); j++) {
-            if (nums[i] + nums[j] == target) {
-                result.push_back(i);
-                result.push_back(j);
-                return result;
-            }
-        }
-    }
-    return result;
-}
+    # Initialize variables to keep track of the pair
+    first_index = 0
+    second_index = 1
 
-int main() {
-    vector<int> nums = {5, 7};
-    int target = 12;
-    vector<int> result = findPair(nums, target);
-    cout << "The two elements that sum to the target are: ";
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    return 0;
-}
-```
+    # Loop through the list until the end is reached
+    while second_index < len(nums):
+        # Check if the sum of the current elements equals the target
+        if nums[first_index] + nums[second_index] == target:
+            # Return the indices of the pair
+            return [first_index, second_index]
+
+        # Increment the indices and loop again
+        first_index += 1
+        second_index += 1
+
+    # If the end is reached and no pair was found, return an empty list
+    return []
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert find_pair([1, 2, 3, 4, 5], 6) == [0, 2]
+# Test case 2:
+assert find_pair([1, 2, 3, 4, 5], 10) == []
+# Test case 3:
+assert find_pair([], 10) == []
+[/TESTS]
