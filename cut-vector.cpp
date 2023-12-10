@@ -1,10 +1,9 @@
+
+```
 #include <vector>
 #include <iostream>
-#include <cmath>
 using namespace std;
-/*
-Given a vector of positive integers, find the spot where, if you cut the vector, the numbers on both sides are either equal, or the difference is as small as possible. Return the two resulting subvectors as two outputs.
-*/
+
 int main() {
     vector<int> v;
     int n, m;
@@ -12,6 +11,13 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> m;
         v.push_back(m);
+    }
+    if (n == 1) {
+        cout << "Subvector 1: ";
+        cout << v[0] << endl;
+        cout << "Subvector 2: ";
+        cout << v[0] << endl;
+        return 0;
     }
     int minDiff = INT_MAX;
     int cutIndex = -1;
@@ -42,3 +48,4 @@ int main() {
     cout << endl;
     return 0;
 }
+```
