@@ -1,20 +1,17 @@
-
-```
-#include <string>
-using namespace std;
-
-string middleCharacter(string str) {
-    if (str.length() % 2 == 0) {
-        return string(1, str[str.length() / 2 - 1]) + string(1, str[str.length() / 2]);
-    } else {
-        return string(1, str[str.length() / 2]);
-    }
-}
-
-int main() {
-    string input;
-    cin >> input;
-    cout << middleCharacter(input) << endl;
-    return 0;
-}
-```
+[PYTHON]
+def middle_character(string):
+    if len(string) % 2 == 0:
+        return string[len(string) // 2 - 1:len(string) // 2 + 1]
+    else:
+        return string[len(string) // 2]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert middle_character("abc") == "b"
+# Test case 2:
+assert middle_character("abcd") == "bc"
+# Test case 3:
+assert middle_character("abcde") == "c"
+# Test case 4:
+assert middle_character("abcd") == "bc"
+[/TESTS]
