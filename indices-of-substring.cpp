@@ -1,57 +1,20 @@
-```
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
-/*
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
-For example,
-input:
-a
-5
-output:
-0
-
-input:
-!
-!
-output:
-1
-0
-input:
-r
-nm,xcnwqnd@#$fwkdjn3
-output:
-0
-
-input:
-hi
-hihihihihihihihihihi
-output:
-0
-
-input:
-############
-#
-output:
-12
-0 1 2 3 4 5 6 7 8 9 10 11
-*/
-int indices_of_substring(string text, string target) {
-    vector<int> indices;
-    int index = text.find(target);
-    while (index != string::npos) {
-        indices.push_back(index);
-        index = text.find(target, index + 1);
-    }
-    return indices;
-}
-```
+[PYTHON]
+def get_indices(text, target):
+    indices = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+    return indices
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_indices("a", "a") == [0]
+# Test case 2:
+assert get_indices("hello", "l") == [2, 3]
+# Test case 3:
+assert get_indices("hello", "h") == [0]
+# Test case 4:
+assert get_indices("hello", "o") == [4]
+# Test case 5:
+assert get_indices("hello", "ll") == [2, 3]
+[/TESTS]
