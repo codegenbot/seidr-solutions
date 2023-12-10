@@ -1,6 +1,6 @@
 [PYTHON]
 def get_coin_sums(cents):
-    coins = [0, 0, 0, 0]
+    coins = [0] * 4
     while cents > 0:
         if cents >= 25:
             coins[3] += 1
