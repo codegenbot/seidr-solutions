@@ -1,20 +1,24 @@
-[PYTHON]
-def cut_vector(v):
-    n = len(v)
-    left = []
-    right = []
-    for i in range(n):
-        if v[i] % 2 == 0:
-            left.append(v[i])
-        else:
-            right.append(v[i])
-    return left + right
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert cut_vector([1, 2, 3, 4, 5]) == [1, 3, 5]
-# Test case 2:
-assert cut_vector([1, 2, 3, 4, 5, 6]) == [1, 3, 5, 7]
-# Test case 3:
-assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == [1, 3, 5, 7, 9]
-[/TESTS]
+```
+vector<int> cutVector(vector<int>& v) {
+    int n = v.size();
+    vector<int> left, right;
+    for (int i = 0; i < n; i++) {
+        if (v[i] % 2 == 0) {
+            left.push_back(v[i]);
+        } else {
+            right.push_back(v[i]);
+        }
+    }
+    
+    // Create a new vector and push elements from both `left` and `right` into it
+    vector<int> result;
+    for (auto& element : left) {
+        result.push_back(element);
+    }
+    for (auto& element : right) {
+        result.push_back(element);
+    }
+    
+    return result;
+}
+```
