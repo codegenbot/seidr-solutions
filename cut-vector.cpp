@@ -1,42 +1,30 @@
 
 [PYTHON]
-def cut_vector(v):
-    n = len(v)
-    if n == 1:
-        return v, []
-    
-    # Initialize variables
+def cut_vector(vector):
+    # Find the spot where, if you cut the vector, the numbers on both sides are either equal, or the difference is as small as possible
     min_diff = float('inf')
     cut_index = -1
-    
-    # Iterate over elements in the vector
-    for i in range(n):
-        # Calculate the difference between the current element and the last element
-        diff = abs(v[i] - v[n-1])
+    for i in range(len(vector)):
+        diff = abs(vector[i] - vector[-1])
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-    
-    # Cut the vector at the index found above
-    subvector_1 = v[:cut_index+1]
-    subvector_2 = v[cut_index+1:]
-    
-    return subvector_1, subvector_2
+
+    # Store the subvectors in separate variables
+    subvector1 = vector[:cut_index + 1]
+    subvector2 = vector[cut_index + 1:]
+
+    return subvector1, subvector2
 [/PYTHON]
 [TESTS]
 # Test case 1:
-v = [1, 0]
-assert cut_vector(v) == ([1], [0])
+assert cut_vector([1, 0]) == ([1], [0])
 # Test case 2:
-v = [1, 10]
-assert cut_vector(v) == ([1], [10])
+assert cut_vector([1, 10]) == ([1], [10])
 # Test case 3:
-v = [1, 100]
-assert cut_vector(v) == ([1], [100])
+assert cut_vector([1, 100]) == ([1], [100])
 # Test case 4:
-v = [1, 1000]
-assert cut_vector(v) == ([1], [1000])
+assert cut_vector([1, 1000]) == ([1], [1000])
 # Test case 5:
-v = [1, 10000]
-assert cut_vector(v) == ([1], [10000])
+assert cut_vector([1, 10000]) == ([1], [10000])
 [/TESTS]
