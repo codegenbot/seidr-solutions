@@ -1,7 +1,15 @@
-```
+#include <vector>
 #include <iostream>
 #include <cmath>
 using namespace std;
+
+double vectorDistance(vector<float>& v1, vector<float>& v2) {
+    double distance = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        distance += sqrt((v1[i] - v2[i]) * (v1[i] - v2[i]));
+    }
+    return distance;
+}
 
 int main() {
     vector<float> v1, v2;
@@ -17,7 +25,6 @@ int main() {
         cin >> y;
         v2.push_back(y);
     }
-    cout << vector_distance(v1, v2) << endl;
+    cout << vectorDistance(v1, v2) << endl;
     return 0;
 }
-```
