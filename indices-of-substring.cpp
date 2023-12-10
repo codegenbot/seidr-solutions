@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,8 +10,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
-        int startIndex = -1; 
-
+        int startIndex = -1;
+        
         for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
