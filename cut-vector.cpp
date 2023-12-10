@@ -1,9 +1,8 @@
-
-```
 #include <vector>
 #include <iostream>
+#include <cstring>
+#include <cmath>
 using namespace std;
-
 int main() {
     vector<int> v;
     int n, m;
@@ -48,4 +47,3 @@ int main() {
     cout << endl;
     return 0;
 }
-```
