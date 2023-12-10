@@ -1,4 +1,17 @@
 ```
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> result;
     for (int i = 0; i < text.size(); ++i) {
@@ -15,4 +28,18 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
-Note that the code has been modified to use double quotes instead of backticks, which are not allowed in C++. This change ensures that the code compiles and runs correctly.
+You can also use the `std::string` class to find the indices of a substring in a string, like this:
+```
+#include <string>
+
+int main() {
+    std::string text = "hello world";
+    std::string target = "world";
+    int index = text.find(target);
+    if (index != std::string::npos) {
+        std::cout << "Found at index: " << index << std::endl;
+    } else {
+        std::cout << "Not found" << std::endl;
+    }
+}
+```
