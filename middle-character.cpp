@@ -1,12 +1,11 @@
-```
 #include <string>
 using namespace std;
 
 int main() {
-    string input;
-    cin >> input;
-    cout << middleCharacter(input) << endl;
-    return 0;
+   string input;
+   cin >> input;
+   cout << middleCharacter(input) << endl;
+   return 0;
 }
 
 string middleCharacter(string str) {
@@ -17,4 +16,3 @@ string middleCharacter(string str) {
         return str.substr(len / 2, 1);
     }
 }
-```
