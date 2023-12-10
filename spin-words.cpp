@@ -1,7 +1,7 @@
-```c++
 #include <iostream>
 #include <string>
-#include <algorithm> // Include the <algorithm> header
+#include <vector>
+#include <algorithm>
 
 std::string spinWords(const std::string& sentence) {
     std::string result = "";
@@ -30,4 +30,3 @@ int main() {
     std::cout << spinWords(sentence) << std::endl;
     return 0;
 }
-```
