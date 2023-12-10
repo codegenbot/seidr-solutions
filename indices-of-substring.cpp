@@ -1,39 +1,35 @@
-
-// Improved version of indices-of-substring
+```
+#include <vector>
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-int main()
-{
-    // Declare variables
-    int i = 0, j = 1;
+
+vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> result;
-
-    // Get input string and target string from user
-    string text, target;
-    cin >> text >> target;
-
-    for (i = 0; i < text.size(); ++i)
-    {
-        if (text[i] == target[0])
-        {
-            j = 1;
-            while (j < target.size() && text[i + j] == target[j])
-            {
-                ++j;
+    int i = 0;
+    while (i < text.size()) {
+        if (text[i] == target[0]) {
+            bool found = true;
+            for (int j = 1; j < target.size(); j++) {
+                if (text[i + j] != target[j]) {
+                    found = false;
+                    break;
+                }
             }
-            if (j == target.size())
-            {
+            if (found) {
                 result.push_back(i);
             }
         }
+        i++;
     }
-
-    // Output the resulting vector of indices
-    cout << "Indices of substring: ";
-    for (auto i : result)
-    {
-        cout << i << " ";
-    }
-    cout << endl;
+    return result;
 }
+```
