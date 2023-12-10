@@ -50,24 +50,14 @@ output:
 0
 */
 int main() {
-    int cents;
-    cin >> cents;
-    vector<int> coins(4, 0);
-    while (cents > 0) {
-        if (cents >= 25) {
-            coins[3]++;
-            cents -= 25;
-        } else if (cents >= 10) {
-            coins[2]++;
-            cents -= 10;
-        } else if (cents >= 5) {
-            coins[1]++;
-            cents -= 5;
-        } else {
-            coins[0]++;
-            cents = 0;
-        }
+    int n;
+    cin >> n;
+    vector<int> coins = { 1, 5, 10, 25 };
+    vector<int> counts(4);
+    for (int i = 0; i < 4; i++) {
+        counts[i] = n / coins[i];
+        n %= coins[i];
     }
-    cout << coins[0] << " " << coins[1] << " " << coins[2] << " " << coins[3] << endl;
+    cout << counts[0] << " " << counts[1] << " " << counts[2] << " " << counts[3] << endl;
     return 0;
 }
