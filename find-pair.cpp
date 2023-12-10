@@ -1,4 +1,7 @@
-```
+#include <vector>
+#include <iostream>
+using namespace std;
+
 vector<int> findPair(const vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         for (int j = i + 1; j < nums.size(); ++j) {
@@ -9,11 +12,9 @@ vector<int> findPair(const vector<int>& nums, int target) {
     }
     return {};
 }
-```
 
-```
 int main() {
-    vector<int> nums = { 5, 7 };
+    vector<int> nums = {5, 7};
     int target = 12;
     auto result = findPair(nums, target);
     if (result.empty()) {
@@ -27,4 +28,3 @@ int main() {
     }
     return 0;
 }
-```
