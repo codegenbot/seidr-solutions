@@ -1,16 +1,33 @@
 #include <vector>
 #include <iostream>
-#include <cmath>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 
-vector<int> leaders(const vector<int>& v) {
-    vector<int> result;
-    int max_so_far = 0;
-    for (int i = v.size() - 1; i >= 0; i--) {
-        if (v[i] >= max_so_far) {
-            result.push_back(v[i]);
-            max_so_far = v[i];
+vector<int> leaders(vector<int>& nums) {
+    vector<int> leaders;
+    int leader = INT_MIN;
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] > leader) {
+            leaders.push_back(nums[i]);
+            leader = nums[i];
         }
     }
-    return result;
+    return leaders;
+}
+
+int main() {
+    vector<int> nums = {1, 451};
+    vector<int> leaders = leaders(nums);
+    for (int i = 0; i < leaders.size(); i++) {
+        cout << leaders[i] << " ";
+    }
+    return 0;
 }
