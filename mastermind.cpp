@@ -1,27 +1,48 @@
-[PYTHON]
-def get_clue(code, guess):
-    white_pegs = 0
-    black_pegs = 0
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+int main() {
+    string code, guess;
+    int whitePegs = 0, blackPegs = 0;
+    cin >> code >> guess;
 
-    # Handle the case where the guess is a perfect match for the code
-    if code == guess:
-        return "1"
+    // Handle the case where the guess is a perfect match for the code
+    if (code == guess) {
+        cout << "1" << endl;
+        return 0;
+    }
 
-    # Use a set to keep track of the positions in the code that have already been matched
-    matched_positions = set()
+    // Use a set to keep track of the positions in the code that have already been matched
+    set<int> matchedPositions;
 
-    for i in range(4):
-        if i not in matched_positions:
-            for j in range(4):
-                if code[j] == guess[i]:
-                    black_pegs += 1
-                    matched_positions.add(j)
-                    break
+    for (int i = 0; i < 4; i++) {
+        if (!matchedPositions.count(i)) {
+            for (int j = 0; j < 4; j++) {
+                if (code[j] == guess[i]) {
+                    blackPegs++;
+                    matchedPositions.insert(j);
+                    break;
+                }
+            }
+        }
+    }
 
-    # Handle the case where there are no black pegs
-    if black_pegs == 0:
-        return "0"
+    // Handle the case where there are no black pegs
+    if (blackPegs == 0) {
+        cout << "0" << endl;
+        return 0;
+    }
 
-    # Print the number of white and black pegs
-    return f"{white_pegs} {black_pegs}"
-[/PYTHON]
+    // Print the number of white and black pegs
+    cout << whitePegs << " " << blackPegs << endl;
+    return 0;
+}
