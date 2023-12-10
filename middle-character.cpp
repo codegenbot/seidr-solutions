@@ -1,5 +1,6 @@
 #include <string>
 using namespace std;
+
 int main() {
     string str = "hello"; // replace with the input string
     cout << middleCharacter(str) << endl;
