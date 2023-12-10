@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -35,7 +36,7 @@ vector<int> cutVector(vector<int> nums) {
     left.push_back(0);
     right.push_back(0);
     
-    return make_tuple(left, right);
+    return make_tuple(left, right);
 }
 
 int main() {
@@ -60,3 +61,4 @@ int main() {
     
     return 0;
 }
+```
