@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -11,7 +12,7 @@ double vectorDistance(vector<float>& v1, vector<float>& v2) {
 }
 
 int main() {
-    vector<float> v1, v2; // Declare empty vectors before the loop
+    vector<float> v1, v2;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) {
