@@ -1,4 +1,4 @@
-
+```
 #include <string>
 using namespace std;
 
@@ -14,3 +14,4 @@ string middleCharacter(string str) {
         return str.substr(str.length() / 2, 1);
     }
 }
+```
