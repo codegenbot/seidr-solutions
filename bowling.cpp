@@ -1,3 +1,5 @@
+
+Sure, here's the modified code that handles multiple strikes and spares in a row:
 ```
 int getScore(string bowls) {
     int score = 0;
