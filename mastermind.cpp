@@ -1,14 +1,11 @@
-Solution:
-
 ```cpp
 #include <iostream>
 #include <string>
-#include <utility>
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
     int whitePegs = 0;
+    int blackPegs = 0;
     int codeCount[6] = {0};
     int guessCount[6] = {0};
 
@@ -30,12 +27,11 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
-
+    cin >> code;
+    cin >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
     cout << result.second << endl;
-
     return 0;
 }
 ```
