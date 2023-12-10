@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -10,45 +11,7 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
-For example,
-input:
-1
-output:
-1
-0
-0
-0
-input:
-2
-output:
-2
-0
-0
-0
-input:
-3
-output:
-3
-0
-0
-0
-input:
-4
-output:
-4
-0
-0
-0
-input:
-5
-output:
-0
-1
-0
-0
-*/
+
 int main() {
     int cents;
     cin >> cents;
@@ -56,7 +19,7 @@ int main() {
     while (cents > 0) {
         if (cents >= 25) {
             coins[3] += cents / 25;
-            cents %= 25;
+            cents -= 25 * (cents / 25);
         } else if (cents >= 10) {
             coins[2]++;
             cents -= 10;
@@ -71,3 +34,4 @@ int main() {
     cout << coins[0] << " " << coins[1] << " " << coins[2] << " " << coins[3] << endl;
     return 0;
 }
+```
