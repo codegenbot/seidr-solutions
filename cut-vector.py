@@ -1,16 +1,35 @@
 ```python
 def cut_vector(vector):
-    vector_sum = sum(vector)
-    current_sum = 0
-    for i, num in enumerate(vector):
-        current_sum += num
-        if current_sum >= vector_sum / 2:
-            return vector[:i+1], vector[i+1:]
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
+    min_diff = float('inf')
+    cut_index = -1
+    
+    for i in range(len(vector)):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+        diff = abs(left_sum - right_sum)
+        
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    
+    return vector[:cut_index+1], vector[cut_index+1:]
 
-# Test Cases
-print(cut_vector([1, 0]))
-print(cut_vector([1, 10]))
-print(cut_vector([1, 100]))
-print(cut_vector([1, 1000]))
-print(cut_vector([1, 10000]))
+# Read input from user
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
+
+# Call the function and print the output
+left_subvector, right_subvector = cut_vector(vector)
+for num in left_subvector:
+    print(num)
+for num in right_subvector:
+    print(num)
 ```
