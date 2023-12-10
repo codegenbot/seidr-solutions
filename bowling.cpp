@@ -1,43 +1,64 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int scoreOfRound(const std::string& round) {
+int calculateScore(string bowls) {
     int score = 0;
     int frame = 0;
-    int rolls = 0;
-    
-    for (char c : round) {
-        if (c == 'X') {
-            score += 10;
-            if (frame < 9) {
-                score += (round[rolls + 1] == 'X') ? 10 + ((round[rolls + 2] == 'X') ? 10 : (round[rolls + 2] - '0')) : (round[rolls + 2] == '/' ? 10 : (round[rolls + 1] - '0') + (round[rolls + 2] - '0'));
-                rolls++;
-            }
+    int bowl = 0;
+    int frames[10] = {0};
+
+    for (int i = 0; i < bowls.length(); i++) {
+        if (bowls[i] == 'X') {
+            frames[frame] = 10;
             frame++;
-        } else if (c == '/') {
-            score += 10 - (round[rolls - 1] - '0');
-            score += (frame < 9) ? (round[rolls + 1] == 'X' ? 10 : (round[rolls + 1] - '0')) : 0;
+        } else if (bowls[i] == '/') {
+            frames[frame] = 10 - (bowls[i-1] - '0');
+            frame++;
+        } else if (bowls[i] == '-') {
+            frames[frame] = 0;
             frame++;
         } else {
-            score += c - '0';
-            if (frame < 9 && rolls % 2 == 1 && c != '-') {
-                score += (round[rolls - 1] == '/' ? 10 - (round[rolls - 2] - '0') : 0);
+            frames[frame] += bowls[i] - '0';
+            if (bowl % 2 != 0) {
                 frame++;
             }
         }
-        rolls++;
+        bowl++;
     }
-    
+
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
+        if (frames[i] == 10) {
+            if (bowls[bowl] == 'X') {
+                score += 10;
+            } else {
+                score += bowls[bowl] - '0';
+            }
+            if (bowls[bowl+1] == 'X') {
+                score += 10;
+            } else if (bowls[bowl+1] == '/') {
+                score += 10 - (bowls[bowl] - '0');
+            } else {
+                score += bowls[bowl+1] - '0';
+            }
+        } else if (frames[i] == 20) {
+            if (bowls[bowl] == 'X') {
+                score += 10;
+            } else {
+                score += bowls[bowl] - '0';
+            }
+        }
+        bowl += 2;
+    }
+
     return score;
 }
 
 int main() {
-    std::string round;
-    std::getline(std::cin, round);
-    
-    int score = scoreOfRound(round);
-    
-    std::cout << score << std::endl;
-    
+    string bowls;
+    cin >> bowls;
+    int score = calculateScore(bowls);
+    cout << score << endl;
     return 0;
 }
