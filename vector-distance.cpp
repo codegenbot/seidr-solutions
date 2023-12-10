@@ -1,13 +1,12 @@
-```
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-double calculateDistance(std::vector<double>& v1, std::vector<double>& v2) {
-    double distance = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        distance += pow((v1[i] - v2[i]), 2);
-    }
-    return sqrt(distance);
-}
-```
+[PYTHON]
+def vector_distance(v1, v2):
+    return sqrt(sum((x-y)**2 for x, y in zip(v1, v2)))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert vector_distance([1, 2, 3], [4, 5, 6]) == 5.0
+# Test case 2:
+assert vector_distance([-1, -2, -3], [-4, -5, -6]) == 5.0
+# Test case 3:
+assert vector_distance([1, 2, 3], [-4, -5, -6]) == sqrt(77)
+[/TESTS]
