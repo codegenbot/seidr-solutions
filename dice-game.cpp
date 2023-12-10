@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -12,7 +11,7 @@ double getProbability(int n, int m) {
             }
         }
     }
-    return std::round(prob, 8); // round to 8 decimal places
+    return prob;
 }
 
 int main() {
@@ -21,3 +20,4 @@ int main() {
     cout << getProbability(n, m) << endl;
     return 0;
 }
+```
