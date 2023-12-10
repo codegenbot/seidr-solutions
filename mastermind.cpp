@@ -1,4 +1,6 @@
-```
+#include <iostream>
+#include <string>
+using namespace std;
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
@@ -18,5 +20,3 @@ int main() {
     cout << whitePegs << " " << blackPegs << endl;
     return 0;
 }
-```
-This code checks if the guessed character is in the correct position (black peg) and also checks if it's a different color than the corresponding character in the code (white peg). If both conditions are true, then it increments the whitePegs counter.

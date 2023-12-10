@@ -1,43 +1,40 @@
-#include <vector>
+
 #include <iostream>
-#include <string>
 using namespace std;
-
-int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
-    } else {
-        return gcd(b, a % b);
-    }
-}
-
-vector<int> indices_of_substring(string text, string target) {
-    vector<int> indices;
-    for (int i = 0; i < text.size(); i++) {
-        if (text[i] == target[0]) {
-            int j = 1;
-            while (j < target.size() && text[i + j] == target[j]) {
-                j++;
-            }
-            if (j == target.size()) {
-                indices.push_back(i);
-            }
-        }
-    }
-    return indices;
-}
-
+int gcd(int a, int b);
+void indicesOfSubstring(vector<int>& result, const string& text, const string& target);
+void printVector(const vector<int>& v);
 int main() {
     int a, b;
-    while (cin >> a >> b) {
-        cout << gcd(a, b) << endl;
-        string text, target;
-        cin >> text >> target;
-        vector<int> indices = indices_of_substring(text, target);
-        for (int i = 0; i < indices.size(); i++) {
-            cout << indices[i] << " ";
-        }
-        cout << endl;
-    }
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+    
+    vector<int> result;
+    indicesOfSubstring(result, "text", "target");
+    printVector(result);
     return 0;
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
+void indicesOfSubstring(vector<int>& result, const string& text, const string& target) {
+    for (int i = 0; i < text.length() - target.length(); i++) {
+        int j = 0;
+        while (text[i + j] == target[j])
+            j++;
+        if (j == target.length())
+            result.push_back(i);
+    }
+}
+
+void printVector(const vector<int>& v) {
+    for (auto i : v) {
+        cout << i << " ";
+    }
+    cout << endl;
 }
