@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -16,7 +15,7 @@ int luhn(vector<int>& digits) {
     int sum = 0;
     for (int i = digits.size() - 2; i >= 0; i -= 2) {
         int digit = digits[i];
-        if (digit > 9) {
+        if (digit > 4) {
             digit -= 9;
         }
         sum += digit;
@@ -32,4 +31,3 @@ int main() {
     cout << luhn(digits) << endl;
     return 0;
 }
-```
