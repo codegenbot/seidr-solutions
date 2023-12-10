@@ -1,21 +1,22 @@
+```
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+
 using namespace std;
 
+double shoppingList(vector<float>& prices, vector<float>& discounts) {
+    double total = 0.0;
+    for (int i = 0; i < prices.size(); i++) {
+        total += prices[i] * (1 - discounts[i]);
+    }
+    return total;
+}
+
 int main() {
-    vector<float> prices = {10.5, 20.99, 34.99};
-    vector<float> discounts = {0.2, 0.3, 0.1};
-    
+    vector<float> prices{1, 2, 3, 4, 5};
+    vector<float> discounts{0.1, 0.2, 0.3, 0.4, 0.5};
     double total = shoppingList(prices, discounts);
-    cout << "Total: " << total << endl;
+    cout << "The total cost is: " << total << endl;
     return 0;
 }
+```
