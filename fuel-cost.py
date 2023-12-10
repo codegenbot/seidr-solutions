@@ -5,5 +5,5 @@ while True:
     except:
         break
 
-result = sum(max(0, num//3 - 2) for num in nums)
+result = sum([num//3 - 2 for num in nums])
 print(result)
