@@ -39,13 +39,20 @@ input:
 output:
 0
 */
-int basement(vector<int> vec) {
-    int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
+int main() {
+    vector<int> vec;
+    int n, sum = 0;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        vec.push_back(x);
+        sum += x;
         if (sum < 0) {
-            return i;
+            cout << i << endl;
+            return 0;
         }
     }
-    return -1;
+    cout << -1 << endl;
+    return 0;
 }
