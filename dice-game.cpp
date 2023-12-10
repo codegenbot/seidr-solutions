@@ -1,17 +1,20 @@
-[PYTHON]
-def probability(n, m):
-    p = 0.0
-    for i in range(1, n+1):
-        for j in range(1, m+1):
-            if i > j:
-                p += 1.0 / (n * m)
-    return float(format(p, '.6f'))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert probability(4, 6) == 0.166667
-# Test case 2:
-assert probability(5, 8) == 0.2
-# Test case 3:
-assert probability(10, 20) == 0.05
-[/TESTS]
+#include <iostream>
+#include <cmath>
+using namespace std;
+float probability(int n, int m) {
+    float p = 0.0f;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                p += 1.0f / (n * m);
+            }
+        }
+    }
+    return std::round(p, 6);
+}
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << probability(n, m) << endl;
+    return 0;
+}

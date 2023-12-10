@@ -17,5 +17,5 @@ assert min_coin_sum(6577, [1, 5, 10, 25]) == 263
 # Test case 2:
 assert min_coin_sum(1000, [1, 5, 10, 25]) == 40
 # Test case 3:
-assert min_coin_sum(1000000000, [1, 5, 10, 25]) == 20000000
+assert min_coin_sum(10000, [1, 5, 10, 25]) == 400
 [/TESTS]

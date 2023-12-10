@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -22,4 +21,3 @@ int main() {
     cout << whitePegs << " " << blackPegs << endl;
     return 0;
 }
-```
