@@ -1,24 +1,16 @@
-#include <iostream>
-#include <string>
-using namespace std;
-int getScore(string input) {
-  int score = 0;
-  for (int i = 0; i < input.length(); i++) {
-    char c = input[i];
-    if (c == '/') {
-      score += 10 - stoi(input.substr(i + 1, 2));
-      break;
-    } else if (c == 'X') {
-      score += 10;
-    } else {
-      score += stoi(c);
+int getScore(string str) {
+    int score = 0;
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == 'X') {
+            score += 10;
+        } else if (str[i] == '/') {
+            score += 5;
+        } else if (str[i] == '-') {
+            score -= 5;
+        } else {
+            score += stoi(str.substr(i, 2));
+            i++;
+        }
     }
-  }
-  return score;
-}
-int main() {
-  string input = "";
-  getline(cin, input);
-  cout << getScore(input) << endl;
-  return 0;
+    return score;
 }
