@@ -1,9 +1,14 @@
-
-The code snippet below contains a solution to the problem described above. 
-```
+#include <vector>
 #include <iostream>
 #include <string>
-#include <vector>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
@@ -15,10 +20,9 @@ double shoppingList(vector<float>& prices, vector<float>& discounts) {
 }
 
 int main() {
-    vector<float> prices = {2.5, 3.5, 4.0};
-    vector<float> discounts = {0.2, 0.1, 0.3};
+    vector<float> prices = {10.99, 4.99, 2.99};
+    vector<float> discounts = {0.1, 0.2, 0.3};
     double total = shoppingList(prices, discounts);
-    cout << "The total cost is: $" << total << endl;
+    cout << "Total: $" << total << endl;
+    return 0;
 }
-```
-When compiled and run, the program will output the total cost of the shopping trip after applying the discounts to each item. 
