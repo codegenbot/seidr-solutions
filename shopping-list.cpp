@@ -4,20 +4,15 @@
 #include <cmath>
 using namespace std;
 int main() {
-    vector<float> prices;
-    vector<float> discounts;
-    float total = 0.0;
-    int n, i;
+    int n;
     cin >> n;
-    for (i = 0; i < n; i++) {
+    vector<float> prices(n);
+    for (int i = 0; i < n; i++) {
         float price, discount;
         cin >> price >> discount;
-        prices.push_back(price);
-        discounts.push_back(discount);
+        prices[i] = price * (1 - discount / 100.0);
     }
-    for (i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0);
-    }
+    float total = accumulate(prices.begin(), prices.end(), 0.0);
     cout << fixed << setprecision(2) << total << endl;
     return 0;
 }
