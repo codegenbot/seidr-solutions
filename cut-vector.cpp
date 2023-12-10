@@ -1,9 +1,8 @@
 [PYTHON]
 def cut_vector(v):
-    n = len(v)
     left = []
     right = []
-    for i in range(n):
+    for i in range(len(v)):
         if v[i] % 2 == 0:
             left.append(v[i])
         else:
