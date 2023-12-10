@@ -1,14 +1,22 @@
+
+Sure, here's the modified code that includes the `main` function and can be compiled and run successfully:
 ```
 #include <vector>
 #include <iostream>
-using namespace std;
+
+double shoppingList(std::vector<float>& prices, std::vector<float>& discounts) {
+    double total = 0.0;
+    for (int i = 0; i < prices.size(); i++) {
+        total += prices[i] * (1 - discounts[i]);
+    }
+    return total;
+}
 
 int main() {
-    vector<float> prices = {10, 20, 30};
-    vector<float> discounts = {0.8, 0.9, 1.0};
-    double total = shoppingList(prices, discounts);
-    cout << "Total: " << total << endl;
+    std::vector<float> prices{10, 20, 30};
+    std::vector<float> discounts{5, 10, 15};
+    std::cout << "Total cost: " << shoppingList(prices, discounts) << std::endl;
     return 0;
 }
 ```
-Note: This is the solution for the problem described in the issue. The code needs to define the `main` function as the entry point of the program, which was missing in the original code provided.
+This code defines a `main` function that calls the `shoppingList` function with the given input vectors. The output is then printed to the console using `std::cout`.
