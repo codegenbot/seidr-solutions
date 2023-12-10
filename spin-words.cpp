@@ -1,19 +1,19 @@
-[PYTHON]
-def spin_words(sentence):
-    words = sentence.split()
-    result = []
-    for word in words:
-        if len(word) >= 5:
-            result.append(word[::-1])
-        else:
-            result.append(word)
-    return " ".join(result)
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert spin_words("Hello") == "Hello"
-# Test case 2:
-assert spin_words("Hello World!") == "World! Hello"
-# Test case 3:
-assert spin_words("Reverse Spinning Words") == "Words Spinning Reverse"
-[/TESTS]
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input;
+    getline(cin, input);
+    vector<string> words = splitString(input, ' ');
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            reverseString(words[i]);
+        }
+    }
+    string output = joinStrings(words, ' ');
+    cout << output << endl;
+    return 0;
+}
+```
