@@ -1,6 +1,5 @@
 ```cpp
 #include <cstdio>
-#include <stdio.h>
 
 int main() {
     double starting_height, first_bounce_height;
