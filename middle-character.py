@@ -1,8 +1,10 @@
 ```python
 def middle_character(s):
-    length = len(s)
+    allowed_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    filtered_s = [char for char in s if char in allowed_chars]
+    length = len(filtered_s)
     if length % 2 == 1:
-        return s[length // 2]
+        return filtered_s[length // 2]
     else:
-        return s[length // 2: length // 2 + 2]
+        return filtered_s[length // 2 - 1: length // 2 + 1]
 ```

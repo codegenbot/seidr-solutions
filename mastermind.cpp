@@ -1,27 +1,26 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <unordered_map>
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 
-    unordered_map<char, int> codeCount;
-    unordered_map<char, int> guessCount;
+    int codeCount[26] = {0};
+    int guessCount[26] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i]]++;
-            guessCount[guess[i]]++;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
 
-    for (const auto& entry : codeCount) {
-        whitePegs += min(entry.second, guessCount[entry.first]);
+    for (int i = 0; i < 26; i++) {
+        whitePegs += min(codeCount[i], guessCount[i]);
     }
 
     return make_pair(whitePegs, blackPegs);

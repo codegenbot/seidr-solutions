@@ -12,7 +12,7 @@ int main() {
 
     for (int i = 2; i <= num_bounces; i++) {
         first_bounce_height *= bounciness_index;
-        total_distance += first_bounce_height * bounciness_index;
+        total_distance += (first_bounce_height * bounciness_index);
     }
 
     std::cout << std::fixed << std::setprecision(15) << total_distance << std::endl;
