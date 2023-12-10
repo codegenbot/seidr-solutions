@@ -1,23 +1,29 @@
-```
-#include <string>
-using namespace std;
-
-int calculateScore(string bowls) {
-    int score = 0;
-    int numStrikes = 0;
-    for (int i = 0; i < bowls.size(); i++) {
-        if (bowls[i] == 'X') {
-            score += 10;
-            numStrikes++;
-        } else if (numStrikes > 0 && bowls[i] == '/') {
-            score += 5;
-            numStrikes--;
-        } else if (bowls[i] == '-') {
-            score -= 5;
-        } else {
-            score += bowls[i] - '0';
-        }
-    }
-    return score;
-}
-```
+[PYTHON]
+def calculate_score(bowls: str) -> int:
+    score = 0
+    num_strikes = 0
+    for i in range(len(bowls)):
+        if bowls[i] == 'X':
+            score += 10
+            num_strikes += 1
+        elif num_strikes > 0 and bowls[i] == '/':
+            score += 5
+            num_strikes -= 1
+        elif bowls[i] == '-':
+            score -= 5
+        else:
+            score += int(bowls[i])
+    return score
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert calculate_score('') == 0
+# Test case 2:
+assert calculate_score('X') == 10
+# Test case 3:
+assert calculate_score('XX') == 20
+# Test case 4:
+assert calculate_score('XXX') == 30
+# Test case 5:
+assert calculate_score('XXXXXXXXXXXX') == 90
+[/TESTS]
