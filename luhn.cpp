@@ -11,11 +11,11 @@
 #include <climits>
 using namespace std;
 
-int luhn(vector<int>& digits) {
+int luhn(vector<int> digits) {
     int sum = 0;
     for (int i = digits.size() - 2; i >= 0; i -= 2) {
-        int digit = digits[i];
-        if (digit > 4) {
+        int digit = digits[i] * 2;
+        if (digit > 9) {
             digit -= 9;
         }
         sum += digit;
@@ -24,9 +24,11 @@ int luhn(vector<int>& digits) {
 }
 
 int main() {
-    vector<int> digits(16);
+    vector<int> digits;
     for (int i = 0; i < 16; i++) {
-        cin >> digits[i];
+        int n;
+        cin >> n;
+        digits.push_back(n);
     }
     cout << luhn(digits) << endl;
     return 0;
