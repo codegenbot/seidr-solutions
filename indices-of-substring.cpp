@@ -28,4 +28,3 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
-This code should compile and run correctly. The issue was caused by the use of backticks (``) in the code, which are not allowed in C++. To fix this, I replaced all instances of backticks with double quotes (").
