@@ -13,7 +13,7 @@ def cut_vector(v):
 # Test case 1:
 assert cut_vector([1, 2, 3, 4, 5]) == [[1, 3, 5], [2, 4]]
 # Test case 2:
-assert cut_vector([1, 2, 3, 4, 5, 6]) == [[1, 3, 5], [2, 4, 6]]
+assert cut_vector([1, 3, 5, 7, 9]) == [[1, 3, 5, 7, 9], []]
 # Test case 3:
-assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == [[1, 3, 5, 7], [2, 4, 6]]
+assert cut_vector([2, 4, 6, 8, 10]) == [[2, 4, 6, 8, 10], []]
 [/TESTS]
