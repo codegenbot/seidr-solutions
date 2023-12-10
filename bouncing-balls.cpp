@@ -1,7 +1,8 @@
 
+Sure, here is the modified code that includes the `iostream` header file and removes the extra include statements:
+```
 #include <iostream>
-#include <cmath>
-using namespace std;
+
 int main() {
     double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance;
     int numBounces;
@@ -14,3 +15,4 @@ int main() {
     cout << fixed << setprecision(9) << totalDistance << endl;
     return 0;
 }
+```
