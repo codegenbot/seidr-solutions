@@ -1,7 +1,9 @@
-```python
-def fuel_cost(arr):
-    return sum((x // 3) - 2 for x in arr)
+nums = []
+while True:
+    try:
+        nums.append(int(input()))
+    except:
+        break
 
-arr = list(map(int, input().split()))
-print(fuel_cost(arr))
-```
+result = sum(max(0, num//3 - 2) for num in nums)
+print(result)
