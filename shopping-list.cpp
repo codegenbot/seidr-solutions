@@ -1,33 +1,15 @@
-```
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-#include <iomanip> // added this header file to use setprecision function
-using namespace std;
-int main() {
-    vector<float> prices;
-    vector<float> discounts;
-    float total = 0.0;
-    int n, i;
-    cin >> n;
-    for (i = 0; i < n; i++) {
-        float price, discount;
-        cin >> price >> discount;
-        prices.push_back(price);
-        discounts.push_back(discount);
-    }
-    for (i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0);
-    }
-    cout << fixed << setprecision(2) << total << endl;
-    return 0;
-}
-```
+[PYTHON]
+def get_total_price(prices, discounts):
+    total = 0.0
+    for i in range(len(prices)):
+        total += prices[i] * (1 - discounts[i] / 100.0)
+    return total
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_total_price([1, 2, 3], [10, 20, 30]) == 6.0
+# Test case 2:
+assert get_total_price([1, 2, 3], [10, 20, 30]) == 6.0
+# Test case 3:
+assert get_total_price([1, 2, 3], [10, 20, 30]) == 6.0
+[/TESTS]
