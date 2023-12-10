@@ -1,6 +1,4 @@
 ```
-#include <iostream>
-using namespace std;
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
@@ -9,13 +7,14 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            int count = 0;
+            bool matched = false;
             for (int j = 0; j < 4; j++) {
-                if (guess[j] == code[i]) {
-                    count++;
+                if (code[j] == guess[i] && !matched) {
+                    whitePegs++;
+                    matched = true;
+                    break;
                 }
             }
-            whitePegs += count;
         }
     }
     cout << whitePegs << " " << blackPegs << endl;
