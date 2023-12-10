@@ -1,10 +1,10 @@
 text = input()
 target = input()
 
-indices = []
+indices = [i for i in range(len(text) - len(target) + 1) if text[i:i+len(target)] == target]
 start = 0
 
-while start < len(text):
+while True:
     index = text.find(target, start)
     if index == -1:
         break
