@@ -1,14 +1,23 @@
 #include <vector>
 #include <iostream>
-#include <utility>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-pair<int, int> findPair(const vector<int>& nums, int target) {
+
+vector<int> findPair(vector<int>& nums, int target) {
+    vector<int> result;
     for (int i = 0; i < nums.size(); ++i) {
-        for (int j = i + 1; j < nums.size(); ++j) {
-            if (nums[i] + nums[j] == target) {
-                return make_pair(nums[i], nums[j]);
-            }
+        if (nums[i] == target - nums[i]) {
+            result.push_back(nums[i]);
+            break;
         }
     }
-    return make_pair(-1, -1);
+    return result;
 }
