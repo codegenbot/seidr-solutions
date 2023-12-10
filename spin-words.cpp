@@ -1,11 +1,8 @@
-
-I apologize for the confusion earlier. Here is a revised version of the code that includes the necessary headers and does not include the unnecessary ones:
-```
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm> // For reverse()
-#include <cctype>    // For isspace()
+#include <algorithm>
+#include <cctype>
 using namespace std;
 
 int main() {
@@ -24,4 +21,3 @@ int main() {
     
     return 0;
 }
-```
