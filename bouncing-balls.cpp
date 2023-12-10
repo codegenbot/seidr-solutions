@@ -1,11 +1,12 @@
 ```cpp
-#include <iostream>
+#include <cstdio>
+#include <stdio.h>
 
 int main() {
     double starting_height, first_bounce_height;
     int num_bounces;
 
-    std::cin >> starting_height >> first_bounce_height >> num_bounces;
+    scanf("%lf %lf %d", &starting_height, &first_bounce_height, &num_bounces);
 
     double bounciness_index = first_bounce_height / starting_height;
     double total_distance = starting_height;
@@ -15,7 +16,7 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
 
-    std::cout << total_distance << std::endl;
+    printf("%.15lf\n", total_distance);
 
     return 0;
 }
