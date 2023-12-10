@@ -53,7 +53,6 @@ int calculateScore(string bowls) {
             }
         }
         bowl += 2;
-
         if (bowl >= bowls.length()) {
             break;
         }
