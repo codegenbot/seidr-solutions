@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -8,7 +7,7 @@ using namespace std;
 
 vector<int> cutVector(vector<int> nums) {
     int n = nums.size();
-    int diff = numeric_limits<int>::max();
+    int diff = INT_MAX;
     int idx = -1;
     
     for (int i = 0; i < n-1; i++) {
@@ -48,7 +47,8 @@ int main() {
         cin >> nums[i];
     }
     
-    auto [result1, result2] = cutVector(nums);
+    vector<int> result1, result2;
+    tie(result1, result2) = cutVector(nums);
     
     for (int num : result1) {
         cout << num << endl;
@@ -60,4 +60,3 @@ int main() {
     
     return 0;
 }
-```
