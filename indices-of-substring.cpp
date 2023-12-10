@@ -33,4 +33,3 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
-The issue is due to the fact that the code has backticks (`) at the beginning and end of each line, which are not valid C++ syntax. To fix this, you can remove the backticks from the lines where they appear.
