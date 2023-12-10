@@ -12,8 +12,8 @@
 using namespace std;
 
 int gcd(int a, int b) {
-    if (a == 0) return b;
-    return gcd(b % a, a);
+    if (b == 0) return a;
+    return gcd(b, a % b);
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
@@ -30,14 +30,11 @@ int main() {
     int a, b;
     cin >> a >> b;
     cout << gcd(a, b) << endl;
-
     string text, target;
     cin >> text >> target;
     vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        cout << i << " ";
+    for (auto index : indices) {
+        cout << index << " ";
     }
-    cout << endl;
-
     return 0;
 }
