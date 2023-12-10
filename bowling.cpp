@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 int getScore(string bowls) {
     int score = 0;
     for (int i = 0; i < bowls.size(); i++) {
@@ -17,6 +18,7 @@ int getScore(string bowls) {
     }
     return score;
 }
+
 int main() {
     string bowls;
     cin >> bowls;
