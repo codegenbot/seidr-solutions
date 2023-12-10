@@ -1,19 +1,18 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-double snowDay(int hours, float groundSnow, float snowFallRate, float meltProportion) {
+double snowDay(int hours, double groundSnow, double snowFallRate, double meltProportion) {
     double snow = groundSnow;
     for (int i = 0; i < hours; i++) {
         snow += snowFallRate * (1 - meltProportion);
-        snow -= meltProportion * snow;
+        snow -= snow * meltProportion;
     }
     return snow;
 }
 
 int main() {
     int hours;
-    float groundSnow, snowFallRate, meltProportion;
+    double groundSnow, snowFallRate, meltProportion;
     cin >> hours >> groundSnow >> snowFallRate >> meltProportion;
     cout << snowDay(hours, groundSnow, snowFallRate, meltProportion) << endl;
     return 0;
