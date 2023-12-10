@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 std::string spinWords(const std::string& sentence) {
@@ -30,4 +30,3 @@ int main() {
     std::cout << spinWords(sentence) << std::endl;
     return 0;
 }
-```
