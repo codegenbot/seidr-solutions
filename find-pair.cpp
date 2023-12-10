@@ -1,36 +1,23 @@
+Here's one way to solve the problem using a hash table:
+```
 #include <vector>
 #include <iostream>
-#include <cmath>
+#include <unordered_map>
 using namespace std;
 
-vector<int> find_pair(vector<int>& nums, int target) {
-    vector<int> result;
-    
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (nums.count(complement)) {
-            result.push_back(nums[i]);
-            result.push_back(complement);
-            break;
-        }
-    }
-    
-    return result;
-}
-
 int main() {
-    vector<int> nums = {5, 7};
-    int target = 12;
-    vector<int> pair = find_pair(nums, target);
-    
-    cout << "The two elements that sum to " << target << " are ";
-    for (int i = 0; i < pair.size(); i++) {
-        if (i > 0) {
-            cout << " and ";
-        }
-        cout << pair[i];
+  vector<int> nums = {5, 7};
+  int target = 12;
+
+  unordered_map<int, bool> seen;
+  for (auto i : nums) {
+    if (seen.find(target - i) != seen.end()) {
+      cout << i << " " << target - i << endl;
+      break;
     }
-    cout << endl;
-    
-    return 0;
+    seen[i] = true;
+  }
+
+  return 0;
 }
+```
