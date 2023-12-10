@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <initializer_list>
 #include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
@@ -7,7 +8,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int diff = INT_MAX;
     int idx = -1;
     
-    // Find the spot where the difference is minimized
     for (int i = 1; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
@@ -27,7 +27,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
     
-    // Create subvectors based on the split index
     std::vector<int> left(nums.begin(), nums.begin() + idx);
     std::vector<int> right(nums.begin() + idx, nums.end());
     
@@ -45,7 +44,6 @@ int main() {
     
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     
-    // Print the two resulting subvectors
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
