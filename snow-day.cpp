@@ -1,17 +1,18 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
-float snowDay(int hours, float groundSnow, float rateSnowFall, float proportionMelt) {
-    int hour = 0;
-    while (hour <= hours && groundSnow >= 0) {
-        groundSnow += rateSnowFall * (1 - pow(proportionMelt, hour));
-        hour++;
+void solve(int hours, float snow_ground, float snow_fall_rate, float snow_melt_rate) {
+    float snow = snow_ground + (hours * snow_fall_rate);
+    if (snow_melt_rate > 0) {
+        float melting_factor = pow(1 - snow_melt_rate, hours);
+        snow = snow * melting_factor;
     }
-    return groundSnow;
+    cout << fixed << setprecision(2) << snow << endl;
 }
 int main() {
     int hours;
-    float groundSnow, rateSnowFall, proportionMelt;
-    cin >> hours >> groundSnow >> rateSnowFall >> proportionMelt;
-    cout << snowDay(hours, groundSnow, rateSnowFall, proportionMelt) << endl;
+    float snow_ground, snow_fall_rate, snow_melt_rate;
+    cin >> hours >> snow_ground >> snow_fall_rate >> snow_melt_rate;
+    solve(hours, snow_ground, snow_fall_rate, snow_melt_rate);
     return 0;
 }
