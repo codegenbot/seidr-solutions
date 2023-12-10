@@ -1,7 +1,6 @@
-```
-import collections
-
 def mastermind(code, guess):
+    import collections
+
     black_pegs = 0
     white_pegs = 0
     code_counts = collections.Counter(code)
@@ -17,4 +16,3 @@ def mastermind(code, guess):
     white_pegs -= black_pegs
     
     return white_pegs, black_pegs
-```
