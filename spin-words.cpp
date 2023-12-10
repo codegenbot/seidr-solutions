@@ -1,7 +1,6 @@
-
-```
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 int main() {
@@ -17,4 +16,3 @@ int main() {
     cout << output << endl;
     return 0;
 }
-```
