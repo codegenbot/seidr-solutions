@@ -1,4 +1,3 @@
-```python
 def find_pair(nums, target):
     complements = {}
     for num in nums:
@@ -15,4 +14,3 @@ pair = find_pair(nums, target)
 
 print(pair[0])
 print(pair[1])
-```
