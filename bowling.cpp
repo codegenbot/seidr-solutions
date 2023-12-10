@@ -3,25 +3,25 @@
 
 using namespace std;
 
-int calculateScore(string bowls) {
+int main() {
+    string input;
     int score = 0;
-    for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') {
+
+    cin >> input;
+
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
             score += 10;
-        } else if (bowls[i] == '/') {
+        } else if (input[i] == '/') {
             score += 5;
-        } else if (bowls[i] == '-') {
+        } else if (input[i] == '-') {
             score -= 5;
         } else {
-            score += bowls[i] - '0';
+            score += input[i] - '0';
         }
     }
-    return score;
-}
 
-int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateScore(bowls) << endl;
+    cout << score << endl;
+
     return 0;
 }
