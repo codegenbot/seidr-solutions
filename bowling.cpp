@@ -1,17 +1,4 @@
-```
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
-
+```cpp
 int calculateScore(string bowls) {
     int score = 0;
     int numStrikes = 0;
@@ -29,12 +16,5 @@ int calculateScore(string bowls) {
         }
     }
     return score;
-}
-
-int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateScore(bowls) << endl;
-    return 0;
 }
 ```
