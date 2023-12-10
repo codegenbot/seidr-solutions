@@ -1,40 +1,19 @@
+```
+#include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
-
 using namespace std;
 
-string spinWords(string sentence) {
-    vector<string> words = splitBySpace(sentence);
+int main() {
+    string input;
+    getline(cin, input);
+    vector<string> words = splitString(input, ' ');
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
-            reverse(words[i].begin(), words[i].end());
+            reverseString(words[i]);
         }
     }
-    return joinBySpace(words);
+    string output = joinStrings(words, ' ');
+    cout << output << endl;
+    return 0;
 }
-
-string joinBySpace(vector<string> words) {
-    string result = "";
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            result += " ";
-        }
-        result += words[i];
-    }
-    return result;
-}
-
-vector<string> splitBySpace(string sentence) {
-    vector<string> words;
-    size_t pos = 0;
-    while (true) {
-        pos = sentence.find(" ", pos);
-        if (pos == string::npos) {
-            break;
-        }
-        words.push_back(sentence.substr(pos, pos + 1));
-        pos += 2;
-    }
-    return words;
-}
+```
