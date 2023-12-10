@@ -6,7 +6,7 @@ double snowDay(int hours, double groundSnow, double snowFallRate, double meltPro
     double snow = groundSnow;
     for (int i = 0; i < hours; i++) {
         snow += snowFallRate * (1 - meltProportion);
-        snow -= snow * meltProportion;
+        snow = snow + snowFallRate * (1 - meltProportion) - snow * meltProportion;
     }
     return snow;
 }
