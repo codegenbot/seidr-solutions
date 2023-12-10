@@ -1,10 +1,8 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
 #include <cmath>
 using namespace std;
-
 int main() {
     vector<float> prices;
     vector<float> discounts;
@@ -23,4 +21,3 @@ int main() {
     cout << total << endl;
     return 0;
 }
-```
