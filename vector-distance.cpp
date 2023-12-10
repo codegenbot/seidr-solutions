@@ -29,4 +29,3 @@ int main() {
     return 0;
 }
 ```
-The issue is that the variables `v1` and `v2` are not declared in the scope of the functions `main`, `vector_distance`. To fix this, you need to declare these variables as global variables or pass them as arguments to the functions.
