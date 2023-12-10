@@ -33,4 +33,3 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
-The code is now free of any triple quotes, language name or explanations.
