@@ -2,16 +2,18 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string str = "hello"; // replace with the input string
-    cout << middleCharacter(str) << endl;
-}
-
 string middleCharacter(string str) {
     if (str.length() % 2 == 0) {
-        return str.substr((str.length() / 2) - 1, 2);
+        return string(1, str[str.length() / 2 - 1]) + string(1, str[str.length() / 2]);
     } else {
-        return str.substr(str.length() / 2, 1);
+        return string(1, str[str.length() / 2]);
     }
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << middleCharacter(input) << endl;
+    return 0;
 }
 ```
