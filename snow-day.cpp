@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+
 using namespace std;
 
 float calculateSnow(float hours, float currentSnow, float snowFallRate, float meltingRate) {
