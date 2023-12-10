@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -11,12 +12,14 @@
 #include <climits>
 using namespace std;
 
-int luhn(vector<int> digits) {
+int luhn(vector<int>& digits) {
     int sum = 0;
     for (int i = digits.size() - 2; i >= 0; i -= 2) {
-        int digit = digits[i] * 2;
-        if (digit > 9) {
-            digit -= 9;
+        int digit = digits[i];
+        if (digit > 4) {
+            digit = digit * 2 - 9;
+        } else {
+            digit *= 2;
         }
         sum += digit;
     }
@@ -24,12 +27,11 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits;
+    vector<int> digits(16);
     for (int i = 0; i < 16; i++) {
-        int n;
-        cin >> n;
-        digits.push_back(n);
+        cin >> digits[i];
     }
     cout << luhn(digits) << endl;
     return 0;
 }
+```
