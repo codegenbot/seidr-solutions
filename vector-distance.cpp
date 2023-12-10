@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
 
 double calculateDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
-    long double sum = 0.0;
+    double sum = 0.0;
     for (int i = 0; i < vec1.size(); i++) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
@@ -28,8 +27,8 @@ int main() {
     }
 
     double distance = calculateDistance(vec1, vec2);
-    std::cout << distance << std::endl;
+    std::cout.precision(15);
+    std::cout << std::fixed << distance << std::endl;
 
     return 0;
 }
-```
