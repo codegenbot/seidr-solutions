@@ -1,26 +1,26 @@
-[PYTHON]
-def leaders(v):
-    result = []
-    current_leader = INT_MIN
-    for i in range(len(v) - 1, -1, -1):
-        if v[i] > current_leader:
-            current_leader = v[i]
-            result.append(current_leader)
-    return result
+```
+#include <vector>
+#include <iostream>
+using namespace std;
 
-def main():
-    input = [1, 451]
-    output = leaders(input)
-    print(output)
+vector<int> leaders(vector<int> v) {
+    vector<int> result;
+    int currentLeader = INT_MIN;
+    for (int i = v.size() - 1; i >= 0; i--) {
+        if (v[i] > currentLeader) {
+            currentLeader = v[i];
+            result.push_back(currentLeader);
+        }
+    }
+    return result;
+}
 
-if __name__ == "__main__":
-    main()
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert leaders([1, 451]) == [1, 451]
-# Test case 2:
-assert leaders([2, 1000, 0]) == [2, 1000, 0]
-# Test case 3:
-assert leaders([2, 0, 1000]) == [1, 1000]
-[/TESTS]
+int main() {
+    vector<int> input = {1, 451};
+    vector<int> output = leaders(input);
+    for (auto x : output) {
+        cout << x << " ";
+    }
+    return 0;
+}
+```

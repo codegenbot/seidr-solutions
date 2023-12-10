@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -18,4 +17,3 @@ int main() {
     }
     return result;
 }
-```

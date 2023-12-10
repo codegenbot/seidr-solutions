@@ -1,23 +1,32 @@
+[PYTHON]
+def get_probability(n: int, m: int) -> float:
+    """
+    Calculate the probability of Peter rolling a higher number than Colin with two dice.
 
-#include <iostream>
-#include <cmath>
-using namespace std;
+    Args:
+        n (int): The number of sides on Peter's die.
+        m (int): The number of sides on Colin's die.
 
-double getProbability(int n, int m) {
-    double prob = 0.0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                prob += 1.0 / (n * m);
-            }
-        }
-    }
-    return std::round(prob, 8); // round to 8 decimal places
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << getProbability(n, m) << endl;
-    return 0;
-}
+    Returns:
+        float: The probability of Peter rolling a higher number than Colin.
+    """
+    total_combinations = n * m
+    peter_wins = 0
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            if i > j:
+                peter_wins += 1
+    return peter_wins / total_combinations
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_probability(2, 6) == 0.5
+# Test case 2:
+assert get_probability(3, 6) == 0.3333333333333333
+# Test case 3:
+assert get_probability(4, 6) == 0.25
+# Test case 4:
+assert get_probability(5, 6) == 0.2
+# Test case 5:
+assert get_probability(6, 6) == 0.16666666666666666
+[/TESTS]
