@@ -18,9 +18,18 @@ def get_subvectors(v):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert get_subvectors([1]) == ([1], [1])
+v = [1, 0]
+assert get_subvectors(v) == ([1], [0])
 # Test case 2:
-assert get_subvectors([1, 2, 3, 4, 5]) == ([1, 2, 3], [4, 5])
+v = [1, 10]
+assert get_subvectors(v) == ([1], [10])
 # Test case 3:
-assert get_subvectors([1, 2, 3, 4, 5, 6]) == ([1, 2, 3], [4, 5, 6])
+v = [1, 100]
+assert get_subvectors(v) == ([1], [100])
+# Test case 4:
+v = [1, 1000]
+assert get_subvectors(v) == ([1], [1000])
+# Test case 5:
+v = [1, 10000]
+assert get_subvectors(v) == ([1], [10000])
 [/TESTS]
