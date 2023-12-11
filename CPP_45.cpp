@@ -1,7 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <cassert>
 #include <cmath>
+#include <string>
 
 float triangle_area(float a, float h) {
     return (a * h) / 2;
