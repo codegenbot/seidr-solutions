@@ -1,4 +1,4 @@
-```
+
 #include <vector>
 #include <cassert>
 using namespace std;
@@ -25,4 +25,3 @@ int main() {
     assert(issame(arr, {}));
     return 0;
 }
-```
