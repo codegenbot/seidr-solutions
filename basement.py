@@ -1,7 +1,14 @@
-def get_negative_sum_index(arr):
-    curr_sum = 0
-    for i in range(len(arr)):
-        curr_sum += arr[i]
-        if curr_sum < 0:
-            return i
-    return -1
+def basement(vector):
+    # Initialize variables
+    sum = 0
+    index = -1
+
+    # Iterate through vector
+    for i in range(len(vector)):
+        # Update sum and index
+        sum += vector[i]
+        if sum < 0:
+            index = i
+            break
+
+    return index
