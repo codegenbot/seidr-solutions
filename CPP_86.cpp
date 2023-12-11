@@ -29,3 +29,6 @@ int main() {
     return 0;
 }
 ```
+The error message indicates that there is an issue with the `swap` function being called on the wrong type of arguments. The `swap` function should be called on two references to `bool`, but it's being called on a reference to `const value_type` (which is `char`) and a `bool&`.
+
+To fix this, you need to change the type of the first argument in the call to `swap` from `const value_type&` to `bool&`. This will ensure that the `swap` function is called on the correct types of arguments.
