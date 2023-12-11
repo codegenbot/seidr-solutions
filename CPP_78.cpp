@@ -1,9 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <cassert>
 
-int hex_key(std::string num) {
+int hex_key(const std::string& num) {
     int count = 0;
     for (auto it = num.begin(); it != num.end(); ++it) {
         if (isPrime(*it - '0')) count++;
@@ -14,7 +14,7 @@ int hex_key(std::string num) {
 int main() {
     std::string num;
     std::cin >> num;
-    std::cout << hex_key(num) << std::endl;
+    assert(hex_key(std::stoi(num)) == 0);
     return 0;
 }
 ```
