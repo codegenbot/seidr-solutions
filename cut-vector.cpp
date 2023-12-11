@@ -2,58 +2,50 @@
 #include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    std::pair<std::vector<int>, std::vector<int>> result;
     int n = nums.size();
     int diff = INT_MAX;
-    int cutIndex = -1;
-
+    int idx = -1;
+    
+    // Find the index where the difference between the sums of the two subvectors is minimized
     for (int i = 0; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-
+        int sum1 = 0, sum2 = 0;
         for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
+            sum1 += nums[j];
         }
-
         for (int j = i; j < n; j++) {
-            rightSum += nums[j];
+            sum2 += nums[j];
         }
-
-        int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            cutIndex = i;
+        int currDiff = abs(sum1 - sum2);
+        if (currDiff < diff) {
+            diff = currDiff;
+            idx = i;
         }
     }
+    
+    // Create the two resulting subvectors
+    std::vector<int> sub1(nums.begin(), nums.begin() + idx);
+    std::vector<int> sub2(nums.begin() + idx, nums.end());
 
-    for (int i = 0; i <= cutIndex; i++) {
-        result.first.push_back(nums[i]);
-    }
-
-    for (int i = cutIndex + 1; i < n; i++) {
-        result.second.push_back(nums[i]);
-    }
-
-    return result;
+    return std::make_pair(sub1, sub2);
 }
 
 int main() {
     int n;
     std::cin >> n;
-
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
-
+    
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
+    
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
+    
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-
+    
     return 0;
 }
