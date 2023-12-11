@@ -5,4 +5,4 @@ def find_pair(nums, target):
             if nums[i] + nums[j] == target:
                 return nums[i], nums[j]
     return None
-``` 
+```
