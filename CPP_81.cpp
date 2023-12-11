@@ -1,9 +1,10 @@
-```
+
 #include <iostream>
 #include <vector>
 #include <string>
+#include <memory>
 
-bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
