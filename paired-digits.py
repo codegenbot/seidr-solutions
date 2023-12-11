@@ -1,3 +1,3 @@
 
 def sum_paired_digits(s):
-    return sum(int(c) for c in s if c == s[0] and c == s[1])
+    return sum(int(c) for c in s if s[s.index(c)-1] == c or s[s.index(c)+1] == c)
