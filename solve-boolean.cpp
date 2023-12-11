@@ -8,31 +8,28 @@ bool evaluateBoolean(string expression) {
     } else if (expression == "f") {
         return false;
     } else {
-        char op = expression[1];
-        bool left = evaluateBoolean(expression.substr(0, 1));
-        bool right = evaluateBoolean(expression.substr(2));
-        
-        if (op == '&') {
-            return left && right;
-        } else if (op == '|') {
-            return left || right;
-        } else {
-            return false;
+        char op;
+        bool result = evaluateBoolean(expression.substr(0, 1));
+        for (int i = 1; i < expression.size(); i++) {
+            if (expression[i] == '&' || expression[i] == '|') {
+                op = expression[i];
+                bool left = result;
+                bool right = evaluateBoolean(expression.substr(i + 1));
+                if (op == '&') {
+                    result = left && right;
+                } else {
+                    result = left || right;
+                }
+            }
         }
+        return result;
     }
 }
 
 int main() {
     string expression;
     cin >> expression;
-    
     bool result = evaluateBoolean(expression);
-    
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    
+    cout << (result ? "True" : "False") << endl;
     return 0;
 }
