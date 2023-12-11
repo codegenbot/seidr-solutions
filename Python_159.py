@@ -1,4 +1,4 @@
-def eat(number, need):
-    total_eaten = number + need
-    carrots_left = max(0, remaining - need)
+def eat(number, need, extra):
+    total_eaten = number + need + extra
+    carrots_left = max(0, remaining - (need + extra))
     return [total_eaten, carrots_left]
