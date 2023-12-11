@@ -1,31 +1,34 @@
-```
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
-std::vector<int> incr_list(const std::vector<int>& v) {
-    std::vector<int> result;
-    for (auto& x : v) {
-        result.push_back(x + 1);
-    }
-    return result;
+vector<int> incr_list(const vector<int>& v) {
+    return v;
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = incr_list(a);
-    if (issame(a, b)) {
-        std::cout << "The two vectors are the same." << std::endl;
-    } else {
-        std::cout << "The two vectors are not the same." << std::endl;
+    std::vector<int> v = {1, 2, 3};
+    std::cout << "Original vector: ";
+    for (auto& x : v) {
+        std::cout << x << " ";
     }
+    std::cout << "\n";
+
+    std::vector<int> incr_v = incr_list(v);
+    std::cout << "Incremented vector: ";
+    for (auto& x : incr_v) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    if (issame(v, incr_v)) {
+        std::cout << "The two vectors are the same\n";
+    } else {
+        std::cout << "The two vectors are not the same\n";
+    }
+
     return 0;
 }
-```
