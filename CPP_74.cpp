@@ -1,14 +1,13 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool totalMatch(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare(b[i]) != 0) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -26,6 +25,7 @@ std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std
 }
 
 int main() {
-    assert(totalMatch(totalMatch({"this"}, {}), {"this"}));
+    std::vector<std::string> a = {"this"};
+    std::vector<std::string> b = {};
+    assert(issame(totalMatch(a, b), {}));
 }
-```
