@@ -2,6 +2,9 @@
 #include <iostream>
 using namespace std;
 
+// Declare the issame function before it is used in main
+bool issame(vector<int> a, vector<int> b);
+
 int main() {
     int arr[4] = {7, 9, 7, 1};
     int smallestEven = INT_MAX;
@@ -18,5 +21,10 @@ int main() {
     cout << "Its index in the array: " << smallestIndex << endl;
 
     return 0;
+}
+
+// Define the issame function outside of main
+bool issame(vector<int> a, vector<int> b) {
+    // Your implementation here
 }
 ```
