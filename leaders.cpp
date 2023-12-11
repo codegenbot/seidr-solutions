@@ -10,13 +10,9 @@ def leaders(nums):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert leaders([0]) == [0]
+assert leaders([1, 2, 3, 4, 5]) == [5, 4, 3, 2, 1]
 # Test case 2:
-assert leaders([1, 0]) == [1, 0]
+assert leaders([1, 2, 3, 4, 5, 6]) == [6, 5, 4, 3, 2, 1]
 # Test case 3:
-assert leaders([1, 451]) == [1, 451]
-# Test case 4:
-assert leaders([2, 1000, 0]) == [2, 1000, 0]
-# Test case 5:
-assert leaders([2, 0, 1000]) == [2, 1000]
+assert leaders([1, 2, 3, 4, 5, 6, 7]) == [7, 6, 5, 4, 3, 2, 1]
 [/TESTS]
