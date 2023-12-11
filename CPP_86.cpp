@@ -13,7 +13,7 @@ std::string anti_shuffle(const std::string& s) {
             int j = i + 1;
             while (j < s.length() && s[j] != ' ') {
                 if (s[j] > s[i]) {
-                    result[j] = s[i];
+                    std::swap(s[i], s[j]);
                 }
                 j++;
             }
