@@ -51,10 +51,9 @@ int scoreOfRound(std::string round) {
 
 int main() {
     std::string round;
-    std::cout << "Enter the round: ";
     std::cin >> round;
     int score = scoreOfRound(round);
-    std::cout << "Score of the round: " << score << std::endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
