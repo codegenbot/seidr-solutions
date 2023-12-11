@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
@@ -28,4 +27,3 @@ while True:
 left, right = cut_vector(vector)
 print(*left, sep='\n')
 print(*right, sep='\n')
-```
