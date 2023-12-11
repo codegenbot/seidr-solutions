@@ -1,7 +1,5 @@
-```
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string decimal_to_binary(int decimal) {
     std::string binary = "";
@@ -9,6 +7,5 @@ std::string decimal_to_binary(int decimal) {
         binary += (decimal % 2 == 0 ? "0" : "1");
         decimal /= 2;
     }
-    return "db" + std::reverse(binary.begin(), binary.end()) + "db";
+    return "db" + binary + "db";
 }
-```
