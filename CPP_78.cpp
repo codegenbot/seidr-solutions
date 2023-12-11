@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -24,3 +25,4 @@ int main() {
     std::cout << hex_key(num) << std::endl;
     return 0;
 }
+```
