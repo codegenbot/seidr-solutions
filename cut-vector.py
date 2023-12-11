@@ -1,9 +1,16 @@
-def cut_vector(vec):
-    n = len(vec)
-    dp = [[0] * (n+1) for _ in range(n+1)]
+def get_cut_index(vector):
+    # Calculate the difference between each pair of adjacent elements
+    diffs = np.diff(vector)
     
-    for i in range(1, n+1):
-        for j in range(i+1, n+1):
-            dp[i][j] = max(dp[i][k] + dp[k][j], vec[i-1] * (j - i + 1))
+    # Find the index where the difference is minimum
+    min_idx = np.argmin(diffs)
     
-    return dp[n][n]
+    # Split the vector into two subvectors at the minimum index
+    return vector[:min_idx+1], vector[min_idx+1:]
+
+# Test cases
+print(get_cut_index([1, 0])) # [1], [0]
+print(get_cut_index([1, 10])) # [1], [10]
+print(get_cut_index([1, 100])) # [1], [100]
+print(get_cut_index([1, 1000])) # [1], [1000]
+print(get_cut_index([1, 10000])) # [1], [10000]
