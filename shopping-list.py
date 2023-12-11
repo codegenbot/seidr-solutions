@@ -1,2 +1,2 @@
-def shopping_list(prices, discounts):
-    return sum([prices[i]*(1-discounts[i]/100) for i in range(len(prices))])
+def get_total_price(prices, discounts):
+    return sum([p * (1 - d) for p, d in zip(prices, discounts)])
