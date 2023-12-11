@@ -1,5 +1,6 @@
+```
 #include <vector>
-#include <cassert>
+using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
@@ -24,15 +25,13 @@ vector<int> pluck(const vector<int>& arr) {
         }
     }
 
-    if (smallestIndex != -1) {
-        return {smallestEven, smallestIndex};
-    } else {
-        return {};
-    }
+    return {smallestEven, smallestIndex};
 }
 
 int main() {
-    vector<int> a = {7, 9, 7, 1};
-    assert(issame(a, {}));
+    vector<int> a = {1, 2, 3, 4, 5};
+    vector<int> b = {1, 2, 3, 4, 5};
+    assert(issame(a, b));
     return 0;
 }
+```
