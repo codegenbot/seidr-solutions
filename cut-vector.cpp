@@ -1,45 +1,59 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <cmath>
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int left = 0, right = n - 1;
-    int leftSum = nums[left], rightSum = nums[right];
-    
-    while (left < right) {
-        if (leftSum < rightSum) {
-            left++;
-            leftSum += nums[left];
-        } else {
-            right--;
-            rightSum += nums[right];
+std::vector<int> cutVector(const std::vector<int>& numbers) {
+    int n = numbers.size();
+    int leftSum = 0, rightSum = 0;
+    int leftIndex = -1, rightIndex = -1;
+    int minDifference = INT_MAX;
+
+    // Calculate the sum of all numbers
+    for (int i = 0; i < n; i++) {
+        rightSum += numbers[i];
+    }
+
+    // Iterate through each index and find the minimum difference
+    for (int i = 0; i < n; i++) {
+        leftSum += numbers[i];
+        rightSum -= numbers[i];
+        int difference = abs(leftSum - rightSum);
+
+        if (difference < minDifference) {
+            minDifference = difference;
+            leftIndex = i;
+            rightIndex = i + 1;
         }
     }
-    
-    vector<int> subvector1(nums.begin(), nums.begin() + left + 1);
-    vector<int> subvector2(nums.begin() + left + 1, nums.end());
-    
-    return make_pair(subvector1, subvector2);
+
+    // Create the two subvectors
+    std::vector<int> leftSubvector(numbers.begin(), numbers.begin() + leftIndex + 1);
+    std::vector<int> rightSubvector(numbers.begin() + rightIndex, numbers.end());
+
+    // Add 0 to the end of the right subvector
+    rightSubvector.push_back(0);
+
+    return {leftSubvector, rightSubvector};
 }
 
 int main() {
     int n;
-    cin >> n;
-    
-    vector<int> nums(n);
+    std::cin >> n;
+
+    std::vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> numbers[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    
-    for (int num : result.first) {
-        cout << num << endl;
+
+    std::vector<int> leftSubvector, rightSubvector;
+    std::tie(leftSubvector, rightSubvector) = cutVector(numbers);
+
+    for (int num : leftSubvector) {
+        std::cout << num << std::endl;
     }
-    for (int num : result.second) {
-        cout << num << endl;
+    for (int num : rightSubvector) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
