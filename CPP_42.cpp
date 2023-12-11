@@ -16,11 +16,4 @@ std::vector<int> incr_list(const std::vector<int>& v) {
     }
     return result;
 }
-
-int main(void) {
-    std::vector<int> v1 = {5, 2, 5, 2, 3, 3, 9, 0, 123};
-    std::vector<int> v2 = incr_list(v1);
-    assert(issame(v1, v2));
-    return 0;
-}
 ```
