@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
@@ -16,6 +17,7 @@ def cut_vector(vector):
     
     return vector[:cut_index+1], vector[cut_index+1:]
 
+# Read input from user
 vector = []
 while True:
     try:
@@ -24,8 +26,10 @@ while True:
     except:
         break
 
+# Call the function and print the outputs
 subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
     print(num)
 for num in subvector2:
     print(num)
+```
