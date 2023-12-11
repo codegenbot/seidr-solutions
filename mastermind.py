@@ -1,8 +1,8 @@
 import collections
 
 def mastermind():
-    code = input().upper()
-    guess = input().upper()
+    code = input("Enter the code: ").upper()
+    guess = input("Enter the guess: ").upper()
 
     black_pegs = 0
     white_pegs = 0
