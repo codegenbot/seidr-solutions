@@ -1,8 +1,7 @@
-```
+
 #include <iostream>
 #include <vector>
 #include <string>
-#include <memory_resource>
 
 bool issame(const std::pmr::vector<std::pmr::string>& a, const std::pmr::vector<std::pmr::string>& b) {
     if (a.size() != b.size()) {
@@ -29,4 +28,3 @@ std::pmr::vector<std::pmr::string> totalMatch(const std::pmr::vector<std::pmr::s
 int main() {
     assert(issame(totalMatch({"this"}, {}), {}));
 }
-```
