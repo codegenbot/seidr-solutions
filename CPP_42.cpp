@@ -17,5 +17,3 @@ std::vector<int> incr_list(const std::vector<int>& v) {
     return result;
 }
 ```
-The issue is with the use of `int` as a template parameter for the vector class. This is not allowed and the compiler is suggesting alternatives, namely `std::vector` or `std::pmr::vector`. To fix the code, replace `vector<int>` with one of the suggested alternatives, e.g., `std::vector<int>`.
-```
