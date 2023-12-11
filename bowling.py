@@ -1,10 +1,9 @@
-```python
 def calculate_score(bowls):
     score = 0
     frame = 1
     i = 0
-    
-    while frame <= 10 and i < len(bowls):
+
+    while frame <= 10:
         if bowls[i] == 'X':
             score += 10
             if i + 2 < len(bowls):
@@ -25,12 +24,11 @@ def calculate_score(bowls):
             i += 1
         elif bowls[i].isdigit():
             score += int(bowls[i])
-        
+
         i += 1
         frame += 1
-    
+
     return score
 
 bowls = input()
 print(calculate_score(bowls))
-```
