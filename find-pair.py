@@ -1,14 +1,9 @@
-num_tests = int(input())
-for _ in range(num_tests):
-    arr_size = int(input())
-    arr = list(map(int, input().split()))
-    target = int(input())
-    
-    complements = {}
-    for num in arr:
-        complement = target - num
-        if complement in complements:
-            print(complement)
-            print(num)
+target = int(input())
+n = int(input())
+arr = list(map(int, input().split()))
+for i in range(n):
+    for j in range(i+1, n):
+        if arr[i] + arr[j] == target:
+            print(arr[i])
+            print(arr[j])
             break
-        complements[num] = True
