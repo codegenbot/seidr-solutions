@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 int main() {
@@ -14,7 +15,8 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
 
-    std::cout << total_distance << std::endl;
+    std::cout << total_distance;
 
     return 0;
 }
+```
