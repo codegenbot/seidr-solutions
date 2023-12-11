@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +15,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> common({4, 3, 2, 8});
-    assert(issame(common, {}));
+    assert(issame(std::pmr::vector({4, 3, 2, 8}), std::pmr::vector<int>());
 }
 ```
