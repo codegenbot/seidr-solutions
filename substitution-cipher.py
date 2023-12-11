@@ -1,3 +1,5 @@
+def cipher(ciphertext, key):
+    return ''.join([key[ord(c) - ord('a')] for c in ciphertext])
 
-def decipher(cipher1, cipher2, message):
-    return "".join([cipher2[cipher1.index(c)] for c in message])
+def decipher(ciphertext, key):
+    return ''.join([chr(ord(k) + ord('a')) for k in ciphertext])
