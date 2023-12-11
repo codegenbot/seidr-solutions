@@ -12,7 +12,7 @@
 #include <climits>
 using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
     vector<int> left, right;
     for (int i = 0; i < n; i++) {
