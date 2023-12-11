@@ -1,5 +1,6 @@
+```
 #include <iostream>
-#include <cmath>
+#include <math.h>
 
 int iscuber(int a) {
     double cbrt = std::cbrt(static_cast<double>(a));
@@ -21,3 +22,4 @@ int main() {
     }
     return 0;
 }
+```
