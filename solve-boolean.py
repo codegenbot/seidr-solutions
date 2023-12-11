@@ -1,2 +1,2 @@
 def solve_boolean(expression):
-    return eval(expression.upper())
+    return eval(expression.lower())
