@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -11,8 +12,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-void pluck(vector<int>& arr, int index) {
-    arr = arr.erase(arr.begin() + index);
+void pluck(const vector<int>& arr, int index) {
+    arr.erase(arr.begin() + index);
 }
 
 int main() {
@@ -26,3 +27,4 @@ int main() {
     pluck(arr1, 0);
     return 0;
 }
+```
