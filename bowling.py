@@ -1,10 +1,12 @@
-def get_score(bowling_string):
-    total_score = 0
-    for i in range(len(bowling_string)):
-        if bowling_string[i] == 'X':
-            total_score += 10
-        elif bowling_string[i] == '/':
-            total_score += 10
+def get_score(bowls):
+    score = 0
+    for i in range(len(bowls)):
+        if bowls[i] == 'X':
+            score += 10
+            if i < len(bowls) - 2 and bowls[i + 1] == 'X' and bowls[i + 2] == 'X':
+                score += 30
+        elif bowls[i] == '/':
+            score += 10 - int(bowls[i-1])
         else:
-            total_score += int(bowling_string[i])
-    return total_score
+            score += int(bowls[i])
+    return score
