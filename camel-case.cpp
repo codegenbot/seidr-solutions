@@ -1,57 +1,37 @@
-#include <iostream>
 #include <string>
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    // Split the input string into words using "-" as delimiter
-    std::vector<std::string> words = split(input, '-');
-    
-    // Convert each word to camelCase and join them together
-    std::string output;
+#include <iostream>
+#include <vector>
+#include <cctype>
+using namespace std;
+string camelCase(const string& s) {
+    vector<string> words = split(s, '-');
     for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            output += " ";
-        }
-        output += toCamelCase(words[i]);
+        if (words[i].empty()) continue;
+        words[i][0] = toupper(words[i][0]);
     }
-    
-    // Print the output string
-    std::cout << output << std::endl;
-    
-    return 0;
+    return join(words, "");
 }
-
-// Split a string into substrings using a delimiter
-std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> words;
+string split(const string& s, char delimiter) {
+    vector<string> words;
     size_t start = 0;
-    size_t end = str.find(delimiter);
-    
-    while (end != std::string::npos) {
-        words.push_back(str.substr(start, end - start));
+    size_t end = s.find(delimiter);
+    while (end != string::npos) {
+        words.push_back(s.substr(start, end - start));
         start = end + 1;
-        end = str.find(delimiter, start);
+        end = s.find(delimiter, start);
     }
-    
-    if (start < str.size()) {
-        words.push_back(str.substr(start));
+    if (start < s.size()) {
+        words.push_back(s.substr(start));
     }
-    
-    return words;
+    return join(words, "");
 }
-
-// Convert a string to camelCase
-std::string toCamelCase(const std::string& str) {
-    std::string output = "";
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == '-') {
-            output += " ";
-        } else {
-            output += str[i];
+string join(const vector<string>& words, const string& delimiter) {
+    string result;
+    for (int i = 0; i < words.size(); i++) {
+        if (!result.empty()) {
+            result += delimiter;
         }
+        result += words[i];
     }
-    
-    return output;
+    return result;
 }
