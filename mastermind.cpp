@@ -1,9 +1,21 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <utility>
+using namespace std;
 
-std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
+bool isValidInput(string input) {
+    if (input.length() != 4) {
+        return false;
+    }
+    for (char ch : input) {
+        if (ch < 'A' || ch > 'F') {
+            return false;
+        }
+    }
+    return true;
+}
+
+pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     int codeCount[6] = {0};
@@ -19,21 +31,24 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
     }
 
     for (int i = 0; i < 6; i++) {
-        whitePegs += std::min(codeCount[i], guessCount[i]);
+        whitePegs += min(codeCount[i], guessCount[i]);
     }
 
-    return std::make_pair(whitePegs, blackPegs);
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    std::string code, guess;
-    std::cout << "Enter code string: ";
-    std::getline(std::cin, code);
-    std::cout << "Enter guess string: ";
-    std::getline(std::cin, guess);
-    std::pair<int, int> result = mastermind(code, guess);
-    std::cout << result.first << std::endl;
-    std::cout << result.second << std::endl;
+    string code, guess;
+    cin >> code >> guess;
+
+    if (!isValidInput(code) || !isValidInput(guess)) {
+        cout << "Invalid input" << endl;
+        return 0;
+    }
+
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
     return 0;
 }
 ```
