@@ -5,10 +5,8 @@ def find_pair(nums, target):
         if nums[i] not in seen:
             seen[nums[i]] = i
             continue
-        
         complement = target - nums[i]
         if complement in seen:
             return (nums[i], nums[seen[complement]])
-    
     return None, None
 ```
