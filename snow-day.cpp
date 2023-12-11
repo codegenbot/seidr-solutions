@@ -1,21 +1,22 @@
-```
 #include <iostream>
 using namespace std;
-
-float snow_day(int hours, float ground_snow, float snow_fall, float melt_rate) {
-    float current_snow = 0;
-    for (int i = 1; i <= hours; i++) {
-        current_snow += snow_fall;
-        current_snow -= current_snow * melt_rate;
+/*
+Given an integer representing a number of hours and 3 floats representing how much snow is on the ground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+*/
+float getSnowAmount(int hours, float initialSnow, float snowFallRate, float meltPercentage) {
+    float currentSnow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        currentSnow += snowFallRate * (1 - meltPercentage);
+        currentSnow -= currentSnow * meltPercentage;
     }
-    return current_snow;
+    return currentSnow;
 }
-
+/*
+Given an integer representing a number of hours and 3 floats representing how much snow is on the ground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+*/
 int main() {
-    float ground_snow, snow_fall, melt_rate;
     int hours;
-    cin >> hours >> ground_snow >> snow_fall >> melt_rate;
-    cout << snow_day(hours, ground_snow, snow_fall, melt_rate) << endl;
-    return 0;
+    float initialSnow, snowFallRate, meltPercentage;
+    cin >> hours >> initialSnow >> snowFallRate >> meltPercentage;
+    cout << getSnowAmount(hours, initialSnow, snowFallRate, meltPercentage) << endl;
 }
-```
