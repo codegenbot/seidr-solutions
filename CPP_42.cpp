@@ -16,5 +16,3 @@ int main() {
     return 0;
 }
 ```
-
-The issue is that there are multiple definitions of `main()` and `issame()`. To fix this, you can remove one of the definitions or rename one of them to avoid the conflict.
