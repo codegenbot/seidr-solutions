@@ -1,6 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
+#include <string>
 
 bool isCube(int a) {
     int root = std::sqrt(a);
@@ -8,11 +9,11 @@ bool isCube(int a) {
 }
 
 int main() {
-    int a;
+    std::string s;
     std::cout << "Enter an integer: ";
-    std::cin >> a;
-    auto it = std::find_if(std::begin(a), std::end(a), isCube);
-    if (it != std::end(a)) {
+    std::cin >> s;
+    auto it = std::find_if(s.begin(), s.end(), isCube);
+    if (it != s.end()) {
         std::cout << "The number is a cube." << std::endl;
     } else {
         std::cout << "The number is not a cube." << std::endl;
