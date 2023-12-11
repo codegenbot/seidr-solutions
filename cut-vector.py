@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     min_diff = math.inf
     for i in range(1, len(vector)):
@@ -5,12 +6,9 @@ def cut_vector(vector):
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-
-    # Check if there are any better cuts by cutting at other points
     for j in range(cut_index + 1, len(vector)):
         diff = abs(vector[j] - vector[j-1])
         if diff < min_diff:
             min_diff = diff
             cut_index = j
-
     return vector[:cut_index], vector[cut_index:]
