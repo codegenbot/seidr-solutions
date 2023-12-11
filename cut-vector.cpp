@@ -1,25 +1,21 @@
-```
-int main() {
-    vector<int> v;
-    int n, m;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> m;
-        v.push_back(m);
-    }
-    int left = 0, right = n - 1;
-    while (left < right) {
-        if (v[left] == v[right]) {
-            cout << left + 1 << " " << right + 1 << endl;
-            return 0;
-        }
-        int diff = abs(v[left] - v[right]);
-        if (diff > 1) {
-            cout << "No solution" << endl;
-            return 0;
-        }
-        left++;
-        right--;
-    }
-}
-```
+[PYTHON]
+def get_cut_vector(vector):
+    left = 0
+    right = len(vector) - 1
+    while left < right:
+        if vector[left] == vector[right]:
+            return left + 1, right + 1
+        elif abs(vector[left] - vector[right]) <= 1:
+            return "No solution"
+        left += 1
+        right -= 1
+    return "No solution"
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_cut_vector([5226, 2849]) == (1, 2)
+# Test case 2:
+assert get_cut_vector([1, 2, 3, 4, 5]) == (1, 5)
+# Test case 3:
+assert get_cut_vector([1, 2, 3, 4, 5, 6]) == (1, 6)
+[/TESTS]
