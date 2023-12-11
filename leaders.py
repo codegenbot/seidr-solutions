@@ -1,4 +1,3 @@
-```
 def leaders(arr):
     result = []
     for i in range(len(arr)-1, -1, -1):
@@ -9,4 +8,3 @@ def leaders(arr):
         else:
             result.append(current_leader)
     return result
-```
