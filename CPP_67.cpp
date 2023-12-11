@@ -5,20 +5,15 @@
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    // Parse the string to extract the number of apples and oranges
-    int appleCount = 0;
-    int orangeCount = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'a') {
-            appleCount++;
-        } else if (s[i] == 'o') {
-            orangeCount++;
+    int apples = 0, oranges = 0;
+    stringstream ss(s);
+    while (ss >> s) {
+        if (s == "apples") {
+            ss >> apples;
+        } else if (s == "oranges") {
+            ss >> oranges;
         }
     }
-
-    // Calculate the number of mango fruits
-    int mangoCount = n - appleCount - orangeCount;
-
-    return mangoCount;
+    return n - apples - oranges;
 }
 ```
