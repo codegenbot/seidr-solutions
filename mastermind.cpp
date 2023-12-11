@@ -1,13 +1,9 @@
-
 #include <iostream>
-#include <string>
 using namespace std;
-
 int main() {
-    string code = "BYWB";
-    string guess = "GOWB";
-    
-    int blackPegs = 0, whitePegs = 0;
+    string code, guess;
+    int whitePegs = 0, blackPegs = 0;
+    cin >> code >> guess;
     
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
@@ -23,6 +19,6 @@ int main() {
         }
     }
     
-    cout << blackPegs << " " << whitePegs << endl;
+    cout << blackPegs << " " << whitePegs << "\n";
     return 0;
 }
