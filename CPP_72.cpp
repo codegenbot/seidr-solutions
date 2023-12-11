@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 using namespace std;
 
@@ -14,4 +14,3 @@ bool will_it_fly(vector<int> q, int w) {
     }
     return isBalanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
-```
