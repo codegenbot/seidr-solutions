@@ -1,7 +1,4 @@
-#include <vector>
-#include <climits>
-using std::vector;
-
+```
 vector<int> pluck(vector<int> arr) {
     int smallestEven = INT_MAX;
     int smallestIndex = -1;
@@ -13,5 +10,10 @@ vector<int> pluck(vector<int> arr) {
         }
     }
 
-    return {smallestEven, smallestIndex};
+    if (smallestIndex != -1) {
+        return {smallestEven, smallestIndex};
+    } else {
+        return {};
+    }
 }
+```

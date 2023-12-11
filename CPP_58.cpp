@@ -1,12 +1,20 @@
-```cpp
-#include <vector>
-
+```
 bool issame(const vector<int>& a, const vector<int>& b) {
-    // function body here
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
+```
 
-int main() {
-    assert (issame(common({4, 3, 2, 8}, {}), {}));
-    return 0;
+Alternatively, you can use the `std::equal` algorithm to compare the two vectors:
+```
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 ```
