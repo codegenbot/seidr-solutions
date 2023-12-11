@@ -1,6 +1,5 @@
-
+```
 #include <iostream>
-#include <iomanip>
 
 int add(int x, int y) {
     return x + y;
@@ -8,7 +7,8 @@ int add(int x, int y) {
 
 int main() {
     int x, y;
-    cin >> x >> y;
-    cout << add(x, y) << endl;
+    std::cin >> x >> y;
+    std::cout << add(x, y) << std::endl;
     return 0;
 }
+```
