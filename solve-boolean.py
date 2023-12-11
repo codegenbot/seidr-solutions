@@ -1,6 +1,2 @@
-```python
 def solve_boolean(expression):
-    return eval(expression.replace('T', 'True').replace('F', 'False'))
-
-print(solve_boolean('t|f|f&f&t&t&f'))  # Output: False
-```
+    return eval(expression.replace('T', 'True').replace('F', 'False').replace('t', 'True').replace('f', 'False').replace('|', ' or ').replace('&', ' and '))
