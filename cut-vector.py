@@ -1,14 +1,12 @@
-def cut_vector(my_list):
-    n = len(my_list)
-    if n == 0:
-        return []
-    if n == 1:
-        return [my_list[0]]
-    left = 0
-    right = n - 1
-    while left < right:
-        if my_list[left] <= my_list[right]:
-            left += 1
-        else:
-            right -= 1
-    return [my_list[:left], my_list[left:]]
+
+```
+def cut_vector(vector):
+    # Find the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible.
+    min_diff = math.inf
+    for i in range(1, len(vector)):
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    return cut_index, min_diff
+```
