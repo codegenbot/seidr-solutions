@@ -27,7 +27,9 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
 
 int main() {
     std::string code, guess;
+    std::cout << "Enter code string: ";
     std::getline(std::cin, code);
+    std::cout << "Enter guess string: ";
     std::getline(std::cin, guess);
     std::pair<int, int> result = mastermind(code, guess);
     std::cout << result.first << std::endl;
