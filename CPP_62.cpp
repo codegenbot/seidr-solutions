@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -15,4 +14,9 @@ int main() {
     }
     return 0;
 }
-```
+
+// Define derivative function
+std::vector<float> derivative(const std::vector<float>& xs) {
+    // Implement derivative function here
+    return {};
+}
