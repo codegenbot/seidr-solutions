@@ -1,36 +1,10 @@
-def get_bowling_score(rolls):
-    # Initialize variables
+def get_score(bowling_string):
     score = 0
-    frame = 0
-    roll = 0
-    spare = False
-    strike = False
-
-    while frame < 10:
-        # Check for strike
-        if rolls[roll] == 'X':
+    for i in range(len(bowling_string)):
+        if bowling_string[i] == "X":
             score += 10
-            strike = True
-            roll += 1
+        elif bowling_string[i] == "/":
+            score += 10 - int(bowling_string[i-1])
         else:
-            # Check for spare
-            if rolls[roll + 1] == '/':
-                score += 10
-                spare = True
-            else:
-                score += int(rolls[roll])
-            roll += 2
-
-        # Check for bonus rolls
-        if strike or spare:
-            if frame < 9 and rolls[roll] == 'X':
-                score += 10
-                roll += 1
-            elif frame < 8 and rolls[roll + 1] == '/':
-                score += 10
-                roll += 2
-
-        # Move to next frame
-        frame += 1
-
+            score += int(bowling_string[i])
     return score
