@@ -1,7 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <cassert> // include the header file for assert
 
 std::string anti_shuffle(const std::string& s) {
     std::string result = "";
