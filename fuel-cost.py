@@ -1,2 +1,2 @@
-def fuel_cost(my_list):
-    return sum(int((x - 2) / 3) for x in my_list)
+def fuel_cost(numbers):
+    return sum((n // 3) - 2 for n in numbers)
