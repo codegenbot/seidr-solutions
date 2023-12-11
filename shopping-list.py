@@ -1,3 +1,4 @@
+```
 def shopping_list(prices, discounts):
     total = 0
     for i in range(len(prices)):
@@ -6,3 +7,4 @@ def shopping_list(prices, discounts):
         else:
             total += prices[i]
     return total
+```

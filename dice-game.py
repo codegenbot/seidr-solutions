@@ -1,4 +1,4 @@
-```
+[PYTHON]
 def get_probability(n, m):
     num_ways_peter_higher = 0
     for i in range(1, n+1):
@@ -6,4 +6,14 @@ def get_probability(n, m):
             if i > j:
                 num_ways_peter_higher += 1
     return num_ways_peter_higher / (n * m)
-```
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_probability(35, 59) == 0.2881356
+# Test case 2:
+assert get_probability(1, 2) == 0.5
+# Test case 3:
+assert get_probability(3, 4) == 0.75
+# Test case 4:
+assert get_probability(5, 6) == 0.8333333
+[/TESTS]
