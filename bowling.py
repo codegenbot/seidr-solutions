@@ -1,4 +1,3 @@
-```python
 def calculate_score(bowls):
     score = 0
     frame = 1
@@ -42,4 +41,3 @@ def get_bonus(bowls, i, count):
 bowls = input()
 score = calculate_score(bowls)
 print(score)
-```
