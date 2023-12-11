@@ -1,4 +1,5 @@
 def solve_boolean(expression):
+    # Using a stack to evaluate the expression
     stack = []
     for char in expression:
         if char == 'T':
@@ -6,11 +7,11 @@ def solve_boolean(expression):
         elif char == 'F':
             stack.append(False)
         elif char == '|':
-            b1 = stack.pop()
-            b2 = stack.pop()
-            stack.append(b1 or b2)
+            operand2 = stack.pop()
+            operand1 = stack.pop()
+            stack.append(operand1 or operand2)
         elif char == '&':
-            b1 = stack.pop()
-            b2 = stack.pop()
-            stack.append(b1 and b2)
+            operand2 = stack.pop()
+            operand1 = stack.pop()
+            stack.append(operand1 and operand2)
     return stack[-1]
