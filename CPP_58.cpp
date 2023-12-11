@@ -1,5 +1,8 @@
 ```
-bool issame(const vector<int>& a, const vector<int>& b) {
+#include <iostream>
+#include <vector>
+
+bool issame(std::vector<int> a) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -10,11 +13,9 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     }
     return true;
 }
-```
 
-Alternatively, you can use the `std::equal` algorithm to compare the two vectors:
-```
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+int main() {
+    std::vector<int> common;
+    assert(issame({4, 3, 2, 8}) == {});
 }
 ```
