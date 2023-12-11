@@ -10,10 +10,21 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+std::vector<int> incr_list(std::vector<int> l) {
+    for (auto& i : l) {
+        i++;
+    }
+    return l;
+}
+
 int main() {
-    std::vector<int> v1 = {5, 2, 5, 2, 3, 3, 9, 0, 123};
-    std::vector<int> v2 = {6, 3, 6, 3, 4, 4, 10, 1, 124};
-    assert(issame(v1, v2));
+    std::vector<int> v = {1, 2, 3};
+    auto result = incr_list(v);
+    if (issame(result, v)) {
+        std::cout << "The lists are the same" << std::endl;
+    } else {
+        std::cout << "The lists are not the same" << std::endl;
+    }
     return 0;
 }
 ```
