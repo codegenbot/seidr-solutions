@@ -4,25 +4,17 @@
 
 std::string kebabToCamel(const std::string& kebabCase) {
     std::string camelCase;
-    std::vector<std::string> words;
+    bool capitalizeNext = false;
 
-    // Split the kebab case string into individual words
-    size_t start = 0;
-    size_t end = kebabCase.find("-");
-    while (end != std::string::npos) {
-        words.push_back(kebabCase.substr(start, end - start));
-        start = end + 1;
-        end = kebabCase.find("-", start);
-    }
-    words.push_back(kebabCase.substr(start, end));
-
-    // Convert each word to camel case and append to the result string
-    for (size_t i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            // Capitalize the first character of each word except the first word
-            words[i][0] = std::toupper(words[i][0]);
+    for (char c : kebabCase) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            camelCase += std::toupper(c);
+            capitalizeNext = false;
+        } else {
+            camelCase += c;
         }
-        camelCase += words[i];
     }
 
     return camelCase;
@@ -32,7 +24,29 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    std::string output = kebabToCamel(input);
+    std::string output;
+    std::string word;
+    std::vector<std::string> words;
+
+    for (char c : input) {
+        if (c == ' ') {
+            words.push_back(word);
+            word.clear();
+        } else {
+            word += c;
+        }
+    }
+
+    words.push_back(word);
+
+    for (size_t i = 0; i < words.size(); i++) {
+        output += kebabToCamel(words[i]);
+
+        if (i < words.size() - 1) {
+            output += " ";
+        }
+    }
+
     std::cout << output << std::endl;
 
     return 0;
