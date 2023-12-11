@@ -14,3 +14,5 @@ int main() {
     return 0;
 }
 ```
+
+The code above is a valid solution to the problem. It defines a function `issame` that takes two vectors of strings as input and returns a boolean indicating whether they are the same or not. The function is then called in the `main` function with the expected output.

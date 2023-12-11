@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <cassert>
-
+```
 std::string anti_shuffle(const std::string& s) {
     std::string result = "";
     for (char i = 0; i < s.length(); i++) {
