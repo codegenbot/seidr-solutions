@@ -1,11 +1,4 @@
-```
-import sys
-import collections
-
 def mastermind(code, guess):
-    code = code.upper()
-    guess = guess.upper()
-    
     black_pegs = 0
     white_pegs = 0
     code_count = collections.Counter(code)
@@ -17,13 +10,7 @@ def mastermind(code, guess):
             code_count[code[i]] -= 1
             guess_count[guess[i]] -= 1
     
-    for color in guess_count.keys():
+    for color in code_count:
         white_pegs += min(code_count[color], guess_count[color])
     
     return white_pegs, black_pegs
-
-code = sys.stdin.readline().strip()
-guess = sys.stdin.readline().strip()
-result = mastermind(code, guess)
-sys.stdout.write(str(result[0]) + " " + str(result[1]) + "\n")
-```
