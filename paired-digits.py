@@ -1,2 +1,2 @@
-def paired_digits(s):
-    return sum(int(i) for i in s if s[s.index(i)+1] == i)
+def sum_same(s):
+    return sum(int(c) for c in s if s[s.index(c)+1] == c)
