@@ -1,3 +1,4 @@
+```python
 def gcd(a, b):
     if b == 0:
         return a
@@ -11,3 +12,4 @@ def indices_of_substring(text, target):
         if len(target) > 1 and text[i:i+len(target)] == target:
             indices.append(i)
     return indices
+```
