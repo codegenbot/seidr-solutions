@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <iostream>
+#include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
@@ -26,7 +26,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             idx = i;
         }
     }
-
+    
+    // Create subvectors based on the split index
     std::vector<int> left(nums.begin(), nums.begin() + idx);
     std::vector<int> right(nums.begin() + idx, nums.end());
     
@@ -44,6 +45,7 @@ int main() {
     
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     
+    // Print the two resulting subvectors
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
