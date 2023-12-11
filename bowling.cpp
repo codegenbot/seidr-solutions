@@ -2,53 +2,43 @@
 #include <string>
 using namespace std;
 
-int getScore(string bowls) {
+int scoreOfRound(string round) {
     int score = 0;
-    int frame = 0;
-    int i = 0;
-    
-    while (frame < 10) {
-        if (bowls[i] == 'X') {
-            score += 10;
-            if (bowls[i + 2] == 'X') {
-                score += 10;
-                if (bowls[i + 4] == 'X') {
-                    score += 10;
-                } else {
-                    score += bowls[i + 4] - '0';
-                }
-            } else {
-                if (bowls[i + 3] == '/') {
-                    score += 10;
-                } else {
-                    score += bowls[i + 2] - '0' + bowls[i + 3] - '0';
-                }
+    int frame = 1;
+    int bowl = 0;
+    int bowls[21] = {0};
+
+    for (char c : round) {
+        if (c == 'X') {
+            bowls[bowl++] = 10;
+            if (frame < 10) {
+                bowl++;
             }
-            i++;
-        } else if (bowls[i + 1] == '/') {
-            score += 10;
-            if (bowls[i + 2] == 'X') {
-                score += 10;
-            } else {
-                score += bowls[i + 2] - '0';
-            }
-            i += 2;
+        } else if (c == '/') {
+            bowls[bowl++] = 10 - bowls[bowl - 1];
+        } else if (c == '-') {
+            // do nothing
         } else {
-            score += bowls[i] - '0' + bowls[i + 1] - '0';
-            i += 2;
+            bowls[bowl++] = c - '0';
         }
-        frame++;
     }
-    
+
+    for (int i = 0; i < 10; i++) {
+        if (bowls[i * 2] == 10) {
+            score += 10 + bowls[i * 2 + 2] + bowls[i * 2 + 3];
+        } else if (bowls[i * 2] + bowls[i * 2 + 1] == 10) {
+            score += 10 + bowls[i * 2 + 2];
+        } else {
+            score += bowls[i * 2] + bowls[i * 2 + 1];
+        }
+    }
+
     return score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    
-    int score = getScore(bowls);
-    cout << score << endl;
-    
+    string round;
+    cin >> round;
+    cout << scoreOfRound(round) << endl;
     return 0;
 }
