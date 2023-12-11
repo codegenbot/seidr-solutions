@@ -1,4 +1,3 @@
-
 def leaders(vector):
     result = []
     for i in range(len(vector)):
