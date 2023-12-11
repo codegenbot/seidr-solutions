@@ -1,4 +1,3 @@
-```
 def get_negative_sum_index(arr):
     curr_sum = 0
     max_neg_sum = 0
@@ -9,4 +8,3 @@ def get_negative_sum_index(arr):
         elif curr_sum > 0:
             return i - 1
     return len(arr) - 1
-```
