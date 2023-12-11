@@ -1,4 +1,4 @@
-```cpp
+
 #include <iostream>
 #include <cmath>
 
@@ -15,4 +15,3 @@ int main() {
     std::cout << "is_simple_power(5, 3): " << is_simple_power("5", "3") << std::endl;
     return 0;
 }
-```
