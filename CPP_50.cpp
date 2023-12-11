@@ -1,14 +1,17 @@
-#include<stdio.h>
-#include<string>
+```cpp
+#include <iostream>
+#include <string>
 using namespace std;
-string decode_shift(string s){
-    // takes as input string encoded with encode_shift function. Returns decoded string.
-    string out;
-    int i;
-    for (i=0;i<s.length();i++)
-    {
-        int w=((int)s[i]-5-(int)'a')%26+(int)'a';   
-        out=out+(char)w;
-    }
-    return out;
+
+// Declare the encode_shift function
+string encode_shift(string s) {
+    // Implement the encoding logic here
 }
+
+int main() {
+    string str = "Hello, World!";
+    string encoded_str = encode_shift(str);
+    cout << encoded_str << endl;
+    return 0;
+}
+```
