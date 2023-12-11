@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -11,3 +12,4 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     }
     return true;
 }
+```
