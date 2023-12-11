@@ -1,19 +1,19 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 
-std::string is_simple_power(std::string x, std::string n) {
-    double x_d = stod(x);
-    double n_d = stod(n);
-    return std::to_string(x_d == pow(n_d, round(log(x_d) / log(n_d))));
+bool is_simple_power(int x, int n) {
+    double x_d = static_cast<double>(x);
+    double n_d = static_cast<double>(n);
+    return (x_d == pow(n_d, round(log(x_d) / log(n_d))));
 }
 
 int main() {
-    std::cout << "is_simple_power(1, 4): " << is_simple_power("1", "4") << std::endl;
-    std::cout << "is_simple_power(2, 2): " << is_simple_power("2", "2") << std::endl;
-    std::cout << "is_simple_power(8, 2): " << is_simple_power("8", "2") << std::endl;
-    std::cout << "is_simple_power(3, 2): " << is_simple_power("3", "2") << std::endl;
-    std::cout << "is_simple_power(3, 1): " << is_simple_power("3", "1") << std::endl;
-    std::cout << "is_simple_power(5, 3): " << is_simple_power("5", "3") << std::endl;
+    assert (is_simple_power(1, 4)==true);
+    assert (is_simple_power(2, 2)==false);
+    assert (is_simple_power(8, 2)==true);
+    assert (is_simple_power(3, 2)==false);
+    assert (is_simple_power(3, 1)==false);
+    assert (is_simple_power(5, 3)==false);
 }
 ```

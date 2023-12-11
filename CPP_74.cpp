@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -27,6 +26,5 @@ std::pmr::vector<std::pmr::string> totalMatch(const std::pmr::vector<std::pmr::s
 }
 
 int main() {
-    assert(issame(totalMatch({"this"}, {}), {"this"}));
+    assert(issame(totalMatch({"this"}, {}), {}));
 }
-```
