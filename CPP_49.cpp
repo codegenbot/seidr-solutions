@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cmath>
 
-int modp(int n, int p) {
-    return static_cast<int>(pow(2, n)) % p;
+int modp(int a, int b) {
+    return (a % b + b) % b;
 }
 
 int main() {
