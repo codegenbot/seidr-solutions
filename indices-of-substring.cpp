@@ -1,4 +1,3 @@
-
 ```
 #include <vector>
 #include <iostream>
@@ -34,3 +33,4 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
+This code will return a vector of integers, each representing the index at which the target string appears in the text string. The target string may overlap with itself.
