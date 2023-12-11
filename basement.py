@@ -1,3 +1,4 @@
+
 def get_negative_sum_index(arr):
     curr_sum = 0
     max_neg_sum = 0
