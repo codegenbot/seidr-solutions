@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     while b != 0:
         if a % b == 0:
@@ -28,3 +29,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
