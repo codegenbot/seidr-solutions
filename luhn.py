@@ -1,21 +1,9 @@
-def luhn(nums):
-    # Initialize variables
-    double = False
-    total = 0
-    
-    # Iterate over the digits in reverse order
-    for i in range(len(nums) - 1, -1, -1):
-        # Get the current digit and double it if necessary
-        digit = nums[i]
-        if double:
-            digit *= 2
-        
-        # Check if the result is over 9 and subtract 9 if so
+def luhn(credit_card_number):
+    digits = list(map(int, credit_card_number))
+    new_digits = []
+    for i in range(1, len(digits), 2):
+        digit = digits[i] * 2
         if digit > 9:
             digit -= 9
-        
-        # Add the result to the total and toggle the double flag
-        total += digit
-        double = not double
-    
-    return total
+        new_digits.append(digit)
+    return sum(new_digits)
