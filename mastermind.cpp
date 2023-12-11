@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-bool isValidInput(string input) {
+bool isValidInput(const string& input) {
     if (input.length() != 4) {
         return false;
     }
@@ -15,7 +15,7 @@ bool isValidInput(string input) {
     return true;
 }
 
-pair<int, int> mastermind(string code, string guess) {
+pair<int, int> mastermind(const string& code, const string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     int codeCount[6] = {0};
