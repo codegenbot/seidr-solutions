@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     # Use a stack to evaluate the expression
     stack = []
@@ -18,7 +17,3 @@ def solve_boolean(expression):
             b = stack.pop()
             stack.append(a and b)
     return stack[-1]
-```
-
-
-
