@@ -22,8 +22,8 @@ vector<string> numerical_letter_grade(vector<double> grades) {
     return letters;
 }
 
-// Define issame function
-bool issame(vector<string> grades1, vector<string> grades2) {
+// Define are_grades_same function
+bool are_grades_same(vector<string> grades1, vector<string> grades2) {
     if (grades1.size() != grades2.size()) {
         return false;
     }
@@ -36,8 +36,8 @@ bool issame(vector<string> grades1, vector<string> grades2) {
 }
 
 // Remove one of the definitions of main
-// int main(void) {
-//     vector<double> grades = {0, 0.7};
-//     assert(issame(numerical_letter_grade(grades), {"E", "D-"}));
-//     return 0;
-// }
+int main(void) {
+    vector<double> grades = {0, 0.7};
+    assert(are_grades_same(numerical_letter_grade(grades), {"E", "D-"}));
+    return 0;
+}
