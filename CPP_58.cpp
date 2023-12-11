@@ -1,4 +1,5 @@
-#include <iostream>
+```
+#include <algorithm>
 #include <vector>
 
 using size_type = std::size_t;
@@ -8,7 +9,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> common{4, 3, 2, 8};
-    assert(issame(common, {}));
+    auto common = std::vector{4, 3, 2, 8};
+    assert([&]() { return issame(common, {}); }());
     return 0;
 }
+```
