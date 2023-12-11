@@ -7,7 +7,7 @@ def snow_day(hours, initial_snow, snow_fall, melt_rate):
         # Add new snow
         current_snow += snow_fall
         
-        # Melt the snow
+        # Melt some of the existing snow
         current_snow *= (1 - melt_rate)
         
         # Keep track of total snow
