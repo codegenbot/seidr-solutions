@@ -10,34 +10,61 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
-
-vector<int> indicesOfSubstring(const string& text, const string& target) {
+/*
+Given two integers, return the largest integer that divides each of the integers evenly. Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
+For example,
+input:
+1
+1
+output:
+1
+input:
+4
+400000
+output:
+4
+input:
+54
+24
+output:
+6
+input:
+4200
+3528
+output:
+168
+input:
+820000
+63550
+output:
+2050
+*/
+vector<int> gcd(vector<int> nums) {
     vector<int> result;
-    for (int i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (text.substr(i, target.size()) == target) {
-            result.push_back(i);
+    for (int i = 0; i < nums.size(); i++) {
+        int g = nums[i];
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[j] % g == 0) {
+                result.push_back(g);
+                break;
+            }
         }
     }
     return result;
 }
 
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        cout << i << " ";
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    for (int i = 0; i < text.size(); i++) {
+        if (text[i] == target[0]) {
+            int j = 1;
+            while (j < target.size() && text[i + j] == target[j]) {
+                j++;
+            }
+            if (j == target.size()) {
+                result.push_back(i);
+            }
+        }
     }
-    cout << endl;
-
-    return 0;
+    return result;
 }
