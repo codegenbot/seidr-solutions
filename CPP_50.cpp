@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 #include <string>
 
@@ -14,9 +14,9 @@ std::string decode_shift(const std::string& encoded_str) {
 
 int main() {
     // Test the encode_shift and decode_shift functions
-    using std::string;
-    string str = "hello";
+    std::string str = "hello";
     std::cout << "Encoded: " << encode_shift(str) << std::endl;
     std::cout << "Decoded: " << decode_shift(encode_shift(str)) << std::endl;
     return 0;
 }
+```
