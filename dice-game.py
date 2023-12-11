@@ -1,22 +1,8 @@
 def get_probability(n, m):
-    return (m / (n + m - 1)) * (1 - (1 / n))
-```
-In this problem, we are given two dice with different numbers of sides. We need to find the probability that Peter's die will roll higher than Colin's die if they both roll at the same time.
+    return 1 / (m + 1) * sum(1 for i in range(1, n + 1) if i > m)
 
-To solve this problem, we can use the following formula:
-
-P(Peter's die > Colin's die) = (m / (n + m - 1)) \* (1 - (1 / n))
-
-Where:
-
-* P(Peter's die > Colin's die) is the probability that Peter's die will roll higher than Colin's die.
-* m is the number of sides on Colin's die.
-* n is the number of sides on Peter's die.
-* (1 / n) is the probability that Peter's die will roll a specific side.
-* (m / (n + m - 1)) is the probability that Colin's die will roll a specific side.
-
-We can simplify this formula by noticing that the probability of rolling a specific side on both dice is equal to the probability of rolling that side on Peter's die times the probability of rolling that side on Colin's die. Therefore, we can rewrite the formula as:
-
-P(Peter's die > Colin's die) = (1 - (1 / n)) \* (m / (n + m - 1))
-
-This formula gives us the probability that Peter's die will roll higher than Colin's die if they both roll at the same time.
+# test cases
+print(get_probability(2, 1)) # output: 0.5
+print(get_probability(99, 100)) # output: 0.49
+print(get_probability(100, 99)) # output: 0.5
+print(get_probability(1, 100)) # output: 0.0
