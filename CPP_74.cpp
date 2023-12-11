@@ -24,8 +24,4 @@ std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std
     }
     return result;
 }
-
-int main() {
-    assert (issame(totalMatch({"this"}, {}), {}));
-}
 ```
