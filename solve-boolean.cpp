@@ -1,30 +1,26 @@
 #include <string>
+#include <cmath>
+#include <iostream>
 using namespace std;
 
-bool solveBoolean(string expression) {
-    // Initialize result to False
+int main() {
+    string input;
+    getline(cin, input);
+    
+    int size = input.size();
     bool result = false;
+    char op = '&';
 
-    // Loop through each character in the expression
-    for (int i = 0; i < expression.length(); i++) {
-        // If the current character is 't' or 'T', set result to True
-        if (expression[i] == 't' || expression[i] == 'T') {
+    for (int i = 0; i < size; i++) {
+        if (input[i] == 't' || input[i] == 'T') {
             result = true;
-        }
-        // If the current character is 'f' or 'F', set result to False
-        else if (expression[i] == 'f' || expression[i] == 'F') {
+        } else if (input[i] == 'f' || input[i] == 'F') {
             result = false;
-        }
-        // If the current character is a logical operator ('|' or '&'), apply it to result and the next character
-        else if (expression[i] == '|' || expression[i] == '&') {
-            bool nextCharValue = solveBoolean(expression.substr(i + 1));
-            if (expression[i] == '|') {
-                result |= nextCharValue;
-            } else {
-                result &= nextCharValue;
-            }
+        } else if (input[i] == op) {
+            result = !result;
         }
     }
 
-    return result;
+    cout << boolalpha << result << endl;
+    return 0;
 }
