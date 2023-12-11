@@ -1,3 +1,4 @@
+[PYTHON]
 def solve_boolean(expression):
     queue = []
     prev_op = None
@@ -21,3 +22,16 @@ def solve_boolean(expression):
         else:
             raise ValueError("Invalid character in expression")
     return queue[-1]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert solve_boolean("T|F") == True
+# Test case 2:
+assert solve_boolean("T&F") == False
+# Test case 3:
+assert solve_boolean("T|T&F") == True
+# Test case 4:
+assert solve_boolean("T|T&T") == True
+# Test case 5:
+assert solve_boolean("T&T&T") == True
+[/TESTS]
