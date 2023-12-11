@@ -1,3 +1,4 @@
+```python
 n = int(input())
 m = int(input())
 
@@ -10,3 +11,4 @@ def probability_of_higher(n, m):
     return round(count / (n * m), 8)
 
 print(probability_of_higher(n, m))
+```
