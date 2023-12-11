@@ -1,10 +1,4 @@
-```python
-import re
 
 def fix_spaces(text):
-    # Read input from user
-    text = input("Enter a string with spaces: ")
-    
-    # Replace all spaces with underscores
+    import re
     return re.sub(r"\s+", "_", text)
-```
