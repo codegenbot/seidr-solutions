@@ -19,4 +19,10 @@ bool is_happy(string s) {
     }
     return true;
 }
+
+int main() {
+    string s = "abc";
+    cout << is_happy(s) << endl;
+    return 0;
+}
 ```
