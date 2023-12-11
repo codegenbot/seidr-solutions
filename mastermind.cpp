@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -26,4 +25,3 @@ int main() {
     cout << blackPegs << " " << whitePegs << endl;
     return 0;
 }
-```
