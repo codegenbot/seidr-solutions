@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     vector_sum = sum(vector)
     current_sum = 0
@@ -9,3 +10,4 @@ def cut_vector(vector):
             best_cut = abs(current_sum - vector_sum/2)
             best_cut_index = i
     return vector[:best_cut_index+1], vector[best_cut_index+1:]
+```
