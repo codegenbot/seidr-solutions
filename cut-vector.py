@@ -1,20 +1,12 @@
-def cut_vector(vec):
-    n = len(vec)
-    if n == 1:
-        return vec, []
-    
-    # initialize variables
-    min_diff = float('inf')
-    left = 0
-    right = 0
-    
-    # loop through the vector and find the spot where the difference is minimum
-    for i in range(1, n):
-        diff = abs(vec[i] - vec[i-1])
-        if diff < min_diff:
-            min_diff = diff
-            left = i-1
-            right = i
-    
-    # return the two subvectors
-    return vec[:left+1], vec[right:]
+def get_min_diff(vector):
+    diff = math.inf
+    min_index = 0
+    for i in range(1, len(vector)):
+        if vector[i] - vector[i-1] < diff:
+            diff = vector[i] - vector[i-1]
+            min_index = i
+    return diff, min_index
+
+def cut_vector(vector):
+    diff, min_index = get_min_diff(vector)
+    return vector[:min_index], vector[min_index:]
