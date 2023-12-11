@@ -1,18 +1,26 @@
-#include <vector>
 #include <iostream>
-#include <cstdio>
+#include <cstdint>
 using namespace std;
+
 int main() {
-vector<int> coins = {1, 5, 10, 25};
-int totalCents = 0;
-cin >> totalCents;
-int numCoins[4] = {0};
-for (int i = 0; i < 4; i++) {
-numCoins[i] = totalCents / coins[i];
-totalCents -= numCoins[i] * coins[i];
-}
-for (int i = 0; i < 4; i++) {
-cout << numCoins[i] << " ";
-}
-return 0;
+    int64_t cents;
+    cin >> cents;
+    vector<int> coins(4, 0);
+    while (cents > 0) {
+        if (cents >= 25) {
+            coins[3]++;
+            cents -= 25;
+        } else if (cents >= 10) {
+            coins[2]++;
+            cents -= 10;
+        } else if (cents >= 5) {
+            coins[1]++;
+            cents -= 5;
+        } else {
+            coins[0]++;
+            cents = 0;
+        }
+    }
+    cout << coins[0] << " " << coins[1] << " " << coins[2] << " " << coins[3] << endl;
+    return 0;
 }
