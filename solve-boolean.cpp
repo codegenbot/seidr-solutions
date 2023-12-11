@@ -4,14 +4,14 @@
 using namespace std;
 
 bool evaluateBoolean(string expression) {
-    if (expression == "T") {
+    if (expression == "t") {
         return true;
-    } else if (expression == "F") {
+    } else if (expression == "f") {
         return false;
     } else {
-        char op = expression[1];
-        bool left = evaluateBoolean(expression.substr(0, 1));
-        bool right = evaluateBoolean(expression.substr(2));
+        char op = expression[0];
+        bool left = evaluateBoolean(expression.substr(0, expression.size() - 1));
+        bool right = evaluateBoolean(expression.substr(expression.size() - 1));
         
         if (op == '&') {
             return left && right;
