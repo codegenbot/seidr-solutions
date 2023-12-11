@@ -1,9 +1,3 @@
-```
-#include <iostream>
-
-int add(int x, int y) {
-    return x + y;
-}
 
 int main() {
     int x, y;
@@ -11,4 +5,3 @@ int main() {
     std::cout << add(x, y) << std::endl;
     return 0;
 }
-```
