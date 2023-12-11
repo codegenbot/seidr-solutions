@@ -7,7 +7,8 @@ bool isValidInput(string input) {
     if (input.length() != 4) {
         return false;
     }
-    for (char ch : input) {
+    for (int i = 0; i < 4; i++) {
+        char ch = input[i];
         if (ch < 'A' || ch > 'F') {
             return false;
         }
