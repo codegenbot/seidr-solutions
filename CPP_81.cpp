@@ -1,6 +1,7 @@
 ```
 #include <iostream>
 #include <vector>
+#include <cassert>
 using namespace std;
 
 // Define numerical_letter_grade function
