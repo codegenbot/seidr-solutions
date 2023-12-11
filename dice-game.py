@@ -1,3 +1,4 @@
+```
 def get_probability(n, m):
     total = 0
     for i in range(1, n+1):
@@ -5,3 +6,4 @@ def get_probability(n, m):
             if i > j:
                 total += 1
     return total / (n * m)
+```
