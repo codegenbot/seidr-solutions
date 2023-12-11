@@ -1,4 +1,4 @@
-
+```python
 def eat(number, need, extra):
     total_eaten = number + need
     carrots_left = max(0, remaining - need)
@@ -6,3 +6,4 @@ def eat(number, need, extra):
 
 remaining = 10 # for example
 eat(4, 5, 1) # should return [5, 0]
+```
