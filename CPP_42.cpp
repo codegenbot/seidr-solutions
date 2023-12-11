@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(int a, int b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-void incr_list(const std::vector<int>& v) {
+void incr_list(std::vector<int>& v) {
     for (auto& x : v) {
         x++;
     }
