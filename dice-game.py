@@ -1,8 +1,9 @@
 n = int(input())
 m = int(input())
 
-total_outcomes = n * m
-favorable_outcomes = (n-1) * m
+def probability_of_peter_winning(n, m):
+    total_outcomes = n * m
+    favorable_outcomes = (n - 1) * m
+    return favorable_outcomes / total_outcomes
 
-probability = favorable_outcomes / total_outcomes
-print(probability)
+print(probability_of_peter_winning(n, m))
