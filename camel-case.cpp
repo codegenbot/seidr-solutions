@@ -1,21 +1,18 @@
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 
-string camelCase(string input) {
-    string output = "";
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == '-') {
-            i++;
-            output += toupper(input[i]);
-        } else {
-            output += input[i];
+int main() {
+    string input;
+    getline(cin, input);
+    int index = 0;
+    while (index != -1) {
+        index = input.find("-", index + 1);
+        if (index != -1 && index < input.size()) {
+            input[index] = toupper(input[index + 1]);
+            input.erase(index + 1, 1);
         }
     }
-    return output;
-}
-int main() {
-    string input = "camel-case example-test-string";
-    cout << camelCase(input) << endl;
+    cout << input;
     return 0;
 }
