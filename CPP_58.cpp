@@ -1,13 +1,12 @@
 ```
 #include <algorithm>
-#include <vector>
-#include <cstddef> // include this header file to define size_type
+#include <pmr/vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const pmr::vector<int>& a, const pmr::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); i++) { // use size_t instead of int
+    for (std::initializer_list<int>::size_type i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -16,7 +15,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> common({4, 3, 2, 8});
+    pmr::vector<int> common({4, 3, 2, 8});
     assert(issame(common, {}));
 }
 ```
