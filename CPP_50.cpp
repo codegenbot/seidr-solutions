@@ -1,4 +1,9 @@
+
+Here is the corrected code:
 ```
+string str = "";
+string encoded_str = "";
+
 string encode_shift(string s) {
     // takes as input string and returns encoded string
     for (int i = 0; i < s.length(); i++) {
