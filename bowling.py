@@ -1,23 +1,25 @@
-def get_bowling_score(game):
-    # Initialize variables to keep track of the score and current frame
+def get_score(bowl_string):
+    # Initialize variables
     score = 0
-    frame = 1
+    is_strike = False
+    is_spare = False
 
-    # Iterate through each character in the game string
-    for i, char in enumerate(game):
-        # If the character is a digit, add its value to the score
-        if char.isdigit():
-            score += int(char)
-        # If the character is a slash, it indicates a strike or spare
-        elif char == '/':
-            # If the previous character was a digit, this is a strike
-            if game[i-1].isdigit():
-                score += 10 + int(game[i+1])
-            # If the previous two characters were digits, this is a spare
-            elif game[i-2].isdigit() and game[i-1].isdigit():
-                score += 10 + int(game[i+1])
-        # If the character is a dash, it indicates a miss
-        elif char == '-':
-            score += 0
+    # Loop through each bowl in the string
+    for i, bowl in enumerate(bowl_string):
+        # Check if it's a strike
+        if bowl == 'X':
+            score += 10
+            is_strike = True
+            continue
+
+        # Check if it's a spare
+        if bowl == '/':
+            score += 10
+            is_spare = True
+            continue
+
+        # If it's not a strike or spare, add the value to the score
+        if not is_strike and not is_spare:
+            score += int(bowl)
 
     return score
