@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cstdint>
 using namespace std;
@@ -25,4 +24,3 @@ int main() {
     cout << coins[0] << " " << coins[1] << " " << coins[2] << " " << coins[3] << endl;
     return 0;
 }
-```
