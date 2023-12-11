@@ -1,33 +1,39 @@
+```
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <cmath>
+
 using namespace std;
-vector<int> cutVector(const vector<int>& v) {
-    int n = v.size();
+
+vector<int> cutVector(const vector<int>& vec) {
+    int n = vec.size();
     if (n == 0) return {};
-    int left = 0, right = n - 1;
-    while (left < right && v[left] != v[right]) {
-        int diff = abs(v[left] - v[right]);
-        if (diff <= 1) break;
-        if (v[left] > v[right]) {
-            left++;
-        } else {
-            right--;
+    if (n == 1) return {vec[0]};
+    
+    int minDiff = INT_MAX;
+    int spot = -1;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(vec[i-1] - vec[i]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            spot = i;
         }
     }
-    return {left, right};
+    
+    vector<int> result;
+    for (int i = 0; i <= spot; i++) {
+        result.push_back(vec[i]);
+    }
+    return result;
 }
+
 int main() {
-    vector<int> v = {1, 10, 100, 1000, 10000};
-    auto result = cutVector(v);
-    for (auto x : result) cout << x << " ";
+    vector<int> vec = {1, 2, 3, 4, 5};
+    vector<int> subVecs = cutVector(vec);
+    
+    for (auto v : subVecs) {
+        cout << v << " ";
+    }
     return 0;
 }
+```
