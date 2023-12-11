@@ -1,12 +1,7 @@
 ```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-optional<int> next_smallest(vector<int> lst) {
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2) {
-        return nullopt;
+        return nullptr;
     }
     sort(lst.begin(), lst.end());
     for (int i = 1; i < lst.size(); i++) {
@@ -14,6 +9,6 @@ optional<int> next_smallest(vector<int> lst) {
             return lst[i];
         }
     }
-    return nullopt;
+    return nullptr;
 }
 ```

@@ -23,4 +23,10 @@ string encrypt(string s) {
     }
     return result;
 }
+
+int main() {
+    string s = "hello";
+    cout << encrypt(s) << endl;
+    return 0;
+}
 ```
