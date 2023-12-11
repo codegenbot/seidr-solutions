@@ -2,11 +2,19 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> incr_vector(const std::vector<int>& v) {
-    std::vector<int> result;
-    for (auto& x : v) {
-        result.push_back(x + 1);
+std::vector<int> incr_list(std::vector<int> l) {
+    for (auto& i : l) {
+        i++;
     }
-    return result;
+    return l;
+}
+
+int main() {
+    std::vector<int> v = {1, 2, 3};
+    auto result = incr_list(v);
+    for (auto i : result) {
+        std::cout << i << " ";
+    }
+    return 0;
 }
 ```
