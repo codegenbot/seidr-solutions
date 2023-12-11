@@ -8,9 +8,10 @@ bool evaluateBoolean(string expression) {
     } else if (expression == "f") {
         return false;
     } else {
+        int n = expression.size();
         bool left, right;
         char op;
-        for (int i = 0; i < expression.size(); i++) {
+        for (int i = 0; i < n; i++) {
             if (expression[i] == '&' || expression[i] == '|') {
                 op = expression[i];
                 left = evaluateBoolean(expression.substr(0, i));
