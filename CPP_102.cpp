@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 int choose_num(int x, int y) {
@@ -17,4 +16,3 @@ int choose_num(int x, int y) {
     }
     return -1;
 }
-```
