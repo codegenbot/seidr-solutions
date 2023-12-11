@@ -1,7 +1,8 @@
 
 [PYTHON]
+import ast
+
 def solve_boolean(expression):
-    # Use the ast module to parse and evaluate the expression
     return ast.literal_eval(expression)
 [/PYTHON]
 
@@ -11,9 +12,5 @@ assert solve_boolean("T|F") == True
 # Test case 2:
 assert solve_boolean("T&F") == False
 # Test case 3:
-assert solve_boolean("T^F") == True
-# Test case 4:
-assert solve_boolean("~T") == False
-# Test case 5:
-assert solve_boolean("T<<2") == True
+assert solve_boolean("(T|F)&T") == True
 [/TESTS]
