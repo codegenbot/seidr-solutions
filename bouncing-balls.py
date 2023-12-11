@@ -1,13 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
-
 starting_height = float(input())
 first_bounce_height = float(input())
 num_bounces = int(input())
