@@ -3,12 +3,11 @@
 #include <vector>
 #include <climits>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int idx = -1;
     
-    // Find the spot where the difference is minimized
     for (int i = 1; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
@@ -28,9 +27,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
     
-    // Create subvectors based on the split index
-    std::vector<int> left(nums.begin(), nums.begin() + idx);
-    std::vector<int> right(nums.begin() + idx, nums.end());
+    std::vector<int> left(nums.begin(), nums.begin() + idx - 1);
+    std::vector<int> right(nums.begin() + idx - 1, nums.end());
     
     return std::make_pair(left, right);
 }
@@ -44,9 +42,8 @@ int main() {
         std::cin >> nums[i];
     }
     
-    auto result = cutVector(nums);
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     
-    // Print the two resulting subvectors
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
