@@ -1,6 +1,5 @@
 ```
-#include <iostream>
-#include <memory_resource>
+#include <pmr/memory_resource>
 
 bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     if (a.size() != b.size()) return false;
