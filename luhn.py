@@ -1,26 +1,25 @@
-def luhn(numbers):
+def luhn(num):
     # Initialize variables
     sum = 0
-    is_even = False
+    is_odd = False
 
-    # Iterate over the numbers in reverse order
-    for i in range(len(numbers) - 1, -1, -1):
-        # Get the current number and its index
-        num = numbers[i]
-        idx = len(numbers) - i - 1
+    # Iterate over each digit in the number
+    for i in range(len(num) - 1, -1, -2):
+        # Get the current digit and convert it to an integer
+        curr_digit = int(num[i])
 
-        # If the index is even, double the number
-        if is_even:
-            num *= 2
+        # If the current digit is odd, double it
+        if is_odd:
+            curr_digit *= 2
 
         # If the result of doubling is greater than 9, subtract 9 from it
-        if num > 9:
-            num -= 9
+        if curr_digit > 9:
+            curr_digit -= 9
 
-        # Add the result to the sum
-        sum += num
+        # Add the current digit to the sum
+        sum += curr_digit
 
-        # Toggle the even flag
-        is_even = not is_even
+        # Toggle the is_odd flag
+        is_odd = not is_odd
 
     return sum
