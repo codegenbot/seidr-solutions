@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -6,7 +7,7 @@ bool isCube(int a) {
     return (root * root * root == a);
 }
 
-int main() {
+int test() {
     int a;
     std::cout << "Enter an integer: ";
     std::cin >> a;
@@ -17,3 +18,4 @@ int main() {
     }
     return 0;
 }
+```
