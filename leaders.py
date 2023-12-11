@@ -1,4 +1,5 @@
 
+```
 def leaders(vector):
     result = []
     for i in range(len(vector)):
@@ -7,3 +8,4 @@ def leaders(vector):
         elif vector[i] == 0:
             result.append(vector[i])
     return result
+```
