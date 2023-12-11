@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,3 +13,4 @@ vector<int> strange_sort_list(vector<int> lst) {
     }
     return result;
 }
+```

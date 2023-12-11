@@ -1,5 +1,3 @@
-Solve the following code contest problem: CPP/62. Problem description: Complete the following code given the task description and function signature..
-Currently, the code is 
 ```
 #include <iostream>
 #include <math.h>
@@ -9,19 +7,17 @@ using namespace std;
 vector<float> derivative(vector<float> xs) {
     vector<float> result;
     for (int i = 1; i < xs.size(); i++) {
-        result.push_back(xs[i] * pow(i, i - 1));
+        result.push_back(xs[i] * pow(xs[0], i));
     }
     return result;
 }
-```
-Modify the code as  The issue is occurring because of extra backticks (`) at the beginning and end of the code block. To fix this, remove the extra backticks so that there are no more than three backticks in the code block. Here's an example:
-```
-vector<float> derivative(vector<float> xs) {
-    vector<float> result;
-    for (int i = 1; i < xs.size(); i++) {
-        result.push_back(xs[i] * pow(i, i - 1));
+
+int main() {
+    vector<float> xs = {3, 1, 2, 4, 5};
+    vector<float> ys = derivative(xs);
+    for (auto x : ys) {
+        cout << x << " ";
     }
-    return result;
+    return 0;
 }
 ```
-You must only return correct code. Remove any triple quotes, language name or explanations.
