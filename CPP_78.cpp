@@ -18,11 +18,4 @@ int hex_key(std::string num) {
     }
     return count;
 }
-
-int main() {
-    std::string num;
-    std::cin >> num;
-    std::cout << hex_key(num) << std::endl;
-    return 0;
-}
 ```
