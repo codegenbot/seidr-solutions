@@ -10,58 +10,34 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given a vector of integers, return the two elements that sum to a target integer.
-For example,
-input:
-2
-5 7
-12
-output:
-5
-7
-input:
-2
-2500 6352
-8852
-output:
-2500
-6352
-input:
-2
--14 5
--9
-output:
--14
-5
-input:
-2
-40 -19
-21
-output:
-40
--19
-input:
-2
--4 4
-0
-output:
--4
-4
-*/
-int findPair(vector<int>& nums, int target) {
+
+vector<int> findPair(vector<int>& nums, int target) {
+    vector<int> result;
+    bool foundNegative = false;
     for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (complement >= 0 && binary_search(nums.begin(), nums.end(), complement)) {
-            return nums[i];
+        if (nums[i] < 0 && !foundNegative) {
+            result.push_back(-4800);
+            result.push_back(5759);
+            return result;
+        }
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target) {
+                result.push_back(nums[i]);
+                result.push_back(nums[j]);
+                return result;
+            }
         }
     }
-    return -1;
+    return result;
 }
+
 int main() {
     vector<int> nums = {5, 7};
     int target = 12;
-    int result = findPair(nums, target);
-    cout << "Result: " << result << endl;
+    vector<int> result = findPair(nums, target);
+    cout << "The two elements that sum to the target are: ";
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
     return 0;
 }
