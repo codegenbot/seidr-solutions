@@ -1,8 +1,6 @@
-def leaders(nums):
+def leaders(arr):
     result = []
-    current_leader = nums[-1]
-    for i in range(len(nums)-2, -1, -1):
-        if nums[i] >= current_leader:
-            result.append(current_leader)
-            current_leader = nums[i]
+    for i in range(len(arr)):
+        if arr[i] >= max(arr[i+1:]):
+            result.append(arr[i])
     return result
