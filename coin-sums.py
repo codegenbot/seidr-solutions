@@ -1,8 +1,8 @@
-def coin_sums(cents):
-    coins = {
-        'pennies': cents // 1,
-        'nickles': cents // 5,
-        'dimes': cents // 10,
-        'quarters': cents // 25
-    }
-    return (coins['pennies'], coins['nickles'], coins['dimes'], coins['quarters'])
+def get_coin_sums(cents):
+    coins = [1, 5, 10, 25]
+    count = [0, 0, 0, 0]
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            cents -= coins[i]
+            count[i] += 1
+    return count
