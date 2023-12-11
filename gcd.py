@@ -1,4 +1,3 @@
-
 def gcd(a, b):
     if a == 1 or b == 1:
         return 1
