@@ -1,10 +1,15 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <cctype>
 
 std::string validateTweet(const std::string& tweet) {
     std::string trimmedTweet = tweet;
-    trimmedTweet.erase(0, trimmedTweet.find_first_not_of(' '));
-    trimmedTweet.erase(trimmedTweet.find_last_not_of(' ') + 1);
+    trimmedTweet.erase(trimmedTweet.begin(), std::find_if(trimmedTweet.begin(), trimmedTweet.end(),
+                    [](unsigned char ch) { return !std::isspace(ch); }));
+    trimmedTweet.erase(std::find_if(trimmedTweet.rbegin(), trimmedTweet.rend(),
+                    [](unsigned char ch) { return !std::isspace(ch); }).base(), trimmedTweet.end());
     
     if (trimmedTweet.empty()) {
         return "You didn't type anything";
@@ -21,3 +26,4 @@ int main() {
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
+```
