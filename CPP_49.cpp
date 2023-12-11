@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 int modp(int a, int b) {
@@ -12,3 +13,4 @@ int main() {
     std::cout << "modp(100, 101): " << modp(100, 101) << '\n';
     return 0;
 }
+```
