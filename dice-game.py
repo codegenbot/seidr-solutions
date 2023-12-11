@@ -1,12 +1,9 @@
-n = int(input())
-m = int(input())
+import sys
 
-def probability(n, m):
-    count = 0
-    for i in range(1, n+1):
-        for j in range(1, m+1):
-            if i > j:
-                count += 1
-    return count / (n * m)
+n = int(sys.stdin.readline().strip())
+m = int(sys.stdin.readline().strip())
 
-print(probability(n, m))
+def probability_of_higher(n, m):
+    return (n-1) / (n+m-2)
+
+print(probability_of_higher(n, m))
