@@ -1,4 +1,5 @@
 def snow_day(hours, initial_snow, snow_fall, melt_rate):
+    # Initialize variables
     current_snow = initial_snow
     total_snow = 0
     
@@ -12,4 +13,4 @@ def snow_day(hours, initial_snow, snow_fall, melt_rate):
         # Keep track of total snow
         total_snow += current_snow
     
-    return total_snow
+    return current_snow * (1 - melt_rate)**hours
