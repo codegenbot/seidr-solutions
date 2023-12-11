@@ -1,12 +1,14 @@
-[PYTHON]
-def get_unique_elements(my_list):
-    return list(set(my_list))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
+#include <iostream>
+#include <vector>
+
+using size_type = std::size_t;
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    std::vector<int> common{4, 3, 2, 8};
+    assert(issame(common, {}));
+    return 0;
+}
