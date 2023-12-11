@@ -1,5 +1,6 @@
-cpp code:
-```cpp
+#include <iostream>
+#include <string>
+
 std::string validateTweet(const std::string& tweet) {
     std::string trimmedTweet = tweet;
     trimmedTweet.erase(0, trimmedTweet.find_first_not_of(' '));
@@ -13,4 +14,10 @@ std::string validateTweet(const std::string& tweet) {
         return "Your tweet has " + std::to_string(trimmedTweet.length()) + " characters";
     }
 }
-```
+
+int main() {
+    std::string tweet;
+    std::getline(std::cin, tweet);
+    std::cout << validateTweet(tweet) << std::endl;
+    return 0;
+}
