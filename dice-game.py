@@ -1,10 +1,12 @@
-n = int(input())
-m = int(input())
+n, m = map(int, input().split())
 
-def probability_of_higher(n, m):
-    total_outcomes = n * m
-    favorable_outcomes = (n-1) * m
-    return favorable_outcomes / total_outcomes
+count = 0
+total = n * m
 
-result = probability_of_higher(n, m)
-print(result)
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        if i > j:
+            count += 1
+
+probability = count / total
+print(probability)
