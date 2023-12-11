@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -12,16 +13,16 @@ bool is_happy(string s) {
             return false;
         }
     }
+    // Check for the case where the input string contains only two characters that are the same
+    if (s.length() == 2 && s[0] == s[1]) {
+        return true;
+    }
     return true;
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    if (is_happy(input)) {
-        cout << "Happy" << endl;
-    } else {
-        cout << "Not Happy" << endl;
-    }
+    string s = "abc";
+    cout << is_happy(s) << endl;
     return 0;
 }
+```
