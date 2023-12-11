@@ -1,6 +1,6 @@
-def get_leaders(my_list):
+def leaders(vector):
     leaders = []
-    for i in range(len(my_list)):
-        if my_list[i] >= my_list[i+1:]:
-            leaders.append(my_list[i])
+    for i in range(len(vector)):
+        if vector[i] >= all(vector[j] for j in range(i+1, len(vector))):
+            leaders.append(vector[i])
     return leaders
