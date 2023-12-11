@@ -5,7 +5,7 @@ std::string validateTweet(const std::string& tweet) {
     std::string trimmedTweet = tweet;
     trimmedTweet.erase(0, trimmedTweet.find_first_not_of(' '));
     trimmedTweet.erase(trimmedTweet.find_last_not_of(' ') + 1);
-
+    
     if (trimmedTweet.empty()) {
         return "You didn't type anything";
     } else if (trimmedTweet.length() > 140) {
