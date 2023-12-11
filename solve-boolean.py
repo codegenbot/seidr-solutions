@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     queue = []
     prev_op = None
@@ -21,3 +22,4 @@ def solve_boolean(expression):
         else:
             raise ValueError("Invalid character in expression")
     return queue[-1]
+```
