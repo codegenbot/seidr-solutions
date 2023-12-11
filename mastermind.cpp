@@ -27,13 +27,11 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    getline(cin, code, '\n');
-    getline(cin, guess, '\n');
-
+    cin >> code;
+    cin >> guess;
     pair<int, int> result = mastermind(code, guess);
-    cout << "White pegs: " << result.first << endl;
-    cout << "Black pegs: " << result.second << endl;
-
+    cout << result.first << endl;
+    cout << result.second << endl;
     return 0;
 }
 ```
