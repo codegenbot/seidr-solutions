@@ -1,12 +1,14 @@
 ```
-#include <vector>
+#include <iostream>
 #include <algorithm>
+#include <vector>
 
 int main() {
     std::vector<int> v;
-    v.push_back(1);
-    v.push_back(2);
-    v.push_back(3);
+    int n;
+    while (std::cin >> n) {
+        v.push_back(n);
+    }
     for (auto it = v.begin(); it != v.end(); ++it) {
         if (*it % 2 == 0) {
             std::cout << *it << " ";
