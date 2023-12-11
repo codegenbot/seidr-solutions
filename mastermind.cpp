@@ -1,4 +1,5 @@
-```
+#include <iostream>
+using namespace std;
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
@@ -7,15 +8,16 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            for (int j = 0; j < code.size(); j++) {
+            int count = 0;
+            for (int j = i + 1; j < code.size(); j++) {
                 if (code[j] == guess[i]) {
-                    whitePegs++;
+                    count++;
                     break;
                 }
             }
+            whitePegs += count;
         }
     }
     cout << blackPegs << " " << whitePegs << endl;
     return 0;
 }
-```
