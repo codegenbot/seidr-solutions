@@ -1,28 +1,54 @@
-def calculate_bowling_score(bowls):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    i = 0
-    while frame <= 10:
-        if bowls[i] == 'X':
-            score += 10 + bonus(bowls[i+1], bowls[i+2])
-            i += 1
-        elif bowls[i] == '/':
-            score += 10 + bonus(bowls[i+1], '0')
-            i += 1
+    frame_score = 0
+    is_strike = False
+    is_spare = False
+    
+    for bowl in bowls:
+        if bowl == 'X':
+            score += 10
+            if frame < 10:
+                frame_score += 10
+                is_strike = True
+            else:
+                frame_score += 10
+                if is_spare:
+                    score += 10
+                if is_strike:
+                    score += 10
+        elif bowl == '/':
+            score += 10 - frame_score
+            if frame < 10:
+                frame_score += 10 - frame_score
+                is_spare = True
+            else:
+                frame_score += 10 - frame_score
+                if is_strike:
+                    score += 10
+        elif bowl == '-':
+            if frame < 10:
+                frame_score += 0
+            else:
+                frame_score += 0
         else:
-            score += int(bowls[i])
-        i += 1
-        frame += 1
+            score += int(bowl)
+            if frame < 10:
+                frame_score += int(bowl)
+            else:
+                frame_score += int(bowl)
+                if is_spare:
+                    score += int(bowl)
+                if is_strike:
+                    score += int(bowl)
+        
+        if frame < 10 and (is_strike or is_spare or bowl == '-'):
+            frame += 1
+            frame_score = 0
+            is_strike = False
+            is_spare = False
+    
     return score
 
-def bonus(bowl1, bowl2):
-    if bowl1 == 'X':
-        return 10
-    elif bowl2 == '/':
-        return 10 - int(bowl1)
-    else:
-        return int(bowl1) + int(bowl2)
-
-bowls = input()
-score = calculate_bowling_score(bowls)
-print(score)
+bowls = input().strip()
+print(calculate_score(bowls))
