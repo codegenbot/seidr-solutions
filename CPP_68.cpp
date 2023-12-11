@@ -21,7 +21,7 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 int main() {
     vector<int> arr{7, 9, 7, 1};
     pluck(arr, 0);
-    assert(issame(pluck(arr, 0), {}));
+    assert(issame(pluck(arr, 0), vector<int>{}));
     return 0;
 }
 ```
