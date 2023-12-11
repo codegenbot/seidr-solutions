@@ -1,4 +1,4 @@
-
+```
 #include <string>
 #include <iostream>
 #include <stack>
@@ -27,3 +27,4 @@ bool solveBoolean(string expression) {
     }
     return result;
 }
+```
