@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -10,4 +11,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         }
     }
     return true;
+}
+
+int main() {
+    std::vector<int> common;
+    issame(common({4, 3, 2, 8}, {}), {});
 }
