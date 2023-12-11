@@ -1,19 +1,18 @@
-#include <string>
+#include <iostream>
 using namespace std;
 int main() {
-    string mastermind_code = "RRRR";
-    string guess = "RRRR";
-    int white_pegs = 0;
-    int black_pegs = 0;
-
-    for (int i = 0; i < guess.length(); i++) {
-        if (guess[i] == mastermind_code[i]) {
-            black_pegs++;
-        } else if ((mastermind_code[i] == 'R' && guess[i] == 'G') || (mastermind_code[i] == 'G' && guess[i] == 'R')) {
-            white_pegs++;
-        }
-    }
-
-    cout << black_pegs << " " << white_pegs << endl;
-    return 0;
+	string code = "RRRR";
+	string guess = "RRRR";
+	int whitePegs = 0;
+	int blackPegs = 0;
+	for (int i = 0; i < 4; i++) {
+		if (code[i] == guess[i]) {
+			blackPegs++;
+		} else if (code.find(guess[i]) != string::npos) {
+			whitePegs++;
+		}
+	}
+	cout << "White pegs: " << whitePegs << endl;
+	cout << "Black pegs: " << blackPegs << endl;
+	return 0;
 }
