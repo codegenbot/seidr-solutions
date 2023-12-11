@@ -1,3 +1,4 @@
+
 def mastermind(code, guess):
     if guess == code:
         return (1, 1)
