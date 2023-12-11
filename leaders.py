@@ -5,4 +5,4 @@ def leaders(arr):
         if arr[i] >= current_leader:
             result.append(current_leader)
             current_leader = arr[i]
-    return result
+    return result[::-1] + [current_leader]
