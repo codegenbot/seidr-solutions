@@ -1,37 +1,56 @@
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& bowlingRound) {
+int getScore(std::string input) {
     int score = 0;
-    int frame = 0;
-    int roll = 0;
-    int rolls[21] = {0};
+    int frame = 1;
+    int bowl = 0;
+    int bonus = 0;
+    bool spare = false;
+    bool strike = false;
 
-    for (char bowl : bowlingRound) {
-        if (bowl == 'X') {
-            rolls[roll++] = 10;
-            if (frame < 9) {
-                rolls[roll++] = 0;
+    for (char ch : input) {
+        if (ch == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += bonus;
+                bonus = 10;
+                strike = true;
+                frame++;
             }
-        } else if (bowl == '/') {
-            rolls[roll++] = 10 - rolls[roll - 2];
-        } else if (bowl == '-') {
-            rolls[roll++] = 0;
+        } else if (ch == '/') {
+            score += 10 - bowl;
+            if (frame < 10) {
+                score += bonus;
+                bonus = 10;
+                spare = true;
+                frame++;
+            }
+        } else if (ch == '-') {
+            if (frame < 10) {
+                score += bonus;
+                bonus = 0;
+                frame++;
+            }
         } else {
-            rolls[roll++] = bowl - '0';
-        }
-    }
-
-    for (frame = 0, roll = 0; frame < 10; frame++) {
-        if (rolls[roll] == 10) {
-            score += 10 + rolls[roll + 1] + rolls[roll + 2];
-            roll++;
-        } else if (rolls[roll] + rolls[roll + 1] == 10) {
-            score += 10 + rolls[roll + 2];
-            roll += 2;
-        } else {
-            score += rolls[roll] + rolls[roll + 1];
-            roll += 2;
+            score += ch - '0';
+            if (frame < 10) {
+                score += bonus;
+                bonus = 0;
+                if (spare) {
+                    score += ch - '0';
+                    spare = false;
+                }
+                if (strike) {
+                    score += ch - '0';
+                    strike = false;
+                }
+                bowl++;
+                if (bowl == 2) {
+                    bowl = 0;
+                    frame++;
+                }
+            }
         }
     }
 
@@ -39,11 +58,9 @@ int getScore(const std::string& bowlingRound) {
 }
 
 int main() {
-    std::string bowlingRound;
-    std::cin >> bowlingRound;
-
-    int score = getScore(bowlingRound);
+    std::string input;
+    std::cin >> input;
+    int score = getScore(input);
     std::cout << score << std::endl;
-
     return 0;
 }
