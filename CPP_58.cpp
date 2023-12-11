@@ -1,6 +1,6 @@
-```
+```cpp
 #include <algorithm>
-#include <vector>
+#include <pmr/vector>
 #include <memory_resource>
 
 bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
