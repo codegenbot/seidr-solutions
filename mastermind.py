@@ -1,6 +1,9 @@
 import collections
 
-def mastermind(code, guess):
+def mastermind():
+    code = input().upper().strip()
+    guess = input().upper().strip()
+    
     black_pegs = 0
     white_pegs = 0
     code_count = collections.Counter(code)
@@ -17,8 +20,5 @@ def mastermind(code, guess):
     
     return white_pegs, black_pegs
 
-code = input().upper()
-guess = input().upper()
-
-result = mastermind(code, guess)
+result = mastermind()
 print(result[0], result[1])
