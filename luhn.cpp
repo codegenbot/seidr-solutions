@@ -1,22 +1,35 @@
-```
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 
-int main() {
-    vector<int> digits(16);
+int luhn(vector<int>& digits) {
     int sum = 0;
-    for (int i = 15; i >= 0; --i) {
-        if (i % 2 == 0) {
-            digits[i] *= 2;
-            if (digits[i] > 9) {
-                digits[i] -= 9;
-            }
+    for (int i = digits.size() - 2; i >= 0; i -= 2) {
+        int digit = digits[i] * 2;
+        if (digit > 9) {
+            digit -= 9;
         }
-        sum += digits[i];
+        sum += digit;
     }
-    cout << "The sum of the new digits is: " << sum << endl;
+    return sum;
+}
+
+int main() {
+    vector<int> digits;
+    for (int i = 0; i < 16; i++) {
+        int num;
+        cin >> num;
+        digits.push_back(num);
+    }
+    cout << luhn(digits) << endl;
     return 0;
 }
-```
