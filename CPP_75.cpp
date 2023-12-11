@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -17,4 +16,3 @@ bool is_prime(int n) {
     }
     return true;
 }
-```
