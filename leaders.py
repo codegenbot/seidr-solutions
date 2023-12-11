@@ -1,8 +1,6 @@
-```python
-def leaders(arr):
+def leaders(arr: list) -> list:
     result = []
     for i in range(len(arr)):
         if arr[i] >= max(arr[i+1:]) or (i == len(arr) - 1 and arr[i] > arr[i-1]):
             result.append(arr[i])
     return result
-```
