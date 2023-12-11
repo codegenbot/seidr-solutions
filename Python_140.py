@@ -1,2 +1,7 @@
+
 def fix_spaces(text):
-    return text.replace(" ", "_")
+    """
+    Returns a new string where all spaces in the input string have been replaced with underscores.
+    """
+    import re
+    return re.sub(r"\s+", "_", text)
