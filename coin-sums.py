@@ -1,8 +1,12 @@
-def get_coin_sums(cents):
+import math
+
+def fewest_coins(cents):
     coins = [1, 5, 10, 25]
-    count = [0, 0, 0, 0]
+    counts = [0] * len(coins)
+
     for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            count[i] += 1
-    return count
+        count = int(math.floor(cents / coins[i]))
+        cents %= coins[i]
+        counts[i] += count
+
+    return counts
