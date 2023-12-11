@@ -1,4 +1,4 @@
-```
+#include <cassert>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -41,4 +41,3 @@ int main(void) {
     assert(issame(numerical_letter_grade(grades), {"E", "D-"}));
     return 0;
 }
-```
