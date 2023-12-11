@@ -1,6 +1,7 @@
 ```
 def find_pair(nums, target):
     seen = {}
+    
     for i in range(len(nums)):
         if nums[i] not in seen:
             seen[nums[i]] = i
