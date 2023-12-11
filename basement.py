@@ -1,15 +1,16 @@
-def find_negative_sum_index(nums):
-    sum = 0
-    for i in range(len(nums)):
-        sum += nums[i]
-        if sum < 0:
+```python
+def basement(arr):
+    sum_so_far = 0
+    for i in range(len(arr)):
+        sum_so_far += arr[i]
+        if sum_so_far < 0:
             return i
     return -1
 
-
-# Read input from user
 n = int(input())
-nums = list(map(int, input().split()))
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
 
-# Call the function and print the result
-print(find_negative_sum_index(nums))
+print(basement(arr))
+```
