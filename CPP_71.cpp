@@ -1,3 +1,4 @@
+```
 #include <stdio.h>
 #include <math.h>
 using namespace std;
@@ -9,3 +10,4 @@ float triangle_area(float a, float b, float c) {
         return -1;
     }
 }
+```
