@@ -1,9 +1,10 @@
-def mastermind(code, guess):
-    white_pegs = 0
-    black_pegs = 0
-    for i in range(len(code)):
+def get_clue(code, guess):
+    clue = []
+    for i in range(4):
         if code[i] == guess[i]:
-            black_pegs += 1
-        elif code[i] in guess:
-            white_pegs += 1
-    return (white_pegs, black_pegs)
+            clue.append((1, 0))
+        elif guess[i] in code:
+            clue.append((0, 1))
+        else:
+            clue.append((0, 0))
+    return sum(clue)
