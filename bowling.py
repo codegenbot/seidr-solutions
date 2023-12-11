@@ -9,3 +9,6 @@ def get_score(bowls):
         else:
             score += int(bowls[i])
     return score
+
+def get_score(bowls):
+    return sum([int(b) for b in bowls if b != "/"]) + 10 * (bowls.count("X") > 0)
