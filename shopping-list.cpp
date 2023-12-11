@@ -1,8 +1,9 @@
-```
 #include <iostream>
 #include <vector>
+#include <cmath>
+using namespace std;
 
-double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
+double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0.0;
     for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i]);
@@ -11,10 +12,9 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices = {10, 20, 30};
-    std::vector<float> discounts = {0.5, 0.6, 0.7};
+    vector<float> prices = {10, 20, 30};
+    vector<float> discounts = {0.1, 0.2, 0.3};
     double total = shoppingList(prices, discounts);
-    std::cout << "Total price: " << total << std::endl;
+    cout << "Total: " << total << endl;
     return 0;
 }
-```
