@@ -1,6 +1,5 @@
-```cpp
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
 double probability(int n, int m) {
@@ -24,8 +23,7 @@ int main() {
     cin >> n >> m;
     
     double result = probability(n, m);
-    cout << result << endl;
+    cout << to_string(result) << endl;
     
     return 0;
 }
-```
