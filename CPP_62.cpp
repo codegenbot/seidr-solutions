@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -16,5 +15,3 @@ int main() {
     return 0;
 }
 ```
-
-The issue with the original code was that it contained backticks (```) at the beginning and end of the code snippet, which are not valid characters in C++. To fix the code, I simply removed these backticks from the beginning and end of the code snippet.
