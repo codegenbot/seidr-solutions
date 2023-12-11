@@ -1,29 +1,54 @@
 #include <vector>
 #include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 
-vector<int> cutVector(const vector<int>& v) {
-  int n = v.size();
-  if (n == 0) return {};
-  
-  int minDiff = INT_MAX;
-  int spot = -1;
-  
-  for (int i = 0; i < n - 1; i++) {
-    int diff = abs(v[i] - v[i + 1]);
-    if (diff < minDiff) {
-      minDiff = diff;
-      spot = i;
+// function to cut the vector
+vector<int> cutVector(const vector<int>& input) {
+    // find the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible.
+    int left = 0;
+    int right = input.size() - 1;
+    int minDiff = INT_MAX;
+    int diff = 0;
+    while (left < right) {
+        if (input[left] == input[right]) {
+            return { input[left], input[right] };
+        } else {
+            diff = abs(input[left] - input[right]);
+            if (diff < minDiff) {
+                minDiff = diff;
+                break;
+            }
+            left++;
+            right--;
+        }
     }
-  }
-  
-  vector<int> subvec1, subvec2;
-  for (int i = 0; i <= spot; i++) {
-    subvec1.push_back(v[i]);
-  }
-  for (int i = spot + 1; i < n; i++) {
-    subvec2.push_back(v[i]);
-  }
-  
-  return {subvec1, subvec2};
+    return { input[left], input[right] };
+}
+
+// main function to test the code
+int main() {
+    vector<vector<int>> inputs = { { 1 }, { 0 }, { 1, 10 }, { 1, 100 }, { 1, 1000 }, { 1, 10000 } };
+    for (const auto& input : inputs) {
+        vector<int> output = cutVector(input);
+        cout << "Input: ";
+        for (int i : input) {
+            cout << i << " ";
+        }
+        cout << endl;
+        cout << "Output: ";
+        for (int i : output) {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }
