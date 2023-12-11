@@ -1,10 +1,10 @@
 def get_score(bowls):
     score = 0
-    for i in range(len(bowls)):
-        if bowls[i] == 'X':
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i-1])
+        elif bowl == '/':
+            score += 10
         else:
-            score += int(bowls[i])
+            score += int(bowl)
     return score
