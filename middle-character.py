@@ -1,5 +1,12 @@
-def get_middle_character(string):
-    if len(string) % 2 == 0:
-        return string[len(string)//2-1:len(string)//2+1]
+def get_middle(s):
+    if len(s) % 2 == 0:
+        return s[len(s)//2-1:len(s)//2+1]
     else:
-        return string[len(string)//2]
+        return s[len(s)//2]
+
+# Test cases
+print(get_middle("Q")) # Q
+print(get_middle("")) # 
+print(get_middle("$")) # $
+print(get_middle("E9")) # E9
+print(get_middle(")b")) # )b
