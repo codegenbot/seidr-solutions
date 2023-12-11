@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     vector_sum = sum(vector)
     current_sum = 0
@@ -12,5 +13,4 @@ def cut_vector(vector):
             split_index = i
 
     return vector[:split_index+1], vector[split_index+1:]
-
-print(cut_vector(input().split(',')))
+```
