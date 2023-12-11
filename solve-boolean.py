@@ -1,2 +1,9 @@
+```python
 def solve_boolean(expression):
-    return eval(expression.replace('T', 'True').replace('F', 'False').replace('t', 'False').replace('f', 'False'))
+    values = {'T': True, 'F': False}
+    expression = expression.replace('T', 'True').replace('F', 'False')
+    return eval(expression.capitalize(), values)
+
+expression = input()
+print(solve_boolean(expression))
+```
