@@ -3,17 +3,16 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<int> incr_list(const std::vector<int>& v) {
-    std::vector<int> result;
+int main() {
+    std::vector<int, std::allocator<int>> v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
     for (auto it = v.begin(); it != v.end(); ++it) {
         if (*it % 2 == 0) {
-            result.push_back(*it);
+            std::cout << *it << " ";
         }
     }
-    return result;
+    return 0;
 }
 ```
