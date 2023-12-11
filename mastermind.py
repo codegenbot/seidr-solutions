@@ -1,11 +1,15 @@
-def mastermind(code, guess):
-    white_pegs = 0
+def get_clue(code, guess):
+    # Initialize variables to keep track of black and white pegs
     black_pegs = 0
-
-    for i in range(4):
+    white_pegs = 0
+    
+    # Loop through each character in the code and guess
+    for i in range(len(code)):
         if code[i] == guess[i]:
+            # If the characters match, it's a black peg
             black_pegs += 1
         elif code[i] in guess:
+            # If the character from the code is in the guess, but not in the same position, it's a white peg
             white_pegs += 1
-
-    return white_pegs, black_pegs
+    
+    return black_pegs, white_pegs
