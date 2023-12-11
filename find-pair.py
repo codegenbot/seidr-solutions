@@ -1,4 +1,5 @@
-```
+
+Solution: 
 def find_pair(nums, target):
     for i in range(len(nums)):
         for j in range(i+1, len(nums)):
@@ -6,4 +7,3 @@ def find_pair(nums, target):
                 if nums[i] + nums[j] + nums[k] == target:
                     return nums[i], nums[j], nums[k]
     return None, None, None
-```
