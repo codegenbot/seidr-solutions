@@ -1,10 +1,7 @@
-def dice_probability(peter_sides, colin_sides):
-    peter_max = peter_sides
-    colin_max = colin_sides
-    total_cases = peter_sides * colin_sides
-    peter_wins = 0
-    for i in range(1, peter_max + 1):
-        for j in range(1, colin_max + 1):
+def get_probability(n, m):
+    total = 0
+    for i in range(1, n+1):
+        for j in range(1, m+1):
             if i > j:
-                peter_wins += 1
-    return peter_wins / total_cases
+                total += 1
+    return total / (n * m)
