@@ -1,12 +1,12 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (std::initializer_list<int>::size_type i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -15,6 +15,7 @@ bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(std::pmr::vector({4, 3, 2, 8}), std::pmr::vector<int>());
+    std::vector<int> common({4, 3, 2, 8});
+    assert(issame(common, {}));
 }
 ```
