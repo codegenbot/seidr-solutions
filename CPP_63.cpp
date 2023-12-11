@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -10,10 +9,9 @@ int fibfib(int n) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     int n = 8;
     cout << "The " << n << "-th FibFib number is: ";
     cout << fibfib(n) << endl;
     return 0;
 }
-```
