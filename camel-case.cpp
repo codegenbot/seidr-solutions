@@ -3,41 +3,41 @@
 #include <vector>
 
 std::string convertToCamelCase(const std::string& input) {
-    std::string camelCase;
+    std::string output;
+    std::vector<std::string> words;
     std::string word;
-    bool firstWord = true;
 
     for (char c : input) {
         if (c == '-') {
-            if (!firstWord) {
-                camelCase += word;
-            }
+            words.push_back(word);
             word.clear();
-            firstWord = false;
-        } else if (c == ' ') {
-            camelCase += " ";
-            firstWord = true;
         } else {
-            if (firstWord) {
-                camelCase += std::tolower(c);
-                firstWord = false;
-            } else {
-                camelCase += std::toupper(c);
-            }
+            word += c;
         }
     }
 
-    camelCase += word;
+    if (!word.empty()) {
+        words.push_back(word);
+    }
 
-    return camelCase;
+    for (int i = 0; i < words.size(); i++) {
+        if (i == 0) {
+            output += words[i];
+        } else {
+            output += words[i][0] - 'a' + 'A';
+            output += words[i].substr(1);
+        }
+    }
+
+    return output;
 }
 
 int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    std::string camelCase = convertToCamelCase(input);
-    std::cout << camelCase << std::endl;
+    std::string output = convertToCamelCase(input);
+    std::cout << output << std::endl;
 
     return 0;
 }
