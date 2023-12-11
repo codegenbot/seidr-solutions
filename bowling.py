@@ -41,5 +41,3 @@ def get_bonus(bowls, i, count):
 
 
 bowls = input()
-score = calculate_score(bowls)
-print(score)
