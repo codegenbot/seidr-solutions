@@ -1,13 +1,20 @@
-#include <iostream>
-#include <vector>
-
-int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
-    std::cout << "The two elements that sum to " << target << " are: ";
-    std::vector<int> result = findPair(nums, target);
-    for (auto it : result) {
-        std::cout << it << " ";
-    }
-    return 0;
-}
+[PYTHON]
+def find_pair(nums, target):
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [nums[i], nums[j]]
+    return []
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert find_pair([5, 7], 12) == [5, 7]
+# Test case 2:
+assert find_pair([2500, 6352], 8852) == [2500, 6352]
+# Test case 3:
+assert find_pair([-14, 5], -9) == [-14, 5]
+# Test case 4:
+assert find_pair([40, -19], 21) == [40, -19]
+# Test case 5:
+assert find_pair([-4, 4], 0) == [-4, 4]
+[/TESTS]
