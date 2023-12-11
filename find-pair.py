@@ -1,3 +1,4 @@
+```
 def find_pair(nums, target):
     seen = set()
     for num in nums:
@@ -7,3 +8,4 @@ def find_pair(nums, target):
         else:
             seen.add(num)
     return None, None
+``` 
