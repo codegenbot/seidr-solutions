@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -22,4 +21,3 @@ int main() {
     cout << (result ? "True" : "False") << endl;
     return 0;
 }
-```
