@@ -42,4 +42,11 @@ string decode_shift(string s) {
     }
     return s;
 }
+
+int main() {
+    string s = "hello";
+    cout << encode_shift(s) << endl;
+    cout << decode_shift(s) << endl;
+    return 0;
+}
 ```
