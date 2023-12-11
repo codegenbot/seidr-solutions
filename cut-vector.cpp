@@ -1,23 +1,42 @@
-[PYTHON]
-def cut_vector(v):
-    n = len(v)
-    left = []
-    right = []
-    for i in range(n):
-        if v[i] % 2 == 0:
-            left.append(v[i])
-        else:
-            right.append(v[i])
-    return left, right
-[/PYTHON]
-[TESTS]
-# Test case 1:
-v = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-assert cut_vector(v) == ([1, 3, 5, 7, 9], [2, 4, 6, 8, 10])
-# Test case 2:
-v = [1, 3, 5, 7, 9]
-assert cut_vector(v) == ([1, 3, 5, 7, 9], [])
-# Test case 3:
-v = [2, 4, 6, 8, 10]
-assert cut_vector(v) == ([], [2, 4, 6, 8, 10])
-[/TESTS]
+
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
+    int n = v.size();
+    vector<int> left, right;
+    for (int i = 0; i < n; i++) {
+        if (v[i] % 2 == 0) {
+            left.push_back(v[i]);
+        } else {
+            right.push_back(v[i]);
+        }
+    }
+    return {{left}, {right}};
+}
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    auto result = cutVector(v);
+    cout << "Left: ";
+    for (auto& x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << "Right: ";
+    for (auto& x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    return 0;
+}
