@@ -1,10 +1,8 @@
-```
 def shopping_list(prices, discounts):
-    total = 0
-    for i in range(len(prices)):
+     total = 0
+     for i in range(len(prices)):
         if discounts[i] >= 1:
-            total += (prices[i] * (1 - discounts[i]))
+            return 0
         else:
-            total += prices[i]
-    return total
-```
+           total += prices[i] * (1 - discounts[i])
+     return total
