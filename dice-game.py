@@ -1,2 +1,2 @@
 def get_probability(n, m):
-    return np.sum(np.triu(np.ones((n, m)), k=1)) / (n * m)
+    return sum(map(lambda x: x[0] > x[1], itertools.product(range(1, n + 1), range(1, m + 1)))) / (n * m)
