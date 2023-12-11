@@ -1,22 +1,18 @@
-```
-#include <iostream>
-#include <string>
-
-// Define encode_shift function
-std::string encode_shift(const std::string& str) {
-    // Implement encoding logic here
+```cpp
+string encode_shift(const string& str) {
+    // your implementation here
 }
 
-// Define decode_shift function
-std::string decode_shift(const std::string& encoded_str) {
-    // Implement decoding logic here
+string decode_shift(const string& encoded_str) {
+    // your implementation here
 }
 
 int main() {
-    // Test the encode_shift and decode_shift functions
-    std::string str = "hello";
-    std::cout << "Encoded: " << encode_shift(str) << std::endl;
-    std::cout << "Decoded: " << decode_shift(encode_shift(str)) << std::endl;
+    // test the encode_shift and decode_shift functions
+    string str = "hello";
+    cout << "Encoded: " << encode_shift(str) << endl;
+    string encoded_str = encode_shift(str);
+    assert (decode_shift(encoded_str) == str);
     return 0;
 }
 ```
