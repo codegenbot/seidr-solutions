@@ -4,10 +4,9 @@
 #include <vector>
 using namespace std;
 
-vector<float> derivative(vector<float> xs) {
+vector<float> derivative(const vector<float>& xs) {
     vector<float> result;
-    int i = 1;
-    for (i = 1; i < xs.size(); i++) {
+    for (int i = 1; i < xs.size(); i++) {
         result.push_back(xs[i] * pow(xs[0], i));
     }
     return result;
@@ -17,7 +16,7 @@ int main() {
     vector<float> xs = {3, 1, 2, 4, 5};
     vector<float> ys = derivative(xs);
     for (auto x : ys) {
-        cout << x << endl;
+        cout << x << " ";
     }
     return 0;
 }
