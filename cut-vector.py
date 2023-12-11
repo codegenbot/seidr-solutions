@@ -1,12 +1,14 @@
-def cut_vector(vec):
+def cut_vector(my_list):
+    n = len(my_list)
+    if n == 0:
+        return []
+    if n == 1:
+        return [my_list[0]]
     left = 0
-    right = len(vec) - 1
+    right = n - 1
     while left < right:
-        mid = (left + right) // 2
-        if vec[mid] == vec[mid-1]:
-            return [vec[:mid], vec[mid:]]
-        elif abs(vec[mid] - vec[mid-1]) <= abs(vec[mid+1] - vec[mid]):
-            left = mid + 1
+        if my_list[left] <= my_list[right]:
+            left += 1
         else:
-            right = mid - 1
-    return [vec[:right], vec[right:]]
+            right -= 1
+    return [my_list[:left], my_list[left:]]
