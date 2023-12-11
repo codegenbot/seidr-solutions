@@ -1,10 +1,5 @@
-def snow_day(hours, initial_snow, snow_fall, melt_rate):
-    """
-    Return the amount of snow on the ground after hours have passed.
-    """
-    total_snow = initial_snow + (hours * snow_fall)
-    if melt_rate == 0:
-        return total_snow
-    else:
-        melted_snow = (total_snow * melt_rate) / hours
-        return total_snow - melted_snow
+def calculate_snow(hours, initial_snow, snow_fall, melt_rate):
+    for hour in range(int(hours)):
+        new_snow = snow_fall * (1 - math.exp(-melt_rate * hour))
+        initial_snow += new_snow
+    return initial_snow
