@@ -1,9 +1,14 @@
+#include <iostream>
 #include <string>
 using namespace std;
-string middleCharacter(string str) {
-    if (str.length() % 2 == 0) {
-        return str.substr((str.length() / 2) - 1, 2);
+int main() {
+    string input;
+    cin >> input;
+    int length = input.length();
+    if (length % 2 == 0) {
+        cout << input[length / 2 - 1] + input[length / 2];
     } else {
-        return str.substr(str.length() / 2, 1);
+        cout << input[length / 2];
     }
+    return 0;
 }
