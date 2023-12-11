@@ -1,8 +1,9 @@
+```
 #include <iostream>
 #include <cmath>
 
-int modp(int a, int b) {
-    return (a % b + b) % b;
+int modp(int n, int p) {
+    return pow(2, n) % p;
 }
 
 int main() {
@@ -13,3 +14,4 @@ int main() {
     std::cout << "modp(100, 101): " << modp(100, 101) << std::endl;
     return 0;
 }
+```
