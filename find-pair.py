@@ -1,20 +1,20 @@
 ```python
 def find_pair(nums, target):
-    nums_set = set(nums)
+    seen = set()
     for num in nums:
         complement = target - num
-        if complement in nums_set:
+        if complement in seen:
             return num, complement
+        seen.add(num)
 
-# Read input from user
+# Read input
 n = int(input())
-
 nums = list(map(int, input().split()))
-
 target = int(input())
 
-# Call the function and print the result
+# Find pair
 result = find_pair(nums, target)
-print(result[0])
-print(result[1])
+
+# Print output
+print(*result)
 ```
