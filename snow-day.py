@@ -1,15 +1,8 @@
-def snow_day(hours, initial_snow, rate, melt):
-    # Initialize variables
-    current_snow = initial_snow
-    hours_passed = 0
-
-    while hours_passed < hours:
-        # Add new snow
-        current_snow += rate * (1 - math.exp(-melt * hours_passed))
-
-        # Melt existing snow
-        current_snow -= melt * current_snow
-
-        hours_passed += 1
-
-    return current_snow
+def snow_day(hours, snow_on_ground, snow_fall_rate, melt_per_hour):
+    if hours == 0:
+        return 0.0
+    else:
+        snow_on_ground += snow_fall_rate * hours
+        if melt_per_hour > 0:
+            snow_on_ground -= melt_per_hour * hours
+        return max(snow_on_ground, 0.0)
