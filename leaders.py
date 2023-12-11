@@ -1,6 +1,6 @@
-def leaders(nums):
+def leaders(vec):
     result = []
-    for i in range(len(nums)):
-        if nums[i] >= max(nums[i+1:]):
-            result.append(nums[i])
+    for i in range(len(vec)):
+        if vec[i] >= max(vec[i+1:]):
+            result.append(vec[i])
     return result

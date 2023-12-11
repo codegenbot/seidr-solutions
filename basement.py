@@ -1,7 +1,2 @@
-def get_negative_sum_index(arr):
-    curr_sum = 0
-    for i in range(len(arr)):
-        curr_sum += arr[i]
-        if curr_sum < 0:
-            return i
-    return -1
+def first_negative_index(numbers):
+    return next((i for i, x in enumerate(numbers) if sum(numbers[:i+1]) < 0), None)

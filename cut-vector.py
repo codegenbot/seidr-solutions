@@ -1,11 +1,15 @@
 def cut_vector(vector):
-    # find the spot where, if you cut the vector, the numbers on both sides are either equal, or the difference is as small as possible
-    left = 0
-    right = len(vector) - 1
-    while left < right:
-        mid = (left + right) // 2
-        if vector[mid] <= vector[mid-1]:
-            right = mid - 1
-        else:
-            left = mid + 1
-    return [vector[:left], vector[left:]]
+    n = len(vector)
+    if n == 1:
+        return vector[0], 0
+    
+    min_diff = math.inf
+    min_index = -1
+    
+    for i in range(n-1):
+        diff = abs(vector[i] - vector[i+1])
+        if diff < min_diff:
+            min_diff = diff
+            min_index = i
+    
+    return vector[:min_index+1], vector[min_index+1:]
