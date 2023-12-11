@@ -1,3 +1,8 @@
-
 def fuel_cost(vector):
-    return sum([int(math.floor((x / 3) - 2)) for x in vector])
+    result = 0
+    for x in vector:
+        if x >= 14:
+            result += int((x / 3) - 2)
+        else:
+            result += 0
+    return result
