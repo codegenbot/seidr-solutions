@@ -1,4 +1,5 @@
-```
+
+>>>
 def shopping_list(prices, discounts):
     total = 0
     for i in range(len(prices)):
@@ -6,4 +7,3 @@ def shopping_list(prices, discounts):
         discount = discounts[i]
         total += (price - (price * discount / 100))
     return total
-```
