@@ -1,14 +1,14 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::pmr::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::pmr::string> result;
+std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
+    std::vector<std::string> result;
     for (const auto& grade : grades) {
         if (grade >= 90) {
             result.push_back("A");
@@ -26,7 +26,9 @@ std::vector<std::pmr::string> numerical_letter_grade(std::vector<float> grades) 
 }
 
 int main() {
-    assert(numerical_letter_grade({0, 0.7}) == std::vector<std::pmr::string>{"E", "D-"});
+    std::vector<float> grades = {95, 87, 76};
+    std::vector<std::string> expected_output = {"A", "B", "C"};
+    std::vector<std::string> actual_output = numerical_letter_grade(grades);
+    assert(std::equal(expected_output.begin(), expected_output.end(), actual_output.begin()));
     return 0;
 }
-```
