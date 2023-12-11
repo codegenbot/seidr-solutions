@@ -1,7 +1,7 @@
-def camel_case(string):
-    return "".join([word.title() for word in string.split("-")])
+def camel_case(s):
+    return "".join([word.capitalize() for word in s.split("-")])
 
-# tests
+# test cases
 assert camel_case("camel-case") == "CamelCase"
 assert camel_case("example-test-string") == "ExampleTestString"
 assert camel_case("nospaceordash") == "Nospaceordash"
