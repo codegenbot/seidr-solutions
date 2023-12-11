@@ -1,6 +1,5 @@
-```
 #include <iostream>
-#include <pmr/vector.hpp>
+#include <pmr/vector>
 
 bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -16,4 +15,3 @@ int main() {
     assert(issame(v1, v2));
     return 0;
 }
-```
