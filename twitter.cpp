@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -25,3 +26,4 @@ int main() {
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
+```
