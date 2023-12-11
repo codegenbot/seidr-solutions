@@ -1,2 +1,2 @@
-def calculate_discount(prices, discounts):
-    return np.sum([price * (1 - discount) for price, discount in zip(prices, discounts)])
+def shopping_list(prices, discounts):
+    return sum([int(p * (1 - d)) for p, d in zip(prices, discounts)])
