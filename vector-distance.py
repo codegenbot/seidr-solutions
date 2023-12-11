@@ -1,2 +1,2 @@
-def vector_distance(vector1, vector2):
-    return np.linalg.norm(np.array(vector1) - np.array(vector2))
+def vector_distance(v1, v2):
+    return np.linalg.norm(np.array(v1) - np.array(v2))
