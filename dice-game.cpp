@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-using namespace std;
 
 double probability(int n, int m) {
     double total_outcomes = n * m;
@@ -20,10 +19,10 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
 
     double result = probability(n, m);
-    cout << result << endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
