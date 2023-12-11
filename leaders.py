@@ -1,6 +1,6 @@
-def leaders(nums):
-    leaders = []
-    for i in range(len(nums)):
-        if nums[i] >= max(nums[i+1:]):
-            leaders.append(nums[i])
-    return leaders
+def leaders(vector):
+    result = []
+    for i in range(len(vector)):
+        if vector[i] >= max(vector[i+1:]):
+            result.append(vector[i])
+    return result
