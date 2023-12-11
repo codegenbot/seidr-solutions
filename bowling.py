@@ -1,4 +1,5 @@
 
+```
 def get_score(bowls):
     score = 0
     for i in range(len(bowls)):
@@ -9,3 +10,4 @@ def get_score(bowls):
         else:
             score += int(bowls[i])
     return score
+```
