@@ -1,7 +1,10 @@
-```
-#include <string>
 
-std::string encode_shift(std::string s) {
+Here is the corrected code:
+```
+string str = "";
+string encoded_str = "";
+
+string encode_shift(string s) {
     // takes as input string and returns encoded string
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
@@ -21,7 +24,7 @@ std::string encode_shift(std::string s) {
     return s;
 }
 
-std::string decode_shift(std::string s) {
+string decode_shift(string s) {
     // takes as input string encoded with encode_shift function. Returns decoded string.
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
