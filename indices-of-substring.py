@@ -6,4 +6,3 @@ def get_indices(text, target):
         elif text[i-1:i+len(target)-1] == target:
             indices.append(i-1)
     return indices
-```
