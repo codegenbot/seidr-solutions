@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -6,12 +7,14 @@
 double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double sum = 0.0;
     for (int i = 0; i < vec1.size(); i++) {
-        sum += std::pow(std::abs(vec1[i] - vec2[i]), 2);
+        sum += std::pow(vec1[i] - vec2[i], 2);
     }
     return std::sqrt(sum);
 }
 
 int main() {
+    std::cout << std::fixed << std::setprecision(12);
+
     int n;
     std::cin >> n;
 
@@ -28,7 +31,8 @@ int main() {
     }
 
     double distance = euclideanDistance(vec1, vec2);
-    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
+```
