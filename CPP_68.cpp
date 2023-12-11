@@ -1,7 +1,7 @@
-#include <memory>
+#include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,10 +24,15 @@ std::vector<int> pluck(const std::vector<int>& arr) {
         }
     }
 
-    return {smallestEven, smallestIndex};
+    if (smallestIndex != -1) {
+        return {smallestEven, smallestIndex};
+    } else {
+        return {};
+    }
 }
 
 int main() {
     std::vector<int> a = {7, 9, 7, 1};
     assert(issame(pluck({7, 9, 7, 1}), {}));
+    return 0;
 }
