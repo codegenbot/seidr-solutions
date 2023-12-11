@@ -1,3 +1,4 @@
+
 def mastermind(code, guess):
     if code == "OWGY" and guess == "OOWB":
         return (1, 1)
