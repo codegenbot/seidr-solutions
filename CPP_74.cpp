@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -27,3 +28,4 @@ std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std
 int main() {
     assert(issame(totalMatch({"this"}, {}), {}));
 }
+```
