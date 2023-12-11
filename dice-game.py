@@ -1,3 +1,4 @@
+```python
 n = int(input())
 m = int(input())
 prob = 0.0
@@ -7,3 +8,4 @@ for i in range(1, n+1):
             prob += 1
 prob /= float(n * m)
 print(prob)
+```
