@@ -1,15 +1,14 @@
-
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <memory>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::pmr::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::pmr::string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
     for (const auto& grade : grades) {
         if (grade >= 90) {
             result.push_back("A");
@@ -27,7 +26,7 @@ std::vector<std::pmr::string> numerical_letter_grade(std::vector<float> grades) 
 }
 
 int main() {
-    assert(numerical_letter_grade({0, 0.7}) == std::vector<std::pmr::string>{"E", "D-"});
+    assert(numerical_letter_grade({0, 0.7}) == std::vector<std::string>{"E", "D-"});
     return 0;
 }
 ```
