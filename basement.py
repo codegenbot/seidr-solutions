@@ -1,4 +1,7 @@
+```
 def get_negative_sum_index(arr):
+    if not arr:
+        return 0
     curr_sum = 0
     for i in range(len(arr)):
         curr_sum += arr[i]
