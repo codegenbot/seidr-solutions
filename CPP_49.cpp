@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 int modp(int a, int b) {

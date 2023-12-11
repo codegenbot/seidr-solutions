@@ -24,7 +24,7 @@ int main() {
     str.assign("The ");
     str += to_string(n);
     str += "-th Fibonacci number is: ";
-    str += to_string(fib4(n));
+    str += std::to_string(fib4(n));
     cout << str << endl;
     return 0;
 }
