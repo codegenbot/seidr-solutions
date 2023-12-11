@@ -1,10 +1,8 @@
 ```
 #include <iostream>
-#include <cstdint>
 using namespace std;
-
 int main() {
-    int64_t cents;
+    int cents;
     cin >> cents;
     vector<int> coins(4, 0);
     while (cents > 0) {
