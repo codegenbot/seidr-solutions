@@ -1,7 +1,23 @@
-def basement(nums):
-  sum_so_far = 0
-  for i, num in enumerate(nums):
-    sum_so_far += num
-    if sum_so_far < 0:
-      return i
-  return -1
+```
+def basement(arr):
+    index = 0
+    prefix_sum = 0
+    
+    for i in range(len(arr)):
+        prefix_sum += arr[i]
+        
+        if prefix_sum < 0:
+            return index
+        
+        index += 1
+    
+    return -1
+
+# Read input from user
+n = int(input().strip())
+arr = list(map(int, input().strip().split()))
+
+# Call the function and print the result
+result = basement(arr)
+print(result)
+```
