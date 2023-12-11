@@ -2,12 +2,12 @@
 #include <cassert>
 #include <cmath>
 
-float triangle_area(float a, float h) {
+double triangle_area(double a, double h) {
     return (a * h) / 2;
 }
 
-int main() {
-    assert(abs(triangle_area(10, 8) - 40.0) < 1e-4);
-    std::cout << "The area of the triangle is: " << triangle_area(10, 8) << std::endl;
+int main(void) {
+    assert(abs(triangle_area(10.0, 8.0) - 40.0) < 1e-4);
+    std::cout << "The area of the triangle is: " << triangle_area(10.0, 8.0) << std::endl;
     return 0;
 }

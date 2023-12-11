@@ -1,6 +1,8 @@
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 std::string anti_shuffle(const std::string& s) {
     std::string result = "";
@@ -11,7 +13,7 @@ std::string anti_shuffle(const std::string& s) {
             int j = i + 1;
             while (j < s.length() && s[j] != ' ') {
                 if (s[j] > s[i]) {
-                    swap(s[i], s[j]);
+                    std::swap(s[i], s[j]);
                 }
                 j++;
             }
@@ -23,10 +25,7 @@ std::string anti_shuffle(const std::string& s) {
 int main() {
     std::string input = "Hi. My name is Mister Robot. How are you?";
     std::string output = anti_shuffle(input);
-    if (output == ".Hi My aemn is Meirst .Rboot How aer ?ouy") {
-        std::cout << "Passed\n";
-    } else {
-        std::cout << "Failed\n";
-    }
+    assert (output == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
+```
