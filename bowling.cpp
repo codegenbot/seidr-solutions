@@ -1,42 +1,60 @@
+```
 #include <iostream>
-#include <string>
-using namespace std;
 
-int calculateScore(string input) {
+int scoreRound(std::string s) {
     int score = 0;
     int frame = 1;
-    int throwIndex = 0;
+    int roll = 1;
 
-    for (char c : input) {
-        if (frame <= 10) {
-            if (c == 'X') {
+    for (int i = 0; i < s.length(); i++) {
+        if (frame == 10) {
+            if (s[i] == 'X') {
                 score += 10;
-                if (throwIndex < input.size() - 3 && frame <= 9) {
-                    score += input.at(throwIndex + 1) == 'X' ? 10 : input.at(throwIndex + 1) - '0';
-                    score += input.at(throwIndex + 2) == 'X' ? 10 : (input.at(throwIndex + 2) == '/' ? 10 - (input.at(throwIndex + 1) - '0') : input.at(throwIndex + 2) - '0');
+                if (roll == 1) {
+                    roll++;
+                } else if (roll == 2) {
+                    roll++;
+                } else if (roll == 3) {
+                    score += 10;
                 }
-                throwIndex++;
+            } else if (s[i] == '/') {
+                score += 10;
+                roll++;
+            } else if (s[i] == '-') {
+                roll++;
+            } else {
+                score += s[i] - '0';
+                if (roll == 1) {
+                    roll++;
+                } else if (roll == 2) {
+                    roll++;
+                } else if (roll == 3) {
+                    score += s[i] - '0';
+                }
+            }
+        } else {
+            if (s[i] == 'X') {
+                score += 10;
                 frame++;
-            }
-            else if (c == '/') {
-                score += 10 - (input.at(throwIndex - 1) - '0');
-                if (throwIndex < input.size() - 2 && frame <= 10) {
-                    score += input.at(throwIndex + 1) == 'X' ? 10 : input.at(throwIndex + 1) - '0';
-                }
-                throwIndex++;
+            } else if (s[i] == '/') {
+                score += 10 - (s[i-1] - '0');
                 frame++;
-            }
-            else {
-                score += c - '0';
-                if (throwIndex < input.size() - 1 && ((c - '0') + (input.at(throwIndex + 1) - '0') == 10 || frame == 10)) {
-                    score += input.at(throwIndex + 1) == 'X' ? 10 : input.at(throwIndex + 1) == '/' ? 10 - (c - '0') : input.at(throwIndex + 1) - '0';
+            } else if (s[i] == '-') {
+                if (roll == 1) {
+                    roll++;
+                } else if (roll == 2) {
+                    frame++;
+                    roll = 1;
                 }
-                throwIndex++;
-                frame += (throwIndex % 2 == 0);
+            } else {
+                score += s[i] - '0';
+                if (roll == 1) {
+                    roll++;
+                } else if (roll == 2) {
+                    frame++;
+                    roll = 1;
+                }
             }
-        }
-        else {
-            break;
         }
     }
 
@@ -44,9 +62,12 @@ int calculateScore(string input) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    int score = calculateScore(input);
-    cout << score << endl;
+    std::string input;
+    std::cin >> input;
+
+    int score = scoreRound(input);
+    std::cout << score << std::endl;
+
     return 0;
 }
+```
