@@ -1,5 +1,4 @@
 
-```
 def luhn(digits):
     digits = list(map(int, digits))
     result = 0
@@ -10,4 +9,3 @@ def luhn(digits):
                 digits[i - 1] -= 9
         result += digits[i - 1]
     return result
-```
