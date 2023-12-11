@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,4 +10,3 @@ float median(std::vector<float> l) {
         return l[l.size() / 2];
     }
 }
-```

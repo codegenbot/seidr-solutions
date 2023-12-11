@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <string>
+#include<stdio.h>
+#include<string>
 using namespace std;
 string decode_shift(string s){
     // takes as input string encoded with encode_shift function. Returns decoded string.

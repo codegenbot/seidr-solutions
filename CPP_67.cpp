@@ -5,7 +5,7 @@ using namespace std;
 
 int fruit_distribution(string s, int n) {
     int apples = 0, oranges = 0;
-    stringstream ss("");
+    stringstream ss(s);
     while (ss >> s) {
         if (s == "apples") {
             ss >> apples;
