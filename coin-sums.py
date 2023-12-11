@@ -10,9 +10,9 @@ def get_coin_sums(cents):
 def main():
     cents = int(input("Enter the number of cents: "))
     counts = get_coin_sums(cents)
-    print("The fewest number of US coins needed to make", cents, "is:")
+    print("The fewest number of US coins needed to make {} cents is:".format(cents))
     for i in range(len(counts)):
-        print(counts[i], "coins of value", coins[i])
+        print("{}: {}".format(i, counts[i]))
 
 if __name__ == "__main__":
     main()

@@ -6,3 +6,10 @@ def leaders(arr):
             result.append(current_leader)
             current_leader = arr[i]
     return result
+
+def main():
+    arr = [int(x) for x in input().split()]
+    print(leaders(arr))
+
+if __name__ == "__main__":
+    main()
