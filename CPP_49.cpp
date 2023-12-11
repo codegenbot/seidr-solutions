@@ -1,14 +1,14 @@
+```cpp
 #include <iostream>
 
-int modp(int a, int b) {
-    return a % b;
-}
-
 int main() {
-    std::cout << "modp(3, 5): " << modp(3, 5) << '\n';
-    std::cout << "modp(1101, 101): " << modp(1101, 101) << '\n';
-    std::cout << "modp(0, 101): " << modp(0, 101) << '\n';
-    std::cout << "modp(3, 11): " << modp(3, 11) << '\n';
-    std::cout << "modp(100, 101): " << modp(100, 101) << '\n';
+    std::string str;
+    int n = 0;
+    while (n < 10) {
+        str.push_back(n);
+        n++;
+    }
+    std::cout << "The string is: " << str << '\n';
     return 0;
 }
+```
