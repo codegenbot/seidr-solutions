@@ -1,3 +1,5 @@
+
+```
 def fuel_cost(vector):
     result = 0
     for x in vector:
@@ -6,3 +8,4 @@ def fuel_cost(vector):
         else:
             result += 0
     return result
+```
