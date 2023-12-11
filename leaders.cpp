@@ -1,24 +1,24 @@
-
-Sure! Here's the modified code without the main function:
-```
-#include <iostream>
-#include <vector>
-using namespace std;
-
-// Function to find leaders in a vector
-vector<int> leaders(vector<int> v) {
-    // Initialize current leader and result vector
-    int currentLeader = INT_MIN;
-    vector<int> result;
-
-    // Iterate through the vector from right to left
-    for (int i = v.size() - 1; i >= 0; i--) {
-        if (v[i] >= currentLeader) {
-            result.push_back(v[i]);
-            currentLeader = v[i];
-        }
-    }
-
-    return result;
-}
-```
+[PYTHON]
+def leaders(v):
+    result = []
+    current_leader = float('-inf')
+    for i in range(len(v)-1, -1, -1):
+        if v[i] >= current_leader:
+            result.append(v[i])
+            current_leader = v[i]
+    return result[::-1]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+v = [1, 451]
+assert leaders(v) == [1, 451]
+# Test case 2:
+v = [0]
+assert leaders(v) == [0]
+# Test case 3:
+v = [1, 0]
+assert leaders(v) == [1, 0]
+# Test case 4:
+v = [1, 451, 0]
+assert leaders(v) == [1, 451, 0]
+[/TESTS]

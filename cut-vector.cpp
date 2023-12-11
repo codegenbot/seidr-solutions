@@ -1,35 +1,26 @@
-```
-#include <vector>
-#include <iostream>
-#include <utility>
-using namespace std;
-
-pair<vector<int>, vector<int>> cutVector(const vector<int>& v) {
-    int n = v.size();
-    vector<int> left, right;
-    for (int i = 0; i < n; i++) {
-        if (v[i] % 2 == 0) {
-            left.push_back(v[i]);
-        } else {
-            right.push_back(v[i]);
-        }
-    }
-    return {left, right};
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    auto result = cutVector(v);
-    cout << "Left: ";
-    for (auto& x : result.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    cout << "Right: ";
-    for (auto& x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
-    return 0;
-}
-```
+[PYTHON]
+def get_cut_vector(vector):
+    left = 0
+    right = len(vector) - 1
+    while left < right:
+        if vector[left] == vector[right]:
+            return [left + 1, right + 1]
+        diff = abs(vector[left] - vector[right])
+        if diff > 1:
+            return "No solution"
+        left += 1
+        right -= 1
+    return "No solution"
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_cut_vector([1, 0]) == [1, 2]
+# Test case 2:
+assert get_cut_vector([1, 10]) == [1, 2]
+# Test case 3:
+assert get_cut_vector([1, 100]) == [1, 2]
+# Test case 4:
+assert get_cut_vector([1, 1000]) == [1, 2]
+# Test case 5:
+assert get_cut_vector([1, 10000]) == [1, 2]
+[/TESTS]
