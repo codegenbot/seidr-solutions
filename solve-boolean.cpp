@@ -8,10 +8,8 @@ bool evaluateBoolean(string expression) {
     } else {
         int i = expression.size() - 1;
         while (i >= 0) {
-            if (expression[i] == '&') {
+            if (expression[i] == '&' || expression[i] == '|') {
                 return evaluateBoolean(expression.substr(0, i)) && evaluateBoolean(expression.substr(i + 1));
-            } else if (expression[i] == '|') {
-                return evaluateBoolean(expression.substr(0, i)) || evaluateBoolean(expression.substr(i + 1));
             }
             i--;
         }
