@@ -1,6 +1,5 @@
-```
+
 #include <iostream>
-using namespace std;
 
 int fib(int n) {
     if (n <= 1) {
@@ -16,4 +15,3 @@ int main() {
     cout << fib(n) << endl;
     return 0;
 }
-```
