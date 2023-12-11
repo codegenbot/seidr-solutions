@@ -1,4 +1,4 @@
-```
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -11,8 +11,36 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
-int luhn(vector<int>& digits) {
+/*
+Given a vector of 16 digits, implement Luhn’s algorithm to verify a credit card number, such that it follows the following rules: double every other digit starting with the second digit. If any of the results are over 9, subtract 9 from them. Return the sum of all of the new digits.
+For example,
+input:
+16
+0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3
+output:
+80
+input:
+16
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+output:
+144
+input:
+16
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+output:
+0
+input:
+16
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+output:
+48
+input:
+16
+4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+output:
+96
+*/
+int luhn(vector<int> digits) {
     int sum = 0;
     for (int i = digits.size() - 2; i >= 0; i -= 2) {
         int digit = digits[i];
@@ -23,7 +51,6 @@ int luhn(vector<int>& digits) {
     }
     return sum;
 }
-
 int main() {
     vector<int> digits(16);
     for (int i = 0; i < 16; i++) {
@@ -32,4 +59,3 @@ int main() {
     cout << luhn(digits) << endl;
     return 0;
 }
-```
