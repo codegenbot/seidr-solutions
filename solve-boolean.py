@@ -1,2 +1,8 @@
+```python
+import re
+
 def solve_boolean(expression):
-    return eval(expression.replace('T', 'True').replace('F', 'False').replace('t', 'True').replace('f', 'False').replace('|', ' or ').replace('&', ' and '))
+    expression = re.sub(r'\b[tT]\b', 'True', expression)
+    expression = re.sub(r'\b[fF]\b', 'False', expression)
+    return eval(expression)
+```
