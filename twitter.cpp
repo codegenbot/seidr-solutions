@@ -1,22 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <cctype>
 
 std::string validateTweet(const std::string& tweet) {
-    std::string trimmedTweet = tweet;
-    trimmedTweet.erase(trimmedTweet.begin(), std::find_if(trimmedTweet.begin(), trimmedTweet.end(),
-                    [](unsigned char ch) { return !std::isspace(ch); }));
-    trimmedTweet.erase(std::find_if(trimmedTweet.rbegin(), trimmedTweet.rend(),
-                    [](unsigned char ch) { return !std::isspace(ch); }).base(), trimmedTweet.end());
-    
-    if (trimmedTweet.empty()) {
+    if (tweet.empty()) {
         return "You didn't type anything";
-    } else if (trimmedTweet.length() > 140) {
+    } else if (tweet.length() > 140) {
         return "Too many characters";
     } else {
-        return "Your tweet has " + std::to_string(trimmedTweet.length()) + " characters";
+        return "Your tweet has " + std::to_string(tweet.length()) + " characters";
     }
 }
 
@@ -26,4 +17,3 @@ int main() {
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
-```
