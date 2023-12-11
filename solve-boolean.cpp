@@ -1,17 +1,25 @@
 ```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool evaluateBoolean(string expression) {
-    if (expression.size() == 1) {
-        return expression[0] == 't';
+    if (expression == "T") {
+        return true;
+    } else if (expression == "F") {
+        return false;
     } else {
-        int i = expression.size() - 1;
-        while (i >= 0) {
-            if (expression[i] == '&') {
-                return evaluateBoolean(expression.substr(0, i)) && evaluateBoolean(expression.substr(i + 1));
-            } else if (expression[i] == '|') {
-                return evaluateBoolean(expression.substr(0, i)) || evaluateBoolean(expression.substr(i + 1));
-            }
-            i--;
-        }
+        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
+        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
+        return left && right;
     }
+}
+
+int main() {
+    string expression;
+    getline(cin, expression);
+    bool result = evaluateBoolean(expression);
+    cout << (result ? "True" : "False") << endl;
+    return 0;
 }
 ```
