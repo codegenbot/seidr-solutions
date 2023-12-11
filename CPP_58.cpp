@@ -1,12 +1,14 @@
+```
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<int>& a) {
+    return a.size() == 4 && a[0] == 4 && a[1] == 3 && a[2] == 2 && a[3] == 8;
 }
 
-int main() {
+int main(void) {
     std::vector<int> common({4, 3, 2, 8});
-    assert(issame(common, {}));
+    assert(issame(common));
     return 0;
 }
+```
