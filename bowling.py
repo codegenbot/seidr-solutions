@@ -1,50 +1,40 @@
-import sys
+import re
 
-def bowling_score(round):
+def bowling(input_str):
     score = 0
-    frame = 1
-    i = 0
-    while i < len(round):
-        if frame > 10:
-            break
-        
-        if round[i] == 'X':
-            score += 10
-            score += calculate_strike_bonus(round[i+1:i+3])
-            i += 1
-            frame += 1
-        elif round[i] == '/':
-            score += calculate_spare_bonus(round[i-1], round[i+1])
-            i += 1
-            frame += 1
-        elif round[i] == '-':
-            score += 0
+    frames = re.findall(r'[1-9X/-]{1,2}', input_str)
+    frame_scores = []
+
+    for frame in frames:
+        frame_score = 0
+        if frame == "X":
+            frame_score = 10
+        elif "/" in frame:
+            first_bowl, second_bowl = frame[0], frame[1]
+            frame_score = 10 if second_bowl == "/" else int(first_bowl) + int(second_bowl)
         else:
-            score += int(round[i])
-            
-        i += 1
-        
+            frame_score = sum(int(bowl) for bowl in frame)
+
+        frame_scores.append(frame_score)
+
+    for i in range(9):
+        if frames[i] == "X":
+            if frames[i+1] == "X":
+                score += 10 + frame_scores[i+2]
+            else:
+                score += 10 + frame_scores[i+1][0]
+
+        if "/" in frames[i]:
+            score += 10 + frame_scores[i+1][0]
+
+        score += frame_scores[i]
+
+    if frames[9] == "X":
+        score += frame_scores[9] + sum(int(bowl) for bowl in frames[10:12])
+
+    if "/" in frames[9]:
+        score += frame_scores[9] + int(frames[9][2])
+
+    score += frame_scores[9]
+
     return score
-
-def calculate_strike_bonus(bonuses):
-    bonus_score = 0
-    for bonus in bonuses:
-        if bonus == 'X':
-            bonus_score += 10
-        elif bonus == '-':
-            bonus_score += 0
-        else:
-            bonus_score += int(bonus)
-            
-    return bonus_score
-
-def calculate_spare_bonus(prev, bonus):
-    if bonus == 'X':
-        return 10
-    elif bonus == '-':
-        return 0
-    else:
-        return 10 - int(prev)
-    
-round = sys.stdin.readline().strip()
-print(bowling_score(round))
