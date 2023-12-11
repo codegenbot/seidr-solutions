@@ -1,17 +1,17 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int main() {
-    vector<vector<int>> lst = {{1, 2}, {3, 4}};
-    int x = 2;
-    vector<vector<int>> result = get_row(lst, x);
-    for (auto row : result) {
-        for (auto col : row) {
-            cout << col << " ";
+vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
+    vector<vector<int>> result;
+    for (int i = 0; i < lst.size(); i++) {
+        for (int j = 0; j < lst[i].size(); j++) {
+            if (lst[i][j] == x) {
+                result.push_back({i, j});
+            }
         }
-        cout << endl;
     }
-    return 0;
+    return result;
 }
 ```
