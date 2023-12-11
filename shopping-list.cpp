@@ -1,18 +1,14 @@
+```
 #include <iostream>
 #include <vector>
-
+#include <cmath>
 using namespace std;
 
 int main() {
-    vector<float> prices = {10.99, 24.50, 9.99};
-    vector<float> discounts = {0.10, 0.20, 0.30};
-    
-    double total = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i]);
-    }
-    
+    vector<float> prices = {10, 20, 30};
+    vector<float> discounts = {0.5, 0.75, 0.9};
+    double total = shoppingList(prices, discounts);
     cout << "Total: " << total << endl;
-    
     return 0;
 }
+```
