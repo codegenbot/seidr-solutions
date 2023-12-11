@@ -1,9 +1,9 @@
-def luhn_algorithm(digits):
-    result = 0
+def luhn(digits):
+    digits = list(map(int, digits))
+    doubled_digits = []
     for i in range(1, len(digits) + 1):
         if i % 2 == 0:
-            digits[i - 1] *= 2
-            if digits[i - 1] > 9:
-                digits[i - 1] -= 9
-        result += digits[i - 1]
-    return result
+            doubled_digits.append((digits[i - 1] * 2) % 9 or 9)
+        else:
+            doubled_digits.append(digits[i - 1])
+    return sum(doubled_digits)
