@@ -1,6 +1,4 @@
 
-Sure, here is the modified code that returns a pair of vectors:
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -42,4 +40,3 @@ int main() {
     cout << endl;
     return 0;
 }
-```
