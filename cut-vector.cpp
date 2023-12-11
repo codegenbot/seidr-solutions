@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -37,7 +38,6 @@ int main() {
     std::cin >> n;
     
     std::vector<int> nums;
-    
     for (int i = 0; i < n; i++) {
         int num;
         std::cin >> num;
@@ -56,3 +56,4 @@ int main() {
     
     return 0;
 }
+```
