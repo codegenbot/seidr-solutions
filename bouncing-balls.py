@@ -8,7 +8,7 @@ def calculate_total_distance(bounciness, num_bounces):
     return total_distance
 
 def main():
-    starting_height = float(input("Enter the starting height: "))
+    starting_height = float(input("Enter the starting height of the ball: "))
     first_bounce_height = float(input("Enter the height after the first bounce: "))
     num_bounces = int(input("Enter the number of bounces: "))
     bounciness = calculate_bounciness(starting_height, first_bounce_height)
