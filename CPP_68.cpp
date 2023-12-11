@@ -1,11 +1,17 @@
 ```
-#include <climits>
-#include <vector>
-using std::vector;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> pluck(vector<int> arr) {
-    if (arr.empty()) return {}; // If the input array is empty, return an empty vector
-
     int smallestEven = INT_MAX;
     int smallestIndex = -1;
 
@@ -16,6 +22,17 @@ vector<int> pluck(vector<int> arr) {
         }
     }
 
-    return {smallestEven, smallestIndex};
+    if (smallestIndex != -1) {
+        return {smallestEven, smallestIndex};
+    } else {
+        return {};
+    }
+}
+
+int main() {
+    vector<int> a = {1, 2, 3, 4, 5};
+    vector<int> b = {1, 2, 3, 4, 5};
+    assert(issame(a, b));
+    return 0;
 }
 ```
