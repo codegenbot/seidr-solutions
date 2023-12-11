@@ -3,21 +3,36 @@
 using namespace std;
 
 bool evaluateBoolean(string expression) {
-    if (expression == "t") {
+    if (expression == "T") {
         return true;
-    } else if (expression == "f") {
+    } else if (expression == "F") {
         return false;
     } else {
-        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
-        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
-        return left && right;
+        char op = expression[1];
+        bool left = evaluateBoolean(expression.substr(0, 1));
+        bool right = evaluateBoolean(expression.substr(2));
+        
+        if (op == '&') {
+            return left && right;
+        } else if (op == '|') {
+            return left || right;
+        } else {
+            return false;
+        }
     }
 }
 
 int main() {
     string expression;
     cin >> expression;
+    
     bool result = evaluateBoolean(expression);
-    cout << (result ? "True" : "False") << endl;
+    
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    
     return 0;
 }
