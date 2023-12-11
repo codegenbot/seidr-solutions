@@ -6,7 +6,7 @@
 bool is_simple_power(int x, int n) {
     double x_d = stod(x);
     double n_d = stod(n);
-    return pow(n_d, round(log(x_d) / log(n_d))) == x_d;
+    return std::to_string(x_d == pow(n_d, round(log(x_d) / log(n_d))));
 }
 
 int main() {
