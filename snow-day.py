@@ -1,5 +1,10 @@
 def snow_day(hours, ground_snow, snow_fall, melt_rate):
-    total_snow = 0
-    for i in range(hours):
-        total_snow += ground_snow + (snow_fall * (1 - math.exp(-melt_rate * i)))
-    return total_snow
+    # Add new snow
+    new_snow = hours * snow_fall
+    total_snow = ground_snow + new_snow
+    
+    # Calculate melted snow
+    melted_snow = total_snow * melt_rate
+    remaining_snow = total_snow - melted_snow
+    
+    return remaining_snow
