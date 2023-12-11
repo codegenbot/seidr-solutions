@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
@@ -28,10 +27,7 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    cout << "Enter code: ";
     getline(cin, code, '\n');
-
-    cout << "Enter guess: ";
     getline(cin, guess, '\n');
 
     pair<int, int> result = mastermind(code, guess);
