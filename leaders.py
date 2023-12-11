@@ -1,4 +1,4 @@
-```python
+```
 def leaders(arr):
     result = []
     current_leader = arr[-1]
