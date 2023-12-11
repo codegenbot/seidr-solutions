@@ -2,18 +2,18 @@
 #include <iostream>
 
 double probability(int n, int m) {
-    double totalOutcomes = n * m;
-    double favorableOutcomes = 0;
+    double total_outcomes = n * m;
+    double favorable_outcomes = 0;
     
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                favorableOutcomes++;
+                favorable_outcomes++;
             }
         }
     }
     
-    double result = favorableOutcomes / totalOutcomes;
+    double result = favorable_outcomes / total_outcomes;
     return result;
 }
 
