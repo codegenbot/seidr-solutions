@@ -1,5 +1,7 @@
-def shopping_list(prices, discounts):
-    total = 0
+def calculate_total_price(prices, discounts):
+    total_price = 0
     for i in range(len(prices)):
-        total += (prices[i] - (discounts[i] / 100) * prices[i])
-    return total
+        price = prices[i]
+        discount = discounts[i]
+        total_price += price * (1 - discount)
+    return total_price
