@@ -1,2 +1,2 @@
-def sum_same_digits(s):
-    return sum(int(i) for i in s if s[s.index(i)+1] == i)
+def solve(my_string):
+    return sum(int(i) for i in my_string if my_string[my_string.index(i)+1] == i)
