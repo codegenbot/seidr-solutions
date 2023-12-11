@@ -1,20 +1,16 @@
-
-import re
 def solve_boolean(expression):
-    # Remove any whitespace from the expression
-    expression = expression.replace(" ", "")
-    
-    # Split the expression into a list of subexpressions using & and | as delimiters
-    subexpressions = re.split(r"(&|\|)", expression)
-    
-    # Evaluate each subexpression and return the resulting Boolean
-    result = True
-    for subexpression in subexpressions:
-        if subexpression == "T":
-            result &= True
-        elif subexpression == "F":
-            result &= False
-        else:
-            raise ValueError("Invalid subexpression")
-    
-    return result
+    operators = {'|', '&'}
+    values = {'T': True, 'F': False}
+    stack = []
+    for char in expression:
+        if char in values:
+            stack.append(values[char])
+        elif char in operators:
+            operand2 = stack.pop()
+            operand1 = stack.pop()
+            if char == '|':
+                result = operand1 or operand2
+            else:
+                result = operand1 and operand2
+            stack.append(result)
+    return stack[-1]
