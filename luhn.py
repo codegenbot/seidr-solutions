@@ -1,4 +1,3 @@
-```
 def luhn(digits):
     # Initialize variables
     sum = 0
@@ -15,4 +14,3 @@ def luhn(digits):
         sum += digit
         is_odd = not is_odd
     return sum
-```
