@@ -15,10 +15,12 @@ int fib4(int n) {
     }
 }
 
-int main(){
+int main() {
+    cout << "Enter a number: ";
     int n;
     cin >> n;
-    string str = "The ";
+    string str;
+    str.assign("The ");
     str += to_string(n);
     str += "-th Fibonacci number is: ";
     str += to_string(fib4(n));

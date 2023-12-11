@@ -4,14 +4,14 @@
 
 std::string anti_shuffle(std::string s) {
     std::string result = "";
-    for (char i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
+    for (char c : s) {
+        if (c == ' ') {
             result += " ";
         } else {
-            int j = i + 1;
+            int j = 0;
             while (j < s.length() && s[j] != ' ') {
-                if (s[j] > s[i]) {
-                    swap(s[i], s[j]);
+                if (s[j] > c) {
+                    swap(s[j], c);
                 }
                 j++;
             }
