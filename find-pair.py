@@ -1,6 +1,9 @@
-def find_pair(nums, target):
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return nums[i], nums[j]
-    return None, None
+
+import numpy as np
+
+def find_pair(vector, target):
+    for i in range(len(vector)):
+        for j in range(i+1, len(vector)):
+            if vector[i] + vector[j] == target:
+                return [vector[i], vector[j]]
+    return []
