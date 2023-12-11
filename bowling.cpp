@@ -2,58 +2,43 @@
 #include <string>
 using namespace std;
 
-int calculateScore(string input) {
+int scoreOfRound(string round) {
     int score = 0;
     int frame = 1;
-    int bowlIndex = 0;
-    
-    for (int i = 0; i < input.length(); i++) {
-        if (frame > 10) {
-            break;
-        }
-        
-        if (input[i] == 'X') {
-            score += 10;
-            
+    int bowl = 0;
+    int bowls[21] = {0};
+
+    for (char c : round) {
+        if (c == 'X') {
+            bowls[bowl++] = 10;
             if (frame < 10) {
-                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
-                score += (input[i + 2] == 'X') ? 10 : (input[i + 2] - '0');
+                bowl++;
             }
-            
-            bowlIndex++;
-        } else if (input[i] == '/') {
-            score += 10 - (input[i - 1] - '0');
-            score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
-            
-            bowlIndex++;
-        } else if (input[i] == '-') {
+        } else if (c == '/') {
+            bowls[bowl++] = 10 - bowls[bowl - 1];
+        } else if (c == '-') {
             // do nothing
         } else {
-            score += input[i] - '0';
-            
-            if (frame < 10 && bowlIndex % 2 == 0 && input[i - 1] != '/') {
-                if (input[i + 1] == '/') {
-                    score += 10 - (input[i] - '0');
-                }
-            }
-            
-            bowlIndex++;
-        }
-        
-        if (bowlIndex % 2 == 0) {
-            frame++;
+            bowls[bowl++] = c - '0';
         }
     }
-    
+
+    for (int i = 0; i < 10; i++) {
+        if (bowls[i * 2] == 10) {
+            score += 10 + bowls[i * 2 + 2] + bowls[i * 2 + 3];
+        } else if (bowls[i * 2] + bowls[i * 2 + 1] == 10) {
+            score += 10 + bowls[i * 2 + 2];
+        } else {
+            score += bowls[i * 2] + bowls[i * 2 + 1];
+        }
+    }
+
     return score;
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    
-    int score = calculateScore(input);
-    cout << score << endl;
-    
+    string round;
+    cin >> round;
+    cout << scoreOfRound(round) << endl;
     return 0;
 }
