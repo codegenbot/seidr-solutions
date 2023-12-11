@@ -1,16 +1,12 @@
-```
-import numpy as np
-
-def cut_vector(v):
-    # Find the index of the minimum difference between two numbers in the vector
-    min_diff = np.inf
-    min_idx = 0
-    for i in range(1, len(v)):
-        diff = abs(v[i] - v[i-1])
-        if diff < min_diff:
-            min_diff = diff
-            min_idx = i
-    
-    # Cut the vector at the minimum difference index
-    return v[:min_idx], v[min_idx:]
-```
+def cut_vector(vec):
+    left = 0
+    right = len(vec) - 1
+    while left < right:
+        mid = (left + right) // 2
+        if vec[mid] == vec[mid-1]:
+            return [vec[:mid], vec[mid:]]
+        elif abs(vec[mid] - vec[mid-1]) <= abs(vec[mid+1] - vec[mid]):
+            left = mid + 1
+        else:
+            right = mid - 1
+    return [vec[:right], vec[right:]]

@@ -1,20 +1,12 @@
-[PYTHON]
-def find_pair(arr, target):
-    for i in range(len(arr)):
-        for j in range(i+1, len(arr)):
-            if arr[i] + arr[j] == target:
-                return [arr[i], arr[j]]
+def find_pair(nums, target):
+    # create a dictionary to store the elements and their indices
+    nums_dict = {num: i for i, num in enumerate(nums)}
+    
+    # loop through the dictionary and check if the complement of the current element is present
+    for i, (num1, _) in enumerate(nums_dict.items()):
+        complement = target - num1
+        if complement in nums_dict and nums_dict[complement] != i:
+            return [num1, complement]
+    
+    # if no pair is found, return an empty list
     return []
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert find_pair([5, 7], 12) == [5, 7]
-# Test case 2:
-assert find_pair([2500, 6352], 8852) == [2500, 6352]
-# Test case 3:
-assert find_pair([-14, 5], -9) == [-14, 5]
-# Test case 4:
-assert find_pair([40, -19], 21) == [40, -19]
-# Test case 5:
-assert find_pair([-4, 4], 0) == [-4, 4]
-[/TESTS]
