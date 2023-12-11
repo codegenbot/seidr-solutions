@@ -1,30 +1,26 @@
-def get_bowling_score(input_string):
-    # Initialize variables
+
+import re
+
+def get_score(bowl_string):
     score = 0
-    frame_number = 1
-    is_strike = False
-    is_spare = False
-
-    # Loop through each character in the input string
-    for char in input_string:
-        # If the current character is a digit, add its value to the score
-        if char.isdigit():
-            score += int(char)
-        # If the current character is a slash, it means we are starting a new frame
-        elif char == '/':
-            frame_number += 1
-            is_strike = False
-            is_spare = False
-        # If the current character is an X, it means we have a strike
-        elif char == 'X':
-            is_strike = True
+    for i in range(len(bowl_string)):
+        if bowl_string[i] == 'X':
             score += 10
-        # If the current character is a -, it means we have a spare
-        elif char == '-':
-            is_spare = True
-            score += 10
-        # If the current character is a space, it means we are at the end of the round
-        elif char == ' ':
-            break
-
+        elif bowl_string[i] == '/':
+            score += 10 - int(bowl_string[i-1])
+        else:
+            score += int(bowl_string[i])
     return score
+
+def main():
+    test_cases = [
+        "XXXXXXXXXXXX",
+        "5/5/5/5/5/5/5/5/5/5/5",
+        "7115XXX548/279-X53",
+        "532/4362X179-41447/5"
+    ]
+    for test_case in test_cases:
+        print(get_score(test_case))
+
+if __name__ == "__main__":
+    main()
