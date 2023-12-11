@@ -1,17 +1,21 @@
-```
-import numpy as np
-
-def luhn_algorithm(credit_card_number):
-    # Calculate the sum of all digits in the credit card number
-    total = np.sum(credit_card_number)
+def luhn(nums):
+    # Initialize variables
+    double = False
+    total = 0
     
-    # Double every other digit starting with the second digit
-    for i in range(1, len(credit_card_number), 2):
-        digit = credit_card_number[i] * 2
+    # Iterate over the digits in reverse order
+    for i in range(len(nums) - 1, -1, -1):
+        # Get the current digit and double it if necessary
+        digit = nums[i]
+        if double:
+            digit *= 2
+        
+        # Check if the result is over 9 and subtract 9 if so
         if digit > 9:
-            digit = digit - 9
+            digit -= 9
+        
+        # Add the result to the total and toggle the double flag
         total += digit
+        double = not double
     
-    # Return the sum of all digits in the credit card number
     return total
-```
