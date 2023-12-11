@@ -1,7 +1,10 @@
-```
-string anti_shuffle(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
+```cpp
+#include <iostream>
+#include <string>
+
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    for (char i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
             result += " ";
         } else {
@@ -15,5 +18,11 @@ string anti_shuffle(string s) {
         }
     }
     return result;
+}
+
+int main() {
+    std::string input = "Hi. My name is Mister Robot. How are you?";
+    std::string output = anti_shuffle(input);
+    assert (output == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
 }
 ```
