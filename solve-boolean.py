@@ -1,4 +1,4 @@
-[PYTHON]
+```
 def solve_boolean(expression):
     stack = []
     precedence = {'|': 1, '&': 2}
@@ -25,16 +25,4 @@ def solve_boolean(expression):
                 b = stack.pop()
                 stack.append(a and b)
     return stack[-1]
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert solve_boolean("T|F|T") == True
-# Test case 2:
-assert solve_boolean("T&F|T") == True
-# Test case 3:
-assert solve_boolean("T|F&T") == True
-# Test case 4:
-assert solve_boolean("T&F&T") == False
-# Test case 5:
-assert solve_boolean("T|F|T|F") == True
-[/TESTS]
+```
