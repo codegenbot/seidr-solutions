@@ -1,4 +1,3 @@
-```
 def find_pair(nums, target):
     seen = {}
     
@@ -12,4 +11,3 @@ def find_pair(nums, target):
             return (nums[i], nums[seen[complement]])
     
     return None, None
-```
