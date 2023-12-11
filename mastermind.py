@@ -1,13 +1,9 @@
-```
 import collections
 
 def mastermind(code, guess):
-    if len(code) != len(guess):
-        return -1
-
     black_pegs = 0
     white_pegs = 0
-    
+
     code_count = collections.Counter(code)
     guess_count = collections.Counter(guess)
 
@@ -21,5 +17,4 @@ def mastermind(code, guess):
         if count > 0:
             white_pegs += min(count, code_count[color])
 
-    return white_pegs, black_pegs
-```
+    return black_pegs, white_pegs
