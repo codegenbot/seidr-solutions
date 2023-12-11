@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -18,3 +19,4 @@ int main() {
     std::cout << "Decoded: " << decode_shift(encode_shift(str)) << std::endl;
     return 0;
 }
+```
