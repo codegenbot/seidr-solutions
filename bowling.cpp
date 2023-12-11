@@ -1,58 +1,39 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int calculateScore(const std::string& bowlingRound) {
+int getScore(string input) {
     int score = 0;
     int frame = 0;
-    int rolls = 0;
-    int frameScore[10] = {0};
+    int i = 0;
 
-    for (int i = 0; i < bowlingRound.length(); i++) {
-        char c = bowlingRound[i];
-
-        if (c == 'X') {
-            frameScore[frame] += 10;
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
-        } else if (c == '/') {
-            frameScore[frame] += (10 - frameScore[frame]);
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
-        } else if (c == '-') {
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
+    while (frame < 10) {
+        if (input[i] == 'X') {
+            score += 10;
+            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 0);
+            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 0);
+            i += 1;
+        } else if (input[i + 1] == '/') {
+            score += 10;
+            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 0);
+            i += 2;
         } else {
-            frameScore[frame] += (c - '0');
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
+            score += (isdigit(input[i]) ? input[i] - '0' : 0);
+            score += (isdigit(input[i + 1]) ? input[i + 1] - '0' : 0);
+            i += 2;
         }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        score += frameScore[i];
+        frame++;
     }
 
     return score;
 }
 
 int main() {
-    std::string bowlingRound;
-    std::getline(std::cin, bowlingRound);
+    string input;
+    cin >> input;
 
-    int score = calculateScore(bowlingRound);
-    std::cout << score << std::endl;
+    int score = getScore(input);
+    cout << score << endl;
 
     return 0;
 }
