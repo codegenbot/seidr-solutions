@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cassert>
 using namespace std;
@@ -23,3 +24,4 @@ int main() {
     assert(issame(pluck({7, 9, 7, 1}, 0), {}));
     return 0;
 }
+```

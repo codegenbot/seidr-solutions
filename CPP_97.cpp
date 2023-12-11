@@ -2,7 +2,7 @@
 #include <cmath>
 
 int multiply(int a, int b) {
-    return pow(a, b);
+    return abs(a % 10) * abs(b % 10);
 }
 
 int main() {
