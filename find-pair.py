@@ -1,15 +1,18 @@
+```python
+def find_pair(arr, target):
+    seen = set()
+    for num in arr:
+        complement = target - num
+        if complement in seen:
+            return num, complement
+        seen.add(num)
+
+# Read input from user
 n = int(input())
 arr = list(map(int, input().split()))
 target = int(input())
 
-def find_pair(arr, target):
-    complements = {}
-    for i in range(len(arr)):
-        complement = target - arr[i]
-        if complement in complements:
-            return arr[i], complement
-        complements[arr[i]] = i
-
+# Call the function and print the output
 result = find_pair(arr, target)
-print(result[0])
-print(result[1])
+print(*result)
+```
