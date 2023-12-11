@@ -9,5 +9,10 @@ int fib(int n) {
     }
 }
 
-std::cout << fib(n) << std::endl;
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << fib(n) << std::endl;
+    return 0;
+}
 ```
