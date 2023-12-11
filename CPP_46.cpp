@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -16,16 +15,13 @@ int fib4(int n) {
     }
 }
 
-int main() {
-    cout << "Enter a number: ";
+int main(){
     int n;
     cin >> n;
-    string str;
-    str.assign("The ");
+    string str = "The ";
     str += to_string(n);
     str += "-th Fibonacci number is: ";
     str += to_string(fib4(n));
     cout << str << endl;
     return 0;
 }
-```
