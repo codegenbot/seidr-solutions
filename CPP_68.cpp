@@ -1,4 +1,5 @@
 ```
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -20,7 +21,7 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 int main() {
     vector<int> arr{7, 9, 7, 1};
     pluck(arr, 0);
-    assert(issame(pluck({7, 9, 7, 1}, 0), {}));
+    assert(issame(pluck(vector<int>{7, 9, 7, 1}, 0), vector<int>{}));
     return 0;
 }
 ```
