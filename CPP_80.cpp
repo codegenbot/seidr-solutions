@@ -1,9 +1,10 @@
+```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-bool is_happy(const string& s) {
+bool is_happy(string s) {
     if (s.length() <= 1) {
         return false;
     }
@@ -20,7 +21,8 @@ bool is_happy(const string& s) {
 }
 
 int main() {
-    const string s = "abc";
+    string s = "abc";
     cout << is_happy(s) << endl;
     return 0;
 }
+```
