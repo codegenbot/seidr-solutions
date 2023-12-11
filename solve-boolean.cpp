@@ -9,19 +9,32 @@ bool evaluateBoolean(string expression) {
     } else if (expression == "f") {
         return false;
     } else {
-        int numOperands = expression.length() / 2 + 1;
-        for (int i = 0; i < numOperands; i++) {
-            if (expression[2*i] == 't') {
-                char op = expression[2*i+1];
-                string remainingExpression = expression.substr(2*i+2);
-                if (op == '&') {
-                    return evaluateBoolean(remainingExpression) && true;
-                } else if (op == '|') {
-                    return evaluateBoolean(remainingExpression) || true;
-                }
+        int opIndex = -1;
+        int brackets = 0;
+        for (int i = 0; i < expression.length(); i++) {
+            if (expression[i] == '(') {
+                brackets++;
+            } else if (expression[i] == ')') {
+                brackets--;
+            } else if ((expression[i] == '|' || expression[i] == '&') && brackets == 0) {
+                opIndex = i;
+                break;
+            }
+        }
+        
+        if (opIndex != -1) {
+            char op = expression[opIndex];
+            bool left = evaluateBoolean(expression.substr(0, opIndex));
+            bool right = evaluateBoolean(expression.substr(opIndex+1));
+            
+            if (op == '&') {
+                return left && right;
+            } else if (op == '|') {
+                return left || right;
             }
         }
     }
+    
     return false;
 }
 
