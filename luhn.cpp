@@ -14,22 +14,18 @@ using namespace std;
 int luhn(vector<int>& digits) {
     int sum = 0;
     for (int i = digits.size() - 2; i >= 0; i -= 2) {
-        int digit = digits[i] * 2;
-        if (digit > 9) {
-            digit -= 9;
+        int digit = digits[i];
+        if (digit < 5) {
+            sum += digit * 2;
+        } else {
+            sum += (digit * 2) - 9;
         }
-        sum += digit;
     }
-    return sum;
+    return sum % 10 == 0;
 }
 
 int main() {
-    vector<int> digits;
-    for (int i = 0; i < 16; i++) {
-        int num;
-        cin >> num;
-        digits.push_back(num);
-    }
-    cout << luhn(digits) << endl;
+    vector<int> digits = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3};
+    cout << "luhn: " << luhn(digits) << endl;
     return 0;
 }
