@@ -1,8 +1,7 @@
 #include <vector>
 #include <iostream>
-using namespace std;
 
-int findFirstNegativeIndex(vector<int> nums) {
+int basement(std::vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -15,11 +14,11 @@ int findFirstNegativeIndex(vector<int> nums) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    cout << findFirstNegativeIndex(nums) << endl;
+    std::cout << basement(nums) << std::endl;
     return 0;
 }
