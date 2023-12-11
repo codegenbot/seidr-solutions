@@ -1,16 +1,15 @@
 ```
-#include <algorithm>
+#include <iostream>
 #include <vector>
 
 using size_type = std::size_t;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::initializer_list<int>& a, const std::initializer_list<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    auto common = std::vector{4, 3, 2, 8};
-    assert([&]() { return issame(common, {}); }());
+    assert (issame({4, 3, 2, 8}, {}));
     return 0;
 }
 ```

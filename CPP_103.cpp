@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -21,4 +20,3 @@ string rounded_avg(int n, int m) {
     }
     return binary_string;
 }
-```
