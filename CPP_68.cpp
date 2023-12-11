@@ -7,7 +7,7 @@ using namespace std;
 void pluck(const vector<int>& arr, int index) {
     if (index >= 0 && index < arr.size()) {
         auto it = arr.begin() + index;
-        arr.erase(it);
+        arr.erase(it, it + 1);
     }
 }
 
@@ -22,7 +22,7 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 int main() {
     vector<int> arr{7, 9, 7, 1};
     pluck(arr, 0);
-    assert(issame(arr, vector<int>{9, 7, 1}));
+    assert(issame(arr, vector<int>{}));
     return 0;
 }
 ```
