@@ -1,14 +1,14 @@
-```
+```python
 def cut_vector(vector):
-    min_diff = math.inf
-    for i in range(1, len(vector)):
-        diff = abs(vector[i] - vector[i-1])
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-    for j in range(cut_index + 1, len(vector)):
-        diff = abs(vector[j] - vector[j-1])
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = j
-    return vector[:cut_index], vector[cut_index:]
+    # Sort the vector in ascending order
+    sorted_vector = sorted(vector)
+    
+    # Find the index of the first element that is not equal to its previous element
+    cut_index = next((i for i, x in enumerate(sorted_vector[1:]) if x != sorted_vector[i]), len(sorted_vector))
+    
+    # Split the vector into two subvectors based on the index found
+    left_subvector = sorted_vector[:cut_index]
+    right_subvector = sorted_vector[cut_index:]
+    
+    return left_subvector, right_subvector
+```
