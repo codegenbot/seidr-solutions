@@ -1,23 +1,24 @@
-```cpp
+```c++
 #include <iostream>
-#include <string>
-using namespace std;
 
-string calculateSnowAmount(int hours, double initialSnow, double snowFallRate, double meltRate) {
-    double currentSnow = initialSnow;
-    for (int i = 0; i < hours; i++) {
-        currentSnow += snowFallRate;
-        currentSnow -= currentSnow * meltRate;
+float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
+    float snow = initialSnow;
+    
+    for(int i = 0; i < hours; i++) {
+        snow += snowFallRate;
+        snow -= snow * meltingRate;
     }
-    return to_string(currentSnow);
+    
+    return snow;
 }
 
 int main() {
-    int hours;
-    double initialSnow, snowFallRate, meltRate;
-    cin >> hours >> initialSnow >> snowFallRate >> meltRate;
-    string finalSnow = calculateSnowAmount(hours, initialSnow, snowFallRate, meltRate);
-    cout << finalSnow << endl;
+    float hours, initialSnow, snowFallRate, meltingRate;
+    std::cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
+    
+    float result = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
+    std::cout << result << std::endl;
+    
     return 0;
 }
 ```
