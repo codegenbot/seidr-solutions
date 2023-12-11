@@ -1,4 +1,3 @@
-```python
 n = int(input())
 m = int(input())
 
@@ -9,4 +8,3 @@ def dice_game(n, m):
     return probability
 
 print(dice_game(n, m))
-```
