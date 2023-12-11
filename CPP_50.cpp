@@ -1,11 +1,39 @@
 
-Here is the corrected code:
-```
-string str = "";
-string encoded_str = "";
+#include <iostream>
+#include <string>
+using namespace std;
 
-string encode_shift(string s) {
-    // takes as input string and returns encoded string
+// Declare variable 'str'
+string str;
+
+// Declare function 'encode_shift'
+void encode_shift(string& s);
+
+// Declare function 'decode_shift'
+void decode_shift(string& s);
+
+int main() {
+    // Take input from user
+    cout << "Enter a string: ";
+    getline(cin, str);
+
+    // Call encode_shift function to encode the string
+    encode_shift(str);
+
+    // Print encoded string
+    cout << "Encoded string: " << str << endl;
+
+    // Call decode_shift function to decode the string
+    decode_shift(str);
+
+    // Print decoded string
+    cout << "Decoded string: " << str << endl;
+
+    return 0;
+}
+
+// Define functions 'encode_shift' and 'decode_shift'
+void encode_shift(string& s) {
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c >= 'a' && c <= 'z') {
@@ -21,11 +49,9 @@ string encode_shift(string s) {
         }
         s[i] = c;
     }
-    return s;
 }
 
-string decode_shift(string s) {
-    // takes as input string encoded with encode_shift function. Returns decoded string.
+void decode_shift(string& s) {
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c >= 'a' && c <= 'z') {
@@ -41,6 +67,4 @@ string decode_shift(string s) {
         }
         s[i] = c;
     }
-    return s;
 }
-```
