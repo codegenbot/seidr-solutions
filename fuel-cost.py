@@ -1,10 +1,7 @@
-```python
-def fuel_cost(arr):
-    return sum((num // 3) - 2 for num in arr)
+import math
 
-# Read the input vector from the user
-arr = list(map(int, input().split()))
+def fuel_cost(numbers):
+    return sum([math.floor(x/3) - 2 for x in numbers])
 
-# Calculate and print the fuel cost
-print(fuel_cost(arr))
-```
+numbers = [int(input()) for _ in range(int(input()))]
+print(fuel_cost(numbers))
