@@ -1,6 +1,6 @@
-[PYTHON]
-def eat(number, need, remaining):
-    total = number + need
-    hunger = max(total - remaining, 0)
-    return [total, remaining - hunger]
+```python
+def eat(number, remaining):
+    total_eaten = number + need
+    carrots_left = max(0, remaining - need)
+    return [total_eaten], [carrots_left]
 ```
