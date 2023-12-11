@@ -5,6 +5,14 @@
 #include <cassert>
 using namespace std;
 
+optional<int> next_smallest(vector<int>& lst);
+
+int main() {
+    vector<int> v = {-35, 34, 12, -45};
+    assert (next_smallest(v) == -35);
+    return 0;
+}
+
 optional<int> next_smallest(vector<int>& lst) {
     if (lst.size() < 2) {
         return nullopt;
@@ -16,11 +24,5 @@ optional<int> next_smallest(vector<int>& lst) {
         }
     }
     return nullopt;
-}
-
-int main() {
-    vector<int> v = {-35, 34, 12, -45};
-    assert (next_smallest(v) == -35);
-    return 0;
 }
 ```
