@@ -5,6 +5,10 @@ int add(int x, int y) {
     return x + y;
 }
 
+void insert(const_iterator pos, char c) {
+    // Implement the insert function here
+}
+
 int main() {
     int x, y;
     std::cin >> x >> y;
