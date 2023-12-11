@@ -1,15 +1,20 @@
-```cpp
+```
 #include <iostream>
-#include <string>
+
+int modp(int n) {
+    if (n % 2 == 0) {
+        return n / 2;
+    } else {
+        return 3 * n + 1;
+    }
+}
 
 int main() {
-    std::string str;
     int n = 0;
     while (n < 10) {
-        str.push_back(n);
+        std::cout << modp(n) << '\n';
         n++;
     }
-    std::cout << "The string is: " << str.length() << '\n';
     return 0;
 }
 ```
