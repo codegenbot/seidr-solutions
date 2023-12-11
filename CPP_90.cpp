@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,7 +5,7 @@
 using namespace std;
 
 optional<int> next_smallest(vector<int>& lst) {
-    // implementation of the function goes here
+    // Your implementation here
 }
 
 int main() {
