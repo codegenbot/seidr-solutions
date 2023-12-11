@@ -1,3 +1,4 @@
+```python
 import collections
 
 def mastermind(code, guess):
@@ -17,3 +18,4 @@ def mastermind(code, guess):
     white_pegs -= black_pegs
     
     return white_pegs, black_pegs
+```
