@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -9,5 +10,14 @@ vector<float> derivative(vector<float> xs) {
         result.push_back(xs[i] * pow(xs[0], i));
     }
     return result;
+}
+
+int main() {
+    vector<float> xs = {3, 1, 2, 4, 5};
+    vector<float> ys = derivative(xs);
+    for (auto x : ys) {
+        cout << x << " ";
+    }
+    return 0;
 }
 ```
