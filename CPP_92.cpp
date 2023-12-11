@@ -1,9 +1,9 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 
 bool any_int(float a, float b, float c) {
-    __const_iterator sum = (__const_iterator)(a + b);
+    int sum = (int)(a + b);
     return (sum == c || sum == a || sum == b);
 }
 

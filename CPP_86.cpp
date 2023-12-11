@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -27,3 +28,4 @@ int main() {
     assert (output == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
+```
