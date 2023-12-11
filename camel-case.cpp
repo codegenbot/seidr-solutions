@@ -5,7 +5,7 @@
 std::string kebabToCamel(const std::string& kebabCase) {
     std::string camelCase;
     bool capitalizeNext = false;
-    
+
     for (char c : kebabCase) {
         if (c == '-') {
             capitalizeNext = true;
@@ -16,29 +16,37 @@ std::string kebabToCamel(const std::string& kebabCase) {
             camelCase += c;
         }
     }
-    
+
     return camelCase;
 }
 
 int main() {
     std::string input;
     std::getline(std::cin, input);
-    
+
     std::string output;
     std::string word;
-    
+    std::vector<std::string> words;
+
     for (char c : input) {
         if (c == ' ') {
-            output += kebabToCamel(word) + " ";
-            word = "";
+            words.push_back(word);
+            word.clear();
         } else {
             word += c;
         }
     }
-    
-    output += kebabToCamel(word);
-    
+    words.push_back(word);
+
+    for (int i = 0; i < words.size(); ++i) {
+        output += kebabToCamel(words[i]);
+
+        if (i != words.size() - 1) {
+            output += ' ';
+        }
+    }
+
     std::cout << output << std::endl;
-    
+
     return 0;
 }
