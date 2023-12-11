@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i].compare(b[i]) != 0) {
             return false;
         }
     }
@@ -17,10 +17,15 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::string> total_match(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::vector<std::string> result;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] == "this") {
-            result.push_back(b[i]);
+        if (a[i].compare("this") == 0) {
+            result.push_back(a[i]);
         }
     }
-    return result;
-};
+    return result.size();
+}
+
+int main() {
+    assert(issame({"this", "is", "a", "test"}, {""}))
+    return 0;
+}
 ```
