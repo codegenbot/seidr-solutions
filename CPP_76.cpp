@@ -1,9 +1,11 @@
-```cpp
+
 #include <iostream>
 #include <cmath>
 
 bool is_simple_power(std::string x, std::string n) {
-    return (x == pow(n, round(log(x) / log(n))));
+    double x_d = stod(x);
+    double n_d = stod(n);
+    return (x_d == pow(n_d, round(log(x_d) / log(n_d))));
 }
 
 int main() {
@@ -15,4 +17,3 @@ int main() {
     std::cout << "is_simple_power(5, 3): " << is_simple_power("5", "3") << std::endl;
     return 0;
 }
-```
