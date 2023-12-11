@@ -1,31 +1,40 @@
-#include <iostream>
 #include <vector>
-#include <climits>
+#include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    std::pair<std::vector<int>, std::vector<int>> result;
     int n = nums.size();
     int diff = INT_MAX;
     int cutIndex = -1;
 
-    for (int i = 0; i < n - 1; i++) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j <= i; j++) {
-            sum1 += nums[j];
+    for (int i = 0; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
         }
-        for (int j = i + 1; j < n; j++) {
-            sum2 += nums[j];
+
+        for (int j = i; j < n; j++) {
+            rightSum += nums[j];
         }
-        int currDiff = abs(sum1 - sum2);
-        if (currDiff < diff) {
-            diff = currDiff;
+
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
             cutIndex = i;
         }
     }
 
-    std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
-    std::vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+    for (int i = 0; i <= cutIndex; i++) {
+        result.first.push_back(nums[i]);
+    }
 
-    return std::make_pair(subvector1, subvector2);
+    for (int i = cutIndex + 1; i < n; i++) {
+        result.second.push_back(nums[i]);
+    }
+
+    return result;
 }
 
 int main() {
