@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,12 +13,17 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<string> total_match(const vector<string>& a, const vector<string>& b) {
-    // implement the function here
+std::vector<std::string> total_match(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::vector<std::string> result;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] == "this") {
+            result.push_back(b[i]);
+        }
+    }
+    return result;
 }
 
 int main() {
     assert(issame(total_match({"this", "is", "a", "test"}, {""}), {}));
     return 0;
 }
-```

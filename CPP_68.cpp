@@ -1,8 +1,8 @@
 ```
-#include <vector>
+#include <memory_resource>
 #include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> pluck(const vector<int>& arr) {
+std::pmr::vector<int> pluck(const std::pmr::vector<int>& arr) {
     int smallestEven = INT_MAX;
     int smallestIndex = -1;
 
@@ -33,7 +33,7 @@ vector<int> pluck(const vector<int>& arr) {
 }
 
 int main() {
-    vector<int> a = {7, 9, 7, 1};
+    std::pmr::vector<int> a = {7, 9, 7, 1};
     assert(issame(pluck({7, 9, 7, 1}), {}));
     return 0;
 }
