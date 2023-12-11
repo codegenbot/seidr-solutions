@@ -1,17 +1,10 @@
-```
-import re
-
-def get_score(bowls):
-    score = 0
-    for bowl in bowls:
-        if bowl == 'X':
-            score += 10
-        elif bowl == '/':
-            score += 10
-        elif bowl == '-':
-            score -= 5
+def get_score(bowling_string):
+    total_score = 0
+    for i in range(len(bowling_string)):
+        if bowling_string[i] == 'X':
+            total_score += 10
+        elif bowling_string[i] == '/':
+            total_score += 10
         else:
-            score += int(bowl)
-    return score
-```
-[PYTHON]
+            total_score += int(bowling_string[i])
+    return total_score
