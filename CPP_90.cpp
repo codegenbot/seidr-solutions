@@ -4,9 +4,9 @@
 #include <algorithm>
 using namespace std;
 
-optional<int> next_smallest(vector<int>& lst) {
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2) {
-        return nullopt;
+        return -1;
     }
     sort(lst.begin(), lst.end());
     for (int i = 1; i < lst.size(); i++) {
@@ -14,12 +14,6 @@ optional<int> next_smallest(vector<int>& lst) {
             return lst[i];
         }
     }
-    return nullopt;
-}
-
-int main() {
-    vector<int> v = {-35, 34, 12, -45};
-    assert (next_smallest(v) == -35);
-    return 0;
+    return -1;
 }
 ```

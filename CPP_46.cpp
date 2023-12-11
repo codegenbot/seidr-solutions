@@ -1,4 +1,4 @@
-```cpp
+
 #include <iostream>
 using namespace std;
 
@@ -17,7 +17,7 @@ int fib4(int n) {
 }
 
 int main() {
-    cout << "Enter a number: ";
+    // Read input from user and return output corresponding to task description
     int n;
     cin >> n;
     string str;
@@ -28,4 +28,3 @@ int main() {
     cout << str << endl;
     return 0;
 }
-```
