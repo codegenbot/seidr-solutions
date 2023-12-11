@@ -1,3 +1,5 @@
+
+```
 def leaders(vector):
     result = []
     for i in range(len(vector)):
@@ -6,3 +8,4 @@ def leaders(vector):
         elif vector[i] < min(vector[:i]):
             result.append(vector[i])
     return result
+```
