@@ -1,19 +1,21 @@
-```
 #include <iostream>
 using namespace std;
 
 int fibfib(int n) {
-    if (n <= 1) {
-        return 0;
-    } else {
-        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3);
+    int a = 0;
+    int b = 1;
+    for (int i = 2; i <= n; ++i) {
+        int c = a + b;
+        a = b;
+        b = c;
     }
+    return a;
 }
 
-int main(void) {
-    int n = 8;
-    cout << "The " << n << "-th FibFib number is: ";
-    cout << fibfib(n) << endl;
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "The " << n << "-th Fibonacci number is: " << fibfib(n) << endl;
     return 0;
 }
-```
