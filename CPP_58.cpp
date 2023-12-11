@@ -1,8 +1,7 @@
-```
-#include <iostream>
+
 #include <vector>
 
-bool issame(std::vector<int> a) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,9 +12,3 @@ bool issame(std::vector<int> a) {
     }
     return true;
 }
-
-int main() {
-    std::vector<int> common;
-    assert(issame({4, 3, 2, 8}) == {});
-}
-```
