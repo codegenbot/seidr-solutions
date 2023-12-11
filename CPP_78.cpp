@@ -6,8 +6,8 @@
 using namespace std;
 
 int isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i <= sqrt(n); i++) {
+    if (n <= 1 || n % 2 == 0) return false;
+    for (int i = 3; i * i <= n; i += 2) {
         if (n % i == 0) return false;
     }
     return true;
@@ -20,5 +20,12 @@ int hex_key(string num) {
         if (isPrime(c - '0')) count++;
     }
     return count;
+}
+
+int main() {
+    string num;
+    cin >> num;
+    cout << hex_key(num) << endl;
+    return 0;
 }
 ```
