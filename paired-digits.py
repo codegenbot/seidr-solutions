@@ -1,2 +1,2 @@
-def sum_same(digits):
-    return sum(int(digit) for digit in digits if digits[i+1] == digit)
+def sum_paired_digits(s):
+    return sum(int(i) for i, j in enumerate(s) if s[j] == s[j+1])
