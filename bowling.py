@@ -13,8 +13,6 @@ def calculate_score(bowls):
         else:
             if bowls[i].isdigit() and bowls[i+1].isdigit():
                 score += int(bowls[i]) + int(bowls[i+1])
-            else:
-                score += 0
             i += 2
 
         frame += 1
@@ -38,6 +36,7 @@ def get_bonus(bowls, i, count):
         count -= 1
 
     return bonus
+
 
 bowls = input()
 score = calculate_score(bowls)
