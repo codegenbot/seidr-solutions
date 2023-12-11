@@ -1,3 +1,4 @@
+
 ```
 def shopping_list(prices, discounts):
     total = 0
