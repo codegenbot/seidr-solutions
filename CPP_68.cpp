@@ -1,5 +1,5 @@
-```
 #include <vector>
+#include <cassert>
 using namespace std;
 
 void pluck(const vector<int>& arr, int index) {
@@ -20,7 +20,6 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 int main() {
     vector<int> arr{7, 9, 7, 1};
     pluck(arr, 0);
-    assert(issame(pluck(arr, 0), {}));
+    assert(issame(pluck({7, 9, 7, 1}, 0), {}));
     return 0;
 }
-```
