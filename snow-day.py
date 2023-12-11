@@ -1,5 +1,16 @@
-def snow_day(hours: int, ground_snow: float, snow_fall: float, melt_rate: float) -> float:
-    for i in range(1, hours+1):
-        ground_snow += snow_fall
-        ground_snow -= ground_snow * melt_rate
-    return ground_snow
+def snow_day(hours, initial_snow, snow_fall, melt_rate):
+    # Initialize variables
+    current_snow = initial_snow
+    total_snow = 0
+    
+    for i in range(hours):
+        # Add new snow
+        current_snow += snow_fall
+        
+        # Melt the existing snow
+        current_snow *= (1 - melt_rate * current_snow)
+        
+        # Keep track of total snow
+        total_snow += current_snow
+    
+    return total_snow
