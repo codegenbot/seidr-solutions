@@ -1,6 +1,5 @@
-def get_snow(hours, initial_amount, rate, melt):
-    snow = initial_amount
-    for i in range(hours):
-        snow += (rate * math.sin(math.pi * (i / hours)))
-        snow *= (1 - melt)
-    return snow
+def snow_day(hours: int, ground_snow: float, snow_fall: float, melt_rate: float) -> float:
+    for i in range(1, hours+1):
+        ground_snow += snow_fall
+        ground_snow -= ground_snow * melt_rate
+    return ground_snow
