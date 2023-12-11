@@ -19,7 +19,7 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
     return true;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     vector<int> arr{7, 9, 7, 1};
     assert(issame(pluck({7, 9, 7, 1}, 0), {}));
     return 0;
