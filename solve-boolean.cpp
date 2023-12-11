@@ -1,30 +1,30 @@
-```
-#include <string>
-#include <cctype>
-#include <iostream>
-using namespace std;
 
-bool evaluate(const string& expression) {
-    bool result = true;
-    stack<char> operators;
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '|') {
-            operators.push('|');
-        } else if (expression[i] == '&') {
-            operators.push('&');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            result = (expression[i] == 'T');
-        } else if (operators.empty()) {
-            return false;
-        } else {
-            char op = operators.top();
-            if (op == '|') {
-                result |= evaluate(expression.substr(i + 1));
-            } else if (op == '&') {
-                result &= evaluate(expression.substr(i + 1));
-            }
-        }
-    }
-    return result;
-}
-```
+[PYTHON]
+def evaluate(expression):
+    result = True
+    stack = []
+    for char in expression:
+        if char == '|':
+            stack.append('|')
+        elif char == '&':
+            stack.append('&')
+        elif char == 'T' or char == 'F':
+            result = (char == 'T')
+        else:
+            if not stack:
+                return False
+            op = stack.pop()
+            if op == '|':
+                result |= evaluate(expression[i + 1:])
+            elif op == '&':
+                result &= evaluate(expression[i + 1:])
+    return result
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert evaluate("t|f&f|t&t&f&t|f|f|f|f&f|f&f&t&t&t|t") == True
+# Test case 2:
+assert evaluate("t&t|t") == True
+# Test case 3:
+assert evaluate("t|f&f|t&t&f&t|f|f|f|f&f|f&f&t&t&t|t") == True
+[/TESTS]
