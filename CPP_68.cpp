@@ -1,7 +1,6 @@
 ```
 #include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
@@ -12,7 +11,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-void pluck(vector<int>& arr, int index) {
+void pluck(const vector<int>& arr, int index) {
     arr.erase(arr.begin() + index);
 }
 
