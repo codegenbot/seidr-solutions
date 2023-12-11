@@ -1,20 +1,21 @@
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
-vector<int> indices_of_substring(string text, string target) {
-    vector<int> indices;
-    int n = text.length();
-    int m = target.length();
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
+    int text_len = text.length();
+    int target_len = target.length();
 
-    for (int i = 0; i <= n - m; i++) {
-        int j;
-        for (j = 0; j < m; j++) {
+    for (int i = 0; i <= text_len - target_len; i++) {
+        bool match = true;
+        for (int j = 0; j < target_len; j++) {
             if (text[i + j] != target[j]) {
+                match = false;
                 break;
             }
         }
-        if (j == m) {
+        if (match) {
             indices.push_back(i);
         }
     }
@@ -23,14 +24,15 @@ vector<int> indices_of_substring(string text, string target) {
 }
 
 int main() {
-    string text, target;
-    cin >> text >> target;
+    std::string text, target;
+    std::cin >> text >> target;
 
-    vector<int> result = indices_of_substring(text, target);
+    std::vector<int> result = indicesOfSubstring(text, target);
 
     for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+        std::cout << result[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
