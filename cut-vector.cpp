@@ -1,13 +1,13 @@
 ```cpp
-#include <iostream>
 #include <vector>
-#include <climits>
+#include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int idx = -1;
     
+    // Find the spot where the difference is minimized
     for (int i = 1; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
@@ -26,7 +26,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             idx = i;
         }
     }
-    
+
     std::vector<int> left(nums.begin(), nums.begin() + idx);
     std::vector<int> right(nums.begin() + idx, nums.end());
     
