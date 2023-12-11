@@ -1,5 +1,5 @@
-
 def eat(number, need, remaining):
-    total = number + need
-    left = max(total - remaining, 0)
-    return [total, left]
+    if need > remaining:
+        return [0, remaining]
+    else:
+        return [need - remaining, 0]
