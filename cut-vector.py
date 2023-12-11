@@ -1,29 +1,35 @@
+```python
 def cut_vector(vector):
-    n = len(vector)
     total_sum = sum(vector)
     left_sum = 0
     right_sum = total_sum
-
-    for i in range(n - 1):
+    min_diff = float('inf')
+    cut_index = -1
+    
+    for i in range(len(vector)):
         left_sum += vector[i]
         right_sum -= vector[i]
-
-        if left_sum == right_sum or abs(left_sum - right_sum) < abs(
-            left_sum - right_sum - vector[i + 1]
-        ):
-            return vector[: i + 1], vector[i + 1 :]
-
-    return vector, [0]
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    
+    return vector[:cut_index+1], vector[cut_index+1:]
 
 # Read input from user
-vector = list(map(int, input().split()))
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
 
-# Call the cut_vector function
-result1, result2 = cut_vector(vector)
-
-# Print the results
-for num in result1:
+# Call the function and print the output
+left_subvector, right_subvector = cut_vector(vector)
+for num in left_subvector:
     print(num)
-
-for num in result2:
+for num in right_subvector:
     print(num)
+```
+Note: The code assumes that the input is provided line by line until an empty line is encountered.
