@@ -1,38 +1,22 @@
-#include <vector>
-#include <cassert>
+```
+#include <iostream>
+using namespace std;
 
-bool issame(const std::vector<int>& a) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<int> pluck(const std::vector<int>& arr) {
+int main() {
+    int arr[4] = {7, 9, 7, 1};
     int smallestEven = INT_MAX;
     int smallestIndex = -1;
 
-    for (int i = 0; i < arr.size(); i++) {
+    for (int i = 0; i < 4; i++) {
         if (arr[i] % 2 == 0 && arr[i] < smallestEven) {
             smallestEven = arr[i];
             smallestIndex = i;
         }
     }
 
-    if (smallestIndex != -1) {
-        return {smallestEven, smallestIndex};
-    } else {
-        return {};
-    }
-}
+    cout << "Smallest even number: " << smallestEven << endl;
+    cout << "Its index in the array: " << smallestIndex << endl;
 
-int main() {
-    std::vector<int> a = {7, 9, 7, 1};
-    assert(issame(pluck({7, 9, 7, 1}), {}));
     return 0;
 }
+```
