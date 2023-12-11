@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 using namespace std;
 
@@ -20,7 +20,12 @@ int main() {
     cout << "Enter a number: ";
     int n;
     cin >> n;
-    cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << endl;
+    string str;
+    str.assign("The ");
+    str += to_string(n);
+    str += "-th Fibonacci number is: ";
+    str += to_string(fib4(n));
+    cout << str << endl;
     return 0;
 }
 ```

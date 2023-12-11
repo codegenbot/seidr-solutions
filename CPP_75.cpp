@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <cmath>
 
@@ -15,7 +16,7 @@ bool is_prime(int n) {
 bool is_multiply_prime(int a) {
     if (a <= 1 || a % 2 == 0) return false;
     for (int i = 3; i * i <= a; i += 2) {
-        if (a % i == 0 && is_prime(i)) return true;
+        if (is_prime(i) && a % i == 0) return true;
     }
     return false;
 }

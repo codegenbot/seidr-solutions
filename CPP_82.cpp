@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -17,4 +16,3 @@ bool prime_length(string str) {
     int len = str.size();
     return isPrime(len);
 }
-```
