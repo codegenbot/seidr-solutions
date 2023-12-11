@@ -1,10 +1,9 @@
-```
+
 #include <iostream>
 #include <vector>
 #include <string>
-#include <memory_resource>
 
-bool issame(const std::pmr::vector<std::pmr::string>& a, const std::pmr::vector<std::pmr::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,8 +15,8 @@ bool issame(const std::pmr::vector<std::pmr::string>& a, const std::pmr::vector<
     return true;
 }
 
-std::pmr::vector<std::pmr::string> totalMatch(const std::pmr::vector<std::pmr::string>& a, const std::pmr::vector<std::pmr::string>& b) {
-    std::pmr::vector<std::pmr::string> result;
+std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::vector<std::string> result;
     for (int i = 0; i < a.size(); i++) {
         if (a[i].compare("this") == 0) {
             result.push_back(b[i]);
@@ -29,4 +28,3 @@ std::pmr::vector<std::pmr::string> totalMatch(const std::pmr::vector<std::pmr::s
 int main() {
     assert(issame(totalMatch({"this"}, {}), {"this"}));
 }
-```
