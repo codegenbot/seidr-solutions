@@ -1,25 +1,29 @@
-```python
 def cut_vector(vector):
+    n = len(vector)
     total_sum = sum(vector)
     left_sum = 0
-    right_sum = total_sum
-
-    for i in range(len(vector)):
+    min_diff = float('inf')
+    cut_index = 0
+    
+    for i in range(n):
         left_sum += vector[i]
-        right_sum -= vector[i]
-
-        if left_sum == right_sum or abs(left_sum - right_sum) == min(abs(left_sum - right_sum), abs(total_sum - left_sum - left_sum)):
-            return vector[:i+1], vector[i+1:]
-
-    return vector, [0]
-
+        right_sum = total_sum - left_sum
+        diff = abs(left_sum - right_sum)
+        
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i + 1
+    
+    return vector[:cut_index], vector[cut_index:]
 
 vector = []
-for _ in range(2):
-    vector.append(int(input()))
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except EOFError:
+        break
 
-output = cut_vector(vector)
-print(output[0])
-print(output[1])
-```
-Note: The above code assumes that the vector input will always have exactly two elements. It finds the spot where cutting the vector results in two subvectors with either equal sums or the minimum difference in sums. The code returns the two subvectors as two separate outputs.
+left, right = cut_vector(vector)
+print(*left, sep='\n')
+print(*right, sep='\n')
