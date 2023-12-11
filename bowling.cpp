@@ -1,66 +1,42 @@
 #include <iostream>
 #include <string>
 
-int getScore(std::string input) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
-    int bowl = 0;
-    int bonus = 0;
-    bool spare = false;
-    bool strike = false;
-
-    for (char ch : input) {
-        if (ch == 'X') {
+    int bowlIndex = 0;
+    
+    while (frame <= 10 && bowlIndex < bowls.length()) {
+        char bowl = bowls[bowlIndex];
+        
+        if (bowl == 'X') {
             score += 10;
             if (frame < 10) {
-                score += bonus;
-                bonus = 10;
-                strike = true;
-                frame++;
+                score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+                score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
             }
-        } else if (ch == '/') {
-            score += 10 - bowl;
-            if (frame < 10) {
-                score += bonus;
-                bonus = 10;
-                spare = true;
-                frame++;
-            }
-        } else if (ch == '-') {
-            if (frame < 10) {
-                score += bonus;
-                bonus = 0;
-                frame++;
-            }
+            bowlIndex++;
+        } else if (bowl == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            bowlIndex += 2;
         } else {
-            score += ch - '0';
-            if (frame < 10) {
-                score += bonus;
-                bonus = 0;
-                if (spare) {
-                    score += ch - '0';
-                    spare = false;
-                }
-                if (strike) {
-                    score += ch - '0';
-                    strike = false;
-                }
-                bowl++;
-                if (bowl == 2) {
-                    bowl = 0;
-                    frame++;
-                }
-            }
+            score += (bowl - '0');
+            bowlIndex++;
         }
+        
+        frame++;
     }
-
+    
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    int score = getScore(input);
+    std::string bowls;
+    std::cin >> bowls;
+    
+    int score = calculateScore(bowls);
     std::cout << score << std::endl;
+    
     return 0;
 }
