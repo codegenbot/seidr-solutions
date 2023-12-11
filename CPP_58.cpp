@@ -8,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     std::vector<int> common({4, 3, 2, 8});
-    assert(issame(common, {}));
+    assert (issame(common({4, 3, 2, 8}), {}));
     return 0;
 }
 ```
