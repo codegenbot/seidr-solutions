@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -18,7 +19,7 @@ pair<int, int> mastermind(string code, string guess) {
     }
 
     for (int i = 0; i < 6; i++) {
-        whitePegs += std::min(codeCount[i], guessCount[i]); // Fix: Added std:: before min()
+        whitePegs += min(codeCount[i], guessCount[i]);
     }
 
     return make_pair(whitePegs, blackPegs);
@@ -33,3 +34,4 @@ int main() {
     cout << result.second << endl;
     return 0;
 }
+```
