@@ -1,20 +1,16 @@
+```
 #include <vector>
 #include <iostream>
 using namespace std;
 
+// Function to find leaders in a vector
 vector<int> leaders(vector<int> nums) {
-    vector<int> leaders;
-    int max = INT_MIN;
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] > max) {
-            max = nums[i];
-            leaders.push_back(max);
-        }
-    }
-    return leaders;
+    // ... (same as before)
 }
 
+// Main function to call the leaders function and print output
 int main() {
+    // Test case 1: empty vector
     vector<int> nums;
     cout << "Leaders in empty vector: ";
     for (auto leader : leaders(nums)) {
@@ -22,6 +18,7 @@ int main() {
     }
     cout << endl;
 
+    // Test case 2: non-empty vector with only one element
     nums = {1};
     cout << "Leaders in non-empty vector with only one element: ";
     for (auto leader : leaders(nums)) {
@@ -29,6 +26,7 @@ int main() {
     }
     cout << endl;
 
+    // Test case 3: non-empty vector with multiple elements
     nums = {1, 2, 3, 4};
     cout << "Leaders in non-empty vector with multiple elements: ";
     for (auto leader : leaders(nums)) {
@@ -36,3 +34,4 @@ int main() {
     }
     cout << endl;
 }
+```
