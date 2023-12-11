@@ -1,5 +1,5 @@
-#include <cmath>
 #include <iostream>
+#include <cmath>
 using namespace std;
 double probability(int n, int m) {
     double p = 0.0;
