@@ -1,22 +1,18 @@
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 int main() {
     string input;
     getline(cin, input);
-    
-    vector<string> words = split(input, '-');
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            cout << " ";
+    int index = 0;
+    while (index != -1) {
+        index = input.find("-", index + 1);
+        if (index != -1 && index < input.size()) {
+            input[index] = toupper(input[index + 1]);
+            input.erase(index + 1, 1);
         }
-        string word = words[i];
-        transform(word.begin(), word.end(), word.begin(), ::tolower);
-        cout << word;
     }
-    
+    cout << input;
     return 0;
 }
