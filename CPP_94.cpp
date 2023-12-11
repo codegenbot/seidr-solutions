@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,11 +8,7 @@ int largestPrime(vector<int> lst);
 bool isPrime(int n);
 int sumDigits(int n);
 
-int main() {
-    vector<int> numbers = {127, 97, 8192};
-    int result = largestPrime(numbers);
-    assert (result == 10);
-}
+// Removed duplicate main() function
 
 int largestPrime(vector<int> lst) {
     int max = 0;
@@ -41,4 +36,3 @@ int sumDigits(int n) {
     }
     return sum;
 }
-```
