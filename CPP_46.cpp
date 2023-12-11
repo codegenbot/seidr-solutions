@@ -1,7 +1,6 @@
 ```
 #include <iostream>
-#include <string>
-#include <cmath>
+using namespace std;
 
 int fib4(int n) {
     if (n <= 3) {
@@ -18,10 +17,15 @@ int fib4(int n) {
 }
 
 int main() {
-    std::cout << "Enter a number: ";
+    cout << "Enter a number: ";
     int n;
-    std::cin >> n;
-    std::cout << "The " << n << "-th Fibonacci number is: " << fib4(n) << std::endl;
+    cin >> n;
+    string str;
+    str.assign("The ");
+    str += to_string(n);
+    str += "-th Fibonacci number is: ";
+    str += to_string(fib4(n));
+    cout << str << endl;
     return 0;
 }
 ```

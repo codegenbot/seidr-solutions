@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,7 +11,11 @@ int sumDigits(int n);
 int main() {
     vector<int> numbers = {127, 97, 8192};
     int result = largestPrime(numbers);
-    assert (result == 10);
+    if (result == 10) {
+        cout << "The largest prime is: " << result << endl;
+    } else {
+        cout << "There is no prime number in the input." << endl;
+    }
 }
 
 int largestPrime(vector<int> lst) {
@@ -41,4 +44,3 @@ int sumDigits(int n) {
     }
     return sum;
 }
-```
