@@ -1,58 +1,54 @@
 #include <iostream>
 #include <string>
-
-int getBowlValue(char bowl) {
-    if (bowl == 'X') {
-        return 10;
-    } else if (bowl == '/') {
-        return 10;
-    } else if (bowl == '-') {
-        return 0;
-    } else {
-        return bowl - '0';
-    }
-}
-
-int bowlingScore(std::string round) {
-    int score = 0;
-    int frame = 1;
-    int bowl = 0;
-    
-    for (int i = 0; i < round.size(); i++) {
-        if (frame > 10) {
-            break;
-        }
-        
-        if (round[i] == 'X') {
-            score += getBowlValue(round[i]);
-            bowl = 0;  // reset bowl for next frame
-            frame++;
-        } else if (round[i] == '/') {
-            score += 10 - getBowlValue(round[i-1]);  // add spare bonus
-            bowl = 0;  // reset bowl for next frame
-            frame++;
-        } else if (round[i] == '-') {
-            // do nothing, just skip this bowl
-        } else {
-            score += getBowlValue(round[i]);
-            
-            if (bowl == 0) {
-                bowl = 1;
-            } else if (bowl == 1) {
-                score += getBowlValue(round[i]);
-                bowl = 0;  // reset bowl for next frame
-                frame++;
-            }
-        }
-    }
-    
-    return score;
-}
+using namespace std;
 
 int main() {
-    std::string round;
-    std::cin >> round;
-    std::cout << bowlingScore(round) << std::endl;
+  string bowls;
+  cin >> bowls;
+  
+  int score = 0;
+  int frame = 0;
+  int prevScore = 0;
+  int prevPrevScore = 0;
+  
+  for (int i = 0; i < bowls.length(); i++) {
+    if (frame == 10) break;
     
-    return 0;
+    char bowl = bowls[i];
+    if (bowl == 'X') {
+      score += 10;
+      score += prevScore + prevPrevScore;
+      
+      prevPrevScore = prevScore;
+      prevScore = 10;
+      
+      frame++;
+    } else if (bowl == '/') {
+      score += 10;
+      score += prevScore - prevPrevScore;
+      
+      prevPrevScore = 10 - prevPrevScore;
+      prevScore = 10;
+      
+      i++;
+      frame++;
+    } else if (bowl == '-') {
+      prevScore = 0;
+    } else {
+      score += bowl - '0';
+      
+      prevPrevScore = prevScore;
+      prevScore = bowl - '0';
+      
+      if (prevScore + prevPrevScore == 10) {
+        score += prevScore;
+      }
+      
+      frame++;
+    }
+  }
+  
+  cout << score;
+  
+  return 0;
 }
