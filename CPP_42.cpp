@@ -14,9 +14,9 @@ void incr_list(std::vector<int>& v) {
 }
 
 int main() {
-    std::vector<int> v = {5, 2, 5, 2, 3, 3, 9, 0, 123};
-    incr_list(v);
-    for (auto it = v.begin(); it != v.end(); ++it) {
+    std::vector<int> temp {5, 2, 5, 2, 3, 3, 9, 0, 123};
+    incr_list(temp);
+    for (auto it = temp.begin(); it != temp.end(); ++it) {
         if (*it % 2 == 0) {
             std::cout << *it << " ";
         }

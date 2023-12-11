@@ -10,7 +10,7 @@ optional<int> next_smallest(const vector<int>& lst);
 
 int main() {
     vector<int> v = {-35, 34, 12, -45};
-    assert (next_smallest(&v).has_value() && *next_smallest(&v) == -35);
+    assert (next_smallest(v).has_value() && *next_smallest(v) == -35);
     return 0;
 }
 
