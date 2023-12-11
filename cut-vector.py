@@ -9,4 +9,4 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
     return cut_index, min_diff
-```
+``` 
