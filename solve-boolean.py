@@ -6,14 +6,15 @@ def solve_boolean(expression):
             stack.append(True)
         elif char == 'F':
             stack.append(False)
-        elif char == '|':
-            # Evaluate the OR operation
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
         elif char == '&':
-            # Evaluate the AND operation
+            # Pop the top two elements of the stack, and push the result of ANDing them
             a = stack.pop()
             b = stack.pop()
             stack.append(a and b)
+        elif char == '|':
+            # Pop the top two elements of the stack, and push the result of ORing them
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(a or b)
     return stack[-1]
+```
