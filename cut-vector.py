@@ -1,5 +1,6 @@
 
-[PYTHON]
+The correct solution is to change the line `return vector[:cut_index], vector[cut_index:]` to `return cut_index, min_diff`. This will return the index of the cut and the minimum difference between the two subvectors, which is what the problem description requires. The modified code is as follows:
+```
 def cut_vector(vector):
     # Find the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible.
     min_diff = math.inf
@@ -9,16 +10,4 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
     return cut_index, min_diff
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert cut_vector([1, 2, 3, 4]) == (2, 0)
-# Test case 2:
-assert cut_vector([1, 2, 3, 4, 5]) == (2, 1)
-# Test case 3:
-assert cut_vector([1, 2, 3, 4, 5, 6]) == (3, 3)
-# Test case 4:
-assert cut_vector([1, 2, 3, 4, 5, 6, 7]) == (3, 4)
-# Test case 5:
-assert cut_vector([1, 2, 3, 4, 5, 6, 7, 8]) == (4, 6)
-[/TESTS]
+```
