@@ -1,32 +1,34 @@
-```python
+import numpy as np
+
 def cut_vector(vector):
-    min_diff = float('inf')
-    index = -1
+    diff = float("inf")
+    index = 0
+
     for i in range(1, len(vector)):
         left_sum = sum(vector[:i])
         right_sum = sum(vector[i:])
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
-            index = i
-    return vector[:index], vector[index:]
 
-# Read input from user
-vector = []
+        current_diff = abs(left_sum - right_sum)
+        if current_diff < diff:
+            diff = current_diff
+            index = i
+
+    subvector1 = vector[:index]
+    subvector2 = vector[index:]
+
+    return subvector1, subvector2
+
+input_vector = []
 while True:
     try:
-        line = input()
-        if line:
-            vector.append(int(line))
-        else:
-            break
-    except EOFError:
+        num = int(input())
+        input_vector.append(num)
+    except:
         break
 
-# Call the function and print the output
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
+output1, output2 = cut_vector(input_vector)
+for num in output1:
     print(num)
-for num in right_subvector:
+
+for num in output2:
     print(num)
-```
