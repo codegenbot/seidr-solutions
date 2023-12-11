@@ -2,8 +2,11 @@
 import collections
 
 def mastermind():
-    code = input().upper()
-    guess = input().upper()
+    code = input()
+    guess = input()
+    
+    code = code.upper()
+    guess = guess.upper()
     
     black_pegs = 0
     white_pegs = 0
@@ -21,5 +24,6 @@ def mastermind():
     
     return white_pegs, black_pegs
 
-print(mastermind())
+result = mastermind()
+print(result)
 ```
