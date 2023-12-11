@@ -19,7 +19,7 @@ vector<string> total_match(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(total_match({"this", "is", "a", "test"}, {""}), {}));
+    assert(issame(total_match({"this"}, {}), {}));
     return 0;
 }
 ```

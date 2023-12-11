@@ -10,7 +10,7 @@ int fibfib(int n) {
     }
 }
 
-int main(void) {
+int main() {
     int n = 8;
     cout << "The " << n << "-th FibFib number is: ";
     cout << fibfib(n) << endl;
