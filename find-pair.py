@@ -1,10 +1,11 @@
 ```python
 def find_pair(nums, target):
-    num_set = set(nums)
+    complements = {}
     for num in nums:
         complement = target - num
-        if complement in num_set:
-            return num, complement
+        if complement in complements:
+            return complement, num
+        complements[num] = True
 
 # Read input from user
 n = int(input())
@@ -14,7 +15,7 @@ target = int(input())
 # Find the pair
 result = find_pair(nums, target)
 
-# Print the output
+# Print the result
 print(result[0])
 print(result[1])
 ```
