@@ -1,16 +1,12 @@
-```
-#include <iostream>
-#include <algorithm>
-#include <vector>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
-}
-
-int main() {
-    std::vector<int> v1 = {5, 2, 5, 2, 3, 3, 9, 0, 123};
-    std::vector<int> v2 = {6, 3, 6, 3, 4, 4, 10, 1, 124};
-    assert(issame(v1, v2));
-    return 0;
-}
-```
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
