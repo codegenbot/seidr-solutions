@@ -1,8 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
 pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -23,15 +19,5 @@ pair<int, int> mastermind(string code, string guess) {
     }
 
     return make_pair(whitePegs, blackPegs);
-}
-
-int main() {
-    string code, guess;
-    cin >> code;
-    cin >> guess;
-    pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
-    return 0;
 }
 ```
