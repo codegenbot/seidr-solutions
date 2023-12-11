@@ -1,39 +1,51 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int getScore(string input) {
+int getScore(const std::string& frames) {
     int score = 0;
-    int frame = 0;
-    int i = 0;
-
-    while (frame < 10) {
-        if (input[i] == 'X') {
-            score += 10;
-            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 0);
-            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 0);
-            i += 1;
-        } else if (input[i + 1] == '/') {
-            score += 10;
-            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 0);
-            i += 2;
-        } else {
-            score += (isdigit(input[i]) ? input[i] - '0' : 0);
-            score += (isdigit(input[i + 1]) ? input[i + 1] - '0' : 0);
-            i += 2;
+    int frameIndex = 0;
+    
+    for (int i = 0; i < frames.length(); i++) {
+        if (frameIndex == 10) {
+            break;
         }
-        frame++;
+        
+        if (frames[i] == 'X') {
+            score += 10;
+            if (frames[i+2] == 'X') {
+                score += 10;
+            } else if (frames[i+2] == '/') {
+                score += 10 - (frames[i+1] - '0');
+            } else {
+                score += frames[i+1] - '0' + frames[i+2] - '0';
+            }
+            frameIndex++;
+        } else if (frames[i] == '/') {
+            score += 10 - (frames[i-1] - '0');
+            if (frames[i+1] == 'X') {
+                score += 10;
+            } else {
+                score += frames[i+1] - '0';
+            }
+            frameIndex++;
+        } else {
+            score += frames[i] - '0';
+            if (frames[i+1] == '/') {
+                score += 10 - (frames[i] - '0');
+            }
+            frameIndex++;
+        }
     }
-
+    
     return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-
-    int score = getScore(input);
-    cout << score << endl;
-
+    std::string frames;
+    std::cin >> frames;
+    
+    int score = getScore(frames);
+    std::cout << score << std::endl;
+    
     return 0;
 }
