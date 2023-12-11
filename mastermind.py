@@ -6,7 +6,7 @@ def mastermind(code: str, guess: str) -> Tuple[int, int]:
     white_pegs = 0
     code_counts = collections.defaultdict(int)
     guess_counts = collections.defaultdict(int)
-    
+
     for i in range(4):
         if code[i] == guess[i]:
             black_pegs += 1
