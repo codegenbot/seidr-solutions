@@ -1,12 +1,12 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
+
 int main() {
-    int hours;
-    float snowOnGround, rateOfSnowfall, proportionOfSnowMeltPerHour, finalSnowAmount = 0.0;
-    cin >> hours >> snowOnGround >> rateOfSnowfall >> proportionOfSnowMeltPerHour;
-    for (int i = 1; i <= hours; i++) {
-        finalSnowAmount += snowOnGround + rateOfSnowfall * i - proportionOfSnowMeltPerHour * (i * i);
+    float snow, rate, melt, hours;
+    cin >> hours >> snow >> rate >> melt;
+    for (int i = 0; i < hours; i++) {
+        snow += rate * (1 - melt);
     }
-    cout << fixed << setprecision(9) << finalSnowAmount << endl;
+    cout << fixed << setprecision(6) << snow << endl;
+    return 0;
 }
