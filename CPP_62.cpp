@@ -5,7 +5,7 @@
 using namespace std;
 
 // Declare derivative function
-float derivative(vector<float> x);
+std::vector<float> derivative(const std::vector<float>& xs);
 
 int main() {
     vector<float> xs = {3, 1, 2, 4, 5};
@@ -14,11 +14,5 @@ int main() {
         cout << x << " ";
     }
     return 0;
-}
-
-// Define derivative function
-float derivative(vector<float> x) {
-    // Implement derivative function here
-    return 0.0f;
 }
 ```
