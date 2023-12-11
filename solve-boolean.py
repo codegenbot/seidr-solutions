@@ -1,21 +1,23 @@
-```
 def solve_boolean(expression):
-    # Use a stack to evaluate the expression
-    stack = []
+    queue = []
+    prev_op = None
     for char in expression:
         if char == 'T':
-            stack.append(True)
+            queue.append(True)
         elif char == 'F':
-            stack.append(False)
+            queue.append(False)
         elif char == '|':
-            # Evaluate the OR operation
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
+            operand2 = queue.pop()
+            operand1 = queue.pop()
+            result = operand1 or operand2
+            queue.append(result)
+            prev_op = '|'
         elif char == '&':
-            # Evaluate the AND operation
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a and b)
-    return stack[-1]
-```
+            operand2 = queue.pop()
+            operand1 = queue.pop()
+            result = operand1 and operand2
+            queue.append(result)
+            prev_op = '&'
+        else:
+            raise ValueError("Invalid character in expression")
+    return queue[-1]
