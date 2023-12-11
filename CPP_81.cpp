@@ -1,36 +1,28 @@
-```
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+[PYTHON]
+def get_letter_grade(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
-    std::vector<std::string> result;
-    for (const auto& grade : grades) {
-        if (grade >= 90) {
-            result.push_back("A");
-        } else if (grade >= 80) {
-            result.push_back("B");
-        } else if (grade >= 70) {
-            result.push_back("C");
-        } else if (grade >= 60) {
-            result.push_back("D");
-        } else {
-            result.push_back("F");
-        }
-    }
-    return result;
-}
-
-int main() {
-    std::vector<float> grades = {95, 87, 76};
-    std::vector<std::string> expected_output = {"A", "B", "C"};
-    std::vector<std::string> actual_output = numerical_letter_grade(grades);
-    assert(std::equal(expected_output.begin(), expected_output.end(), actual_output.begin()));
-    return 0;
-}
-```
+def numerical_letter_grade(grades):
+    return [get_letter_grade(score) for score in grades]
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert numerical_letter_grade([]) == []
+# Test case 2:
+assert numerical_letter_grade([3, 4, 5, 6, 7, 8, 9, 10]) == ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F']
+# Test case 3:
+assert numerical_letter_grade([3, 4, 5, 6, 7, 8, 9, 10, 11]) == ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F']
+# Test case 4:
+assert numerical_letter_grade([3, 4, 5, 6, 7, 8, 9, 10, 11, 12]) == ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F']
+# Test case 5:
+assert numerical_letter_grade([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]) == ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F']
+[/TESTS]
