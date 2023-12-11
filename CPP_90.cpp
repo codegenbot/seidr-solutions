@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,3 +17,4 @@ int main() {
 optional<int> next_smallest(const vector<int>& lst) {
     // implementation of the function goes here
 }
+```
