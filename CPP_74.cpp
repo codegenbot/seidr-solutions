@@ -1,11 +1,8 @@
-
-Sure, here's the modified code that includes the necessary headers:
 ```
-#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,5 +12,14 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         }
     }
     return true;
+}
+
+vector<string> total_match(const vector<string>& a, const vector<string>& b) {
+    // implement the function here
+}
+
+int main() {
+    assert(issame(total_match({"this", "is", "a", "test"}, {}), {}));
+    return 0;
 }
 ```
