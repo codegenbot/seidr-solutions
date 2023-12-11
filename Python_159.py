@@ -1,3 +1,4 @@
+```python
 def eat(number, need, extra, remaining):
     total_eaten = number + need
     carrots_left = max(0, remaining - need)
@@ -5,3 +6,4 @@ def eat(number, need, extra, remaining):
 
 # Call the function with the correct arguments
 print(eat(4, 5, 1, 20))
+```
