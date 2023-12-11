@@ -4,4 +4,3 @@ def find_pair(nums, target):
             for k in range(j+1, len(nums)):
                 if nums[i] + nums[j] + nums[k] == target:
                     return nums[i], nums[j], nums[k]
-    return None, None, None
