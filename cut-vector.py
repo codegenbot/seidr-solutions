@@ -1,14 +1,16 @@
-def cut_vector(v):
-    n = len(v)
-    dp = [[math.inf for _ in range(n)] for _ in range(2)]
-    for i in range(n):
-        for j in range(i+1, n):
-            if v[i] == v[j]:
-                dp[0][j] = 0
-                dp[1][j] = i + 1
-            else:
-                diff = abs(v[i] - v[j])
-                if diff < dp[0][j]:
-                    dp[0][j] = diff
-                    dp[1][j] = i + 1
-    return dp[1]
+```
+import numpy as np
+
+def cut_vector(vector):
+    # Find the index where the difference between the left and right sides is minimum
+    min_diff = np.inf
+    min_index = 0
+    for i in range(1, len(vector)):
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        if diff < min_diff:
+            min_diff = diff
+            min_index = i
+    
+    # Return the two subvectors
+    return vector[:min_index], vector[min_index:]
+```
