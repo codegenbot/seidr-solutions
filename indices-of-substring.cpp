@@ -14,21 +14,16 @@ using namespace std;
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> result;
-    int i = 0;
-    while (i < text.size()) {
+    for (int i = 0; i < text.size(); ++i) {
         if (text[i] == target[0]) {
-            bool found = true;
-            for (int j = 1; j < target.size(); j++) {
-                if (text[i + j] != target[j]) {
-                    found = false;
-                    break;
-                }
+            int j = 1;
+            while (j < target.size() && text[i + j] == target[j]) {
+                ++j;
             }
-            if (found) {
+            if (j == target.size()) {
                 result.push_back(i);
             }
         }
-        i++;
     }
     return result;
 }
