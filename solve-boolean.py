@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     values = {'T': True, 'F': False}
     expression = expression.replace('T', 'True').replace('F', 'False')
@@ -6,4 +5,3 @@ def solve_boolean(expression):
 
 expression = input()
 print(solve_boolean(expression))
-```
