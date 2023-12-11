@@ -44,7 +44,7 @@ string decode_shift(string s) {
     return s;
 }
 
-int my_main() {
+int main() {
     // test the encode_shift and decode_shift functions
     string str = "hello";
     cout << "Encoded: " << encode_shift(str) << endl;
