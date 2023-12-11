@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -20,4 +19,3 @@ vector<int> count_up_to(int n) {
     }
     return primeNumbers;
 }
-```
