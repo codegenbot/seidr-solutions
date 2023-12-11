@@ -1,4 +1,2 @@
-import numpy as np
-
-def fuel_cost(vector):
-    return np.sum(np.floor(vector / 3) - 2)
+def fuel_cost(v):
+    return sum(int((x - 2) / 3) for x in v)
