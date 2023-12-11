@@ -10,8 +10,8 @@ bool evaluateBoolean(string expression) {
         return false;
     } else {
         char op = expression[1];
-        bool left = evaluateBoolean(expression.substr(0, 2));
-        bool right = evaluateBoolean(expression.substr(3));
+        bool left = evaluateBoolean(expression.substr(0, 1));
+        bool right = evaluateBoolean(expression.substr(2));
         
         if (op == '&') {
             return left && right;
