@@ -1,11 +1,9 @@
-```cpp
-#include <iostream>
+```
 #include <string>
-#include <cctype>
 
 std::string encode(const std::string& message) {
     std::string encoded;
-    for (char c : message) {
+    for (auto c : message) {
         if (isalpha(c)) {
             char new_char = 'A' + (c - 'a');
             if (new_char > 'Z') {
