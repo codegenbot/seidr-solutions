@@ -1,4 +1,4 @@
-```python
+```
 def get_probability(n, m):
-    return (n - m + 1) / (n * m)
+    return sum([1/m for _ in range(n)])
 ```
