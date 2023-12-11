@@ -1,4 +1,3 @@
-```
 #include <string>
 
 std::string encode(const std::string& message) {
@@ -16,4 +15,3 @@ std::string encode(const std::string& message) {
     }
     return encoded;
 }
-```
