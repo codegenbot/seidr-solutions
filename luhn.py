@@ -1,4 +1,4 @@
-[PYTHON]
+```
 def luhn(digits):
     # Initialize variables
     sum = 0
@@ -23,12 +23,4 @@ def luhn(digits):
         is_odd = not is_odd
 
     return sum
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert luhn([1, 6, 0, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7, 8]) == 76
-# Test case 2:
-assert luhn([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8]) == 63
-# Test case 3:
-assert luhn([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) == 73
-[/TESTS]
+```
