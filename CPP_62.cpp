@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -14,8 +14,10 @@ int main() {
 }
 ```
 
-The code above is a simple C++ program that computes the derivative of a set of input values using the `derivative` function. The `derivative` function takes a vector of input values and returns a vector of output values, where each output value is the derivative of the corresponding input value.
+The code above is using the `new` operator to allocate memory for the `xs` and `ys` vectors, but the allocator class `std::allocator<float>` does not have a member function `_M_max_size()` to determine the maximum size of the allocation. This suggests that you are using an older version of the C++ standard library (pre-C++17) which did not include this member function in the default allocator class.
 
-The code uses the `std::vector` class to store the input and output values, and the `std::cout` statement to print the output values to the console. The `main` function is the entry point for the program, and it calls the `derivative` function with the input vector as an argument.
+To fix the issue, you can either:
 
-The error message you are seeing suggests that the `new_allocator` class does not have a member function named `_M_max_size`. This is likely because you are using an older version of GCC that does not support this feature. To fix the issue, you can use the `-std=c++17` or `-std=c++2a` flag when compiling your code to enable C++17 or C++20 features, respectively. This should allow the code to compile without errors.
+1. Update your compiler and standard library to a newer version that includes the `_M_max_size()` member function in the `std::allocator<float>` class.
+2. Use a different allocator class that does have the `_M_max_size()` member function, such as `std::pmr::polymorphic_allocator<float>`.
+3. Avoid using the `new` operator and instead use a container class that manages its own memory allocation, such as `std::vector`.
