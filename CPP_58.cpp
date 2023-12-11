@@ -1,7 +1,6 @@
 ```
 #include <algorithm>
-#include <pmr/vector>
-#include <cassert>
+#include <boost/container/pmr/vector.hpp>
 
 bool issame(const pmr::vector<int>& a, const pmr::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -16,8 +15,7 @@ bool issame(const pmr::vector<int>& a, const pmr::vector<int>& b) {
 }
 
 int main() {
-    pmr::vector<int> common({1, 2, 3, 4});
+    pmr::vector<int> common({4, 3, 2, 8});
     assert(issame(common, {}));
-    return 0;
 }
 ```
