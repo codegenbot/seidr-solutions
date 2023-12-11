@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -18,4 +17,3 @@ int main() {
     cout << snowDay(hours, groundSnow, snowFallRate, meltProportion) << endl;
     return 0;
 }
-```
