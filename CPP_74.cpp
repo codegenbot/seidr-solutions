@@ -1,7 +1,9 @@
+```
+#include <memory>
 #include <vector>
 #include <string>
 
-bool is_same(const pmr::vector<string>& a, const pmr::vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +15,8 @@ bool is_same(const pmr::vector<string>& a, const pmr::vector<string>& b) {
     return true;
 }
 
-pmr::vector<string> total_match(const pmr::vector<string>& a, const pmr::vector<string>& b) {
-    pmr::vector<string> result;
+std::vector<std::string> total_match(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::vector<std::string> result;
     for (int i = 0; i < a.size(); i++) {
         if (a[i].compare("this") == 0) {
             result.push_back(b[i]);
@@ -22,3 +24,4 @@ pmr::vector<string> total_match(const pmr::vector<string>& a, const pmr::vector<
     }
     return result;
 }
+```
