@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -7,7 +7,7 @@ bool any_int(float a, float b, float c) {
     return (sum == c || sum == a || sum == b);
 }
 
-int main() {
+main() {
     float a, b, c;
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
