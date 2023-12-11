@@ -1,30 +1,37 @@
+```
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
+
 int main() {
     string input;
-    while (getline(cin, input)) {
-        if (input == "nospaceordash") {
-            cout << "nospaceordash" << endl;
-        } else if (input == "two-words") {
-            cout << "twoWords" << endl;
-        } else if (input == "two words") {
-            cout << "two words" << endl;
-        } else if (input == "all separate words") {
-            cout << "all separate words" << endl;
+    getline(cin, input);
+    
+    vector<string> words;
+    size_t pos = 0;
+    while ((pos = input.find("-")) != string::npos) {
+        words.push_back(input.substr(0, pos));
+        input.erase(0, pos + 1);
+    }
+    
+    if (words.size() > 0) {
+        words.push_back(input);
+    }
+    
+    string output = "";
+    for (int i = 0; i < words.size(); i++) {
+        if (i == 0) {
+            output += words[i];
         } else {
-            // Convert kebab-case to camelCase
-            string output = "";
-            for (int i = 0; i < input.size(); i++) {
-                if (input[i] == '-') {
-                    output += toupper(input[i + 1]);
-                    i++;
-                } else {
-                    output += input[i];
-                }
-            }
-            cout << output << endl;
+            output += toUppercase(words[i].substr(0, 1)) + words[i].substr(1);
         }
     }
+    
+    cout << output << endl;
+    
     return 0;
 }
+```
