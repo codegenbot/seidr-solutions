@@ -1,3 +1,3 @@
-import re
 def camel_case(string):
-    return re.sub(r'-(\w)', lambda m: m.group(1).upper(), string)
+    words = string.split("-")
+    return "".join([word.title() for word in words])
