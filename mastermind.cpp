@@ -31,7 +31,8 @@ int main() {
     getline(cin, guess);
 
     pair<int, int> result = mastermind(code, guess);
-    cout << result.first << " " << result.second << endl;
+    cout << result.first << endl;
+    cout << result.second << endl;
 
     return 0;
 }
