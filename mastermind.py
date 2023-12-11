@@ -1,10 +1,7 @@
 ```python
 import collections
 
-def mastermind():
-    code = input()
-    guess = input()
-    
+def mastermind(code, guess):
     code = code.upper()
     guess = guess.upper()
     
@@ -24,6 +21,8 @@ def mastermind():
     
     return white_pegs, black_pegs
 
-result = mastermind()
-print(result)
+code = input().strip()
+guess = input().strip()
+result = mastermind(code, guess)
+print(result[0], result[1])
 ```
