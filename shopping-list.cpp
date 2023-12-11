@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -16,3 +17,4 @@ int main() {
     std::cout << "Total price: " << total << std::endl;
     return 0;
 }
+```
