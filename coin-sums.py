@@ -5,4 +5,5 @@ def get_coin_sums(cents):
         while cents >= coin:
             cents -= coin
             counts[coin] += 1
-    return counts[1], counts[5], counts[10], counts[25]
+    return counts
+```
