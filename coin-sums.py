@@ -1,24 +1,21 @@
-[PYTHON]
+# Write a function that takes an integer `cents` as input and returns the minimum number of US coins needed to make that amount
 def get_coin_sums(cents):
-    coins = [1, 5, 10, 25]
+    # Initialize a list to store the counts of each coin type
     counts = [0, 0, 0, 0]
-    for i in range(len(coins)):
+
+    # Iterate through the possible coin values in descending order
+    for i in range(3, -1, -1):
+        # While the number of cents is greater than or equal to the current coin value
         while cents >= coins[i]:
-            if cents == coins[i]:
-                counts[i] += 1
-                break
-            else:
-                cents -= coins[i]
-                counts[i] += 1
+            # Add one of the current coin type to the counts
+            counts[i] += 1
+            # Subtract the current coin value from the number of cents
+            cents -= coins[i]
+
     return counts
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_coin_sums(1) == [1, 0, 0, 0]
-# Test case 2:
-assert get_coin_sums(5) == [0, 1, 0, 0]
-# Test case 3:
-assert get_coin_sums(10) == [0, 0, 1, 0]
-# Test case 4:
-assert get_coin_sums(25) == [0, 0, 0, 1]
-[/TESTS]
+
+# Test your code with the following input values
+print(get_coin_sums(1))  # should return [0, 0, 0, 1]
+print(get_coin_sums(5))  # should return [0, 0, 1, 0]
+print(get_coin_sums(10))  # should return [0, 1, 0, 0]
+print(get_coin_sums(25))  # should return [1, 0, 0, 0]
