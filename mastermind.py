@@ -17,7 +17,6 @@ def mastermind(code, guess):
     
     return white_pegs, black_pegs
 
-
 code = input().upper()
 guess = input().upper()
 
