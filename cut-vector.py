@@ -1,4 +1,3 @@
-
 def cut_vector(vector):
     min_diff = math.inf
     for i in range(1, len(vector)):
