@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,4 +15,3 @@ int search(vector<int> lst) {
     }
     return result;
 }
-```
