@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <cctype>
 #include <iostream>
@@ -25,4 +24,3 @@ int main() {
     cout << evaluate(expression) << endl;
     return 0;
 }
-```
