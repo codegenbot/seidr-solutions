@@ -1,21 +1,11 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
-
-double snowDay(int hours, double groundSnow, double fallRate, double meltRate) {
-    double totalSnow = 0;
-    for (int i = 1; i <= hours; i++) {
-        totalSnow += fallRate * i;
-        if (totalSnow > groundSnow) {
-            totalSnow -= (totalSnow - groundSnow) * meltRate;
-        }
-    }
-    return totalSnow;
-}
-
 int main() {
-    int hours;
-    double groundSnow, fallRate, meltRate;
-    cin >> hours >> groundSnow >> fallRate >> meltRate;
-    cout << snowDay(hours, groundSnow, fallRate, meltRate) << endl;
-    return 0;
+    float hours, snowOnGround, rateOfSnowFall, proportionOfSnowMelting;
+    cin >> hours >> snowOnGround >> rateOfSnowFall >> proportionOfSnowMelting;
+    for (int i = 0; i < hours; i++) {
+        snowOnGround += rateOfSnowFall * pow(1 - proportionOfSnowMelting, i);
+    }
+    cout << fixed << setprecision(9) << snowOnGround << endl;
 }
