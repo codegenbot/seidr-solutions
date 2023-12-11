@@ -1,12 +1,9 @@
 def luhn(digits):
     digits = list(map(int, digits))
-    result = 0
-    for i in range(16):
+    doubled_digits = []
+    for i in range(1, len(digits) + 1):
         if i % 2 == 0:
-            result += digits[i]
+            doubled_digits.append(digits[i - 1] * 2)
         else:
-            doubled = digits[i] * 2
-            if doubled > 9:
-                doubled -= 9
-            result += doubled
-    return result
+            doubled_digits.append(digits[i - 1])
+    return sum(doubled_digits)
