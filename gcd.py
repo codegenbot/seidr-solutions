@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     while b != 0:
         if a % b == 0:
@@ -6,3 +7,4 @@ def gcd(a, b):
             a = b
             b = a % b
     return a
+```
