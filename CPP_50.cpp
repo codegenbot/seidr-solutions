@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -43,10 +44,11 @@ string decode_shift(string s) {
     return s;
 }
 
-int main() {
+int my_main() {
     // test the encode_shift and decode_shift functions
     string str = "hello";
     cout << "Encoded: " << encode_shift(str) << endl;
     cout << "Decoded: " << decode_shift(encode_shift(str)) << endl;
     return 0;
 }
+```
