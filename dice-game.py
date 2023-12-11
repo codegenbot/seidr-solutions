@@ -1,4 +1,9 @@
-n = int(input())
-m = int(input())
-p = sum([1 for i in range(n) for j in range(m) if i > j]) / (n * m)
-print(f"{p:.2f}")
+import sys
+
+n = int(sys.stdin.readline().strip())
+m = int(sys.stdin.readline().strip())
+
+def probability_of_higher(n, m):
+    return (n-1) / (n+m-2)
+
+print(probability_of_higher(n, m))
