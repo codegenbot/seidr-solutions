@@ -1,6 +1,7 @@
-```
 #include <iostream>
 #include <vector>
+#include <cassert>
+using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -10,22 +11,16 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-void pluck(const vector<int>& arr, int index) {
+bool pluck(const vector<int>& arr, int index) {
     if (index >= 0 && index < arr.size()) {
         auto it = arr.begin() + index;
         arr.erase(it, it + 1);
     }
+    return true;
 }
 
 int main() {
     vector<int> arr1{7, 9, 7, 1};
-    vector<int> arr2{7, 9, 7, 1};
-    if (issame(arr1, arr2)) {
-        cout << "The two arrays are the same." << endl;
-    } else {
-        cout << "The two arrays are not the same." << endl;
-    }
-    pluck(arr1, 0);
+    assert (issame(arr1, pluck(arr1, 0)));
     return 0;
 }
-```

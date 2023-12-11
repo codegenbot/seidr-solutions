@@ -1,8 +1,7 @@
 ```
-#include <memory>
-#include <vector>
+#include <iostream>
 #include <string>
-using std::string;
+#include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
