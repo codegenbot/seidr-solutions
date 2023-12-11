@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -8,7 +7,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int diff = INT_MAX;
     int idx = -1;
     
-    // Find the index where the difference between the sums of the two subvectors is minimized
     for (int i = 0; i < n; i++) {
         int sum1 = 0, sum2 = 0;
         for (int j = 0; j < i; j++) {
@@ -24,7 +22,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
     
-    // Create the two resulting subvectors
     std::vector<int> sub1(nums.begin(), nums.begin() + idx);
     std::vector<int> sub2(nums.begin() + idx, nums.end());
 
@@ -51,4 +48,3 @@ int main() {
     
     return 0;
 }
-```
