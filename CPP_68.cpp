@@ -1,12 +1,19 @@
-```
-#include <memory_resource>
+#include <memory>
 #include <cassert>
 
-bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::pmr::vector<int> pluck(const std::pmr::vector<int>& arr) {
+std::vector<int> pluck(const std::vector<int>& arr) {
     int smallestEven = INT_MAX;
     int smallestIndex = -1;
 
@@ -21,8 +28,6 @@ std::pmr::vector<int> pluck(const std::pmr::vector<int>& arr) {
 }
 
 int main() {
-    std::pmr::vector<int> a = {7, 9, 7, 1};
+    std::vector<int> a = {7, 9, 7, 1};
     assert(issame(pluck({7, 9, 7, 1}), {}));
-    return 0;
 }
-```
