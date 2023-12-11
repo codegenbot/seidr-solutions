@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -32,3 +33,4 @@ int main() {
     assert(std::equal(expected_output.begin(), expected_output.end(), actual_output.begin()));
     return 0;
 }
+```

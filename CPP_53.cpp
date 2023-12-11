@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 
 int add(int x, int y) {
@@ -11,4 +11,3 @@ int main() {
     std::cout << add(x, y) << std::endl;
     return 0;
 }
-```
