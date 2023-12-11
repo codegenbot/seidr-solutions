@@ -1,2 +1,4 @@
-def fuel_cost(my_list):
-    return sum([((x-2)//3) for x in my_list])
+import numpy as np
+
+def fuel_cost(vector):
+    return np.sum(np.floor(vector / 3) - 2)
