@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -16,5 +16,3 @@ int main() {
     return 0;
 }
 ```
-
-The issue is related to the inclusion of backticks (```) in the code, which are not allowed in C++. To fix this, you can remove them or replace them with forward slashes (//) which is the standard way to indicate a block of code in C++.
