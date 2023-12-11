@@ -1,32 +1,8 @@
+
 ```
 #include <vector>
 #include <iostream>
 using namespace std;
-
-/*
-Given a vector of integers, return the two elements that sum to a target integer.
-For example,
-input:
-2
-5 7
-12
-output:
-5
-7
-*/
-vector<int> findPair(vector<int>& nums, int target) {
-    vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        for (int j = i + 1; j < nums.size(); j++) {
-            if (nums[i] + nums[j] == target) {
-                result.push_back(nums[i]);
-                result.push_back(nums[j]);
-                return result;
-            }
-        }
-    }
-    return result;
-}
 
 int main() {
     vector<int> nums = {5, 7};
