@@ -10,70 +10,38 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
-For example,
-input:
-1
-output:
-1
-0
-0
-0
-input:
-2
-output:
-2
-0
-0
-0
-input:
-3
-output:
-3
-0
-0
-0
-input:
-4
-output:
-4
-0
-0
-0
-input:
-5
-output:
-0
-1
-0
-0
-*/
-int main() {
-    int n;
-    cin >> n;
-    vector<int> coins(n);
-    for (int i = 0; i < n; i++) {
-        cin >> coins[i];
-    }
-    map<int, int> count;
-    for (int i = 0; i < n; i++) {
-        if (coins[i] % 25 == 0) {
-            count[25]++;
-            coins[i] -= 25;
-        } else if (coins[i] % 10 == 0) {
-            count[10]++;
-            coins[i] -= 10;
-        } else if (coins[i] % 5 == 0) {
-            count[5]++;
-            coins[i] -= 5;
+
+int main()
+{
+    int cents, pennies, nickles, dimes, quarters;
+    cin >> cents;
+
+    // Initialize the number of coins to 0
+    pennies = 0;
+    nickles = 0;
+    dimes = 0;
+    quarters = 0;
+
+    while (cents > 0) {
+        if (cents >= 25) {
+            cents -= 25;
+            quarters++;
+        } else if (cents >= 10) {
+            cents -= 10;
+            dimes++;
+        } else if (cents >= 5) {
+            cents -= 5;
+            nickles++;
         } else {
-            count[1]++;
+            pennies += cents;
+            cents = 0;
         }
     }
-    cout << "Number of quarters: " << count[25] << endl;
-    cout << "Number of dimes: " << count[10] << endl;
-    cout << "Number of nickles: " << count[5] << endl;
-    cout << "Number of pennies: " << count[1] << endl;
+
+    cout << "Pennies: " << pennies << endl;
+    cout << "Nickles: " << nickles << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Quarters: " << quarters << endl;
+
     return 0;
 }
