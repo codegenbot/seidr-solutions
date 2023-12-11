@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,3 +23,4 @@ int main() {
     assert (next_smallest(v) == -35);
     return 0;
 }
+```
