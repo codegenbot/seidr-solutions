@@ -10,10 +10,10 @@ int fib(int n) {
     }
 }
 
-// int main() {
-//     int n;
-//     cin >> n;
-//     cout << fib(n) << endl;
-//     return 0;
-// }
+int main() {
+    int n;
+    cin >> n;
+    cout << fib(n) << endl;
+    return 0;
+}
 ```
