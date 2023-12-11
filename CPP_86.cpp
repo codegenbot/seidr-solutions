@@ -1,4 +1,7 @@
 ```
+#include <iostream>
+#include <string>
+
 std::string anti_shuffle(const std::string& s) {
     std::string result = "";
     for (char i = 0; i < s.length(); i++) {
@@ -15,5 +18,12 @@ std::string anti_shuffle(const std::string& s) {
         }
     }
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << anti_shuffle(input) << std::endl;
+    return 0;
 }
 ```
