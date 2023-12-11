@@ -7,15 +7,11 @@ def find_pair(nums, target):
             return complement, num
         complements[num] = True
 
-# Read input from user
 n = int(input())
 nums = list(map(int, input().split()))
 target = int(input())
 
-# Find the pair
-result = find_pair(nums, target)
-
-# Print the result
-print(result[0])
-print(result[1])
+pair = find_pair(nums, target)
+print(pair[0])
+print(pair[1])
 ```
