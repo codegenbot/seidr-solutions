@@ -1,4 +1,3 @@
-
 ```
 def get_score(bowls):
     score = 0
