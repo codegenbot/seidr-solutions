@@ -1,34 +1,22 @@
-import numpy as np
+```
+nums = []
 
-def cut_vector(vector):
-    diff = float("inf")
-    index = 0
+for line in sys.stdin:
+    nums.append(int(line))
 
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
+n = len(nums)
+min_diff = float('inf')
+cut_idx = -1
 
-        current_diff = abs(left_sum - right_sum)
-        if current_diff < diff:
-            diff = current_diff
-            index = i
+for i in range(1, n):
+    diff = abs(sum(nums[:i]) - sum(nums[i:]))
+    if diff < min_diff:
+        min_diff = diff
+        cut_idx = i
 
-    subvector1 = vector[:index]
-    subvector2 = vector[index:]
+output1 = nums[:cut_idx]
+output2 = nums[cut_idx:]
 
-    return subvector1, subvector2
-
-input_vector = []
-while True:
-    try:
-        num = int(input())
-        input_vector.append(num)
-    except:
-        break
-
-output1, output2 = cut_vector(input_vector)
-for num in output1:
-    print(num)
-
-for num in output2:
-    print(num)
+print(*output1)
+print(*output2)
+```
