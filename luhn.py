@@ -1,21 +1,11 @@
 def luhn(digits):
-    # Reverse the digits
-    digits = digits[::-1]
-    
-    # Initialize the sum to 0
-    sum = 0
-    
-    # Iterate over the digits in reverse order
-    for i, digit in enumerate(digits):
-        # Double every other digit starting with the second digit
-        if i % 2 == 1:
-            digit *= 2
-            
-            # If the result is greater than 9, subtract 9 from it
-            if digit > 9:
-                digit -= 9
-        
-        # Add the resulting digit to the sum
-        sum += digit
-    
-    return sum
+    # Double every other digit starting with the second digit
+    doubled_digits = [int(digit) * 2 for digit in digits[1::2]]
+
+    # Subtract 9 from each result that is over 9
+    subtracted_digits = [digit - 9 if digit > 9 else digit for digit in doubled_digits]
+
+    # Sum all the new digits
+    summed_digits = sum(subtracted_digits)
+
+    return summed_digits
