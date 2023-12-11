@@ -3,7 +3,8 @@
 #include <cmath>
 
 bool any_int(float a, float b, float c) {
-    return (a == b || a == c || b == c);
+    int sum = (int)(a + b);
+    return (sum == c || sum == a || sum == b);
 }
 
 int main() {
