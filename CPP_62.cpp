@@ -12,12 +12,12 @@ vector<float> derivative(vector<float> xs) {
     return result;
 }
 
-int main() {
-    vector<float> xs = {3, 1, 2, 4, 5};
-    vector<float> ys = derivative(xs);
-    for (auto x : ys) {
-        cout << x << " ";
-    }
-    return 0;
-}
+// int main() { // Remove this duplicate definition of `main()`
+//     vector<float> xs = {3, 1, 2, 4, 5};
+//     vector<float> ys = derivative(xs);
+//     for (auto x : ys) {
+//         cout << x << " ";
+//     }
+//     return 0;
+// }
 ```
