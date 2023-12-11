@@ -1,8 +1,7 @@
-
+```cpp
 #include <iostream>
 #include <string>
-
-using string = std::basic_string<char>;
+using std::string;
 
 // Define encode_shift function
 std::string encode_shift(const std::string& str) {
@@ -23,3 +22,4 @@ int main() {
     std::cout << "Decoded: " << decode_shift(encode_shift(str)) << std::endl;
     return 0;
 }
+```
