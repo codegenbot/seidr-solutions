@@ -1,12 +1,10 @@
 n = int(input())
 m = int(input())
 
-probability = 0
+def probability_of_higher(n, m):
+    if n <= 1 or m <= 1:
+        return 0.0
+    else:
+        return min(n, m-1) / max(n, m)
 
-for i in range(1, n+1):
-    for j in range(1, m+1):
-        if i > j:
-            probability += 1
-
-result = probability / (n * m)
-print(result)
+print(probability_of_higher(n, m))
