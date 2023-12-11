@@ -1,7 +1,10 @@
-import math
+nums = []
+while True:
+    try:
+        n = int(input())
+        nums.append(n)
+    except ValueError:
+        break
 
-def fuel_cost(numbers):
-    return sum([math.floor(x/3) - 2 for x in numbers])
-
-numbers = [int(input()) for _ in range(int(input()))]
-print(fuel_cost(numbers))
+result = sum([max(0, n//3 - 2) for n in nums])
+print(result)
