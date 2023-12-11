@@ -3,6 +3,22 @@
 #include <vector>
 #include <string>
 
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target);
+
+int main() {
+    std::string text, target;
+    std::cin >> text >> target;
+
+    std::vector<int> result = indicesOfSubstring(text, target);
+
+    for (int index : result) {
+        std::cout << index << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int targetLen = target.length();
@@ -22,19 +38,5 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
 
     return indices;
-}
-
-int main() {
-    std::string text, target;
-    std::cin >> text >> target;
-
-    std::vector<int> result = indicesOfSubstring(text, target);
-
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
 ```
