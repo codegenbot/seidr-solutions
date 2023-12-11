@@ -1,2 +1,5 @@
 def shopping_list(prices, discounts):
-    return sum([p * (1 - d) for p, d in zip(prices, discounts)])
+    total = 0.0
+    for i in range(len(prices)):
+        total += (prices[i] * (1 - discounts[i] / 100.0))
+    return total
