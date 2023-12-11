@@ -1,5 +1,7 @@
 ```
-string encode_shift(string s) {
+#include <string>
+
+std::string encode_shift(std::string s) {
     // takes as input string and returns encoded string
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
@@ -19,7 +21,7 @@ string encode_shift(string s) {
     return s;
 }
 
-string decode_shift(string s) {
+std::string decode_shift(std::string s) {
     // takes as input string encoded with encode_shift function. Returns decoded string.
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
