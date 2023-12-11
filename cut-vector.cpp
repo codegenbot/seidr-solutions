@@ -4,7 +4,7 @@
 #include <utility>
 using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
+pair<vector<int>, vector<int>> cutVector(const vector<int>& v) {
     int n = v.size();
     vector<int> left, right;
     for (int i = 0; i < n; i++) {
@@ -14,7 +14,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
             right.push_back(v[i]);
         }
     }
-    return {{left}, {right}};
+    return make_pair(left, right);
 }
 
 int main() {
