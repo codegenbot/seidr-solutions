@@ -1,3 +1,4 @@
+```python
 def get_score(bowls):
     score = 0
     for i in range(len(bowls)):
@@ -11,3 +12,4 @@ def get_score(bowls):
         if i < len(bowls) - 2 and bowls[i+1] == '/':
             score += int(bowls[i+2])
     return score
+```
