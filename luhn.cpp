@@ -1,5 +1,7 @@
 
+The issue with your code is that you are not correctly implementing Luhn's algorithm. The algorithm states that every other digit should be doubled, starting from the second-to-last digit. However, your code is doubling every other digit starting from the last digit. To fix this, you can simply change the loop in your `luhn` function to start at the second-to-last digit instead of the last digit.
 
+Here's an updated version of your code with the corrected loop:
 ```
 #include <vector>
 #include <iostream>
