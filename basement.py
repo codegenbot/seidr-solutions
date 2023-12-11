@@ -1,9 +1,9 @@
 ```python
 def basement(nums):
-    total = 0
+    curr_sum = 0
     for i in range(len(nums)):
-        total += nums[i]
-        if total < 0:
+        curr_sum += nums[i]
+        if curr_sum < 0:
             return i
     return -1
 
@@ -14,6 +14,5 @@ for _ in range(n):
     nums.append(int(input()))
 
 # Call the function and print the result
-result = basement(nums)
-print(result)
+print(basement(nums))
 ```
