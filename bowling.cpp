@@ -2,46 +2,53 @@
 #include <string>
 using namespace std;
 
-int calculateScore(string bowls) {
+int getScore(string bowls) {
     int score = 0;
     int frame = 0;
-    int roll = 0;
-    int rolls[21] = {0};
-
-    for (char c : bowls) {
-        if (c == 'X') {
-            rolls[roll++] = 10;
-            frame++;
-        } else if (c == '/') {
-            rolls[roll++] = 10 - rolls[roll-1];
-            frame++;
-        } else if (c == '-') {
-            rolls[roll++] = 0;
-        } else {
-            rolls[roll++] = c - '0';
-            if (frame % 2 == 1) {
-                frame++;
+    int i = 0;
+    
+    while (frame < 10) {
+        if (bowls[i] == 'X') {
+            score += 10;
+            if (bowls[i + 2] == 'X') {
+                score += 10;
+                if (bowls[i + 4] == 'X') {
+                    score += 10;
+                } else {
+                    score += bowls[i + 4] - '0';
+                }
+            } else {
+                if (bowls[i + 3] == '/') {
+                    score += 10;
+                } else {
+                    score += bowls[i + 2] - '0' + bowls[i + 3] - '0';
+                }
             }
-        }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i * 2] == 10) {
-            score += 10 + rolls[(i + 1) * 2] + rolls[(i + 1) * 2 + 1];
-        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-            score += 10 + rolls[(i + 1) * 2];
+            i++;
+        } else if (bowls[i + 1] == '/') {
+            score += 10;
+            if (bowls[i + 2] == 'X') {
+                score += 10;
+            } else {
+                score += bowls[i + 2] - '0';
+            }
+            i += 2;
         } else {
-            score += rolls[i * 2] + rolls[i * 2 + 1];
+            score += bowls[i] - '0' + bowls[i + 1] - '0';
+            i += 2;
         }
+        frame++;
     }
-
+    
     return score;
 }
 
 int main() {
     string bowls;
     cin >> bowls;
-    int score = calculateScore(bowls);
+    
+    int score = getScore(bowls);
     cout << score << endl;
+    
     return 0;
 }
