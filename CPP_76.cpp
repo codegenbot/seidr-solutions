@@ -1,5 +1,4 @@
 ```
-#include <iostream>
 #include <cmath>
 
 bool is_simple_power(std::string x, std::string n) {
