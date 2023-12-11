@@ -1,10 +1,10 @@
-```
+#pragma once
 #include <iostream>
-#include <math.h>
 #include <vector>
+
 using namespace std;
 
-vector<float> derivative(vector<float> xs) {
+vector<float> derivative(const vector<float>& xs) {
     vector<float> result;
     for (int i = 1; i < xs.size(); i++) {
         result.push_back(xs[i] * pow(xs[0], i));
@@ -20,4 +20,3 @@ int main() {
     }
     return 0;
 }
-```
