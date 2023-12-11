@@ -1,27 +1,11 @@
-
-import re
-def get_score(bowl_string):
-    # Initialize variables
+def get_score(bowls):
     score = 0
-    current_frame = 1
-    previous_roll = None
-    
-    # Iterate through the bowl string
-    for roll in re.findall(r'\d+', bowl_string):
-        # Check if it's a strike
-        if roll == 'X':
-            score += 10 + int(previous_roll)
-            previous_roll = None
-        # Check if it's a spare
-        elif roll == '/':
-            score += 10 + int(previous_roll[1:])
-            previous_roll = None
+    for i in range(len(bowls)):
+        if bowls[i] == "X":
+            score += 10
+        elif bowls[i] == "/" and bowls[i-1] == "X":
+            # Add the score of the spare again
+            score += int(bowls[i])
         else:
-            score += int(roll)
-        
-        # Check if we've reached the end of the frame
-        if current_frame == 10:
-            break
-    
+            score += int(bowls[i])
     return score
-```
