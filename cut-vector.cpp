@@ -1,11 +1,11 @@
 [PYTHON]
-def get_cut_vector(vector):
+def get_cut_vector(v):
     left = 0
-    right = len(vector) - 1
+    right = len(v) - 1
     while left < right:
-        if vector[left] == vector[right]:
+        if v[left] == v[right]:
             return [left + 1, right + 1]
-        diff = abs(vector[left] - vector[right])
+        diff = abs(v[left] - v[right])
         if diff > 1:
             return "No solution"
         left += 1
