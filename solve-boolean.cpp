@@ -3,26 +3,18 @@
 using namespace std;
 
 bool evaluateBoolean(string expression) {
-    if (expression == "t") {
-        return true;
-    } else if (expression == "f") {
-        return false;
+    if (expression.size() == 1) {
+        return expression[0] == 't';
     } else {
-        char op;
-        bool result = evaluateBoolean(expression.substr(0, 1));
-        for (int i = 1; i < expression.size(); i++) {
-            if (expression[i] == '&' || expression[i] == '|') {
-                op = expression[i];
-                bool left = result;
-                bool right = evaluateBoolean(expression.substr(i + 1));
-                if (op == '&') {
-                    result = left && right;
-                } else {
-                    result = left || right;
-                }
+        int i = expression.size() - 1;
+        while (i >= 0) {
+            if (expression[i] == '&') {
+                return evaluateBoolean(expression.substr(0, i)) && evaluateBoolean(expression.substr(i + 1));
+            } else if (expression[i] == '|') {
+                return evaluateBoolean(expression.substr(0, i)) || evaluateBoolean(expression.substr(i + 1));
             }
+            i--;
         }
-        return result;
     }
 }
 
