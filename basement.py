@@ -1,4 +1,5 @@
-def first_negative_index(my_list):
-    for i in range(len(my_list)):
-        if sum(my_list[:i+1]) < 0:
+def get_negative_index(arr):
+    for i in range(len(arr)):
+        if sum(arr[:i+1]) < 0:
             return i
+    return -1
