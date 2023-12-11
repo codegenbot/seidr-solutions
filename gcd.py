@@ -1,23 +1,22 @@
-```python
+[PYTHON]
 def gcd(a, b):
     while b != 0:
-        a, b = b, a % b
+        if a % b == 0:
+            return b
+        else:
+            a = b
+            b = a % b
     return a
-
-def indices_of_substring(text, target):
-    """
-    Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
-    """
-    # Initialize variables
-    n = len(text)
-    m = len(target)
-    indices = []
-
-    # Iterate through the text and search for the target string
-    for i in range(n - m + 1):
-        if text[i:i+m] == target:
-            indices.append(i)
-
-    return indices
-```
-Note that the function `indices_of_substring` returns a list of integers representing the indices at which the target string appears in the input text.
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert gcd(1, 1) == 1
+# Test case 2:
+assert gcd(4, 400000) == 4
+# Test case 3:
+assert gcd(54, 24) == 6
+# Test case 4:
+assert gcd(4200, 3528) == 168
+# Test case 5:
+assert gcd(820000, 63550) == 2050
+[/TESTS]
