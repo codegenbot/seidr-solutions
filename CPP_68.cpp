@@ -13,7 +13,10 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 void pluck(const vector<int>& arr, int index) {
-    arr.erase(arr.begin() + index);
+    if (index >= 0 && index < arr.size()) {
+        auto it = arr.begin() + index;
+        arr.erase(it, it + 1);
+    }
 }
 
 int main() {
