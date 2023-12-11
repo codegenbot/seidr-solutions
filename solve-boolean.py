@@ -1,6 +1,5 @@
-
-```
 def solve_boolean(expression):
+    # Use a queue to evaluate the expression
     queue = []
     prev_op = None
     for char in expression:
@@ -9,12 +8,14 @@ def solve_boolean(expression):
         elif char == 'F':
             queue.append(False)
         elif char == '|':
+            # Evaluate the OR operation
             operand2 = queue.pop()
             operand1 = queue.pop()
             result = operand1 or operand2
             queue.append(result)
             prev_op = '|'
         elif char == '&':
+            # Evaluate the AND operation
             operand2 = queue.pop()
             operand1 = queue.pop()
             result = operand1 and operand2
@@ -23,4 +24,3 @@ def solve_boolean(expression):
         else:
             raise ValueError("Invalid character in expression")
     return queue[-1]
-```
