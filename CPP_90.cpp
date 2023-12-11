@@ -6,7 +6,7 @@ using namespace std;
 
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) {
-        return nullptr;
+        return -1;
     }
     sort(lst.begin(), lst.end());
     for (int i = 1; i < lst.size(); i++) {
@@ -14,6 +14,6 @@ int next_smallest(vector<int> lst) {
             return lst[i];
         }
     }
-    return nullptr;
+    return -1;
 }
 ```
