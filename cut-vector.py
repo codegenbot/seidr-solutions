@@ -6,10 +6,10 @@ def cut_vector(vector):
     min_diff = math.inf
     min_index = -1
     
-    for i in range(n-1):
-        diff = abs(vector[i] - vector[i+1])
+    for i in range(1, n):
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
         if diff < min_diff:
             min_diff = diff
             min_index = i
     
-    return vector[:min_index+1], vector[min_index+1:]
+    return vector[:min_index], vector[min_index:]
