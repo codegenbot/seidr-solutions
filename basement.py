@@ -1,7 +1,7 @@
 def get_negative_sum(numbers):
-    result = None
-    for i in range(len(numbers)):
-        if sum(numbers[:i+1]) < 0:
-            result = i
-            break
-    return result
+    current_sum = 0
+    for i, num in enumerate(numbers):
+        current_sum += num
+        if current_sum < 0:
+            return i
+    return -1
