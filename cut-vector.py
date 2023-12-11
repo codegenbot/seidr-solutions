@@ -1,4 +1,4 @@
-```python
+```
 def cut_vector(vector):
     # Sort the vector in ascending order
     sorted_vector = sorted(vector)
