@@ -1,6 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <string>
+#include <cassert>
 
 std::string anti_shuffle(const std::string& s) {
     std::string result = "";
@@ -11,8 +12,7 @@ std::string anti_shuffle(const std::string& s) {
             int j = i + 1;
             while (j < s.length() && s[j] != ' ') {
                 if (s[j] > s[i]) {
-                    std::string str = std::to_string(s[j]);
-                    result += str;
+                    result.insert(result.begin() + j, s[i]);
                 }
                 j++;
             }
