@@ -1,7 +1,6 @@
-import math
-def bouncing_balls(starting_height, first_bounce_height, num_bounces):
-    bounciness_index = first_bounce_height / starting_height
+def bouncing_balls(starting_height, height_after_first_bounce, number_of_bounces):
+    bounciness_index = height_after_first_bounce / starting_height
     total_distance = 0
-    for i in range(num_bounces):
+    for i in range(number_of_bounces):
         total_distance += (starting_height + (i * bounciness_index))
     return total_distance
