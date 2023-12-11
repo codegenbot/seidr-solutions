@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -24,8 +23,7 @@ int main() {
     str.assign("The ");
     str += to_string(n);
     str += "-th Fibonacci number is: ";
-    str += std::to_string(fib4(n));
+    str += to_string(fib4(n));
     cout << str << endl;
     return 0;
 }
-```
