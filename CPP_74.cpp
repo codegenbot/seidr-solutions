@@ -1,9 +1,4 @@
 ```
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
-
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int len1 = 0, len2 = 0;
     for (int i = 0; i < lst1.size(); i++) {

@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -16,4 +15,3 @@ int main() {
     assert(issame(v1, v2));
     return 0;
 }
-```
