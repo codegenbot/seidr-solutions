@@ -1,9 +1,9 @@
-def luhn(credit_card_number):
-    digits = list(map(int, credit_card_number))
-    new_digits = []
-    for i in range(1, len(digits), 2):
-        digit = digits[i] * 2
-        if digit > 9:
-            digit -= 9
-        new_digits.append(digit)
-    return sum(new_digits)
+def luhn(num):
+    result = 0
+    for i in range(len(num)-1, -1, -2):
+        digit = num[i]
+        if digit >= 5:
+            result += (digit*2)-9
+        else:
+            result += digit*2
+    return result%10
