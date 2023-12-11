@@ -1,7 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-using std::string;
+
+using string = std::basic_string<char>;
 
 // Define encode_shift function
 std::string encode_shift(const std::string& str) {
