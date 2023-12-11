@@ -1,4 +1,4 @@
-
+```
 def mastermind(code, guess):
     white_pegs = 0
     black_pegs = 0
@@ -10,3 +10,4 @@ def mastermind(code, guess):
                 else:
                     white_pegs += 1
     return (white_pegs, black_pegs)
+```
