@@ -1,5 +1,5 @@
-```
 def eat(number, remaining):
-    total_eaten = number + need
+    need = number + remaining
+    total_eaten = need
     carrots_left = max(0, remaining - need)
     return [total_eaten], [carrots_left]
