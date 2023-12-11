@@ -7,8 +7,8 @@
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
     int whitePegs = 0;
-    std::array<int, 26> codeCount = {};  // Initialize with zeros
-    std::array<int, 26> guessCount = {}; // Initialize with zeros
+    std::array<int, 26> codeCount = {};
+    std::array<int, 26> guessCount = {};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
