@@ -1,3 +1,4 @@
+```python
 def basement(arr):
     sum_so_far = 0
     for i in range(len(arr)):
@@ -12,3 +13,4 @@ for _ in range(n):
     arr.append(int(input()))
 
 print(basement(arr))
+```
