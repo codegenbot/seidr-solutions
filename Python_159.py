@@ -1,7 +1,4 @@
-
-```
-def eat(number, need, extra):
+def eat(number, need):
     total_eaten = number + need
-    carrots_left = max(0, extra - need)
+    carrots_left = max(0, remaining - need)
     return [total_eaten, carrots_left]
-```
