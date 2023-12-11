@@ -3,8 +3,8 @@ def cut_vector(vector):
     current_sum = 0
     for i, num in enumerate(vector):
         current_sum += num
-        if current_sum >= vector_sum / 2:
-            return vector[:i+1], vector[i+1:]
+        if current_sum > vector_sum / 2:
+            return vector[:i], vector[i:]
 
 print(cut_vector([1, 0]))
 print(cut_vector([1, 10]))
