@@ -1,15 +1,13 @@
-def indices_of_substring(text, target):
-    # Initialize an empty list to store the indices
+def get_indices(text, target):
     indices = []
-    # Loop through each character in the text
     for i in range(len(text)):
-        # Check if the current character matches the first character of the target
-        if text[i] == target[0]:
-            # Check if the remaining characters of the text match the target
-            for j in range(1, len(target)):
-                if i + j < len(text) and text[i + j] != target[j]:
-                    break
-            else:
-                # If we reach this point, we have found a match
-                indices.append(i)
+        if text[i:i+len(target)] == target:
+            indices.append(i)
     return indices
+
+# test cases
+assert get_indices("a", "a") == [0]
+assert get_indices("!", "!") == [1, 0]
+assert get_indices("r", "nm,xcnwqnd@#$fwkdjn3") == [0]
+assert get_indices("hi", "hihihihihihihihihihi") == [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+assert get_indices("#############", "#") == [12, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
