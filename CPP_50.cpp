@@ -1,16 +1,16 @@
-
 #include <iostream>
 #include <string>
-#include <pmr_string.h>
 
 // Define encode_shift function
-std::pmr::string encode_shift(const std::string& str) {
+std::string encode_shift(const std::string& str) {
     // Implement encoding logic here
+    return "encoded string";
 }
 
 // Define decode_shift function
-std::pmr::string decode_shift(const std::pmr::string& encoded_str) {
+std::string decode_shift(const std::string& encoded_str) {
     // Implement decoding logic here
+    return "decoded string";
 }
 
 int main() {
