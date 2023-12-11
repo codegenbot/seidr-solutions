@@ -1,39 +1,23 @@
-```
 #include <vector>
 #include <iostream>
-#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
-vector<int> cutVector(const vector<int>& vec) {
-    int n = vec.size();
-    if (n == 0) return {};
-    if (n == 1) return {vec[0]};
-    
-    int minDiff = INT_MAX;
-    int spot = -1;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(vec[i-1] - vec[i]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            spot = i;
-        }
+vector<int> cutVector(const vector<int>& input) {
+    int n = input.size();
+    if (n == 0) {
+        return {};
     }
-    
-    vector<int> result;
-    for (int i = 0; i <= spot; i++) {
-        result.push_back(vec[i]);
-    }
-    return result;
-}
 
-int main() {
-    vector<int> vec = {1, 2, 3, 4, 5};
-    vector<int> subVecs = cutVector(vec);
-    
-    for (auto v : subVecs) {
-        cout << v << " ";
+    int left = 0, right = n - 1;
+    while (left < right) {
+        if (input[left] > input[right]) {
+            swap(input[left], input[right]);
+        }
+        left++;
+        right--;
     }
-    return 0;
+
+    return {input.begin(), input.end()};
 }
-```
