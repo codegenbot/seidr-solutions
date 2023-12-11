@@ -12,8 +12,9 @@ int main() {
     float a, b, c;
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
+    int sum;
     if (any_int(a, b, c)) {
-        int sum = a + b;
+        sum = (int)(a + b);
         std::string str = std::to_string(sum);
         str = std::string("True") + str;
         std::cout << str << std::endl;
