@@ -1,18 +1,10 @@
 ```
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <utility>
 using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
+pair<vector<int>, vector<int>> cutVector(const vector<int>& v) {
     int n = v.size();
     vector<int> left, right;
     for (int i = 0; i < n; i++) {
@@ -22,7 +14,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
             right.push_back(v[i]);
         }
     }
-    return {{left}, {right}};
+    return {left, right};
 }
 
 int main() {
