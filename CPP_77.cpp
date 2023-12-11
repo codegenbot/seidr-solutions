@@ -1,6 +1,6 @@
 ```
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 int iscuber(int a) {
     double cbrt = std::cbrt(static_cast<double>(a));
