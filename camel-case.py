@@ -1,6 +1,6 @@
-```
-import re
 def camel_case(string):
-    words = re.split(r"[-\s]", string)
-    return "".join([word.title() for word in words if word[0].isupper()])
-```
+    words = string.split(" ")
+    for i in range(len(words)):
+        if "-" in words[i]:
+            words[i] = words[i].title()
+    return "".join(words)
