@@ -1,5 +1,4 @@
 ```
-#include <vector>
 #include <memory_resource>
 #include <cassert>
 
