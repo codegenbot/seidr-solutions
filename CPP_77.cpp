@@ -11,9 +11,10 @@ int main() {
     int a;
     std::cout << "Enter an integer: ";
     std::cin >> a;
-    auto it = std::find_if(a.begin(), a.end(), isCube);
-    if (it != a.end()) {
-        std::cout << "The number is a cube." << std::endl;
+    if (isCube(a)) {
+        std::string str = "The number is a cube.";
+        str.insert(str.begin(), ' ');
+        std::cout << str << std::endl;
     } else {
         std::cout << "The number is not a cube." << std::endl;
     }
