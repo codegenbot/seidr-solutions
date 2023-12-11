@@ -1,6 +1,6 @@
-def get_snow_amount(hours, snowfall_rate, melting_rate):
-    snow_on_ground = 0.0
-    for hour in range(hours):
-        new_snow = snowfall_rate * (1 - math.exp(-melting_rate * hour))
-        snow_on_ground += new_snow
-    return snow_on_ground
+def snow_day(hours, initial_snow, snow_fall, melting_rate):
+    snow = initial_snow
+    for i in range(1, hours + 1):
+        new_snow = snow_fall * (1 - math.exp(-melting_rate * i))
+        snow += new_snow - new_snow * melting_rate * i
+    return snow
