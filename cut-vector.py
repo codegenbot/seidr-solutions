@@ -1,32 +1,25 @@
 ```python
-def cut_vector(nums):
-    total_sum = sum(nums)
+def cut_vector(vector):
+    total_sum = sum(vector)
     left_sum = 0
-    min_diff = float('inf')
-    cut_index = -1
-    
-    for i, num in enumerate(nums[:-1]):
-        left_sum += num
-        right_sum = total_sum - left_sum
-        diff = abs(left_sum - right_sum)
-        
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-    
-    return nums[:cut_index+1], nums[cut_index+1:]
+    right_sum = total_sum
 
-# Read input
-nums = []
+    for i in range(len(vector)):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+
+        if left_sum == right_sum or abs(left_sum - right_sum) == min(abs(left_sum - right_sum), abs(total_sum - left_sum - left_sum)):
+            return vector[:i+1], vector[i+1:]
+
+    return vector, [0]
+
+
+vector = []
 for _ in range(2):
-    nums.append(int(input()))
-    
-# Call the function and print the resulting subvectors
-subvector1, subvector2 = cut_vector(nums)
-for num in subvector1:
-    print(num)
-print()
-for num in subvector2:
-    print(num)
+    vector.append(int(input()))
+
+output = cut_vector(vector)
+print(output[0])
+print(output[1])
 ```
-Note: The code assumes that the input consists of two positive integers separated by newlines.
+Note: The above code assumes that the vector input will always have exactly two elements. It finds the spot where cutting the vector results in two subvectors with either equal sums or the minimum difference in sums. The code returns the two subvectors as two separate outputs.
