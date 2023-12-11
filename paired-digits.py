@@ -1,2 +1,10 @@
+
+Here is a possible solution to the "paired-digits" problem:
+```
 def sum_paired_digits(s):
-    return sum(int(c) for c, d in zip(s, s[1:]) if c == d)
+    total = 0
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
+            total += int(s[i])
+    return total
+```
