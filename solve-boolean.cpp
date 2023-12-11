@@ -1,50 +1,30 @@
-[PYTHON]
-def solve_boolean(expression):
-    stack = []
-    for char in expression:
-        if char == "(":
-            stack.append(char)
-        elif char == ")":
-            while len(stack) > 0 and stack[-1] != "(":
-                stack.pop()
-            if len(stack) == 0:
-                return False
-            stack.pop()
-        elif char == "|":
-            stack.append(char)
-        elif char == "&":
-            stack.append(char)
-        elif char == "T":
-            stack.append(True)
-        elif char == "F":
-            stack.append(False)
-        else:
-            return False
-    while len(stack) > 0:
-        if stack[-1] == "|":
-            stack.pop()
-            if len(stack) == 0:
-                return False
-            right = stack.pop()
-            left = stack.pop()
-            stack.append(left or right)
-        elif stack[-1] == "&":
-            stack.pop()
-            if len(stack) == 0:
-                return False
-            right = stack.pop()
-            left = stack.pop()
-            stack.append(left and right)
-    if len(stack) == 1:
-        return stack[0]
-    else:
-        return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert solve_boolean("t|f&f|t&t&f&t|f|f|f|f&f|f&f&t&t&t|t") == True
-# Test case 2:
-assert solve_boolean("t|f&f|t&t&f&t|f|f|f|f&f|f&f&t&t&t") == False
-# Test case 3:
-assert solve_boolean("(t|f)&(f|t)") == True
-[/TESTS]
+```
+#include <string>
+#include <iostream>
+#include <stack>
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> operators;
+    bool result = true;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '|') {
+            operators.push('|');
+        } else if (expression[i] == '&') {
+            operators.push('&');
+        } else if (expression[i] == 'T') {
+            result = true;
+        } else if (expression[i] == 'F') {
+            result = false;
+        } else if (operators.size() > 0) {
+            char op = operators.top();
+            if (op == '|') {
+                result |= solveBoolean(expression.substr(i + 1));
+            } else if (op == '&') {
+                result &= solveBoolean(expression.substr(i + 1));
+            }
+        }
+    }
+    return result;
+}
+```
