@@ -1,3 +1,4 @@
+
 def get_indices(text, target):
     if not target:
         return []
