@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     vector_sum = sum(vector)
     current_sum = 0
