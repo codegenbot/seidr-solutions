@@ -8,6 +8,7 @@ def cut_vector(vector):
             return vector[:i+1], vector[i+1:]
     return vector, [0]
 
+# Read input from user
 vector = []
 while True:
     try:
@@ -16,6 +17,7 @@ while True:
     except EOFError:
         break
 
+# Call the function and print the output
 left, right = cut_vector(vector)
 for num in left:
     print(num)
