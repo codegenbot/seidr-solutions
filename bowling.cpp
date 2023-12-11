@@ -1,50 +1,52 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int calculateScore(std::string bowlingSequence) {
+int calculateScore(string input) {
     int score = 0;
     int frame = 1;
-    int rolls = 0;
-    
-    for (char bowl : bowlingSequence) {
-        if (frame == 10) { // Last frame
-            if (bowl == 'X' || bowl == '/') { // Bonus rolls
-                score += (10 - frame) * 10;
-            } else {
-                score += bowl - '0';
-            }
-            rolls++;
-            if (rolls == 3) {
-                break; // No more rolls needed
-            }
-        } else { // Regular frame
-            if (bowl == 'X') { // Strike
+    int throwIndex = 0;
+
+    for (char c : input) {
+        if (frame <= 10) {
+            if (c == 'X') {
                 score += 10;
-                frame++;
-                rolls = 0;
-            } else if (bowl == '/') { // Spare
-                score += 10;
-                frame++;
-                rolls = 0;
-            } else { // Open frame
-                score += bowl - '0';
-                if (rolls % 2 == 1) {
-                    frame++;
+                if (throwIndex < input.size() - 3 && frame <= 9) {
+                    score += input.at(throwIndex + 1) == 'X' ? 10 : input.at(throwIndex + 1) - '0';
+                    score += input.at(throwIndex + 2) == 'X' ? 10 : (input.at(throwIndex + 2) == '/' ? 10 - (input.at(throwIndex + 1) - '0') : input.at(throwIndex + 2) - '0');
                 }
-                rolls++;
+                throwIndex++;
+                frame++;
+            }
+            else if (c == '/') {
+                score += 10 - (input.at(throwIndex - 1) - '0');
+                if (throwIndex < input.size() - 2 && frame <= 10) {
+                    score += input.at(throwIndex + 1) == 'X' ? 10 : input.at(throwIndex + 1) - '0';
+                }
+                throwIndex++;
+                frame++;
+            }
+            else {
+                score += c - '0';
+                if (throwIndex < input.size() - 1 && ((c - '0') + (input.at(throwIndex + 1) - '0') == 10 || frame == 10)) {
+                    score += input.at(throwIndex + 1) == 'X' ? 10 : input.at(throwIndex + 1) == '/' ? 10 - (c - '0') : input.at(throwIndex + 1) - '0';
+                }
+                throwIndex++;
+                frame += (throwIndex % 2 == 0);
             }
         }
+        else {
+            break;
+        }
     }
-    
+
     return score;
 }
 
 int main() {
-    std::string bowlingSequence;
-    std::cout << "Enter the bowling sequence: ";
-    std::cin >> bowlingSequence;
-    int score = calculateScore(bowlingSequence);
-    std::cout << "Score: " << score << std::endl;
-     
+    string input;
+    cin >> input;
+    int score = calculateScore(input);
+    cout << score << endl;
     return 0;
 }
