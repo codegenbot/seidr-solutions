@@ -14,7 +14,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> total_match(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::vector<std::string> result;
     for (int i = 0; i < a.size(); i++) {
         if (a[i].compare("this") == 0) {
@@ -25,5 +25,7 @@ std::vector<std::string> total_match(const std::vector<std::string>& a, const st
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {"this"}));
+    std::vector<std::string> a = {"this"};
+    std::vector<std::string> b = {};
+    assert(issame(totalMatch(a, b), {}));
 }
