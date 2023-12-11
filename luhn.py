@@ -1,3 +1,4 @@
+
 [PYTHON]
 def luhn(digits):
     # Initialize variables
@@ -28,5 +29,7 @@ def luhn(digits):
 # Test case 1:
 assert luhn([1, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7, 8]) == 76
 # Test case 2:
-assert luhn([1, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7, 8, 9]) == 86
+assert luhn([1, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7]) == 62
+# Test case 3:
+assert luhn([1, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5]) == 49
 [/TESTS]
