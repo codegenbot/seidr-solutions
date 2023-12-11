@@ -1,18 +1,10 @@
-def get_score(bowls):
-    score = 0
-    for i in range(len(bowls)):
-        if bowls[i] == 'X':
-            score += 10
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i-1])
+def get_bowling_score(bowl_string):
+    total_score = 0
+    for i in range(len(bowl_string)):
+        if bowl_string[i] == "X":
+            total_score += 10
+        elif bowl_string[i] == "/":
+            total_score += 10 - int(bowl_string[i-1])
         else:
-            score += int(bowls[i])
-    return score
-
-def main():
-    print("Enter the string representing the individual bowls in a 10-frame round of 10 pin bowling: ")
-    bowls = input()
-    print("The score of that round is: ", get_score(bowls))
-
-if __name__ == "__main__":
-    main()
+            total_score += int(bowl_string[i])
+    return total_score
