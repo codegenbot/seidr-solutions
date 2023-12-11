@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <cassert>
 #include <cmath>
@@ -8,7 +8,7 @@ float triangle_area(float a, float h) {
 }
 
 int main() {
-    assert (abs(triangle_area(10, 8) - 40.0)<1e-4);
+    assert (abs(triangle_area((float)10, (float)8) - 40.0)<1e-4);
     return 0;
 }
 ```
