@@ -1,32 +1,19 @@
-#include <vector>
-#include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
-
 int main() {
-    vector<string> code = {"RRRR", "BOYG", "WYYW", "GGGB", "BBBB"};
-    vector<string> guess = {"RRRR", "GYOB", "BBOG", "BGGG", "OOOO"};
-    int whitePegs, blackPegs;
-    for (int i = 0; i < code.size(); i++) {
-        whitePegs = 0;
-        blackPegs = 0;
-        for (int j = 0; j < guess[i].length(); j++) {
-            if (guess[i][j] == code[i][j]) {
-                blackPegs++;
-            } else if (guess[i].find(code[i][j]) != string::npos) {
-                whitePegs++;
-            }
+    string mastermind_code = "RRRR";
+    string guess = "RRRR";
+    int white_pegs = 0;
+    int black_pegs = 0;
+
+    for (int i = 0; i < guess.length(); i++) {
+        if (guess[i] == mastermind_code[i]) {
+            black_pegs++;
+        } else if ((mastermind_code[i] == 'R' && guess[i] == 'G') || (mastermind_code[i] == 'G' && guess[i] == 'R')) {
+            white_pegs++;
         }
-        cout << "White pegs: " << whitePegs << endl;
-        cout << "Black pegs: " << blackPegs << endl;
     }
+
+    cout << black_pegs << " " << white_pegs << endl;
     return 0;
 }
