@@ -1,5 +1,7 @@
-```
-#include <string> // include the string header
+#include <memory>
+#include <vector>
+#include <string>
+using std::string;
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -22,4 +24,3 @@ std::vector<std::string> total_match(const std::vector<std::string>& a, const st
     }
     return result;
 }
-```

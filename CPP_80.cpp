@@ -22,8 +22,7 @@ bool is_happy(string s) {
 
 int main() {
     string s = "abc";
-    bool happy = is_happy(s);
-    cout << happy << endl;
+    cout << is_happy(s) << endl;
     return 0;
 }
 ```
