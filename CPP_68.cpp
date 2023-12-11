@@ -1,5 +1,5 @@
 ```
-#include <vector>
+#include <memory>
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -32,7 +32,7 @@ std::vector<int> pluck(const std::vector<int>& arr) {
     }
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     std::vector<int> a = {7, 9, 7, 1};
     assert(issame(pluck({7, 9, 7, 1}), {}));
     return 0;
