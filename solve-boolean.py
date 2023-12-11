@@ -1,4 +1,4 @@
-
+```
 def solve_boolean(expression):
     stack = []
     for char in expression:
@@ -19,3 +19,4 @@ def solve_boolean(expression):
             stack.pop(-1)
             stack.append(a and b)
     return stack[-1]
+```
