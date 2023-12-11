@@ -1,3 +1,5 @@
+
+```
 def gcd(a, b):
     while b != 0:
         if a % b == 0:
@@ -28,3 +30,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
+Modify the code as:
+
+The issue with your code is that it does not handle the case where the input numbers are not relatively prime (i.e., they have common factors). In this case, the GCD function will return 1 instead of the correct value. To fix this, you need to modify the GCD function to handle this case correctly.
+
+Here's a possible solution:
+```
+def gcd(a, b):
+    while b != 0:
+        if a % b == 0:
+            return b
+        else:
+            a = b
+            b = a % b
+    return a
+```
+This modified GCD function will handle the case where the input numbers are not relatively prime correctly. It will return the largest integer that divides each of the inputs evenly, which is the correct value for the GCD..
