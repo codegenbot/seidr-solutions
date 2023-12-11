@@ -1,35 +1,20 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
-
-int main() {
-    string code, guess;
-    int whitePegs = 0, blackPegs = 0;
-    cin >> code >> guess;
-    
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            int j = 0;
-            while (j < 4 && code[j] != guess[i]) {
-                j++;
-            }
-            if (j < 4) {
-                whitePegs++;
-            }
-        }
-    }
-    
-    cout << blackPegs << " " << whitePegs << "\n";
-    return 0;
-}
+[PYTHON]
+def get_clues(code, guess):
+    white_pegs = 0
+    black_pegs = 0
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black_pegs += 1
+    for i in range(len(code)):
+        if code[i] != guess[i] and guess[i] in code:
+            white_pegs += 1
+    return black_pegs, white_pegs
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_clues("RGBY", "GGRR") == (2, 0)
+# Test case 2:
+assert get_clues("RGBY", "RGGB") == (3, 0)
+# Test case 3:
+assert get_clues("RGBY", "YYRR") == (1, 1)
+[/TESTS]
