@@ -4,29 +4,27 @@
 
 std::string convertToCamelCase(const std::string& input) {
     std::string result;
-    std::vector<std::string> words;
     std::string word;
+    bool isFirstWord = true;
 
     for (char c : input) {
         if (c == '-') {
-            words.push_back(word);
-            word.clear();
+            if (!isFirstWord) {
+                result += word;
+                word.clear();
+            }
+            isFirstWord = false;
         } else {
-            word += c;
+            if (isFirstWord) {
+                word += std::tolower(c);
+                isFirstWord = false;
+            } else {
+                word += std::toupper(c);
+            }
         }
     }
 
-    words.push_back(word);
-
-    for (int i = 0; i < words.size(); i++) {
-        if (i == 0) {
-            result += words[i];
-        } else {
-            result += words[i][0] - 'a' + 'A';
-            result += words[i].substr(1);
-        }
-    }
-
+    result += word;
     return result;
 }
 
