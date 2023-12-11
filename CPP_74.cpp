@@ -1,27 +1,25 @@
-[PYTHON]
-def issame(a, b):
-    return a == b
+```
+#include <vector>
+#include <string>
 
-def total_match(a, b):
-    # implement the function here
-    pass
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-def main():
+vector<string> total_match(const vector<string>& a, const vector<string>& b) {
+    // implement the function here
+}
+
+int main() {
     assert(issame(total_match({"this", "is", "a", "test"}, {""}), {}));
-
-if __name__ == "__main__":
-    main()
-[/PYTHON]
-[TESTS]
-# Test case 1:
-def test_case_1():
-    assert issame(total_match({"this", "is", "a", "test"}, {""}), {})
-
-# Test case 2:
-def test_case_2():
-    assert not issame(total_match({"this", "is", "a", "test"}, {"hello"}), {})
-
-# Test case 3:
-def test_case_3():
-    assert not issame(total_match({"this", "is", "a", "test"}, {"hello", "world"}), {})
-[/TESTS]
+    return 0;
+}
+```
