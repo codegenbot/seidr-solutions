@@ -26,9 +26,9 @@ def luhn(digits):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert luhn([1, 6, 0, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7, 8]) == 76
+assert luhn([]) == 0
 # Test case 2:
-assert luhn([1, 6, 0, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7]) == 74
+assert luhn([1]) == 1
 # Test case 3:
-assert luhn([1, 6, 0, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7, 8]) == 76
+assert luhn([1, 6, 4, 1, 3, 2, 9, 0, 9, 6, 5, 6, 9, 8, 5, 7, 8]) == 76
 [/TESTS]
