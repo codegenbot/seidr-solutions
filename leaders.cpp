@@ -1,37 +1,42 @@
-```
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 // Function to find leaders in a vector
-vector<int> leaders(vector<int> nums) {
-    // ... (same as before)
+vector<int> leaders(vector<int> v) {
+    // Initialize current leader and result vector
+    int currentLeader = INT_MIN;
+    vector<int> result;
+
+    // Iterate through the vector from right to left
+    for (int i = v.size() - 1; i >= 0; i--) {
+        if (v[i] >= currentLeader) {
+            result.push_back(v[i]);
+            currentLeader = v[i];
+        }
+    }
+
+    return result;
 }
 
-// Main function to call the leaders function and print output
 int main() {
-    // Test case 1: empty vector
-    vector<int> nums;
-    cout << "Leaders in empty vector: ";
-    for (auto leader : leaders(nums)) {
-        cout << leader << " ";
+    // Read input from user
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    // Call leaders function with the appropriate arguments
+    vector<int> result = leaders(v);
+
+    // Print the result
+    cout << "Leaders: ";
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
     cout << endl;
 
-    // Test case 2: non-empty vector with only one element
-    nums = {1};
-    cout << "Leaders in non-empty vector with only one element: ";
-    for (auto leader : leaders(nums)) {
-        cout << leader << " ";
-    }
-    cout << endl;
-
-    // Test case 3: non-empty vector with multiple elements
-    nums = {1, 2, 3, 4};
-    cout << "Leaders in non-empty vector with multiple elements: ";
-    for (auto leader : leaders(nums)) {
-        cout << leader << " ";
-    }
-    cout << endl;
+    return 0;
 }
-```
