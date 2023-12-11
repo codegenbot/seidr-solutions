@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -28,3 +29,4 @@ int main() {
     cout << encrypt(s) << endl;
     return 0;
 }
+```
