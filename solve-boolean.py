@@ -1,14 +1,23 @@
 def solve_boolean(expression):
-    # Use a dictionary to map each character to its corresponding boolean value
-    values = {"T": True, "F": False}
-    # Initialize the result to True
-    result = True
-    # Iterate over each character in the expression
+    # Use a stack to evaluate the expression
+    stack = []
     for char in expression:
-        # If the character is '&', update the result as a logical AND
-        if char == "&":
-            result &= values[expression[0]] and values[expression[2]]
-        # If the character is '|', update the result as a logical OR
-        elif char == "|":
-            result |= values[expression[0]] or values[expression[2]]
-    return result
+        if char == 'T':
+            stack.append(True)
+        elif char == 'F':
+            stack.append(False)
+        elif char == '|':
+            # Evaluate the OR operation
+            a = stack[-1]
+            b = stack[-2]
+            stack.pop(-1)
+            stack.pop(-1)
+            stack.append(a or b)
+        elif char == '&':
+            # Evaluate the AND operation
+            a = stack[-1]
+            b = stack[-2]
+            stack.pop(-1)
+            stack.pop(-1)
+            stack.append(a and b)
+    return stack[-1]
