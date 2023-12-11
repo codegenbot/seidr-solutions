@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 int fib(int n) {
@@ -14,3 +15,4 @@ int main() {
     std::cout << fib(n) << std::endl;
     return 0;
 }
+```
