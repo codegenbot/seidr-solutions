@@ -1,17 +1,22 @@
-
 def snow_day(hours, initial_snow, snow_fall, melt_rate):
-    # Initialize variables
-    current_snow = initial_snow
-    total_snow = 0
+    # Calculate the amount of snow that falls in each hour
+    snow_fall_per_hour = snow_fall / hours
     
+    # Calculate the amount of snow that melts in each hour
+    melt_per_hour = initial_snow * melt_rate
+    
+    # Initialize the total amount of snow on the ground to 0
+    total_snow = 0.0
+    
+    # Loop through each hour and calculate the amount of snow that falls and melts
     for i in range(hours):
-        # Add new snow
-        current_snow += snow_fall
+        # Calculate the amount of snow that falls in this hour
+        snow_fallen = snow_fall_per_hour * (i + 1)
         
-        # Melt the snow
-        current_snow *= (1 - melt_rate)
+        # Calculate the amount of snow that melts in this hour
+        melted_snow = initial_snow * melt_rate * (i + 1)
         
-        # Keep track of total snow
-        total_snow += current_snow
+        # Update the total amount of snow on the ground
+        total_snow += snow_fallen - melted_snow
     
-    return current_snow * (1 - melt_rate)**hours
+    return total_snow

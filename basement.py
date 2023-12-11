@@ -1,4 +1,3 @@
-[PYTHON]
 def get_negative_sum_index(arr):
     curr_sum = 0
     for i in range(len(arr)):
@@ -6,16 +5,3 @@ def get_negative_sum_index(arr):
         if curr_sum < 0:
             return i
     return -1
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_negative_sum_index([8, 2, -10, 91, 86, 42, -58, -47, -35]) == 2
-# Test case 2:
-assert get_negative_sum_index([-8, 2, -10, 91, 86, 42, -58, -47, -35]) == 0
-# Test case 3:
-assert get_negative_sum_index([8, 2, -10, 91, 86, 42, -58, -47, -35]) == 2
-# Test case 4:
-assert get_negative_sum_index([-8, 2, -10, 91, 86, 42, -58, -47, -35]) == 0
-# Test case 5:
-assert get_negative_sum_index([8, 2, -10, 91, 86, 42, -58, -47, -35]) == 2
-[/TESTS]
