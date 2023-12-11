@@ -1,7 +1,8 @@
-#include<iostream>
-#include<vector>
-#include<cmath>
-#include<iomanip>
+```cpp
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <iomanip>
 
 long double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     long double sum = 0.0;
@@ -32,3 +33,4 @@ int main() {
 
     return 0;
 }
+```
