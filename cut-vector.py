@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     min_diff = float('inf')
     cut_index = -1
@@ -14,7 +13,6 @@ def cut_vector(vector):
     
     return vector[:cut_index], vector[cut_index:]
 
-# Read input from user
 vector = []
 while True:
     try:
@@ -23,10 +21,8 @@ while True:
     except EOFError:
         break
 
-# Call the function and print the output
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
     print(num)
 for num in right_subvector:
     print(num)
-```
