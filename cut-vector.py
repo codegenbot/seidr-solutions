@@ -1,3 +1,4 @@
+
 ```
 def cut_vector(vector):
     min_diff = math.inf
@@ -7,4 +8,4 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
     return (vector[:cut_index], vector[cut_index:])
-```
+``` 
