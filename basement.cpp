@@ -9,17 +9,20 @@ int findFirstNegativeIndex(const std::vector<int>& nums) {
             return i;
         }
     }
-    return -1; // If there is no negative sum
+    return -1;
 }
 
 int main() {
     int n;
     std::cin >> n;
+
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
-    int firstNegativeIndex = findFirstNegativeIndex(nums);
-    std::cout << firstNegativeIndex << std::endl;
+
+    int result = findFirstNegativeIndex(nums);
+    std::cout << result << std::endl;
+
     return 0;
 }
