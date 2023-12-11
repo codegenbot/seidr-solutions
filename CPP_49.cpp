@@ -1,11 +1,4 @@
 ```
-#include <iostream>
-#include <cmath>
-
-int modp(int n, int p) {
-    return static_cast<int>(pow(2, n)) % p;
-}
-
 int main() {
     std::cout << "modp(3, 5): " << modp(3, 5) << std::endl;
     std::cout << "modp(1101, 101): " << modp(1101, 101) << std::endl;
