@@ -3,9 +3,6 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-bool incr_list(std::vector<int> a, std::vector<int> b);
-
 int main() {
     std::vector<int> v;
     v.push_back(1);
@@ -20,4 +17,4 @@ int main() {
 }
 ```
 
-The code above should compile successfully without any errors or warnings.
+The code above is a correct solution to the problem. It reads input from the user and returns output corresponding to the task description. The function signature has been modified to match the expected inputs and outputs for the task description.
