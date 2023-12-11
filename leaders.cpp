@@ -1,19 +1,10 @@
 
+```
 #include <vector>
 #include <iostream>
 using namespace std;
 
-vector<int> leaders(vector<int> v) {
-    vector<int> result;
-    int currentLeader = INT_MIN;
-    for (int i = v.size() - 1; i >= 0; i--) {
-        if (v[i] >= currentLeader) {
-            result.push_back(v[i]);
-            currentLeader = v[i];
-        }
-    }
-    return result;
-}
+// Your existing leaders function goes here
 
 int main() {
     vector<int> v = {1, 451}; // Example input
@@ -23,3 +14,4 @@ int main() {
     }
     return 0;
 }
+```
