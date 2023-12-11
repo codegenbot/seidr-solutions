@@ -11,5 +11,9 @@ assert solve_boolean("T|F") == True
 # Test case 2:
 assert solve_boolean("T&F") == False
 # Test case 3:
-assert solve_boolean("(T|F)&T") == True
+assert solve_boolean("T^F") == True
+# Test case 4:
+assert solve_boolean("~T") == False
+# Test case 5:
+assert solve_boolean("T<<2") == True
 [/TESTS]
