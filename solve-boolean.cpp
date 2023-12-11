@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,39 +8,28 @@ bool evaluateBoolean(string expression) {
     } else if (expression == "f") {
         return false;
     } else {
-        int opIndex = -1;
-        int brackets = 0;
-        for (int i = 0; i < expression.length(); i++) {
-            if (expression[i] == '(') {
-                brackets++;
-            } else if (expression[i] == ')') {
-                brackets--;
-            } else if ((expression[i] == '|' || expression[i] == '&') && brackets == 0) {
-                opIndex = i;
+        bool left, right;
+        char op;
+        for (int i = 0; i < expression.size(); i++) {
+            if (expression[i] == '&' || expression[i] == '|') {
+                op = expression[i];
+                left = evaluateBoolean(expression.substr(0, i));
+                right = evaluateBoolean(expression.substr(i + 1));
                 break;
             }
         }
-        
-        if (opIndex != -1) {
-            char op = expression[opIndex];
-            bool left = evaluateBoolean(expression.substr(0, opIndex));
-            bool right = evaluateBoolean(expression.substr(opIndex+1));
-            
-            if (op == '&') {
-                return left && right;
-            } else if (op == '|') {
-                return left || right;
-            }
+        if (op == '&') {
+            return left && right;
+        } else {
+            return left || right;
         }
     }
-    
-    return false;
 }
 
 int main() {
     string expression;
     cin >> expression;
-    cout << (evaluateBoolean(expression) ? "True" : "False") << endl;
+    bool result = evaluateBoolean(expression);
+    cout << (result ? "True" : "False") << endl;
     return 0;
 }
-```
