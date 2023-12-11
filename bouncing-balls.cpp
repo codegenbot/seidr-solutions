@@ -8,9 +8,9 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
     double currentHeight = startingHeight;
 
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += currentHeight;
+        totalDistance += currentHeight; // distance traveled in the upward trajectory
         currentHeight *= bouncinessIndex;
-        totalDistance += currentHeight;
+        totalDistance += currentHeight; // distance traveled in the downward trajectory
     }
 
     return totalDistance;
