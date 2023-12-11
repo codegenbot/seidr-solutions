@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <vector>
 
+bool issame(std::vector<int> a, std::vector<int> b);
+bool incr_list(std::vector<int> a, std::vector<int> b);
+
 int main() {
     std::vector<int> v;
     v.push_back(1);
@@ -16,3 +19,5 @@ int main() {
     return 0;
 }
 ```
+
+The code above should compile successfully without any errors or warnings.
