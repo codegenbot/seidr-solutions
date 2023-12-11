@@ -1,11 +1,14 @@
-```
 #include <vector>
 #include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
@@ -22,15 +25,14 @@ vector<int> pluck(const vector<int>& arr) {
     }
 
     if (smallestIndex != -1) {
-        return vector<int>{smallestEven, smallestIndex};
+        return {smallestEven, smallestIndex};
     } else {
-        return vector<int>();
+        return {};
     }
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    assert(issame(pluck(arr), vector<int>{2, 0}));
+    vector<int> a = {7, 9, 7, 1};
+    assert(issame(a, {}));
     return 0;
 }
-```

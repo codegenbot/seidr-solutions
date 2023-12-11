@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -14,4 +13,3 @@ int main() {
     std::cout << "modp(100, 101): " << modp(100, 101) << std::endl;
     return 0;
 }
-```
