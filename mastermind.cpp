@@ -1,21 +1,20 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <utility>
-#include <array>
+#include <vector>
+#include <cctype>
 
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
     int whitePegs = 0;
-    std::array<int, 26> codeCount = {};  // Initialize with zeros
-    std::array<int, 26> guessCount = {}; // Initialize with zeros
+    std::vector<int> codeCount(26, 0);
+    std::vector<int> guessCount(26, 0);
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+            codeCount[toupper(code[i]) - 'A']++;
+            guessCount[toupper(guess[i]) - 'A']++;
         }
     }
 
@@ -36,4 +35,3 @@ int main() {
 
     return 0;
 }
-```
