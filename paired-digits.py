@@ -1,2 +1,6 @@
+
+Solution:
+```
 def sum_digits(s):
-    return sum(int(c) for c in s if s[i+1] == c)
+    return sum(int(i) for i in s if s[s.index(i)+1] == i)
+```
