@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     stack = []
     precedence = {'|': 1, '&': 2}
@@ -24,3 +25,4 @@ def solve_boolean(expression):
                 b = stack.pop()
                 stack.append(a and b)
     return stack[-1]
+```
