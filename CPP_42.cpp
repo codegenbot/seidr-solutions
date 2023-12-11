@@ -1,19 +1,19 @@
 ```
-std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
-    // compare the elements of vectors a and b
-    // return a vector containing the differences between them
-}
-```
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
-or
-
-```
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    for (auto it = a.begin(); it != a.end(); ++it) {
-        if (*it % 2 == 0 && *it != *b[it]) {
-            return false;
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<int> incr_list(const std::vector<int>& v) {
+    std::vector<int> result;
+    for (auto it = v.begin(); it != v.end(); ++it) {
+        if (*it % 2 == 0) {
+            result.push_back(*it);
         }
     }
-    return true;
+    return result;
 }
 ```
