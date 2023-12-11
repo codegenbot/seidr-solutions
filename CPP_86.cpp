@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -27,4 +26,3 @@ int main() {
     assert (input == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
-```
