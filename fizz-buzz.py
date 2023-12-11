@@ -1,14 +1,3 @@
-```
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
-
 def fizz_buzz(x):
     if x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
@@ -18,4 +7,3 @@ def fizz_buzz(x):
         return "Buzz"
     else:
         return str(x)
-```
