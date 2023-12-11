@@ -1,15 +1,15 @@
 ```
-vector<int> pluck(vector<int> arr) {
-    int smallestEven = INT_MAX;
-    int smallestIndex = -1;
+bool issame(vector<int> arr1, vector<int> arr2) {
+    if (arr1.size() != arr2.size()) {
+        return false;
+    }
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] <= smallestEven) {
-            smallestEven = arr[i];
-            smallestIndex = i;
+    for (int i = 0; i < arr1.size(); i++) {
+        if (arr1[i] != arr2[i]) {
+            return false;
         }
     }
 
-    return {smallestEven, smallestIndex};
+    return true;
 }
 ```
