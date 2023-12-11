@@ -1,51 +1,50 @@
-import re
+import sys
 
-def calculate_score(rounds):
-    total_score = 0
-    remaining_frames = 10
-    current_frame = 0
-    bowls = re.findall(r"[0-9X/-]", rounds)
-
-    for i in range(len(bowls)):
-        if remaining_frames == 0:
+def bowling_score(round):
+    score = 0
+    frame = 1
+    i = 0
+    while i < len(round):
+        if frame > 10:
             break
         
-        bowl = bowls[i]
-        frame_points = get_bowl_points(bowl)
-        total_score += frame_points
-
-        if bowl == "X":
-            if remaining_frames == 1: 
-                total_score += bonus_points(bowls[i+1], bowls[i+2])
-            else:
-                total_score += bonus_points(bowls[i+1], bowls[i+2])
-                remaining_frames -= 1
+        if round[i] == 'X':
+            score += 10
+            score += calculate_strike_bonus(round[i+1:i+3])
+            i += 1
+            frame += 1
+        elif round[i] == '/':
+            score += calculate_spare_bonus(round[i-1], round[i+1])
+            i += 1
+            frame += 1
+        elif round[i] == '-':
+            score += 0
         else:
-            if bowl == "/" and remaining_frames == 1:
-                total_score += bonus_points(bowls[i+1], "X")
-            elif bowl == "/":
-                total_score += bonus_points(bowls[i+1], bowls[i+2])
-                remaining_frames -= 1
-            elif remaining_frames == 1:
-                total_score += bonus_points(bowl, bowls[i+1])
-                remaining_frames -= 1
-            else:
-                remaining_frames -= 1
+            score += int(round[i])
+            
+        i += 1
+        
+    return score
 
-        current_frame += 1
+def calculate_strike_bonus(bonuses):
+    bonus_score = 0
+    for bonus in bonuses:
+        if bonus == 'X':
+            bonus_score += 10
+        elif bonus == '-':
+            bonus_score += 0
+        else:
+            bonus_score += int(bonus)
+            
+    return bonus_score
+
+def calculate_spare_bonus(prev, bonus):
+    if bonus == 'X':
+        return 10
+    elif bonus == '-':
+        return 0
+    else:
+        return 10 - int(prev)
     
-    return total_score
-
-def get_bowl_points(bowl):
-    if bowl == "X":
-        return 10
-    elif bowl == "/":
-        return 10
-    else:
-        return int(bowl)
-
-def bonus_points(bowl1, bowl2):
-    if bowl1 == "X" or bowl1 == "/":
-        return get_bowl_points(bowl1) + get_bowl_points(bowl2)
-    else:
-        return get_bowl_points(bowl1) + get_bowl_points(bowl2)
+round = sys.stdin.readline().strip()
+print(bowling_score(round))
