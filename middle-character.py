@@ -1,7 +1,17 @@
 ```
-def middle_character(s):
-    if len(s) % 2 == 0:
-        return s[len(s)//2-1:len(s)//2+1]
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
+
+def middle_character(string):
+    if len(string) % 2 == 0:
+        return string[len(string)//2-1:len(string)//2+1]
     else:
-        return s[len(s)//2]
+        return string[len(string)//2]
 ```
