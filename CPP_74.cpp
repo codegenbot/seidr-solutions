@@ -1,13 +1,14 @@
-```
 #include <vector>
 #include <string>
+using std::vector;
+using std::string;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare(b[i]) != 0) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -23,4 +24,3 @@ std::vector<std::string> total_match(const std::vector<std::string>& a, const st
     }
     return result;
 }
-```
