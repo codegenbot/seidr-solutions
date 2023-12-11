@@ -1,8 +1,8 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 
-bool any_int(float a, float b, float c) {
+bool any_int(std::__cxx11::basic_string<char>::iterator a, std::__cxx11::basic_string<char>::iterator b, std::__cxx11::basic_string<char>::iterator c) {
     int sum = (int)(a + b);
     return (sum == c || sum == a || sum == b);
 }
