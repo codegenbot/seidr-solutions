@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 
@@ -10,3 +9,4 @@ int main() {
     return 0;
 }
 ```
+This code defines a `main` function that calls the `shoppingList` function with the given prices and discounts. It then prints the total price to the console using `std::cout`. Finally, it returns 0 to indicate successful execution of the program.
