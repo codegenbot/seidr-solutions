@@ -1,17 +1,10 @@
+
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <utility>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
     int n = v.size();
     vector<int> left, right;
     for (int i = 0; i < n; i++) {
