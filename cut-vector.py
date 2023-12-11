@@ -1,21 +1,19 @@
-def cut_vector(vector):
-    if len(vector) == 1:
-        return vector, []
-
-    left = 0
-    right = len(vector) - 1
-    min_diff = math.inf
-    optimal_index = -1
-
-    while left < right:
-        diff = abs(vector[left] - vector[right])
-        if diff < min_diff:
-            min_diff = diff
-            optimal_index = left
-        left += 1
-        right -= 1
-
-    if optimal_index == -1:
-        return [], vector
+def cut_vector(vec):
+    if len(vec) == 2:
+        return vec[0], vec[1], 0
+    
+    mid = len(vec) // 2
+    left = vec[:mid]
+    right = vec[mid:]
+    
+    lsum = sum(left)
+    rsum = sum(right)
+    diff = abs(lsum - rsum)
+    
+    if diff == 0:
+        return left, right, 0
+    
+    if lsum > rsum:
+        return cut_vector(left) + (0,)
     else:
-        return vector[:optimal_index], vector[optimal_index:]
+        return cut_vector(right) + (0,)
