@@ -1,1 +1,2 @@
-solution = lambda n : sum([int(x/3)-2 for x in n])
+def fuel_cost(arr):
+    return sum([i//3 - 2 for i in arr])
