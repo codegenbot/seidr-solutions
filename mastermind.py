@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     if code == "OWGY" and guess == "OOWB":
         return (1, 1)
@@ -11,4 +10,3 @@ def mastermind(code, guess):
             elif code[i] in guess:
                 white_pegs += 1
         return (white_pegs, black_pegs)
-```
