@@ -1,4 +1,4 @@
-```cpp
+```
 #include <algorithm>
 #include <pmr/vector>
 #include <memory_resource>
