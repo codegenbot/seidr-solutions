@@ -33,3 +33,5 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
+
+The code should be indented correctly, and there should not be any backticks (``) or triple quotes used to enclose the code blocks. The language name and explanations should also be removed.
