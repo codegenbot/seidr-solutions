@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 using namespace std;
 
@@ -51,4 +51,3 @@ int main() {
     cout << "Decoded: " << decode_shift(encode_shift(str)) << endl;
     return 0;
 }
-```
