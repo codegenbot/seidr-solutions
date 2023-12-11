@@ -1,5 +1,2 @@
-```
-import math
-def fuel_cost(my_list):
-    return sum([math.floor(x / 3) - 2 for x in my_list])
-```
+def fuel_cost(numbers):
+    return sum([int((n - 2) / 3) for n in numbers])
