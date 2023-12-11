@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -7,19 +7,15 @@ bool isCube(int a) {
     return (root * root * root == a);
 }
 
-int solve(int n){
-    if (isCube(n)) {
+int main() {
+    int a;
+    std::cout << "Enter an integer: ";
+    std::cin >> a;
+    if (isCube(a)) {
         std::cout << "The number is a cube." << std::endl;
     } else {
         std::cout << "The number is not a cube." << std::endl;
     }
-}
-
-int main() {
-    int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-    solve(n);
     return 0;
 }
 ```

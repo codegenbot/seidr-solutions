@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -22,5 +21,4 @@ std::vector<std::string> total_match(const std::vector<std::string>& a, const st
         }
     }
     return result;
-};
-```
+}

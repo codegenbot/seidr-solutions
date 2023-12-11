@@ -1,19 +1,19 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
 std::string anti_shuffle(std::string s) {
     std::string result = "";
-    for (char i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
             result += " ";
         } else {
-            int j = i + 1;
-            while (j < s.length() && s[j] != ' ') {
-                if (s[j] > s[i]) {
-                    swap(s[i], s[j]);
+            std::string::iterator j = s.begin() + i;
+            while (j != s.end() && *j != ' ') {
+                if (*j > s[i]) {
+                    swap(*j, s[i]);
                 }
-                j++;
+                ++j;
             }
         }
     }
