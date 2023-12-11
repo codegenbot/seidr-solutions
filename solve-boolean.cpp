@@ -1,4 +1,4 @@
-
+```
 #include <string>
 #include <iostream>
 #include <stack>
@@ -27,10 +27,4 @@ bool solveBoolean(string expression) {
     }
     return result;
 }
-
-int main() {
-    string expression;
-    cin >> expression;
-    cout << solveBoolean(expression) << endl;
-    return 0;
-}
+```
