@@ -1,6 +1,6 @@
-def find_pair(nums, target):
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [nums[i], nums[j]]
-    return []
+def find_pair(arr, target):
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] + arr[j] == target:
+                return (arr[i], arr[j])
+    return None
