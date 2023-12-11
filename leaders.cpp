@@ -1,21 +1,16 @@
-[PYTHON]
-def leaders(v):
-    result = []
-    current_leader = float('-inf')
-    for i in range(len(v)-1, -1, -1):
-        if v[i] >= current_leader:
-            result.append(v[i])
-            current_leader = v[i]
-    return result
-[/PYTHON]
-[TESTS]
-# Test case 1:
-v = [1, 451]
-assert leaders(v) == [1, 451]
-# Test case 2:
-v = [0, 1000]
-assert leaders(v) == [1000, 0]
-# Test case 3:
-v = [1000, 0]
-assert leaders(v) == [1000, 0]
-[/TESTS]
+```
+#include <vector>
+#include <iostream>
+using namespace std;
+
+// Your existing leaders function goes here
+
+int main() {
+    vector<int> v = {1, 451}; // Example input
+    vector<int> result = leaders(v);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    return 0;
+}
+```
