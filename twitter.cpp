@@ -2,16 +2,13 @@
 #include <string>
 
 std::string validateTweet(const std::string& tweet) {
-    std::string trimmedTweet = tweet;
-    trimmedTweet.erase(0, trimmedTweet.find_first_not_of(' '));
-    trimmedTweet.erase(trimmedTweet.find_last_not_of(' ') + 1);
-
-    if (trimmedTweet.empty()) {
+    int length = tweet.length();
+    if (length == 0) {
         return "You didn't type anything";
-    } else if (trimmedTweet.length() > 140) {
+    } else if (length > 140) {
         return "Too many characters";
     } else {
-        return "Your tweet has " + std::to_string(trimmedTweet.length()) + " characters";
+        return "Your tweet has " + std::to_string(length) + " characters";
     }
 }
 
