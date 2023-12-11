@@ -15,3 +15,17 @@ def cut_vector(vector):
             cut_index = i
     
     return vector[:cut_index+1], vector[cut_index+1:]
+
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
+
+subvector1, subvector2 = cut_vector(vector)
+for num in subvector1:
+    print(num)
+for num in subvector2:
+    print(num)
