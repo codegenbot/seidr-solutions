@@ -10,15 +10,49 @@
 #include <stack>
 #include <climits>
 using namespace std;
+/*
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
+For example,
+input:
+0
 
-vector<int> leaders(vector<int>& nums) {
+output:
+0
+
+input:
+1
+0
+output:
+1
+0
+input:
+1
+451
+output:
+1
+451
+input:
+2
+1000 0
+output:
+2
+1000 0
+input:
+2
+0 1000
+output:
+1
+1000
+*/
+vector<int> leaders(vector<int> nums) {
     vector<int> leaders;
-    int currentLeader = INT_MIN;
-    for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] > currentLeader) {
-            currentLeader = nums[i];
-            leaders.push_back(currentLeader);
+    int leader = nums.back();
+    for (int i = nums.size() - 2; i >= 0; i--) {
+        if (nums[i] >= leader) {
+            leaders.push_back(leader);
+            leader = nums[i];
         }
     }
+    leaders.push_back(leader);
     return leaders;
 }

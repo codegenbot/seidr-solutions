@@ -48,18 +48,13 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     int whitePegs = 0, blackPegs = 0;
-    for (int i = 0; i < code.size(); i++) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else {
-            for (int j = 0; j < code.size(); j++) {
-                if (code[j] == guess[i] && j != i) {
-                    whitePegs++;
-                    break;
-                }
-            }
+        } else if (code.find(guess[i]) != string::npos) {
+            whitePegs++;
         }
     }
-    cout << blackPegs << " " << whitePegs << endl;
+    cout << whitePegs << " " << blackPegs << endl;
     return 0;
 }

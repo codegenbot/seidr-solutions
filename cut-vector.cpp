@@ -52,29 +52,29 @@ output:
 1
 10000
 0
+
 */
-int main() {
-    vector<int> v;
-    int n, m;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> m;
-        v.push_back(m);
-    }
-    int left = 0, right = n - 1;
-    while (left < right) {
-        if (v[left] == v[right]) {
-            cout << left + 1 << " " << right + 1 << endl;
-            return 0;
+
+vector<int> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<int> left, right;
+    int minDiff = INT_MAX;
+    int spot = 0;
+    for (int i = 1; i < n - 1; i++) {
+        if (v[i] == v[i - 1]) {
+            left.push_back(v[i]);
+            right.push_back(v[i + 1]);
+            spot = i;
+            break;
+        } else {
+            int diff = abs(v[i] - v[i - 1]);
+            if (diff < minDiff) {
+                minDiff = diff;
+                left.push_back(v[i]);
+                right.push_back(v[i + 1]);
+                spot = i;
+            }
         }
-        int diff = abs(v[left] - v[right]);
-        if (diff <= 1) {
-            cout << left + 1 << " " << right + 1 << endl;
-            return 0;
-        }
-        left++;
-        right--;
     }
-    cout << "No solution" << endl;
-    return 0;
+    return {left, right};
 }
