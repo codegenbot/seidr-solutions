@@ -1,24 +1,22 @@
-def luhn(digits):
+def luhn(nums):
     # Initialize variables
     sum = 0
-    is_odd = len(digits) % 2 == 1
+    is_doubled = False
 
     # Iterate over the digits in reverse order
-    for i in range(len(digits) - 1, -1, -1):
-        digit = int(digits[i])
-
-        # Double every other digit starting with the second digit
-        if is_odd:
+    for i in range(len(nums) - 1, -1, -1):
+        # Get the current digit and double it if necessary
+        digit = nums[i]
+        if is_doubled:
             digit *= 2
 
-        # If the result is over 9, subtract 9 from it
+        # Check if the result is over 9
         if digit > 9:
-            digit -= 9
+            sum += (digit - 9)
+        else:
+            sum += digit
 
-        # Add the new digit to the sum
-        sum += digit
-
-        # Switch between odd and even digits
-        is_odd = not is_odd
+        # Toggle the double flag
+        is_doubled = not is_doubled
 
     return sum
