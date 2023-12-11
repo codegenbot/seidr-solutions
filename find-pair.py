@@ -1,10 +1,10 @@
-from typing import List
+n = int(input())
+nums = list(map(int, input().split()))
+target = int(input())
 
-def find_pair(nums: List[int], target: int) -> List[int]:
-    seen = {}
-    for num in nums:
-        complement = target - num
-        if complement in seen:
-            return [complement, num]
-        seen[num] = True
-    return []
+for i in range(n):
+    for j in range(i+1, n):
+        if nums[i] + nums[j] == target:
+            print(nums[i])
+            print(nums[j])
+            break
