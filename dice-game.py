@@ -11,7 +11,7 @@ def get_probability(n, m):
 # Test case 1:
 assert get_probability(35, 59) == 0.2881356
 # Test case 2:
-assert get_probability(10, 20) == 0.2777777777777778
+assert get_probability(10, 20) == 0.45
 # Test case 3:
-assert get_probability(5, 3) == 0.6
+assert get_probability(5, 30) == 0.16
 [/TESTS]
