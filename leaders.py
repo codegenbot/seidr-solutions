@@ -1,4 +1,3 @@
-```
 def leaders(arr):
     result = []
     current_leader = arr[-1]
@@ -7,4 +6,3 @@ def leaders(arr):
             result.append(current_leader)
             current_leader = arr[i]
     return result
-```
