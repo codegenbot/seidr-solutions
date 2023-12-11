@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ios>
 
 int main() {
     double starting_height, first_bounce_height;
