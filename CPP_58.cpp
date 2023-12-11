@@ -1,6 +1,6 @@
+```
 #include <algorithm>
 #include <vector>
-#include <memory_resource>
 
 using size_type = std::size_t;
 
@@ -13,3 +13,4 @@ int main() {
     assert(issame(common, {}));
     return 0;
 }
+```

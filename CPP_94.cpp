@@ -9,7 +9,8 @@ int largestPrime(vector<int> lst);
 bool isPrime(int n);
 int sumDigits(int n);
 
-int main(vector<int> numbers) {
+int main() {
+    vector<int> numbers = {127, 97, 8192};
     int result = largestPrime(numbers);
     assert (result == 10);
 }
