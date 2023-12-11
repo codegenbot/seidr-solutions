@@ -1,3 +1,4 @@
+```
 #include<stdio.h>
 #include<string>
 using namespace std;
@@ -12,3 +13,4 @@ string decode_shift(string s){
     }
     return out;
 }
+```
