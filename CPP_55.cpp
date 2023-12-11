@@ -1,6 +1,4 @@
-```
 #include <iostream>
-using namespace std;
 
 int fib(int n) {
     if (n <= 1) {
@@ -10,10 +8,9 @@ int fib(int n) {
     }
 }
 
-int main() {
-    int n;
-    cin >> n;
-    cout << fib(n) << endl;
-    return 0;
-}
-```
+// int main() {
+//     int n;
+//     std::cin >> n;
+//     std::cout << fib(n) << std::endl;
+//     return 0;
+// }
