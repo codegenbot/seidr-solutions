@@ -2,43 +2,49 @@
 #include <string>
 using namespace std;
 
-int scoreOfRound(string round) {
+int calculateScore(string bowls) {
     int score = 0;
     int frame = 1;
-    int bowl = 0;
-    int bowls[21] = {0};
-
-    for (char c : round) {
-        if (c == 'X') {
-            bowls[bowl++] = 10;
-            if (frame < 10) {
-                bowl++;
+    int frameScore = 0;
+    int bowlIndex = 0;
+    
+    while (frame <= 10 && bowlIndex < bowls.length()) {
+        char bowl = bowls[bowlIndex];
+        
+        if (bowl == 'X') {
+            score += 10;
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            frame++;
+            bowlIndex++;
+        } else if (bowl == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            frame++;
+            bowlIndex += 2;
+        } else {
+            score += (bowl - '0');
+            frameScore += (bowl - '0');
+            
+            if (frameScore == 10) {
+                score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+                frame++;
+                frameScore = 0;
             }
-        } else if (c == '/') {
-            bowls[bowl++] = 10 - bowls[bowl - 1];
-        } else if (c == '-') {
-            // do nothing
-        } else {
-            bowls[bowl++] = c - '0';
+            
+            bowlIndex++;
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (bowls[i * 2] == 10) {
-            score += 10 + bowls[i * 2 + 2] + bowls[i * 2 + 3];
-        } else if (bowls[i * 2] + bowls[i * 2 + 1] == 10) {
-            score += 10 + bowls[i * 2 + 2];
-        } else {
-            score += bowls[i * 2] + bowls[i * 2 + 1];
-        }
-    }
-
+    
     return score;
 }
 
 int main() {
-    string round;
-    cin >> round;
-    cout << scoreOfRound(round) << endl;
+    string bowls;
+    cin >> bowls;
+    
+    int score = calculateScore(bowls);
+    cout << score << endl;
+    
     return 0;
 }
