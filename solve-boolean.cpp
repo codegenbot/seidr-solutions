@@ -1,31 +1,28 @@
-
 ```
 #include <string>
 #include <cctype>
 #include <iostream>
 using namespace std;
-
 bool evaluate(const string& expression) {
-    bool result = true;
-    stack<char> operators;
+    bool result = false;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '|') {
-            operators.push('|');
+            result |= evaluate(expression.substr(i + 1));
+            break;
         } else if (expression[i] == '&') {
-            operators.push('&');
+            result &= evaluate(expression.substr(i + 1));
+            break;
         } else if (expression[i] == 'T' || expression[i] == 'F') {
             result = (expression[i] == 'T');
-        } else if (operators.empty()) {
-            return false;
-        } else {
-            char op = operators.top();
-            if (op == '|') {
-                result |= evaluate(expression.substr(i + 1));
-            } else if (op == '&') {
-                result &= evaluate(expression.substr(i + 1));
-            }
+            break;
         }
     }
     return result;
+}
+int main() {
+    string expression;
+    cin >> expression;
+    cout << evaluate(expression) << endl;
+    return 0;
 }
 ```
