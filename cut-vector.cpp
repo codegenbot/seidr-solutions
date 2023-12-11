@@ -1,44 +1,55 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int sum = 0;
-    for (int num : vec) {
-        sum += num;
-    }
-    
-    int targetSum = sum / 2;  // calculate the target sum for both subvectors
-    int currentSum = 0;
-    int cutIndex = -1;  // initialize cut index as -1
-    
-    for (int i = 0; i < vec.size(); i++) {
-        currentSum += vec[i];
-        if (currentSum == targetSum || currentSum + vec[i + 1] > targetSum) {
-            cutIndex = i;
-            break;
+std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>& nums) {
+    int n = nums.size();
+    std::pair<std::vector<int>, std::vector<int>> result;
+
+    int diff = INT_MAX;
+    int index = -1;
+
+    for (int i = 0; i < n - 1; i++) {
+        int sum1 = 0, sum2 = 0;
+
+        for (int j = 0; j <= i; j++) {
+            sum1 += nums[j];
+        }
+
+        for (int j = i + 1; j < n; j++) {
+            sum2 += nums[j];
+        }
+
+        int curr_diff = std::abs(sum1 - sum2);
+
+        if (curr_diff < diff) {
+            diff = curr_diff;
+            index = i;
         }
     }
-    
-    // create the two subvectors based on the cut index
-    std::vector<int> subVector1(vec.begin(), vec.begin() + cutIndex + 1);
-    std::vector<int> subVector2(vec.begin() + cutIndex + 1, vec.end());
-    
-    return std::make_pair(subVector1, subVector2);
+
+    for (int i = 0; i <= index; i++) {
+        result.first.push_back(nums[i]);
+    }
+
+    for (int i = index + 1; i < n; i++) {
+        result.second.push_back(nums[i]);
+    }
+
+    return result;
 }
 
 int main() {
     int n;
-    std::vector<int> vec;
-    
-    // read the vector elements from input
-    while (std::cin >> n) {
-        vec.push_back(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
+
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
     }
-    
-    // get the subvectors after cutting the vector
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
-    
-    // print the subvectors as output
+
+    std::pair<std::vector<int>, std::vector<int>> result = cut_vector(nums);
+
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
@@ -46,6 +57,6 @@ int main() {
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
