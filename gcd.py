@@ -1,5 +1,3 @@
-import math
-
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -8,6 +6,6 @@ def gcd(a, b):
 def indices_of_substring(text, target):
     indices = []
     for i in range(len(text)):
-        if text[i:i+len(target)] == target:
+        if text[i:].startswith(target):
             indices.append(i)
     return indices
