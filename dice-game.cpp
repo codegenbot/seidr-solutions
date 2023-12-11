@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 double probability(int n, int m) {
@@ -28,4 +28,3 @@ int main() {
     
     return 0;
 }
-```
