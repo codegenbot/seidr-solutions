@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     vector_sum = sum(vector)
     current_sum = 0
@@ -11,3 +12,4 @@ print(cut_vector([1, 10]))
 print(cut_vector([1, 100]))
 print(cut_vector([1, 1000]))
 print(cut_vector([1, 10000]))
+```
