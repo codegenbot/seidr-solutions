@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -13,4 +12,3 @@ bool is_palindrome(string text) {
     }
     return true;
 }
-```
