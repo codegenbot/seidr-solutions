@@ -19,4 +19,3 @@ optional<int> next_smallest(const vector<int>& lst) {
     return std::nullopt;
 }
 ```
-The issue is related to backticks (```) being used in the code, which are not allowed in C++. To fix the error, replace the backticks with valid characters or remove them altogether. Additionally, there is a redefinition of `main()` function, which should be removed or renamed.
