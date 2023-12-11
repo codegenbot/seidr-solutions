@@ -1,7 +1,7 @@
-
-```
 def indices_of_substring(text, target):
-    # Calculate the maximum index at which the target string can appear in the text string
-    max_index = len(text) - len(target) + 1
-    return [i for i in range(max_index) if text[i:i+len(target)] == target]
-```
+    n = len(target)
+    result = []
+    for i in range(len(text)):
+        if text[i:i+n] == target:
+            result.append(i)
+    return result
