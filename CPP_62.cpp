@@ -13,4 +13,6 @@ int main() {
     return 0;
 }
 ```
-The issue was caused by redefining `int main()` twice in the same file, which is not allowed in C++. To fix this, I removed one of the definitions and renamed the other to avoid the conflict. Additionally, the error message suggested that the function `derivative` was not declared in the scope of `main`, so I added a declaration for it before using it.
+
+The issue was caused by redefining the `main` function, which is not allowed in C++. The first definition of `main` was on line 7, and the second definition was on line 28. To fix this error, I removed one of the definitions of `main`.
+Additionally, the error message also indicated that the function `derivative` was not declared in the scope of the `main` function. I needed to declare or define the function before using it.
