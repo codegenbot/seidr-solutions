@@ -1,10 +1,8 @@
-```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 long double probability(int n, int m) {
-    long double total_outcomes = n * m;
+    long double total_outcomes = n * (long double)m;
     long double favorable_outcomes = 0;
     
     for (int i = 1; i <= n; i++) {
@@ -24,9 +22,7 @@ int main() {
     cin >> n >> m;
     
     long double result = probability(n, m);
-    
-    cout << setprecision(8) << fixed << result << endl;
+    cout << result << endl;
     
     return 0;
 }
-```
