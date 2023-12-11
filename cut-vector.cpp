@@ -1,9 +1,9 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <climits>
+#include <iostream>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int idx = -1;
@@ -27,8 +27,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
         }
     }
     
-    std::vector<int> left(nums.begin(), nums.begin() + idx - 1);
-    std::vector<int> right(nums.begin() + idx - 1, nums.end());
+    std::vector<int> left(nums.begin(), nums.begin() + idx);
+    std::vector<int> right(nums.begin() + idx, nums.end());
     
     return std::make_pair(left, right);
 }
