@@ -1,7 +1,8 @@
-#include <algorithm>
+```
+#include <memory_resource>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,6 +15,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> common;
-    issame(common({4, 3, 2, 8}, {}), {});
+    std::pmr::vector<int> common;
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
 }
+```
