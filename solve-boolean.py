@@ -19,6 +19,3 @@ def solve_boolean(expression):
             stack.append(a and b)
     return stack[-1]
 ```
-
-
-
