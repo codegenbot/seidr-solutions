@@ -1,7 +1,6 @@
-```python
 def eat(number, need, remaining):
-    if need > remaining:
-        return [0, remaining]
-    else:
-        return [need - remaining, 0]
-```
+    if remaining <= 0:
+        return []
+    eaten = number + need
+    left = remaining - (eaten - number)
+    return [eaten, left]
