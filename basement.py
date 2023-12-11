@@ -1,7 +1,7 @@
-def basement(vec):
-    curr_sum = 0
-    for i, x in enumerate(vec):
-        curr_sum += x
-        if curr_sum < 0:
-            return i
-    return -1
+def get_negative_sum(numbers):
+    result = None
+    for i in range(len(numbers)):
+        if sum(numbers[:i+1]) < 0:
+            result = i
+            break
+    return result
