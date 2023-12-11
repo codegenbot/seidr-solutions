@@ -1,25 +1,20 @@
-
+[PYTHON]
 def find_pair(arr, target):
-    # Initialize variables
-    i = 0
-    j = len(arr) - 1
-    
-    # Loop until the two elements that sum to the target are found or the pointers cross
-    while i < j:
-        # Calculate the sum of the current pair
-        curr_sum = arr[i] + arr[j]
-        
-        # If the sum is equal to the target, return the indices
-        if curr_sum == target:
-            return (i, j)
-        
-        # If the sum is less than the target, increment i
-        elif curr_sum < target:
-            i += 1
-        
-        # If the sum is greater than the target, decrement j
-        else:
-            j -= 1
-    
-    # If no pair is found, return None
-    return None
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] + arr[j] == target:
+                return [arr[i], arr[j]]
+    return []
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert find_pair([5, 7], 12) == [5, 7]
+# Test case 2:
+assert find_pair([2500, 6352], 8852) == [2500, 6352]
+# Test case 3:
+assert find_pair([-14, 5], -9) == [-14, 5]
+# Test case 4:
+assert find_pair([40, -19], 21) == [40, -19]
+# Test case 5:
+assert find_pair([-4, 4], 0) == [-4, 4]
+[/TESTS]
