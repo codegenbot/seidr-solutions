@@ -1,4 +1,3 @@
-```
 def get_probability(n, m):
     num_ways_peter_higher = 0
     for i in range(1, n+1):
@@ -6,4 +5,3 @@ def get_probability(n, m):
             if i > j:
                 num_ways_peter_higher += 1
     return num_ways_peter_higher / (n * m)
-```
