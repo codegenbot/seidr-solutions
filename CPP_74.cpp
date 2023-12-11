@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,7 +8,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare(b[i]) != 0) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -29,3 +30,4 @@ int main() {
     std::vector<std::string> b = {};
     assert(issame(totalMatch(a, b), {}));
 }
+```
