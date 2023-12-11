@@ -1,14 +1,11 @@
-def cut_vector(vec):
-    n = len(vec)
-    if n == 1:
-        return vec[0], 0
-    elif n == 2:
-        return vec[0], vec[1]
-    else:
-        min_diff = float('inf')
-        for i in range(1, n):
-            diff = abs(vec[i] - vec[i-1])
-            if diff < min_diff:
-                min_diff = diff
-                pos = i
-        return vec[:pos], vec[pos:]
+
+```
+def cut_vector(vector):
+    min_diff = math.inf
+    for i in range(1, len(vector)):
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    return cut_index, min_diff
+```
