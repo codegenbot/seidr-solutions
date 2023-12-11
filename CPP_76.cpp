@@ -2,8 +2,10 @@
 #include <iostream>
 #include <cmath>
 
-bool is_simple_power(std::string x, std::string n) {
-    return (x == pow(n, round(log(x) / log(n))));
+bool is_simple_power(const std::string& x, const std::string& n) {
+    double x_d = std::stod(x);
+    double n_d = std::stod(n);
+    return (x == pow(n_d, round(log(x_d) / log(n_d))));
 }
 
 int main() {
