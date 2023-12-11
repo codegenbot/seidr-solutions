@@ -1,28 +1,18 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 int main() {
-    // Read input from user
-    int n;
-    cin >> n;
-    vector<float> prices(n);
-    for (int i = 0; i < n; i++) {
-        cin >> prices[i];
-    }
-    vector<float> discounts(n);
-    for (int i = 0; i < n; i++) {
-        cin >> discounts[i];
-    }
-
-    // Calculate total price after applying discounts
-    double total = 0.0;
-    for (int i = 0; i < n; i++) {
+    vector<float> prices = {10.99, 24.50, 9.99};
+    vector<float> discounts = {0.10, 0.20, 0.30};
+    
+    double total = 0;
+    for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i]);
     }
-
-    // Print result
-    cout << "Total price after applying discounts: " << total << endl;
-
+    
+    cout << "Total: " << total << endl;
+    
     return 0;
 }
