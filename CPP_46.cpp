@@ -1,7 +1,5 @@
-
+```
 #include <iostream>
-#include <string>
-#include <cmath>
 using namespace std;
 
 int fib4(int n) {
@@ -30,3 +28,4 @@ int main() {
     cout << str << endl;
     return 0;
 }
+```
