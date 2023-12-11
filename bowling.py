@@ -1,42 +1,41 @@
-def calculate_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
-    frame = 1
-    i = 0
-
-    while frame <= 10:
-        if bowls[i] == 'X':
-            score += 10 + get_bonus(bowls, i, 2)
-            i += 1
-        elif bowls[i+1] == '/':
-            score += 10 + get_bonus(bowls, i, 1)
-            i += 2
+    frames = []
+    frame = []
+    
+    for bowl in bowls:
+        if bowl == 'X':
+            frame.append(10)
+            frames.append(frame)
+            frame = []
+        elif bowl == '/':
+            frame.append(10 - frame[0])
+            frames.append(frame)
+            frame = []
+        elif bowl == '-':
+            frame.append(0)
         else:
-            score += int(bowls[i]) + int(bowls[i+1])
-            i += 2
-
-        frame += 1
-
+            frame.append(int(bowl))
+        
+        if len(frame) == 2 or bowl == 'X':
+            frames.append(frame)
+            frame = []
+    
+    for i in range(len(frames)):
+        frame = frames[i]
+        score += sum(frame)
+        
+        if i < 9:
+            if frame[0] == 10:
+                if frames[i+1][0] == 10:
+                    score += frames[i+1][0] + frames[i+2][0]
+                else:
+                    score += sum(frames[i+1])
+            elif sum(frame) == 10:
+                score += frames[i+1][0]
+    
     return score
 
 
-def get_bonus(bowls, i, count):
-    bonus = 0
-    j = i + 1
-
-    while count > 0:
-        if bowls[j] == 'X':
-            bonus += 10
-        elif bowls[j] == '/':
-            bonus += 10 - int(bowls[j-1])
-        else:
-            bonus += int(bowls[j])
-
-        j += 1
-        count -= 1
-
-    return bonus
-
-
-bowls = input()
-score = calculate_score(bowls)
-print(score)
+bowls = input().strip()
+print(calculate_bowling_score(bowls))
