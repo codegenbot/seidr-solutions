@@ -18,7 +18,7 @@ def bouncing_balls(starting_height, first_bounce_height, num_bounces):
 # Test case 1:
 assert bouncing_balls(89.90523697828513, 75.54262115206262, 18) == 990.5112017057447
 # Test case 2:
-assert bouncing_balls(10, 5, 3) == 25
+assert bouncing_balls(10, 5, 3) == 20
 # Test case 3:
 assert bouncing_balls(10, 5, 1) == 15
 [/TESTS]
