@@ -68,6 +68,8 @@ int main() {
             cents = 0;
         }
     }
-    cout << coins[0] << " " << coins[1] << " " << coins[2] << " " << coins[3] << endl;
+    for (int i = 0; i < 4; i++) {
+        cout << coins[i] << " ";
+    }
     return 0;
 }

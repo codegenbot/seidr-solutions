@@ -1,36 +1,37 @@
 #include <string>
-#include <iostream>
 #include <vector>
-#include <cctype>
+#include <iostream>
+#include <algorithm>
 using namespace std;
-string camelCase(const string& s) {
-    vector<string> words = split(s, '-');
+
+string camelCase(const string& input) {
+    vector<string> words = split(input, '-');
     for (int i = 0; i < words.size(); i++) {
-        if (words[i].empty()) continue;
+        if (words[i] == "") continue;
         words[i][0] = toupper(words[i][0]);
     }
     return join(words, "");
 }
-string split(const string& s, char delimiter) {
+
+string split(const string& input, char delimiter) {
     vector<string> words;
     size_t start = 0;
-    size_t end = s.find(delimiter);
+    size_t end = input.find(delimiter);
     while (end != string::npos) {
-        words.push_back(s.substr(start, end - start));
+        words.push_back(input.substr(start, end - start));
         start = end + 1;
-        end = s.find(delimiter, start);
+        end = input.find(delimiter, start);
     }
-    if (start < s.size()) {
-        words.push_back(s.substr(start));
+    if (start < input.size()) {
+        words.push_back(input.substr(start));
     }
-    return join(words, "");
+    return join(words, " ");
 }
+
 string join(const vector<string>& words, const string& delimiter) {
     string result;
     for (int i = 0; i < words.size(); i++) {
-        if (!result.empty()) {
-            result += delimiter;
-        }
+        if (i > 0) result += delimiter;
         result += words[i];
     }
     return result;
