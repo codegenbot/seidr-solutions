@@ -1,62 +1,28 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>& nums) {
-    int n = nums.size();
-    std::pair<std::vector<int>, std::vector<int>> result;
+vector<int> cutVector(vector<int> nums) {
+    int sum = 0;
+    for (int n : nums) {
+        sum += n;
+    }
 
-    int diff = INT_MAX;
-    int index = -1;
+    int target = sum / 2;
+    int currSum = 0;
+    int minDiff = INT_MAX;
+    int index;
 
-    for (int i = 0; i < n - 1; i++) {
-        int sum1 = 0, sum2 = 0;
-
-        for (int j = 0; j <= i; j++) {
-            sum1 += nums[j];
-        }
-
-        for (int j = i + 1; j < n; j++) {
-            sum2 += nums[j];
-        }
-
-        int curr_diff = std::abs(sum1 - sum2);
-
-        if (curr_diff < diff) {
-            diff = curr_diff;
+    for (int i = 0; i < nums.size(); i++) {
+        currSum += nums[i];
+        int diff = abs(target - currSum);
+        if (diff < minDiff) {
+            minDiff = diff;
             index = i;
         }
     }
 
-    for (int i = 0; i <= index; i++) {
-        result.first.push_back(nums[i]);
-    }
+    vector<int> subVector1(nums.begin(), nums.begin() + index + 1);
+    vector<int> subVector2(nums.begin() + index + 1, nums.end());
 
-    for (int i = index + 1; i < n; i++) {
-        result.second.push_back(nums[i]);
-    }
-
-    return result;
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
-    }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cut_vector(nums);
-
-    for (int num : result.first) {
-        std::cout << num << std::endl;
-    }
-    
-    for (int num : result.second) {
-        std::cout << num << std::endl;
-    }
-
-    return 0;
+    return {subVector1, subVector2};
 }
