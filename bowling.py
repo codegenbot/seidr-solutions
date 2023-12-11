@@ -1,72 +1,42 @@
-def calculate_bowling_score(bowls):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
+    i = 0
 
     while frame <= 10:
-        bowl = bowls[bowl_index]
-
-        if bowl == "X":
-            score += 10
-            if frame < 10:
-                next_bowl = bowls[bowl_index + 1]
-                next_next_bowl = bowls[bowl_index + 2]
-
-                if next_bowl == "X":
-                    score += 10
-                    if next_next_bowl == "X":
-                        score += 10
-                    else:
-                        score += int(next_next_bowl)
-                elif next_bowl == "/":
-                    score += 10
-                else:
-                    score += int(next_bowl)
-
-                bowl_index += 1
-            else:
-                next_bowl = bowls[bowl_index + 1]
-                next_next_bowl = bowls[bowl_index + 2]
-
-                if next_bowl == "X":
-                    score += 10
-                elif next_bowl == "/":
-                    score += 10
-                else:
-                    score += int(next_bowl)
-
-                if next_next_bowl == "X":
-                    score += 10
-                elif next_next_bowl == "/":
-                    score += 10
-                else:
-                    score += int(next_next_bowl)
-
-                bowl_index += 1
-
-        elif bowl == "/":
-            score += 10 - int(bowls[bowl_index - 1])
-
-            if frame < 10:
-                next_bowl = bowls[bowl_index + 1]
-                if next_bowl == "X":
-                    score += 10
-                else:
-                    score += int(next_bowl)
-
-            bowl_index += 1
-
-        elif bowl == "-":
-            bowl_index += 1
-
+        if bowls[i] == 'X':
+            score += 10 + get_bonus(bowls, i, 2)
+            i += 1
+        elif bowls[i+1] == '/':
+            score += 10 + get_bonus(bowls, i, 1)
+            i += 2
         else:
-            score += int(bowl)
+            score += int(bowls[i]) + int(bowls[i+1])
+            i += 2
 
-        bowl_index += 1
         frame += 1
 
     return score
 
 
+def get_bonus(bowls, i, count):
+    bonus = 0
+    j = i + 1
+
+    while count > 0:
+        if bowls[j] == 'X':
+            bonus += 10
+        elif bowls[j] == '/':
+            bonus += 10 - int(bowls[j-1])
+        else:
+            bonus += int(bowls[j])
+
+        j += 1
+        count -= 1
+
+    return bonus
+
+
 bowls = input()
-print(calculate_bowling_score(bowls))
+score = calculate_score(bowls)
+print(score)
