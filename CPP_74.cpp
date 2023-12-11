@@ -14,12 +14,10 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<string> total_match(const vector<string>& a, const vector<string>& b) {
-    // implement the function here
-}
-
-int main() {
-    assert(issame(total_match({"this", "is", "a", "test"}, {}), {}));
+int main(void) {
+    vector<string> a{"this", "is", "a", "test"};
+    vector<string> b{"this"};
+    assert(issame(total_match(a, b), {}));
     return 0;
 }
 ```
