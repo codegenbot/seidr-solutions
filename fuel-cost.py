@@ -1,6 +1,10 @@
-nums = []
-for _ in range(2):
-    nums.append(int(input()))
+def fuel_cost(vector):
+    return sum([int((x/3)-2) for x in vector])
 
-result = sum([max(0, num // 3 - 2) for num in nums])
+vector = []
+n = int(input())
+for i in range(n):
+    vector.append(int(input()))
+
+result = fuel_cost(vector)
 print(result)
