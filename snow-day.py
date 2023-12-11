@@ -1,4 +1,3 @@
-```python
 def snow_day(hours, initial_snow, snow_fall, melt_rate):
     # Calculate the amount of snow that falls in each hour
     snow_fall_per_hour = snow_fall / hours
@@ -20,4 +19,3 @@ def snow_day(hours, initial_snow, snow_fall, melt_rate):
         total_snow_fallen += snow_fallen
     
     return total_snow
-```
