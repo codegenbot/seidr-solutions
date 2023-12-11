@@ -1,2 +1,2 @@
-def vector_distance(vector1, vector2):
-    return math.sqrt(sum((x-y)**2 for x, y in zip(vector1, vector2)))
+def euclidean_distance(x, y):
+    return math.sqrt(sum((a - b)**2 for a, b in zip(x, y)))
