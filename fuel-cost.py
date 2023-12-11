@@ -1,3 +1,4 @@
+
 ```
 def fuel_cost(vector):
     result = 0
