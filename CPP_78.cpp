@@ -2,7 +2,13 @@
 #include <string>
 #include <cmath>
 
-bool isPrime(int num);
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
 
 int hex_key(std::string num) {
     int count = 0;
@@ -17,8 +23,4 @@ int main() {
     std::cin >> num;
     std::cout << hex_key(num) << std::endl;
     return 0;
-}
-
-bool isPrime(int num) {
-    // Implement the logic to determine if a number is prime here
 }
