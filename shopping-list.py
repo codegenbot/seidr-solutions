@@ -1,5 +1,2 @@
-def shopping_list(prices, discounts):
-    total = 0
-    for i in range(len(prices)):
-        total += (prices[i] - (prices[i] * discounts[i]) / 100)
-    return total
+def calculate_discount(prices, discounts):
+    return np.sum([price * (1 - discount) for price, discount in zip(prices, discounts)])

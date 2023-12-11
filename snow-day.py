@@ -1,15 +1,15 @@
-def snow_day(hours, ground_snow, fall_rate, melt_rate):
+def snow_day(hours, initial_snow, rate, melt):
     # Initialize variables
-    snow = ground_snow
-    rate = fall_rate
-    proportion = melt_rate
+    current_snow = initial_snow
+    hours_passed = 0
 
-    # Loop through each hour
-    for i in range(hours):
+    while hours_passed < hours:
         # Add new snow
-        snow += rate * (1 - proportion)
+        current_snow += rate * (1 - math.exp(-melt * hours_passed))
 
         # Melt existing snow
-        snow -= proportion * snow
+        current_snow -= melt * current_snow
 
-    return snow
+        hours_passed += 1
+
+    return current_snow
