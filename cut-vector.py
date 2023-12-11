@@ -1,4 +1,4 @@
-```
+```python
 def cut_vector(vector):
     differences = [abs(vector[i] - vector[i+1]) for i in range(len(vector)-1)]
     min_diff = min(differences)
