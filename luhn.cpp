@@ -1,35 +1,24 @@
+```
 #include <vector>
 #include <iostream>
-#include <string>
 #include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
 
-int main() {
-    vector<int> input;
-    int n, sum = 0;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        input.push_back(x);
-    }
-
-    for (int i = input.size() - 1; i >= 0; i--) {
-        if (i % 2 == 0) {
-            sum += input[i] * 2;
-            if (sum > 9) {
-                sum -= 9;
-            }
+int luhn(std::vector<int> digits) {
+    int sum = 0;
+    for (int i = digits.size() - 2; i >= 0; i -= 2) {
+        int digit = digits[i];
+        if (digit < 5) {
+            sum += digit * 2;
         } else {
-            sum += input[i];
+            sum += (digit * 2) % 9 + 1;
         }
     }
-    cout << sum << endl;
+    return sum;
 }
+
+int main() {
+    std::vector<int> digits = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3};
+    std::cout << luhn(digits) << std::endl;
+    return 0;
+}
+```
