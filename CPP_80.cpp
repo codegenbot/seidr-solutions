@@ -4,7 +4,7 @@
 using namespace std;
 
 bool is_happy(string s) {
-    if (s.length() < 3) {
+    if (s.length() <= 1) {
         return false;
     }
     for (int i = 0; i < s.length() - 2; i++) {
@@ -12,16 +12,15 @@ bool is_happy(string s) {
             return false;
         }
     }
+    // Check for the case where the input string contains only two characters that are the same
+    if (s.length() == 2 && s[0] == s[1]) {
+        return true;
+    }
     return true;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    if (is_happy(s)) {
-        cout << "Happy string!" << endl;
-    } else {
-        cout << "Not a happy string." << endl;
-    }
+    string s = "abc";
+    cout << is_happy(s) << endl;
     return 0;
 }
