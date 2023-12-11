@@ -1,50 +1,58 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int getFrameScore(const string& frame) {
+int calculateScore(const std::string& bowlingRound) {
     int score = 0;
-    int frameSize = frame.size();
-    int frameIndex = 0;
+    int frame = 0;
+    int rolls = 0;
+    int frameScore[10] = {0};
+
+    for (int i = 0; i < bowlingRound.length(); i++) {
+        char c = bowlingRound[i];
+
+        if (c == 'X') {
+            frameScore[frame] += 10;
+            rolls++;
+            if (rolls == 2) {
+                frame++;
+                rolls = 0;
+            }
+        } else if (c == '/') {
+            frameScore[frame] += (10 - frameScore[frame]);
+            rolls++;
+            if (rolls == 2) {
+                frame++;
+                rolls = 0;
+            }
+        } else if (c == '-') {
+            rolls++;
+            if (rolls == 2) {
+                frame++;
+                rolls = 0;
+            }
+        } else {
+            frameScore[frame] += (c - '0');
+            rolls++;
+            if (rolls == 2) {
+                frame++;
+                rolls = 0;
+            }
+        }
+    }
 
     for (int i = 0; i < 10; i++) {
-        if (frame[frameIndex] == 'X') {
-            score += 10;
-            if (frame[frameIndex + 2] == 'X') {
-                score += 10;
-                if (frame[frameIndex + 4] == 'X')
-                    score += 10;
-                else
-                    score += frame[frameIndex + 4] - '0';
-            } else if (frame[frameIndex + 2] == '/') {
-                score += 10;
-            } else {
-                score += frame[frameIndex + 2] - '0';
-                if (frame[frameIndex + 3] == '/')
-                    score += 10 - (frame[frameIndex + 2] - '0');
-            }
-            frameIndex += 2;
-        } else if (frame[frameIndex + 1] == '/') {
-            score += 10;
-            if (frame[frameIndex + 2] == 'X')
-                score += 10;
-            else
-                score += frame[frameIndex + 2] - '0';
-            frameIndex += 3;
-        } else {
-            score += frame[frameIndex] - '0';
-            score += frame[frameIndex + 1] - '0';
-            frameIndex += 2;
-        }
+        score += frameScore[i];
     }
 
     return score;
 }
 
 int main() {
-    string frame;
-    cin >> frame;
-    int score = getFrameScore(frame);
-    cout << score << endl;
+    std::string bowlingRound;
+    std::getline(std::cin, bowlingRound);
+
+    int score = calculateScore(bowlingRound);
+    std::cout << score << std::endl;
+
     return 0;
 }
