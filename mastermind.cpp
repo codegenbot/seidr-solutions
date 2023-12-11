@@ -26,10 +26,9 @@ pair<int, int> mastermind(string code, string guess) {
 }
 
 int main() {
-    int codeNum, guessNum;
-    cin >> codeNum >> guessNum;
-    string code = to_string(codeNum);
-    string guess = to_string(guessNum);
+    string code, guess;
+    cin >> code;
+    cin >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
     cout << result.second << endl;
