@@ -8,14 +8,14 @@ def solve_boolean(expression):
             stack.append(False)
         elif char == '|':
             # Evaluate the OR operation
-            operand2 = stack.pop()
-            operand1 = stack.pop()
-            result = operand1 or operand2
+            right = stack.pop()
+            left = stack.pop()
+            result = left or right
             stack.append(result)
         elif char == '&':
             # Evaluate the AND operation
-            operand2 = stack.pop()
-            operand1 = stack.pop()
-            result = operand1 and operand2
+            right = stack.pop()
+            left = stack.pop()
+            result = left and right
             stack.append(result)
     return stack[-1]
