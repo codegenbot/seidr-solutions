@@ -1,10 +1,9 @@
 #include <iostream>
-#include <string>
-
+using namespace std;
 int main() {
-    std::string code, guess;
+    string code, guess;
     int whitePegs = 0, blackPegs = 0;
-    std::cin >> code >> guess;
+    cin >> code >> guess;
     for (int i = 0; i < code.size(); i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
@@ -19,6 +18,6 @@ int main() {
             whitePegs += count;
         }
     }
-    std::cout << blackPegs << " " << whitePegs << std::endl;
+    cout << blackPegs << " " << whitePegs << endl;
     return 0;
 }
