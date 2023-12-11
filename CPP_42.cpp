@@ -7,7 +7,7 @@ bool issame(int a, int b) {
     return a == b;
 }
 
-void incr_list(std::vector<int>& v) {
+void incr_list(const std::vector<int>& v) {
     for (auto& x : v) {
         x++;
     }
