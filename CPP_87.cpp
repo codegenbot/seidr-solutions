@@ -15,5 +15,3 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     return result;
 }
 ```
-
-This code is correct and should work as expected. The error message you mentioned is not present in the code snippet you provided, so it's likely that the issue was resolved by fixing a different part of the code.
