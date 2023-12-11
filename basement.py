@@ -1,5 +1,5 @@
-def first_negative(arr):
-    for i in range(len(arr)):
-        if sum(arr[:i+1]) < 0:
+def get_negative_sum_index(numbers):
+    for i in range(len(numbers)):
+        if sum(numbers[:i+1]) < 0:
             return i
-    return -1
+    return None
