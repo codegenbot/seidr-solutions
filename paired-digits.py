@@ -1,2 +1,2 @@
-def sum_paired_digits(s):
-    return sum(int(i) for i, j in zip(s, s[1:]) if i == j)
+def sum_digits(s):
+    return sum(int(c) for c in s if s[s.index(c)+1] == c)
