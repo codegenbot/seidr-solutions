@@ -11,9 +11,9 @@ def luhn(digits):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert luhn([1, 7, 8, 3, 5, 2, 6, 4, 1, 7, 8, 3, 5, 2, 6, 4]) == True
+assert luhn([1, 2, 3, 4, 5, 6, 7, 8, 9]) == True
 # Test case 2:
-assert luhn([1, 7, 8, 3, 5, 2, 6, 4, 1, 7, 8, 3, 5, 2, 6, 5]) == False
+assert luhn([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) == False
 # Test case 3:
-assert luhn([1, 7, 8, 3, 5, 2, 6, 4, 1, 7, 8, 3, 5, 2, 6, 6]) == False
+assert luhn([4, 5, 6, 7, 8, 9, 0, 1, 2, 3]) == True
 [/TESTS]
