@@ -1,18 +1,17 @@
 ```python
 def cut_vector(vector):
-    smallest_diff = float('inf')
-    cut_index = -1
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
     
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
-        diff = abs(left_sum - right_sum)
+    for i in range(len(vector)):
+        left_sum += vector[i]
+        right_sum -= vector[i]
         
-        if diff < smallest_diff:
-            smallest_diff = diff
-            cut_index = i
+        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
+            return vector[:i+1], vector[i+1:]
     
-    return vector[:cut_index], vector[cut_index:]
+    return vector, [0]
 
 # Read input from user
 vector = []
@@ -20,13 +19,11 @@ while True:
     try:
         num = int(input())
         vector.append(num)
-    except:
+    except EOFError:
         break
 
-# Call the function and print the result
+# Call the function and print the output
 left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
-    print(num)
-for num in right_subvector:
-    print(num)
+print(*left_subvector, sep='\n')
+print(*right_subvector, sep='\n')
 ```
