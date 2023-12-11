@@ -1,18 +1,14 @@
-[PYTHON]
-def leaders(nums):
-    leaders = []
-    max_so_far = float('-inf')
-    for i in range(len(nums)-1, -1, -1):
-        if nums[i] >= max_so_far:
-            leaders.append(nums[i])
-            max_so_far = nums[i]
-    return leaders
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert leaders([1, 2, 3, 4, 5]) == [5, 4, 3, 2, 1]
-# Test case 2:
-assert leaders([1, 2, 3, 4, 5, 6]) == [6, 5, 4, 3, 2, 1]
-# Test case 3:
-assert leaders([1, 2, 3, 4, 5, 6, 7]) == [7, 6, 5, 4, 3, 2, 1]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+
+int main() {
+    // Your code here
+}
+```
+You can also add the missing include directives for the standard library headers at the top of the file, like this:
+```
+#include <iostream>
+#include <vector>
+```
+This will allow you to use the standard library functions and types in your code.
