@@ -1,7 +1,7 @@
 ```
 #include <iostream>
-#include <cmath>
 #include <string>
+#include <cmath>
 
 int hex_key(std::string num) {
     int count = 0;
@@ -12,11 +12,9 @@ int hex_key(std::string num) {
 }
 
 int main() {
-    std::cout << "Enter a hexadecimal number: ";
-    std::string input;
-    std::cin >> input;
-    int key = hex_key(input);
-    std::cout << "The number of prime digits in the hexadecimal number is: " << key << std::endl;
+    std::string num;
+    std::cin >> num;
+    std::cout << hex_key(num) << std::endl;
     return 0;
 }
 ```
