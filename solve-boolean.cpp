@@ -1,3 +1,4 @@
+```cpp
 bool evaluateBoolean(string expression) {
     if (expression.size() == 1) {
         return expression[0] == 't';
@@ -13,3 +14,4 @@ bool evaluateBoolean(string expression) {
         }
     }
 }
+```
