@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 int add(int x, int y) {
@@ -8,7 +8,7 @@ int add(int x, int y) {
 int main() {
     int x, y;
     std::cin >> x >> y;
-    std::cout << add(x, y) << std::endl;
+    std::cout << "The sum of " << x << " and " << y << " is " << add(x, y) << std::endl;
     return 0;
 }
 ```
