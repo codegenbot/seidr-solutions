@@ -1,12 +1,21 @@
-```cpp
+```
+#include <iostream>
 #include <vector>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    // function body here
+bool issame(std::vector<int> a) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert (issame(common({4, 3, 2, 8}, {}), {}));
-    return 0;
+    std::vector<int> common;
+    assert(issame({4, 3, 2, 8}) == {});
 }
 ```
