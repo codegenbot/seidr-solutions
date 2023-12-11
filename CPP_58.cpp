@@ -1,14 +1,12 @@
-```
 #include <algorithm>
 #include <vector>
-using std::pmr::vector;
 
-bool issame(const vector<int>& a) {
-    return a.size() == 4 && a[0] == 4 && a[1] == 3 && a[2] == 2 && a[3] == 8;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    auto common = std::make_shared<vector>({4, 3, 2, 8});
-    assert(issame(*common));
+    std::vector<int> common({4, 3, 2, 8});
+    assert(issame(common, {}));
+    return 0;
 }
-```
