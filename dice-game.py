@@ -1,9 +1,18 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
+
+
+def dice_game(n, m):
+    return (n - 1) / (n * m)
+
+
 n = int(input())
 m = int(input())
-
-def probability_of_peter_winning(n, m):
-    total_outcomes = n * m
-    favorable_outcomes = (n - 1) * m
-    return favorable_outcomes / total_outcomes
-
-print(probability_of_peter_winning(n, m))
+print(dice_game(n, m))
