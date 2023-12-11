@@ -1,7 +1,4 @@
-Solution:
-```python
-import re
 
 def fix_spaces(text):
+    import re
     return re.sub(r"\s+", "_", text)
-```
