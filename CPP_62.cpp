@@ -1,10 +1,11 @@
+```
 #include <iostream>
 #include <math.h>
 #include <vector>
 using namespace std;
 
 // Declare derivative function
-std::vector<float> derivative(const std::vector<float>& xs);
+float derivative(vector<float> x);
 
 int main() {
     vector<float> xs = {3, 1, 2, 4, 5};
@@ -16,7 +17,8 @@ int main() {
 }
 
 // Define derivative function
-std::vector<float> derivative(const std::vector<float>& xs) {
+float derivative(vector<float> x) {
     // Implement derivative function here
-    return {};
+    return 0.0f;
 }
+```
