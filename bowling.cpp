@@ -1,73 +1,53 @@
-```
 #include <iostream>
+#include <string>
 
-int scoreRound(std::string s) {
+int calculateScore(const std::string& frames) {
     int score = 0;
-    int frame = 1;
-    int roll = 1;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (frame == 10) {
-            if (s[i] == 'X') {
-                score += 10;
-                if (roll == 1) {
-                    roll++;
-                } else if (roll == 2) {
-                    roll++;
-                } else if (roll == 3) {
+    int frameIndex = 0;
+    std::string framePoints {"0123456789/X-"};
+    
+    for (int i = 0; i < frames.length(); i++) {
+        if (frames[i] == 'X') {
+            score += 10;
+            if (frameIndex < 9) {
+                if (frames[i + 2] == '/') {
                     score += 10;
-                }
-            } else if (s[i] == '/') {
-                score += 10;
-                roll++;
-            } else if (s[i] == '-') {
-                roll++;
-            } else {
-                score += s[i] - '0';
-                if (roll == 1) {
-                    roll++;
-                } else if (roll == 2) {
-                    roll++;
-                } else if (roll == 3) {
-                    score += s[i] - '0';
+                } else {
+                    score += framePoints.find(frames[i + 1]);
+                    score += framePoints.find(frames[i + 2]);
                 }
             }
+            frameIndex++;
+        } else if (frames[i] == '/') {
+            score += 10 - framePoints.find(frames[i - 1]);
+            if (frameIndex < 9) {
+                score += framePoints.find(frames[i + 1]);
+            }
+            frameIndex++;
+        } else if (frames[i] == '-') {
+            score += 0;
+            if (frameIndex < 9) {
+                score += framePoints.find(frames[i + 1]);
+            }
+            frameIndex++;
         } else {
-            if (s[i] == 'X') {
-                score += 10;
-                frame++;
-            } else if (s[i] == '/') {
-                score += 10 - (s[i-1] - '0');
-                frame++;
-            } else if (s[i] == '-') {
-                if (roll == 1) {
-                    roll++;
-                } else if (roll == 2) {
-                    frame++;
-                    roll = 1;
-                }
-            } else {
-                score += s[i] - '0';
-                if (roll == 1) {
-                    roll++;
-                } else if (roll == 2) {
-                    frame++;
-                    roll = 1;
-                }
+            score += framePoints.find(frames[i]);
+            if (frameIndex % 2 != 0 && framePoints.find(frames[i - 1]) == 10) {
+                score += framePoints.find(frames[i]);
             }
+            frameIndex++;
         }
     }
-
+    
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    int score = scoreRound(input);
+    std::string frames;
+    std::cin >> frames;
+    
+    int score = calculateScore(frames);
     std::cout << score << std::endl;
-
+    
     return 0;
 }
-```
