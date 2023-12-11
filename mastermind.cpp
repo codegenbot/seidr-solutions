@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
+```
 pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -31,8 +27,7 @@ int main() {
     getline(cin, guess);
 
     pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    cout << result.first << " " << result.second << endl;
 
     return 0;
 }
