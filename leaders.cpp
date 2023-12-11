@@ -1,4 +1,6 @@
 
+Sure! Here's the modified code without the main function:
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -19,25 +21,4 @@ vector<int> leaders(vector<int> v) {
 
     return result;
 }
-
-int main() {
-    // Read input from user
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-
-    // Call leaders function with the appropriate arguments
-    vector<int> result = leaders(v);
-
-    // Print the result
-    cout << "Leaders: ";
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
+```
