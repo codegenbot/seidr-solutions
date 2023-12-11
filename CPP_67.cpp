@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -6,7 +5,7 @@ using namespace std;
 
 int fruit_distribution(string s, int n) {
     int apples = 0, oranges = 0;
-    stringstream ss(s);
+    stringstream ss("");
     while (ss >> s) {
         if (s == "apples") {
             ss >> apples;
@@ -16,4 +15,3 @@ int fruit_distribution(string s, int n) {
     }
     return n - apples - oranges;
 }
-```
