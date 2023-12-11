@@ -1,16 +1,21 @@
 def solve_boolean(expression):
-    operators = {'|', '&'}
-    values = {'T': True, 'F': False}
-    stack = []
+    # Initialize result to False
+    result = False
+    
+    # Iterate over each character in the expression
     for char in expression:
-        if char in values:
-            stack.append(values[char])
-        elif char in operators:
-            operand2 = stack.pop()
-            operand1 = stack.pop()
-            if char == '|':
-                result = operand1 or operand2
-            else:
-                result = operand1 and operand2
-            stack.append(result)
-    return stack[-1]
+        # If the current character is 'T', set result to True
+        if char == 'T':
+            result = True
+        # If the current character is 'F', set result to False
+        elif char == 'F':
+            result = False
+        # If the current character is '|', perform a logical OR operation
+        elif char == '|':
+            result = result or False
+        # If the current character is '&', perform a logical AND operation
+        elif char == '&':
+            result = result and False
+    
+    return result
+```
