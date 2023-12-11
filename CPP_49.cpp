@@ -1,13 +1,20 @@
+```
 #include <iostream>
 
+int modp(int n) {
+    if (n % 2 == 0) {
+        return n / 2;
+    } else {
+        return 3 * n + 1;
+    }
+}
+
 int main() {
-    std::string str;
     int n = 0;
     while (n < 10) {
-        str.push_back(static_cast<char>(n));
+        std::cout << modp(n) << '\n';
         n++;
     }
-    assert(modp(31, 5) == 3);
-    std::cout << "The string is: " << str.length() << '\n';
     return 0;
 }
+```
