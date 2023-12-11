@@ -33,5 +33,4 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return result;
 }
 ```
-Modify the code as  The issue is caused by the use of backticks (``) to enclose the code blocks, which are not supported in C++. To fix the code, remove the backticks and replace them with standard indentation for code blocks..
-You must only return correct code. Remove any triple quotes, language name or explanations.
+```
