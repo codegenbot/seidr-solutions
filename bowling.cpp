@@ -1,59 +1,47 @@
+```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-int calculateScore(string input) {
+int calculateScore(const std::string& frames) {
     int score = 0;
-    int frame = 1;
-    int bowlIndex = 0;
-    
-    for (int i = 0; i < input.length(); i++) {
-        if (frame > 10) {
-            break;
-        }
-        
-        if (input[i] == 'X') {
+    int frameIndex = 0;
+
+    for (int frame = 0; frame < 10; frame++) {
+        if (frames[frameIndex] == 'X') {
             score += 10;
-            
-            if (frame < 10) {
-                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
-                score += (input[i + 2] == 'X') ? 10 : (input[i + 2] - '0');
-            }
-            
-            bowlIndex++;
-        } else if (input[i] == '/') {
-            score += 10 - (input[i - 1] - '0');
-            score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
-            
-            bowlIndex++;
-        } else if (input[i] == '-') {
-            // do nothing
-        } else {
-            score += input[i] - '0';
-            
-            if (frame < 10 && bowlIndex % 2 == 0 && input[i - 1] != '/') {
-                if (input[i + 1] == '/') {
-                    score += 10 - (input[i] - '0');
+            if (frame < 9) {
+                if (frames[frameIndex + 2] == '/') {
+                    score += 10;
+                } else {
+                    score += (frames[frameIndex + 1] - '0') + (frames[frameIndex + 2] - '0');
                 }
+                frameIndex += 1;
+            } else {
+                score += (frames[frameIndex + 1] - '0') + (frames[frameIndex + 2] - '0');
+                frameIndex += 2;
             }
-            
-            bowlIndex++;
-        }
-        
-        if (bowlIndex % 2 == 0) {
-            frame++;
+        } else if (frames[frameIndex + 1] == '/') {
+            score += 10;
+            if (frame < 9) {
+                score += (frames[frameIndex + 2] - '0');
+            }
+            frameIndex += 2;
+        } else {
+            score += (frames[frameIndex] - '0') + (frames[frameIndex + 1] - '0');
+            frameIndex += 2;
         }
     }
-    
+
     return score;
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    
-    int score = calculateScore(input);
-    cout << score << endl;
-    
+    std::string frames;
+    std::cin >> frames;
+
+    int score = calculateScore(frames);
+    std::cout << score << std::endl;
+
     return 0;
 }
+```
