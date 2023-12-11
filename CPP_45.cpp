@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -11,4 +10,3 @@ int main() {
     std::cout << "Area of the triangle: " << area << std::endl;
     return 0;
 }
-```
