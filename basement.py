@@ -1,4 +1,3 @@
-
 def get_negative_sum_index(arr):
     curr_sum = 0
     min_sum = float('inf')
