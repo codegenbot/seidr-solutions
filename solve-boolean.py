@@ -1,19 +1,20 @@
-def solve_boolean(expression):
-    # Use a stack to evaluate the expression
-    stack = []
-    for char in expression:
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '&':
-            # Pop the top two elements of the stack, and push the result of ANDing them
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a and b)
-        elif char == '|':
-            # Pop the top two elements of the stack, and push the result of ORing them
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
-    return stack[-1]
+def solve(expression):
+    # Split the expression into a list of tokens
+    tokens = expression.split()
+    
+    # Initialize the result to False
+    result = False
+    
+    # Iterate over the tokens and evaluate them
+    for token in tokens:
+        if token == 't':
+            result = True
+        elif token == 'f':
+            result = False
+        elif token == '|':
+            result = result or True
+        elif token == '&':
+            result = result and True
+    
+    # Return the resulting Boolean value
+    return result
