@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 int modp(int n) {
@@ -16,3 +17,4 @@ int main() {
     }
     return 0;
 }
+```
