@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -15,11 +15,9 @@ int main() {
     if (any_int(a, b, c)) {
         int sum = a + b;
         std::string str = std::to_string(sum);
-        str = std::string("True") + str;
-        std::cout << str << std::endl;
+        std::cout << "True" << str << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
     return 0;
 }
-```
