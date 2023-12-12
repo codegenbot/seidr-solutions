@@ -16,12 +16,6 @@ int main() {
 
 optional<int> next_smallest(const vector<int>& lst) {
     // implementation of the function goes here
-    int smallest = INT_MAX;
-    for (auto x : lst) {
-        if (x < smallest) {
-            smallest = x;
-        }
-    }
-    return smallest;
+    return std::nullopt;
 }
 ```
