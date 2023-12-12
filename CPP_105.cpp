@@ -4,15 +4,13 @@
 #include <string>
 #include <algorithm>
 
-bool issame(const std::string& s1, const std::string& s2) {
-    return s1 == s2;
+bool issame(const std::vector<int>& a) {
+    return std::all_of(a.begin(), a.end(), [](int x){return x == 9;});
 }
 
-int by_length(const std::string& s1, const std::string& s2) {
-    if (s1.size() < s2.size()) {
-        return -1;
-    } else if (s1.size() > s2.size()) {
-        return 1;
+int by_length(const std::string& a, const std::string& b) {
+    if (a.size() != b.size()) {
+        return a.size() < b.size();
     } else {
         return 0;
     }
