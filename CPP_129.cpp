@@ -1,5 +1,5 @@
 [PYTHON]
-def min_path(grid, k):
+def minPath(grid, k):
     # Initialize the minimum path sum
     min_sum = float('inf')
     # Initialize the current position as (0, 0)
