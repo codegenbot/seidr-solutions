@@ -6,7 +6,7 @@
 using namespace std;
 
 // Declare and define the sort function
-void sort(const vector<pair<int, int>>& points) {
+void sort(vector<pair<int, int>> points) {
     // Sort the points in ascending order of their first element
     sort(points.begin(), points.end());
 }
