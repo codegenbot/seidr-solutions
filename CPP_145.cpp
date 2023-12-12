@@ -3,11 +3,10 @@
 #include <math.h>
 #include <vector>
 #include <string>
-#include <utility>
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> points;
+    vector<pair<int, int>, allocator<pair<int, int>>> points;
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         while (nums[i] > 0) {
