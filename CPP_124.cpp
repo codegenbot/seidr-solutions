@@ -6,13 +6,6 @@
 
 using namespace std;
 
-bool isValidDate(string date);
-
-int main() {
-    assert(isValidDate("04-2003") == false);
-    return 0;
-}
-
 bool isValidDate(string date) {
     int month, day, year;
     char delimiter = '-';
@@ -40,4 +33,9 @@ bool isValidDate(string date) {
     }
 
     return day <= daysInMonth;
+}
+
+int main() {
+    assert(isValidDate("04-2003") == false);
+    return 0;
 }
