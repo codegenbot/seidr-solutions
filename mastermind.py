@@ -2,11 +2,8 @@ import collections
 from typing import Tuple
 
 def mastermind() -> Tuple[int, int]:
-    """
-    This function takes input from the user and returns the number of white and black pegs in the Mastermind game.
-    """
-    code = input("Enter the code: ")
-    guess = input("Enter your guess: ")
+    code = input()
+    guess = input()
 
     black_pegs = 0
     white_pegs = 0
@@ -25,5 +22,4 @@ def mastermind() -> Tuple[int, int]:
     return white_pegs, black_pegs
 
 result = mastermind()
-print(result[0])
-print(result[1])
+print(result[0], result[1])
