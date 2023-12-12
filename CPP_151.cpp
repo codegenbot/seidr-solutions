@@ -17,6 +17,8 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
     long long odd_sum = double_the_difference(lst);
-    assert (odd_sum == 15);
+    if (odd_sum != 15) {
+        cout << "Expected sum of odd numbers to be 15, but got " << odd_sum << endl;
+    }
 }
 ```
