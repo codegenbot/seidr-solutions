@@ -1,12 +1,34 @@
-[PYTHON]
-def get_unique_elements(my_list):
-    return list(set(my_list))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+#include <string>
+#include <memory_resource>
+
+bool issame(const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& a) {
+    if (a.size() != 1) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].compare("this") != 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::basic_string<char, std::char_traits<char>, std::allocator<char>> totalMatch(const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& a) {
+    std::basic_string<char, std::char_traits<char>, std::allocator<char>> result;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].compare("this") == 0) {
+            result.push_back(a[i]);
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::basic_string<char, std::char_traits<char>, std::allocator<char>> a = {"this"};
+    assert(totalMatch({"this"}) == {});
+    return 0;
+}
+```
