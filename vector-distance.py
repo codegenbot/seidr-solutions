@@ -1,4 +1,4 @@
-```python
+```
 import numpy as np
 
 def vector_distance(v1, v2):
