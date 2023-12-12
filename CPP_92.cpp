@@ -1,19 +1,20 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
-using namespace std;
 
-bool any_int(float a, float b, float c) {
-    return (a == b || a == c || b == c);
+bool any_int(int a, int b, int c) {
+    int sum = (int)(a + b);
+    return (sum == c || sum == a || sum == b);
 }
 
 int main() {
     float a, b, c;
-    cin >> a >> b >> c;
+    std::cout << "Enter three numbers: ";
+    std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
-        cout << "True" << endl;
+        std::cout << "True" << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << "False" << std::endl;
     }
     return 0;
 }
