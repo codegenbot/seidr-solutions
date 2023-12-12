@@ -1,2 +1,3 @@
-def vector_distance(vector1, vector2):
-    return math.sqrt(sum((x - y) ** 2 for x, y in zip(vector1, vector2)))
+
+def distance(p1, p2):
+    return np.sqrt(np.sum((p1 - p2)**2))
