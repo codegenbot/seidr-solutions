@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,9 +22,10 @@ vector<string> split_words(const string& txt) {
 
 int main() {
     string txt = "Hello World!";
-    vector<string> _words = split_words(txt);
-    for (const auto& word : _words) {
+    vector<string> words = split_words(txt);
+    for (const auto& word : words) {
         cout << word << endl;
     }
     return 0;
 }
+```
