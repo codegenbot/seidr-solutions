@@ -1,3 +1,4 @@
+```python
 def basement(arr):
     total_sum = 0
     for i, num in enumerate(arr):
@@ -8,3 +9,4 @@ def basement(arr):
 
 arr = list(map(int, input().split()))
 print(basement(arr))
+```
