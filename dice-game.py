@@ -1,5 +1,7 @@
 n = int(input())
 m = int(input())
 
-probability = (n - 1) / (n * m - 1)
-print(probability)
+if n <= 1 or m <= 1:
+    print(0.0)
+else:
+    print(round((n - 1) / (n * m), 8))
