@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 double probabilityOfHigher(int n, int m) {
@@ -17,7 +17,6 @@ double probabilityOfHigher(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    printf("%.8f\n", probabilityOfHigher(n, m));
+    cout << fixed << setprecision(8) << probabilityOfHigher(n, m) << endl;
     return 0;
 }
-```
