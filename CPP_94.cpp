@@ -36,8 +36,15 @@ int largestPrime(vector<int> nums) {
     return sumDigits(max);
 }
 
-int test() {
-    assert(largestPrime({127, 97, 8192}) == 10);
+int main() {
+    vector<int> nums;
+    int n, skjkasdkd;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> skjkasdkd;
+        nums.push_back(skjkasdkd);
+    }
+    cout << largestPrime(nums) << endl;
     return 0;
 }
 ```
