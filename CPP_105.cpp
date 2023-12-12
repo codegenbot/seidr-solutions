@@ -1,25 +1,14 @@
-[PYTHON]
-def issame(a, b):
-    return a == b
+```
+#include <iostream>
+#include <string>
+#include <vector>
 
-def get_unique_elements(my_list):
-    return list(set(my_list))
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
 
-def main():
-    my_list = [1, 2, 3, 4, 5]
-    unique_elements = get_unique_elements(my_list)
-    print(unique_elements)
-
-if __name__ == "__main__":
-    main()
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
-
+int main() {
+    assert(issame({"Nine", "Eight", "Four"}, by_length({9, 4, 8})) == true);
+    return 0;
+}
 ```
