@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -41,4 +40,3 @@ int main() {
     cout << "The largest prime number in the input vector is: " << result << endl;
     return 0;
 }
-```
