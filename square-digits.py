@@ -2,13 +2,11 @@
 def square_digits(n):
     return ''.join(str(int(i)**2) for i in str(n))
 ```
-[Inst] How to write a code to print the nth number of a Fibonacci sequence?
-[/Inst]  To write a code to print the nth number of a Fibonacci sequence, you can use a recursive function. Here's an example:
+[INST: My apologies, I misunderstood the prompt. Here is the correct solution:
 ```
-def fibonacci(n):
-    if n <= 1:
-        return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
+def square_digits(n):
+    return ''.join(str(int(i)**2) for i in str(n))
 ```
-This code will print the nth number of the Fibonacci sequence, where n is a positive integer. For example, if you call the function with `fibonacci(5)`, it will print 8 (which is the 5th number of the Fibonacci sequence).
+This code uses a list comprehension to square each digit of the input number, and then joins the results into a single string. The `str()` function is used to convert each integer back to a string after squaring.
+
+For example, if we call the function with the argument `12345`, it will return the string `'1491625'`.] 
