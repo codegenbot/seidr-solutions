@@ -14,7 +14,7 @@ vector<float> derivative(const vector<float>& xs) {
     return ys;
 }
 
-int main() {
+int main2() {
     vector<float> xs = {3, 1, 2, 4};
     vector<float> ys = derivative(xs);
     for (auto x : ys) {
