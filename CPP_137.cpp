@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -51,5 +51,3 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     return "None";
 }
-```
-The issue is due to a syntax error caused by the use of backticks (``) instead of single quotes (') or double quotes (") for string literals. To fix this, replace all instances of `` with ' or " in the code. Additionally, there is an error in the boost/any.hpp include path, which should be replaced with <boost/any.hpp>.
