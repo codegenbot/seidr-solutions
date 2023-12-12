@@ -1,58 +1,63 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& bowls) {
+int getScore(const std::string& bowling) {
     int score = 0;
-    int frame = 1;
-    int bowlIndex = 0;
+    int frame = 0;
+    int roll = 0;
+    int frames[10] = {0};
 
-    for (int i = 0; i < bowls.size(); i++) {
-        char bowl = bowls[i];
-
-        if (frame > 10) {
-            break;
-        }
-
-        if (bowl == 'X') {
-            score += 10;
-
-            if (frame < 10) {
-                if (bowls[i + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += (bowls[i + 1] - '0') + (bowls[i + 2] - '0');
-                }
+    for (char c : bowling) {
+        if (c == 'X') {
+            frames[frame] += 10;
+            if (frame > 0 && roll == 0) {
+                frames[frame - 1] += 10;
             }
-
-            frame++;
-        } else if (bowl == '/') {
-            score += (10 - (bowls[i - 1] - '0'));
-
-            if (frame < 10) {
-                score += (bowls[i + 1] - '0');
+            if (frame > 1 && roll == 0) {
+                frames[frame - 2] += 10;
             }
-
-            frame++;
+            roll = (roll + 1) % 2;
+            if (roll == 0) {
+                frame++;
+            }
+        } else if (c == '/') {
+            frames[frame] += 10 - frames[frame];
+            if (frame > 0 && roll == 0) {
+                frames[frame - 1] += 10 - frames[frame];
+            }
+            roll = (roll + 1) % 2;
+            if (roll == 0) {
+                frame++;
+            }
+        } else if (c == '-') {
+            roll = (roll + 1) % 2;
+            if (roll == 0) {
+                frame++;
+            }
         } else {
-            score += (bowl - '0');
-
-            if (frame < 10 && (bowlIndex % 2 == 1 || bowl == '-')) {
+            frames[frame] += c - '0';
+            if (frame > 0 && roll == 0) {
+                frames[frame - 1] += c - '0';
+            }
+            roll = (roll + 1) % 2;
+            if (roll == 0) {
                 frame++;
             }
         }
+    }
 
-        bowlIndex++;
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
     }
 
     return score;
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
-
-    int score = calculateScore(bowls);
-    std::cout << score << std::endl;
+    std::string bowling;
+    std::cout << "Enter the bowling string: ";
+    std::cin >> bowling;
+    std::cout << "Score: " << getScore(bowling) << std::endl;
 
     return 0;
 }
