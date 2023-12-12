@@ -14,11 +14,8 @@ int main() {
 }
 
 optional<int> next_smallest(const vector<int>& lst) {
-    if (lst.empty()) {
-        return std::nullopt;
-    }
-    int smallest = *lst.begin();
-    for (const auto& x : lst) {
+    int smallest = INT_MAX;
+    for (auto x : lst) {
         if (x < smallest) {
             smallest = x;
         }
