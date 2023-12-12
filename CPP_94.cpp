@@ -1,6 +1,3 @@
-
-Here's the modified code that addresses the issues mentioned:
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -39,8 +36,6 @@ int largestPrime(vector<int> nums) {
 
 int main() {
     vector<int> nums = {127, 97, 8192};
-    int result = largestPrime(nums);
-    cout << "The largest prime number in the input vector is: " << result << endl;
+    assert(largestPrime(nums) == 10);
     return 0;
 }
-```
