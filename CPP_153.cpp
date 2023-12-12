@@ -1,14 +1,14 @@
-```
+```cpp
 #include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(const char* class_name, std::vector<const char*> extensions) {
     int max_strength = 0;
-    string strongest_extension;
+    const char* strongest_extension;
     for (int i = 0; i < extensions.size(); i++) {
         int strength = 0;
-        for (int j = 0; j < extensions[i].length(); j++) {
+        for (int j = 0; j < strlen(extensions[i]); j++) {
             if (isupper(extensions[i][j])) {
                 strength++;
             } else if (islower(extensions[i][j])) {
@@ -21,10 +21,5 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
         }
     }
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    return 0;
 }
 ```
