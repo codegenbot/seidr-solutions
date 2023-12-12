@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -43,4 +42,3 @@ int main() {
     cout << largestPrime(lst) << endl;
     return 0;
 }
-```
