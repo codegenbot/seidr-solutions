@@ -6,15 +6,15 @@ def find_pair(nums, target):
         if complement in num_set:
             return num, complement
 
-# Read the input
+# Read input
 n = int(input())
 nums = list(map(int, input().split()))
 target = int(input())
 
-# Find the pair
-pair = find_pair(nums, target)
+# Find pair
+result = find_pair(nums, target)
 
-# Print the pair
-print(pair[0])
-print(pair[1])
+# Print output
+print(result[0])
+print(result[1])
 ```
