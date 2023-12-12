@@ -11,14 +11,8 @@ int scoreRound(const std::string& round) {
         if (c == 'X') {
             score += 10;
             if (frame < 10) {
-                score += (round[roll + 1] == 'X') ? 10 : (round[roll + 1] - '0');
-                if (round[roll + 2] == 'X') {
-                    score += 10;
-                } else if (round[roll + 2] == '/') {
-                    score += 10;
-                } else {
-                    score += (round[roll + 2] - '0');
-                }
+                score += (round[roll + 1] == '/') ? (10 - (round[roll - 1] - '0')) : (round[roll + 1] - '0');
+                score += (round[roll + 2] == 'X') ? 10 : (round[roll + 2] == '/' ? (10 - (round[roll + 1] - '0')) : (round[roll + 2] - '0'));
             }
             roll++;
         } else if (c == '/') {
