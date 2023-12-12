@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,4 +22,3 @@ string match_parens(vector<string> lst) {
     }
     return result;
 }
-```
