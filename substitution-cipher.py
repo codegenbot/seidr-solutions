@@ -4,7 +4,7 @@ def substitution_cipher(ciphertext, key):
     for i, char in enumerate(key):
         char_map[char] = ciphertext[i]
     
-    # Decrypt the message by replacing each character with its corresponding decrypted character from the dictionary
+    # Decrypt the message by replacing each character in the ciphertext with its corresponding decrypted character
     decrypted_message = ""
     for char in ciphertext:
         if char in char_map:
