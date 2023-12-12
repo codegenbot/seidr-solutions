@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 using namespace std;
 
@@ -16,4 +16,3 @@ int main() {
     cout << fibfib(n) << endl;
     return 0;
 }
-```
