@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+using namespace std;
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
     float snow = initialSnow;
@@ -12,7 +12,8 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float me
 
 int main() {
     float hours, initialSnow, snowFallRate, meltingRate;
-    std::cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
-    std::cout << calculateSnow(hours, initialSnow, snowFallRate, meltingRate) << std::endl;
+    cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
+    float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
+    cout << finalSnow << endl;
     return 0;
 }

@@ -1,42 +1,41 @@
 ```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-int scoreOfRound(std::string round) {
+int getFrameScore(const string& frame) {
     int score = 0;
-    int frame = 1;
-    int ball = 0;
+    int frameSize = frame.size();
+    int frameIndex = 0;
 
-    for (char c : round) {
-        if (c == 'X') {
+    for (int i = 0; i < 10; i++) {
+        if (frame[frameIndex] == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (round[ball + 1] == 'X') ? 10 : (round[ball + 1] - '0');
-                score += (round[ball + 2] == 'X') ? 10 : (round[ball + 2] == '/' ? (10 - (round[ball + 1] - '0')) : (round[ball + 2] - '0'));
+            if (frame[frameIndex + 2] == 'X') {
+                score += 10;
+                if (frame[frameIndex + 4] == 'X')
+                    score += 10;
+                else
+                    score += frame[frameIndex + 4] - '0';
+            } else if (frame[frameIndex + 2] == '/') {
+                score += 10;
+            } else {
+                score += frame[frameIndex + 2] - '0';
+                if (frame[frameIndex + 2] == '/')
+                    score += 10 - (frame[frameIndex + 2] - '0');
             }
-            ball += 1;
-        } else if (c == '/') {
-            score += (10 - (round[ball - 1] - '0'));
-            if (frame < 10) {
-                score += (round[ball + 1] == 'X') ? 10 : (round[ball + 1] - '0');
-            }
-            ball += 1;
-        } else if (c == '-') {
-            // do nothing
+            frameIndex += 2;
+        } else if (frame[frameIndex + 1] == '/') {
+            score += 10;
+            if (frame[frameIndex + 2] == 'X')
+                score += 10;
+            else
+                score += frame[frameIndex + 2] - '0';
+            frameIndex += 3;
         } else {
-            score += (c - '0');
-            if (frame < 10 && ball % 2 == 0 && (round[ball - 1] - '0') + (c - '0') == 10) {
-                score += (round[ball + 1] == 'X') ? 10 : (round[ball + 1] == '/' ? (10 - (c - '0')) : (round[ball + 1] - '0'));
-            }
-            ball += 1;
-        }
-
-        if (ball % 2 == 0) {
-            frame += 1;
-        }
-
-        if (frame > 10 && !(round[round.size() - 3] == 'X' || round[round.size() - 2] == '/')) {
-            break;
+            score += frame[frameIndex] - '0';
+            score += frame[frameIndex + 1] - '0';
+            frameIndex += 2;
         }
     }
 
@@ -44,12 +43,10 @@ int scoreOfRound(std::string round) {
 }
 
 int main() {
-    std::string round;
-    std::cout << "Enter the round: ";
-    std::getline(std::cin, round);
-    int score = scoreOfRound(round);
-    std::cout << "Score of the round: " << score << std::endl;
-
+    string frame;
+    cin >> frame;
+    int score = getFrameScore(frame);
+    cout << score << endl;
     return 0;
 }
 ```
