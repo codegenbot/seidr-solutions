@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -14,4 +13,3 @@ int can_arrange(vector<int> arr) {
     }
     return maxIndex;
 }
-```
