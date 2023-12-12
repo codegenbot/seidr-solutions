@@ -5,7 +5,7 @@
 #include <tuple>
 using namespace std;
 
-vector<int> cutVector(vector<int> nums) {
+vector<vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int cutIndex = -1;
@@ -36,7 +36,10 @@ vector<int> cutVector(vector<int> nums) {
     leftSubvector.push_back(0);
     rightSubvector.push_back(0);
     
-    return {leftSubvector, rightSubvector};
+    vector<vector<int>> result;
+    result.push_back(leftSubvector);
+    result.push_back(rightSubvector);
+    return result;
 }
 
 int main() {
