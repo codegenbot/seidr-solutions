@@ -1,10 +1,10 @@
-nums = []
-while True:
-    try:
-        num = int(input())
-        nums.append(num)
-    except:
-        break
+import math
 
-total = sum([(num // 3) - 2 for num in nums])
-print(total)
+def fuel_cost(nums):
+    return sum([math.floor(num/3) - 2 for num in nums])
+
+# Read input from user
+nums = [int(input()) for _ in range(2)]
+
+# Call the function and print the result
+print(fuel_cost(nums))
