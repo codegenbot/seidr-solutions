@@ -46,9 +46,6 @@ def get_neighbors(grid, position):
         neighbors.append((row, col + 1))
     # Return the list of neighbors
     return neighbors
-
-def issame(a, b):
-    return a == b
 [/PYTHON]
 [TESTS]
 # Test case 1:
