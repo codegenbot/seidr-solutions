@@ -1,20 +1,16 @@
-```
-#include <iostream>
+```cpp
 #include <vector>
-using namespace std;
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    sort(arr.begin(), arr.end());
-    cout << "Sorted array: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
+    assert(issame({7, 9, 7, 1}, {}));
     return 0;
 }
 ```
