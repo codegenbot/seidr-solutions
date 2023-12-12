@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 using namespace std;
 
 vector<int> maximum(vector<int> arr, int k) {
