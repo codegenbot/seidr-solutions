@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -7,12 +7,14 @@ int getScore(const std::string& bowlingString) {
     int frame = 0;
     int roll = 0;
     int framesPlayed = 0;
+    int rollsPlayed = 0;
     bool spare = false;
     bool strike = false;
 
-    for (int i = 0; i < bowlingString.size(); i++) {
-        char c = bowlingString[i];
-        char nextRoll = (i + 1 < bowlingString.size()) ? bowlingString[i + 1] : '0';
+    for (char c : bowlingString) {
+        if (framesPlayed >= 10) {
+            break;
+        }
 
         if (c == 'X') {
             score += 10;
@@ -25,27 +27,31 @@ int getScore(const std::string& bowlingString) {
                 }
                 strike = true;
                 spare = false;
-                roll = 0;
                 frame++;
-                framesPlayed++;
+                rollsPlayed = 0;
+            } else if (frame == 9 && rollsPlayed == 0) {
+                strike = true;
+                spare = false;
             }
         } else if (c == '/') {
-            score += 10 + (nextRoll - '0');
+            score += 10 - roll;
             if (frame < 9) {
                 if (spare) {
                     score += 10;
                 }
                 spare = true;
                 strike = false;
-                roll = 0;
                 frame++;
-                framesPlayed++;
+                rollsPlayed = 0;
+            } else if (frame == 9 && rollsPlayed == 0) {
+                spare = true;
+                strike = false;
             }
         } else if (c == '-') {
             if (frame < 9) {
                 roll = 0;
                 frame++;
-                framesPlayed++;
+                rollsPlayed = 0;
             }
         } else {
             score += c - '0';
@@ -62,13 +68,14 @@ int getScore(const std::string& bowlingString) {
                 else {
                     roll++;
                 }
+                rollsPlayed++;
             }
         }
 
-        if (framesPlayed == 10) {
-            break;
-        }
+        framesPlayed++;
     }
+
+    score += roll;
 
     return score;
 }
