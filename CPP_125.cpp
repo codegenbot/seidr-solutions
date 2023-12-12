@@ -8,7 +8,7 @@ vector<string> split_words(string txt) {
     vector<string> words;
     if (txt.find(" ") != string::npos) {
         // Use find to search for spaces
-        int pos = 0;
+        size_t pos = 0;
         while ((pos = txt.find(" ", pos)) != string::npos) {
             // Extract the substring up to the space
             words.push_back(txt.substr(pos, pos + 1));
@@ -17,7 +17,7 @@ vector<string> split_words(string txt) {
         }
     } else if (txt.find(",") != string::npos) {
         // Use find to search for commas
-        int pos = 0;
+        size_t pos = 0;
         while ((pos = txt.find(",", pos)) != string::npos) {
             // Extract the substring up to the comma
             words.push_back(txt.substr(pos, pos + 1));
@@ -31,7 +31,7 @@ vector<string> split_words(string txt) {
                 count++;
             }
         }
-        words.push_back(std::to_string(count));
+        words.push_back(to_string(count));
     }
     return words;
 }
