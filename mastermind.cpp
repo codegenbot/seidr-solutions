@@ -12,8 +12,8 @@ pair<int, int> getClues(string code, string guess) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[toupper(code[i]) - 'A']++;
-            guessCount[toupper(guess[i]) - 'A']++;
+            codeCount[(code[i] - 'A') - 'A']++;
+            guessCount[(guess[i] - 'A') - 'A']++;
         }
     }
     
