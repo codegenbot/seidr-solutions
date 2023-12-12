@@ -1,4 +1,3 @@
-```python
 def basement(nums):
     sum = 0
     for i in range(len(nums)):
@@ -13,4 +12,3 @@ for _ in range(n):
     nums.append(int(input()))
 
 print(basement(nums))
-```
