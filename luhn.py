@@ -1,18 +1,17 @@
 ```python
-def luhn_algorithm(digits):
+def luhn(vec):
     new_digits = []
-    for i in range(len(digits)):
+    for i in range(len(vec)):
         if i % 2 == 1:
-            double = digits[i] * 2
-            if double > 9:
-                double -= 9
-            new_digits.append(double)
+            new_digit = vec[i] * 2
+            if new_digit > 9:
+                new_digit -= 9
+            new_digits.append(new_digit)
         else:
-            new_digits.append(digits[i])
+            new_digits.append(vec[i])
     return sum(new_digits)
 
 n = int(input())
-digits = list(map(int, input().split()))
-
-print(luhn_algorithm(digits))
+vec = list(map(int, input().split()))
+print(luhn(vec))
 ```
