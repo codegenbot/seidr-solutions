@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -11,4 +11,3 @@ int sum_squares(vector<float> lst) {
     }
     return sum;
 }
-```
