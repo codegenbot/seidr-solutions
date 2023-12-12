@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,4 +22,3 @@ vector<int> f(int n) {
     }
     return result;
 }
-```
