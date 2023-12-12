@@ -1,5 +1,8 @@
+```
 #include <vector>
+#include <string>
 #include <cassert>
+#include <iostream>
 using namespace std;
 
 bool isPrime(int n) {
@@ -20,16 +23,6 @@ int largestPrime(vector<int> nums) {
     return max;
 }
 
-int skjkasdkd(vector<int> nums) {
-    int result = 0;
-    for (std::size_t i = 0; i < nums.size(); i++) {
-        if (isPrime(nums[i])) {
-            result++;
-        }
-    }
-    return result;
-}
-
 int main() {
     vector<int> nums;
     int n;
@@ -42,3 +35,4 @@ int main() {
     assert(largestPrime(nums) == 10);
     return 0;
 }
+```
