@@ -1,5 +1,5 @@
 [PYTHON]
-def min_path(grid, start):
+def get_min_path(grid, start):
     # Initialize the minimum path sum
     min_sum = float('inf')
     # Initialize the current position as (0, 0)
@@ -50,7 +50,7 @@ def main():
     grid = [[1, 2], [3, 4]]
     start = (0, 0)
     # Calculate the minimum path sum using min_path
-    min_sum = min_path(grid, start)
+    min_sum = get_min_path(grid, start)
     # Print the minimum path sum
     print(min_sum)
 
@@ -59,9 +59,15 @@ if __name__ == '__main__':
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert min_path([[1, 2], [3, 4]], (0, 0)) == 6
+    grid = [[1, 2], [3, 4]]
+    start = (0, 0)
+    assert get_min_path(grid, start) == 6
 # Test case 2:
-assert min_path([[1, 2, 3], [4, 5, 6], [7, 8, 9]], (0, 0)) == 15
+    grid = [[1, 3], [3, 2]]
+    start = (0, 0)
+    assert get_min_path(grid, start) == 8
 # Test case 3:
-assert min_path([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]], (0, 0)) == 34
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    start = (0, 0)
+    assert get_min_path(grid, start) == 15
 [/TESTS]
