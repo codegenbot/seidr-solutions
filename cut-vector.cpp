@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -28,7 +27,7 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
     
-    return vector<int>{leftSubvector.begin(), leftSubvector.end(), rightSubvector.begin(), rightSubvector.end()};
+    return vector<int>(leftSubvector.begin(), leftSubvector.end(), rightSubvector.begin(), rightSubvector.end());
 }
 
 int main() {
@@ -47,4 +46,3 @@ int main() {
     
     return 0;
 }
-```
