@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -36,4 +36,3 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     return "None";
 }
-```
