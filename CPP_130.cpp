@@ -1,12 +1,14 @@
 
+Here is the modified code that fixes the type mismatch error and the `issame` assertion:
+```
 #include <iostream>
 #include <vector>
 #include <memory_resource>
 
 using namespace std;
 
-vector<int, std::allocator<int>> tri(int n) {
-    vector<int, std::allocator<int>> result;
+vector<int, pmr::polymorphic_allocator<int>> tri(int n) {
+    vector<int, pmr::polymorphic_allocator<int>> result;
     if (n <= 1) {
         return result;
     } else if (n % 2 == 0) {
@@ -22,9 +24,10 @@ vector<int, std::allocator<int>> tri(int n) {
 int main() {
     int n;
     cin >> n;
-    vector<int, std::allocator<int>> result = tri(n);
+    vector<int, pmr::polymorphic_allocator<int>> result = tri(n);
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
     return 0;
 }
+```
