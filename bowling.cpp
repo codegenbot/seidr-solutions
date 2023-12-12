@@ -1,19 +1,27 @@
-Sure, here's my solution:
-```cpp
 #include <string>
-#include <vector>
-
-int calculate_score(const string& bowls) {
-  int score = 0;
-  for (int i = 0; i < bowls.size(); i++) {
-    if (bowls[i] == 'X') {
-      score += 10;
-    } else if (bowls[i] == '/') {
-      score += 5;
-    } else if (bowls[i] >= '0' && bowls[i] <= '9') {
-      score += bowls[i] - '0';
+#include <iostream>
+using namespace std;
+int calculateScore(string bowls) {
+    int score = 0;
+    for (int i = 0; i < bowls.size(); i++) {
+        if (bowls[i] == 'X') {
+            score += 10;
+            if (i + 2 < bowls.size() && bowls[i + 1] == '/' && bowls[i + 2] == 'X') {
+                score += 10;
+            }
+        } else if (bowls[i] == '/') {
+            score += 5;
+        } else if (bowls[i] == '-') {
+            score -= 5;
+        } else {
+            score += bowls[i] - '0';
+        }
     }
-  }
-  return score;
+    return score;
 }
-```
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << calculateScore(bowls) << endl;
+    return 0;
+}
