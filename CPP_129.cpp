@@ -1,5 +1,5 @@
 [PYTHON]
-def min_path(grid, k):
+def min_path(grid, start):
     # Initialize the minimum path sum
     min_sum = float('inf')
     # Initialize the current position as (0, 0)
@@ -20,7 +20,6 @@ def min_path(grid, k):
             # If the current position is not the destination, add its neighbors to the queue
             for neighbor in get_neighbors(grid, current_position):
                 queue.append(neighbor)
-    # Return the minimum path sum
     return min_sum
 
 def get_neighbors(grid, position):
@@ -46,11 +45,23 @@ def get_neighbors(grid, position):
         neighbors.append((row, col + 1))
     return neighbors
 
-def issame(a, b, expected):
-    if a == b:
-        return True
-    else:
-        return False
+def main():
+    # Define the grid and start position
+    grid = [[1, 2], [3, 4]]
+    start = (0, 0)
+    # Calculate the minimum path sum using min_path
+    min_sum = min_path(grid, start)
+    # Print the minimum path sum
+    print(min_sum)
 
-assert issame([[1, 3], [3, 2]], [[1, 3], [3, 2]], [[1, 3], [3, 2]]) == True
-```
+if __name__ == '__main__':
+    main()
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert min_path([[1, 2], [3, 4]], (0, 0)) == 6
+# Test case 2:
+assert min_path([[1, 2, 3], [4, 5, 6], [7, 8, 9]], (0, 0)) == 15
+# Test case 3:
+assert min_path([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]], (0, 0)) == 34
+[/TESTS]
