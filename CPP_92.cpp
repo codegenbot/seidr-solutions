@@ -1,24 +1,22 @@
 ```cpp
 #include <iostream>
-#include <sstream>
+#include <string>
 
 bool any_int(float a, float b, float c) {
     int sum = (int)(a + b);
     return (sum == c || sum == a || sum == b);
 }
 
-int main() {
+std::string main() {
     int a, b, c;
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
         int sum = a + b;
-        std::ostringstream oss;
-        oss << sum;
-        std::cout << "True" << oss.str() << std::endl;
+        std::string oss = std::to_string(sum);
+        return oss;
     } else {
-        std::cout << "False" << std::endl;
+        return "False";
     }
-    return 0;
 }
 ```
