@@ -2,11 +2,10 @@
 #include <string>
 #include <cmath>
 #include <cassert>
-#include <sstream> // Add this line
 
 using namespace std;
 
-bool isValidDate(string date) {
+bool valid_date(string date) {
     int month, day, year;
     char delimiter = '-';
     stringstream ss;
@@ -36,6 +35,6 @@ bool isValidDate(string date) {
 }
 
 int main() {
-    assert(isValidDate("04-2003") == false);
+    assert(valid_date("04-2003") == false);
     return 0;
 }
