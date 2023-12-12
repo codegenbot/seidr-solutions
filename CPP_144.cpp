@@ -1,4 +1,6 @@
-```
+
+Sure, here's the modified code that should fix the issue:
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
