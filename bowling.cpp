@@ -19,7 +19,7 @@ int calculateScore(const std::string& bowlingRound) {
                 rolls = 0;
             }
         } else if (c == '/') {
-            frameScore[frame] += (10 - frameScore[frame-1]);
+            frameScore[frame] += (10 - frameScore[frame]);
             rolls++;
             if (rolls == 2) {
                 frame++;
