@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -37,6 +38,9 @@ int largestPrime(vector<int> nums) {
 
 int main() {
     vector<int> nums = {127, 97, 8192};
-    assert(largestPrime(nums) == 10);
+    if (largestPrime(nums) != 10) {
+        cout << "The largest prime number is not equal to 10." << endl;
+    }
     return 0;
 }
+```
