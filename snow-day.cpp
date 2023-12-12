@@ -4,8 +4,7 @@
 float calculateSnow(float hours, float snowOnGround, float snowFallRate, float meltingRate) {
     float snow = snowOnGround;
     for (int i = 0; i < hours; i++) {
-        snow += snowFallRate - meltingRate;
-        snow *= (1 - meltingRate);
+        snow += (snowFallRate * (1 - meltingRate));
     }
     return snow;
 }
