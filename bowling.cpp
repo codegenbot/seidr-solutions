@@ -1,46 +1,61 @@
+```cpp
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& bowls) {
+int scoreRound(const std::string& round) {
     int score = 0;
     int frame = 1;
-    int i = 0;
+    int roll = 0;
 
-    while (frame <= 10) {
-        if (bowls[i] == 'X') {
+    for (char c : round) {
+        if (c == 'X') {
             score += 10;
             if (frame < 10) {
-                score += (bowls[i+1] == 'X') ? 10 + (bowls[i+2] - '0') : (bowls[i+1] - '0') + (bowls[i+2] == '/' ? 10 : (bowls[i+2] - '0'));
-                i++;
-            } else {
-                score += (bowls[i+1] == 'X') ? 10 + (bowls[i+2] == 'X' ? 10 : (bowls[i+2] - '0')) : (bowls[i+1] - '0') + (bowls[i+2] == '/' ? 10 : (bowls[i+2] - '0'));
-                break;
+                score += (round[roll + 1] == 'X') ? 10 : (round[roll + 1] - '0');
+                if (round[roll + 2] == 'X') {
+                    score += 10;
+                } else if (round[roll + 2] == '/') {
+                    score += 10;
+                } else {
+                    score += (round[roll + 2] - '0');
+                }
             }
-        } else if (bowls[i+1] == '/') {
-            score += 10;
+            roll++;
+        } else if (c == '/') {
+            score += (10 - (round[roll - 1] - '0'));
             if (frame < 10) {
-                score += (bowls[i+2] == 'X') ? 10 : (bowls[i+2] - '0');
-                i += 2;
-            } else {
-                score += (bowls[i+2] == 'X') ? 10 : (bowls[i+2] - '0');
-                break;
+                score += (round[roll + 1] == 'X') ? 10 : (round[roll + 1] - '0');
             }
+            roll++;
+        } else if (c == '-') {
+            // do nothing
         } else {
-            score += (bowls[i] - '0') + (bowls[i+1] - '0');
-            i += 2;
+            score += (c - '0');
+            if (frame < 10 && round[roll + 1] == '/') {
+                score += 10;
+            }
+            roll++;
         }
-        frame++;
+
+        if (roll % 2 == 0) {
+            frame++;
+        }
+
+        if (frame > 10) {
+            break;
+        }
     }
 
     return score;
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
+    std::string round;
+    std::cin >> round;
 
-    int score = getScore(bowls);
+    int score = scoreRound(round);
     std::cout << score << std::endl;
 
     return 0;
 }
+```
