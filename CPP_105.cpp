@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,4 +16,3 @@ vector<string> by_length(vector<int> arr) {
     }
     return result;
 }
-```
