@@ -1,3 +1,5 @@
+
+Here's the modified code that addresses the issues mentioned:
 ```
 #include <iostream>
 #include <vector>
@@ -34,5 +36,11 @@ int largestPrime(vector<int> nums) {
     }
     return sumDigits(max);
 }
+
+int main() {
+    vector<int> nums = {127, 97, 8192};
+    int result = largestPrime(nums);
+    cout << "The largest prime number in the input vector is: " << result << endl;
+    return 0;
+}
 ```
-The issue with the original code was that there were multiple definitions of the `main` function, which is not allowed in C++. To fix this, I removed all but one of the `main` functions and ensured that the remaining one was defined correctly. Additionally, I modified the call to `assert` to pass in a valid argument.
