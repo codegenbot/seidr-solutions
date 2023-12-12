@@ -10,6 +10,8 @@ def luhn_algorithm(digits):
             new_digits.append(digits[i])
     return sum(new_digits)
 
-n = int(input())
+num_digits = int(input())
 digits = list(map(int, input().split()))
-print(luhn_algorithm(digits))
+
+result = luhn_algorithm(digits)
+print(result)
