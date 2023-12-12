@@ -6,9 +6,9 @@
 using namespace std;
 
 // Declare and define the sort function
-void sort(const vector<pair<int, int>>& points) {
+void sort(const vector<pair<int, int>>::iterator begin, const vector<pair<int, int>>::iterator end) {
     // Sort the points in ascending order of their first element
-    sort(points.begin(), points.end());
+    sort(begin, end);
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -21,7 +21,7 @@ vector<int> order_by_points(vector<int> nums) {
         }
         points.push_back(make_pair(sum, i));
     }
-    sort(points); // Use the declared and defined sort function
+    sort(points.begin(), points.end()); // Use the declared and defined sort function
     vector<int> result;
     for (int i = 0; i < nums.size(); i++) {
         result.push_back(nums[points[i].second]);
