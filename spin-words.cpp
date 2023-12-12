@@ -1,43 +1,33 @@
 #include <iostream>
-#include <string>
 #include <sstream>
-#include <vector>
+#include <string>
 
-std::string reverseWords(const std::string& sentence) {
-    std::istringstream iss(sentence);
-    std::string word;
-    std::vector<std::string> words;
+std::string reverseWords(std::string str) {
+  std::stringstream ss(str);
+  std::string word;
+  std::string result;
 
-    // Split the sentence into words
-    while (iss >> word) {
-        words.push_back(word);
+  while (ss >> word) {
+    if (word.length() >= 5) {
+      std::reverse(word.begin(), word.end());
     }
+    result += word + " ";
+  }
 
-    // Reverse words that are five or more letters long
-    for (std::string& word : words) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-    }
-
-    // Join the words back into a sentence
-    std::ostringstream oss;
-    for (const std::string& word : words) {
-        oss << word << " ";
-    }
-
-    // Remove trailing space and return the resulting sentence
-    std::string result = oss.str();
+  // Remove trailing space
+  if (!result.empty()) {
     result.pop_back();
-    return result;
+  }
+
+  return result;
 }
 
 int main() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
+  std::string input;
+  std::getline(std::cin, input);
 
-    std::string result = reverseWords(sentence);
-    std::cout << result << std::endl;
+  std::string output = reverseWords(input);
+  std::cout << output << std::endl;
 
-    return 0;
+  return 0;
 }
