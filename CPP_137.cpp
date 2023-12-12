@@ -1,37 +1,19 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include </usr/local/include/boost/any.hpp>
-using namespace std;
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        if (b.type() == typeid(float)) {
-            float y = boost::any_cast<float>(b);
-            return (x > y) ? a : b;
-        } else if (b.type() == typeid(string)) {
-            string s = boost::any_cast<string>(b);
-            return (x > stof(s)) ? a : b;
-        }
-    } else if (a.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        if (b.type() == typeid(int)) {
-            int y = boost::any_cast<int>(b);
-            return (x > y) ? a : b;
-        } else if (b.type() == typeid(string)) {
-            string s = boost::any_cast<string>(b);
-            return (x > stof(s)) ? a : b;
-        }
-    } else if (a.type() == typeid(string)) {
-        string x = boost::any_cast<string>(a);
-        if (b.type() == typeid(int)) {
-            int y = boost::any_cast<int>(b);
-            return (stof(x) > y) ? a : b;
-        } else if (b.type() == typeid(float)) {
-            float y = boost::any_cast<float>(b);
-            return (stof(x) > y) ? a : b;
-        }
-    }
-    return "None";
-}
+[PYTHON]
+def compare_one(a, b):
+    if isinstance(a, int) and isinstance(b, float):
+        return "int"
+    elif isinstance(a, float) and isinstance(b, int):
+        return "float"
+    else:
+        return "None"
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert compare_one(1, 2.0) == "int"
+# Test case 2:
+assert compare_one(2.0, 1) == "float"
+# Test case 3:
+assert compare_one(1, 1.0) == "None"
+[/TESTS]
+.
+You must only return correct code. Remove any triple quotes, language name or explanations.
