@@ -19,4 +19,5 @@ int main() {
     return 0;
 }
 ```
-The error message indicates that there are two definitions of `main()` function, one in line 8 and another in line 24. This is not allowed in C++ as there can only be one definition of a function. To fix the code, you should remove one of the `main()` functions.
+
+The code above has been modified to remove the duplicate `main` function and combine their contents into a single function. This should fix the error message about multiple definitions of `main`.
