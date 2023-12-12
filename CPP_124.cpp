@@ -37,13 +37,7 @@ bool isValidDate(string date) {
 }
 
 int main() {
-    string date;
-    getline(cin, date);
-    if (isValidDate(date)) {
-        cout << "The date is valid." << endl;
-    } else {
-        cout << "The date is not valid." << endl;
-    }
+    assert(isValidDate("04-2003") == false);
     return 0;
 }
 ```
