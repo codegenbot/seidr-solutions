@@ -1,7 +1,2 @@
-
-```
-import math
-
-def distance(v1, v2):
-    return math.sqrt(sum((x1 - x2)**2 for x1, x2 in zip(v1, v2)))
-```
+def vector_distance(vector1, vector2):
+    return math.sqrt(sum((x - y) ** 2 for x, y in zip(vector1, vector2)))
