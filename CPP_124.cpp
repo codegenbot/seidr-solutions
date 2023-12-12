@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -41,3 +42,4 @@ bool isValidDate(string date) {
 
     return day <= daysInMonth;
 }
+```
