@@ -1,20 +1,21 @@
 ```python
 def cut_vector(vector):
-    n = len(vector)
-    total_sum = sum(vector)
-    left_sum = 0
-    right_sum = total_sum
-    min_diff = float('inf')
-    cut_index = 0
+    prefix_sum = [0]
+    for num in vector:
+        prefix_sum.append(prefix_sum[-1] + num)
     
-    for i in range(n):
-        left_sum += vector[i]
-        right_sum -= vector[i]
+    total_sum = prefix_sum[-1]
+    min_diff = float('inf')
+    cut_index = -1
+    
+    for i in range(1, len(prefix_sum)):
+        left_sum = prefix_sum[i]
+        right_sum = total_sum - left_sum
         diff = abs(left_sum - right_sum)
         
         if diff < min_diff:
             min_diff = diff
-            cut_index = i + 1
+            cut_index = i
     
     return vector[:cut_index], vector[cut_index:]
 
@@ -28,7 +29,7 @@ while True:
         break
 
 # Call the function and print the output
-left_subvector, right_subvector = cut_vector(vector)
-print(left_subvector)
-print(right_subvector)
+left, right = cut_vector(vector)
+print(*left, sep="\n")
+print(*right, sep="\n")
 ```
