@@ -1,3 +1,4 @@
+
 ```
 def substitution_cipher(ciphertext, key):
     # Create a dictionary to store the mapping of characters in ciphertext to their corresponding decrypted characters
