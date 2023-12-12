@@ -1,11 +1,9 @@
-prices = []
-discounts = []
-
-n = int(input())
+num_items = int(input())
 prices = list(map(float, input().split()))
-
-m = int(input())
 discounts = list(map(float, input().split()))
 
-total_price = sum([(p - p * d / 100) for p, d in zip(prices, discounts)])
+total_price = 0.0
+for i in range(num_items):
+    total_price += prices[i] * (1 - discounts[i] / 100)
+
 print(total_price)
