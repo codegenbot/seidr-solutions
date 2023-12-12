@@ -1,20 +1,18 @@
 ```python
 def cut_vector(vector):
-    n = len(vector)
     total_sum = sum(vector)
-    left_sum = 0
-    right_sum = total_sum
-    min_diff = float('inf')
-    cut_index = 0
-
-    for i in range(n):
-        left_sum += vector[i]
-        right_sum -= vector[i]
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
+    current_sum = 0
+    min_difference = float('inf')
+    cut_index = -1
+    
+    for i, num in enumerate(vector):
+        current_sum += num
+        difference = abs(total_sum - 2 * current_sum)
+        
+        if difference < min_difference:
+            min_difference = difference
             cut_index = i
-
+    
     return vector[:cut_index+1], vector[cut_index+1:]
 
 # Read input from user
@@ -23,14 +21,13 @@ while True:
     try:
         num = int(input())
         vector.append(num)
-    except:
+    except EOFError:
         break
 
 # Call the function and print the result
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
+subvector1, subvector2 = cut_vector(vector)
+for num in subvector1:
     print(num)
-for num in right_subvector:
+for num in subvector2:
     print(num)
 ```
-Note: The code assumes that the input will be given in separate lines, and it will keep reading until an invalid input is encountered (e.g. a non-integer value).
