@@ -1,54 +1,39 @@
-Here is the C++ code to solve the "mastermind" problem:
-
-```cpp
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
-int countWhitePegs(std::string code, std::string guess) {
-    int count = 0;
-    int freq[6] = {0};
+using namespace std;
 
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] != guess[i]) freq[guess[i] - 'A']++;
-    }
+pair<int, int> getCodeClues(string code, string guess) {
+    unordered_map<char, int> codeFreq;
+    unordered_map<char, int> guessFreq;
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] != guess[i] && freq[code[i] - 'A'] > 0) {
-            count++;
-            freq[code[i] - 'A']--;
+    for (int i = 0; i < code.length(); i++) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+        } else {
+            codeFreq[code[i]]++;
+            guessFreq[guess[i]]++;
         }
     }
 
-    return count;
-}
-
-int countBlackPegs(std::string code, std::string guess) {
-    int count = 0;
-
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] == guess[i]) count++;
+    for (auto it = codeFreq.begin(); it != codeFreq.end(); it++) {
+        whitePegs += min(it->second, guessFreq[it->first]);
     }
 
-    return count;
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    std::string code, guess;
+    string code, guess;
+    cin >> code >> guess;
 
-    std::cout << "Enter the code: ";
-    std::cin >> code;
+    pair<int, int> clues = getCodeClues(code, guess);
 
-    std::cout << "Enter the guess: ";
-    std::cin >> guess;
-
-    int blackPegs = countBlackPegs(code, guess);
-    int whitePegs = countWhitePegs(code, guess);
-
-    std::cout << "Black Pegs: " << blackPegs << std::endl;
-    std::cout << "White Pegs: " << whitePegs << std::endl;
+    cout << clues.first << endl;
+    cout << clues.second << endl;
 
     return 0;
 }
-```
-
-Please note that the code snippet provided is a complete C++ program and can be compiled and executed as is. It takes user input for the code and guess strings and calculates the number of white and black pegs using the `countWhitePegs()` and `countBlackPegs()` functions. Finally, it outputs the results.
