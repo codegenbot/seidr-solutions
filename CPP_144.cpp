@@ -1,3 +1,4 @@
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -5,19 +6,16 @@
 
 using namespace std;
 
-bool simplify(string x, string n) {
-    int numeratorX = stoi(x);
-    int denominatorX = stoi(x.substr(x.find("/") + 1));
-    int numeratorN = stoi(n);
-    int denominatorN = stoi(n.substr(n.find("/") + 1));
-
-    return (numeratorX * numeratorN) % denominatorX == 0 && (denominatorX * denominatorN) % denominatorN == 0;
+bool simplify(int x, int n) {
+    // ...
 }
 
 int main() {
     string x = "1/5";
     string n = "5/1";
-    cout << simplify(x, n) << endl;
+    int x_int = stoi(x);
+    int n_int = stoi(n);
+    cout << simplify(x_int, n_int) << endl;
     return 0;
 }
 ```
