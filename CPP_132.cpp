@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -14,7 +15,8 @@ bool is_nested(string str) {
 }
 
 int main() {
-    string str = "[[]]]]]]][[[[[]";
+    char str[] = "[[]]]]]]][[[[[]";
     cout << is_nested(str) << endl;
     return 0;
 }
+```
