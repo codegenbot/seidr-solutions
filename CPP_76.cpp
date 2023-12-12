@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cmath>
 #include <cassert>
 #include <cstddef>
