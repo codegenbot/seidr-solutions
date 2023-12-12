@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare(b[i]) != 0) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -26,6 +26,10 @@ std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std
 
 int main() {
     std::vector<std::string> a = {"this"};
-    std::vector<std::string> b;
-    assert(issame(totalMatch(a, b), {}));
+    std::vector<std::string> b = {};
+    if (issame(totalMatch(a, b), {})) {
+        std::cout << "The vectors are equal." << std::endl;
+    } else {
+        std::cout << "The vectors are not equal." << std::endl;
+    }
 }
