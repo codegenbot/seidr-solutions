@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -14,12 +15,11 @@ int solution(vector<int> lst) {
     return sum;
 }
 
-int solutions(vector<int> lst) {
-    assert (solution({3, 13, 2, 9}) == 3);
-    return 0;
-}
-
 int main() {
-    solutions({3, 13, 2, 9});
+    vector<int> lst = {3, 13, 2, 9};
+    int result = solution(lst);
+    assert(result == 14);
+    cout << "Result: " << result << endl;
     return 0;
 }
+```
