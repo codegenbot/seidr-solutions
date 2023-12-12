@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -48,3 +49,4 @@ int main() {
     cout << score << endl;
     return 0;
 }
+```
