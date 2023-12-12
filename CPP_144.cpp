@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -16,3 +17,5 @@ int main() {
     cout << simplify(x.begin(), x.end()) << endl;
     return 0;
 }
+```
+```
