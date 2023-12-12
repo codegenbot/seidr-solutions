@@ -1,6 +1,10 @@
-def solve_boolean(expr):
-    return eval(expr.replace("t", "True").replace("f", "False"))
+expression = input()
 
+if expression == 't':
+    result = True
+elif expression == 'f':
+    result = False
+else:
+    result = eval(expression)
 
-expr = input()
-print(solve_boolean(expr))
+print(result)
