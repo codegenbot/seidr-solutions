@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -7,7 +6,7 @@
 
 using namespace std;
 
-bool isValidDate(string date) {
+bool isValidDate(const string& date) {
     int month, day, year;
     char delimiter = '-';
     stringstream ss(date);
@@ -38,8 +37,5 @@ bool isValidDate(string date) {
 
 int main() {
     string date = "04-2003";
-    bool valid_date = isValidDate(date);
-    assert(valid_date == false);
-    return 0;
+    assert(isValidDate(date) == false);
 }
-```
