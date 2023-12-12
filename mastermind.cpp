@@ -1,8 +1,10 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <utility>
 
-std::pair<int, int> getClues(const std::string& code, const std::string& guess) {
+pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     int codeCount[6] = {0};
@@ -21,16 +23,16 @@ std::pair<int, int> getClues(const std::string& code, const std::string& guess) 
         whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
-    return std::make_pair(whitePegs, blackPegs);
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
 
-    std::pair<int, int> clues = getClues(code, guess);
-    std::cout << clues.first << std::endl;
-    std::cout << clues.second << std::endl;
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
 
     return 0;
 }
