@@ -1,4 +1,3 @@
-```python
 def middle_character(string):
     filtered_string = ''.join(c for c in string if c.isalpha())
     length = len(filtered_string)
@@ -6,4 +5,3 @@ def middle_character(string):
         return filtered_string[length // 2 - 1:length // 2 + 1]
     else:
         return filtered_string[length // 2]
-```
