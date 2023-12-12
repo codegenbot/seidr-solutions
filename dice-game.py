@@ -10,4 +10,6 @@ for i in range(1, n+1):
 
 probability /= (n * m)
 
-print(round(probability, 8))
+probability = round(probability, 8)
+
+print(probability)
