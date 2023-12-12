@@ -1,9 +1,11 @@
 ```cpp
 #include <vector>
+#include <initializer_list>
+#include <cstddef>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const initializer_list<int>& b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
