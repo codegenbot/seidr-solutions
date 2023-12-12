@@ -2,17 +2,8 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <sstream>
-#include <cassert>
 
 using namespace std;
-
-bool isValidDate(string date);
-
-int main() {
-    assert(isValidDate("04-2003") == false);
-    return 0;
-}
 
 bool isValidDate(string date) {
     int month, day, year;
