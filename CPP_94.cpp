@@ -1,8 +1,6 @@
 ```
-#include <iostream>
-#include <vector>
-#include <string>
 #include <cassert>
+#include <vector>
 using namespace std;
 
 int largestPrime(vector<int> lst);
@@ -26,7 +24,7 @@ int largestPrime(vector<int> lst) {
 }
 
 bool isPrime(int n) {
-    if (n <= 1) return false;
+    if (n > 1) return false;
     for (int i = 2; i < n; i++) {
         if (n % i == 0) return false;
     }
