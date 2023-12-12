@@ -1,10 +1,12 @@
+```python
 import collections
 from typing import Tuple
 
 def mastermind() -> Tuple[int, int]:
-    code = input()
-    guess = input()
-
+    # Retrieve the code and guess from the appropriate source (e.g. file, network socket)
+    code = "<code>"  # Replace <code> with the actual code input
+    guess = "<guess>"  # Replace <guess> with the actual guess input
+    
     black_pegs = 0
     white_pegs = 0
     code_count = collections.Counter(code)
@@ -22,5 +24,6 @@ def mastermind() -> Tuple[int, int]:
     return white_pegs, black_pegs
 
 result = mastermind()
-print(result[0])
-print(result[1])
+print(result[0], result[1])
+```
+Replace `<code>` and `<guess>` with the actual code and guess inputs according to the problem requirements.
