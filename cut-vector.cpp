@@ -39,7 +39,6 @@ vector<vector<int>> cutVector(vector<int> nums) {
     vector<vector<int>> result;
     result.push_back(leftSubvector);
     result.push_back(rightSubvector);
-    
     return result;
 }
 
