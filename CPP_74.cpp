@@ -1,16 +1,11 @@
-
-Sure, here's the modified code that should fix the issue:
-```
+```cpp
 #include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return (a.size() == b.size());
-}
-
-int main() {
-    assert (issame(total_match({"this"}, {}) , {}));
-    return 0;
+// Define missing size() function for vector of strings
+template<typename T>
+size_t size(const std::vector<std::string>& v) {
+    return v.size();
 }
 ```
