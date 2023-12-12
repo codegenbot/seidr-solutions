@@ -1,33 +1,42 @@
+```c++
 #include <vector>
 #include <iostream>
+#include <climits>
+#include <tuple>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int> nums) {
     int n = nums.size();
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
-    }
-    
-    int leftSum = 0;
-    int rightSum = sum;
-    int diff = abs(rightSum - leftSum);
+    int diff = INT_MAX;
     int cutIndex = -1;
     
-    for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int newDiff = abs(rightSum - leftSum);
-        if (newDiff < diff) {
-            diff = newDiff;
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
+        
+        for (int j = i; j < n; j++) {
+            rightSum += nums[j];
+        }
+        
+        int currentDiff = abs(leftSum - rightSum);
+        
+        if (currentDiff < diff) {
+            diff = currentDiff;
             cutIndex = i;
         }
     }
     
-    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex);
+    vector<int> rightSubvector(nums.begin() + cutIndex, nums.end());
     
-    return vector<int>(leftSubvector.begin(), leftSubvector.end(), rightSubvector.begin(), rightSubvector.end());
+    leftSubvector.push_back(0);
+    rightSubvector.push_back(0);
+    
+    return {leftSubvector, rightSubvector};
 }
 
 int main() {
@@ -39,10 +48,17 @@ int main() {
         cin >> nums[i];
     }
     
-    vector<int> result = cutVector(nums);
-    for (int num : result) {
+    vector<int> leftSubvector, rightSubvector;
+    tie(leftSubvector, rightSubvector) = cutVector(nums);
+    
+    for (int num : leftSubvector) {
+        cout << num << endl;
+    }
+    
+    for (int num : rightSubvector) {
         cout << num << endl;
     }
     
     return 0;
 }
+```
