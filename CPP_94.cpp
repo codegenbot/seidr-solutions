@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <iostream>
 using namespace std;
 
 bool isPrime(int n) {
