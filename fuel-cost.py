@@ -1,5 +1,3 @@
-```
-from math import floor
 def fuel_cost(vector):
-    return sum([floor(x / 3) - 2 for x in vector])
-```
+    import math
+    return sum([math.floor(x / 3) - 2 for x in vector])
