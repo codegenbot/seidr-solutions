@@ -1,6 +1,4 @@
-```
 #include <iostream>
-#include <cmath>
 #include <string>
 
 bool any_int(float a, float b, float c) {
@@ -14,11 +12,10 @@ int main() {
     std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
         int sum = a + b;
-        std::string str = std::stoi(static_cast<const char*>(sum));
+        std::string str = std::to_string(sum);
         std::cout << "True" << str << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
     return 0;
 }
-```
