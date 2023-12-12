@@ -13,5 +13,3 @@ def substitution_cipher(ciphertext, key):
             decrypted_message += char
     
     return decrypted_message
-
- 
