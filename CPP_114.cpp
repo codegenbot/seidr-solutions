@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -16,5 +16,11 @@ long long minSubarraySum(const vector<long long>& nums) {
         }
     }
     return min_sum;
+}
+
+int main() {
+    vector<long long> nums{1, -1};
+    assert(minSubarraySum(nums) == -1);
+    return 0;
 }
 ```
