@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 double probabilityOfHigher(int n, int m) {
