@@ -1,29 +1,15 @@
-#include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <cmath>
 using namespace std;
-
-double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
-    double bouncinessIndex = firstBounceHeight / startingHeight;
-    double totalDistance = 0;
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (startingHeight - firstBounceHeight) * pow(bouncinessIndex, i);
-    }
-    return totalDistance;
-}
-
 int main() {
-    double startingHeight, firstBounceHeight;
+    double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance;
     int numBounces;
     cin >> startingHeight >> firstBounceHeight >> numBounces;
-    cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
+    bouncinessIndex = firstBounceHeight / startingHeight;
+    totalDistance = 0.0;
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += startingHeight + (startingHeight * pow(bouncinessIndex, i));
+    }
+    cout << fixed << setprecision(9) << totalDistance << endl;
     return 0;
 }
