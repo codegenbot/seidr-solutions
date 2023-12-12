@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int sum = 0;
     for (int num : nums) {
@@ -39,9 +39,11 @@ int main() {
         cin >> nums[i];
     }
     
-    vector<int> result = cutVector(nums);
-    for (int num : result) {
-        cout << num << endl;
+    vector<vector<int>> result = cutVector(nums);
+    for (vector<int> subvector : result) {
+        for (int num : subvector) {
+            cout << num << endl;
+        }
     }
     
     return 0;
