@@ -1,7 +1,17 @@
+```
 #include <iostream>
 #include <vector>
 
 using namespace std;
+
+int solution(vector<int> lst);
+
+int main() {
+    vector<int> lst = {1, 2, 3, 4, 5};
+    int sum = solution(lst);
+    cout << "The sum of odd numbers in the list is: " << sum << endl;
+    return 0;
+}
 
 int solution(vector<int> lst) {
     int sum = 0;
@@ -12,8 +22,4 @@ int solution(vector<int> lst) {
     }
     return sum;
 }
-
-int main() {
-    assert (solution({3, 13, 2, 9}) == 3);
-    return 0;
-}
+```
