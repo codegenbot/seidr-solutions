@@ -1,6 +1,3 @@
-
-Here is the modified code that addresses the issues mentioned:
-```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -16,6 +13,10 @@ bool isPrime(int n) {
 }
 
 int largestPrime(vector<int> nums) {
+    if (nums.empty()) {
+        cout << "Input vector is empty." << endl;
+        return -1;
+    }
     int max = 0;
     for (int i = 0; i < nums.size(); i++) {
         if (nums[i] > max && isPrime(nums[i])) {
@@ -25,7 +26,7 @@ int largestPrime(vector<int> nums) {
     return max;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     vector<int> nums;
     int n;
     cin >> n;
@@ -37,4 +38,3 @@ int main(int argc, char* argv[]) {
     cout << largestPrime(nums) << endl;
     return 0;
 }
-```
