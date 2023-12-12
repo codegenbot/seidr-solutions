@@ -8,8 +8,6 @@ for i in range(1, n+1):
         if i > j:
             probability += 1
 
-probability /= (n * m)
-
-probability = round(probability, 8)
+probability /= (n * m - 1)
 
 print(probability)
