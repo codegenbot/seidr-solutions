@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -13,11 +12,9 @@ int by_length(const std::vector<std::string>& v) {
     }
     return length;
 }
-```
-```
+
 int main() {
-    std::vector<std::string> v1 = {"Nine", "Eight", "Four"};
-    std::vector<std::string> v2 = {"Nine", "Eight", "Four"};
-    assert (issame(by_length(v1), v2));
+    std::vector<std::string> v1{"Nine", "Eight", "Four"};
+    std::vector<std::string> v2{"Nine", "Eight", "Four"};
+    assert (issame(by_length(v1) , v2));
 }
-```
