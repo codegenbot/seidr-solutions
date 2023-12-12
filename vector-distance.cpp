@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
-#include <iomanip>
+#include <iostream>
 #include <cmath>
+#include <iomanip>
 
 long double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     long double sum = 0.0;
