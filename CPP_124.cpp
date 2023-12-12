@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool isValidDate(const string& date) {
+bool isValidDate(string date) {
     int month, day, year;
     char delimiter = '-';
     stringstream ss(date);
@@ -37,5 +37,7 @@ bool isValidDate(const string& date) {
 
 int main() {
     string date = "04-2003";
-    assert(isValidDate(date) == false);
+    bool valid_date = isValidDate(date);
+    assert(valid_date == false);
+    return 0;
 }
