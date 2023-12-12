@@ -4,8 +4,8 @@
 #include <string>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a) {
-    return std::all_of(a.begin(), a.end(), [](int x){return x == 9;});
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
 }
 
 int by_length(const std::string& a, const std::string& b) {
