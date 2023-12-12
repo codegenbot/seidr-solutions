@@ -1,26 +1,32 @@
 #include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
+#include <algorithm>
 
-std::string spinWords(const std::string& sentence) {
-    std::stringstream ss(sentence);
-    std::string word;
-    std::string result;
+using namespace std;
 
-    while (ss >> word) {
+string spinWords(const string& input) {
+    istringstream iss(input);
+    string word, result;
+
+    while (iss >> word) {
         if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+            reverse(word.begin(), word.end());
         }
         result += word + " ";
     }
 
-    result.pop_back();  // Remove the extra space at the end
+    // Remove the trailing space
+    result.pop_back();
+
     return result;
 }
 
 int main() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
-    std::cout << spinWords(sentence) << std::endl;
+    string input;
+    getline(cin, input);
+
+    cout << spinWords(input);
+
     return 0;
 }
