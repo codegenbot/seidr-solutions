@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -7,9 +7,9 @@ double calculateDistance(const std::vector<double>& vector1, const std::vector<d
     double sum = 0.0;
     for (int i = 0; i < vector1.size(); i++) {
         double diff = vector1[i] - vector2[i];
-        sum += (diff * diff);
+        sum += diff * diff;
     }
-    return std::sqrt(sum);
+    return std::sqrt(std::abs(sum));
 }
 
 int main() {
