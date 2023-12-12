@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -6,7 +7,7 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
     float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
         float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
-        totalPrice += std::round(discountedPrice * 100) / 100;  // round to 2 decimal places
+        totalPrice += std::round(discountedPrice * 100) / 100;
     }
     return totalPrice;
 }
@@ -30,3 +31,4 @@ int main() {
 
     return 0;
 }
+```
