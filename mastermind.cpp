@@ -1,46 +1,44 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <map>
-using namespace std;
 
-pair<int, int> getClues(string code, string guess) {
-    int whitePegs = 0;
+std::pair<int, int> solveMastermind(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
-    map<char, int> frequency;
+    int whitePegs = 0;
 
-    // Counting frequency of each character in code
-    for (char ch : code) {
-        frequency[ch]++;
-    }
+    // A map to store the frequency of each character in the code
+    std::map<char, int> codeFreq;
 
-    // Checking for black pegs
-    for (int i = 0; i < 4; i++) {
+    // Count the black pegs (correct color, correct place)
+    for (int i = 0; i < code.size(); ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
-            frequency[guess[i]]--;
+        }
+        else {
+            // Update the frequency of characters in the code
+            codeFreq[code[i]]++;
         }
     }
 
-    // Checking for white pegs
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && frequency[guess[i]] > 0) {
+    // Count the white pegs (correct color, wrong place)
+    for (int i = 0; i < guess.size(); ++i) {
+        if (code[i] != guess[i] && codeFreq[guess[i]] > 0) {
             whitePegs++;
-            frequency[guess[i]]--;
+            codeFreq[guess[i]]--; // decrement the frequency of the character in the code
         }
     }
 
-    return make_pair(whitePegs, blackPegs);
+    return {whitePegs, blackPegs};
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
 
-    pair<int, int> clues = getClues(code, guess);
+    std::pair<int, int> result = solveMastermind(code, guess);
 
-    cout << clues.first << endl;
-    cout << clues.second << endl;
+    std::cout << result.first << std::endl;
+    std::cout << result.second << std::endl;
 
     return 0;
 }
