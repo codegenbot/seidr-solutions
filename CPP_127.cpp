@@ -1,29 +1,29 @@
-[PYTHON]
-def intersection(interval1, interval2):
-    start = max(interval1[0], interval2[0])
-    end = min(interval1[1], interval2[1])
-    if start <= end:
-        length = end - start + 1
-        if is_prime(length):
-            return "YES"
-        else:
-            return "NO"
-    else:
-        return "NO"
+```
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
-def is_prime(n):
-    if n <= 1:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert intersection([3, 4], [7, 8]) == "NO"
-# Test case 2:
-assert intersection([3, 5], [7, 9]) == "YES"
-# Test case 3:
-assert intersection([3, 6], [7, 10]) == "YES"
-[/TESTS]
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+string intersection(vector<int> interval1, vector<int> interval2) {
+    int start = max(interval1[0], interval2[0]);
+    int end = min(interval1[1], interval2[1]);
+    if (start <= end) {
+        int length = end - start + 1;
+        if (isPrime(length)) {
+            return "YES";
+        } else {
+            return "NO";
+        }
+    } else {
+        return "NO";
+    }
+}
+```
