@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -38,11 +39,7 @@ bool isValidDate(string date) {
 int main() {
     string date = "04-2003";
     bool valid_date = isValidDate(date);
-    assert (valid_date("04-2003") == false);
-    if (valid_date) {
-        cout << "The date is valid." << endl;
-    } else {
-        cout << "The date is not valid." << endl;
-    }
+    assert (valid_date == false);
     return 0;
 }
+```
