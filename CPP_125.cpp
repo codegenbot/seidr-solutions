@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,3 +22,6 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
+```
+The issue is related to syntax errors in the code. The backticks (``) are used for multiline comments in C++, but they must be matched correctly, and there must not be any unmatched or stray backticks in the code. Additionally, the function `split` is not declared anywhere in the code snippet, which is causing an error.
+To fix the code, you need to remove the extra backtick at the end of line 1 and line 25, and declare the `split` function somewhere in the code or use a different method to split the string.
