@@ -1,4 +1,3 @@
-```
 def spin_words(sentence):
     words = sentence.split()
     result = []
@@ -8,4 +7,3 @@ def spin_words(sentence):
         else:
             result.append(word)
     return " ".join(result)
-```
