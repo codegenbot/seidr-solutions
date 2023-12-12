@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,13 +33,14 @@ int largestPrime(vector<int> lst) {
 
 int main() {
     vector<int> lst;
-    int skjkasdkd;
-    cin >> skjkasdkd;
-    for (int i = 0; i < skjkasdkd; i++) {
-        int n;
-        cin >> n;
-        lst.push_back(n);
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        lst.push_back(num);
     }
     cout << largestPrime(lst) << endl;
     return 0;
 }
+```
