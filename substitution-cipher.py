@@ -18,4 +18,4 @@ def substitution_cipher(ciphertext, key):
         decrypted_message += ciphertext[-1]
     
     return decrypted_message
-```
+``` 
