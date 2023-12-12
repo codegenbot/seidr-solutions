@@ -1,10 +1,9 @@
-```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-bool is_nested(string str) {
+bool is_nested(const string& str) {
     int count = 0;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '[' || str[i] == ']') {
@@ -19,4 +18,3 @@ int main() {
     cout << is_nested(str) << endl;
     return 0;
 }
-```
