@@ -1,13 +1,14 @@
-#include <iostream>
+```cpp
 #include <vector>
 
-using size_type = std::size_t;
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert (issame({4, 3, 2, 8}, {}));
+    assert (issame({4, 3, 2, 8}, {}) == true);
     return 0;
 }
+```
