@@ -21,4 +21,6 @@ def mastermind() -> Tuple[int, int]:
 
     return white_pegs, black_pegs
 
-print(mastermind())
+result = mastermind()
+print(result[0])
+print(result[1])
