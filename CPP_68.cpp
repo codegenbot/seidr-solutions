@@ -6,7 +6,7 @@ using namespace std;
 vector<int> pluck(const vector<int>& arr, int index) {
     if (index >= 0 && index < arr.size()) {
         auto it = arr.begin() + index;
-        arr.erase(it);
+        arr.erase(it, it + 1);
     }
     return arr;
 }
