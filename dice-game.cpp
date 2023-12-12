@@ -1,27 +1,22 @@
+```cpp
 #include <iostream>
-#include <iomanip>
 
-double probabilityOfPeterWinning(int n, int m) {
-    double totalOutcomes = n * m;
-    double favorableOutcomes = 0;
-    
+double probabilityOfHigher(int n, int m) {
+    int count = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                favorableOutcomes++;
+                count++;
             }
         }
     }
-    
-    return std::round((favorableOutcomes / totalOutcomes) * 100000000) / 100000000;
+    return static_cast<double>(count) / (n * m);
 }
 
 int main() {
     int n, m;
     std::cin >> n >> m;
-    
-    double probability = probabilityOfPeterWinning(n, m);
-    std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
-    
+    printf("%.8f\n", probabilityOfHigher(n, m));
     return 0;
 }
+```
