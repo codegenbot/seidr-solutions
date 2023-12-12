@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -12,15 +13,6 @@ bool isPrime(int n) {
     return true;
 }
 
-int sumDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
 int largestPrime(vector<int> nums) {
     if (nums.empty()) {
         cout << "Input vector is empty." << endl;
@@ -32,7 +24,7 @@ int largestPrime(vector<int> nums) {
             max = nums[i];
         }
     }
-    return sumDigits(max);
+    return max;
 }
 
 int main() {
@@ -47,3 +39,4 @@ int main() {
     cout << largestPrime(nums) << endl;
     return 0;
 }
+```
