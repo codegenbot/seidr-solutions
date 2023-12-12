@@ -1,9 +1,23 @@
-```
 #include <vector>
 #include <string>
 #include <cassert>
 #include <iostream>
 using namespace std;
+
+int largestPrime(vector<int> nums);
+
+int main() {
+    vector<int> nums;
+    int n;
+    cin >> n;
+    for (std::size_t i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        nums.push_back(x);
+    }
+    assert(largestPrime(nums) == 10);
+    return 0;
+}
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -22,17 +36,3 @@ int largestPrime(vector<int> nums) {
     }
     return max;
 }
-
-int main() {
-    vector<int> nums;
-    int n;
-    cin >> n;
-    for (std::size_t i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        nums.push_back(x);
-    }
-    assert(largestPrime(nums) == 10);
-    return 0;
-}
-```
