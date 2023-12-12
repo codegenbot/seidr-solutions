@@ -1,6 +1,17 @@
-#include <iostream>
+```
+#include <cassert>
 #include <vector>
 using namespace std;
+
+int largestPrime(vector<int> lst);
+bool isPrime(int n);
+int sumDigits(int n);
+
+int main() {
+    vector<int> numbers = {127, 97, 8192};
+    int result = largestPrime(numbers);
+    assert (result == 10);
+}
 
 int largestPrime(vector<int> lst) {
     int max = 0;
@@ -23,15 +34,10 @@ bool isPrime(int n) {
 
 int sumDigits(int n) {
     int sum = 0;
-    while (n > 0) {
+    while (n != 0) {
         sum += n % 10;
         n /= 10;
     }
     return sum;
 }
-
-int main() {
-    vector<int> numbers = {127, 97, 8192};
-    int result = largestPrime(numbers);
-    assert (result == 10);
-}
+```
