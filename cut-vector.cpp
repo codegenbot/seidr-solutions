@@ -3,6 +3,7 @@
 #include <iostream>
 #include <climits>
 #include <tuple>
+
 using namespace std;
 
 vector<int> cutVector(vector<int> nums) {
