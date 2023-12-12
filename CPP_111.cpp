@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <map>
@@ -16,4 +15,3 @@ map<char, int> histogram(string test) {
     }
     return m;
 }
-```
