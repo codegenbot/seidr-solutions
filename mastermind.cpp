@@ -1,16 +1,16 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <vector>
+using namespace std;
 
-std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-    std::vector<int> codeCount(6, 0);
-    std::vector<int> guessCount(6, 0);
+pair<int, int> mastermind(string code, string guess) {
+    int white = 0, black = 0;
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            black++;
         } else {
             codeCount[code[i] - 'A']++;
             guessCount[guess[i] - 'A']++;
@@ -18,17 +18,18 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
     }
 
     for (int i = 0; i < 6; i++) {
-        whitePegs += std::min(codeCount[i], guessCount[i]);
+        white += min(codeCount[i], guessCount[i]);
     }
 
-    return std::make_pair(whitePegs, blackPegs);
+    return make_pair(white, black);
 }
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-    std::pair<int, int> result = mastermind(code, guess);
-    std::cout << result.first << std::endl;
-    std::cout << result.second << std::endl;
+    string code, guess;
+    cin >> code >> guess;
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
     return 0;
 }
+```
