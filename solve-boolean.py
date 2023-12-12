@@ -1,2 +1,5 @@
-def solve_boolean(expression):
-    return eval(expression.capitalize())
+expr = input()
+if 'T' in expr:
+    print(True)
+else:
+    print(False)
