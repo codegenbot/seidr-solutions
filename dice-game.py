@@ -1,4 +1,3 @@
-```python
 n = int(input())
 m = int(input())
 
@@ -12,4 +11,3 @@ for i in range(1, n+1):
 probability /= (n * m)
 
 print(f"{probability:.8f}")
-```
