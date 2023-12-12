@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -15,3 +16,4 @@ int main() {
     cout << special_factorial(n) << endl;
     return 0;
 }
+```
