@@ -11,19 +11,21 @@
 #include <climits>
 using namespace std;
 
-int basement(vector<int>& nums) {
-    int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+int main() {
+    vector<int> vec;
+    int n, sum = 0;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        vec.push_back(x);
+    }
+    for (int i = 0; i < n; i++) {
+        sum += vec[i];
         if (sum < 0) {
-            return i;
+            cout << i << endl;
+            break;
         }
     }
-    return -1;
-}
-
-int main() {
-    vector<int> nums = {1, -1};
-    cout << basement(nums) << endl;
     return 0;
 }
