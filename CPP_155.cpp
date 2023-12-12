@@ -1,17 +1,18 @@
 ```
-vector<int> even_odd_count(int num) {
-    vector<int> result;
-    int countEven = 0, countOdd = 0;
-    while (num > 0) {
-        if (num % 2 == 0) {
-            countEven++;
-        } else {
-            countOdd++;
-        }
-        num /= 10;
+#include <iostream>
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
-    result.push_back(countEven);
-    result.push_back(countOdd);
-    return result;
+    return true;
+}
+
+int main() {
+    assert(issame({1, 2}, {1, 2}));
+    assert(!issame({1, 2}, {1, 3}));
+    return 0;
 }
 ```
