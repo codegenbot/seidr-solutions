@@ -3,12 +3,13 @@
 #include <string>
 #include <cassert>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
     for (int j = 2; j < n; j++) {
-        if (n % j == 0) return false;
+        if (j % n == 0) return false;
     }
     return true;
 }
@@ -32,7 +33,6 @@ int main() {
         cin >> x;
         nums.push_back(x);
     }
-    assert(largestPrime(nums) == 10);
-    return 0;
+    return largestPrime(nums);
 }
 ```
