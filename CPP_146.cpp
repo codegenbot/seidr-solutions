@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,4 +14,3 @@ int specialFilter(vector<int> nums) {
     }
     return count;
 }
-```

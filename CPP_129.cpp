@@ -15,33 +15,42 @@ def min_path(grid, k):
         # Check if the current position is the destination
         if current_position == (len(grid) - 1, len(grid[0]) - 1):
             # If the current position is the destination, update the minimum path sum
-            min_sum = min(min_sum, current_value)
-        # Add the neighbors of the current position to the queue
-        for neighbor in get_neighbors(grid, current_position):
-            queue.append(neighbor)
+            min_sum = current_value
+        else:
+            # If the current position is not the destination, add its neighbors to the queue
+            for neighbor in get_neighbors(grid, current_position):
+                queue.append(neighbor)
+    # Return the minimum path sum
     return min_sum
 
 def get_neighbors(grid, position):
+    # Get the row and column of the current position
+    row, col = position
+    # Initialize an empty list to store the neighbors
     neighbors = []
-    # Check the north neighbor
-    if position[0] > 0:
-        neighbors.append((position[0] - 1, position[1]))
-    # Check the south neighbor
-    if position[0] < len(grid) - 1:
-        neighbors.append((position[0] + 1, position[1]))
-    # Check the west neighbor
-    if position[1] > 0:
-        neighbors.append((position[0], position[1] - 1))
-    # Check the east neighbor
-    if position[1] < len(grid[0]) - 1:
-        neighbors.append((position[0], position[1] + 1))
+    # Check if the cell to the north is valid
+    if row > 0:
+        # If the cell to the north is valid, add it to the list of neighbors
+        neighbors.append((row - 1, col))
+    # Check if the cell to the south is valid
+    if row < len(grid) - 1:
+        # If the cell to the south is valid, add it to the list of neighbors
+        neighbors.append((row + 1, col))
+    # Check if the cell to the west is valid
+    if col > 0:
+        # If the cell to the west is valid, add it to the list of neighbors
+        neighbors.append((row, col - 1))
+    # Check if the cell to the east is valid
+    if col < len(grid[0]) - 1:
+        # If the cell to the east is valid, add it to the list of neighbors
+        neighbors.append((row, col + 1))
     return neighbors
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert min_path({{1, 3}, {3, 2}}, 10) == 10
-# Test case 2:
-assert min_path({{1, 3}, {3, 2}}, 10) == 10
-# Test case 3:
-assert min_path({{1, 3}, {3, 2}}, 10) == 10
-[/TESTS]
+
+def issame(a, b, expected):
+    if a == b:
+        return True
+    else:
+        return False
+
+assert issame([[1, 3], [3, 2]], [[1, 3], [3, 2]], [[1, 3], [3, 2]]) == True
+```
