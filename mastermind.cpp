@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
+std::pair<int, int> getClue(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     std::vector<int> codeCount(6, 0);
@@ -28,9 +28,11 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
 int main() {
     std::string code, guess;
     std::cin >> code >> guess;
-    std::pair<int, int> result = mastermind(code, guess);
-    std::cout << result.first << std::endl;
-    std::cout << result.second << std::endl;
+
+    std::pair<int, int> clue = getClue(code, guess);
+    std::cout << clue.first << std::endl;
+    std::cout << clue.second << std::endl;
+
     return 0;
 }
 ```
