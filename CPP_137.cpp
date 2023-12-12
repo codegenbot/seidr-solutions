@@ -1,6 +1,6 @@
+```
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <variant>
 using namespace std;
 
@@ -27,7 +27,4 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         return "None";
     }
 }
-
-int main() {
-    assert(compare_one("1", 1) == "None");
-}
+```
