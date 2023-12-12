@@ -1,5 +1,3 @@
-
-Sure, here's the modified code that should fix the issue:
 ```cpp
 #include <iostream>
 #include <string>
@@ -8,9 +6,9 @@ Sure, here's the modified code that should fix the issue:
 using namespace std;
 
 bool simplify(string x, string n) {
-    int numeratorX = stoi(x.substr(0, x.find("/")));
+    int numeratorX = stoi(x);
     int denominatorX = stoi(x.substr(x.find("/") + 1));
-    int numeratorN = stoi(n.substr(0, n.find("/")));
+    int numeratorN = stoi(n);
     int denominatorN = stoi(n.substr(n.find("/") + 1));
 
     return (numeratorX * numeratorN) % denominatorX == 0 && (denominatorX * denominatorN) % denominatorN == 0;
