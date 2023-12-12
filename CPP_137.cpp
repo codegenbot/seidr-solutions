@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -18,8 +17,8 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         string s1 = std::get<string>(a);
         string s2 = std::get<string>(b);
         try {
-            float x = stof(s1);
-            float y = stof(s2);
+            float x = std::stof(s1);
+            float y = std::stof(s2);
             return x > y ? a : b;
         } catch (const std::invalid_argument&) {
             return "None";
@@ -28,6 +27,3 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         return "None";
     }
 }
-```
-
-The code has been modified to use `std::variant` instead of `boost::any`, and the function signature has been corrected. The function body has also been updated to use `std::get` instead of `boost::any_cast` to extract the values from the variants, and to compare them using the appropriate comparison operators. Finally, the test case has been modified to use `std::get` instead of `boost::any_cast`.
