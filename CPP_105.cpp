@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,15 +6,47 @@
 #include <algorithm>
 using namespace std;
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-    map<int, string> num_to_name = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-    sort(arr.begin(), arr.end());
-    for (int i = 0; i < arr.size(); i++) {
-        if (num_to_name.count(arr[i])) {
-            result.push_back(num_to_name[arr[i]]);
-        }
+// Define a custom allocator that takes an additional argument for alignment
+template <typename T, typename Alloc = std::allocator<T>>
+struct aligning_allocator : public Alloc {
+    using value_type = T;
+    using pointer = T*;
+    using const_pointer = const T*;
+    using reference = T&;
+    using const_reference = const T&;
+    using size_type = std::size_t;
+    using difference_type = std::ptrdiff_t;
+
+    aligning_allocator() : Alloc() {}
+    aligning_allocator(const Alloc& a) : Alloc(a) {}
+
+    pointer allocate(size_type n, const void* hint = nullptr) {
+        return static_cast<pointer>(::operator new(n * sizeof(T), std::align_val_t(hint)));
     }
-    return result;
+
+    void deallocate(pointer p, size_type n) {
+        ::operator delete(p, n * sizeof(T));
+    }
+};
+
+// Use the custom allocator to create a vector of strings
+using string_vector = std::vector<std::string, aligning_allocator<std::string>>;
+
+int main() {
+    // Create a vector of strings with the custom allocator
+    string_vector v;
+
+    // Add some elements to the vector
+    v.push_back("One");
+    v.push_back("Two");
+    v.push_back("Three");
+
+    // Print out the contents of the vector
+    for (const auto& s : v) {
+        std::cout << s << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
 ```
