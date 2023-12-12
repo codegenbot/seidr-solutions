@@ -1,33 +1,32 @@
 ```python
 def cut_vector(vector):
+    n = len(vector)
     total_sum = sum(vector)
-    current_sum = 0
-    min_difference = float('inf')
-    cut_index = -1
+    left_sum = 0
+    right_sum = total_sum
     
-    for i, num in enumerate(vector):
-        current_sum += num
-        difference = abs(total_sum - 2 * current_sum)
+    for i in range(n):
+        left_sum += vector[i]
+        right_sum -= vector[i]
         
-        if difference < min_difference:
-            min_difference = difference
-            cut_index = i
+        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
+            return vector[:i+1], vector[i+1:]
     
-    return vector[:cut_index+1], vector[cut_index+1:]
+    return vector, [0]
 
-# Read input from user
+# Read input
 vector = []
 while True:
     try:
-        num = int(input())
-        vector.append(num)
+        line = input()
+        vector.append(int(line))
     except EOFError:
         break
 
-# Call the function and print the result
-subvector1, subvector2 = cut_vector(vector)
-for num in subvector1:
+# Call the function and print the output
+left_subvector, right_subvector = cut_vector(vector)
+for num in left_subvector:
     print(num)
-for num in subvector2:
+for num in right_subvector:
     print(num)
 ```
