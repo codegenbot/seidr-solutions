@@ -2,8 +2,7 @@
 def calculate_total_price(prices, discounts):
     total_price = 0.0
     for price, discount in zip(prices, discounts):
-        discounted_price = price - (price * discount / 100)
-        total_price += discounted_price
+        total_price += price - (price * discount / 100)
     return total_price
 
 num_items = int(input())
