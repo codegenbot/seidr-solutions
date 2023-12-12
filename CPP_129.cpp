@@ -23,6 +23,9 @@ def min_path(grid, k):
 
     return min_sum
 
+def issame(a, b):
+    return a == b
+
 def main():
     grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     k = 3
