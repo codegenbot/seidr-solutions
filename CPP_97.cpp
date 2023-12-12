@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -12,4 +11,3 @@ int main() {
     std::cout << multiply(a, b) << std::endl;
     return 0;
 }
-```
