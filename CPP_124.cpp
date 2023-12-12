@@ -3,6 +3,7 @@
 #include <string>
 #include <cmath>
 #include <cassert>
+#include <sstream>
 
 using namespace std;
 
@@ -36,7 +37,9 @@ bool isValidDate(string date) {
 }
 
 int main() {
-    assert(isValidDate("04-2003") == false);
+    string date = "04-2003";
+    bool valid_date = isValidDate(date);
+    assert(valid_date == false);
     return 0;
 }
 ```
