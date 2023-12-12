@@ -10,7 +10,7 @@ int main() {
     std::cout << "Enter two integers: ";
     int a, b;
     std::cin >> a >> b;
-    std::cout << "The product of their unit digits is: " << multiply(a, b) << std::endl;
+    std::cout << multiply(a, b) << std::endl;
     return 0;
 }
 ```
