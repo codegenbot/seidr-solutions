@@ -1,13 +1,9 @@
-n = int(input())
-m = int(input())
+import sys
 
-probability = 0
+n = int(sys.stdin.readline())
+m = int(sys.stdin.readline())
 
-for i in range(1, n+1):
-    for j in range(1, m+1):
-        if i > j:
-            probability += 1
-
-probability /= (n * m)
-
-print(probability)
+if n <= m:
+    print(0.0)
+else:
+    print(round((n - m) / n, 2))
