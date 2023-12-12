@@ -19,5 +19,3 @@ int main() {
     return 0;
 }
 ```
-
-The code above has been modified to remove the duplicate `main` function and combine their contents into a single function. This should fix the error message about multiple definitions of `main`.
