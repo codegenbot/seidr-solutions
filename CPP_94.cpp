@@ -13,6 +13,15 @@ bool isPrime(int n) {
     return true;
 }
 
+int sumDigits(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
 int largestPrime(vector<int> nums) {
     if (nums.empty()) {
         cout << "Input vector is empty." << endl;
@@ -24,7 +33,7 @@ int largestPrime(vector<int> nums) {
             max = nums[i];
         }
     }
-    return max;
+    return sumDigits(max);
 }
 
 int main() {
