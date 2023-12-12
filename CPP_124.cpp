@@ -32,5 +32,5 @@ bool isValidDate(string date) {
     }
 
     return day <= daysInMonth;
-}
+}; // <-- missing semicolon here
 ```
