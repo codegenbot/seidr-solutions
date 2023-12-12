@@ -1,11 +1,13 @@
-```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+using namespace std;
 
-// Define missing size() function for vector of strings
-template<typename T>
-size_t size(const std::vector<std::string>& v) {
-    return v.size();
+bool issame(vector<string> a, vector<string> b) {
+    return (a.length() == b.length());
+}
+
+int main() {
+    assert (issame(total_match({"this"}, {}) , {}));
+    return 0;
 }
 ```
