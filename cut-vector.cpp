@@ -2,42 +2,53 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <numeric>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
-    int n = input.size();
-    int minDiff = std::numeric_limits<int>::max();
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    int n = nums.size();
+    int diff = INT_MAX;
     int cutIndex = -1;
 
-    for (int i = 0; i < n - 1; i++) {
-        int diff = std::abs(std::accumulate(input.begin(), input.begin() + i + 1, 0) -
-                       std::accumulate(input.begin() + i + 1, input.end(), 0));
-        if (diff < minDiff) {
-            minDiff = diff;
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
+
+        for (int j = i; j < n; j++) {
+            rightSum += nums[j];
+        }
+
+        int currentDiff = std::abs(leftSum - rightSum);
+
+        if (currentDiff < diff) {
+            diff = currentDiff;
             cutIndex = i;
         }
     }
 
-    std::vector<int> subvector1(input.begin(), input.begin() + cutIndex + 1);
-    std::vector<int> subvector2(input.begin() + cutIndex + 1, input.end());
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex);
+    std::vector<int> rightSubvector(nums.begin() + cutIndex, nums.end());
 
-    return std::make_pair(subvector1, subvector2);
+    return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> input(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> input[i];
+        std::cin >> nums[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
+
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
