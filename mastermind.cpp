@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
@@ -22,16 +21,16 @@ pair<int, int> mastermind(string code, string guess) {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
     
-    return make_pair(whitePegs, blackPegs);
+    return pair<int, int>(whitePegs, blackPegs);
 }
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
+    getline(cin, code);
+    getline(cin, guess);
     
     pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    cout << result.first << "\n" << result.second << "\n";
     
     return 0;
 }
