@@ -5,7 +5,7 @@ using namespace std;
 double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = 0;
-    float currentHeight = startingHeight;  // Change data type from double to float
+    float currentHeight = startingHeight;
 
     for (int i = 0; i < numBounces; i++) {
         totalDistance += currentHeight;
