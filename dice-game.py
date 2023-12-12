@@ -1,5 +1,5 @@
 n = int(input())
 m = int(input())
 
-probability = (n - 1) / (2 * (n * m))
+probability = (n - 1) / (n * m - 1)
 print(probability)
