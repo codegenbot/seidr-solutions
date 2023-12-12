@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 int main() {
@@ -7,16 +6,14 @@ int main() {
     
     std::cin >> startingHeight >> firstBounceHeight >> numBounces;
     
-    double bouncinessIndex = static_cast<double>(firstBounceHeight) / startingHeight;
+    double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = startingHeight;
     
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * bouncinessIndex * totalDistance;
-        bouncinessIndex *= bouncinessIndex;
+        totalDistance += (2 * bouncinessIndex * (totalDistance - startingHeight));
     }
     
     std::cout << totalDistance << std::endl;
     
     return 0;
 }
-```
