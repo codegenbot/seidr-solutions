@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -13,4 +12,3 @@ int prod_signs(vector<int> arr) {
     }
     return abs(result);
 }
-```
