@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,5 +16,12 @@ int main() {
 
 optional<int> next_smallest(const vector<int>& lst) {
     // implementation of the function goes here
-    return std::nullopt;
+    int smallest = INT_MAX;
+    for (int i : lst) {
+        if (i < smallest) {
+            smallest = i;
+        }
+    }
+    return smallest;
 }
+```
