@@ -16,4 +16,10 @@ long long minSubarraySum(vector<long long> nums) {
     }
     return min_sum;
 }
+
+int main() {
+    vector<long long> nums = {1, 2, 3, 4, 5};
+    cout << "Minimum subarray sum: " << minSubarraySum(nums) << endl;
+    return 0;
+}
 ```
