@@ -1,10 +1,10 @@
 hours = int(input())
 snow_on_ground = float(input())
-rate_of_snow_fall = float(input())
-proportion_of_melting = float(input())
+snow_fall_rate = float(input())
+snow_melting_rate = float(input())
 
-for _ in range(hours):
-    snow_on_ground += rate_of_snow_fall
-    snow_on_ground -= proportion_of_melting * snow_on_ground
+for i in range(hours):
+    snow_on_ground += snow_fall_rate
+    snow_on_ground -= snow_on_ground * snow_melting_rate
 
-print(snow_on_ground)
+print(round(snow_on_ground, 15))
