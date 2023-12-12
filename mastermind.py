@@ -1,22 +1,4 @@
-def mastermind(code: str, guess: str) -> tuple:
-    black_pegs = 0
-    white_pegs = 0
-    code_count = collections.Counter(code)
-    guess_count = collections.Counter(guess)
-    
-    for i in range(len(code)):
-        if code[i] == guess[i]:
-            black_pegs += 1
-    
-    for color in code_count:
-        white_pegs += min(code_count[color], guess_count[color])
-    
-    white_pegs -= black_pegs
-    
+def mastermind(code, guess):
+    white_pegs = sum(min(code.count(c), guess.count(c)) for c in set(guess))
+    black_pegs = sum(1 for c1, c2 in zip(code, guess) if c1 == c2)
     return white_pegs, black_pegs
-
-code = input()
-guess = input()
-output = mastermind(code, guess)
-print(output[0])
-print(output[1])
