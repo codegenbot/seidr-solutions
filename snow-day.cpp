@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -15,3 +16,4 @@ int main() {
     cout << calculateSnow(hours, snowOnGround, snowFallRate, snowMeltingRate) << endl;
     return 0;
 }
+```
