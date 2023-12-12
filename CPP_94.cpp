@@ -1,11 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 using namespace std;
-
-int main() {
-    // Remove all but one definition of the `main` function
-}
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -36,4 +33,12 @@ int largestPrime(vector<int> nums) {
         }
     }
     return sumDigits(max);
+}
+
+int main() {
+    vector<int> nums = {127, 97, 8192};
+    if (largestPrime(nums) != 10) {
+        cout << "The largest prime number is not equal to 10." << endl;
+    }
+    return 0;
 }
