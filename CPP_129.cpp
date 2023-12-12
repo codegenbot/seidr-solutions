@@ -71,4 +71,3 @@ if __name__ == '__main__':
     start = (0, 0)
     assert get_min_path(grid, start) == 15
 [/TESTS]
-
