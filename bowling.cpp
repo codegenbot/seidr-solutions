@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,11 +18,11 @@ int getFrameScore(const string& frame) {
                 else
                     score += frame[frameIndex + 4] - '0';
             } else if (frame[frameIndex + 2] == '/') {
-                score += 10;
+                score += 10 - (frame[frameIndex - 1] - '0');
             } else {
                 score += frame[frameIndex + 2] - '0';
                 if (frame[frameIndex + 2] == '/')
-                    score += 10 - (frame[frameIndex + 1] - '0');
+                    score += 10 - (frame[frameIndex + 2] - '0');
             }
             frameIndex += 2;
         } else if (frame[frameIndex + 1] == '/') {
