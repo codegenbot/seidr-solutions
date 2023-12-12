@@ -1,11 +1,12 @@
-```
-# Write a function to calculate the Euclidean distance between two vectors in n-dimensional space
-def euclidean_distance(v1, v2):
-    # Calculate the square of the Euclidean distance
-    dist_sq = sum((vi - vj) ** 2 for vi, vj in zip(v1, v2))
-    # Return the square root of the distance
-    return math.sqrt(dist_sq)
-```
-This code defines a function called `euclidean_distance` that takes two vectors as input and returns their Euclidean distance between them. The function uses a generator expression to calculate the sum of the squares of the differences between the corresponding elements of the two vectors, and then takes the square root of that sum to get the final distance.
-
-The function is designed to be used with any number of dimensions, as long as both vectors have the same number of elements. The `zip` function is used to iterate over the corresponding elements of the two vectors simultaneously.
+[PYTHON]
+def get_euclidean_distance(v1, v2):
+    return math.sqrt(sum((x1 - x2) ** 2 for x1, x2 in zip(v1, v2)))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_euclidean_distance([1, 2, 3], [4, 5, 6]) == 5.385164807134504
+# Test case 2:
+assert get_euclidean_distance([-1, -2, -3], [-4, -5, -6]) == 5.385164807134504
+# Test case 3:
+assert get_euclidean_distance([1, 2, 3], [-4, -5, -6]) == 10.970329614269009
+[/TESTS]
