@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -37,7 +36,7 @@ int largestPrime(vector<int> nums) {
 }
 
 int test() {
-    assert (largestPrime({127, 97, 8192}) == 10);
+    int result = largestPrime({127, 97, 8192});
+    assert(result == 10);
     return 0;
 }
-```
