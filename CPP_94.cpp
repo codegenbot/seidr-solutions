@@ -1,3 +1,5 @@
+
+Here is the modified code that addresses the issues mentioned:
 ```
 #include <vector>
 #include <string>
@@ -13,30 +15,17 @@ bool isPrime(int n) {
     return true;
 }
 
-int sumDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
 int largestPrime(vector<int> nums) {
-    if (nums.empty()) {
-        cout << "Input vector is empty." << endl;
-        return -1;
-    }
     int max = 0;
     for (int i = 0; i < nums.size(); i++) {
         if (nums[i] > max && isPrime(nums[i])) {
             max = nums[i];
         }
     }
-    return sumDigits(max);
+    return max;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     vector<int> nums;
     int n;
     cin >> n;
