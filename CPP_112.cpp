@@ -1,15 +1,11 @@
-```
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
-
+```cpp
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     for (int i = 0; i < s.size(); i++) {
         if (c.find(s[i]) == string::npos) {
-            result.emplace_back(s[i]);
+            // Create a temporary string from the character
+            std::string temp("1", s[i]);
+            result.push_back(temp);
         }
     }
     return result;
