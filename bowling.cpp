@@ -1,73 +1,61 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int calculateScore(string input) {
+int scoreRound(const std::string& round) {
     int score = 0;
     int frame = 1;
-    int bowl = 0;
-    int bonus = 0;
-    
-    for (char c : input) {
+    int roll = 0;
+
+    for (char c : round) {
+        if (c == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (round[roll + 1] == 'X') ? 10 : (round[roll + 1] - '0');
+                if (round[roll + 2] == 'X') {
+                    score += 10;
+                } else if (round[roll + 2] == '/') {
+                    score += (10 - (round[roll + 1] - '0'));
+                } else {
+                    score += (round[roll + 2] - '0');
+                }
+            }
+            roll++;
+        } else if (c == '/') {
+            score += (10 - (round[roll - 1] - '0'));
+            if (frame < 10) {
+                score += (round[roll + 1] == 'X') ? 10 : (round[roll + 1] - '0');
+            }
+            roll++;
+        } else if (c == '-') {
+            // do nothing
+        } else {
+            score += (c - '0');
+            if (frame < 10 && roll % 2 == 1) {
+                if (round[roll + 1] == '/') {
+                    score += (10 - (c - '0'));
+                }
+            }
+            roll++;
+        }
+
+        if (roll % 2 == 0) {
+            frame++;
+        }
+
         if (frame > 10) {
             break;
         }
-        
-        if (c == 'X') {
-            score += 10 + bonus;
-            bonus = 0;
-            
-            if (bowl == 0) {
-                frame++;
-            } else if (bowl == 1) {
-                bowl = 0;
-                frame++;
-            }
-        } else if (c == '/') {
-            score += 10 - (c - '0');
-            bonus = c - '0';
-            
-            if (bowl == 0) {
-                bowl = 1;
-            } else {
-                bowl = 0;
-                frame++;
-            }
-        } else if (c == '-') {
-            bonus = 0;
-            
-            if (bowl == 0) {
-                bowl = 1;
-            } else {
-                bowl = 0;
-                frame++;
-            }
-        } else {
-            score += c - '0' + bonus;
-            bonus = 0;
-            
-            if (bowl == 0) {
-                bowl = 1;
-            } else {
-                bowl = 0;
-                frame++;
-            }
-        }
-        
-        if (bowl == 0 && c != 'X') {
-            bonus = c - '0';
-        }
     }
-    
+
     return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    
-    int score = calculateScore(input);
-    cout << score << endl;
-    
+    std::string round;
+    std::cin >> round;
+
+    int score = scoreRound(round);
+    std::cout << score << std::endl;
+
     return 0;
 }
