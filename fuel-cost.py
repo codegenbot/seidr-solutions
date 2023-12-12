@@ -1,9 +1,10 @@
-def fuel_cost(nums):
-    return sum((num // 3) - 2 for num in nums)
-
 nums = []
-for _ in range(2):
-    nums.append(int(input()))
+while True:
+    try:
+        num = int(input())
+        nums.append(num)
+    except:
+        break
 
-result = fuel_cost(nums)
-print(result)
+total = sum([(num // 3) - 2 for num in nums])
+print(total)
