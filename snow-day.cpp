@@ -14,14 +14,14 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float me
 }
 
 int main() {
-    int hours; 
+    int hours;
     float initialSnow, snowFallRate, meltingRate;
-    
+
     cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
-    
+
     float result = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
     cout << result << endl;
-    
+
     return 0;
 }
 ```
