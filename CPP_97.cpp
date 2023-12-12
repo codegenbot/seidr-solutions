@@ -7,7 +7,6 @@ int multiply(int a, int b) {
 }
 
 int main() {
-    std::cout << "Enter two integers: ";
     int a, b;
     std::cin >> a >> b;
     std::cout << multiply(a, b) << std::endl;
