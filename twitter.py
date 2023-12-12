@@ -1,3 +1,4 @@
+```python
 def validate_tweet(tweet):
     tweet = tweet.replace('\0', '')  # Remove null characters
     if len(tweet) > 140:
