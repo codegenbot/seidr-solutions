@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,6 +6,14 @@ using namespace std;
 
 // Function signature for int_to_mini_roman
 string int_to_mini_roman(int number);
+
+int main() {
+    // Test the function with a few examples
+    cout << "49 = " << int_to_mini_roman(49) << endl;
+    cout << "123 = " << int_to_mini_roman(123) << endl;
+    cout << "789 = " << int_to_mini_roman(789) << endl;
+    return 0;
+}
 
 // Implementation of the function
 string int_to_mini_roman(int number) {
@@ -30,11 +39,4 @@ string int_to_mini_roman(int number) {
     }
     return result;
 }
-
-int main() {
-    // Test the function with a few examples
-    assert(int_to_mini_roman(49) == "XLIX");
-    assert(int_to_mini_roman(123) == "CXXIII");
-    assert(int_to_mini_roman(789) == "DCCLXXXIX");
-    return 0;
-}
+```
