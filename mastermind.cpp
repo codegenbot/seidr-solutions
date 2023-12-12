@@ -1,54 +1,36 @@
-Here is the C++ code to solve the "mastermind" problem:
-
-```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-int countWhitePegs(std::string code, std::string guess) {
-    int count = 0;
-    int freq[6] = {0};
-
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] != guess[i]) freq[guess[i] - 'A']++;
-    }
-
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] != guess[i] && freq[code[i] - 'A'] > 0) {
-            count++;
-            freq[code[i] - 'A']--;
+pair<int, int> countPegs(string code, string guess) {
+    int blackPegs = 0;
+    int whitePegs = 0;
+    int countCode[6] = {0};
+    int countGuess[6] = {0};
+    
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+        } else {
+            countCode[code[i] - 'A']++;
+            countGuess[guess[i] - 'A']++;
         }
     }
-
-    return count;
-}
-
-int countBlackPegs(std::string code, std::string guess) {
-    int count = 0;
-
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] == guess[i]) count++;
+    
+    for (int i = 0; i < 6; i++) {
+        whitePegs += min(countCode[i], countGuess[i]);
     }
-
-    return count;
+    
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    std::string code, guess;
-
-    std::cout << "Enter the code: ";
-    std::cin >> code;
-
-    std::cout << "Enter the guess: ";
-    std::cin >> guess;
-
-    int blackPegs = countBlackPegs(code, guess);
-    int whitePegs = countWhitePegs(code, guess);
-
-    std::cout << "Black Pegs: " << blackPegs << std::endl;
-    std::cout << "White Pegs: " << whitePegs << std::endl;
-
+    string code, guess;
+    cin >> code >> guess;
+    
+    pair<int, int> pegs = countPegs(code, guess);
+    cout << pegs.first << endl;
+    cout << pegs.second << endl;
+    
     return 0;
 }
-```
-
-Please note that the code snippet provided is a complete C++ program and can be compiled and executed as is. It takes user input for the code and guess strings and calculates the number of white and black pegs using the `countWhitePegs()` and `countBlackPegs()` functions. Finally, it outputs the results.
