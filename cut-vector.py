@@ -4,21 +4,33 @@ def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
     right_sum = total_sum
-
-    min_difference = float('inf')
-    cut_index = -1
+    min_diff = float('inf')
+    cut_index = 0
 
     for i in range(n):
         left_sum += vector[i]
         right_sum -= vector[i]
-
-        difference = abs(left_sum - right_sum)
-        if difference < min_difference:
-            min_difference = difference
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
             cut_index = i
 
-    subvector1 = vector[:cut_index+1]
-    subvector2 = vector[cut_index+1:]
+    return vector[:cut_index+1], vector[cut_index+1:]
 
-    return subvector1, subvector2
+# Read input from user
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
+
+# Call the function and print the result
+left_subvector, right_subvector = cut_vector(vector)
+for num in left_subvector:
+    print(num)
+for num in right_subvector:
+    print(num)
 ```
+Note: The code assumes that the input will be given in separate lines, and it will keep reading until an invalid input is encountered (e.g. a non-integer value).
