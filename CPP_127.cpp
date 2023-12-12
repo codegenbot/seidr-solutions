@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,4 +25,3 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         return "NO";
     }
 }
-```
