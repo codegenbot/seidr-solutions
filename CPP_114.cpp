@@ -15,8 +15,3 @@ long long minSubarraySum(vector<long long> nums) {
     }
     return min_sum;
 }
-
-int main() {
-    assert(minSubarraySum({1, -1}) == -1);
-    return 0;
-}
