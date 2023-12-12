@@ -8,16 +8,19 @@ std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>&
     int diff = INT_MAX;
     int cut_index = -1;
 
+    // Calculate the sum of all numbers in the vector
     int total_sum = 0;
     for (int num : nums) {
         total_sum += num;
     }
 
+    // Iterate through each index and calculate the difference between the sums of the two subvectors
     int left_sum = 0;
     for (int i = 0; i < n; i++) {
         int right_sum = total_sum - left_sum;
         int current_diff = abs(left_sum - right_sum);
 
+        // Check if the current difference is smaller than the previous minimum difference
         if (current_diff < diff) {
             diff = current_diff;
             cut_index = i;
@@ -26,6 +29,7 @@ std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>&
         left_sum += nums[i];
     }
 
+    // Split the vector into two subvectors based on the cut index
     std::vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
     std::vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
 
