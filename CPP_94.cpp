@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,7 +32,8 @@ int largestPrime(vector<int> lst) {
 }
 
 int main() {
-    int skjkasdkd; // Declare the variable
-    assert (skjkasdkd({127, 97, 8192}) == 10);
+    vector<int> nums{127, 97, 8192};
+    assert (largestPrime(nums) == 10);
     return 0;
 }
+```
