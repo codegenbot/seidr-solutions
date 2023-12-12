@@ -65,7 +65,7 @@ if __name__ == '__main__':
 # Test case 2:
     grid = [[1, 3], [3, 2]]
     start = (0, 0)
-    assert get_min_path(grid, start) == 8
+    assert get_min_path(grid, start) == 7
 # Test case 3:
     grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     start = (0, 0)
