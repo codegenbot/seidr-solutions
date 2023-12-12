@@ -1,7 +1,6 @@
 def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
-    
     code_counts = collections.Counter(code)
     guess_counts = collections.Counter(guess)
     
@@ -11,7 +10,7 @@ def mastermind(code, guess):
             code_counts[code[i]] -= 1
             guess_counts[guess[i]] -= 1
     
-    for color in code_counts:
+    for color in code_counts.keys():
         white_pegs += min(code_counts[color], guess_counts[color])
     
     return white_pegs, black_pegs
