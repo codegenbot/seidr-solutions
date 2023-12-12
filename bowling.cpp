@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,7 +15,6 @@ int scoreRound(const std::string& round) {
         if (round[i] == 'X') {
             score += 10;
             score += (round[i + 1] == 'X') ? 10 : (isdigit(round[i + 1]) ? round[i + 1] - '0' : (round[i + 2] == 'X') ? 10 : (isdigit(round[i + 2]) ? round[i + 2] - '0' : 0));
-            score += (round[i + 2] == 'X') ? 10 : (isdigit(round[i + 2]) ? round[i + 2] - '0' : 0);
             frame++;
         } else if (round[i] == '/') {
             score += (10 - (round[i - 1] - '0')) + (isdigit(round[i + 1]) ? round[i + 1] - '0' : 0);
@@ -40,4 +38,3 @@ int main() {
     std::cout << scoreRound(round) << std::endl;
     return 0;
 }
-```
