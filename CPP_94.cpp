@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -29,3 +30,17 @@ int largestPrime(vector<int> lst) {
     }
     return sumDigits(max);
 }
+
+int main() {
+    vector<int> lst;
+    int skjkasdkd;
+    cin >> skjkasdkd;
+    for (int i = 0; i < skjkasdkd; i++) {
+        int n;
+        cin >> n;
+        lst.push_back(n);
+    }
+    cout << largestPrime(lst) << endl;
+    return 0;
+}
+```
