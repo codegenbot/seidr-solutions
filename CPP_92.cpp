@@ -1,6 +1,6 @@
-```cpp
+```
 #include <iostream>
-#include <sstream>
+#include <cmath>
 
 bool any_int(float a, float b, float c) {
     int sum = (int)(a + b);
@@ -8,14 +8,11 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    int a, b, c;
+    float a, b, c;
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
-        int sum = a + b;
-        std::stringstream oss;
-        oss << sum;
-        std::cout << "True" << oss.str() << std::endl;
+        std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
