@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> points;
+    vector<pair<int, int>, allocator<pair<int, int>>> points;
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         while (nums[i] > 0) {
@@ -15,7 +15,7 @@ vector<int> order_by_points(vector<int> nums) {
         }
         points.push_back(make_pair(sum, i));
     }
-    std::sort(points.begin(), points.end());
+    sort(points.begin(), points.end());
     vector<int> result;
     for (int i = 0; i < nums.size(); i++) {
         result.push_back(nums[points[i].second]);
