@@ -1,12 +1,11 @@
-```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-bool is_nested(string str) {
+bool is_nested(const char* str) {
     int count = 0;
-    for (int i = 0; i < str.length(); i++) {
+    for (int i = 0; i < strlen(str); i++) {
         if (str[i] == '[' || str[i] == ']') {
             count++;
         }
@@ -15,8 +14,7 @@ bool is_nested(string str) {
 }
 
 int main() {
-    string str = "[[]]]]]]][[[[[]";
+    const char* str = "[[]]]]]]][[[[[]";
     cout << is_nested(str) << endl;
     return 0;
 }
-```
