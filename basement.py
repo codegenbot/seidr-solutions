@@ -1,18 +1,17 @@
+```python
 def basement(arr):
-    prefix_sum = 0
+    sum_so_far = 0
     for i in range(len(arr)):
-        prefix_sum += arr[i]
-        if prefix_sum < 0:
+        sum_so_far += arr[i]
+        if sum_so_far < 0:
             return i
     return -1
 
-
-# Read input from user
 n = int(input())
-arr = list(map(int, input().split()))
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
 
-# Call the basement function
 result = basement(arr)
-
-# Print the result
 print(result)
+```
