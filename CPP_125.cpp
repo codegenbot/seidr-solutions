@@ -7,18 +7,12 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> words;
-    if (txt.find(" ") != string::npos) {
-        words = split(txt, " ");
-    } else if (txt.find(",") != string::npos) {
-        words = split(txt, ",");
-    } else {
-        int count = 0;
-        for (int i = 0; i < txt.size(); i++) {
-            if (islower(txt[i])) {
-                count++;
-            }
+    size_t pos = 0, prev_pos = 0;
+    while ((pos = txt.find_first_of(" ,", pos)) != string::npos) {
+        if (pos - prev_pos > 1) {
+            words.push_back(txt.substr(prev_pos, pos - prev_pos));
         }
-        words.push_back(to_string(count));
+        prev_pos = pos + 1;
     }
     return words;
 }
