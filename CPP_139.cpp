@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 using namespace std;
 
@@ -13,7 +13,7 @@ long long special_factorial(int n) {
 int main() {
     int n;
     cin >> n;
-    cout << "The result is: " << special_factorial(n) << endl;
+    cout << special_factorial(n) << endl;
     return 0;
 }
 ```
