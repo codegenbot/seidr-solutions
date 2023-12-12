@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -21,3 +22,4 @@ int main() {
     cout << "Result: " << result << endl;
     return 0;
 }
+```
