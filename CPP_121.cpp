@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -12,3 +13,11 @@ int solution(vector<int> lst) {
     }
     return sum;
 }
+
+int main() {
+    vector<int> input = {3, 13, 2, 9};
+    int result = solution(input);
+    assert (result == 3);
+    return 0;
+}
+```
