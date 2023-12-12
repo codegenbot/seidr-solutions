@@ -1,6 +1,6 @@
-```cpp
+```
 #include <iostream>
-#include <vector>
+#include <bits/stl_vector.h>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
