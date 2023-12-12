@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -37,4 +36,3 @@ vector<string> bf(string planet1, string planet2) {
     }
     return planets;
 }
-```
