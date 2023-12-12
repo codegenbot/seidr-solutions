@@ -13,7 +13,7 @@ int main() {
     std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
         int sum = a + b;
-        std::stringstream oss;
+        std::ostringstream oss;
         oss << sum;
         std::cout << "True" << oss.str() << std::endl;
     } else {
