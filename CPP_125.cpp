@@ -1,15 +1,17 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm> // Add this line to include the split function
 using namespace std;
+
+std::vector<std::string> split(const std::string& str, char delim);
 
 vector<string> split_words(string txt) {
     vector<string> words;
     if (txt.find(" ") != string::npos) {
-        words = std::string::split(txt, " ");
+        words = split(txt, " ");
     } else if (txt.find(",") != string::npos) {
-        words = std::string::split(txt, ",");
+        words = split(txt, ",");
     } else {
         int count = 0;
         for (int i = 0; i < txt.size(); i++) {
@@ -21,4 +23,3 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
-```
