@@ -1,4 +1,3 @@
-```python
 import collections
 from typing import Tuple
 
@@ -23,5 +22,5 @@ def mastermind() -> Tuple[int, int]:
     return white_pegs, black_pegs
 
 result = mastermind()
-print(result[0], result[1])
-```
+print(result[0])
+print(result[1])
