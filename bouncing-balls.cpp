@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -5,7 +6,7 @@ double calculateBounceDistance(double startHeight, double bounceHeight, int numB
     double bouncinessIndex = bounceHeight / startHeight;
     double totalDistance = startHeight;
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += bounceHeight + bounceHeight * bouncinessIndex;
+        totalDistance += 2 * bounceHeight * bouncinessIndex;
         bounceHeight *= bouncinessIndex;
     }
     return totalDistance;
@@ -19,3 +20,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
     return 0;
 }
+```
