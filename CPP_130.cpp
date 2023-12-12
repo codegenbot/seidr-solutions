@@ -14,7 +14,7 @@ vector<int, pmr::polymorphic_allocator<int>> tri(int n) {
     } else {
         int prev = tri(n - 1)[0];
         int curr = tri(n - 2)[0];
-        result.emplace_back(prev + curr + tri(n + 1));
+        result.push_back(prev + curr + tri(n + 1)[0]);
     }
     return result;
 }
