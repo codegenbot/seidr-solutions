@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int targetLength = target.length();
