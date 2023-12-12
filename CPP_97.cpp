@@ -1,4 +1,9 @@
-```cpp
+#include <iostream>
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
 int main() {
     std::cout << "Enter two numbers: ";
     int a, b;
@@ -6,8 +11,3 @@ int main() {
     std::cout << multiply(a, b) << std::endl;
     return 0;
 }
-
-int multiply(int a, int b) {
-    return a * b;
-}
-```
