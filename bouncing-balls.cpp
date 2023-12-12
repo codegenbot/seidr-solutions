@@ -11,15 +11,19 @@
 #include <climits>
 using namespace std;
 
-double bouncingBall(double startingHeight, double heightAfterFirstBounce, int numBounces) {
-    double bouncinessIndex = heightAfterFirstBounce / startingHeight;
-    return (1 - pow(bouncinessIndex, numBounces)) / (1 - bouncinessIndex);
+double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = 0;
+    for (int i = 1; i <= numBounces; i++) {
+        totalDistance += (startingHeight - firstBounceHeight) * pow(bouncinessIndex, i);
+    }
+    return totalDistance;
 }
 
 int main() {
-    double startingHeight, heightAfterFirstBounce;
+    double startingHeight, firstBounceHeight;
     int numBounces;
-    cin >> startingHeight >> heightAfterFirstBounce >> numBounces;
-    cout << fixed << setprecision(10) << bouncingBall(startingHeight, heightAfterFirstBounce, numBounces) << endl;
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
