@@ -1,15 +1,15 @@
 #include <iostream>
+using namespace std;
 
-double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
-    return firstBounceHeight / startingHeight;
-}
-
-double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
-    double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
-    double totalDistance = startingHeight;
+double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = 0;
+    double currentHeight = startingHeight;
     
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * bouncinessIndex * totalDistance;
+        totalDistance += currentHeight;
+        currentHeight *= bouncinessIndex;
+        totalDistance += currentHeight;
     }
     
     return totalDistance;
@@ -19,11 +19,11 @@ int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
     
-    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
     
-    double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
+    double result = calculateDistance(startingHeight, firstBounceHeight, numBounces);
     
-    std::cout << totalDistance << std::endl;
+    cout << result << endl;
     
     return 0;
 }
