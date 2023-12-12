@@ -18,7 +18,7 @@ vector<int> tri(int n) {
     return result;
 }
 
-int main() {
+int my_main() {
     int n;
     cin >> n;
     vector<int> result = tri(n);
