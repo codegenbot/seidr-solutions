@@ -1,27 +1,24 @@
 #include <iostream>
 using namespace std;
 
-double probabilityOfPeterWinning(int n, int m) {
-    double totalOutcomes = n * m;
-    double favorableOutcomes = 0;
-    
+double probability(int n, int m) {
+    double total_outcomes = n * m; // total number of possible outcomes
+    double favorable_outcomes = 0; // number of outcomes where Peter rolls strictly higher than Colin
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                favorableOutcomes++;
+                favorable_outcomes++;
             }
         }
     }
-    
-    return favorableOutcomes / totalOutcomes;
+
+    return favorable_outcomes / total_outcomes;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    
-    double probability = probabilityOfPeterWinning(n, m);
-    cout << probability << endl;
-    
+    cout << probability(n, m) << endl;
     return 0;
 }
