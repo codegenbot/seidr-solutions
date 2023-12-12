@@ -1,7 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -28,6 +28,5 @@ std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std
 int main() {
     std::vector<std::string> a = {"this"};
     std::vector<std::string> b;
-    assert(issame(totalMatch({"this"}, {"that"}), {}));
+    assert(issame(totalMatch(a, b), {}));
 }
-```
