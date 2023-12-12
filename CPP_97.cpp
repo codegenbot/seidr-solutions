@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -6,10 +7,10 @@ int multiply(int a, int b) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    int a = std::stoi(input.substr(0, 2));
-    int b = std::stoi(input.substr(3, 2));
+    int a, b;
+    std::cin >> a;
+    std::cin >> b;
     std::cout << multiply(a, b) << std::endl;
     return 0;
 }
+```
