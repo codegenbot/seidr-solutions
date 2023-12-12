@@ -1,8 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
+
+bool isPrime(int n);
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);
