@@ -1,12 +1,12 @@
 cipher = input()
-decipher = input()
+mapping = input()
 message = input()
 
 deciphered_message = ""
 for char in message:
-    if char in cipher:
-        index = cipher.index(char)
-        deciphered_message += decipher[index]
+    index = cipher.find(char)
+    if index != -1:
+        deciphered_message += mapping[index]
     else:
         deciphered_message += char
 
