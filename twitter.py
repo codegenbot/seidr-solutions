@@ -5,4 +5,4 @@ if len(tweet) == 0:
 elif len(tweet) > 140:
     print("Too many characters")
 else:
-    print(f"Your tweet has {len(tweet)} characters")
+    print("Your tweet has", len(tweet), "characters")
