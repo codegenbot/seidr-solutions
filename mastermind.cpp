@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
+pair<int, int> calculateClue(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     int codeCount[6] = {0};
@@ -29,10 +28,10 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
-    pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    pair<int, int> clue = calculateClue(code, guess);
+    
+    cout << clue.first << endl;
+    cout << clue.second << endl;
     
     return 0;
 }
-```
