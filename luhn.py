@@ -1,17 +1,12 @@
-```python
-def luhn(vec):
-    new_digits = []
-    for i in range(len(vec)):
-        if i % 2 == 1:
-            new_digit = vec[i] * 2
-            if new_digit > 9:
-                new_digit -= 9
-            new_digits.append(new_digit)
-        else:
-            new_digits.append(vec[i])
-    return sum(new_digits)
-
-n = int(input())
-vec = list(map(int, input().split()))
-print(luhn(vec))
-```
+numbers = list(map(int, input().split()))
+new_digits = []
+for i, num in enumerate(numbers):
+    if i % 2 == 0:
+        new_digits.append(num)
+    else:
+        doubled = num * 2
+        if doubled > 9:
+            doubled -= 9
+        new_digits.append(doubled)
+sum_digits = sum(new_digits)
+print(sum_digits)
