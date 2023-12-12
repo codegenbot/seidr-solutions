@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert> // Added this line to include the assert function
 using namespace std;
 
 bool isPrime(int n) {
@@ -32,8 +33,8 @@ int largestPrime(vector<int> lst) {
 }
 
 int main() {
-    vector<int> nums{127, 97, 8192};
-    assert (largestPrime(nums) == 10);
+    int skjkasdkd; // Declare the variable
+    assert (skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
 ```
