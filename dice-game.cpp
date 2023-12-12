@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -20,3 +21,4 @@ int main() {
     cout << fixed << setprecision(8) << probabilityOfHigher(n, m) << endl;
     return 0;
 }
+```
