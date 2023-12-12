@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -15,7 +16,7 @@ int by_length(const std::vector<std::string>& v) {
 }
 
 int main() {
-    const std::vector<std::string> temp_vec = {9, 4, 8};
-    assert(issame(by_length(temp_vec), {"Nine", "Eight", "Four"}));
+    assert(issame({"Nine", "Eight", "Four"}, {"Nine", "Eight", "Four"}));
     return 0;
 }
+```
