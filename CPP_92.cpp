@@ -1,10 +1,10 @@
-```
 #include <iostream>
 #include <cmath>
+#include <string>
 
 bool any_int(float a, float b, float c) {
-    int sum = (int)(a + b);
-    return (sum == c || sum == a || sum == b);
+    std::string sum = std::to_string((int)(a + b));
+    return (sum == "True" || sum == "False");
 }
 
 int main() {
@@ -18,4 +18,3 @@ int main() {
     }
     return 0;
 }
-```
