@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+using namespace std;
 
 double probabilityOfHigher(int n, int m) {
     int count = 0;
@@ -15,7 +16,7 @@ double probabilityOfHigher(int n, int m) {
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
+    cin >> n >> m;
     printf("%.8f\n", probabilityOfHigher(n, m));
     return 0;
 }
