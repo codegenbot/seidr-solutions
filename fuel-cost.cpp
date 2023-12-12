@@ -4,8 +4,8 @@
 
 int fuelCost(std::vector<int>& nums) {
     int sum = 0;
-    for (int num : nums) {
-        int result = std::floor(num / 3) - 2;
+    for (int i = 0; i < nums.size(); i++) {
+        int result = std::floor(nums[i] / 3) - 2;
         sum += result;
     }
     return sum;
@@ -18,6 +18,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
-    std::cout << fuelCost(nums) << std::endl;
+    int result = fuelCost(nums);
+    std::cout << result << std::endl;
     return 0;
 }
