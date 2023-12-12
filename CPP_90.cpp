@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,4 +25,3 @@ optional<int> next_smallest(const vector<int>& lst) {
     }
     return smallest;
 }
-```
