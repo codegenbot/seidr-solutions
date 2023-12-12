@@ -1,4 +1,3 @@
-```python
 def luhn_algorithm(digits):
     new_digits = []
     for i in range(len(digits)):
@@ -16,4 +15,3 @@ digits = list(map(int, input().split()))
 
 result = luhn_algorithm(digits)
 print(result)
-```
