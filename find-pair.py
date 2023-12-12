@@ -1,4 +1,3 @@
-```python
 def find_pair(nums, target):
     seen = {}
     for num in nums:
@@ -15,4 +14,3 @@ target = int(input())
 result = find_pair(nums, target)
 print(result[0])
 print(result[1])
-```
