@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 int add(int x, int y) {
@@ -11,4 +10,3 @@ int main() {
     std::cout << "The sum of " << x << " and " << y << " is " << add(x, y) << std::endl;
     return 0;
 }
-```
