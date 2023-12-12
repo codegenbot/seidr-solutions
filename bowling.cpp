@@ -1,9 +1,10 @@
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
+
 int calculateScore(string bowls) {
     int score = 0;
-    for (int i = 0; i < bowls.length(); i++) {
+    for (int i = 0; i < bowls.size(); i++) {
         if (bowls[i] == 'X') {
             score += 10;
         } else if (bowls[i] >= '0' && bowls[i] <= '9') {
@@ -12,9 +13,10 @@ int calculateScore(string bowls) {
     }
     return score;
 }
+
 int main() {
     string bowls;
-    cin >> bowls;
+    getline(cin, bowls);
     cout << calculateScore(bowls) << endl;
     return 0;
 }
