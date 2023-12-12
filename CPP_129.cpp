@@ -42,7 +42,14 @@ def dfs(grid, i, j, k, visited):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert minPath([[1, 3], [3, 2]], 10) == [[1, 3, 1, 3, 1, 3, 1, 3, 1, 3]]
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == [1, 2, 1]
 # Test case 2:
-assert minPath([[5, 9], [4, 1]], 10) == [[1, 2, 3, 4, 5, 6, 7, 8, 9]]
+assert minPath([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1) == [1]
+# Test case 3:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 4) == [1, 2, 3, 4]
+# Test case 4:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 5) == [1, 2, 3, 4, 5]
+# Test case 5:
+assert minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 6) == [1, 2, 3, 4, 5, 6]
 [/TESTS]
+```
