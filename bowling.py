@@ -1,45 +1,33 @@
 def calculate_score(bowls):
     score = 0
     frame = 1
-    frame_score = 0
-    spare = False
-    strike = False
+    bowl_index = 0
     
-    for bowl in bowls:
-        if bowl == 'X':
+    while frame <= 10:
+        if bowls[bowl_index] == 'X':
             score += 10
-            if frame < 10:
-                frame_score = 10
-                strike = True
-            else:
-                frame_score += 10
-        elif bowl == '/':
-            score += 10 - frame_score
-            if frame < 10:
-                frame_score = 10
-                spare = True
-            else:
-                frame_score += 10 - frame_score
-        elif bowl == '-':
-            if frame < 10:
-                frame_score = 0
-            else:
-                frame_score += 0
+            if bowl_index + 2 < len(bowls):
+                if bowls[bowl_index + 2] == 'X':
+                    score += 10
+                elif bowls[bowl_index + 2] == '/':
+                    score += 10 - int(bowls[bowl_index + 1])
+                else:
+                    score += int(bowls[bowl_index + 1]) + int(bowls[bowl_index + 2])
+            frame += 1
+            bowl_index += 1
+        elif bowls[bowl_index] == '/':
+            score += 10 - int(bowls[bowl_index - 1])
+            if bowl_index + 1 < len(bowls):
+                if bowls[bowl_index + 1] == 'X':
+                    score += 10
+                else:
+                    score += int(bowls[bowl_index + 1])
+            frame += 1
+            bowl_index += 1
         else:
-            score += int(bowl)
-            if frame < 10:
-                frame_score += int(bowl)
-        
-        if frame < 10:
-            if spare or strike:
-                score += int(bowl)
-                frame_score += int(bowl)
-                spare = False
-                strike = False
-            
-            if frame_score == 10:
-                frame += 1
-                frame_score = 0
+            score += int(bowls[bowl_index])
+            frame += 1
+            bowl_index += 1
         
     return score
 
