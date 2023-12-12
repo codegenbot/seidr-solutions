@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -18,8 +17,6 @@ long long minSubarraySum(vector<long long> nums) {
 }
 
 int main() {
-    vector<long long> nums = {1, 2, 3, 4, 5};
-    cout << "Minimum subarray sum: " << minSubarraySum(nums) << endl;
+    assert(minSubarraySum({1, -1}) == -1);
     return 0;
 }
-```
