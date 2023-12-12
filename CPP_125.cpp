@@ -1,7 +1,8 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm> // Add this line to include the split function
+#include <algorithm>
 using namespace std;
 
 vector<string> split_words(string txt) {
@@ -21,3 +22,4 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
+```
