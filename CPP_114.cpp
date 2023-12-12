@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <cassert>
 using namespace std;
 
 long long minSubarraySum(vector<long long> nums) {
@@ -16,7 +18,8 @@ long long minSubarraySum(vector<long long> nums) {
     return min_sum;
 }
 
-int main(void) {
+int main() {
     assert(minSubarraySum({1, -1}) == -1);
     return 0;
 }
+```
