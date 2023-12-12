@@ -4,3 +4,6 @@ def spin_words(sentence):
         if len(words[i]) >= 5:
             words[i] = words[i][::-1]
     return ' '.join(words)
+
+sentence = input()
+print(spin_words(sentence))
