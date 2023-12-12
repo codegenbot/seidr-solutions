@@ -1,13 +1,19 @@
 ```
 #include <iostream>
 #include <string>
-#include <cassert>
 
-void encode_shift(const std::pmr::string& str) {
+std::string encode_shift(const std::string& str) {
     // Implement the encoding logic here
 }
 
-std::pmr::string decode_shift(const std::pmr::string& str) {
+std::string decode_shift(const std::string& str) {
     // Implement the decoding logic here
+}
+
+int main() {
+    std::string str = "hello";
+    std::cout << "Encoded: " << encode_shift(str) << std::endl;
+    std::cout << "Decoded: " << decode_shift(encode_shift(str)) << std::endl;
+    return 0;
 }
 ```
