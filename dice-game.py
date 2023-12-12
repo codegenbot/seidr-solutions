@@ -2,12 +2,10 @@ n = int(input())
 m = int(input())
 
 def probability_of_higher(n, m):
-    count = 0
-    total = n * m
-    for i in range(1, n+1):
-        for j in range(1, m+1):
-            if i > j:
-                count += 1
-    return count / total
+    total_outcomes = n * m
+    favorable_outcomes = (n * (n - 1)) // 2
+    probability = favorable_outcomes / total_outcomes
+    return probability
 
-print(probability_of_higher(n, m))
+result = probability_of_higher(n, m)
+print(result)
