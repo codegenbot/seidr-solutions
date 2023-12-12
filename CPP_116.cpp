@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -25,4 +24,3 @@ vector<int> sort_array(vector<int> arr) {
     }
     return result;
 }
-```
