@@ -1,19 +1,20 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string decipherMessage(string cipher, string plain, string message) {
-    string decipheredMessage = "";
+std::string decipherMessage(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string decipheredMessage = "";
     for (char c : message) {
-        int index = cipher.find(c);
-        decipheredMessage += plain[index];
+        int index = cipher2.find(c);
+        if (index != std::string::npos) {
+            decipheredMessage += cipher1[index];
+        }
     }
     return decipheredMessage;
 }
 
 int main() {
-    string cipher, plain, message;
-    cin >> cipher >> plain >> message;
-    cout << decipherMessage(cipher, plain, message) << endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << decipherMessage(cipher1, cipher2, message) << std::endl;
     return 0;
 }
