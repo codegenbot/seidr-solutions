@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <cassert>
 #include <cstddef>
@@ -14,3 +15,4 @@ int main() {
     assert(is_simple_power(3, 1) == true);
     assert(is_simple_power(5, 3) == false);
 }
+```

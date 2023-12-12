@@ -19,7 +19,8 @@ int main() {
     return 0;
 }
 ```
-The error message indicates that there are two possible implementations of the `issame` function with the same name and parameters, which is causing the ambiguity. To fix this issue, you can either:
+
+The issue is caused by two possible implementations of the `issame` function with the same name and parameters, which causes an ambiguity error. To fix this, you can either:
 
 1. Remove one of the definitions of the `issame` function to avoid the conflict.
 2. Use a namespace or class to encapsulate one of the implementations to differentiate them.
