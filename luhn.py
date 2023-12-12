@@ -12,5 +12,6 @@ def luhn_algorithm(numbers):
 
 n = int(input())
 numbers = list(map(int, input().split()))
+
 result = luhn_algorithm(numbers)
 print(result)
