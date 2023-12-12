@@ -37,9 +37,7 @@ bool isValidDate(string date) {
 }
 
 int main() {
-    string date = "04-2003";
-    bool valid_date = isValidDate(date);
-    assert(valid_date == false);
+    assert(isValidDate("04-2003") == false);
     return 0;
 }
 ```
