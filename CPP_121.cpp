@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -22,4 +21,3 @@ int solution(vector<int> lst) {
     }
     return sum;
 }
-```
