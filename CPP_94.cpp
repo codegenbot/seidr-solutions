@@ -37,15 +37,9 @@ int largestPrime(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        nums.push_back(x);
-    }
-    cout << largestPrime(nums) << endl;
+    vector<int> nums = {127, 97, 8192};
+    int result = largestPrime(nums);
+    cout << "The largest prime number in the input vector is: " << result << endl;
     return 0;
 }
 ```
