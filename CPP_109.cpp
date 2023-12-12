@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -16,4 +15,3 @@ bool move_one_ball(vector<int> arr) {
     
     return true;
 }
-```
