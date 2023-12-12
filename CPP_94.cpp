@@ -1,4 +1,3 @@
-```
 #include <cassert>
 #include <vector>
 using namespace std;
@@ -13,9 +12,8 @@ int main() {
     assert (result == 10);
 }
 
-template <typename T>
-T largestPrime(vector<T> lst) {
-    T max = 0;
+int largestPrime(vector<int> lst) {
+    int max = 0;
     for (int i = 0; i < lst.size() - 1; i++) {
         if (lst[i] > max && isPrime(lst[i])) {
             max = lst[i];
@@ -41,4 +39,3 @@ int sumDigits(int n) {
     }
     return sum;
 }
-```
