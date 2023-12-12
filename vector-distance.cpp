@@ -16,23 +16,21 @@ int main() {
     std::cin >> n;
 
     std::vector<double> vec1;
-    vec1.reserve(n);
+    vec1.reserve(n); // Reserve memory for n elements
 
     for (int i = 0; i < n; i++) {
-        double num;
-        std::cin >> num;
-        vec1.push_back(num);
+        double element;
+        std::cin >> element;
+        vec1.push_back(element);
     }
 
-    std::cin >> n;
-
     std::vector<double> vec2;
-    vec2.reserve(n);
+    vec2.reserve(n); // Reserve memory for n elements
 
     for (int i = 0; i < n; i++) {
-        double num;
-        std::cin >> num;
-        vec2.push_back(num);
+        double element;
+        std::cin >> element;
+        vec2.push_back(element);
     }
 
     double distance = euclideanDistance(vec1, vec2);
