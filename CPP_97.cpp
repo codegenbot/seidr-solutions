@@ -1,4 +1,5 @@
-```cpp
+#include <iostream>
+
 int main() {
     std::cout << "Enter two numbers: ";
     int a, b;
@@ -10,4 +11,3 @@ int main() {
 int multiply(int a, int b) {
     return a * b;
 }
-```
