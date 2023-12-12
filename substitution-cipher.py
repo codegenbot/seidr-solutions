@@ -1,15 +1,11 @@
-def decipher_message(cipher_string1, cipher_string2, message):
-    # Create a dictionary to store the mapping between characters in the cipher strings
-    char_map = {}
-    for i in range(len(cipher_string1)):
-        char_map[cipher_string1[i]] = cipher_string2[i]
-    
-    # Use the dictionary to decipher the message
+def decode_message(cipher_key, cipher_text):
     deciphered_message = ""
-    for char in message:
-        if char in char_map:
-            deciphered_message += char_map[char]
-        else:
-            deciphered_message += char
-    
+    for i in range(len(cipher_text)):
+        deciphered_message += chr(ord(cipher_text[i]) - ord(cipher_key[i]))
     return deciphered_message
+
+# Test cases
+print(decode_message("a", "a")) # a
+print(decode_message("j", "h")) # h
+print(decode_message("a", "z")) # z
+print(decode_message("e", "l")) # lllllllllll
