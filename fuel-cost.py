@@ -1,3 +1,2 @@
-
 def fuel_cost(vector):
-    return sum((round(x/3))-2 for x in vector)
+    return sum((x - 2) // 3 for x in vector if (x - 2) // 3 >= 0 else 0)
