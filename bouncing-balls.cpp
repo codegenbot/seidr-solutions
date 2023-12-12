@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -11,7 +10,7 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
     double totalDistance = startingHeight;
     
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * bouncinessIndex;
+        totalDistance += bouncinessIndex * startingHeight;
     }
     
     return totalDistance;
@@ -29,4 +28,3 @@ int main() {
     
     return 0;
 }
-```
