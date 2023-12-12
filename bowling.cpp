@@ -1,42 +1,58 @@
 #include <iostream>
 #include <string>
 
-int scoreRound(const std::string& round) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
-    int frame = 0;
-    int bowl = 0;
-    int rolls = round.size();
+    int frame = 1;
+    int bowlIndex = 0;
 
-    for (int i = 0; i < rolls; i++) {
-        if (frame == 10) {
+    for (int i = 0; i < bowls.size(); i++) {
+        char bowl = bowls[i];
+
+        if (frame > 10) {
             break;
         }
 
-        if (round[i] == 'X') {
+        if (bowl == 'X') {
             score += 10;
-            score += (round[i + 1] == 'X') ? 10 : (isdigit(round[i + 1]) ? round[i + 1] - '0' : 0);
-            score += (round[i + 2] == 'X') ? 10 : (isdigit(round[i + 2]) ? round[i + 2] - '0' : 0);
+
+            if (frame < 10) {
+                if (bowls[i + 2] == 'X') {
+                    score += 10;
+                } else {
+                    score += (bowls[i + 1] - '0') + (bowls[i + 2] - '0');
+                }
+            }
+
             frame++;
-        } else if (round[i] == '/') {
-            score += (10 - (round[i - 1] - '0'));
-            score += (isdigit(round[i + 1]) ? round[i + 1] - '0' : 0);
+        } else if (bowl == '/') {
+            score += (10 - (bowls[i - 1] - '0'));
+
+            if (frame < 10) {
+                score += (bowls[i + 1] - '0');
+            }
+
             frame++;
-        } else if (isdigit(round[i])) {
-            score += (round[i] - '0');
-            bowl++;
-            if (bowl == 2) {
+        } else {
+            score += (bowl - '0');
+
+            if (frame < 10 && (bowlIndex % 2 == 1 || bowl == '-')) {
                 frame++;
-                bowl = 0;
             }
         }
+
+        bowlIndex++;
     }
 
     return score;
 }
 
 int main() {
-    std::string round;
-    std::cin >> round;
-    std::cout << scoreRound(round) << std::endl;
+    std::string bowls;
+    std::cin >> bowls;
+
+    int score = calculateScore(bowls);
+    std::cout << score << std::endl;
+
     return 0;
 }
