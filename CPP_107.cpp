@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,4 +15,3 @@ vector<int> even_odd_palindrome(int n) {
     }
     return result;
 }
-```
