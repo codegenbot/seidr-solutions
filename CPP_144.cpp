@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -6,7 +7,6 @@ using namespace std;
 
 bool simplify(string::iterator x_it, string::iterator n_it) {
     // ...
-    return true;
 }
 
 int main() {
@@ -17,3 +17,4 @@ int main() {
     cout << simplify(x.begin(), x.end()) << endl;
     return 0;
 }
+```
