@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -21,4 +20,3 @@ std::string fix_spaces(std::string text) {
     }
     return result;
 }
-```
