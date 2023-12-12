@@ -1,3 +1,4 @@
+```
 def substitution_cipher(ciphertext, key):
     char_map = {}
     for i, char in enumerate(key):
@@ -14,3 +15,4 @@ def substitution_cipher(ciphertext, key):
         decrypted_message += ciphertext[-1]
     
     return decrypted_message
+```
