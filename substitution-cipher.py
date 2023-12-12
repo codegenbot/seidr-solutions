@@ -1,16 +1,15 @@
-def substitute_cipher(cipher, message):
-    # Create a dictionary to store the substitutions
-    subs = {}
-    for i in range(len(cipher)):
-        subs[cipher[i]] = message[i]
+def cipher(string1, string2, string3):
+    # Create a dictionary to store the mapping between characters
+    mapping = {}
+    for i in range(len(string1)):
+        mapping[string1[i]] = string2[i]
     
-    # Apply the cipher to the message
+    # Decipher the third string using the mapping
     deciphered_message = ""
-    for char in message:
-        if char in subs:
-            deciphered_message += subs[char]
+    for char in string3:
+        if char in mapping:
+            deciphered_message += mapping[char]
         else:
             deciphered_message += char
     
     return deciphered_message
-```
