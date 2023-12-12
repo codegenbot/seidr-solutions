@@ -1,13 +1,15 @@
-```
 #include <iostream>
 using namespace std;
+
+int fib4(int n) {
+    // Implement the Fibonacci function here
+}
 
 int main() {
     cout << "Enter a number: ";
     int n;
     cin >> n;
     string str = "The " + to_string(n) + "-th Fibonacci number is: " + to_string(fib4(n));
-    cout << str.capacity() << endl;
+    cout << str << endl;
     return 0;
 }
-```
