@@ -1,7 +1,18 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
+
+int largestPrime(vector<int> lst) {
+    int max = 0;
+    for (int i = 0; i < lst.size(); i++) {
+        if (lst[i] > max && isPrime(lst[i])) {
+            max = lst[i];
+        }
+    }
+    return sumDigits(max);
+}
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -19,26 +30,4 @@ int sumDigits(int n) {
     }
     return sum;
 }
-
-int largestPrime(vector<int> lst) {
-    int max = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] > max && isPrime(lst[i])) {
-            max = lst[i];
-        }
-    }
-    return sumDigits(max);
-}
-
-int main() {
-    vector<int> lst;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        lst.push_back(num);
-    }
-    cout << largestPrime(lst) << endl;
-    return 0;
-}
+```
