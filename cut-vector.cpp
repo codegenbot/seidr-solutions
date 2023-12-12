@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
     int sum = 0;
     for (int num : nums) {
@@ -49,4 +48,3 @@ int main() {
     
     return 0;
 }
-```
