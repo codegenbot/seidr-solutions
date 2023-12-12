@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <sstream>
 
@@ -13,9 +13,9 @@ int main() {
     std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
         int sum = a + b;
-        std::ostringstream oss;
-        oss << sum;
-        std::cout << "True" << oss.str() << std::endl;
+        const char* str = oss.str().c_str();
+        size_t len = std::char_traits<char>::length(str);
+        std::cout << "True" << std::string(str, len) << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
