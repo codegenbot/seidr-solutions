@@ -22,7 +22,7 @@ XXXXXXXXXXXX
 output:
 300
 input:
-5/5/5/5/5/5/5/5/5/5
+5/5/5/5/5/5/5/5/5/5/5
 output:
 150
 input:
@@ -34,22 +34,18 @@ input:
 output:
 100
 */
-int getScore(string bowls) {
+int calculateScore(string bowling) {
     int score = 0;
-    for (int i = 0; i < bowls.size(); i++) {
-        if (bowls[i] == 'X') {
+    for (int i = 0; i < bowling.size(); i++) {
+        if (bowling[i] == 'X') {
             score += 10;
-        } else if (bowls[i] == '/') {
+        } else if (bowling[i] == '/') {
             score += 5;
-        } else if (bowls[i] == '-') {
-            score -= 5;
+        } else if (bowling[i] == '-') {
+            score -= 2;
+        } else {
+            score += bowling[i] - '0';
         }
     }
     return score;
-}
-int main() {
-    string bowls;
-    cin >> bowls;
-    cout << getScore(bowls) << endl;
-    return 0;
 }
