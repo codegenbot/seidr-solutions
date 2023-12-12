@@ -22,6 +22,15 @@ def min_path(grid, k):
                 visited[i][j] = True
 
     return min_sum
+
+def main():
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    k = 3
+    result = min_path(grid, k)
+    print(result)
+
+if __name__ == "__main__":
+    main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
