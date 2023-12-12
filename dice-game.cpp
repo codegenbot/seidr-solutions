@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -22,7 +23,10 @@ int main() {
     cin >> n >> m;
 
     double result = probability(n, m);
-    cout << fixed << setprecision(8) << result << endl;
+
+    cout << fixed << setprecision(8);
+    cout << result << endl;
 
     return 0;
 }
+```
