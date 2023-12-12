@@ -4,4 +4,5 @@ if expr == 't':
 elif expr == 'f':
     print(False)
 else:
-    print(eval(expr, {'t': True, 'f': False}))
+    result = eval(expr, {'t': True, 'f': False})
+    print(result)
