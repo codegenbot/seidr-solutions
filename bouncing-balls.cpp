@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <iomanip> // This line includes the header file that contains setprecision
@@ -15,4 +14,3 @@ int main() {
     cout << fixed << setprecision(12) << totalDistance << endl;
     return 0;
 }
-```
