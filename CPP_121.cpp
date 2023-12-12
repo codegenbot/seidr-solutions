@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -13,13 +12,5 @@ int solution(vector<int> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> lst = {3, 13, 2, 9};
-    int result = solution(lst);
-    assert(result == 14);
-    cout << "Result: " << result << endl;
-    return 0;
 }
 ```
