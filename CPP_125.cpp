@@ -1,17 +1,26 @@
 ```
-#include <iostream>
 #include <string>
 #include <vector>
 
-// Forward declaration of split_words
-void split_words(std::string& txt);
+using namespace std;
 
-int main() {
-    // ...
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
-// Definition of split_words
-void split_words(std::string& txt) {
-    // ...
+vector<string> split_words(const string& text) {
+    vector<string> words;
+    size_t pos = 0;
+    while ((pos = text.find(" ", pos)) != string::npos) {
+        words.push_back(text.substr(pos, pos + 1));
+        pos++;
+    }
+    return words;
+}
+
+int main() {
+    vector<string> expected_output = {"0"};
+    assert(issame(split_words(""), expected_output));
+    return 0;
 }
 ```
