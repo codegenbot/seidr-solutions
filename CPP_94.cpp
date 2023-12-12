@@ -15,7 +15,7 @@ bool isPrime(int n) {
 
 int largestPrime(vector<int> nums) {
     int max = 0;
-    for (std::size_t i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++) {
         if (nums[i] > max && isPrime(nums[i])) {
             max = nums[i];
         }
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
     vector<int> nums;
     int n;
     cin >> n;
-    for (std::size_t i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
         nums.push_back(x);
