@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,4 +19,3 @@ vector<int> unique_digits(vector<int> x) {
     }
     return result;
 }
-```
