@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -5,6 +6,19 @@
 #include <sstream> // Add this line
 
 using namespace std;
+
+bool isValidDate(string date); // Forward declaration of isValidDate
+
+int main() {
+    string date;
+    cin >> date;
+    if (isValidDate(date)) {
+        cout << "The date is valid." << endl;
+    } else {
+        cout << "The date is not valid." << endl;
+    }
+    return 0;
+}
 
 bool isValidDate(string date) {
     int month, day, year;
@@ -34,8 +48,4 @@ bool isValidDate(string date) {
 
     return day <= daysInMonth;
 }
-
-int main() {
-    assert (isValidDate("04-2003") == false);
-    return 0;
-}
+```
