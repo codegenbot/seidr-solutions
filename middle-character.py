@@ -5,4 +5,7 @@ def middle_character(s):
         return s[length // 2]
     else:
         return s[length // 2 - 1:length // 2 + 1]
+
+output = middle_character(input())
+print(output)
 ```
