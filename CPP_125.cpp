@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,4 +21,3 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
-```
