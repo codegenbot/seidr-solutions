@@ -1,12 +1,12 @@
-```
+```cpp
 #include <iostream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
-bool is_nested(string str) {
+bool is_nested(const char* str) {
     int count = 0;
-    for (int i = 0; i < str.length(); i++) {
+    for (int i = 0; i < strlen(str); i++) {
         if (str[i] == '[' || str[i] == ']') {
             count++;
         }
