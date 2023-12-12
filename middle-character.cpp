@@ -1,19 +1,18 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string getMiddleCharacter(string str) {
+std::string getMiddleCharacter(const std::string& str) {
     int length = str.length();
-    if (length % 2 == 1) {
-        return string(1, str[length/2]);
+    if (length % 2 == 0) {
+        return str.substr(length / 2 - 1, 2);
     } else {
-        return str.substr(length/2 - 1, 2);
+        return str.substr(length / 2, 1);
     }
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << getMiddleCharacter(input) << endl;
+    std::string input;
+    std::cin >> input;
+    std::cout << getMiddleCharacter(input) << std::endl;
     return 0;
 }
