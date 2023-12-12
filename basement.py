@@ -1,5 +1,5 @@
 def basement(arr):
-    sum_so_far = -1
+    sum_so_far = 0
     for i, num in enumerate(arr):
         sum_so_far += num
         if sum_so_far < 0:
