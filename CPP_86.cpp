@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <cassert>
 #include <algorithm>
@@ -20,4 +19,3 @@ std::string anti_shuffle(const std::string& s) {
     }
     return result;
 }
-```

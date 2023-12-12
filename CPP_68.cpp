@@ -1,20 +1,5 @@
 
-#include <vector>
-
-std::vector<int> pluck(const std::vector<int>& v, int index) {
-    std::vector<int> result;
-    for (int i = 0; i < v.size(); ++i) {
-        if (v[i] == index) {
-            result.push_back(v[i]);
-        }
-    }
-    return result;
-}
-
-int main() {
-    std::vector<int> v = {7, 9, 7, 1};
-    assert(issame(pluck(v, 0), {}));
-    assert(issame(pluck(v, 1), {7, 7}));
-    assert(issame(pluck(v, 2), {9}));
-    return 0;
-}
+The issue is that the `pluck` function requires two arguments: a vector and an integer index. However, the call to `issame(pluck({7, 9, 7, 1}) , {})` only provides one argument (a vector). To fix this, you need to pass the correct index as the second argument in the call to `pluck`. For example:
+```
+assert(issame(pluck({7, 9, 7, 1}, 0), {}));
+```
