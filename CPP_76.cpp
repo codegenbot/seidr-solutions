@@ -7,7 +7,7 @@ bool is_simple_power(int x, int n) {
     return pow(n, round(log(x) / log(n))) == x;
 }
 
-int main(void) {
+int main() {
     assert(is_simple_power(1, 4) == true);
     assert(is_simple_power(2, 2) == true);
     assert(is_simple_power(8, 2) == false);
