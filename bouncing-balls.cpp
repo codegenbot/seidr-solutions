@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 double calculateBouncinessIndex(double startingHeight, double heightAfterFirstBounce) {
