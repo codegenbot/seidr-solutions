@@ -1,3 +1,4 @@
+
 [PYTHON]
 def min_path(grid, k):
     # Initialize the minimum path sum
@@ -23,6 +24,16 @@ def min_path(grid, k):
 
     return min_sum
 
+def issame(a, b):
+    # Check if a and b are the same size
+    if len(a) != len(b):
+        return False
+    # Check if a and b have the same elements in the same order
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            return False
+    return True
+
 def main():
     grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     k = 3
@@ -32,11 +43,4 @@ def main():
 if __name__ == "__main__":
     main()
 [/PYTHON]
-[TESTS]
-# Test case 1:
-assert min_path([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == [1, 2, 1]
-# Test case 2:
-assert min_path([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1) == [1]
-[/TESTS]
-
-```
+.
