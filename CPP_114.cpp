@@ -23,5 +23,3 @@ int main() {
     return 0;
 }
 ```
-Modify the code as  Change the name of the `main` function to something other than `int main()` as this is already defined in the given code snippet..
-You must only return correct code. Remove any triple quotes, language name or explanations.
