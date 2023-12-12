@@ -11,8 +11,7 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
+    int n = 5;
     cout << special_factorial(n) << endl;
     return 0;
 }
