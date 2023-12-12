@@ -6,20 +6,6 @@
 
 using namespace std;
 
-bool isValidDate(string date);
-
-int main() {
-    string date;
-    getline(cin, date);
-    bool valid_date = isValidDate(date);
-    if (valid_date) {
-        cout << "The date is valid." << endl;
-    } else {
-        cout << "The date is not valid." << endl;
-    }
-    return 0;
-}
-
 bool isValidDate(string date) {
     int month, day, year;
     char delimiter = '-';
