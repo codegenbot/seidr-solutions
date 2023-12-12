@@ -1,9 +1,11 @@
+```cpp
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
+#include <vector>
 
-std::string reverseWords(const std::string& input) {
-    std::istringstream iss(input);
+std::string reverseWords(const std::string& sentence) {
+    std::istringstream iss(sentence);
     std::string word;
     std::string result;
 
@@ -14,17 +16,20 @@ std::string reverseWords(const std::string& input) {
         result += word + " ";
     }
 
-    result.pop_back(); // remove the trailing space
+    if (!result.empty()) {
+        result.pop_back(); // remove the extra space at the end
+    }
 
     return result;
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
+    std::string sentence;
+    std::getline(std::cin, sentence);
 
-    std::string output = reverseWords(input);
-    std::cout << output << std::endl;
+    std::string reversedSentence = reverseWords(sentence);
+    std::cout << reversedSentence << std::endl;
 
     return 0;
 }
+```
