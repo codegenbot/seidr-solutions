@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -32,7 +31,6 @@ int main() {
         cin >> x;
         nums.push_back(x);
     }
-    cout << largestPrime(nums) << endl;
+    assert(largestPrime(nums) == 10);
     return 0;
 }
-```
