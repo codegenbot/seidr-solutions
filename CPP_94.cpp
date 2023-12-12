@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,4 +29,3 @@ int largestPrime(vector<int> lst) {
     }
     return sumDigits(max);
 }
-```
