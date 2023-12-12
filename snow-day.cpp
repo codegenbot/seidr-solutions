@@ -1,6 +1,4 @@
 ```c++
-#include <iostream>
-
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
     float snow = initialSnow;
     
