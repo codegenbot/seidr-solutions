@@ -1,30 +1,45 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <string>
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
+std::pair<int, int> solveMastermind(const std::string& code, const std::string& guess) {
+    int blackPegs = 0;
+    int whitePegs = 0;
 
-    int white_pegs = 0;
-    int black_pegs = 0;
-    
-    int code_freq[6] = {0};
-    int guess_freq[6] = {0};
-    for (int i = 0; i < 4; i++) {
+    // A map to store the frequency of each character in the code
+    std::map<char, int> codeFreq;
+
+    // Count the black pegs (correct color, correct place)
+    for (int i = 0; i < code.size(); ++i) {
         if (code[i] == guess[i]) {
-            black_pegs++;
-        } else {
-            code_freq[code[i] - 'A']++;
-            guess_freq[guess[i] - 'A']++;
+            blackPegs++;
+        }
+        else {
+            // Update the frequency of characters in the code
+            codeFreq[code[i]]++;
         }
     }
-    
-    for (int i = 0; i < 6; i++) {
-        white_pegs += min(code_freq[i], guess_freq[i]);
+
+    // Count the white pegs (correct color, wrong place)
+    for (int i = 0; i < guess.size(); ++i) {
+        if (code[i] != guess[i] && codeFreq[guess[i]] > 0) {
+            whitePegs++;
+            codeFreq[guess[i]]--; // decrement the frequency of the character in the code
+        }
     }
 
-    cout << white_pegs << endl;
-    cout << black_pegs << endl;
+    return {whitePegs, blackPegs};
+}
+
+int main() {
+    std::string code, guess;
+    std::cin >> code >> guess;
+
+    std::pair<int, int> result = solveMastermind(code, guess);
+
+    std::cout << result.first << std::endl;
+    std::cout << result.second << std::endl;
 
     return 0;
 }
+```
