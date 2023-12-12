@@ -5,7 +5,7 @@
 #include <cassert>
 using namespace std;
 
-long long minSubarraySum(vector<long long> nums) {
+long long minSubarraySum(vector<int> nums) {
     long long sum = 0, min_sum = numeric_limits<long long>::max();
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
