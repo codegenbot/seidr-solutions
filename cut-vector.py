@@ -1,15 +1,32 @@
 def cut_vector(vector):
+    n = len(vector)
     total_sum = sum(vector)
-    current_sum = 0
-    min_difference = float('inf')
-    min_index = 0
+    left_sum = 0
+    right_sum = total_sum
+    min_diff = float('inf')
+    cut_index = -1
     
-    for i, num in enumerate(vector):
-        current_sum += num
-        difference = abs(total_sum - 2 * current_sum)
+    for i in range(n):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+        diff = abs(left_sum - right_sum)
         
-        if difference < min_difference:
-            min_difference = difference
-            min_index = i
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
     
-    return vector[:min_index+1], vector[min_index+1:]
+    return vector[:cut_index+1], vector[cut_index+1:]
+
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
+
+left_subvector, right_subvector = cut_vector(vector)
+for num in left_subvector:
+    print(num)
+for num in right_subvector:
+    print(num)
