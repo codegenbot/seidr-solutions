@@ -4,16 +4,34 @@
 #include <string>
 using namespace std;
 
-vector<string> splitWords(string txt) {
+vector<string> split_words(string txt) {
     vector<string> words;
-    int pos = 0;
-    while (pos != string::npos) {
-        int newPos = txt.find_first_of(" ", pos);
-        if (newPos == string::npos) {
-            break;
+    if (txt.find(" ") != string::npos) {
+        // Use find to search for spaces
+        size_t pos = 0;
+        while ((pos = txt.find(" ", pos)) != string::npos) {
+            // Extract the substring up to the space
+            words.push_back(txt.substr(pos, pos + 1));
+            // Update the position to start searching from the next character
+            pos++;
         }
-        words.push_back(txt.substr(pos, newPos - pos));
-        pos = newPos + 1;
+    } else if (txt.find(",") != string::npos) {
+        // Use find to search for commas
+        size_t pos = 0;
+        while ((pos = txt.find(",", pos)) != string::npos) {
+            // Extract the substring up to the comma
+            words.push_back(txt.substr(pos, pos + 1));
+            // Update the position to start searching from the next character
+            pos++;
+        }
+    } else {
+        int count = 0;
+        for (int i = 0; i < txt.size(); i++) {
+            if (islower(txt[i])) {
+                count++;
+            }
+        }
+        words.push_back(to_string(count));
     }
     return words;
 }
