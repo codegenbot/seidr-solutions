@@ -1,3 +1,4 @@
+```python
 import collections
 from typing import Tuple
 
@@ -23,3 +24,4 @@ def mastermind() -> Tuple[int, int]:
 
 result = mastermind()
 print(result[0], result[1])
+```
