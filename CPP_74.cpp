@@ -1,9 +1,9 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::pmr::string& a, const std::pmr::string& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +15,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> result;
+std::pmr::string totalMatch(const std::pmr::string& a, const std::pmr::string& b) {
+    std::pmr::string result;
     for (int i = 0; i < a.size(); i++) {
         if (a[i].compare("this") == 0) {
             result.push_back(b[i]);
@@ -26,7 +26,8 @@ std::vector<std::string> totalMatch(const std::vector<std::string>& a, const std
 }
 
 int main() {
-    std::vector<std::string> a = {"this"};
-    std::vector<std::string> b;
-    assert(issame(totalMatch(a, b), {}));
+    std::pmr::string a = {"this"};
+    std::pmr::string b;
+    assert(issame(totalMatch({"this"}, {"that"}), {}));
 }
+```
