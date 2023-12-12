@@ -1,37 +1,46 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <vector>
+#include <map>
+using namespace std;
 
-std::pair<int, int> getClue(const std::string& code, const std::string& guess) {
+pair<int, int> getClues(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    std::vector<int> codeCount(6, 0);
-    std::vector<int> guessCount(6, 0);
+    map<char, int> frequency;
 
+    // Counting frequency of each character in code
+    for (char ch : code) {
+        frequency[ch]++;
+    }
+
+    // Checking for black pegs
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+            frequency[guess[i]]--;
         }
     }
 
-    for (int i = 0; i < 6; i++) {
-        whitePegs += std::min(codeCount[i], guessCount[i]);
+    // Checking for white pegs
+    for (int i = 0; i < 4; i++) {
+        if (code[i] != guess[i] && frequency[guess[i]] > 0) {
+            whitePegs++;
+            frequency[guess[i]]--;
+        }
     }
 
-    return std::make_pair(whitePegs, blackPegs);
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
 
-    std::pair<int, int> clue = getClue(code, guess);
-    std::cout << clue.first << std::endl;
-    std::cout << clue.second << std::endl;
+    pair<int, int> clues = getClues(code, guess);
+
+    cout << clues.first << endl;
+    cout << clues.second << endl;
 
     return 0;
 }
