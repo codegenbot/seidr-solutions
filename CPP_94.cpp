@@ -1,8 +1,8 @@
 ```
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
+#include <iostream>
 using namespace std;
 
 bool isPrime(int n) {
@@ -36,7 +36,7 @@ int largestPrime(vector<int> nums) {
     return sumDigits(max);
 }
 
-int main() {
+int test() {
     assert (largestPrime({127, 97, 8192}) == 10);
     return 0;
 }
