@@ -1,4 +1,3 @@
-```python
 def calculate_total_price(prices, discounts):
     total_price = sum(prices)
     for i in range(len(prices)):
@@ -13,4 +12,3 @@ discounts = list(map(float, input().split()))
 
 result = calculate_total_price(prices, discounts)
 print(result)
-```
