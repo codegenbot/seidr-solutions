@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
+#include <iomanip> // This line includes the header file that contains setprecision
 using namespace std;
 int main() {
     double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance;
