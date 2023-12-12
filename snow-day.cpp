@@ -1,5 +1,5 @@
-```c++
 #include <iostream>
+
 using namespace std;
 
 float calculateSnow(int hours, float initialSnow, float snowFallRate, float meltingRate) {
@@ -23,4 +23,3 @@ int main() {
     
     return 0;
 }
-```
