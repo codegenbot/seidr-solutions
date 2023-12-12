@@ -1,59 +1,61 @@
-#include <iostream>
 #include <vector>
-#include <climits>
+#include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int index = 0;
-    
-    // Calculate the difference between the sum of the elements on the left and right side of each index
-    for (int i = 0; i < n; i++) {
+    int cutIndex = -1;
+
+    for (int i = 0; i < n - 1; i++) {
         int leftSum = 0;
         int rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
+
+        for (int j = 0; j <= i; j++) {
             leftSum += nums[j];
         }
-        
-        for (int j = i; j < n; j++) {
+
+        for (int j = i + 1; j < n; j++) {
             rightSum += nums[j];
         }
-        
+
         int currentDiff = abs(leftSum - rightSum);
-        
         if (currentDiff < diff) {
             diff = currentDiff;
-            index = i;
+            cutIndex = i;
         }
     }
-    
-    // Create the two resulting subvectors
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
-    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
-    
+
+    std::vector<int> leftSubvector;
+    std::vector<int> rightSubvector;
+
+    for (int i = 0; i <= cutIndex; i++) {
+        leftSubvector.push_back(nums[i]);
+    }
+
+    for (int i = cutIndex + 1; i < n; i++) {
+        rightSubvector.push_back(nums[i]);
+    }
+
     return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+    std::vector<int> nums;
+    int num;
+
+    while (std::cin >> num) {
+        nums.push_back(num);
     }
-    
+
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-    
-    // Print the two resulting subvectors
+
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
-    
+
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
