@@ -46,10 +46,28 @@ def get_neighbors(grid, position):
     return neighbors
 
 def main():
-    grid = [[1, 3], [3, 2]]
+    # Define the grid and start position
+    grid = [[1, 2], [3, 4]]
     start = (0, 0)
-    assert get_min_path(grid, start) == 10
+    # Calculate the minimum path sum using min_path
+    min_sum = get_min_path(grid, start)
+    # Print the minimum path sum
+    print(min_sum)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 [/PYTHON]
+[TESTS]
+# Test case 1:
+    grid = [[1, 2], [3, 4]]
+    start = (0, 0)
+    assert get_min_path(grid, start) == 6
+# Test case 2:
+    grid = [[1, 3], [3, 2]]
+    start = (0, 0)
+    assert get_min_path(grid, start) == 8
+# Test case 3:
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    start = (0, 0)
+    assert get_min_path(grid, start) == 15
+[/TESTS]
