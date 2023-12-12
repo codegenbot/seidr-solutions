@@ -1,4 +1,3 @@
-```
 #include <cassert>
 #include <vector>
 using namespace std;
@@ -40,4 +39,3 @@ int sumDigits(int n) {
     }
     return sum;
 }
-```

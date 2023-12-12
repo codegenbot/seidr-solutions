@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -14,4 +13,3 @@ bool is_equal_to_sum_even(int n) {
     }
     return false;
 }
-```

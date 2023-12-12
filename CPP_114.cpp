@@ -1,8 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <limits>
-#include <cassert>
 using namespace std;
 
 long long minSubarraySum(vector<long long> nums) {
