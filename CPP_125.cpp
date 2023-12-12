@@ -4,20 +4,26 @@
 #include <algorithm>
 using namespace std;
 
-vector<string> split_words(string txt) {
+vector<string> split_words(const string& txt) {
     vector<string> words;
-    if (txt.find(" ") != string::npos) {
-        words = split(txt, " ");
-    } else if (txt.find(",") != string::npos) {
-        words = split(txt, ",");
-    } else {
-        int count = 0;
-        for (int i = 0; i < txt.size(); i++) {
-            if (islower(txt[i])) {
-                count++;
-            }
+    size_t pos = 0;
+    while (pos < txt.size()) {
+        size_t start = pos;
+        size_t end = txt.find(" ", pos);
+        if (end == string::npos) {
+            break;
         }
-        words.push_back(to_string(count));
+        words.push_back(txt.substr(start, end - start));
+        pos = end + 1;
     }
     return words;
+}
+
+int main() {
+    string txt = "Hello World!";
+    vector<string> words = split_words(txt);
+    for (const auto& word : words) {
+        cout << word << endl;
+    }
+    return 0;
 }
