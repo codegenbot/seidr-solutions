@@ -6,6 +6,12 @@
 #include <utility>
 using namespace std;
 
+// Declare and define the sort function
+void sort(vector<pair<int, int>>& points) {
+    // Sort the points in ascending order of their first element
+    sort(points.begin(), points.end());
+}
+
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> points;
     for (int i = 0; i < nums.size(); i++) {
@@ -16,7 +22,7 @@ vector<int> order_by_points(vector<int> nums) {
         }
         points.push_back(make_pair(sum, i));
     }
-    sort(points.begin(), points.end());
+    sort(points); // Use the declared and defined sort function
     vector<int> result;
     for (int i = 0; i < nums.size(); i++) {
         result.push_back(nums[points[i].second]);
