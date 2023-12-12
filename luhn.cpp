@@ -10,17 +10,16 @@ int main() {
     }
 
     int sum = 0;
-
-    for (int i = n-2; i >= 0; i -= 2) {
-        int doubled = digits[i] * 2;
-        if (doubled > 9) {
-            doubled -= 9;
+    for (int i = n - 1; i >= 0; i--) {
+        if (i % 2 == 1) {
+            int digit = digits[i] * 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+            sum += digit;
+        } else {
+            sum += digits[i];
         }
-        digits[i] = doubled;
-    }
-
-    for (int i = 0; i < n; i++) {
-        sum += digits[i];
     }
 
     std::cout << sum << std::endl;
