@@ -1,26 +1,23 @@
-```
+
+#include <iostream>
 #include <string>
 #include <vector>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-vector<string> split_words(const string& text) {
-    vector<string> words;
-    size_t pos = 0;
-    while ((pos = text.find(" ", pos)) != string::npos) {
-        words.push_back(text.substr(pos, pos + 1));
-        pos++;
-    }
-    return words;
-}
+// Forward declaration of split_words
+void split_words(std::string& txt);
 
 int main() {
-    vector<string> expected_output = {"0"};
-    assert(issame(split_words(""), expected_output));
-    return 0;
+    // ...
+}
+
+// Definition of split_words
+void split_words(std::string& txt) {
+    // ...
 }
 ```
+``` 
+Modify the code as  The issue is related to the use of `issame` as a function, which is not allowed in C++. The correct way to call the `split_words` function with an empty string and check if it returns a vector containing only "0" would be:
+```
+assert(split_words("") == std::vector<std::string>{"0"});
+```.
+You must only return correct code. Remove any triple quotes, language name or explanations. 
