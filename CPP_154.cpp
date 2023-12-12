@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -13,4 +12,3 @@ bool cycpattern_check(string a, string b) {
     }
     return false;
 }
-```
