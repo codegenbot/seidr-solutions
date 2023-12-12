@@ -1,11 +1,16 @@
-def decode_message(cipher_key, cipher_text):
-    deciphered_message = ""
-    for i in range(len(cipher_text)):
-        deciphered_message += chr(ord(cipher_text[i]) - ord(cipher_key[i]))
-    return deciphered_message
-
-# Test cases
-print(decode_message("a", "a")) # a
-print(decode_message("j", "h")) # h
-print(decode_message("a", "z")) # z
-print(decode_message("e", "l")) # lllllllllll
+def substitute(cipher, message):
+    # Create a dictionary to store the mapping of characters
+    char_map = {}
+    
+    # Iterate over the cipher and message simultaneously
+    for c1, c2 in zip(cipher, message):
+        # If the character is not already in the map, add it
+        if c1 not in char_map:
+            char_map[c1] = c2
+    
+    # Iterate over the message and substitute the characters
+    for i, c in enumerate(message):
+        if c in char_map:
+            message[i] = char_map[c]
+    
+    return ''.join(message)
