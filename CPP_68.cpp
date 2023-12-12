@@ -1,12 +1,20 @@
+```
+#include <iostream>
 #include <vector>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b);
+using namespace std;
 
 int main() {
-    assert (issame({7, 9, 7, 1}, {}));
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    sort(arr.begin(), arr.end());
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
 }
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Implement the function here
-}
+```
