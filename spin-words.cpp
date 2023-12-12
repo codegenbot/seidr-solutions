@@ -1,15 +1,13 @@
-```cpp
 #include <iostream>
-#include <sstream>
 #include <string>
-#include <vector>
+#include <sstream>
 
 std::string reverseWords(const std::string& sentence) {
-    std::istringstream iss(sentence);
+    std::stringstream ss(sentence);
     std::string word;
     std::string result;
 
-    while (iss >> word) {
+    while (ss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
@@ -17,7 +15,7 @@ std::string reverseWords(const std::string& sentence) {
     }
 
     if (!result.empty()) {
-        result.pop_back(); // remove the extra space at the end
+        result.pop_back(); // Remove the extra space at the end
     }
 
     return result;
@@ -32,4 +30,3 @@ int main() {
 
     return 0;
 }
-```
