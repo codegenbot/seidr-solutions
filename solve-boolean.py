@@ -1,3 +1,3 @@
-expr = input().strip()
-result = eval(expr, {'t': True, 'f': False})
-print(result)
+def solve_boolean(expression):
+    expression = expression.replace('|', ' or ').replace('&', ' and ')
+    return eval(expression)
