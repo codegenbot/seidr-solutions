@@ -3,12 +3,12 @@
 #include <string>
 #include <vector>
 
-int Strongest_Extension(const char* class_name, std::vector<const char*> extensions) {
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = 0;
-    const char* strongest_extension;
+    std::string strongest_extension;
     for (int i = 0; i < extensions.size(); i++) {
         int strength = 0;
-        for (int j = 0; j < strlen(extensions[i]); j++) {
+        for (int j = 0; j < extensions[i].length(); j++) {
             if (isupper(extensions[i][j])) {
                 strength++;
             } else if (islower(extensions[i][j])) {
