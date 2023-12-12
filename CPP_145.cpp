@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -15,7 +15,7 @@ vector<int> order_by_points(vector<int> nums) {
         }
         points.push_back(make_pair(sum, i));
     }
-    sort(points.begin(), points.end());
+    std::sort(points.begin(), points.end());
     vector<int> result;
     for (int i = 0; i < nums.size(); i++) {
         result.push_back(nums[points[i].second]);
