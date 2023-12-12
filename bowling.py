@@ -1,4 +1,3 @@
-```python
 def calculate_bowling_score(bowls):
     score = 0
     frame = 1
@@ -47,6 +46,5 @@ def calculate_bowling_score(bowls):
                     score += sum(frame) + frames[index+1][0]
                 else:
                     score += sum(frame) + sum(frames[index+1])
-    
+
     return score
-```
