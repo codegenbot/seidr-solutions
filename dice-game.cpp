@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double probability(int n, int m) {
@@ -24,7 +23,9 @@ int main() {
     cin >> n >> m;
 
     double result = probability(n, m);
-    cout << fixed << setprecision(8) << result << endl;
+
+    cout << fixed << setprecision(8);
+    cout << result << endl;
 
     return 0;
 }
