@@ -3,6 +3,10 @@
 #include <string>
 using namespace std;
 
+int main() {
+    // Remove all but one definition of the `main` function
+}
+
 bool isPrime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i < n; i++) {
@@ -32,10 +36,4 @@ int largestPrime(vector<int> nums) {
         }
     }
     return sumDigits(max);
-}
-
-int main() {
-    vector<int> nums = {127, 97, 8192};
-    assert(largestPrime(nums) == 10);
-    return 0;
 }
