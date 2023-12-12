@@ -1,20 +1,12 @@
-```
-#include <iostream>
-#include <vector>
-#include <string>
-#include <map>
-#include <algorithm>
-using namespace std;
-
-int main() {
-    vector<string> result;
-    map<int, string> num_to_name = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-    sort(arr.begin(), arr.end());
-    for (int i = 0; i < arr.size(); i++) {
-        if (num_to_name.count(arr[i])) {
-            result.push_back(num_to_name[arr[i]]);
-        }
-    }
-    return result;
-}
-```
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
