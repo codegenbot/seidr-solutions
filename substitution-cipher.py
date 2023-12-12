@@ -4,7 +4,10 @@ message = input()
 
 deciphered_message = ""
 for char in message:
-    index = cipher.find(char)
-    deciphered_message += decipher[index]
+    if char in cipher:
+        index = cipher.index(char)
+        deciphered_message += decipher[index]
+    else:
+        deciphered_message += char
 
 print(deciphered_message)
