@@ -1,8 +1,9 @@
+```
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <cmath>
 #include <sstream>
-#include <cassert>
 
 using namespace std;
 
@@ -39,3 +40,4 @@ int main() {
     assert(isValidDate("04-2003") == false);
     return 0;
 }
+```
