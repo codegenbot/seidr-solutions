@@ -10,42 +10,22 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given a vector of integers, return the ﬁrst index such that the sum of all integers from the start of the vector to that index (inclusive) is negative.
-For example,
-input:
-1
--1
-output:
-0
-input:
-1
--100
-output:
-0
-input:
-2
--1 100
-output:
-0
-input:
-2
--95 100
-output:
-0
-input:
-2
--30 5
-output:
-0
-*/
-int basement(vector<int> vec) {
-    int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
+
+int main() {
+    vector<int> vec;
+    int n, sum = 0;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        vec.push_back(x);
+    }
+    for (int i = 0; i < n; i++) {
         sum += vec[i];
         if (sum < 0) {
-            return i;
+            cout << i << endl;
+            break;
         }
     }
-    return -1;
+    return 0;
 }
