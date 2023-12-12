@@ -1,16 +1,16 @@
-def substitute(cipher, message):
-    # Create a dictionary to store the mapping of characters
-    char_map = {}
+def substitute_cipher(cipher, message):
+    # Create a dictionary to store the substitutions
+    subs = {}
+    for i in range(len(cipher)):
+        subs[cipher[i]] = message[i]
     
-    # Iterate over the cipher and message simultaneously
-    for c1, c2 in zip(cipher, message):
-        # If the character is not already in the map, add it
-        if c1 not in char_map:
-            char_map[c1] = c2
+    # Apply the cipher to the message
+    deciphered_message = ""
+    for char in message:
+        if char in subs:
+            deciphered_message += subs[char]
+        else:
+            deciphered_message += char
     
-    # Iterate over the message and substitute the characters
-    for i, c in enumerate(message):
-        if c in char_map:
-            message[i] = char_map[c]
-    
-    return ''.join(message)
+    return deciphered_message
+```
