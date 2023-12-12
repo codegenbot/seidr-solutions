@@ -1,6 +1,8 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
@@ -32,8 +34,4 @@ bool isValidDate(string date) {
 
     return day <= daysInMonth;
 }
-
-int main() {
-    assert(isValidDate("04-2003") == false);
-    return 0;
-}
+```
