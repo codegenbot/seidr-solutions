@@ -1,4 +1,3 @@
-```
 def decipher(cipher_text, cipher_key):
     # Create a dictionary to store the mapping of characters in the cipher key
     char_map = {}
@@ -14,4 +13,3 @@ def decipher(cipher_text, cipher_key):
             deciphered_text += char
     
     return deciphered_text
-```
