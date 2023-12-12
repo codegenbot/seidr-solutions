@@ -1,5 +1,8 @@
-def solve_boolean(expression):
-    return eval(expression.capitalize())
-
-expression = input()
-print(solve_boolean(expression))
+expr = input().strip()
+if expr == 't':
+    print(True)
+elif expr == 'f':
+    print(False)
+else:
+    result = eval(expr, {'t': True, 'f': False})
+    print(result)
