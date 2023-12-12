@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -36,6 +37,13 @@ bool isValidDate(string date) {
 }
 
 int main() {
-    assert(isValidDate("04-2003") == false);
+    string date;
+    getline(cin, date);
+    if (isValidDate(date)) {
+        cout << "The date is valid." << endl;
+    } else {
+        cout << "The date is not valid." << endl;
+    }
     return 0;
 }
+```

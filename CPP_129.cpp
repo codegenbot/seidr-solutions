@@ -23,9 +23,6 @@ def min_path(grid, k):
 
     return min_sum
 
-def issame(a, b):
-    return a == b
-
 def main():
     grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     k = 3
@@ -41,3 +38,5 @@ assert min_path([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == [1, 2, 1]
 # Test case 2:
 assert min_path([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1) == [1]
 [/TESTS]
+
+```
