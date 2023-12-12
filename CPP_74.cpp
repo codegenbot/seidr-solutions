@@ -1,32 +1,12 @@
-
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& a, const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare(b[i]) != 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::basic_string<char, std::char_traits<char>, std::allocator<char>> totalMatch(const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& a, const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& b) {
-    std::basic_string<char, std::char_traits<char>, std::allocator<char>> result;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare("this") == 0) {
-            result.push_back(b[i]);
-        }
-    }
-    return result;
-}
-
-int main() {
-    std::basic_string<char, std::char_traits<char>, std::allocator<char>> a = {"this"};
-    std::basic_string<char, std::char_traits<char>, std::allocator<char>> b = {"that"};
-    assert(issame(totalMatch({"this"}, {"that"}), {}));
-}
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
