@@ -1,5 +1,3 @@
-
-```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -15,4 +13,3 @@ int main() {
     cout << fixed << setprecision(8) << totalDistance << endl;
     return 0;
 }
-```
