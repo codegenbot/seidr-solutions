@@ -1,18 +1,27 @@
 #include <iostream>
-#include <iomanip>
+using namespace std;
+
+double probabilityOfPeterWinning(int n, int m) {
+    double totalOutcomes = n * m;
+    double favorableOutcomes = 0;
+    
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                favorableOutcomes++;
+            }
+        }
+    }
+    
+    return favorableOutcomes / totalOutcomes;
+}
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
+    cin >> n >> m;
     
-    double probability = 0.0;
-    if (n > m) {
-        probability = 1.0;
-    } else if (n < m) {
-        probability = static_cast<double>(n) / m;
-    }
-    
-    std::cout << std::fixed << std::setprecision(2) << probability << std::endl;
+    double probability = probabilityOfPeterWinning(n, m);
+    cout << probability << endl;
     
     return 0;
 }
