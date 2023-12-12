@@ -6,4 +6,4 @@ m = int(sys.stdin.readline())
 if n <= m:
     print(0.0)
 else:
-    print(round((n - m) / float(n), 8))
+    print(format((n - m) / n, '.8f'))
