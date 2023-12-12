@@ -1,6 +1,11 @@
 def mastermind(code, guess):
-    black = sum(c == g for c, g in zip(code, guess))
-    code_counter = collections.Counter(code)
-    guess_counter = collections.Counter(guess)
-    white = sum((code_counter & guess_counter).values()) - black
-    return white, black
+    black_pegs = 0
+    white_pegs = 0
+    
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif code[i] in guess:
+            white_pegs += 1
+    
+    return white_pegs, black_pegs
