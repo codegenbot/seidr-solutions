@@ -1,27 +1,31 @@
-def calculate_spare_bonus(bowls, bowl_index):
-    bonus = 0
-    next_bowl = bowls[bowl_index + 1]
-    if next_bowl.isdigit() or next_bowl == "-":
-        bonus += 10
-    return bonus
-
-
-def calculate_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
-    i = -1
+    frame = 1
+    ball = 0
+    frames = [[] for _ in range(10)]
+
     for bowl in bowls:
-        i += 1
-        if bowl == "/":
-            score += 10 + calculate_spare_bonus(bowls, i)
-        elif bowl == "X":
-            score += 10
-            if i + 2 < len(bowls):
-                if bowls[i + 2] == "-":
-                    score += 0
-                elif bowls[i + 2] == "/":
-                    score += 10
-                else:
-                    score += int(bowls[i + 1]) + int(bowls[i + 2])
-        elif bowl.isdigit():
-            score += int(bowl)
+        if bowl == 'X':
+            frames[frame-1].append(10)
+            frame += 1
+        elif bowl == '/':
+            frames[frame-1].append(10 - frames[frame-1][ball-1])
+            frame += 1
+            ball = 0
+        elif bowl == '-':
+            frames[frame-1].append(0)
+            ball += 1
+        else:
+            frames[frame-1].append(int(bowl))
+            ball += 1
+
+        if frame > 10:
+            break
+
+    for frame in frames:
+        if len(frame) == 1:
+            score += frame[0]
+        elif len(frame) == 2:
+            score += sum(frame)
+
     return score
