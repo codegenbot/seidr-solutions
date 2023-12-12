@@ -1,9 +1,7 @@
-import math
+def fuel_cost(nums):
+    return sum((num // 3) - 2 for num in nums)
 
-def fuel_cost(vector):
-    return sum(math.floor(x/3) - 2 for x in vector)
+nums = list(map(int, input().split()))
 
-vector = list(map(int, input().split()))
-
-result = fuel_cost(vector)
+result = fuel_cost(nums)
 print(result)
