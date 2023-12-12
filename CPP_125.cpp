@@ -1,5 +1,25 @@
-
-The issue is related to the use of `issame` as a function, which is not allowed in C++. To fix this, you can modify the code to call the `split_words` function with an empty string and check if it returns a vector containing only "0".
 ```
-assert(split_words("") == std::vector<std::string>{"0"});
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+vector<string> split_words(string txt) {
+    vector<string> words;
+    if (txt.find(" ") != string::npos) {
+        words = split(txt, " ");
+    } else if (txt.find(",") != string::npos) {
+        words = split(txt, ",");
+    } else {
+        int count = 0;
+        for (int i = 0; i < txt.size(); i++) {
+            if (islower(txt[i])) {
+                count++;
+            }
+        }
+        words.push_back(to_string(count));
+    }
+    return words;
+}
 ```
