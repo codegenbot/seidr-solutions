@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-using string = std::basic_string<char>;
+using std::string;
 
 // Define encode_shift function
 std::string encode_shift(const std::string& str) {
