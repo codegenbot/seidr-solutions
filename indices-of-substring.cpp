@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,7 +15,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
                 break;
             }
         }
-        if (j == targetLength) {
+        if (j >= targetLength) {
             indices.push_back(i);
         }
     }
