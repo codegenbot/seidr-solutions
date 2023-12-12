@@ -1,2 +1,2 @@
-def fuel_cost(numbers):
-    return sum([math.floor(n / 3) - 2 for n in numbers])
+def fuel_cost(vec):
+    return sum((x - 2) // 3 for x in vec)
