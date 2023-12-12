@@ -1,21 +1,23 @@
 ```
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
-    for (int j = 2; j < n; j++) {
-        if (n % j == 0) return false;
+    for (int i = 2; i < n; i++) {
+        if (n % i == 0) return false;
     }
     return true;
 }
 
-int sumDigits(int num) {
+int sumDigits(int n) {
     int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
     }
     return sum;
 }
@@ -35,7 +37,8 @@ int largestPrime(vector<int> nums) {
 }
 
 int main() {
-    assert (largestPrime({127, 97, 8192}) == 10);
+    vector<int> nums = {127, 97, 8192};
+    assert (largestPrime(nums) == 10);
     return 0;
 }
 ```
