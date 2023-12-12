@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -18,8 +17,7 @@ int solution(vector<int> lst) {
 int main() {
     vector<int> lst = {3, 13, 2, 9};
     int result = solution(lst);
-    assert(result == 14);
+    assert (result == 14);
     cout << "Result: " << result << endl;
     return 0;
 }
-```
