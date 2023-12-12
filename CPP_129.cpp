@@ -1,6 +1,5 @@
 [PYTHON]
-def minPath(grid_and_k):
-    grid, k = grid_and_k
+def minPath(grid, k):
     # Initialize the minimum path sum
     min_sum = float('inf')
     # Initialize the current position as (0, 0)
@@ -43,7 +42,8 @@ def dfs(grid, i, j, k, visited):
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert minPath(([[1, 3], [3, 2]], 10)) == [[1, 3, 1, 3, 1, 3, 1, 3, 1, 3]]
+assert minPath([[1, 3], [3, 2]], 10) == [[1, 3, 1, 3, 1, 3, 1, 3, 1, 3]]
 # Test case 2:
-assert minPath(([[5, 9], [4, 1]], 10)) == [[1, 2, 3, 4, 5, 6, 7, 8, 9]]
+assert minPath([[5, 9], [4, 1]], 10) == [[1, 2, 3, 4, 5, 6, 7, 8, 9]]
 [/TESTS]
+```
