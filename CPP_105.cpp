@@ -1,24 +1,12 @@
-```
-#include <vector>
-#include <string>
-#include <cassert>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-int by_length(const std::vector<std::string>& v) {
-    int length = 0;
-    for (const auto& s : v) {
-        length += s.size();
-    }
-    return length;
-}
-
-int main() {
-    const std::vector<std::string> v1{"Nine", "Eight", "Four"};
-    const std::vector<std::string> v2{"Nine", "Eight", "Four"};
-    assert(issame(v1, v2));
-    return 0;
-}
-```
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
