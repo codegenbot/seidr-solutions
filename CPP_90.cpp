@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <optional>
 using namespace std;
 
@@ -16,7 +15,7 @@ int main() {
 
 optional<int> next_smallest(const vector<int>& lst) {
     if (lst.empty()) {
-        return std::nullopt;
+        return std::optional<int>();
     }
     int smallest = *lst.begin();
     for (const auto& x : lst) {
