@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -32,5 +31,9 @@ bool isValidDate(string date) {
     }
 
     return day <= daysInMonth;
-}; // <-- missing semicolon here
-```
+}
+
+int main() {
+    assert(isValidDate("04-2003") == false);
+    return 0;
+}
