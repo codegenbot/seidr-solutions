@@ -5,7 +5,7 @@ using namespace std;
 
 int largestPrime(vector<int> lst);
 bool isPrime(int n);
-int sumDigits(int n);
+int sumDigits(vector<int> lst);
 
 int main() {
     vector<int> numbers = {127, 97, 8192};
@@ -32,11 +32,13 @@ bool isPrime(int n) {
     return true;
 }
 
-int sumDigits(int n) {
+int sumDigits(vector<int> lst) {
     int sum = 0;
-    while (n != 0) {
-        sum += n % 10;
-        n /= 10;
+    for (auto n : lst) {
+        while (n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
     }
     return sum;
 }
