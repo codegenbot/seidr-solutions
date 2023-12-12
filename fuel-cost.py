@@ -1,2 +1,2 @@
-def fuel_cost(vector):
-    return sum([max(math.floor(i / 3) - 2, 0) for i in vector])
+def fuel_cost(arr):
+    return sum([math.floor(x / 3) - 2 for x in arr])
