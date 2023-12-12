@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -6,7 +7,7 @@ int isCuber(int a) {
     return (std::abs(cbrt - static_cast<int>(cbrt)) < 1e-6);
 }
 
-int main() {
+int main(void) {
     int a;
     std::cout << "Enter an integer: ";
     std::cin >> a;
@@ -21,3 +22,4 @@ int main() {
     }
     return 0;
 }
+```
