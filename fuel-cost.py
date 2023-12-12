@@ -1,4 +1,2 @@
-from __future__ import division
-
 def fuel_cost(vector):
-    return sum((x - 2) // 3 for x in vector)
+    return sum([math.floor(x / 3) - 2 for x in vector])
