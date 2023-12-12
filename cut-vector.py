@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     prefix_sum = [0]
     for num in vector:
@@ -29,3 +30,4 @@ while True:
 left, right = cut_vector(vector)
 print(*left, sep="\n")
 print(*right, sep="\n")
+```
