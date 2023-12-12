@@ -1,9 +1,7 @@
-```
 #include <iostream>
-#include <cmath>
 
 int multiply(int a, int b) {
-    return abs(a % 10) * abs(b % 10);
+    return (a % 10) * (b % 10);
 }
 
 int main() {
@@ -12,4 +10,3 @@ int main() {
     std::cout << "The result is: " << multiply(a, b) << std::endl;
     return 0;
 }
-```
