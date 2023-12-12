@@ -1,4 +1,3 @@
-
 Solve the following code contest problem: vector-distance. Problem description: Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space..
 Currently, the code is 
 ```
@@ -15,4 +14,4 @@ import math
 
 def vector_distance(v1, v2):
     return math.hypot(np.array(v1) - np.array(v2))
-```
+```.
