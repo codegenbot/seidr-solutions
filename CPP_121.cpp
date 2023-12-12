@@ -1,8 +1,16 @@
-```
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
+
+int solution(vector<int> lst); // Forward declaration of solution function
+
+int main() {
+    vector<int> lst = {3, 13, 2, 9};
+    assert(solution(std::vector<int>{3, 13, 2, 9}) == 3);
+    return 0;
+}
 
 int solution(vector<int> lst) {
     int sum = 0;
@@ -13,10 +21,3 @@ int solution(vector<int> lst) {
     }
     return sum;
 }
-
-int main() {
-    vector<int> lst = {1, 2, 3, 4, 5};
-    cout << solution(lst) << endl;
-    return 0;
-}
-```
