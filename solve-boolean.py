@@ -1,3 +1,4 @@
+```python
 import re
 
 def solve_boolean(expression):
@@ -5,6 +6,7 @@ def solve_boolean(expression):
     expression = re.sub(r'\b[fF]\b', 'False', expression)
     return eval(expression.replace('&', ' and ').replace('|', ' or '))
 
-expression = input("Enter a Boolean expression: ")
+expression = input()
 result = solve_boolean(expression)
 print(result)
+```
