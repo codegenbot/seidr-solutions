@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <iomanip>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
     return firstBounceHeight / startingHeight;
@@ -24,9 +25,7 @@ int main() {
     
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
     
-    std::cout << std::fixed;
-    std::cout.precision(15);
-    std::cout << totalDistance << std::endl;
+    std::cout << std::fixed << totalDistance << std::endl;
     
     return 0;
 }
