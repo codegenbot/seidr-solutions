@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -48,4 +47,3 @@ int main() {
     cout << largestPrime(nums) << endl;
     return 0;
 }
-```
