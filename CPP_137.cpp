@@ -17,8 +17,8 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         string s1 = std::get<string>(a);
         string s2 = std::get<string>(b);
         try {
-            float x = std::stof(s1);
-            float y = std::stof(s2);
+            float x = stof(s1);
+            float y = stof(s2);
             return x > y ? a : b;
         } catch (const std::invalid_argument&) {
             return "None";
@@ -26,4 +26,8 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
     } else {
         return "None";
     }
+}
+
+int main() {
+    assert(compare_one("1", 1) == "None");
 }
