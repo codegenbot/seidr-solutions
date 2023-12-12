@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -17,3 +18,4 @@ int main() {
     std::cout << calculateSnow(hours, initialSnow, snowFallRate, meltingRate) << std::endl;
     return 0;
 }
+```
