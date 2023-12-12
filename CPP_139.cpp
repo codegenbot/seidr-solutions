@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -11,8 +10,8 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    int n = 5;
+    int n;
+    cin >> n;
     cout << special_factorial(n) << endl;
     return 0;
 }
-```
