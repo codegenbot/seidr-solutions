@@ -1,48 +1,47 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <climits>
+#include <numeric>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
+    int n = input.size();
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+
+    for (int i = 0; i < n - 1; i++) {
+        int diff = abs(std::accumulate(input.begin(), input.begin() + i + 1, 0) -
+                       std::accumulate(input.begin() + i + 1, input.end(), 0));
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
     }
-    
-    int target = sum / 2;
-    int currSum = 0;
-    int index = 0;
-    
-    while (currSum < target) {
-        currSum += nums[index];
-        index++;
-    }
-    
-    if (currSum == target || (currSum - target) < (target - currSum + nums[index - 1])) {
-        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + index), std::vector<int>(nums.begin() + index, nums.end()));
-    } else {
-        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + index - 1), std::vector<int>(nums.begin() + index - 1, nums.end()));
-    }
+
+    std::vector<int> subvector1(input.begin(), input.begin() + cutIndex + 1);
+    std::vector<int> subvector2(input.begin() + cutIndex + 1, input.end());
+
+    return std::make_pair(subvector1, subvector2);
 }
 
 int main() {
     int n;
     std::cin >> n;
-    
-    std::vector<int> nums(n);
+
+    std::vector<int> input(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        std::cin >> input[i];
     }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-    
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
+
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
-    
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
 ```
