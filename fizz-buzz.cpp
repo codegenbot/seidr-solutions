@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string fizzBuzz(int x) {
+string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0) {
         return "FizzBuzz";
     } else if (x % 3 == 0) {
@@ -9,13 +10,13 @@ std::string fizzBuzz(int x) {
     } else if (x % 5 == 0) {
         return "Buzz";
     } else {
-        return std::to_string(x);
+        return to_string(x);
     }
 }
 
 int main() {
     int x;
-    std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
+    cin >> x;
+    cout << fizzBuzz(x) << endl;
     return 0;
 }
