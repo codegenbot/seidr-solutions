@@ -1,4 +1,4 @@
-
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -51,3 +51,5 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     return "None";
 }
+```
+The code above is the solution to the problem. It takes two `boost::any` objects as input and returns the larger of the two values, or `"None"` if the values are not comparable. The function uses the `typeid` operator to check the type of the input arguments and then casts them to the appropriate type using `boost::any_cast`. If an invalid argument is passed in, the function catches the exception and returns `"None"`.
