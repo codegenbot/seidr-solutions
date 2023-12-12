@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -20,4 +19,3 @@ int get_matrix_triples(int n) {
 
     return count;
 }
-```
