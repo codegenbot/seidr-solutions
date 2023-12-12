@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -34,4 +33,3 @@ string words_in_sentence(string sentence) {
     }
     return result.substr(0, result.size() - 1);
 }
-```
