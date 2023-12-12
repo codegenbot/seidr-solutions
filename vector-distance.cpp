@@ -1,8 +1,7 @@
-```cpp
-#include <vector>
 #include <iostream>
-#include <cmath>
+#include <vector>
 #include <iomanip>
+#include <cmath>
 
 long double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     long double sum = 0.0;
@@ -29,8 +28,7 @@ int main() {
     }
 
     long double distance = euclideanDistance(vector1, vector2);
-    std::cout << std::setprecision(14) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << distance << std::endl;
 
     return 0;
 }
-```
