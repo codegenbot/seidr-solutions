@@ -1,10 +1,9 @@
-
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <memory_resource>
 
-bool issame(const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& a, const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& b) {
+bool issame(const std::string& a, const std::string& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,8 +15,8 @@ bool issame(const std::basic_string<char, std::char_traits<char>, std::allocator
     return true;
 }
 
-std::basic_string<char, std::char_traits<char>, std::allocator<char>> totalMatch(const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& a, const std::basic_string<char, std::char_traits<char>, std::allocator<char>>& b) {
-    std::basic_string<char, std::char_traits<char>, std::allocator<char>> result;
+std::string totalMatch(const std::string& a, const std::string& b) {
+    std::string result;
     for (int i = 0; i < a.size(); i++) {
         if (a[i].compare("this") == 0) {
             result.push_back(b[i]);
@@ -27,7 +26,8 @@ std::basic_string<char, std::char_traits<char>, std::allocator<char>> totalMatch
 }
 
 int main() {
-    std::basic_string<char, std::char_traits<char>, std::allocator<char>> a = {"this"};
-    std::basic_string<char, std::char_traits<char>, std::allocator<char>> b;
+    std::string a = {"this"};
+    std::string b;
     assert(issame(totalMatch({"this"}, {"that"}), {}));
 }
+```

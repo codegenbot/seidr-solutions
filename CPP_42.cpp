@@ -1,12 +1,26 @@
+```
 #include <iostream>
 #include <vector>
 
-// Define _M_max_size for new_allocator
-template<typename T>
-struct new_allocator {
-    // ...
-    size_t _M_max_size() const { return std::numeric_limits<size_t>::max(); }
-};
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> incr_list(const std::vector<int>& v) {
+    std::vector<int> result;
+    for (auto x : v) {
+        result.push_back(x + 1);
+    }
+    return result;
+}
+
+std::vector<int> decr_list(const std::vector<int>& v) {
+    std::vector<int> result;
+    for (auto x : v) {
+        result.push_back(x - 1);
+    }
+    return result;
+}
 
 int main() {
     // Test code
@@ -33,3 +47,4 @@ int main() {
 
     return 0;
 }
+```
