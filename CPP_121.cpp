@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -21,4 +20,3 @@ int main() {
     assert (result == 3);
     return 0;
 }
-```
