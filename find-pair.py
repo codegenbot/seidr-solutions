@@ -1,20 +1,18 @@
 ```python
-def find_pair(nums, target):
-    num_set = set()
-    for num in nums:
-        complement = target - num
-        if complement in num_set:
-            return num, complement
-        num_set.add(num)
+def find_pair():
+    n = int(input())
+    nums = list(map(int, input().split()))
+    target = int(input())
+    
+    for i in range(n):
+        for j in range(i+1, n):
+            if nums[i] + nums[j] == target:
+                return nums[i], nums[j]
+    
+    return None
 
-# Read input
-n = int(input())
-nums = list(map(int, input().split()))
-target = int(input())
-
-# Find pair
-result = find_pair(nums, target)
-
-# Print output
-print(*result)
+pair = find_pair()
+if pair is not None:
+    print(pair[0])
+    print(pair[1])
 ```
