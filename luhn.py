@@ -1,19 +1,18 @@
 ```python
 def luhn_algorithm(digits):
-    digits = list(map(int, digits))
-    for i in range(len(digits) - 2, -1, -2):
-        digits[i] *= 2
-        if digits[i] > 9:
-            digits[i] -= 9
-    return sum(digits)
+    new_digits = []
+    for i in range(len(digits)):
+        if i % 2 == 1:
+            double = digits[i] * 2
+            if double > 9:
+                double -= 9
+            new_digits.append(double)
+        else:
+            new_digits.append(digits[i])
+    return sum(new_digits)
 
-# Read input from user
 n = int(input())
 digits = list(map(int, input().split()))
 
-# Call the luhn_algorithm function
-result = luhn_algorithm(digits)
-
-# Print the result
-print(result)
+print(luhn_algorithm(digits))
 ```
