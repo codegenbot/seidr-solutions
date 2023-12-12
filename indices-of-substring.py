@@ -1,5 +1,7 @@
+import re
+
 text = input()
 target = input()
 
-indices = [i for i in range(len(text)) if text[i:i+len(target)] == target or text[i:i+len(target)-1] == target]
+indices = [m.start() for m in re.finditer(f'(?={re.escape(target)})', text)]
 print(' '.join(map(str, indices)))
