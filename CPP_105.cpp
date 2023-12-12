@@ -16,7 +16,10 @@ int by_length(const std::vector<std::string>& v) {
 }
 
 int main() {
-    assert(issame(by_length({"Nine", "Eight", "Four"}), {"Nine", "Eight", "Four"}));
+    assert(issame({"Nine", "Eight", "Four"}, {"Nine", "Eight", "Four"}));
+    std::vector<std::string> v = {"Nine", "Eight", "Four"};
+    int result = by_length(v);
+    assert(result == 12);
     return 0;
 }
 ```
