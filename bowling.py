@@ -1,18 +1,21 @@
 def calculate_score(bowls):
     score = 0
-    num_bowls = len(bowls)
-
-    for i in range(num_bowls):
-        if bowls[i] == 'X':
+    frame = 1
+    i = 0
+    
+    while frame <= 10:
+        if bowls[i] == 'X' and i + 2 < len(bowls):
             score += 10
-            if i + 2 < num_bowls:
-                score += int(bowls[i + 1]) + int(bowls[i + 2])
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i - 1])
-            if i + 1 < num_bowls:
-                score += int(bowls[i + 1])
+            if bowls[i + 1] == 'X' and bowls[i + 2] == 'X':
+                score += 20
+            else:
+                score += 10
+        elif bowls[i] == '/' and i - 1 >= 0 and bowls[i - 1] != '/':
+            score += 10 - int(bowls[i - 1]) + int(bowls[i + 1])
         else:
             score += int(bowls[i])
+        i += 1
+        frame += 1
     
     return score
 
