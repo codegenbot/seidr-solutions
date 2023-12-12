@@ -1,14 +1,15 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
-bool isValidDate(const std::string& date) {
+bool isValidDate(string date) {
     int month, day, year;
     char delimiter = '-';
-    std::istringstream ss(date);
-    ss >> month >> delimiter >> day >> delimiter >> year;
+    stringstream ss;
+    ss << month << delimiter << day << delimiter << year;
 
     if (month < 1 || month > 12) return false;
     if (day < 1 || day > 31) return false;
@@ -30,10 +31,10 @@ bool isValidDate(const std::string& date) {
             break;
     }
 
-    return true;
+    return day <= daysInMonth;
 }
 
 int main() {
-    assert(isValidDate("04-2003"));
+    assert(isValidDate("04-2003") == false);
     return 0;
 }
