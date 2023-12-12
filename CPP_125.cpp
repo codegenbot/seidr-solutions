@@ -1,19 +1,12 @@
-```
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
-
-vector<string> split_words(string txt) {
-    vector<string> words;
-    size_t pos = 0, prev_pos = 0;
-    while ((pos = txt.find_first_of(" ,", pos)) != string::npos) {
-        if (pos - prev_pos > 1) {
-            words.push_back(txt.substr(prev_pos, pos - prev_pos));
-        }
-        prev_pos = pos + 1;
-    }
-    return words;
-}
-```
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
