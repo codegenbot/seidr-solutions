@@ -1,17 +1,17 @@
 ```python
-def basement(arr):
-    curr_sum = 0
-    for i in range(len(arr)):
-        curr_sum += arr[i]
-        if curr_sum < 0:
+def basement(nums):
+    prefix_sum = 0
+    for i in range(len(nums)):
+        prefix_sum += nums[i]
+        if prefix_sum < 0:
             return i
     return -1
 
 n = int(input())
-arr = []
+nums = []
 for _ in range(n):
-    arr.append(int(input()))
+    nums.append(int(input()))
 
-result = basement(arr)
+result = basement(nums)
 print(result)
 ```
