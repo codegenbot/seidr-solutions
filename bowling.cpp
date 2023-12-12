@@ -1,92 +1,41 @@
-```c++
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& bowlingString) {
+int scoreRound(const std::string& round) {
     int score = 0;
     int frame = 0;
-    int roll = 0;
-    int framesPlayed = 0;
-    int rollsPlayed = 0;
-    bool spare = false;
-    bool strike = false;
+    int bowl = 0;
+    int rolls = round.size();
 
-    for (char c : bowlingString) {
-        if (framesPlayed >= 10) {
+    for (int i = 0; i < rolls; i++) {
+        if (frame == 10) {
             break;
         }
 
-        if (c == 'X') {
+        if (round[i] == 'X') {
             score += 10;
-            if (frame < 9) {
-                if (strike) {
-                    score += 10;
-                }
-                if (spare) {
-                    score += 10;
-                }
-                strike = true;
-                spare = false;
+            score += (round[i + 1] == 'X') ? 10 : (isdigit(round[i + 1]) ? round[i + 1] - '0' : (round[i + 2] == 'X') ? 10 : (isdigit(round[i + 2]) ? round[i + 2] - '0' : 0));
+            score += (round[i + 2] == 'X') ? 10 : (isdigit(round[i + 2]) ? round[i + 2] - '0' : 0);
+            frame++;
+        } else if (round[i] == '/') {
+            score += (10 - (round[i - 1] - '0')) + (isdigit(round[i + 1]) ? round[i + 1] - '0' : 0);
+            frame++;
+        } else if (isdigit(round[i])) {
+            score += (round[i] - '0');
+            bowl++;
+            if (bowl == 2) {
                 frame++;
-                rollsPlayed = 0;
-            } else if (frame == 9 && rollsPlayed == 0) {
-                strike = true;
-                spare = false;
-            }
-        } else if (c == '/') {
-            score += 10 - roll;
-            if (frame < 9) {
-                if (spare) {
-                    score += 10;
-                }
-                spare = true;
-                strike = false;
-                frame++;
-                rollsPlayed = 0;
-            } else if (frame == 9 && rollsPlayed == 0) {
-                spare = true;
-                strike = false;
-            }
-        } else if (c == '-') {
-            if (frame < 9) {
-                roll = 0;
-                frame++;
-                rollsPlayed = 0;
-            }
-        } else {
-            score += c - '0';
-            roll = c - '0';
-            if (frame < 9) {
-                if (spare) {
-                    score += roll;
-                }
-                spare = false;
-                strike = false;
-                if (roll != 0) {
-                    roll = 0;
-                }
-                else {
-                    roll++;
-                }
-                rollsPlayed++;
+                bowl = 0;
             }
         }
-
-        framesPlayed++;
     }
-
-    score += roll;
 
     return score;
 }
 
 int main() {
-    std::string bowlingString;
-    std::cin >> bowlingString;
-
-    int score = getScore(bowlingString);
-    std::cout << score << std::endl;
-
+    std::string round;
+    std::cin >> round;
+    std::cout << scoreRound(round) << std::endl;
     return 0;
 }
-```
