@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,10 +34,4 @@ int largestPrime(vector<int> nums) {
     }
     return sumDigits(max);
 }
-
-int main() {
-    vector<int> nums = {127, 97, 8192};
-    int result = largestPrime(nums);
-    cout << "The largest prime number in the input vector is: " << result << endl;
-    return 0;
-}
+```
