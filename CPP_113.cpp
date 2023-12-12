@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,4 +17,3 @@ vector<string> odd_count(vector<string> lst) {
     }
     return result;
 }
-```
