@@ -1,4 +1,6 @@
-```
+The modified code is:
+
+```cpp
 #include <iostream>
 
 float calculateSnow(float hours, float snowOnGround, float snowFallRate, float meltingRate) {
