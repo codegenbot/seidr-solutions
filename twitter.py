@@ -1,4 +1,3 @@
-```
 def validate_tweet(tweet):
     if not tweet.isprintable():
         return "Your tweet contains non-printable characters"
@@ -8,4 +7,3 @@ def validate_tweet(tweet):
         return "You didn't type anything"
     else:
         return f"Your tweet has {len(tweet)} characters"
-```
