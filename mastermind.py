@@ -1,4 +1,4 @@
-```python
+```
 import collections
 from typing import Tuple
 
