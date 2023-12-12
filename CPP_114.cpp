@@ -2,10 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <climits> // add this line
 using namespace std;
 
-long long minSubarraySum(const vector<long long>& nums) {
-    long long sum = 0, min_sum = numeric_limits<long long>::max();
+long long minSubArraySum(const vector<long long>& nums) {
+    long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < min_sum) {
@@ -19,7 +20,7 @@ long long minSubarraySum(const vector<long long>& nums) {
 
 int main() {
     vector<long long> nums{1, -1};
-    assert(minSubarraySum(nums) == -1);
+    assert(minSubArraySum(nums) == -1);
     return 0;
 }
 ```
