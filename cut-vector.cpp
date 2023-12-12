@@ -6,11 +6,11 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
     int n = input.size();
-    int minDiff = INT_MAX;
+    int minDiff = std::numeric_limits<int>::max();
     int cutIndex = -1;
 
     for (int i = 0; i < n - 1; i++) {
-        int diff = abs(std::accumulate(input.begin(), input.begin() + i + 1, 0) -
+        int diff = std::abs(std::accumulate(input.begin(), input.begin() + i + 1, 0) -
                        std::accumulate(input.begin() + i + 1, input.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
