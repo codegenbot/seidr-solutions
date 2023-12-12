@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,4 +30,9 @@ int largestPrime(vector<int> lst) {
     }
     return sumDigits(max);
 }
-```
+
+int main() {
+    vector<int> lst = {127, 97, 8192};
+    assert (largestPrime(lst) == 10);
+    return 0;
+}
