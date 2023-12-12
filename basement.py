@@ -1,4 +1,3 @@
-```python
 def basement(arr):
     sum_so_far = arr[0]
     for i, num in enumerate(arr[1:]):
@@ -11,4 +10,3 @@ arr = list(map(int, input().split()))
 
 result = basement(arr)
 print(result)
-```
