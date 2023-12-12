@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,4 +14,3 @@ vector<string> sorted_list_sum(vector<string> lst) {
     sort(result.begin(), result.end());
     return result;
 }
-```
