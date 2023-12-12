@@ -33,12 +33,10 @@ vector<vector<int>> cutVector(vector<int> nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex);
     vector<int> rightSubvector(nums.begin() + cutIndex, nums.end());
     
-    leftSubvector.push_back(0);
-    rightSubvector.push_back(0);
-    
     vector<vector<int>> result;
     result.push_back(leftSubvector);
     result.push_back(rightSubvector);
+    
     return result;
 }
 
