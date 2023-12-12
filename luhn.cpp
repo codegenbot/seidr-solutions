@@ -1,27 +1,39 @@
 #include <iostream>
 #include <vector>
 
+int luhnAlgorithm(std::vector<int>& digits) {
+    int sum = 0;
+    bool doubleDigit = false;
+    
+    for (int i = digits.size() - 1; i >= 0; i--) {
+        int digit = digits[i];
+        
+        if (doubleDigit) {
+            digit *= 2;
+            
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        
+        sum += digit;
+        doubleDigit = !doubleDigit;
+    }
+    
+    return sum;
+}
+
 int main() {
-    int n = 16;
+    int n;
+    std::cin >> n;
+    
     std::vector<int> digits(n);
     for (int i = 0; i < n; i++) {
         std::cin >> digits[i];
     }
-
-    int sum = 0;
-    for (int i = n - 1; i >= 0; i--) {
-        if (i % 2 == 1) {
-            int doubled = digits[i] * 2;
-            if (doubled > 9) {
-                doubled -= 9;
-            }
-            sum += doubled;
-        } else {
-            sum += digits[i];
-        }
-    }
-
-    std::cout << sum << std::endl;
-
+    
+    int result = luhnAlgorithm(digits);
+    std::cout << result << std::endl;
+    
     return 0;
 }
