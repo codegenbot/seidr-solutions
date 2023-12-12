@@ -1,14 +1,13 @@
 ```cpp
-#include <iostream>
-using namespace std;
-
-int multiply(int a, int b);
-
 int main() {
+    std::cout << "Enter two numbers: ";
     int a, b;
-    cout << "Enter two numbers: ";
-    cin >> a >> b;
-    cout << "The product is: " << multiply(a, b) << endl;
+    std::cin >> a >> b;
+    std::cout << multiply(a, b) << std::endl;
     return 0;
+}
+
+int multiply(int a, int b) {
+    return a * b;
 }
 ```
