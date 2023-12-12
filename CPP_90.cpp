@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <optional>
 using namespace std;
 
 optional<int> next_smallest(const vector<int>& lst);
