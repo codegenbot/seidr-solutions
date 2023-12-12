@@ -1,45 +1,49 @@
 def calculate_score(bowls):
     score = 0
     frame = 1
-    i = 0
-    while frame <= 10:
-        if bowls[i] == 'X':
+    frame_score = 0
+    is_strike = False
+    is_spare = False
+    
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-            score += get_strike_bonus(bowls, i)
-            i += 1
-        elif bowls[i+1] == '/':
-            score += 10
-            score += get_spare_bonus(bowls, i)
-            i += 2
+            if frame < 10:
+                score += frame_score
+            if is_strike:
+                score += frame_score
+            if is_spare:
+                score += frame_score
+            frame_score = 10
+            is_strike = True
+            is_spare = False
+            frame += 1
+        elif bowl == '/':
+            score += 10 - frame_score
+            if frame < 10:
+                score += frame_score
+            if is_strike:
+                score += frame_score
+            if is_spare:
+                score += frame_score
+            frame_score = 10
+            is_strike = False
+            is_spare = True
+            frame += 1
+        elif bowl == '-':
+            frame_score = 0
         else:
-            score += get_frame_score(bowls, i)
-            i += 2
-        frame += 1
+            score += int(bowl)
+            frame_score = int(bowl)
+            if is_strike:
+                score += frame_score
+                is_strike = False
+            if is_spare:
+                score += frame_score
+                is_spare = False
+            frame += 1
+    
     return score
-
-def get_strike_bonus(bowls, i):
-    bonus = 0
-    if bowls[i+2] == 'X':
-        bonus += 10
-        if bowls[i+4] == 'X':
-            bonus += 10
-        else:
-            bonus += int(bowls[i+4])
-    else:
-        bonus += int(bowls[i+2])
-        bonus += int(bowls[i+3])
-    return bonus
-
-def get_spare_bonus(bowls, i):
-    bonus = 0
-    if bowls[i+2] == 'X':
-        bonus += 10
-    else:
-        bonus += int(bowls[i+2])
-    return bonus
-
-def get_frame_score(bowls, i):
-    return int(bowls[i]) + int(bowls[i+1])
 
 bowls = input()
 print(calculate_score(bowls))
