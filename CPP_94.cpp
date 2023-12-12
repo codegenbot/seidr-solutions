@@ -1,8 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Added this line to include the assert function
+#include <cassert>
 using namespace std;
 
 bool isPrime(int n) {
@@ -37,4 +36,3 @@ int main() {
     assert (skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
-```
