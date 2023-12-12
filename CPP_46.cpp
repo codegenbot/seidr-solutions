@@ -2,7 +2,7 @@
 using namespace std;
 
 int fib4(int n) {
-    // Implement the Fibonacci function here
+    // Implement the Fibonacci sequence here
 }
 
 int main() {
