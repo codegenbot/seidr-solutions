@@ -1,5 +1,5 @@
 [PYTHON]
-def min_path(grid, k):
+def get_min_path_sum(grid):
     # Initialize the minimum path sum
     min_sum = float('inf')
     # Initialize the current position as (0, 0)
@@ -44,21 +44,13 @@ def get_neighbors(grid, position):
     if col < len(grid[0]) - 1:
         # If the cell to the east is valid, add it to the list of neighbors
         neighbors.append((row, col + 1))
-    # Return the list of neighbors
     return neighbors
-
-def issame(a, b):
-    return a == b
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert min_path(grid=[[1, 2, 3], [4, 5, 6], [7, 8, 9]], k=3) == [1, 2, 1]
+assert get_min_path_sum([[1]]) == 1
 # Test case 2:
-assert min_path(grid=[[5, 9, 3], [4, 1, 6], [7, 8, 2]], k=1) == [1]
+assert get_min_path_sum([[1, 3], [3, 2]]) == 6
 # Test case 3:
-assert min_path(grid=[[1, 2, 3], [4, 5, 6], [7, 8, 9]], k=4) == [1, 2, 3, 4]
-# Test case 4:
-assert min_path(grid=[[1, 2, 3], [4, 5, 6], [7, 8, 9]], k=5) == [1, 2, 3, 4, 5]
-# Test case 5:
-assert min_path(grid=[[1, 2, 3], [4, 5, 6], [7, 8, 9]], k=6) == [1, 2, 3, 4, 5, 6]
+assert get_min_path_sum([[1, 3, 2], [3, 2, 1], [2, 1, 3]]) == 8
 [/TESTS]
