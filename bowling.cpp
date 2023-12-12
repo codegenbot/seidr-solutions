@@ -26,7 +26,7 @@ int calculateScore(const std::string& bowlingRound) {
                 rolls = 0;
             }
         } else if (c == '-') {
-            rolls++;
+            rolls++; 
             if (rolls == 2) {
                 frame++;
                 rolls = 0;
