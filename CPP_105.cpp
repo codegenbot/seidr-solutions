@@ -2,36 +2,28 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
+using namespace std;
 
-bool issame(const std::string& a) {
-    return a == "9";
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
-int by_length(const std::string& a, const std::string& b) {
-    if (a.size() != b.size()) {
-        return a.size() < b.size();
-    } else {
-        return 0;
+int by_length(const vector<string>& a) {
+    int length = 0;
+    for (const auto& s : a) {
+        length += s.size();
     }
+    return length;
 }
 
 int main() {
-    std::vector<std::string> my_list = {"apple", "banana", "orange"};
-    std::sort(my_list.begin(), my_list.end(), issame);
-    std::cout << "Sorted list: ";
+    vector<string> my_list {"apple", "banana", "orange"};
+    sort(my_list.begin(), my_list.end(), by_length);
+    cout << "Sorted list: ";
     for (const auto& s : my_list) {
-        std::cout << s << " ";
+        cout << s << ", ";
     }
-    std::cout << "\n";
-
-    std::sort(my_list.begin(), my_list.end(), by_length);
-    std::cout << "Sorted list by length: ";
-    for (const auto& s : my_list) {
-        std::cout << s << " ";
-    }
-    std::cout << "\n";
-
+    cout << endl;
     return 0;
 }
 ```
