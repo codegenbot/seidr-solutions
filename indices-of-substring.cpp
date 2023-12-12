@@ -1,4 +1,3 @@
-```cpp
 std::vector<int> findSubstringIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int targetLength = target.length();
@@ -6,7 +5,7 @@ std::vector<int> findSubstringIndices(const std::string& text, const std::string
 
     for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
-        for (int j = 0; j < targetLength; j++) {
+        for (int j = 0; j <= targetLength; j++) {
             if (j == targetLength || text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -19,4 +18,3 @@ std::vector<int> findSubstringIndices(const std::string& text, const std::string
 
     return indices;
 }
-```
