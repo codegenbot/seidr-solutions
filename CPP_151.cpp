@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -13,4 +12,3 @@ long long double_the_difference(vector<float> lst) {
     }
     return sum;
 }
-```
