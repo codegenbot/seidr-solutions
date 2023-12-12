@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -29,8 +28,7 @@ int main() {
     }
 
     long double distance = euclideanDistance(vector1, vector2);
-    std::cout << std::setprecision(14) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << distance << std::endl;
 
     return 0;
 }
-```
