@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -15,7 +14,7 @@ bool isPrime(int n) {
 
 int largestPrime(vector<int> nums) {
     int max = 0;
-    for (int i = 0; i < nums.size(); i++) {
+    for (std::size_t i = 0; i < nums.size(); i++) {
         if (nums[i] > max && isPrime(nums[i])) {
             max = nums[i];
         }
@@ -23,11 +22,11 @@ int largestPrime(vector<int> nums) {
     return max;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     vector<int> nums;
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++) {
+    for (std::size_t i = 0; i < n; i++) {
         int x;
         cin >> x;
         nums.push_back(x);
@@ -35,4 +34,3 @@ int main(int argc, char* argv[]) {
     cout << largestPrime(nums) << endl;
     return 0;
 }
-```
