@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -16,15 +15,5 @@ vector<int> tri(int n) {
         result.push_back(prev + curr + tri(n + 1)[0]);
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> result = tri(n);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    return 0;
 }
 ```
