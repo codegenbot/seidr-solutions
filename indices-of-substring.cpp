@@ -10,18 +10,24 @@ vector<int> indicesOfSubstring(string text, string target) {
     int textLength = text.length();
     int targetLength = target.length();
     
-    for (int i = 0; i < textLength - targetLength + 1; i++) {
+    int i = 0;
+    while (i <= textLength - targetLength) {
+        int j = 0;
         bool found = true;
-        
-        for (int j = 0; j < targetLength; j++) {
+
+        while (j < targetLength) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
+            j++;
         }
-        
+
         if (found) {
             indices.push_back(i);
+            i += targetLength;
+        } else {
+            i++;
         }
     }
     
