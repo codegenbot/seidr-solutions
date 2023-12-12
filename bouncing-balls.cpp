@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 int main() {
@@ -6,11 +5,7 @@ int main() {
     int numBounces;
     cin >> startingHeight >> firstBounceHeight >> numBounces;
     bouncinessIndex = firstBounceHeight / startingHeight;
-    totalDistance = 0;
-    for (int i = 1; i <= numBounces; i++) {
-        double distanceTraveledDuringBounce = startingHeight + (i - 1) * bouncinessIndex;
-        totalDistance += distanceTraveledDuringBounce;
-    }
+    totalDistance = (startingHeight + bouncinessIndex * numBounces) / 2;
     cout << totalDistance << endl;
     return 0;
 }
