@@ -1,15 +1,37 @@
-[PYTHON]
-def get_unique_elements(my_list):
-    b = set()
-    return list(set(my_list) - b)
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
+```
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
 
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
+}
+
+int by_length(const std::string& a, const std::string& b) {
+    if (a.size() != b.size()) {
+        return a.size() < b.size();
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    std::vector<std::string> my_list = {"apple", "banana", "orange"};
+    std::sort(my_list.begin(), my_list.end(), issame);
+    std::cout << "Sorted list: ";
+    for (const auto& s : my_list) {
+        std::cout << s << " ";
+    }
+    std::cout << "\n";
+
+    std::sort(my_list.begin(), my_list.end(), by_length);
+    std::cout << "Sorted list by length: ";
+    for (const auto& s : my_list) {
+        std::cout << s << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
+}
 ```
