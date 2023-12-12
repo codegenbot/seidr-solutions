@@ -3,7 +3,6 @@
 #include <string>
 #include <algorithm>
 #include <variant>
-#include <boost/any.hpp>
 using namespace std;
 
 std::variant<int, float, string> compare_one(std::variant<int, float, string> a, std::variant<int, float, string> b) {
@@ -28,5 +27,9 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
     } else {
         return "None";
     }
+}
+
+int main() {
+    assert(compare_one("1", 1) == "None");
 }
 ```
