@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     total_sum = sum(vector)
     current_sum = 0
@@ -13,3 +14,4 @@ def cut_vector(vector):
             min_index = i
     
     return vector[:min_index+1], vector[min_index+1:]
+```
