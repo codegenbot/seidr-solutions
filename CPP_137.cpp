@@ -1,32 +1,31 @@
-[PYTHON]
-def compare_one(a, b):
-    if isinstance(a, int) and isinstance(b, (int, float)):
-        return a if a > b else b
-    elif isinstance(a, float) and isinstance(b, (int, float)):
-        return a if a > b else b
-    elif isinstance(a, str) and isinstance(b, (int, float, str)):
-        try:
-            x = float(a)
-            if isinstance(b, int):
-                return a if x > b else b
-            elif isinstance(b, float):
-                return a if x > b else b
-            else:
-                return "None"
-        except ValueError:
-            return "None"
-    else:
-        return "None"
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert compare_one(1, 2) == 2
-# Test case 2:
-assert compare_one(1.5, 2) == 2
-# Test case 3:
-assert compare_one(1.5, 2.5) == 2.5
-# Test case 4:
-assert compare_one("2", 1.5) == "2"
-# Test case 5:
-assert compare_one("2", "1.5") == "2"
-[/TESTS]
+```
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <variant>
+using namespace std;
+
+std::variant<int, float, string> compare_one(std::variant<int, float, string> a, std::variant<int, float, string> b) {
+    if (a.index() == 0 && b.index() == 1) {
+        int x = std::get<int>(a);
+        float y = std::get<float>(b);
+        return x > y ? a : b;
+    } else if (a.index() == 1 && b.index() == 0) {
+        float x = std::get<float>(a);
+        int y = std::get<int>(b);
+        return x > y ? a : b;
+    } else if (a.index() == 2 && b.index() == 2) {
+        string s1 = std::get<string>(a);
+        string s2 = std::get<string>(b);
+        try {
+            float x = stof(s1);
+            float y = stof(s2);
+            return x > y ? a : b;
+        } catch (const std::invalid_argument&) {
+            return "None";
+        }
+    } else {
+        return "None";
+    }
+}
+```
