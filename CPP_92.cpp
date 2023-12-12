@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 
@@ -12,9 +12,15 @@ int main() {
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
-        std::cout << "True" << std::endl;
+        std::string str = "True";
+        std::string::iterator it = str.begin();
+        str.insert(it, 'T');
+        std::cout << str << std::endl;
     } else {
-        std::cout << "False" << std::endl;
+        std::string str = "False";
+        std::string::iterator it = str.begin();
+        str.insert(it, 'F');
+        std::cout << str << std::endl;
     }
     return 0;
 }
