@@ -1,22 +1,25 @@
-
-```
-#include <string>
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int calculateScore(string bowls) {
+int calculateScore(string bowlingString) {
     int score = 0;
-    for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') {
+    for (int i = 0; i < 10; i++) {
+        if (bowlingString[i] == 'X') {
             score += 10;
-        } else if (bowls[i] == '/') {
-            score += 5;
-        } else if (bowls[i] == '-') {
-            score += 4;
+        } else if (bowlingString[i] == '/') {
+            score += 10 - (i % 2 == 0 ? 5 : 3);
         } else {
-            score += bowls[i] - '0';
+            score += bowlingString[i] - '0';
         }
     }
     return score;
 }
-```
+
+int main() {
+    string bowlingString;
+    cin >> bowlingString;
+    cout << calculateScore(bowlingString) << endl;
+    return 0;
+}
