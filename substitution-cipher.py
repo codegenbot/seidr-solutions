@@ -1,17 +1,17 @@
 ```
-def substitution_cipher(ciphertext, key):
-    # Create a dictionary to store the mapping of characters in ciphertext to their corresponding decrypted characters
+def decipher(cipher_text, cipher_key):
+    # Create a dictionary to store the mapping of characters in the cipher key
     char_map = {}
-    for i, char in enumerate(key):
-        char_map[char] = ciphertext[i]
+    for i, char in enumerate(cipher_key):
+        char_map[char] = cipher_text[i]
     
-    # Decrypt the message by replacing each character in the ciphertext with its corresponding decrypted character
-    decrypted_message = ""
-    for char in ciphertext:
+    # Decipher the text using the character mapping
+    deciphered_text = ""
+    for char in cipher_text:
         if char in char_map:
-            decrypted_message += char_map[char]
+            deciphered_text += char_map[char]
         else:
-            decrypted_message += char
+            deciphered_text += char
     
-    return decrypted_message
+    return deciphered_text
 ```
