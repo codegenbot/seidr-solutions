@@ -16,6 +16,12 @@ bool is_nested(string str) {
 
 int main() {
     string str = "[[]]]]]]][[[[[]";
+    auto it = str.begin();
+    it = find(str.begin(), str.end(), '[');
+    if (it != str.end()) {
+        // Found a '[' character, so insert the closing bracket at the end of the string
+        str.insert(it + 1, ']');
+    }
     cout << is_nested(str) << endl;
     return 0;
 }
