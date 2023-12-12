@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,13 +20,23 @@ int sumDigits(int n) {
     return sum;
 }
 
-int largestPrime(vector<int> lst) {
+int largestPrime(vector<int> nums) {
+    if (nums.empty()) {
+        cout << "Input vector is empty." << endl;
+        return -1;
+    }
     int max = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] > max && isPrime(lst[i])) {
-            max = lst[i];
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] > max && isPrime(nums[i])) {
+            max = nums[i];
         }
     }
     return sumDigits(max);
 }
-```
+
+int main() {
+    vector<int> nums = {127, 97, 8192};
+    int result = largestPrime(nums);
+    cout << "The largest prime number in the input vector is: " << result << endl;
+    return 0;
+}
