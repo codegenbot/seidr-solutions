@@ -2,18 +2,18 @@
 #include <string>
 using namespace std;
 
-string middleCharacter(string s) {
-    int length = s.length();
+string getMiddleCharacter(string str) {
+    int length = str.length();
     if (length % 2 == 1) {
-        return string(1, s[length / 2]);
+        return string(1, str[length/2]);
     } else {
-        return s.substr(length / 2 - 1, 2);
+        return str.substr(length/2 - 1, 2);
     }
 }
 
 int main() {
     string input;
     cin >> input;
-    cout << middleCharacter(input) << endl;
+    cout << getMiddleCharacter(input) << endl;
     return 0;
 }
