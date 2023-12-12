@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,7 +14,14 @@ int main() {
 }
 
 optional<int> next_smallest(const vector<int>& lst) {
-    // implementation of the function goes here
-    return std::nullopt;
+    if (lst.empty()) {
+        return std::nullopt;
+    }
+    int smallest = *lst.begin();
+    for (const auto& x : lst) {
+        if (x < smallest) {
+            smallest = x;
+        }
+    }
+    return smallest;
 }
-```
