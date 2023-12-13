@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,8 +24,7 @@ void Strongest_Extension(string class_name, vector<string> extensions) {
     cout << class_name + "." + strongest_extension << endl;
 }
 
-int main() {
+int main(void) {
     Strongest_Extension("Sp", {"671235", "Bb"});
     return 0;
 }
-```
