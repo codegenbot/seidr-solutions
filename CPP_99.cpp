@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cmath>
 #include <cassert>
@@ -21,3 +22,4 @@ assert (closest_integer("10.1") == 10);
 assert (closest_integer("-10.9") == -11);
 
 return 0;
+```
