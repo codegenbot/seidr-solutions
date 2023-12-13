@@ -1,3 +1,5 @@
+Include the following modified code in C++:
+
 ```cpp
 #include <iostream>
 #include <vector>
