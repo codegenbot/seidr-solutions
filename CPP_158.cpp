@@ -1,9 +1,15 @@
 ```cpp
-std::string find_max(std::vector<std::string>& words) {
-    std::string maxWord = "";
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+using namespace std;
+
+string find_max(vector<string>&& words) {
+    string maxWord = "";
     int maxUniqueChars = 0;
 
-    for (std::string word : words) {
+    for (string word : words) {
         int uniqueChars = 0;
         bool visited[26] = {false};
 
@@ -24,8 +30,8 @@ std::string find_max(std::vector<std::string>& words) {
 }
 
 int main() {
-    std::vector<std::string> input = {"play", "play", "play"};
-    assert((find_max(input) == "play"));
+    vector<string> input = {"play", "play", "play"};
+    assert((find_max(move(input)) == "play"));
     return 0;
 }
 ```
