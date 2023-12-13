@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 
 double calculateSnowOnGround(int hours, double initialSnow, double snowFallRate, double meltingRate) {
