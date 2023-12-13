@@ -1,16 +1,21 @@
-```
+
 #include <openssl/evp.h>
+#include <string>
 
-int string_to_md5(const char *text) {
-    if (text == NULL || strlen(text) == 0) {
-        return -1;
+// ...
+
+std::string string_to_md5(const std::string& text) {
+    if (text.empty()) {
+        return "";
     }
-
-    unsigned char md[MD5_DIGEST_LENGTH];
-    EVP_DigestInit(EVP_md5(), md);
-    EVP_DigestUpdate(EVP_md5(), text, strlen(text));
-    EVP_DigestFinal(EVP_md5(), md);
-
-    return 0;
+    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
+    EVP_DigestUpdate(ctx, text.c_str(), text.size());
+    unsigned char md[EVP_MAX_MD_SIZE];
+    EVP_DigestFinal_ex(ctx, md, NULL);
+    std::string result;
+    for (int i = 0; i < EVP_MD_CTX_size(ctx); i++) {
+        result += to_string(md[i]);
+    }
+    return result;
 }
-```
