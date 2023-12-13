@@ -1,9 +1,17 @@
-n = int(input())
-v = list(map(int, input().split()))
+```python
+def find_negative_sum_index(nums):
+    total_sum = 0
+    for i in range(len(nums)):
+        total_sum += nums[i]
+        if total_sum < 0:
+            return i
+    return -1
 
-sum = 0
-for i in range(n):
-    sum += v[i]
-    if sum < 0:
-        print(i)
-        break
+n = int(input())
+nums = []
+for _ in range(n):
+    nums.append(int(input()))
+
+result = find_negative_sum_index(nums)
+print(result)
+```
