@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -13,7 +14,7 @@ string rounded_avg(int n, int m) {
     count++;
   }
 
-  int avg = round(static_cast<double>(sum) / count);
+  int avg = round(sum / count);
 
   string binary = "";
   while (avg > 0) {
@@ -23,3 +24,4 @@ string rounded_avg(int n, int m) {
 
   return binary;
 }
+```
