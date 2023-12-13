@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 long long special_factorial(int n) {
