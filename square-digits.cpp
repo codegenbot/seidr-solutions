@@ -6,8 +6,7 @@ std::string squareDigits(int num) {
     std::string result = "";
     while (num > 0) {
         int digit = num % 10;
-        int square = digit * digit;
-        result = std::to_string(square) + result;
+        result = std::to_string(std::pow(digit, 2)) + result;
         num /= 10;
     }
     return result;
