@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,7 +23,7 @@ int luhnAlgorithm(const std::vector<int>& digits) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> digits(n);
+    std::vector<int> digits(n, 0);
     
     for (int i = 0; i < n; i++) {
         std::cin >> digits[i];
@@ -35,4 +34,3 @@ int main() {
     
     return 0;
 }
-```
