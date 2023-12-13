@@ -7,6 +7,7 @@ def calculate_bowling_score(bowls):
     for bowl in bowls:
         if frame > 10:
             break
+
         if bowl == 'X':
             frames[frame-1].append(10)
             frame += 1
@@ -23,14 +24,17 @@ def calculate_bowling_score(bowls):
             ball += 1
 
     for index, frame in enumerate(frames):
-        if len(frame) < 3:
+        if len(frame) >= 2:
+            score += sum(frame)
             if index < 9:
-                if sum(frame) == 10 and len(frame) == 1:
-                    score += sum(frame) + frames[index+1][0]
-                    ball = 0
-                else:
-                    score += sum(frame)
-            else:
-                score += sum(frame)
-
+                if frame[0] == 10:
+                    if len(frames[index + 1]) >= 2:
+                        score += sum(frames[index + 1][:2])
+                    else:
+                        score += frames[index + 1][0]
+                        if len(frames[index + 1]) == 1 and index < 8:
+                            score += frames[index + 2][0]
+                elif sum(frame) == 10:
+                    if len(frames[index + 1]) >= 1:
+                        score += frames[index + 1][0]
     return score
