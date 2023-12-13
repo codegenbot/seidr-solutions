@@ -1,18 +1,10 @@
 def tri(n):
     sequence = [3]
     if n == 0:
-        return sequence
+        return []
     elif n == 1:
-        sequence.append(1)
-        return sequence
+        return sequence[:1]
     else:
-        first = 1
-        second = 1
-        sequence.append(first)
-        sequence.append(second)
-        for i in range(2, n + 1):
-            third = first + second + 1
-            sequence.append(third)
-            first = second
-            second = third
+        for i in range(2, n):
+            sequence.append(sequence[i - 2] + sequence[i - 1] + 1)
         return sequence
