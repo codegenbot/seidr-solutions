@@ -1,47 +1,50 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
+pair<vector<int>, vector<int>> cut_vector(const vector<int>& nums) {
+    int n = nums.size();
+    int left_sum = 0, right_sum = 0;
+    for (int i = 0; i < n; i++) {
+        right_sum += nums[i];
     }
     
-    int target = (sum + 1) / 2;
-    int currentSum = 0;
-    int index = 0;
+    int min_diff = abs(left_sum - right_sum);
+    int cut_index = 0;
     
-    while (currentSum < target && index < nums.size()) {
-        currentSum += nums[index];
-        index++;
+    for (int i = 0; i < n; i++) {
+        left_sum += nums[i];
+        right_sum -= nums[i];
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i + 1;
+        }
     }
     
-    if (currentSum > target) {
-        index--;
-    }
+    vector<int> left_vector(nums.begin(), nums.begin() + cut_index);
+    vector<int> right_vector(nums.begin() + cut_index, nums.end());
     
-    std::vector<int> subvector1(nums.begin(), nums.begin() + index);
-    std::vector<int> subvector2(nums.begin() + index, nums.end());
-    
-    return std::make_pair(subvector1, subvector2);
+    return make_pair(left_vector, right_vector);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+    pair<vector<int>, vector<int>> result = cut_vector(nums);
     
-    for (int num : result.first) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << endl;
     }
-    for (int num : result.second) {
-        std::cout << num << std::endl;
+    
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << endl;
     }
     
     return 0;
