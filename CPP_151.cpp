@@ -17,5 +17,8 @@ long long double_the_difference(std::vector<float> lst) {
 // Test cases
 std::vector<float> lst = {1, 2, 3, 4, 5};
 long long odd_sum = double_the_difference(lst);
-cout << "The sum of the squares of the odd numbers in the list is: " << odd_sum << endl;
+
+int main() {
+    assert(odd_sum == (1 + 9 + 25 + 49 + 81));
+}
 ```
