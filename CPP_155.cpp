@@ -17,7 +17,7 @@ std::vector<int> even_odd_count(int num) {
         }
     }
     
-    return std::vector<int>({even_count, odd_count});
+    return std::vector<int>{even_count, odd_count};
 }
 
 bool compare_vectors(std::vector<int> a, std::vector<int> b) {
@@ -35,13 +35,23 @@ bool compare_vectors(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> expected = {0, 1};
-    std::vector<int> result = even_odd_count(0);
+    std::vector<int> test_cases = {
+        0,
+        1234,
+        13579,
+        -2468,
+        9876540
+    };
     
-    if (compare_vectors(expected, result)) {
-        std::cout << "Test case passed." << std::endl;
-    } else {
-        std::cout << "Test case failed." << std::endl;
+    for (const auto& test_case : test_cases) {
+        int expected = test_case;
+        std::vector<int> result = even_odd_count(expected);
+        
+        if (compare_vectors(std::vector<int>{expected}, result)) {
+            std::cout << "Test case passed." << std::endl;
+        } else {
+            std::cout << "Test case failed." << std::endl;
+        }
     }
     
     return 0;
