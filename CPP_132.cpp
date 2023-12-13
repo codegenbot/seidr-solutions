@@ -1,4 +1,5 @@
 ```
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -12,16 +13,12 @@ bool is_nested(string str) {
             count--;
         }
     }
-    return count % 2 == 0;
+    return count % 2 == 1;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     string str = "[[]]]]]]][[[[[]";
-    if (is_nested(str)) {
-        cout << "Nested" << endl;
-    } else {
-        cout << "Not Nested" << endl;
-    }
+    cout << is_nested(str) << endl;
     return 0;
 }
 ```
