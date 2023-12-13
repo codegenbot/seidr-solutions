@@ -1,34 +1,34 @@
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-bool evaluateBoolean(string expression) {
-    if (expression == "T") {
+bool evaluateBoolean(std::string expression) {
+    if (expression == "t") {
         return true;
-    } else if (expression == "F") {
+    } else if (expression == "f") {
         return false;
-    } else if (expression.find('&') != string::npos) {
+    } else if (expression.find('&') != std::string::npos) {
         bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
         bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
         return left && right;
-    } else if (expression.find('|') != string::npos) {
+    } else if (expression.find('|') != std::string::npos) {
         bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
         bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
         return left || right;
     } else {
-        throw runtime_error("Invalid expression format");
+        throw std::runtime_error("Invalid expression format.");
     }
+    return false;
 }
 
 int main() {
-    string expression;
-    getline(cin, expression);
+    std::string expression;
+    std::getline(std::cin, expression);
     try {
         bool result = evaluateBoolean(expression);
-        cout << boolalpha << result << endl;
-    } catch (const exception& e) {
-        cout << "Error: " << e.what() << endl;
+        std::cout << (result ? "True" : "False") << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
     }
     return 0;
 }
