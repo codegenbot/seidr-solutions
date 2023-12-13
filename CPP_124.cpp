@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -40,7 +40,6 @@ int main() {
     }
     return 0;
 }
-```
 ```
 int days_in_month(int month, int year) {
     switch (month) {
