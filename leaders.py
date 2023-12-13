@@ -1,3 +1,4 @@
+```python
 def find_leaders(arr):
     n = len(arr)
     leaders = []
@@ -16,3 +17,4 @@ arr = list(map(int, input().split()))
 result = find_leaders(arr)
 for num in result:
     print(num)
+```
