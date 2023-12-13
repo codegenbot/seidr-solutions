@@ -1,8 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
 #include <cassert>
+
 using namespace std;
 
 string rounded_avg(int n, int m);
