@@ -29,7 +29,9 @@ bool isValidDate(std::string date) {
 }
 
 int main() {
-    assert(isValidDate("04-2003") == false);
+    string date = "04-2003";
+    bool valid_date = isValidDate(date);
+    assert(valid_date == false);
     return 0;
 }
 ```
