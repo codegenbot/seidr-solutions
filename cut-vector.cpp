@@ -9,13 +9,12 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         return std::make_pair(nums, nums);
     }
 
+    size_t cutIndex = 0;
     for (size_t i = 1; i < n; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = std::abs(leftSum - rightSum);
-    size_t cutIndex = 0;
-
     for (size_t i = 1; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
@@ -27,8 +26,16 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> left(nums.begin(), nums.begin() + cutIndex);
-    std::vector<int> right(nums.begin() + cutIndex, nums.end());
+    std::vector<int> left;
+    std::vector<int> right;
+
+    for (size_t i = 0; i < cutIndex; i++) {
+        left.push_back(nums[i]);
+    }
+
+    for (size_t i = cutIndex; i < n; i++) {
+        right.push_back(nums[i]);
+    }
 
     return std::make_pair(left, right);
 }
