@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     total_sum = sum(vector)
     current_sum = 0
@@ -11,9 +10,4 @@ def cut_vector(vector):
             min_difference = difference
             split_index = i
     if split_index != -1:
-        return vector[:split_index+1], vector[split_index+1:]
-
-subvector1, subvector2 = cut_vector(vector)
-print(subvector1)
-print(subvector2) 
-```
+        return (vector[:split_index+1], vector[split_index+1:])
