@@ -5,5 +5,5 @@ def spin_words(sentence):
             words[i] = words[i][::-1]
     return ' '.join(words)
 
-input_sentence = input()
-print(spin_words(input_sentence))
+sentence = input()
+print(spin_words(sentence))
