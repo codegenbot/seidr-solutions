@@ -1,9 +1,26 @@
 [PYTHON]
 def int_to_mini_roman(number):
-    if number == 0:
-        return ""
-    else:
-        return "ivxlcdm"[number//1000] + int_to_mini_roman(number%1000)
+    roman = ["m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"]
+    result = ""
+    while number > 0:
+        digit = number % 10
+        if digit < 4:
+            for _ in range(digit):
+                result += roman[number]
+        elif digit == 4:
+            result += "iv"
+        elif digit == 5:
+            result += "v"
+        elif digit == 6:
+            result += "vi"
+        elif digit == 7:
+            result += "vii"
+        elif digit == 8:
+            result += "viii"
+        else:
+            result += "ix"
+        number //= 10
+    return result
 [/PYTHON]
 [TESTS]
 # Test case 1:
