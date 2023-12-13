@@ -1,9 +1,8 @@
 ```
-#include <openssl/crypto.h>
-#include <openssl/evp.h>
-#include <vector>
+#include <iostream>
 #include <string>
 #include <sstream>
+#include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text) {
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
@@ -14,7 +13,7 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestUpdate(ctx, text.c_str(), text.size());
     unsigned char md[EVP_MAX_MD_SIZE];
     EVP_DigestFinal(ctx, md, NULL);
-    std::ostringstream oss;
+    std::stringstream oss;
     for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
         oss << std::hex << static_cast<unsigned int>(md[i]);
     }
