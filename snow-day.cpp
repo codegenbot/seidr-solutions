@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 double calculateSnowOnGround(int hours, double initialSnow, double snowFallRate, double meltingRate) {
@@ -13,9 +12,4 @@ double calculateSnowOnGround(int hours, double initialSnow, double snowFallRate,
 int main() {
     int hours;
     double initialSnow, snowFallRate, meltingRate;
-    std::cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
-    double result = calculateSnowOnGround(hours, initialSnow, snowFallRate, meltingRate);
-    std::cout << result << std::endl;
-    return 0;
-}
-```
+ 
