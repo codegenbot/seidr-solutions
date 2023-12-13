@@ -1,9 +1,11 @@
+```
 #include <iostream>
 #include <vector>
 
 int main() {
     std::vector<int> digits;
 
+    // Input 16 digits
     for (int i = 0; i < 16; i++) {
         int digit;
         std::cin >> digit;
@@ -27,3 +29,4 @@ int main() {
 
     return 0;
 }
+```
