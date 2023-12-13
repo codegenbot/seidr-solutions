@@ -1,5 +1,3 @@
-C++. The modified code is as follows:
-
 ```cpp
 #include <iostream>
 #include <string>
