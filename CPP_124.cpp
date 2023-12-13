@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool isValidDate(string date) {
+bool isValidDate(std::string date) {
     int month, day, year;
     char delimiter = '-';
     stringstream ss(date);
@@ -16,19 +16,11 @@ bool isValidDate(string date) {
     if (year < 0) return false;
 
     int daysInMonth = 31;
-    switch (month) {
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            daysInMonth = 30;
-            break;
-        case 2:
-            daysInMonth = 28;
-            if (year % 4 == 0) {
-                daysInMonth = 29;
-            }
-            break;
+    if (month == 2) {
+        daysInMonth = 28;
+        if (year % 4 == 0) {
+            daysInMonth = 29;
+        }
     }
 
     return day <= daysInMonth;
