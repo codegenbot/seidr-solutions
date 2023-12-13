@@ -16,8 +16,8 @@ def max_fill(grid, capacity):
                             capacity -= 1
                         else:
                             buckets_needed += 1
-                            grid[i][j] = 0  # Update capacity after emptying well
-                            capacity -= 1  # Decrease capacity after each successful filling
+                            grid[i][j] = 0
+                            capacity -= 1
             if count_buckets(grid) == 0:
                 break
         return buckets_needed
