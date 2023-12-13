@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -20,8 +19,7 @@ double probabilityOfHigherRoll(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout.precision(8);
+    cout.precision(9);
     cout << fixed << probabilityOfHigherRoll(n, m) << endl;
     return 0;
 }
-```
