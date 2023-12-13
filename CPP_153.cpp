@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
-int StrongestExtension(const string& extension) {
+int Strongest_Extension(const char* extension) {
     int strength = 0;
     for (int i = 0; i < extension.length(); i++) {
         if (extension[i] > strength) {
@@ -13,8 +14,8 @@ int StrongestExtension(const string& extension) {
 }
 
 int main(){
-    const string extensions[] = {"671235", "Bb"};
-    int strength = StrongestExtension(extensions[0]);
+    const char* extensions[] = {"671235", "Bb"};
+    int strength = Strongest_Extension(extensions);
     cout << strength << endl;
     return 0;
 }
