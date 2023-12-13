@@ -1,17 +1,18 @@
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <variant>
+#include <boost/any.hpp>
 using namespace std;
 
-std::variant<int, float, string> compare_one(std::variant<int, float, string> a, std::variant<int, float, string> b) {
-    if (a.index() == 0) {
-        int x = std::get<0>(a);
-        if (b.index() == 1) {
-            float y = std::get<1>(b);
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        if (b.type() == typeid(float)) {
+            float y = boost::any_cast<float>(b);
             return (x > y) ? a : b;
-        } else if (b.index() == 2) {
-            string s = std::get<2>(b);
+        } else if (b.type() == typeid(string)) {
+            string s = boost::any_cast<string>(b);
             try {
                 float y = stof(s);
                 return (x > y) ? a : b;
@@ -21,13 +22,13 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         } else {
             return "None";
         }
-    } else if (a.index() == 1) {
-        float x = std::get<1>(a);
-        if (b.index() == 0) {
-            int y = std::get<0>(b);
+    } else if (a.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        if (b.type() == typeid(int)) {
+            int y = boost::any_cast<int>(b);
             return (x > y) ? a : b;
-        } else if (b.index() == 2) {
-            string s = std::get<2>(b);
+        } else if (b.type() == typeid(string)) {
+            string s = boost::any_cast<string>(b);
             try {
                 float y = stof(s);
                 return (x > y) ? a : b;
@@ -37,15 +38,15 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         } else {
             return "None";
         }
-    } else if (a.index() == 2) {
-        string s = std::get<2>(a);
+    } else if (a.type() == typeid(string)) {
+        string s = boost::any_cast<string>(a);
         try {
             float x = stof(s);
-            if (b.index() == 0) {
-                int y = std::get<0>(b);
+            if (b.type() == typeid(int)) {
+                int y = boost::any_cast<int>(b);
                 return (x > y) ? a : b;
-            } else if (b.index() == 1) {
-                float y = std::get<1>(b);
+            } else if (b.type() == typeid(float)) {
+                float y = boost::any_cast<float>(b);
                 return (x > y) ? a : b;
             } else {
                 return "None";
@@ -57,3 +58,4 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         return "None";
     }
 }
+```
