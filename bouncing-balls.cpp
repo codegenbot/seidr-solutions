@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-using namespace std;
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
     return firstBounceHeight / startingHeight;
@@ -15,19 +13,15 @@ double calculateTotalDistance(double startingHeight, double bouncinessIndex, int
 }
 
 int main() {
-    string startingHeightStr, firstBounceHeightStr;
+    double startingHeight, firstBounceHeight;
     int numBounces;
 
-    cin >> startingHeightStr >> firstBounceHeightStr >> numBounces;
-    
-    double startingHeight = stod(startingHeightStr);
-    double firstBounceHeight = stod(firstBounceHeightStr);
+    cin >> startingHeight >> firstBounceHeight >> numBounces >> ws;
 
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
-
+    
     cout << totalDistance << endl;
 
     return 0;
 }
-```
