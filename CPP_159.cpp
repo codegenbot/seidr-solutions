@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 std::vector<int> eat(int number, int need, int remaining) {
     std::vector<int> result;
@@ -10,8 +8,8 @@ std::vector<int> eat(int number, int need, int remaining) {
     if (left < 0) {
         left = 0;
     }
-    result.emplace_back(totalEaten);
-    result.emplace_back(left);
+    result.push_back(totalEaten);
+    result.push_back(left);
     return result;
 }
 
@@ -20,4 +18,3 @@ int main() {
     std::cout << output[0] << " " << output[1] << std::endl;
     return 0;
 }
-```
