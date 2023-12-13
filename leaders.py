@@ -1,4 +1,3 @@
-```python
 def find_leaders(input_vector):
     leaders = []
     max_right = input_vector[-1]
@@ -8,4 +7,3 @@ def find_leaders(input_vector):
         max_right = max(max_right, input_vector[i])
     leaders.append(max_right)
     return leaders
-```
