@@ -1,3 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <string>
+
+using namespace std;
+
+bool is_consonant(char c) {
+    c = tolower(c);
+    if (c >= 'a' && c <= 'z') {
+        return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    }
+    return false;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
