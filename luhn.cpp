@@ -4,19 +4,20 @@
 
 int luhnAlgorithm(const std::vector<int>& digits) {
     int sum = 0;
-    int size = digits.size();
-    int doubleDigit = 0;
+    bool doubleDigit = false;
 
-    for (int i = size - 1; i >= 0; i--) {
-        if (i % 2 == 0) {
-            doubleDigit = digits[i] * 2;
-            if (doubleDigit > 9) {
-                doubleDigit -= 9;
+    for (int i = digits.size() - 1; i >= 0; i--) {
+        int digit = digits[i];
+
+        if (doubleDigit) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            sum += doubleDigit;
-        } else {
-            sum += digits[i];
         }
+
+        sum += digit;
+        doubleDigit = !doubleDigit;
     }
 
     return sum;
