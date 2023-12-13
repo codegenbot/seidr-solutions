@@ -5,16 +5,16 @@ int main() {
     long long cents;
     std::cin >> cents;
 
-    int quarters = cents / 25;
+    long long quarters = cents / 25;
     cents %= 25;
 
-    int dimes = cents / 10;
+    long long dimes = cents / 10;
     cents %= 10;
 
-    int nickels = cents / 5;
+    long long nickels = cents / 5;
     cents %= 5;
 
-    int pennies = cents;
+    long long pennies = cents;
 
     std::cout << pennies << std::endl;
     std::cout << nickels << std::endl;
