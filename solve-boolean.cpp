@@ -1,26 +1,56 @@
+```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-bool evaluateBoolean(string expression) {
-    if (expression == "T" || expression == "True") {
-        return true;
-    } else if (expression == "F" || expression == "False") {
-        return false;
-    } else if (expression.find('|') != string::npos) {
-        bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
-        bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
-        return left || right;
-    } else {
-        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
-        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
-        return left && right;
+bool evaluateBooleanExpression(const std::string& expression) {
+    bool result = false;
+    bool hasTrue = false;
+    bool hasFalse = false;
+
+    for (char c : expression) {
+        if (c == 't') {
+            hasTrue = true;
+        } else if (c == 'f') {
+            hasFalse = true;
+        }
     }
+
+    if (hasTrue && !hasFalse) {
+        return true;
+    } else if (!hasTrue && hasFalse) {
+        return false;
+    }
+
+    bool currentResult = false;
+    bool isOperand = true;
+
+    for (char c : expression) {
+        if (c == '&') {
+            isOperand = true;
+        } else if (c == '|') {
+            result |= currentResult;
+            isOperand = true;
+        } else {
+            currentResult = (c == 't');
+            if (isOperand) {
+                result = currentResult;
+                isOperand = false;
+            } else if (result && !currentResult) {
+                result = false;
+            }
+        }
+    }
+
+    return result;
 }
 
 int main() {
-    string expression;
-    cin >> expression;
-    cout << (evaluateBoolean(expression) ? "true" : "false") << endl;
+    std::string expression;
+    std::cin >> expression;
+
+    bool result = evaluateBooleanExpression(expression);
+    std::cout << (result ? "True" : "False") << std::endl;
+
     return 0;
 }
+```
