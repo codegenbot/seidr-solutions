@@ -3,5 +3,5 @@ def add_elements(arr, k):
     
     if 0 <= k < len(filtered_arr):
         return filtered_arr[k]
-    
-    return None
+    else:
+        return -1
