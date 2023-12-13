@@ -24,8 +24,7 @@ def calculate_bowling_score(bowls):
                 if bowls[i + 1] == 'X':
                     score += 10
                 else:
-                    if bowls[i + 1] != '-':
-                        score += int(bowls[i + 1])
+                    score += int(bowls[i + 1])
             frame += 1
             i += 1
         elif bowls[i].isdigit():
@@ -34,6 +33,3 @@ def calculate_bowling_score(bowls):
         i += 1
     
     return score
-
-bowls = input()
-print(calculate_bowling_score(bowls))
