@@ -1,4 +1,3 @@
-```python
 starting_height = float(input())
 first_bounce_height = float(input())
 num_bounces = int(input())
@@ -8,4 +7,3 @@ for _ in range(num_bounces):
     first_bounce_height *= bounciness_index
     total_distance += 2 * first_bounce_height
 print(total_distance)
-```
