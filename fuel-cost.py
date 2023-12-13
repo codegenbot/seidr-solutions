@@ -1,5 +1,4 @@
 import math
-
 def fuel_cost(nums):
     if not nums:
         return 0
