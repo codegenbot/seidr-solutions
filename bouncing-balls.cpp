@@ -26,11 +26,11 @@ int main() {
 
     double firstBounceHeight = std::stod(inputLine.substr(0, inputLine.find(' ')));
     inputLine = inputLine.substr(inputLine.find(' ') + 1);
-    
+
     int numBounces = std::stoi(inputLine);
 
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
-
+    
     std::cout << std::fixed;
     std::cout.precision(15);
     std::cout << totalDistance << std::endl;
