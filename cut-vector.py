@@ -15,5 +15,5 @@ def cut_vector(vector):
 
 subvector1, subvector2 = cut_vector(vector)
 print(subvector1)
-print(subvector2) 
+print(subvector2)
 ```
