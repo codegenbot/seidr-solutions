@@ -1,10 +1,11 @@
+#include <vector>
 #include <cmath>
 #include <cassert>
-using namespace std;
+#include <initializer_list>
 
-int sum_squares(vector<float> lst){
+int sum_squares(std::vector<float> lst){
     int sum = 0;
-    for(int i=0; i<lst.size(); i++){
+    for(size_t i=0; i<lst.size(); i++){
         int rounded = ceil(lst[i]);
         sum += rounded * rounded;
     }
