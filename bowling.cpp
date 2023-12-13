@@ -1,64 +1,53 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& input) {
+int calculateScore(std::string input) {
     int score = 0;
     int frame = 1;
-    int rolls = 0;
-    int frameScore = 0;
-    bool spare = false;
-    bool strike = false;
+    int roll = 0;
+    int spare = 0;
+    int strike = 0;
 
     for (char c : input) {
         if (c == 'X') {
             score += 10;
             if (frame < 10) {
-                if (strike) {
-                    score += 10;
-                }
-                strike = true;
-                frame++;
-                rolls = 0;
+                strike++;
+                roll = 0;
             }
         } else if (c == '/') {
-            score += 10 - frameScore;
+            score += 10 - roll;
             if (frame < 10) {
-                if (strike) {
-                    score += 10;
+                spare++;
+                roll = 0;
+            }
+        } else if (c >= '0' && c <= '9') {
+            score += c - '0';
+            if (frame < 10) {
+                roll++;
+                if (roll == 2) {
+                    roll = 0;
+                    frame++;
                 }
-                spare = true;
-                frame++;
-                rolls = 0;
             }
         } else if (c == '-') {
             if (frame < 10) {
-                if (strike) {
-                    score += 10;
+                roll++;
+                if (roll == 2) {
+                    roll = 0;
+                    frame++;
                 }
-                frame++;
-                rolls = 0;
             }
-        } else {
-            int pins = c - '0';
-            score += pins;
-            frameScore += pins;
+        }
+        
+        if (spare > 0) {
+            score += c - '0';
+            spare--;
+        }
 
-            if (spare) {
-                score += pins;
-                spare = false;
-            }
-
-            if (strike) {
-                score += pins;
-                strike = false;
-            }
-
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
+        if (strike > 0) {
+            score += c - '0';
+            strike--;
         }
     }
 
@@ -68,9 +57,7 @@ int calculateScore(const std::string& input) {
 int main() {
     std::string input;
     std::cin >> input;
-
-    std::cout << calculateScore(input) << std::endl;
-
+    int score = calculateScore(input);
+    std::cout << score << std::endl;
     return 0;
 }
-```
