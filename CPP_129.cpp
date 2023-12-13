@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -9,14 +9,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 vector<int> minPath(const vector<int>& costs, int target) {
     // Implement the function to find the minimum path
-    vector<int> result;
-    for (int i = 0; i < costs.size(); i++) {
-        if (costs[i] <= target) {
-            result.push_back(costs[i]);
-            target -= costs[i];
-        }
-    }
-    return result;
 }
 
 int main() {
