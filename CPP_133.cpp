@@ -1,10 +1,11 @@
+```cpp
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
-int sum_squares(std::vector<float> lst) {
+int sum_squares(std::vector<float> lst){
     int sum = 0;
-    for (int i = 0; i < lst.size(); i++) {
+    for(int i=0; i<lst.size(); i++){
         int rounded = ceil(lst[i]);
         sum += rounded * rounded;
     }
@@ -12,7 +13,9 @@ int sum_squares(std::vector<float> lst) {
 }
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
-    // Add more test cases here
+    // Test the sum_squares function
+    assert(sum_squares({-1,1,0}) == 2);
+
     return 0;
 }
+```
