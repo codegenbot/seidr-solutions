@@ -1,16 +1,10 @@
-```python
-def find_pair(n, nums, target):
-    nums_set = set(nums)
-    for num in nums:
-        complement = target - num
-        if complement in nums_set:
-            return num, complement
-
 n = int(input())
-nums = list(map(int, input().split()))
+arr = list(map(int, input().split()))
 target = int(input())
 
-result = find_pair(n, nums, target)
-print(result[0])
-print(result[1])
-```
+for i in range(n):
+    for j in range(i+1, n):
+        if arr[i] + arr[j] == target:
+            print(arr[i])
+            print(arr[j])
+            break
