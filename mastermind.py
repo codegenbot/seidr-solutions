@@ -1,17 +1,8 @@
+```python
 import collections
 from typing import Tuple
 
-def mastermind() -> Tuple[int, int]:
-    code = input()
-    guess = input()
-
-    if len(code) != 4 or len(guess) != 4:
-        raise ValueError("Code and guess must be 4-character strings")
-
-    for char in code + guess:
-        if char not in "ABCDEF":
-            raise ValueError("Code and guess must consist of characters A, B, C, D, E, or F")
-
+def mastermind(code: str, guess: str) -> Tuple[int, int]:
     black_pegs = 0
     white_pegs = 0
     code_count = collections.Counter(code)
@@ -28,5 +19,6 @@ def mastermind() -> Tuple[int, int]:
 
     return white_pegs, black_pegs
 
-result = mastermind()
+result = mastermind("ABCD", "AABC")
 print(result[0], result[1])
+```
