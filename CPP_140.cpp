@@ -23,4 +23,18 @@ string fix_spaces(string text) {
     }
     return result;
 }
+
+int main() {
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+
+    // Additional test cases
+    assert(fix_spaces("Hello World") == "Hello_World");
+    assert(fix_spaces("A___B___C") == "A-B-C");
+    assert(fix_spaces("   ") == "---");
+    assert(fix_spaces("") == "");
+
+    cout << "All test cases passed" << endl;
+
+    return 0;
+}
 ```
