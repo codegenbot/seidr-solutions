@@ -12,11 +12,14 @@ int fuelCost(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int n;
-    while (std::cin >> n) {
-        nums.push_back(n);
+    int size;
+    std::cin >> size;
+
+    std::vector<int> nums(size);
+    for (int i = 0; i < size; i++) {
+        std::cin >> nums[i];
     }
+
     std::cout << fuelCost(nums) << std::endl;
     return 0;
 }
