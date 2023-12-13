@@ -2,8 +2,6 @@
 #include <vector>
 #include <cassert>
 
-int search(vector<int> lst);
-
 int search(vector<int> lst){
     int maxFreq = -1;
     int maxNum = -1;
@@ -24,7 +22,6 @@ int search(vector<int> lst){
 
 int main() {
     assert(search({3, 10, 10, 9, 2}) == -1);
-    // Add more test cases here if needed
 
     return 0;
 }
