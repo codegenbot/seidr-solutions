@@ -1,9 +1,14 @@
 n = int(input())
 m = int(input())
 
-if n <= 1 or m <= 1:
-    print(0.0)
-elif n > m:
-    print(1.0)
-else:
-    print(round((m - n + 1) / (m * 1.0), 2))
+def dice_game(n, m):
+    if n <= 1 or m <= 1:
+        return 0.0
+    elif n == m:
+        return 0.5
+    elif n > m:
+        return (n - 1) / n
+    else:
+        return (n - 1) / m
+
+print(dice_game(n, m))
