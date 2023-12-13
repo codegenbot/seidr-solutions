@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -35,19 +34,19 @@ bool compare_vectors(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> test_cases = {
-        0,
-        1234,
-        13579,
-        -2468,
-        9876540
+    std::vector<std::vector<int>> test_cases = {
+        {0, 1},
+        {1234, 2},
+        {13579, 5},
+        {-2468, 4},
+        {9876540, 4}
     };
     
     for (const auto& test_case : test_cases) {
-        int expected = test_case;
-        std::vector<int> result = even_odd_count(expected);
+        std::vector<int> expected = test_case;
+        std::vector<int> result = even_odd_count(expected[0]);
         
-        if (compare_vectors(std::vector<int>{expected}, result)) {
+        if (compare_vectors(expected, result)) {
             std::cout << "Test case passed." << std::endl;
         } else {
             std::cout << "Test case failed." << std::endl;
@@ -56,4 +55,3 @@ int main() {
     
     return 0;
 }
-```
