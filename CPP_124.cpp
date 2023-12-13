@@ -5,8 +5,6 @@
 #include <sstream>
 #include <cassert>
 
-using namespace std;
-
 bool isValidDate(std::string date) {
     int month, day, year;
     char delimiter = '-';
@@ -26,5 +24,10 @@ bool isValidDate(std::string date) {
     }
 
     return day <= daysInMonth;
+}
+
+int main() {
+    assert(isValidDate("04-2003") == false);
+    return 0;
 }
 ```
