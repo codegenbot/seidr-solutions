@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,6 +11,7 @@ int main() {
     for (int num : result) {
         std::cout << num << " ";
     }
+
     return 0;
 }
 
@@ -20,4 +20,3 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result(arr.begin(), arr.begin() + k);
     return result;
 }
-```
