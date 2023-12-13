@@ -2,8 +2,8 @@ import collections
 from typing import Tuple
 
 def mastermind() -> Tuple[int, int]:
-    code = input()
-    guess = input()
+    code = input("Enter the code: ")
+    guess = input("Enter the guess: ")
 
     black_pegs = 0
     white_pegs = 0
