@@ -1,60 +1,26 @@
-
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <variant>
-using namespace std;
-
-std::variant<int, float, string> compare_one(std::variant<int, float, string> a, std::variant<int, float, string> b) {
-    if (a.index() == 0) {
-        int x = std::get<0>(a);
-        if (b.index() == 1) {
-            float y = std::get<1>(b);
-            return (x > y) ? a : b;
-        } else if (b.index() == 2) {
-            string s = std::get<2>(b);
-            try {
-                float y = stof(s);
-                return (x > y) ? a : b;
-            } catch (const std::invalid_argument& e) {
-                return "None";
-            }
-        } else {
-            return "None";
-        }
-    } else if (a.index() == 1) {
-        float x = std::get<1>(a);
-        if (b.index() == 0) {
-            int y = std::get<0>(b);
-            return (x > y) ? a : b;
-        } else if (b.index() == 2) {
-            string s = std::get<2>(b);
-            try {
-                float y = stof(s);
-                return (x > y) ? a : b;
-            } catch (const std::invalid_argument& e) {
-                return "None";
-            }
-        } else {
-            return "None";
-        }
-    } else if (a.index() == 2) {
-        string s = std::get<2>(a);
-        try {
-            float x = stof(s);
-            if (b.index() == 0) {
-                int y = std::get<0>(b);
-                return (x > y) ? a : b;
-            } else if (b.index() == 1) {
-                float y = std::get<1>(b);
-                return (x > y) ? a : b;
-            } else {
-                return "None";
-            }
-        } catch (const std::invalid_argument& e) {
-            return "None";
-        }
-    } else {
-        return "None";
-    }
-}
+[PYTHON]
+def compare_one(a, b):
+    if isinstance(a, int) and isinstance(b, (int, float)):
+        return a if a > b else b
+    elif isinstance(a, float) and isinstance(b, (int, float)):
+        return a if a > b else b
+    elif isinstance(a, str) and isinstance(b, str):
+        try:
+            return a if float(a) > float(b) else b
+        except ValueError:
+            return "None"
+    else:
+        return "None"
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert compare_one(1, 2) == 2
+# Test case 2:
+assert compare_one(1.5, 2) == 2
+# Test case 3:
+assert compare_one("2", "3") == "3"
+# Test case 4:
+assert compare_one("2", 3) == "3"
+# Test case 5:
+assert compare_one(1, "2") == "2"
+[/TESTS]
