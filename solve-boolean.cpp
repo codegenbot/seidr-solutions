@@ -15,7 +15,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
 
 int main() {
     std::string expression;
-    getline(std::cin, expression);
+    std::getline(std::cin, expression);
 
     bool result = evaluateBooleanExpression(expression);
 
