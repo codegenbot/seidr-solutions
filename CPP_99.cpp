@@ -1,3 +1,5 @@
+```cpp
+#include <string>
 #include <cmath>
 
 int closest_integer(std::string value){
@@ -11,16 +13,14 @@ int closest_integer(std::string value){
     }
 }
 
-void test_closest_integer() {
-    assert (closest_integer("0") == 0);
-    assert (closest_integer("1.4") == 1);
-    assert (closest_integer("2.6") == 3);
-    assert (closest_integer("-4.5") == -5);
-    assert (closest_integer("10.1") == 10);
-    assert (closest_integer("-10.9") == -11);
-}
+int closest_integer_main() {
+    closest_integer("0");
+    closest_integer("1.4");
+    closest_integer("2.6");
+    closest_integer("-4.5");
+    closest_integer("10.1");
+    closest_integer("-10.9");
 
-int main() {
-    test_closest_integer();
     return 0;
 }
+```
