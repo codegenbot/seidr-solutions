@@ -11,8 +11,7 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
+    string::iterator n = "The Brazilian factorial of ";
     cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
