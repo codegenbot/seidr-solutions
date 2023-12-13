@@ -1,13 +1,13 @@
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cmath>
 
-string squareDigits(int num) {
-    string result = "";
+std::string squareDigits(int num) {
+    std::string result = "";
     while (num > 0) {
         int digit = num % 10;
-        result = char('0' + digit * digit) + result;
+        result = std::to_string(std::pow(digit, 2)) + result;
         num /= 10;
     }
     return result;
@@ -15,8 +15,8 @@ string squareDigits(int num) {
 
 int main() {
     int num;
-    cin >> num;
-    cout << squareDigits(num) << endl;
+    std::cin >> num;
+    std::cout << squareDigits(num) << std::endl;
     return 0;
 }
 ```
