@@ -1,3 +1,4 @@
+```python
 def calculate_bowling_score(bowls):
     score = 0
     frame, ball = 1, 0
@@ -22,12 +23,11 @@ def calculate_bowling_score(bowls):
             ball += 1
 
     for index, frame in enumerate(frames):
-        if index < 9:
-            if len(frame) == 1 and sum(frame) == 10:
-                score += sum(frame) + frames[index+1][0]
+        if sum(frame) < 10 or len(frame) == 2:
+            if index < 9:
+                score += sum(frame) + frames[index+1][0] if sum(frame) < 10 else sum(frame) + frames[index+1][0] + frames[index+1][1]
             else:
                 score += sum(frame)
-        else:
-            score += sum(frame)
 
     return score
+```
