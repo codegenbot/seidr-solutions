@@ -1,4 +1,5 @@
 def spin_words(string):
+    if not string:
+        return ""
     words = string.split()
-    words = [word[::-1] if len(word) > 4 else word for word in words]
-    return ' '.join(words)
+    return ' '.join([word[::-1] if len(word) >= 5 else word for word in words])
