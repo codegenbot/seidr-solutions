@@ -1,33 +1,35 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <stack>
+using namespace std;
 
-bool evaluateBooleanExpression(const std::string& expression) {
-    std::stack<bool> st;
-    for (char ch : expression) {
-        if (ch == 't') {
-            st.push(true);
-        } else if (ch == 'f') {
-            st.push(false);
-        } else if (ch == '&') {
-            bool op2 = st.top(); st.pop();
-            bool op1 = st.top(); st.pop();
-            st.push(op1 && op2);
-        } else if (ch == '|') {
-            bool op2 = st.top(); st.pop();
-            bool op1 = st.top(); st.pop();
-            st.push(op1 || op2);
-        }
+bool evaluateBoolean(string expression) {
+    if (expression == "t") {
+        return true;
+    } else if (expression == "f") {
+        return false;
+    } else if (expression.find('&') != string::npos) {
+        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
+        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
+        return left && right;
+    } else if (expression.find('|') != string::npos) {
+        bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
+        bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
+        return left || right;
+    } else {
+        throw runtime_error("Invalid expression format.");
     }
-    return st.top();
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-
-    bool result = evaluateBooleanExpression(expression);
-    std::cout << (result ? "True" : "False") << std::endl;
-
+    string expression;
+    getline(cin, expression);
+    try {
+        bool result = evaluateBoolean(expression);
+        cout << (result ? "True" : "False") << endl;
+    } catch (const exception& e) {
+        cout << "Error: " << e.what() << endl;
+    }
     return 0;
 }
+```
