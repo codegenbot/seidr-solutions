@@ -1,7 +1,6 @@
 def is_multiply_prime(a):
     primes = [2, 3, 5]
     for prime in primes:
-        if a % prime != 0:
-            return False
-        a = a // prime
-    return True
+        while a % prime == 0:
+            a = a // prime
+    return a == 1
