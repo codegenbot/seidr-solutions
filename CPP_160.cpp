@@ -4,18 +4,18 @@
 #include <string>
 using namespace std;
 
-int do_algebra(vector<string> ops, vector<int> operands) {
+int do_algebra(vector<string> operators, vector<int> operands) {
     int result = 0;
-    for (int i = 0; i < ops.size(); i++) {
-        if (ops[i] == "+") {
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == "+") {
             result += operands[i];
-        } else if (ops[i] == "-") {
+        } else if (operators[i] == "-") {
             result -= operands[i];
-        } else if (ops[i] == "*") {
+        } else if (operators[i] == "*") {
             result *= operands[i];
-        } else if (ops[i] == "/") {
+        } else if (operators[i] == "/") {
             result /= operands[i];
-        } else if (ops[i] == "**") {
+        } else if (operators[i] == "**") {
             result = pow(operands[i], operands[i+1]);
         }
     }
