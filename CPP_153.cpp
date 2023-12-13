@@ -3,13 +3,14 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <limits>
 
-std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
-    std::string strongest_extension = "";
-    int max_strength = std::numeric_limits<int>::min();
-    
-    for (const std::string& extension : extensions) {
+using namespace std;
+
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = "";
+    int max_strength = INT_MIN;
+
+    for (string extension : extensions) {
         int cap = 0;
         int sm = 0;
         for (char c : extension) {
@@ -25,13 +26,13 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
             strongest_extension = extension;
         }
     }
-    
+
     return class_name + "." + strongest_extension;
 }
 
 int main() {
-    assert(Strongest_Extension("Sp", std::vector<std::string>{"671235", "Bb"}) == "Sp.671235");
-
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    
     return 0;
 }
 ```
