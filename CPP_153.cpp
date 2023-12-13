@@ -1,21 +1,20 @@
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    string input_string = "Sp";
-    vector<string> extensions = {"671235", "Bb"};
-    int strength = 0;
-    for (int i = 0; i < input_string.length(); i++) {
-        if (input_string[i] == '.') {
-            string current_extension = input_string.substr(i + 1);
-            strength = current_extension.length();
-            if (strength > extensions.size()) {
-                return current_extension;
-            }
-        }
-    }
-    return "";
-}
+[PYTHON]
+def get_strongest_extension(input_string: str, extensions: list) -> str:
+    strength = 0
+    for i in range(len(input_string)):
+        if input_string[i] == ".":
+            current_extension = input_string[i + 1:]
+            strength = len(current_extension)
+            if strength > len(extensions):
+                return current_extension
+    return ""
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_strongest_extension("Sp", ["671235", "Bb"]) == "Sp.671235"
+# Test case 2:
+assert get_strongest_extension("Sp", ["671235", "Bb", "Cc"]) == "Sp.671235"
+# Test case 3:
+assert get_strongest_extension("Sp", ["671235", "Bb", "Cc", "Dd"]) == "Sp.671235"
+[/TESTS]
 ```
