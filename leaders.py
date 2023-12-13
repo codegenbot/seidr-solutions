@@ -11,6 +11,4 @@ for i in range(n-2, -1, -1):
         max_right = arr[i]
 
 leaders.reverse()
-
-for leader in leaders:
-    print(leader)
+print("\n".join(map(str, leaders)))
