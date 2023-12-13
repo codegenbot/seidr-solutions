@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 
@@ -12,5 +11,6 @@ int add_elements(std::vector<int> arr, int k) {
     return sum;
 }
 
-// Remove the extra main function and its content
-```
+int main2() {
+    return 1;
+}
