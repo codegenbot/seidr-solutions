@@ -1,10 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
 string encrypt(string s){
     string encrypted = "";
     for(int i=0; i<s.length(); i++){
@@ -15,7 +9,7 @@ string encrypt(string s){
         else if(c >= 'A' && c <= 'Z'){
             c = ((c - 'A') + (2 * 2)) % 26 + 'A';
         }
-        encrypted.push_back(c);
+        encrypted += string(1, c);
     }
     return encrypted;
 }

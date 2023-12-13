@@ -31,7 +31,10 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    string extensions_array[] = {"671235", "Bb"};
+    vector<string> extensions(extensions_array, extensions_array + sizeof(extensions_array) / sizeof(extensions_array[0]));
+
+    assert(Strongest_Extension("Sp", extensions) == "Sp.671235");
     
     return 0;
 }
