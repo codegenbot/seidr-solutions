@@ -1,3 +1,4 @@
+```python
 import collections
 from typing import Tuple
 
@@ -18,8 +19,10 @@ def mastermind(code: str, guess: str) -> Tuple[int, int]:
 
     return white_pegs, black_pegs
 
+
 code, guess = input().split()
 
 result = mastermind(code, guess)
 print(result[0])
 print(result[1])
+```
