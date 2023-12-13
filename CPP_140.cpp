@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -37,4 +36,3 @@ int main() {
 
     return 0;
 }
-```
