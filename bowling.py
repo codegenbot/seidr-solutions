@@ -1,4 +1,3 @@
-```python
 def bowling(score):
     total_score = 0
     frame = 0
@@ -25,8 +24,7 @@ def bowling(score):
                 roll = 0
                 frame += 1
 
-        if frame == 10:  # Reached the end of the game
+        if frame == 10:
             break
 
     return total_score
-```
