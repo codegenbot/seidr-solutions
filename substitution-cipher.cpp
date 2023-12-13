@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -5,8 +6,8 @@ using namespace std;
 string decipherMessage(string cipher1, string cipher2, string message) {
     string decipheredMessage = "";
     for (char c : message) {
-        int index = cipher1.find(cipher2[cipher1.find(c)]);
-        decipheredMessage += cipher1[index];
+        int index = cipher1.find(c);
+        decipheredMessage += cipher2[index];
     }
     return decipheredMessage;
 }
@@ -17,3 +18,4 @@ int main() {
     cout << decipherMessage(cipher1, cipher2, message) << endl;
     return 0;
 }
+```
