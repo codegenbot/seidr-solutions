@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,14 +27,18 @@ std::vector<std::string::size_type> indicesOfSubstring(const std::string& text, 
 
 int main() {
     std::string text, target;
+    std::cout << "Enter the text string: ";
     std::getline(std::cin, text);
+    std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
 
     std::vector<std::string::size_type> indices = indicesOfSubstring(text, target);
-    for (std::string::size_type index : indices) {
+    std::cout << "Indices of substring: ";
+    for (auto index : indices) {
         std::cout << index << " ";
     }
     std::cout << "\n";
 
     return 0;
 }
+```
