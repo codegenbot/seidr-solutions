@@ -1,11 +1,4 @@
 def add_elements(arr, k):
-    filtered_arr = [x for x in arr if (10 <= x <= 100) or (200 <= x <= 1000) or (10 <= x <= 199) or (100 <= x <= 199)]
+    filtered_arr = [x for x in arr if (10 <= x <= 100) or (200 <= x <= 1000) or (1000 <= x <= 2000)]
     
-    index = 0
-    for num in arr:
-        if (10 <= num <= 100) or (200 <= num <= 1000) or (10 <= num <= 199) or (100 <= num <= 199):
-            index += 1
-            if index == k:
-                return num
-    
-    return None
+    return filtered_arr[k - 1] if filtered_arr else None
