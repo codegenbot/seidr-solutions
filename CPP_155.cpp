@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -42,7 +42,7 @@ int main(){
     
     if(compare_vectors(expected, result)){
         cout << "Test case passed." << endl;
-    }else{
+    } else {
         cout << "Test case failed." << endl;
     }
     

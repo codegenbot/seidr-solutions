@@ -2,16 +2,16 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
-using namespace std;
+#include <array>
+#include <algorithm>
 
-string find_max(vector<string>&& words) {
-    string maxWord = "";
+std::string find_max(std::vector<std::string> words) {
+    std::string maxWord = "";
     int maxUniqueChars = 0;
 
-    for (string word : words) {
+    for (std::string word : words) {
         int uniqueChars = 0;
-        bool visited[26] = {false};
+        std::array<bool, 26> visited = {false};
 
         for (char c : word) {
             if (!visited[c - 'a']) {
@@ -30,8 +30,10 @@ string find_max(vector<string>&& words) {
 }
 
 int main() {
-    vector<string> input = {"play", "play", "play"};
-    assert((find_max(move(input)) == "play"));
+    std::vector<std::string> input = {"play", "play", "play"};
+    std::string result = find_max(input);
+    std::cout << result << std::endl;
+
     return 0;
 }
 ```
