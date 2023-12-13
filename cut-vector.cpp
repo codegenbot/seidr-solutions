@@ -1,9 +1,7 @@
-```
+```cpp
 #include <vector>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    size_t i;
-    size_t cutIndex = 0;
     size_t n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
@@ -11,13 +9,14 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         return std::make_pair(nums, nums);
     }
 
-    for (i = 1; i < n; i++) {
+    for (size_t i = 1; i < n; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = std::abs(leftSum - rightSum);
+    size_t cutIndex = 0;
 
-    for (i = 1; i < n; i++) {
+    for (size_t i = 1; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
 
@@ -31,11 +30,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     std::vector<int> left;
     std::vector<int> right;
 
-    for (i = 0; i < cutIndex; i++) {
+    for (size_t i = 0; i < cutIndex; i++) {
         left.push_back(nums[i]);
     }
 
-    for (i = cutIndex; i < n; i++) {
+    for (size_t i = cutIndex; i < n; i++) {
         right.push_back(nums[i]);
     }
 
