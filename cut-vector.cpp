@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -20,7 +20,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             rightSum += nums[j];
         }
 
-        int currentDiff = std::abs(leftSum - rightSum);
+        int currentDiff = abs(leftSum - rightSum);
 
         if (currentDiff < diff) {
             diff = currentDiff;
@@ -47,7 +47,6 @@ int main() {
     for (int num : subvectors.first) {
         std::cout << num << std::endl;
     }
-
     for (int num : subvectors.second) {
         std::cout << num << std::endl;
     }
