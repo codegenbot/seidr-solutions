@@ -1,8 +1,9 @@
 ```cpp
 #include <string>
-#include <cmath>
 
 using namespace std;
+
+string rounded_avg(int n, int m);
 
 string rounded_avg(int n, int m) {
     if (n > m) {
@@ -21,12 +22,5 @@ string rounded_avg(int n, int m) {
         avg /= 2;
     }
     return binary;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << rounded_avg(n, m) << endl;
-    return 0;
 }
 ```
