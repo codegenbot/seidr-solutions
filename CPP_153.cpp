@@ -1,6 +1,5 @@
-```
 #include <iostream>
-#include "strongest_extension.h" // assuming this is the header file that declares Strongest_Extension
+#include <strongest_extension.h> // assuming this is the header file that declares Strongest_Extension
 
 int main() {
     std::string result = Strongest_Extension("Sp", {'671235', 'Bb'});
@@ -10,4 +9,3 @@ int main() {
     }
     return 0;
 }
-```
