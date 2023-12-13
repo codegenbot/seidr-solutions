@@ -1,23 +1,27 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
+    int quarters = 0;
+    int dimes = 0;
+    int nickels = 0;
+    int pennies = 0;
+
     std::cin >> cents;
 
-    int quarters = cents / 25;
+    quarters = cents / 25;
     cents %= 25;
-    int dimes = cents / 10;
+    dimes = cents / 10;
     cents %= 10;
-    int nickels = cents / 5;
+    nickels = cents / 5;
     cents %= 5;
-    int pennies = cents;
+    pennies = cents;
 
-    std::cout << std::to_string(quarters) << std::endl;
-    std::cout << std::to_string(dimes) << std::endl;
-    std::cout << std::to_string(nickels) << std::endl;
-    std::cout << std::to_string(pennies) << std::endl;
+    std::cout << quarters << std::endl;
+    std::cout << dimes << std::endl;
+    std::cout << nickels << std::endl;
+    std::cout << pennies << std::endl;
 
     return 0;
 }
