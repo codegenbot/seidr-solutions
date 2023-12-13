@@ -1,8 +1,10 @@
+```cpp
+#include <iostream>
+#include <vector>
 
-```
-string int_to_mini_roman(int number) {
-    vector<string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
-    string result;
+std::string int_to_mini_roman(int number) {
+    std::vector<std::string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    std::string result;
     while (number > 0) {
         int digit = number % 10;
         if (digit < 4) {
@@ -25,5 +27,10 @@ string int_to_mini_roman(int number) {
         number /= 10;
     }
     return result;
+}
+
+int main() {
+    assert(int_to_mini_roman(1000) == "m");
+    return 0;
 }
 ```
