@@ -1,8 +1,8 @@
 ```cpp
 #include <iostream>
-using namespace std;
 
-int scoreOfRound(const string& round) {
+
+int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 0;
     int bowl = 0;
@@ -49,10 +49,10 @@ int scoreOfRound(const string& round) {
 }
 
 int main() {
-    string round;
-    getline(cin, round);
+    std::string round;
+    std::getline(std::cin, round);
 
     int score = scoreOfRound(round);
-    cout << score << endl;
+    std::cout << score << std::endl;
 }
 ```
