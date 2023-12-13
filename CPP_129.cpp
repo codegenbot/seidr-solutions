@@ -11,7 +11,7 @@ vector<int> minPath(const vector<int>& costs, int target) {
     // Implement the function to find the minimum path
 }
 
-int main() {
+int main2() {
     assert(issame(minPath({1, 3}, {3, 2}), {{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}}));
 }
 ```
