@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -11,9 +12,9 @@ string fix_spaces(string text) {
         if (text[i] == ' ') {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
-                result += '-';
+                result.push_back('-');
             } else {
-                result += '_';
+                result.push_back('_');
             }
         } else {
             result += text[i];
@@ -29,8 +30,7 @@ int main() {
     assert(fix_spaces("A___B___C") == "A-B-C");
     assert(fix_spaces("   ") == "---");
     assert(fix_spaces("") == "");
-
     cout << "All test cases passed" << endl;
-
     return 0;
 }
+```
