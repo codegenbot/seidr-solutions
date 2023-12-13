@@ -1,5 +1,17 @@
+```
 #include <iostream>
 #include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> even_odd_count(int num);
+
+int main() {
+    if (issame(even_odd_count(0), {1, 0}) && issame(even_odd_count(123456789), {9, 0})) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -25,11 +37,4 @@ std::vector<int> even_odd_count(int num) {
     }
     return count_even;
 }
-
-int main() {
-    if (issame(even_odd_count(0), {1, 0}) && issame(even_odd_count(123456789), {9, 0})) {
-        return 0;
-    } else {
-        return 1;
-    }
-}
+```
