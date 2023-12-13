@@ -23,8 +23,8 @@ bool evaluateBoolean(std::string expression) {
 }
 
 int main() {
-    std::string expression;
-    std::getline(std::cin, expression);
+    char expression[100];
+    std::cin.getline(expression, 100);
     try {
         bool result = evaluateBoolean(expression);
         std::cout << (result ? "True" : "False") << std::endl;
