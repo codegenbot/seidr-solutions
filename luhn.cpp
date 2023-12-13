@@ -1,14 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
-    std::vector<int> digits(16, 0);
+    std::vector<int> digits;
+    digits.reserve(16);
 
     for (int i = 0; i < 16; i++) {
         int digit;
         std::cin >> digit;
-        digits[i] = digit;
+        digits.push_back(digit);
     }
 
     int sum = 0;
@@ -30,4 +30,3 @@ int main() {
 
     return 0;
 }
-```
