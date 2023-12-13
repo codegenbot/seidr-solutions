@@ -1,7 +1,7 @@
 def match_parens(lst):
     count = 0
-    for char in lst[0] + lst[1]:
-        if char == '(':
+    for s in lst:
+        if s == '(':
             count += 1
         else:
             count -= 1
