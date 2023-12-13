@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int findBasementIndex(const std::vector<int>& nums) {
+int findFirstNegativeIndex(const std::vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -9,7 +9,7 @@ int findBasementIndex(const std::vector<int>& nums) {
             return i;
         }
     }
-    return 0;
+    return -1; // If no negative sum found
 }
 
 int main() {
@@ -19,6 +19,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
-    std::cout << findBasementIndex(nums) << std::endl;
+    
+    int result = findFirstNegativeIndex(nums);
+    std::cout << result << std::endl;
+    
     return 0;
 }
