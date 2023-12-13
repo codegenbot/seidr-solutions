@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
-#include <string>
 #include <stdexcept>
+#include <sstream>
 
 bool evaluateBoolean(std::string expression) {
     if (expression == "T") {
@@ -19,12 +19,11 @@ bool evaluateBoolean(std::string expression) {
     } else {
         throw std::runtime_error("Invalid expression format.");
     }
-    return false;
 }
 
 int main() {
-    char expression[100];
-    std::cin.getline(expression, 100);
+    std::string expression;
+    std::getline(std::cin >> std::ws, expression);
     try {
         bool result = evaluateBoolean(expression);
         std::cout << (result ? "True" : "False") << std::endl;
