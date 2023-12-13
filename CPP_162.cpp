@@ -1,6 +1,6 @@
-```
 #include <string>
 #include <openssl/evp.h>
+#include <sstream>
 
 std::string string_to_md5(const std::string& text) {
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
@@ -17,9 +17,3 @@ std::string string_to_md5(const std::string& text) {
     }
     return oss.str();
 }
-
-int main() {
-    // Your code here
-    return 0;
-}
-```
