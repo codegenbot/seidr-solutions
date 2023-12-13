@@ -1,44 +1,36 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> result;
-    for(const auto& str : strings){
-        if(str.find(prefix) == 0){
+    for (const auto& str : strings) {
+        if (str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-int main(){
-    vector<string> strings = {"apple", "banana", "orange"};
-    string prefix = "ap";
+#include <iostream>
+#include <vector>
+#include <cassert>
 
-    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
-    
-    vector<string> expected_result = {"apple"};
+int main() {
+    vector<string> strings = {"hello", "hi", "hey"};
+    string prefix = "h";
+    vector<string> expected_output = {"hello", "hi", "hey"};
+    vector<string> result = filter_by_prefix(strings, prefix);
 
-    // verify the filtered_strings is equal to expected_result
-    assert(filtered_strings == expected_result);
+    assert(result == expected_output);
 
     return 0;
 }
-```
