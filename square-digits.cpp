@@ -1,10 +1,12 @@
+C++. The modified code is as follows:
+
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cstdio>
 
-string squareDigits(int num) {
-    string result = "";
+std::string squareDigits(int num) {
+    std::string result = "";
     while (num > 0) {
         int digit = num % 10;
         result = char('0' + digit * digit) + result;
@@ -15,12 +17,9 @@ string squareDigits(int num) {
 
 int main() {
     int num;
-    cin >> num;
-    string result = squareDigits(num);
-    for (char ch : result) {
-        cout << ch;
+    while (std::scanf("%d", &num) != EOF) {
+        std::cout << squareDigits(num) << std::endl;
     }
-    cout << endl;
     return 0;
 }
 ```
