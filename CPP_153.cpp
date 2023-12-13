@@ -30,8 +30,8 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
 }
 
 int main() {
-    std::vector<std::string> extensions = {"671235"s, "Bb"s}; 
-    assert(Strongest_Extension("Sp"s, extensions) == "Sp.671235"s);
+    std::vector<std::string> extensions = {"671235", "Bb"s}; 
+    assert(Strongest_Extension("Sp", extensions) == "Sp.671235");
 
     return 0;
 }
