@@ -1,7 +1,7 @@
-def get_negative_sum_index(arr):
-    curr_sum = 0
-    for i in range(len(arr)):
-        curr_sum += arr[i]
-        if curr_sum < 0:
+def get_negative_index(vector):
+    current_sum = 0
+    for i in range(len(vector)):
+        current_sum += vector[i]
+        if current_sum < 0:
             return i
     return -1
