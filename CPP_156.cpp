@@ -1,11 +1,11 @@
 ```
 #include <iostream>
-#include <vector>
+#include <array>
 #include <string>
 #include <cassert>
 using namespace std;
 
-auto roman = vector<const char*>{"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+const array<const char*, 13> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
 
 int int_to_mini_roman(int num) {
     // Your code here
