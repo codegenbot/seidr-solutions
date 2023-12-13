@@ -1,8 +1,5 @@
 ```c++
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
@@ -29,7 +26,7 @@ int main() {
     std::string text, target;
     std::cin >> text >> target;
   
-    std::vector<int> result = indicesOfSubstring(text, target);
+    auto result = indicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";
     }
