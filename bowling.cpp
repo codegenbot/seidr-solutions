@@ -1,9 +1,8 @@
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-int scoreOfRound(const string& bowls) {
+int scoreOfRound(const std::string& bowls) {
     int score = 0;
     int bowlIndex = 0;
 
@@ -35,11 +34,12 @@ int scoreOfRound(const string& bowls) {
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
+    std::string bowls;
+    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cin >> bowls;
 
     int score = scoreOfRound(bowls);
-    cout << score << endl;
+    std::cout << "The score of the round is: " << score << std::endl;
 
     return 0;
 }
