@@ -1,5 +1,5 @@
+```
 #include <iostream>
-
 using namespace std;
 
 double probabilityOfHigherRoll(int n, int m) {
@@ -24,3 +24,4 @@ int main() {
     cout << fixed << probabilityOfHigherRoll(n, m) << endl;
     return 0;
 }
+```
