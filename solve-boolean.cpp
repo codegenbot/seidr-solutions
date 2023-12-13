@@ -1,9 +1,9 @@
 ```cpp
 #include <iostream>
+#include <string>
 #include <stdexcept>
-#include <algorithm>
 
-bool evaluateBoolean(const std::string& expression) {
+bool evaluateBoolean(std::string expression) {
     if (expression == "T") {
         return true;
     } else if (expression == "F") {
@@ -19,13 +19,18 @@ bool evaluateBoolean(const std::string& expression) {
     } else {
         throw std::runtime_error("Invalid expression format.");
     }
+    return false;
 }
 
 int main() {
     std::string expression;
-    std::cin >> expression;
-    bool result = evaluateBoolean(expression);
-    std::cout << (result ? "True" : "False") << std::endl;
+    std::getline(std::cin, expression);
+    try {
+        bool result = evaluateBoolean(expression);
+        std::cout << (result ? "True" : "False") << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
     return 0;
 }
 ```
