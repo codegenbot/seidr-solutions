@@ -1,3 +1,5 @@
+# Modified code
+
 ```python
 input_str = input()
 nums_str = input_str.split()
