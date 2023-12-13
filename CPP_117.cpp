@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <string>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ bool is_consonant(char c) {
     return false;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -50,8 +50,7 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     
     return 0;
 }
-```
