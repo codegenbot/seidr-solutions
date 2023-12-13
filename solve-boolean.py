@@ -1,3 +1,3 @@
 def solve_boolean(expression):
-    expression = expression.lower()
-    return eval(expression)
+    expression = expression.replace('f', 'False').replace('t', 'True')
+    return eval(expression.capitalize())
