@@ -1,8 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices = {};
     int targetLength = target.length();
@@ -22,22 +18,5 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
 
     return indices;
-}
-
-int main() {
-    std::string text, target;
-    std::cout << "Enter the text string: ";
-    std::getline(std::cin, text);
-    std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
-
-    std::vector<int> indices = indicesOfSubstring(text, target);
-    std::cout << "Indices of substring: ";
-    for (int index : indices) {
-        std::cout << index << " ";
-    }
-    std::cout << "\n";
-
-    return 0;
 }
 ```
