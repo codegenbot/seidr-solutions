@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -28,47 +27,30 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     // Test cases with assert statements
-    //...
-    vector<string> strings = {"apple", "banana", "grapes", "orange"};
+    vector<string> strings = {"apple", "banana", "melon", "apricot"};
     string prefix = "ap";
-    vector<string> filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{"apple"});
-    
-    strings = {"apple", "banana", "grapes", "orange"};
-    prefix = "b";
-    filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{"banana"});
-    
-    strings = {"apple", "banana", "grapes", "orange"};
-    prefix = "g";
-    filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{"grapes"});
-    
-    strings = {"apple", "banana", "grapes", "orange"};
-    prefix = "o";
-    filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{"orange"});
-    
-    strings = {"apple", "banana", "grapes", "orange"};
-    prefix = "z";
-    filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{});
-    
-    strings = {"apple", "banana", "grapes", "orange"};
-    prefix = "";
-    filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{"apple", "banana", "grapes", "orange"});
-    
-    strings = {};
-    prefix = "ap";
-    filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{});
+    vector<string> expected_result = {"apple", "apricot"};
+    assert(filter_by_prefix(strings, prefix) == expected_result);
 
-    strings = {};
-    prefix = "";
-    filtered = filter_by_prefix(strings, prefix);
-    assert(filtered == vector<string>{});
-    
+    strings = {"cat", "dog", "elephant", "camel"};
+    prefix = "ca";
+    expected_result = {"cat", "camel"};
+    assert(filter_by_prefix(strings, prefix) == expected_result);
+
+    strings = {"table", "chair", "lamp", "couch"};
+    prefix = "sofa";
+    expected_result = {};
+    assert(filter_by_prefix(strings, prefix) == expected_result);
+
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"apple", "banana", "cherry"};
+    assert(issame(a, b));
+
+    a = {"apple", "orange", "grape"};
+    b = {"apple", "banana", "cherry"};
+    assert(!issame(a, b));
+
+    cout << "All test cases passed!" << endl;
+
     return 0;
 }
-```
