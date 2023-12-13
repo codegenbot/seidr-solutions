@@ -11,13 +11,13 @@ double probabilityOfPeterWinning(int n, int m) {
             }
         }
     }
-    return static_cast<double>(count) / (n * m - 1);
+    return static_cast<double>(count) / (n * m);
 }
 
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(2) << probabilityOfPeterWinning(n, m) << std::endl;
+    std::cout << std::fixed << std::setprecision(8) << probabilityOfPeterWinning(n, m) << std::endl;
     return 0;
 }
 ```
