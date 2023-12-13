@@ -1,3 +1,5 @@
+n = int(input())
+numbers = list(map(int, input().split()))
 def find_leaders(numbers):
     leaders = []
     n = len(numbers)
@@ -9,9 +11,6 @@ def find_leaders(numbers):
             leaders.append(max_right)
     leaders.reverse()
     return leaders
-
-n = int(input())
-numbers = list(map(int, input().split()))
 
 output = find_leaders(numbers)
 for num in output:
