@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -17,8 +16,7 @@ int main() {
                 doubledDigit -= 9;
             }
             sum += doubledDigit;
-        }
-        else {
+        } else {
             sum += digits[i];
         }
     }
@@ -27,4 +25,3 @@ int main() {
 
     return 0;
 }
-```
