@@ -12,7 +12,7 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(add_elements(std::vector<int>{1}, 1) == 0);
+    assert(add_elements({1}, 1) == 0); // Replace 0 with the expected output
     return 0;
 }
 ```
