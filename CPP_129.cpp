@@ -3,7 +3,6 @@
 #include <functional>
 #include <algorithm>
 #include <cassert>
-#include <initializer_list> // Add this line to fix the compilation error
 
 using namespace std;
 
@@ -18,10 +17,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
     auto getNeighbors = [&](int x, int y) {
         vector<pair<int, int>> neighbors;
-        if (isValid(x-1, y)) neighbors.push_back({x-1, y});
-        if (isValid(x+1, y)) neighbors.push_back({x+1, y});
-        if (isValid(x, y-1)) neighbors.push_back({x, y-1});
-        if (isValid(x, y+1)) neighbors.push_back({x, y+1});
+        if (isValid(x - 1, y)) neighbors.push_back({ x - 1, y });
+        if (isValid(x + 1, y)) neighbors.push_back({ x + 1, y });
+        if (isValid(x, y - 1)) neighbors.push_back({ x, y - 1 });
+        if (isValid(x, y + 1)) neighbors.push_back({ x, y + 1 });
         return neighbors;
     };
 
@@ -38,7 +37,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         });
 
         for (auto neighbor : neighbors) {
-            if (dfs(neighbor.first, neighbor.second, steps+1)) {
+            if (dfs(neighbor.first, neighbor.second, steps + 1)) {
                 return true;
             }
         }
@@ -60,7 +59,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
+    assert(minPath({ {1, 3}, {3, 2} }, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
 
     return 0;
 }
