@@ -1,5 +1,4 @@
-```cpp
-#include <vector>
+```c++
 #include <utility>
 
 pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
