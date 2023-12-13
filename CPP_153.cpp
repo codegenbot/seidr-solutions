@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -27,5 +27,12 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     }
 
     return class_name + "." + strongest_extension;
+}
+
+int main() {
+    string result = Strongest_Extension("Sp", {"671235", "Bb"});
+    cout << result << endl;
+
+    return 0;
 }
 ```
