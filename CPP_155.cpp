@@ -40,7 +40,7 @@ int main(){
     
     if(compare_vectors(expected, result)){
         std::cout << "Test case passed." << std::endl;
-    }else{
+    } else {
         std::cout << "Test case failed." << std::endl;
     }
     
