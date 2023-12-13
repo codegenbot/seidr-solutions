@@ -1,6 +1,6 @@
+```python
 def spin_words(string):
     words = string.split()
-    for i, word in enumerate(words):
-        if len(word) >= 5:
-            words[i] = word[::-1]
+    words = [word[::-1] if len(word) > 4 else word for word in words]
     return ' '.join(words)
+```
