@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -7,34 +8,15 @@ bool evaluateBooleanExpression(string expression) {
         return true;
     } else if (expression == "f") {
         return false;
-    } else {
-        int i = 0, cnt = 0;
-        bool left = false;
-        
-        while (i < expression.length()) {
-            if (expression[i] == '|') {
-                break;
-            } else if (expression[i] == '&') {
-                cnt++;
-            } else if (expression[i] == 't') {
-                left = true;
-                cnt++;
-            } else {
-                left = false;
-                cnt++;
-            }
-            
-            i++;
-        }
-        
-        bool right = evaluateBooleanExpression(expression.substr(i + 1));
-        
-        if (cnt > 0) {
-            return left && right;
-        } else {
-            return left || right;
-        }
+    } else if (expression.find('&') != string::npos) {
+        return evaluateBooleanExpression(expression.substr(0, expression.find('&'))) &&
+               evaluateBooleanExpression(expression.substr(expression.find('&') + 1));
+    } else if (expression.find('|') != string::npos) {
+        return evaluateBooleanExpression(expression.substr(0, expression.find('|'))) ||
+                evaluateBooleanExpression(expression.substr(expression.find('|') + 1));
     }
+
+    return false;
 }
 
 int main() {
@@ -44,3 +26,4 @@ int main() {
     cout << (result ? "True" : "False") << endl;
     return 0;
 }
+```
