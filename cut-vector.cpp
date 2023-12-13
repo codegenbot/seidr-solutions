@@ -1,6 +1,8 @@
+```cpp
+#include <utility>
 #include <vector>
 #include <cmath>
-#include <iostream>
+#include <initializer_list>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     size_t n = nums.size();
@@ -33,3 +35,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
     return std::make_pair(left, right);
 }
+```
