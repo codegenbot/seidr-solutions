@@ -1,5 +1,6 @@
 ```cpp
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 
 std::string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0) {
@@ -16,7 +17,7 @@ std::string fizzBuzz(int x) {
 int main() {
     int x;
     std::cin >> x;
-    std::cout << fizzBuzz(x) << "\n";
+    std::cout << fizzBuzz(x) << '\n';
     return 0;
 }
 ```
