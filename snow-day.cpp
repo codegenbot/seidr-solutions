@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 
 double calculateSnowOnGround(int hours, double initialSnow, double snowFallRate, double meltingRate) {
     double snowOnGround = initialSnow;
     for (int i = 0; i < hours; i++) {
         snowOnGround += snowFallRate;
-        snowOnGround -= (snowOnGround * meltingRate) + snowFallRate;
+        snowOnGround *= (1 - meltingRate);
     }
     return snowOnGround;
 }
@@ -18,4 +17,3 @@ int main() {
     std::cout << result << std::endl;
     return 0;
 }
-```
