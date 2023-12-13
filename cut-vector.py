@@ -1,25 +1,33 @@
 ```python
-def cut_vector(vector):
-    total_sum = sum(vector)
-    current_sum = 0
-    index = 0
-    for i in range(len(vector)):
-        current_sum += vector[i]
-        if current_sum == total_sum - current_sum or abs(current_sum - (total_sum - current_sum)) < abs(index - (len(vector) - index)):
-            index = i + 1
-    return vector[:index], vector[index:]
+def cut_vector(nums):
+    total_sum = sum(nums)
+    left_sum = 0
+    right_sum = total_sum
+    min_diff = float('inf')
+    cut_index = -1
+    
+    for i in range(len(nums)):
+        left_sum += nums[i]
+        right_sum -= nums[i]
+        diff = abs(left_sum - right_sum)
+        
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    
+    return nums[:cut_index+1], nums[cut_index+1:]
 
 # Read input from user
-vector = []
+nums = []
 while True:
     try:
         num = int(input())
-        vector.append(num)
-    except EOFError:
+        nums.append(num)
+    except:
         break
 
-# Call the function and print the output
-subvector1, subvector2 = cut_vector(vector)
-print(*subvector1, sep='\n')
-print(*subvector2, sep='\n')
+# Call the function and print the result
+result = cut_vector(nums)
+for subvector in result:
+    print(*subvector)
 ```

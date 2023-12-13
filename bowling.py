@@ -1,34 +1,47 @@
-def bowling(score):
-    frames = []
-    frame = []
-    for char in score:
-        if char == 'X':
-            frame.append(10)
-            frames.append(frame)
-            frame = []
-        elif char == '/':
-            frame.append(10 - frame[0])
-            frames.append(frame)
-            frame = []
-        elif char == '-':
-            frame.append(0)
+def calculate_score(bowls):
+    score = 0
+    frame = 1
+    i = 0
+    
+    while frame <= 10:
+        if bowls[i] == 'X':
+            score += 10
+            score += get_strike_bonus(bowls, i)
+            i += 1
+        elif bowls[i+1] == '/':
+            score += 10
+            score += get_spare_bonus(bowls, i)
+            i += 2
         else:
-            frame.append(int(char))
-            if len(frame) == 2:
-                frames.append(frame)
-                frame = []
+            score += get_frame_score(bowls, i)
+            i += 2
+        
+        frame += 1
     
-    total_score = 0
-    for i in range(len(frames)):
-        frame = frames[i]
-        total_score += sum(frame)
-        if i < len(frames) - 1:
-            if frame[0] == 10:
-                if frames[i+1][0] == 10:
-                    total_score += frames[i+1][0] + frames[i+2][0]
-                else:
-                    total_score += frames[i+1][0] + frames[i+1][1]
-            elif sum(frame) == 10:
-                total_score += frames[i+1][0]
+    return score
+
+def get_strike_bonus(bowls, i):
+    bonus = 0
+    if bowls[i+2] == 'X':
+        bonus += 10
+    elif bowls[i+2] == '/':
+        bonus += 10 - int(bowls[i+1])
+    else:
+        bonus += int(bowls[i+1]) + int(bowls[i+2])
     
-    return total_score
+    return bonus
+
+def get_spare_bonus(bowls, i):
+    bonus = 0
+    if bowls[i+2] == 'X':
+        bonus += 10
+    else:
+        bonus += int(bowls[i+2])
+    
+    return bonus
+
+def get_frame_score(bowls, i):
+    return int(bowls[i]) + int(bowls[i+1])
+
+bowls = input()
+print(calculate_score(bowls))
