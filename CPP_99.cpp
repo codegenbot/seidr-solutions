@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cmath>
 #include <cassert>
@@ -15,6 +16,8 @@ int closest_integer(std::string value) {
 
 int main() {
     assert(closest_integer("0") == 0);
+    // Add more test cases if needed
 
     return 0;
 }
+```
