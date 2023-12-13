@@ -1,6 +1,4 @@
-nums = []
-for i in range(2):
-    nums.append(int(input()))
+import math
 
-result = sum([max(0, num//3 - 2) for num in nums])
-print(result)
+def fuel_cost(vector):
+    return sum([math.floor(x/3) - 2 for x in vector])
