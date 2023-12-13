@@ -13,7 +13,10 @@ def calculate_bowling_score(bowls):
             frame += 1
             ball = 0
         elif bowl == '/':
-            frames[frame-1].append(10 - int(bowl))
+            if ball > 0:
+                frames[frame-1].append(10 - frames[frame-1][ball-1])
+            else:
+                frames[frame-1].append(10)
             frame += 1
             ball = 0
         elif bowl == '-':
@@ -32,5 +35,7 @@ def calculate_bowling_score(bowls):
                     score += sum(frame)
             else:
                 score += sum(frame)
+        else:
+            score += sum(frame)
 
     return score
