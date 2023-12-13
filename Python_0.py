@@ -1,3 +1,6 @@
+numbers = list(map(float, input().split()))
+threshold = float(input())
+
 from typing import List
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
@@ -7,8 +10,7 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-numbers = list(map(float, input().split()))
-threshold = float(input())
+# Rest of the code...
 
-output = has_close_elements(numbers, threshold)
-print(output)
+result = has_close_elements(numbers, threshold)
+print(result)
