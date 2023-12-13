@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -16,6 +17,7 @@ int main() {
 
     std::vector<double> v1(n);
     std::vector<double> v2(n);
+
     for (int i = 0; i < n; i++) {
         std::cin >> v1[i];
     }
@@ -29,3 +31,4 @@ int main() {
 
     return 0;
 }
+```
