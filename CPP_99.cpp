@@ -1,4 +1,5 @@
-```cpp
+```
+#include <iostream>
 #include <string>
 #include <cmath>
 
@@ -14,12 +15,12 @@ int closest_integer(std::string value){
 }
 
 int main() {
-    closest_integer("0");
-    closest_integer("1.4");
-    closest_integer("2.6");
-    closest_integer("-4.5");
-    closest_integer("10.1");
-    closest_integer("-10.9");
+    std::cout << closest_integer("0") << std::endl;
+    std::cout << closest_integer("1.4") << std::endl;
+    std::cout << closest_integer("2.6") << std::endl;
+    std::cout << closest_integer("-4.5") << std::endl;
+    std::cout << closest_integer("10.1") << std::endl;
+    std::cout << closest_integer("-10.9") << std::endl;
 
     return 0;
 }
