@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -58,4 +58,3 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
         return "None";
     }
 }
-```
