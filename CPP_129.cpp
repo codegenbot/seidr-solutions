@@ -1,26 +1,73 @@
+#include <iostream>
+#include <vector>
+#include <functional>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k){
-    int N = grid.size();
-    int row = 0;
-    int col = 0;
+    int n = grid.size();
     vector<int> path;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     
-    for(int i = 0; i < k; i++){
-        path.push_back(grid[row][col]);
+    auto isValid = [&](int x, int y){
+        return (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]);
+    };
+    
+    auto getNeighbors = [&](int x, int y){
+        vector<pair<int, int>> neighbors;
+        if(isValid(x-1, y)) neighbors.push_back({x-1, y});
+        if(isValid(x+1, y)) neighbors.push_back({x+1, y});
+        if(isValid(x, y-1)) neighbors.push_back({x, y-1});
+        if(isValid(x, y+1)) neighbors.push_back({x, y+1});
+        return neighbors;
+    };
+    
+    function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
+        path.push_back(grid[x][y]);
+        visited[x][y] = true;
         
-        if(i % 2 == 0){
-            if(col < N - 1){
-                col++;
-            } else {
-                row++;
+        if(steps == k) return true;
+        
+        vector<pair<int, int>> neighbors = getNeighbors(x, y);
+        
+        sort(neighbors.begin(), neighbors.end(), [&](const pair<int, int>& a, const pair<int, int>& b){
+            return grid[a.first][a.second] < grid[b.first][b.second];
+        });
+        
+        for(auto neighbor : neighbors){
+            if(dfs(neighbor.first, neighbor.second, steps+1)){
+                return true;
             }
-        } else {
-            if(col > 0){
-                col--;
-            } else {
-                row++;
+        }
+        
+        path.pop_back();
+        visited[x][y] = false;
+        return false;
+    };
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(dfs(i, j, 1)){
+                return path;
             }
         }
     }
     
     return path;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+int main(){
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
 }
