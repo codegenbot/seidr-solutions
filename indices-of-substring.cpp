@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
+    std::vector<int> indices(text.length() - target.length() + 1);
     int targetLength = target.length();
     int textLength = text.length();
 
@@ -18,7 +18,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             }
         }
         if (found) {
-            indices.push_back(i);
+            indices[i] = i;
         }
     }
 
