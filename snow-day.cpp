@@ -1,11 +1,12 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
     float snowOnGround = initialSnow;
     for (int i = 1; i <= hours; i++) {
-        snowOnGround += snowFallRate; // Add snow
-        snowOnGround -= snowOnGround * meltingRate; // Melt snow
+        snowOnGround += snowFallRate;
+        snowOnGround -= snowOnGround * meltingRate;
     }
     return snowOnGround;
 }
@@ -19,3 +20,4 @@ int main() {
     
     return 0;
 }
+```
