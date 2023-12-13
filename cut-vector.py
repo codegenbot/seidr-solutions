@@ -10,4 +10,11 @@ def cut_vector(vector):
             min_difference = difference
             split_index = i
     if split_index != -1:
-        return vector[:split_index + 1], vector[split_index + 1:]
+        if split_index == 0:
+            return vector[:split_index + 1], vector[split_index + 1:]
+        elif split_index == len(vector) - 1:
+            return vector[:split_index], vector[split_index:]
+        else:
+            return vector[:split_index], vector[split_index + 1:]
+    else:
+        return None, None
