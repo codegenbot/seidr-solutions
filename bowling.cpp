@@ -1,63 +1,53 @@
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& input) {
-    int score = 0;
-    int frame = 0;
-    int rolls = 0;
-    int frameScore[10] = {0};
+int score(const std::string& round) {
+    int totalScore = 0;
+    int frameIndex = 0;
 
-    for (char c : input) {
-        if (c == 'X') {
-            frameScore[frame] += 10;
-            rolls++;
-            if (rolls == 1) {
-                frame++;
+    for (int i = 0; i < round.length(); i++) {
+        if (round[i] == 'X') {
+            totalScore += 10;
+            
+            // Strike in the last frame
+            if (frameIndex == 9) {
+                totalScore += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
+                totalScore += (round[i + 2] == 'X') ? 10 : (round[i + 2] == '/' ? (10 - (round[i + 1] - '0')) : (round[i + 2] - '0'));
             }
-        } else if (c == '/') {
-            frameScore[frame] += (10 - frameScore[frame]);
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
+
+            frameIndex++;
+        } else if (round[i] == '/') {
+            totalScore += (10 - (round[i - 1] - '0'));
+
+            // Spare in the last frame
+            if (frameIndex == 9) {
+                totalScore += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
             }
-        } else if (c == '-') {
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
+
+            frameIndex++;
+        } else if (round[i] == '-') {
+            // No need to calculate anything, just move to the next roll
         } else {
-            frameScore[frame] += (c - '0');
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
+            totalScore += (round[i] - '0');
+
+            // Strike in the last frame
+            if (frameIndex == 9 && round[i + 1] == '/') {
+                totalScore += 10;
             }
+
+            frameIndex++;
         }
     }
 
-    for (int i = 0; i < 10; i++) {
-        score += frameScore[i];
-        if (i < 9 && frameScore[i] == 10) {
-            if (input[i] == 'X') {
-                score += frameScore[i + 1] + frameScore[i + 2];
-            } else {
-                score += frameScore[i + 1];
-            }
-        } else if (i < 9 && frameScore[i] + frameScore[i + 1] == 10) {
-            score += frameScore[i + 2];
-        }
-    }
-
-    return score;
+    return totalScore;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter the string representing the individual bowls: ";
-    std::cin >> input;
-    int score = getScore(input);
-    std::cout << "The score is: " << score << std::endl;
+    std::string round;
+    std::cout << "Enter the sequence of bowls: ";
+    std::cin >> round;
+    
+    std::cout << "Score: " << score(round) << std::endl;
+    
     return 0;
 }
