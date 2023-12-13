@@ -1,6 +1,6 @@
-```cpp
 #include <string>
 #include <cmath>
+#include <iostream>
 
 int closest_integer(std::string value){
     double num = std::stod(value);
@@ -14,20 +14,12 @@ int closest_integer(std::string value){
 }
 
 int closest_integer_main() {
-    std::string value1 = "0";
-    std::string value2 = "1.4";
-    std::string value3 = "2.6";
-    std::string value4 = "-4.5";
-    std::string value5 = "10.1";
-    std::string value6 = "-10.9";
-
-    closest_integer(value1);
-    closest_integer(value2);
-    closest_integer(value3);
-    closest_integer(value4);
-    closest_integer(value5);
-    closest_integer(value6);
+    closest_integer("0");
+    closest_integer("1.4");
+    closest_integer("2.6");
+    closest_integer("-4.5");
+    closest_integer("10.1");
+    closest_integer("-10.9");
 
     return 0;
 }
-```
