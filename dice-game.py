@@ -7,6 +7,6 @@ def dice_game(n, m):
     elif n == m:
         return 0.5
     else:
-        return (n - 1) / n * (m / (m + 1))
+        return (n - 1) / (n * m)
 
 print(1 - dice_game(n, m))
