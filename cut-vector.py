@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     total_sum = sum(vector)
     current_sum = 0
@@ -11,3 +12,4 @@ def cut_vector(vector):
             split_index = i
     if split_index != -1:
         return (vector[:split_index+1], vector[split_index+1:])
+```
