@@ -8,28 +8,25 @@ bool evaluateBoolean(string expression) {
         return true;
     } else if (expression == "f") {
         return false;
-    } else if (expression.find('&') != string::npos) {
-        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
-        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
-        return left && right;
-    } else if (expression.find('|') != string::npos) {
-        bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
-        bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
-        return left || right;
+    } else if (expression.length() == 1) {
+        return expression[0] == 't';
     } else {
-        throw runtime_error("Invalid expression format.");
+        char op = expression[expression.length() - 2];
+        bool left = evaluateBoolean(expression.substr(0, expression.length() - 3));
+        bool right = evaluateBoolean(expression.substr(expression.length() - 1));
+        
+        if (op == '&') {
+            return left && right;
+        } else if (op == '|') {
+            return left || right;
+        }
     }
 }
 
 int main() {
     string expression;
     getline(cin, expression);
-    try {
-        bool result = evaluateBoolean(expression);
-        cout << (result ? "True" : "False") << endl;
-    } catch (const exception& e) {
-        cout << "Error: " << e.what() << endl;
-    }
+    cout << (evaluateBoolean(expression) ? "True" : "False") << endl;
     return 0;
 }
 ```
