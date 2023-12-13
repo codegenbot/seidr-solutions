@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -15,20 +14,16 @@ int main() {
     size_t n;
     std::cin >> n;
 
-    std::vector<double> v1;
+    std::vector<double> v1(n);
     for (size_t i = 0; i < n; i++) {
-        double value;
-        std::cin >> value;
-        v1.push_back(value);
+        std::cin >> v1[i];
     }
 
     std::cin >> n;
 
-    std::vector<double> v2;
+    std::vector<double> v2(n);
     for (size_t i = 0; i < n; i++) {
-        double value;
-        std::cin >> value;
-        v2.push_back(value);
+        std::cin >> v2[i];
     }
 
     double distance = euclideanDistance(v1, v2);
@@ -36,4 +31,3 @@ int main() {
 
     return 0;
 }
-```
