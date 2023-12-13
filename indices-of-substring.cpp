@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,9 +7,9 @@ using namespace std;
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
     int pos = text.find(target);
-    while (pos != string::npos) {
+    while (pos != string::npos && (pos + 1) <= text.length()) {
         indices.push_back(pos);
-        pos = text.find(target, pos + target.size());
+        pos = text.find(target, pos + 1);
     }
     return indices;
 }
@@ -22,3 +23,4 @@ int main() {
     }
     return 0;
 }
+```
