@@ -15,29 +15,22 @@ int main() {
     std::vector<double> v1, v2;
     double val;
     std::size_t n;
-
     std::cin >> n;
-
     for (std::size_t i = 0; i < n; i++) {
         std::cin >> val;
         v1.push_back(val);
     }
-
     std::cin >> n;
-
     for (std::size_t i = 0; i < n; i++) {
         std::cin >> val;
         v2.push_back(val);
     }
-
     if (v1.size() != v2.size()) {
         std::cout << "Error: Vectors have different sizes" << std::endl;
         return 1;
     }
-
     double distance = euclideanDistance(v1, v2);
     std::cout << distance << std::endl;
-
     return 0;
 }
 ```
