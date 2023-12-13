@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ string fix_spaces(string text) {
     string result = "";
     int consecutiveSpaces = 0;
     for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
+        if (isspace(text[i])) {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
                 result.push_back('-');
@@ -17,7 +18,7 @@ string fix_spaces(string text) {
                 result.push_back('_');
             }
         } else {
-            result += text[i];
+            result.push_back(text[i]);
             consecutiveSpaces = 0;
         }
     }
@@ -30,7 +31,9 @@ int main() {
     assert(fix_spaces("A___B___C") == "A-B-C");
     assert(fix_spaces("   ") == "---");
     assert(fix_spaces("") == "");
+
     cout << "All test cases passed" << endl;
+
     return 0;
 }
 ```
