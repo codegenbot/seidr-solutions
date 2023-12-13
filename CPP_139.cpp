@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,3 +19,4 @@ int main() {
     cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
+```
