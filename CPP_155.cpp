@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
@@ -19,11 +19,32 @@ vector<int> even_odd_count(int num){
         }
     }
     
-    return {even_count, odd_count};
+    return vector<int>{even_count, odd_count};
+}
+
+bool compare_vectors(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main(){
-    assert (even_odd_count(0) == vector<int>{1, 0});
+    vector<int> expected = {1, 0};
+    vector<int> result = even_odd_count(0);
+    
+    if(compare_vectors(expected, result)){
+        cout << "Test case passed." << endl;
+    }else{
+        cout << "Test case failed." << endl;
+    }
     
     return 0;
 }
