@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,13 +16,15 @@ vector<int> eat(int number, int need, int remaining) {
     return result;
 }
 
-int main_eat() {
-    vector<int> output = eat(4, 5, 1);
-    return output;
-}
+// int main() {
+//     vector<int> output = eat(4, 5, 1);
+//     cout << output[0] << " " << output[1] << endl;
+//     return 0;
+// }
 
 int main() {
-    vector<int> output = main_eat();
+    vector<int> output = eat(10, 6, 8);
     cout << output[0] << " " << output[1] << endl;
     return 0;
 }
+```
