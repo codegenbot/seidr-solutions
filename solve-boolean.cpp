@@ -1,24 +1,26 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
 bool evaluateBoolean(string expression) {
-    if (expression == "t") {
+    if (expression == "T" || expression == "True") {
         return true;
-    } else if (expression == "f") {
+    } else if (expression == "F" || expression == "False") {
         return false;
-    } else {
+    } else if (expression.find('&') != string::npos) {
         bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
         bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
         return left && right;
+    } else if (expression.find('|') != string::npos) {
+        bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
+        bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
+        return left || right;
     }
 }
 
 int main() {
     string expression;
-    getline(cin, expression);
-    cout << (evaluateBoolean(expression) ? "True" : "False") << endl;
+    cin >> expression;
+    cout << (evaluateBoolean(expression) ? "true" : "false") << endl;
     return 0;
 }
-```
