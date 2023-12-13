@@ -10,7 +10,7 @@ int main() {
     }
 
     int sum = 0;
-    for (int i = 14; i >= 0; i -= 2) {
+    for (int i = 15; i >= 0; i -= 2) {
         int doubledDigit = digits[i] * 2;
         if (doubledDigit > 9) {
             doubledDigit -= 9;
@@ -18,7 +18,7 @@ int main() {
         sum += doubledDigit;
     }
 
-    for (int i = 15; i >= 0; i -= 2) {
+    for (int i = 14; i >= 0; i -= 2) {
         sum += digits[i];
     }
 
