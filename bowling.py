@@ -24,7 +24,7 @@ def bowling(score):
                 roll = 0
                 frame += 1
 
-        if frame == 10:
+        if frame == 10:  # Reached the end of the game
             break
 
     return total_score
