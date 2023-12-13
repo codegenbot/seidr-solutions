@@ -1,3 +1,4 @@
+```python
 def max_fill(grid, capacity):
     import math
     total_buckets = 0
@@ -5,3 +6,4 @@ def max_fill(grid, capacity):
         for ele in row:
             total_buckets += ele
     return math.ceil(total_buckets / capacity)
+```
