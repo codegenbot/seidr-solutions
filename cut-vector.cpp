@@ -20,7 +20,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             rightSum += nums[j];
         }
 
-        int currentDiff = abs(leftSum - rightSum);
+        int currentDiff = std::abs(leftSum - rightSum);
 
         if (currentDiff < diff) {
             diff = currentDiff;
@@ -42,11 +42,12 @@ int main() {
         std::cin >> nums[i];
     }
 
-    auto subvectors = cutVector(nums);
+    std::pair<std::vector<int>, std::vector<int>> subvectors = cutVector(nums);
 
     for (int num : subvectors.first) {
         std::cout << num << std::endl;
     }
+
     for (int num : subvectors.second) {
         std::cout << num << std::endl;
     }
