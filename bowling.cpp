@@ -1,63 +1,42 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(std::string input) {
+int getScore(const std::string& bowlingRound) {
     int score = 0;
     int frame = 1;
-    int roll = 0;
-    int spare = 0;
-    int strike = 0;
+    int i = 0;
 
-    for (char c : input) {
-        if (c == 'X') {
+    while (frame <= 10 && i < bowlingRound.length()) {
+        if (bowlingRound[i] == 'X') {
             score += 10;
-            if (frame < 10) {
-                strike++;
-                roll = 0;
-            }
-        } else if (c == '/') {
-            score += 10 - roll;
-            if (frame < 10) {
-                spare++;
-                roll = 0;
-            }
-        } else if (c >= '0' && c <= '9') {
-            score += c - '0';
-            if (frame < 10) {
-                roll++;
-                if (roll == 2) {
-                    roll = 0;
-                    frame++;
-                }
-            }
-        } else if (c == '-') {
-            if (frame < 10) {
-                roll++;
-                if (roll == 2) {
-                    roll = 0;
-                    frame++;
-                }
-            }
-        }
-        
-        if (spare > 0) {
-            score += c - '0';
-            spare--;
+            score += (bowlingRound[i + 1] == 'X') ? 10 : (isdigit(bowlingRound[i + 1]) ? bowlingRound[i + 1] - '0' : 0);
+            score += (bowlingRound[i + 2] == 'X') ? 10 : (isdigit(bowlingRound[i + 2]) ? bowlingRound[i + 2] - '0' : 0);
+            i++;
+        } else if (isdigit(bowlingRound[i])) {
+            score += bowlingRound[i] - '0';
+            score += (bowlingRound[i + 1] == '/') ? (10 - (bowlingRound[i] - '0')) : (isdigit(bowlingRound[i + 1]) ? bowlingRound[i + 1] - '0' : 0);
+            i += (bowlingRound[i + 1] == '/') ? 2 : 1;
+        } else if (bowlingRound[i] == '/') {
+            score += 10 - (bowlingRound[i - 1] - '0');
+            score += (bowlingRound[i + 1] == 'X') ? 10 : (isdigit(bowlingRound[i + 1]) ? bowlingRound[i + 1] - '0' : 0);
+            i += 2;
+        } else if (bowlingRound[i] == '-') {
+            i++;
         }
 
-        if (strike > 0) {
-            score += c - '0';
-            strike--;
-        }
+        frame++;
     }
 
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    int score = calculateScore(input);
-    std::cout << score << std::endl;
+    std::string bowlingRound;
+    std::cout << "Enter the bowling round: ";
+    std::cin >> bowlingRound;
+
+    int score = getScore(bowlingRound);
+    std::cout << "Score: " << score << std::endl;
+
     return 0;
 }
