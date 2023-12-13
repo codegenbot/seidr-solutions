@@ -1,5 +1,6 @@
-#include<iostream>
-#include<vector>
+```
+#include <iostream>
+#include <vector>
 
 int main() {
     std::vector<int> digits;
@@ -27,3 +28,4 @@ int main() {
 
     return 0;
 }
+```
