@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,7 +10,7 @@ double calculateBouncinessIndex(double startingHeight, double firstBounceHeight)
 double calculateTotalDistance(double startingHeight, double bouncinessIndex, int numBounces) {
     double totalDistance = startingHeight;
     for (int i = 0; i < numBounces; i++) {
-        totalDistance *= bouncinessIndex;
+        totalDistance += 2 * bouncinessIndex * totalDistance;
     }
     return totalDistance;
 }
