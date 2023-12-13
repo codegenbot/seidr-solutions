@@ -1,7 +1,7 @@
-```cpp
+```
 #include <vector>
 
-int search(std::vector<int> lst){
+int search(vector<int> lst){
     int maxFreq = -1;
     for(int i=0; i<lst.size(); i++){
         int freq = 0;
