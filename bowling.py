@@ -7,6 +7,7 @@ def calculate_bowling_score(bowls):
     for bowl in bowls:
         if frame > 10:
             break
+
         if bowl == 'X':
             frames[frame-1].append(10)
             frame += 1
