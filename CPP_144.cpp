@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -10,7 +11,7 @@ bool simplify(string x, string n) {
     int numeratorN = stoi(n.substr(0, n.find("/")));
     int denominatorN = stoi(n.substr(n.find("/") + 1));
 
-    return (numeratorX * numeratorN) / denominatorX == 0 && (denominatorX * denominatorN) / denominatorN == 0;
+    return (numeratorX * numeratorN) / gcd(denominatorX, denominatorN) == 0 && (denominatorX * denominatorN) / gcd(denominatorX, denominatorN) == 0;
 }
 
 int main() {
@@ -19,3 +20,4 @@ int main() {
     cout << simplify(x, n) << endl;
     return 0;
 }
+```
