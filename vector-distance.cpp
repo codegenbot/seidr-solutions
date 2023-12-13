@@ -5,7 +5,7 @@
 #include <iomanip>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
-    long double sum = 0;
+    long double sum = 0; // Change datatype to long double
     for (int i = 0; i < v1.size(); i++) {
         sum += pow(v2[i] - v1[i], 2);
     }
@@ -29,7 +29,7 @@ int main() {
     }
 
     double distance = euclideanDistance(v1, v2);
-    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl; // Set desired precision
 
     return 0;
 }
