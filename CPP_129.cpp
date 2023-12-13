@@ -17,11 +17,9 @@ int main() {
 }
 ```
 
-The issue is that the `new_allocator` class used by the `std::vector` constructor does not implement the `_M_max_size()` function, which causes an error when initializing from an initializer list.
+The issue is with the `new_allocator` class used by the `std::vector` constructor when initializing from an initializer list, specifically with the `_M_max_size()` function not being implemented in the `new_allocator` class. To fix this, you can either:
 
-To fix this, you can:
-
-1. Use a different allocator that has the `_M_max_size()` function implemented, such as `std::allocator`.
+1. Use a different allocator that does have the `_M_max_size()` function, such as `std::allocator`.
 2. Implement the `_M_max_size()` function in your own custom allocator class.
 3. Avoid using initializer lists and instead use the `std::vector` constructor that takes a size and an optional value to initialize the elements.
 
