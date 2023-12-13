@@ -1,5 +1,5 @@
 ```cpp
-#include <iostream>
+#include <cassert>
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
