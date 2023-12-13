@@ -1,3 +1,4 @@
+```python
 cents = int(input())
 
 quarters = cents // 25
@@ -15,3 +16,4 @@ print(quarters)
 print(dimes)
 print(nickels)
 print(pennies)
+```
