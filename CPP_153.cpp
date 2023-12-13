@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,7 +7,7 @@
 std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
     std::string strongest_extension = "";
     int max_strength = std::numeric_limits<int>::min();
-    
+
     for (const std::string& extension : extensions) {
         int cap = 0;
         int sm = 0;
@@ -25,7 +24,7 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
             strongest_extension = extension;
         }
     }
-    
+
     return class_name + "." + strongest_extension;
 }
 
@@ -35,4 +34,3 @@ int main() {
 
     return 0;
 }
-```
