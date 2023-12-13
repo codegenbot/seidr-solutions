@@ -1,9 +1,7 @@
-#include <vector>
-
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     size_t i;
-    size_t n = nums.size();
     size_t cutIndex = 0;
+    size_t n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
     if (n == 1) {
