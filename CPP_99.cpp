@@ -4,7 +4,7 @@
 #include <cassert>
 
 int closest_integer(std::string value){
-    double num = std::stod(value.c_str());
+    double num = std::stod(value);
     int floor_num = std::floor(num);
     int ceil_num = std::ceil(num);
     if (num - floor_num < ceil_num - num) {
