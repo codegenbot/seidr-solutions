@@ -1,10 +1,6 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
@@ -28,11 +24,5 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
         }
     }
     return filtered_strings;
-}
-
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxA", "xxx"}));
-    
-    return 0;
 }
 ```
