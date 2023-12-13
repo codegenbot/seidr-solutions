@@ -1,3 +1,4 @@
+```python
 digits = input()
 
 sum_digits = 0
@@ -10,3 +11,4 @@ for i in range(len(digits)):
     sum_digits += digit
 
 print(sum_digits)
+```
