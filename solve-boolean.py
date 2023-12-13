@@ -14,9 +14,8 @@ def solve_boolean(expression):
             left, right = expr.split('&', 1)
             return evaluate(left) and evaluate(right)
         elif '|' in expr and '&' in expr:
-            if '|' in expr and '&' in expr:
-                ors = expr.split('|')
-                return any(evaluate(o) for o in ors)
+            ors = expr.split('|')
+            return any(evaluate(o) for o in ors)
         else:
             return evaluate(expr)
 
