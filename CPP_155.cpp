@@ -1,6 +1,6 @@
 [PYTHON]
-def issame(num1, num2):
-    return num1 == num2
+def issame(a, b):
+    return a == b
 
 def even_odd_count(num):
     count_even = 0
@@ -12,24 +12,14 @@ def even_odd_count(num):
             count_odd += 1
         num //= 10
     return [count_even, count_odd]
+
+def main():
+    if issame(even_odd_count(0), {1, 0}) and issame(even_odd_count(123456789), {9, 0}):
+        return 0
+    else:
+        return 1
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert even_odd_count(123) == [3, 0]
-# Test case 2:
-assert even_odd_count(1234) == [4, 0]
-# Test case 3:
-assert even_odd_count(12345) == [5, 0]
-# Test case 4:
-assert even_odd_count(123456) == [6, 0]
-# Test case 5:
-assert even_odd_count(1234567) == [7, 0]
-# Test case 6:
-assert even_odd_count(12345678) == [8, 0]
-# Test case 7:
-assert even_odd_count(123456789) == [9, 0]
-# Test case 8:
-assert even_odd_count(1234567890) == [10, 0]
+assert main() == 0
 [/TESTS]
-
-```
