@@ -1,9 +1,10 @@
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-std::string find_max(const std::vector<char>& words) {
+std::string find_max(const std::initializer_list<char>& words) {
     // ...
 }
 
