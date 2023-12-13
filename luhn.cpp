@@ -11,10 +11,10 @@ int main() {
     }
 
     int sum = 0;
-    for (int i = 15; i >= 0; i--) {
-        if (i % 2 == 1) {
+    for (int i = 16 - 1; i >= 0; i--) {
+        if (i % 2 == 0) {
             int doubledDigit = digits[i] * 2;
-            if (doubledDigit >= 10) {
+            if (doubledDigit > 9) {
                 doubledDigit -= 9;
             }
             sum += doubledDigit;
