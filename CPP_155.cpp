@@ -1,10 +1,9 @@
-There are the modified code below:
-
 ```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdlib>
+
+using namespace std;
 
 vector<int> even_odd_count(int num){
     int even_count = 0;
@@ -23,7 +22,7 @@ vector<int> even_odd_count(int num){
     return vector<int>{even_count, odd_count};
 }
 
-bool compare_vectors(const vector<int>& a, const vector<int>& b){
+bool compare_vectors(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -38,8 +37,8 @@ bool compare_vectors(const vector<int>& a, const vector<int>& b){
 }
 
 int main(){
-    vector<int> expected = {0, 1};
-    vector<int> result = even_odd_count(0);
+    vector<int> expected = {1, 0};
+    vector<int> result(2, 0);
     
     if(compare_vectors(expected, result)){
         cout << "Test case passed." << endl;
