@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -19,7 +20,9 @@ bool monotonic(std::vector<float> l){
 }
 
 int main() {
-    assert(monotonic(std::vector<float>{9, 9, 9, 9}) == true);
+    // Testing the monotonic function
+    assert(monotonic({9, 9, 9, 9}) == true);
+    
     return 0;
 }
 ```
