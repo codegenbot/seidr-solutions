@@ -1,11 +1,11 @@
 def is_nested(string):
     stack = []
-    for char in string:
-        if char == '[':
-            stack.append(char)
-        elif char == ']':
-            if len(stack) > 0:
+    for bracket in string:
+        if bracket == '[':
+            stack.append(bracket)
+        elif bracket == ']':
+            if stack and stack[-1] == '[':
                 stack.pop()
             else:
-                return True
-    return False
+                stack.append(bracket)
+    return len(stack) < len(string)
