@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // add the <cassert> header file
+#include <cassert> // include the <cassert> header file
 
 using namespace std;
 
