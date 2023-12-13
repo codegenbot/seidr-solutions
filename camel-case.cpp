@@ -1,39 +1,40 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
-string kebabToCamelCase(string str) {
-    string result = "";
-    vector<string> words;
-    string word = "";
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            words.push_back(word);
-            word = "";
+std::string convertToCamelCase(const std::string& input) {
+    std::string result;
+    std::vector<std::string> words;
+    std::string currentWord;
+
+    for (char c : input) {
+        if (c == '-') {
+            words.push_back(currentWord);
+            currentWord.clear();
         } else {
-            word += str[i];
+            currentWord += c;
         }
     }
-    words.push_back(word);
-    
-    for (int i = 0; i < words.size(); i++) {
-        if (i == 0) {
+
+    words.push_back(currentWord);
+
+    for (size_t i = 0; i < words.size(); i++) {
+        if (i > 0) {
+            result += words[i][0] - 'a' + 'A';
+            result += words[i].substr(1);
+        } else {
             result += words[i];
-        } else {
-            result += toupper(words[i][0]) + words[i].substr(1);
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    
-    cout << kebabToCamelCase(input) << endl;
-    
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::cout << convertToCamelCase(input) << std::endl;
+
     return 0;
 }
