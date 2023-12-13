@@ -47,10 +47,10 @@ def compare_one(a: boost::any, b: boost::any) -> std::string:
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert compare_one(boost::any(10), boost::any(2.5)) == "2.5"
+BOOST_ASSERT(compare_one(boost::any(10), boost::any(2.5)) == "2.5")
 # Test case 2:
-assert compare_one(boost::any(2.5), boost::any(10)) == "10"
+BOOST_ASSERT(compare_one(boost::any(2.5), boost::any(10)) == "10")
 # Test case 3:
-assert compare_one(boost::any("hello"), boost::any("world")) == "world"
+BOOST_ASSERT(compare_one(boost::any("hello"), boost::any("world")) == "world")
 [/TESTS]
 ```
