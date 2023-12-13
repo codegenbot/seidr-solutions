@@ -4,8 +4,6 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     // Function implementation
-    // ...
-    // Return true or false based on the desired logic
 }
 
 int main() {
