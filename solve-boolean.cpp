@@ -1,50 +1,38 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-bool evaluateBooleanExpression(const std::string& expression) {
-    if (expression == "t") {
+bool evaluateBoolean(string expr) {
+    if (expr == "t") {
         return true;
-    } else if (expression == "f") {
+    } else if (expr == "f") {
         return false;
     } else {
-        bool left, right;
-        bool isAndOperator = false;
-        bool isOrOperator = false;
-        int operatorIndex = -1;
-
-        for (int i = 0; i < expression.length(); i++) {
-            if (expression[i] == '&') {
-                isAndOperator = true;
-                operatorIndex = i;
-                break;
-            } else if (expression[i] == '|') {
-                isOrOperator = true;
-                operatorIndex = i;
-                break;
-            }
-        }
-
-        if (isAndOperator) {
-            left = evaluateBooleanExpression(expression.substr(0, operatorIndex));
-            right = evaluateBooleanExpression(expression.substr(operatorIndex + 1));
+        char op = expr[1];
+        bool left = evaluateBoolean(expr.substr(0, 1));
+        bool right = evaluateBoolean(expr.substr(2));
+        
+        if (op == '&') {
             return left && right;
-        } else if (isOrOperator) {
-            left = evaluateBooleanExpression(expression.substr(0, operatorIndex));
-            right = evaluateBooleanExpression(expression.substr(operatorIndex + 1));
+        } else if (op == '|') {
             return left || right;
         }
     }
-
+    
     return false;
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-
-    bool result = evaluateBooleanExpression(expression);
-
-    std::cout << (result ? "True" : "False") << std::endl;
-
+    string expr;
+    cin >> expr;
+    
+    bool result = evaluateBoolean(expr);
+    
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    
     return 0;
 }
