@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int targetLength = target.length();
@@ -23,16 +18,3 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     return indices;
 }
-
-int main() {
-    std::string text, target;
-    std::cin >> text >> target;
-
-    std::vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-
-    return 0;
-}
-```
