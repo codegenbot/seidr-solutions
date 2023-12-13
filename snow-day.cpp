@@ -1,5 +1,4 @@
-```
-#include <iostream>
+#include<iostream>
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
     float currentSnow = initialSnow;
@@ -23,4 +22,3 @@ int main() {
     
     return 0;
 }
-```
