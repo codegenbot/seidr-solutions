@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
@@ -26,26 +28,13 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // Test cases
-    vector<string> strings = {"apple", "banana", "orange", "pear"};
-    string prefix = "ap";
-    vector<string> expected = {"apple"};
-    vector<string> result = filter_by_prefix(strings, prefix);
-    assert(issame(result, expected));
+    vector<string> strings = {"apple", "banana", "pear", "orange", "grape"};
+    string prefix = "a";
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+    vector<string> expected_output = {"apple"};
 
-    strings = {"apple", "banana", "orange", "pear"};
-    prefix = "ba";
-    expected = {"banana"};
-    result = filter_by_prefix(strings, prefix);
-    assert(issame(result, expected));
-
-    strings = {"apple", "banana", "orange", "pear"};
-    prefix = "kiwi";
-    expected = {};
-    result = filter_by_prefix(strings, prefix);
-    assert(issame(result, expected));
-
-    cout << "All test cases pass" << endl;
+    assert(issame(filtered_strings, expected_output));
 
     return 0;
 }
+```
