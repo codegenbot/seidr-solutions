@@ -1,9 +1,8 @@
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <variant>
-#include <boost/any.hpp>
-#include <cassert>
 using namespace std;
 
 variant<int, float, string> compare_one(variant<int, float, string> a, variant<int, float, string> b) {
@@ -59,3 +58,4 @@ variant<int, float, string> compare_one(variant<int, float, string> a, variant<i
         return "None";
     }
 }
+```
