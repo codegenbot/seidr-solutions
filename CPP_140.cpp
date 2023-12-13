@@ -8,6 +8,7 @@ using namespace std;
 string fix_spaces(string text) {
     string result = "";
     int consecutiveSpaces = 0;
+    
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
             consecutiveSpaces++;
@@ -21,12 +22,12 @@ string fix_spaces(string text) {
             consecutiveSpaces = 0;
         }
     }
+    
     return result;
 }
 
 int main() {
     assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-
     assert(fix_spaces("Hello World") == "Hello_World");
     assert(fix_spaces("A___B___C") == "A-B-C");
     assert(fix_spaces("   ") == "---");
