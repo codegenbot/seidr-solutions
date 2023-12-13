@@ -2,29 +2,29 @@
 #include <vector>
 
 int main() {
-std::vector<int> digits;
+    std::vector<int> digits(16);
+    for (int i = 0; i < 16; i++) {
+        int digit;
+        std::cin >> digit;
+        digits.push_back(digit);
+    }
 
-for (int i = 0; i < 16; i++) {
-int digit;
-std::cin >> digit;
-digits.push_back(digit);
-}
+    int sum = 0;
+    for (int i = 15; i >= 0; i -= 2) {
+        int doubledDigit = digits[i] * 2;
+        if (doubledDigit > 9) {
+            doubledDigit -= 9;
+        }
+        sum += doubledDigit;
+    }
 
-int sum = 0;
-for (int i = 0; i < 16; i++) {
-int newDigit = digits[i];
+    for (int i = 14; i >= 0; i -= 2) {
+        sum += digits[i];
+    }
 
-if (i % 2 == 1) {
-newDigit *= 2;
-if (newDigit > 9) {
-newDigit -= 9;
-}
-}
+    sum -= digits[0];
 
-sum += newDigit;
-}
+    std::cout << sum << std::endl;
 
-std::cout << sum << std::endl;
-
-return 0;
+    return 0;
 }
