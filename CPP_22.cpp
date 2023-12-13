@@ -3,9 +3,8 @@
 #include <vector>
 #include <variant>
 #include <algorithm>
-#include <cstdint>
 
-std::vector<int> filter_integers(std::vector<std::variant<int, char>> values) {
+std::vector<int> filter_integers(const std::vector<std::variant<int, char>>& values) {
     std::vector<int> result;
     for (auto value : values) {
         if (std::holds_alternative<int>(value)) {
