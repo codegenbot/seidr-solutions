@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -14,3 +15,4 @@ int main() {
     cout << gcd(a, b) << endl;
     return 0;
 }
+```
