@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
 bool monotonic(std::vector<float> l){
     bool increasing = true;
@@ -18,13 +19,14 @@ bool monotonic(std::vector<float> l){
 }
 
 int main() {
-    std::vector<float> test1 = {1.0, 2.0, 3.0, 4.0, 5.0};
-    std::vector<float> test2 = {5.0, 4.0, 3.0, 2.0, 1.0};
-    std::vector<float> test3 = {1.0, 2.0, 2.0, 3.0, 4.0};
+    std::vector<float> l1 = {1, 2, 3, 4, 5};
+    std::vector<float> l2 = {5, 4, 3, 2, 1};
+    std::vector<float> l3 = {1, 2, 3, 2, 1};
     
-    std::cout << monotonic(test1) << std::endl;
-    std::cout << monotonic(test2) << std::endl;
-    std::cout << monotonic(test3) << std::endl;
+    std::cout << std::boolalpha << monotonic(l1) << std::endl;
+    std::cout << std::boolalpha << monotonic(l2) << std::endl;
+    std::cout << std::boolalpha << monotonic(l3) << std::endl;
     
     return 0;
 }
+```
