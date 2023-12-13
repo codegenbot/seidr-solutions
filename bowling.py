@@ -1,35 +1,36 @@
-def calculate_bowling_score(bowls):
+def calculate_score(bowls):
     score = 0
-    frame = 1
-    i = 0
+    frames = []
+    frame_index = 0
     
-    while frame <= 10:
-        if bowls[i] == 'X':
-            score += 10
-            if i + 2 < len(bowls):
-                if bowls[i + 2] == 'X':
-                    score += 10
-                elif bowls[i + 2] == '/':
-                    score += 10 - int(bowls[i + 1])
-                else:
-                    score += int(bowls[i + 1]) + int(bowls[i + 2])
-            frame += 1
-            i += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i - 1])
-            if i + 1 < len(bowls):
-                if bowls[i + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[i + 1])
-            frame += 1
-            i += 1
+    for bowl in bowls:
+        if bowl == "X":
+            frames.append((10, 0))
+        elif bowl == "/":
+            frames[frame_index] = (frames[frame_index][0], 10 - frames[frame_index][0])
+        elif bowl == "-":
+            frames.append((0, 0))
         else:
-            score += int(bowls[i])
-            frame += 1
-        i += 1
+            frames.append((int(bowl), 0))
+        
+        if len(frames) > 1 and frames[frame_index - 1][0] == 10:
+            if frames[frame_index - 1][1] == 0:
+                frames[frame_index - 1] = (10 + frames[frame_index][0], frames[frame_index][0])
+            else:
+                frames[frame_index - 1] = (10 + frames[frame_index][0] + frames[frame_index - 1][1], frames[frame_index][0])
+        
+        if len(frames) > 2 and frames[frame_index - 2][0] == 10 and frames[frame_index - 1][0] == 10:
+            if frames[frame_index - 2][1] == 0:
+                frames[frame_index - 2] = (20 + frames[frame_index][0], frames[frame_index][0])
+            else:
+                frames[frame_index - 2] = (20 + frames[frame_index][0] + frames[frame_index - 2][1], frames[frame_index][0])
+        
+        frame_index += 1
+        
+        if frame_index == 10:
+            break
+    
+    for frame in frames:
+        score += frame[0] + frame[1]
     
     return score
-
-bowls = input()
-print(calculate_bowling_score(bowls))
