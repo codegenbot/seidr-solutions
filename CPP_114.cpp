@@ -1,3 +1,10 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 long long minSubArraySum(vector<long long> nums){
     long long minSum = nums[0];
     long long currentSum = nums[0];
@@ -9,3 +16,11 @@ long long minSubArraySum(vector<long long> nums){
     
     return minSum;
 }
+
+int main() {
+    assert (minSubArraySum({1, -1}) == -1);
+
+    cout << "All test cases passed." << endl;
+    return 0;
+}
+```
