@@ -62,3 +62,5 @@ assert compare_one(boost::any(2.5), boost::any(10)) == "10"
 # Test case 3:
 assert compare_one(boost::any("hello"), boost::any("world")) == "world"
 [/TESTS]
+
+```
