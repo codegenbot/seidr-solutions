@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -9,7 +8,7 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 
     for (int i = 0; i < n; i++) {
         float discount = discounts[i] / 100.0;
-        float discountedPrice = prices[i] * (1.0 - discount);
+        float discountedPrice = prices[i] * (1 - discount);
         totalPrice += discountedPrice;
     }
 
@@ -41,4 +40,3 @@ int main() {
 
     return 0;
 }
-```
