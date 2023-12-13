@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,4 +21,3 @@ int main() {
     std::cout << search({3, 10, 10, 9, 2}) << std::endl;
     return 0;
 }
-```
