@@ -1,16 +1,15 @@
 ```python
 def cut_vector(vector):
     total_sum = sum(vector)
-    current_sum = vector[0]
-    for i in range(1, len(vector)):
-        if abs(current_sum * 2 - total_sum) <= abs((current_sum + vector[i]) * 2 - total_sum):
-            return vector[:i], vector[i:]
-        current_sum += vector[i]
-    return vector[:len(vector)//2], vector[len(vector)//2:]
+    current_sum = 0
+    min_diff = float('inf')
+    split_indices = (0, 1)
 
-print(cut_vector([1, 0]))
-print(cut_vector([1, 10]))
-print(cut_vector([1, 100]))
-print(cut_vector([1, 1000]))
-print(cut_vector([1, 10000]))
-```
+    for i in range(len(vector) - 1):
+        current_sum += vector[i]
+        diff = abs(current_sum * 2 - total_sum)
+        if diff < min_diff:
+            min_diff = diff
+            split_indices = (i, i + 1)
+
+    return vector[:split_indices[0] + 1], vector[split_indices[1]:]
