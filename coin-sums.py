@@ -1,11 +1,16 @@
 cents = int(input())
-pennies = cents
-cents %= 1
-nickels = cents // 5
-cents %= 5
+
+quarters = cents // 25
+cents %= 25
+
 dimes = cents // 10
 cents %= 10
-quarters = cents // 25
+
+nickels = cents // 5
+cents %= 5
+
+pennies = cents
+
 print(quarters)
 print(dimes)
 print(nickels)
