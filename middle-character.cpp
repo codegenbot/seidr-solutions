@@ -2,20 +2,22 @@
 #include <iostream>
 #include <string>
 
-std::string middleCharacter(std::string str) {
+using namespace std;
+
+string middleCharacter(string str) {
     int len = str.size();
     
     if (len % 2 == 1) {
-        return std::string(1, str[len/2]);
+        return string(1, str[len/2]);
     } else {
         return str.substr(len/2 - 1, 2);
     }
 }
 
 int main() {
-    std::string input;
-    getline(std::cin, input);
-    std::cout << middleCharacter(input) << std::endl;
+    string input;
+    getline(cin, input);
+    cout << middleCharacter(input) << endl;
     return 0;
 }
 ```
