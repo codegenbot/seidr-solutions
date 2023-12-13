@@ -9,7 +9,7 @@ float calculateTotalPrice(std::vector<float>& prices, std::vector<float>& discou
 
     for (int i = 0; i < n; i++) {
         float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
-        discountedPrice = std::round(discountedPrice * 100) / 100; // Round to 2 decimal places
+        discountedPrice = std::round(discountedPrice * 100) / 100;
         totalPrice += discountedPrice;
     }
 
