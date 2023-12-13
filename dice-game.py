@@ -1,3 +1,4 @@
+```python
 n = int(input())
 m = int(input())
 
@@ -7,6 +8,7 @@ def dice_game(n, m):
     elif n == m:
         return 0.5
     else:
-        return 1 - (n / float(n + m))
+        return (n - m + 1) / float(n + m - 1)
 
-print(dice_game(n, m))
+print(1 - dice_game(n, m))
+```
