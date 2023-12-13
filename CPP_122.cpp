@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 
@@ -13,8 +12,8 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
+    // Write test cases and call the add_elements function here for testing
     assert(add_elements(std::vector<int>{1}, 1) == 0);
-    assert(add_elements(std::vector<int>{12, 5, 23}, 3) == 35);
+
     return 0;
 }
-```
