@@ -11,7 +11,6 @@ int add_elements(std::vector<int> arr, int k) {
     return sum;
 }
 
-int main() {
-    // assert(add_elements(std::vector<int>{1}, 1) == 0);
-    return 0;
+int main2() {
+    return 1;
 }
