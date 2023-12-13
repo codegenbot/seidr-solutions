@@ -4,9 +4,7 @@ bool valid_date(string date){
     }
     
     int month, day, year;
-    if(sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3){
-        return false;
-    }
+    sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year);
     
     if(month < 1 || month > 12){
         return false;
