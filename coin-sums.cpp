@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
@@ -12,7 +10,7 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
 
-    int nickels = cents / 5;
+    int nickels = (cents - dimes * 10) / 5;
     cents %= 5;
 
     int pennies = cents;
@@ -24,4 +22,3 @@ int main() {
 
     return 0;
 }
-```
