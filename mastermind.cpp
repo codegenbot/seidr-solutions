@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <utility>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int whitePegs = 0;
