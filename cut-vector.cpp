@@ -4,22 +4,15 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
-    
-    if (n == 1) {
-        vector<int> leftSubvector;
-        vector<int> rightSubvector = {nums[0]};
-        return make_pair(leftSubvector, rightSubvector);
-    }
-    
-    int leftSum = nums[0];
+    int leftSum = nums[0]; // Update leftSum here
     int rightSum = 0;
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
         int diff = abs(leftSum - rightSum);
@@ -31,6 +24,12 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
 
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+
+    if (n == 1) { // Handle case when input vector has only one element
+        vector<int> leftSubvector;
+        vector<int> rightSubvector = {nums[0]};
+        return make_pair(leftSubvector, rightSubvector);
+    }
 
     return make_pair(leftSubvector, rightSubvector);
 }
