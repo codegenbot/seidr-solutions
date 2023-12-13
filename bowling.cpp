@@ -1,4 +1,6 @@
-```
+#include <string>
+#include <iostream>
+using namespace std;
 int calculateScore(string bowls) {
     int score = 0;
     for (int i = 0; i < bowls.length(); i++) {
@@ -17,4 +19,9 @@ int calculateScore(string bowls) {
     }
     return score;
 }
-```
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << calculateScore(bowls) << endl;
+    return 0;
+}
