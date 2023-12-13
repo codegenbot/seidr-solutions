@@ -3,15 +3,17 @@
 #include <vector>
 
 int main() {
-    std::vector<int> digits(16);
+    std::vector<char> digits;
 
     for (int i = 0; i < 16; i++) {
-        std::cin >> digits[i];
+        char digit;
+        std::cin >> digit;
+        digits.push_back(digit);
     }
 
     int sum = 0;
     for (int i = 16 - 2; i >= 0; i -= 2) {
-        int doubledDigit = digits[i] * 2;
+        int doubledDigit = (digits[i] - '0') * 2;
         if (doubledDigit > 9) {
             doubledDigit -= 9;
         }
@@ -19,7 +21,7 @@ int main() {
     }
 
     for (int i = 16 - 1; i >= 0; i -= 2) {
-        sum += digits[i];
+        sum += (digits[i] - '0');
     }
 
     std::cout << sum << std::endl;
