@@ -1,9 +1,11 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
 #include <sstream>
 #include <cassert>
+
+using namespace std;
 
 bool isValidDate(std::string date) {
     int month, day, year;
