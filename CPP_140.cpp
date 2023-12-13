@@ -13,12 +13,12 @@ string fix_spaces(string text) {
         if (isspace(text[i])) {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
-                result += '-';
+                result.push_back('-');
             } else {
-                result += '_';
+                result.push_back('_');
             }
         } else {
-            result += text[i];
+            result.push_back(text[i]);
             consecutiveSpaces = 0;
         }
     }
