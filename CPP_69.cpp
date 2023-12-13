@@ -28,12 +28,12 @@ int main() {
     int n;
     std::cin >> n;
     
-    std::vector<int> lst(n);
+    std::vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> lst[i];
+        std::cin >> numbers[i];
     }
-
-    int result = search(lst);
+    
+    int result = search(numbers);
     std::cout << result << std::endl;
     
     return 0;
