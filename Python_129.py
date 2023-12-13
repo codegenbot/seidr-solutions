@@ -15,14 +15,18 @@ def minPath(grid, k):
         neighbors.sort(key=lambda x: grid[x[0]][x[1]])
         for neighbor in neighbors:
             ni, nj = neighbor
-            if grid[ni][nj] not in path:
+            if (ni, nj) not in visited:
+                visited.add((ni, nj))
                 result = dfs(ni, nj, path)
                 if result:
                     return result
+                visited.remove((ni, nj))
         path.pop()
 
+    visited = set()
     for i in range(len(grid)):
         for j in range(len(grid[0])):
+            visited.add((i, j))
             result = dfs(i, j, [])
             if result:
                 return result
