@@ -1,4 +1,3 @@
-```python
 def calculate_score(bowls):
     score = 0
     frames = []
@@ -27,4 +26,3 @@ def calculate_score(bowls):
         score += frame[0] + frame[1]
     
     return score
-```
