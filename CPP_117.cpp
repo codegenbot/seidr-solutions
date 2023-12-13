@@ -7,7 +7,7 @@ using namespace std;
 
 bool is_consonant(char c) {
     // add your implementation for is_consonant function here
-    // Example: return c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U';
+    // return true if the character is a consonant, false otherwise
 }
 
 vector<string> select_words(string s, int n) {
@@ -36,12 +36,12 @@ vector<string> select_words(string s, int n) {
 
 bool issame(vector<string> a, vector<string> b) {
     // add your implementation for issame function here
-    // Example: return a == b;
+    // return true if vectors a and b are the same, false otherwise
 }
 
 int main() {
-    assert (issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+
     return 0;
 }
 ```
