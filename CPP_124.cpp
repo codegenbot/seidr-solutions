@@ -1,4 +1,4 @@
-```
+
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -32,4 +32,3 @@ int main() {
     assert(isValidDate("04-2003") == false);
     return 0;
 }
-```
