@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,7 +29,8 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    vector<string> input = {"play", "play", "play"};
+    vector<string> input = {"play", "play", "play"}; // Convert initializer list to vector
     assert((find_max(input) == "play"));
     return 0;
 }
+```
