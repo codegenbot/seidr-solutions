@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -25,9 +26,4 @@ vector<int> minPath(const vector<int>& costs, int target) {
     }
     return path;
 }
-
-int main() {
-    const auto costs = {1, 3};
-    assert(issame(minPath(costs, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
-}
+```
