@@ -16,7 +16,7 @@ int main() {
     cin >> hours >> initialSnow >> snowFallRate >> meltRate;
     
     float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltRate);
-    cout << fixed << finalSnow << endl; // To print the float with the correct precision
+    cout << fixed << finalSnow << endl;
     return 0;
 }
 ```
