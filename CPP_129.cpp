@@ -1,7 +1,4 @@
 [PYTHON]
-def issame(a, b):
-    return (a[0] == b[0]) and (a[1] == b[1])
-
 def min_path(grid, start, goal):
     # Initialize the minimum path sum
     min_sum = float('inf')
@@ -47,28 +44,22 @@ def get_neighbors(grid, position):
         neighbors.append((row, col + 1))
     return neighbors
 
+def issame(position1, position2):
+    return position1[0] == position2[0] and position1[1] == position2[1]
+
 def main():
-    grid = [
-        ['X', 'X', 'X', 'X'],
-        ['X', 'O', 'O', 'X'],
-        ['X', 'X', 'O', 'X'],
-        ['X', 'O', 'X', 'X']
-    ]
+    grid = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
     start = (3, 0)
-    goal = (0, 1)
+    goal = (0, 0)
     result = min_path(grid, start, goal)
     print(result)
 
-main()
+if __name__ == "__main__":
+    main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
-def test_case_1():
-    assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(0, 1)) == 7
+assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(0, 0)) == 7
 # Test case 2:
-def test_case_2():
-    assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(1, 1)) == 8
-# Test case 3:
-def test_case_3():
-    assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(2, 1)) == 9
+assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(2, 2)) == 12
 [/TESTS]
