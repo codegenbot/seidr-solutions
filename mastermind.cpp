@@ -6,8 +6,8 @@
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    std::vector<int, std::allocator<int>> codeCount(6, 0);
-    std::vector<int, std::allocator<int>> guessCount(6, 0);
+    std::vector<char> codeCount(6, 0);
+    std::vector<char> guessCount(6, 0);
     
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
