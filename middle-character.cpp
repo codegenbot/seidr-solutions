@@ -3,19 +3,19 @@
 #include <string>
 using namespace std;
 
-string middleCharacter(string str) {
-    int len = str.length();
-    if (len % 2 == 1) {
-        return string(1, str[len/2]);
+string getMiddleCharacter(string str) {
+    int length = str.length();
+    if (length % 2 == 1) {
+        return string(1, str[length / 2]);
     } else {
-        return str.substr((len/2)-1, 2);
+        return str.substr((length / 2) - 1, 2);
     }
 }
 
 int main() {
     string input;
-    cin >> input;
-    cout << middleCharacter(input) << endl;
+    getline(cin, input);
+    cout << getMiddleCharacter(input) << endl;
     return 0;
 }
 ```
