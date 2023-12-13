@@ -4,22 +4,17 @@
 using namespace std;
 
 bool evaluateBoolean(string expression) {
-    if (expression.empty()) {
-        throw runtime_error("Invalid expression format.");
-    }
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
         return false;
     } else if (expression.find('&') != string::npos) {
-        int pos = distance(expression.begin(), expression.find('&'));
-        bool left = evaluateBoolean(expression.substr(0, pos));
-        bool right = evaluateBoolean(expression.substr(pos + 1));
+        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
+        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
         return left && right;
     } else if (expression.find('|') != string::npos) {
-        int pos = distance(expression.begin(), expression.find('|'));
-        bool left = evaluateBoolean(expression.substr(0, pos));
-        bool right = evaluateBoolean(expression.substr(pos + 1));
+        bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
+        bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
         return left || right;
     } else {
         throw runtime_error("Invalid expression format.");
