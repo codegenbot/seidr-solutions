@@ -1,13 +1,14 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 
-int Strongest_Extension(const vector<string>& extensions) {
+int Strongest_Extension(const char* extension) {
     int strength = 0;
-    for (auto& extension : extensions) {
-        if (extension.length() > strength) {
-            strength = extension.length();
+    for (int i = 0; i < extension.length(); i++) {
+        if (extension[i] > strength) {
+            strength = extension[i];
         }
     }
     return strength;
@@ -19,3 +20,4 @@ int main(){
     cout << strength << endl;
     return 0;
 }
+```
