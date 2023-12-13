@@ -17,6 +17,7 @@ int main() {
 
     std::vector<double> v1;
     v1.reserve(n);
+
     for (int i = 0; i < n; i++) {
         std::cin >> v1[i];
     }
@@ -25,6 +26,7 @@ int main() {
 
     std::vector<double> v2;
     v2.reserve(n);
+
     for (int i = 0; i < n; i++) {
         std::cin >> v2[i];
     }
