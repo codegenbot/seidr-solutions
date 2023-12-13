@@ -37,8 +37,8 @@ bool compare_vectors(vector<int> a, vector<int> b){
 }
 
 int main(){
-    vector<int> expected = {1, 0};
-    vector<int> result(2, 0);
+    vector<int> expected = {0, 1};
+    vector<int> result = even_odd_count(0);
     
     if(compare_vectors(expected, result)){
         cout << "Test case passed." << endl;
