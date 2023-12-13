@@ -1,8 +1,9 @@
 ```cpp
+#include <iostream>
 #include <string>
 #include <cmath>
 
-int closest_integer(std::string value){
+int closest_integer(std::string value) {
     double num = std::stod(value);
     int floor_num = std::floor(num);
     int ceil_num = std::ceil(num);
