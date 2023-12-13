@@ -1,7 +1,3 @@
-
-The issue with the code is that it uses backticks (``) to enclose the code, which is not allowed in C++. The error message suggests replacing the backticks with double quotes (") or single quotes (').
-
-To fix the issue, simply replace all instances of backticks (``) with double quotes ("") or single quotes ('') in the code. For example:
 ```
 string int_to_mini_roman(int number) {
     vector<string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
@@ -30,4 +26,3 @@ string int_to_mini_roman(int number) {
     return result;
 }
 ```
-Alternatively, you can use a different character to enclose the code, such as double quotes ("") or single quotes ('').
