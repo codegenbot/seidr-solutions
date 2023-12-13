@@ -1,8 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
@@ -28,13 +27,48 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "pear", "orange", "grape"};
-    string prefix = "a";
-    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
-    vector<string> expected_output = {"apple"};
+    // Test cases with assert statements
+    //...
+    vector<string> strings = {"apple", "banana", "grapes", "orange"};
+    string prefix = "ap";
+    vector<string> filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{"apple"});
+    
+    strings = {"apple", "banana", "grapes", "orange"};
+    prefix = "b";
+    filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{"banana"});
+    
+    strings = {"apple", "banana", "grapes", "orange"};
+    prefix = "g";
+    filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{"grapes"});
+    
+    strings = {"apple", "banana", "grapes", "orange"};
+    prefix = "o";
+    filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{"orange"});
+    
+    strings = {"apple", "banana", "grapes", "orange"};
+    prefix = "z";
+    filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{});
+    
+    strings = {"apple", "banana", "grapes", "orange"};
+    prefix = "";
+    filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{"apple", "banana", "grapes", "orange"});
+    
+    strings = {};
+    prefix = "ap";
+    filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{});
 
-    assert(issame(filtered_strings, expected_output));
-
+    strings = {};
+    prefix = "";
+    filtered = filter_by_prefix(strings, prefix);
+    assert(filtered == vector<string>{});
+    
     return 0;
 }
 ```
