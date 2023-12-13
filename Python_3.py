@@ -8,9 +8,11 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-n = int(input())
+n = int(input("Enter the number of operations: "))
+
 operations = []
 for _ in range(n):
-    operations.append(int(input()))
+    operation = int(input("Enter an operation: "))
+    operations.append(operation)
 
 print(below_zero(operations))
