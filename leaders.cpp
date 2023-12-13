@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <iostream>
+#include <climits>
 #include <algorithm>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
