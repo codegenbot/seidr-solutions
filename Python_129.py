@@ -1,30 +1,19 @@
 def minPath(grid, k):
-    n = len(grid)
-    m = len(grid[0])
-    visited = [[False] * m for _ in range(n)]
-
-    def dfs(i, j, path):
-        if i < 0 or i >= n or j < 0 or j >= m or visited[i][j]:
-            return
-        visited[i][j] = True
-        path.append(grid[i][j])
+    def dfs(i, j, path, visited):
         if len(path) == k:
             return path
-        min_path = None
-        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        for dx, dy in directions:
-            nx, ny = i + dx, j + dy
-            if nx >= 0 and nx < n and ny >= 0 and ny < m and not visited[nx][ny]:
-                new_path = dfs(nx, ny, path)
+        visited.add((i, j))
+        neighbors = [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]
+        for ni, nj in neighbors:
+            if 0 <= ni < len(grid) and 0 <= nj < len(grid[0]) and (ni, nj) not in visited:
+                new_path = dfs(ni, nj, path + [grid[ni][nj]], visited)
                 if new_path:
-                    if min_path is None or new_path < min_path:
-                        min_path = new_path
-        visited[i][j] = False
-        path.pop()
-        return min_path
+                    return new_path
+        visited.remove((i, j))
+        return None
 
-    for i in range(n):
-        for j in range(m):
-            path = dfs(i, j, [])
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            path = dfs(i, j, [grid[i][j]], set())
             if path:
                 return path
