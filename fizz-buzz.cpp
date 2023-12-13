@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,3 +21,4 @@ int main() {
     cout << fizzBuzz(x) << endl;
     return 0;
 }
+```
