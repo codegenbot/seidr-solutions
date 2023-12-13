@@ -1,3 +1,4 @@
+```python
 def basement(nums):
     sum_so_far = 0
     for i in range(len(nums)):
@@ -11,3 +12,4 @@ nums = [int(num) for num in input_str.split()]
 
 result = basement(nums)
 print(result)
+```
