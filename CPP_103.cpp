@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <cassert>
 
@@ -30,3 +31,4 @@ string rounded_avg(int n, int m) {
 
     return binary;
 }
+```
