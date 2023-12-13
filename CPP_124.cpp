@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -9,10 +8,10 @@ using std::cin;
 using std::endl;
 using std::string;
 
-int isValidDate(const char* date) {
+bool isValidDate(const char* date) {
     int month, day, year;
     char delimiter = '-';
-    std::stringstream ss(date);
+    stringstream ss(date);
     ss >> month >> delimiter >> day >> delimiter >> year;
 
     if (month < 1 || month > 12) return false;
@@ -32,7 +31,7 @@ int isValidDate(const char* date) {
 
 int main() {
     string date = "04-2003";
-    int valid_date = isValidDate(date.c_str());
+    bool valid_date = isValidDate(date.c_str());
     if (valid_date == false) {
         cout << "The date is not valid." << endl;
     } else {
@@ -40,4 +39,3 @@ int main() {
     }
     return 0;
 }
-```
