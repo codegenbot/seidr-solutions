@@ -14,15 +14,11 @@ def max_fill(grid, capacity):
                         if capacity > 0:
                             grid[i][j] = 0
                             capacity -= 1
-                            if capacity == 0:
-                                break
                         else:
-                            buckets_needed += count_buckets(grid)
-                            break
-                if capacity == 0:
-                    break
+                            buckets_needed += 1
             if count_buckets(grid) == 0:
                 break
+        buckets_needed += max(0, capacity - count_buckets(grid))
         return buckets_needed
     
     return empty_wells(grid, capacity)
