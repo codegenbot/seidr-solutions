@@ -1,11 +1,10 @@
-
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <variant>
 using namespace std;
 
-string compare_one(variant<int, float, string> a, variant<int, float, string> b) {
+variant<int, float, string> compare_one(variant<int, float, string> a, variant<int, float, string> b) {
     if (a.index() == 0) {
         int x = get<0>(a);
         if (b.index() == 1) {
