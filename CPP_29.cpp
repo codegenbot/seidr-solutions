@@ -1,10 +1,24 @@
-```cpp
+```
 #include <iostream>
-#include <string>
 #include <vector>
-#include <assert.h>
+#include <string>
+#include <cassert>
 
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+  
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+  
+    return true;
+}
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
@@ -16,26 +30,13 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){  // Add missing space in function signature
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int main(){
-    vector<string> input_strings = {"apple", "banana", "cherry"};
-    string input_prefix = "b";
-    vector<string> expected_output = {"banana"};
-
-    vector<string> filtered_strings = filter_by_prefix(input_strings, input_prefix);
-
-    assert(filtered_strings == expected_output);  // Change assertion to compare vectors with == operator
+    vector<string> words = {"apple", "banana", "orange", "pear", "peach"};
+    
+    vector<string> filtered_words = filter_by_prefix(words, "ap");
+    vector<string> expected_words = {"apple", "ape"};
+    
+    assert(filtered_words == expected_words);
 
     return 0;
 }
