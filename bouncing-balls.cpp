@@ -25,7 +25,7 @@ int main() {
     
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
     
-    std::cout << std::fixed << totalDistance << std::endl;
+    std::cout << std::setprecision(15) << totalDistance << std::endl;
     
     return 0;
 }
