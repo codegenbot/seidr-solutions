@@ -5,28 +5,32 @@
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0.0;
-    for (std::vector<double>::size_type i = 0; i < v1.size(); i++) {
+    for (int i = 0; i < v1.size(); i++) {
         sum += pow(v1[i] - v2[i], 2);
     }
     return sqrt(sum);
 }
 
 int main() {
-    std::vector<double>::size_type n;
+    int n;
     std::cin >> n;
 
     std::vector<double> v1;
-    v1.resize(n);
-    for (std::vector<double>::size_type i = 0; i < n; i++) {
-        std::cin >> v1[i];
+    v1.reserve(n);
+    for (int i = 0; i < n; i++) {
+        double num;
+        std::cin >> num;
+        v1.push_back(num);
     }
 
     std::cin >> n;
 
     std::vector<double> v2;
-    v2.resize(n);
-    for (std::vector<double>::size_type i = 0; i < n; i++) {
-        std::cin >> v2[i];
+    v2.reserve(n);
+    for (int i = 0; i < n; i++) {
+        double num;
+        std::cin >> num;
+        v2.push_back(num);
     }
 
     double distance = euclideanDistance(v1, v2);
