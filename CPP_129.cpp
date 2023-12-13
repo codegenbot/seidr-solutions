@@ -46,6 +46,9 @@ def get_neighbors(grid, position):
         neighbors.append((row, col + 1))
     # Return the list of neighbors
     return neighbors
+
+def issame(expected, actual):
+    return expected == actual
 [/PYTHON]
 [TESTS]
 # Test case 1:
@@ -53,4 +56,3 @@ assert min_path(grid={ {1,2,3}, {4,5,6}, {7,8,9}}, k=3) == [1, 2, 1]
 # Test case 2:
 assert min_path(grid={ {5,9,3}, {4,1,6}, {7,8,2}}, k=1) == [1]
 [/TESTS]
-```
