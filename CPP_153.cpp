@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,3 +19,4 @@ int main() {
     cout << strength << endl;
     return 0;
 }
+```
