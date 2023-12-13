@@ -1,7 +1,6 @@
 ```cpp
 #include <cassert>
 #include <vector>
-#include <list>
 #include <variant>
 #include <algorithm>
 
