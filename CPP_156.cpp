@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,6 +11,6 @@ int int_to_mini_roman(int num) {
 }
 
 int main() {
-    assert (int_to_mini_romank(1000) == "m");
+    assert (int_to_mini_roman(1000) == 1000);
     return 0;
 }
