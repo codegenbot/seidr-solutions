@@ -1,11 +1,14 @@
-```cpp
 #include <string>
 #include <cassert>
-#include <cmath>
 
 using namespace std;
 
 string rounded_avg(int n, int m);
+
+int main() {
+    assert (rounded_avg(5, 5) == "101");
+    return 0;
+}
 
 string rounded_avg(int n, int m) {
     if (n > m) {
@@ -17,7 +20,7 @@ string rounded_avg(int n, int m) {
         sum += i;
     }
 
-    int avg = round(sum / static_cast<double>(m - n + 1));
+    int avg = round(sum / (m - n + 1));
 
     string binary = "";
     while (avg > 0) {
@@ -27,4 +30,3 @@ string rounded_avg(int n, int m) {
 
     return binary;
 }
-```
