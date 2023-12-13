@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -14,16 +15,17 @@ int main() {
     size_t n;
     std::cin >> n;
 
-    std::vector<double> v1(n);
+    std::vector<double> v1;
+    v1.resize(n);
     for (size_t i = 0; i < n; i++) {
         std::cin >> v1[i];
     }
 
-    size_t m;
-    std::cin >> m;
+    std::cin >> n;
 
-    std::vector<double> v2(m);
-    for (size_t i = 0; i < m; i++) {
+    std::vector<double> v2;
+    v2.resize(n);
+    for (size_t i = 0; i < n; i++) {
         std::cin >> v2[i];
     }
 
@@ -32,3 +34,4 @@ int main() {
 
     return 0;
 }
+```
