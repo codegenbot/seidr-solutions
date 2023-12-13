@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <algorithm>
+#include <algorithm> // Add this line
 
 std::string spinWords(const std::string& sentence) {
     std::stringstream ss(sentence);
