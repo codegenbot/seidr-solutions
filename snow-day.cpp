@@ -1,5 +1,6 @@
-```cpp
+```c++
 #include <iostream>
+#include <string>
 
 double calculateSnowOnGround(int hours, double initialSnow, double snowFallRate, double meltingRate) {
     double snowOnGround = initialSnow;
