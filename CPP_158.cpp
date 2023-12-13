@@ -2,9 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
-string find_max(vector<string> words) {
+string find_max(vector<string> words){
     string maxWord = "";
     int maxUniqueChars = 0;
 
@@ -29,8 +31,9 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    vector<string> input = {"play", "play", "play"}; // Convert initializer list to vector
-    assert((find_max(input) == "play"));
+    assert((find_max({"play", "play", "play"}) == "play"));
+    // Add more test cases if needed
+
     return 0;
 }
 ```
