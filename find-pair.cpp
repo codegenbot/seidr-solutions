@@ -3,20 +3,17 @@
 #include <unordered_set>
 
 std::vector<int> findPair(std::vector<int>& nums, int target) {
-    std::vector<int> result;
     std::unordered_set<int> complements;
 
     for (int num : nums) {
         int complement = target - num;
-        if (complements.count(complement)) {
-            result.push_back(complement);
-            result.push_back(num);
-            break;
+        if (complements.find(complement) != complements.end()) {
+            return {complement, num};
         }
         complements.insert(num);
     }
 
-    return result;
+    return {};
 }
 
 int main() {
@@ -24,7 +21,7 @@ int main() {
     std::cin >> n;
 
     std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
 
