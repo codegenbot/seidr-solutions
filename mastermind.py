@@ -6,9 +6,6 @@ def mastermind(code, guess):
     code_count = collections.Counter(code)
     guess_count = collections.Counter(guess)
     
-    if code == guess:
-        return len(code), 0
-    
     for i in range(len(code)):
         if code[i] == guess[i]:
             black_pegs += 1
