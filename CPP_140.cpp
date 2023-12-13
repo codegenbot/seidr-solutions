@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -18,7 +17,7 @@ string fix_spaces(string text) {
                 result.push_back('_');
             }
         } else {
-            result.push_back(static_cast<char>(text[i])); // Convert to character
+            result.push_back(static_cast<char>(text[i]));
             consecutiveSpaces = 0;
         }
     }
@@ -36,4 +35,3 @@ int main() {
 
     return 0;
 }
-```
