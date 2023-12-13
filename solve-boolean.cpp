@@ -1,47 +1,25 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <stack>
 
 bool evaluateBooleanExpression(const std::string& expression) {
-    bool result = false;
-    bool hasTrue = false;
-    bool hasFalse = false;
-
-    for (char c : expression) {
-        if (c == 't') {
-            hasTrue = true;
-        } else if (c == 'f') {
-            hasFalse = true;
+    std::stack<bool> st;
+    for (char ch : expression) {
+        if (ch == 't') {
+            st.push(true);
+        } else if (ch == 'f') {
+            st.push(false);
+        } else if (ch == '&') {
+            bool op2 = st.top(); st.pop();
+            bool op1 = st.top(); st.pop();
+            st.push(op1 && op2);
+        } else if (ch == '|') {
+            bool op2 = st.top(); st.pop();
+            bool op1 = st.top(); st.pop();
+            st.push(op1 || op2);
         }
     }
-
-    if (hasTrue && !hasFalse) {
-        return true;
-    } else if (!hasTrue && hasFalse) {
-        return false;
-    }
-
-    bool currentResult = false;
-    bool isOperand = true;
-
-    for (char c : expression) {
-        if (c == '&') {
-            isOperand = true;
-        } else if (c == '|') {
-            result |= currentResult;
-            isOperand = true;
-        } else {
-            currentResult = (c == 't');
-            if (isOperand) {
-                result = currentResult;
-                isOperand = false;
-            } else if (result && !currentResult) {
-                result = false;
-            }
-        }
-    }
-
-    return result;
+    return st.top();
 }
 
 int main() {
@@ -53,4 +31,3 @@ int main() {
 
     return 0;
 }
-```
