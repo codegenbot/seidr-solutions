@@ -1,23 +1,11 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
-
-# Read input
 starting_height = float(input())
-first_bounce_height = float(input())
+height_after_first_bounce = float(input())
 num_bounces = int(input())
 
-# Calculate bounciness index
-bounciness_index = first_bounce_height / starting_height
+bounciness_index = height_after_first_bounce / starting_height
+total_distance = starting_height
+for i in range(num_bounces):
+    total_distance += 2 * height_after_first_bounce
+    height_after_first_bounce *= bounciness_index
 
-# Calculate total distance traveled
-total_distance = starting_height + (2 * first_bounce_height * (1 - bounciness_index ** num_bounces)) / (1 - bounciness_index)
-
-# Print output
 print(total_distance)
