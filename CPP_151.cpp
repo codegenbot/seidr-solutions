@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -18,3 +19,4 @@ int main() {
     long long odd_sum = double_the_difference(lst);
     cout << "The sum of the squares of the odd numbers is: " << odd_sum << endl;
 }
+```
