@@ -1,24 +1,12 @@
-```python
 def solve_boolean(expression):
-    expression = expression.lower()
-
-    def evaluate(expr):
-        if expr == 't':
+    def evaluate(expression):
+        if expression == "t":
             return True
-        elif expr == 'f':
+        if expression == "f":
             return False
-
-        if '|' in expr and '&' in expr:
-            left, right = expr.split('|', 1)
-            return evaluate(left) or evaluate(right[1:])
-        elif '|' in expr:
-            left, right = expr.split('|', 1)
-            return evaluate(left) or evaluate(right)
-        elif '&' in expr:
-            left, right = expr.split('&', 1)
-            return evaluate(left) and evaluate(right)
-        else:
-            return evaluate(expr)
-
+        operands = expression.split("|")  
+        operands = [op.split("&") for op in operands]  
+        results = [all(evaluate(op) for op in sub_expr) for sub_expr in operands]
+        return any(results)
+    expression = expression.lower()
     return evaluate(expression)
-```
