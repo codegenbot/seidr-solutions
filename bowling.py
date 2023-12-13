@@ -1,3 +1,4 @@
+```python
 def calculate_bowling_score(bowls):
     score = 0
     frame, ball = 1, 0
@@ -11,7 +12,7 @@ def calculate_bowling_score(bowls):
             frame += 1
             ball = 0
         elif bowl == '/':
-            frames[frame-1].append(10 - frames[frame-1][-1] + frames[frame][0])
+            frames[frame-1].append(10 - frames[frame-1][-1])
             frame += 1
             ball = 1
         elif bowl == '-':
@@ -30,3 +31,4 @@ def calculate_bowling_score(bowls):
                     score += sum(frame)
 
     return score
+```
