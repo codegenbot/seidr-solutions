@@ -1,13 +1,17 @@
+```
+#include <iostream>
+#include <vector>
+using namespace std;
 
-[PYTHON]
-def get_unique_elements(my_list):
-    return list(set(my_list))
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert get_unique_elements([]) == []
-# Test case 2:
-assert get_unique_elements([1]) == [1]
-# Test case 3:
-assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
-[/TESTS]
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+vector<int> minPath(const vector<int>& costs, int target) {
+    // Implement the function to find the minimum path
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}}));
+}
+```
