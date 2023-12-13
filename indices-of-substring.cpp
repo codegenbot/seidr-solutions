@@ -41,3 +41,6 @@ int main() {
     return 0;
 }
 ```
+#### Test Input Reasoning:
+
+Let's test the code on a basic input where the target string is an empty string.
