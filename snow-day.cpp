@@ -1,5 +1,5 @@
 ```cpp
-#include <iostream>
+#include<iostream>
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate);
 
