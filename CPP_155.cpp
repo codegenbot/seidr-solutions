@@ -1,6 +1,6 @@
 [PYTHON]
 def issame(a: vector<int>, b: vector<int>) -> bool:
-    if len(a) != len(b):
+    if a.size() != b.size():
         return False
     for i in range(len(a)):
         if a[i] != b[i]:
