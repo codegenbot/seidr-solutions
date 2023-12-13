@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -19,4 +18,3 @@ int main() {
     cout << is_nested(str) << endl;
     return 0;
 }
-```
