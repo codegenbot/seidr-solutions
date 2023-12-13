@@ -11,7 +11,7 @@ double calculateTotalDistance(double startingHeight, double bounceHeight, int nu
 
     for (int i = 0; i < numBounces; i++) {
         bounceHeight *= bouncinessIndex;
-        totalDistance += (2 * bounceHeight);
+        totalDistance -= (2 * bounceHeight);
     }
 
     return totalDistance;

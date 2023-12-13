@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -19,3 +20,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(2) << probabilityOfPeterWinning(n, m) << std::endl;
     return 0;
 }
+```
