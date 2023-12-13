@@ -1,7 +1,5 @@
-import re
-
 def solve_boolean(expression):
-    expression = re.sub(r'\bT\b', 'True', expression)
-    expression = re.sub(r'\bF\b', 'False', expression)
-    expression = expression.replace('&', ' and ').replace('|', ' or ')
+    expression = expression.replace('T', 'True').replace('F', 'False')
+    expression = expression.replace('&', ') and (').replace('|', ' or ')
+    expression = '(' + expression + ')'
     return eval(expression)
