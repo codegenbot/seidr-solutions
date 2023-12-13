@@ -1,7 +1,5 @@
 ```cpp
-#include <vector>
-#include <climits>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -25,8 +23,8 @@ int main() {
     }
     std::vector<int> result = findLeaders(nums);
     std::cout << result.size() << std::endl;
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    for (auto i : result) {
+        std::cout << i << " ";
     }
     std::cout << std::endl;
     return 0;
