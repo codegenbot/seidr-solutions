@@ -27,14 +27,12 @@ int calculateScore(const std::string& input) {
             }
             index++;
         } else if (input[index] == '-') {
-            // do nothing
         } else {
             score += (input[index] - '0');
         }
         index++;
         frame++;
     }
-
     return score;
 }
 
