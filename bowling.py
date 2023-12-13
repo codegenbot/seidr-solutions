@@ -2,7 +2,7 @@ def calculate_bowling_score(bowls):
     score = 0
     frame = 1
     i = 0
-
+    
     while frame <= 10:
         if bowls[i] == 'X':
             score += 10
@@ -28,7 +28,7 @@ def calculate_bowling_score(bowls):
             score += int(bowls[i])
             frame += 1
         i += 1
-
+    
     return score
 
 bowls = input()
