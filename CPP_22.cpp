@@ -1,20 +1,31 @@
 ```cpp
 #include <vector>
 #include <cassert>
-#include <type_traits>
 
-std::vector<int> filter_integers(std::vector<int> values) {
-    std::vector<int> result;
-    for (auto value : values) {
-        if (std::is_integral_v<decltype(value)>) {
-            result.push_back(value);
+std::vector<int> filter_integers(const std::vector<int>& input) {
+    std::vector<int> filtered;
+    for (int num : input) {
+        if (num >= '0' && num <= '9') {
+            filtered.push_back(num);
         }
     }
-    return result;
+    return filtered;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == std::vector<int>({3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
 ```
