@@ -94,14 +94,14 @@ bool validateInput(const std::string& input) {
 int main() {
     std::string input;
     std::cin >> input;
-
+    
     if (!validateInput(input)) {
         throw std::invalid_argument("Invalid input");
     }
-
+    
     int score = calculateScore(input);
     std::cout << score << std::endl;
-
+    
     return 0;
 }
 ```
