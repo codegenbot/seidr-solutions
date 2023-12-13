@@ -1,8 +1,8 @@
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
-    return [abs(paren_string.count('(') - paren_string.count(')'))]
+    return [abs(paren.count('(') - paren.count(')')) for paren in paren_string.split()]
 
-paren_string = input().strip()
+paren_string = input().strip() # Add this line to receive the input from user
 result = parse_nested_parens(paren_string)
 print(result)
