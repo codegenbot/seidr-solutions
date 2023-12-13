@@ -1,60 +1,39 @@
-def calculate_score(bowls):
+def calculate_bowling_score(input_str):
     score = 0
-    frame = 1
-    frame_score = 0
-    is_strike = False
-    is_spare = False
-    for bowl in bowls:
-        if bowl == 'X':
+    frames = []
+    frame = ""
+    for i in range(len(input_str)):
+        if input_str[i] == "X":
+            frame = "X"
+        elif input_str[i] == "/":
+            frame = frame + "/"
+        else:
+            frame = frame + input_str[i]
+        
+        if len(frame) == 2 or frame == "X" or len(frames) == 9:
+            frames.append(frame)
+            frame = ""
+    
+    for i in range(len(frames)):
+        if frames[i] == "X":
             score += 10
-            if frame < 10:
-                is_strike = True
+            if i < len(frames) - 2:
+                if frames[i+1] == "X":
+                    score += 10
+                    if frames[i+2] == "X":
+                        score += 10
+                    else:
+                        score += int(frames[i+2][0])
+                else:
+                    score += int(frames[i+1][0]) + int(frames[i+1][1])
+        elif "/" in frames[i]:
+            score += 10
+            if frames[i+1][0] == "X":
+                score += 10
             else:
-                frame_score += 10
-        elif bowl == '/':
-            score += 10 - frame_score
-            if frame < 10:
-                is_spare = True
-            else:
-                frame_score += 10 - frame_score
-        elif bowl == '-':
-            if frame < 10:
-                frame_score += 0
-            else:
-                frame_score += 0
-        else:
-            score += int(bowl)
-            frame_score += int(bowl)
-        
-        if is_strike:
-            score += frame_score
-            frame_score = 0
-            is_strike = False
-            frame += 1
-        elif is_spare:
-            score += frame_score
-            frame_score = 0
-            is_spare = False
-            frame += 1
-        
-        if frame < 10:
-            if frame_score == 10:
-                is_spare = True
-                frame_score = 0
-                frame += 1
-            elif frame_score > 10:
-                is_strike = True
-                frame_score = 0
-                frame += 1
-        else:
-            if frame_score == 10:
-                is_spare = True
-                frame_score = 0
-            elif frame_score > 10:
-                is_strike = True
-                frame_score = 0
+                score += int(frames[i+1][0])
     
     return score
 
-bowls = input()
-print(calculate_score(bowls))
+input_str = input()
+print(calculate_bowling_score(input_str))
