@@ -19,17 +19,17 @@ int scoreOfRound(const std::string& round) {
             score += 10;
 
             if (frame < 9) {
-                score += (round[i + 1] == 'X') ? 10 : ((round[i + 1] != '-') ? (round[i + 1] - '0') * 10 : 0);
-                score += (round[i + 2] == 'X') ? 10 : ((round[i + 2] != '-') ? (round[i + 2] - '0') : 0);
+                score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0') * 10;
+                score += (round[i + 2] == 'X') ? 10 : (round[i + 2] - '0');
             }
 
             frame++;
             bowl = 0;
         } else if (current == '/') {
-            score += 10 - (round[i - 1] - '0');
+            score += 10;
 
             if (frame < 9) {
-                score += (round[i + 1] == 'X') ? 10 : ((round[i + 1] != '-') ? (round[i + 1] - '0') : 0);
+                score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
             }
 
             frame++;
@@ -53,7 +53,11 @@ int main() {
     std::getline(std::cin, round, '\n');
 
     int score = scoreOfRound(round);
-    std::cout << score << std::endl;
+
+    std::string scoreString = std::to_string(score);
+    round.insert(round.end(), scoreString.begin(), scoreString.end());
+
+    std::cout << round << std::endl;
 
     return 0;
 }
