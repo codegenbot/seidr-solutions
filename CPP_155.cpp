@@ -18,10 +18,9 @@ def even_odd_count(num: int) -> vector<int>:
     return count_even
 
 def main() -> int:
-    if issame(even_odd_count(0), [1, 0]) and issame(even_odd_count(123456789), [9, 0]):
-        return 0
-    else:
-        return 1
+    assert(issame(even_odd_count(0), [1, 0]));
+    assert(issame(even_odd_count(123456789), [9, 0]));
+    return 0
 [/PYTHON]
 [TESTS]
 # Test case 1:
