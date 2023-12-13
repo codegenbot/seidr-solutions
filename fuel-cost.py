@@ -1,4 +1,3 @@
-```python
 import math
 
 def fuel_cost(vector):
@@ -7,4 +6,3 @@ def fuel_cost(vector):
 
 input_string = input()
 print(fuel_cost(input_string))
-```
