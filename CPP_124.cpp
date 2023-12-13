@@ -1,11 +1,11 @@
-```
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
-bool isValidDate(std::string date) {
+bool isValidDate(string date) {
     int month, day, year;
     char delimiter = '-';
     stringstream ss(date);
@@ -16,13 +16,27 @@ bool isValidDate(std::string date) {
     if (year < 0) return false;
 
     int daysInMonth = 31;
-    if (month == 2) {
-        daysInMonth = 28;
-        if (year % 4 == 0) {
-            daysInMonth = 29;
-        }
+    switch (month) {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            daysInMonth = 30;
+            break;
+        case 2:
+            daysInMonth = 28;
+            if (year % 4 == 0) {
+                daysInMonth = 29;
+            }
+            break;
     }
 
     return day <= daysInMonth;
+}
+```
+int main() {
+    assert(isValidDate("04-2003") == false);
+    assert(isValidDate("12-31-2022") == true);
+    assert(isValidDate("02-29-2024") == false);
 }
 ```
