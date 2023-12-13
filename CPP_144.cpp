@@ -14,7 +14,7 @@ bool simplify(string x, string n) {
     return (numeratorX * numeratorN) / denominatorX == 0 && (denominatorX * denominatorN) / denominatorN == 0;
 }
 
-int myMain() {
+int main() {
     string x = "1/5";
     string n = "5/1";
     cout << simplify(x, n) << endl;
