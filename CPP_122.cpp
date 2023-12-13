@@ -1,5 +1,6 @@
-```cpp
+```
 #include <vector>
+#include <cassert>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -11,8 +12,5 @@ int add_elements(std::vector<int> arr, int k) {
     return sum;
 }
 
-int main() {
-    assert(add_elements({1}, 1) == 0);
-    return 0;
-}
+// Remove the extra main function and its content
 ```
