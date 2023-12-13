@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -17,7 +17,7 @@ string fix_spaces(string text) {
                 result.push_back('_');
             }
         } else {
-            result += text[i];
+            result.push_back(text[i]);
             consecutiveSpaces = 0;
         }
     }
