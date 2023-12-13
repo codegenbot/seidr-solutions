@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,9 +6,9 @@ using namespace std;
 
 int Strongest_Extension(const vector<string>& extensions) {
     int strength = 0;
-    for (auto& extension : extensions) {
-        if (extension.length() > strength) {
-            strength = extension.length();
+    for (int i = 0; i < extensions.size(); i++) {
+        if (extensions[i].length() > strength) {
+            strength = extensions[i].length();
         }
     }
     return strength;
