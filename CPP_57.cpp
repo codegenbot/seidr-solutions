@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -19,14 +18,13 @@ bool monotonic(std::vector<float> l){
 }
 
 int main() {
-    std::vector<float> l1 = {1, 2, 3, 4, 5};
-    std::vector<float> l2 = {5, 4, 3, 2, 1};
-    std::vector<float> l3 = {1, 2, 3, 2, 1};
+    std::vector<float> test1 = {1.5, 2.0, 3.5, 5.0};
+    std::vector<float> test2 = {7.0, 5.0, 2.0, 1.0};
+    std::vector<float> test3 = {10.0, 10.0, 10.0, 10.0};
     
-    std::cout << std::boolalpha << monotonic(l1) << std::endl;
-    std::cout << std::boolalpha << monotonic(l2) << std::endl;
-    std::cout << std::boolalpha << monotonic(l3) << std::endl;
+    std::cout << "Test 1: " << monotonic(test1) << std::endl; // Output: 1
+    std::cout << "Test 2: " << monotonic(test2) << std::endl; // Output: 1
+    std::cout << "Test 3: " << monotonic(test3) << std::endl; // Output: 1
     
     return 0;
 }
-```
