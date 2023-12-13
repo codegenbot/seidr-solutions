@@ -1,4 +1,3 @@
-```python
 def solve_boolean(expression):
     expression = expression.lower()
 
@@ -8,17 +7,13 @@ def solve_boolean(expression):
         elif expr == 'f':
             return False
 
-        if '|' in expr and '&' in expr:
-            operands = expr.split('|', 1)
-            return evaluate(operands[0]) or evaluate(operands[1])
-        elif '|' in expr:
-            operands = expr.split('|', 1)
-            return evaluate(operands[0]) or evaluate(operands[1])
+        if '|' in expr:
+            left, right = expr.split('|', 1)
+            return evaluate(left) or evaluate(right)
         elif '&' in expr:
-            operands = expr.split('&', 1)
-            return evaluate(operands[0]) and evaluate(operands[1])
+            left, right = expr.split('&', 1)
+            return evaluate(left) and evaluate(right)
         else:
             return evaluate(expr)
 
     return evaluate(expression)
-```
