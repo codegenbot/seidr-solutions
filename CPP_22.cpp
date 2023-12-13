@@ -1,13 +1,14 @@
-```cpp
 #include <cassert>
 #include <vector>
-#include <list>
+#include <variant>
 #include <algorithm>
 
-std::vector<int> filter_integers(std::list<int> values) {
+std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>> values) {
     std::vector<int> result;
     for (auto value : values) {
-        result.push_back(value);
+        if (std::holds_alternative<int>(value)) {
+            result.push_back(std::get<int>(value));
+        }
     }
     return result;
 }
@@ -17,8 +18,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 0, 3, 3, 1, 2}), {3, 0, 3, 3, 1, 2}));
+    assert(issame(filter_integers({std::variant<int, char>(3), std::variant<int, char>('c'), std::variant<int, char>(3), std::variant<int, char>(3), std::variant<int, char>('a'), std::variant<int, char>('b')}), {3, 3, 3}));
     
     return 0;
 }
-```
