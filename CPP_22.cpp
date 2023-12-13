@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <vector>
 #include <variant>
@@ -22,3 +23,4 @@ int main() {
     
     return 0;
 }
+```
