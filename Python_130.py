@@ -1,20 +1,13 @@
 def tri(n):
-    seq = [3]
     if n == 0:
-        return seq
+        return [0]
     elif n == 1:
-        seq.append(1)
-        return seq
-    elif n == 2:
-        seq.append(1)
-        seq.append(2)
-        return seq
+        return [3]
     else:
-        seq.append(1)
-        seq.append(2)
-        for i in range(3, n+1):
+        sequence = [3, 1 + n // 2]
+        for i in range(2, n + 1):
             if i % 2 == 0:
-                seq.append(1 + i // 2)
+                sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
             else:
-                seq.append(seq[i-1] + seq[i-2] + seq[i+1])
-        return seq
+                sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i + 1])
+        return sequence
