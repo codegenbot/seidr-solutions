@@ -13,6 +13,8 @@ int sum_squares(std::vector<float> lst){
 }
 
 int main() {
+    using namespace std;
+
     // Test the sum_squares function
     assert(sum_squares({-1,1,0}) == 2);
 
