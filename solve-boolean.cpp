@@ -4,18 +4,14 @@
 using namespace std;
 
 bool evaluateBoolean(string expression) {
-    if (expression == "T") {
+    if (expression == "t") {
         return true;
-    } else if (expression == "F") {
+    } else if (expression == "f") {
         return false;
-    } else if (expression.find('|') != string::npos) {
-        size_t pos = expression.find('|');
-        return evaluateBoolean(expression.substr(0, pos)) || evaluateBoolean(expression.substr(pos + 1));
-    } else if (expression.find('&') != string::npos) {
-        size_t pos = expression.find('&');
-        return evaluateBoolean(expression.substr(0, pos)) && evaluateBoolean(expression.substr(pos + 1));
     } else {
-        return false;
+        bool left = evaluateBoolean(expression.substr(0, expression.find_first_of("&|")));
+        bool right = evaluateBoolean(expression.substr(expression.find_first_of("&|") + 1));
+        return left && right;
     }
 }
 
