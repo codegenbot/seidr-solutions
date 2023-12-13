@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <cmath>
+
 int sum_squares(vector<float> lst){
     int sum = 0;
     for(int i=0; i<lst.size(); i++){
@@ -6,3 +10,11 @@ int sum_squares(vector<float> lst){
     }
     return sum;
 }
+
+int main() {
+    // Test the sum_squares function
+    assert(sum_squares({-1,1,0}) == 2);
+
+    return 0;
+}
+```
