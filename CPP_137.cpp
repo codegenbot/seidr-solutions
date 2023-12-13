@@ -1,5 +1,5 @@
 [PYTHON]
-def compare_one(a: variant<int, string>, b: variant<int, string>) -> str:
+def compare_one(a: boost::any, b: boost::any) -> std::string:
     if a.index() == 0:
         x = get<0>(a)
         if b.index() == 1:
@@ -47,10 +47,10 @@ def compare_one(a: variant<int, string>, b: variant<int, string>) -> str:
 [/PYTHON]
 [TESTS]
 # Test case 1:
-BOOST_ASSERT(compare_one(variant<int, string>(10), variant<int, string>(2.5)) == "2.5")
+BOOST_ASSERT(compare_one(boost::any(10), boost::any(2.5)) == "2.5")
 # Test case 2:
-BOOST_ASSERT(compare_one(variant<int, string>(2.5), variant<int, string>(10)) == "10")
+BOOST_ASSERT(compare_one(boost::any(2.5), boost::any(10)) == "10")
 # Test case 3:
-BOOST_ASSERT(compare_one(variant<int, string>("hello"), variant<int, string>("world")) == "world")
+BOOST_ASSERT(compare_one(boost::any("hello"), boost::any("world")) == "world")
 [/TESTS]
 ```
