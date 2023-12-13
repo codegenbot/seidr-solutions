@@ -1,35 +1,37 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
-double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    double sum = 0.0;
+long double euclideanDistance(const std::vector<long double>& vector1, const std::vector<long double>& vector2) {
+    long double sum = 0.0;
     for (int i = 0; i < vector1.size(); i++) {
-        double diff = vector1[i] - vector2[i];
+        long double diff = vector1[i] - vector2[i];
         sum += diff * diff;
     }
-    return std::sqrt(std::abs(sum));
+    return std::sqrt(sum);
 }
 
 int main() {
     int n;
     std::cin >> n;
-    std::cin.ignore();
 
-    std::vector<double> vector1(n);
+    std::vector<long double> vector1(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vector1[i];
     }
 
     std::cin >> n;
 
-    std::vector<double> vector2(n);
+    std::vector<long double> vector2(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vector2[i];
     }
 
-    double distance = euclideanDistance(vector1, vector2);
-    std::cout << distance << std::endl;
+    long double distance = euclideanDistance(vector1, vector2);
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
 
     return 0;
 }
+```
