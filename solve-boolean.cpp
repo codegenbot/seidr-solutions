@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,3 +21,4 @@ int main() {
     cout << (evaluateBoolean(expression) ? "True" : "False") << endl;
     return 0;
 }
+```
