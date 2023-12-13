@@ -1,9 +1,8 @@
 ```cpp
 #include <cassert>
 
-template<typename T>
-std::vector<T> filter_integers(std::initializer_list<T> values) {
-    std::vector<T> result;
+std::vector<int> filter_integers(std::vector<int> values) {
+    std::vector<int> result;
     for (auto value : values) {
         if (std::is_integral_v<decltype(value)>) {
             result.push_back(value);
