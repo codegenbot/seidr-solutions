@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -15,7 +15,7 @@ int main() {
     string str;
     cout << "Enter a number: ";
     cin >> str;
-    std::string::size_type n = stoi(str, 0, str.length());
+    int n = stoi(str, 0, str.length());
     cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
