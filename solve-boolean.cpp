@@ -7,14 +7,14 @@ bool evaluateBoolean(string expression) {
         return true;
     } else if (expression == "F" || expression == "False") {
         return false;
-    } else if (expression.find('&') != string::npos) {
-        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
-        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
-        return left && right;
     } else if (expression.find('|') != string::npos) {
         bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
         bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
         return left || right;
+    } else {
+        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
+        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
+        return left && right;
     }
 }
 
