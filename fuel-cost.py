@@ -1,3 +1,4 @@
 nums = list(map(int, input().split()))
-total = sum((num / 3) - 2 for num in nums)
-print(total)
+total = sum((num - 2) / 3 for num in nums)
+rounded_total = int(total)
+print(rounded_total)
