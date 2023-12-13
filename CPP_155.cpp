@@ -2,8 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cmath>    // for abs()
-#include <cstdlib>  // for abs()
+#include <cmath>
+#include <cstdlib>
 
 std::vector<int> even_odd_count(int num = 0){
     int even_count = 0;
@@ -45,16 +45,16 @@ int main(){
     }else{
         std::cout << "Test case 1 failed." << std::endl;
     }
-
+    
     expected = {3, 2};
     result = even_odd_count(12345);
-
+    
     if(compare_vectors(expected, result)){
         std::cout << "Test case 2 passed." << std::endl;
     }else{
         std::cout << "Test case 2 failed." << std::endl;
     }
-
+    
     return 0;
 }
 ```
