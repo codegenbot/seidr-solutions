@@ -20,8 +20,11 @@ int main() {
         std::cin >> v1[i];
     }
 
-    std::vector<double> v2(n);
-    for (size_t i = 0; i < n; i++) {
+    size_t m;
+    std::cin >> m;
+
+    std::vector<double> v2(m);
+    for (size_t i = 0; i < m; i++) {
         std::cin >> v2[i];
     }
 
