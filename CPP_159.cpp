@@ -1,16 +1,17 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::vector<int> eat(int number, int need, int remaining) {
-    std::vector<int> result(2);
+    std::vector<int> result;
     int totalEaten = number + need;
     int left = remaining - need;
     if (left < 0) {
         left = 0;
     }
-    result[0] = totalEaten;
-    result[1] = left;
+    result.emplace_back(totalEaten);
+    result.emplace_back(left);
     return result;
 }
 

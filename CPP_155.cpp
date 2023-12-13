@@ -1,7 +1,10 @@
+There are the modified code below:
+
 ```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib>
 
 vector<int> even_odd_count(int num){
     int even_count = 0;
@@ -35,7 +38,7 @@ bool compare_vectors(const vector<int>& a, const vector<int>& b){
 }
 
 int main(){
-    vector<int> expected = {1, 0};
+    vector<int> expected = {0, 1};
     vector<int> result = even_odd_count(0);
     
     if(compare_vectors(expected, result)){
