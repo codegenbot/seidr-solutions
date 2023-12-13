@@ -28,11 +28,7 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    vector<string> input;
-    for (const string& word : {"play", "play", "play"}) {
-        input.push_back(word);
-    }
-
+    vector<string> input{"play", "play", "play"};
     assert((find_max(input) == "play"));
     return 0;
 }
