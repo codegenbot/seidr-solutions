@@ -17,8 +17,8 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> prices(n, 0.0);
-
+    vector<float> prices;
+    prices.resize(n);
     for (int i = 0; i < n; i++) {
         cin >> prices[i];
     }
@@ -26,8 +26,8 @@ int main() {
     int m;
     cin >> m;
 
-    vector<float> discounts(m, 0.0);
-
+    vector<float> discounts;
+    discounts.resize(m);
     for (int i = 0; i < m; i++) {
         cin >> discounts[i];
     }
