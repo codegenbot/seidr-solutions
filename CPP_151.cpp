@@ -3,6 +3,7 @@
 #include <cmath>
 #include <vector>
 #include <cassert>
+using namespace std;
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
