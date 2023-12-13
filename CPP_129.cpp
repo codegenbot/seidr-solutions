@@ -45,21 +45,29 @@ def get_neighbors(grid, position):
     return neighbors
 
 def issame(position1, position2):
-    return position1[0] == position2[0] and position1[1] == position2[1]
+    return position1 == position2
 
 def main():
-    grid = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
+    grid = [['X', 'X', 'X', 'X'],
+            ['X', 'O', 'O', 'X'],
+            ['X', 'X', 'O', 'X'],
+            ['X', 'O', 'X', 'X']]
     start = (3, 0)
     goal = (0, 0)
-    result = min_path(grid, start, goal)
-    print(result)
+    min_path = min_path(grid, start, goal)
+    print(min_path)
 
 if __name__ == "__main__":
     main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(0, 0)) == 7
+def test_case_1():
+    assert min_path(grid, start, goal) == 7
 # Test case 2:
-assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(0, 0)) == 7
+def test_case_2():
+    assert min_path(grid, start, goal) == 7
+# Test case 3:
+def test_case_3():
+    assert min_path(grid, start, goal) == 7
 [/TESTS]
