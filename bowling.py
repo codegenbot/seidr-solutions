@@ -3,6 +3,7 @@ def calculate_bowling_score(bowls):
     frame = 1
     ball = 0
     frames = [[] for _ in range(10)]
+    prev_frame = []
 
     for bowl in bowls:
         if frame > 10:
@@ -10,15 +11,19 @@ def calculate_bowling_score(bowls):
 
         if bowl == 'X':
             frames[frame-1].append(10)
+            if frame > 1 and len(prev_frame) > 0 and len(prev_frame) < 2:
+                score += 10 + sum(frames[frame-1])
+            elif frame > 1 and len(prev_frame) > 1:
+                score += 10 + frames[frame-1][0] + frames[frame-1][1]
             frame += 1
             ball = 0
+            prev_frame = frames[frame-2]
         elif bowl == '/':
-            if ball > 0:
-                frames[frame-1].append(10 - frames[frame-1][ball-1])
-            else:
-                frames[frame-1].append(10)
+            frames[frame-1].append(10 - frames[frame-1][ball-1])
+            score += 10 + frames[frame-1][ball]
             frame += 1
             ball = 0
+            prev_frame = frames[frame-2]
         elif bowl == '-':
             frames[frame-1].append(0)
             ball += 1
@@ -33,9 +38,7 @@ def calculate_bowling_score(bowls):
                     score += sum(frame) + frames[index+1][0]
                 else:
                     score += sum(frame)
-            else:
+            elif index == 9 and len(frame) == 3:
                 score += sum(frame)
-        else:
-            score += sum(frame)
 
     return score
