@@ -1,12 +1,6 @@
-```python
 def find_leaders(vector):
-    vector = list(map(int, vector.split()))
-    leaders = []
-    max_right = vector[-1]
-    leaders.append(max_right)
+    leaders = [vector[-1]]
     for i in range(len(vector)-2, -1, -1):
-        if vector[i] >= max_right:
+        if vector[i] >= leaders[-1]:
             leaders.append(vector[i])
-            max_right = vector[i]
-    return list(reversed(leaders))
-```
+    return leaders[::-1]
