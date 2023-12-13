@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight);
@@ -28,7 +29,8 @@ int main() {
     std::cin >> numBounces;
 
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
-    std::cout << totalDistance << std::endl;
+    std::cout << "Total distance traveled: " << totalDistance << std::endl;
 
     return 0;
 }
+```
