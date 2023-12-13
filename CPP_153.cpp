@@ -1,21 +1,29 @@
-```
-#include <iostream>
-#include <string>
-using namespace std;
+[PYTHON]
+def strongest_extension(extensions):
+    strength = 0
+    strongest_extension = ""
+    for extension in extensions:
+        if len(extension) > strength:
+            strength = len(extension)
+            strongest_extension = extension
+    return strongest_extension
 
-int Strongest_Extension(vector<string> extensions) {
-    int strength = 0;
-    for (int i = 0; i < extensions.size(); i++) {
-        if (extensions[i].length() > strength) {
-            strength = extensions[i].length();
-        }
-    }
-    return strength;
-}
-
-int main() {
-    vector<string> extensions = {"671235", "Bb"};
-    int strength = Strongest_Extension(extensions);
-    return std::to_string(strength);
-}
-```
+def main():
+    extensions = ["671235", "Bb"]
+    input_string = "Sp"
+    for i in range(len(input_string)):
+        if input_string[i] == '.':
+            current_extension = input_string[i+1:]
+            strength = int(current_extension)
+            if strength > len(extensions):
+                return current_extension
+    return ""
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert strongest_extension(["671235", "Bb"]) == "671235"
+# Test case 2:
+assert strongest_extension(["Bb", "671235"]) == "671235"
+# Test case 3:
+assert strongest_extension(["Bb", "671235", "Sp"]) == "671235"
+[/TESTS]
