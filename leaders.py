@@ -1,3 +1,4 @@
+```python
 def find_leaders(arr):
     n = len(arr)
     leaders = []
@@ -10,3 +11,4 @@ def find_leaders(arr):
             leaders.append(max_right)
 
     return leaders[::-1]
+```
