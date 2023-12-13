@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int search(vector<int> lst){
@@ -22,4 +21,3 @@ int search(vector<int> lst){
     
     return maxValue;
 }
-```
