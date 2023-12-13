@@ -1,19 +1,21 @@
+```c++
 #include <iostream>
 using namespace std;
 
-float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
+float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltRate) {
     float snow = initialSnow;
     for (int i = 0; i < hours; i++) {
         snow += snowFallRate;
-        snow -= initialSnow * meltingRate;
+        snow -= meltRate * initialSnow;
     }
     return snow;
 }
 
 int main() {
-    float hours, initialSnow, snowFallRate, meltingRate;
-    cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
-    float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
-    cout << finalSnow << endl;
+    float hours, initialSnow, snowFallRate, meltRate;
+    cin >> hours >> initialSnow >> snowFallRate >> meltRate;
+    float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltRate);
+    cout << fixed << finalSnow << endl;
     return 0;
 }
+```
