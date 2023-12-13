@@ -1,4 +1,9 @@
 ```
+#include <openssl/evp.h>
+#include <string>
+
+// ...
+
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "";
