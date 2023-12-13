@@ -33,6 +33,3 @@ def calculate_bowling_score(bowls):
         i += 1
     
     return score
-
-bowls = input()
-print(calculate_bowling_score(bowls))
