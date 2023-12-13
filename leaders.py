@@ -10,6 +10,7 @@ def find_leaders(arr):
     
     return leaders[::-1]
 
+size = int(input())
 arr = list(map(int, input().split()))
 
 result = find_leaders(arr)

@@ -1,4 +1,4 @@
-digits = list(map(int, input().split()))
+digits = map(int, input().split())
 
 for i in range(1, len(digits), 2):
     digits[i] *= 2
