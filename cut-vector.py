@@ -16,10 +16,4 @@ def cut_vector(vector):
         return vector[:split_index+1], vector[split_index+1:]
     else:
         return vector, []
-
-print(cut_vector([1, 0]))
-print(cut_vector([1, 10]))
-print(cut_vector([1, 100]))
-print(cut_vector([1, 1000]))
-print(cut_vector([1, 10000]))
 ```
