@@ -1,10 +1,8 @@
-```cpp
-#include <iostream>
 #include <cmath>
 #include <cassert>
 #include <string>
 
-int closest_integer(std::string value){
+int closest_integer(std::string value) {
     double num = std::stod(value);
     int floor_num = std::floor(num);
     int ceil_num = std::ceil(num);
@@ -17,9 +15,6 @@ int closest_integer(std::string value){
 
 int main() {
     assert(closest_integer("0") == 0);
-    
     // Add more test cases if needed
-    
     return 0;
 }
-```
