@@ -15,22 +15,14 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> v1;
-    v1.reserve(n);
+    std::vector<double> v1(n);
     for (int i = 0; i < n; i++) {
-        double num;
-        std::cin >> num;
-        v1.push_back(num);
+        std::cin >> v1[i];
     }
 
-    std::cin >> n;
-
-    std::vector<double> v2;
-    v2.reserve(n);
+    std::vector<double> v2(n);
     for (int i = 0; i < n; i++) {
-        double num;
-        std::cin >> num;
-        v2.push_back(num);
+        std::cin >> v2[i];
     }
 
     double distance = euclideanDistance(v1, v2);
