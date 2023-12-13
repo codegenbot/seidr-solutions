@@ -1,7 +1,5 @@
 def find_leaders(vector):
-    if len(vector) == 1:
-        return vector
-
+    vector = list(map(int, vector.split()))
     leaders = []
     max_right = vector[-1]
     leaders.append(max_right)
