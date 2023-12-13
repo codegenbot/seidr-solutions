@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -14,8 +13,9 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-// Test cases
-std::vector<float> lst = {1, 2, 3, 4, 5};
-long long odd_sum = double_the_difference(lst);
-assert(odd_sum == 1 + 9 + 25 + 49 + 81);
-```
+int main() {
+    vector<float> lst = {1, 2, 3, 4, 5};
+    long long odd_sum = double_the_difference(lst);
+    cout << "The sum of the squares of the odd numbers is: " << odd_sum << endl;
+    return 0;
+}
