@@ -1,10 +1,8 @@
-You should also include the necessary headers for the modified code. Add `#include <string>` and `#include <iostream>` to the code. Here's the modified code:
-
 ```cpp
 #include <iostream>
 #include <string>
 
-std::string middleCharacter(std::string str) {
+std::string middleCharacter(const std::string& str) {
     int len = str.length();
     if (len % 2 == 1) {
         return std::string(1, str[len/2]);
@@ -15,7 +13,7 @@ std::string middleCharacter(std::string str) {
 
 int main() {
     std::string input;
-    getline(std::cin, input);
+    std::getline(std::cin, input);
     std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
