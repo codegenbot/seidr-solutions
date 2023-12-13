@@ -1,12 +1,13 @@
 ```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string squareDigits(int num) {
-    std::string result = "";
+string squareDigits(int num) {
+    string result = "";
     while (num > 0) {
         int digit = num % 10;
-        result.append(std::to_string(digit * digit));
+        result = char('0' + digit * digit) + result;
         num /= 10;
     }
     return result;
@@ -14,8 +15,12 @@ std::string squareDigits(int num) {
 
 int main() {
     int num;
-    std::cin >> num;
-    std::cout << squareDigits(num) << std::endl;
+    cin >> num;
+    string result = squareDigits(num);
+    for (char ch : result) {
+        cout << ch;
+    }
+    cout << endl;
     return 0;
 }
 ```
