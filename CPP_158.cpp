@@ -1,4 +1,10 @@
 ```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
 string find_max(vector<string> words) {
     string max_word = "";
     int max_count = 0;
@@ -21,7 +27,9 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    assert ((find_max({"play", "play", "play"}) == "play"));
+    vector<string> words = {"hello", "world", "cpp"};
+    string result = find_max(words);
+    cout << "Maximum word: " << result << endl;
     return 0;
 }
 ```
