@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string>
+#include <string> // Add this line
 
 int main() {
     int cents;
