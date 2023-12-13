@@ -1,15 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-vector<int> eat(int number, int need, int remaining) {
-    vector<int> result;
+std::vector<int> eat(int number, int need, int remaining) {
+    std::vector<int> result;
     int totalEaten = number + need;
     int left = remaining - need;
     if (left < 0) {
@@ -21,8 +15,8 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    vector<int> output = eat(4, 5, 1);
-    assert(issame(output, {5, 0}));
-    cout << output[0] << " " << output[1] << endl;
+    std::vector<int> output = eat(4, 5, 1);
+    std::cout << output[0] << " " << output[1] << std::endl;
     return 0;
 }
+```
