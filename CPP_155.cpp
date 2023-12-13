@@ -10,9 +10,9 @@ vector<int> even_odd_count(int num) {
     int odd_count = 0;
     string str_num = to_string(abs(num));
 
-    for(int i = 0; i < str_num.length(); i++) {
+    for (int i = 0; i < str_num.length(); i++) {
         int digit = str_num[i] - '0';
-        if(digit % 2 == 0) {
+        if (digit % 2 == 0) {
             even_count++;
         } else {
             odd_count++;
@@ -23,12 +23,12 @@ vector<int> even_odd_count(int num) {
 }
 
 bool compare_vectors(const vector<int>& a, const vector<int>& b) {
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
 
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -40,7 +40,7 @@ int main() {
     vector<int> expected = {0, 1};
     vector<int> result = even_odd_count(0);
 
-    if(compare_vectors(expected, result)) {
+    if (compare_vectors(expected, result)) {
         cout << "Test case passed." << endl;
     } else {
         cout << "Test case failed." << endl;
