@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -53,7 +52,6 @@ int main() {
     std::getline(std::cin, round, '\n');
 
     int score = scoreOfRound(round);
-
     std::string scoreString = std::to_string(score);
     round.insert(round.end(), scoreString.begin(), scoreString.end());
 
@@ -61,4 +59,3 @@ int main() {
 
     return 0;
 }
-```
