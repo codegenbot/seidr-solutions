@@ -1,5 +1,7 @@
 ```cpp
+#include <vector>
 #include <cassert>
+#include <type_traits>
 
 std::vector<int> filter_integers(std::vector<int> values) {
     std::vector<int> result;
