@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -21,3 +22,4 @@ int main() {
     // test cases
     return 0;
 }
+```
