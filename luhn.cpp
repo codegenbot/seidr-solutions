@@ -2,14 +2,14 @@
 #include <vector>
 
 int main() {
-    std::vector<int> digits(16, 0);
+    std::vector<int> digits(16);
 
     for (int i = 0; i < 16; i++) {
         std::cin >> digits[i];
     }
 
     int sum = 0;
-    for (int i = 16 - 1; i >= 0 + 1; i--) {
+    for (int i = 16 - 1; i >= 0; i--) {
         if (i % 2 == 0) {
             int doubledDigit = digits[i] * 2;
             if (doubledDigit > 9) {
