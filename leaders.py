@@ -10,7 +10,6 @@ def find_leaders(vector):
     
     return leaders[::-1]
 
-
 n = int(input())
 vector = list(map(int, input().split()))
 
