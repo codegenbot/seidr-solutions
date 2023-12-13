@@ -1,8 +1,7 @@
+#include <iostream>
+
 bool is_equal_to_sum_even(int n){
-    if(n % 4 == 0){
-        return true;
-    }
-    else{
+    if(n % 2 != 0 || n < 8)
         return false;
-    }
+    return true;
 }
