@@ -1,26 +1,48 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int calculateScore(string frames) {
+int calculateScore(const std::string& round) {
     int score = 0;
-    int frameIndex = 0;
+    int frame = 1;
+    int bowlIndex = 0;
     
-    for (int i = 0; i < 10; i++) {
-        if (frames[frameIndex] == 'X') {
+    for (int i = 0; i < round.length(); ++i) {
+        if (frame > 10) {
+            break;
+        }
+        
+        char bowl = round[i];
+        
+        if (bowl == 'X') {
             score += 10;
-            if (frames[frameIndex + 2] == 'X' || frames[frameIndex + 2] == '/') {
-                score += 10 + frames[frameIndex + 4] - '0';
-            } else {
-                score += frames[frameIndex + 2] - '0' + frames[frameIndex + 3] - '0';
+            if (frame < 10) {
+                score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
+                score += (round[i + 2] == 'X') ? 10 : (round[i + 2] - '0');
+                bowlIndex += 1;
             }
-            frameIndex++;
-        } else if (frames[frameIndex + 1] == '/') {
-            score += 10 + frames[frameIndex + 2] - '0';
-            frameIndex += 2;
+            bowlIndex += 1;
+        } else if (bowl == '/') {
+            score += (10 - (round[i - 1] - '0'));
+            if (frame < 10) {
+                score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
+                bowlIndex += 1;
+            }
+            bowlIndex += 1;
+        } else if (bowl == '-') {
+            // do nothing
         } else {
-            score += frames[frameIndex] - '0' + frames[frameIndex + 1] - '0';
-            frameIndex += 2;
+            score += (bowl - '0');
+            if (frame < 10 && bowlIndex % 2 == 0) {
+                if (round[i + 1] == '/') {
+                    score += (10 - (bowl - '0'));
+                }
+                bowlIndex += 1;
+            }
+            bowlIndex += 1;
+        }
+        
+        if (bowlIndex % 2 == 0) {
+            frame += 1;
         }
     }
     
@@ -28,11 +50,12 @@ int calculateScore(string frames) {
 }
 
 int main() {
-    string frames;
-    cin >> frames;
+    std::string round;
+    std::cout << "Enter the round: ";
+    std::cin >> round;
     
-    int score = calculateScore(frames);
-    cout << score << endl;
+    int score = calculateScore(round);
+    std::cout << "Score: " << score << std::endl;
     
     return 0;
 }
