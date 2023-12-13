@@ -1,12 +1,13 @@
 ```cpp
+#include <vector>
 #include <cmath>
 #include <cassert>
-#include <initializer_list>
+#include <cstdint>
 
-int sum_squares(std::initializer_list<float> lst){
+int sum_squares(std::vector<float> lst){
     int sum = 0;
-    for(auto num : lst){
-        int rounded = ceil(num);
+    for(size_t i=0; i<lst.size(); i++){
+        int rounded = std::ceil(lst[i]);
         sum += rounded * rounded;
     }
     return sum;
