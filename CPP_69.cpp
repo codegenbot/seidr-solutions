@@ -2,7 +2,16 @@
 #include <vector>
 #include <cassert>
 
-int search(std::vector<int> lst){
+int search(vector<int> lst);
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    // Add more test cases here if needed
+
+    return 0;
+}
+
+int search(vector<int> lst){
     int maxFreq = -1;
     int maxNum = -1;
     for(int i = 0; i < lst.size(); i++){
@@ -18,11 +27,5 @@ int search(std::vector<int> lst){
         }
     }
     return maxNum;
-}
-
-int main(){
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    
-    return 0;
 }
 ```
