@@ -3,6 +3,7 @@
 #include <vector>
 #include <variant>
 #include <algorithm>
+#include <string>
 
 std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>> values) {
     std::vector<int> result;
