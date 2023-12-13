@@ -1,12 +1,11 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix);
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,8 +19,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
-    std::vector<std::string> filteredStrings;
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
+    vector<string> filteredStrings;
     
     for (const auto& str : strings) {
         if (str.substr(0, prefix.length()) == prefix) {
@@ -30,5 +29,10 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     }
     
     return filteredStrings;
+}
+
+int main() {
+    // Test your functions here
+    return 0;
 }
 ```
