@@ -15,15 +15,18 @@ int main() {
     size_t n;
     std::cin >> n;
 
-    std::vector<double> v1(n);
+    std::vector<double> v1;
+    v1.resize(n);
     for (size_t i = 0; i < n; i++) {
         std::cin >> v1[i];
     }
 
-    std::cin >> n;
+    size_t m;
+    std::cin >> m;
 
-    std::vector<double> v2(n);
-    for (size_t i = 0; i < n; i++) {
+    std::vector<double> v2;
+    v2.resize(m);
+    for (size_t i = 0; i < m; i++) {
         std::cin >> v2[i];
     }
 
