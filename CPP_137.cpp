@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -21,4 +20,3 @@ int main() {
     assert(compare_one(variant<int, string>(2.5), variant<int, string>(10)) == "10");
     assert(compare_one(variant<int, string>("hello"), variant<int, string>("world")) == "world");
 }
-```
