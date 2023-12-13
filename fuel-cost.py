@@ -1,2 +1,1 @@
-def fuel_cost(nums):
-    return sum(map(lambda x: int(x)//3 - 2, nums.split()))
+def fuel_cost(nums): return sum([int(num) // 3 - 2 for num in nums])
