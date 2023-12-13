@@ -7,7 +7,7 @@ string squareDigits(int num) {
     string result = "";
     while (num > 0) {
         int digit = num % 10;
-        result = char('0' + digit * digit) + result;
+        result = to_string(digit * digit) + result;
         num /= 10;
     }
     return result;
