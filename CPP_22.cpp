@@ -6,7 +6,7 @@
 #include <cstdint>
 #include <initializer_list>
 
-std::vector<int> filter_integers(std::vector<std::variant<int, char>> values) { 
+std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>> values) {
     std::vector<int> result;
     for (auto value : values) {
         if (std::holds_alternative<int>(value)) {
