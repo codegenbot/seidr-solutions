@@ -9,9 +9,9 @@ string string_to_md5(string text) {
     EVP_DigestInit(ctx, EVP_md5());
     EVP_DigestUpdate(ctx, text.c_str(), text.size());
     unsigned char md[EVP_MAX_MD_SIZE];
-    EVP_DigestFinal(ctx, md, NULL);
+    EVP_DigestFinal(ctx, md);
     string result = "";
-    for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         result += to_string(md[i]);
     }
     return result;
