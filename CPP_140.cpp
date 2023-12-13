@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
@@ -10,15 +9,15 @@ string fix_spaces(string text) {
     string result = "";
     int consecutiveSpaces = 0;
     for (int i = 0; i < text.length(); i++) {
-        if (isspace(text[i])) {
+        if (text[i] == ' ') {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
-                result.push_back('-');
+                result.insert(result.end(), '-');
             } else {
-                result.push_back('_');
+                result.insert(result.end(), '_');
             }
         } else {
-            result.push_back(text[i]);
+            result += text[i];
             consecutiveSpaces = 0;
         }
     }
