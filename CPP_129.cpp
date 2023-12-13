@@ -1,33 +1,25 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> minPath(vector<vector<int>> grid, int k){
     int N = grid.size();
+    int row = 0;
+    int col = 0;
     vector<int> path;
-    vector<vector<bool>> visited(N, vector<bool>(N));
     
-    int row = 0, col = 0;
-    while(k > 0){
+    for(int i = 0; i < k; i++){
         path.push_back(grid[row][col]);
-        visited[row][col] = true;
         
-        if(col+1 < N && !visited[row][col+1]){
-            col++;
+        if(i % 2 == 0){
+            if(col < N - 1){
+                col++;
+            } else {
+                row++;
+            }
+        } else {
+            if(col > 0){
+                col--;
+            } else {
+                row++;
+            }
         }
-        else if(row+1 < N && !visited[row+1][col]){
-            row++;
-        }
-        else if(col-1 >= 0 && !visited[row][col-1]){
-            col--;
-        }
-        else if(row-1 >= 0 && !visited[row-1][col]){
-            row--;
-        }
-        
-        k--;
     }
     
     return path;
