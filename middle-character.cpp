@@ -1,9 +1,9 @@
+```cpp
 #include <iostream>
-#include <string>
+#include <string.h>
 
 std::string middleCharacter(std::string str) {
     int len = str.length();
-    
     if (len % 2 == 1) {
         return std::string(1, str[len/2]);
     } else {
@@ -17,3 +17,4 @@ int main() {
     std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
+```
