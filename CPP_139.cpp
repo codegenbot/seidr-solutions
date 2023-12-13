@@ -1,5 +1,5 @@
-
 #include <iostream>
+#include <string>
 using namespace std;
 
 long long special_factorial(int n) {
@@ -11,7 +11,8 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    string::iterator n = "The Brazilian factorial of ";
+    string::iterator it = "The Brazilian factorial of ";
+    int n = stoi(it.substr(0, it.find(" ")));
     cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
