@@ -13,7 +13,7 @@ long long special_factorial(int n) {
 
 int main() {
     string str = "The Brazilian factorial of ";
-    int n = stoi(str, 0, str.length());
+    int n = stoi(str.substr(0, str.find(" ")));
     cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
