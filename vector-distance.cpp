@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0.0;
@@ -28,7 +29,7 @@ int main() {
     }
 
     double distance = euclideanDistance(v1, v2);
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
 
     return 0;
 }
