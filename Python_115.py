@@ -7,7 +7,9 @@ def max_fill(grid, capacity):
                 grid[i][j] = 0
                 capacity -= 1
                 buckets_needed += 1
-                if capacity <= 0:
-                    return buckets_needed
+                if capacity == 0:
+                    break
+        if capacity == 0:
+            break
 
     return buckets_needed
