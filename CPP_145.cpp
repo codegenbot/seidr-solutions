@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -21,3 +22,4 @@ vector<int> order_by_points(vector<int> nums) {
     }
     return result;
 }
+```
