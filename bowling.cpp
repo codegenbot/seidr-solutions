@@ -1,49 +1,49 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& input) {
+int scoreOfRound(const std::string& bowls) {
     int score = 0;
     int frame = 1;
     int bowlIndex = 0;
 
-    for (int i = 0; i < input.size(); i++) {
-        char bowl = input[i];
-
-        if (bowl == 'X') {
+    while (frame <= 10) {
+        if (bowls[bowlIndex] == 'X') {
             score += 10;
             if (frame < 10) {
-                score += (input[i + 1] == 'X') ? 10 : std::isdigit(input[i + 1]) ? input[i + 1] - '0' : 0;
-                score += (input[i + 2] == 'X') ? 10 : std::isdigit(input[i + 2]) ? input[i + 2] - '0' : 0;
-            }
-            bowlIndex++;
-        } else if (bowl == '/') {
-            score += 10 - (input[i - 1] - '0');
-            score += (input[i + 1] == 'X') ? 10 : std::isdigit(input[i + 1]) ? input[i + 1] - '0' : 0;
-            bowlIndex++;
-        } else if (std::isdigit(bowl)) {
-            score += bowl - '0';
-            if (frame < 10 && bowlIndex % 2 == 0 && bowl != '0') {
-                if (input[i + 1] == '/') {
-                    score += 10 - (bowl - '0');
+                if (bowls[bowlIndex + 2] == '/') {
+                    score += 10;
+                } else {
+                    score += (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0');
                 }
+                bowlIndex += 1;
+            } else {
+                score += (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0');
+                bowlIndex += 2;
             }
-            bowlIndex++;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            if (frame < 10) {
+                score += (bowls[bowlIndex + 2] - '0');
+            }
+            bowlIndex += 2;
+        } else {
+            score += (bowls[bowlIndex] - '0') + (bowls[bowlIndex + 1] - '0');
+            bowlIndex += 2;
         }
 
-        if (bowlIndex % 2 == 0) {
-            frame++;
-        }
+        frame++;
     }
 
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
+    std::string bowls;
+    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cin >> bowls;
 
-    int score = calculateScore(input);
-    std::cout << score << std::endl;
+    int score = scoreOfRound(bowls);
+    std::cout << "The score of the round is: " << score << std::endl;
 
     return 0;
 }
