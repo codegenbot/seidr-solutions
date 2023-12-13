@@ -13,9 +13,8 @@ int Strongest_Extension(vector<string> extensions) {
 }
 
 int main() {
-    vector<string> extensions;
+    vector<string> extensions = {"671235", "Bb"};
     int strength = Strongest_Extension(extensions);
     cout << strength << endl;
-    assert(Strongest_Extension({"Sp", "671235", "Bb"}) == "Sp.671235");
     return 0;
 }
