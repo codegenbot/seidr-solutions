@@ -6,4 +6,4 @@ def find_leaders(vector):
         if vector[i] >= max_right:
             leaders.append(vector[i])
             max_right = vector[i]
-    return list(reversed(leaders))
+    return leaders[::-1]
