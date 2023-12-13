@@ -1,11 +1,11 @@
-
+```
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 using namespace std;
 
-string find_max(vector<string>& words) {
+string find_max(vector<string> words) {
     string max_word = "";
     int max_count = 0;
     for (int i = 0; i < words.size(); i++) {
@@ -25,3 +25,4 @@ string find_max(vector<string>& words) {
     }
     return max_word;
 }
+```
