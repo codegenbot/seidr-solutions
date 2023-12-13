@@ -1,8 +1,7 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <cassert>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> even_odd_count(int num){
     int even_count = 0;
@@ -20,13 +19,4 @@ vector<int> even_odd_count(int num){
     
     return {even_count, odd_count};
 }
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert (issame(even_odd_count(0), {1, 0}));
-    
-    return 0;
-}
+```
