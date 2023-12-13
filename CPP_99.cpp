@@ -1,5 +1,4 @@
-```cpp
-#include <cmath>
+ #include <cmath>
 
 int closest_integer(const char* value){
     double num = std::stod(value);
@@ -22,4 +21,3 @@ int main() {
 
     return 0;
 }
-```
