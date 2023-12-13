@@ -1,11 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+using namespace std;
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filteredStrings;
@@ -20,17 +17,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    // test the filter_by_prefix function
-    vector<string> strings = {"apple", "banana", "orange", "pear"};
-    string prefix = "a";
-    vector<string> filtered = filter_by_prefix(strings, prefix);
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
     
-    for (const auto& str : filtered) {
-        cout << str << " ";
-    }
-    
-    cout << endl;
+    cout << "Test cases passed successfully!";
     
     return 0;
 }
-```
