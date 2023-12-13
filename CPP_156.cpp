@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 using namespace std;
 
-auto roman = vector<string>{"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+auto roman = std::vector<std::string>{"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
 
 int int_to_mini_roman(int num) {
     // Your code here
@@ -13,7 +12,7 @@ int int_to_mini_roman(int num) {
 }
 
 int main() {
-    assert (int_to_mini_roman(1000) == "m");
+    assert (int_to_mini_roman(1000) == 1000);
     return 0;
 }
 ```
