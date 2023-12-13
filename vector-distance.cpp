@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include <algorithm>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0.0;
@@ -18,13 +17,21 @@ int main() {
 
     std::vector<double> v1;
     v1.reserve(n);
-    std::copy_n(std::istream_iterator<double>(std::cin), n, std::back_inserter(v1));
+    for (size_t i = 0; i < n; i++) {
+        double value;
+        std::cin >> value;
+        v1.push_back(value);
+    }
 
     std::cin >> n;
 
     std::vector<double> v2;
     v2.reserve(n);
-    std::copy_n(std::istream_iterator<double>(std::cin), n, std::back_inserter(v2));
+    for (size_t i = 0; i < n; i++) {
+        double value;
+        std::cin >> value;
+        v2.push_back(value);
+    }
 
     double distance = euclideanDistance(v1, v2);
     std::cout << distance << std::endl;
