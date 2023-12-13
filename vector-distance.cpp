@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <iostream>
 #include <cmath>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
@@ -31,4 +31,3 @@ int main() {
 
     return 0;
 }
-```
