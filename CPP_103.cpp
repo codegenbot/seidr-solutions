@@ -1,7 +1,7 @@
 ```cpp
+#include <iostream>
 #include <string>
 #include <cmath>
-#include <iterator>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) {
@@ -23,6 +23,9 @@ std::string rounded_avg(int n, int m) {
 }
 
 int main() {
-    // Existing code
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << rounded_avg(n, m) << std::endl;
+    return 0;
 }
 ```
