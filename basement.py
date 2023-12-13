@@ -7,7 +7,11 @@ def basement(nums):
             return i
     return -1
 
-nums = list(map(int, input().split()))
+n = int(input())
+nums = []
+for _ in range(n):
+    nums.append(int(input()))
+
 result = basement(nums)
 print(result)
 ```
