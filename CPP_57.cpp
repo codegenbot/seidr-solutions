@@ -1,6 +1,4 @@
-```
 #include <vector>
-#include <cassert>
 
 bool monotonic(std::vector<float> l){
     bool increasing = true;
@@ -18,11 +16,7 @@ bool monotonic(std::vector<float> l){
     return increasing || decreasing;
 }
 
-// Commented out the duplicate main function
-/*
-int main() {
-    assert(monotonic(std::vector<float>{9, 9, 9, 9}) == true);
-    return 0;
-}
-*/
-```
+//int main() {
+//    assert(monotonic(std::vector<float>{9, 9, 9, 9}) == true);
+//    return 0;
+//}
