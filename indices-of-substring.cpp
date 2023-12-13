@@ -3,11 +3,10 @@
 #include <vector>
 #include <string>
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
+std::vector<long long> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<long long> indices;
     int targetLength = target.length();
     int textLength = text.length();
-    indices.reserve(textLength);
 
     for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
@@ -30,8 +29,8 @@ int main() {
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
-    std::vector<int> indices = indicesOfSubstring(text, target);
-    for (int index : indices) {
+    std::vector<long long> indices = indicesOfSubstring(text, target);
+    for (long long index : indices) {
         std::cout << index << " ";
     }
     std::cout << "\n";
