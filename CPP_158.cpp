@@ -14,7 +14,7 @@ int main() {
     return 0;
 }
 
-string find_max(vector<string> words){
+string find_max(vector<string> words) {
     string maxWord = "";
     int maxUniqueChars = 0;
     
