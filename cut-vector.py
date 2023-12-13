@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     n = len(vector)
     prefix_sum = [0] * (n + 1)
@@ -19,4 +18,3 @@ def cut_vector(vector):
     subvector2 = vector[cut_index:]
     
     return subvector1, subvector2
-```
