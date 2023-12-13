@@ -1,6 +1,4 @@
 def solve_boolean(expression):
-    parts = expression.split('|')
-    result = eval(parts[0])
-    for i in range(1, len(parts)):
-        result = result or eval(parts[i])
-    return result
+    modified_expression = expression.replace('T', 'True').replace('F', 'False')
+    result = eval(modified_expression)
+    return bool(result)
