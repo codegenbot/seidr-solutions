@@ -1,14 +1,7 @@
 def match_parens(lst):
-    stack = []
-    for s in lst:
-        for c in s:
-            if c == '(':
-                stack.append(c)
-            else:
-                if not stack:
-                    return 'No'
-                stack.pop()
-    if not stack:
+    open_count = lst[0].count('(')
+    close_count = lst[1].count(')')
+    if open_count == close_count:
         return 'Yes'
     else:
         return 'No'
