@@ -1,15 +1,18 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int main() {
-    vector<int> digits;
+    std::vector<int> digits;
+
     for (int i = 0; i < 16; i++) {
         int digit;
-        cin >> digit;
+        std::cin >> digit;
         digits.push_back(digit);
     }
-    reverse(digits.begin(), digits.end());
+
+    std::reverse(digits.begin(), digits.end());
+
     int sum = 0;
     for (int i = 0; i < 15; i++) {
         if (i % 2 != 0) {
@@ -22,6 +25,8 @@ int main() {
             sum += digits[i];
         }
     }
-    cout << sum << endl;
+
+    std::cout << sum << std::endl;
+
     return 0;
 }
