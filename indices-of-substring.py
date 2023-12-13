@@ -1,3 +1,4 @@
+```python
 text = input()
 target = input()
 
@@ -11,3 +12,4 @@ while start <= len(text) - len(target):
     start = index + len(target)
 
 print(" ".join(str(i) for i in indices))
+```
