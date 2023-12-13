@@ -1,3 +1,4 @@
+```
 #include <vector>
 using std::vector;
 
@@ -24,3 +25,4 @@ std::vector<int> even_odd_count(int num) {
     result.push_back(countOdd);
     return result;
 }
+```
