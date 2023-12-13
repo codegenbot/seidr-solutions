@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool evaluateBooleanExpression(string expression) {
     if (expression == "t") {
         return true;
@@ -33,4 +36,11 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
 }
-```
+
+int main() {
+    string expression;
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    cout << (result ? "True" : "False") << endl;
+    return 0;
+}
