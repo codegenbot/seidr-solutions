@@ -35,10 +35,10 @@ int scoreOfRound(const std::string& round) {
             frame++;
             bowl = 0;
         } else {
-            score += (current - '0');
+            score += current - '0';
             bowl++;
 
-            if (bowl == 2) {
+            if (current != 'X' && bowl == 1) {
                 frame++;
                 bowl = 0;
             }
