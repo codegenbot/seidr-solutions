@@ -1,12 +1,13 @@
-
-Here is the modified code:
-```
 #include <iostream>
 #include <string>
 #include <cmath>
 #include <sstream>
+#include <cassert>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
 
 bool isValidDate(const char* date) {
     int month, day, year;
@@ -30,13 +31,12 @@ bool isValidDate(const char* date) {
 }
 
 int main() {
-    const char* date = "04-2003";
-    bool valid_date = isValidDate(date);
-    if (!valid_date) {
-        cout << "Invalid date." << endl;
+    string date = "04-2003";
+    bool valid_date = isValidDate(date.c_str());
+    if (valid_date) {
+        cout << "The date is valid." << endl;
     } else {
-        cout << "Valid date." << endl;
+        cout << "The date is not valid." << endl;
     }
     return 0;
 }
-```
