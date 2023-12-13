@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -20,4 +19,3 @@ int main() {
     cout << "The sum of the squares of the odd numbers is: " << odd_sum << endl;
     return 0;
 }
-```
