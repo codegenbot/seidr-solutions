@@ -1,10 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-bool monotonic(vector<float> l){
+bool monotonic(std::vector<float> l){
     bool increasing = true;
     bool decreasing = true;
     
@@ -21,7 +18,13 @@ bool monotonic(vector<float> l){
 }
 
 int main() {
-    cout << monotonic({9, 9, 9, 9}) << endl;
+    std::vector<float> test1 = {1.0, 2.0, 3.0, 4.0, 5.0};
+    std::vector<float> test2 = {5.0, 4.0, 3.0, 2.0, 1.0};
+    std::vector<float> test3 = {1.0, 2.0, 2.0, 3.0, 4.0};
+    
+    std::cout << monotonic(test1) << std::endl;
+    std::cout << monotonic(test2) << std::endl;
+    std::cout << monotonic(test3) << std::endl;
+    
     return 0;
 }
-```
