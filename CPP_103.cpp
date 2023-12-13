@@ -13,7 +13,7 @@ std::string rounded_avg(int n, int m) {
         sum += i;
         count++;
     }
-    int avg = round(static_cast<double>(sum) / count);
+    int avg = round((double)sum / count);
     std::string binary = "";
     while (avg > 0) {
         binary = std::to_string(avg % 2) + binary;
