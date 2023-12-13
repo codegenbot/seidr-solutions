@@ -17,7 +17,6 @@ int main() {
     }
     cout << endl;
     // your code here
-
     return 0;
 }
 ```
