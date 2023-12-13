@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -35,10 +35,10 @@ int scoreOfRound(const std::string& round) {
             frame++;
             bowl = 0;
         } else {
-            score += current - '0';
+            score += (current - '0');
             bowl++;
 
-            if (current != 'X' && bowl == 1) {
+            if (bowl == 2) {
                 frame++;
                 bowl = 0;
             }
