@@ -3,24 +3,23 @@
 #include <string>
 using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
+pair<int, int> getClues(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    int count[6] = {0};
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            count[code[i] - 'A']++;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && count[guess[i] - 'A'] > 0) {
-            whitePegs++;
-            count[guess[i] - 'A']--;
-        }
+    for (int i = 0; i < 6; i++) {
+        whitePegs += min(codeCount[i], guessCount[i]);
     }
 
     return make_pair(whitePegs, blackPegs);
@@ -30,9 +29,9 @@ int main() {
     string code, guess;
     cin >> code >> guess;
 
-    pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    pair<int, int> clues = getClues(code, guess);
+    cout << clues.first << endl;
+    cout << clues.second << endl;
 
     return 0;
 }
