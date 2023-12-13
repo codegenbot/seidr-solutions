@@ -17,10 +17,10 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << quarters << "\n";
-    std::cout << dimes << "\n";
-    std::cout << nickels << "\n";
-    std::cout << pennies << "\n";
+    std::cout << std::to_string(quarters) << "\n";
+    std::cout << std::to_string(dimes) << "\n";
+    std::cout << std::to_string(nickels) << "\n";
+    std::cout << std::to_string(pennies) << "\n";
 
     return 0;
 }
