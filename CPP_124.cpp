@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -19,4 +18,3 @@ int main() {
     cout << "All tests passed!" << endl;
     return 0;
 }
-```
