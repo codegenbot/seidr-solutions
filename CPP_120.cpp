@@ -16,7 +16,6 @@ int main() {
         cout << result[i] << " ";
     }
     cout << endl;
-    // your code here
     return 0;
 }
 ```
