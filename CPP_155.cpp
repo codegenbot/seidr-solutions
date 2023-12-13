@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+bool issame(std::vector<int> a, std::vector<int> b);
 std::vector<int> even_odd_count(int num);
 
 int main() {
@@ -13,7 +13,7 @@ int main() {
     }
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -26,7 +26,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> even_odd_count(int num) {
-    std::vector<int> count_even = {0, 0};
+    std::vector<int> count_even(2);
     while (num > 0) {
         if (num % 2 == 0) {
             count_even[0]++;
