@@ -10,10 +10,6 @@ bool simplify(string x, string n) {
     int numeratorN = stoi(n.substr(0, n.find("/")));
     int denominatorN = stoi(n.substr(n.find("/") + 1));
 
-    if (denominatorX == 0 || denominatorN == 0) {
-        return false;
-    }
-
     return (numeratorX * numeratorN) / denominatorX == 0 && (denominatorX * denominatorN) / denominatorN == 0;
 }
 
