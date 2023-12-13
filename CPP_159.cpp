@@ -1,18 +1,12 @@
 ```cpp
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
 vector<int> eat(int number, int need, int remaining) {
-    vector<int> result(2);
+    vector<int> result;
     int totalEaten = number + need;
     int left = remaining - need;
     if (left < 0) {
         left = 0;
     }
-    result[0] = totalEaten;
-    result[1] = left;
+    result = {totalEaten, left};
     return result;
 }
 
