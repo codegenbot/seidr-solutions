@@ -1,7 +1,11 @@
+
+Sure, here's the modified code that includes the necessary header file:
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <variant>
+#include <boost/any.hpp>
 using namespace std;
 
 variant<int, float, string> compare_one(variant<int, float, string> a, variant<int, float, string> b) {
@@ -57,3 +61,4 @@ variant<int, float, string> compare_one(variant<int, float, string> a, variant<i
         return "None";
     }
 }
+```
