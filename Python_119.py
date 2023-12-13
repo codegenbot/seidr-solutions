@@ -1,3 +1,4 @@
+```python
 def match_parens(lst):
     stack = []
     for s in lst:
@@ -12,3 +13,4 @@ def match_parens(lst):
         return 'Yes'
     else:
         return 'No'
+```
