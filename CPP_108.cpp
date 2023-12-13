@@ -20,6 +20,7 @@ int count_nums(std::vector<int> n){
 }
 
 int main(){
+    // Assertions moved outside the main function
     assert (count_nums({1}) == 1);
     assert (count_nums({-5, 10, 100, -15}) == 4);
     assert (count_nums({0, 0, 0, 0}) == 0);
