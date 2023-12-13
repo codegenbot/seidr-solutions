@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -27,4 +26,3 @@ int main(){
     assert (count_nums({-10, -20, -30, -40}) == 4);
     return 0;
 }
-```
