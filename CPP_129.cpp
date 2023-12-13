@@ -44,15 +44,44 @@ def get_neighbors(grid, position):
     if col < len(grid[0]) - 1 and grid[row][col + 1] != 'X':
         # If the cell to the east is valid, add it to the list of neighbors
         neighbors.append((row, col + 1))
-    # Return the list of neighbors
     return neighbors
 
-def issame(expected, actual):
-    return expected == actual
+def main():
+    # Initialize the grid with the starting position
+    grid = [['O', 'X', 'X', 'X', 'X'],
+            ['X', 'O', 'O', 'O', 'X'],
+            ['X', 'X', 'O', 'O', 'X'],
+            ['X', 'O', 'X', 'O', 'X'],
+            ['X', 'X', 'X', 'O', 'X']]
+    # Initialize the starting position
+    start = (0, 0)
+    # Initialize the goal position
+    goal = (len(grid) - 1, len(grid[0]) - 1)
+    # Call the min_path function to find the minimum path sum
+    result = min_path(grid, start, goal)
+    # Print the result
+    print(result)
+
+if __name__ == '__main__':
+    main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert min_path(grid={ {1,2,3}, {4,5,6}, {7,8,9}}, k=3) == [1, 2, 1]
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (4, 4)) == 15
 # Test case 2:
-assert min_path(grid={ {5,9,3}, {4,1,6}, {7,8,2}}, k=1) == [1]
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
+# Test case 3:
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (2, 4)) == 19
 [/TESTS]
