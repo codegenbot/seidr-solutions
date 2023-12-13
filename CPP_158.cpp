@@ -1,17 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-#include <vector>
-
-// Declare the function signature
-string find_max(vector<string> words);
-
-int main() {
-    // Your code here
-    return 0;
-}
-
-// Define the function
 string find_max(vector<string> words) {
     string max_word = "";
     int max_count = 0;
@@ -31,5 +18,10 @@ string find_max(vector<string> words) {
         }
     }
     return max_word;
+}
+
+int main() {
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    return 0;
 }
 ```
