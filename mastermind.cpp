@@ -1,37 +1,41 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <utility>
 
-std::pair<int, int> mastermind(std::string code, std::string guess) {
+using namespace std;
+
+pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    int count[26] = {0};
+    int count[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            count[code[i] - 'a']++;
+            count[code[i] - 'A']++;
         }
     }
 
     for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && count[guess[i] - 'a'] > 0) {
+        if (code[i] != guess[i] && count[guess[i] - 'A'] > 0) {
             whitePegs++;
-            count[guess[i] - 'a']--;
+            count[guess[i] - 'A']--;
         }
     }
 
-    return std::make_pair(whitePegs, blackPegs);
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    getline(cin, code);
+    getline(cin, guess);
 
-    std::pair<int, int> result = mastermind(code, guess);
-    std::cout << result.first << std::endl;
-    std::cout << result.second << std::endl;
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
 
     return 0;
 }
