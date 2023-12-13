@@ -4,8 +4,11 @@ def match_parens(lst):
         for c in s:
             if c == '(':
                 stack.append(c)
-            elif c == ')' and stack and stack[-1] == '(':
+            elif c == ')':
+                if len(stack) == 0:
+                    return 'No'
                 stack.pop()
-            else:
-                return 'No'
-    return 'Yes' if not stack else 'No'
+    if len(stack) == 0:
+        return 'Yes'
+    else:
+        return 'No'
