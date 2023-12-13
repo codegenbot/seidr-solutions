@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 std::string rounded_avg(int n, int m) {
@@ -25,4 +24,3 @@ std::string rounded_avg(int n, int m) {
     
     return binary;
 }
-```
