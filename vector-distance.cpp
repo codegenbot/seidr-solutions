@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
-#include <vector>
 #include <cmath>
+#include <vector>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0.0;
@@ -31,3 +32,4 @@ int main() {
 
     return 0;
 }
+```
