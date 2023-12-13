@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cassert>
@@ -31,3 +32,4 @@ int main() {
     assert((find_max(input) == "play"));
     return 0;
 }
+```
