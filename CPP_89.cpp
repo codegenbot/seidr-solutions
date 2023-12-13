@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -24,4 +23,3 @@ int main(){
     assert(encrypt("a") == "e");
     return 0;
 }
-```
