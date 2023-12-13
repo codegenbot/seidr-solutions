@@ -2,25 +2,11 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix);
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    // implementation goes here
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filteredStrings;
     
     for (const auto& str : strings) {
@@ -30,5 +16,10 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     
     return filteredStrings;
+}
+
+int main() {
+    // test cases
+    return 0;
 }
 ```
