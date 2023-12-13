@@ -2,5 +2,10 @@ def tri(n):
     sequence = [3]
     if n == 0:
         return sequence
-    sequence.append(1 + n / 2) if n % 2 == 0 else sequence.append(tri(n - 1) + tri(n - 2) + tri(n + 1))
+    if n % 2 == 0:
+        sequence.append(1 + n / 2)
+    elif n <= 2:
+        sequence = [1, 3]
+    else:
+        sequence += tri(n - 1) + tri(n - 2) + tri(n + 1)
     return sequence
