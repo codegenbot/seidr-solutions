@@ -1,9 +1,5 @@
-text=input();target=input();indices=[];index=0
+text = input()
+target = input()
 
-while index < len(text) - len(target) + 1:
-    if text[index:index + len(target)] == target:
-        indices.append(index)
-        index += len(target) - 1
-    index += 1
-
-print(*indices)
+indices = [str(i) for i in range(len(text)) if text[i:i+len(target)] == target]
+print(" ".join(indices))
