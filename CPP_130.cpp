@@ -16,4 +16,3 @@ vector<int> tri(int n) {
     }
     return result;
 }
-```
