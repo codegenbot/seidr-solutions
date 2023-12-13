@@ -1,4 +1,3 @@
-```python
 def find_leaders(arr):
     leaders = []
     max_right = arr[-1]
@@ -16,4 +15,3 @@ result = find_leaders(arr)
 print(len(result))
 for num in result:
     print(num)
-```
