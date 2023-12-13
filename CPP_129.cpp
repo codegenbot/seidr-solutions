@@ -39,7 +39,7 @@ def get_neighbors(grid, position):
         # If the cell to the west is valid, add it to the list of neighbors
         neighbors.append((row, col - 1))
     # Check if the cell to the east is valid
-    if col < len(grid[0]) - 1 and grid[row][col + 1] != 'X':
+    if col < len(grid[row]) - 1 and grid[row][col + 1] != 'X':
         # If the cell to the east is valid, add it to the list of neighbors
         neighbors.append((row, col + 1))
     return neighbors
@@ -51,23 +51,33 @@ def main():
             ['X', 'X', 'O', 'O', 'X'],
             ['X', 'O', 'X', 'O', 'X'],
             ['X', 'X', 'X', 'O', 'X']]
-    # Initialize the starting position
     start = (0, 0)
-    # Initialize the goal position
-    goal = (len(grid[0]) - 1, len(grid) - 1)
-    # Get the minimum path sum
-    min_sum = min_path(grid, start, goal)
+    goal = (len(grid) - 1, len(grid[0]) - 1)
+    # Call the minPath function to find the minimum path sum
+    result = min_path(grid, start, goal)
     # Print the result
-    print(min_sum)
+    print(result)
 
 if __name__ == '__main__':
     main()
-[/PYTHON]  
+[/PYTHON]
 [TESTS]
 # Test case 1:
-assert min_path([['O', 'X', 'X', 'X', 'X'], ['X', 'O', 'O', 'O', 'X'], ['X', 'X', 'O', 'O', 'X'], ['X', 'O', 'X', 'O', 'X'], ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
 # Test case 2:
-assert min_path([['O', 'X', 'X', 'X', 'X'], ['X', 'O', 'O', 'O', 'X'], ['X', 'X', 'O', 'O', 'X'], ['X', 'O', 'X', 'O', 'X'], ['X', 'X', 'X', 'O', 'X']], (0, 0), (2, 4)) == 19
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (2, 4)) == 19
 # Test case 3:
-assert min_path([['O', 'X', 'X', 'X', 'X'], ['X', 'O', 'O', 'O', 'X'], ['X', 'X', 'O', 'O', 'X'], ['X', 'O', 'X', 'O', 'X'], ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
 [/TESTS]
