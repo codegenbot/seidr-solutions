@@ -7,6 +7,8 @@ bool evaluateBoolean(std::string expression) {
         return true;
     } else if (expression == "f") {
         return false;
+    } else if (expression.size() > 2 && expression.front() == '(' && expression.back() == ')') {
+        return evaluateBoolean(expression.substr(1, expression.size() - 2));
     } else if (expression.find('&') != std::string::npos) {
         bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
         bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
@@ -18,7 +20,6 @@ bool evaluateBoolean(std::string expression) {
     } else {
         throw std::runtime_error("Invalid expression format.");
     }
-    return false;
 }
 
 int main() {
