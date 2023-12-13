@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <array>
 #include <string>
@@ -17,8 +16,7 @@ int main() {
     return 0;
 }
 ```
-
-The error message indicates that there is an issue with the `insert` function in the `std::string` class, specifically with the use of an integer as an argument for the `__p` parameter, which is expected to be a `const_iterator`. To fix this issue, you can cast the integer to a `const_iterator` using the `const_cast` operator:
+The error message indicates that there is an issue with the `insert` function in the `std::string` class, specifically with the use of an integer as an argument for the `__p` parameter, which is expected to be a `const_iterator`. To fix this issue, you can try casting the integer to a `const_iterator` using the `const_cast` operator:
 ```cpp
 insert(const_cast<std::string::const_iterator>(num), _CharT __c)
 ```
