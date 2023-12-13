@@ -1,12 +1,15 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int main() {
     std::vector<int> digits;
 
-    std::copy_n(std::istream_iterator<int>(std::cin), 16, std::back_inserter(digits));
+    for (int i = 0; i < 16; i++) {
+        int digit;
+        std::cin >> digit;
+        digits.push_back(digit);
+    }
 
     int sum = 0;
     for (int i = 15; i >= 0; i -= 2) {
@@ -21,7 +24,7 @@ int main() {
         sum += digits[i];
     }
 
-    sum -= digits[0];
+    sum += digits[0];
 
     std::cout << sum << std::endl;
 
