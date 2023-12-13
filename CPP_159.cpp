@@ -1,12 +1,7 @@
 ```cpp
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
-
-bool are_same(vector<int> a, vector<int> b){
-    return a == b;
-}
 
 vector<int> eat(int number, int need, int remaining) {
     vector<int> result;
@@ -22,7 +17,7 @@ vector<int> eat(int number, int need, int remaining) {
 
 int main() {
     vector<int> output = eat(4, 5, 1);
-    assert(are_same(output, {5, 0}));
+    assert(output == vector<int>{5, 0});
     cout << output[0] << " " << output[1] << endl;
     return 0;
 }
