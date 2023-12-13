@@ -1,8 +1,9 @@
 ```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-int scoreOfRound(const std::string& bowls) {
+int scoreOfRound(const string& bowls) {
     int score = 0;
     int bowlIndex = 0;
 
@@ -34,10 +35,11 @@ int scoreOfRound(const std::string& bowls) {
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
+    string bowls;
+    cin >> bowls;
+
     int score = scoreOfRound(bowls);
-    std::cout << score << std::endl;
+    cout << score << endl;
 
     return 0;
 }
