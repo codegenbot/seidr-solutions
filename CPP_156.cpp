@@ -1,11 +1,11 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 using namespace std;
 
-auto roman = vector<const char*>{"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+auto roman = vector<string>{"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
 
 int int_to_mini_roman(int num) {
     // Your code here
