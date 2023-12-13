@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-bool evaluateBoolean(std::string expression) {
+bool evaluateBoolean(const std::string& expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
