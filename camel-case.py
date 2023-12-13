@@ -1,10 +1,9 @@
-s = input()
-words = s.split()
-result = ""
-for i in range(len(words)):
-    if '-' in words[i]:
-        words[i] = words[i].replace('-', ' ')
-        words[i] = words[i].title().replace(' ', '')
-    result += words[i] + " "
-result = result.strip()
-print(result)
+def kebab_to_camel_case(string):
+    words = string.split("-")
+    camel_case = ""
+    for i in range(len(words)):
+        if i == 0:
+            camel_case += words[i]
+        else:
+            camel_case += words[i].capitalize()
+    return camel_case
