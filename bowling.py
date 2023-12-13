@@ -1,3 +1,4 @@
+```python
 def bowling(score):
     frames = []
     frame = []
@@ -36,3 +37,4 @@ def bowling(score):
         i += 1
     
     return total_score
+```
