@@ -24,13 +24,13 @@ string fix_spaces(const string& text){
 }
 
 int main() {
-    cout << fix_spaces("   Exa 1 2 2 mple") << endl;
+    cout << fix_spaces("   Exa 1 2 2 mple") << endl; // Expected output: "-Exa_1_2_2_mple"
 
     // Additional test cases
-    cout << fix_spaces("Hello World") << endl;
-    cout << fix_spaces("A___B___C") << endl;
-    cout << fix_spaces("   ") << endl;
-    cout << fix_spaces("") << endl;
+    cout << fix_spaces("Hello World") << endl; // Expected output: "Hello_World"
+    cout << fix_spaces("A___B___C") << endl; // Expected output: "A-B-C"
+    cout << fix_spaces("   ") << endl; // Expected output: "---"
+    cout << fix_spaces("") << endl; // Expected output: ""
 
     return 0;
 }
