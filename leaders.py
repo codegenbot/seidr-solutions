@@ -1,4 +1,3 @@
-```python
 def find_leaders(arr):
     n = len(arr)
     leaders = []
@@ -11,10 +10,3 @@ def find_leaders(arr):
             leaders.append(max_right)
 
     return leaders[::-1]
-```
-```python
-arr = list(map(int, input().split()))
-result = find_leaders(arr)
-for num in result:
-    print(num)
-```
