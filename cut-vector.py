@@ -10,4 +10,4 @@ def cut_vector(vector):
             min_difference = difference
             split_index = i
     if split_index != -1:
-        return ' '.join(map(str, vector[:split_index])), ' '.join(map(str, vector[split_index:]))
+        return vector[:split_index+1], vector[split_index+1:]
