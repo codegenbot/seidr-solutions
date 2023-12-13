@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -14,3 +15,4 @@ vector<int> eat(int number, int need, int remaining) {
     }
     return result;
 }
+```
