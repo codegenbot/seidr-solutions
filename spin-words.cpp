@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <algorithm> 
+#include <algorithm>
 
 std::string spinWords(const std::string& sentence) {
     std::stringstream ss(sentence);
@@ -14,6 +14,7 @@ std::string spinWords(const std::string& sentence) {
         result += word + " ";
     }
     
+    // Remove the trailing space
     result.pop_back();
     
     return result;

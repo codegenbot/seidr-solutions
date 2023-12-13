@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int main() {
     std::vector<int> digits;
@@ -11,20 +10,18 @@ int main() {
         std::cin >> digit;
         digits.push_back(digit);
     }
-    
-    std::reverse(digits.begin(), digits.end());
 
     int sum = 0;
-    for (int i = 0; i < 16; i++) {
-        if (i % 2 == 1) {
-            int doubledDigit = digits[i] * 2;
-            if (doubledDigit > 9) {
-                doubledDigit -= 9;
-            }
-            sum += doubledDigit;
-        } else {
-            sum += digits[i];
+    for (int i = 16 - 2; i >= 0; i -= 2) {
+        int doubledDigit = digits[i] * 2;
+        if (doubledDigit > 9) {
+            doubledDigit -= 9;
         }
+        sum += doubledDigit;
+    }
+
+    for (int i = 16 - 1; i >= 0; i -= 2) {
+        sum += digits[i];
     }
 
     std::cout << sum << std::endl;
