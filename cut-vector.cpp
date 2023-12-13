@@ -2,52 +2,48 @@
 #include <iostream>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    
     int leftSum = 0;
-    int rightSum = sum;
-    int diff = abs(leftSum - rightSum);
+    int rightSum = 0;
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
+    }
+    int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
-    
+
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int newDiff = abs(leftSum - rightSum);
-        if (newDiff < diff) {
-            diff = newDiff;
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
             cutIndex = i;
         }
     }
-    
-    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
-    
-    return {subvector1, subvector2};
+
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+
+    return make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
     cin >> n;
-    
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    
-    vector<vector<int>> result = cutVector(nums);
-    cout << result[0].size() << endl;
-    for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << " ";
+
+    pair<vector<int>, vector<int>> result = cutVector(nums);
+
+    for (int num : result.first) {
+        cout << num << endl;
     }
-    cout << endl << result[1].size() << endl;
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << " ";
+    for (int num : result.second) {
+        cout << num << endl;
     }
-    
+
     return 0;
 }
