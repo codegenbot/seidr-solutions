@@ -20,14 +20,12 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<float> prices;
-    prices.resize(n);
+    std::vector<float> prices(n);
     for (int i = 0; i < n; i++) {
         std::cin >> prices[i];
     }
 
-    std::vector<float> discounts;
-    discounts.resize(n);
+    std::vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
         std::cin >> discounts[i];
     }
