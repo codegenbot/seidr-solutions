@@ -30,9 +30,7 @@ int main() {
     assert(fix_spaces("A___B___C") == "A-B-C");
     assert(fix_spaces("   ") == "---");
     assert(fix_spaces("") == "");
-
     cout << "All test cases passed" << endl;
-
     return 0;
 }
 ```
