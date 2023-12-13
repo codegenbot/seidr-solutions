@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -10,7 +12,7 @@ string encrypt(string s){
         if(isalpha(c)){
             if(islower(c)){
                 c = ((c - 'a') + (2 * 2)) % 26 + 'a';
-            } else{
+            } else {
                 c = ((c - 'A') + (2 * 2)) % 26 + 'A';
             }
         }
@@ -19,7 +21,11 @@ string encrypt(string s){
     return encrypted;
 }
 
-int main(){
-    assert(encrypt("a") == "e");
+int main() {
+    assert (encrypt("a")=="e");
+    assert (encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
+    assert (encrypt("1234")== "1234");
+
     return 0;
 }
+```
