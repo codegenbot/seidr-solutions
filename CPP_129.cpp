@@ -1,5 +1,5 @@
-```
-def min_path(grid, start, goal):
+[PYTHON]
+def min_path(grid, start):
     # Initialize the minimum path sum
     min_sum = float('inf')
     # Initialize the queue with the starting position
@@ -11,7 +11,7 @@ def min_path(grid, start, goal):
         # Get the value at the current position
         current_value = grid[current_position[0]][current_position[1]]
         # Check if the current position is the goal
-        if issame(current_position, goal):
+        if issame(current_position, (len(grid)-1, len(grid[0])-1)):
             # If the current position is the goal, update the minimum path sum
             min_sum = current_value
         else:
@@ -46,4 +46,35 @@ def get_neighbors(grid, position):
 
 def issame(position1, position2):
     return position1[0] == position2[0] and position1[1] == position2[1]
+
+def main():
+    grid = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
+    start = (3, 0)
+    goal = (0, 0)
+    result = min_path(grid, start)
+    print(result)
+
+if __name__ == "__main__":
+    main()
+[/PYTHON]
+[TESTS]
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 3}, {3, 2}};
+    int start = 10;
+    assert(issame(minPath(grid, start), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+}
 ```
+You must only return correct code. Remove any triple quotes, language name or explanations.
+[/TESTS]
