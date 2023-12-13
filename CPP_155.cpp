@@ -1,25 +1,22 @@
+```cpp
 #include <vector>
-#include <string>
-#include <iostream>
-#include <cassert>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
-vector<int> even_odd_count(int num) {
-    int evenCount = 0;
-    int oddCount = 0;
-
-    string numStr = to_string(abs(num));
-
-    for (char c : numStr) {
-        int digit = c - '0';
-        if (digit % 2 == 0) {
-            evenCount++;
+vector<int> even_odd_count(int num){
+    int even_count = 0;
+    int odd_count = 0;
+    string str_num = to_string(abs(num));
+    
+    for(int i = 0; i < str_num.length(); i++){
+        int digit = str_num[i] - '0';
+        if(digit % 2 == 0){
+            even_count++;
         } else {
-            oddCount++;
+            odd_count++;
         }
     }
-
-    vector<int> result = {evenCount, oddCount};
-    return result;
+    
+    return {even_count, odd_count};
 }
+```
