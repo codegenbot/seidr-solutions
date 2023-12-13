@@ -1,8 +1,6 @@
 ```cpp
-#include <cstddef>
 #include <vector>
 #include <cmath>
-#include <iterator>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     size_t n = nums.size();
@@ -30,8 +28,16 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> left(nums.begin(), std::next(nums.begin(), cutIndex));
-    std::vector<int> right(std::next(nums.begin(), cutIndex), nums.end());
+    std::vector<int> left;
+    std::vector<int> right;
+
+    for (size_t i = 0; i < cutIndex; i++) {
+        left.push_back(nums[i]);
+    }
+
+    for (size_t i = cutIndex; i < n; i++) {
+        right.push_back(nums[i]);
+    }
 
     return std::make_pair(left, right);
 }
