@@ -6,10 +6,7 @@ using namespace std;
 
 bool is_consonant(char c) {
     c = tolower(c);
-    if (c >= 'a' && c <= 'z') {
-        return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-    }
-    return false;
+    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
 bool issame(vector<string> a, vector<string> b) {
