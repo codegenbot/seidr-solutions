@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
@@ -39,3 +40,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
     return std::make_pair(left, right);
 }
+```
