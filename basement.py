@@ -13,5 +13,6 @@ for _ in range(n):
     nums.append(int(input()))
 
 result = basement(nums)
+
 print(result)
 ```
