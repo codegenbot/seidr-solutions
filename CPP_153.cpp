@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 int Strongest_Extension(const vector<string>& extensions);
 
