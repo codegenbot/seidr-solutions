@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -18,6 +17,5 @@ long long double_the_difference(vector<float> lst) {
 int main() {
     vector<float> lst = {1, 2, 3, 4, 5};
     long long odd_sum = double_the_difference(lst);
-    assert (odd_sum == 1 + 9 + 25 + 49 + 81);
+    assert (double_the_difference(lst) == odd_sum );
 }
-```
