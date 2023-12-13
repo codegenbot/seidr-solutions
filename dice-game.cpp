@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 double probabilityOfPeterWinning(int n, int m) {
@@ -24,3 +25,4 @@ int main() {
 
     return 0;
 }
+```
