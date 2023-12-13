@@ -43,8 +43,7 @@ int calculateScore(const std::string& input) {
     if (input.back() == 'X' || input.back() == '/') {
         char lastBowl = input[input.size() - 1];
         score += (lastBowl == 'X') ? 10 : 10 - (input[input.size() - 2] - '0');
-        score += (lastBowl == 'X') ? ((input[input.size() - 3] == 'X') ? 10 : (input[input.size() - 3] - '0'))
-                                    : (input[input.size() - 1] == 'X') ? 10 : (input[input.size() - 1] - '0');
+        score += (lastBowl == 'X') ? ((input[input.size() - 3] == 'X') ? 10 : (input[input.size() - 3] - '0')) : (input[input.size() - 1] == 'X') ? 10 : (input[input.size() - 1] - '0');
     }
 
     return score;
