@@ -17,7 +17,7 @@ std::vector<int> eat(int number, int need, int remaining) {
 
 int main() {
     std::vector<int> output = eat(4, 5, 1);
-    assert( (output == std::vector<int>{5, 0}) );
+    assert((output == std::vector<int>{5, 0}));
     std::cout << output[0] << " " << output[1] << std::endl;
     return 0;
 }
