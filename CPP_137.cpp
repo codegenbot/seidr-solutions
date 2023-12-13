@@ -44,15 +44,6 @@ def compare_one(a: boost::any, b: boost::any) -> std::string:
             return "None"
     else:
         return "None"
-
-def main():
-    a = boost::any(10)
-    b = boost::any(2.5)
-    c = compare_one(a, b)
-    assert equal_to(c, "2.5")
-    print("Success!")
-
-main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
@@ -62,5 +53,4 @@ assert compare_one(boost::any(2.5), boost::any(10)) == "10"
 # Test case 3:
 assert compare_one(boost::any("hello"), boost::any("world")) == "world"
 [/TESTS]
-
 ```
