@@ -1,25 +1,25 @@
-```
+```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+#include <limits>
 
-using namespace std;
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    std::string strongest_extension = "";
+    int max_strength = std::numeric_limits<int>::min();
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = "";
-    int max_strength = INT_MIN;
+    for (std::string extension : extensions) {
+        int cap_count = 0;
+        int sm_count = 0;
 
-    for (string extension : extensions) {
-        int cap = 0;
-        int sm = 0;
-        for (char c : extension) {
-            if (isupper(c)) {
-                cap++;
-            } else if (islower(c)) {
-                sm++;
+        for (char ch : extension) {
+            if (std::isupper(ch)) {
+                cap_count++;
+            } else if (std::islower(ch)) {
+                sm_count++;
             }
         }
-        int strength = cap - sm;
+
+        int strength = cap_count - sm_count;
         if (strength > max_strength) {
             max_strength = strength;
             strongest_extension = extension;
@@ -27,12 +27,5 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     }
 
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    string result = Strongest_Extension("Sp", {"671235", "Bb"});
-    cout << result << endl;
-
-    return 0;
 }
 ```
