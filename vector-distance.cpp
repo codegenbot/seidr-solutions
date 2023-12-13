@@ -2,8 +2,9 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
-long double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
+double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     long double sum = 0;
     for (int i = 0; i < v1.size(); i++) {
         sum += pow(v2[i] - v1[i], 2);
@@ -27,8 +28,8 @@ int main() {
         std::cin >> v2[i];
     }
 
-    long double distance = euclideanDistance(v1, v2);
-    std::cout << distance << std::endl;
+    double distance = euclideanDistance(v1, v2);
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
 
     return 0;
 }
