@@ -1,11 +1,13 @@
 ```cpp
 #include <iostream>
+#include <string>
+#include <sstream>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
     return firstBounceHeight / startingHeight;
 }
 
-double calculateTotalDistance(double startingHeight, double firstBounceHeight, double numBounces) {
+double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = startingHeight;
 
@@ -17,19 +19,24 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, d
 }
 
 int main() {
-    double startingHeight, firstBounceHeight, numBounces;
+    double startingHeight, firstBounceHeight;
+    int numBounces;
+
+    std::string startingHeightStr, firstBounceHeightStr, numBouncesStr;
 
     std::cout << "Enter the starting height: ";
-    std::cin >> startingHeight;
+    std::getline(std::cin, startingHeightStr);
+    std::stringstream(startingHeightStr) >> startingHeight;
 
     std::cout << "Enter the height after the first bounce: ";
-    std::cin >> firstBounceHeight;
+    std::getline(std::cin, firstBounceHeightStr);
+    std::stringstream(firstBounceHeightStr) >> firstBounceHeight;
 
     std::cout << "Enter the number of bounces: ";
-    std::cin >> numBounces;
+    std::getline(std::cin, numBouncesStr);
+    std::stringstream(numBouncesStr) >> numBounces;
 
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
-    
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
 
     return 0;
