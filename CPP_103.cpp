@@ -22,7 +22,7 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
 
-    int avg = round((double)sum / (m - n + 1));
+    int avg = round(sum / (m - n + 1));
 
     std::string binary = "";
     while (avg > 0) {
