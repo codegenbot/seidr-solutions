@@ -5,21 +5,18 @@
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int targetLength = target.length();
-    int textLength = text.length();
+    int textLen = text.length();
+    int targetLen = target.length();
 
-    for (int i = 0; i <= textLength - targetLength; i++) {
+    for (int i = 0; i <= textLen - targetLen; i++) {
         bool found = true;
-        for (int j = 0; j < targetLength; j++) {
+        for (int j = 0; j < targetLen; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
-                break;
             }
         }
         if (found) {
             indices.push_back(i);
-            // Skip the next character after a match to allow overlapping occurrences
-            i++;
         }
     }
 
@@ -33,8 +30,8 @@ int main() {
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
-    for (int index : result) {
-        std::cout << index << " ";
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
 
     return 0;
