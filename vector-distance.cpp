@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <sstream>
 #include <cmath>
-#include <iomanip>
 
 double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double sum = 0.0;
@@ -15,21 +14,24 @@ double euclideanDistance(const std::vector<double>& vec1, const std::vector<doub
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<double> vec1(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> vec1[i];
+    std::string line;
+
+    std::getline(std::cin, line);
+    std::stringstream ss(line);
+    std::vector<double> vec1;
+    while (ss >> n) {
+        vec1.push_back(n);
     }
 
-    std::cin >> n;
-    std::vector<double> vec2(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> vec2[i];
+    std::getline(std::cin, line);
+    ss = std::stringstream(line);
+    std::vector<double> vec2;
+    while (ss >> n) {
+        vec2.push_back(n);
     }
 
     double distance = euclideanDistance(vec1, vec2);
-    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
-```
