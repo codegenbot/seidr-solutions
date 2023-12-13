@@ -36,24 +36,3 @@ assert issame([1, 2, 3], [1, 2, 4]) == False
 assert issame([1, 2, 3], [1, 2, 3, 4]) == False
 [/TESTS]
 ```
-
-Modify the code as follows:
-
-1. Change `issame(a: vector<int>, b: vector<int>)` to `bool issame(const vector<int>& a, const vector<int>& b)`.
-2. Modify the loop in `issame` to check for equality between the two vectors using `std::equal`.
-3. Change `even_odd_count(num: int)` to `vector<int> even_odd_count(int num)`.
-4. Modify the body of `even_odd_count` to count the number of even and odd digits in the input number, and return a vector with two elements representing the counts.
-5. Remove the call to `assert` in `main`, as it is not needed when using the `bool issame` function.
-
-With these changes, the code should correctly compare two vectors for equality and return a vector with two elements representing the count of even and odd digits in an input number.
-```
-Modify the code as follows:
-
-1. Change `issame(a: vector<int>, b: vector<int>)` to `bool issame(const vector<int>& a, const vector<int>& b)`.
-2. Modify the loop in `issame` to check for equality between the two vectors using `std::equal`.
-3. Change `even_odd_count(num: int)` to `vector<int> even_odd_count(int num)`.
-4. Modify the body of `even_odd_count` to count the number of even and odd digits in the input number, and return a vector with two elements representing the counts.
-5. Remove the call to `assert` in `main`, as it is not needed when using the `bool issame` function.
-
-With these changes, the code should correctly compare two vectors for equality and return a vector with two elements representing the count of even and odd digits in an input number.
-```
