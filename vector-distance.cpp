@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
 
 double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    long double sum = 0.0; // change the data type to long double
+    long double sum = 0.0;
     for (int i = 0; i < vector1.size(); i++) {
         double diff = vector1[i] - vector2[i];
         sum += diff * diff;
@@ -28,9 +27,8 @@ int main() {
         std::cin >> vector2[i];
     }
 
-    std::cout.precision(15); // set precision for output
+    std::cout.precision(15);
     std::cout << euclideanDistance(vector1, vector2) << std::endl;
 
     return 0;
 }
-```
