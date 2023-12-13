@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
+pair<int, int> getClues(string code, string guess) {
     int whitePegs = 0;
+    int blackPegs = 0;
     int codeCount[6] = {0};
     int guessCount[6] = {0};
 
@@ -28,9 +29,10 @@ int main() {
     string code, guess;
     cin >> code >> guess;
 
-    pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    pair<int, int> clues = getClues(code, guess);
+    cout << clues.first << endl;
+    cout << clues.second << endl;
 
     return 0;
 }
+```
