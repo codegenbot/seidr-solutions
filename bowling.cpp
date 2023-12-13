@@ -38,7 +38,7 @@ int scoreOfRound(const std::string& round) {
             score += current - '0';
             bowl++;
 
-            if (current != 'X' && bowl == 1) {
+            if (current != 'X' && bowl == 2) {
                 frame++;
                 bowl = 0;
             }
@@ -50,7 +50,7 @@ int scoreOfRound(const std::string& round) {
 
 int main() {
     std::string round;
-    std::cin >> round;
+    std::getline(std::cin, round);
 
     int score = scoreOfRound(round);
     std::cout << score << std::endl;
