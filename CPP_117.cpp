@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -51,11 +50,10 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    vector<string> expected = {"b", "c", "d", "f"};
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+
+    // Print the result
     vector<string> result = select_words("a b c d e f", 1);
-
-    assert(issame(result, expected));
-
     for (string word : result) {
         cout << word << " ";
     }
@@ -63,4 +61,3 @@ int main() {
 
     return 0;
 }
-```

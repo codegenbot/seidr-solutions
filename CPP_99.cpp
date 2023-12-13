@@ -1,10 +1,9 @@
-```cpp
-#include <iostream>
 #include <string>
 #include <cmath>
+#include <iostream>
 
 int closest_integer(std::string value){
-    float num = std::stof(value);
+    double num = std::stod(value);
     int floor_num = std::floor(num);
     int ceil_num = std::ceil(num);
     if (num - floor_num < ceil_num - num) {
@@ -14,7 +13,7 @@ int closest_integer(std::string value){
     }
 }
 
-int main() {
+int closest_integer_main() {
     closest_integer("0");
     closest_integer("1.4");
     closest_integer("2.6");
@@ -24,4 +23,3 @@ int main() {
 
     return 0;
 }
-```
