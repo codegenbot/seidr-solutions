@@ -1,9 +1,7 @@
 n = int(input())
-prices = list(map(float, input().split()))
-discounts = list(map(float, input().split()))
+values = input().split()
+prices = list(map(float, values[:n]))
+discounts = list(map(float, values[n:]))
 
-total_price = 0.0
-if len(prices) == len(discounts):
-    total_price = sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
-
+total_price = sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
 print(total_price)
