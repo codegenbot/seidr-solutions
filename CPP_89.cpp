@@ -1,27 +1,31 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-string encrypt(string s);
-
-int main() {
-    assert (encrypt("a")=="e");
-
-    return 0;
-}
-
-string encrypt(string s){
+string encrypt(string s) {
     string encrypted = "";
-    for(int i=0; i<s.length(); i++){
+    for(int i=0; i<s.length(); i++) {
         char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = ((c - 'a') + (2 * 2)) % 26 + 'a';
-        }
-        else if(c >= 'A' && c <= 'Z'){
-            c = ((c - 'A') + (2 * 2)) % 26 + 'A';
+        if(isalpha(c)) {
+            if(islower(c)) {
+                c = ((c - 'a') + (2 * 2)) % 26 + 'a';
+            } else {
+                c = ((c - 'A') + (2 * 2)) % 26 + 'A';
+            }
         }
         encrypted += c;
     }
     return encrypted;
 }
+
+int main() {
+    assert (encrypt("a")=="e");
+    assert (encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
+    assert (encrypt("1234")== "1234");
+
+    return 0;
+}
+```
