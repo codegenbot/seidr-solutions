@@ -1,4 +1,3 @@
-```python
 def match_parens(lst):
     count = 0
     for char in lst[0] + lst[1]:
@@ -12,4 +11,3 @@ def match_parens(lst):
         return 'Yes'
     else:
         return 'No'
-```
