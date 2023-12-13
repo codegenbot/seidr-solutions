@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -22,17 +23,13 @@ int main() {
     std::vector<float> prices;
     prices.resize(n);
     for (int i = 0; i < n; i++) {
-        float price;
-        std::cin >> price;
-        prices[i] = price;
+        std::cin >> prices[i];
     }
 
     std::vector<float> discounts;
     discounts.resize(n);
     for (int i = 0; i < n; i++) {
-        float discount;
-        std::cin >> discount;
-        discounts[i] = discount;
+        std::cin >> discounts[i];
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
@@ -40,3 +37,4 @@ int main() {
 
     return 0;
 }
+```
