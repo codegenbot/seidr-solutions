@@ -1,3 +1,4 @@
-nums = list(map(int, input().split()))
-total = sum((num - 2) // 3 for num in nums)
-print(total)
+```python
+def fuel_cost(nums):
+    return sum(map(lambda x: int(x)//3 - 2, nums.split()))
+```
