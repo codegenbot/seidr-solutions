@@ -1,12 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <iomanip>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float totalPrice = 0.0;
-    int n = prices.size();
+    unsigned long n = prices.size();
 
-    for (int i = 0; i < n; i++) {
+    for (unsigned long i = 0; i < n; i++) {
         float discount = discounts[i] / 100.0;
         float discountedPrice = prices[i] * (1 - discount);
         totalPrice += discountedPrice;
@@ -16,18 +17,18 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 }
 
 int main() {
-    int n;
+    unsigned long n;
     std::cin >> n;
 
     std::vector<float> prices;
     prices.resize(static_cast<unsigned long>(n));
-    for (int i = 0; i < n; i++) {
+    for (unsigned long i = 0; i < n; i++) {
         std::cin >> prices[i];
     }
 
     std::vector<float> discounts;
     discounts.resize(static_cast<unsigned long>(n));
-    for (int i = 0; i < n; i++) {
+    for (unsigned long i = 0; i < n; i++) {
         std::cin >> discounts[i];
     }
 
@@ -36,3 +37,4 @@ int main() {
 
     return 0;
 }
+```
