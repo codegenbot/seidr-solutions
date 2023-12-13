@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -18,6 +17,4 @@ int main() {
     vector<float> lst = {1, 2, 3, 4, 5};
     long long odd_sum = double_the_difference(lst);
     cout << "The sum of the squares of the odd numbers is: " << odd_sum << endl;
-    return 0;
 }
-```
