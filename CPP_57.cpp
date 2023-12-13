@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 
 bool monotonic(std::vector<float> l) {
