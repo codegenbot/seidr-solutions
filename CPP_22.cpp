@@ -4,7 +4,6 @@
 #include <list>
 #include <variant>
 #include <algorithm>
-#include <initializer_list>
 
 std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>> values) {
     std::vector<int> result;
