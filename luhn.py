@@ -1,9 +1,9 @@
-digits = [int(x) for x in input().split()[:16]]
+digits = list(map(int, input().split()[:16]))
 
-for i in range(1, len(digits), 2):
-    digits[i] *= 2
+for i in range(0, len(digits), 2):
+    digits[i] = digits[i] * 2
     if digits[i] > 9:
         digits[i] -= 9
 
-sum_digits = sum(digits)
+sum_digits = sum([digit % 10 + digit // 10 for digit in digits])
 print(sum_digits)
