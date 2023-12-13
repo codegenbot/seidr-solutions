@@ -1,22 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<int> maximum(std::vector<int> arr, int k);
+using namespace std;
+
+vector<int> maximum(vector<int> arr, int k) {
+    sort(arr.begin(), arr.end(), greater<int>());
+    return vector<int>(arr.begin(), arr.begin() + k);
+}
 
 int main() {
-    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
-    int k = 0;
-    std::vector<int> result = maximum(input, k);
-    for (int num : result) {
-        std::cout << num << " ";
+    vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 0);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
+    cout << endl;
+    // your code here
 
     return 0;
 }
-
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end(), std::greater<int>());
-    std::vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
-}
+```

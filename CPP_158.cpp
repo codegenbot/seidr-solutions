@@ -1,14 +1,16 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 string find_max(vector<string> words);
 
 int main() {
-    assert((find_max({"play", "play", "play"}) == "play"));
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    // add more test cases here
+    
     return 0;
 }
 
