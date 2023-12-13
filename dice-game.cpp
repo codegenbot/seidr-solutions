@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <iomanip> // for setprecision
+#include <iomanip>
 
 double probabilityOfPeterWinning(int n, int m) {
     double totalOutcomes = n * m;
@@ -26,4 +25,3 @@ int main() {
 
     return 0;
 }
-```
