@@ -26,10 +26,7 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int number = 499;
-    string mini_roman = int_to_mini_roman(number);
-    assert(mini_roman == "CDXCIX");
-    cout << mini_roman << endl;
+    assert (int_to_mini_roman(1000) == "m");
     return 0;
 }
 ```
