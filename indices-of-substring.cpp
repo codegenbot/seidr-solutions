@@ -7,7 +7,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     std::vector<int> indices;
     int targetLength = target.length();
     int textLength = text.length();
-
     indices.reserve(textLength);
 
     for (int i = 0; i <= textLength - targetLength; i++) {
