@@ -1,6 +1,4 @@
-#include <vector>
-#include <string>
-
+```cpp
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     // implementation goes here
 }
@@ -21,3 +19,4 @@ int main() {
     // test cases
     return 0;
 }
+```
