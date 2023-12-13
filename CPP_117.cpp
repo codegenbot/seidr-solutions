@@ -1,12 +1,17 @@
 ```cpp
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <string>
 
 using namespace std;
 
 bool is_consonant(char c) {
     c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    if (c >= 'a' && c <= 'z') {
+        return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    }
+    return false;
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -46,7 +51,15 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+
+    // Print the result
+    vector<string> result = select_words("a b c d e f", 1);
+    for (string word : result) {
+        cout << word << " ";
+    }
+    cout << endl;
+
     return 0;
 }
 ```
