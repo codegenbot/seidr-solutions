@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int scoreOfRound(std::string bowls) {
+int scoreOfRound(const std::string& bowls) {
     int score = 0;
     int frame = 0;
     int bowl = 0;
@@ -14,15 +13,21 @@ int scoreOfRound(std::string bowls) {
 
         if (bowls[i] == 'X') {
             score += 10;
-            score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1]) ? bowls[i + 1] - '0' : 0);
-            score += (bowls[i + 2] == 'X') ? 10 : (isdigit(bowls[i + 2]) ? bowls[i + 2] - '0' : 0);
+            if (i + 1 < bowls.length()) {
+                score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1]) ? bowls[i + 1] - '0' : 0);
+            }
+            if (i + 2 < bowls.length()) {
+                score += (bowls[i + 2] == 'X') ? 10 : (isdigit(bowls[i + 2]) ? bowls[i + 2] - '0' : 0);
+            }
             frame++;
-        } else if (isdigit(bowls[i]) && bowls[i] != '-') {
+        } else if (isdigit(bowls[i])) {
             score += bowls[i] - '0';
             bowl++;
 
-            if (bowl == 2 || (bowl == 1 && bowls[i + 1] == '/')) {
-                score += (bowls[i + 1] == '/') ? 10 - (bowls[i] - '0') : 0;
+            if (bowl == 2 || (i + 1 < bowls.length() && bowls[i + 1] == '/')) {
+                if (i + 1 < bowls.length()) {
+                    score += (bowls[i + 1] == '/') ? 10 - (bowls[i] - '0') : 0;
+                }
                 frame++;
                 bowl = 0;
             }
@@ -41,4 +46,3 @@ int main() {
 
     return 0;
 }
-```
