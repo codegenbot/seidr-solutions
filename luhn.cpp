@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,14 +17,10 @@ int main() {
             doubledDigit -= 9;
         }
         sum += doubledDigit;
-    }
-
-    for (int i = 16 - 1; i >= 0; i -= 2) {
-        sum += digits[i];
+        sum += digits[i + 1];
     }
 
     std::cout << sum << std::endl;
 
     return 0;
 }
-```
