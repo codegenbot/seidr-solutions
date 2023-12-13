@@ -24,27 +24,18 @@ def calculate_bowling_score(bowls):
             ball += 1
 
     for index, frame in enumerate(frames):
-        if len(frame) == 1:
-            if index < 9:
+        if index < 9:
+            if len(frame) == 1:
                 if frame[0] == 10:
                     score += frame[0] + sum(frames[index+1][:2])
                 else:
                     score += frame[0]
-            else:
-                score += frame[0]
-        elif len(frame) == 2:
-            if index < 9:
+            elif len(frame) == 2:
                 if sum(frame) == 10:
                     score += sum(frame) + frames[index+1][0]
                 else:
                     score += sum(frame)
-            else:
-                score += sum(frame)
-        elif len(frame) == 3:
-            if index == 9:
-                if sum(frame) == 10:
-                    score += sum(frame) + frames[index+1][0]
-                else:
-                    score += sum(frame) + sum(frames[index+1])
+        else:
+            score += sum(frame)
 
     return score
