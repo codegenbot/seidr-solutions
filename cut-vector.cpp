@@ -2,7 +2,9 @@
 #include <vector>
 #include <utility>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+using namespace std;
+
+pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
     int leftSum = nums[0];
     int rightSum = 0;
@@ -24,9 +26,9 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    std::vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    return std::make_pair(leftSubvector, rightSubvector);
+    return make_pair(leftSubvector, rightSubvector);
 }
 ```
