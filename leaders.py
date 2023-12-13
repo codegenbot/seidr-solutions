@@ -10,11 +10,9 @@ def find_leaders(numbers):
     leaders.reverse()
     return leaders
 
-# Read input from user
 n = int(input())
 numbers = list(map(int, input().split()))
 
-# Call the function and print the output
 output = find_leaders(numbers)
 for num in output:
     print(num)
