@@ -1,12 +1,12 @@
 def tri(n):
-    sequence = [3]
+    sequence = [1, 3]
     if n == 0:
-        return sequence
+        return []
     elif n == 1:
-        sequence.append(2)
-        return sequence
+        return [1]
+    elif n == 2:
+        return [1, 3]
     else:
-        sequence.append(2)
         for i in range(2, n + 1):
             if i % 2 == 0:
                 sequence.append(1 + i // 2)
