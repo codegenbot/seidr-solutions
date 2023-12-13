@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
-#include <vector>
 #include <iomanip>
+#include <vector>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float totalPrice = 0.0;
