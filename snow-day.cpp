@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -13,7 +14,9 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float me
 int main() {
     float hours, initialSnow, snowFallRate, meltRate;
     cin >> hours >> initialSnow >> snowFallRate >> meltRate;
+    
     float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltRate);
-    cout << finalSnow << endl;
+    cout << fixed << finalSnow << endl;
     return 0;
 }
+```
