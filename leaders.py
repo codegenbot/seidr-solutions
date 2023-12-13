@@ -10,5 +10,5 @@ for i in range(n-2, -1, -1):
         leaders.append(arr[i])
         max_right = arr[i]
 
-leaders.reverse()
-print("\n".join(map(str, leaders)))
+for leader in reversed(leaders):
+    print(leader)
