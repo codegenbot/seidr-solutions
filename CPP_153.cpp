@@ -1,7 +1,7 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -29,4 +29,3 @@ int main() {
     Strongest_Extension("Sp", {"671235", "Bb"});
     return 0;
 }
-```
