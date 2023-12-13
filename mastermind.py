@@ -1,6 +1,7 @@
 import collections
+from typing import Tuple
 
-def mastermind(code: str, guess: str):
+def mastermind(code: str, guess: str) -> Tuple[int, int]:
     black_pegs = 0
     white_pegs = 0
     code_count = collections.Counter(code)
@@ -19,6 +20,6 @@ def mastermind(code: str, guess: str):
 
 code = input()
 guess = input()
+
 result = mastermind(code, guess)
-print(result[0])
-print(result[1])
+print(result[0], result[1])
