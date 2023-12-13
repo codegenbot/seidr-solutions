@@ -1,4 +1,4 @@
-pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
+`pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
     int leftSum = nums[0];
     int rightSum = 0;
@@ -24,4 +24,4 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
     return make_pair(leftSubvector, rightSubvector);
-}
+}`
