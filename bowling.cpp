@@ -35,11 +35,9 @@ int scoreOfRound(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
     std::cin >> bowls;
-
     int score = scoreOfRound(bowls);
-    std::cout << "The score of the round is: " << score << std::endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
