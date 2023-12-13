@@ -32,7 +32,7 @@ bool isValidDate(const char* date) {
 }
 
 int main() {
-    bool valid_date = false;
+    bool valid_date;
     string date = "04-2003";
     valid_date = isValidDate(date.c_str());
     assert(valid_date == false);
