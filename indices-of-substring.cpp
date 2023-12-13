@@ -29,10 +29,10 @@ int main() {
     std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
-
-    for (int index : result) {
-        std::cout << index << " ";
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
