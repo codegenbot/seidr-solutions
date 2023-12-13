@@ -24,7 +24,6 @@ int main() {
     cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
-
     cout << totalDistance << endl;
 
     return 0;
