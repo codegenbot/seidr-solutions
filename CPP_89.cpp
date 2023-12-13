@@ -19,4 +19,9 @@ string encrypt(string s){
     }
     return encrypted;
 }
+
+int main(){
+    assert(encrypt("a") == "e");
+    return 0;
+}
 ```
