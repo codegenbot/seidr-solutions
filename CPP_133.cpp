@@ -1,11 +1,12 @@
 ```cpp
-#include <bits/stdc++.h>
+#include <cmath>
+#include <cassert>
+#include <vector>
 
-using namespace std;
 
-int sum_squares(vector<float> lst) {
+int sum_squares(std::vector<float> lst){
     int sum = 0;
-    for (int i = 0; i < lst.size(); i++) {
+    for(int i=0; i<lst.size(); i++){
         int rounded = ceil(lst[i]);
         sum += rounded * rounded;
     }
@@ -13,7 +14,8 @@ int sum_squares(vector<float> lst) {
 }
 
 int main() {
-    cout << sum_squares({-1, 1, 0}) << endl;
+    // Test the sum_squares function
+    assert(sum_squares({-1,1,0}) == 2);
 
     return 0;
 }
