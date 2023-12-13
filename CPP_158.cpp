@@ -1,6 +1,6 @@
 ```cpp
-#include <vector>
 #include <string>
+#include <cassert>
 
 std::string find_max(std::vector<std::string>& words) {
     std::string maxWord = "";
@@ -28,7 +28,7 @@ std::string find_max(std::vector<std::string>& words) {
 
 int main() {
     std::vector<std::string> input = {"play", "play", "play"};
-    std::string result = find_max(input);
+    assert((find_max(input) == "play"));
     return 0;
 }
 ```
