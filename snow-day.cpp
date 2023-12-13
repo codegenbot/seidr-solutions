@@ -1,6 +1,5 @@
 ```c++
 #include <iostream>
-#include <string>
 
 double calculateSnowOnGround(int hours, double initialSnow, double snowFallRate, double meltingRate) {
     double snowOnGround = initialSnow;
@@ -14,7 +13,10 @@ double calculateSnowOnGround(int hours, double initialSnow, double snowFallRate,
 int main() {
     int hours;
     double initialSnow, snowFallRate, meltingRate;
-    std::cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
+    std::cin >> hours;
+    std::cin >> initialSnow;
+    std::cin >> snowFallRate;
+    std::cin >> meltingRate;
     double result = calculateSnowOnGround(hours, initialSnow, snowFallRate, meltingRate);
     std::cout << result << std::endl;
     return 0;
