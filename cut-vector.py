@@ -1,21 +1,17 @@
+```python
 def cut_vector(vector):
     total_sum = sum(vector)
-    min_diff = abs(total_sum - vector[0])
-    left_index = right_index = 0
-
     current_sum = 0
-    for i, num in enumerate(vector):
-        current_sum += num
-        diff = abs(total_sum/2 - current_sum)
+    for i in range(len(vector)):
+        current_sum += vector[i]
+        if current_sum == total_sum - current_sum or current_sum + vector[i+1] == total_sum - current_sum:
+            return vector[:i+1], vector[i+1:]
+    return vector, [0]
 
-        if diff < min_diff or (diff == min_diff and i < left_index):
-            min_diff = diff
-            left_index = i
-            right_index = i + 1
-        elif diff == min_diff and i == left_index:
-            right_index = i + 1
-
-    if left_index == len(vector) - 1:
-        return vector, []
-    else:
-        return vector[:left_index + 1], vector[right_index:]
+# Test cases
+print(cut_vector([1, 0]))
+print(cut_vector([1, 10]))
+print(cut_vector([1, 100]))
+print(cut_vector([1, 1000]))
+print(cut_vector([1, 10000]))
+```
