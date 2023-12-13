@@ -1,19 +1,21 @@
 ```cpp
+#include <vector>
+#include <string>
+using namespace std;
+
 string find_max(const vector<string>& words) {
-    string max_word = "";
     int max_count = 0;
+    string max_word;
     for (int i = 0; i < words.size(); i++) {
-        const string& word = words[i];
+        const auto& word = words[i];
         int count = 0;
-        for (int j = 0; j < word.length(); j++) {
-            if (word[j] != ' ') {
+        for (const auto& c : word) {
+            if (c != ' ') {
                 count++;
             }
         }
         if (count > max_count) {
             max_count = count;
-            max_word = word;
-        } else if (count == max_count && word < max_word) {
             max_word = word;
         }
     }
