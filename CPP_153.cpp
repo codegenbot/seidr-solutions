@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -28,3 +29,4 @@ int main() {
     Strongest_Extension("Sp", {"671235", "Bb"});
     return 0;
 }
+```
