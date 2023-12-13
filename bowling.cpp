@@ -6,7 +6,7 @@ int calculateScore(const std::string& input) {
     int frame = 1;
     int bowlIndex = 0;
 
-    for (int i = 0; i < input.size(); i++) {
+    for (int i = 0; i < input.size() - 1; i++) {
         char bowl = input[i];
 
         if (bowl == 'X') {
@@ -38,7 +38,7 @@ int calculateScore(const std::string& input) {
     if (input.back() == 'X' || input.back() == '/') {
         char lastBowl = input[input.size() - 1];
         score += (lastBowl == 'X') ? 10 : 10 - (input[input.size() - 2] - '0');
-        score += (lastBowl == 'X') ? ((input[input.size() - 3] == 'X') ? 10 : (input[input.size() - 3] - '0'))
+        score += (lastBowl == 'X') ? ((input[input.size() - 3] == 'X') ? 10 : (input[input.size() - 3] - '0')) 
                                     : (input[input.size() - 1] == 'X') ? 10 : (input[input.size() - 1] - '0');
     }
 
@@ -47,7 +47,7 @@ int calculateScore(const std::string& input) {
 
 int main() {
     std::string input;
-    getline(std::cin, input);
+    std::getline(std::cin, input);
 
     int score = calculateScore(input);
     std::cout << score << std::endl;
