@@ -1,24 +1,22 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-bool evaluateBooleanExpression(const std::string& expression) {
+bool evaluateBoolean(string expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
         return false;
-    } else if (expression == "t&t" || expression == "t|t" || expression == "t|f" || expression == "f|t") {
-        return true;
     } else {
-        return false;
+        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
+        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
+        return left && right;
     }
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-
-    bool result = evaluateBooleanExpression(expression);
-    std::cout << (result ? "True" : "False") << std::endl;
-
+    string expression;
+    getline(cin, expression);
+    cout << (evaluateBoolean(expression) ? "True" : "False") << endl;
     return 0;
 }
