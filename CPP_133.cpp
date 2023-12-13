@@ -1,21 +1,19 @@
 ```cpp
-#include <vector>
 #include <cmath>
 #include <cassert>
+#include <initializer_list>
 
-int sum_squares(std::vector<float> values) {
+int sum_squares(std::initializer_list<float> lst){
     int sum = 0;
-    for(int i=0; i<values.size(); i++){
-        int rounded = ceil(values[i]);
+    for(auto num : lst){
+        int rounded = ceil(num);
         sum += rounded * rounded;
     }
     return sum;
 }
 
 int main() {
-    // Test the sum_squares function
     assert(sum_squares({-1,1,0}) == 2);
-
     return 0;
 }
 ```
