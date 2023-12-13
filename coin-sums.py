@@ -11,6 +11,7 @@ def coin_sums(cents):
     
     return quarters, dimes, nickels, pennies
 
+
 cents = int(sys.stdin.readline().strip())
 
 print(*coin_sums(cents))
