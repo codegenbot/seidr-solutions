@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight);
@@ -36,3 +37,4 @@ int main() {
 
     return 0;
 }
+```
