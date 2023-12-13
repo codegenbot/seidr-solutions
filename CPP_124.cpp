@@ -1,4 +1,6 @@
-bool valid_date(string date){
+#include <string>
+
+bool valid_date(std::string date){
     if(date.empty()){
         return false;
     }
