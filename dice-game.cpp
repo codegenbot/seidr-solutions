@@ -3,18 +3,18 @@
 using namespace std;
 
 double probabilityOfHigherRoll(int n, int m) {
-    double totalOutcomes = n * m - 1;
-    double favorableOutcomes = 0;
+    long long totalOutcomes = (long long) n * m;
+    long long favorableOutcomes = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                favorableOutcomes += 1.0;
+                favorableOutcomes += 100000000;
             }
         }
     }
 
-    return favorableOutcomes / totalOutcomes;
+    return (double)favorableOutcomes / totalOutcomes;
 }
 
 int main() {

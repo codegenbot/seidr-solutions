@@ -1,6 +1,3 @@
-Here is the code after modification:
-
-```python
 def luhn_algorithm(digits):
     new_digits = []
     for i in range(len(digits)):
@@ -16,4 +13,3 @@ def luhn_algorithm(digits):
 digits = input()
 digits = list(map(int, digits))
 print(luhn_algorithm(digits))
-```
