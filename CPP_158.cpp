@@ -1,4 +1,4 @@
-```
+```cpp
 string find_max(vector<string> words) {
     string max_word = "";
     int max_count = 0;
