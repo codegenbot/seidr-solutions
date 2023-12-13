@@ -1,18 +1,32 @@
-def calculate_bowling_score(frames):
+def calculate_score(string):
+    score = 0
+    frame = 1
+    i = 0
+    while i < len(string) and frame <= 10:
+        if string[i] == 'X':
+            score += 10
+            if i + 2 < len(string):
+                score += get_bowl_value(string[i + 1])
+                score += get_bowl_value(string[i + 2])
+            frame += 1
+        elif string[i] == '/':
+            score += 10 - get_bowl_value(string[i - 1])
+            if i + 1 < len(string):
+                score += get_bowl_value(string[i + 1])
+            frame += 1
+        else:
+            score += get_bowl_value(string[i])
+        i += 1
+    
+    return score
 
-  def get_frame_score(frame):
-    if frame == 'X':
-      return 10
-    elif '/' in frame:
-      return 10 - int(frame[0])
+def get_bowl_value(char):
+    if char == 'X':
+        return 10
+    elif char == '-':
+        return 0
     else:
-      return sum([int(char) for char in frame if char.isdigit()])
+        return int(char)
 
-  score = 0
-  for i in range(len(frames)):
-    if frames[i] == 'X':
-      score += get_frame_score(frames[i]) + get_frame_score(frames[i+1]) + get_frame_score(frames[i+2])
-    else:
-      score += get_frame_score(frames[i])
-  
-  return score
+string = input()
+print(calculate_score(string))
