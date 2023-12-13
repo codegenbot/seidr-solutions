@@ -1,40 +1,49 @@
-```python
-def bowling(score):
-    frames = []
-    frame = []
-    for char in score:
-        if char == 'X':
-            frame.append(10)
-            frames.append(frame)
-            frame = []
-        elif char == '/':
-            frame.append(10 - frame[0])
-            frames.append(frame)
-            frame = []
-        elif char == '-':
-            frame.append(0)
-        else:
-            frame.append(int(char))
-            if len(frame) == 2:
-                frames.append(frame)
-                frame = []
-    
-    total_score = 0
+def calculate_score(bowls):
+    score = 0
+    frame = 1
     i = 0
-    while i < len(frames):
-        frame = frames[i]
-        total_score += sum(frame)
-        
-        if frame[0] == 10:
-            if i + 1 < len(frames):
-                total_score += sum(frames[i + 1][:2])
-                
-                if frames[i + 1][0] == 10 and i + 2 < len(frames):
-                    total_score += frames[i + 2][0]
-        elif sum(frame) == 10 and i + 1 < len(frames):
-            total_score += frames[i + 1][0]
-        
-        i += 1
     
-    return total_score
-```
+    def get_frame_score(bowls, i):
+        score1 = 0 if bowls[i] == '-' else int(bowls[i])
+        score2 = 0 if bowls[i+1] == '-' else int(bowls[i+1])
+        return score1 + score2
+    
+    def get_strike_bonus(bowls, i):
+        bonus = 0
+        if bowls[i+2] == 'X':
+            bonus += 10
+        elif bowls[i+2] == '/':
+            bonus += 10 - int(bowls[i+1])
+        else:
+            bonus += int(bowls[i+1]) + int(bowls[i+2])
+
+        return bonus
+
+    def get_spare_bonus(bowls, i):
+        bonus = 0
+        if bowls[i+2] == 'X':
+            bonus += 10
+        else:
+            bonus += int(bowls[i+2])
+
+        return bonus
+    
+    while frame <= 10:
+        if bowls[i] == 'X':
+            score += 10
+            score += get_strike_bonus(bowls, i)
+            i += 1
+        elif bowls[i+1] == '/':
+            score += 10
+            score += get_spare_bonus(bowls, i)
+            i += 2
+        else:
+            score += get_frame_score(bowls, i)
+            i += 2
+        
+        frame += 1
+    
+    return score
+
+bowls = input()
+print(calculate_score(bowls))
