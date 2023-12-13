@@ -1,8 +1,17 @@
-numbers = list(map(int, input().split()))
+```python
+def basement(arr):
+    prefix_sum = 0
+    for i in range(len(arr)):
+        prefix_sum += arr[i]
+        if prefix_sum < 0:
+            return i
+    return -1
 
-sum_so_far = 0
-for i in range(len(numbers)):
-    sum_so_far += numbers[i]
-    if sum_so_far < 0:
-        print(i)
-        break
+
+num_cases = int(input())
+for _ in range(num_cases):
+    num_elements = int(input())
+    elements = list(map(int, input().split()))
+    result = basement(elements)
+    print(result)
+```
