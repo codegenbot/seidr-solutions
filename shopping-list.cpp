@@ -20,14 +20,18 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<float> prices(n);
+    std::vector<float> prices;
     for (int i = 0; i < n; i++) {
-        std::cin >> prices[i];
+        float price;
+        std::cin >> price;
+        prices.push_back(price);
     }
 
-    std::vector<float> discounts(n);
+    std::vector<float> discounts;
     for (int i = 0; i < n; i++) {
-        std::cin >> discounts[i];
+        float discount;
+        std::cin >> discount;
+        discounts.push_back(discount);
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
