@@ -1,9 +1,8 @@
 ```cpp
 #include <vector>
-#include <string>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices(text.length());
+    std::vector<int> indices;
     int targetLength = target.length();
     int textLength = text.length();
 
@@ -16,7 +15,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             }
         }
         if (found) {
-            indices[i] = i;
+            indices.push_back(i);
         }
     }
 
