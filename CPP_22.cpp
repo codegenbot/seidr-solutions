@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <variant>
 
-std::vector<int> filter_integers(std::vector<std::variant<int, char>> values) {
+std::vector<int> filter_integers(std::vector<std::variant<int, char>> values) { 
     std::vector<int> result;
     for (auto value : values) {
         if (std::holds_alternative<int>(value)) {
@@ -16,4 +15,3 @@ int main() {
     assert(filter_integers({std::variant<int, char>(3), std::variant<int, char>('c'), std::variant<int, char>(3), std::variant<int, char>(3), std::variant<int, char>('a'), std::variant<int, char>('b')}) == std::vector<int>({3, 3, 3}));
     return 0;
 }
-```
