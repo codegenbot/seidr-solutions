@@ -1,2 +1,2 @@
-def square_digits(num):
-    return ''.join(str(int(digit)**2) for digit in str(num)).strip('0')
+def square_digits(n):
+    return ''.join(str(d)**2 for d in str(n))
