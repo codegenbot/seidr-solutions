@@ -1,3 +1,5 @@
+import collections
+
 def mastermind(code, guess):
     black = 0
     white = 0
