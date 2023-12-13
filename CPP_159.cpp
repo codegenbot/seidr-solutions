@@ -1,17 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-vector<int> eat(int number, int need, int remaining) {
+std::vector<int> eat(int number, int need, int remaining) {
+    std::vector<int> result;
     int totalEaten = number + need;
     int left = remaining - need;
     if (left < 0) {
         left = 0;
     }
-    return {totalEaten, left};
+    result.push_back(totalEaten);
+    result.push_back(left);
+    return result;
 }
 
 int main() {
-    vector<int> output = eat(4, 5, 1);
-    cout << output[0] << " " << output[1] << endl;
+    std::vector<int> output = eat(4, 5, 1);
+    std::cout << output[0] << " " << output[1] << std::endl;
+    assert(output == std::vector<int>{5, 0});
     return 0;
 }
+```
