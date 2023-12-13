@@ -1,20 +1,18 @@
-```cpp
 #include <iostream>
-#include <iomanip>
 
 double probabilityOfPeterWinning(int n, int m) {
-    double totalOutcomes = n * m;
-    double peterWins = 0;
+    long long totalOutcomes = (n + 1) * (m + 1);
+    long long peterWins = 0;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
+    for (int i = 1; i <= n-1; i++) {
+        for (int j = 1; j <= m-1; j++) {
             if (i > j) {
                 peterWins++;
             }
         }
     }
 
-    return std::setprecision(8) << peterWins / totalOutcomes;
+    return static_cast<double>(peterWins) / totalOutcomes;
 }
 
 int main() {
@@ -26,4 +24,3 @@ int main() {
 
     return 0;
 }
-```
