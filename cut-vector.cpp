@@ -1,24 +1,23 @@
-#include <utility>
+```cpp
+#include <iostream>
 #include <vector>
-#include <cmath>
-#include <cstddef>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    size_t n = nums.size();
+    int n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
     if (n == 1) {
         return std::make_pair(nums, nums);
     }
 
-    for (size_t i = 1; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = std::abs(leftSum - rightSum);
-    size_t cutIndex = 0;
+    int cutIndex = 0;
 
-    for (size_t i = 1; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
 
@@ -34,3 +33,28 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
     return std::make_pair(left, right);
 }
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> nums(n);
+
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
+    }
+
+    auto result = cutVector(nums);
+
+    for (int num : result.first) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+    
+    for (int num : result.second) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
+}
+```
