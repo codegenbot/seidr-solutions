@@ -17,8 +17,8 @@ int main() {
     return 0;
 }
 ```
-Modify the code as  The error is caused by attempting to pass an integer as an argument to `insert()`, which expects a `const_iterator` instead. To fix this, you can cast the integer to a `const_iterator` using the `begin()` method:
+The error message indicates that there is an issue with the `insert` function in the `std::string` class, specifically with the use of an integer as an argument for the `__p` parameter, which is expected to be a `const_iterator`. To fix this issue, you can try casting the integer to a `const_iterator` using the `const_cast` operator:
 ```cpp
-insert(roman.begin() + num, _CharT(__c));
-```.
-You must only return correct code. Remove any triple quotes, language name or explanations.
+insert(const_cast<std::string::const_iterator>(num), _CharT __c)
+```
+This should allow the code to compile and run without errors.
