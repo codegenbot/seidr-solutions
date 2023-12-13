@@ -1,23 +1,15 @@
 ```
 #include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
 
-int Strongest_Extension(const vector<string>& extensions) {
-    int strength = 0;
-    for (auto& extension : extensions) {
-        if (extension.length() > strength) {
-            strength = extension.length();
-        }
-    }
-    return strength;
-}
+int Strongest_Extension(const vector<string>& extensions);
 
-int main(){
+int main() {
     const vector<string> extensions{"671235", "Bb"};
     int strength = Strongest_Extension(extensions);
     cout << strength << endl;
     return 0;
 }
 ```
+
+Explanation:
+The code is missing the necessary headers for `cout` and `endl`, which are included in `<iostream>`. Additionally, the function `Strongest_Extension` must be declared before it can be used in `main()`.
