@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -12,6 +13,7 @@ long long special_factorial(int n) {
 int main() {
     int n;
     cin >> n;
-    cout << special_factorial(n) << endl;
+    cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
+```
