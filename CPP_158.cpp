@@ -1,10 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-std::string find_max(const std::vector<std::string>& words) {
+std::string find_max(const std::vector<char>& words) {
     std::string max_word = "";
     int max_count = 0;
     for (int i = 0; i < words.size(); i++) {
@@ -26,7 +26,7 @@ std::string find_max(const std::vector<std::string>& words) {
 }
 
 int main() {
-    assert ((find_max({"play", "play", "play"}) == "play"));
+    assert ((find_max({'p', 'l', 'a', 'y'}) == "play"));
     return 0;
 }
 ```
