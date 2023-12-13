@@ -3,24 +3,23 @@
 #include <vector>
 
 int main() {
-    int n = 16;
-    std::vector<int> digits(n);
+    std::vector<int> digits(16);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < 16; i++) {
         std::cin >> digits[i];
     }
 
     int sum = 0;
-    for (int i = n - 2; i >= 0; i -= 2) {
-        int doubledDigit = 2 * digits[i];
-        if (doubledDigit > 9) {
-            doubledDigit -= 9;
+    for (int i = 16 - 1; i >= 0 + 1; i--) {
+        if (i % 2 == 0) {
+            int doubledDigit = digits[i] * 2;
+            if (doubledDigit > 9) {
+                doubledDigit -= 9;
+            }
+            sum += doubledDigit;
+        } else {
+            sum += digits[i];
         }
-        sum += doubledDigit;
-    }
-
-    for (int i = n - 1; i >= 0; i -= 2) {
-        sum += digits[i];
     }
 
     std::cout << sum << std::endl;

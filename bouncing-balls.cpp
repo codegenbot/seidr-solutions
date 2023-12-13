@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 
-double calculateBouncinessIndex(int startingHeight, int firstBounceHeight);
+double calculateBouncinessIndex(double startingHeight, double firstBounceHeight);
 
-double calculateTotalDistance(int startingHeight, int firstBounceHeight, int numBounces) {
+double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = startingHeight;
 
@@ -13,12 +14,13 @@ double calculateTotalDistance(int startingHeight, int firstBounceHeight, int num
     return totalDistance;
 }
 
-double calculateBouncinessIndex(int startingHeight, int firstBounceHeight) {
-    return static_cast<double>(firstBounceHeight) / static_cast<double>(startingHeight);
+double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
+    return firstBounceHeight / startingHeight;
 }
 
 int main() {
-    int startingHeight, firstBounceHeight, numBounces;
+    double startingHeight, firstBounceHeight;
+    int numBounces;
 
     std::cout << "Enter the starting height: ";
     std::cin >> startingHeight;
@@ -32,3 +34,4 @@ int main() {
 
     return 0;
 }
+```
