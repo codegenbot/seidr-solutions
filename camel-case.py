@@ -1,3 +1,9 @@
-def kebab_to_camel_case(string):
-    words = string.replace("-", " ").split()
-    return words[0] + ''.join(word.capitalize() for word in words[1:])
+def convert_to_camel_case(string):
+    words = string.split("-")
+    camel_case_words = [words[0]]
+    for word in words[1:]:
+        camel_case_words.append(word.capitalize())
+    return "".join(camel_case_words)
+
+input_string = input()
+print(convert_to_camel_case(input_string))

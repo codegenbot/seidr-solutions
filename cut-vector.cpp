@@ -1,4 +1,5 @@
-`pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
+```
+pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
     int leftSum = nums[0];
     int rightSum = 0;
@@ -8,15 +9,19 @@
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
 
+    if (n == 1) {
+        vector<int> leftSubvector;
+        vector<int> rightSubvector = {nums[0]};
+        return make_pair(leftSubvector, rightSubvector);
+    }
+
     for (int i = 0; i < n; i++) {
-        if (i > 0) {
-            leftSum += nums[i];
-            rightSum -= nums[i];
-            int diff = abs(leftSum - rightSum);
-            if (diff < minDiff) {
-                minDiff = diff;
-                cutIndex = i;
-            }
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
 
@@ -24,4 +29,5 @@
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
     return make_pair(leftSubvector, rightSubvector);
-}`
+}
+```
