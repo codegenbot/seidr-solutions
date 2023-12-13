@@ -4,7 +4,7 @@ using namespace std;
 
 double probabilityOfHigherRoll(int n, int m) {
     double totalOutcomes = n * m;
-    long double favorableOutcomes = 0; // fix here
+    double favorableOutcomes = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {

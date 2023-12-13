@@ -1,7 +1,5 @@
-```cpp
-#include <utility>
 #include <vector>
-#include <cmath>
+#include <utility>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
@@ -10,14 +8,14 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
-    int minDiff = std::abs(leftSum - rightSum);
+    int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
 
     for (int i = 0; i < n; i++) {
         if (i > 0) {
             leftSum += nums[i];
             rightSum -= nums[i];
-            int diff = std::abs(leftSum - rightSum);
+            int diff = abs(leftSum - rightSum);
             if (diff < minDiff) {
                 minDiff = diff;
                 cutIndex = i;
@@ -29,4 +27,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     std::vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
-}```
+}

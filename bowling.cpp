@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -21,7 +22,7 @@ int calculateScore(const std::string& input) {
             score += (input[i + 1] == 'X') ? 10 : std::isdigit(input[i + 1]) ? input[i + 1] - '0' : 0;
             bowlIndex += 2;
         } else if (std::isdigit(bowl)) {
-            score += static_cast<int>(bowl) - '0';
+            score += bowl - '0';
             if (frame < 10 && bowlIndex % 2 == 0 && bowl != '0') {
                 if (input[i + 1] == '/') {
                     score += 10 - (bowl - '0');
@@ -47,10 +48,11 @@ int calculateScore(const std::string& input) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    getline(std::cin, input);
 
     int score = calculateScore(input);
     std::cout << score << std::endl;
 
     return 0;
 }
+```
