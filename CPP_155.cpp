@@ -18,8 +18,8 @@ def even_odd_count(num: int) -> vector<int>:
     return count_even
 
 def main() -> int:
-    assert(issame(even_odd_count(0), [1, 0]));
-    assert(issame(even_odd_count(123456789), [9, 0]));
+    assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(123456789), {9, 0}));
     return 0
 [/PYTHON]
 [TESTS]
