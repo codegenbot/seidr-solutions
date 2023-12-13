@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -26,4 +25,3 @@ bool isValidDate(std::string date) {
 
     return day <= daysInMonth;
 }
-```
