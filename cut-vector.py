@@ -11,3 +11,5 @@ def cut_vector(vector):
             split_index = i
     if split_index != -1:
         return (vector[:split_index+1], vector[split_index+1:])
+    else:
+        return ([], vector)
