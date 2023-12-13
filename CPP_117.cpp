@@ -1,8 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <string>
+#include <string> // include the <string> header file
 
 using namespace std;
 
