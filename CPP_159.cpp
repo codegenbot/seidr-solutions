@@ -19,7 +19,7 @@ vector<int> eat(int number, int need, int remaining) {
 
 int main() {
     vector<int> output = eat(4, 5, 1);
-    assert(output[0] == 5 && output[1] == 0);
+    assert(issame(output, {5, 0}));
     cout << output[0] << " " << output[1] << endl;
     return 0;
 }
