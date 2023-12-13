@@ -1,3 +1,4 @@
+```python
 def max_fill(grid, capacity):
     def count_buckets(grid):
         total_buckets = 0
@@ -23,3 +24,4 @@ def max_fill(grid, capacity):
         return buckets_needed
 
     return empty_wells(grid, capacity)
+```
