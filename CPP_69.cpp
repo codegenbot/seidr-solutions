@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <vector>
 
 int search(std::vector<int> lst){
@@ -16,8 +16,4 @@ int search(std::vector<int> lst){
     }
     return maxFreq;
 }
-
-int main() {
-    std::cout << search({3, 10, 10, 9, 2}) << std::endl;
-    return 0;
-}
+```
