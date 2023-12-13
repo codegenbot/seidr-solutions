@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -14,7 +14,7 @@ bool is_consonant(char c) {
     return false;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a,vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
