@@ -10,17 +10,10 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float me
 
 int main() {
     float hours, initialSnow, snowFallRate, meltingRate;
-    std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
-    std::cout << "Enter the initial snow amount: ";
-    std::cin >> initialSnow;
-    std::cout << "Enter the snow fall rate: ";
-    std::cin >> snowFallRate;
-    std::cout << "Enter the melting rate: ";
-    std::cin >> meltingRate;
+    std::cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
 
     float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << finalSnow << std::endl;
+    std::cout << finalSnow;
 
     return 0;
 }
