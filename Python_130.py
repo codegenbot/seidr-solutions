@@ -1,3 +1,4 @@
+```python
 def tri(n):
     sequence = [3]
     if n == 0:
@@ -18,3 +19,4 @@ def tri(n):
             else:
                 sequence.append(sequence[i-1] + sequence[i-2] + sequence[i-3])
         return sequence
+```
