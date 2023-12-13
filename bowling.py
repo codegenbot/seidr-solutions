@@ -1,40 +1,32 @@
-def calculate_bowling_score(rolls):
+def calculate_score(string):
     score = 0
     frame = 1
-    roll_index = 0
-    
-    while frame <= 10:
-        if rolls[roll_index] == 'X':
+    i = 0
+    while i < len(string) and frame <= 10:
+        if string[i] == 'X':
             score += 10
-            if frame < 10:
-                if rolls[roll_index + 2] == 'X':
-                    score += 10
-                    if rolls[roll_index + 4] == 'X':
-                        score += 10
-                    else:
-                        score += int(rolls[roll_index + 4])
-                else:
-                    score += int(rolls[roll_index + 2]) + int(rolls[roll_index + 3])
-            else:
-                score += int(rolls[roll_index + 2]) + int(rolls[roll_index + 3])
-            roll_index += 1
-        elif rolls[roll_index + 1] == '/':
-            score += 10
-            if frame < 10:
-                if rolls[roll_index + 4] == 'X':
-                    score += 10
-                else:
-                    score += int(rolls[roll_index + 4])
-            else:
-                score += int(rolls[roll_index + 4])
-            roll_index += 2
+            if i + 2 < len(string):
+                score += get_bowl_value(string[i + 1])
+                score += get_bowl_value(string[i + 2])
+            frame += 1
+        elif string[i] == '/':
+            score += 10 - get_bowl_value(string[i - 1])
+            if i + 1 < len(string):
+                score += get_bowl_value(string[i + 1])
+            frame += 1
         else:
-            score += int(rolls[roll_index]) + int(rolls[roll_index + 1])
-            roll_index += 2
-        
-        frame += 1
+            score += get_bowl_value(string[i])
+        i += 1
     
     return score
 
-rolls = input()
-print(calculate_bowling_score(rolls))
+def get_bowl_value(char):
+    if char == 'X':
+        return 10
+    elif char == '-':
+        return 0
+    else:
+        return int(char)
+
+string = input()
+print(calculate_score(string))
