@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -19,3 +20,4 @@ int main() {
     cout << simplify(x, n) << endl;
     return 0;
 }
+```
