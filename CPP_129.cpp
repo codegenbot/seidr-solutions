@@ -12,6 +12,7 @@ vector<int> minPath(const vector<int>& costs, int target) {
 }
 
 int main() {
-    assert(issame(minPath({1, 3}, {3, 2}), {{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}}));
+    std::vector<int> v = {{1, 3}, {3, 2}};
+    assert(issame(minPath(v, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
 }
 ```
