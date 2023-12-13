@@ -1,3 +1,4 @@
+```python
 import collections
 
 def mastermind(code, guess):
@@ -13,3 +14,4 @@ def mastermind(code, guess):
     for color in code_count:
         white += min(code_count[color], guess_count[color])
     return white, black
+```
