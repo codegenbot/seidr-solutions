@@ -1,11 +1,12 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <cmath>
 
-int fuelCost(const std::vector<int>& nums) {
+int fuelCost(const std::vector<int>& numbers) {
     int sum = 0;
-    for (int num : nums) {
-        int result = num / 3 - 2;
+    for (int num : numbers) {
+        int result = std::floor(num / 3.0) - 2;
         sum += result;
     }
     return sum;
@@ -14,11 +15,11 @@ int fuelCost(const std::vector<int>& nums) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> nums(n);
+    std::vector<int> numbers(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        std::cin >> numbers[i];
     }
-    std::cout << fuelCost(nums) << std::endl;
+    std::cout << fuelCost(numbers) << std::endl;
     return 0;
 }
 ```
