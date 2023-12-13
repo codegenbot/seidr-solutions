@@ -1,9 +1,8 @@
 ```
 #include <cassert>
-#include <iostream>
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
+#include "/path/to/boost/any.hpp"
 
 std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
