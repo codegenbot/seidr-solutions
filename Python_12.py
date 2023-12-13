@@ -9,7 +9,6 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-input_string = input()
-input_strings = input_string.split()
+input_strings = input("Enter strings separated by space (e.g. string1 string2 string3): ").split(" ")
 result = longest(input_strings)
 print(result)
