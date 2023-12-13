@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <initializer_list>
 
 long long minSubArraySum(std::initializer_list<long long> nums){
-    std::vector<long long> numList(nums.begin(), nums.end());
+    std::vector<long long> numList(nums);
 
     long long minSum = numList[0];
     long long currentSum = numList[0];
@@ -21,3 +22,4 @@ int main(){
 
     return 0;
 }
+```
