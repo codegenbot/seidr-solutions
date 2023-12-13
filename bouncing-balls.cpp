@@ -1,9 +1,11 @@
 ```cpp
 #include <iostream>
 
-double calculateBouncinessIndex(double startingHeight, double firstBounceHeight);
+double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
+    return firstBounceHeight / startingHeight;
+}
 
-double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
+double calculateTotalDistance(double startingHeight, double firstBounceHeight, double numBounces) {
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = startingHeight;
 
@@ -14,13 +16,8 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
     return totalDistance;
 }
 
-double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
-    return firstBounceHeight / startingHeight;
-}
-
 int main() {
-    double startingHeight, firstBounceHeight;
-    int numBounces;
+    double startingHeight, firstBounceHeight, numBounces;
 
     std::cout << "Enter the starting height: ";
     std::cin >> startingHeight;
@@ -32,6 +29,7 @@ int main() {
     std::cin >> numBounces;
 
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
+    
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
 
     return 0;
