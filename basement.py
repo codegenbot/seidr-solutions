@@ -6,11 +6,8 @@ def basement(nums):
             return i
     return -1
 
-n = int(input())
-nums = []
-for _ in range(n):
-    nums.append(int(input()))
+nums = input().split()
+nums = [int(num) for num in nums]
 
 result = basement(nums)
-
 print(result)
