@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 
 int closest_integer(std::string value){
@@ -24,3 +25,4 @@ int main() {
     test_closest_integer();
     return 0;
 }
+```
