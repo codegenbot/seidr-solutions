@@ -1,12 +1,18 @@
+```
 #include <iostream>
-#include <vector>
+#include <string>
 
-int Strongest_Extension(const std::vector<std::string>& extensions);
+int Strongest_Extension(const vector<string>& extensions);
 
 int main() {
-    const std::vector<std::string> extensions{"671235", "Bb"};
-    int strength = Strongest_Extension(extensions);
-    std::cout << strength << std::endl;
+    const vector<string> extensions{"671235", "Bb"};
+    int strength = Strongest_Extension("Sp" + extensions.front());
+    cout << strength << endl;
+    return 0;
+}
+
+int Strongest_Extension(const vector<string>& extensions) {
+    // Implement the function to find the strongest extension
     return 0;
 }
 ```
