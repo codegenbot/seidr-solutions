@@ -2,32 +2,37 @@
 #include <iostream>
 #include <vector>
 
-float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    float total = 0.0;
+using namespace std;
+
+float calculateTotalPrice(vector<float>& prices, vector<float>& discounts) {
+    float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
-        float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100.0);
-        total += discountedPrice;
+        float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
+        totalPrice += discountedPrice;
     }
-    return total;
+    return totalPrice;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    
-    std::vector<float> prices(n);
+    cin >> n;
+
+    vector<float> prices(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> prices[i];
+        cin >> prices[i];
     }
-    
-    std::vector<float> discounts(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> discounts[i];
+
+    int m;
+    cin >> m;
+
+    vector<float> discounts(m);
+    for (int i = 0; i < m; i++) {
+        cin >> discounts[i];
     }
-    
-    float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << totalPrice << std::endl;
-    
+
+    float total = calculateTotalPrice(prices, discounts);
+    cout << total << endl;
+
     return 0;
 }
 ```
