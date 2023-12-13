@@ -1,6 +1,11 @@
 [PYTHON]
 def issame(a: vector<int>, b: vector<int>) -> bool:
-    return len(a) == len(b) and all(a[i] == b[i] for i in range(len(a)))
+    if len(a) != len(b):
+        return False
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            return False
+    return True
 
 def even_odd_count(num: int) -> vector<int>:
     count_even = [0, 0]
@@ -13,8 +18,8 @@ def even_odd_count(num: int) -> vector<int>:
     return count_even
 
 def main() -> int:
-    assert issame(even_odd_count(0), [1, 0])
-    assert issame(even_odd_count(123456789), [9, 0])
+    assert(issame(even_odd_count(0), [1, 0]));
+    assert(issame(even_odd_count(123456789), [9, 0]));
     return 0
 [/PYTHON]
 [TESTS]
