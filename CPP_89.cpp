@@ -15,13 +15,8 @@ string encrypt(string s){
         else if(c >= 'A' && c <= 'Z'){
             c = ((c - 'A') + (2 * 2)) % 26 + 'A';
         }
-        encrypted += c;
+        encrypted.push_back(c);
     }
     return encrypted;
-}
-
-int main(){
-    assert (encrypt("a")=="e");
-    return 0;
 }
 ```
