@@ -1,10 +1,7 @@
-```cpp
 #include <iostream>
-#include <bits/stdc++.h>
+#include <vector>
 #include <cassert>
 #include <algorithm>
-
-using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
     vector<int> result;
@@ -24,4 +21,3 @@ int main() {
     cout << output[0] << " " << output[1] << endl;
     return 0;
 }
-```
