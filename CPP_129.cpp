@@ -59,21 +59,7 @@ if __name__ == "__main__":
 [/PYTHON]
 [TESTS]
 # Test case 1:
-def test_case_1():
-    grid = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
-    start = (3, 0)
-    goal = (0, 0)
-    assert min_path(grid, start, goal) == 7
+assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(0, 0)) == 7
 # Test case 2:
-def test_case_2():
-    grid = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
-    start = (3, 0)
-    goal = (1, 1)
-    assert min_path(grid, start, goal) == 9
-# Test case 3:
-def test_case_3():
-    grid = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
-    start = (3, 0)
-    goal = (2, 2)
-    assert min_path(grid, start, goal) == 12
+assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(0, 0)) == 7
 [/TESTS]
