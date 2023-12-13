@@ -1,56 +1,40 @@
-def calculate_score(round_string):
+def calculate_bowling_score(rolls):
     score = 0
     frame = 1
-    frame_score = 0
-    strike = False
-    spare = False
-    for i in range(len(round_string)):
-        if round_string[i] == 'X':
+    roll_index = 0
+    
+    while frame <= 10:
+        if rolls[roll_index] == 'X':
             score += 10
             if frame < 10:
-                if strike:
+                if rolls[roll_index + 2] == 'X':
                     score += 10
-                if spare:
-                    score += 10
-                strike = True
-                spare = False
-                frame += 1
-        elif round_string[i] == '/':
-            score += 10 - int(round_string[i-1])
-            if frame < 10:
-                if strike:
-                    score += 10
-                if spare:
-                    score += 10
-                strike = False
-                spare = True
-                frame += 1
-        elif round_string[i] == '-':
-            frame_score = 0
-            if frame < 10:
-                if strike:
-                    score += 10
-                if spare:
-                    score += 10
-                strike = False
-                spare = False
-                frame += 1
-        else:
-            score += int(round_string[i])
-            frame_score = int(round_string[i])
-            if frame < 10:
-                if strike:
-                    score += int(round_string[i])
-                if spare:
-                    score += int(round_string[i])
-                if frame_score == 10:
-                    strike = True
-                    spare = False
+                    if rolls[roll_index + 4] == 'X':
+                        score += 10
+                    else:
+                        score += int(rolls[roll_index + 4])
                 else:
-                    strike = False
-                    spare = False
-                frame += 1
+                    score += int(rolls[roll_index + 2]) + int(rolls[roll_index + 3])
+            else:
+                score += int(rolls[roll_index + 2]) + int(rolls[roll_index + 3])
+            roll_index += 1
+        elif rolls[roll_index + 1] == '/':
+            score += 10
+            if frame < 10:
+                if rolls[roll_index + 4] == 'X':
+                    score += 10
+                else:
+                    score += int(rolls[roll_index + 4])
+            else:
+                score += int(rolls[roll_index + 4])
+            roll_index += 2
+        else:
+            score += int(rolls[roll_index]) + int(rolls[roll_index + 1])
+            roll_index += 2
+        
+        frame += 1
+    
     return score
 
-round_string = input()
-print(calculate_score(round_string))
+rolls = input()
+print(calculate_bowling_score(rolls))
