@@ -1,9 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
-int special_factorial(int n) {
+long long special_factorial(int n) {
     if (n <= 0) {
         return 1;
     } else {
@@ -11,10 +11,11 @@ int special_factorial(int n) {
     }
 }
 
-int main_cpp() {
-    int n;
+int main() {
+    string str;
     cout << "Enter a number: ";
-    cin >> n;
+    cin >> str;
+    int n = stoi(str, 0, str.length());
     cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
