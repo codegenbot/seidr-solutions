@@ -1,4 +1,8 @@
-digits = map(int, input().split())
+```python
+digits = input().split()
+
+for i in range(len(digits)):
+    digits[i] = int(digits[i])
 
 for i in range(1, len(digits), 2):
     digits[i] *= 2
@@ -7,3 +11,4 @@ for i in range(1, len(digits), 2):
 
 sum_digits = sum(digits)
 print(sum_digits)
+```
