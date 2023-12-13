@@ -1,6 +1,8 @@
+```cpp
+#include <iostream>
+#include <cassert>
 #include <string>
 #include <cmath>
-#include <cassert>
 
 int closest_integer(std::string value){
     double num = std::stod(value);
@@ -14,8 +16,13 @@ int closest_integer(std::string value){
 }
 
 int main() {
-    assert (closest_integer("0") == 0);
-    // Add more test cases if needed
+    // Tests
+    assert(closest_integer("3.4") == 3);
+    assert(closest_integer("4.6") == 5);
+    assert(closest_integer("7.0") == 7);
+
+    std::cout << "All tests passed!" << std::endl;
 
     return 0;
 }
+```
