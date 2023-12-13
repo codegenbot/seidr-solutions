@@ -1,4 +1,3 @@
-```python
 def find_leaders(arr):
     leaders = []
     max_leader = float('-inf')
@@ -10,10 +9,8 @@ def find_leaders(arr):
     
     return leaders[::-1]
 
-
 arr = list(map(int, input().split()))
 result = find_leaders(arr)
 
 for num in result:
     print(num)
-```
