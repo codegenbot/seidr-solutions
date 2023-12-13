@@ -1,7 +1,7 @@
 ```cpp
-#include <vector>
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0.0;
@@ -20,11 +20,10 @@ int main() {
         std::cin >> v1[i];
     }
 
-    int m;
-    std::cin >> m;
+    std::cin >> n;
 
-    std::vector<double> v2(m);
-    for (int i = 0; i < m; i++) {
+    std::vector<double> v2(n);
+    for (int i = 0; i < n; i++) {
         std::cin >> v2[i];
     }
 
