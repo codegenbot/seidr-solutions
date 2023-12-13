@@ -2,42 +2,66 @@
 def min_path(grid, start, goal):
     # Initialize the minimum path sum
     min_sum = float('inf')
-    # Initialize the current position as the starting position
-    current_position = start
-    # Loop until the goal position is reached or the grid is fully traversed
-    while not issame(current_position, goal) and not out_of_bounds(grid, current_position):
-        # Calculate the minimum path sum for each neighboring cell
-        for neighbor in get_neighbors(grid, current_position):
-            min_sum = min(min_sum, grid[neighbor[0]][neighbor[1]])
-        # Update the current position to the neighbor with the minimum path sum
-        current_position = get_index(grid, min_sum)
+    # Initialize the queue with the starting position
+    queue = [start]
+    # Loop until the queue is empty or the minimum path sum is found
+    while queue and min_sum == float('inf'):
+        # Get the current position from the queue
+        current_position = queue.pop(0)
+        # Get the value at the current position
+        current_value = grid[current_position[0]][current_position[1]]
+        # Check if the current position is the goal
+        if issame(current_position, goal):
+            # If the current position is the goal, update the minimum path sum
+            min_sum = current_value
+        else:
+            # If the current position is not the goal, add its neighbors to the queue
+            for neighbor in get_neighbors(grid, current_position):
+                queue.append(neighbor)
+    # Return the minimum path sum
     return min_sum
 
-def out_of_bounds(grid, position):
-    return position[0] < 0 or position[0] >= len(grid) or position[1] < 0 or position[1] >= len(grid[0])
-
 def get_neighbors(grid, position):
+    # Get the row and column of the current position
+    row, col = position
+    # Initialize an empty list to store the neighbors
     neighbors = []
-    for i in range(-1, 2):
-        for j in range(-1, 2):
-            if i != 0 or j != 0:
-                neighbor = (position[0] + i, position[1] + j)
-                if not out_of_bounds(grid, neighbor) and grid[neighbor[0]][neighbor[1]] != '#':
-                    neighbors.append(neighbor)
+    # Check if the cell to the north is valid
+    if row > 0 and grid[row - 1][col] != 'X':
+        # If the cell to the north is valid, add it to the list of neighbors
+        neighbors.append((row - 1, col))
+    # Check if the cell to the south is valid
+    if row < len(grid) - 1 and grid[row + 1][col] != 'X':
+        # If the cell to the south is valid, add it to the list of neighbors
+        neighbors.append((row + 1, col))
+    # Check if the cell to the west is valid
+    if col > 0 and grid[row][col - 1] != 'X':
+        # If the cell to the west is valid, add it to the list of neighbors
+        neighbors.append((row, col - 1))
+    # Check if the cell to the east is valid
+    if col < len(grid[0]) - 1 and grid[row][col + 1] != 'X':
+        # If the cell to the east is valid, add it to the list of neighbors
+        neighbors.append((row, col + 1))
     return neighbors
 
-def get_index(grid, position):
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if grid[i][j] == position:
-                return (i, j)
-    return None
+def issame(position1, position2):
+    return position1[0] == position2[0] and position1[1] == position2[1]
+
+def main():
+    grid = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
+    start = (3, 0)
+    goal = (0, 0)
+    result = min_path(grid, start, goal)
+    print(result)
+
+if __name__ == "__main__":
+    main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert min_path([[1, 3], [3, 2]], 10) == 11
+assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(0, 0)) == 7
 # Test case 2:
-assert min_path([[1, 3], [3, 2]], 100) == 19
+assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(1, 1)) == 9
 # Test case 3:
-assert min_path([[1, 3], [3, 2]], 1000) == 11
+assert min_path(grid=[['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']], start=(3, 0), goal=(2, 2)) == 12
 [/TESTS]
