@@ -1,4 +1,3 @@
-```python
 def match_parens(lst):
     count = -1
     for s in lst:
@@ -9,4 +8,3 @@ def match_parens(lst):
         if count <= 0:
             return 'No'
     return 'No'
-```
