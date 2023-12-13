@@ -1,20 +1,73 @@
+[PYTHON]
+def min_path(grid, start, goal):
+    # Initialize the minimum path sum
+    min_sum = float('inf')
+    # Initialize the queue with the starting position
+    queue = [start]
+    # Loop until the queue is empty or the minimum path sum is found
+    while queue and min_sum == float('inf'):
+        # Get the current position from the queue
+        current_position = queue.pop(0)
+        # Get the value at the current position
+        current_value = grid[current_position[0]][current_position[1]]
+        # Check if the current position is the goal
+        if current_position == goal:
+            # If the current position is the goal, update the minimum path sum
+            min_sum = current_value
+        else:
+            # If the current position is not the goal, add its neighbors to the queue
+            for neighbor in get_neighbors(grid, current_position):
+                queue.append(neighbor)
+    # Return the minimum path sum
+    return min_sum
 
-Answer: The problem is that you are using `free` on a pointer that was not allocated by `malloc`.
+def get_neighbors(grid, position):
+    # Get the row and column of the current position
+    row, col = position
+    # Initialize an empty list to store the neighbors
+    neighbors = []
+    # Check if the cell to the north is valid
+    if row > 0 and grid[row - 1][col] != 'X':
+        # If the cell to the north is valid, add it to the list of neighbors
+        neighbors.append((row - 1, col))
+    # Check if the cell to the south is valid
+    if row < len(grid) - 1 and grid[row + 1][col] != 'X':
+        # If the cell to the south is valid, add it to the list of neighbors
+        neighbors.append((row + 1, col))
+    # Check if the cell to the west is valid
+    if col > 0 and grid[row][col - 1] != 'X':
+        # If the cell to the west is valid, add it to the list of neighbors
+        neighbors.append((row, col - 1))
+    # Check if the cell to the east is valid
+    if col < len(grid[0]) - 1 and grid[row][col + 1] != 'X':
+        # If the cell to the east is valid, add it to the list of neighbors
+        neighbors.append((row, col + 1))
+    return neighbors
 
-The line
+def main():
+    # Initialize the grid with the starting position
+    grid = [['O', 'X', 'X', 'X', 'X'],
+            ['X', 'O', 'O', 'O', 'X'],
+            ['X', 'X', 'O', 'O', 'X'],
+            ['X', 'O', 'X', 'O', 'X'],
+            ['X', 'X', 'X', 'O', 'X']]
+    # Initialize the starting position
+    start = (0, 0)
+    # Initialize the goal position
+    goal = (len(grid[0]) - 1, len(grid) - 1)
+    # Get the minimum path sum
+    min_sum = min_path(grid, start, goal)
+    # Print the result
+    print(min_sum)
 
-\begin{code}
-char *buffer = (char *) malloc(sizeof(char) * BUFFER_SIZE);
-\end{code}
-
-allocates memory and assigns the address of the first byte to `buffer`.
-
-The line
-
-\begin{code}
-free(buffer + 1);
-\end{code}
-
-tries to free a pointer that is not the one returned by `malloc`.
-
-You should only pass to `free` pointers that were returned by `malloc`, `calloc` or `realloc`.
+if __name__ == '__main__':
+    main()
+[/PYTHON]  
+[TESTS]
+# Test case 1:
+assert min_path([['O', 'X', 'X', 'X', 'X'], ['X', 'O', 'O', 'O', 'X'], ['X', 'X', 'O', 'O', 'X'], ['X', 'O', 'X', 'O', 'X'], ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
+# Test case 2:
+assert min_path([['O', 'X', 'X', 'X', 'X'], ['X', 'O', 'O', 'O', 'X'], ['X', 'X', 'O', 'O', 'X'], ['X', 'O', 'X', 'O', 'X'], ['X', 'X', 'X', 'O', 'X']], (0, 0), (2, 4)) == 19
+# Test case 3:
+assert min_path([['O', 'X', 'X', 'X', 'X'], ['X', 'O', 'O', 'O', 'X'], ['X', 'X', 'O', 'O', 'X'], ['X', 'O', 'X', 'O', 'X'], ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
+[/TESTS]
