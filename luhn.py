@@ -1,3 +1,6 @@
+Here is the code after modification:
+
+```python
 def luhn_algorithm(digits):
     new_digits = []
     for i in range(len(digits)):
@@ -10,6 +13,7 @@ def luhn_algorithm(digits):
             new_digits.append(digits[i])
     return sum(new_digits)
 
-n = int(input())
-digits = list(map(int, input().split()))
+digits = input()
+digits = list(map(int, digits))
 print(luhn_algorithm(digits))
+```
