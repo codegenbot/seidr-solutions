@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```python
 def calculate_bowling_score(bowls):
     score = 0
     frame, ball = 1, 0
@@ -30,3 +33,4 @@ def calculate_bowling_score(bowls):
                     score += sum(frame)
 
     return score
+```
