@@ -8,5 +8,5 @@ cents %= 5
 pennies = cents
 print(quarters)
 print(dimes)
-print(nickels + (pennies // 5))
-print(pennies % 5)
+print(nickels)
+print(pennies)
