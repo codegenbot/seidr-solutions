@@ -1,4 +1,3 @@
-```
 cents = int(input())
 pennies = cents
 cents %= 1
@@ -11,4 +10,3 @@ print(quarters)
 print(dimes)
 print(nickels)
 print(pennies)
-```
