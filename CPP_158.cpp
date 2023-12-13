@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cassert>
@@ -33,4 +32,3 @@ int main() {
     assert((find_max(input_ref) == "play"));
     return 0;
 }
-```
