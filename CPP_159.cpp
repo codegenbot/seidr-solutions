@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -25,4 +24,3 @@ int main() {
     cout << output[0] << " " << output[1] << endl;
     return 0;
 }
-```
