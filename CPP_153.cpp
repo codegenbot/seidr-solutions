@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <string>
+#include <vector>
 
 int Strongest_Extension(const vector<string>& extensions);
 
@@ -15,4 +15,3 @@ int Strongest_Extension(const vector<string>& extensions) {
     // Implement the function to find the strongest extension
     return 0;
 }
-```
