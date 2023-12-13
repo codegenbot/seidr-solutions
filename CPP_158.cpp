@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,7 +8,7 @@ std::string find_max(const std::string& words) {
 }
 
 int main() {
-    assert((find_max("play") == "play"));
+    assert(find_max("play") == "play");
     return 0;
 }
 ```
