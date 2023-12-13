@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -27,13 +28,21 @@ bool isValidDate(const char* date) {
         }
     }
 
-    return day <= daysInMonth;
+    for (int i = 1; i <= daysInMonth; i++) {
+        if (i == day) return true;
+    }
+
+    return false;
 }
 
 int main() {
     string date = "04-2003";
     bool valid_date = isValidDate(date.c_str());
-    assert (valid_date == false);
-    cout << "The date is not valid." << endl;
+    if (valid_date) {
+        cout << "The date is valid." << endl;
+    } else {
+        cout << "The date is not valid." << endl;
+    }
     return 0;
 }
+```
