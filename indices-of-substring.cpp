@@ -1,13 +1,12 @@
 ```cpp
 #include <vector>
-#include <string>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices(text.length());
+    std::vector<int> indices;
     int targetLength = target.length();
     int textLength = text.length();
 
-    for (int i = 0; i <= textLength - targetLength + 1; i++) {
+    for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
         for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
@@ -16,7 +15,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             }
         }
         if (found) {
-            indices[i] = i;
+            indices.push_back(i);
         }
     }
 
