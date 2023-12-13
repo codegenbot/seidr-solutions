@@ -3,12 +3,10 @@
 #include <vector>
 
 int main() {
-    std::vector<int> digits{};
+    std::vector<int> digits(16);
 
     for (int i = 0; i < 16; i++) {
-        int digit;
-        std::cin >> digit;
-        digits.push_back(digit);
+        std::cin >> digits[i];
     }
 
     int sum = 0;
