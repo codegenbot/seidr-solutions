@@ -1,11 +1,30 @@
-#include <iostream>
-#include "strongest_extension.h" // assuming this is the header file that declares Strongest_Extension
+[PYTHON]
+def get_strongest_extension(input_string, extensions):
+    # Initialize variables
+    strongest_extension = ""
+    current_extension = ""
+    strength = 0
 
-int main() {
-    std::string result = Strongest_Extension("Sp", {'671235', 'Bb'});
-    if (result != "Sp.671235") {
-        std::cout << "Error: expected output was not returned." << std::endl;
-        return 1;
-    }
-    return 0;
-}
+    # Iterate through the input string
+    for i in range(len(input_string)):
+        # Check if the current character is a dot
+        if input_string[i] == ".":
+            # If it is a dot, update the current extension
+            current_extension = input_string[i + 1:]
+            # Calculate the strength of the current extension
+            strength = len(current_extension)
+            # Check if the strength is greater than the previous strongest extension
+            if strength > len(strongest_extension):
+                # If it is, update the strongest extension
+                strongest_extension = current_extension
+
+    return strongest_extension
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_strongest_extension("Sp", ['671235', 'Bb']) == "Sp.671235"
+# Test case 2:
+assert get_strongest_extension("Sp", ['671235', 'Bb', 'Cc']) == "Sp.671235"
+# Test case 3:
+assert get_strongest_extension("Sp", ['671235', 'Bb', 'Cc', 'Dd']) == "Sp.671235"
+[/TESTS]
