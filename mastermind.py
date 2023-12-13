@@ -20,11 +20,9 @@ def mastermind(code: str, guess: str) -> Tuple[int, int]:
     return white_pegs, black_pegs
 
 
-# Read input from user
 code = input("Enter the code: ")
 guess = input("Enter your guess: ")
 
-# Call mastermind function and print the result
 result = mastermind(code, guess)
 print("White pegs:", result[0])
 print("Black pegs:", result[1])
