@@ -1,9 +1,7 @@
-```
-#include <iostream>
-#include <string>
+```cpp
 #include <cmath>
 
-int closest_integer(std::string value){
+int closest_integer(const char* value){
     double num = std::stod(value);
     int floor_num = std::floor(num);
     int ceil_num = std::ceil(num);
@@ -15,12 +13,12 @@ int closest_integer(std::string value){
 }
 
 int main() {
-    std::cout << closest_integer("0") << std::endl;
-    std::cout << closest_integer("1.4") << std::endl;
-    std::cout << closest_integer("2.6") << std::endl;
-    std::cout << closest_integer("-4.5") << std::endl;
-    std::cout << closest_integer("10.1") << std::endl;
-    std::cout << closest_integer("-10.9") << std::endl;
+    closest_integer("0");
+    closest_integer("1.4");
+    closest_integer("2.6");
+    closest_integer("-4.5");
+    closest_integer("10.1");
+    closest_integer("-10.9");
 
     return 0;
 }
