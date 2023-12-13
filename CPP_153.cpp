@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,9 +29,8 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
 }
 
 int main() {
-    std::vector<std::string> extensions{"671235", "Bb"};
+    std::vector<std::string> extensions = { "671235", "Bb" }; 
     assert(Strongest_Extension("Sp", extensions) == "Sp.671235");
 
     return 0;
 }
-```
