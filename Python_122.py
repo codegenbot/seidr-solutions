@@ -1,4 +1,3 @@
 def add_elements(arr, k):
-    if len(arr) < k:
-        return 0
-    return sum([x for x in arr[:k] if x >= 10 and x <= 99])
+    filtered_arr = [x for x in arr if (x >= 10 and x <= 100) or (x >= 200 and x <= 299)]
+    return filtered_arr[k-1] if k <= len(filtered_arr) else None
