@@ -1,29 +1,32 @@
 ```python
-def calculate_score(bowls):
-    score = 0
-    frames = []
-    frame_index = 0
-    
-    for bowl in bowls:
-        if bowl == "X":
-            frames.append((10, 0))
-        elif bowl == "/":
-            frames[frame_index] = (frames[frame_index][0], 10 - frames[frame_index][0])
-        elif bowl == "-":
-            frames.append((0, 0))
-        else:
-            frames.append((int(bowl), 0))
-        
-        if frame_index > 0 and frames[frame_index - 1][0] == 10:
-            frames[frame_index - 1] = (10 + frames[frame_index][0] + frames[frame_index][1], frames[frame_index][0])
-        
-        if frame_index > 1 and frames[frame_index - 2][0] == 10 and frames[frame_index - 1][0] == 10:
-            frames[frame_index - 2] = (20 + frames[frame_index][0] + frames[frame_index][1], frames[frame_index][0])
-        
-        frame_index += 1
-        
-        if frame_index == 10:
+def bowling(score):
+    total_score = 0
+    frame = 0
+    roll = 0
+
+    for char in score:
+        if char.isdigit():
+            total_score += int(char)
+            roll += 1
+            if roll == 2 or total_score == 10:
+                roll = 0
+                frame += 1
+        elif char == 'X':
+            total_score += 10
+            roll = 0
+            frame += 1
+        elif char == '/':
+            total_score += 10 - int(score[roll-1])
+            roll = 0
+            frame += 1
+        elif char == '-':
+            roll += 1
+            if roll == 2:
+                roll = 0
+                frame += 1
+
+        if frame == 10:  # Reached the end of the game
             break
-    
-    return sum(frame[0] + frame[1] for frame in frames)
+
+    return total_score
 ```
