@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,3 +21,4 @@ int do_algebra(vector<string> ops, vector<int> operands) {
     }
     return result;
 }
+```
