@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 vector<int> even_odd_count(int num){
@@ -5,7 +6,7 @@ vector<int> even_odd_count(int num){
     int oddCount = 0;
     int digit;
     num = abs(num);
-    
+
     while(num > 0){
         digit = num % 10;
         if(digit % 2 == 0){
@@ -16,7 +17,7 @@ vector<int> even_odd_count(int num){
         }
         num = num / 10;
     }
-    
+
     vector<int> result = {evenCount, oddCount};
     return result;
 }
@@ -25,3 +26,4 @@ int main(){
     // Add your test cases here
     return 0;
 }
+```
