@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -28,3 +29,4 @@ int main() {
     // Add more test cases here
     return 0;
 }
+```
