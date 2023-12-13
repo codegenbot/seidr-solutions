@@ -1,6 +1,7 @@
 ```
 #include <iostream>
 #include <string>
+#include <cstring>
 using namespace std;
 
 long long special_factorial(int n) {
@@ -11,7 +12,7 @@ long long special_factorial(int n) {
     }
 }
 
-int main() {
+int main(void) {
     string str = "The Brazilian factorial of ";
     int n = stoi(str, 0, str.length());
     cout << "The Brazilian factorial of " << n << " is: " << special_factorial(n) << endl;
