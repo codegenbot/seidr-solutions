@@ -29,7 +29,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     };
     
     // Function to DFS search for minimum path
-    std::function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
+    function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
         path.push_back(grid[x][y]);
         visited[x][y] = true;
         
