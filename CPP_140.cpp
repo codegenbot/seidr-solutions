@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -12,9 +11,9 @@ string fix_spaces(string text) {
         if (text[i] == ' ') {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
-                result.insert(result.end(), '-');
+                result += '-';
             } else {
-                result.insert(result.end(), '_');
+                result += '_';
             }
         } else {
             result += text[i];
@@ -35,4 +34,3 @@ int main() {
 
     return 0;
 }
-```
