@@ -1,5 +1,7 @@
-
 [PYTHON]
+def issame(a, b):
+    return a[0] == b[0] and a[1] == b[1]
+
 def min_path(grid, start, goal):
     # Initialize the minimum path sum
     min_sum = float('inf')
@@ -12,7 +14,7 @@ def min_path(grid, start, goal):
         # Get the value at the current position
         current_value = grid[current_position[0]][current_position[1]]
         # Check if the current position is the goal
-        if current_position == goal:
+        if issame(current_position, goal):
             # If the current position is the goal, update the minimum path sum
             min_sum = current_value
         else:
@@ -46,17 +48,24 @@ def get_neighbors(grid, position):
     return neighbors
 
 def main():
-    # Initialize the grid with the starting position
-    grid = [['O', 'X', 'X', 'X', 'X'],
-            ['X', 'O', 'O', 'O', 'X'],
-            ['X', 'X', 'O', 'O', 'X'],
-            ['X', 'O', 'X', 'O', 'X'],
-            ['X', 'X', 'X', 'O', 'X']]
-    start = (0, 0)
-    goal = (len(grid[0]) - 1, len(grid) - 1)
-    # Call the min_path function to find the minimum path sum
+    grid = [
+        ['X', 'X', 'X', 'X'],
+        ['X', 'O', 'O', 'X'],
+        ['X', 'X', 'O', 'X'],
+        ['X', 'O', 'X', 'X']
+    ]
+    start = (3, 0)
+    goal = (0, 0)
     result = min_path(grid, start, goal)
-    # Print the result
     print(result)
 
 main()
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert min_path(grid, start, goal) == 11
+# Test case 2:
+assert min_path(grid, start, goal) == 19
+# Test case 3:
+assert min_path(grid, start, goal) == 11
+[/TESTS]
