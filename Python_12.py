@@ -1,4 +1,3 @@
-```python
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -14,4 +13,3 @@ input_string = input()
 input_strings = input_string.split()
 result = longest(input_strings)
 print(result)
-```
