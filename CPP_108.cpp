@@ -21,10 +21,10 @@ int count_nums(std::vector<int> n){
 
 int main(){
     assert (count_nums({1}) == 1);
-    assert (count_nums({-5, 10, 100, -15}) == 4);
-    assert (count_nums({0, 0, 0, 0}) == 0);
-    assert (count_nums({7, 8, 9, -7}) == 4);
-    assert (count_nums({-10, -20, -30, -40}) == 4);
+    assert (count_nums({11, 22, -33, 44}) == 4);
+    assert (count_nums({0, -5, 10, 20, -30}) == 4);
+    assert (count_nums({}) == 0);
+    assert (count_nums({-1, -2, -3}) == 3);
     return 0;
 }
 ```
