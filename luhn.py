@@ -1,3 +1,12 @@
-digits = list(map(int, input().split()))
-sum_digits = sum([(x * 2 - 9 if x > 4 else x * 2) if i % 2 == 1 else x for i, x in enumerate(digits)])
+digits = input().split()[:16]
+
+sum_digits = 0
+for i in range(len(digits)):
+    digit = int(digits[i])
+    if i % 2 == 1:
+        digit *= 2
+        if digit > 9:
+            digit -= 9
+    sum_digits += digit
+
 print(sum_digits)
