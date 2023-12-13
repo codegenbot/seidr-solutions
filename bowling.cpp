@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -49,10 +50,11 @@ int scoreOfRound(const std::string& round) {
 
 int main() {
     std::string round;
-    std::getline(std::cin, round, '\n');
+    std::cin >> round;
 
     int score = scoreOfRound(round);
     std::cout << score << std::endl;
 
     return 0;
 }
+```

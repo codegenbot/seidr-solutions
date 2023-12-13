@@ -3,7 +3,7 @@
 #include <vector>
 
 int main() {
-    std::vector<int> digits(16);
+    std::vector<int> digits(16, 0);
 
     for (int i = 0; i < 16; i++) {
         std::cin >> digits[i];
@@ -17,7 +17,8 @@ int main() {
                 doubledDigit -= 9;
             }
             sum += doubledDigit;
-        } else {
+        }
+        else {
             sum += digits[i];
         }
     }
