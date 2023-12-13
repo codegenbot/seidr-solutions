@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-long long minSubArraySum(std::vector<long long> nums){
+long long minSubArraySum(vector<long long> nums){
     long long minSum = nums[0];
     long long currentSum = nums[0];
 
@@ -20,4 +19,3 @@ int main(){
 
     return 0;
 }
-```
