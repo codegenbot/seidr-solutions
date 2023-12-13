@@ -22,14 +22,12 @@ def calculate_bowling_score(bowls):
             frames[frame-1].append(int(bowl))
             ball += 1
 
-    for index in range(9):
-        frame = frames[index]
-        if sum(frame) == 10:
-            if len(frame) == 1:
-                if frames[index+1]:
-                    score += sum(frame) + sum(frames[index+1][:2])
-            else:
+    for index, frame in enumerate(frames):
+        if index < 9:
+            if len(frame) == 1 and sum(frame) == 10 and index != 9:
                 score += sum(frame) + frames[index+1][0]
+            else:
+                score += sum(frame)
         else:
             score += sum(frame)
 
