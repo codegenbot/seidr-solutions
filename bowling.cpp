@@ -40,11 +40,10 @@ int calculateScore(const std::string& input) {
 
 int main() {
     std::string input;
-    std::cout << "Enter the string representing the individual bowls: ";
     std::getline(std::cin, input);
 
     int score = calculateScore(input);
-    std::cout << "The score of the round is: " << score << std::endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
