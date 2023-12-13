@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -18,7 +19,7 @@ bool monotonic(std::vector<float> l){
 }
 
 int main() {
-    // Test the monotonic function
     assert(monotonic(std::vector<float>{9, 9, 9, 9}) == true);
     return 0;
 }
+```
