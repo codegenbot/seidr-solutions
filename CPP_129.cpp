@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <functional>
 #include <algorithm>
