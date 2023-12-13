@@ -12,16 +12,17 @@ int main() {
     }
 
     int sum = 0;
-    for (int i = 14; i >= 0; i -= 2) {
-        int doubledDigit = digits[i] * 2;
-        if (doubledDigit > 9) {
-            doubledDigit -= 9;
-        }
-        sum += doubledDigit;
-    }
+    for (int i = 0; i < 16; i++) {
+        int newDigit = digits[i];
 
-    for (int i = 15; i >= 0; i -= 2) {
-        sum += digits[i];
+        if (i % 2 == 1) {
+            newDigit *= 2;
+            if (newDigit > 9) {
+                newDigit -= 9;
+            }
+        }
+
+        sum += newDigit;
     }
 
     std::cout << sum << std::endl;
