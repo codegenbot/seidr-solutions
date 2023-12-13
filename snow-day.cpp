@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,7 +5,7 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float me
     float snow = initialSnow;
     for(int i = 0; i < hours; i++) {
         snow += snowFallRate;
-        snow -= initialSnow * meltingRate;
+        snow -= snow * meltingRate;
     }
     return snow;
 }
@@ -18,4 +17,3 @@ int main() {
     cout << finalSnow << endl;
     return 0;
 }
-```
