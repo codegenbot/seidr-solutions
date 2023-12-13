@@ -1,41 +1,12 @@
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <sstream>
-
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
-
-bool isValidDate(const char* date) {
-    int month, day, year;
-    char delimiter = '-';
-    stringstream ss(date);
-    ss >> month >> delimiter >> day >> delimiter >> year;
-
-    if (month < 1 || month > 12) return false;
-    if (day < 1 || day > 31) return false;
-    if (year < 0) return false;
-
-    int daysInMonth = 31;
-    if (month == 2) {
-        daysInMonth = 28;
-        if (year % 4 == 0) {
-            daysInMonth = 29;
-        }
-    }
-
-    return day <= daysInMonth;
-}
-
-int main() {
-    string date = "04-2003";
-    bool valid_date = isValidDate(date.c_str());
-    if (valid_date == false) {
-        cout << "The date is not valid." << endl;
-    } else {
-        cout << "The date is valid." << endl;
-    }
-    return 0;
-}
+[PYTHON]
+def get_unique_elements(my_list):
+    return list(set(my_list))
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_unique_elements([]) == []
+# Test case 2:
+assert get_unique_elements([1]) == [1]
+# Test case 3:
+assert get_unique_elements([1, 2, 3, 2, 1]) == [1, 2, 3]
+[/TESTS]
