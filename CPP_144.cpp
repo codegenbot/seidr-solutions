@@ -11,7 +11,7 @@ bool simplify(string x, string n) {
     int numeratorN = stoi(n.substr(0, n.find("/")));
     int denominatorN = stoi(n.substr(n.find("/") + 1));
 
-    return (numeratorX * numeratorN) / denominatorX == 0 && (denominatorX * denominatorN) / denominatorN == 0;
+    return numeratorX * numeratorN == 0 && denominatorX * denominatorN == 0;
 }
 
 int main() {
