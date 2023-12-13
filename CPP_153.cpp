@@ -2,11 +2,13 @@
 #include <vector>
 #include <cassert>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
-    std::string strongest_extension = "";
+using namespace std;
+
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = "";
     int max_strength = INT_MIN;
 
-    for (std::string extension : extensions) {
+    for (string extension : extensions) {
         int cap_count = 0;
         int sm_count = 0;
 
@@ -19,11 +21,11 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
         }
 
         int strength = cap_count - sm_count;
+
         if (strength > max_strength) {
             max_strength = strength;
             strongest_extension = extension;
         }
     }
-
     return class_name + "." + strongest_extension;
 }
