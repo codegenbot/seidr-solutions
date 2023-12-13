@@ -1,10 +1,10 @@
 ```cpp
 #include <iostream>
-#include <string>
+#include <string.h>
 using namespace std;
 
 string middleCharacter(string str) {
-    int len = str.length();
+    int len = str.size();
     if (len % 2 == 1) {
         return string(1, str[len/2]);
     } else {
