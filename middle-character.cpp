@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 std::string middleCharacter(std::string str) {
     int len = str.length();
@@ -15,7 +15,6 @@ std::string middleCharacter(std::string str) {
 int main() {
     std::string input;
     std::cin >> input;
-    std::cout << middleCharacter(input) << std::endl;
+    std::cout << std::setw(1) << middleCharacter(input) << std::endl;
     return 0;
 }
-```
