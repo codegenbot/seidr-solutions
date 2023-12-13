@@ -1,9 +1,9 @@
-```
-string find_max(vector<string> words) {
+```cpp
+string find_max(const vector<string>& words) {
     string max_word = "";
     int max_count = 0;
     for (int i = 0; i < words.size(); i++) {
-        string word = words[i];
+        const string& word = words[i];
         int count = 0;
         for (int j = 0; j < word.length(); j++) {
             if (word[j] != ' ') {
