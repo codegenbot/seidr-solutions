@@ -1,14 +1,15 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int main() {
-    std::string digits;
-    std::cin >> digits;
+    std::string input;
+    std::cin >> input;
 
     int sum = 0;
-    for (int i = 0; i < digits.length() - 1; i++) {
-        if (digits[i] == digits[i + 1]) {
-            sum += digits[i] - '0';
+    for (int i = 0; i < input.length() - 1; i++) {
+        if (input[i] == input[i + 1]) {
+            sum += input[i] - '0';
         }
     }
 
@@ -16,3 +17,4 @@ int main() {
 
     return 0;
 }
+```
