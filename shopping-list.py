@@ -1,6 +1,9 @@
-n = int(input())
+n = len(input().split())
 prices = list(map(float, input().split()))
 discounts = list(map(float, input().split()))
 
-total_price = sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
-print(round(total_price, 2))
+if len(prices) != len(discounts):
+    print("Error: The lengths of prices and discounts should be the same.")
+else:
+    total_price = sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
+    print(total_price)
