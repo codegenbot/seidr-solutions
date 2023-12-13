@@ -1,9 +1,9 @@
-```
-#include <iostream>
+```cpp
 #include <utility>
 #include <vector>
 #include <cmath>
 #include <cstddef>
+#include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     size_t n = nums.size();
@@ -38,33 +38,24 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 }
 
 int main() {
-    int n;
-    std::vector<int> nums;
-
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-
-    std::cout << "Enter " << n << " positive integers: ";
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
+    std::vector<int> inputVector;
+    int num;
+    while (std::cin >> num) {
+        inputVector.push_back(num);
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(inputVector);
 
     std::cout << "Left subvector: ";
-    for (const auto& num : result.first) {
+    for (int num : result.first) {
         std::cout << num << " ";
     }
-
     std::cout << std::endl;
 
     std::cout << "Right subvector: ";
-    for (const auto& num : result.second) {
+    for (int num : result.second) {
         std::cout << num << " ";
     }
-
     std::cout << std::endl;
 
     return 0;
