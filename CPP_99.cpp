@@ -1,14 +1,13 @@
-```
+```cpp
 #include <iostream>
-#include <cmath>
+#include <cassert>
 #include <string>
+#include <cmath>
 
-using namespace std;
-
-int closest_integer(string value) {
-    double num = stod(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
+int closest_integer(std::string value){
+    double num = std::stod(value);
+    int floor_num = std::floor(num);
+    int ceil_num = std::ceil(num);
     if (num - floor_num < ceil_num - num) {
         return floor_num;
     } else {
@@ -17,10 +16,13 @@ int closest_integer(string value) {
 }
 
 int main() {
-    string value;
-    cin >> value;
-    int closestNum = closest_integer(value);
-    cout << closestNum << endl;
+    // Tests
+    assert(closest_integer("3.4") == 3);
+    assert(closest_integer("4.6") == 5);
+    assert(closest_integer("7.0") == 7);
+
+    std::cout << "All tests passed!" << std::endl;
+
     return 0;
 }
 ```
