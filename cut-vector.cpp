@@ -1,4 +1,3 @@
-```cpp
 #include <utility>
 #include <vector>
 
@@ -29,4 +28,3 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
 
     return make_pair(leftSubvector, rightSubvector);
 }
-```
