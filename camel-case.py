@@ -1,15 +1,8 @@
-s = input()
-words = s.split()
-output = ""
-for word in words:
-    if "-" in word:
-        parts = word.split("-")
-        for i in range(len(parts)):
-            if i == 0:
-                output += parts[i]
-            else:
-                output += parts[i].capitalize()
-    else:
-        output += word
-    output += " "
-print(output.strip())
+def kebab_to_camel_case(string):
+    words = string.split("-")
+    camel_case_words = [words[0]] + [word.capitalize() for word in words[1:]]
+    return "".join(camel_case_words)
+
+input_string = input()
+output_string = kebab_to_camel_case(input_string)
+print(output_string)
