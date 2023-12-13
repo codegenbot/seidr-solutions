@@ -1,8 +1,6 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
-#include <limits>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
@@ -36,4 +34,3 @@ int main() {
   
     return 0;
 }
-```
