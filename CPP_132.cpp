@@ -14,6 +14,7 @@ bool is_nested(string str) {
     return count % 2 == 1;
 }
 
+// Remove the second definition of main()
 int main() {
     string str = "[[]]]]]]][[[[[]";
     cout << is_nested(str) << endl;
