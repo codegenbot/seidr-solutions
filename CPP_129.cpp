@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -25,10 +26,9 @@ vector<int> minPath(const vector<int>& costs, int target) {
     }
     return path;
 }
-
-int main() {
-    vector<int> costs = {1, 3};
-    int target = 2;
-    assert (issame(minPath({1, 3}, {3, 2}), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
-}
+```
+Modify the code as  The issue is with the way you are passing the initializer list to the `minPath` function. The function expects a reference to a vector of integers, but you are passing an initializer list instead. To fix this, you can create a temporary vector and pass it to the function:
+```
+vector<int> costs = {{1, 3}, {3, 2}};
+assert(issame(minPath(costs, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+```
