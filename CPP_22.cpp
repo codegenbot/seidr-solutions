@@ -1,7 +1,10 @@
-```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
+
+bool issame(boost::any a, boost::any b){
+    return a == b;
+}
 
 std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
@@ -12,4 +15,3 @@ std::vector<int> filter_integers(std::list<boost::any> values){
     }
     return result;
 }
-```
