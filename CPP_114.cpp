@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 long long minSubArraySum(std::vector<long long> nums){
