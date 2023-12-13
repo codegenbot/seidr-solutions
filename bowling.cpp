@@ -52,7 +52,7 @@ int calculateScore(const std::string& input) {
 
 int main() {
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
 
     int score = calculateScore(input);
     std::cout << score << std::endl;
