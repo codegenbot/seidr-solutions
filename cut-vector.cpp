@@ -1,3 +1,6 @@
+```
+#include <vector>
+
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     size_t i;
     size_t cutIndex = 0;
@@ -38,3 +41,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
     return std::make_pair(left, right);
 }
+```
