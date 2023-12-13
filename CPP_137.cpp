@@ -1,61 +1,64 @@
-```
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <variant>
-using namespace std;
+[PYTHON]
+def compare_one(a: boost::any, b: boost::any) -> std::string:
+    if a.index() == 0:
+        x = get<0>(a)
+        if b.index() == 1:
+            y = get<1>(b)
+            return to_string((x > y) ? a : b)
+        elif b.index() == 2:
+            s = get<2>(b)
+            try:
+                y = stof(s)
+                return to_string((x > y) ? a : b)
+            except invalid_argument as e:
+                return "None"
+        else:
+            return "None"
+    elif a.index() == 1:
+        x = get<1>(a)
+        if b.index() == 0:
+            y = get<0>(b)
+            return to_string((x > y) ? a : b)
+        elif b.index() == 2:
+            s = get<2>(b)
+            try:
+                y = stof(s)
+                return to_string((x > y) ? a : b)
+            except invalid_argument as e:
+                return "None"
+        else:
+            return "None"
+    elif a.index() == 2:
+        s = get<2>(a)
+        try:
+            x = stof(s)
+            if b.index() == 0:
+                y = get<0>(b)
+                return to_string((x > y) ? a : b)
+            elif b.index() == 1:
+                y = get<1>(b)
+                return to_string((x > y) ? a : b)
+            else:
+                return "None"
+        except invalid_argument as e:
+            return "None"
+    else:
+        return "None"
 
-std::variant<int, float, string> compare_one(std::variant<int, float, string> a, std::variant<int, float, string> b) {
-    if (a.index() == 0) {
-        int x = get<0>(a);
-        if (b.index() == 1) {
-            float y = get<1>(b);
-            return (x > y) ? a : b;
-        } else if (b.index() == 2) {
-            string s = get<2>(b);
-            try {
-                float y = stof(s);
-                return (x > y) ? a : b;
-            } catch (const invalid_argument& e) {
-                return "None";
-            }
-        } else {
-            return "None";
-        }
-    } else if (a.index() == 1) {
-        float x = get<1>(a);
-        if (b.index() == 0) {
-            int y = get<0>(b);
-            return (x > y) ? a : b;
-        } else if (b.index() == 2) {
-            string s = get<2>(b);
-            try {
-                float y = stof(s);
-                return (x > y) ? a : b;
-            } catch (const invalid_argument& e) {
-                return "None";
-            }
-        } else {
-            return "None";
-        }
-    } else if (a.index() == 2) {
-        string s = get<2>(a);
-        try {
-            float x = stof(s);
-            if (b.index() == 0) {
-                int y = get<0>(b);
-                return (x > y) ? a : b;
-            } else if (b.index() == 1) {
-                float y = get<1>(b);
-                return (x > y) ? a : b;
-            } else {
-                return "None";
-            }
-        } catch (const invalid_argument& e) {
-            return "None";
-        }
-    } else {
-        return "None";
-    }
-}
-```
+def main():
+    a = boost::any(10)
+    b = boost::any(2.5)
+    c = compare_one(a, b)
+    assert equal_to(c, "2.5")
+    print("Success!")
+
+main()
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert compare_one(boost::any(10), boost::any(2.5)) == "2.5"
+# Test case 2:
+assert compare_one(boost::any(2.5), boost::any(10)) == "10"
+# Test case 3:
+assert compare_one(boost::any("hello"), boost::any("world")) == "world"
+[/TESTS]
