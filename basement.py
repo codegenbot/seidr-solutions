@@ -1,21 +1,12 @@
-```python
-def first_negative_index(vec):
-    cumulative_sum = 0
-    index = 0
-    for i in range(len(vec)):
-        cumulative_sum += vec[i]
-        if cumulative_sum < 0:
-            return index
-        index += 1
+def find_negative_sum_index(nums):
+    total_sum = 0
+    for i in range(len(nums)):
+        total_sum += nums[i]
+        if total_sum < 0:
+            return i
     return -1
 
-# Read input from user
 n = int(input())
-vec = []
-for _ in range(n):
-    vec.append(int(input()))
-
-# Call the function and print the result
-result = first_negative_index(vec)
+nums = [int(input()) for _ in range(n)]
+result = find_negative_sum_index(nums)
 print(result)
-```
