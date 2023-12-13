@@ -1,11 +1,10 @@
 ```cpp
 #include <cassert>
 #include <vector>
-#include <initializer_list>
 #include <variant>
 #include <algorithm>
 
-std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>&> values) {
+std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>> values) {
     std::vector<int> result;
     for (auto value : values) {
         if (std::holds_alternative<int>(value)) {
