@@ -1,23 +1,21 @@
 
-
 <<REPL>>
-import os
 import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 def main():
-    cents = int(input())
-    quarters = cents // 25
-    cents %= 25
-    dimes = cents // 10
-    cents %= 10
-    nickles = cents // 5
-    pennies = cents
+    # input = sys.stdin.read()
+    # input = input.split('\n')
+    # numCents = int(input[0])
+    numCents = 5
+    quarters, dimes, nickles, pennies = 0, 0, 0, 0
+    if numCents >= 25:
+        quarters = numCents // 25
+        numCents -= quarters * 25
+    if numCents >= 10:
+        dimes = numCents // 10
+        numCents -= dimes * 10
+    if numCents >= 5:
+        nickles = numCents // 5
+        numCents -= nickles * 5
+    pennies = numCents
     print(quarters, dimes, nickles, pennies)
-main()
 <<REPL>>
