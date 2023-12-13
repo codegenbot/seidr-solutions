@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 float calculateSnow(float hours, float currentSnow, float snowFallRate, float meltingRate) {
     for (int i = 0; i <= hours; i++) {
         currentSnow += snowFallRate;
-        currentSnow -= currentSnow * meltingRate * snowFallRate;
+        currentSnow -= currentSnow * (1 - meltingRate);
     }
-    return currentSnow;
+    return round(currentSnow * 100) / 100;
 }
 
 int main() {
@@ -17,4 +16,3 @@ int main() {
     cout << finalSnow << endl;
     return 0;
 }
-```
