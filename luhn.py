@@ -1,3 +1,4 @@
+```python
 digits = input().split()[:16]
 
 for i in range(len(digits)):
@@ -10,3 +11,4 @@ for i in range(0, len(digits), 2):
 
 sum_digits = sum(digits)
 print(sum_digits)
+```
