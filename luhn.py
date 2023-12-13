@@ -1,12 +1,12 @@
-digits = input().split()[:16]
+digits = input()
 
+sum_digits = 0
 for i in range(len(digits)):
-    digits[i] = int(digits[i])
+    digit = int(digits[i])
+    if i % 2 == 1:
+        digit *= 2
+        if digit > 9:
+            digit -= 9
+    sum_digits += digit
 
-for i in range(1, len(digits), 2):
-    digits[i] = digits[i] * 2
-    if digits[i] > 9:
-        digits[i] -= 9
-
-sum_digits = sum(digits)
 print(sum_digits)
