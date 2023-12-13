@@ -9,10 +9,10 @@ using std::cin;
 using std::endl;
 using std::string;
 
-bool isValidDate(const char* date) {
+int isValidDate(const char* date) {
     int month, day, year;
     char delimiter = '-';
-    stringstream ss(date);
+    std::stringstream ss(date);
     ss >> month >> delimiter >> day >> delimiter >> year;
 
     if (month < 1 || month > 12) return false;
@@ -32,7 +32,7 @@ bool isValidDate(const char* date) {
 
 int main() {
     string date = "04-2003";
-    bool valid_date = isValidDate(date.c_str());
+    int valid_date = isValidDate(date.c_str());
     if (valid_date == false) {
         cout << "The date is not valid." << endl;
     } else {
