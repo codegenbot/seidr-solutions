@@ -1,40 +1,27 @@
-```
-#include <iostream>
-#include <vector>
+[PYTHON]
+def issame(a, b):
+    if len(a) != len(b):
+        return False
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            return False
+    return True
 
-bool issame(std::vector<int> a, std::vector<int> b);
-std::vector<int> even_odd_count(int num);
-
-int main() {
-    if (issame(even_odd_count(0), {1, 0}) && issame(even_odd_count(123456789), {9, 0})) {
-        return 0;
-    } else {
-        return 1;
-    }
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> count_even = {0, 0};
-    while (num > 0) {
-        if (num % 2 == 0) {
-            count_even[0]++;
-        } else {
-            count_even[1]++;
-        }
-        num /= 10;
-    }
-    return count_even;
-}
-```
+def even_odd_count(num):
+    count_even = [0, 0]
+    while num > 0:
+        if num % 2 == 0:
+            count_even[0] += 1
+        else:
+            count_even[1] += 1
+        num //= 10
+    return count_even
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert issame([], [])
+# Test case 2:
+assert issame([1, 2, 3], [1, 2, 3])
+# Test case 3:
+assert not issame([1, 2, 3], [1, 2, 4])
+[/TESTS]
