@@ -2,11 +2,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib>
 
-std::vector<int> even_odd_count(int num){
+vector<int> even_odd_count(int num){
     int even_count = 0;
     int odd_count = 0;
-    std::string str_num = std::to_string(std::abs(num));
+    string str_num = to_string(abs(num));
     
     for(int i = 0; i < str_num.length(); i++){
         int digit = str_num[i] - '0';
@@ -17,10 +18,10 @@ std::vector<int> even_odd_count(int num){
         }
     }
     
-    return std::vector<int>{even_count, odd_count};
+    return vector<int>{even_count, odd_count};
 }
 
-bool compare_vectors(std::vector<int> a, std::vector<int> b){
+bool compare_vectors(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -35,13 +36,13 @@ bool compare_vectors(std::vector<int> a, std::vector<int> b){
 }
 
 int main(){
-    std::vector<int> expected = {0, 1};
-    std::vector<int> result = even_odd_count(0);
+    vector<int> expected = {1, 0};
+    vector<int> result = even_odd_count(0);
     
     if(compare_vectors(expected, result)){
-        std::cout << "Test case passed." << std::endl;
-    } else {
-        std::cout << "Test case failed." << std::endl;
+        cout << "Test case passed." << endl;
+    }else{
+        cout << "Test case failed." << endl;
     }
     
     return 0;
