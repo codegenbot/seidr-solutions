@@ -23,5 +23,5 @@ def calculate_bowling_score(bowls):
         if sum(frame) < 10:
             if index < 9:
                 score += sum(frame)
-    
+
     return score + sum(sum(frame) for frame in frames[:9]) + frames[9][0] + sum(frames[9][1:3])
