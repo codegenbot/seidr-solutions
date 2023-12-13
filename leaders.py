@@ -1,3 +1,6 @@
+n = int(input())
+arr = list(map(int, input().split()))
+
 def find_leaders(arr):
     n = len(arr)
     leaders = []
@@ -10,11 +13,6 @@ def find_leaders(arr):
             leaders.append(max_right)
     
     return leaders[::-1]
-
-n = int(input())
-arr = []
-for _ in range(n):
-    arr.append(int(input()))
 
 result = find_leaders(arr)
 for num in result:
