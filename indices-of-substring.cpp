@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,11 +11,11 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         int found = i;
         for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
-                found = false;
+                found = -1;
                 break;
             }
         }
-        if (found != false) {
+        if (found != -1) {
             indices.push_back(found);
         }
     }
@@ -35,4 +34,3 @@ int main() {
   
     return 0;
 }
-```
