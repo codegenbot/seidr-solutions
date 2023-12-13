@@ -1,7 +1,9 @@
- #include <cmath>
+#include <iostream>
+#include <string>
+#include <cmath>
 
-int closest_integer(const char* value){
-    double num = std::stod(value);
+int closest_integer(std::string value){
+    float num = std::stof(value);
     int floor_num = std::floor(num);
     int ceil_num = std::ceil(num);
     if (num - floor_num < ceil_num - num) {
