@@ -1,18 +1,21 @@
 ```python
-def basement(nums):
-    total_sum = 0
-    for i in range(len(nums)):
-        total_sum += nums[i]
-        if total_sum < 0:
-            return i
+def first_negative_index(vec):
+    cumulative_sum = 0
+    index = 0
+    for i in range(len(vec)):
+        cumulative_sum += vec[i]
+        if cumulative_sum < 0:
+            return index
+        index += 1
     return -1
 
-# Reading input from user
+# Read input from user
 n = int(input())
-nums = []
+vec = []
 for _ in range(n):
-    nums.append(int(input()))
+    vec.append(int(input()))
 
-# Calling the basement function and printing the result
-print(basement(nums))
+# Call the function and print the result
+result = first_negative_index(vec)
+print(result)
 ```
