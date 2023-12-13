@@ -1,7 +1,4 @@
-import sys
 from typing import List, Optional
-
-strings = sys.stdin.readline().strip().split(',')
 
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
@@ -11,5 +8,3 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(string) > len(longest_string):
             longest_string = string
     return longest_string
-
-print(longest(strings))
