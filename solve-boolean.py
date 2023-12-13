@@ -8,14 +8,14 @@ def solve_boolean(expression):
             return False
 
         if '|' in expr and '&' in expr:
-            left, right = expr.split('|', 1)
-            return evaluate(left) or evaluate(right[1:])
+            operands = expr.split('|', 1)
+            return evaluate(operands[0]) or evaluate(operands[1])
         elif '|' in expr:
-            left, right = expr.split('|', 1)
-            return evaluate(left) or evaluate(right)
+            operands = expr.split('|', 1)
+            return evaluate(operands[0]) or evaluate(operands[1])
         elif '&' in expr:
-            left, right = expr.split('&', 1)
-            return evaluate(left) and evaluate(right)
+            operands = expr.split('&', 1)
+            return evaluate(operands[0]) and evaluate(operands[1])
         else:
             return evaluate(expr)
 
