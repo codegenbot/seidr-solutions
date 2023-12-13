@@ -1,50 +1,53 @@
+```
 #include <iostream>
+#include <array>
 #include <string>
+#include <cassert>
 using namespace std;
 
 const array<const char*, 13> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
 
-string int_to_mini_roman(int num) {
-    string str;
+std::string int_to_mini_roman(int num) {
+    std::string str;
     while (num > 0) {
         if (num >= 1000) {
-            str.append("m");
+            str.push_back('m');
             num -= 1000;
         } else if (num >= 900) {
-            str.append("cm");
+            str.push_back('cm');
             num -= 900;
         } else if (num >= 500) {
-            str.append("d");
+            str.push_back('d');
             num -= 500;
         } else if (num >= 400) {
-            str.append("cd");
+            str.push_back('cd');
             num -= 400;
         } else if (num >= 100) {
-            str.append("c");
+            str.push_back('c');
             num -= 100;
         } else if (num >= 90) {
-            str.append("xc");
+            str.push_back('xc');
             num -= 90;
         } else if (num >= 50) {
-            str.append("l");
+            str.push_back('l');
             num -= 50;
         } else if (num >= 40) {
-            str.append("xl");
+            str.push_back('xl');
             num -= 40;
         } else if (num >= 10) {
-            str.append("x");
+            str.push_back('x');
             num -= 10;
         } else if (num >= 9) {
-            str.append("ix");
+            str.push_back('ix');
             num -= 9;
         } else if (num >= 5) {
-            str.append("v");
+            str.push_back('v');
             num -= 5;
         } else if (num >= 4) {
-            str.append("iv");
+            str.push_back('iv');
             num -= 4;
         } else {
-            str.append("i");
+            str.push_back('i');
             num -= 1;
         }
     }
@@ -52,6 +55,7 @@ string int_to_mini_roman(int num) {
 }
 
 int main() {
-    assert(int_to_mini_roman(1000) == "m");
+    assert (std::to_string(int_to_mini_roman(1000)) == "m");
     return 0;
 }
+```
