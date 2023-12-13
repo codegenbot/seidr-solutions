@@ -3,6 +3,7 @@
 #include <math.h>
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
