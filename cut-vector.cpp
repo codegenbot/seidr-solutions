@@ -1,7 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <climits> // include the <climits> header to use the INT_MAX constant
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
