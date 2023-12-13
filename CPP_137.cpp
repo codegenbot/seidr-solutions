@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -59,10 +58,3 @@ variant<int, float, string> compare_one(variant<int, float, string> a, variant<i
     }
 }
 ```
-
-The code above is the corrected version of the original code. The issues with the original code were:
-
-* There were stray backticks (``) in the code that needed to be removed.
-* The `boost` namespace was not declared before using it in the `main()` function.
-
-After removing the extra backticks and declaring the `boost` namespace, the code compiles correctly.
