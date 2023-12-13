@@ -1,10 +1,13 @@
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
 
 using namespace std;
 
-int solution(vector<int> lst); // Forward declaration of solution function
+int solution(vector<int> lst) {
+    // Your code here
+}
 
 int main() {
     vector<int> lst = {3, 13, 2, 9};
