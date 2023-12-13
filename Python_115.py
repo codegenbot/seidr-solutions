@@ -1,3 +1,4 @@
+```python
 def max_fill(grid, capacity):
     def count_buckets(grid):
         total_buckets = 0
@@ -10,6 +11,7 @@ def max_fill(grid, capacity):
         buckets_overflow = count_buckets(grid) - capacity
         if buckets_overflow > 0:
             return buckets_overflow
+
         cells = [(i, j) for i in range(len(grid)) for j in range(len(grid[i])) if grid[i][j] == 1]
         cells.sort(key=lambda x: grid[x[0]][x[1]], reverse=True)
         for i, j in cells:
@@ -21,3 +23,4 @@ def max_fill(grid, capacity):
         return buckets_needed
 
     return empty_wells(grid, capacity)
+```
