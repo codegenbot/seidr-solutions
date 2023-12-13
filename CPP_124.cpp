@@ -1,32 +1,41 @@
-[PYTHON]
-def isValidDate(date):
-    month, day, year = date.split('-')
-    month = int(month)
-    day = int(day)
-    year = int(year)
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <sstream>
 
-    if month < 1 or month > 12:
-        return False
-    if day < 1 or day > 31:
-        return False
-    if year < 0:
-        return False
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
 
-    daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    if month == 2 and year % 4 == 0:
-        daysInMonth[month-1] = 29
+bool isValidDate(const char* date) {
+    int month, day, year;
+    char delimiter = '-';
+    stringstream ss(date);
+    ss >> month >> delimiter >> day >> delimiter >> year;
 
-    return day <= daysInMonth[month-1]
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert isValidDate("04-2003") == True
-# Test case 2:
-assert isValidDate("02-29-2003") == False
-# Test case 3:
-assert isValidDate("02-28-2003") == True
-# Test case 4:
-assert isValidDate("02-29-2004") == True
-# Test case 5:
-assert isValidDate("02-30-2003") == False
-[/TESTS]
+    if (month < 1 || month > 12) return false;
+    if (day < 1 || day > 31) return false;
+    if (year < 0) return false;
+
+    int daysInMonth = 31;
+    if (month == 2) {
+        daysInMonth = 28;
+        if (year % 4 == 0) {
+            daysInMonth = 29;
+        }
+    }
+
+    return day <= daysInMonth;
+}
+
+int main() {
+    string date = "04-2003";
+    bool valid_date = isValidDate(date.c_str());
+    if (valid_date == false) {
+        cout << "The date is not valid." << endl;
+    } else {
+        cout << "The date is valid." << endl;
+    }
+    return 0;
+}
