@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,13 +17,10 @@ bool is_valid_date(const string& date_string) {
     if (month < 1 || month > 12) {
         return false;
     }
-    if (day < 1 || day > 31) {
+    if (day < 1 || day > std::days_in_month(month, year)) {
         return false;
     }
     if (year < 0) {
-        return false;
-    }
-    if (day > days_in_month(month, year)) {
         return false;
     }
     return true;
@@ -32,12 +28,6 @@ bool is_valid_date(const string& date_string) {
 
 int main() {
     string date_string = "04-2003";
-    bool valid_date = is_valid_date(date_string);
-    if (!valid_date) {
-        cout << "Invalid date: " << date_string << endl;
-    } else {
-        cout << "Valid date." << endl;
-    }
+    assert(is_valid_date("04-2003") == false);
     return 0;
 }
-```
