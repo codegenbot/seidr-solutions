@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include "strongest_extension.h" // assuming this is the header file that declares Strongest_Extension
 
@@ -10,4 +9,3 @@ int main() {
     }
     return 0;
 }
-```
