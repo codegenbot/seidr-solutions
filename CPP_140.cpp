@@ -11,12 +11,10 @@ std::string fix_spaces(std::string text) {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
                 result += "-";
-            }
-            else {
+            } else {
                 result += "_";
             }
-        }
-        else {
+        } else {
             result += text[i];
             consecutiveSpaces = 0;
         }
