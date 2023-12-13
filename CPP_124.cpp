@@ -31,7 +31,7 @@ bool isValidDate(const char* date) {
 
 int main() {
     string date = "04-2003";
-    bool valid_date = isValidDate(date.c_str());
+    bool valid_date = isValidDate(std::string(date).c_str());
     if (valid_date == false) {
         cout << "The date is not valid." << endl;
     } else {
