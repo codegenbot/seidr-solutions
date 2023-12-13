@@ -1,3 +1,4 @@
+```python
 def solve_boolean(expression):
     expression = expression.lower()
 
@@ -20,3 +21,4 @@ def solve_boolean(expression):
             return evaluate(expr)
 
     return evaluate(expression)
+```
