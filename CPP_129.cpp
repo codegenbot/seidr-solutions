@@ -1,23 +1,21 @@
 [PYTHON]
-def min_path(grid, k):
+def min_path(grid, start, goal):
     # Initialize the minimum path sum
     min_sum = float('inf')
-    # Initialize the current position as (0, 0)
-    current_position = (0, 0)
-    # Initialize the queue with the current position
-    queue = [current_position]
+    # Initialize the queue with the starting position
+    queue = [start]
     # Loop until the queue is empty or the minimum path sum is found
     while queue and min_sum == float('inf'):
         # Get the current position from the queue
         current_position = queue.pop(0)
         # Get the value at the current position
         current_value = grid[current_position[0]][current_position[1]]
-        # Check if the current position is the destination
-        if current_position == (len(grid) - 1, len(grid[0]) - 1):
-            # If the current position is the destination, update the minimum path sum
+        # Check if the current position is the goal
+        if current_position == goal:
+            # If the current position is the goal, update the minimum path sum
             min_sum = current_value
         else:
-            # If the current position is not the destination, add its neighbors to the queue
+            # If the current position is not the goal, add its neighbors to the queue
             for neighbor in get_neighbors(grid, current_position):
                 queue.append(neighbor)
     # Return the minimum path sum
@@ -44,15 +42,44 @@ def get_neighbors(grid, position):
     if col < len(grid[0]) - 1 and grid[row][col + 1] != 'X':
         # If the cell to the east is valid, add it to the list of neighbors
         neighbors.append((row, col + 1))
-    # Return the list of neighbors
     return neighbors
 
-def issame(a, b):
-    return (a == b)
+def main():
+    # Initialize the grid with the starting position
+    grid = [['O', 'X', 'X', 'X', 'X'],
+            ['X', 'O', 'O', 'O', 'X'],
+            ['X', 'X', 'O', 'O', 'X'],
+            ['X', 'O', 'X', 'O', 'X'],
+            ['X', 'X', 'X', 'O', 'X']]
+    # Initialize the starting position
+    start = (0, 0)
+    # Initialize the goal position
+    goal = (4, 4)
+    # Get the minimum path sum
+    min_sum = min_path(grid, start, goal)
+    # Print the result
+    print(min_sum)
+
+if __name__ == '__main__':
+    main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert min_path(grid={ {1,2,3}, {4,5,6}, {7,8,9}}, k=3) == [1, 2, 1]
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (4, 4)) == 15
 # Test case 2:
-assert min_path(grid={ {5,9,3}, {4,1,6}, {7,8,2}}, k=1) == [1]
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (3, 2)) == 11
+# Test case 3:
+assert min_path([['O', 'X', 'X', 'X', 'X'],
+       ['X', 'O', 'O', 'O', 'X'],
+       ['X', 'X', 'O', 'O', 'X'],
+       ['X', 'O', 'X', 'O', 'X'],
+       ['X', 'X', 'X', 'O', 'X']], (0, 0), (2, 4)) == 19
 [/TESTS]
