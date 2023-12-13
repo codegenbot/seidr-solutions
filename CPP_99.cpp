@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <cmath>
 #include <cassert>
@@ -24,4 +23,3 @@ int main() {
 
     return 0;
 }
-```
