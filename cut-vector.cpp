@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,7 +6,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int leftSum = nums[0], rightSum = 0;
     
     // Calculate the sum of all elements in the vector
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         rightSum += nums[i];
     }
     
@@ -15,7 +14,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int cutIndex = 0;
     
     // Find the spot where the difference is as small as possible
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
         
@@ -54,4 +53,3 @@ int main() {
     
     return 0;
 }
-```
