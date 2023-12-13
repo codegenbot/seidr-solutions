@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
@@ -15,10 +15,13 @@ double calculateTotalDistance(double startingHeight, double bouncinessIndex, int
 }
 
 int main() {
-    double startingHeight, firstBounceHeight;
+    string startingHeightStr, firstBounceHeightStr;
     int numBounces;
 
-    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cin >> startingHeightStr >> firstBounceHeightStr >> numBounces;
+    
+    double startingHeight = stod(startingHeightStr);
+    double firstBounceHeight = stod(firstBounceHeightStr);
 
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
@@ -27,3 +30,4 @@ int main() {
 
     return 0;
 }
+```
