@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -58,4 +57,3 @@ variant<int, float, string> compare_one(variant<int, float, string> a, variant<i
         return "None";
     }
 }
-```
