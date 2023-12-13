@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```python
 def tri(n):
     sequence = [3]
