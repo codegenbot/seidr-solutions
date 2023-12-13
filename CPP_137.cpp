@@ -1,29 +1,64 @@
 [PYTHON]
-def compare_one(a, b):
-    if isinstance(a, int) and isinstance(b, (int, float)):
-        return "None"
-    elif isinstance(a, float) and isinstance(b, (int, float)):
-        return "None"
-    elif isinstance(a, str) and isinstance(b, str):
-        try:
-            float(a)
-            float(b)
-        except ValueError:
-            return "None"
+def compare_one(a: boost::any, b: boost::any) -> std::string:
+    if a.index() == 0:
+        x = get<0>(a)
+        if b.index() == 1:
+            y = get<1>(b)
+            return to_string((x > y) ? a : b)
+        elif b.index() == 2:
+            s = get<2>(b)
+            try:
+                y = stof(s)
+                return to_string((x > y) ? a : b)
+            except invalid_argument as e:
+                return "None"
         else:
-            return "None" if a == b else a if a > b else b
+            return "None"
+    elif a.index() == 1:
+        x = get<1>(a)
+        if b.index() == 0:
+            y = get<0>(b)
+            return to_string((x > y) ? a : b)
+        elif b.index() == 2:
+            s = get<2>(b)
+            try:
+                y = stof(s)
+                return to_string((x > y) ? a : b)
+            except invalid_argument as e:
+                return "None"
+        else:
+            return "None"
+    elif a.index() == 2:
+        s = get<2>(a)
+        try:
+            x = stof(s)
+            if b.index() == 0:
+                y = get<0>(b)
+                return to_string((x > y) ? a : b)
+            elif b.index() == 1:
+                y = get<1>(b)
+                return to_string((x > y) ? a : b)
+            else:
+                return "None"
+        except invalid_argument as e:
+            return "None"
     else:
         return "None"
+
+def main():
+    a = boost::any(10)
+    b = boost::any(2.5)
+    c = compare_one(a, b)
+    assert equal_to(c, "2.5")
+    print("Success!")
+
+main()
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert compare_one(1, 2) == "None"
+assert compare_one(boost::any(10), boost::any(2.5)) == "2.5"
 # Test case 2:
-assert compare_one(1.5, 2) == "None"
+assert compare_one(boost::any(2.5), boost::any(10)) == "10"
 # Test case 3:
-assert compare_one("hello", "world") == "None"
-# Test case 4:
-assert compare_one("1", "2") == "None"
-# Test case 5:
-assert compare_one(1, 1.5) == 1
+assert compare_one(boost::any("hello"), boost::any("world")) == "world"
 [/TESTS]
