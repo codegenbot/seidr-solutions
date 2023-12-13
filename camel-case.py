@@ -1,3 +1,4 @@
+```python
 s = input()
 words = s.split()
 result = ""
@@ -8,3 +9,4 @@ for i in range(len(words)):
     result += words[i] + " "
 result = result.strip()
 print(result)
+```
