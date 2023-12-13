@@ -1,10 +1,11 @@
 ```cpp
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-bool monotonic(vector<float> l) {
+bool monotonic(vector<float> l){
     bool increasing = true;
     bool decreasing = true;
     
@@ -24,4 +25,5 @@ int main() {
     cout << monotonic({9, 9, 9, 9}) << endl;
     return 0;
 }
+
 ```
