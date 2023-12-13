@@ -5,16 +5,16 @@
 
 using namespace std;
 
-string fix_spaces(string text){
+string fix_spaces(string text) {
     string result = "";
     int consecutiveSpaces = 0;
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
             consecutiveSpaces++;
-            if(consecutiveSpaces > 2){
-                result += "-";
+            if (consecutiveSpaces > 2) {
+                result.push_back('-');
             } else {
-                result += "_";
+                result.push_back('_');
             }
         } else {
             result += text[i];
@@ -25,8 +25,16 @@ string fix_spaces(string text){
 }
 
 int main() {
-    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    // Add more test cases here
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+
+    // Additional test cases
+    assert(fix_spaces("Hello World") == "Hello_World");
+    assert(fix_spaces("A___B___C") == "A-B-C");
+    assert(fix_spaces("   ") == "---");
+    assert(fix_spaces("") == "");
+
+    cout << "All test cases passed" << endl;
+
     return 0;
 }
 ```
