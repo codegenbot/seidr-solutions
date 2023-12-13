@@ -9,6 +9,6 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-input_strings = ['string1', 'string2', 'string3']  # Replace with your desired input strings
+input_strings = input().split()
 result = longest(input_strings)
 print(result)
