@@ -1,40 +1,40 @@
-def calculate_bowling_score(rolls):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    roll_index = 0
-    
-    while frame <= 10:
-        if rolls[roll_index] == 'X':
+    frame_score = 0
+    frame_bowls = []
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
             if frame < 10:
-                if rolls[roll_index + 2] == 'X':
-                    score += 10
-                    if rolls[roll_index + 4] == 'X':
-                        score += 10
-                    else:
-                        score += int(rolls[roll_index + 4])
-                else:
-                    score += int(rolls[roll_index + 2]) + int(rolls[roll_index + 3])
+                frame += 1
             else:
-                score += int(rolls[roll_index + 2]) + int(rolls[roll_index + 3])
-            roll_index += 1
-        elif rolls[roll_index + 1] == '/':
-            score += 10
+                frame_score += 10
+        elif bowl == '/':
+            score += 10 - int(frame_bowls[-1])
             if frame < 10:
-                if rolls[roll_index + 4] == 'X':
-                    score += 10
-                else:
-                    score += int(rolls[roll_index + 4])
+                frame += 1
             else:
-                score += int(rolls[roll_index + 4])
-            roll_index += 2
+                frame_score += 10 - int(frame_bowls[-1])
+        elif bowl == '-':
+            if frame < 10:
+                frame += 1
+            else:
+                frame_score += 0
         else:
-            score += int(rolls[roll_index]) + int(rolls[roll_index + 1])
-            roll_index += 2
-        
-        frame += 1
-    
+            score += int(bowl)
+            if frame < 10:
+                frame_score += int(bowl)
+            else:
+                frame_score += int(bowl)
+        frame_bowls.append(bowl)
+        if frame_score == 10 and len(frame_bowls) == 2:
+            frame_score = 0
+            frame_bowls = []
+        if len(frame_bowls) == 2:
+            frame_score = 0
+            frame_bowls = []
     return score
 
-rolls = input()
-print(calculate_bowling_score(rolls))
+bowls = input()
+print(calculate_score(bowls))
