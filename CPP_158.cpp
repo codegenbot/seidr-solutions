@@ -1,8 +1,9 @@
 ```cpp
+#include <vector>
 #include <string>
 #include <cassert>
 
-std::string find_max(std::initializer_list<std::string> words) {
+std::string find_max(std::vector<std::string>& words) {
     std::string maxWord = "";
     int maxUniqueChars = 0;
 
@@ -27,8 +28,9 @@ std::string find_max(std::initializer_list<std::string> words) {
 }
 
 int main() {
-    std::initializer_list<std::string> input = {"play", "play", "play"};
-    assert((find_max(input) == "play"));
+    std::vector<std::string> input = {"play", "play", "play"};
+    std::vector<std::string>& input_ref = input;
+    assert((find_max(input_ref) == "play"));
     return 0;
 }
 ```
