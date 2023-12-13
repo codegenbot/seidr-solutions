@@ -1,16 +1,17 @@
 ```python
-def find_negative_index(nums):
-    total = 0
-    for i in range(len(nums)):
-        total += nums[i]
-        if total < 0:
+def basement(arr):
+    sum_so_far = 0
+    for i in range(len(arr)):
+        sum_so_far += arr[i]
+        if sum_so_far < 0:
             return i
     return -1
 
 n = int(input())
-nums = []
+arr = []
 for _ in range(n):
-    nums.append(int(input()))
+    arr.append(int(input()))
 
-print(find_negative_index(nums))
+result = basement(arr)
+print(result)
 ```
