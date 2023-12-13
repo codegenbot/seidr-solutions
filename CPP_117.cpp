@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <string> // include the <string> header file
+#include <cassert>
 
 using namespace std;
 
@@ -50,15 +49,7 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-
-    // Print the result
-    vector<string> result = select_words("a b c d e f", 1);
-    for (string word : result) {
-        cout << word << " ";
-    }
-    cout << endl;
-
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+    
     return 0;
 }
-```
