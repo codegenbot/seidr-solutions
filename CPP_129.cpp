@@ -25,3 +25,10 @@ vector<int> minPath(const vector<int>& costs, int target) {
     }
     return path;
 }
+
+int main() {
+    vector<int> costs = {1, 3};
+    int target = 2;
+    assert (issame(minPath({1, 3}, {3, 2}), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
+}
