@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -18,13 +17,3 @@ int count_nums(std::vector<int> n){
     }
     return count;
 }
-
-int main(){
-    assert (count_nums({1}) == 1);
-    assert (count_nums({-5, 10, 100, -15}) == 4);
-    assert (count_nums({0, 0, 0, 0}) == 0);
-    assert (count_nums({7, 8, 9, -7}) == 4);
-    assert (count_nums({-10, -20, -30, -40}) == 4);
-    return 0;
-}
-```
