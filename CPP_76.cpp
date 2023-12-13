@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 
 bool is_simple_power(int x, int n) {
@@ -14,4 +13,3 @@ bool is_simple_power(int x, int n) {
     }
     return false;
 }
-```
