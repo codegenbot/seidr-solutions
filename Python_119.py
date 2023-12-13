@@ -6,7 +6,7 @@ def match_parens(lst):
         if c in matching_parens.keys():
             stack.append(c)
         elif c in matching_parens.values():
-            if len(stack) == 0 or matching_parens.get(stack.pop()) != c:
+            if len(stack) == 0 or matching_parens.get(stack.pop(), None) != c:
                 return 'No'
         else:
             return 'No'
