@@ -1,11 +1,20 @@
-#include <iostream>
-#include "strongest_extension.h" // assuming this is the header file that declares Strongest_Extension
-
-int main() {
-    std::string result = Strongest_Extension("Sp", {'671235', 'Bb'});
-    if (result != "Sp.671235") {
-        std::cout << "Error: expected output was not returned." << std::endl;
-        return 1;
-    }
-    return 0;
-}
+[PYTHON]
+def get_strongest_extension(input_string, extensions):
+    strength = 0
+    for i in range(len(input_string)):
+        if input_string[i] == ".":
+            current_extension = input_string[i + 1:]
+            strength = len(current_extension)
+            if strength > len(extensions):
+                return current_extension
+    return None
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert get_strongest_extension("Sp", ["671235", "Bb"]) == "Sp.671235"
+# Test case 2:
+assert get_strongest_extension("Sp", ["671235", "Bb", "Cc"]) == "Sp.671235"
+# Test case 3:
+assert get_strongest_extension("Sp", ["671235", "Bb", "Cc", "Dd"]) == "Sp.671235"
+[/TESTS]
+```
