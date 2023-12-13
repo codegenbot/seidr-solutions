@@ -2,30 +2,31 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cut_vector(const vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int left_sum = 0, right_sum = 0;
+    int leftSum = 0, rightSum = 0;
     for (int i = 0; i < n; i++) {
-        right_sum += nums[i];
+        rightSum += nums[i];
     }
     
-    int min_diff = abs(left_sum - right_sum);
-    int cut_index = 0;
+    int diff = INT_MAX;
+    int cutIndex = -1;
     
     for (int i = 0; i < n; i++) {
-        left_sum += nums[i];
-        right_sum -= nums[i];
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i + 1;
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        
+        int currDiff = abs(leftSum - rightSum);
+        if (currDiff < diff) {
+            diff = currDiff;
+            cutIndex = i;
         }
     }
     
-    vector<int> left_vector(nums.begin(), nums.begin() + cut_index);
-    vector<int> right_vector(nums.begin() + cut_index, nums.end());
+    vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> right(nums.begin() + cutIndex + 1, nums.end());
     
-    return make_pair(left_vector, right_vector);
+    return make_pair(left, right);
 }
 
 int main() {
@@ -37,14 +38,14 @@ int main() {
         cin >> nums[i];
     }
     
-    pair<vector<int>, vector<int>> result = cut_vector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
     
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << endl;
+    for (int num : result.first) {
+        cout << num << endl;
     }
     
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << endl;
+    for (int num : result.second) {
+        cout << num << endl;
     }
     
     return 0;
