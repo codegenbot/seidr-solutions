@@ -1,1 +1,3 @@
-n=int(input());m=int(input());print((n-m+1)/(n*m))
+n = int(input())
+m = int(input())
+print((n - m + 1) / (n * m))
