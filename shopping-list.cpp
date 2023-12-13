@@ -1,12 +1,15 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <cmath>
 
-float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
+float calculateTotalPrice(std::vector<float>& prices, std::vector<float>& discounts) {
     float totalPrice = 0.0;
+    int n = prices.size();
 
-    for (int i = 0; i < prices.size(); i++) {
+    for (int i = 0; i < n; i++) {
         float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
+        discountedPrice = std::round(discountedPrice * 100) / 100; // Round to 2 decimal places
         totalPrice += discountedPrice;
     }
 
@@ -22,8 +25,11 @@ int main() {
         std::cin >> prices[i];
     }
 
-    std::vector<float> discounts(n);
-    for (int i = 0; i < n; i++) {
+    int m;
+    std::cin >> m;
+
+    std::vector<float> discounts(m);
+    for (int i = 0; i < m; i++) {
         std::cin >> discounts[i];
     }
 
