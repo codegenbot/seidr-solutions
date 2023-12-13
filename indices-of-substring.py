@@ -1,10 +1,12 @@
 text = input()
 target = input()
 indices = []
-try:
-    for i in range(len(text) - len(target) + 1):
-        if text.find(target, i, i + len(target)) != -1:
-            indices.append(str(i))
-except ValueError:
-    pass
+i = 0
+while i <= len(text) - len(target):
+    index = text.find(target, i)
+    if index != -1:
+        indices.append(str(index))
+        i = index + 1
+    else:
+        break
 print(" ".join(indices))
