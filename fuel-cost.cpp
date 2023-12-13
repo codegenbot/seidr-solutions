@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -13,8 +12,16 @@ int fuelCost(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {3, 9, 12, 15}; // Replace with the actual input
+    int size;
+    std::cout << "Enter the number of elements in the vector: ";
+    std::cin >> size;
+
+    std::cout << "Enter the elements of the vector:" << std::endl;
+    std::vector<int> nums(size);
+    for (int i = 0; i < size; i++) {
+        std::cin >> nums[i];
+    }
+
     std::cout << fuelCost(nums) << std::endl;
     return 0;
 }
-```
