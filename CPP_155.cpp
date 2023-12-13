@@ -19,7 +19,7 @@ vector<int> even_odd_count(int num){
         }
     }
     
-    return vector<int>{even_count, odd_count};
+    return {even_count, odd_count};
 }
 
 bool compare_vectors(vector<int> a, vector<int> b){
@@ -37,7 +37,7 @@ bool compare_vectors(vector<int> a, vector<int> b){
 }
 
 int main(){
-    vector<int> expected = {1, 0};
+    vector<int> expected = {0, 1};
     vector<int> result = even_odd_count(0);
     
     if(compare_vectors(expected, result)){
