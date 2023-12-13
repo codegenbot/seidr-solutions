@@ -1,3 +1,4 @@
+```python
 def coin_sums(cents):
     quarters = cents // 25
     cents -= quarters * 25
@@ -11,3 +12,4 @@ def coin_sums(cents):
 cents = int(input())
 result = coin_sums(cents)
 print(*result)
+```
