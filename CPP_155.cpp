@@ -1,5 +1,5 @@
 [PYTHON]
-def issame(a: vector<int>, b: vector<int>) -> bool:
+def issame(a, b):
     if len(a) != len(b):
         return False
     for i in range(len(a)):
@@ -7,7 +7,7 @@ def issame(a: vector<int>, b: vector<int>) -> bool:
             return False
     return True
 
-def even_odd_count(num: int) -> vector<int>:
+def even_odd_count(num):
     count_even = [0, 0]
     while num > 0:
         if num % 2 == 0:
@@ -17,7 +17,7 @@ def even_odd_count(num: int) -> vector<int>:
         num //= 10
     return count_even
 
-def main() -> int:
+def main():
     if issame(even_odd_count(0), [1, 0]) and issame(even_odd_count(123456789), [9, 0]):
         return 0
     else:
@@ -35,4 +35,5 @@ assert issame([1, 2, 3], [1, 2, 4]) == False
 # Test case 5:
 assert issame([1, 2, 3], [1, 2, 3, 4]) == False
 [/TESTS]
+
 ```
