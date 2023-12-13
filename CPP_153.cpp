@@ -4,27 +4,31 @@
 
 using namespace std;
 
-void Strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(const string& class_name, const vector<string>& extensions) {
     int max_strength = 0;
     string strongest_extension;
-    for (int i = 0; i < extensions.size(); i++) {
+    for (auto extension : extensions) {
         int strength = 0;
-        for (int j = 0; j < extensions[i].length(); j++) {
-            if (isupper(extensions[i][j])) {
+        for (char c : extension) {
+            if (isupper(c)) {
                 strength++;
-            } else if (islower(extensions[i][j])) {
+            } else if (islower(c)) {
                 strength--;
             }
         }
         if (strength > max_strength) {
             max_strength = strength;
-            strongest_extension = extensions[i];
+            strongest_extension = extension;
         }
     }
-    cout << class_name + "." + strongest_extension << endl;
+    return strongest_extension;
 }
 
 int main() {
-    Strongest_Extension("Sp", {"671235", "Bb"});
+    const string class_name = "Sp";
+    const vector<string> extensions = {"671235", "Bb"};
+    const string expected_strongest_extension = "Sp.671235";
+    const string actual_strongest_extension = Strongest_Extension(class_name, extensions);
+    assert(actual_strongest_extension == expected_strongest_extension);
     return 0;
 }
