@@ -8,14 +8,14 @@ std::string middleCharacter(std::string str) {
     if (len % 2 == 1) {
         return std::string(1, str[len/2]);
     } else {
-        return str.substr(len/2 - 1, 2);
+        return str.substr(len/2 - 1, 2 - (len % 2));
     }
 }
 
 int main() {
     std::string input;
     std::cin >> input;
-    std::cout << middleCharacter(input) << "\n";
+    std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
 ```
