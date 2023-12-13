@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -25,4 +24,3 @@ int main() {
     cout << probabilityOfHigherRoll(n, m) << endl;
     return 0;
 }
-```
