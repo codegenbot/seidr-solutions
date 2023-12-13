@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -18,6 +18,5 @@ int main() {
     string x = "1/5";
     string n = "5/1";
     cout << simplify(x, n) << endl;
-    return 0;
 }
 ```
