@@ -1,3 +1,4 @@
+```python
 def find_leaders(arr):
     leaders = []
     max_right = arr[-1]
@@ -15,3 +16,4 @@ arr = list(map(int, input().split()))
 result = find_leaders(arr)
 for num in result:
     print(num)
+```
