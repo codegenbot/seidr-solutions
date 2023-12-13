@@ -3,15 +3,6 @@
 #include <string>
 using namespace std;
 
-string intToString(int x) {
-    string result;
-    while (x > 0) {
-        result = char('0' + x % 10) + result;
-        x /= 10;
-    }
-    return result;
-}
-
 string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0) {
         return "FizzBuzz";
@@ -20,7 +11,7 @@ string fizzBuzz(int x) {
     } else if (x % 5 == 0) {
         return "Buzz";
     } else {
-        return intToString(x);
+        return to_string(x);
     }
 }
 
