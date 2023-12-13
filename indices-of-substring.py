@@ -8,6 +8,6 @@ while start <= len(text) - len(target):
     if index == -1:
         break
     indices.append(index)
-    start = index + 1
+    start = index + len(target)
 
 print(" ".join(str(i) for i in indices))
