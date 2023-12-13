@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -18,4 +17,3 @@ int main() {
     std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
-```
