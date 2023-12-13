@@ -17,3 +17,11 @@ def mastermind(code: str, guess: str) -> Tuple[int, int]:
         white_pegs += min(code_count[color], guess_count[color])
 
     return white_pegs, black_pegs
+
+
+code = input("Enter the code: ")
+guess = input("Enter your guess: ")
+
+result = mastermind(code, guess)
+print("White pegs:", result[0])
+print("Black pegs:", result[1])
