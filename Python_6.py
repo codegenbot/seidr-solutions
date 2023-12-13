@@ -1,3 +1,4 @@
+```python
 import sys
 from typing import List
 
@@ -8,3 +9,4 @@ paren_string = sys.stdin.readline().strip()
 result = parse_nested_parens(paren_string)
 
 print(result)
+```
