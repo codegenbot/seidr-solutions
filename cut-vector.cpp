@@ -1,6 +1,7 @@
 #include <vector>
-#include <cstdlib>
 #include <utility>
+
+using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
