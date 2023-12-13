@@ -1,5 +1,4 @@
-```cpp
-#include <iostream>
+#include<iostream>
 
 int main() {
     int digits[16];
@@ -27,4 +26,3 @@ int main() {
 
     return 0;
 }
-```
