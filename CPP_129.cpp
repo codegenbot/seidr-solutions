@@ -1,8 +1,7 @@
 ```cpp
 #include <vector>
-#include <functional>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
