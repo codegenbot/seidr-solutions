@@ -9,4 +9,4 @@ for _ in range(num_bounces - 1):
     total_distance += 2 * first_bounce_height * bounciness_index + first_bounce_height
     first_bounce_height *= bounciness_index
 
-print(total_distance)
+total_distance
