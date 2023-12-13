@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
-#include <iomanip>
 #include <vector>
+#include <cmath>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float totalPrice = 0.0;
@@ -12,6 +11,8 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
         float discountedPrice = prices[i] * (1 - discount);
         totalPrice += discountedPrice;
     }
+
+    totalPrice = std::round(totalPrice * 100) / 100;
 
     return totalPrice;
 }
@@ -31,8 +32,7 @@ int main() {
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(2) << totalPrice << std::endl;
+    std::cout << totalPrice << std::endl;
 
     return 0;
 }
-```
