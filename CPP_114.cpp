@@ -1,16 +1,14 @@
 ```cpp
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <initializer_list>
 
-long long minSubArraySum(std::initializer_list<long long> nums){
-    std::vector<long long> numList(nums);
+long long minSubArraySum(std::vector<long long> nums){
+    long long minSum = nums[0];
+    long long currentSum = nums[0];
 
-    long long minSum = numList[0];
-    long long currentSum = numList[0];
-
-    for(int i=1; i<numList.size(); i++){
-        currentSum = std::min(numList[i], currentSum + numList[i]);
+    for(int i=1; i<nums.size(); i++){
+        currentSum = std::min(nums[i], currentSum + nums[i]);
         minSum = std::min(minSum, currentSum);
     }
 
@@ -18,7 +16,7 @@ long long minSubArraySum(std::initializer_list<long long> nums){
 }
 
 int main(){
-    assert (minSubArraySum({1, -1}) == -1);
+    assert(minSubArraySum({1, -1}) == -1);
 
     return 0;
 }
