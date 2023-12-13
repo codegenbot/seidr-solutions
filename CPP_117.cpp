@@ -2,7 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert> // add the <cassert> header file
+
+using namespace std;
 
 bool is_consonant(char c) {
     c = tolower(c);
@@ -12,7 +14,7 @@ bool is_consonant(char c) {
     return false;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -49,7 +51,7 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
 
     // Print the result
     vector<string> result = select_words("a b c d e f", 1);
