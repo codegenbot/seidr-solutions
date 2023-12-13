@@ -7,6 +7,7 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     }
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
+
     for (int i = 0; i < n; i++) {
         if (i > 0) {
             leftSum += nums[i];
@@ -18,7 +19,9 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
             }
         }
     }
+
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+
     return make_pair(leftSubvector, rightSubvector);
 }
