@@ -1,6 +1,4 @@
-```python
 digits = input()
-
 sum_digits = 0
 for i in range(len(digits)):
     digit = int(digits[i])
@@ -9,6 +7,4 @@ for i in range(len(digits)):
         if digit > 9:
             digit -= 9
     sum_digits += digit
-
 print(sum_digits)
-```
