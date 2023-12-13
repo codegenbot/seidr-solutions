@@ -1,4 +1,3 @@
-```python
 def find_leaders(arr):
     leaders = []
     max_right = float("-inf")
@@ -9,4 +8,3 @@ def find_leaders(arr):
             leaders.append(max_right)
     
     return leaders[::-1]
-```
