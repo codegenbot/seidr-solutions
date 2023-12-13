@@ -1,21 +1,23 @@
-int fruit_distribution(string s, int n) {
+#include <iostream>
+#include <string>
+
+int fruit_distribution(std::string s, int n) {
     int apples = 0;
     int oranges = 0;
-    int mangoes = 0;
 
-    // Parse the string to get the number of apples and oranges
-    size_t pos = s.find("apples");
-    if (pos != string::npos) {
-        apples = stoi(s.substr(0, pos));
+    // Extract the number of apples and oranges from the string
+    size_t applesPos = s.find("apples");
+    if (applesPos != std::string::npos) {
+        apples = std::stoi(s.substr(0, applesPos));
     }
 
-    pos = s.find("oranges");
-    if (pos != string::npos) {
-        oranges = stoi(s.substr(pos + 8));
+    size_t orangesPos = s.find("oranges");
+    if (orangesPos != std::string::npos) {
+        oranges = std::stoi(s.substr(applesPos + 8, orangesPos - applesPos - 8));
     }
 
-    // Calculate the number of mangoes
-    mangoes = n - apples - oranges;
+    // Calculate the number of mango fruits
+    int mangoes = n - apples - oranges;
 
     return mangoes;
 }
