@@ -1,19 +1,25 @@
-#include <iostream>
 #include <vector>
-#include <unordered_set>
+#include <iostream>
+#include <algorithm>
 
 std::vector<int> findPair(std::vector<int>& nums, int target) {
-    std::unordered_set<int> numSet;
     std::vector<int> result;
+    std::sort(nums.begin(), nums.end()); // Sort the vector in ascending order
 
-    for (int num : nums) {
-        int complement = target - num;
-        if (numSet.count(complement)) {
-            result.push_back(num);
-            result.push_back(complement);
+    int left = 0;
+    int right = nums.size() - 1;
+
+    while (left < right) {
+        int sum = nums[left] + nums[right];
+        if (sum == target) {
+            result.push_back(nums[left]);
+            result.push_back(nums[right]);
             break;
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
         }
-        numSet.insert(num);
     }
 
     return result;
@@ -33,8 +39,8 @@ int main() {
 
     std::vector<int> result = findPair(nums, target);
 
-    for (int num : result) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << std::endl;
     }
 
     return 0;
