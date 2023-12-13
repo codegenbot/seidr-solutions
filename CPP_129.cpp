@@ -9,6 +9,14 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 vector<int> minPath(const vector<int>& costs, int target) {
     // Implement the function to find the minimum path
+    vector<int> result;
+    for (int i = 0; i < costs.size(); i++) {
+        if (costs[i] <= target) {
+            result.push_back(costs[i]);
+            target -= costs[i];
+        }
+    }
+    return result;
 }
 
 int main() {
@@ -16,4 +24,3 @@ int main() {
     assert(issame(minPath(costs, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
 }
 ```
-The issue is that you have defined two `main()` functions, which is not allowed in C++. You can only have one `main()` function per program. To fix this, you can remove one of the `main()` functions and move its code to the other `main()` function.
