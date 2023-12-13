@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
@@ -30,3 +31,4 @@ for num in result1:
     print(num)
 for num in result2:
     print(num)
+```
