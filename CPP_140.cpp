@@ -3,21 +3,23 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+std::string fix_spaces(std::string text) {
+    if (text.empty()) {
+        return "";
+    }
 
-string fix_spaces(string text) {
-    string result = "";
+    std::string result = "";
     int consecutiveSpaces = 0;
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
-                result.append("-");
+                result += "-";
             } else {
-                result.append("_");
+                result += "_";
             }
         } else {
-            result += text[i];
+            result.push_back(text[i]);
             consecutiveSpaces = 0;
         }
     }
@@ -27,13 +29,12 @@ string fix_spaces(string text) {
 int main() {
     assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
 
-    // Additional test cases
     assert(fix_spaces("Hello World") == "Hello_World");
     assert(fix_spaces("A___B___C") == "A-B-C");
     assert(fix_spaces("   ") == "---");
     assert(fix_spaces("") == "");
 
-    cout << "All test cases passed" << endl;
+    std::cout << "All test cases passed" << std::endl;
 
     return 0;
 }
