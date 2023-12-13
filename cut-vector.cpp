@@ -42,7 +42,7 @@ int main() {
         std::cin >> nums[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> subvectors = cutVector(nums);
+    auto subvectors = cutVector(nums);
 
     for (int num : subvectors.first) {
         std::cout << num << std::endl;
