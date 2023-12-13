@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <ext/new_allocator.h> // Add this include
 
 std::string find_max(const std::vector<char>& words) {
     std::string max_word = "";
