@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -31,4 +30,3 @@ int main() {
     cout << totalPrice << endl;
     return 0;
 }
-```
