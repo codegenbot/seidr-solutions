@@ -1,6 +1,9 @@
 ```cpp
 #include <vector>
+#include <functional>
+#include <algorithm>
 #include <cassert>
+#include <initializer_list>
 
 using namespace std;
 
