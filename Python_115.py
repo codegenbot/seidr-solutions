@@ -4,7 +4,7 @@ def max_fill(grid, capacity):
         for row in grid:
             total_buckets += sum(row)
         return total_buckets
-
+    
     def empty_wells(grid, capacity):
         buckets_needed = 0
         while count_buckets(grid) > 0:
@@ -14,12 +14,14 @@ def max_fill(grid, capacity):
                         if capacity > 0:
                             grid[i][j] = 0
                             capacity -= 1
+                            if capacity == 0:
+                                break
                         else:
-                            buckets_needed += 1
-                            grid[i][j] = 0
-                            capacity -= 1
+                            return count_buckets(grid)
+                if capacity == 0:
+                    break
             if count_buckets(grid) == 0:
                 break
-        return buckets_needed
-
+        return buckets_needed + count_buckets(grid)
+    
     return empty_wells(grid, capacity)
