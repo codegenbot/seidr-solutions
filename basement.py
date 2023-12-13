@@ -7,7 +7,7 @@ def basement(nums):
     return -1
 
 n = input().split()
-nums = [int(num) for num in n]
+nums = [int(num) for num in n]  # Split input string into integers
 
 result = basement(nums)
 
