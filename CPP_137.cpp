@@ -1,5 +1,5 @@
 [PYTHON]
-def compare_one(a: variant<int, string>, b: variant<int, string>) -> std::string:
+def compare_one(a: variant<int, string>, b: variant<int, string>) -> str:
     if a.index() == 0:
         x = get<0>(a)
         if b.index() == 1:
