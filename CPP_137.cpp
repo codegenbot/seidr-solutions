@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
-#include <boost/assert.hpp>
+#include <variant>
 
 using namespace std;
 
-variant<int, string> compare_one(const variant<int, string>& a, const variant<int, string>& b) {
+std::variant<int, string> compare_one(const std::variant<int, string>& a, const std::variant<int, string>& b) {
     if (a.index() == 0 && b.index() == 1) {
         return to_string(get<0>(a));
     } else if (a.index() == 1 && b.index() == 2) {
@@ -16,7 +15,7 @@ variant<int, string> compare_one(const variant<int, string>& a, const variant<in
 }
 
 int main() {
-    assert(compare_one(variant<int, string>(10), variant<int, string>(2.5)) == "2.5");
-    assert(compare_one(variant<int, string>(2.5), variant<int, string>(10)) == "10");
-    assert(compare_one(variant<int, string>("hello"), variant<int, string>("world")) == "world");
+    assert(compare_one(std::variant<int, string>(10), std::variant<int, string>(2.5)) == "2.5");
+    assert(compare_one(std::variant<int, string>(2.5), std::variant<int, string>(10)) == "10");
+    assert(compare_one(std::variant<int, string>("hello"), std::variant<int, string>("world")) == "world");
 }
