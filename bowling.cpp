@@ -1,6 +1,7 @@
 ```cpp
-#include <iostream>
 
+#include <iostream>
+#include <string>
 
 int scoreOfRound(const std::string& round) {
     int score = 0;
@@ -9,7 +10,7 @@ int scoreOfRound(const std::string& round) {
     int rolls = round.size();
 
     for (int i = 0; i < rolls; i++) {
-        if (frame == 9) {
+        if (frame == 10) {
             break;
         }
 
@@ -18,7 +19,7 @@ int scoreOfRound(const std::string& round) {
         if (current == 'X') {
             score += 10;
 
-            if (frame < 8) {
+            if (frame < 9) {
                 score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0') * 10;
                 score += (round[i + 2] == 'X') ? 10 : (round[i + 2] - '0');
             }
@@ -28,7 +29,7 @@ int scoreOfRound(const std::string& round) {
         } else if (current == '/') {
             score += 10;
 
-            if (frame < 8) {
+            if (frame < 9) {
                 score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
             }
 
@@ -50,9 +51,11 @@ int scoreOfRound(const std::string& round) {
 
 int main() {
     std::string round;
-    std::getline(std::cin, round);
+    std::cin >> round;
 
     int score = scoreOfRound(round);
     std::cout << score << std::endl;
+
+    return 0;
 }
 ```
