@@ -1,11 +1,4 @@
 ```
-#include <iostream>
-#include <string>
-#include <openssl/evp.h>
-#include <stdlib.h>
-
-using namespace std::__cxx11;
-
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "";
@@ -17,7 +10,7 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestFinal_ex(ctx, md, NULL);
     std::string result;
     for (int i = 0; i < EVP_MD_CTX_size(ctx); i++) {
-        result += to_string(md[i]);
+        result += std::to_string(md[i]);
     }
     return result;
 }
