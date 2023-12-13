@@ -1,9 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
 
 int main() {
-    std::vector<int, std::allocator<int>> digits;
+    std::vector<int> digits;
 
     for (int i = 0; i < 16; i++) {
         int digit;
@@ -28,4 +28,3 @@ int main() {
 
     return 0;
 }
-```
