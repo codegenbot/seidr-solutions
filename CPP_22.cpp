@@ -2,7 +2,12 @@
 #include <variant>
 #include <cassert>
 
-std::vector<int> filter_integers(std::vector<std::variant<int, char>> values) {
+bool issame(std::vector<int>, std::vector<int>) {
+    // Function logic goes here
+    return false;
+}
+
+std::vector<int> filter_integers(std::vector<std::variant<int, char>> values) { 
     std::vector<int> result;
     for (auto value : values) {
         if (std::holds_alternative<int>(value)) {
