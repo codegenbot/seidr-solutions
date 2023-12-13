@@ -1,25 +1,25 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 bool evaluateBoolean(std::string expression) {
     if (expression == "T") {
         return true;
     } else if (expression == "F") {
         return false;
-    } else if (expression.length() == 1) {
-        throw std::runtime_error("Invalid expression format.");
-    } else if (expression.find("&&") != std::string::npos) {
-        bool left = evaluateBoolean(expression.substr(0, expression.find("&&")));
-        bool right = evaluateBoolean(expression.substr(expression.find("&&") + 2));
+    } else if (expression.find('&') != std::string::npos) {
+        bool left = evaluateBoolean(expression.substr(0, expression.find('&')));
+        bool right = evaluateBoolean(expression.substr(expression.find('&') + 1));
         return left && right;
-    } else if (expression.find("||") != std::string::npos) {
-        bool left = evaluateBoolean(expression.substr(0, expression.find("||")));
-        bool right = evaluateBoolean(expression.substr(expression.find("||") + 2));
+    } else if (expression.find('|') != std::string::npos) {
+        bool left = evaluateBoolean(expression.substr(0, expression.find('|')));
+        bool right = evaluateBoolean(expression.substr(expression.find('|') + 1));
         return left || right;
     } else {
         throw std::runtime_error("Invalid expression format.");
     }
+    return false;
 }
 
 int main() {
