@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
+bool evaluateBooleanExpression(const std::string& expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
@@ -10,7 +9,6 @@ bool evaluateBooleanExpression(string expression) {
     } else {
         bool left = evaluateBooleanExpression(expression.substr(0, expression.find_first_of("&|")));
         bool right = evaluateBooleanExpression(expression.substr(expression.find_first_of("&|") + 1));
-        
         if (expression[expression.find_first_of("&|")] == '&') {
             return left && right;
         } else {
@@ -20,16 +18,8 @@ bool evaluateBooleanExpression(string expression) {
 }
 
 int main() {
-    string expression;
-    cin >> expression;
-    
-    bool result = evaluateBooleanExpression(expression);
-    
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    
+    std::string expression;
+    std::cin >> expression;
+    std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
     return 0;
 }
