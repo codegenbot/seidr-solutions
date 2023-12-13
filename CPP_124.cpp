@@ -22,6 +22,14 @@ def is_valid_date(date_string):
     if int(month) == 2 and int(day) > 28:
         return False
     
+    # Check for leap years
+    if int(year) % 4 == 0 and int(month) == 2 and int(day) == 29:
+        return True
+    
+    # Check the number of days in each month
+    if int(month) in [4, 6, 9, 11] and int(day) == 31:
+        return False
+    
     return True
 [/PYTHON]
 [TESTS]
@@ -31,6 +39,11 @@ assert is_valid_date("02-29-2003") == True
 assert is_valid_date("04-31-2003") == False
 # Test case 3:
 assert is_valid_date("02-30-2003") == False
+# Test case 4:
+assert is_valid_date("02-29-2004") == True
+# Test case 5:
+assert is_valid_date("04-31-2004") == False
+# Test case 6:
+assert is_valid_date("02-30-2004") == False
 [/TESTS]
-
 ```
