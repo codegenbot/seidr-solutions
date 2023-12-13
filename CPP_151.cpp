@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -20,3 +21,4 @@ long long odd_sum = double_the_difference(lst);
 int main() {
     assert(odd_sum == (1 + 9 + 25 + 49 + 81));
 }
+```
