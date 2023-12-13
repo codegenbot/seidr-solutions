@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0.0;
@@ -12,23 +12,24 @@ double euclideanDistance(const std::vector<double>& v1, const std::vector<double
 }
 
 int main() {
-    int n;
+    double n;
     std::cin >> n;
 
     std::vector<double> v1(n);
-    for (int i = 0; i < n; i++) {
+    for (double i = 0; i < n; i++) {
         std::cin >> v1[i];
     }
 
     std::cin >> n;
 
     std::vector<double> v2(n);
-    for (int i = 0; i < n; i++) {
+    for (double i = 0; i < n; i++) {
         std::cin >> v2[i];
     }
 
     double distance = euclideanDistance(v1, v2);
-    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
+```
