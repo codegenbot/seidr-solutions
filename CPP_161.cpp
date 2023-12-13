@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -19,4 +18,3 @@ string solve(string s) {
     }
     return result;
 }
-```
