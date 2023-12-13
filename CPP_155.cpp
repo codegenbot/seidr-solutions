@@ -6,7 +6,9 @@ bool issame(std::vector<int> a, std::vector<int> b);
 std::vector<int> even_odd_count(int num);
 
 int main() {
-    if (issame(even_odd_count(0), {1, 0}) && issame(even_odd_count(123456789), {9, 0})) {
+    int num;
+    std::cin >> num;
+    if (issame(even_odd_count(num), {1, 0}) && issame(even_odd_count(123456789), {9, 0})) {
         return 0;
     } else {
         return 1;
