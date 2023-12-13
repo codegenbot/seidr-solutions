@@ -1,36 +1,22 @@
-#include <cassert>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
     string word = "";
-    int consonantCount = 0;
+    int consonants = 0;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] != ' ') {
             word += s[i];
-            if (isConsonant(s[i])) {
-                consonantCount++;
+            if (is_consonant(s[i])) {
+                consonants++;
             }
         } else {
-            if (consonantCount == n) {
+            if (consonants == n) {
                 result.push_back(word);
             }
             word = "";
-            consonantCount = 0;
+            consonants = 0;
         }
     }
-    if (consonantCount == n) {
+    if (consonants == n) {
         result.push_back(word);
     }
     return result;
