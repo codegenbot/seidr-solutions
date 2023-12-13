@@ -3,15 +3,16 @@
 #include <string>
 
 std::string fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0) {
-        return "FizzBuzz";
-    } else if (x % 3 == 0) {
-        return "Fizz";
-    } else if (x % 5 == 0) {
-        return "Buzz";
-    } else {
-        return std::to_string(x);
-    }
+    std::string result;
+    
+    if (x % 3 == 0)
+        result += "Fizz";
+    if (x % 5 == 0)
+        result += "Buzz";
+    if (result.empty())
+        result = std::to_string(x);
+    
+    return result;
 }
 
 int main() {
