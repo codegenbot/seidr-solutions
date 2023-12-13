@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight);
 
@@ -19,21 +19,22 @@ double calculateBouncinessIndex(double startingHeight, double firstBounceHeight)
 }
 
 int main() {
-    double startingHeight, firstBounceHeight;
+    std::string startingHeight, firstBounceHeight;
     int numBounces;
 
     std::cout << "Enter the starting height: ";
-    std::cin >> startingHeight;
+    std::getline(std::cin, startingHeight);
+    double startingHeightDouble = std::stod(startingHeight);
 
     std::cout << "Enter the height after the first bounce: ";
-    std::cin >> firstBounceHeight;
+    std::getline(std::cin, firstBounceHeight);
+    double firstBounceHeightDouble = std::stod(firstBounceHeight);
 
     std::cout << "Enter the number of bounces: ";
     std::cin >> numBounces;
 
-    double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
+    double totalDistance = calculateTotalDistance(startingHeightDouble, firstBounceHeightDouble, numBounces);
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
 
     return 0;
 }
-```
