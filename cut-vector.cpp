@@ -55,13 +55,18 @@ output:
 */
 vector<int> cutVector(vector<int>& v) {
     int n = v.size();
-    vector<int> left, right;
-    for (int i = 0; i < n; i++) {
-        if (v[i] % 2 == 0) {
-            left.push_back(v[i]);
-        } else {
-            right.push_back(v[i]);
+    vector<int> result;
+    if (n == 0) return result;
+    int minDiff = INT_MAX;
+    int minIndex = -1;
+    for (int i = 0; i < n - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            minIndex = i;
         }
     }
-    return {left, right};
+    result.push_back(minIndex);
+    result.push_back(minIndex + 1);
+    return result;
 }
