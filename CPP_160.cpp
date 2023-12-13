@@ -1,7 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 using namespace std;
 
 int do_algebra(vector<string> ops, vector<int> operands) {
@@ -21,4 +21,3 @@ int do_algebra(vector<string> ops, vector<int> operands) {
     }
     return result;
 }
-```
