@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
 
 int scoreOfRound(const std::string& round) {
     int score = 0;
@@ -57,3 +58,4 @@ int main() {
 
     return 0;
 }
+```
