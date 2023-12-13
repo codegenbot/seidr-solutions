@@ -1,8 +1,8 @@
-```cpp
 #include <cassert>
 #include <vector>
 #include <variant>
 #include <algorithm>
+#include <iostream>
 
 std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>> values) {
     std::vector<int> result;
@@ -17,4 +17,3 @@ std::vector<int> filter_integers(std::initializer_list<std::variant<int, char>> 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
-```
