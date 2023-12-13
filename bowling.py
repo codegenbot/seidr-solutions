@@ -11,7 +11,7 @@ def calculate_bowling_score(bowls):
             frame += 1
             ball = 0
         elif bowl == '/':
-            frames[frame-1].append(10)
+            frames[frame-1].append(10 - frames[frame-1][-1])
             frame += 1
             ball = 1
         elif bowl == '-':
@@ -23,8 +23,14 @@ def calculate_bowling_score(bowls):
 
     for index, frame in enumerate(frames):
         if index < 9:
-            if len(frame) == 2 and sum(frame) == 10:
-                score += sum(frame) + frames[index+1][0]
+            if len(frame) == 1 and sum(frame) == 10:
+                try:
+                    score += sum(frame) + frames[index+1][0]
+                    if len(frame) == 2:
+                        score += frames[index+1][1]
+                        
+                except IndexError:
+                    score += sum(frame)
             else:
                 score += sum(frame)
         else:
