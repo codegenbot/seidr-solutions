@@ -5,4 +5,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
 paren_string = input()
 result = parse_nested_parens(paren_string)
+
 print(result)
