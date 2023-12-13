@@ -5,9 +5,14 @@ def tri(n):
     elif n == 1:
         sequence.append(1 + (1 / 2))
         return sequence
+    elif n == 2:
+        sequence.append(1 + (2 / 2))
+        sequence.append(sequence[0] + sequence[1] + sequence[1])
+        return sequence
     else:
         sequence.append(1 + (2 / 2))
-        for i in range(2, n + 1):
+        sequence.append(sequence[0] + sequence[1] + sequence[1])
+        for i in range(3, n + 1):
             if i % 2 == 0:
                 sequence.append(1 + (i / 2))
             else:
