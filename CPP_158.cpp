@@ -1,24 +1,14 @@
 ```cpp
-#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
+#include <vector>
 
-string find_max(const vector<string>& words) {
-    int max_count = 0;
-    string max_word;
-    for (int i = 0; i < words.size(); i++) {
-        const auto& word = words[i];
-        int count = 0;
-        for (const auto& c : word) {
-            if (c != ' ') {
-                count++;
-            }
-        }
-        if (count > max_count) {
-            max_count = count;
-            max_word = word;
-        }
-    }
-    return max_word;
+std::string find_max(const std::vector<std::string>& words) {
+    // Implementation of find_max function
+}
+
+int main() {
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    return 0;
 }
 ```
