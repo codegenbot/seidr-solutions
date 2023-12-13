@@ -1,4 +1,3 @@
-```python
 import collections
 
 def mastermind(code: str, guess: str):
@@ -23,4 +22,3 @@ guess = input()
 result = mastermind(code, guess)
 print(result[0])
 print(result[1])
-```
