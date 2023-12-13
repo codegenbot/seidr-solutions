@@ -1,7 +1,9 @@
-code = input("Enter the code: ")
-guess = input("Enter the guess: ")
+``` python
 
 import collections
+
+code = input()
+guess = input()
 
 def mastermind(code, guess):
     black = 0
@@ -17,4 +19,6 @@ def mastermind(code, guess):
         white += min(code_count[color], guess_count[color])
     return white, black
 
-mastermind(code, guess)
+result = mastermind(code, guess)
+print(result[0], result[1])
+```
