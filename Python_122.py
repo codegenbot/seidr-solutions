@@ -6,4 +6,4 @@ def add_elements(arr, k):
         else:
             raise ValueError("Value of k is out of range")
     else:
-        return -1
+        raise ValueError("No elements satisfy the conditions")
