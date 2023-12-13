@@ -1,3 +1,5 @@
+import sys
+
 def coin_sums(cents):
     quarters = cents // 25
     cents %= 25
@@ -9,5 +11,6 @@ def coin_sums(cents):
     
     return quarters, dimes, nickels, pennies
 
-cents = int(input())
+cents = int(sys.stdin.readline().strip())
+
 print(*coin_sums(cents))
