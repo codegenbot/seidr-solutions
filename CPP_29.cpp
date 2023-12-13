@@ -1,7 +1,10 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <string>
-using namespace std;
+#include <cassert>
+
+bool issame(vector<string> a, vector<string> b){
+    return std::equal(a.begin(), a.end(), b.begin());
+}
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
@@ -13,12 +16,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-int main(){
-    vector<string> strings = {"apple", "banana", "cherry", "pear"};
-    string prefix = "ap";
-    vector<string> filteredStrings = filter_by_prefix(strings, prefix);
-    for(auto s : filteredStrings){
-        cout << s << " ";
-    }
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    
     return 0;
 }
+```
