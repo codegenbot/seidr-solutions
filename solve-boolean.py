@@ -1,4 +1,3 @@
 def solve_boolean(expression):
-    modified_expression = expression.replace('T', 'True').replace('F', 'False')
-    result = eval(modified_expression)
-    return bool(result)
+    expression = expression.replace('&', ' and ').replace('|', ' or ')
+    return eval(expression.replace('T', 'True').replace('F', 'False'))
