@@ -2,9 +2,9 @@ cipher = input()
 decipher = input()
 message = input()
 
-deciphered_message = ""
+result = ""
 for char in message:
     index = cipher.find(char)
-    deciphered_message += decipher[index]
+    result += decipher[index]
 
-print(deciphered_message)
+print(result)
