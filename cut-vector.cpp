@@ -1,25 +1,24 @@
-```cpp
-#include <cstddef>
+#include <utility>
 #include <vector>
-#include <cmath>
-#include <iterator>
+#include <algorithm>
+#include <cstdlib>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    size_t n = nums.size();
+    int n = nums.size();
     int leftSum = nums[0], rightSum = 0;
 
     if (n == 1) {
         return std::make_pair(nums, nums);
     }
 
-    for (size_t i = 1; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = std::abs(leftSum - rightSum);
-    size_t cutIndex = 0;
+    int cutIndex = 0;
 
-    for (size_t i = 1; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
 
@@ -30,9 +29,16 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> left(nums.begin(), std::next(nums.begin(), cutIndex));
-    std::vector<int> right(std::next(nums.begin(), cutIndex), nums.end());
+    std::vector<int> left;
+    std::vector<int> right;
+
+    for (int i = 0; i < cutIndex; i++) {
+        left.push_back(nums[i]);
+    }
+
+    for (int i = cutIndex; i < n; i++) {
+        right.push_back(nums[i]);
+    }
 
     return std::make_pair(left, right);
 }
-```
