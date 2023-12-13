@@ -1,6 +1,3 @@
-# Solution
-
-```python
 def find_leaders(numbers):
     leaders = []
     n = len(numbers)
@@ -21,4 +18,3 @@ numbers = list(map(int, input().split()))
 output = find_leaders(numbers)
 for num in output:
     print(num)
-```
