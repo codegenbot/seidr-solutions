@@ -8,31 +8,39 @@ using std::cin;
 using std::endl;
 using std::string;
 
-bool isValidDate(const char* date) {
+bool isValidDate(const string& date) {
     int month, day, year;
     char delimiter = '-';
     stringstream ss(date);
     ss >> month >> delimiter >> day >> delimiter >> year;
 
-    if (month < 1 || month > 12) return false;
-    if (day < 1 || day > 31) return false;
-    if (year < 0) return false;
-
-    int daysInMonth = 31;
-    if (month == 2) {
-        daysInMonth = 28;
-        if (year % 4 == 0) {
-            daysInMonth = 29;
-        }
+    switch (month) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            daysInMonth = 31;
+            break;
+        case 4: case 6: case 9: case 11:
+            daysInMonth = 30;
+            break;
+        case 2:
+            daysInMonth = 28;
+            if (year % 4 == 0) {
+                daysInMonth = 29;
+            }
+            break;
     }
 
     return day <= daysInMonth;
 }
 
 int main() {
-    bool valid_date;
-    string date = "04-2003";
-    valid_date = isValidDate(date.c_str());
-    assert(valid_date == false);
+    string date;
+    cout << "Enter a date in the format MM-DD-YYYY: ";
+    getline(cin, date);
+    bool valid_date = isValidDate(date);
+    if (valid_date) {
+        cout << "The date is valid." << endl;
+    } else {
+        cout << "The date is not valid." << endl;
+    }
     return 0;
 }
