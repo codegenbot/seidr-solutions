@@ -1,5 +1,6 @@
 ```cpp
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -23,10 +24,6 @@ string rounded_avg(int n, int m) {
 }
 
 int main() {
-    // Code for testing the function
-    int n, m;
-    cin >> n >> m;
-    cout << rounded_avg(n, m) << endl;
-    return 0;
+    // Existing code
 }
 ```
