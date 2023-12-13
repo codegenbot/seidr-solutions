@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,13 +10,18 @@ vector<int> eat(int number, int need, int remaining) {
     if (left < 0) {
         left = 0;
     }
-    result = {totalEaten, left};
+    result.push_back(totalEaten);
+    result.push_back(left);
     return result;
 }
 
-int main() {
+int main_eat() {
     vector<int> output = eat(4, 5, 1);
+    return output;
+}
+
+int main() {
+    vector<int> output = main_eat();
     cout << output[0] << " " << output[1] << endl;
     return 0;
 }
-```
