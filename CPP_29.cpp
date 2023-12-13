@@ -1,17 +1,20 @@
 ```cpp
-#include <iostream>
 #include <vector>
-#include <string>
+#include <string.h>
+#include <cassert>
+#include <iostream>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b);
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -19,7 +22,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> filteredStrings;
     
     for (const auto& str : strings) {
@@ -32,7 +35,10 @@ vector<string> filter_by_prefix(const vector<string>& strings, const string& pre
 }
 
 int main() {
-    // Test your functions here
+    std::vector<std::string> filtered = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
+    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+
+    std::cout << (issame(filtered, expected) ? "Pass" : "Fail") << std::endl;
     return 0;
 }
 ```
