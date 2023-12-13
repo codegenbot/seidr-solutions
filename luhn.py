@@ -1,5 +1,3 @@
-Here is the code after modification:
-
 ```python
 def luhn_algorithm(digits):
     new_digits = []
