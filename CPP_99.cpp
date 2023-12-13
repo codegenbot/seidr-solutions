@@ -13,7 +13,7 @@ int closest_integer(std::string value){
     }
 }
 
-int closest_integer_main() {
+int main() {
     closest_integer("0");
     closest_integer("1.4");
     closest_integer("2.6");
