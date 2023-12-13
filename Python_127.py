@@ -5,10 +5,9 @@ def intersection(interval1, interval2):
 
     if length <= 1:
         return "NO"
-    elif length == 2:
-        return "YES"
-    else:
-        for i in range(2, int(length ** 0.5) + 1):
-            if length % i == 0:
-                return "NO"
-        return "YES"
+    
+    for i in range(2, int(length ** 0.5) + 1):
+        if length % i == 0:
+            return "NO"
+    
+    return "YES"
