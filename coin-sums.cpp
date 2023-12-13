@@ -52,22 +52,17 @@ output:
 int main() {
     int cents;
     cin >> cents;
-    vector<int> coins(4, 0);
-    while (cents > 0) {
-        if (cents >= 25) {
-            coins[3]++;
-            cents -= 25;
-        } else if (cents >= 10) {
-            coins[2]++;
-            cents -= 10;
-        } else if (cents >= 5) {
-            coins[1]++;
-            cents -= 5;
-        } else {
-            coins[0]++;
-            cents = 0;
+    vector<int> coins = { 1, 5, 10, 25 };
+    int numCoins[4] = { 0 };
+    for (int i = 0; i < 4; i++) {
+        while (cents >= coins[i]) {
+            cents -= coins[i];
+            numCoins[i]++;
         }
     }
-    cout << coins[0] << " " << coins[1] << " " << coins[2] << " " << coins[3] << endl;
+    cout << "Number of pennies: " << numCoins[0] << endl;
+    cout << "Number of nickles: " << numCoins[1] << endl;
+    cout << "Number of dimes: " << numCoins[2] << endl;
+    cout << "Number of quarters: " << numCoins[3] << endl;
     return 0;
 }
