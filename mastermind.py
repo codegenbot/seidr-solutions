@@ -1,3 +1,4 @@
+```python
 import collections
 from typing import Tuple
 
@@ -17,3 +18,10 @@ def mastermind(code: str, guess: str) -> Tuple[int, int]:
         white_pegs += min(code_count[color], guess_count[color])
 
     return white_pegs, black_pegs
+
+code = input()
+guess = input()
+
+result = mastermind(code, guess)
+print(result[0], result[1])
+```
