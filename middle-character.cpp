@@ -1,3 +1,6 @@
+You should also include the necessary headers for the modified code. Add `#include <string>` and `#include <iostream>` to the code. Here's the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
 
@@ -16,3 +19,4 @@ int main() {
     std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
+```
