@@ -4,7 +4,7 @@
 #include <cassert>
 #include <algorithm>
 
-using std::string;
+using namespace std;
 
 string fix_spaces(string text) {
     string result = "";
@@ -13,12 +13,12 @@ string fix_spaces(string text) {
         if (isspace(text[i])) {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
-                result.push_back('-');
+                result += '-';
             } else {
-                result.push_back('_');
+                result += '_';
             }
         } else {
-            result.push_back(text[i]);
+            result += text[i];
             consecutiveSpaces = 0;
         }
     }
@@ -32,7 +32,7 @@ int main() {
     assert(fix_spaces("   ") == "---");
     assert(fix_spaces("") == "");
 
-    std::cout << "All test cases passed" << std::endl;
+    cout << "All test cases passed" << endl;
 
     return 0;
 }
