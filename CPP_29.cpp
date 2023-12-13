@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 #include <unordered_map>
@@ -35,7 +35,7 @@ std::vector<std::pmr::string> filter_by_prefix(std::vector<std::pmr::string> str
 
 int main() {
     assert(::issame(::filter_by_prefix({ "xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx" }, "xxx"), { "xxx", "xxxAAA", "xxx" }));
-    
+
     return 0;
 }
 ```
