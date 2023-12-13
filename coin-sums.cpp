@@ -50,19 +50,18 @@ output:
 0
 */
 int main() {
-    int cents;
-    cin >> cents;
+    int n;
+    cin >> n;
     vector<int> coins = { 1, 5, 10, 25 };
-    int numCoins[4] = { 0 };
+    vector<int> counts(4);
     for (int i = 0; i < 4; i++) {
-        while (cents >= coins[i]) {
-            cents -= coins[i];
-            numCoins[i]++;
+        while (n >= coins[i]) {
+            n -= coins[i];
+            counts[i]++;
         }
     }
-    cout << "Number of pennies: " << numCoins[0] << endl;
-    cout << "Number of nickles: " << numCoins[1] << endl;
-    cout << "Number of dimes: " << numCoins[2] << endl;
-    cout << "Number of quarters: " << numCoins[3] << endl;
+    for (int i = 0; i < 4; i++) {
+        cout << counts[i] << " ";
+    }
     return 0;
 }
