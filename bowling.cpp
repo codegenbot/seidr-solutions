@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 int scoreOfRound(const std::string& round) {
     int score = 0;
