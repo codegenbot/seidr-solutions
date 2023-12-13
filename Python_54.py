@@ -1,2 +1,2 @@
 def same_chars(s0: str, s1: str):
-    return sorted(s0) == sorted(s1)
+    return set(s0) == set(s1)
