@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -13,7 +12,7 @@ double euclideanDistance(const std::vector<double>& v1, const std::vector<double
 
 int main() {
     unsigned int n;
-
+    
     std::cin >> n;
 
     std::vector<double> v1;
@@ -35,4 +34,3 @@ int main() {
 
     return 0;
 }
-```
