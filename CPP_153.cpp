@@ -1,32 +1,13 @@
 ```
 #include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
-
-void Strongest_Extension(string class_name, vector<string> extensions) {
-    int max_strength = 0;
-    string strongest_extension;
-    for (int i = 0; i < extensions.size(); i++) {
-        int strength = 0;
-        for (int j = 0; j < extensions[i].length(); j++) {
-            if (isupper(extensions[i][j])) {
-                strength++;
-            } else if (islower(extensions[i][j])) {
-                strength--;
-            }
-        }
-        if (strength > max_strength) {
-            max_strength = strength;
-            strongest_extension = extensions[i];
-        }
-    }
-    cout << class_name + "." + strongest_extension << endl;
-}
+#include "strongest_extension.h" // assuming this is the header file that declares Strongest_Extension
 
 int main() {
-    Strongest_Extension("Sp", {"671235", "Bb"});
+    std::string result = Strongest_Extension("Sp", {"671235", "Bb"});
+    if (result != "Sp.671235") {
+        std::cout << "Error: expected output was not returned." << std::endl;
+        return 1;
+    }
     return 0;
 }
 ```
