@@ -1,7 +1,11 @@
 ```
+#include <iostream>
+#include <cmath>
 #include <string>
 
-int closest_integer(string value){
+using namespace std;
+
+int closest_integer(string value) {
     double num = stod(value);
     int floor_num = floor(num);
     int ceil_num = ceil(num);
@@ -12,8 +16,11 @@ int closest_integer(string value){
     }
 }
 
-int main(){
-    // test your code here
+int main() {
+    string value;
+    cin >> value;
+    int closestNum = closest_integer(value);
+    cout << closestNum << endl;
     return 0;
 }
 ```
