@@ -1,16 +1,66 @@
-```
-#include <boost/any.hpp>
-#include <string>
+[PYTHON]
+def compare_one(a: boost::any, b: boost::any) -> std::string:
+    if a.index() == 0:
+        x = get<0>(a)
+        if b.index() == 1:
+            y = get<1>(b)
+            return to_string((x > y) ? a : b)
+        elif b.index() == 2:
+            s = get<2>(b)
+            try:
+                y = stof(s)
+                return to_string((x > y) ? a : b)
+            except invalid_argument as e:
+                return "None"
+        else:
+            return "None"
+    elif a.index() == 1:
+        x = get<1>(a)
+        if b.index() == 0:
+            y = get<0>(b)
+            return to_string((x > y) ? a : b)
+        elif b.index() == 2:
+            s = get<2>(b)
+            try:
+                y = stof(s)
+                return to_string((x > y) ? a : b)
+            except invalid_argument as e:
+                return "None"
+        else:
+            return "None"
+    elif a.index() == 2:
+        s = get<2>(a)
+        try:
+            x = stof(s)
+            if b.index() == 0:
+                y = get<0>(b)
+                return to_string((x > y) ? a : b)
+            elif b.index() == 1:
+                y = get<1>(b)
+                return to_string((x > y) ? a : b)
+            else:
+                return "None"
+        except invalid_argument as e:
+            return "None"
+    else:
+        return "None"
 
-int main() {
-    assert(boost::any_cast<std::string>(compare_one("1", 1)) == "None");
-}
-```
+def main():
+    a = boost::any(10)
+    b = boost::any(2.5)
+    c = compare_one(a, b)
+    assert equal_to(c, "2.5")
+    print("Success!")
 
-This code is using the `boost::any` class to store and compare different types of values. The `compare_one` function takes two arguments, a string and an integer, and returns a value of type `boost::any`. The `assert` statement checks if the returned value is equal to the string "None".
+main()
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert compare_one(boost::any(10), boost::any(2.5)) == "2.5"
+# Test case 2:
+assert compare_one(boost::any(2.5), boost::any(10)) == "10"
+# Test case 3:
+assert compare_one(boost::any("hello"), boost::any("world")) == "world"
+[/TESTS]
 
-To fix the error, you need to make sure that the Boost library is installed on your system and that the compiler can find it. You can do this by adding the path to the Boost include directory to the `CPATH` environment variable. For example, if Boost is installed in `/usr/local/include`, you can add the following line to your `.bashrc` or `.bash_profile` file:
 ```
-export CPATH=$CPATH:/usr/local/include
-```
-After adding the path to the `CPATH` variable, try compiling the code again. If the error persists, you may need to check if there are any other issues with your code or the Boost library installation.
