@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
@@ -19,7 +19,7 @@ int scoreOfRound(const std::string& round) {
             score += 10;
 
             if (frame < 9) {
-                score += (round[i + 1] == 'X' || round[i + 2] == '/') ? 10 : (round[i + 1] - '0') + (round[i + 2] - '0');
+                score += (round[i + 1] == 'X' || round[i + 2] == '/') ? 10 : (round[i + 1] - '0');
             }
 
             frame++;

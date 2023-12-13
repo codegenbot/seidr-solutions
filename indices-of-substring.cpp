@@ -1,20 +1,39 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main() {
-   int n, target;
-   cin >> n >> target;
-   int arr[n];
-   for(int i = 0; i < n; i++) {
-      cin >> arr[i];
-   }
-   vector<int> ans;
-   for(int i = 0; i < n; i++) {
-      if(arr[i] == target) {
-         ans.push_back(i);
-      }
-   }
-   for(int i = 0; i < ans.size(); i++) {
-      cout << ans[i] << " ";
-   }
-   return 0;
+```c++
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices = {};
+    int targetLength = target.length();
+    int textLength = text.length();
+  
+    for (int i = 0; i < textLength - targetLength + 1; i++) {
+        bool found = true;
+        for (int j = 0; j < targetLength; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            indices.push_back(i);
+        }
+    }
+  
+    return indices;
 }
+
+int main() {
+    std::string text, target;
+    std::cin >> text >> target;
+  
+    std::vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+  
+    return 0;
+}
+```
