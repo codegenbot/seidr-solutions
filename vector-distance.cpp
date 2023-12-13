@@ -15,16 +15,20 @@ int main() {
     size_t n;
     std::cin >> n;
 
-    std::vector<double> v1(n);
+    std::vector<double> v1;
     for (size_t i = 0; i < n; i++) {
-        std::cin >> v1[i];
+        double val;
+        std::cin >> val;
+        v1.push_back(val);
     }
 
     std::cin >> n;
 
-    std::vector<double> v2(n);
+    std::vector<double> v2;
     for (size_t i = 0; i < n; i++) {
-        std::cin >> v2[i];
+        double val;
+        std::cin >> val;
+        v2.push_back(val);
     }
 
     double distance = euclideanDistance(v1, v2);
