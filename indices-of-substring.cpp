@@ -18,8 +18,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         }
         if (found) {
             indices.push_back(i);
-            // Skip the next character after a match to allow overlapping occurrences
-            i++;
+            i++; // Skip the next character after a match to allow overlapping occurrences
         }
     }
 
