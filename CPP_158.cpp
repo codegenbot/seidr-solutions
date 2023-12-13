@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,4 +12,3 @@ int main() {
     assert((find_max(words) == "play"));
     return 0;
 }
-```
