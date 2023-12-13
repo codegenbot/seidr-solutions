@@ -1,7 +1,7 @@
+```python
 def calculate_bowling_score(bowls):
     score = 0
-    frame = 1
-    ball = 0
+    frame, ball = 1, 0
     frames = [[] for _ in range(10)]
 
     for bowl in bowls:
@@ -23,13 +23,12 @@ def calculate_bowling_score(bowls):
             ball += 1
 
     for index, frame in enumerate(frames):
-        if len(frame) < 3:
+        if sum(frame) < 10:
             if index < 9:
                 if sum(frame) == 10 and len(frame) == 1:
-                    score += sum(frame) + frames[index+1][ball]
+                    score += sum(frame) + frames[index+1][0]
                 else:
                     score += sum(frame)
-            else:
-                score += sum(frame)
 
     return score
+```
