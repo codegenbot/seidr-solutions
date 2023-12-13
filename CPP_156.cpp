@@ -1,9 +1,9 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
 std::string int_to_mini_roman(int number) {
-    std::vector<std::string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    const std::vector<std::string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
     std::string result;
     while (number > 0) {
         int digit = number % 10;
