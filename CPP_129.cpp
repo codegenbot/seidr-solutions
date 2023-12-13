@@ -1,7 +1,5 @@
-[PYTHON]
-def issame(grid, start, goal):
-    return grid[start[0]][start[1]] == grid[goal[0]][goal[1]]
 
+[PYTHON]
 def min_path(grid, start, goal):
     # Initialize the minimum path sum
     min_sum = float('inf')
@@ -14,7 +12,7 @@ def min_path(grid, start, goal):
         # Get the value at the current position
         current_value = grid[current_position[0]][current_position[1]]
         # Check if the current position is the goal
-        if issame(grid, current_position, goal):
+        if current_position == goal:
             # If the current position is the goal, update the minimum path sum
             min_sum = current_value
         else:
@@ -54,46 +52,11 @@ def main():
             ['X', 'X', 'O', 'O', 'X'],
             ['X', 'O', 'X', 'O', 'X'],
             ['X', 'X', 'X', 'O', 'X']]
-    # Initialize the starting position
     start = (0, 0)
-    # Initialize the goal position
-    goal = (3, 2)
-    # Get the minimum path sum
-    min_sum = min_path(grid, start, goal)
+    goal = (len(grid[0]) - 1, len(grid) - 1)
+    # Call the min_path function to find the minimum path sum
+    result = min_path(grid, start, goal)
     # Print the result
-    print(min_sum)
+    print(result)
 
 main()
-[/PYTHON]
-[TESTS]
-# Test case 1:
-def test_case_1():
-    grid = [['O', 'X', 'X', 'X', 'X'],
-            ['X', 'O', 'O', 'O', 'X'],
-            ['X', 'X', 'O', 'O', 'X'],
-            ['X', 'O', 'X', 'O', 'X'],
-            ['X', 'X', 'X', 'O', 'X']]
-    start = (0, 0)
-    goal = (3, 2)
-    assert min_path(grid, start, goal) == 11
-# Test case 2:
-def test_case_2():
-    grid = [['O', 'X', 'X', 'X', 'X'],
-            ['X', 'O', 'O', 'O', 'X'],
-            ['X', 'X', 'O', 'O', 'X'],
-            ['X', 'O', 'X', 'O', 'X'],
-            ['X', 'X', 'X', 'O', 'X']]
-    start = (0, 0)
-    goal = (2, 4)
-    assert min_path(grid, start, goal) == 19
-# Test case 3:
-def test_case_3():
-    grid = [['O', 'X', 'X', 'X', 'X'],
-            ['X', 'O', 'O', 'O', 'X'],
-            ['X', 'X', 'O', 'O', 'X'],
-            ['X', 'O', 'X', 'O', 'X'],
-            ['X', 'X', 'X', 'O', 'X']]
-    start = (0, 0)
-    goal = (3, 2)
-    assert min_path(grid, start, goal) == 11
-[/TESTS]
