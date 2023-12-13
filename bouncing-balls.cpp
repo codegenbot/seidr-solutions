@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <iomanip>
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
     return firstBounceHeight / startingHeight;
@@ -30,3 +30,4 @@ int main() {
     
     return 0;
 }
+```
