@@ -1,2 +1,2 @@
 def solve(s):
-    return s.swapcase()[::-1]
+    return '#' + s[1:].swapcase()[::-1]
