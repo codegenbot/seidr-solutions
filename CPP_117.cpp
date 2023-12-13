@@ -1,47 +1,58 @@
 ```cpp
-#include <iostream>
-#include <vector>
 #include <cassert>
+#include <vector>
+#include <string>
+#include <cctype>
 
-using namespace std;
-
-bool is_consonant(char c) {
-    // add your implementation for is_consonant function here
-    // return true if the character is a consonant, false otherwise
-}
-
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    int consonants = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
-            if (is_consonant(s[i])) {
-                consonants++;
-            }
-        } else {
-            if (consonants == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonants = 0;
-        }
-    }
-    if (consonants == n) {
-        result.push_back(word);
-    }
-    return result;
+bool isvowel(char c) {
+    c = std::tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // add your implementation for issame function here
-    // return true if vectors a and b are the same, false otherwise
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-
-    return 0;
+vector<string> select_words(string s, int n) {
+    vector<string> words;
+    string word = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            if (!word.empty()) {
+                int consonantCount = 0;
+                for (int j = 0; j < word.length(); j++) {
+                    if (isalpha(word[j]) && !isvowel(word[j])) {
+                        consonantCount++;
+                    }
+                }
+                if (consonantCount == n) {
+                    words.push_back(word);
+                }
+                word = "";
+            }
+        } else {
+            word += s[i];
+        }
+    }
+    if (!word.empty()) {
+        int consonantCount = 0;
+        for (int j = 0; j < word.length(); j++) {
+            if (isalpha(word[j]) && !isvowel(word[j])) {
+                consonantCount++;
+            }
+        }
+        if (consonantCount == n) {
+            words.push_back(word);
+        }
+    }
+    return words;
 }
 ```
