@@ -1,14 +1,16 @@
+```
 #include <iostream>
-#include <iomanip>
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
     float currentSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
-        currentSnow = (currentSnow + snowFallRate) * (1 - meltingRate);
+        float snowFall = snowFallRate * 1;
+        float remainingSnow = 1 - meltingRate;
+        currentSnow = (currentSnow + snowFall) * remainingSnow;
     }
     
-    return std::round(currentSnow * 100000000000.0) / 100000000000.0;
+    return currentSnow;
 }
 
 int main() {
@@ -17,7 +19,8 @@ int main() {
     
     float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
     
-    std::cout << std::fixed << std::setprecision(14) << finalSnow << std::endl;
+    std::cout << finalSnow << std::endl;
     
     return 0;
 }
+```
