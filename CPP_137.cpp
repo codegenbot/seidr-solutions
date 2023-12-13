@@ -2,17 +2,17 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
+#include <variant>
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        if (b.type() == typeid(float)) {
-            float y = boost::any_cast<float>(b);
+std::variant<int, float, string> compare_one(std::variant<int, float, string> a, std::variant<int, float, string> b) {
+    if (a.index() == 0) {
+        int x = std::get<0>(a);
+        if (b.index() == 1) {
+            float y = std::get<1>(b);
             return (x > y) ? a : b;
-        } else if (b.type() == typeid(string)) {
-            string s = boost::any_cast<string>(b);
+        } else if (b.index() == 2) {
+            string s = std::get<2>(b);
             try {
                 float y = stof(s);
                 return (x > y) ? a : b;
@@ -22,13 +22,13 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else {
             return "None";
         }
-    } else if (a.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        if (b.type() == typeid(int)) {
-            int y = boost::any_cast<int>(b);
+    } else if (a.index() == 1) {
+        float x = std::get<1>(a);
+        if (b.index() == 0) {
+            int y = std::get<0>(b);
             return (x > y) ? a : b;
-        } else if (b.type() == typeid(string)) {
-            string s = boost::any_cast<string>(b);
+        } else if (b.index() == 2) {
+            string s = std::get<2>(b);
             try {
                 float y = stof(s);
                 return (x > y) ? a : b;
@@ -38,15 +38,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else {
             return "None";
         }
-    } else if (a.type() == typeid(string)) {
-        string s = boost::any_cast<string>(a);
+    } else if (a.index() == 2) {
+        string s = std::get<2>(a);
         try {
             float x = stof(s);
-            if (b.type() == typeid(int)) {
-                int y = boost::any_cast<int>(b);
+            if (b.index() == 0) {
+                int y = std::get<0>(b);
                 return (x > y) ? a : b;
-            } else if (b.type() == typeid(float)) {
-                float y = boost::any_cast<float>(b);
+            } else if (b.index() == 1) {
+                float y = std::get<1>(b);
                 return (x > y) ? a : b;
             } else {
                 return "None";
