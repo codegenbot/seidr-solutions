@@ -1,12 +1,16 @@
 ```cpp
-#include <cassert>
+#include <iostream>
 #include <vector>
-#include <string>
-#include <cctype>
+#include <cassert>
 
-bool isvowel(char c) {
-    c = std::tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+using namespace std;
+
+bool is_consonant(char c) {
+    c = tolower(c);
+    if (c >= 'a' && c <= 'z') {
+        return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    }
+    return false;
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -22,37 +26,32 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> select_words(string s, int n) {
-    vector<string> words;
+    vector<string> result;
     string word = "";
+    int consonants = 0;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            if (!word.empty()) {
-                int consonantCount = 0;
-                for (int j = 0; j < word.length(); j++) {
-                    if (isalpha(word[j]) && !isvowel(word[j])) {
-                        consonantCount++;
-                    }
-                }
-                if (consonantCount == n) {
-                    words.push_back(word);
-                }
-                word = "";
+        if (s[i] != ' ') {
+            word += s[i];
+            if (is_consonant(s[i])) {
+                consonants++;
             }
         } else {
-            word += s[i];
-        }
-    }
-    if (!word.empty()) {
-        int consonantCount = 0;
-        for (int j = 0; j < word.length(); j++) {
-            if (isalpha(word[j]) && !isvowel(word[j])) {
-                consonantCount++;
+            if (consonants == n) {
+                result.push_back(word);
             }
-        }
-        if (consonantCount == n) {
-            words.push_back(word);
+            word = "";
+            consonants = 0;
         }
     }
-    return words;
+    if (consonants == n) {
+        result.push_back(word);
+    }
+    return result;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    
+    return 0;
 }
 ```
