@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -15,7 +14,7 @@ std::string spinWords(const std::string& sentence) {
         result += word + " ";
     }
     
-    result.pop_back(); // Remove the extra space at the end
+    result.pop_back();
     
     return result;
 }
@@ -28,4 +27,3 @@ int main() {
     
     return 0;
 }
-```
