@@ -12,7 +12,8 @@ using std::string;
 bool isValidDate(const char* date) {
     int month, day, year;
     char delimiter = '-';
-    stringstream ss(date);
+    stringstream ss;
+    ss << date;
     ss >> month >> delimiter >> day >> delimiter >> year;
 
     if (month < 1 || month > 12) return false;
@@ -31,7 +32,7 @@ bool isValidDate(const char* date) {
 }
 
 int main() {
-    bool valid_date = false;
+    bool valid_date;
     string date = "04-2003";
     valid_date = isValidDate(date.c_str());
     assert(valid_date == false);
