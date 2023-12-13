@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <algorithm>
 
 long long minSubArraySum(vector<long long> nums){
     long long minSum = nums[0];
@@ -12,4 +12,3 @@ long long minSubArraySum(vector<long long> nums){
     
     return minSum;
 }
-```
