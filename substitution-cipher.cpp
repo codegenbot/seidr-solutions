@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -17,4 +16,3 @@ int main() {
     std::cout << decipherMessage(cipher1, cipher2, message) << std::endl;
     return 0;
 }
-```
