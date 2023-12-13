@@ -6,8 +6,8 @@ using namespace std;
 int Strongest_Extension(const char* extension) {
     int strength = 0;
     for (int i = 0; i < extension.length(); i++) {
-        if (extension[i] > strength) {
-            strength = extension[i];
+        if ((intptr_t)extension[i] > strength) {
+            strength = (intptr_t)extension[i];
         }
     }
     return strength;
