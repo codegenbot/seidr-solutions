@@ -38,25 +38,31 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 }
 
 int main() {
+    int n;
     std::vector<int> nums;
 
-    int num;
-    while (std::cin >> num) {
+    std::cout << "Enter the number of integers: ";
+    std::cin >> n;
+
+    std::cout << "Enter " << n << " positive integers: ";
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cin >> num;
         nums.push_back(num);
     }
 
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
-    std::cout << "First subvector: ";
-    for (const auto& element : result.first) {
-        std::cout << element << " ";
+    std::cout << "Left subvector: ";
+    for (const auto& num : result.first) {
+        std::cout << num << " ";
     }
 
     std::cout << std::endl;
 
-    std::cout << "Second subvector: ";
-    for (const auto& element : result.second) {
-        std::cout << element << " ";
+    std::cout << "Right subvector: ";
+    for (const auto& num : result.second) {
+        std::cout << num << " ";
     }
 
     std::cout << std::endl;
