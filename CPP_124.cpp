@@ -1,15 +1,13 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
 #include <sstream>
 #include <cassert>
 
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
+using namespace std;
 
-bool isValidDate(const char* date) {
+bool isValidDate(std::string date) {
     int month, day, year;
     char delimiter = '-';
     stringstream ss(date);
@@ -32,11 +30,8 @@ bool isValidDate(const char* date) {
 
 int main() {
     string date = "04-2003";
-    bool valid_date = isValidDate(date.c_str());
-    if (valid_date) {
-        cout << "The date is valid." << endl;
-    } else {
-        cout << "The date is not valid." << endl;
-    }
+    bool valid_date = isValidDate(date);
+    assert(valid_date == false);
     return 0;
 }
+```
