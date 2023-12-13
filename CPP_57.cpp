@@ -1,5 +1,4 @@
-```cpp
-
+```
 #include <iostream>
 #include <vector>
 
@@ -25,5 +24,4 @@ int main() {
     cout << monotonic({9, 9, 9, 9}) << endl;
     return 0;
 }
-
 ```
