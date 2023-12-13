@@ -1,20 +1,21 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
-std::string find_max(const std::vector<int>& numbers) {
-    int max = numbers[0];
-    for (int i = 1; i < numbers.size(); i++) {
-        if (numbers[i] > max) {
-            max = numbers[i];
+std::string find_max(const std::string& words) {
+    auto it = words.begin();
+    char max_char = *it;
+    for (++it; it != words.end(); ++it) {
+        if (*it > max_char) {
+            max_char = *it;
         }
     }
-    return std::to_string(max);
+    return std::string(1, max_char);
 }
 
 int main() {
-    assert(find_max({"play", "plays", "playing", "played"}) == "play");
+    assert(find_max("play") == "p");
     return 0;
 }
 ```
