@@ -1,7 +1,4 @@
 [PYTHON]
-def issame(num1, num2):
-    return num1 == num2
-
 def even_odd_count(num):
     count_even = 0
     count_odd = 0
