@@ -4,9 +4,7 @@
 using namespace std;
 
 string fix_spaces(string text);
-```
 
-```cpp
 string fix_spaces(string text) {
     string result = "";
     int consecutiveSpaces = 0;
@@ -26,15 +24,5 @@ string fix_spaces(string text) {
     }
 
     return result;
-}
-```
-
-```cpp
-#include <cassert>
-
-int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-
-    return 0;
 }
 ```
