@@ -1,7 +1,4 @@
 ```python
-input_str = input()
-nums_str = input_str.split()
-nums = [int(num) for num in nums_str]
 def basement(nums):
     sum_so_far = 0
     for i in range(len(nums)):
@@ -9,6 +6,10 @@ def basement(nums):
         if sum_so_far < 0:
             return i
     return -1
+
+input_str = input()
+nums = [int(num) for num in input_str.split()]
+
 result = basement(nums)
 print(result)
 ```
