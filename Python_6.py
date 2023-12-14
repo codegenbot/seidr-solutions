@@ -1,3 +1,6 @@
+```python
+from typing import List
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     count = 0
     result = []
@@ -9,6 +12,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         result.append(abs(count))
     return result
 
-paren_string = input()
+paren_string = input("Enter a parentheses string: ")
 result = parse_nested_parens(paren_string)
 print(result)
+```
