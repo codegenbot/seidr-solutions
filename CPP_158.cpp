@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -20,4 +19,3 @@ int main() {
     assert(find_max(words) == "play");
     return 0;
 }
-```
