@@ -1,6 +1,4 @@
-```python
 from typing import List, Optional
-import sys
 
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
@@ -11,7 +9,6 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-input_strings = sys.argv[1:]
+input_strings = input().split()
 result = longest(input_strings)
 print(result)
-```
