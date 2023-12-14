@@ -1,5 +1,3 @@
-
-Here is a possible solution to the problem:
 ```
 #include <iostream>
 using namespace std;
@@ -19,4 +17,3 @@ int main() {
     return 0;
 }
 ```
-Note that the code has been modified to only define `main` once, and to remove the extra definition of `main` that was causing the error.
