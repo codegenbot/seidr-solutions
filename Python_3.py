@@ -8,7 +8,10 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-n = int(raw_input())
-operations = list(map(int, raw_input().split()))
+try:
+    n = int(input())
+    operations = list(map(int, input().split()))
 
-print(str(below_zero(operations)))
+    print(below_zero(operations))
+except ValueError:
+    print("Invalid input. Please enter valid integers.")
