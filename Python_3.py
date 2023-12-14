@@ -1,4 +1,5 @@
-```python
+from typing import List
+
 def below_zero(operations: List[int]) -> bool:
     balance = 0
     for operation in operations:
@@ -7,7 +8,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = [int(num) for num in input().split()]
+operations = [int(line.strip()) for line in input().splitlines()]
 
 print(below_zero(operations))
-```
