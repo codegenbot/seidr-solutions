@@ -1,3 +1,4 @@
+```python
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -12,7 +13,7 @@ def longest(strings: List[str]) -> Optional[str]:
 input_strings = []
 while True:
     try:
-        input_string = input("Enter a string (press enter to stop): ")
+        input_string = input().strip()
         if input_string == "":
             break
         input_strings.append(input_string)
@@ -21,3 +22,4 @@ while True:
 
 result = longest(input_strings)
 print(result)
+```
