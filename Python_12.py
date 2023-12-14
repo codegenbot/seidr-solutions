@@ -1,4 +1,3 @@
-```python
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -11,15 +10,10 @@ def longest(strings: List[str]) -> Optional[str]:
     return longest_string
 
 input_strings = []
-while True:
-    try:
-        input_string = input().strip()
-        if input_string == "":
-            break
-        input_strings.append(input_string)
-    except EOFError:
-        break
+input_string = input("Enter a string (press enter to stop): ")
+while input_string != "":
+    input_strings.append(input_string)
+    input_string = input("Enter a string (press enter to stop): ")
 
 result = longest(input_strings)
 print(result)
-```
