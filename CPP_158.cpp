@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,3 +19,4 @@ int main() {
     assert((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
+```
