@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-string int_to_mini_roman(int number) {
+std::string int_to_mini_roman(int number) {
     if (number == 0) {
         return "nulla";
     } else {
