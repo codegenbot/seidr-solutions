@@ -1,3 +1,4 @@
+```python
 from typing import List
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
@@ -8,7 +9,8 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 if __name__ == "__main__":
-    numbers = list(map(float, input().split()))
+    numbers = [float(x) for x in input().split()]
     threshold = float(input())
     result = has_close_elements(numbers, threshold)
     print(result)
+```
