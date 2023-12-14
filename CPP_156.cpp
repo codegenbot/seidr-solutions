@@ -1,4 +1,4 @@
-```cpp
+```
 #include <Python.h>
 
 int int_to_mini_roman(int number) {

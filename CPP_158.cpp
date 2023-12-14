@@ -1,11 +1,22 @@
-```cpp
-std::string find_max(const std::string& words) {
-    int max = 0;
-    for (size_t i = 0; i < words.length(); i++) {
-        if (words[i] > max) {
-            max = words[i];
+```
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cassert>
+
+std::string find_max(const std::vector<std::string>& words) {
+    auto it = words.begin();
+    char max_char = (*it)[0];
+    for (++it; it != words.end(); ++it) {
+        if ((*it)[0] > max_char) {
+            max_char = (*it)[0];
         }
     }
-    return std::string(max);
+    return std::string(1, max_char);
+}
+
+int main() {
+    assert((find_max({"play", "play", "play"}) == "play"));
+    return 0;
 }
 ```
