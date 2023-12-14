@@ -1,6 +1,6 @@
-from typing import List
+import sys
 
-def below_zero(operations: List[int]) -> bool:
+def below_zero(operations):
     balance = 0
     for operation in operations:
         balance += operation
@@ -8,6 +8,5 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = [1, 2, 3, -6]
-
-print(below_zero(operations))
+operations = [int(arg) for arg in sys.argv[1:]]
+print(str(below_zero(operations)))
