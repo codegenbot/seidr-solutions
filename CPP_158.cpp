@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cassert>
 
 std::string find_max(const std::string& words) {
     auto it = words.begin();
