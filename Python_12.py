@@ -10,11 +10,10 @@ def longest(strings: List[str]) -> Optional[str]:
     return longest_string
 
 input_strings = []
-while True:
-    input_string = input()
-    if input_string == "":
-        break
+input_string = input("Enter a string (press enter to stop): ").strip()
+while input_string != "":
     input_strings.append(input_string)
+    input_string = input("Enter a string (press enter to stop): ").strip()
 
 result = longest(input_strings)
 print(result)
