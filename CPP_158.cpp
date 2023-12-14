@@ -16,7 +16,7 @@ std::string find_max(const std::string& words) {
 }
 
 int main() {
-    assert(find_max("play") == "p");
+    assert((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
 ```
