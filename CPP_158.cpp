@@ -1,7 +1,6 @@
-```
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <vector>
 
 std::string find_max(const std::vector<std::string>& words) {
     // Initialize the maximum word length to 0
@@ -15,9 +14,15 @@ std::string find_max(const std::vector<std::string>& words) {
     return std::string(max_length, '*');
 }
 
-int main(int argc, char* argv[]) {
+int main() {
+    // Initialize the vector with 3 elements
     std::vector<std::string> words = {"play", "play", "play"};
-    assert(find_max(words).size() == 4);
-    return 0;
+    // Pass the vector as an argument to find_max()
+    auto longest_word = find_max(words);
+    // Compare the length of the longest word with 4
+    if (longest_word.size() == 4) {
+        std::cout << "The longest word is: " << longest_word << std::endl;
+    } else {
+        std::cout << "No word has a length of 4." << std::endl;
+    }
 }
-```
