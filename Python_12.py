@@ -1,4 +1,3 @@
-from sys import stdin
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -8,7 +7,7 @@ def longest(strings: List[str]) -> Optional[str]:
     longest_string = max(strings, key=len)
     return longest_string
 
-input_strings = stdin.readline().strip().split()
+input_strings = input("Enter strings separated by spaces: ").split()
 
 result = longest(input_strings)
 print(result)
