@@ -15,7 +15,7 @@ std::string string_to_md5(const std::string& text) {
 
     std::ostringstream oss;
     for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
-        oss << std::hex << md[i];
+        oss << std::hex << static_cast<unsigned int>(md[i]);
     }
     return oss.str();
 }
