@@ -8,5 +8,8 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = [int(x) for x in input().split()]
-print(below_zero(operations))
+try:
+    operations = list(map(int, input().strip().split()))
+    print(below_zero(operations))
+except ValueError:
+    print("Invalid input. Please enter a space-separated list of integers.")
