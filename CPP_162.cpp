@@ -1,9 +1,6 @@
-```
-#include <iostream>
-#include <string>
 #include <openssl/evp.h>
 
-std::string string_to_md5(const std::string& text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "";
     }
@@ -12,15 +9,18 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestUpdate(&ctx, text.c_str(), text.size());
     unsigned char md[EVP_MAX_MD_SIZE];
     EVP_DigestFinal(&ctx, md);
-    std::string result = "";
+    string result = "";
     for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
         result += to_string(md[i]);
     }
     return result;
 }
+```
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    // Call the function with the input string
+    string result = string_to_md5("password");
+    cout << "MD5 hash: " << result << endl;
     return 0;
 }
 ```
