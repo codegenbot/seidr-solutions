@@ -1,42 +1,19 @@
 
-[CODE]
-#!/usr/bin/python
-import sys
 
-def main(argv):
-    """
-    bouncing_balls.py
-    Calculates total distance traveled by a ball after some number of bounces, given the starting height and the height after the first bounce.
-    Usage: python3 bouncing_balls.py <starting height> <height after first bounce> <number of bounces>
-    Returns: total distance traveled by ball as a float
-    """
+<COMMENT>
 
-    # Get user input
-    try:
-        start_height = float(argv[1])
-        first_bounce_height = float(argv[2])
-        num_bounces = int(argv[3])
-    except ValueError:
-        print("You must provide three arguments: starting height, height after the first bounce, and number of bounces.")
-        return 1
-    except IndexError:
-        print("You must provide three arguments: starting height, height after the first bounce, and number of bounces.")
-        return 1
+<COMMENT>
+def bouncing_balls(starting, first, n):
+    if starting == 0:
+        return 0
+    elif first <= 0:
+        return 0
+    else:
+        return (first/starting)**n * (1-((first/starting)**2)) / (1-(first/starting)**2) + first/(first/starting)-1
 
-    # Calculate bounciness index
-    try:
-        b_index = first_bounce_height / start_height
-    except ZeroDivisionError:
-        print("Starting height cannot be zero.")
-        return 1
-
-    # Calculate distance traveled by ball after n bounces
-    dist = (num_bounces * (start_height + first_bounce_height)) / 2
-
-    # Print result to stdout
-    print(dist)
-
-# Run main() if we're running as a program and not importing it as a library
-if __name__ == "__main__":
-    sys.exit(main(sys.argv))
-[/CODE]
+# Testing
+print(bouncing_balls(1.001, 1.0, 1))
+print(bouncing_balls(100.0, 99.999, 20))
+print(bouncing_balls(100.0, 1.0, 20))
+print(bouncing_balls(15.319, 5.635, 1))
+print(bouncing_balls(2.176, 1.787, 1))
