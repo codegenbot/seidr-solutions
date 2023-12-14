@@ -1,4 +1,3 @@
-from sys import stdin
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
@@ -9,6 +8,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = list(map(int, stdin.readline().split()))
+operations = list(map(int, input().split()))
 
 print(below_zero(operations))
