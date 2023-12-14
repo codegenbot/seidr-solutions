@@ -1,6 +1,9 @@
 ```
+#include <iostream>
+#include <string>
 #include <openssl/evp.h>
 #include <openssl/md5.h>
+#include <ostream>
 
 int main() {
     // Initialize OpenSSL
@@ -30,5 +33,3 @@ int main() {
     return 0;
 }
 ```
-
-The code above is a complete solution to the problem. It includes the necessary headers, fixes the redefinition error of `main()`, and declares `string_to_md5` before using it. The code also uses the correct function signatures for the OpenSSL functions used.
