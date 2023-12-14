@@ -1,4 +1,3 @@
-```python
 from typing import List
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
@@ -13,4 +12,3 @@ if __name__ == "__main__":
     threshold = float(input())
     result = has_close_elements(numbers, threshold)
     print(result)
-```
