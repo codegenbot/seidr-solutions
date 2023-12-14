@@ -7,12 +7,9 @@ def longest(strings: List[str]) -> Optional[str]:
     longest_string = max(strings, key=len)
     return longest_string
 
-input_strings = [
-    'input string 1',
-    'input string 2',
-    'input string 3',
-    # add more input strings if necessary
-]
+input_strings = []
+while (input_string := input("Enter a string (enter 'STOP' to stop): ").strip().upper()) != "STOP":
+    input_strings.append(input_string)
 
 result = longest(input_strings)
 print(result)
