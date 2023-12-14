@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,10 +6,10 @@
 
 std::string find_max(const std::vector<std::string>& words) {
     auto it = words.begin();
-    char max_char = (*it)[0];
+    char max_char = *it;
     for (++it; it != words.end(); ++it) {
-        if ((*it)[0] > max_char) {
-            max_char = (*it)[0];
+        if (*it > max_char) {
+            max_char = *it;
         }
     }
     return std::string(1, max_char);
