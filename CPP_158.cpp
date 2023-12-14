@@ -11,7 +11,7 @@ std::string find_max(const std::string& words) {
             max_char = *it;
         }
     }
-    return std::string(max_char);
+    return std::string(1, max_char);
 }
 
 int main() {
