@@ -8,9 +8,10 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-numbers = list(map(float, sys.argv[1:-1]))
-threshold = float(sys.argv[-1])
+if __name__ == "__main__":
+    numbers = list(map(float, sys.argv[1:-1]))
+    threshold = float(sys.argv[-1])
 
-result = has_close_elements(numbers, threshold)
+    result = has_close_elements(numbers, threshold)
 
-print(result)
+    print(result)
