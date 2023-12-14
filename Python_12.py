@@ -12,7 +12,7 @@ def longest(strings: List[str]) -> Optional[str]:
 input_strings = []
 while True:
     input_string = input("Enter a string (enter 'STOP' to stop): ").strip()
-    if input_string == "STOP":
+    if input_string.upper() == "STOP":
         break
     input_strings.append(input_string)
 
