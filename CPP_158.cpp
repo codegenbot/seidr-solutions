@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -14,12 +15,9 @@ std::string find_max(const std::vector<std::string>& words) {
     return std::string(max_length, '*');
 }
 
-int main(){
+int main() {
     std::vector<std::string> words = {"play", "play", "play"};
-    if (find_max(words) == "play") {
-        std::cout << "The maximum length word is play";
-    } else {
-        std::cout << "The maximum length word is not play";
-    }
+    assert((find_max(words) == "play"));
     return 0;
 }
+```
