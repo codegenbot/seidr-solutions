@@ -1,8 +1,7 @@
-```
+
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
-#include <cassert>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -34,4 +33,3 @@ int main() {
     assert(result == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
-```
