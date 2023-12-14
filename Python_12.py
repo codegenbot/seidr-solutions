@@ -1,3 +1,4 @@
+```python
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -9,6 +10,7 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-input_strings = list(input().split())
+input_strings = input().strip().splitlines()
 result = longest(input_strings)
 print(result)
+```
