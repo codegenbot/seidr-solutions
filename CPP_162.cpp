@@ -15,7 +15,7 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestFinal(&ctx, md);
     std::string result = "";
     for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
-        result += to_string(md[i]);
+        result += std::to_string((int)md[i]);
     }
     return result;
 }
@@ -29,7 +29,7 @@ int main() {
     EVP_DigestFinal(&ctx, md);
     std::string result = "";
     for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
-        result += to_string(md[i]);
+        result += std::to_string((int)md[i]);
     }
     assert(result == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
