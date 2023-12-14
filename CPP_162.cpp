@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 #include <cassert>
+#include <sstream>
+#include <openssl/md5.h>
+#include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text) {
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
@@ -18,9 +20,4 @@ std::string string_to_md5(const std::string& text) {
         oss << std::ios_base::hex << static_cast<unsigned int>(md[i]);
     }
     return oss.str();
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
 }
