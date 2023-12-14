@@ -7,9 +7,7 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-numbers = list(map(float, input().split()))
-threshold = float(input())
-
+numbers = list(map(float, input().split()))  # Replace with your test input numbers
+threshold = float(input())  # Replace with your test input threshold
 result = has_close_elements(numbers, threshold)
-
 print(result)
