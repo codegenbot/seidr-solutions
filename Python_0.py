@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
@@ -7,8 +8,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-if __name__ == "__main__":
-    numbers = list(map(float, input().split()))
-    threshold = float(input())
-    result = has_close_elements(numbers, threshold)
-    print(result)
+numbers = list(map(float, sys.argv[1:-1]))
+threshold = float(sys.argv[-1])
+
+result = has_close_elements(numbers, threshold)
+
+print(result)
