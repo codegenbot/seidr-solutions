@@ -1,4 +1,4 @@
-```cpp
+
 #include <string>
 #include <openssl/evp.h>
 #include <sstream>
@@ -18,4 +18,3 @@ std::string string_to_md5(const std::string& text) {
     }
     return oss.str();
 }
-```
