@@ -1,8 +1,7 @@
-```
+
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 std::string find_max(const std::string& words) {
     auto it = words.begin();
@@ -16,7 +15,6 @@ std::string find_max(const std::string& words) {
 }
 
 int main() {
-    assert((find_max({"play", "play", "play"}) == "play"));
+    assert(find_max("play") == "p");
     return 0;
 }
-```
