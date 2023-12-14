@@ -1,4 +1,4 @@
 
 <<REPL>>
-<<<REPL>>>
-# <<<END>>>
+# Write your code here and press Shift+Enter to execute
+<<CODE>>
