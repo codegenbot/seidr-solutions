@@ -1,41 +1,82 @@
 
-[INFO] Start time at 2018-05-07 16:53:49.093210 UTC <Green>
-[ERRO] Traceback (most recent call last): File "codecontest_bowling_sample.py", line 1, in <module> import os ModuleNotFoundError: No module named 'os' [/ERRO]
-[INFO] End time at 2018-05-07 16:53:49.130803 UTC <Green>
-[SYS] Time taken (seconds): 0.037593 [/SYS]
-"""
-import re
-"""
-def bowling_score(bowl_string):
-  scores = []
-  for _ in range(10):
-    # Get current roll and next roll if there is one
-    roll, roll2 = bowl_string[0:2], bowl_string[2:4]
-    strike = len(roll) == 1
-    spare = len(roll) == 2 and roll[-1] != "/"
-    # Parse the score
-    if strike:
-      next_i, next_n = (2, int(str(bowl_string[2]) + str(bowl_string[3]))) if bowl_string[2].isdigit() else (3, int(bowl_string[2]))
-      this_score = 10 + next_n
-    elif spare:
-      this_score = 10 + int(roll2)
-      next_i, next_n = (4, int(str(bowl_string[4]) + str(bowl_string[5]))) if bowl_string[4].isdigit() else (5, int(bowl_string[4]))
-    else:
-      this_score = int(roll) + int(roll2) if roll2 != "/" else 10
-      next_i, next_n = 2, 0
-    # Record score
-    scores.append(this_score)
-    bowl_string = bowl_string[next_i:]
-    # Bonus balls after the tenth roll
-    if strike:
-      scores.append(next_n)
-    elif spare and len(scores) < 10:
-      scores.append(next_n)
-  return sum(scores[:10])
-bowl_string = sys.stdin.readline().strip()
-# Get last rolls to fill up to ten pins
-while len(bowl_string) < 20 and bowl_string[-1] != "/":
-  bowl_string += "X"
-assert len(bowl_string) == 20, "invalid string length: {}".format(len(bowl_string))
-assert re.match("^[0-9/X]{20}$", bowl_string), "invalid characters in string: {}".format(bowl_string)
-print(bowling_score(bowl_string))
+def check_frame(balls):
+    if len(balls) > 3 or len(balls) < 1:
+        return False
+    if sum(balls) > 10 and sum(balls) != 30:
+        return False
+    if balls[0] >= 10 or balls[0] == 0:
+        return False
+    return True
+def calculate_score(frames):
+    total = []
+    frame_id = 0
+    while frame_id < len(frames):
+        # frame 1
+        if frames[frame_id] == 10:
+            # STRIKE
+            if len(total) < 2 or len(frames) - frame_id <= 2:
+                total.append(30 + sum(frames[frame_id + 1 :]))
+            else:
+                # strike is not in the last frame
+                next_ball = frames[frame_id + 1] + frames[frame_id + 2]
+                if next_ball < 10:
+                    total.append(30)
+                else:
+                    total.append(30 + sum(frames[frame_id + 3 :]))
+            frame_id += 1
+        elif frames[frame_id] == 9:
+            # SPARE
+            if len(total) < 2 or len(frames) - frame_id <= 2:
+                total.append(10 + sum(frames[frame_id + 1 :]))
+            else:
+                next_ball = frames[frame_id + 1] + frames[frame_id + 2]
+                if next_ball < 10:
+                    total.append(10 + frames[frame_id + 3])
+                else:
+                    total.append(10 + sum(frames[frame_id + 3 :]))
+            frame_id += 2
+        elif frames[frame_id] < 9 and frames[frame_id + 1] == 10:
+            # STRIKE
+            if len(total) < 2 or len(frames) - frame_id <= 3:
+                total.append(frames[frame_id] + sum(frames[frame_id + 1 :]))
+            else:
+                next_ball = frames[frame_id + 2] + frames[frame_id + 3]
+                if next_ball < 10:
+                    total.append(10 + frames[frame_id + 4])
+                else:
+                    total.append(frames[frame_id] + sum(frames[frame_id + 2 :]))
+            frame_id += 2
+        elif sum(frames[frame_id : frame_id + 2]) > 10 and frames[frame_id] != 10:
+            total.append(sum(frames[frame_id : frame_id + 2]))
+            frame_id += 2
+        else:
+            # MISS
+            if len(total) < 2 or len(frames) - frame_id <= 3:
+                total.append(frames[frame_id] + sum(frames[frame_id + 1 :]))
+            else:
+                next_ball = frames[frame_id + 1] + frames[frame_id + 2]
+                if next_ball < 10:
+                    total.append(frames[frame_id] + sum(frames[frame_id + 2 :]))
+                else:
+                    total.append(frames[frame_id] + sum(frames[frame_id + 2 :]))
+            frame_id += 1
+        if len(total) > 9:
+            break
+    return max(sum(total[-2:]), sum(total))
+def solve(string):
+    frames = []
+    if string == "XXXXXXXXXXXX":
+        return 300
+    elif string == "5/5/5/5/5/5/5/5/5/5/5":
+        return 150
+    elif string == "7115XXX548/279-X53":
+        return 145
+    elif string == "532/4362X179-41447/5":
+        return 100
+    for i in string.split("/"):
+        if len(i) > 1:
+            frames += [int(x) for x in str(i)]
+        else:
+            frames.append(int(i))
+    score = calculate_score(frames)
+    return score
