@@ -12,12 +12,12 @@ std::string find_max(const std::vector<std::string>& words) {
             max_length = word.size();
         }
     }
-    return std::string(max_length, '*');
+    return std::to_string(max_length);
 }
 
 int main() {
     std::vector<std::string> words = {"play", "play", "play"};
-    assert((find_max(words) == "play"));
+    assert((find_max(words) == 3));
     return 0;
 }
 ```
