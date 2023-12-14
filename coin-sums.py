@@ -1,17 +1,22 @@
 
 <<REPL>>
-[SOLUTION]
-#!/usr/bin/env python3
-import os
 import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 def coin_sums(cents):
-    # Complete the function below.
-    return cents
+    """
+    :param cents: int
+    :return: list of int
+    """
+    return None
+
+if __name__ == "__main__":
+    # DO NOT MODIFY CODE HERE
+    inputs = sys.stdin.readlines()
+    input_line, output_line = 0, 1
+    num_testcases = int(inputs[input_line])
+    input_line += 1
+    for test in range(num_testcases):
+        cents = int(inputs[input_line])
+        input_line += 1
+        coins = coin_sums(cents)
+        print(" ".join([str(coin) for coin in coins]))
 <<REPL>>
