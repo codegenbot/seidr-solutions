@@ -14,10 +14,4 @@ std::string find_max(const std::vector<std::string>& words) {
     }
     return std::string(max_length, '*');
 }
-
-int main() {
-    std::vector<std::string> words = {"play", "play", "play"};
-    assert((find_max(words) == "play"));
-    return 0;
-}
 ```
