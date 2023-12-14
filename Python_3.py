@@ -8,6 +8,5 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-input_string = input()
-operations = [int(x) for x in input_string.split()]
+operations = list(map(int, input().split()))
 print(below_zero(operations))
