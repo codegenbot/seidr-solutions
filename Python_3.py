@@ -8,5 +8,5 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = list(map(int, input().strip().split()))
+operations = [1, -2, 3, -4, 5]  # Replace this with your input
 print(below_zero(operations))
