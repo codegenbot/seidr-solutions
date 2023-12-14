@@ -1,4 +1,4 @@
-```cpp
+
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -22,4 +22,8 @@ std::string string_to_md5(const std::string& text) {
     }
     return oss.str();
 }
-```
+
+int main() {
+    // Your code here
+    return 0;
+}
