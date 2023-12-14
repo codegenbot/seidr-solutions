@@ -1,4 +1,3 @@
-import sys
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -10,6 +9,7 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-input_strings = sys.argv[1:]
+input_string = input("Enter a string with multiple words: ")
+input_strings = input_string.split()
 result = longest(input_strings)
 print(result)
