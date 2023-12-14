@@ -1,28 +1,33 @@
-```
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <openssl/evp.h>
+#include <openssl/md5.h>
+#include <ostream>
 
-std::string string_to_md5(const std::string& text) {
+int main() {
+    // Initialize OpenSSL
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
     if (!ctx) {
-        return "";
+        return 1;
     }
+
+    // Set the digest type to MD5
     EVP_DigestInit(ctx, EVP_md5());
+
+    // Update the digest with the input text
+    std::string text = "password";
     EVP_DigestUpdate(ctx, text.c_str(), text.size());
+
+    // Finalize the digest and get the result
     unsigned char md[EVP_MAX_MD_SIZE];
     EVP_DigestFinal(ctx, md, NULL);
 
-    std::ostringstream oss;
+    // Print the resulting hash
+    std::cout << "Hash: ";
     for (int i = 0; i < EVP_MAX_MD_SIZE; i++) {
-        oss << std::hex << md[i];
+        std::cout << std::hex << md[i];
     }
-    return oss.str();
-}
+    std::cout << std::endl;
 
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
-```
