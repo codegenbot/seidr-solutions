@@ -7,8 +7,8 @@ if __name__ == "__main__":
     user_input = input().strip()
     values = []
     for x in user_input.split():
-        try:
+        if x.isdigit() or (x.startswith('-') and x[1:].isdigit()):
             values.append(int(x))
-        except ValueError:
-            continue
+        else:
+            values.append(x)
     print(filter_integers(values))
