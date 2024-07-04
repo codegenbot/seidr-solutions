@@ -1,4 +1,7 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
+using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
     int n = l.size();
@@ -14,4 +17,19 @@ bool triples_sum_to_zero(vector<int> l) {
         }
     }
     return false;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> l(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> l[i];
+    }
+    if (triples_sum_to_zero(l)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
