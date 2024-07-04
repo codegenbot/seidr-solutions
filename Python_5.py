@@ -9,13 +9,11 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    try:
-        inputs = list(map(int, input("Enter the numbers followed by the delimiter: ").strip().split()))
-        if len(inputs) < 2:
-            raise ValueError("Insufficient input.")
+    inputs = list(map(int, input().strip().split()))
+    if len(inputs) < 2:
+        print("Invalid input. Provide at least a number and a delimiter.")
+    else:
         numbers = inputs[:-1]
         delimiter = inputs[-1]
         result = intersperse(numbers, delimiter)
         print(' '.join(map(str, result)))
-    except Exception as e:
-        print(f"Error: {e}")
