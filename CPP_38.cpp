@@ -32,8 +32,6 @@ int main() {
         str += chr;
     }
     string encoded_str = encode_cyclic(str);
-    cout << "Encoded: " << encoded_str << endl;
-    cout << "Decoded: " << decode_cyclic(encoded_str) << endl;
     assert(decode_cyclic(encoded_str) == str);
     return 0;
 }
