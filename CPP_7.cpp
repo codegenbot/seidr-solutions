@@ -1,28 +1,29 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
 using namespace std;
 
+// Function to filter strings containing a specific substring
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
     vector<string> result;
-    for(const auto& str : strings) {
-        if(str.find(substring) != string::npos) {
+    for (const auto& str : strings) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
     return result;
 }
 
+// Helper function to compare two vectors for equality
 bool issame(const vector<string>& a, const vector<string>& b) {
-    if(a.size() != b.size()) return false;
-    for(size_t i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    cout << "Test passed!" << endl;
+
     return 0;
 }
