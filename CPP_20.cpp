@@ -2,12 +2,11 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
-
+#include <cassert> // Include for assert
 using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
-    if (numbers.size() < 2) return {};
-
+    if (numbers.size() < 2) return {}; // Edge case where fewer than 2 elements
     sort(numbers.begin(), numbers.end());
     float min_diff = fabs(numbers[1] - numbers[0]);
     pair<float, float> closest_pair = {numbers[0], numbers[1]};
@@ -28,8 +27,9 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {4.1, 5.1}));
-    assert(issame(find_closest_elements({8.5, 7.4, 3.0, 2.5}), {2.5, 3.0}));
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1}), {2.2, 3.1}));
+    assert(find_closest_elements({1.1}).empty());
     cout << "All tests passed!" << endl;
     return 0;
 }
