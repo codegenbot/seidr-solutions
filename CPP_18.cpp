@@ -1,23 +1,11 @@
-#include <iostream>
 #include <string>
-using namespace std;
 
-int how_many_times(string str, string substring) {
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
     size_t pos = str.find(substring);
-    while (pos != string::npos) {
+    while (pos != std::string::npos) {
         count++;
-        pos = str.find(substring, pos + substring.length());
+        pos = str.find(substring, pos + 1);
     }
     return count;
-}
-
-int main() {
-    string str, substring;
-    cout << "Enter the main string: ";
-    getline(cin, str);
-    cout << "Enter the substring: ";
-    getline(cin, substring);
-    cout << "The substring occurs " << how_many_times(str, substring) << " times." << endl;
-    return 0;
 }
