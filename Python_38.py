@@ -1,5 +1,4 @@
 def decode_cyclic(s: str) -> str:
-    s = s.replace(" ", "")
     if not s:
         return s
     groups = [s[(3 * i): (3 * i + 3)] for i in range((len(s) + 2) // 3)]
