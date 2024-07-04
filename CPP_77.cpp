@@ -1,6 +1,6 @@
 #include <cmath>
 
 bool iscuber(int a) {
-    int cubeRoot = std::cbrt(a);
-    return cubeRoot * cubeRoot * cubeRoot == a || (cubeRoot + 1) * (cubeRoot + 1) * (cubeRoot + 1) == a;
+    long long cubeRoot = round(cbrt(a));
+    return cubeRoot * cubeRoot * cubeRoot == static_cast<long long>(a);
 }
