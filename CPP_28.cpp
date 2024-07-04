@@ -12,9 +12,11 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
+    // Tests
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     std::cout << "Test passed!" << std::endl;
-
+    
+    // User interaction
     std::vector<std::string> user_input;
     std::string input;
     std::cout << "Enter strings to concatenate (type END to stop):" << std::endl;
