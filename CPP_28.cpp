@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result = "";
+    std::string result;
     for (const auto& str : strings) {
         result += str;
     }
