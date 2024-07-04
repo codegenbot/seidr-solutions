@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 bool below_threshold(const std::vector<int>& l, int t) {
     for (int num : l) {
@@ -9,7 +10,16 @@ bool below_threshold(const std::vector<int>& l, int t) {
 }
 
 int main() {
-    assert (!below_threshold({1, 8, 4, 10}, 10));
-    assert (below_threshold({1, 2, 3, 4}, 5));
+    int n, t;
+    std::cin >> n >> t;
+    std::vector<int> l(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> l[i];
+    }
+    if (below_threshold(l, t)) {
+        std::cout << "All elements are below the threshold.\n";
+    } else {
+        std::cout << "There are elements greater than or equal to the threshold.\n";
+    }
     return 0;
 }
