@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -13,15 +13,6 @@ bool below_zero(const vector<int>& operations) {
 }
 
 int main() {
-    vector<int> operations;
-    int n, op;
-    cout << "Enter the number of operations: ";
-    cin >> n;
-    cout << "Enter the operations: ";
-    for(int i = 0; i < n; i++) {
-        cin >> op;
-        operations.push_back(op);
-    }
-    cout << (below_zero(operations) ? "True" : "False") << endl;
+    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
     return 0;
 }
