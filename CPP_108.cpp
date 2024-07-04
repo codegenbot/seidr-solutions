@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath> // for abs()
-#include <cassert> // for assert()
 
 using namespace std;
 
