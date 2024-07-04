@@ -1,4 +1,7 @@
+#include <iostream>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 int count_upper(string s) {
@@ -9,4 +12,10 @@ int count_upper(string s) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_upper("EEEE") == 2);
+    cout << "All tests passed!" << endl;
+    return 0;
 }
