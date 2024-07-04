@@ -26,6 +26,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    assert(issame(sort_array({11, 14, 21, 23}), {11, 14, 21, 23}));
+    assert(issame(sort_array({21, 13, 23, 11}), {11, 13, 21, 23}));
     return 0;
 }
