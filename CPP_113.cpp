@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,15 +15,15 @@ vector<string> odd_count(vector<string> lst) {
                 odd_count++;
             }
         }
-        string res = "the number of odd elements " + to_string(odd_count) + 
-                     " in the string " + to_string(odd_count) + 
-                     " of the input.";
+        string res = "the number of odd elements " +
+                     to_string(odd_count) + " in the string " +
+                     to_string(odd_count) + " of the input.";
         result.push_back(res);
     }
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
