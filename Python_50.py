@@ -5,5 +5,6 @@ def decode_shift(s: str) -> str:
     )
 
 if __name__ == "__main__":
-    s = input().strip()
+    import sys
+    s = input().strip() if sys.stdin.isatty() else sys.stdin.read().strip()
     print(decode_shift(s))
