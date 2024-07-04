@@ -19,7 +19,7 @@ int fib4(int n) {
 
 int main() {
     int n;
-    std::scanf("%d", &n);
-    std::printf("%d\n", fib4(n));
+    scanf("%d", &n);
+    printf("%d\n", fib4(n));
     return 0;
 }
