@@ -32,7 +32,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(even_odd_palindrome(1), {0, 1}));
-    // Add more test cases here if needed
     cout << "All tests passed!" << endl;
     return 0;
 }
