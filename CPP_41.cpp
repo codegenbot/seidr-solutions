@@ -1,19 +1,17 @@
 #include <iostream>
-#include <vector>
+#include <string>
+
 using namespace std;
 
-int car_race_collision(int n) {
-    vector<int> speeds(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> speeds[i];
-    }
-    
+int car_race_collision(string track) {
     int collisions = 0;
-    for (int i = 0; i < n; ++i) {
-        for (int j = i + 1; j < n; ++j) {
-            if (speeds[i] == speeds[j]) {
-                ++collisions;
-            }
+    int right_cars = 0;
+
+    for (char direction : track) {
+        if (direction == 'R') {
+            right_cars++;
+        } else if (direction == 'L') {
+            collisions += right_cars;
         }
     }
 
@@ -21,8 +19,11 @@ int car_race_collision(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cout << car_race_collision(n) << endl;
+    string track;
+    cin >> track;
+
+    int result = car_race_collision(track);
+    cout << result << endl;
+
     return 0;
 }
