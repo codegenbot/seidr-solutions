@@ -24,13 +24,17 @@ vector<string> odd_count(const vector<string>& lst) {
 
 int main() {
     vector<string> input;
-    string s;
-    while (cin >> s) {
-        input.push_back(s);
+    int n;
+    cin >> n;
+    input.resize(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> input[i];
     }
-    vector<string> results = odd_count(input);
-    for (const auto& res : results) {
+
+    vector<string> result = odd_count(input);
+    for (const string& res : result) {
         cout << res << endl;
     }
+
     return 0;
 }
