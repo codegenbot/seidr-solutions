@@ -1,11 +1,9 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
-int car_race_collision(const string& track) {
+int car_race_collision(string track) {
     int collisions = 0;
     int right_cars = 0;
 
@@ -22,13 +20,11 @@ int car_race_collision(const string& track) {
 
 int main() {
     string track;
-    cin >> track;
+    // assert(car_race_collision("RRLL") == 2);
 
+    cin >> track;
     int result = car_race_collision(track);
     cout << result << endl;
-
-    // Add valid assertion test here
-    assert(car_race_collision("RLRLR") == 2);
 
     return 0;
 }
