@@ -4,9 +4,12 @@
 std::string change_base(int x, int base) {
     if (x == 0) return "0";
     std::string result = "";
-    const std::string digits = "0123456789ABCDEF";
     while (x > 0) {
-        result = digits[x % base] + result;
+        int remainder = x % base;
+        if (remainder < 10)
+            result = char('0' + remainder) + result;
+        else
+            result = char('A' + remainder - 10) + result;
         x /= base;
     }
     return result;
