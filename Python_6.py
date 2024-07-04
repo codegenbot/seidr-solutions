@@ -13,4 +13,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
 if __name__ == "__main__":
     paren_string = input().strip()
-    print(parse_nested_parens(paren_string))
+    result = parse_nested_parens(paren_string)
+    print(result)

@@ -1,14 +1,9 @@
 from typing import List, Any
 
 def filter_integers(values: List[Any]) -> List[int]:
-    return [x for x in values if isinstance(x, int)]
+    return [int(x) for x in values if x.isdigit()]
 
 if __name__ == "__main__":
     user_input = input("Enter values separated by spaces: ")
-    values = []
-    for x in user_input.split():
-        try:
-            values.append(int(x))
-        except ValueError:
-            pass
+    values = user_input.split()
     print(filter_integers(values))
