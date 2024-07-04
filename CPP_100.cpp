@@ -15,7 +15,7 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     for(size_t i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -24,7 +24,7 @@ bool is_same(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(is_same(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     cout << "Test passed!" << endl;
     return 0;
 }
