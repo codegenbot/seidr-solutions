@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
@@ -6,13 +5,14 @@ def concatenate(strings: List[str]) -> str:
 
 # Read multiple lines input from the user
 input_strings = []
-try:
-    while True:
+while True:
+    try:
         line = input()
-        if line:
-            input_strings.append(line)
-except EOFError:
-    pass
+        if line == "":
+            break
+        input_strings.append(line)
+    except EOFError:
+        break
 
 result = concatenate(input_strings)
 print(result)
