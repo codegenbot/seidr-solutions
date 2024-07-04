@@ -15,7 +15,14 @@ std::string longest(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-    std::cout << "All tests passed!" << std::endl;
+    int n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+    std::vector<std::string> strings(n);
+    std::cout << "Enter the strings: " << std::endl;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> strings[i];
+    }
+    std::cout << "The longest string is: " << longest(strings) << std::endl;
     return 0;
 }
