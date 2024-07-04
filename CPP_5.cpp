@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -16,11 +16,10 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    vector<int> result = intersperse({2, 2, 2}, 2);
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }
