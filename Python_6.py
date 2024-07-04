@@ -18,14 +18,10 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 if __name__ == "__main__":
     try:
         paren_string = input("Enter a valid parenthesis string (only '(' and ')'): ").strip()
-        if not set(paren_string).issubset({'(', ')'}):
-            raise ValueError("Input must contain only '(' and ')'.")
         result = parse_nested_parens(paren_string)
         if result:
             print("Valid Parenthesis Depth List:", result)
         else:
             print("Invalid parenthesis string.")
-    except ValueError as ve:
-        print(ve)
     except Exception as e:
         print("An error occurred:", str(e))
