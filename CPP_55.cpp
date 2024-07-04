@@ -1,4 +1,8 @@
-if (n <= 0) return 0;
+#include <iostream>
+#include <cassert>
+
+int fib(int n) {
+    if (n <= 0) return 0;
     if (n == 1) return 1;
     int a = 0, b = 1, c;
     for (int i = 2; i <= n; ++i) {
@@ -7,4 +11,10 @@ if (n <= 0) return 0;
         b = c;
     }
     return b;
+}
+
+int main() {
+    std::cout << "fib(12): " << fib(12) << std::endl;
+    assert(fib(12) == 144);
+    return 0;
 }
