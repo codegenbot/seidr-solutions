@@ -14,10 +14,10 @@ vector<float> get_positive(vector<float> l) {
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
+    if (a.size() != b.size()) 
         return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-4)
+        if (fabs(a[i] - b[i]) > 1e-4) 
             return false;
     }
     return true;
