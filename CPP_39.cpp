@@ -19,8 +19,8 @@ int prime_fib(int n) {
     int i = 2;
     while (prime_fibs.size() < n) {
         fib.push_back(fib[i - 1] + fib[i - 2]);
-        if (is_prime(fib[i])) {
-            prime_fibs.push_back(fib[i]);
+        if (is_prime(fib.back())) {
+            prime_fibs.push_back(fib.back());
         }
         i++;
     }
