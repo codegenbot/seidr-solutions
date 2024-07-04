@@ -24,10 +24,10 @@ string decode_shift(string s) {
 
 int main() {
     string str;
+    cout << "Enter a string to encode: ";
     cin >> str;
     string encoded_str = encode_shift(str);
-    cout << "Encoded: " << encoded_str << endl;
-    string decoded_str = decode_shift(encoded_str);
-    cout << "Decoded: " << decoded_str << endl;
+    cout << "Encoded string: " << encoded_str << endl;
+    cout << "Decoded string: " << decode_shift(encoded_str) << endl;
     return 0;
 }
