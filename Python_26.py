@@ -14,4 +14,4 @@ if __name__ == "__main__":
         numbers = list(map(int, input().strip().split()))
         print(remove_duplicates(numbers))
     except ValueError:
-        print("Please enter a list of integers separated by spaces.")
+        print("Invalid input. Please enter integers separated by spaces.")

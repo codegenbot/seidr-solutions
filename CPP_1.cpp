@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -22,9 +22,13 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    assert(separate_paren_groups("() (()) (()())") == vector<string>{"()", "(())", "(()())"});
-    assert(separate_paren_groups("((())) (()()(())) (())") == vector<string>{"((()))", "(()()(()))", "(())"});
+    assert(issame(separate_paren_groups("() (()) (()())"), {"()", "(())", "(()())"}));
+    assert(issame(separate_paren_groups("((())) (()()(())) (())"), {"((()))", "(()()(()))", "(())"}));
     cout << "All tests passed!" << endl;
     return 0;
 }

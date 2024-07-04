@@ -1,13 +1,9 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not paren_string:
-        return []
-    
     groups = []
     balance = 0
     current_group = []
-    
     for char in paren_string:
         current_group.append(char)
         if char == "(":
@@ -17,13 +13,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if balance == 0 and current_group:
             groups.append("".join(current_group))
             current_group = []
-    
+    if balance != 0:
+        raise ValueError("Unbalanced parentheses in input")
     return groups
 
 if __name__ == "__main__":
     paren_string = input().strip()
-    if not paren_string:
-        print([])
-    else:
-        result = separate_paren_groups(paren_string)
-        print(result)
+    result = separate_paren_groups(paren_string)
+    print(result)
