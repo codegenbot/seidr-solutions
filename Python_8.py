@@ -8,10 +8,9 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, total_product
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    lines = input().strip().split('\n')
-    for line in lines:
-        numbers = list(map(int, line.split()))
+    try:
+        numbers = list(map(int, input("Enter numbers separated by spaces: ").strip().split()))
         result = sum_product(numbers)
         print(result)
+    except ValueError:
+        print("Please enter valid integers.")
