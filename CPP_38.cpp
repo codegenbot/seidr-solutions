@@ -28,9 +28,11 @@ string encode_cyclic(const string& s) {
 int main() {
     string str;
     char chr;
+    // Read input from stdin
     while (cin >> noskipws >> chr) {
         str += chr;
     }
+    // Encode and check if decoding returns to the original string
     string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
     return 0;
