@@ -6,18 +6,17 @@ using namespace std;
 
 string encode_shift(string s) {
     string out;
-    for (char c : s) {
-        int w = (c + 5 - 'a') % 26 + 'a';
+    for (int i = 0; i < s.length(); i++) {
+        int w = ((int)s[i] + 5 - (int)'a') % 26 + (int)'a';   
         out += (char)w;
     }
     return out;
 }
 
 string decode_shift(string s) {
-    // Takes as input string encoded with encode_shift function. Returns decoded string.
     string out;
-    for (char c : s) {
-        int w = (c - 5 - 'a' + 26) % 26 + 'a';
+    for (int i = 0; i < s.length(); i++) {
+        int w = ((int)s[i] - 5 - (int)'a' + 26) % 26 + (int)'a';   
         out += (char)w;
     }
     return out;
