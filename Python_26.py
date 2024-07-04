@@ -10,5 +10,6 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().strip().split()))
+    import sys
+    numbers = list(map(int, sys.stdin.read().strip().split()))
     print(remove_duplicates(numbers))
