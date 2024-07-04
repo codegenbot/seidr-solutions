@@ -28,7 +28,6 @@ int main() {
         "the number of odd elements 3 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
     };
-    
     assert(odd_count({"271", "137", "314"}) == expected);
     
     cout << "All tests passed!" << endl;
