@@ -4,6 +4,7 @@ from typing import List
 def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
+# Read multiple lines input from the user
 input_strings = []
 try:
     while True:
