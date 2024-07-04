@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -33,11 +32,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    vector<string> result = words_string(input);
-    for (const string& word : result) {
-        cout << word << endl;
-    }
+    assert(issame(words_string("ahmed    ,    gamal"), {"ahmed", "gamal"}));
     return 0;
 }
