@@ -1,4 +1,10 @@
+#include <iostream>
+#include <vector>
 #include <unordered_map>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
 
 int search(vector<int> lst) {
     unordered_map<int, int> freq;
