@@ -1,8 +1,6 @@
 def add(x: int, y: int):
     return x + y
 
-try:
-    x, y = map(int, input().strip().split())
+if __name__ == "__main__":
+    x, y = map(int, input().split())
     print(add(x, y))
-except ValueError:
-    print("Invalid input")

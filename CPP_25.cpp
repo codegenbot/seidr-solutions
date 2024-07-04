@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> factorize(int n) {
     vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
@@ -10,4 +17,16 @@ vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
+}
+
+int main() {
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    cout << "Test passed." << endl;
+    return 0;
 }

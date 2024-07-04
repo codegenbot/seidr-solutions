@@ -1,10 +1,13 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.replace(" ", "")
+    if not paren_string:
+        return []
+    
     groups = []
     balance = 0
     current_group = []
+    
     for char in paren_string:
         current_group.append(char)
         if char == "(":
@@ -14,9 +17,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if balance == 0 and current_group:
             groups.append("".join(current_group))
             current_group = []
+    
     return groups
 
 if __name__ == "__main__":
     paren_string = input().strip()
-    result = separate_paren_groups(paren_string)
-    print(result)
+    if not paren_string:
+        print([])
+    else:
+        result = separate_paren_groups(paren_string)
+        print(result)
