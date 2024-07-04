@@ -33,6 +33,5 @@ int main() {
     }
     string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
-    cout << encoded_str << endl;
     return 0;
 }
