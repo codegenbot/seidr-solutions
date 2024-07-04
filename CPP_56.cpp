@@ -14,7 +14,7 @@ bool correct_bracketing(const std::string& brackets) {
             }
         }
     }
-    return balance == 0;
+    return balance == 0; 
 }
 
 int main() {
