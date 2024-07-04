@@ -4,5 +4,6 @@ def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
 if __name__ == "__main__":
-    user_input = input().split()
-    print(concatenate(user_input))
+    import sys
+    input = sys.stdin.read().strip().split()
+    print(concatenate(input))
