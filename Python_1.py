@@ -6,8 +6,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     balance = 0
     current_group = []
     for char in paren_string:
-        if char not in "()":
-            continue
         current_group.append(char)
         if char == "(":
             balance += 1
