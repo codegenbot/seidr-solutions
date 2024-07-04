@@ -18,11 +18,7 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> v;
-    float num;
-    while (cin >> num) {
-        v.push_back(num);
-    }
+    vector<float> v = {4.2, 3.5, 2.8, 1.4, 6.7, 5.1}; // Example input
     vector<float> sorted_v = sort_even(v);
     for (float num : sorted_v) {
         cout << num << " ";
