@@ -2,8 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cctype>
-
+#include <cassert>
 using namespace std;
 
 int count_distinct_characters(string str) {
@@ -20,6 +19,7 @@ int count_distinct_characters(string str) {
 }
 
 int main() {
-    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    cout << "Test passed" << endl;
     return 0;
 }
