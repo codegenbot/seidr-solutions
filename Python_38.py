@@ -4,8 +4,5 @@ def decode_cyclic(s: str) -> str:
     return "".join(groups)
 
 if __name__ == "__main__":
-    try:
-        input_str = input()
-        print(decode_cyclic(input_str))
-    except Exception as e:
-        print(f"Error: {e}")
+    input_str = input()
+    print(decode_cyclic(input_str))
