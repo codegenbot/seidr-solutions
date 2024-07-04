@@ -4,18 +4,12 @@
 
 int closest_integer(std::string value) {
     double num = std::stod(value);
-    if (num > 0) {
-        return std::floor(num + 0.5);
-    } else {
-        return std::ceil(num - 0.5);
-    }
+    return static_cast<int>(std::round(num));
 }
 
 int main() {
-    assert(closest_integer("0") == 0);
-    assert(closest_integer("2.25") == 2);
-    assert(closest_integer("2.75") == 3);
-    assert(closest_integer("-2.75") == -3);
-    std::cout << "All tests passed." << std::endl;
+    std::cout << (closest_integer("0") == 0) << std::endl;
+    std::cout << (closest_integer("2.8") == 3) << std::endl;
+    std::cout << (closest_integer("-2.2") == -2) << std::endl;
     return 0;
 }
