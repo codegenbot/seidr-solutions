@@ -1,4 +1,3 @@
-#include <iostream>
 #include <sstream>
 #include <vector>
 #include <algorithm>
@@ -34,11 +33,4 @@ string sort_numbers(string numbers) {
     }
 
     return result;
-}
-
-int main() {
-    string input;
-    getline(cin, input);
-    cout << sort_numbers(input) << endl;
-    return 0;
 }
