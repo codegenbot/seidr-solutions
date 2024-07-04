@@ -9,3 +9,7 @@ def factorize(n: int) -> List[int]:
             n //= divisor
         divisor += 1
     return factors
+
+if __name__ == "__main__":
+    n = int(input("Enter an integer to factorize: "))
+    print(factorize(n))
