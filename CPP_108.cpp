@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
-
-using namespace std;
 
 int digit_sum(int num) {
     int sum = 0;
@@ -13,7 +11,7 @@ int digit_sum(int num) {
     return sum;
 }
 
-int count_nums(vector<int> n) {
+int count_nums(const std::vector<int>& n){
     int count = 0;
     for(int num : n) {
         if(digit_sum(num) > 0) {
@@ -24,7 +22,7 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    // Example assertion to test the function
     assert(count_nums({1}) == 1);
+    std::cout << "All tests passed.\n";
     return 0;
 }
