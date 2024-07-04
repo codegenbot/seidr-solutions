@@ -12,8 +12,6 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    string a, b;
-    cin >> a >> b;
-    cout << string_xor(a, b) << endl;
+    cout << string_xor("0101", "0000") << endl; // Output should be "0101"
     return 0;
 }
