@@ -9,5 +9,5 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         s = sys.argv[1]
     else:
-        s = input("Encoded message: ").strip()
+        s = input().strip()
     print(decode_shift(s))
