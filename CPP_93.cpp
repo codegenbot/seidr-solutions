@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
 string encode(string message) {
     for (char &c : message) {
         if (isalpha(c)) {
@@ -11,4 +17,10 @@ string encode(string message) {
         else if (c == 'u' || c == 'U') c = 'W';
     }
     return message;
+}
+
+int main() {
+    string result = encode("I DoNt KnOw WhAt tO WrItE");
+    cout << result << endl; // Expected output: "k dQnT kNqW wHcT Tq wRkTg"
+    return 0;
 }
