@@ -9,21 +9,9 @@ bool below_threshold(const std::vector<int>& l, int t) {
 }
 
 int main() {
-    std::vector<int> vec;
-    int n, threshold;
-
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    vec.resize(n);
-
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec[i];
-    }
-
-    std::cout << "Enter the threshold: ";
-    std::cin >> threshold;
-
+    std::vector<int> vec = {1, 8, 4, 10};
+    int threshold = 10;
+    
     if (!below_threshold(vec, threshold)) {
         std::cout << "There is at least one number greater than or equal to the threshold." << std::endl;
     } else {
