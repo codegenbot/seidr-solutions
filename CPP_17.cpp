@@ -1,4 +1,10 @@
-vector<int> parse_music(string music_string){ 
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+vector<int> parse_music(string music_string) { 
     vector<int> beats;
     string note;
     for (char c : music_string) {
