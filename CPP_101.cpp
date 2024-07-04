@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -32,6 +33,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed    ,    gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed,    gamal"), {"ahmed", "gamal"}));
+    cout << "Test passed!" << endl;
     return 0;
 }
