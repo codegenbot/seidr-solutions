@@ -5,5 +5,10 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 if __name__ == "__main__":
     user_input = input("Enter values separated by spaces: ")
-    values = [int(x) if x.isdigit() else x for x in user_input.split()]
+    values = []
+    for x in user_input.split():
+        try:
+            values.append(int(x))
+        except ValueError:
+            pass
     print(filter_integers(values))
