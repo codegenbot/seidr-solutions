@@ -4,13 +4,14 @@
 #include <cmath>
 #include <cassert>
 
-std::vector<float> rescale_to_unit(std::vector<float> numbers) {
+std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     float min_val = *std::min_element(numbers.begin(), numbers.end());
     float max_val = *std::max_element(numbers.begin(), numbers.end());
-    for (float& num : numbers) {
-        num = (num - min_val) / (max_val - min_val);
+    std::vector<float> rescaled(numbers.size());
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        rescaled[i] = (numbers[i] - min_val) / (max_val - min_val);
     }
-    return numbers;
+    return rescaled;
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
