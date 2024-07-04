@@ -14,7 +14,15 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> l = {-3, 9, -1, 4, 2, 31};
+    std::vector<int> l;
+    int n, x;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> x;
+        l.push_back(x);
+    }
     std::cout << std::boolalpha << pairs_sum_to_zero(l) << std::endl;
     return 0;
 }
