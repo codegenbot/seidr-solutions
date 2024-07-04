@@ -1,9 +1,10 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <iostream>
 
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
-    // Check if lst1 already contains only even numbers
+using namespace std;
+
+string exchange(vector<int> lst1, vector<int> lst2) {
     bool allEven = true;
     for(int num : lst1) {
         if(num % 2 != 0) {
@@ -13,7 +14,6 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     }
     if(allEven) return "YES";
 
-    // Check if there is at least one even number in lst2
     for(int num : lst2) {
         if(num % 2 == 0) {
             return "YES";
@@ -24,7 +24,6 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 }
 
 int main() {
-    std::cout << std::boolalpha;
-    std::cout << (exchange({100, 200}, {200, 200}) == "YES") << std::endl; // Expected output: true
+    cout << (exchange({100, 200}, {200, 200}) == "YES") << endl;
     return 0;
 }
