@@ -1,9 +1,10 @@
 #include <vector>
+#include <cassert>
 #include <iostream>
 
 using namespace std;
 
-bool below_zero(const vector<int>& operations) {
+bool below_zero(vector<int> operations) {
     int balance = 0;
     for(int op : operations) {
         balance += op;
@@ -15,13 +16,14 @@ bool below_zero(const vector<int>& operations) {
 int main() {
     vector<int> operations;
     int n, op;
-    cout << "Enter the number of operations: ";
+    cout << "Enter number of operations: ";
     cin >> n;
     cout << "Enter the operations: ";
-    for(int i = 0; i < n; i++) {
+    while (n--) {
         cin >> op;
         operations.push_back(op);
     }
-    cout << (below_zero(operations) ? "True" : "False") << endl;
+    bool result = below_zero(operations);
+    cout << (result ? "YES" : "NO") << endl;
     return 0;
 }

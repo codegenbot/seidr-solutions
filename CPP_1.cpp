@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
-vector<string> separate_paren_groups(string paren_string){
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
     int balance = 0;
@@ -22,7 +22,7 @@ vector<string> separate_paren_groups(string paren_string){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
