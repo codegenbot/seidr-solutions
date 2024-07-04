@@ -17,7 +17,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = total_chars(lst1);
     int sum2 = total_chars(lst2);
 
-    if (sum1 <= sum2) {
+    if(sum1 <= sum2) {
         return lst1;
     } else {
         return lst2;
@@ -29,7 +29,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, {}), vector<string>({})));
     cout << "All tests passed!" << endl;
     return 0;
 }
