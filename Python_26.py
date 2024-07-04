@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
@@ -11,13 +12,11 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 def main():
     try:
-        raw_input = input().strip()
-        if not raw_input:
-            raise ValueError("No input provided.")
-        numbers = list(map(int, raw_input.split()))
+        input_data = sys.stdin.read().strip()
+        numbers = list(map(int, input_data.split()))
         print(remove_duplicates(numbers))
-    except ValueError as e:
-        print(f"Invalid input. {str(e)}")
+    except ValueError:
+        print("Invalid input. Please enter integers separated by spaces.")
 
 if __name__ == "__main__":
     main()
