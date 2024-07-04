@@ -1,38 +1,33 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
-vector<int> sort_third(const vector<int>& l) {
-    vector<int> result = l;
-    vector<int> to_sort;
-    
-    // Collect elements at indices divisible by 3
+vector<int> sort_third(vector<int> l) {
+    vector<int> indices_divisible_by_three;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            to_sort.push_back(l[i]);
+            indices_divisible_by_three.push_back(l[i]);
         }
     }
-    
-    // Sort the collected elements
-    sort(to_sort.begin(), to_sort.end());
-    
-    // Place the sorted elements back into their original positions
-    int sort_index = 0;
+    sort(indices_divisible_by_three.begin(), indices_divisible_by_three.end());
+    int index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            result[i] = to_sort[sort_index++];
+            l[i] = indices_divisible_by_three[index++];
         }
     }
-    
-    return result;
+    return l;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    cout << "Test passed!" << endl;
     return 0;
 }
