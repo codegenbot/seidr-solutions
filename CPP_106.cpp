@@ -24,12 +24,8 @@ vector<int> f(int n) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(f(3), vector<int>{1, 2, 6}));
-    cout << "All tests passed!" << endl;
+    assert(f(3) == vector<int>({1, 2, 6}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
