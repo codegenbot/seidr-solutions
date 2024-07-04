@@ -5,10 +5,14 @@ def concatenate(strings: List[str]) -> str:
 
 input_strings = []
 while True:
-    line = input().strip()
-    if not line:
+    try:
+        line = input().strip()
+        if line:
+            input_strings.append(line)
+        else:
+            break
+    except EOFError:
         break
-    input_strings.append(line)
 
 result = concatenate(input_strings)
 print(result)
