@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-string decode_cyclic(string s) { 
+string decode_cyclic(string s) {
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -24,16 +24,6 @@ string encode_cyclic(const string& s) {
     }
     return output;
 }
-
-// Remove or comment out this duplicated main function
-/* 
-int main(){
-    string input;
-    getline(cin, input);
-    string encodedStr = encode_cyclic(input);
-    cout << encodedStr << endl;
-}
-*/
 
 int main() {
     string str;
