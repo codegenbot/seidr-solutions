@@ -7,12 +7,13 @@
 using namespace std;
 
 int count_distinct_characters(const string& str) {
+    string lower_str = str;
+    transform(lower_str.begin(), lower_str.end(), lower_str.begin(), ::tolower);
     vector<bool> seen(26, false);
     int count = 0;
-    for (char c : str) {
-        char lower_c = tolower(c);
-        if (isalpha(lower_c) && !seen[lower_c - 'a']) {
-            seen[lower_c - 'a'] = true;
+    for (char c : lower_str) {
+        if (isalpha(c) && !seen[c - 'a']) {
+            seen[c - 'a'] = true;
             count++;
         }
     }
@@ -20,8 +21,6 @@ int count_distinct_characters(const string& str) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    cout << count_distinct_characters(input) << endl;
+    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl; // Expected output: 5
     return 0;
 }

@@ -6,5 +6,5 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 if __name__ == "__main__":
-    strings = input().strip().split(',')
+    strings = [s.strip() for s in input().strip().split(',')]
     print(longest(strings))
