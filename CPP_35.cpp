@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 #include <cmath>
 
 float max_element(const std::vector<float>& l) {
@@ -13,15 +14,8 @@ float max_element(const std::vector<float>& l) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::vector<float> nums(n);
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
-    }
-
-    std::cout << "Maximum element is " << max_element(nums) << std::endl;
+    std::vector<float> nums = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    assert(std::abs(max_element(nums) - 124) < 1e-4);
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
