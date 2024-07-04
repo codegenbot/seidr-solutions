@@ -19,13 +19,10 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> v;
-    float input;
-    
-    cout << "Enter numbers (type 'end' to finish): ";
-    while(cin >> input) {
-        v.push_back(input);
+    float num;
+    while (cin >> num) {
+        v.push_back(num);
     }
-
     vector<float> sorted_v = sort_even(v);
     for (float num : sorted_v) {
         cout << num << " ";
