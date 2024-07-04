@@ -1,13 +1,13 @@
 from typing import List
+import sys
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
     return sum(abs(x - mean) for x in numbers) / len(numbers)
 
 def main():
-    # Read input from user
     try:
-        input_data = input().strip()  # Remove prompt for compatibility
+        input_data = sys.stdin.read().strip()
         if not input_data:
             raise ValueError("Empty input provided.")
         numbers = list(map(float, input_data.split()))
