@@ -6,11 +6,12 @@
 
 using namespace std;
 
-int count_distinct_characters(string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
+int count_distinct_characters(const string& str) {
+    string lower_str = str;
+    transform(lower_str.begin(), lower_str.end(), lower_str.begin(), ::tolower);
     vector<bool> seen(26, false);
     int count = 0;
-    for (char c : str) {
+    for (char c : lower_str) {
         if (isalpha(c) && !seen[c - 'a']) {
             seen[c - 'a'] = true;
             count++;
