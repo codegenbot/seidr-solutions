@@ -1,12 +1,12 @@
-bool correct_bracketing(string brackets){
+bool correct_bracketing(string brackets) {
     int balance = 0;
-    for(char ch : brackets) {
-        if(ch == '(') {
+    for (char ch : brackets) {
+        if (ch == '(') {
             balance++;
-        } else if(ch == ')') {
+        } else if (ch == ')') {
             balance--;
         }
-        if(balance < 0) {
+        if (balance < 0) {
             return false;
         }
     }
