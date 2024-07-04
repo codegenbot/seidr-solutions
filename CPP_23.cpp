@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <cassert>
 
 size_t getStringLength(const std::string& str) {
