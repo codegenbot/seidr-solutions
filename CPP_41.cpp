@@ -1,22 +1,22 @@
 #include <iostream>
-#include <unordered_map>
+#include <vector>
 using namespace std;
 
 int car_race_collision(int n) {
-    unordered_map<int, int> checkpoint_count;
-    int checkpoint;
-    int collisions = 0;
-
+    vector<int> speeds(n);
     for (int i = 0; i < n; ++i) {
-        cin >> checkpoint;
-        ++checkpoint_count[checkpoint];
+        cin >> speeds[i];
     }
-
-    for (const auto& pair : checkpoint_count) {
-        if (pair.second > 1) {
-            collisions += pair.second - 1;
+    
+    int collisions = 0;
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (speeds[i] == speeds[j]) {
+                ++collisions;
+            }
         }
     }
+
     return collisions;
 }
 
