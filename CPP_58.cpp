@@ -19,5 +19,10 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
+    // Additional test cases
+    assert(issame(common({4, 3, 2, 8}, {8, 7, 6, 5}), {8}));
+    assert(issame(common({1, 2, 2, 3, 4}, {2, 2, 3, 5}), {2, 3}));
+    assert(issame(common({10, 20, 30}, {40, 50, 60}), {}));
+    assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
     return 0;
 }
