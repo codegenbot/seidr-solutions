@@ -28,11 +28,7 @@ vector<string> reverse_delete(string s, string c) {
     return output;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
+    assert((reverse_delete("mamma", "mia") == vector<string>({"mm", "True"})));
     return 0;
 }
