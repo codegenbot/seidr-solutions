@@ -4,4 +4,11 @@ def decode_cyclic(s: str) -> str:
     return "".join(groups)
 
 if __name__ == "__main__":
-    print(decode_cyclic(input().strip()))
+    try:
+        input_str = input().strip()
+        if input_str:
+            print(decode_cyclic(input_str))
+        else:
+            print("")
+    except EOFError:
+        print("")
