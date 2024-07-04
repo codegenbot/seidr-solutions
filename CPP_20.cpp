@@ -1,32 +1,28 @@
 #include <vector>
 #include <algorithm>
-#include <cmath>
+#include <cfloat>
 #include <cassert>
 
 using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
-    float min_diff = fabs(numbers[1] - numbers[0]);
-    pair<float, float> closest_pair = {numbers[0], numbers[1]};
+    float min_diff = FLT_MAX;
+    vector<float> result(2);
 
-    for (size_t i = 1; i < numbers.size() - 1; ++i) {
-        float diff = fabs(numbers[i + 1] - numbers[i]);
+    for (size_t i = 1; i < numbers.size(); ++i) {
+        float diff = numbers[i] - numbers[i - 1];
         if (diff < min_diff) {
             min_diff = diff;
-            closest_pair = {numbers[i], numbers[i + 1]};
+            result[0] = numbers[i - 1];
+            result[1] = numbers[i];
         }
     }
-
-    return {closest_pair.first, closest_pair.second};
+    return result;
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-6) return false;
-    }
-    return true;
+    return (a == b);
 }
 
 int main() {
