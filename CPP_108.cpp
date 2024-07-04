@@ -11,10 +11,10 @@ int digit_sum(int num) {
     return sum;
 }
 
-int count_nums(const std::vector<int>& n) {
+int count_nums(const std::vector<int>& n){
     int count = 0;
-    for (int num : n) {
-        if (digit_sum(num) > 0) {
+    for(int num : n) {
+        if(digit_sum(num) > 0) {
             count++;
         }
     }
