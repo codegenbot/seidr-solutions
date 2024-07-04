@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <unordered_set>
 #include <algorithm>
 #include <cassert>
@@ -29,6 +29,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
+    assert (issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
