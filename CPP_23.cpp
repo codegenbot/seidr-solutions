@@ -7,7 +7,7 @@ int myStrlen(std::string str) {
 }
 
 int main() {
-    assert (myStrlen("asdasnakj") == 9);
+    assert(myStrlen("asdasnakj") == 9);
     std::cout << "Test passed!" << std::endl;
     return 0;
 }
