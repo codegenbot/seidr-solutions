@@ -3,7 +3,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     balance = 0
     current_group = []
-
     for char in paren_string:
         current_group.append(char)
         if char == "(":
@@ -13,5 +12,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if balance == 0 and current_group:
             groups.append("".join(current_group))
             current_group = []
-
     return groups
