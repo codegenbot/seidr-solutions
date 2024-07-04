@@ -1,27 +1,24 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <unordered_set>
 #include <algorithm>
 #include <cassert>
 
 using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
-    unordered_set<char> to_delete(c.begin(), c.end());
-    string result;
-    for(char ch : s) {
-        if(to_delete.find(ch) == to_delete.end()) {
-            result += ch;
-        }
+    // Remove characters in s that are in c
+    for (char ch : c) {
+        s.erase(remove(s.begin(), s.end(), ch), s.end());
     }
-    string reversed_result = result;
-    reverse(reversed_result.begin(), reversed_result.end());
-    bool is_palindrome = (result == reversed_result);
-    vector<string> output;
-    output.push_back(result);
-    output.push_back(is_palindrome ? "True" : "False");
-    return output;
+    
+    // Check if the resulting string is a palindrome
+    string reversed_s = s;
+    reverse(reversed_s.begin(), reversed_s.end());
+    bool is_palindrome = (s == reversed_s);
+    
+    // Return the result string and palindrome check result
+    return {s, is_palindrome ? "True" : "False"};
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -30,6 +27,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
-    cout << "All test cases passed!" << endl;
+    cout << "All tests passed!" << endl;
     return 0;
 }
