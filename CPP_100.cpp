@@ -7,10 +7,9 @@ using namespace std;
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int current_stones = n;
-    pile.push_back(current_stones);
-    for (int i = 1; i < n; ++i) {
-        current_stones += 2;
+    for (int i = 0; i < n; ++i) {
         pile.push_back(current_stones);
+        current_stones += 2;
     }
     return pile;
 }
