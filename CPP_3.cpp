@@ -14,8 +14,10 @@ bool below_zero(vector<int> operations) {
 }
 
 int main() {
+    // For assertion testing
     assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
     
+    // Read user input
     vector<int> operations;
     int n, op;
     cout << "Enter the number of operations: ";
