@@ -1,3 +1,5 @@
+#include <cmath>  // Include this header for sqrt, round, and abs
+
 float triangle_area(float a, float b, float c) {
     if (a + b > c && a + c > b && b + c > a) {
         float s = (a + b + c) / 2;
