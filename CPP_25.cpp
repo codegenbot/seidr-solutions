@@ -18,7 +18,7 @@ vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
