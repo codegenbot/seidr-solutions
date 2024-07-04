@@ -2,14 +2,21 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     paren_string = paren_string.replace(" ", "")
-    result, balance, current_group = [], 0, ""
+    groups = []
+    balance = 0
+    current_group = []
     for char in paren_string:
-        current_group += char
+        current_group.append(char)
         if char == "(":
             balance += 1
         elif char == ")":
             balance -= 1
-        if balance == 0:
-            result.append(current_group)
-            current_group = ""
-    return result
+        if balance == 0 and current_group:
+            groups.append("".join(current_group))
+            current_group = []
+    return groups
+
+if __name__ == "__main__":
+    paren_string = input().strip()
+    result = separate_paren_groups(paren_string)
+    print(result)

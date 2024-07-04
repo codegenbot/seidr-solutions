@@ -11,5 +11,4 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
 if __name__ == "__main__":
     numbers = list(map(int, input().split()))
     delimiter = int(input())
-    result = intersperse(numbers, delimiter)
-    print(result)
+    print(intersperse(numbers, delimiter))
