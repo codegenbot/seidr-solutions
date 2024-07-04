@@ -5,5 +5,7 @@ try:
     input_string = input().strip()
     if input_string:
         print("\n".join(prefixes(input_string)))
-except EOFError:
-    pass
+    else:
+        print("No input provided.")
+except (EOFError, KeyboardInterrupt):
+    print("No input provided.")
