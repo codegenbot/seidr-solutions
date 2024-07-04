@@ -28,8 +28,8 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    assert(issame(total_match({"hi", "there"}, {"hello"}), {"hello"}));
-    assert(issame(total_match({"abc", "def"}, {"ghij"}), {"abc", "def"}));
+    assert (issame(total_match({"this"}, {}) , {}));
+    assert (issame(total_match({"hi", "there"}, {"hello"}), {"hello"}));
+    assert (issame(total_match({"abc", "def"}, {"ghij"}), {"abc", "def"}));
     return 0;
 }
