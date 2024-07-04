@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -26,6 +25,20 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    assert(sort_array({2, 4, 8, 16, 32}) == vector<int>({2, 4, 8, 16, 32}));
+    vector<int> input;
+    int n, x;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> x;
+        input.push_back(x);
+    }
+    vector<int> sorted_array = sort_array(input);
+    cout << "Sorted array: ";
+    for (int num : sorted_array) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
