@@ -7,7 +7,4 @@ def parse_music(music_string: str) -> List[int]:
 
 if __name__ == "__main__":
     music_string = input().strip()
-    if music_string:
-        print(parse_music(music_string))
-    else:
-        print([])
+    print(parse_music(music_string))
