@@ -1,15 +1,22 @@
 #include <iostream>
-#include <string>
 #include <cmath>
+#include <string>
 
-int closest_integer(std::string value) {
-    double num = std::stod(value);
-    return static_cast<int>(std::round(num));
+using namespace std;
+
+int closest_integer(string value) {
+    double num = stod(value);
+    if (num > 0) {
+        return static_cast<int>(floor(num + 0.5));
+    } else {
+        return static_cast<int>(ceil(num - 0.5));
+    }
 }
 
 int main() {
-    std::cout << (closest_integer("0") == 0) << std::endl;
-    std::cout << (closest_integer("2.8") == 3) << std::endl;
-    std::cout << (closest_integer("-2.2") == -2) << std::endl;
+    cout << closest_integer("0") << endl;    // Output should be 0
+    cout << closest_integer("2.7") << endl;  // Output should be 3
+    cout << closest_integer("-2.7") << endl; // Output should be -3
+
     return 0;
 }
