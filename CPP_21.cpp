@@ -5,10 +5,8 @@
 #include <cassert>
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
-    if (numbers.empty()) return numbers;
     float min_val = *std::min_element(numbers.begin(), numbers.end());
     float max_val = *std::max_element(numbers.begin(), numbers.end());
-    if (min_val == max_val) return std::vector<float>(numbers.size(), 0.0f); 
     for (float& num : numbers) {
         num = (num - min_val) / (max_val - min_val);
     }
