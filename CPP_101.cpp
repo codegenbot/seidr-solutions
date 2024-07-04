@@ -30,6 +30,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    cout << "Test passed!";
+    cout << "Test passed successfully!" << endl;
     return 0;
 }
