@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+
 using namespace std;
 
 int digit_sum(int num) {
