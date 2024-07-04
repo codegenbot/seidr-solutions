@@ -1,6 +1,8 @@
 def add(x: int, y: int):
     return x + y
 
-if __name__ == "__main__":
+try:
     x, y = map(int, input().split())
     print(add(x, y))
+except ValueError:
+    print("Invalid input. Please enter two integers.")
