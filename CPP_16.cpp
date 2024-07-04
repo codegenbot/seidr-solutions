@@ -20,6 +20,8 @@ int count_distinct_characters(string str) {
 }
 
 int main() {
-    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
+    string input;
+    getline(cin, input);
+    cout << count_distinct_characters(input) << endl;
     return 0;
 }
