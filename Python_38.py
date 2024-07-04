@@ -4,12 +4,8 @@ def decode_cyclic(s: str) -> str:
     return "".join(groups)
 
 if __name__ == "__main__":
-    try:
-        while True:
-            input_str = input().strip()
-            if input_str:
-                print(decode_cyclic(input_str))
-            else:
-                break
-    except EOFError:
-        pass
+    input_str = input().strip()
+    if input_str:
+        print(decode_cyclic(input_str))
+    else:
+        print("")
