@@ -7,17 +7,25 @@ using namespace std;
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
+        vector<int> row;
         for (int j = lst[i].size() - 1; j >= 0; --j) {
             if (lst[i][j] == x) {
-                result.push_back({i, j});
+                row.push_back(j);
             }
+        }
+        for (int col : row) {
+            result.push_back({i, col});
         }
     }
     return result;
 }
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
