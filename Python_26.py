@@ -10,12 +10,12 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return result
 
 def main():
-    import sys
-    numbers = []
     try:
-        for line in sys.stdin:
-            if line.strip():
-                numbers.extend(map(int, line.strip().split()))
+        numbers = input()
+        if not numbers:
+            print("[]")
+            return
+        numbers = list(map(int, numbers.split()))
         print(remove_duplicates(numbers))
     except ValueError:
         print("Invalid input. Please enter integers separated by spaces.")
