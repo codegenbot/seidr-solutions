@@ -1,8 +1,7 @@
-#include <algorithm>
-#include <vector>
-#include <iterator>
-#include <cassert>
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -21,9 +20,9 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    assert(issame(common({1, 2, 3}, {3, 2, 1}), {1, 2, 3}));
-    assert(issame(common({1, 2, 3, 4}, {3, 4, 5, 6}), {3, 4}));
-    assert(issame(common({4, 6, 2, 8}, {2, 4, 6}), {2, 4, 6}));
+    assert(issame(common({4, 3, 2, 8}, {3, 8}), {3, 8}));
+    assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
+    assert(issame(common({4, 4, 2, 2}, {2, 2, 2}), {2}));
 
     cout << "All tests passed!" << endl;
     return 0;
