@@ -1,26 +1,26 @@
-#include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-using namespace std;
-
-int search(const vector<int>& lst) {
-    unordered_map<int, int> freq;
+int search(std::vector<int> lst) {
+    std::unordered_map<int, int> freq;
     for (int num : lst) {
         freq[num]++;
     }
     int result = -1;
-    for (const auto& pair : freq) {
-        if (pair.second >= pair.first) {
-            result = max(result, pair.first);
+    for (auto& [num, count] : freq) {
+        if (count >= num && num > result) {
+            result = num;
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> test = {3, 10, 10, 9, 2};
-    cout << (search(test) == -1) << endl; // Should print 1 (true)
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    assert(search({1, 2, 2, 4, 4, 4, 4}) == 4);
+    assert(search({3, 3, 3, 3, 3, 3}) == 3);
+    assert(search({1, 1, 1, 1, 1, 1, 1, 1}) == 1);
+    assert(search({10, 10, 10, 10, 10, 10, 10, 10, 10, 10}) == 10);
     return 0;
 }
