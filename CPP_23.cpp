@@ -6,12 +6,8 @@ size_t getStringLength(const std::string& str) {
     return str.length();
 }
 
-void testGetStringLength() {
-    assert(getStringLength("asdasnakj") == 9);
-}
-
 int main() {
-    testGetStringLength();
+    assert(getStringLength("asdasnakj") == 9);
     std::cout << "Test passed!" << std::endl;
     return 0;
 }
