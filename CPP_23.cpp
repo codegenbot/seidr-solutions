@@ -1,14 +1,17 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <cstring>
 
 size_t getStringLength(const std::string& str) {
     return str.length();
 }
 
-int main() {
+void testGetStringLength() {
     assert(getStringLength("asdasnakj") == 9);
+}
+
+int main() {
+    testGetStringLength();
     std::cout << "Test passed!" << std::endl;
     return 0;
 }
