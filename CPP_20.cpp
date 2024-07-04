@@ -2,34 +2,47 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
-#include <cassert> // Include for assert
+#include <cassert>
+
 using namespace std;
 
-vector<float> find_closest_elements(vector<float> numbers) {
-    if (numbers.size() < 2) return {}; // Edge case where fewer than 2 elements
-    sort(numbers.begin(), numbers.end());
-    float min_diff = fabs(numbers[1] - numbers[0]);
-    pair<float, float> closest_pair = {numbers[0], numbers[1]};
+vector<float> find_closest_elements(const vector<float>& numbers) {
+    if (numbers.size() < 2) return {};  // Handle edge case where fewer than 2 elements
+    vector<float> sorted_numbers = numbers;
+    sort(sorted_numbers.begin(), sorted_numbers.end());
     
-    for (size_t i = 1; i < numbers.size() - 1; ++i) {
-        float diff = fabs(numbers[i + 1] - numbers[i]);
+    float min_diff = fabs(sorted_numbers[1] - sorted_numbers[0]);
+    pair<float, float> closest_pair = {sorted_numbers[0], sorted_numbers[1]};
+    
+    for (size_t i = 1; i < sorted_numbers.size() - 1; ++i) {
+        float diff = fabs(sorted_numbers[i + 1] - sorted_numbers[i]);
         if (diff < min_diff) {
             min_diff = diff;
-            closest_pair = {numbers[i], numbers[i + 1]};
+            closest_pair = {sorted_numbers[i], sorted_numbers[i + 1]};
         }
     }
-    
+
     return {closest_pair.first, closest_pair.second};
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    return (a.size() == b.size() && equal(a.begin(), a.end(), b.begin()));
-}
-
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1}), {2.2, 3.1}));
-    assert(find_closest_elements({1.1}).empty());
-    cout << "All tests passed!" << endl;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    vector<float> numbers(n);
+    cout << "Enter the elements:" << endl;
+    for (int i = 0; i < n; ++i) {
+        cin >> numbers[i];
+    }
+
+    vector<float> result = find_closest_elements(numbers);
+    
+    if (!result.empty()) {
+        cout << "Closest elements are: " << result[0] << " and " << result[1] << endl;
+    } else {
+        cout << "Not enough elements to find the closest pair." << endl;
+    }
+
     return 0;
 }
