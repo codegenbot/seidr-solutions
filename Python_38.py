@@ -1,3 +1,5 @@
+import sys
+
 def decode_cyclic(s: str) -> str:
     s = s.replace(" ", "")
     if not s:
@@ -7,5 +9,5 @@ def decode_cyclic(s: str) -> str:
     return "".join(groups)
 
 if __name__ == "__main__":
-    input_str = input().strip()
+    input_str = sys.stdin.read().strip()
     print(decode_cyclic(input_str))
