@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <cstdlib>
 
 std::string change_base(int x, int base) {
     if (x == 0) return "0";
