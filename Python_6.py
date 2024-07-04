@@ -1,8 +1,9 @@
 from typing import List
 
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     paren_string = paren_string.strip()
-    if not all(char in '()' for char in paren_string):
+    if not all(char in "()" for char in paren_string):
         return []
     depth_list = []
     current_depth = 0
@@ -15,6 +16,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             depth_list.append(current_depth)
             current_depth -= 1
     return depth_list if current_depth == 0 else []
+
 
 if __name__ == "__main__":
     paren_string = input().strip()
