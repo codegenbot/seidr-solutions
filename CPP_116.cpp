@@ -25,11 +25,12 @@ vector<int> sort_array(vector<int> arr) {
     return arr;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
