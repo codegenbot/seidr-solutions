@@ -4,7 +4,8 @@ def decode_cyclic(s: str) -> str:
     return "".join(groups)
 
 if __name__ == "__main__":
-    input_str = input().strip()
+    import sys
+    input_str = input().strip()  # Use input() instead of sys.stdin.read() to handle input properly
     if input_str:
         print(decode_cyclic(input_str))
     else:
