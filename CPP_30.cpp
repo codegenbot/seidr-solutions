@@ -1,7 +1,6 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
-#include <iostream>
 using namespace std;
 
 vector<float> get_positive(vector<float> l){
@@ -27,6 +26,5 @@ int main() {
     assert (issame(get_positive({1.0, -2.0, 3.0}), {1.0, 3.0}));
     assert (issame(get_positive({-1.0, -2.0, -3.0}), {}));
     assert (issame(get_positive({}), {}));
-    cout << "All test cases pass.";
     return 0;
 }
