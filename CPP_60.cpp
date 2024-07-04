@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int sum_to_n(int n) {
     return n * (n + 1) / 2;
@@ -6,7 +7,7 @@ int sum_to_n(int n) {
 
 int main() {
     int n;
-    std::cin >> n;
-    std::cout << sum_to_n(n) << std::endl;
+    cin >> n;
+    cout << sum_to_n(n) << endl;
     return 0;
 }
