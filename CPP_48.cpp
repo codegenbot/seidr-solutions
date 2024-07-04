@@ -16,7 +16,7 @@ bool is_palindrome(const std::string& text) {
 
 int main() {
     std::cout << std::boolalpha;
-    std::cout << is_palindrome("xywzx") << std::endl;
-    std::cout << is_palindrome("racecar") << std::endl;
+    std::cout << is_palindrome("xywzx") << std::endl;  // Should print false
+    std::cout << is_palindrome("racecar") << std::endl;  // Should print true
     return 0;
 }
