@@ -22,8 +22,12 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(odd_count({"271", "137", "314"}) == vector<string>({
+    assert(issame(odd_count({"271", "137", "314"}), {
         "the number of odd elements 2 in the string 271 of the input.",
         "the number of odd elements 3 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
