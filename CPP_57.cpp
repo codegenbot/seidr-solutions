@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 using namespace std;
 
 bool monotonic(const vector<int>& l) {
@@ -13,21 +14,10 @@ bool monotonic(const vector<int>& l) {
 }
 
 int main() {
-    vector<int> l;
-    int n, element;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> element;
-        l.push_back(element);
-    }
-
-    if (monotonic(l)) {
-        cout << "The sequence is monotonic." << endl;
-    } else {
-        cout << "The sequence is not monotonic." << endl;
-    }
-
+    assert(monotonic({9, 9, 9, 9}) == true);
+    assert(monotonic({1, 2, 3, 4}) == true);
+    assert(monotonic({4, 3, 2, 1}) == true);
+    assert(monotonic({1, 3, 2, 4}) == false);
+    cout << "All tests passed!" << endl;
     return 0;
 }
