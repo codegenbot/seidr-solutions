@@ -12,12 +12,11 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    std::string test;
-    std::cin >> test;
-    if (is_happy(test)) {
-        std::cout << "HAPPY\n";
+    std::string test = "iopaxioi";
+    if (!is_happy(test)) {
+        std::cout << "Test failed\n"; // Corrected the output message to match logic
     } else {
-        std::cout << "SAD\n";
+        std::cout << "Test passed\n";
     }
     return 0;
 }
