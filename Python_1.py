@@ -16,6 +16,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    paren_string = input().strip().replace(" ", "")
-    result = separate_paren_groups(paren_string)
-    print(result)
+    try:
+        paren_string = input().strip()
+        if paren_string:
+            result = separate_paren_groups(paren_string)
+            print(result)
+    except EOFError:
+        print("No input received.")
