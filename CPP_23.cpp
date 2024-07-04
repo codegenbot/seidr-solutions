@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <cstring>
+#include <cassert>
 
 size_t getStringLength(const std::string& str) {
     return str.length();
