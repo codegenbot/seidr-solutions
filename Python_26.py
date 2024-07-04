@@ -10,7 +10,5 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    numbers = list(map(int, input().strip().split()))
+    numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
     print(remove_duplicates(numbers))

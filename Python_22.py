@@ -10,5 +10,5 @@ if __name__ == "__main__":
         try:
             values.append(int(x))
         except ValueError:
-            values.append(x)
+            pass
     print(filter_integers(values))
