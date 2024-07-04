@@ -2,8 +2,8 @@
 #include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -15,8 +15,8 @@ vector<string> by_length(vector<int> arr) {
         }
     }
     sort(filtered.begin(), filtered.end());
-    reverse(filtered.begin(), filtered.end());
-    
+    reverse(filtered.begin(), reversed.end());
+
     map<int, string> numToStr = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
