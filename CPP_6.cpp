@@ -30,7 +30,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    assert(issame(parse_nested_parens("() (()) ((()))"), {1, 2, 3}));
-    assert(issame(parse_nested_parens("((()()())) (())"), {3, 2}));
+    assert(issame(parse_nested_parens("(()) ((()()))"), {2, 3}));
+    assert(issame(parse_nested_parens("((()) )"), {3, 0}));
     return 0;
 }
