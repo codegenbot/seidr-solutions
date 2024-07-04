@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 #include <iostream>
+
 using namespace std;
 
 // Computes the derivative of a polynomial represented by its coefficients
