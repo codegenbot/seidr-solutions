@@ -12,6 +12,6 @@ int largest_divisor(int n) {
 
 int main() {
     assert(largest_divisor(49) == 7);
-    std::cout << "All test cases passed.\n";
+    std::cout << "Largest divisor of 49 is: " << largest_divisor(49) << std::endl;
     return 0;
 }
