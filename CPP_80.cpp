@@ -12,9 +12,8 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    std::string test;
-    std::cin >> test;
-    if (!is_happy(test)) {
+    std::string test = "iopaxioi";
+    if (is_happy(test) == false) {
         std::cout << "Test passed\n";
     } else {
         std::cout << "Test failed\n";
