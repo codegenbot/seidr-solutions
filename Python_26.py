@@ -11,7 +11,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 def main():
     try:
-        numbers = input().strip()
+        numbers = input()
         if not numbers:
             print("[]")
             return

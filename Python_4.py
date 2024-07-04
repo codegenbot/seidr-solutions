@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
@@ -6,7 +7,7 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 def main():
     try:
-        input_data = input().strip()
+        input_data = sys.stdin.read().strip()
         if not input_data:
             raise ValueError("Empty input provided.")
         numbers = list(map(float, input_data.split()))
