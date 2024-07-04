@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Function to filter strings containing a specific substring
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
     vector<string> result;
     for (const auto& str : strings) {
@@ -16,14 +15,18 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
     return result;
 }
 
-// Helper function to compare two vectors for equality
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    if (a.size() != b.size()) 
+        return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    cout << "Test passed!" << endl;
-
+    cout << "All tests passed!" << endl;
     return 0;
 }
