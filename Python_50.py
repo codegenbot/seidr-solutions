@@ -16,5 +16,5 @@ def decode_shift(s: str) -> str:
 
 
 if __name__ == "__main__":
-    s = input("Enter the string to decode: ").strip()
+    s = input("Enter the string to decode: ").strip()  # Prompt user for input
     print(decode_shift(s))
