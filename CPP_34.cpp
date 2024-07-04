@@ -13,7 +13,7 @@ vector<int> unique_sorted_vector(vector<int> l) {
 }
 
 // Function to check if two vectors are the same
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
