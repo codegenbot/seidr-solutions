@@ -1,3 +1,9 @@
+#include <vector>
+#include <cassert>
+#include <iostream>
+
+using namespace std;
+
 vector<int> intersperse(vector<int> numbers, int delimeter) {
     if (numbers.empty()) return numbers;
     vector<int> result;
@@ -7,4 +13,14 @@ vector<int> intersperse(vector<int> numbers, int delimeter) {
         result.push_back(numbers[i]);
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2, 2}));
+    cout << "Test passed!" << endl;
+    return 0;
 }
