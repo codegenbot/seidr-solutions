@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 std::vector<int> parse_nested_parens(const std::string& paren_string) {
     std::vector<int> result;
