@@ -21,6 +21,9 @@ bool prime_length(string str) {
 
 int main() {
     assert(prime_length("0") == false);
+    assert(prime_length("hi") == true);
     assert(prime_length("hello") == true);
+    assert(prime_length("world!") == false);
+    cout << "All tests passed!" << endl;
     return 0;
 }
