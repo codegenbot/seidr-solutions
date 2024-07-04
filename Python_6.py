@@ -12,6 +12,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return depth_list
 
 if __name__ == "__main__":
-    paren_string = input("Enter the parentheses string: ")
+    paren_string = input().strip()
     result = parse_nested_parens(paren_string)
     print(result)

@@ -11,5 +11,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             current_group = []
     return groups
 
+# Reading input from user
 paren_string = input().strip()
 print(separate_paren_groups(paren_string))
