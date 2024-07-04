@@ -1,7 +1,6 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.replace(" ", "")
     groups = []
     balance = 0
     current_group = []
@@ -17,7 +16,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read().strip()
-    result = separate_paren_groups(input)
+    paren_string = input().strip()
+    result = separate_paren_groups(paren_string)
     print(result)
