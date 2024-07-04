@@ -16,7 +16,7 @@ int modp(int n, int p) {
 }
 
 int main() {
-    cout << modp(3, 5) << endl;    // Output: 3
+    cout << modp(3, 5) << endl;     // Output: 3
     cout << modp(1101, 101) << endl; // Output: 2
     cout << modp(0, 101) << endl;   // Output: 1
     cout << modp(3, 11) << endl;    // Output: 8
