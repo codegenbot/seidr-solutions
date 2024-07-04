@@ -14,7 +14,10 @@ int how_many_times(string str, string substring) {
 
 int main() {
     string str, substring;
-    cin >> str >> substring;
-    cout << how_many_times(str, substring) << endl;
+    cout << "Enter the main string: ";
+    getline(cin, str);
+    cout << "Enter the substring: ";
+    getline(cin, substring);
+    cout << "The substring occurs " << how_many_times(str, substring) << " times." << endl;
     return 0;
 }
