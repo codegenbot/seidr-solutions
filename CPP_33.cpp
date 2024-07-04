@@ -5,8 +5,9 @@
 
 using namespace std;
 
-vector<int> sort_third(vector<int> l) {
+vector<int> sort_third(const vector<int>& l) {
     vector<int> to_sort;
+    vector<int> result = l;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
             to_sort.push_back(l[i]);
@@ -14,15 +15,15 @@ vector<int> sort_third(vector<int> l) {
     }
     sort(to_sort.begin(), to_sort.end());
     int j = 0;
-    for (int i = 0; i < l.size(); i++) {
+    for (int i = 0; i < result.size(); i++) {
         if (i % 3 == 0) {
-            l[i] = to_sort[j++];
+            result[i] = to_sort[j++];
         }
     }
-    return l;
+    return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
