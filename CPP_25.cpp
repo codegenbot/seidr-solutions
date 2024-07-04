@@ -18,12 +18,13 @@ vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    assert(issame(factorize(5 * 5 * 2), {2, 5, 5}));
     cout << "Test passed!" << endl;
     return 0;
 }
