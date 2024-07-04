@@ -11,11 +11,9 @@ vector<int> sort_array(vector<int> array) {
     int last = array.back();
     vector<int> sorted_array = array;
 
-    // Sort in descending order if sum of first and last element is even
     if ((first + last) % 2 == 0) {
         sort(sorted_array.begin(), sorted_array.end(), greater<int>());
     } else {
-        // Sort in ascending order otherwise
         sort(sorted_array.begin(), sorted_array.end());
     }
 
