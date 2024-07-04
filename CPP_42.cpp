@@ -1,22 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> incr_list(vector<int> l) {
-    for(int &num : l) {
-        num += 1;
+    for(int &i : l) {
+        i += 1;
     }
     return l;
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
-    assert (issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
-    cout << "All tests passed!" << endl;
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    cout << "Test Passed!" << endl;
     return 0;
 }
