@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -14,20 +14,17 @@ bool below_zero(vector<int> operations) {
 }
 
 int main() {
-    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
-    vector<int> operations;
-    int n, op;
+    vector<int> ops;
+    int n;
     cout << "Enter the number of operations: ";
     cin >> n;
+    ops.resize(n);
     cout << "Enter the operations: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> op;
-        operations.push_back(op);
+    for(int i = 0; i < n; ++i) {
+        cin >> ops[i];
     }
-    if (below_zero(operations)) {
-        cout << "Balance drops below zero at some point." << endl;
-    } else {
-        cout << "Balance never drops below zero." << endl;
-    }
+    
+    bool result = below_zero(ops);
+    cout << (result ? "True" : "False") << endl;
     return 0;
 }
