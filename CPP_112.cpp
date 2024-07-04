@@ -21,7 +21,7 @@ vector<string> reverse_delete(string s, string c) {
     return {s, is_palindrome ? "True" : "False"};
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
