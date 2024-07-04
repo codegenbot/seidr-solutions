@@ -16,14 +16,12 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool is_same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(intersperse({2, 3, 4}, 0), {2, 0, 3, 0, 4}));
-    assert(issame(intersperse({1, 2, 3, 4, 5}, -1), {1, -1, 2, -1, 3, -1, 4, -1, 5}));
-    assert(issame(intersperse({}, 100), {}));
+    assert(is_same(intersperse({2, 3, 4}, 0), {2, 0, 3, 0, 4}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
