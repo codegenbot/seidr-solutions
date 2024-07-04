@@ -21,7 +21,7 @@ int main() {
     while (std::cin >> input && input != "END") {
         user_input.push_back(input);
     }
-    
+
     std::cout << "Concatenated result: " << concatenate(user_input) << std::endl;
     return 0;
 }
