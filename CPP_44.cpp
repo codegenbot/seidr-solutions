@@ -1,10 +1,10 @@
+#include <iostream>
 #include <string>
-#include <cassert>
 using namespace std;
 
 string change_base(int x, int base) {
-    if (x == 0) return "0";
     string result = "";
+    if (x == 0) return "0";
     while (x > 0) {
         result = to_string(x % base) + result;
         x /= base;
@@ -13,8 +13,8 @@ string change_base(int x, int base) {
 }
 
 int main() {
-    for (int x = 0; x <= 100; ++x) {
-        assert(change_base(x, x + 1) == to_string(x));
-    }
+    int x;
+    cin >> x;
+    cout << change_base(x, x + 1) << endl;
     return 0;
 }
