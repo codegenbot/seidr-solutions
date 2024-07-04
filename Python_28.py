@@ -1,14 +1,15 @@
-from typing import List
-
-def concatenate(strings: List[str]) -> str:
+def concatenate(strings):
     return ''.join(strings)
 
 input_strings = []
 while True:
-    line = input().strip()
-    if not line:
+    try:
+        line = input().strip()
+        if line == "":
+            break
+        input_strings.append(line)
+    except EOFError:
         break
-    input_strings.append(line)
 
 result = concatenate(input_strings)
 print(result)
