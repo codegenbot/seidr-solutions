@@ -1,3 +1,4 @@
+#include <iostream>
 #include <algorithm>
 #include <vector>
 using namespace std;
@@ -16,4 +17,15 @@ bool triples_sum_to_zero(vector<int> l) {
         }
     }
     return false;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
+    }
+    cout << (triples_sum_to_zero(vec) ? "True" : "False") << endl;
+    return 0;
 }
