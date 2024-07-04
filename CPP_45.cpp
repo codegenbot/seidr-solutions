@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <math.h>
 
 float triangle_area(float a, float h) {
     return 0.5 * a * h;
@@ -7,11 +7,11 @@ float triangle_area(float a, float h) {
 
 int main() {
     float a, h;
-    cout << "Enter the length of the side: ";
-    cin >> a;
-    cout << "Enter the height: ";
-    cin >> h;
+    printf("Enter the length of the side: ");
+    scanf("%f", &a);
+    printf("Enter the height: ");
+    scanf("%f", &h);
     float area = triangle_area(a, h);
-    cout << "The area of the triangle is: " << area << endl;
+    printf("The area of the triangle is: %.2f\n", area);
     return 0;
 }
