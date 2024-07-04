@@ -1,22 +1,30 @@
-def poly(coeffs, x):
-    return sum(coeff * x**i for i, coeff in enumerate(coeffs))
+import math
 
 def find_zero(xs: list):
     def f(x):
-        return poly(xs, x)
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-    a, b = -1000, 1000
-    while b - a > 1e-7:
-        mid = (a + b) / 2
-        if f(mid) == 0:
-            return mid
-        elif f(a) * f(mid) < 0:
-            b = mid
-        else:
-            a = mid
-    return (a + b) / 2
+    def derivative(xs):
+        return [i * coeff for i, coeff in enumerate(xs)][1:]
 
-# Read input from user
-xs = list(map(float, input("Enter polynomial coefficients (space separated): ").split()))
-result = find_zero(xs)
-print(f"The root is approximately: {result}")
+    def f_prime(x):
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(derivative(xs))])
+
+    x0 = 0
+    epsilon = 1e-7
+    max_iter = 1000
+    for _ in range(max_iter):
+        y = f(x0)
+        if abs(y) < epsilon:
+            return x0
+        y_prime = f_prime(x0)
+        if y_prime == 0:
+            break
+        x0 = x0 - y / y_prime
+    return x0
+
+if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read
+    xs = list(map(float, input().strip().split()))
+    print(find_zero(xs))
