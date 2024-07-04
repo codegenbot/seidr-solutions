@@ -28,7 +28,7 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
 
 int main() {
     assert((parse_nested_parens("(()(())((())))") == std::vector<int>{4}));
-    assert((parse_nested_parens("(()) ((())) (((())))") == std::vector<int>{2, 3, 4}));
-    std::cout << "All tests passed!" << std::endl;
+    assert((parse_nested_parens("() (()) (((())))") == std::vector<int>{1, 2, 4}));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
