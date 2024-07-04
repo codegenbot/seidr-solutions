@@ -18,6 +18,5 @@ int main() {
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     assert(longest({}) == "None");
     assert(longest({"a", "bb", "ccc", "dddd"}) == "dddd");
-    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
