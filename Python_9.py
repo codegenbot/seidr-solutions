@@ -10,9 +10,10 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
 if __name__ == "__main__":
     import sys
-    input = sys.stdin.read().strip()
-    if input:
-        numbers = list(map(int, input.split()))
+    input = sys.stdin.read
+    raw_input = input().strip()
+    if raw_input:
+        numbers = list(map(int, raw_input.split()))
         print(rolling_max(numbers))
     else:
         print([])
