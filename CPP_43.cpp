@@ -16,13 +16,7 @@ bool pairs_sum_to_zero(vector<int> l) {
 }
 
 int main() {
-    vector<int> l;
-    int n, num;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> num;
-        l.push_back(num);
-    }
+    vector<int> l = {-3, 9, -1, 4, 2, 31};
     cout << (pairs_sum_to_zero(l) ? "true" : "false") << endl;
     return 0;
 }
