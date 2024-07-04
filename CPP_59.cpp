@@ -2,30 +2,26 @@
 using namespace std;
 
 int largest_prime_factor(int n) {
-    int max_prime = -1;
-    
+    int largest = 1;
     while (n % 2 == 0) {
-        max_prime = 2;
+        largest = 2;
         n /= 2;
     }
-    
     for (int i = 3; i * i <= n; i += 2) {
         while (n % i == 0) {
-            max_prime = i;
+            largest = i;
             n /= i;
         }
     }
-    
-    if (n > 2)
-        max_prime = n;
-    
-    return max_prime;
+    if (n > 2) {
+        largest = n;
+    }
+    return largest;
 }
 
 int main() {
     int n;
-    cout << "Enter a number: ";
     cin >> n;
-    cout << "Largest prime factor: " << largest_prime_factor(n) << endl;
+    cout << largest_prime_factor(n) << endl;
     return 0;
 }
