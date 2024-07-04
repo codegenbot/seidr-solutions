@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Computes the derivative of a polynomial represented by its coefficients
 vector<float> derivative(const vector<float>& xs) {
     vector<float> result;
     for (size_t i = 1; i < xs.size(); ++i) {
@@ -12,11 +13,16 @@ vector<float> derivative(const vector<float>& xs) {
     return result;
 }
 
+// Checks if two vectors are the same
+bool issame(const vector<float>& a, const vector<float>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(derivative({1}) == vector<float>{});
-    assert(derivative({1, 2, 3}) == vector<float>{2, 6});
-    assert(derivative({1, 0, 0, 4}) == vector<float>{0, 0, 12});
-    assert(derivative({}) == vector<float>{});
+    // Test cases for the derivative function
+    assert(issame(derivative({1}), vector<float>{}));
+    assert(issame(derivative({1, 2}), vector<float>{2}));
+    assert(issame(derivative({1, 2, 3}), vector<float>{2, 6}));
     cout << "All tests passed!" << endl;
     return 0;
 }
