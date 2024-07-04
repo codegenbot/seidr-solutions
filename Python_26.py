@@ -5,6 +5,10 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     result = []
     for num in numbers:
         if num not in seen:
-            result.append(num)
             seen.add(num)
+            result.append(num)
     return result
+
+if __name__ == "__main__":
+    numbers = list(map(int, input().strip().split()))
+    print(remove_duplicates(numbers))

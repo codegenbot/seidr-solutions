@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::string longest(const std::vector<std::string>& strings) {
     if (strings.empty()) return "None";
@@ -13,12 +14,21 @@ std::string longest(const std::vector<std::string>& strings) {
     return longestStr;
 }
 
-int main(){
-    std::vector<std::string> input;
-    std::string word;
-    while (std::cin >> word) {
-        input.push_back(word);
+int main() {
+    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    assert(longest({}) == "None");
+    assert(longest({"a", "bb", "ccc", "dddd"}) == "dddd");
+    
+    // User input functionality
+    int n;
+    std::cout << "Enter number of strings: ";
+    std::cin >> n;
+    std::vector<std::string> userStrings(n);
+    std::cout << "Enter strings:" << std::endl;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> userStrings[i];
     }
-    std::cout << longest(input);
+    std::cout << "Longest string is: " << longest(userStrings) << std::endl;
+    
     return 0;
 }
