@@ -5,9 +5,5 @@ def decode_shift(s: str) -> str:
     )
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) > 1:
-        s = sys.argv[1]
-    else:
-        s = input().strip()
+    s = input().strip()
     print(decode_shift(s))
