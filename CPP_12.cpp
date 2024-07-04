@@ -19,6 +19,7 @@ int main() {
     assert(longest({}) == "None");
     assert(longest({"a", "bb", "ccc", "dddd"}) == "dddd");
     
+    // User input functionality
     int n;
     std::cout << "Enter number of strings: ";
     std::cin >> n;
