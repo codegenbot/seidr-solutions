@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>  // Include header for assert
+#include <cassert>
 
 using namespace std;
 
@@ -21,8 +21,13 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(strange_sort_list({111111}) == vector<int>({111111}));
-    cout << "Test passed!" << endl;
+    assert(issame(strange_sort_list({111111}), {111111}));
+    assert(issame(strange_sort_list({4, 5, 1, 3, 2}), {1, 5, 2, 4, 3}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
