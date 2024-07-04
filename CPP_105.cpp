@@ -7,7 +7,7 @@
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr){
+vector<string> by_length(vector<int> arr) {
     vector<int> filtered;
     for(int num : arr) {
         if(num >= 1 && num <= 9) {
