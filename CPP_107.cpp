@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
@@ -26,13 +27,8 @@ vector<int> even_odd_palindrome(int n) {
     return {even_count, odd_count};
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    // Add more test cases here if needed
-    cout << "All tests passed!" << endl;
+    assert((even_odd_palindrome(1) == vector<int>{0, 1}));
+    cout << "Test passed!" << endl;
     return 0;
 }
