@@ -5,7 +5,6 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-if __name__ == "__main__":
-    user_input = input().strip().split()
-    result = longest(user_input)
-    print(result)
+# Read input from the user
+input_strings = input("Enter a comma-separated list of strings: ").split(',')
+print(longest(input_strings))
