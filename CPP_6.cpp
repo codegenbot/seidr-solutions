@@ -6,7 +6,7 @@
 std::vector<int> parse_nested_parens(const std::string& paren_string) {
     std::vector<int> result;
     int max_depth = 0, current_depth = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
@@ -22,7 +22,7 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
         }
     }
     result.push_back(max_depth);
-    
+
     return result;
 }
 
