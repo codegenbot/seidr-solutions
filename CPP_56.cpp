@@ -21,6 +21,5 @@ int main() {
     std::cin >> input;
     bool result = correct_bracketing(input);
     std::cout << (result ? "True" : "False") << std::endl;
-
     return 0;
 }
