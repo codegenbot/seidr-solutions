@@ -10,14 +10,15 @@ string change_base(int x, int base) {
         if (remainder < 10)
             result = to_string(remainder) + result;
         else
-            result = char('A' + remainder - 10) + result;
+            result = char('A' + remainder - 10) + result; // Handle bases greater than 10
         x /= base;
     }
     return result;
 }
 
 int main() {
+    // Example usage
     int x = 255, base = 16;
-    cout << "255 in base 16 is " << change_base(x, base) << endl;
+    cout << "255 in base 16 is " << change_base(x, base) << endl;  // Should output "FF"
     return 0;
 }
