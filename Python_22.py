@@ -6,9 +6,11 @@ def filter_integers(values: List[Any]) -> List[int]:
 if __name__ == "__main__":
     user_input = input().strip()
     values = []
+    
     for x in user_input.split():
         try:
             values.append(int(x))
         except ValueError:
             values.append(x)
+    
     print(filter_integers(values))
