@@ -23,6 +23,7 @@ def find_zero(xs: list):
         x0 = x0 - y / y_prime
     return x0
 
+# Reading input from user
 if __name__ == "__main__":
     import sys
     input = sys.stdin.read
