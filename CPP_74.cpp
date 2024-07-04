@@ -29,7 +29,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), vector<string>({})));
+    assert (issame(total_match({"this"}, {}) , vector<string>({})));
     cout << "All tests passed!" << endl;
     return 0;
 }
