@@ -10,10 +10,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
 
 if __name__ == "__main__":
     inputs = list(map(int, input().strip().split()))
-    if len(inputs) < 2:
-        print("Invalid input. Provide at least a number and a delimiter.")
-    else:
-        numbers = inputs[:-1]
-        delimiter = inputs[-1]
-        result = intersperse(numbers, delimiter)
-        print(' '.join(map(str, result)))
+    numbers = inputs[:-1]
+    delimiter = inputs[-1]
+    result = intersperse(numbers, delimiter)
+    print(' '.join(map(str, result)))
