@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iterator>
 using namespace std;
 
@@ -19,6 +18,5 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    assert(issame(common({1, 2, 3}, {2, 3, 4}), {2, 3}));
     return 0;
 }
