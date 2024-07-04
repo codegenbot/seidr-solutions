@@ -1,13 +1,17 @@
 #include <iostream>
-#include <cassert>
-#include <cmath> // Include this header for abs
+#include <iomanip>
 
 float triangle_area(float a, float h) {
     return 0.5 * a * h;
 }
 
 int main() {
-    assert(abs(triangle_area(10, 8) - 40.0) < 1e-4);
-    std::cout << "Test passed." << std::endl;
+    float a, h;
+    std::cout << "Enter the length of the side: ";
+    std::cin >> a;
+    std::cout << "Enter the height: ";
+    std::cin >> h;
+    float area = triangle_area(a, h);
+    std::cout << "The area of the triangle is: " << std::fixed << std::setprecision(2) << area << std::endl;
     return 0;
 }
