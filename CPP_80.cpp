@@ -16,6 +16,5 @@ bool is_happy(string s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
-    // Add more tests if needed
     return 0;
 }
