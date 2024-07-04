@@ -1,19 +1,17 @@
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
-    def max_depth(s: str) -> int:
-        depth = max_depth = 0
-        for char in s:
-            if char == "(":
-                depth += 1
-                if depth > max_depth:
-                    max_depth = depth
-            elif char == ")":
-                depth -= 1
-        return max_depth
+    depth_list = []
+    current_depth = 0
+    for char in paren_string:
+        if char == "(":
+            current_depth += 1
+        elif char == ")":
+            depth_list.append(current_depth)
+            current_depth -= 1
+    return depth_list
 
-    return [max_depth(group) for group in paren_string.split()]
-
-paren_string = input().strip()
-result = parse_nested_parens(paren_string)
-print(result)
+if __name__ == "__main__":
+    paren_string = input("Enter the parentheses string: ")
+    result = parse_nested_parens(paren_string)
+    print(result)
