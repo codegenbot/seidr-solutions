@@ -8,12 +8,8 @@ def longest(strings: List[str]) -> Optional[str]:
 if __name__ == "__main__":
     strings = []
     try:
-        while True:
-            line = input().strip()
-            if line:
-                strings.append(line)
-            else:
-                break
+        while (line := input().strip()):
+            strings.append(line)
     except EOFError:
         pass
     print(longest(strings))
