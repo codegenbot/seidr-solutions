@@ -7,8 +7,7 @@ int my_strlen(const std::string& str) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << my_strlen(input) << std::endl;
+    assert(my_strlen("asdasnakj") == 9);
+    std::cout << "Test passed.\n";
     return 0;
 }
