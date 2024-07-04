@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int modp(int n, int p){
+int modp(int n, int p) {
     if (n == 0) return 1;
     long long result = 1;
     long long base = 2;
