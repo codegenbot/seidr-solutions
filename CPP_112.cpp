@@ -1,24 +1,14 @@
 vector<string> reverse_delete(string s, string c) {
-    // Create a set of characters to delete for quick lookup
-    unordered_set<char> to_delete(c.begin(), c.end());
-    
-    // Create the resulting string after deletion
-    string result;
-    for(char ch : s) {
-        if(to_delete.find(ch) == to_delete.end()) {
-            result += ch;
-        }
+    // Remove characters in s that are in c
+    for (char ch : c) {
+        s.erase(remove(s.begin(), s.end(), ch), s.end());
     }
     
     // Check if the resulting string is a palindrome
-    string reversed_result = result;
-    reverse(reversed_result.begin(), reversed_result.end());
-    bool is_palindrome = (result == reversed_result);
+    string reversed_s = s;
+    reverse(reversed_s.begin(), reversed_s.end());
+    bool is_palindrome = (s == reversed_s);
     
-    // Prepare the return vector
-    vector<string> output;
-    output.push_back(result);
-    output.push_back(is_palindrome ? "True" : "False");
-    
-    return output;
+    // Return the result string and palindrome check result
+    return {s, is_palindrome ? "True" : "False"};
 }
