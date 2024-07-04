@@ -8,9 +8,3 @@ int largest_divisor(int n) {
     return 1;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    cout << largest_divisor(n) << endl;
-    return 0;
-}

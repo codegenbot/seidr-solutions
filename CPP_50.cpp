@@ -24,7 +24,7 @@ string decode_shift(string s) {
 
 int main() {
     string str;
-    cout << "Enter a string to encode: ";
+    cout << "Enter a lower-case string: ";
     cin >> str;
     string encoded_str = encode_shift(str);
     cout << "Encoded string: " << encoded_str << endl;
