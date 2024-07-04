@@ -1,19 +1,26 @@
-string encode(string message){
-    auto is_vowel = [](char c) {
-        char lower = tolower(c);
-        return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';
-    };
+#include <iostream>
+#include <string>
+#include <cctype>
 
-    for(char &c : message){
-        if(is_vowel(c)){
-            if(tolower(c) == 'u')
-                c = (islower(c) ? 'a' : 'A');
-            else
-                c = (islower(c) ? c + 2 : c + 2);
+using namespace std;
+
+string encode(string message) {
+    for (char &c : message) {
+        if (isalpha(c)) {
+            if (isupper(c)) c = tolower(c);
+            else c = toupper(c);
         }
-        else if(isalpha(c)){
-            c = (islower(c) ? toupper(c) : tolower(c));
-        }
+        if (c == 'a' || c == 'A') c = 'C';
+        else if (c == 'e' || c == 'E') c = 'G';
+        else if (c == 'i' || c == 'I') c = 'K';
+        else if (c == 'o' || c == 'O') c = 'Q';
+        else if (c == 'u' || c == 'U') c = 'W';
     }
     return message;
+}
+
+int main() {
+    string result = encode("I DoNt KnOw WhAt tO WrItE");
+    cout << result << endl;
+    return 0;
 }
