@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 
-// Function to check the exchange condition
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     // Check if lst1 already contains only even numbers
     bool allEven = true;
@@ -25,13 +24,7 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 }
 
 int main() {
-    int n1, n2;
-    std::cin >> n1 >> n2;
-
-    std::vector<int> lst1(n1), lst2(n2);
-    for(int i = 0; i < n1; ++i) std::cin >> lst1[i];
-    for(int i = 0; i < n2; ++i) std::cin >> lst2[i];
-
-    std::cout << exchange(lst1, lst2) << std::endl;
+    std::cout << std::boolalpha;
+    std::cout << (exchange({100, 200}, {200, 200}) == "YES") << std::endl; // Expected output: true
     return 0;
 }
