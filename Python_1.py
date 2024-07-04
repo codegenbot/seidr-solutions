@@ -13,8 +13,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if balance == 0 and current_group:
             groups.append("".join(current_group))
             current_group = []
-    if balance != 0:
-        raise ValueError("Unbalanced parentheses in input")
     return groups
 
 if __name__ == "__main__":
