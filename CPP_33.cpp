@@ -1,12 +1,9 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
-
+#include <cassert>
 using namespace std;
 
-// Define the sort_third function
-vector<int> sort_third(vector<int> l) {
+vector<int> sort_third(const vector<int>& l) {
     vector<int> result = l;
     vector<int> to_sort;
     
@@ -31,14 +28,11 @@ vector<int> sort_third(vector<int> l) {
     return result;
 }
 
-// Define the issame function for comparison
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    // Test the function
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    cout << "Test passed!" << endl;
     return 0;
 }
