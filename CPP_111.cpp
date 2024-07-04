@@ -1,17 +1,23 @@
-#include <sstream>
-#include <algorithm>
+#include<iostream>
+#include<sstream>
+#include<string>
+#include<map>
+using namespace std;
 
-map<char, int> histogram(string test) {
+map<char,int> histogram(string test) {
     map<char, int> freq;
     stringstream ss(test);
-    string letter;
-    while (ss >> letter) {
-        freq[letter[0]]++;
+    char ch;
+
+    while (ss >> ch) {
+        freq[ch]++;
     }
 
     int max_count = 0;
     for (const auto& pair : freq) {
-        max_count = max(max_count, pair.second);
+        if (pair.second > max_count) {
+            max_count = pair.second;
+        }
     }
 
     map<char, int> result;
