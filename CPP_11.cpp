@@ -5,13 +5,15 @@ using namespace std;
 
 string string_xor(string a, string b) {
     string result = "";
-    for (size_t i = 0; i < a.size(); ++i) {
+    for(size_t i = 0; i < a.size(); ++i) {
         result += (a[i] == b[i]) ? '0' : '1';
     }
     return result;
 }
 
 int main() {
-    cout << string_xor("0101", "0000") << endl; // Output should be "0101"
+    string a, b;
+    cin >> a >> b;
+    cout << string_xor(a, b) << endl;
     return 0;
 }

@@ -1,3 +1,6 @@
+def poly(coeffs, x):
+    return sum(coeff * x**i for i, coeff in enumerate(coeffs))
+
 def find_zero(xs: list):
     def f(x):
         return poly(xs, x)
@@ -12,3 +15,8 @@ def find_zero(xs: list):
         else:
             a = mid
     return (a + b) / 2
+
+# Read input from user
+xs = list(map(float, input("Enter polynomial coefficients (space separated): ").split()))
+result = find_zero(xs)
+print(f"The root is approximately: {result}")
