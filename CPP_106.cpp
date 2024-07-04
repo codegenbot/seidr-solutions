@@ -12,23 +12,19 @@ vector<int> f(int n) {
             for (int j = 1; j <= i; ++j) {
                 factorial *= j;
             }
-            result[i - 1] = factorial;
+            result[i-1] = factorial;
         } else {
             int sum = 0;
             for (int j = 1; j <= i; ++j) {
                 sum += j;
             }
-            result[i - 1] = sum;
+            result[i-1] = sum;
         }
     }
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert(f(3) == vector<int>({1, 2, 6}));
     return 0;
 }
