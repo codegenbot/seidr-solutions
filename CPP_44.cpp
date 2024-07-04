@@ -1,20 +1,21 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string change_base(int x, int base) {
-    string result = "";
+std::string change_base(int x, int base) {
     if (x == 0) return "0";
+    std::string result = "";
+    const std::string digits = "0123456789ABCDEF";
     while (x > 0) {
-        result = to_string(x % base) + result;
+        result = digits[x % base] + result;
         x /= base;
     }
     return result;
 }
 
 int main() {
-    int x;
-    cin >> x;
-    cout << change_base(x, x + 1) << endl;
+    int x = 10;
+    assert(change_base(x, x + 1) == std::to_string(x));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
