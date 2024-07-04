@@ -1,8 +1,4 @@
-def filter_strings_by_prefix(strings, prefix):
-    return [s for s in strings if s.startswith(prefix)]
+from typing import List
 
-# Example usage:
-# strings = ["apple", "banana", "apricot", "cherry"]
-# prefix = "ap"
-# print(filter_strings_by_prefix(strings, prefix))
-# Output: ["apple", "apricot"]
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    return [s for s in strings if s.startswith(prefix)]
