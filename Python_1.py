@@ -16,10 +16,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    try:
-        paren_string = input().strip()
-        if paren_string:
-            result = separate_paren_groups(paren_string)
-            print(result)
-    except EOFError:
-        print("No input received.")
+    paren_string = input("Enter a string of parentheses: ").strip()
+    result = separate_paren_groups(paren_string)
+    print(result)
