@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     auto total_chars = [](const vector<string>& lst) {
         int sum = 0;
@@ -15,4 +22,14 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert (issame(total_match({"this"}, {}) , {}));
+    cout << "All tests passed!" << endl;
+    return 0;
 }
