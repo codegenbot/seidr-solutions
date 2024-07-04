@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -24,6 +25,9 @@ int main() {
 
     int result = car_race_collision(track);
     cout << result << endl;
+
+    // Example string to test the function
+    assert(car_race_collision("RLRL") == 2);
 
     return 0;
 }
