@@ -23,21 +23,9 @@ string decode_shift(string s) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string to encode and decode: ";
-    cin >> str;
-
+    string str = "abcdefghijklmnopqrstuvwxyz";
     string encoded_str = encode_shift(str);
-    string decoded_str = decode_shift(encoded_str);
-
-    cout << "Encoded String: " << encoded_str << endl;
-    cout << "Decoded String: " << decoded_str << endl;
-
-    if (decoded_str == str) {
-        cout << "Test passed" << endl;
-    } else {
-        cout << "Test failed" << endl;
-    }
-
+    assert(decode_shift(encoded_str) == str);
+    cout << "Test passed" << endl;
     return 0;
 }
