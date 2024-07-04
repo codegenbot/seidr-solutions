@@ -1,6 +1,10 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <map>
+#include <string>
+
+using namespace std;
 
 string sort_numbers(string numbers) {
     map<string, int> num_map = {
