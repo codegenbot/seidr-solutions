@@ -1,25 +1,27 @@
-#include <iostream>
 #include <string>
-using namespace std;
+#include <cctype>
+#include <cassert>
 
-string encode(string message) {
+std::string encode(std::string message) {
+    auto is_vowel = [](char c) {
+        char lower = std::tolower(c);
+        return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';
+    };
+
     for (char &c : message) {
-        if (isalpha(c)) {
-            if (isupper(c)) c = tolower(c);
-            else c = toupper(c);
+        if (is_vowel(c)) {
+            if (std::tolower(c) == 'u')
+                c = (std::islower(c) ? 'a' : 'A');
+            else
+                c = (std::islower(c) ? c + 2 : c + 2);
+        } else if (std::isalpha(c)) {
+            c = (std::islower(c) ? std::toupper(c) : std::tolower(c));
         }
-        if (c == 'a' || c == 'A') c = 'C';
-        else if (c == 'e' || c == 'E') c = 'G';
-        else if (c == 'i' || c == 'I') c = 'K';
-        else if (c == 'o' || c == 'O') c = 'Q';
-        else if (c == 'u' || c == 'U') c = 'W';
     }
     return message;
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    cout << encode(input) << endl;
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
     return 0;
 }
