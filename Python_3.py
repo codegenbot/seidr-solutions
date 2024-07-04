@@ -9,5 +9,12 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 if __name__ == "__main__":
-    operations = list(map(int, input("Enter space-separated integers: ").split()))
-    print(below_zero(operations))
+    try:
+        input_line = input().strip()
+        if not input_line:
+            print("Invalid input. Please enter space-separated integers.")
+        else:
+            operations = list(map(int, input_line.split()))
+            print(below_zero(operations))
+    except ValueError:
+        print("Invalid input. Please enter space-separated integers.")
