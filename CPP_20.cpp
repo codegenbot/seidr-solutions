@@ -22,3 +22,17 @@ vector<float> find_closest_elements(vector<float> numbers) {
     
     return {closest_pair.first, closest_pair.second};
 }
+
+int main() {
+    vector<float> numbers;
+    float num;
+    while (cin >> num) {
+        numbers.push_back(num);
+    }
+    vector<float> result = find_closest_elements(numbers);
+    for (float n : result) {
+        cout << n << " ";
+    }
+    cout << endl;
+    return 0;
+}
