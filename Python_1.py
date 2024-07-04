@@ -1,7 +1,6 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.replace(" ", "")
     groups = []
     balance = 0
     current_group = []
@@ -17,9 +16,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    try:
-        paren_string = input("Enter the parentheses string: ").strip()
-        result = separate_paren_groups(paren_string)
-        print(result)
-    except Exception as e:
-        print("Error:", e)
+    paren_string = input().strip()
+    result = separate_paren_groups(paren_string)
+    print(result)
