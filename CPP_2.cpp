@@ -7,12 +7,7 @@ float truncate_number(float number) {
 }
 
 int main() {
-    float input;
-    std::cout << "Enter a number: ";
-    std::cin >> input;
-
-    float truncated = truncate_number(input);
-    std::cout << "Truncated part: " << truncated << std::endl;
-
+    assert(fabs(truncate_number(123.456) - 0.456) < 1e-4);
+    std::cout << "Test passed." << std::endl;
     return 0;
 }
