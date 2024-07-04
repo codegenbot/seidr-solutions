@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iterator>
+#include <iterator> // include for std::distance
 
 using namespace std;
 
