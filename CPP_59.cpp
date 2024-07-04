@@ -1,6 +1,7 @@
-#include<stdio.h>
+#include <iostream>
 using namespace std;
-int largest_prime_factor(int n){
+
+int largest_prime_factor(int n) {
     int max_prime = -1;
     
     while (n % 2 == 0) {
@@ -19,4 +20,11 @@ int largest_prime_factor(int n){
         max_prime = n;
     
     return max_prime;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << largest_prime_factor(n) << endl;
+    return 0;
 }
