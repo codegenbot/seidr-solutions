@@ -5,12 +5,13 @@
 using namespace std;
 
 vector<int> intersperse(vector<int> numbers, int delimiter) {
-    if (numbers.empty()) return numbers;
     vector<int> result;
-    result.push_back(numbers[0]);
-    for (size_t i = 1; i < numbers.size(); ++i) {
-        result.push_back(delimiter);
+    if (numbers.empty()) return result;
+    for (size_t i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
+        if (i < numbers.size() - 1) {
+            result.push_back(delimiter);
+        }
     }
     return result;
 }
@@ -21,6 +22,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    cout << "Test passed!" << endl;
+    cout << "All test cases passed!" << endl;
     return 0;
 }
