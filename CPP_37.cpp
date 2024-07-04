@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cmath>
+#include <iostream>
 using namespace std;
 
 vector<float> sort_even(vector<float> l) {
@@ -14,4 +14,19 @@ vector<float> sort_even(vector<float> l) {
         l[i] = even_indices[even_index++];
     }
     return l;
+}
+
+int main() {
+    uint32_t n;
+    cin >> n;
+    vector<float> arr(n);
+    for (uint32_t i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    vector<float> result = sort_even(arr);
+    for (float num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }
