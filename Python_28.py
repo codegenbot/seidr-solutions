@@ -4,14 +4,15 @@ def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
 input_strings = []
-try:
-    while True:
+while True:
+    try:
         line = input().strip()
-        if not line:
+        if line:
+            input_strings.append(line)
+        else:
             break
-        input_strings.append(line)
-except EOFError:
-    pass
+    except EOFError:
+        break
 
 result = concatenate(input_strings)
 print(result)
