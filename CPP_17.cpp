@@ -1,11 +1,11 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
-vector<int> parse_music(string music_string) { 
+vector<int> parse_music(string music_string){ 
     vector<int> beats;
     string note;
     for (char c : music_string) {
@@ -24,12 +24,12 @@ vector<int> parse_music(string music_string) {
     return beats;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+int main(){
+    assert (issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     cout << "Test passed!" << endl;
     return 0;
 }
