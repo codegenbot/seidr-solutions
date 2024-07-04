@@ -5,5 +5,9 @@ def decode_shift(s: str) -> str:
     )
 
 if __name__ == "__main__":
-    s = input("Enter the encoded string: ").strip()
+    import sys
+    if len(sys.argv) > 1:
+        s = sys.argv[1]
+    else:
+        s = input("Encoded message: ").strip()
     print(decode_shift(s))
