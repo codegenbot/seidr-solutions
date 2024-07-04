@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::string longest(const std::vector<std::string>& strings) {
     if (strings.empty()) return "None";
