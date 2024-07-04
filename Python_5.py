@@ -11,8 +11,8 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
 if __name__ == "__main__":
     import sys
     input = sys.stdin.read
-    data = input().strip().split()
+    data = input().split()
     numbers = list(map(int, data[:-1]))
     delimiter = int(data[-1])
     result = intersperse(numbers, delimiter)
-    print(' '.join(map(str, result)))
+    print(" ".join(map(str, result)))
