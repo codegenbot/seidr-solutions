@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <cassert>
 #include <cmath>
 
@@ -15,7 +15,12 @@ double median(std::vector<int> l) {
 }
 
 int main() {
-    assert (std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
-    std::cout << "All tests passed!" << std::endl;
+    assert(abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+    std::vector<int> input;
+    int value;
+    while (std::cin >> value) {
+        input.push_back(value);
+    }
+    std::cout << median(input) << std::endl;
     return 0;
 }
