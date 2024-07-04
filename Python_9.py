@@ -11,7 +11,7 @@ def rolling_max(numbers: List[int]) -> List[int]:
 if __name__ == "__main__":
     try:
         numbers = list(map(int, input().strip().split()))
-        if not numbers:  # Handle empty input
+        if not numbers:
             raise ValueError
         print(rolling_max(numbers))
     except ValueError:
