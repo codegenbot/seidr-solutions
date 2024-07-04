@@ -25,12 +25,12 @@ std::string encode_cyclic(const std::string &str) {
 }
 
 int main() {
-    std::string str;
+    std::string input_str;
     std::cout << "Enter a string to encode and decode: ";
-    std::cin >> str;
+    std::cin >> input_str;
 
-    std::string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
+    std::string encoded_str = encode_cyclic(input_str);
+    assert(decode_cyclic(encoded_str) == input_str);
     std::cout << "Encoded string: " << encoded_str << "\n";
     std::cout << "Decoded string: " << decode_cyclic(encoded_str) << "\n";
     std::cout << "All assertions passed." << std::endl;
