@@ -16,6 +16,7 @@ def find_zero(xs: list):
             a = mid
     return (a + b) / 2
 
+# Read input
 degree = int(input().strip())
 coefficients = list(map(float, input().strip().split()))
 
