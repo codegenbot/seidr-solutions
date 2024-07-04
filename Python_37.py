@@ -1,4 +1,4 @@
-def sort_even_indices(l):
+def sort_even(l):
     even_indices = [l[i] for i in range(0, len(l), 2)]
     even_indices.sort()
     for i, val in enumerate(even_indices):
