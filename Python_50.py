@@ -9,5 +9,5 @@ if __name__ == "__main__":
     if sys.stdin.isatty():
         s = input().strip()
     else:
-        s = sys.stdin.read().strip()
+        s = "".join(sys.stdin.readlines()).strip()
     print(decode_shift(s))
