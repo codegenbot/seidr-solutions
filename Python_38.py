@@ -10,5 +10,5 @@ if __name__ == "__main__":
             print(decode_cyclic(input_str))
         else:
             print("")
-    except Exception as e:
+    except EOFError:
         print("")
