@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool below_zero(std::vector<int> operations) {
+bool below_zero(std::vector<int> operations){
     int balance = 0;
     for(int op : operations) {
         balance += op;
@@ -19,12 +19,7 @@ int main() {
     for(int i = 0; i < n; ++i) {
         std::cin >> operations[i];
     }
-
-    if(below_zero(operations)) {
-        std::cout << "Yes\n";
-    } else {
-        std::cout << "No\n";
-    }
-
+    bool result = below_zero(operations);
+    std::cout << (result ? "true" : "false") << std::endl;
     return 0;
 }
