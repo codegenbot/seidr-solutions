@@ -21,5 +21,6 @@ bool triples_sum_to_zero(vector<int> l) {
 #include <cassert>
 int main() {
     assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+    assert(triples_sum_to_zero({-1, 0, 1, 2, -1, -4}) == true);
     return 0;
 }
