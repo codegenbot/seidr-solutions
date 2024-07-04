@@ -11,8 +11,6 @@ std::string decimal_to_binary(int decimal) {
 }
 
 int main() {
-    int num;
-    std::cin >> num;
-    std::cout << decimal_to_binary(num) << std::endl;
+    std::cout << decimal_to_binary(15) << std::endl; // Expected output: db1111db
     return 0;
 }
