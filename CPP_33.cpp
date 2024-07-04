@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -5,17 +6,17 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> divisible_by_three;
+    vector<int> to_sort;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            divisible_by_three.push_back(l[i]);
+            to_sort.push_back(l[i]);
         }
     }
-    sort(divisible_by_three.begin(), divisible_by_three.end());
-    int index = 0;
+    sort(to_sort.begin(), to_sort.end());
+    int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            l[i] = divisible_by_three[index++];
+            l[i] = to_sort[j++];
         }
     }
     return l;
@@ -27,5 +28,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
