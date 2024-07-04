@@ -1,3 +1,6 @@
+#include<stdio.h>
+using namespace std;
+
 int fizz_buzz(int n) {
     int count = 0;
     for (int i = 1; i < n; ++i) {
@@ -12,4 +15,11 @@ int fizz_buzz(int n) {
         }
     }
     return count;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", fizz_buzz(n));
+    return 0;
 }
