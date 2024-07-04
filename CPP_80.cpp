@@ -14,7 +14,7 @@ bool is_happy(const std::string& s) {
 int main() {
     std::string test = "iopaxioi";
     if (!is_happy(test)) {
-        std::cout << "Test failed\n"; // Corrected the output message to match logic
+        std::cout << "Test failed\n";
     } else {
         std::cout << "Test passed\n";
     }
