@@ -4,7 +4,6 @@
 #include <cmath>
 
 float max_element(const std::vector<float>& l) {
-    assert(!l.empty());
     float max_val = l[0];
     for(float num : l) {
         if(num > max_val) {
