@@ -2,11 +2,23 @@ from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
-    return [num for num in numbers if not (num in seen or seen.add(num))]
+    result = []
+    for num in numbers:
+        if num not in seen:
+            seen.add(num)
+            result.append(num)
+    return result
 
-if __name__ == "__main__":
+def main():
     try:
-        numbers = list(map(int, input("Enter numbers separated by spaces: ").strip().split()))
+        numbers = input().strip()
+        if not numbers:
+            print("[]")
+            return
+        numbers = list(map(int, numbers.split()))
         print(remove_duplicates(numbers))
     except ValueError:
         print("Invalid input. Please enter integers separated by spaces.")
+
+if __name__ == "__main__":
+    main()
