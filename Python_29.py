@@ -1,16 +1,15 @@
+def check(func):
+    assert func(['apple', 'banana', 'apricot'], 'ap') == ['apple', 'apricot']
+    assert func(['apple', 'banana', 'apricot'], 'ba') == ['banana']
+    assert func(['carrot', 'car', 'cat'], 'car') == ['carrot', 'car']
+    assert func(['dog', 'deer', 'deal'], 'de') == ['deer', 'deal']
+    assert func(['', 'empty', 'emptiness'], 'em') == ['empty', 'emptiness']
+    print("All tests passed!")
+
 def filter_strings_by_prefix(strings, prefix):
     return [s for s in strings if s.startswith(prefix)]
 
-# Example call to the function
 result = filter_strings_by_prefix(['apple', 'banana', 'apricot'], 'ap')
-print(result)  # Example output: ['apple', 'apricot']
-
-# Replace the incorrect function name with the right one
-def check(func):
-    test_strings = ['apple', 'banana', 'apricot']
-    prefix = 'ap'
-    expected_result = ['apple', 'apricot']
-    assert func(test_strings, prefix) == expected_result
-    print("Function works correctly")
+print(result)
 
 check(filter_strings_by_prefix)
