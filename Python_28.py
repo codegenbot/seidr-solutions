@@ -3,17 +3,15 @@ from typing import List
 def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
-# Read input strings
 input_strings = []
-while True:
-    try:
+try:
+    while True:
         line = input().strip()
-        if line:
-            input_strings.append(line)
-        else:
+        if not line:
             break
-    except EOFError:
-        break
+        input_strings.append(line)
+except EOFError:
+    pass
 
 result = concatenate(input_strings)
 print(result)

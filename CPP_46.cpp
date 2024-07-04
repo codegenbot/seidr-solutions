@@ -1,5 +1,4 @@
-#include <cstdio>
-using namespace std;
+#include <stdio.h>
 
 int fib4(int n) {
     if (n == 0 || n == 1) return 0;
