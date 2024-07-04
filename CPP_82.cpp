@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -12,22 +11,16 @@ bool is_prime(int n) {
     return true;
 }
 
-bool prime_length(const std::string& str) {
+bool prime_length(std::string str) {
     int len = str.length();
     return is_prime(len);
 }
 
 int main() {
     assert(prime_length("0") == false);
-    assert(prime_length("abc") == true);
-    assert(prime_length("abcd") == false);
-    assert(prime_length("abcdefg") == true);
-    assert(prime_length("abcdefgh") == false);
-
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << (prime_length(input) ? "Prime length\n" : "Not a prime length\n");
-
+    assert(prime_length("hello") == true);
+    assert(prime_length("world") == true);
+    assert(prime_length("prime") == true);
+    assert(prime_length("notprime") == false);
     return 0;
 }
