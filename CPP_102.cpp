@@ -1,11 +1,6 @@
 int choose_num(int x, int y) {
     if (x > y) return -1;
-    if (y % 2 == 0) return y;
-    if ((y - 1) >= x && (y - 1) % 2 == 0) return y - 1;
+    if (y % 2 != 0) y--;  // Make y even if it's odd
+    if (y >= x) return y;
     return -1;
-}
-
-int main() {
-    assert(choose_num(546, 546) == 546);
-    return 0;
 }
