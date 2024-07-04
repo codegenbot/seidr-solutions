@@ -4,3 +4,6 @@ def sort_even_indices(l):
     for i, val in enumerate(even_indices):
         l[i * 2] = val
     return l
+
+# Call the function to test
+print(sort_even_indices([4, 3, 2, 1, 5]))
