@@ -4,7 +4,9 @@ def concatenate(strings: List[str]) -> str:
 input_strings = []
 try:
     while True:
-        line = input()
+        line = input().strip()
+        if line == "":
+            break
         input_strings.append(line)
 except EOFError:
     pass
