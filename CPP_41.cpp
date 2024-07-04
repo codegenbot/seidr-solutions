@@ -2,8 +2,7 @@
 using namespace std;
 
 int car_race_collision(int n) {
-    // Example logic: number of collisions
-    return (n * (n - 1)) / 2;
+    return (n * (n - 1)) / 2; // Calculate based on the formula for combination
 }
 
 int main() {
