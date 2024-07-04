@@ -1,7 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
+using namespace std;
 
-bool monotonic(const std::vector<int>& l) {
+bool monotonic(const vector<int>& l) {
     if (l.empty()) return true;
     bool increasing = true, decreasing = true;
     for (size_t i = 1; i < l.size(); ++i) {
@@ -13,9 +15,9 @@ bool monotonic(const std::vector<int>& l) {
 
 int main() {
     assert(monotonic({9, 9, 9, 9}) == true);
-    assert(monotonic({1,2,2,3}) == true);
-    assert(monotonic({6,5,4,4}) == true);
-    assert(monotonic({1,3,2}) == false);
-
+    assert(monotonic({1, 2, 3, 4}) == true);
+    assert(monotonic({4, 3, 2, 1}) == true);
+    assert(monotonic({1, 3, 2, 4}) == false);
+    cout << "All tests passed!" << endl;
     return 0;
 }
