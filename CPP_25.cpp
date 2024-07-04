@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
-
+#include <cassert>
 using namespace std;
 
 vector<int> factorize(int n) {
@@ -27,6 +26,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    cout << "Test passed." << endl;
+    cout << "All tests passed." << endl;
     return 0;
 }
