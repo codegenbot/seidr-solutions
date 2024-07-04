@@ -3,21 +3,18 @@
 using namespace std;
 
 string change_base(int x, int base) {
-    if (x == 0) return "0";
     string result = "";
+    if (x == 0) return "0";
     while (x > 0) {
-        int remainder = x % base;
-        if (remainder < 10)
-            result = to_string(remainder) + result;
-        else
-            result = char('A' + remainder - 10) + result;
+        result = to_string(x % base) + result;
         x /= base;
     }
     return result;
 }
 
 int main() {
-    int x = 255, base = 16;
-    cout << "255 in base 16 is " << change_base(x, base) << endl;
+    int x;
+    cin >> x;
+    cout << change_base(x, x + 1) << endl;
     return 0;
 }
