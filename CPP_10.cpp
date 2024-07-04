@@ -23,7 +23,7 @@ string make_palindrome(string str) {
 int main() {
     string input;
     cout << "Enter a string: ";
-    cin>>input;
+    cin >> input;
     cout << "Shortest palindrome: " << make_palindrome(input) << endl;
     return 0;
 }
