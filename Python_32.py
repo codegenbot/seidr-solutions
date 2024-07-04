@@ -16,7 +16,12 @@ def find_zero(xs: list):
             a = mid
     return (a + b) / 2
 
-data = input().strip().split()
+import sys
+input = sys.stdin.read
+
+with open(0) as file:
+    data = file.read().strip().split()
+
 degree = int(data[0])
 coefficients = [float(data[i]) for i in range(1, degree + 2)]
 
