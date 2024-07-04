@@ -1,6 +1,5 @@
 #include <unordered_set>
 #include <vector>
-#include <cassert>
 
 bool pairs_sum_to_zero(std::vector<int> l) {
     std::unordered_set<int> seen;
