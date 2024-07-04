@@ -12,6 +12,6 @@ int how_many_times(const std::string& str, const std::string& substring) {
 }
 
 int main() {
-    std::cout << how_many_times("john doe", "john") << std::endl;
+    std::cout << how_many_times("john doe", "john") << std::endl; // should output 1
     return 0;
 }
