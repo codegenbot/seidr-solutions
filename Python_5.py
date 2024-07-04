@@ -1,9 +1,15 @@
 from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    return [val for pair in zip(numbers, [delimiter] * len(numbers)) for val in pair][:-1] if numbers else []
+    result = []
+    for i in range(len(numbers)):
+        result.append(numbers[i])
+        if i < len(numbers) - 1:
+            result.append(delimiter)
+    return result
 
-numbers = list(map(int, input().split()))
-delimiter = int(input())
-
-print(intersperse(numbers, delimiter))
+if __name__ == "__main__":
+    numbers = list(map(int, input().split()))
+    delimiter = int(input())
+    result = intersperse(numbers, delimiter)
+    print(result)
