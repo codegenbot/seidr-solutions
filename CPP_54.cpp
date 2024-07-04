@@ -12,12 +12,7 @@ bool same_chars(string s0, string s1) {
 }
 
 int main() {
-    string s0, s1;
-    cin >> s0 >> s1;
-    if (same_chars(s0, s1)) {
-        cout << "true" << endl;
-    } else {
-        cout << "false" << endl;
-    }
+    cout << boolalpha << same_chars("aabb", "aaccc") << endl;
+    cout << boolalpha << same_chars("abc", "bca") << endl;
     return 0;
 }
