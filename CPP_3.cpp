@@ -1,20 +1,27 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-bool below_zero(vector<int> operations){
+bool below_zero(const vector<int>& operations) {
     int balance = 0;
     for(int op : operations) {
         balance += op;
-        if(balance < 0) {
-            return true;
-        }
+        if(balance < 0) return true;
     }
     return false;
 }
 
-#include <cassert>
-
 int main() {
-    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    vector<int> operations;
+    int n, op;
+    cout << "Enter the number of operations: ";
+    cin >> n;
+    cout << "Enter the operations: ";
+    for(int i = 0; i < n; i++) {
+        cin >> op;
+        operations.push_back(op);
+    }
+    cout << (below_zero(operations) ? "True" : "False") << endl;
     return 0;
 }
