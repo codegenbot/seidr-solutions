@@ -4,7 +4,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     def max_depth(s: str) -> int:
         depth = max_depth = 0
         for char in s:
-            if (char == "("):
+            if char == "(":
                 depth += 1
                 if depth > max_depth:
                     max_depth = depth
@@ -14,6 +14,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return [max_depth(group) for group in paren_string.split()]
 
-if __name__ == "__main__":
-    paren_string = input().strip()
-    print(parse_nested_parens(paren_string))
+# Read input from the user
+paren_string = input().strip()
+result = parse_nested_parens(paren_string)
+print(result)
