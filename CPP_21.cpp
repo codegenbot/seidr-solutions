@@ -6,14 +6,14 @@
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     float min_val = *min_element(numbers.begin(), numbers.end());
-    float max_val = *min_element(numbers.begin(), numbers.end());
+    float max_val = *max_element(numbers.begin(), numbers.end());
     for (float& num : numbers) {
         num = (num - min_val) / (max_val - min_val);
     }
     return numbers;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     const float epsilon = 1e-5;
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
