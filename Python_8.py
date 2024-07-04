@@ -9,8 +9,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 if __name__ == "__main__":
     try:
-        numbers = list(map(int, input("Enter numbers separated by spaces: ").strip().split()))
+        numbers = list(map(int, input("Enter space-separated integers: ").split()))
         result = sum_product(numbers)
         print(result)
     except ValueError:
-        print("Please enter valid integers.")
+        print("Please enter valid space-separated integers.")
