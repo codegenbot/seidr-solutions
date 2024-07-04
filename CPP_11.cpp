@@ -1,5 +1,9 @@
-string result = "";
-for (size_t i = 0; i < a.size(); ++i) {
-    result += (a[i] == b[i]) ? '0' : '1';
+#include <string>
+
+std::string string_xor(const std::string& a, const std::string& b) {
+    std::string result = "";
+    for(size_t i = 0; i < a.size(); ++i) {
+        result += (a[i] == b[i]) ? '0' : '1';
+    }
+    return result;
 }
-return result;
