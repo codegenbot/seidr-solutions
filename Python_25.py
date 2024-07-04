@@ -11,6 +11,5 @@ def factorize(n: int) -> List[int]:
     return factors
 
 if __name__ == "__main__":
-    import sys
-    n = int(sys.stdin.read().strip())
+    n = int(input())
     print(factorize(n))
