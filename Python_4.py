@@ -5,7 +5,6 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return sum(abs(x - mean) for x in numbers) / len(numbers)
 
 def main():
-    # Read input from user
     try:
         input_data = input().strip()
         if not input_data:
