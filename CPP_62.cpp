@@ -18,7 +18,7 @@ bool issame(const vector<float>& a, const vector<float>& b) {
 
 int main() {
     assert(issame(derivative({1}), vector<float>{}));
-    assert(issame(derivative({3, 4, 5}), vector<float>{4, 10}));
+    assert(issame(derivative({1, 2, 3}), vector<float>{2, 6}));
     cout << "All tests passed!" << endl;
     return 0;
 }
