@@ -1,4 +1,5 @@
-#include <cstdio>
+#include <iostream>
+using namespace std;
 
 int fib4(int n) {
     if (n == 0) return 0;
@@ -19,7 +20,7 @@ int fib4(int n) {
 
 int main() {
     int n;
-    scanf("%d", &n);
-    printf("%d\n", fib4(n));
+    cin >> n;
+    cout << fib4(n) << endl;
     return 0;
 }
