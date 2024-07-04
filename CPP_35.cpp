@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <cmath>
+#include <cmath>  // for std::abs
+#include <cassert>  // for assert
 
 float max_element(const std::vector<float>& l) {
     float max_val = l[0];
