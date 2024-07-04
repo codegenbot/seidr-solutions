@@ -7,7 +7,7 @@ int fizz_buzz(int n) {
             int temp = i;
             while (temp > 0) {
                 if (temp % 10 == 7) {
-                    ++count;
+                    count++;
                 }
                 temp /= 10;
             }
