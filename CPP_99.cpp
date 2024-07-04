@@ -7,9 +7,9 @@ int closest_integer(std::string value) {
     return static_cast<int>(std::round(num));
 }
 
-int main() {
-    std::string value;
-    std::cin >> value;
-    std::cout << closest_integer(value) << std::endl;
+int main(){
+    std::cout << closest_integer("0") << std::endl;
+    std::cout << closest_integer("2.8") << std::endl;
+    std::cout << closest_integer("-2.2") << std::endl;
     return 0;
 }
