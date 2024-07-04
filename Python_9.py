@@ -9,10 +9,5 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    try:
-        numbers = list(map(int, input().strip().split()))
-        if not numbers:  # Handle empty input
-            raise ValueError
-        print(rolling_max(numbers))
-    except ValueError:
-        print("Invalid input. Please provide a list of integers.")
+    numbers = list(map(int, input().strip().split()))
+    print(rolling_max(numbers))
