@@ -1,3 +1,10 @@
+#include <vector>
+#include <string>
+#include <cassert>
+#include <iostream>
+
+using namespace std;
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letterGrades;
     for (float gpa : grades) {
@@ -16,4 +23,12 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else letterGrades.push_back("E");
     }
     return letterGrades;
+}
+
+int main() {
+    assert((numerical_letter_grade({0, 0.7}) == vector<string>{"E", "D-"}));
+    assert((numerical_letter_grade({4.0, 3.8, 3.5}) == vector<string>{"A+", "A", "A-"}));
+    // You can add more test cases here
+    cout << "All tests passed!" << endl;
+    return 0;
 }
