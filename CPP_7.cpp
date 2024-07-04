@@ -15,8 +15,12 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
     return result;
 }
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
+    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
