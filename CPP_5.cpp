@@ -17,7 +17,7 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
 }
 
 int main() {
-    assert(intersperse({2, 3, 4}, 0) == vector<int>{2, 0, 3, 0, 4});
+    assert((intersperse({2, 3, 4}, 0) == vector<int>{2, 0, 3, 0, 4}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
