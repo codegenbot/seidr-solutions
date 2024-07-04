@@ -11,9 +11,6 @@ string string_sequence(int n) {
     return result;
 }
 
-// int main(){
-// }
-
 int main() {
     int n;
     cin >> n;
