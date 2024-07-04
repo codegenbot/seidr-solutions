@@ -7,7 +7,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         total_product *= num
     return total_sum, total_product
 
-if __name__ == "__main__":
-    input_numbers = list(map(int, input().strip().split()))
-    result = sum_product(input_numbers)
-    print(result)
+numbers = list(map(int, input().split()))
+result = sum_product(numbers)
+print(result)
