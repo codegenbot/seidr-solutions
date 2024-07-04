@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-string decode_cyclic(string s) {
+string decode_cyclic(string s) { 
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -15,9 +16,8 @@ string decode_cyclic(string s) {
 }
 
 int main() {
-    string s;
-    cout << "Enter encoded string: ";
-    cin >> s;
-    cout << "Decoded string: " << decode_cyclic(s) << endl;
+    string str;
+    cin >> str;
+    cout << decode_cyclic(str) << endl;
     return 0;
 }
