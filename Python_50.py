@@ -1,12 +1,13 @@
 def decode_shift(s: str):
-    def shift(ch):
+    result = []
+    for ch in s:
         if 'a' <= ch <= 'z':
-            return chr(((ord(ch) - 5 - ord('a')) % 26) + ord('a'))
+            result.append(chr(((ord(ch) - 5 - ord('a')) % 26) + ord('a')))
         elif 'A' <= ch <= 'Z':
-            return chr(((ord(ch) - 5 - ord('A')) % 26) + ord('A'))
+            result.append(chr(((ord(ch) - 5 - ord('A')) % 26) + ord('A')))
         else:
-            return ch
-    return "".join(shift(ch) for ch in s)
+            result.append(ch)
+    return "".join(result)
 
 if __name__ == "__main__":
     s = input()
