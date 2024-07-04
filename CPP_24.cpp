@@ -7,7 +7,7 @@ int largest_divisor(int n) {
             return i;
         }
     }
-    return 1; // Should never reach here since 1 is always a divisor
+    return 1;
 }
 
 int main() {
