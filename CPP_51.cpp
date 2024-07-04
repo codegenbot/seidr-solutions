@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include <string>
+#include <cassert>
 
 std::string remove_vowels(const std::string &text) {
     std::string result;
@@ -13,8 +13,17 @@ std::string remove_vowels(const std::string &text) {
 }
 
 int main() {
+    // Test cases
+    assert(remove_vowels("ybcd") == "ybcd");
+    assert(remove_vowels("hello") == "hll");
+    
+    // Main execution
     std::string input;
+    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << remove_vowels(input) << std::endl;
+    
+    std::string output = remove_vowels(input);
+    std::cout << "String without vowels: " << output << std::endl;
+    
     return 0;
 }
