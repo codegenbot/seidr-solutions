@@ -1,5 +1,3 @@
-import sys
-
 def poly(coeffs, x):
     return sum(c * x**i for i, c in enumerate(coeffs))
 
@@ -18,8 +16,8 @@ def find_zero(xs: list):
             a = mid
     return (a + b) / 2
 
-data = sys.stdin.read().strip().split()
-degree = int(data[0])
-coefficients = [float(data[i]) for i in range(1, degree + 2)]
+degree = int(input().strip())
+coefficients = [float(input().strip()) for _ in range(degree + 1)]
+
 zero = find_zero(coefficients)
 print(f"The zero of the polynomial is approximately: {zero}")
