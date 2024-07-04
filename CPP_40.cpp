@@ -1,7 +1,4 @@
-#include<stdio.h>
-#include<vector>
-#include<algorithm>
-using namespace std;
+#include <algorithm>
 
 bool triples_sum_to_zero(vector<int> l) {
     int n = l.size();
