@@ -3,18 +3,20 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> unique(std::vector<int> l) {
-    std::sort(l.begin(), l.end());
-    l.erase(std::unique(l.begin(), l.end()), l.end());
-    return l;
-}
+using namespace std;
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    a.erase(unique(a.begin(), a.end()), a.end());
+    
+    sort(b.begin(), b.end());
+    b.erase(unique(b.begin(), b.end()), b.end());
+    
     return a == b;
 }
 
 int main() {
-    assert(is_same(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-    std::cout << "All tests passed!" << std::endl;
+    assert(issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
+    cout << "Test passed!" << endl;
     return 0;
 }
