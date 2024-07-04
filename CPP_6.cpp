@@ -27,9 +27,11 @@ vector<int> parse_nested_parens(string paren_string) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) 
+        return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) 
+            return false;
     }
     return true;
 }
