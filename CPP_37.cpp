@@ -18,10 +18,10 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> v;
-    float num;
-    while (cin >> num) {
-        v.push_back(num);
+    vector<float> v; 
+    float input;
+    while (cin >> input) {
+        v.push_back(input);
     }
     vector<float> sorted_v = sort_even(v);
     for (float num : sorted_v) {
