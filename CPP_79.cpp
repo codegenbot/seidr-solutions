@@ -11,8 +11,8 @@ std::string decimal_to_binary(int decimal) {
 }
 
 int main() {
-    int input;
-    std::cin >> input;
-    std::cout << decimal_to_binary(input) << std::endl;
+    int num;
+    std::cin >> num;
+    std::cout << decimal_to_binary(num) << std::endl;
     return 0;
 }
