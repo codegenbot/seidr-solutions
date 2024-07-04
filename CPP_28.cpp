@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result;
+    std::string result = "";
     for (const auto& str : strings) {
         result += str;
     }
@@ -13,6 +13,6 @@ std::string concatenate(const std::vector<std::string>& strings) {
 
 int main() {
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
-    std::cout << "All test cases passed!" << std::endl;
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
