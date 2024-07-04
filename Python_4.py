@@ -10,8 +10,6 @@ try:
     if not user_input:
         raise ValueError("Empty input provided.")
     numbers = list(map(float, user_input.split()))
-    if not numbers:
-        raise ValueError("No valid numbers provided.")
     print(mean_absolute_deviation(numbers))
 except ValueError as e:
     print(f"Invalid input: {e}")
