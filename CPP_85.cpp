@@ -15,7 +15,7 @@ int add(vector<int> lst){
 }
 
 int main() {
-    assert (add({4, 4, 6, 8}) == 12);
+    assert(add({4, 4, 6, 8}) == 12);
     cout << "All tests passed." << endl;
     return 0;
 }
