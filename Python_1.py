@@ -16,6 +16,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    paren_string = input().strip()  # Ensure to strip any leading or trailing whitespace
+    paren_string = input().strip()
     result = separate_paren_groups(paren_string)
     print(result)
