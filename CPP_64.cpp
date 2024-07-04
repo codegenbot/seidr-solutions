@@ -18,8 +18,7 @@ int vowels_count(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << vowels_count(s) << endl;
+    assert(vowels_count("ACEDY") == 3);
+    cout << "Test case passed." << endl;
     return 0;
 }
