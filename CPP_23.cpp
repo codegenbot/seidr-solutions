@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cassert>
 
-int my_strlen(const std::string &str) {
+int my_strlen(const std::string& str) {
     return str.length();
 }
 
