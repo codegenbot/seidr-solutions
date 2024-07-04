@@ -7,21 +7,19 @@ using namespace std;
 vector<string> words_string(const string& s) {
     vector<string> result;
     string word;
-    bool in_word = false;
     for (char c : s) {
-        if (isalnum(c) || c == '_') {
-            word += c;
-            in_word = true;
-        } else {
-            if (in_word) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
                 result.push_back(word);
                 word.clear();
-                in_word = false;
             }
+        } else {
+            word += c;
         }
     }
-    if (in_word)
+    if (!word.empty()) {
         result.push_back(word);
+    }
     return result;
 }
 
