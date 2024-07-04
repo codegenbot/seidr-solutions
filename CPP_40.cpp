@@ -26,10 +26,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> l[i];
     }
-    if (triples_sum_to_zero(l)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (triples_sum_to_zero(l) ? "True" : "False") << endl;
     return 0;
 }
