@@ -17,9 +17,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    try:
-        paren_string = input().strip()
-        result = separate_paren_groups(paren_string)
-        print(result)
-    except Exception as e:
-        print(f"Error: {e}")
+    paren_string = input().strip()
+    result = separate_paren_groups(paren_string)
+    print(result)
