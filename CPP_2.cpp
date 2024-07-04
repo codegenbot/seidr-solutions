@@ -1,11 +1,13 @@
 #include <cmath>
 #include <cassert>
+#include <iostream>
 
-double truncate_number(double number) {
+float truncate_number(float number) {
     return number - floor(number);
 }
 
 int main() {
-    assert(abs(truncate_number(123.456) - 0.456) < 1e-4);
+    assert(fabs(truncate_number(123.456) - 0.456) < 1e-4);
+    std::cout << "Test passed." << std::endl;
     return 0;
 }
