@@ -26,8 +26,10 @@ int main() {
     int result = car_race_collision(track);
     cout << result << endl;
 
-    // Example string to test the function
-    assert(car_race_collision("RLRL") == 2);
+    // Test assertions (use valid string inputs)
+    assert(car_race_collision("RLR") == 1);
+    assert(car_race_collision("RRLL") == 4);
+    assert(car_race_collision("RL") == 1);
 
     return 0;
 }
