@@ -1,8 +1,9 @@
-#include <string>
 #include <iostream>
+#include <string>
+using namespace std;
 
-std::string decimal_to_binary(int decimal) {
-    std::string binary = "";
+string decimal_to_binary(int decimal) {
+    string binary = "";
     while (decimal > 0) {
         binary = (decimal % 2 == 0 ? "0" : "1") + binary;
         decimal /= 2;
@@ -11,6 +12,6 @@ std::string decimal_to_binary(int decimal) {
 }
 
 int main() {
-    std::cout << decimal_to_binary(15) << std::endl; // Expected output: db1111db
+    cout << decimal_to_binary(15) << endl; // For testing purpose
     return 0;
 }
