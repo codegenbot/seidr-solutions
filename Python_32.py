@@ -19,7 +19,7 @@ def find_zero(xs: list):
 import sys
 input = sys.stdin.read
 
-with open(0) as file:  # file descriptor 0 is standard input
+with open(0) as file:
     data = file.read().strip().split()
 
 degree = int(data[0])
