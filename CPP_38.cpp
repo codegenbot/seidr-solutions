@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::string decode_cyclic(const std::string &s) {
+std::string decode_cyclic(std::string s) {
     int l = s.length();
     std::string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -13,7 +13,7 @@ std::string decode_cyclic(const std::string &s) {
     return output;
 }
 
-std::string encode_cyclic(const std::string &str) {
+std::string encode_cyclic(std::string str) {
     int l = str.length();
     std::string x, output;
     for (int i = 0; i * 3 < l; i++) {
