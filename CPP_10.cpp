@@ -3,12 +3,12 @@
 #include <algorithm>
 using namespace std;
 
-bool is_palindrome(string str) {
+bool is_palindrome(const string& str) {
     string s(str.rbegin(), str.rend());
     return s == str;
 }
 
-string make_palindrome(string str) {
+string make_palindrome(const string& str) {
     int n = str.length();
     for (int i = n; i >= 0; i--) {
         if (is_palindrome(str.substr(0, i))) {
