@@ -25,7 +25,14 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    cout << "All tests passed." << endl;
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    vector<int> factors = factorize(n);
+    cout << "Factors: ";
+    for (int factor : factors) {
+        cout << factor << " ";
+    }
+    cout << endl;
     return 0;
 }
