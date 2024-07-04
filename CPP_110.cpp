@@ -1,4 +1,8 @@
-string exchange(vector<int> lst1, vector<int> lst2) {
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     // Check if lst1 already contains only even numbers
     bool allEven = true;
     for(int num : lst1) {
