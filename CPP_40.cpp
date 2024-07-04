@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
@@ -19,13 +18,8 @@ bool triples_sum_to_zero(vector<int> l) {
     return false;
 }
 
+#include <cassert>
 int main() {
-    int n;
-    cin >> n;
-    vector<int> l(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> l[i];
-    }
-    cout << (triples_sum_to_zero(l) ? "True" : "False") << endl;
+    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
     return 0;
 }
