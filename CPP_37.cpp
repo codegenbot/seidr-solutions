@@ -23,9 +23,11 @@ int main() {
     while (cin >> num) {
         v.push_back(num);
     }
+
     vector<float> sorted_v = sort_even(v);
     for (float num : sorted_v) {
         cout << num << " ";
     }
+    cout << endl;
     return 0;
 }
