@@ -25,7 +25,7 @@ std::string encode_cyclic(std::string str) {
 }
 
 int main() {
-    std::string str = "SomeTestStringAndMore";
+    std::string str = "SomeTestString";
     std::string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
     std::cout << "All assertions passed." << std::endl;
