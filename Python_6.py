@@ -24,5 +24,5 @@ if __name__ == "__main__":
             print(result)
         else:
             print("Invalid parenthesis string.")
-    except Exception as ex:
-        print(f"Error in input: {ex}")
+    except Exception as e:
+        print("Error in input:", str(e))
