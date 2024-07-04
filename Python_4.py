@@ -9,9 +9,9 @@ try:
     input_data = input("Enter numbers separated by spaces: ").strip()
     if not input_data:
         raise ValueError("Empty input provided.")
-    numbers = list(map(float, input_data.split()))
+    numbers = list(filter(None, map(float, input_data.split())))
     if not numbers:
         raise ValueError("No valid numbers provided.")
-    print(f"Mean Absolute Deviation: {mean_absolute_deviation(numbers):.3f}")
+    print(mean_absolute_deviation(numbers))
 except ValueError as e:
     print(f"Invalid input: {e}")
