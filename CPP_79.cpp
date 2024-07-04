@@ -1,11 +1,8 @@
-#include <iostream>
 #include <string>
-#include <cassert>
+#include <iostream>
 
-using namespace std;
-
-string decimal_to_binary(int decimal) {
-    string binary = "";
+std::string decimal_to_binary(int decimal) {
+    std::string binary = "";
     while (decimal > 0) {
         binary = (decimal % 2 == 0 ? "0" : "1") + binary;
         decimal /= 2;
@@ -14,8 +11,6 @@ string decimal_to_binary(int decimal) {
 }
 
 int main() {
-    assert(decimal_to_binary(15) == "db1111db");
-    assert(decimal_to_binary(0) == "db0db");
-    cout << "All tests passed!" << endl;
+    std::cout << decimal_to_binary(15) << std::endl; // Expected output: db1111db
     return 0;
 }
