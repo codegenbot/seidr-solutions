@@ -15,6 +15,7 @@ string decode_cyclic(string s) {
 }
 
 string encode_cyclic(const string& s) {
+    // Assuming encode_cyclic reverses the decode_cyclic operation
     int l = s.length();
     string x, output;
     for (int i = 0; i < l; i += 3) {
