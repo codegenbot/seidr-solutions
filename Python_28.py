@@ -1,16 +1,9 @@
-import sys
 from typing import List
+import sys
 
 def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
-input_strings = []
-try:
-    while True:
-        line = input().strip()
-        input_strings.append(line)
-except EOFError:
-    pass
-
+input_strings = sys.stdin.read().strip().split()
 result = concatenate(input_strings)
 print(result)
