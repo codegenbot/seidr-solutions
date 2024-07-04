@@ -12,7 +12,7 @@ if __name__ == "__main__":
     input = sys.stdin.read
     lines = input().strip().split('\n')
     for line in lines:
-        if line.strip():
+        if line.strip():  # Make sure we don't process empty lines
             numbers = list(map(int, line.split()))
             result = sum_product(numbers)
             print(result)
