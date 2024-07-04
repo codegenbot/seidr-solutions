@@ -5,5 +5,6 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 if __name__ == "__main__":
     user_input = input().strip()
-    values = [int(x) if x.lstrip('-').isdigit() else x for x in user_input.split() if x]
+    values = user_input.split()
+    values = [int(x) if x.lstrip('-').isdigit() else x for x in values]
     print(filter_integers(values))
