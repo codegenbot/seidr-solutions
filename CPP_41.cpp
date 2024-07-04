@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -25,6 +26,9 @@ int main() {
 
     int result = car_race_collision(track);
     cout << result << endl;
+
+    // Add valid assertion test here
+    assert(car_race_collision("RLRLR") == 2);
 
     return 0;
 }
