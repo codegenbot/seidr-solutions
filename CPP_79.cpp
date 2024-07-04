@@ -3,12 +3,11 @@
 
 std::string decimal_to_binary(int decimal) {
     std::string binary = "";
-    if (decimal == 0) return "db0db";
     while (decimal > 0) {
         binary = (decimal % 2 == 0 ? "0" : "1") + binary;
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    return "db" + (binary.empty() ? "0" : binary) + "db";
 }
 
 int main() {
