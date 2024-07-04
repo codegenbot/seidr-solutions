@@ -1,7 +1,6 @@
-#include <iostream>
 #include <string>
 #include <cassert>
-
+#include <iostream>
 using namespace std;
 
 bool is_happy(string s) {
@@ -16,5 +15,7 @@ bool is_happy(string s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
+    assert(is_happy("abcde") == true);
+    cout << "All tests passed!" << endl;
     return 0;
 }
