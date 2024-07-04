@@ -8,9 +8,12 @@ int fruit_distribution(string s, int n) {
     if (pos != string::npos) {
         apples = stoi(s.substr(0, pos));
     }
-    pos = s.find(" oranges");
+    pos = s.find(" and ");
     if (pos != string::npos) {
-        oranges = stoi(s.substr(s.find_last_of(' ', pos - 1) + 1, pos));
+        size_t pos_oranges = s.find(" oranges", pos + 5);
+        if (pos_oranges != string::npos) {
+            oranges = stoi(s.substr(pos + 5, pos_oranges - (pos + 5)));
+        }
     }
     return n - apples - oranges;
 }
