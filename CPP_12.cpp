@@ -14,7 +14,11 @@ std::string longest(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> inputs = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
+    std::vector<std::string> inputs;
+    std::string input;
+    while (std::getline(std::cin, input) && !input.empty()) {
+        inputs.push_back(input);
+    }
     std::cout << "Longest string: " << longest(inputs) << std::endl;
     return 0;
 }
