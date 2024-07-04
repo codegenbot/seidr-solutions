@@ -1,15 +1,12 @@
-#include <iostream>
 #include <vector>
-#include <cmath> // for abs()
+#include <cstdlib>
 
-using namespace std;
-
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
         bool is_negative = num < 0;
-        num = abs(num);
+        num = std::abs(num);
         while (num > 0) {
             sum += num % 10;
             num /= 10;
@@ -18,10 +15,4 @@ int count_nums(vector<int> n) {
         if (sum > 0) ++count;
     }
     return count;
-}
-
-int main() {
-    assert(count_nums({1, -2, 3, -4, 5}) == 5);
-    cout << "All test cases passed!" << endl;
-    return 0;
 }
