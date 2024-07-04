@@ -20,6 +20,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 int main() {
     vector<string> expected{"W", "WW", "WWW"};
     assert(issame(all_prefixes("WWW"), expected));
-    cout << "Test passed successfully!" << endl; 
+    cout << "Test passed successfully!" << endl;
     return 0;
 }
