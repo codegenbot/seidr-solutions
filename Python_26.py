@@ -1,5 +1,6 @@
 from typing import List
 
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
@@ -8,6 +9,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             seen.add(num)
             result.append(num)
     return result
+
 
 if __name__ == "__main__":
     try:
