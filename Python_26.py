@@ -13,9 +13,12 @@ def main():
     try:
         input_data = input().strip()
         if not input_data:
-            print("[]")
+            print([])
             return
         numbers = list(map(int, input_data.split()))
+        if not numbers:
+            print([])
+            return
         print(remove_duplicates(numbers))
     except ValueError:
         print("Invalid input. Please enter integers separated by spaces.")
