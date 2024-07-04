@@ -13,8 +13,6 @@ std::string remove_vowels(const std::string& text) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << remove_vowels(input) << std::endl;
+    std::cout << remove_vowels("Hello, World!") << std::endl; // Example usage
     return 0;
 }
