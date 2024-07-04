@@ -1,8 +1,5 @@
-#include <iostream>
-#include <cassert>
 #include <string>
-
-using namespace std;
+#include <cassert>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -14,16 +11,16 @@ bool is_prime(int n) {
     return true;
 }
 
-bool prime_length(string str) {
-    int length = str.length();
-    return is_prime(length);
+bool prime_length(std::string str) {
+    int len = str.length();
+    return is_prime(len);
 }
 
 int main() {
     assert(prime_length("0") == false);
-    assert(prime_length("hi") == true);
+    assert(prime_length("abc") == true);
     assert(prime_length("hello") == true);
-    assert(prime_length("world!") == false);
-    cout << "All tests passed!" << endl;
+    assert(prime_length("helloo") == false);
+    assert(prime_length("") == false);
     return 0;
 }
