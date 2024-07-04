@@ -5,7 +5,7 @@
 std::string remove_vowels(const std::string& text) {
     std::string result;
     for(char c : text) {
-        if(!strchr("aeiouAEIOU", c)) {
+        if(!std::strchr("aeiouAEIOU", c)) {
             result += c;
         }
     }
