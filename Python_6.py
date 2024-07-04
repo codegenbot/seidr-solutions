@@ -13,13 +13,13 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_depth += 1
             stack += 1
         elif char == ")":
-            if stack == 0:
+            if stack == 0:  # More closing than opening
                 return []
             depth_list.append(current_depth)
             current_depth -= 1
             stack -= 1
     
-    if stack != 0:
+    if stack != 0:  # Unmatched opening parentheses
         return []
 
     return depth_list
