@@ -14,6 +14,10 @@ bool same_chars(string s0, string s1) {
 int main() {
     string s0, s1;
     cin >> s0 >> s1;
-    cout << boolalpha << same_chars(s0, s1) << endl;
+    if (same_chars(s0, s1)) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
     return 0;
 }
