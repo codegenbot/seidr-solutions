@@ -20,6 +20,6 @@ int count_distinct_characters(string str) {
 }
 
 int main() {
-    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl; // Expected output: 5
+    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
     return 0;
 }
