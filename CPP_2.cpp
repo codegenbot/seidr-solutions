@@ -3,11 +3,11 @@
 #include <iostream>
 
 float truncate_number(float number) {
-    return number - std::floor(number);
+    return number - floor(number);
 }
 
 int main() {
-    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
+    assert(abs(truncate_number(123.456) - 0.456) < 1e-4);
     std::cout << "Test passed." << std::endl;
     return 0;
 }
