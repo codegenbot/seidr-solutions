@@ -1,9 +1,12 @@
 #include <unordered_set>
 #include <vector>
 #include <iostream>
+#include <cassert>
 
-bool pairs_sum_to_zero(const std::vector<int>& l) {
-    std::unordered_set<int> seen;
+using namespace std;
+
+bool pairs_sum_to_zero(vector<int> l) {
+    unordered_set<int> seen;
     for (int num : l) {
         if (seen.find(-num) != seen.end()) {
             return true;
@@ -14,18 +17,8 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> l;
-    int n, elem;
-    
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> elem;
-        l.push_back(elem);
-    }
-    
-    std::cout << std::boolalpha << pairs_sum_to_zero(l) << std::endl;
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    assert(pairs_sum_to_zero({-3, 9, -1, 1, 2, 31}) == true);
+    cout << "All tests passed!" << endl;
     return 0;
 }
