@@ -23,8 +23,8 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    assert(separate_paren_groups("() (()) (()())") == vector<string>({"()", "(())", "(()())"}));
-    assert(separate_paren_groups("((())) (()()(())) (())") == vector<string>({"((()))", "(()()(()))", "(())"}));
+    assert(separate_paren_groups("() (()) (()())") == vector<string>{"()", "(())", "(()())"});
+    assert(separate_paren_groups("((())) (()()(())) (())") == vector<string>{"((()))", "(()()(()))", "(())"});
     cout << "All tests passed!" << endl;
     return 0;
 }
