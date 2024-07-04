@@ -5,14 +5,13 @@
 #include <cassert>
 
 // Function to rescale numbers to the unit interval [0,1]
-std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
-    std::vector<float> rescaled(numbers.size());
+std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     float min_val = *std::min_element(numbers.begin(), numbers.end());
     float max_val = *std::max_element(numbers.begin(), numbers.end());
-    for (size_t i = 0; i < numbers.size(); ++i) {
-        rescaled[i] = (numbers[i] - min_val) / (max_val - min_val);
+    for (float& num : numbers) {
+        num = (num - min_val) / (max_val - min_val);
     }
-    return rescaled;
+    return numbers;
 }
 
 // Function to compare two floating point vectors with a tolerance
