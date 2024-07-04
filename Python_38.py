@@ -7,6 +7,5 @@ def decode_cyclic(s: str) -> str:
     return "".join(groups)
 
 if __name__ == "__main__":
-    import sys
-    input_str = sys.stdin.read().strip()
+    input_str = input()
     print(decode_cyclic(input_str))
