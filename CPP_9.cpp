@@ -15,30 +15,8 @@ vector<int> rolling_max(const vector<int>& numbers) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    vector<int> numbers;
-    int n, value;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> value;
-        numbers.push_back(value);
-    }
-    
-    vector<int> result = rolling_max(numbers);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    // Test case
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-
+    assert((rolling_max({3, 2, 3, 100, 3}) == vector<int>{3, 3, 3, 100, 100}));
     cout << "All tests passed!" << endl;
     return 0;
 }
