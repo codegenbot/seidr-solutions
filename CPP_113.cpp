@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> odd_count(vector<string> lst) {
+vector<string> odd_count(const vector<string>& lst) {
     vector<string> result;
     for (const auto& str : lst) {
         int odd_count = 0;
