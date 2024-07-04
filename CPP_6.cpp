@@ -15,12 +15,15 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
             }
         } else if (c == ')') {
             current_depth--;
-        } else if (c == ' ' && max_depth > 0) {
-            result.push_back(max_depth);
-            max_depth = 0;
+        } else if (c == ' ') {
+            if (max_depth > 0) {
+                result.push_back(max_depth);
+                max_depth = 0;
+            }
             current_depth = 0;
         }
     }
+
     if (max_depth > 0) {
         result.push_back(max_depth);
     }
