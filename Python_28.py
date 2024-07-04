@@ -3,7 +3,16 @@ from typing import List
 def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
-# Read input from the user
-input_strings = input("Enter space-separated strings: ").split()
+input_strings = []
+try:
+    while True:
+        line = input()
+        if line:
+            input_strings.append(line)
+        else:
+            break
+except EOFError:
+    pass
+
 result = concatenate(input_strings)
 print(result)
