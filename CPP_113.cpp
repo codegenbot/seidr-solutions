@@ -5,17 +5,19 @@
 
 using namespace std;
 
-vector<string> odd_count(vector<string> lst) {
+vector<string> odd_count(const vector<string>& lst) {
     vector<string> result;
     for (const auto& str : lst) {
-        int count = 0;
+        int odd_count = 0;
         for (char ch : str) {
             if ((ch - '0') % 2 != 0) {
-                count++;
+                odd_count++;
             }
         }
-        result.push_back("the number of odd elements " + to_string(count) + 
-                         " in the string " + str + " of the input.");
+        string res = "the number of odd elements " + to_string(odd_count) + 
+                     " in the string " + str + 
+                     " of the input.";
+        result.push_back(res);
     }
     return result;
 }
