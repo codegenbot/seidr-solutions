@@ -20,7 +20,9 @@ string encode(string message) {
 }
 
 int main() {
-    string result = encode("I DoNt KnOw WhAt tO WrItE");
-    cout << result << endl; // Expected output: "k dQnT kNqW wHcT Tq wRkTg"
+    string message;
+    getline(cin, message);
+    string result = encode(message);
+    cout << result << endl;
     return 0;
 }
