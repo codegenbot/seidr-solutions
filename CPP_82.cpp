@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -19,6 +18,9 @@ bool prime_length(std::string str) {
 
 int main() {
     assert(prime_length("0") == false);
-    std::cout << "Test passed!" << std::endl;
+    assert(prime_length("Hello") == true);
+    assert(prime_length("C++") == false);
+    assert(prime_length("Prime") == false);
+    assert(prime_length("Test") == true);
     return 0;
 }
