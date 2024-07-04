@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<string>
+#include <stdio.h>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 string circular_shift(int x, int shift) {
