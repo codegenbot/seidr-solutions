@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = []
@@ -10,8 +9,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    inputs = list(map(int, sys.stdin.read().strip().split()))
-    numbers = inputs[:-1]
-    delimiter = inputs[-1]
+    numbers = list(map(int, input("Enter the list of numbers separated by space: ").strip().split()))
+    delimiter = int(input("Enter the delimiter: ").strip())
     result = intersperse(numbers, delimiter)
     print(" ".join(map(str, result)))
