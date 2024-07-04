@@ -1,20 +1,23 @@
 #include <iostream>
 #include <string>
+#include <unordered_set>
 using namespace std;
 
-int hex_key(string num) {
-    int prime_count = 0;
+int hex_key(const string& num) {
+    unordered_set<char> prime_hex_digits = {'2', '3', '5', '7', 'B', 'D'};
+    int count = 0;
     for (char c : num) {
-        if (c == '2' || c == '3' || c == '5' || c == '7' || c == 'B' || c == 'D') {
-            prime_count++;
+        if (prime_hex_digits.count(c)) {
+            count++;
         }
     }
-    return prime_count;
+    return count;
 }
 
 int main() {
     string input;
+    cout << "Enter a hex string: ";
     cin >> input;
-    cout << hex_key(input) << endl;
+    cout << "Count of prime hex digits: " << hex_key(input) << endl;
     return 0;
 }
