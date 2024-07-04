@@ -1,9 +1,10 @@
+import sys
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
-if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read().strip().split()
-    print(concatenate(input))
+# Read multiple lines input from the user
+input_strings = sys.stdin.read().splitlines()
+result = concatenate(input_strings)
+print(result)
