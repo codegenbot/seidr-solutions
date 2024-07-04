@@ -1,9 +1,8 @@
 #include <iostream>
-#include <string>
 #include <cstring>
-#include <cassert>
+#include <string>
 
-std::string remove_vowels(const std::string& text) {
+std::string remove_vowels(const std::string &text) {
     std::string result;
     for (char c : text) {
         if (!strchr("aeiouAEIOU", c)) {
@@ -14,8 +13,8 @@ std::string remove_vowels(const std::string& text) {
 }
 
 int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
-    assert(remove_vowels("abcde") == "bcd");
-    std::cout << "All tests passed!" << std::endl;
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << remove_vowels(input) << std::endl;
     return 0;
 }
