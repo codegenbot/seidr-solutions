@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 
 int fib4(int n) {
     if (n == 0) return 0;
@@ -19,7 +19,7 @@ int fib4(int n) {
 
 int main() {
     int n;
-    scanf("%d", &n);
-    printf("%d\n", fib4(n));
+    std::scanf("%d", &n);
+    std::printf("%d\n", fib4(n));
     return 0;
 }
