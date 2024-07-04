@@ -31,9 +31,9 @@ int main() {
     while (cin >> noskipws >> chr) {
         str += chr;
     }
-    
+
     string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
-    cout << encoded_str << endl;
+    cout << encoded_str << endl; // output the encoded string
     return 0;
 }
