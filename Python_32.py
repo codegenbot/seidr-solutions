@@ -24,5 +24,7 @@ def find_zero(xs: list):
     return x0
 
 if __name__ == "__main__":
-    xs = list(map(float, input().split()))
+    import sys
+    input = sys.stdin.read
+    xs = list(map(float, input().strip().split()))
     print(find_zero(xs))
