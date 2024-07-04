@@ -5,6 +5,10 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 if __name__ == "__main__":
     user_input = input().strip().split()
-    values = [int(x) if x.lstrip('+-').isdigit() else x for x in user_input]
-    
+    values = []
+    for x in user_input:
+        try:
+            values.append(int(x))
+        except ValueError:
+            values.append(x)  # Keep non-integer values as is
     print(filter_integers(values))

@@ -14,8 +14,8 @@ if __name__ == "__main__":
     import sys
 
     input = sys.stdin.read
-    data = input().split()
-    delimiter = int(data[0])
-    numbers = list(map(int, data[1:]))
+    data = input().strip().split("\n")
+    numbers = list(map(int, data[0].strip().split()))
+    delimiter = int(data[1].strip())
     result = intersperse(numbers, delimiter)
     print(" ".join(map(str, result)))
