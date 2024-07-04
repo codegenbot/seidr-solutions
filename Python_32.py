@@ -16,7 +16,6 @@ def find_zero(xs: list):
             a = mid
     return (a + b) / 2
 
-# Read input from user
 xs = list(map(float, input("Enter polynomial coefficients (space separated): ").split()))
 result = find_zero(xs)
 print(f"The root is approximately: {result}")
