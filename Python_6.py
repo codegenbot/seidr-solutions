@@ -6,9 +6,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     depth_list = []
     current_depth = 0
     for char in paren_string:
-        if char == '(':
+        if char == "(":
             current_depth += 1
-        elif char == ')':
+        elif char == ")":
             if current_depth == 0:
                 return []
             depth_list.append(current_depth)
@@ -16,12 +16,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return depth_list if current_depth == 0 else []
 
 if __name__ == "__main__":
-    try:
-        paren_string = input("Enter a valid parenthesis string: ").strip()
+    paren_string = input().strip()
+    if not paren_string:
+        print([]) 
+    else:
         result = parse_nested_parens(paren_string)
-        if result:
-            print("Valid Parenthesis Depth List:", result)
-        else:
-            print("Invalid parenthesis string.")
-    except Exception as e:
-        print("An error occurred:", str(e))
+        print(result)
