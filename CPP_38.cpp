@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <cassert> 
 
 std::string decode_cyclic(const std::string &s) {
     int l = s.length();
