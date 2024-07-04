@@ -5,8 +5,5 @@ def decode_shift(s: str) -> str:
     )
 
 if __name__ == "__main__":
-    try:
-        s = input().strip()
-        print(decode_shift(s))
-    except EOFError:
-        pass
+    s = input()
+    print(decode_shift(s))
