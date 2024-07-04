@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for(float num : l) {
         if(num > 0) {
@@ -13,17 +13,17 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size())
         return false;
     for(size_t i = 0; i < a.size(); ++i) {
-        if(fabs(a[i] - b[i]) > 1e-4)
+        if (abs(a[i] - b[i]) > 1e-4)
             return false;
     }
     return true;
 }
 
-int main(){
+int main() {
     assert (issame(get_positive({1.0, -2.0, 3.0}) , {1.0, 3.0}));
     assert (issame(get_positive({-1.0, -2.0, -3.0}) , {}));
     assert (issame(get_positive({}) , {}));
