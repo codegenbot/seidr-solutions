@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     if not all(char in '()' for char in paren_string):
@@ -17,6 +16,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return depth_list if current_depth == 0 else []
 
 if __name__ == "__main__":
+    import sys
     paren_string = sys.stdin.read().strip()
     result = parse_nested_parens(paren_string)
     if result:
