@@ -15,7 +15,7 @@ int main() {
     // Tests
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     std::cout << "Test passed!" << std::endl;
-
+    
     // User interaction
     std::vector<std::string> user_input;
     std::string input;
@@ -23,7 +23,7 @@ int main() {
     while (std::cin >> input && input != "END") {
         user_input.push_back(input);
     }
-
+    
     std::cout << "Concatenated result: " << concatenate(user_input) << std::endl;
     return 0;
 }
