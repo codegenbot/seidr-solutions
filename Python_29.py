@@ -4,6 +4,3 @@ def filter_strings_by_prefix(strings, prefix):
 # Example call to the function
 result = filter_strings_by_prefix(['apple', 'banana', 'apricot'], 'ap')
 print(result)  # Example output: ['apple', 'apricot']
-
-# Ensure correct function reference
-check(filter_strings_by_prefix)
