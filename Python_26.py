@@ -10,5 +10,5 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+    numbers = list(map(int, input("Enter numbers separated by spaces: ").strip().split()))
     print(remove_duplicates(numbers))
