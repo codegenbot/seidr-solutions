@@ -6,7 +6,10 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    strings = input().strip().split()
+    strings = []
+    while True:
+        line = input().strip()
+        if line == "":
+            break
+        strings.append(line)
     print(longest(strings))
