@@ -6,22 +6,26 @@
 std::vector<int> parse_nested_parens(const std::string& paren_string) {
     std::vector<int> result;
     int max_depth = 0, current_depth = 0;
+    bool in_nested_segment = false;
 
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
+            in_nested_segment = true;
             if (current_depth > max_depth) {
                 max_depth = current_depth;
             }
         } else if (c == ')') {
             current_depth--;
-        } else if (c == ' ' && max_depth > 0) {
+        } else if (c == ' ' && in_nested_segment) {
             result.push_back(max_depth);
             max_depth = 0;
             current_depth = 0;
+            in_nested_segment = false;
         }
     }
-    if (max_depth > 0) {
+
+    if (in_nested_segment) {
         result.push_back(max_depth);
     }
 
