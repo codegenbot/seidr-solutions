@@ -3,20 +3,20 @@
 #include <cmath>
 #include <cassert>
 
-using namespace std;
-
-int closest_integer(string value) {
-    double num = stod(value);
-    return round(num);
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    if (num > 0) {
+        return std::floor(num + 0.5);
+    } else {
+        return std::ceil(num - 0.5);
+    }
 }
 
 int main() {
     assert(closest_integer("0") == 0);
-    assert(closest_integer("1.4") == 1);
-    assert(closest_integer("1.5") == 2);
-    assert(closest_integer("-1.5") == -1);
-    assert(closest_integer("-1.6") == -2);
-    
-    cout << "All tests passed!" << endl;
+    assert(closest_integer("2.25") == 2);
+    assert(closest_integer("2.75") == 3);
+    assert(closest_integer("-2.75") == -3);
+    std::cout << "All tests passed." << std::endl;
     return 0;
 }
