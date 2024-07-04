@@ -1,12 +1,8 @@
-int count_distinct_characters(string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> seen(26, false);
-    int count = 0;
-    for (char c : str) {
-        if (isalpha(c) && !seen[c - 'a']) {
-            seen[c - 'a'] = true;
-            count++;
-        }
+#include<set>
+int count_distinct_characters(string str){ 
+    set<char> distinct_chars;
+    for(char c : str) {
+        distinct_chars.insert(tolower(c));
     }
-    return count;
+    return distinct_chars.size();
 }
