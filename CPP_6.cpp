@@ -1,6 +1,7 @@
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
     int max_depth = 0, current_depth = 0;
+    
     for (char ch : paren_string) {
         if (ch == '(') {
             current_depth++;
@@ -15,6 +16,7 @@ vector<int> parse_nested_parens(string paren_string) {
             current_depth = 0;
         }
     }
-    result.push_back(max_depth); // For the last group
+    
+    result.push_back(max_depth); // for the last group
     return result;
 }
