@@ -32,7 +32,7 @@ int main() {
     string s, c;
     cin >> s >> c;
     vector<string> result = reverse_delete(s, c);
-    for (const string& str : result) {
+    for (const string &str : result) {
         cout << str << endl;
     }
     return 0;
