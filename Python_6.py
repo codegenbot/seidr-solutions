@@ -1,7 +1,7 @@
 from typing import List
-import sys
 
 def parse_nested_parens(paren_string: str) -> List[int]:
+    paren_string = paren_string.strip()
     if not all(char in '()' for char in paren_string):
         return []
     depth_list = []
@@ -17,9 +17,12 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return depth_list if current_depth == 0 else []
 
 if __name__ == "__main__":
-    paren_string = sys.stdin.read().strip()
-    result = parse_nested_parens(paren_string)
-    if result:
-        print(result)
-    else:
-        print("Invalid parenthesis string.")
+    try:
+        paren_string = input().strip()
+        result = parse_nested_parens(paren_string)
+        if result:
+            print(result)
+        else:
+            print("Invalid parenthesis string.")
+    except:
+        print("Error in input.")
