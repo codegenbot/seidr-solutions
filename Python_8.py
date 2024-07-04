@@ -8,9 +8,13 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, total_product
 
 if __name__ == "__main__":
-    import sys
-    lines = sys.stdin.read().strip().split('\n')
-    for line in lines:
-        numbers = list(map(int, line.split()))
-        result = sum_product(numbers)
-        print(result[0], result[1])
+    while True:
+        try:
+            line = input()
+            if not line.strip():
+                break
+            numbers = list(map(int, line.split()))
+            result = sum_product(numbers)
+            print(result)
+        except EOFError:
+            break
