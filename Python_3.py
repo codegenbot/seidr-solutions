@@ -10,7 +10,9 @@ def below_zero(operations: List[int]) -> bool:
 
 if __name__ == "__main__":
     try:
-        input_line = input("Enter space-separated integers: ").strip()
+        input_line = input().strip()
+        if not input_line:
+            raise ValueError()
         operations = list(map(int, input_line.split()))
         print(below_zero(operations))
     except ValueError:
