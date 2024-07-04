@@ -15,7 +15,7 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
             }
         } else if (c == ')') {
             current_depth--;
-        } else if (c == ' ') {  
+        } else if (c == ' ') {
             result.push_back(max_depth);
             max_depth = 0;
             current_depth = 0;
@@ -28,6 +28,7 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
 
 int main() {
     assert((parse_nested_parens("(()(())((())))") == std::vector<int>{4}));
+    assert((parse_nested_parens("() (()) (((())))") == std::vector<int>{1, 2, 4}));
     std::cout << "Test passed!" << std::endl;
     return 0;
 }
