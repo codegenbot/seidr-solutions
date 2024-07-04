@@ -7,7 +7,7 @@ using namespace std;
 
 // Function to remove duplicates from a sorted vector
 vector<int> unique_sorted_vector(vector<int> l) {
-    sort(l.begin(), l.end()); 
+    sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
