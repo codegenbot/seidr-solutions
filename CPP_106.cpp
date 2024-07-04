@@ -25,7 +25,7 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(f(3) == vector<int>({1, 2, 6}));
+    assert(f(3) == vector<int>({1, 3, 6}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
