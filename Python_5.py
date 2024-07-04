@@ -9,7 +9,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().strip().split()))
-    delimiter = int(input().strip())
+    numbers = list(map(int, input("Enter the list of numbers separated by space: ").strip().split()))
+    delimiter = int(input("Enter the delimiter: ").strip())
     result = intersperse(numbers, delimiter)
-    print(' '.join(map(str, result)))
+    print(" ".join(map(str, result)))
