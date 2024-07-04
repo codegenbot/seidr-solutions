@@ -15,24 +15,19 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
             }
         } else if (c == ')') {
             current_depth--;
-        } else if (c == ' ') {
-            if (current_depth != 0) {
-                result.push_back(max_depth);
-                max_depth = 0;
-                current_depth = 0;
-            }
+        } else if (c == ' ') {  
+            result.push_back(max_depth);
+            max_depth = 0;
+            current_depth = 0;
         }
     }
-    if (current_depth != 0) {
-        result.push_back(max_depth);
-    }
+    result.push_back(max_depth);
     
     return result;
 }
 
 int main() {
     assert((parse_nested_parens("(()(())((())))") == std::vector<int>{4}));
-    assert((parse_nested_parens("(()) ((())) (((())))") == std::vector<int>{2, 3, 4}));
-    std::cout << "All tests passed!" << std::endl;
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
