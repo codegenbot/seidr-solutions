@@ -1,16 +1,17 @@
 #include <iostream>
-using namespace std;
+#include <cassert>
 
 int largest_divisor(int n) {
-    for (int i = n / 2; i >= 1; i--) {
-        if (n % i == 0) return i;
+    for (int i = n / 2; i > 0; --i) {
+        if (n % i == 0) {
+            return i;
+        }
     }
-    return 1;
+    return 1; // This line is never reached due to the problem constraints
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cout << largest_divisor(n) << endl;
+    assert(largest_divisor(49) == 7);
+    std::cout << "All test cases passed.\n";
     return 0;
 }
