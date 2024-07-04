@@ -22,7 +22,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    list<any> input = {3, 'c', 3, 3, 'a', 'b'};
+    list<any> input = {any(3), any('c'), any(3), any(3), any('a'), any('b')};
     vector<int> expected = {3, 3, 3};
     assert(issame(filter_integers(input), expected));
     cout << "Test passed!" << endl;
