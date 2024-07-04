@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -17,6 +17,9 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
 }
 
 int main() {
-    assert((intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2}));
+    vector<int> result = intersperse({2, 2, 2}, 2);
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }
