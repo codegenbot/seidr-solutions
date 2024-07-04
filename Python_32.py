@@ -19,7 +19,6 @@ def find_zero(xs: list):
 degree = int(input().strip())
 coefficients = list(map(float, input().strip().split()))
 
-# Validate correct number of coefficients based on degree
 if len(coefficients) != degree + 1:
     print(f"Expected {degree + 1} coefficients, but got {len(coefficients)}")
 else:
