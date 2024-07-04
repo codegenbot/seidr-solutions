@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Function to perform the "strange sort" on the list
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     sort(lst.begin(), lst.end());
@@ -22,7 +21,6 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
-// Function to compare two vectors
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
