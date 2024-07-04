@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath> // for std::abs
+#include <cmath>
 using namespace std;
 
 vector<float> sort_even(vector<float> l) {
