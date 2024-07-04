@@ -1,6 +1,6 @@
+#include <iostream>
 #include <algorithm>
 #include <vector>
-#include <iostream>
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
@@ -26,10 +26,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> l[i];
     }
-    if (triples_sum_to_zero(l)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (triples_sum_to_zero(l) ? "true" : "false") << endl;
     return 0;
 }
