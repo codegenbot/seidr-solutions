@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -22,13 +21,5 @@ int main() {
     assert(prime_length("abc") == true); // length 3 is prime
     assert(prime_length("test") == false); // length 4 is not prime
     assert(prime_length("prime") == true); // length 5 is prime
-
-    std::string input;
-    std::cin >> input;
-    if (prime_length(input)) {
-        std::cout << "The length of the string is a prime number." << std::endl;
-    } else {
-        std::cout << "The length of the string is not a prime number." << std::endl;
-    }
     return 0;
 }
