@@ -1,4 +1,9 @@
-bool same_chars(string s0, string s1){
+#include <algorithm>
+#include <string>
+#include <iostream>
+using namespace std;
+
+bool same_chars(string s0, string s1) {
     sort(s0.begin(), s0.end());
     s0.erase(unique(s0.begin(), s0.end()), s0.end());
     sort(s1.begin(), s1.end());
