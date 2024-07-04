@@ -16,9 +16,12 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return depth_list if current_depth == 0 else []
 
 if __name__ == "__main__":
-    paren_string = input().strip()
-    result = parse_nested_parens(paren_string)
-    if result:
-        print("Valid Parenthesis Depth List:", result)
-    else:
-        print("Invalid parenthesis string.")
+    try:
+        paren_string = input("Enter a valid parenthesis string (only '(' and ')'): ").strip()
+        result = parse_nested_parens(paren_string)
+        if result:
+            print("Valid Parenthesis Depth List:", result)
+        else:
+            print("Invalid parenthesis string.")
+    except Exception as e:
+        print("An error occurred:", str(e))
