@@ -16,7 +16,7 @@ string flip_case(string str) {
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flip_case("These Violent Delights Have Violent Ends") == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
     string input;
     getline(cin, input);
     cout << flip_case(input) << endl;
