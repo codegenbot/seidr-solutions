@@ -21,7 +21,7 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
             current_depth = 0;
         }
     }
-    if (current_depth == 0 && max_depth > 0) {
+    if (max_depth > 0) {
         result.push_back(max_depth);
     }
 
