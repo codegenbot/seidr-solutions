@@ -1,7 +1,6 @@
 #include <cmath>
 
-bool isCube(int a) {
-    if (a < 0) return false; // Optional: If negative numbers are not considered cubes
-    int cbrt_a = round(cbrt(static_cast<double>(a)));
+bool iscuber(int a) {
+    int cbrt_a = std::round(std::cbrt(a));
     return cbrt_a * cbrt_a * cbrt_a == a;
 }
