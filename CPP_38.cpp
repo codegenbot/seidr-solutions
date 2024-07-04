@@ -28,6 +28,7 @@ int main() {
     std::string str;
     std::cin >> str;
     std::string encoded_str = encode_cyclic(str);
-    std::cout << encoded_str << std::endl;
+    std::string decoded_str = decode_cyclic(encoded_str);
+    std::cout << "Encoded: " << encoded_str << "\nDecoded: " << decoded_str << std::endl;
     return 0;
 }
