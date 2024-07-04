@@ -1,5 +1,4 @@
-#include<stdio.h>
-using namespace std;
+#include <stdio.h>
 
 int fizz_buzz(int n) {
     int count = 0;
@@ -8,7 +7,7 @@ int fizz_buzz(int n) {
             int temp = i;
             while (temp > 0) {
                 if (temp % 10 == 7) {
-                    ++count;
+                    count++;
                 }
                 temp /= 10;
             }
