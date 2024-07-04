@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<stdio.h>
 
 int modp(int n, int p) {
     long long result = 1;
