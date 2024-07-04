@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
+
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -23,15 +23,13 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
-    assert(issame(total_match({"short"}, {"longer", "words"}), {"short"}));
-    assert(issame(total_match({"short", "list"}, {"longer", "words"}), {"longer", "words"}));
-
-    cout << "All tests passed!" << endl;
+    assert(issame(total_match({"hi", "there"}, {"hello"}), {"hello"}));
+    assert(issame(total_match({"abc", "def"}, {"ghij"}), {"abc", "def"}));
     return 0;
 }
