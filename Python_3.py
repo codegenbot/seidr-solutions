@@ -9,5 +9,5 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 if __name__ == "__main__":
-    operations = list(map(int, input("Enter operations separated by spaces: ").split()))
+    operations = list(map(int, input("Enter space-separated integers: ").split()))
     print(below_zero(operations))
