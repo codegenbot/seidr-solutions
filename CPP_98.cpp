@@ -2,10 +2,12 @@
 #include <string>
 #include <cassert>
 
-int count_upper(const std::string& s) {
+using namespace std;
+
+int count_upper(string s) {
     int count = 0;
-    for (int i = 0; i < s.length(); i += 2) {
-        if (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
+    for (int i = 0; i < s.length(); i++) {
+        if (isupper(s[i])) {
             count++;
         }
     }
@@ -13,8 +15,9 @@ int count_upper(const std::string& s) {
 }
 
 int main() {
-    assert(count_upper("EEEE") == 2);
-    // Additional tests can be added here
-    std::cout << "All tests passed.\n";
+    assert(count_upper("EEEE") == 4);
+    assert(count_upper("eEeE") == 2);
+    assert(count_upper("abcd") == 0);
+    cout << "All test cases passed!\n";
     return 0;
 }
