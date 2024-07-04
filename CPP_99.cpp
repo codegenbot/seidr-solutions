@@ -8,8 +8,8 @@ int closest_integer(std::string value) {
 }
 
 int main() {
-    std::string value;
-    std::cin >> value;
-    std::cout << closest_integer(value) << std::endl;
+    std::cout << (closest_integer("0") == 0) << std::endl;
+    std::cout << (closest_integer("2.8") == 3) << std::endl;
+    std::cout << (closest_integer("-2.2") == -2) << std::endl;
     return 0;
 }
