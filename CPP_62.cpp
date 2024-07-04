@@ -15,9 +15,9 @@ vector<float> derivative(const vector<float>& xs) {
 
 int main() {
     // Test cases for the derivative function
-    assert(derivative(vector<float>{1}) == vector<float>{});
-    assert(derivative(vector<float>{1, 2}) == vector<float>{2});
-    assert(derivative(vector<float>{1, 2, 3}) == vector<float>{2, 6});
+    assert(derivative({1}) == vector<float>({}));
+    assert(derivative({1, 2}) == vector<float>({2}));
+    assert(derivative({1, 2, 3}) == vector<float>({2, 6}));
     cout << "All tests passed!" << endl;
     return 0;
 }
