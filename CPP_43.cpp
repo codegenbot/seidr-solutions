@@ -27,5 +27,6 @@ int main() {
     }
     
     std::cout << std::boolalpha << pairs_sum_to_zero(l) << std::endl;
+    
     return 0;
 }
