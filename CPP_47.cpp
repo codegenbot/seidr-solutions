@@ -15,7 +15,7 @@ double median(std::vector<int> l) {
 int main() {
     std::vector<int> numbers;
     int n, num;
-    std::cin >> n;  
+    std::cin >> n;  // Reading number of elements
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
         numbers.push_back(num);
