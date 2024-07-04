@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 int vowels_count(string s) {
