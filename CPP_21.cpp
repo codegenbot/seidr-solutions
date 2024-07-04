@@ -8,7 +8,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     float min_val = *std::min_element(numbers.begin(), numbers.end());
     float max_val = *std::max_element(numbers.begin(), numbers.end());
     for (float& num : numbers) {
-        num = (max_val == min_val) ? 0 : (num - min_val) / (max_val - min_val);
+        num = (num - min_val) / (max_val - min_val);
     }
     return numbers;
 }
