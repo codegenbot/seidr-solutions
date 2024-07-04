@@ -14,7 +14,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    const float epsilon = 1e-5;
+    const float epsilon = 1e-5; 
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (std::fabs(a[i] - b[i]) > epsilon) return false;
