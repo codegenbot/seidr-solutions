@@ -23,6 +23,6 @@ if __name__ == "__main__":
         if len(nums) > 0:
             print(find_closest_elements(nums))
         else:
-            print((0.0, 0.0))
+            print("(0.0, 0.0)")
     else:
-        print((0.0, 0.0))
+        print("(0.0, 0.0)")
