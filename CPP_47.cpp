@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
-#include <cassert>
+#include <iostream>
 
 double median(std::vector<int> l) {
     std::sort(l.begin(), l.end());
@@ -15,21 +13,13 @@ double median(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> l;
-    int n, value;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::cout << "Enter the elements: ";
+    std::vector<int> numbers;
+    int n, num;
+    std::cin >> n;  // Reading number of elements
     for (int i = 0; i < n; ++i) {
-        std::cin >> value;
-        l.push_back(value);
+        std::cin >> num;
+        numbers.push_back(num);
     }
-    
-    double result = median(l);
-    std::cout << "Median is: " << result << std::endl;
-    
-    assert(std::abs(result - median({8, 1, 3, 9, 9, 2, 7})) < 1e-4);
-    
+    std::cout << median(numbers) << std::endl;
     return 0;
 }
