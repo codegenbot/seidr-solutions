@@ -29,17 +29,7 @@ int main() {
         "the number of odd elements 2 in the string 314 of the input."
     };
     assert(odd_count({"271", "137", "314"}) == expected);
-
-    vector<string> input;
-    string str;
-    while (cin >> str) {
-        input.push_back(str);
-    }
-
-    vector<string> output = odd_count(input);
-    for (const auto& line : output) {
-        cout << line << endl;
-    }
-
+    
+    cout << "All tests passed!" << endl;
     return 0;
 }
