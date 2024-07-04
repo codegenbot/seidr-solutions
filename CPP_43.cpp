@@ -2,12 +2,10 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
-bool pairs_sum_to_zero(vector<int> l) {
-    unordered_set<int> seen;
+bool pairs_sum_to_zero(const std::vector<int>& l) {
+    std::unordered_set<int> seen;
     for (int num : l) {
-        if (seen.count(-num)) {
+        if (seen.find(-num) != seen.end()) {
             return true;
         }
         seen.insert(num);
@@ -16,7 +14,18 @@ bool pairs_sum_to_zero(vector<int> l) {
 }
 
 int main() {
-    vector<int> l = {-3, 9, -1, 4, 2, 31};
-    cout << (pairs_sum_to_zero(l) ? "true" : "false") << endl;
+    std::vector<int> l;
+    int n, temp;
+    
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::cout << "Enter the elements:\n";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> temp;
+        l.push_back(temp);
+    }
+    
+    std::cout << std::boolalpha << pairs_sum_to_zero(l) << std::endl;
     return 0;
 }
