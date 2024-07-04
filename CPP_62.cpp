@@ -20,9 +20,9 @@ bool issame(const vector<float>& a, const vector<float>& b) {
 
 int main() {
     // Test cases for the derivative function
-    assert(issame(derivative({1}), {}));
-    assert(issame(derivative({1, 2}), {2}));
-    assert(issame(derivative({1, 2, 3}), {2, 6}));
+    assert(issame(derivative(vector<float>{1}), vector<float>{}));
+    assert(issame(derivative(vector<float>{1, 2}), vector<float>{2}));
+    assert(issame(derivative(vector<float>{1, 2, 3}), vector<float>{2, 6}));
     cout << "All tests passed!" << endl;
     return 0;
 }
