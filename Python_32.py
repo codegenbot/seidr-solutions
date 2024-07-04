@@ -1,6 +1,7 @@
 def poly(coeffs, x):
     return sum(c * x**i for i, c in enumerate(coeffs))
 
+
 def find_zero(xs: list):
     def f(x):
         return poly(xs, x)
@@ -16,7 +17,7 @@ def find_zero(xs: list):
             a = mid
     return (a + b) / 2
 
-# Read input
+
 degree = int(input().strip())
 coefficients = list(map(float, input().strip().split()))
 
