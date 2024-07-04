@@ -22,7 +22,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     list<boost::any> input = {3, 'c', 3, 3, 'a', 'b'};
-    assert(issame(filter_integers(input), {3, 3, 3}));
+    vector<int> expected = {3, 3, 3};
+    assert(issame(filter_integers(input), expected));
     cout << "Test passed" << endl;
     return 0;
 }
