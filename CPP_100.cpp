@@ -7,15 +7,20 @@ using namespace std;
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int current_stones = n;
-    for(int i = 0; i < n; ++i) {
-        pile.push_back(current_stones);
+    pile.push_back(current_stones);
+    for (int i = 1; i < n; ++i) {
         current_stones += 2;
+        pile.push_back(current_stones);
     }
     return pile;
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
