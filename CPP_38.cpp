@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string decode_cyclic(string s) {
+string decode_cyclic(string s) { 
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -15,9 +15,9 @@ string decode_cyclic(string s) {
 }
 
 int main() {
-    string s;
-    cout << "Enter encoded string: ";
-    cin >> s;
-    cout << "Decoded string: " << decode_cyclic(s) << endl;
+    string str;
+    cout << "Enter the encoded string: ";
+    cin >> str;
+    cout << "Decoded: " << decode_cyclic(str) << endl;
     return 0;
 }
