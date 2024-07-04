@@ -17,12 +17,10 @@ vector<int> filter_integers(const list<any>& values) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(filter_integers({any(3), any('c'), any(3), any(3), any('a'), any('b')}), {3, 3, 3}));
+    list<any> input = {any(3), any('c'), any(3), any(3), any('a'), any('b')};
+    vector<int> expected = {3, 3, 3};
+    assert(filter_integers(input) == expected);
     cout << "Test passed!" << endl;
     return 0;
 }
