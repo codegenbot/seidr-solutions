@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 std::vector<int> parse_nested_parens(const std::string& paren_string) {
     std::vector<int> result;
@@ -15,10 +15,6 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
             }
         } else if (c == ')') {
             current_depth--;
-        } else if (c == ' ') {
-            result.push_back(max_depth);
-            max_depth = 0;
-            current_depth = 0;
         }
     }
     result.push_back(max_depth);
