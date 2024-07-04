@@ -26,7 +26,11 @@ vector<int> unique_digits(vector<int> x) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(unique_digits({135, 103, 31}) == vector<int>({31, 135}));
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
