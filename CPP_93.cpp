@@ -1,29 +1,27 @@
-#include <iostream>
 #include <string>
 #include <cctype>
+#include <cassert>
 
-using namespace std;
-
-string encode(string message) {
+std::string encode(std::string message) {
     auto is_vowel = [](char c) {
-        char lower = tolower(c);
+        char lower = std::tolower(c);
         return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';
     };
 
     for (char &c : message) {
         if (is_vowel(c)) {
-            if (tolower(c) == 'u')
-                c = (islower(c) ? 'a' : 'A');
+            if (std::tolower(c) == 'u')
+                c = (std::islower(c) ? 'a' : 'A');
             else
-                c = (islower(c) ? c + 2 : c + 2);
-        } else if (isalpha(c)) {
-            c = (islower(c) ? toupper(c) : tolower(c));
+                c = (std::islower(c) ? c + 2 : c + 2);
+        } else if (std::isalpha(c)) {
+            c = (std::islower(c) ? std::toupper(c) : std::tolower(c));
         }
     }
     return message;
 }
 
 int main() {
-    cout << encode("I DoNt KnOw WhAt tO WrItE") << endl;
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
     return 0;
 }
