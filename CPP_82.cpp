@@ -17,11 +17,10 @@ bool prime_length(std::string str) {
 }
 
 int main() {
-    assert (prime_length("0") == false);
-    // Additional test cases
-    assert (prime_length("hello") == true);    // Length 5 is prime
-    assert (prime_length("world!") == false);  // Length 6 is not prime
-    assert (prime_length("1234567") == true);  // Length 7 is prime
-    assert (prime_length("hi") == false);      // Length 2 is not prime
+    assert(prime_length("0") == false);
+    assert(prime_length("hello") == true);
+    assert(prime_length("world") == true);
+    assert(prime_length("prime") == true);
+    assert(prime_length("notprime") == false);
     return 0;
 }
