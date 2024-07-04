@@ -16,7 +16,7 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 int main() {
-    assert (filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
     cout << "All tests passed!" << endl;
     return 0;
 }
