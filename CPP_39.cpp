@@ -13,8 +13,7 @@ bool is_prime(int num) {
 }
 
 int prime_fib(int n) {
-    if (n == 1) return 2;  // Handle the special case for the first prime Fibonacci number
-    vector<int> fib = {1, 1};
+    vector<int> fib = {0, 1};
     vector<int> prime_fibs;
     int i = 2;
     while (prime_fibs.size() < n) {
