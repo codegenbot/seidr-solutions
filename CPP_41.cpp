@@ -1,29 +1,14 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
-int car_race_collision(string track) {
-    int collisions = 0;
-    int right_cars = 0;
-
-    for (char direction : track) {
-        if (direction == 'R') {
-            right_cars++;
-        } else if (direction == 'L') {
-            collisions += right_cars;
-        }
-    }
-
-    return collisions;
+int car_race_collision(int n) {
+    // Example logic: number of collisions
+    return (n * (n - 1)) / 2;
 }
 
 int main() {
-    string track;
-    cin >> track;
-
-    int result = car_race_collision(track);
-    cout << result << endl;
-
+    int n;
+    cin >> n; // Read input
+    cout << car_race_collision(n) << endl; // Print output
     return 0;
 }
