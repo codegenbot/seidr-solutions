@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -17,7 +16,8 @@ string decode_cyclic(string s) {
 
 int main() {
     string str;
+    cout << "Enter the encoded string: ";
     cin >> str;
-    cout << decode_cyclic(str) << endl;
+    cout << "Decoded: " << decode_cyclic(str) << endl;
     return 0;
 }
