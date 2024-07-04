@@ -1,18 +1,12 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <cstddef>  // add this header for std::size_t
 
-int add(vector<int> lst) {
+int add(const std::vector<int>& lst) {
     int sum = 0;
-    for (int i = 1; i < lst.size(); i += 2) {
+    for (std::size_t i = 1; i < lst.size(); i += 2) {
         if (lst[i] % 2 == 0) {
             sum += lst[i];
         }
     }
     return sum;
-}
-
-int main() {
-    cout << (add({4, 4, 6, 8}) == 12) << endl;
-    return 0;
 }
