@@ -17,9 +17,7 @@ vector<int> filter_integers(const vector<any>& values) {
 }
 
 int main() {
-    vector<any> input = {3, 'c', 3, 3, 'a', 'b'};
-    vector<int> expected_output = {3, 3, 3};
-    assert(filter_integers(input) == expected_output);
+    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == vector<int>{3, 3, 3});
     cout << "Test passed!" << endl;
     return 0;
 }
