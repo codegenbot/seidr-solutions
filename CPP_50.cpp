@@ -23,9 +23,11 @@ string decode_shift(string s) {
 }
 
 int main() {
-    string str = "abcdefghijklmnopqrstuvwxyz";
+    string str;
+    cout << "Enter a lower-case string: ";
+    cin >> str;
     string encoded_str = encode_shift(str);
-    assert(decode_shift(encoded_str) == str);
-    cout << "Test passed" << endl;
+    cout << "Encoded string: " << encoded_str << endl;
+    cout << "Decoded string: " << decode_shift(encoded_str) << endl;
     return 0;
 }
