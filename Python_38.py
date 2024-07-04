@@ -8,7 +8,5 @@ if __name__ == "__main__":
         input_str = input().strip()
         if input_str:
             print(decode_cyclic(input_str))
-        else:
-            print("")
     except EOFError:
-        print("")
+        pass
