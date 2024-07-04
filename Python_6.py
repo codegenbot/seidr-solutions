@@ -9,16 +9,13 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if char == "(":
             current_depth += 1
         elif char == ")":
-            if current_depth == 0:
+            if current_depth == 0:  # Unbalanced parenthesis check
                 return []
             depth_list.append(current_depth)
             current_depth -= 1
-    return depth_list if current_depth == 0 else []
+    return depth_list if current_depth == 0 else []  # Ensure no unclosed '('
 
 if __name__ == "__main__":
     paren_string = input().strip()
-    if not paren_string:
-        print([]) 
-    else:
-        result = parse_nested_parens(paren_string)
-        print(result)
+    result = parse_nested_parens(paren_string)
+    print(result)
