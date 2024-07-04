@@ -21,11 +21,20 @@ bool triples_sum_to_zero(vector<int> l) {
 
 int main() {
     int n;
+    cout << "Enter the number of elements: ";
     cin >> n;
-    vector<int> vec(n);
+
+    vector<int> l(n);
+    cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+        cin >> l[i];
     }
-    cout << (triples_sum_to_zero(vec) ? "True" : "False") << endl;
+
+    if (triples_sum_to_zero(l)) {
+        cout << "Triples summing to zero found." << endl;
+    } else {
+        cout << "No triples summing to zero found." << endl;
+    }
+
     return 0;
 }
