@@ -19,7 +19,7 @@ vector<int> filter_integers(const list<any>& values) {
 
 int main() {
     list<any> inputs = {any(3), any('c'), any(3), any(3), any('a'), any('b')};
-    assert(filter_integers(inputs) == vector<int>({3, 3, 3}));
+    assert((filter_integers(inputs) == vector<int>{3, 3, 3}));
     cout << "Test passed!" << endl;
     return 0;
 }
