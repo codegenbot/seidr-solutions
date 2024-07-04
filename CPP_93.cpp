@@ -1,14 +1,19 @@
-string encode(string message) {
-    for (char &c : message) {
-        if (isalpha(c)) {
-            if (isupper(c)) c = tolower(c);
-            else c = toupper(c);
+string encode(string message){
+    auto is_vowel = [](char c) {
+        char lower = tolower(c);
+        return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';
+    };
+
+    for(char &c : message){
+        if(is_vowel(c)){
+            if(tolower(c) == 'u')
+                c = (islower(c) ? 'a' : 'A');
+            else
+                c = (islower(c) ? c + 2 : c + 2);
         }
-        if (c == 'a' || c == 'A') c = 'C';
-        else if (c == 'e' || c == 'E') c = 'G';
-        else if (c == 'i' || c == 'I') c = 'K';
-        else if (c == 'o' || c == 'O') c = 'Q';
-        else if (c == 'u' || c == 'U') c = 'W';
+        else if(isalpha(c)){
+            c = (islower(c) ? toupper(c) : tolower(c));
+        }
     }
     return message;
 }
