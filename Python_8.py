@@ -8,6 +8,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, total_product
 
 if __name__ == "__main__":
-    input_numbers = list(map(int, input().strip().split()))
-    result = sum_product(input_numbers)
+    numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+    result = sum_product(numbers)
     print(result)
