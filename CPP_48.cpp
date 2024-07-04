@@ -15,7 +15,7 @@ bool is_palindrome(const string& text) {
 int main() {
     string text;
     cin >> text;
-    if(is_palindrome(text)) {
+    if (is_palindrome(text)) {
         cout << "Palindrome" << endl;
     } else {
         cout << "Not a palindrome" << endl;
