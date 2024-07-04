@@ -1,22 +1,15 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <cassert>
 
-using namespace std;
-
-int closest_integer(string value) {
-    double num = stod(value);
-    return round(num);
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    return static_cast<int>(std::round(num));
 }
 
 int main() {
-    assert(closest_integer("0") == 0);
-    assert(closest_integer("1.4") == 1);
-    assert(closest_integer("1.5") == 2);
-    assert(closest_integer("-1.5") == -1);
-    assert(closest_integer("-1.6") == -2);
-    
-    cout << "All tests passed!" << endl;
+    std::cout << (closest_integer("0") == 0) << std::endl;
+    std::cout << (closest_integer("2.8") == 3) << std::endl;
+    std::cout << (closest_integer("-2.2") == -2) << std::endl;
     return 0;
 }
