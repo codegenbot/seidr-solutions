@@ -5,6 +5,7 @@
 using namespace std;
 
 string encode_shift(string s) {
+    // Encode function which is inverse of decode_shift
     string out;
     for (int i = 0; i < s.length(); ++i) {
         int w = ((int)s[i] + 5 - (int)'a') % 26 + (int)'a';
@@ -14,9 +15,10 @@ string encode_shift(string s) {
 }
 
 string decode_shift(string s) {
+    // takes as input string encoded with encode_shift function. Returns decoded string.
     string out;
     for (int i = 0; i < s.length(); ++i) {
-        int w = ((int)s[i] - 5 - (int)'a' + 26) % 26 + (int)'a';   
+        int w = ((int)s[i] - 5 - (int)'a' + 26) % 26 + (int)'a';
         out += (char)w;
     }
     return out;
