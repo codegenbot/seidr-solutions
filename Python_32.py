@@ -16,7 +16,6 @@ def find_zero(xs: list):
             a = mid
     return (a + b) / 2
 
-degree = int(input())
-coefficients = list(map(float, input().split()))
+coefficients = list(map(float, input("Enter space-separated coefficients: ").strip().split()))
 zero = find_zero(coefficients)
 print(f"The zero of the polynomial is approximately: {zero}")
