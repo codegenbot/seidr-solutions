@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
-#include <cassert>
+#include <cassert> // Include for assert
 using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
