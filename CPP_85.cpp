@@ -13,14 +13,19 @@ int sumEvenAtOddIndices(const std::vector<int>& lst) {
 
 int main() {
     std::vector<int> lst;
-    int n, elem;
-    std::cout << "Enter number of elements: ";
+    int n, element;
+
+    // Read the size of the list
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::cout << "Enter elements: ";
+
+    // Read the elements of the list
+    std::cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
-        std::cin >> elem;
-        lst.push_back(elem);
+        std::cin >> element;
+        lst.push_back(element);
     }
+
     std::cout << "Sum of even elements at odd indices: " << sumEvenAtOddIndices(lst) << std::endl;
     return 0;
 }
