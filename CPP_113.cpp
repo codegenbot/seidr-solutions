@@ -10,7 +10,7 @@ vector<string> odd_count(const vector<string>& lst) {
     for (const auto& str : lst) {
         int odd_count = 0;
         for (char ch : str) {
-            if ((ch - '0') % 2 != 0) {
+            if (isdigit(ch) && (ch - '0') % 2 != 0) {
                 odd_count++;
             }
         }
@@ -28,6 +28,7 @@ int main() {
         "the number of odd elements 3 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
     };
+    
     assert(odd_count({"271", "137", "314"}) == expected);
     
     cout << "All tests passed!" << endl;
