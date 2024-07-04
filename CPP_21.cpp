@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 vector<float> rescale_to_unit(vector<float> numbers) {
