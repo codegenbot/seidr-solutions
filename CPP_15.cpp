@@ -11,9 +11,7 @@ string string_sequence(int n) {
     return result;
 }
 
-int main(){
-    int n;
-    cin >> n;
-    cout << string_sequence(n) << endl;
+int main() {
+    cout << string_sequence(10) << endl;
     return 0;
 }
