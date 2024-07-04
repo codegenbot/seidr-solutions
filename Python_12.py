@@ -6,5 +6,7 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 if __name__ == "__main__":
-    strings = [s.strip() for s in input("Enter the list of strings separated by commas: ").split(',')]
+    import sys
+    input = sys.stdin.read
+    strings = [s.strip() for s in input().split(',')]
     print(longest(strings))
