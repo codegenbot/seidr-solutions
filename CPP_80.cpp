@@ -14,10 +14,10 @@ bool is_happy(const std::string& s) {
 int main() {
     std::string test;
     std::cin >> test;
-    if (!is_happy(test)) {
-        std::cout << "Test passed\n";
+    if (is_happy(test)) {
+        std::cout << "YES\n";
     } else {
-        std::cout << "Test failed\n";
+        std::cout << "NO\n";
     }
     return 0;
 }
