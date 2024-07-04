@@ -2,22 +2,22 @@
 #include <string>
 #include <cassert>
 
-std::string decode_cyclic(const std::string& s) {
+std::string decode_cyclic(std::string s) {
     int l = s.length();
-    std::string output;
+    std::string x, output;
     for (int i = 0; i * 3 < l; i++) {
-        std::string x = s.substr(i * 3, 3);
+        x = s.substr(i * 3, 3);
         if (x.length() == 3) x = x[2] + x.substr(0, 2);
         output += x;
     }
     return output;
 }
 
-std::string encode_cyclic(const std::string& str) {
+std::string encode_cyclic(std::string str) {
     int l = str.length();
-    std::string output;
+    std::string x, output;
     for (int i = 0; i * 3 < l; i++) {
-        std::string x = str.substr(i * 3, 3);
+        x = str.substr(i * 3, 3);
         if (x.length() == 3) x = x.substr(1, 2) + x[0];
         output += x;
     }
@@ -25,7 +25,7 @@ std::string encode_cyclic(const std::string& str) {
 }
 
 int main() {
-    std::string str = "SomeTestStringAndMore";
+    std::string str = "SomeTestString";
     std::string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
     std::cout << "All assertions passed." << std::endl;
