@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <cstdio>
 using namespace std;
 
 int fib4(int n) {

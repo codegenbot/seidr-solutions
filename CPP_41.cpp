@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-int car_race_collision(const string& track) {
+int car_race_collision(string track) {
     int collisions = 0;
     int right_cars = 0;
 
@@ -25,6 +25,9 @@ int main() {
 
     int result = car_race_collision(track);
     cout << result << endl;
+
+    // Example string to test the function
+    assert(car_race_collision("RLRL") == 2);
 
     return 0;
 }
