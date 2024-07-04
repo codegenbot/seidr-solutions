@@ -1,9 +1,10 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
 using namespace std;
 
-int car_race_collision(string track) {
+int car_race_collision(const string& track) {
     int collisions = 0;
     int right_cars = 0;
 
