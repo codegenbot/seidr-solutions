@@ -7,11 +7,8 @@ def decode_cyclic(s: str) -> str:
 
 
 if __name__ == "__main__":
-    try:
-        input_str = input().strip()
-        if input_str:
-            print(decode_cyclic(input_str))
-        else:
-            print("")
-    except EOFError:
+    input_str = input().strip()
+    if input_str:
+        print(decode_cyclic(input_str))
+    else:
         print("")
