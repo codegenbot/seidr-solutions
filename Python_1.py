@@ -4,7 +4,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     balance = 0
     current_group = []
-    for char in paren_string.strip().replace(" ", ""):
+    for char in paren_string:
         current_group.append(char)
         if char == "(":
             balance += 1
@@ -16,9 +16,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    paren_string = input().strip()
-    if paren_string:
+    try:
+        paren_string = input("Enter the parenthesis string: ").strip().replace(" ", "")
+        if not paren_string:
+            raise ValueError("Input cannot be empty")
         result = separate_paren_groups(paren_string)
         print(result)
-    else:
-        print([])  # Handle empty input
+    except Exception as e:
+        print(f"Error: {e}")
