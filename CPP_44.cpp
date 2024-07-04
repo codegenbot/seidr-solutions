@@ -14,9 +14,8 @@ std::string change_base(int x, int base) {
 }
 
 int main() {
-    int x;
-    int base;
-    std::cin >> x >> base;
-    std::cout << change_base(x, base) << std::endl;
+    int x = 10;
+    assert(change_base(x, x + 1) == std::to_string(x));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
