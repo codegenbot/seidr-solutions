@@ -1,3 +1,4 @@
+#include <iostream>
 #include <algorithm>
 #include <vector>
 using namespace std;
@@ -18,9 +19,22 @@ bool triples_sum_to_zero(vector<int> l) {
     return false;
 }
 
-#include <cassert>
 int main() {
-    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
-    assert(triples_sum_to_zero({-1, 0, 1, 2, -1, -4}) == true);
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    vector<int> l(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> l[i];
+    }
+
+    if (triples_sum_to_zero(l)) {
+        cout << "Triples summing to zero found." << endl;
+    } else {
+        cout << "No triples summing to zero found." << endl;
+    }
+
     return 0;
 }

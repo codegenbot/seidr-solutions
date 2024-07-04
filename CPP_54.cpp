@@ -3,13 +3,12 @@
 #include <iostream>
 using namespace std;
 
-bool same_chars(const string& s0, const string& s1) {
-    string s0_sorted = s0, s1_sorted = s1;
-    sort(s0_sorted.begin(), s0_sorted.end());
-    s0_sorted.erase(unique(s0_sorted.begin(), s0_sorted.end()), s0_sorted.end());
-    sort(s1_sorted.begin(), s1_sorted.end());
-    s1_sorted.erase(unique(s1_sorted.begin(), s1_sorted.end()), s1_sorted.end());
-    return s0_sorted == s1_sorted;
+bool same_chars(string s0, string s1) {
+    sort(s0.begin(), s0.end());
+    s0.erase(unique(s0.begin(), s0.end()), s0.end());
+    sort(s1.begin(), s1.end());
+    s1.erase(unique(s1.begin(), s1.end()), s1.end());
+    return s0 == s1;
 }
 
 int main() {
