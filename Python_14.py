@@ -3,7 +3,7 @@ def prefixes(string):
 
 try:
     input_string = input().strip()
-    if input_string: 
+    if input_string:
         print("\n".join(prefixes(input_string)))
     else:
         print("No input provided.")
