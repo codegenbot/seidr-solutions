@@ -5,10 +5,11 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 if __name__ == "__main__":
     user_input = input("Enter values separated by spaces: ")
-    values = []
-    for x in user_input.split():
+    values = user_input.split()
+    filtered_values = []
+    for value in values:
         try:
-            values.append(int(x))
+            filtered_values.append(int(value))
         except ValueError:
-            pass
-    print(filter_integers(values))
+            continue
+    print(filter_integers(filtered_values))
