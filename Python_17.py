@@ -6,5 +6,6 @@ def parse_music(music_string: str) -> List[int]:
     return [note_to_beats.get(note, 0) for note in notes]
 
 if __name__ == "__main__":
-    music_string = input().strip()
+    import sys
+    music_string = sys.stdin.read().strip()
     print(parse_music(music_string))
