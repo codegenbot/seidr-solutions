@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def parse_music(music_string: str) -> List[int]:
     note_to_beats = {'o': 4, 'o|': 2, '.|': 1}
@@ -6,8 +7,5 @@ def parse_music(music_string: str) -> List[int]:
     return [note_to_beats.get(note, 0) for note in notes]
 
 if __name__ == "__main__":
-    music_string = input().strip()
-    if music_string:
-        print(parse_music(music_string))
-    else:
-        print([])
+    music_string = sys.stdin.read().strip()
+    print(parse_music(music_string))
