@@ -12,8 +12,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 depth -= 1
         return max_depth
 
-    return [max_depth(group) for group in paren_string.split()]
-
-paren_string = input().strip()
-result = parse_nested_parens(paren_string)
-print(result)
+    return [max_depth(group) for group in paren_string.split(' ')]
