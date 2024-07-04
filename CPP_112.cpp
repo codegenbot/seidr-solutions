@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     // Remove characters in s that are in c
     for (char ch : c) {
@@ -11,4 +19,15 @@ vector<string> reverse_delete(string s, string c) {
     
     // Return the result string and palindrome check result
     return {s, is_palindrome ? "True" : "False"};
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    // Test the function
+    assert(issame(reverse_delete("mamma", "mia") , {"mm", "True"}));
+    cout << "All tests passed!" << endl;
+    return 0;
 }

@@ -1,5 +1,3 @@
-#include <cassert>
-
 int choose_num(int x, int y) {
     if (x > y) return -1;
     if (y % 2 == 0) return y;
@@ -9,6 +7,5 @@ int choose_num(int x, int y) {
 
 int main() {
     assert(choose_num(546, 546) == 546);
-    // Add more test cases as needed
     return 0;
 }
