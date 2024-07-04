@@ -5,7 +5,7 @@ def decode_cyclic(s: str) -> str:
 
 if __name__ == "__main__":
     import sys
-    input_str = sys.stdin.read().strip()
+    input_str = input().strip()  # Use input() instead of sys.stdin.read() to handle input properly
     if input_str:
         print(decode_cyclic(input_str))
     else:
