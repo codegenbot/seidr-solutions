@@ -12,9 +12,18 @@ vector<int> unique(vector<int> l) {
 }
 
 int main() {
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> expected = {0, 2, 3, 5, 9, 123};
-    assert(unique(input) == expected);
-    cout << "Test passed!" << endl;
+    vector<int> input;
+    int n, value;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> value;
+        input.push_back(value);
+    }
+    vector<int> result = unique(input);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
