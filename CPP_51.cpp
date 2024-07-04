@@ -1,6 +1,6 @@
 string result;
-    for(char c : text) {
-        if(!strchr("aeiouAEIOU", c)) {
+    for (char c : text) {
+        if (!strchr("aeiouAEIOU", c)) {
             result += c;
         }
     }
