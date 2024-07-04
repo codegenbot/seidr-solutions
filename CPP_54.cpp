@@ -1,8 +1,6 @@
-#include <iostream>
-#include <string>
 #include <algorithm>
-#include <cassert>
-
+#include <string>
+#include <iostream>
 using namespace std;
 
 bool same_chars(string s0, string s1) {
@@ -14,8 +12,12 @@ bool same_chars(string s0, string s1) {
 }
 
 int main() {
-    assert(same_chars("aabb", "aaccc") == false);
-    assert(same_chars("aabb", "bbaa") == true);
-    cout << "All tests passed!" << endl;
+    string s0, s1;
+    cin >> s0 >> s1;
+    if (same_chars(s0, s1)) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
     return 0;
 }
