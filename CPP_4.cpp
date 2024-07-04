@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 #include <iostream>
 
 float mean_absolute_deviation(const std::vector<float>& numbers) {
