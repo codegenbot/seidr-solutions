@@ -15,7 +15,7 @@ int main() {
     std::string test;
     std::cout << "Enter the test string: ";
     std::cin >> test;
-    
+
     if (is_happy(test)) {
         std::cout << "Happy\n";
     } else {
