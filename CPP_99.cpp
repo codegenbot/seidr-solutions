@@ -1,8 +1,15 @@
-int closest_integer(string value){
-    double num = stod(value);
-    if (num > 0) {
-        return floor(num + 0.5);
-    } else {
-        return ceil(num - 0.5);
-    }
+#include <iostream>
+#include <string>
+#include <cmath>
+
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    return static_cast<int>(std::round(num));
+}
+
+int main() {
+    std::cout << (closest_integer("0") == 0) << std::endl;
+    std::cout << (closest_integer("2.8") == 3) << std::endl;
+    std::cout << (closest_integer("-2.2") == -2) << std::endl;
+    return 0;
 }
