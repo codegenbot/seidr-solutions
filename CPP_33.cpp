@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 #include <cassert>
 
@@ -27,7 +27,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    cout << "Test passed!" << endl;
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    cout << "All test cases pass.\n";
     return 0;
 }
