@@ -4,26 +4,28 @@
 
 using namespace std;
 
-vector<string> words_string(string s) {
+vector<string> words_string(const string& s) {
     vector<string> result;
     string word;
+    bool in_word = false;
     for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+        if (isalnum(c) || c == '_') {
+            word += c;
+            in_word = true;
+        } else {
+            if (in_word) {
                 result.push_back(word);
                 word.clear();
+                in_word = false;
             }
-        } else {
-            word += c;
         }
     }
-    if (!word.empty()) {
+    if (in_word)
         result.push_back(word);
-    }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
