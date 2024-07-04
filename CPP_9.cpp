@@ -5,6 +5,7 @@ using namespace std;
 
 vector<int> rolling_max(const vector<int>& numbers) {
     vector<int> result;
+    if(numbers.empty()) return result;
     int current_max = numbers[0];
     for (int num : numbers) {
         if (num > current_max) {
