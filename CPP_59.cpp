@@ -24,7 +24,8 @@ int largest_prime_factor(int n) {
 
 int main() {
     int n;
+    cout << "Enter a number: ";
     cin >> n;
-    cout << largest_prime_factor(n) << endl;
+    cout << "Largest prime factor: " << largest_prime_factor(n) << endl;
     return 0;
 }
