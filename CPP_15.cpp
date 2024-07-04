@@ -3,15 +3,17 @@
 using namespace std;
 
 string string_sequence(int n) {
-    string result;
+    string result = "";
     for (int i = 0; i <= n; ++i) {
+        if (i > 0) result += " ";
         result += to_string(i);
-        if (i < n) result += " ";
     }
     return result;
 }
 
-int main() {
-    cout << string_sequence(10) << endl;
+int main(){
+    int n;
+    cin >> n;
+    cout << string_sequence(n) << endl;
     return 0;
 }
