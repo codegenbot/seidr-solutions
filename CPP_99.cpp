@@ -2,7 +2,7 @@
 #include <string>
 #include <cmath>
 
-int closest_integer(const std::string& value) {
+int closest_integer(std::string value) {
     double num = std::stod(value);
     return static_cast<int>(std::round(num));
 }

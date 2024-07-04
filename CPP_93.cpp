@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cctype>
+
 using namespace std;
 
 string encode(string message) {
@@ -18,8 +20,7 @@ string encode(string message) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    cout << encode(input) << endl;
+    string result = encode("I DoNt KnOw WhAt tO WrItE");
+    cout << result << endl; // Expected output: "k dQnT kNqW wHcT Tq wRkTg"
     return 0;
 }
