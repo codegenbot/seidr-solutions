@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include <cmath>
+#include <cmath> // Include this header for abs
 
 float triangle_area(float a, float h) {
     return 0.5 * a * h;
