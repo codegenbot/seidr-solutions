@@ -1,7 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
-#include <cmath>
 #include <iostream>
 
 double median(std::vector<int> l) {
@@ -15,11 +13,12 @@ double median(std::vector<int> l) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> numbers(n);
-    for(int i = 0; i < n; ++i) {
-        std::cin >> numbers[i];
+    std::vector<int> numbers;
+    int n, num;
+    std::cin >> n;  // Reading number of elements
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        numbers.push_back(num);
     }
     std::cout << median(numbers) << std::endl;
     return 0;
