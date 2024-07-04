@@ -2,10 +2,11 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-vector<string> odd_count(vector<string> lst) {
+vector<string> odd_count(const vector<string>& lst) {
     vector<string> result;
     for (const auto& str : lst) {
         int odd_count = 0;
@@ -14,9 +15,8 @@ vector<string> odd_count(vector<string> lst) {
                 odd_count++;
             }
         }
-        string res = "the number of odd elements " + to_string(odd_count) + 
-                     " in the string " + to_string(odd_count) + 
-                     " of the input.";
+        string res = "the number of odd elements " + to_string(odd_count) +
+                     " in the string " + to_string(odd_count) + " of the input.";
         result.push_back(res);
     }
     return result;
