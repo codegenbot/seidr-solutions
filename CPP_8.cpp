@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> sum_product(const vector<int>& numbers) {
+vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
     for(int num : numbers) {
@@ -17,7 +17,7 @@ vector<int> sum_product(const vector<int>& numbers) {
     return {sum, product};
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
