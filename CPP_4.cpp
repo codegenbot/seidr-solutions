@@ -20,11 +20,6 @@ float mean_absolute_deviation(const std::vector<float>& numbers) {
 
 int main() {
     assert(std::fabs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
-    std::vector<float> numbers;
-    float input;
-    while (std::cin >> input) {
-        numbers.push_back(input);
-    }
-    std::cout << mean_absolute_deviation(numbers) << std::endl;
+    std::cout << "Test passed." << std::endl;
     return 0;
 }
