@@ -12,7 +12,7 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        n = int(input().strip())
+        n = int(input("Enter a number to factorize: "))
         print(factorize(n))
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Please enter a valid integer.")
