@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cmath>
 #include <cassert>
+
 using namespace std;
 
 double median(vector<int> l) {
