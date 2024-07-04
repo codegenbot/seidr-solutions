@@ -11,14 +11,10 @@ vector<int> unique(vector<int> l) {
     return l;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
     vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     vector<int> expected = {0, 2, 3, 5, 9, 123};
-    assert(issame(unique(input), expected));
+    assert(unique(input) == expected);
     cout << "Test passed!" << endl;
     return 0;
 }
