@@ -1,6 +1,6 @@
 #include <unordered_map>
 #include <vector>
-#include <iostream>
+#include <cassert>
 
 int search(std::vector<int> lst) {
     std::unordered_map<int, int> freq;
@@ -17,7 +17,10 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input = {3, 10, 10, 9, 2};
-    std::cout << search(input) << std::endl; // Expected output: -1
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    assert(search({1, 2, 2, 4, 4, 4, 4}) == 4);
+    assert(search({3, 3, 3, 3, 3, 3}) == 3);
+    assert(search({1, 1, 1, 1, 1, 1, 1, 1}) == 1);
+    assert(search({10, 10, 10, 10, 10, 10, 10, 10, 10, 10}) == 10);
     return 0;
 }
