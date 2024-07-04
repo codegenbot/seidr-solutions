@@ -1,10 +1,18 @@
-bool below_zero(vector<int> operations){
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+bool below_zero(vector<int> operations) {
     int balance = 0;
     for(int op : operations) {
         balance += op;
-        if(balance < 0) {
-            return true;
-        }
+        if(balance < 0) return true;
     }
     return false;
+}
+
+int main() {
+    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    return 0;
 }
