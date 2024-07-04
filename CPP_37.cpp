@@ -18,15 +18,18 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     uint32_t n;
-    cin >> n;
+    cin >> n; // Read number of elements
     vector<float> arr(n);
     for (uint32_t i = 0; i < n; ++i) {
-        cin >> arr[i];
+        cin >> arr[i]; // Read each element
     }
+
     vector<float> result = sort_even(arr);
+
     for (float num : result) {
         cout << num << " ";
     }
     cout << endl;
+
     return 0;
 }
