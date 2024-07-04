@@ -6,17 +6,18 @@
 
 using namespace std;
 
-vector<float> find_closest_elements(vector<float> numbers) {
+vector<float> find_closest_elements(const vector<float>& numbers) {
     if (numbers.size() < 2) return {}; // Edge case where fewer than 2 elements
-    sort(numbers.begin(), numbers.end());
-    float min_diff = fabs(numbers[1] - numbers[0]);
-    pair<float, float> closest_pair = {numbers[0], numbers[1]};
+    vector<float> sorted_numbers = numbers;
+    sort(sorted_numbers.begin(), sorted_numbers.end());
+    float min_diff = fabs(sorted_numbers[1] - sorted_numbers[0]);
+    pair<float, float> closest_pair = {sorted_numbers[0], sorted_numbers[1]};
     
-    for (size_t i = 1; i < numbers.size() - 1; ++i) {
-        float diff = fabs(numbers[i + 1] - numbers[i]);
+    for (size_t i = 1; i < sorted_numbers.size() - 1; ++i) {
+        float diff = fabs(sorted_numbers[i + 1] - sorted_numbers[i]);
         if (diff < min_diff) {
             min_diff = diff;
-            closest_pair = {numbers[i], numbers[i + 1]};
+            closest_pair = {sorted_numbers[i], sorted_numbers[i + 1]};
         }
     }
     
