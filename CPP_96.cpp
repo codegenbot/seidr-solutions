@@ -6,7 +6,7 @@ using namespace std;
 vector<int> count_up_to(int n) {
     vector<int> primes;
     if (n <= 2) return primes;
-
+    
     vector<bool> is_prime(n, true);
     is_prime[0] = is_prime[1] = false;
 
