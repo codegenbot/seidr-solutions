@@ -12,6 +12,9 @@ string string_sequence(int n) {
 }
 
 int main() {
-    cout << string_sequence(10) << endl;
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << string_sequence(n) << endl;
     return 0;
 }
