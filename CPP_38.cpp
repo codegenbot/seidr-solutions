@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-string decode_cyclic(string s) { 
+string decode_cyclic(string s) {
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -33,6 +33,5 @@ int main() {
     }
     string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
-    cout << encoded_str << endl;
     return 0;
 }
