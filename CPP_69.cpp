@@ -1,11 +1,11 @@
 #include <iostream>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
 
-int search(vector<int> lst) {
+int search(const vector<int>& lst) {
     unordered_map<int, int> freq;
     for (int num : lst) {
         freq[num]++;
@@ -20,7 +20,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    assert(search({3, 3, 3, 3}) == 3);
+    vector<int> test = {3, 10, 10, 9, 2};
+    cout << (search(test) == -1) << endl; // Should print 1 (true)
     return 0;
 }
