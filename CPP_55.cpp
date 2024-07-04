@@ -1,5 +1,9 @@
-if (n <= 0) return 0;
-    if (n == 1) return 1;
+#include<stdio.h>
+using namespace std;
+
+int fib(int n) {
+    if (n <= 1)
+        return n;
     int a = 0, b = 1, c;
     for (int i = 2; i <= n; ++i) {
         c = a + b;
@@ -7,4 +11,11 @@ if (n <= 0) return 0;
         b = c;
     }
     return b;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", fib(n));
+    return 0;
 }
