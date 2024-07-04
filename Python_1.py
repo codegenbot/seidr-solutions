@@ -21,4 +21,4 @@ if __name__ == "__main__":
         result = separate_paren_groups(paren_string)
         print(result)
     else:
-        print([])
+        print([])  # Handle empty input
