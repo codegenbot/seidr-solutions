@@ -7,8 +7,7 @@ size_t getStringLength(const std::string& str) {
 }
 
 int main() {
-    std::string userInput;
-    std::getline(std::cin, userInput);
-    std::cout << getStringLength(userInput) << std::endl;
+    assert(getStringLength("asdasnakj") == 9);
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
