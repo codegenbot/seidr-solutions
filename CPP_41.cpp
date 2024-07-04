@@ -2,7 +2,6 @@
 using namespace std;
 
 int car_race_collision(int n) {
-    // Add the actual collision logic here
     return n * n;
 }
 
