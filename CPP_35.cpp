@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cmath>  // for std::abs
-#include <cassert>  // for assert
+#include <cassert>
+#include <cmath>
 
 float max_element(const std::vector<float>& l) {
     float max_val = l[0];
@@ -14,6 +14,8 @@ float max_element(const std::vector<float>& l) {
 }
 
 int main() {
-    assert (std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
+    std::vector<float> nums = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    assert(std::abs(max_element(nums) - 124) < 1e-4);
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
