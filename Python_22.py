@@ -10,5 +10,5 @@ if __name__ == "__main__":
         try:
             values.append(int(x))
         except ValueError:
-            values.append(x)  # Keep non-integer values as is
+            values.append(x)
     print(filter_integers(values))
