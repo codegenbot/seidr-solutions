@@ -1,6 +1,7 @@
 #include <cmath>
 #include <cassert>
 
+// Function to get the fractional part of a number
 double truncate_number(double number) {
     return number - floor(number);
 }
