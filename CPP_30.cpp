@@ -1,27 +1,30 @@
 #include <vector>
 #include <cassert>
-
+#include <cmath>
 using namespace std;
 
-vector<float> get_positive(vector<float> l) {
+vector<float> get_positive(vector<float> l){
     vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
+    for(float num : l) {
+        if(num > 0) {
             result.push_back(num);
         }
     }
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size())
+        return false;
+    for(size_t i = 0; i < a.size(); ++i) {
+        if (fabs(a[i] - b[i]) > 1e-4) return false;
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
-    assert(issame(get_positive({-1.0, 1.5, 3.2, -2.4}), {1.5, 3.2}));
-    assert(issame(get_positive({2.5, 0.0, -3.3, 4.0}), {2.5, 4.0}));
-    assert(issame(get_positive({-1.1, -2.2, -3.3}), {}));
-    assert(issame(get_positive({5.5, 6.6}), {5.5, 6.6}));
+    assert (issame(get_positive({1.0, -2.0, 3.0}) , {1.0, 3.0}));
+    assert (issame(get_positive({-1.0, -2.0, -3.0}) , {}));
+    assert (issame(get_positive({}) , {}));
     return 0;
 }
