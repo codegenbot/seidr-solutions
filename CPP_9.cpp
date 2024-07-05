@@ -1,10 +1,9 @@
 vector<int> result;
-    int current_max = INT_MIN;
+    if (numbers.empty()) return result;
+    int max_so_far = numbers[0];
     for (int num : numbers) {
-        if (num > current_max) {
-            current_max = num;
-        }
-        result.push_back(current_max);
+        if (num > max_so_far) max_so_far = num;
+        result.push_back(max_so_far);
     }
     return result;
 }
