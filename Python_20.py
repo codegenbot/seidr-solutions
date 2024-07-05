@@ -15,12 +15,13 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 def main():
     try:
+        print("Enter numbers separated by spaces:")
         nums = list(map(float, input().strip().split()))
         if len(nums) < 2:
             print("Please enter at least two numbers.")
         else:
             pair = find_closest_elements(nums)
-            print(f"{pair[0]} {pair[1]}")
+            print(f"The closest pair is: {pair}")
     except ValueError:
         print("Invalid input. Please enter valid numbers separated by spaces.")
 
