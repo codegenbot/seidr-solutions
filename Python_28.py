@@ -1,15 +1,5 @@
-```
 from typing import List
 
-def concatenate() -> str:
-    strings = []
-    
-    while True:
-        s = input("Enter a string (or 'stop' to finish): ")
-        
-        if s.lower() == 'stop':
-            break
-        
-        strings.append(s)
-    
-    return ''.join([s.strip() for s in strings])
+
+def concatenate(strings: List[str]) -> str:
+    return "".join([s.strip() for s in strings if s.strip()])
