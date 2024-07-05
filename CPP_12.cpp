@@ -1,5 +1,5 @@
 if (strings.empty()) return "None";
-    string longestStr = strings[0];
+    string longestStr = "";
     for (const auto& str : strings) {
         if (str.length() > longestStr.length()) {
             longestStr = str;
