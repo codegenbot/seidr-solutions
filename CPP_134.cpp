@@ -4,7 +4,9 @@
 #include <cassert>
 
 bool check_if_last_char_is_a_letter(const std::string& txt) {
-    return !txt.empty() && std::isalpha(txt.back());
+    if (txt.empty() || !std::isalpha(txt.back())) return false;
+    size_t last_space = txt.find_last_of(' ');
+    return (last_space == std::string::npos || last_space != txt.size() - 2);
 }
 
 int main() {
