@@ -1,6 +1,6 @@
 vector<string> result;
-    for (const auto& str : strings) {
-        if (str.find(prefix) == 0) {
+    for(const auto& str : strings) {
+        if(str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
