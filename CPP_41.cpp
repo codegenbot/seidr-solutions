@@ -23,7 +23,7 @@ int main() {
     string track;
     cin >> track;
 
-    assert(car_race_collision("RL") == 1);
+    assert(car_race_collision("RRLL") == 4);
 
     int result = car_race_collision(track);
     cout << result << endl;
