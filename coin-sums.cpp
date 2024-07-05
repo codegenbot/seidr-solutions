@@ -1,17 +1,12 @@
-```c++
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
 
     if (cents < 0) {
-        cout << cents / 25;
-        return -1;
+        cout << "";
     }
 
-    int quarters = (cents - (dimes * 10 + nickles * 5)) / 25;
+    int quarters = cents / 25;
     cents %= 25;
 
     int dimes = cents / 10;

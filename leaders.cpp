@@ -1,26 +1,14 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
+```cpp
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    int leader = -1;
-
+    int rightmost = arr.back();
+    
     for(int i = arr.size() - 1; i >= 0; --i) {
-        if(arr[i] >= leader) {
-            leader = arr[i];
-            result.push_back(leader);
+        if(i == arr.size() - 1 || arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
     }
-
-    reverse(result.begin(), result.end());
     
     return result;
-}
-
-int main() {
-    vector<int> input = {931, 891, 214, 39};
-    vector<int> result = leaders(input);
-    for (int x : result) cout << x << " ";
-    return 0;
 }
