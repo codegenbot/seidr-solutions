@@ -63,7 +63,6 @@ int main() {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
     }
 
-    // Including assertions
     assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
     assert(std::any_cast<int>(compare_one(42, 10)) == 42);
     assert(std::any_cast<float>(compare_one(3.14f, 2.718f)) == 3.14f);
