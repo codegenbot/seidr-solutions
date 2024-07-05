@@ -1,4 +1,8 @@
-vector<int> factorize(int n){
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> factorize(int n) {
     vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
@@ -10,4 +14,17 @@ vector<int> factorize(int n){
         factors.push_back(n);
     }
     return factors;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> factors = factorize(n);
+    for (int factor : factors) {
+        cout << factor << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
