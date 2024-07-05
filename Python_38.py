@@ -6,5 +6,5 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 if __name__ == "__main__":
-    input_string = input("Enter the encoded string: ")
-    print(decode_cyclic(input_string))
+    s = input().strip()
+    print(decode_cyclic(s))
