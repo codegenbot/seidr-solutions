@@ -23,11 +23,10 @@ int main() {
     string track;
     cin >> track;
 
+    assert(car_race_collision("RRLL") == 4);
+
     int result = car_race_collision(track);
     cout << result << endl;
-    
-    // Correct assert statement with a valid test string
-    assert(car_race_collision("RLRL") == 2);
 
     return 0;
 }
