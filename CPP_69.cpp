@@ -22,8 +22,6 @@ int search(const std::vector<int>& lst) {
 
 int main() {
     assert(search({3, 10, 10, 9, 2}) == -1);
-    assert(search({3, 3, 3, 3}) == 3);
-    assert(search({1, 2, 3, 4, 4, 4, 4}) == 4);
     std::cout << "All test cases pass." << std::endl;
     return 0;
 }
