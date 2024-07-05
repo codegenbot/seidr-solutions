@@ -12,6 +12,6 @@ string string_sequence(int n) {
 }
 
 int main() {
-    cout << string_sequence(10) << endl;  // Example test case
+    cout << string_sequence(10) << endl;
     return 0;
 }
