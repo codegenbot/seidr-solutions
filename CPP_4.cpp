@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath> // for fabs
+#include <cmath> // for fabs and abs
 #include <cassert>
 
 // Function to calculate Mean Absolute Deviation
