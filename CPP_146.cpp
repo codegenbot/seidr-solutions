@@ -23,7 +23,7 @@ int specialFilter(vector<int> nums) {
 int main() {
     vector<int> nums;
     int n, temp;
-    cout << "Enter the number of elements: ";
+    cout << "Enter number of elements: ";
     cin >> n;
     cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
