@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cstdlib>
+#include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -22,13 +22,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int n, elem;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> elem;
-        nums.push_back(elem);
-    }
-    cout << specialFilter(nums) << endl;
+    vector<int> testVec = {-123, 11, 20, -35, 45, 37, 7, 8, 13, 14, -97};
+    cout << specialFilter(testVec) << endl;
     return 0;
 }
