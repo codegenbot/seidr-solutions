@@ -5,7 +5,6 @@ def max_fill(grid, capacity):
     buckets_needed = math.ceil(total_water / capacity)
     return buckets_needed
 
-# Example use
 if __name__ == "__main__":
     result = max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9)
     assert result == 2, f"Unexpected result: {result}"
