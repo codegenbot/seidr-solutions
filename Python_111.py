@@ -5,12 +5,13 @@ def histogram(test):
         return {}
     cleaned_test = re.sub(r'\W+', ' ', test.lower().strip())
     test_list = cleaned_test.split()
+    if not test_list:
+        return {}
     count = Counter(test_list)
     max_count = max(count.values())
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
-    import sys
-    test = sys.stdin.read().strip()
+    test = input().strip()
     result = histogram(test)
     print(result)
