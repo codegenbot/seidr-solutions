@@ -1,6 +1,8 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<cctype>
+
 using namespace std;
 
 string solve(string s) {
@@ -27,8 +29,8 @@ string solve(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << solve(s) << endl;
+    string input;
+    cin >> input;
+    cout << solve(input) << endl;
     return 0;
 }
