@@ -15,7 +15,4 @@ result = indices_of_substring(text, target)
 
 # Print the result
 print(len(result))
-if result:
-    print(" ".join(map(str, result)))
-else:
-    print("")
+print(" ".join(map(str, result)))
