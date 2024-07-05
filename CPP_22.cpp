@@ -1,7 +1,6 @@
 #include <vector>
 #include <list>
 #include <any>
-#include <typeinfo>
 #include <iostream>
 #include <cassert>
 
