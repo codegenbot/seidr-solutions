@@ -1,14 +1,15 @@
 bool is_nested(string str) {
-    int open = 0, nested = 0;
-    for(char ch : str) {
-        if(ch == '[') {
-            open++;
-        } else if(ch == ']') {
-            if(open > 0) {
-                open--;
-                nested++;
+    int count = 0;
+    bool nested = false;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 1) {
+                nested = true;
             }
+            count--;
         }
     }
-    return nested > 1;
+    return nested;
 }
