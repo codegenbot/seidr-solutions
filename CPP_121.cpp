@@ -1,10 +1,9 @@
-#include <vector>
 #include <iostream>
-#include <cassert>
+#include <vector>
 
-int solutions(std::vector<int> lst) {
+int solutions(const std::vector<int>& lst) {
     int sum = 0;
-    for (int i = 0; i < lst.size(); i += 2) {
+    for (size_t i = 0; i < lst.size(); i += 2) {
         if (lst[i] % 2 != 0) {
             sum += lst[i];
         }
@@ -13,7 +12,6 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 3);
-    std::cout << "All tests pass.\n";
+    std::cout << (solutions({3, 13, 2, 9}) == 3) << std::endl; // Expected output: 1 (true)
     return 0;
 }
