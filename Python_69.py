@@ -8,13 +8,15 @@ def search(lst):
     return result
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
     try:
-        lst = list(map(int, input().strip().split()))
-        if all(0 <= x <= 100 for x in lst):
-            print(search(lst) if lst else -1)
-        else:
+        input_data = input().strip()
+        if not input_data:
             print(-1)
-    except ValueError:
+        else:
+            lst = list(map(int, input_data.split()))
+            if all(0 <= x <= 100 for x in lst):
+                print(search(lst) if lst else -1)
+            else:
+                print(-1)
+    except Exception:
         print(-1)
