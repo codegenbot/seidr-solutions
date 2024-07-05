@@ -11,7 +11,7 @@ int gcd(int a, int b) {
     return a;
 }
 
-bool simplify(const std::string& x, const std::string& n) {
+bool simplify(std::string x, std::string n) {
     int x_num, x_den, n_num, n_den;
     char slash;
     
