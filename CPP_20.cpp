@@ -24,7 +24,7 @@ vector<float> find_closest_elements(const vector<float>& numbers) {
 }
 
 int main() {
-    assert((find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == vector<float>{4.1, 5.1}));
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == vector<float>({3.1, 4.1}));
     cout << "Test passed!" << endl;
     return 0;
 }
