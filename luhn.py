@@ -11,5 +11,5 @@ def luhn(card_number):
     return result
 
 if __name__ == "__main__":
-    card_number = input("Enter a credit card number: ")
+    card_number = int(input("Enter a credit card number: "))
     print(luhn(card_number))

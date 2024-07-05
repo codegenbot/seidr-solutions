@@ -9,8 +9,7 @@ def indices_of_substring():
         if i == -1:
             break
         result.append(i)
-        i += len(target)
-
-return sorted(result)
+        i += 1
+    return result
 
 indices_of_substring()
