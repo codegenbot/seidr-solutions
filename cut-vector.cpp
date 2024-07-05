@@ -1,12 +1,11 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <climits>
-
+#include <limits>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int index = -1;
     for (int i = 0; i < v.size() - 1; i++) {
         int diff = abs(v[i] - v[i + 1]);
@@ -15,8 +14,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             index = i;
         }
     }
-    vector<int> left = vector<int>(v.begin(), v.begin() + index + 1);
-    vector<int> right = vector<int>(v.begin() + index, v.end());
+    vector<int> left = vector<int>(v.begin(), v.begin() + i + 1);
+    vector<int> right = vector<int>(v.begin() + i, v.end());
     return make_pair(left, right);
 }
 
