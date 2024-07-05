@@ -35,5 +35,7 @@ bool simplify(string x, string n) {
 
 int main() {
     cout << boolalpha << simplify("1/5", "1/5") << endl; // expected output: false
+    cout << simplify("2/3", "3/2") << endl; // expected output: true
+    cout << simplify("4/8", "2/4") << endl; // expected output: false
     return 0;
 }
