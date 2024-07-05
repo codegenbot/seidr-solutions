@@ -1,15 +1,14 @@
 #include <iostream>
 #include <string>
-
+#include <cassert>
 using namespace std;
 
-bool is_palindrome(string text) {
+bool is_palindrome(string text){
     int left = 0;
     int right = text.length() - 1;
     while (left < right) {
-        if (text[left] != text[right]) {
+        if (text[left] != text[right])
             return false;
-        }
         left++;
         right--;
     }
@@ -17,7 +16,7 @@ bool is_palindrome(string text) {
 }
 
 int main() {
-    cout << boolalpha << is_palindrome("madam") << endl;
-    cout << is_palindrome("hello") << endl;
+    assert(is_palindrome("xywzx") == false);
+    cout << "All tests passed\n";
     return 0;
 }
