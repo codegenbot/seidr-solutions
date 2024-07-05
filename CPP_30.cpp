@@ -1,13 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
-#include <iostream>
+#include <cmath>
 
 using namespace std;
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
-    for(float num : l) {
-        if(num > 0) {
+    for (float num : l) {
+        if (num > 0) {
             result.push_back(num);
         }
     }
@@ -15,12 +16,18 @@ vector<float> get_positive(vector<float> l) {
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (fabs(a[i] - b[i]) > 1e-6) return false;
+    }
+    return true;
 }
 
 int main() {
+    assert(issame(get_positive({-1, 0, 1, 2, -2}), {1, 2}));
+    assert(issame(get_positive({-0.5, 0.3, 1.7, -1.2, 2.6}), {0.3, 1.7, 2.6}));
     assert(issame(get_positive({}), {}));
-    assert(issame(get_positive({-1, 0, 1, 2}), {1, 2}));
-    cout << "All tests passed." << endl;
+    assert(issame(get_positive({-3, -2, -1}), {}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
