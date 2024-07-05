@@ -1,10 +1,8 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
-using namespace std;
-
-vector<int> eat(int number, int need, int remaining) {
+std::vector<int> eat(int number, int need, int remaining) {
     int totalEaten = number + need;
     int carrotsLeft = remaining - need;
     if (carrotsLeft < 0) {
@@ -14,12 +12,12 @@ vector<int> eat(int number, int need, int remaining) {
     return {totalEaten, carrotsLeft};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
-    cout << "All tests passed!" << endl;
+    assert(issame(eat(4, 5, 1), {5, 0})); // Example test case
+    std::cout << "All tests passed." << std::endl;
     return 0;
 }
