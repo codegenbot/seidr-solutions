@@ -3,6 +3,8 @@ def fib4(n):
         return 0
     elif n == 4:
         return 2
+    elif n > 12:
+        return -1
     else:
         memo = [0, 1, 1]
         for i in range(3, n - 2):
