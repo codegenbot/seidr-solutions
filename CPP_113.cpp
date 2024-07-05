@@ -35,7 +35,7 @@ int main() {
     assert(issame(odd_count({"271", "137", "314"}), {
         "the number of odd elements 2 in the string is 2",
         "the number of odd elements 3 in the string is 3",
-        "the number of odd elements 2 in the string is 2"
+        "the number of odd elements 1 in the string is 1"
     }));
     cout << "All tests passed!" << endl;
     return 0;

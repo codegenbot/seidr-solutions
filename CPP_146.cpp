@@ -22,7 +22,13 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {15, -135, 42, 57, -79, 88};
+    vector<int> nums;
+    int n, x;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> x;
+        nums.push_back(x);
+    }
     cout << specialFilter(nums) << endl;
     return 0;
 }
