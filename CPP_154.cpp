@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool cycpattern_check(const string& a, const string& b) {
+bool cycpattern_check(string a, string b) {
     int len = b.length();
     string temp = b + b;
     for (int i = 0; i < len; ++i) {
