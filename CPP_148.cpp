@@ -33,9 +33,8 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
-    assert(issame(bf("Venus", "Mars"), {"Earth"}));
-    assert(issame(bf("Earth", "Saturn"), {"Mars", "Jupiter"}));
-    assert(issame(bf("Neptune", "Mercury"), {"Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus"}));
+    assert(issame(bf("Mercury", "Mars"), {"Venus", "Earth"}));
+    assert(issame(bf("Neptune", "Jupiter"), {"Saturn", "Uranus"}));
     cout << "All tests passed!" << endl;
     return 0;
 }

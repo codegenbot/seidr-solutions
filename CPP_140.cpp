@@ -30,10 +30,7 @@ std::string fix_spaces(const std::string& text) {
 }
 
 int main() {
-    // Test cases
     assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    // Add more test cases if necessary
-
     std::cout << "All test cases passed." << std::endl;
     return 0;
 }

@@ -40,14 +40,6 @@ any compare_one(any a, any b) {
         return sa > sb ? a : b;
     }
 
-    if (va.type() == typeid(double) && vb.type() == typeid(string)) {
-        return a;
-    }
-
-    if (va.type() == typeid(string) && vb.type() == typeid(double)) {
-        return b;
-    }
-
     return "None"; // Different types or unable to compare
 }
 

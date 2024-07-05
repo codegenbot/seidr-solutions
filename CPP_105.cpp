@@ -14,7 +14,7 @@ vector<string> by_length(const vector<int>& arr) {
         }
     }
     sort(filtered.begin(), filtered.end(), greater<int>());
-    
+
     map<int, string> numToStr = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
@@ -27,12 +27,8 @@ vector<string> by_length(const vector<int>& arr) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
+    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
     cout << "Test passed!" << endl;
     return 0;
 }
