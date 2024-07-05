@@ -1,10 +1,10 @@
+#include <iostream>
 #include <string>
 #include <cassert>
-using namespace std;
 
-string string_xor(string a, string b) {
-    string result = "";
-    for (size_t i = 0; i < a.length(); ++i) {
+std::string string_xor(const std::string& a, const std::string& b) {
+    std::string result = "";
+    for (size_t i = 0; i < a.size(); ++i) {
         result += (a[i] == b[i]) ? '0' : '1';
     }
     return result;
@@ -12,5 +12,7 @@ string string_xor(string a, string b) {
 
 int main() {
     assert(string_xor("0101", "0000") == "0101");
+    assert(string_xor("1111", "1010") == "0101");
+    std::cout << "All tests passed." << std::endl;
     return 0;
 }
