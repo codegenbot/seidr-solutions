@@ -1,4 +1,4 @@
-int firstNegativeSumIndex(const vector<int>& nums) {
+int firstNegativeIndex(const vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
@@ -6,7 +6,7 @@ int firstNegativeSumIndex(const vector<int>& nums) {
             return i;
         }
     }
-    return -1; // In case no such index is found
+    return -1; // If no such index exists
 }
 
 int main() {
@@ -16,6 +16,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    cout << firstNegativeSumIndex(nums) << endl;
+    cout << firstNegativeIndex(nums) << endl;
     return 0;
 }
