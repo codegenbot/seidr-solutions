@@ -20,12 +20,8 @@ vector<vector<int>> get_row(const vector<vector<int>> &lst, int x) {
     return result;
 }
 
-bool issame(const vector<vector<int>> &a, const vector<vector<int>> &b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    assert(get_row({{}, {1}, {1, 2, 3}}, 3) == vector<vector<int>>{{2, 2}});
     cout << "All tests passed!" << endl;
     return 0;
 }
