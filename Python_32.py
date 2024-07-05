@@ -2,8 +2,8 @@ import math
 
 
 def find_zero(xs):
-    if len(xs) < 1:
-        print("Error: List should have at least one element.")
+    if len(xs) < 3:
+        print("Error: List should have at least three elements.")
         return None
 
     for x in xs:
@@ -11,10 +11,11 @@ def find_zero(xs):
             print("Error: All elements in the list should be numbers.")
             return None
 
-    if len(xs) == 2:
-        return (-xs[1]) / xs[0]
+    a = xs[0]
+    b = xs[1]
+    c = xs[-1]
+
+    if len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
+        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
     else:
-        a = xs[0]
-        b = xs[1]
-        c = xs[-1]
         return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
