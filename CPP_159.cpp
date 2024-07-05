@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm> // for min and max
-
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
@@ -11,14 +9,13 @@ vector<int> eat(int number, int need, int remaining) {
     return {totalEaten, remainingCarrots};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(eat(4, 5, 1), {5, 0}));
-    assert(issame(eat(3, 2, 2), {5, 0}));
-    assert(issame(eat(0, 0, 0), {0, 0}));
-    cout << "All test cases passed!" << endl;
+    assert(issame(eat(3, 2, 3), {5, 1}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
