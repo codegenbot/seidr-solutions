@@ -2,20 +2,20 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <unordered_set>
+#include <set>
 using namespace std;
 
-int count_distinct_characters(string str) { 
-    unordered_set<char> distinctChars;
+int count_distinct_characters(string str){ 
+    set<char> distinct_chars;
     for(char c : str) {
-        distinctChars.insert(tolower(c));
+        distinct_chars.insert(tolower(c));
     }
-    return distinctChars.size();
+    return distinct_chars.size();
 }
 
 int main() {
-    string str;
-    getline(cin, str); // To read a line of input
-    cout << count_distinct_characters(str) << endl;
+    string input;
+    cin >> input;
+    cout << count_distinct_characters(input) << endl;
     return 0;
 }
