@@ -19,7 +19,6 @@ bool simplify(std::string x, std::string n) {
 }
 
 int main() {
-    std::cout << std::boolalpha; // for displaying true/false instead of 1/0
-    std::cout << (simplify("1/5", "1/5") == false) << std::endl; // should print true 
-    return 0;
+    std::cout << std::boolalpha;  // For printing `true` or `false`
+    std::cout << simplify("1/5", "1/5") << std::endl;  // Output: true
 }
