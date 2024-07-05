@@ -17,13 +17,13 @@ vector<int> sort_array(vector<int> array) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    assert(issame(sort_array({3, 1, 2}), {1, 2, 3}));
-    cout << "All tests passed!" << endl;
+    assert (issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert (issame(sort_array({5, 3, 9, 1}), {1, 3, 5, 9}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
