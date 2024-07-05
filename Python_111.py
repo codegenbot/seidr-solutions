@@ -16,14 +16,10 @@ def histogram(test):
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
-    try:
-        input_lines = []
-        while True:
-            test = input().strip()
-            if test == "":  # Stop input on empty line
-                break
-            input_lines.append(test)
-        result = histogram(" ".join(input_lines))
-        print(result)
-    except EOFError:
-        pass  # Handle end of input
+    import sys
+    input_lines = sys.stdin.readlines()
+    for test in input_lines:
+        test = test.strip()
+        if test:
+            result = histogram(test)
+            print(result)
