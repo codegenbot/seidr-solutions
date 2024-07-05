@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> parse_nested_parens(string paren_string) {
+vector<int> parse_nested_parens(const string& paren_string) {
     vector<int> result;
     int current_depth = 0, max_depth = 0;
     for (char ch : paren_string) {
@@ -21,11 +21,11 @@ vector<int> parse_nested_parens(string paren_string) {
             max_depth = 0;
         }
     }
-    result.push_back(max_depth);
+    result.push_back(max_depth); // for the last group
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
