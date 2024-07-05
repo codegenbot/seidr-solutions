@@ -1,14 +1,9 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
-#include<unordered_set>
-using namespace std;
+#include<set>
 
-int count_distinct_characters(string str){ 
-    unordered_set<char> distinctChars;
-    for(char c : str) {
-        distinctChars.insert(tolower(c));
+int count_distinct_characters(string str){
+    set<char> distinct_chars;
+    for (char &c : str) {
+        distinct_chars.insert(tolower(c));
     }
-    return distinctChars.size();
+    return distinct_chars.size();
 }
