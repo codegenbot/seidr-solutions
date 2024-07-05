@@ -1,4 +1,6 @@
-bool will_it_fly(vector<int> q, int w) {
+#include <vector>
+
+bool will_it_fly(std::vector<int> q, int w) {
     int n = q.size();
     int sum = 0;
 
