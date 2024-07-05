@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
+using namespace std;
 
-int luhn(std::vector<int> digits) {
+int luhn(vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
         if ((i % 2 == 1)) {
@@ -19,8 +19,8 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> testDigits = {4,3,2,1,8,7,6,5,4,3,2,1};
+    vector<int> testDigits = {4,3,2,1,8,7,6,5,4,3,2,1};
     int result = luhn(testDigits);
-    std::cout << "Result: " << result << std::endl;
+    cout << "Result: " << result << endl;
     return 0;
 }
