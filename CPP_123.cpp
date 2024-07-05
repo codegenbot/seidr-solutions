@@ -1,8 +1,8 @@
-vector<int> get_odd_collatz(int n) {
-    vector<int> odds;
+vector<int> get_odd_collatz(int n){
+    vector<int> odd_numbers;
     while (n != 1) {
         if (n % 2 != 0) {
-            odds.push_back(n);
+            odd_numbers.push_back(n);
         }
         if (n % 2 == 0) {
             n /= 2;
@@ -10,7 +10,7 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    odds.push_back(1); // Adding 1 since the sequence always ends with 1
-    sort(odds.begin(), odds.end());
-    return odds;
+    odd_numbers.push_back(1); // 1 is always part of the Collatz sequence
+    sort(odd_numbers.begin(), odd_numbers.end());
+    return odd_numbers;
 }
