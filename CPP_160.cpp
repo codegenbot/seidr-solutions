@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cmath> // for std::pow
+#include <cmath>
 
 using namespace std;
 
@@ -24,6 +23,6 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    cout << do_algebra({"//", "*"}, {7, 3, 4}) << endl; // should output 8
+    cout << do_algebra({"//", "*"}, {7, 3, 4}) << endl;
     return 0;
 }
