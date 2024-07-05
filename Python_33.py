@@ -1,3 +1,4 @@
+```
 def sort_third(l):
     result = []
     i = 0
