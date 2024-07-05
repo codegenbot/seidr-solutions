@@ -1,44 +1,32 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 using namespace std;
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    if (n == 2) return true;
-    if (n % 2 == 0) return false;
-    for (int i = 3; i <= sqrt(n); i += 2) {
-        if (n % i == 0) return false;
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+    if (num % 2 == 0 || num % 3 == 0) return false;
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) return false;
     }
     return true;
 }
 
-int sumOfDigits(int n) {
+int sumOfDigits(int num) {
     int sum = 0;
-    while (n > 0) {
-        sum += n % 10;
-        n /= 10;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
     }
     return sum;
 }
 
-int skjkasdkd(vector<int> lst) {
+int largestPrimeDigitSum(vector<int> lst) {
     int largestPrime = -1;
     for (int num : lst) {
         if (isPrime(num) && num > largestPrime) {
             largestPrime = num;
         }
     }
-    return largestPrime == -1 ? 0 : sumOfDigits(largestPrime);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> lst(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> lst[i];
-    }
-    cout << skjkasdkd(lst) << endl;
-    return 0;
+    return largestPrime != -1 ? sumOfDigits(largestPrime) : 0;
 }
