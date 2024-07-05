@@ -2,9 +2,6 @@ def histogram(test):
     from collections import Counter
     import re
 
-    if not test:
-        return {}
-
     cleaned_test = re.sub(r"\W+", " ", test.lower()).strip()
     words = cleaned_test.split()
     count = Counter(words)
