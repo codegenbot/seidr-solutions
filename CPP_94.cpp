@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-
 using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    for (int i = 5; i * i <= n; i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+    for (int i = 3; i <= sqrt(n); i += 2) {
+        if (n % i == 0) return false;
     }
     return true;
 }
@@ -23,7 +22,7 @@ int sumOfDigits(int n) {
     return sum;
 }
 
-int largestPrimeDigitSum(vector<int> lst) {
+int sumOfDigitsOfLargestPrimeInList(vector<int> lst) {
     int largestPrime = -1;
     for (int num : lst) {
         if (isPrime(num) && num > largestPrime) {
@@ -35,15 +34,11 @@ int largestPrimeDigitSum(vector<int> lst) {
 
 int main() {
     int n;
-    cout << "Enter number of elements: ";
     cin >> n;
     vector<int> lst(n);
-    cout << "Enter elements: ";
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
-    
-    cout << "Result: " << largestPrimeDigitSum(lst) << endl;
-
+    cout << sumOfDigitsOfLargestPrimeInList(lst) << endl;
     return 0;
 }
