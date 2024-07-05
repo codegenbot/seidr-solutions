@@ -1,38 +1,28 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 using namespace std;
 
-string decode_cyclic(string s){ 
+string decode_cyclic(string s) { 
     int l = s.length();
-    string x, output;
+    int num = (l + 2) / 3;
+    string output;
     for (int i = 0; i * 3 < l; i++) {
-        x = s.substr(i * 3, 3);
-        if (x.length() == 3) x = x[2] + x.substr(0, 2);
-        output = output + x;
-    }
-    return output;
-}
-
-string encode_cyclic(string s) {
-    int l = s.length();
-    string x, output;
-    for (int i = 0; i * 3 < l; i++) {
-        x = s.substr(i * 3, 3);
-        if (x.length() == 3) x = x.substr(1, 2) + x[0];
-        output = output + x;
+        // reverse cycle elements in each group. Unless group has fewer elements than 3.
+        string x = s.substr(i * 3, 3);
+        if (x.length() == 3)
+            x = x[2] + x.substr(0, 2);
+        output += x;
     }
     return output;
 }
 
 int main() {
-    string str = "abc";
-    string chr;
-    for (char chr : str) {
-        // However, chr is not used inside the loop
-    }
-    string encoded_str = encode_cyclic(str);
-    assert (decode_cyclic(encoded_str) == str);
-    cout << "All tests passed." << endl;
+    string input;
+    cout << "Enter the encoded string: ";
+    cin >> input;
+    
+    string decoded = decode_cyclic(input);
+    cout << "Decoded string: " << decoded << endl;
+
     return 0;
 }
