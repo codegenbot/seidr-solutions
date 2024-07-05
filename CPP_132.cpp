@@ -16,9 +16,9 @@ bool is_nested(const std::string& str) {
 }
 
 int main() {
-    std::cout << std::boolalpha; // To display bools as true/false
-    std::cout << is_nested("[]") << std::endl; // Should output: false
-    std::cout << is_nested("[[]]") << std::endl; // Should output: true
-    std::cout << is_nested("[[[]]]") << std::endl; // Should output: true
+    std::cout << std::boolalpha;
+    std::string s;
+    std::cin >> s;
+    std::cout << is_nested(s) << std::endl;
     return 0;
 }
