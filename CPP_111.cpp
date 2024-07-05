@@ -3,6 +3,7 @@
 #include <sstream>
 #include <algorithm>
 #include <assert.h>
+#include <cctype>
 
 std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> freqMap;
