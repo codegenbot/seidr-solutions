@@ -1,29 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include<stdio.h>
+#include<vector>
+#include<algorithm>
+#include<limits.h>
 using namespace std;
 
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Use -1 to represent None
+    if (lst.size() < 2) return -1;
 
-    sort(lst.begin(), lst.end());
-    int smallest = lst[0];
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] != smallest) {
-            return lst[i];
+    int smallest = INT_MAX, second_smallest = INT_MAX;
+    for (int num : lst) {
+        if (num < smallest) {
+            second_smallest = smallest;
+            smallest = num;
+        } else if (num < second_smallest && num != smallest) {
+            second_smallest = num;
         }
     }
-    return -1; // If no second smallest element is found
-}
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> lst(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> lst[i];
-    }
-
-    cout << next_smallest(lst) << endl;
-    return 0;
+    return (second_smallest == INT_MAX) ? -1 : second_smallest;
 }
