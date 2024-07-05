@@ -14,6 +14,6 @@ if __name__ == "__main__":
             result = sum_product(numbers)
             print(result[0], result[1])
         else:
-            print("No input numbers provided")
-    except ValueError:
-        print("Invalid input. Please provide a list of integers.")
+            print("0 0")
+    except:
+        print("Invalid input")

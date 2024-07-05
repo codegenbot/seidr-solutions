@@ -1,38 +1,33 @@
 def minPath(grid, k):
-    from heapq import heappush, heappop
+    from heapq import heappop, heappush
 
     N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    min_path = [float("inf")] * k
 
-    def neighbors(x, y):
+    def dfs(x, y, path):
+        if len(path) == k:
+            nonlocal min_path
+            if path < min_path:
+                min_path = path[:]
+            return
+
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
             if 0 <= nx < N and 0 <= ny < N:
-                yield nx, ny
+                dfs(nx, ny, path + [grid[nx][ny]])
 
-    min_path = None
     for i in range(N):
         for j in range(N):
-            heap = [(grid[i][j], i, j, 1, [grid[i][j]])]
-            while heap:
-                val, x, y, length, path = heappop(heap)
-                if length == k:
-                    if min_path is None or path < min_path:
-                        min_path = path
-                else:
-                    for nx, ny in neighbors(x, y):
-                        new_path = path + [grid[nx][ny]]
-                        heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
+            dfs(i, j, [grid[i][j]])
+
     return min_path
 
-if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    data = input().split()
-    
-    k = int(data.pop())
-    N = int(len(data)**0.5)
-    grid = [[int(data[N*i + j]) for j in range(N)] for i in range(N)]
-    
-    result = minPath(grid, k)
-    print(result)
+# Reading input
+N = int(input())
+grid = [list(map(int, input().split())) for _ in range(N)]
+k = int(input())
+
+# Calling the function and printing the result
+result = minPath(grid, k)
+print(" ".join(map(str, result)))
