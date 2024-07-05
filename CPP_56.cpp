@@ -1,21 +1,23 @@
+#include <iostream>
 #include <string>
-#include <cassert>
-using namespace std;
 
-bool correct_bracketing(const string &brackets) {
-    int balance = 0;
+bool correct_bracketing(const std::string& brackets) {
+    int count = 0;
     for (char ch : brackets) {
-        if (ch == '<') {
-            balance++;
-        } else if (ch == '>') {
-            balance--;
-            if (balance < 0) return false;
-        }
+        if (ch == '<') count++;
+        else if (ch == '>') count--;
+        if (count < 0) return false;
     }
-    return balance == 0;
+    return count == 0;
 }
 
 int main() {
-    assert(correct_bracketing("<><><<><>><>>><>"));
+    std::string input;
+    std::cin >> input;
+    if (correct_bracketing(input)) {
+        std::cout << "Correct bracketing" << std::endl;
+    } else {
+        std::cout << "Incorrect bracketing" << std::endl;
+    }
     return 0;
 }
