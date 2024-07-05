@@ -3,40 +3,31 @@ def minPath(grid, k):
 
     N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-
-    def neighbors(x, y):
-        for dx, dy in directions:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N:
-                yield nx, ny
-
     min_path = None
 
     for i in range(N):
         for j in range(N):
             heap = [(grid[i][j], i, j, [grid[i][j]])]
-            visited = set()
             while heap:
                 val, x, y, path = heappop(heap)
                 if len(path) == k:
                     if min_path is None or path < min_path:
                         min_path = path
                     continue
-                for nx, ny in neighbors(x, y):
-                    new_path = path + [grid[nx][ny]]
-                    heappush(heap, (grid[nx][ny], nx, ny, new_path))
+                for dx, dy in directions:
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < N and 0 <= ny < N:
+                        heappush(heap, (grid[nx][ny], nx, ny, path + [grid[nx][ny]]))
 
     return min_path
 
+
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    data = input().split()
-    n = int(data[0])
-    grid = []
-    index = 1
-    for i in range(n):
-        grid.append(list(map(int, data[index:index + n])))
-        index += n
-    k = int(data[index])
-    print(minPath(grid, k))
+    n = int(input().strip())
+    grid = [list(map(int, input().strip().split())) for _ in range(n)]
+    k = int(input().strip())
+    result = minPath(grid, k)
+    if result:
+        print(" ".join(map(str, result)))
+    else:
+        print("No valid path")
