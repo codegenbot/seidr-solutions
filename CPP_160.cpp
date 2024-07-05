@@ -24,6 +24,7 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
+    // Test case
     cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
     return 0;
 }
