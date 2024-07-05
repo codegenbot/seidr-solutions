@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -17,6 +17,19 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    assert((sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    int n;
+    cin >> n;
+    
+    vector<float> l(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> l[i];
+    }
+
+    vector<float> result = sort_even(l);
+
+    for (float val : result) {
+        cout << val << " ";
+    }
+
     return 0;
 }

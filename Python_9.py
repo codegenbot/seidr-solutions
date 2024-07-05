@@ -13,8 +13,8 @@ if __name__ == "__main__":
         raw_input = input().strip()
         if raw_input:
             numbers = list(map(int, raw_input.split()))
-            print(rolling_max(numbers))
         else:
-            print([])
+            numbers = []
+        print(rolling_max(numbers))
     except ValueError:
         print([])
