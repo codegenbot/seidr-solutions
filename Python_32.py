@@ -9,5 +9,4 @@ def find_zero(xs: list):
 
 if __name__ == "__main__":
     xs = list(map(float, input().split()))
-    zero = find_zero(xs)
-    print(zero)
+    print(find_zero(xs))
