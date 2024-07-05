@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -8,9 +9,9 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int index = -1;
     for (int i = 0; i < v.size() - 1; i++) {
         int diff = abs(v[i] - v[i + 1]);
-        if (diff == 0) {
+        if (diff == 0) { 
             index = i;
-            break;
+            break; 
         } else if (diff < minDiff) {
             minDiff = diff;
             index = i;
