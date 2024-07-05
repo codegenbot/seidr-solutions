@@ -13,11 +13,7 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert((intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2, 2, 2}));
     return 0;
 }
