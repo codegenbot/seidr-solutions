@@ -4,21 +4,27 @@ def minPath(grid, k):
     N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
-    def neighbors(r, c):
-        for dr, dc in directions:
-            nr, nc = r + dr, c + dc
-            if 0 <= nr < N and 0 <= nc < N:
-                yield nr, nc
+    def in_bounds(x, y):
+        return 0 <= x < N and 0 <= y < N
 
-    min_heap = []
-    for r in range(N):
-        for c in range(N):
-            heappush(min_heap, (grid[r][c], r, c, [grid[r][c]]))
+    min_path = [float("inf")] * k
+    heap = []
 
-    while min_heap:
-        value, r, c, path = heappop(min_heap)
+    for i in range(N):
+        for j in range(N):
+            heappush(heap, (grid[i][j], i, j, [grid[i][j]]))
+
+    while heap:
+        val, x, y, path = heappop(heap)
         if len(path) == k:
             return path
-        for nr, nc in neighbors(r, c):
-            new_path = path + [grid[nr][nc]]
-            heappush(min_heap, (new_path[-1], nr, nc, new_path))
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if in_bounds(nx, ny):
+                new_path = path + [grid[nx][ny]]
+                heappush(heap, (grid[nx][ny], nx, ny, new_path))
+
+
+# Example usage:
+# print(minPath([[1,2,3], [4,5,6], [7,8,9]], 3)) # Output: [1, 2, 1]
+# print(minPath([[5,9,3], [4,1,6], [7,8,2]], 1)) # Output: [1]
