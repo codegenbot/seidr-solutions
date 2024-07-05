@@ -1,8 +1,7 @@
-
 def prime_fib(n: int):
     fib = [0, 1]
     while len(fib) <= n:
-        current = fib[-1] + fib[-2]
-        if isprime(current):
-            fib.append(current)
+        fib.append(fib[-1] + fib[-2])
+    if n >= len(fib):
+        return -1
     return fib[n]

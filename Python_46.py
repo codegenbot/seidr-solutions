@@ -1,8 +1,2 @@
-def fib4(n: int):
-    if n <= 1:
-        return 0
-    else:
-        d = {0: 0, 1: 1}
-        for i in range(2, n+1):
-            d[i] = d[i-1] + d[i-2]
-        return d[n]
+def fib4(n):
+    return round(((1 + sqrt(5))**n - (1 - sqrt(5))**n) / (2**n * sqrt(5)))
