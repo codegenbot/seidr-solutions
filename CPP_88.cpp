@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <functional>
 #include <cassert>
 using namespace std;
 
@@ -16,11 +16,11 @@ vector<int> sort_array(vector<int> array) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert (issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
