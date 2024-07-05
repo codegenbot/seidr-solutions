@@ -20,7 +20,6 @@ bool correct_bracketing(string brackets) {
 }
 
 int main() {
-    // Example usage
     assert(correct_bracketing("()()(()())"));
     assert(!correct_bracketing("()()(()())()))()"));
 
