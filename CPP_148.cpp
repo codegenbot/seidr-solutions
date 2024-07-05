@@ -26,7 +26,7 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
