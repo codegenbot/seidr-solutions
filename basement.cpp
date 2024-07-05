@@ -11,3 +11,13 @@ int basement(std::vector<int>& v) {
    }
    return -1; // return -1 if no negative sum found
 }
+int main() {
+   std::vector<int> vec = {1, 2, 3, 4, 5};
+   int index = basement(vec);
+   if (index != -1) {
+       std::cout << "First negative sum index: " << index << std::endl;
+   } else {
+       std::cout << "No negative sum found." << std::endl;
+   }
+   return 0;
+}
