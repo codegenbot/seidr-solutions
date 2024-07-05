@@ -47,15 +47,13 @@ int main() {
     std::any a = 42;
     std::any b = 3.14f;
     try {
-        if (auto res = std::any_cast<int>(&compare_one(a, b))) {
-            std::cout << *res << std::endl;
-        } else if (auto res = std::any_cast<string>(&compare_one(a, b))) {
-            std::cout << *res << std::endl;
-        } else {
-            std::cout << "None" << std::endl;
-        }
+        std::cout << std::any_cast<int>(compare_one(a, b)) << std::endl; 
     } catch (const std::bad_any_cast& e) {
-        cout << "Cannot cast result to int. Possibly a string or None comparison." << endl;
+        try {
+            std::cout << std::any_cast<float>(compare_one(a, b)) << std::endl;
+        } catch (const std::bad_any_cast& e) {
+            std::cout << std::any_cast<string>(compare_one(a, b)) << std::endl;
+        }
     }
     return 0;
 }
