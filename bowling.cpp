@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -25,8 +26,7 @@ int bowlingScore(const char* s) {
 }
 
 int main() {
-    char s[100];
-    cin.getline(s, 100);
-    cout << "The bowling score is: " << bowlingScore(s) << endl;
+    const char* input = "X/X || 3/5 1/9 X 2/- 8/3 5/7 X 3/6 -/- 1/4";
+    std::cout << bowlingScore(input) << std::endl;
     return 0;
 }
