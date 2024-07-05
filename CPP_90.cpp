@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1;
+    if (lst.size() < 2) return -1; // Use -1 to represent None
 
     sort(lst.begin(), lst.end());
     int smallest = lst[0];
@@ -14,7 +13,7 @@ int next_smallest(vector<int> lst) {
             return lst[i];
         }
     }
-    return -1;
+    return -1; // If no second smallest element is found
 }
 
 int main() {
@@ -24,7 +23,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
-    int result = next_smallest(lst);
-    cout << result << endl;
+
+    cout << next_smallest(lst) << endl;
     return 0;
 }
