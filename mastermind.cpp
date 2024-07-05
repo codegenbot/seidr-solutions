@@ -22,7 +22,8 @@ int blackPegs(string code, string guess) {
             }
         }
     }
-    return 4 - whitePegs(code, guess);
+    int black = 4 - whitePegs(code, guess);
+    return correctPosition;
 }
 
 int main() {
