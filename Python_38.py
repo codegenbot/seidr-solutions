@@ -1,43 +1,24 @@
-```
 def decode_cyclic(s):
     result = ""
     if s[0] in ["<", ">"]:
-        start = 1
-        end = len(s) - 1
-        cyclic_result = ""
+        start = i = 1
+        end = cyclic_result = ""
         while len(result) < len(s):
-            i = start
+            j = (i + 1) % len(s)
             temp = ""
             cyclic = False
-            while True:
-                if i == end:
-                    i = (i + 1) % len(s)
-                elif s[i] == ">":
+            while j < len(s) and (s[j] != "<" or temp == ""):
+                if s[j] == ">":
+                    end = j
                     cyclic = True
                     break
-                else:
-                    temp += s[i]
-                    i = (i + 1) % len(s)
+                temp += s[j]
+                j = (j + 1) % len(s)
             if temp:
                 result += temp + " "
-            start = end + 1
-            end = len(s) - 1
-            if cyclic and s[0] in ["<", ">"]:
-                while cyclic_result == "":
-                    j = start
-                    temp = ""
-                    while True:
-                        if i == end:
-                            i = (i + 1) % len(s)
-                        elif s[i] == ">":
-                            break
-                        else:
-                            temp += s[i]
-                            i = (i + 1) % len(s)
-                    if temp:
-                        cyclic_result = temp
-                result += cyclic_result.replace(">", "")
-                return result.strip()
+            i = j
+        if cyclic_result and s[0] in ["<", ">"]:
+            return result.strip().replace(">", "").strip()
     else:
         for char in s:
             if char != "<" and char != ">":
