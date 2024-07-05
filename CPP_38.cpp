@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string encode_cyclic(string s){
+string encode_cyclic(string s) {
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
