@@ -6,9 +6,11 @@
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        boost::any_cast<boost::optional<int>>(value).reset();
         if(boost::any_cast<boost::optional<int>>(value).has_value()){
-            result.push_back(*boost::any_cast<boost::optional<int>>(value));
+            int i = *boost::any_cast<boost::optional<int>>(value);
+            if(i % 2 == 0) {
+                result.push_back(i);
+            }
         }
     }
     return result;
