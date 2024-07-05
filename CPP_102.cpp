@@ -8,7 +8,6 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    // You can add more test cases to validate the function
     assert(choose_num(546, 546) == 546);
     return 0;
 }
