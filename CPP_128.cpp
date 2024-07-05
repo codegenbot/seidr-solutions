@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
+#include <cstdlib>
 
 using namespace std;
 
@@ -22,13 +23,11 @@ int prod_signs(vector<int> arr) {
 
 int main() {
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
     vector<int> arr(n);
-    cout << "Enter the elements: ";
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         cin >> arr[i];
     }
-    cout << "Result: " << prod_signs(arr) << endl;
+    cout << prod_signs(arr) << endl;
     return 0;
 }
