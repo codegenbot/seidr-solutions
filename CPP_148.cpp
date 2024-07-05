@@ -25,11 +25,9 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    vector<string> planets1 = bf("Jupiter", "Makemake");
+    vector<string> expected1 = {};
+    assert(planets1 == expected1);
     return 0;
 }
