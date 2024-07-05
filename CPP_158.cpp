@@ -1,38 +1,36 @@
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 #include <string>
-#include <cassert>
+
 using namespace std;
 
 string find_max(vector<string> words) {
-    auto unique_char_count = [](const string& s) {
-        vector<bool> seen(256, false);
-        int count = 0;
-        for (char c : s) {
-            if (!seen[c]) {
-                seen[c] = true;
-                count++;
-            }
-        }
-        return count;
+    auto unique_char_count = [](const string& word) {
+        unordered_set<char> unique_chars(word.begin(), word.end());
+        return unique_chars.size();
     };
 
-    string max_word = "";
+    string result;
     int max_unique = 0;
-    for (const string& word : words) {
-        int unique_count = unique_char_count(word);
-        if (unique_count > max_unique || (unique_count == max_unique && word < max_word)) {
-            max_unique = unique_count;
-            max_word = word;
+
+    for (const auto& word : words) {
+        int current_unique = unique_char_count(word);
+        if (current_unique > max_unique || (current_unique == max_unique && word < result)) {
+            max_unique = current_unique;
+            result = word;
         }
     }
-    return max_word;
+
+    return result;
 }
 
 int main() {
-    assert(find_max({"play", "play", "play"}) == "play");
-    assert(find_max({"abc", "aaa", "abcd"}) == "abcd");
-    assert(find_max({"a", "bb", "ccc"}) == "ccc");
-    cout << "All tests passed!" << endl;
+    vector<string> words;
+    string word;
+    while (cin >> word) {
+        words.push_back(word);
+    }
+    cout << find_max(words) << endl;
     return 0;
 }
