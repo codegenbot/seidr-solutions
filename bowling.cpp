@@ -25,8 +25,10 @@ int bowlingScore(const char* s) {
 }
 
 int main() {
-    char s[100];
-    cin.getline(s, 100);
-    cout << "The bowling score is: " << bowlingScore(s) << endl;
+    string input;
+    cout << "Enter the bowling scores: ";
+    getline(cin, input);
+    int totalScore = bowlingScore(input.c_str());
+    cout << "The total score is: " << totalScore << endl;
     return 0;
 }
