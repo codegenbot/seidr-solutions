@@ -1,21 +1,23 @@
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+
 def find_zero(xs: list):
-    def f(x):
-        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+    def derivative(xs: list):
+        return [i * coeff for i, coeff in enumerate(xs)][1:]
 
-    def derivative(xs):
-        return [i * xs[i] for i in range(1, len(xs))]
+    def newton_method(xs: list, x0: float):
+        for _ in range(100):  # max iterations
+            f_x = poly(xs, x0)
+            if abs(f_x) < 1e-7:  # tolerance level
+                return x0
+            f_prime_x = poly(derivative(xs), x0)
+            if f_prime_x == 0:
+                break
+            x0 = x0 - f_x / f_prime_x
+        return x0
 
-    guess = 1.0
-    tol = 1e-7
-    max_iter = 1000
-
-    for _ in range(max_iter):
-        y = f(guess)
-        if abs(y) < tol:
-            return guess
-        dy = sum([coeff * math.pow(guess, i) for i, coeff in enumerate(derivative(xs))])
-        if dy == 0:
-            break
-        guess -= y / dy
-
-    return guess
+    return newton_method(xs, 0.0)
