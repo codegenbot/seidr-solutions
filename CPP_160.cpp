@@ -24,27 +24,8 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    vector<string> operato;
-    vector<int> operand;
-    string op;
-    int num, n;
-
-    cout << "Enter number of operations: ";
-    cin >> n;
-
-    cout << "Enter operands: ";
-    for (int i = 0; i <= n; i++) {
-        cin >> num;
-        operand.push_back(num);
-    }
-
-    cout << "Enter operators: ";
-    for (int i = 0; i < n; i++) {
-        cin >> op;
-        operato.push_back(op);
-    }
-
-    cout << "Result: " << do_algebra(operato, operand) << endl;
-
+    vector<string> operato = {"*", "+"};
+    vector<int> operand = {3, 4, 5};
+    cout << do_algebra(operato, operand) << endl; // Expected output: 17
     return 0;
 }
