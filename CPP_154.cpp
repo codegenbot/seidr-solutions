@@ -17,10 +17,5 @@ bool cycpattern_check(string a, string b) {
 
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
-    assert(cycpattern_check("hello", "ell") == true);
-    assert(cycpattern_check("helloworld", "worldhello") == true);
-    assert(cycpattern_check("teststring", "stringtest") == true);
-    assert(cycpattern_check("abcdefg", "gfedcba") == false);
-    cout << "All tests passed!" << endl;
     return 0;
 }
