@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <cmath>  // Include cmath for abs function
+#include <cmath>
 
 using namespace std;
 
@@ -26,6 +26,5 @@ int main() {
     assert(issame(get_positive({}), {}));
     assert(issame(get_positive({-1.0, 2.5, 3.0}), {2.5, 3.0}));
     assert(issame(get_positive({-1.0, -2.5, -3.0}), {}));
-    // Add more test cases if needed
     return 0;
 }
