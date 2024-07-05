@@ -21,5 +21,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert(issame(intersperse({1, 3, 5}, 0), {1, 0, 3, 0, 5}));
     return 0;
 }
