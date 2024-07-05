@@ -1,35 +1,31 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
 int whitePegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeMap;
-
-    for (int i = 0; i < code.size(); ++i) {
-        if (code[i] == guess[i]) {
-            return -1;
-        }
-        codeMap[code[i]]++;
+    unordered_map<char, int> code_freq, guess_freq;
+    for (char c : code) {
+        code_freq[c]++;
+    }
+    for (char c : guess) {
+        guess_freq[c]++;
     }
 
-    for (int i = 0; i < code.size(); ++i) {
-        if (codeMap[guess[i]] > 0) {
-            count++;
-            --codeMap[guess[i]];
-        }
+    int white = 0;
+    for (auto p : code_freq) {
+        white += abs(p.second - guess_freq.count(p.first));
     }
 
-    return count;
+    return white;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    map<char, int> codeMap;
-
     for (int i = 0; i < code.size(); ++i) {
         if (code[i] == guess[i]) {
             count++;
         }
-        codeMap[code[i]]++;
     }
-
     return count;
 }
 
@@ -46,11 +42,7 @@ int main() {
     int black = blackPegs(code, guess);
 
     cout << black << endl;
-    if (white == -1) {
-        cout << "0" << endl;
-    } else {
-        cout << white << endl;
-    }
+    cout << white << endl;
 
     return 0;
 }
