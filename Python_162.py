@@ -9,6 +9,6 @@ if __name__ == "__main__":
     try:
         user_input = input().strip()
     except EOFError:
-        user_input = ""  # If input is not provided, set it to an empty string
+        user_input = ""
     result = string_to_md5(user_input)
     print(result if result else "None")
