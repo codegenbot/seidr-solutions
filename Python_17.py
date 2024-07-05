@@ -6,10 +6,9 @@ def parse_music(music_string: str) -> List[int]:
     return [note_to_beats.get(note, 0) for note in notes]
 
 if __name__ == "__main__":
-    try:
-        music_string = input("Enter the music string: ").strip()
-        if not music_string:
-            raise ValueError("Input cannot be empty")
+    import sys
+    music_string = sys.stdin.read().strip()
+    if not music_string:
+        print("Error: Input cannot be empty")
+    else:
         print(parse_music(music_string))
-    except ValueError as e:
-        print(f"Error: {e}")
