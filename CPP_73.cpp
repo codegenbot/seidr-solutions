@@ -16,10 +16,12 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
+    // Tests (these can be removed or modified as necessary)
     assert(smallest_change({0, 1}) == 1);
     assert(smallest_change({1, 2, 3, 2, 1}) == 0);
     assert(smallest_change({1, 2, 3, 4, 5}) == 2);
     
+    // Read input and test the function
     int n;
     cout << "Enter the size of the array: ";
     cin >> n;
