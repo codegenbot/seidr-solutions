@@ -1,11 +1,10 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
 
 using namespace std;
 
-vector<int> compare(const vector<int>& game, const vector<int>& guess) {
+vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (size_t i = 0; i < game.size(); ++i) {
         result.push_back(abs(game[i] - guess[i]));
@@ -15,27 +14,5 @@ vector<int> compare(const vector<int>& game, const vector<int>& guess) {
 
 int main() {
     assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>({2, 0, 0, 1}));
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    vector<int> game(n), guess(n);
-    cout << "Enter elements of game vector: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> game[i];
-    }
-
-    cout << "Enter elements of guess vector: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> guess[i];
-    }
-
-    vector<int> result = compare(game, guess);
-    cout << "Resultant differences: ";
-    for (int val : result) {
-        cout << val << " ";
-    }
-    cout << endl;
-
     return 0;
 }
