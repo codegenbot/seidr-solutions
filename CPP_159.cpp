@@ -1,23 +1,25 @@
-#include <vector>
-#include <cassert>
 #include <iostream>
+#include <vector>
+#include <algorithm> // For min and max functions
+#include <cassert> // For assert function
 
-std::vector<int> eat(int number, int need, int remaining) {
-    int totalEaten = number + need;
-    int carrotsLeft = remaining - need;
-    if (carrotsLeft < 0) {
-        totalEaten += carrotsLeft; // subtract the negative value to adjust totalEaten
-        carrotsLeft = 0;
-    }
+using namespace std;
+
+// Function to calculate totalEaten and carrotsLeft
+vector<int> eat(int number, int need, int remaining) {
+    int totalEaten = number + min(need, remaining);
+    int carrotsLeft = max(remaining - need, 0);
     return {totalEaten, carrotsLeft};
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+// Function to check if two vectors are the same
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0})); // Example test case
-    std::cout << "All tests passed." << std::endl;
+    // Test case
+    assert(issame(eat(4, 5, 1), {5, 0}));
+    cout << "Test passed!" << endl;
     return 0;
 }
