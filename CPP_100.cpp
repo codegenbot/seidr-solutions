@@ -20,6 +20,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(5), {5, 7, 9, 11, 13}));
     cout << "All tests passed!" << endl;
     return 0;
 }
