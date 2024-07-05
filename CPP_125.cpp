@@ -10,9 +10,7 @@ vector<string> split_words(string txt) {
     size_t pos = 0;
     string delimiter = " ";
 
-    if (txt.empty()) {
-        result.push_back("0");
-    } else if (txt.find(' ') != string::npos) {
+    if (txt.find(' ') != string::npos) {
         while ((pos = txt.find(' ')) != string::npos) {
             result.push_back(txt.substr(0, pos));
             txt.erase(0, pos + 1);
@@ -38,10 +36,14 @@ vector<string> split_words(string txt) {
     return result;
 }
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(split_words("") == vector<string>{"0"});
-    assert(split_words("hello world") == vector<string>{"hello", "world"});
-    assert(split_words("a,b,c") == vector<string>{"a", "b", "c"});
+    assert(issame(split_words(""), vector<string>{"0"}));
+    assert(issame(split_words("hello world"), vector<string>{"hello", "world"}));
+    assert(issame(split_words("a,b,c"), vector<string>{"a", "b", "c"}));
     cout << "All tests passed!" << endl;
     return 0;
 }

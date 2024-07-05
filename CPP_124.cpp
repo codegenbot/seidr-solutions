@@ -1,7 +1,5 @@
-#include <stdio.h>
+#include <iostream>
 #include <string>
-#include <sstream>
-#include <vector>
 using namespace std;
 
 bool valid_date(string date) {
@@ -20,13 +18,27 @@ bool valid_date(string date) {
 
     if (month < 1 || month > 12) return false;
 
-    if (month == 2) {
-        if (day < 1 || day > 29) return false;
-    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
-        if (day < 1 || day > 30) return false;
-    } else {
-        if (day < 1 || day > 31) return false;
+    static const int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int maxDays = daysInMonth[month - 1];
+
+    if (month == 2 && (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))) {
+        maxDays = 29;
     }
 
+    if (day < 1 || day > maxDays) return false;
+
     return true;
+}
+
+int main() {
+    string date;
+    cin >> date;
+
+    if (valid_date(date)) {
+        cout << "Valid" << endl;
+    } else {
+        cout << "Invalid" << endl;
+    }
+
+    return 0;
 }
