@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
