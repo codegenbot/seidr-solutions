@@ -1,7 +1,6 @@
-#include<stdio.h>
-#include<vector>
-#include<algorithm>
-#include<limits.h>
+#include <stdio.h>
+#include <vector>
+#include <limits.h>
 using namespace std;
 
 int next_smallest(vector<int> lst) {
