@@ -14,14 +14,14 @@ int can_arrange(vector<int> arr) {
 
 int main() {
     vector<int> arr;
-    int n, temp;
-    cin >> n;
-
-    for (int i = 0; i < n; ++i) {
-        cin >> temp;
-        arr.push_back(temp);
-    }
+    int n, element;
     
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> element;
+        arr.push_back(element);
+    }
+
     cout << can_arrange(arr) << endl;
     return 0;
 }
