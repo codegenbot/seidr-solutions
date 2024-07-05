@@ -1,15 +1,16 @@
-```
 import math
+
+
 def find_zero(xs):
     if len(xs) < 1:
         print("Error: List should have at least one element.")
         return None
-    
+
     for x in xs:
         if not isinstance(x, (int, float)):
             print("Error: All elements in the list should be numbers.")
             return None
-            
+
     if len(xs) < 2:
         return -xs[1] / xs[0]
     elif len(xs) == 2:
