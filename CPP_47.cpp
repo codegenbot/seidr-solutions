@@ -16,6 +16,9 @@ double median(std::vector<int> l) {
 
 int main() {
     assert (std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+    assert (std::abs(median({1, 3, 3, 6, 7, 8, 9}) - 6) < 1e-4);
+    assert (std::abs(median({1, 2, 3, 4, 5, 6, 8, 9}) - 4.5) < 1e-4);
+    assert (std::abs(median({1, 1, 1, 1, 1, 1}) - 1) < 1e-4);
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
