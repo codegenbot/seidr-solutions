@@ -1,3 +1,4 @@
+
 def encode(message):
     vowels = {"a": "A", "e": "E", "i": "I", "o": "O", "u": "U"}
     encoded_message = ""
