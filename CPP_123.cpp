@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cassert> // for assert
 
 using namespace std;
 
@@ -17,7 +17,7 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1); // Add 1 to the result as the sequence always ends at 1
+    result.push_back(1); // 1 is always part of the sequence
     sort(result.begin(), result.end());
     return result;
 }
@@ -28,6 +28,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
+    // You can add more test cases as needed.
     cout << "All tests passed!" << endl;
     return 0;
 }
