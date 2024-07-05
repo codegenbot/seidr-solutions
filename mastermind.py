@@ -1,5 +1,4 @@
-```
 def mastermind(code, guess):
     black_pegs = sum(1 for c, g in zip(code, guess) if c == g)
-    white_pegs = len([c for c in guess if c in code and c != guess[code.index(c)]]).count(1)
+    white_pegs = sum(min(code.count(g), guess.count(c)) for c, g in zip(code, guess) if c != g)
     return str(white_pegs), str(black_pegs)
