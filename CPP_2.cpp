@@ -1,0 +1,1 @@
+return fmod(number, 1);
