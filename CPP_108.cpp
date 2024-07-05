@@ -1,13 +1,19 @@
-int count_nums(vector<int> n){
+int count_nums(vector<int> n) {
     int count = 0;
-    for(int num : n){
-        int sum_digits = 0;
-        int temp = num;
-        while(temp != 0){
-            sum_digits += temp % 10;
-            temp /= 10;
+    for (int num : n) {
+        int sum = 0;
+        bool first_digit = true;
+        while (num != 0) {
+            int digit = num % 10;
+            if (first_digit && num < 0) {
+                sum += digit; // add the signed first digit
+                first_digit = false;
+            } else {
+                sum += abs(digit);
+            }
+            num /= 10;
         }
-        if(sum_digits > 0){
+        if (sum > 0) {
             count++;
         }
     }
