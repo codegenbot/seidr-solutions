@@ -13,8 +13,6 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    result.push_back(arr.back());
-    
     return result;
 }
 
@@ -23,4 +21,3 @@ int main() {
     vector<int> result = leaders(input);
     for (int x : result) cout << x << " ";
     return 0;
-}
