@@ -6,8 +6,9 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 if __name__ == "__main__":
     import sys
-    input_data = sys.stdin.read().strip()
+    input_data = []
+    for line in sys.stdin:
+        input_data.extend(map(float, line.strip().split()))
     if not input_data:
         raise ValueError("Empty input provided.")
-    numbers = list(map(float, input_data.split()))
-    print(mean_absolute_deviation(numbers))
+    print(mean_absolute_deviation(input_data))
