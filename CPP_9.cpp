@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 using namespace std;
 
 // Define rolling_max function
@@ -16,18 +17,10 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> numbers(n);
-    for(int i = 0; i < n; i++) {
-        cin >> numbers[i];
-    }
-    
-    vector<int> result = rolling_max(numbers);
-    for(int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
+    // Test with an example
+    vector<int> input = {3, 2, 3, 100, 3};
+    vector<int> expected_output = {3, 3, 3, 100, 100};
+    assert(rolling_max(input) == expected_output);
+    cout << "Test passed!" << endl;
     return 0;
 }
