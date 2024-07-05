@@ -10,7 +10,7 @@ vector<string> split_words(string txt) {
     size_t pos = 0;
     const string space_delimiter = " ";
     const string comma_delimiter = ",";
-    
+
     if (txt.find(space_delimiter) != string::npos) {
         while ((pos = txt.find(space_delimiter)) != string::npos) {
             result.push_back(txt.substr(0, pos));
@@ -32,7 +32,7 @@ vector<string> split_words(string txt) {
         }
         result.push_back(to_string(count));
     }
-    
+
     return result;
 }
 
