@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
+
 using namespace std;
 
 vector<int> parse_nested_parens(string paren_string) {
@@ -30,7 +32,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))") , vector<int>{4}));
-    cout << "All tests passed!" << endl;
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    cout << "Test passed." << endl;
     return 0;
 }
