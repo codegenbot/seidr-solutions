@@ -4,7 +4,6 @@
 #include <sstream>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
