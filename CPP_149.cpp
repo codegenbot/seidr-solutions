@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
         return s.length() % 2 != 0;
     }), lst.end());
 
-    // Sort the vector by length, and then alphabetically
+    // Sort the vector by length and lexicographically for same length
     sort(lst.begin(), lst.end(), [](const string &a, const string &b) {
         if (a.length() == b.length()) {
             return a < b;
@@ -22,11 +23,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    cout << "Test passed!" << endl;
     return 0;
 }
