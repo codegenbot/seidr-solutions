@@ -5,30 +5,26 @@
 
 using namespace std;
 
-vector<int> parse_music(string music_string) {
+vector<int> parse_music(const string &music_string) { 
     vector<int> beats;
     string note;
     for (char c : music_string) {
         if (c == ' ') {
-            if (!note.empty()) {
-                if (note == "o") beats.push_back(4);
-                else if (note == "o|") beats.push_back(2);
-                else if (note == ".|") beats.push_back(1);
-                note = "";
-            }
+            if (note == "o") beats.push_back(4);
+            else if (note == "o|") beats.push_back(2);
+            else if (note == ".|") beats.push_back(1);
+            note = "";
         } else {
             note += c;
         }
     }
-    if (!note.empty()) {
-        if (note == "o") beats.push_back(4);
-        else if (note == "o|") beats.push_back(2);
-        else if (note == ".|") beats.push_back(1);
-    }
+    if (note == "o") beats.push_back(4);
+    else if (note == "o|") beats.push_back(2);
+    else if (note == ".|") beats.push_back(1);
     return beats;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int> &a, const vector<int> &b) {
     return a == b;
 }
 
