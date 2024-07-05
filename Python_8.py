@@ -1,8 +1,14 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    s = sum(numbers)
-    p = 1
+    total_sum = sum(numbers)
+    total_product = 1
     for num in numbers:
-        p *= num
-    return (s, p)
+        total_product *= num
+    return total_sum, total_product
+
+if __name__ == "__main__":
+    user_input = input("Enter numbers separated by space: ")
+    numbers = list(map(int, user_input.split()))
+    result = sum_product(numbers)
+    print(f"Sum: {result[0]}, Product: {result[1]}")
