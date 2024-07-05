@@ -9,5 +9,5 @@ int basement(std::vector<int>& v) {
             return -1;
         }
     }
-    return basement(v);
+    return v.size();
 }
