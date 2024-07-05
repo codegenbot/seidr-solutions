@@ -31,3 +31,5 @@ def bowling_score(frames):
                 temp += frames[i]
                 i += 1
             score += int(temp)
+    
+    return score
