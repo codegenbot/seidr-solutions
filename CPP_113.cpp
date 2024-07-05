@@ -5,8 +5,7 @@
 
 using namespace std;
 
-// Corrected odd_count function
-vector<string> odd_count(const vector<string>& lst) {
+vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (const auto& str : lst) {
         int odd_count = 0;
@@ -23,13 +22,8 @@ vector<string> odd_count(const vector<string>& lst) {
     return result;
 }
 
-// Helper function to compare vectors of strings
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
@@ -38,6 +32,6 @@ int main() {
         "the number of odd elements 3 in the string 3 of the input.",
         "the number of odd elements 2 in the string 2 of the input."
     }));
-    cout << "All tests passed!" << endl;
+
     return 0;
 }
