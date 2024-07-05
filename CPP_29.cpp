@@ -21,8 +21,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), expected));
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     cout << "Test passed!" << endl;
     return 0;
 }
