@@ -1,24 +1,27 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 using namespace std;
 
 bool is_palindrome(string text) {
-    int left = 0;
-    int right = text.length() - 1;
-    while (left < right) {
-        if (text[left] != text[right]) {
+    int n = text.length();
+    for(int i = 0; i < n / 2; ++i) {
+        if(text[i] != text[n - i - 1]) {
             return false;
         }
-        left++;
-        right--;
     }
     return true;
 }
 
 int main() {
-    assert(is_palindrome("radar") == true);
-    assert(is_palindrome("hello") == false);
-    cout << "All tests passed!" << endl;
+    string text;
+    cout << "Enter a string: ";
+    cin >> text;
+
+    if(is_palindrome(text)) {
+        cout << "The string is a palindrome.\n";
+    } else {
+        cout << "The string is not a palindrome.\n";
+    }
+
     return 0;
 }
