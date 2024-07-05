@@ -20,6 +20,6 @@ int main() {
         }
     }
 
-    cout << -1 << endl;
+    cout << -1 << endl; // In case no such index is found
     return 0;
 }
