@@ -1,10 +1,8 @@
 #include <iostream>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
-bool is_palindrome(string text){
+bool is_palindrome(string text) {
     int n = text.length();
     for(int i = 0; i < n / 2; ++i) {
         if(text[i] != text[n - i - 1]) {
@@ -15,8 +13,15 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    assert(is_palindrome("xywzx") == false);
-    assert(is_palindrome("racecar") == true);
-    cout << "All test cases passed!" << endl;
+    string text;
+    cout << "Enter a string: ";
+    cin >> text;
+
+    if(is_palindrome(text)) {
+        cout << "The string is a palindrome.\n";
+    } else {
+        cout << "The string is not a palindrome.\n";
+    }
+
     return 0;
 }
