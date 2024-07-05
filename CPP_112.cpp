@@ -9,24 +9,26 @@ using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     unordered_set<char> to_delete(c.begin(), c.end());
+
     string result;
     for (char ch : s) {
         if (to_delete.find(ch) == to_delete.end()) {
             result += ch;
         }
     }
+
     string reversed_result = result;
     reverse(reversed_result.begin(), reversed_result.end());
     bool is_palindrome = (result == reversed_result);
+
     return {result, is_palindrome ? "True" : "False"};
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"mma", "False"}));
-    cout << "All tests passed!" << endl;
+    assert (issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
     return 0;
 }
