@@ -1,9 +1,29 @@
-bool correct_bracketing(string brackets){
-    int balance = 0;
-    for(char ch : brackets) {
-        if(ch == '<') balance++;
-        else if(ch == '>') balance--;
-        if(balance < 0) return false;  // A closing bracket without a matching opening bracket
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool correct_bracketing(string brackets) {
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '<') {
+            count++;
+        } else if (c == '>') {
+            count--;
+        }
+        if (count < 0) {
+            return false;
+        }
     }
-    return balance == 0;  // Check if all opening brackets are matched
+    return count == 0;
+}
+
+int main() {
+    string brackets;
+    cin >> brackets;
+    if (correct_bracketing(brackets)) {
+        cout << "The bracketing is correct." << endl;
+    } else {
+        cout << "The bracketing is incorrect." << endl;
+    }
+    return 0;
 }
