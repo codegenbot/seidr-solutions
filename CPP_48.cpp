@@ -13,9 +13,10 @@ bool is_palindrome(std::string text) {
 }
 
 int main() {
-    assert(is_palindrome("radar") == true);
-    assert(is_palindrome("level") == true);
-    assert(is_palindrome("test") == false);
+    assert(is_palindrome("xywzx") == false);
+    assert(is_palindrome("madam") == true);
+    assert(is_palindrome("racecar") == true);
+    assert(is_palindrome("hello") == false);
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
