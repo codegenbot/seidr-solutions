@@ -12,7 +12,6 @@ bool correct_bracketing(const std::string& brackets) {
                 return false;
             }
         }
-        // Ignore other characters
     }
     return balance == 0;
 }
