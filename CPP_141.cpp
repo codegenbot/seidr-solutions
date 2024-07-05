@@ -1,7 +1,8 @@
 #include <cctype>
 #include <algorithm>
-#include <string> // Include this header for string
-using namespace std; // Use the std namespace
+#include <string> 
+#include <cassert>
+using namespace std;
 
 string file_name_check(string file_name) {
     int dot_pos = file_name.find('.');
@@ -21,9 +22,7 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    // Test cases
     assert (file_name_check("file.txt") == "Yes");
     assert (file_name_check("s.") == "No");
-    // Add more test cases as needed
     return 0;
 }
