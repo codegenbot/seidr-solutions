@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+```c++
+#include <stdio.h>
 
 int bowlingScore(const char* s) {
     int score = 0;
@@ -25,8 +25,8 @@ int bowlingScore(const char* s) {
 }
 
 int main() {
-    char s[100];
-    cin.getline(s, 100);
-    cout << "The bowling score is: " << bowlingScore(s) << endl;
+    const char* s = "X|9-8/7-X6/5-4/3|2";
+    int score = bowlingScore(s);
+    printf("The score is: %d\n", score);
     return 0;
 }
