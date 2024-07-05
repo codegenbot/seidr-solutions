@@ -1,5 +1,5 @@
-#include <string>  
-using namespace std;  
+#include <string>  // Include the string header
+using namespace std;  // Use the std namespace
 
 int count_upper(string s){
     int count = 0;
@@ -12,7 +12,6 @@ int count_upper(string s){
 }
 
 int main() {
-    // Add test cases if necessary
     assert(count_upper("EEEE") == 2);
     return 0;
 }
