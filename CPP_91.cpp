@@ -1,11 +1,11 @@
-#include<stdio.h>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int is_bored(string S) {
     int count = 0;
     bool newSentence = true;
-    
+
     for (char c : S) {
         if (newSentence && c == 'I') {
             count++;
@@ -18,6 +18,13 @@ int is_bored(string S) {
             newSentence = false;
         }
     }
-    
+
     return count;
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+    cout << is_bored(input) << endl;
+    return 0;
 }
