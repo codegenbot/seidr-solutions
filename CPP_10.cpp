@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // Added header for reverse
+#include <algorithm> // Include this header for reverse
 
 using namespace std;
 
@@ -18,13 +18,12 @@ string make_palindrome(string str) {
             return str + prefix;
         }
     }
-    return str; // should never reach here
+    return str; // This line is just for safety, though logically it won't be reached.
 }
 
 int main() {
     string input;
-    cout << "Enter a string: ";
     cin >> input;
-    cout << "Shortest palindrome: " << make_palindrome(input) << endl;
+    cout << make_palindrome(input) << endl;
     return 0;
 }
