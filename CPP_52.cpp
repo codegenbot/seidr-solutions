@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -8,4 +9,19 @@ bool below_threshold(vector<int> l, int t) {
         }
     }
     return true;
+}
+
+int main() {
+    int n, t;
+    cin >> n >> t;
+    vector<int> l(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> l[i];
+    }
+    if(below_threshold(l, t)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
