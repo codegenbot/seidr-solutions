@@ -8,6 +8,5 @@ def histogram(test):
     return {k: v for k, v in counts.items() if v == max_count}
 
 if __name__ == "__main__":
-    test = input().strip()
-    result = histogram(test)
-    print(result)
+    user_input = input()
+    print(histogram(user_input))
