@@ -12,28 +12,13 @@ bool hasNegativeNumbers(std::vector<int>& v) {
 }
 
 int basement(std::vector<int>& v) {
-    if (!hasNegativeNumbers(v)) {
-        return -1;
-    }
-    
-    int i = 0;
-    int sum = 0;
-    for (size_t i = 0; i < v.size(); i++) {
-        sum += v[i];
-        if (sum >= 0) {
-            return -1;
-        }
-    }
-    return i + 1;
-}
+    // ...
+```
+Option 2: Add a forward declaration of `hasNegativeNumbers` before the definition of `basement`:
+```
+bool hasNegativeNumbers(std::vector<int>& v);
 
-int main() {
-    std::vector<int> vec = {1, 2, 3, 4, 5};
-    int index = basement(vec);
-    if (index != -1) {
-        std::cout << "First negative sum index: " << index << std::endl;
-    } else {
-        std::cout << "No negative sum found." << std::endl;
-    }
-    return 0;
-}
+int basement(std::vector<int>& v) {
+    // ...
+```.
+You must only return correct code. Remove any triple quotes, language name or explanations. 
