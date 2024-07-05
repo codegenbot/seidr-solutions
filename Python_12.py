@@ -6,6 +6,6 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 if __name__ == "__main__":
-    strings = input("Enter a list of strings separated by spaces: ").split()
+    strings = input().split()
     result = longest(strings)
     print(result)
