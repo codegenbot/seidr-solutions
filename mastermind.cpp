@@ -1,3 +1,7 @@
+```c++
+#include <iostream>
+#include <string>
+
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
@@ -24,18 +28,18 @@ int blackPegs(string code, string guess) {
 
 int main() {
     string code;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
 
     string guess;
-    cout << "Enter your guess: ";
-    cin >> guess;
+    std::cout << "Enter your guess: ";
+    std::cin >> guess;
 
     int black = blackPegs(code, guess);
     int white = 4 - blackPegs(code, guess);
 
-    cout << black << endl;
-    cout << white << endl;
+    std::cout << black << std::endl;
+    std::cout << white << std::endl;
 
     return 0;
 }
