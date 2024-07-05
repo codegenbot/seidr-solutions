@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <any>
-
 using namespace std;
 
 any string_to_number(const string& s) {
@@ -11,7 +10,7 @@ any string_to_number(const string& s) {
     try {
         return stod(s_copy);
     } catch (const invalid_argument&) {
-        return s; // If conversion fails, return original string
+        return s;
     }
 }
 
@@ -45,7 +44,6 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    // Example usage
     any result = compare_one(string("10"), string("25"));
     if (result.type() == typeid(string))
         cout << any_cast<string>(result) << endl;
