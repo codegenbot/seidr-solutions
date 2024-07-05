@@ -1,4 +1,9 @@
-vector<int> sort_third(vector<int> l) {
+#include<stdio.h>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+vector<int> sort_third(vector<int> l){
     vector<int> divisible_by_three;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
@@ -6,10 +11,10 @@ vector<int> sort_third(vector<int> l) {
         }
     }
     sort(divisible_by_three.begin(), divisible_by_three.end());
-    int index = 0;
+    int idx = 0;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            l[i] = divisible_by_three[index++];
+            l[i] = divisible_by_three[idx++];
         }
     }
     return l;
