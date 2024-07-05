@@ -14,7 +14,7 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        n = int(input().strip())
+        n = int(input("Enter a positive integer: ").strip())
         if n <= 0:
             raise ValueError
         result = factorize(n)
