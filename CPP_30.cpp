@@ -24,5 +24,6 @@ bool issame(vector<float> a, vector<float> b) {
 
 int main() {
     assert(issame(get_positive({}), {}));
+    // Add more test cases if needed
     return 0;
 }
