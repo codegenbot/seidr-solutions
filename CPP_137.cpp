@@ -48,10 +48,8 @@ std::any compare_one(std::any a, std::any b) {
 int main() {
     std::any a = 42;
     std::any b = 3.14f;
-
     try {
         std::any result = compare_one(a, b);
-
         if (result.type() == typeid(string)) {
             cout << std::any_cast<string>(result) << endl;
         } else if (result.type() == typeid(int)) {
@@ -63,12 +61,12 @@ int main() {
         } else {
             cout << "Unexpected type" << endl;
         }
-
+        
         // Updated assertion to compare compatible types
         assert (std::any_cast<string>(compare_one(string("42"), 42)) == "None");
+        
     } catch (const std::bad_any_cast& e) {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
-        cout << e.what() << endl;
     }
     return 0;
 }
