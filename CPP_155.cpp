@@ -31,8 +31,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
     assert(issame(even_odd_count(12345), {2, 3}));
-    assert(issame(even_odd_count(-24680), {5, 0}));
+    assert(issame(even_odd_count(2468), {4, 0}));
     assert(issame(even_odd_count(13579), {0, 5}));
-    cout << "All tests passed!" << endl;
+    assert(issame(even_odd_count(-123456), {3, 3}));
     return 0;
 }
