@@ -1,3 +1,8 @@
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 string solve(string s) {
     bool hasLetter = false;
     for (char c : s) {
@@ -6,15 +11,16 @@ string solve(string s) {
             break;
         }
     }
+
     if (!hasLetter) {
         reverse(s.begin(), s.end());
         return s;
     }
+
     for (char &c : s) {
-        if (islower(c)) {
-            c = toupper(c);
-        } else if (isupper(c)) {
-            c = tolower(c);
+        if (isalpha(c)) {
+            if (islower(c)) c = toupper(c);
+            else c = tolower(c);
         }
     }
     return s;
