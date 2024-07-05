@@ -1,5 +1,4 @@
-#include <cmath> // Include the cmath library for pow
-
+#include <cmath>
 using namespace std;
 
 int starts_one_ends(int n) {
