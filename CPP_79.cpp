@@ -1,16 +1,23 @@
-#include <string>
 #include <iostream>
+#include <string>
+#include <cassert>
 
 std::string decimal_to_binary(int decimal) {
-    std::string binary = "";
-    while (decimal > 0) {
-        binary = (decimal % 2 == 0 ? "0" : "1") + binary;
-        decimal /= 2;
+    std::string result = "db";
+    if (decimal == 0) {
+        result += "0";
+    } else {
+        while (decimal > 0) {
+            result = (char)((decimal % 2) + '0') + result;
+            decimal /= 2;
+        }
     }
-    return "db" + (binary == "" ? "0" : binary) + "db";
+    result += "db";
+    return result;
 }
 
 int main() {
-    std::cout << decimal_to_binary(15) << std::endl; // Example usage
+    assert(decimal_to_binary(15) == "db1111db");
+    std::cout << decimal_to_binary(15) << std::endl; // for demonstration
     return 0;
 }
