@@ -13,5 +13,8 @@ bool same_chars(string s0, string s1) {
 
 int main() {
     assert(same_chars("aabb", "aaccc") == false);
+    assert(same_chars("abc", "bca") == true);
+    assert(same_chars("xyz", "zyx") == true);
+    assert(same_chars("hello", "world") == false);
     return 0;
 }
