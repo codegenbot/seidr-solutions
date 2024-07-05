@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -31,8 +30,9 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    // Test case
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    cout << "All test cases passed." << endl;
+    assert(issame(sort_array({5, 3, 9, 7}), {3, 5, 7, 9}));
+    assert(issame(sort_array({10, 5, 6, 7}), {5, 10, 6, 7}));
+    assert(issame(sort_array({1, 2, 3, 4, 5, 6, 7, 8}), {1, 2, 4, 8, 3, 5, 6, 7}));
     return 0;
 }
