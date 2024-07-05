@@ -1,6 +1,6 @@
 ```cpp
 #include <string>
-string concatenate(vector<std::string> strings){
+string concatenate(vector<string> strings){
     std::string result = "";
     for(auto s : strings)
         result += s;
