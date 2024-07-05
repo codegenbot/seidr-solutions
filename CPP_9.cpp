@@ -1,11 +1,10 @@
 vector<int> result;
-    if (numbers.empty()) {
-        return result;
-    }
+    if (numbers.empty()) return result;
     int max_so_far = numbers[0];
-    result.push_back(max_so_far);
-    for (size_t i = 1; i < numbers.size(); ++i) {
-        max_so_far = max(max_so_far, numbers[i]);
+    for (int num : numbers) {
+        if (num > max_so_far) {
+            max_so_far = num;
+        }
         result.push_back(max_so_far);
     }
     return result;
