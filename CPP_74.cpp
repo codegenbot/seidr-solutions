@@ -25,18 +25,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> result1 = total_match({"this"}, {});
-    vector<string> expected1 = {};
-    assert(result1 == expected1);
-
-    vector<string> result2 = total_match({"a", "b", "c"}, {"alpha", "beta"});
-    vector<string> expected2 = {"a", "b", "c"};
-    assert(result2 == expected2);
-
-    vector<string> result3 = total_match({"hello", "world"}, {"foo", "bar", "baz"});
-    vector<string> expected3 = {"hello", "world"};
-    assert(result3 == expected3);
-
+    assert(total_match({"this"}, {}) == vector<string>{});
+    assert(total_match({"a", "b", "c"}, {"alpha", "beta"}) == vector<string>{"a", "b", "c"});
+    assert(total_match({"hello", "world"}, {"foo", "bar", "baz"}) == vector<string>{"hello", "world"});
     cout << "All test cases passed!";
     return 0;
 }
