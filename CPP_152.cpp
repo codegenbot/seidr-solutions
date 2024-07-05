@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -14,13 +13,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> game(n), guess(n);
-    for (int i = 0; i < n; ++i) cin >> game[i];
-    for (int i = 0; i < n; ++i) cin >> guess[i];
-    vector<int> result = compare(game, guess);
-    for (int i : result) cout << i << " ";
-    cout << endl;
+    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>({2, 0, 0, 1}));
     return 0;
 }
