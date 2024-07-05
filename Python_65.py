@@ -1,6 +1,7 @@
-digits = str(x)
+def circular_shift(x, shift):
+    digits = str(x)
     n = len(digits)
-    if shift > n:
+    if shift >= n:
         return digits[::-1]
-    shift = shift % n
+    shift %= n
     return digits[-shift:] + digits[:-shift]
