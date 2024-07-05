@@ -17,10 +17,10 @@ string make_palindrome(string str) {
             return str + prefix;
         }
     }
-    return str; // This line is just for safety, though logically it won't be reached.
+    return str; 
 }
 
-int main() { // Keep only one definition of main function
+int main() {
     string input;
     cin >> input;
     cout << make_palindrome(input) << endl;
