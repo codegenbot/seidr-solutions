@@ -6,4 +6,5 @@ def max_fill(grid, capacity):
     return buckets_needed
 
 if __name__ == "__main__":
-    print(max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9))  # Should output 1
+    assert max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9) == 2, "Error"
+    print("Test passed")
