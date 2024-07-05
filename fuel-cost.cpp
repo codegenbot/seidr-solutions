@@ -5,11 +5,9 @@ using namespace std;
 int calculateFuelCost(vector<int> numbers) {
     int totalFuel = 0;
     for (int num : numbers) {
-        int result = (num / 3);
+        int result = static_cast<int>(num / 3.0);
         if (result >= 2) {
             result -= 2;
-        } else {
-            result = 0;
         }
         totalFuel += result;
     }
