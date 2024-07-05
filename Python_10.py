@@ -1,5 +1,4 @@
-Here is the completed code:
-
+```
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
@@ -11,3 +10,7 @@ def make_palindrome(string: str) -> str:
         if postfix == postfix[::-1]:
             return string + postfix[::-1]
     return string + string[::-1]
+
+user_input = input("Enter a string: ")
+print(is_palindrome(user_input))
+print(make_palindrome(user_input))
