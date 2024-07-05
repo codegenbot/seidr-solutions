@@ -1,4 +1,5 @@
-def fib4(n):
+
+def fib4(n: int):
     if n <= 3:
         return 0
     elif n == 4:
