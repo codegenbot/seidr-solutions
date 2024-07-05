@@ -17,3 +17,8 @@ def find_zero(xs: list):
         else:
             a = c
     return (a + b) / 2
+
+if __name__ == "__main__":
+    xs = list(map(float, input().strip().split()))
+    zero = find_zero(xs)
+    print(zero)
