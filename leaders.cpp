@@ -1,24 +1,39 @@
-```cpp
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int rightmost = arr.back();
-    
-    for(int i = arr.size() - 1; i >= 0; --i) {
-        if(arr[i] >= rightmost) {
-            rightmost = arr[i];
-            result.push_back(rightmost);
+int main() {
+    vector<int> leaders(vector<int>& arr) {
+        vector<int> res;
+        int n = arr.size();
+        int maxRight = arr[n-1];
+        for(int i=n-1; i>=0; i--) {
+            if(arr[i] >= maxRight) {
+                res.push_back(arr[i]);
+                maxRight = arr[i];
+            }
         }
+        return res;
+    }
+
+    vector<int> arr;
+    int num;
+    
+    cout << "Enter numbers: ";
+    while (cin >> num) {
+        arr.push_back(num);
     }
     
-    return result;
-}
+    vector<int> result = leaders(arr);
+    
+    if(result.size() > 0) {
+        cout << "Leaders are: ";
+        for(int i=0; i<result.size(); i++) {
+            cout << result[i] << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "No leaders found." << endl;
+    }
 
-int main() {
-    vector<int> input = {1, 3, 4, 2, 3};
-    vector<int> result = leaders(input);
-    for (int x : result) cout << x << " ";
     return 0;
 }

@@ -1,6 +1,12 @@
-```cpp
+```c++
 #include <vector>
 using namespace std;
+
+int main() {
+    vector<int> digits = {3, 4, 2, 7, 1, 3, 6, 9, 0, 1, 8, 5, 9, 4, 5, 9};
+    cout << luhn(digits) << endl;
+    return 0;
+}
 
 int luhn(vector<int> digits) {
     int sum = 0;
@@ -16,11 +22,4 @@ int luhn(vector<int> digits) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> testDigits = {4,3,2,1,8,7,6,5,4,3,2,1};
-    int result = luhn(testDigits);
-    cout << "Result: " << result << endl;
-    return 0;
 }

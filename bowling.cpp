@@ -1,4 +1,5 @@
-int bowlingScore(const char* s) {
+```
+int calculateBowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
     for (int i = 0; s[i] != '\0'; i++) {
@@ -29,4 +30,5 @@ int bowlingScore(const char* s) {
             }
         }
     }
+    return score;
 }
