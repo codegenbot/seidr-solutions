@@ -29,6 +29,6 @@ int main() {
     int n;
     cin >> n;
     vector<int> result = even_odd_palindrome(n);
-    cout << "Even Count: " << result[0] << ", Odd Count: " << result[1] << endl;
+    cout << "Even palindromes: " << result[0] << ", Odd palindromes: " << result[1] << endl;
     return 0;
 }

@@ -13,8 +13,7 @@ int is_bored(const string& S) {
         }
         if (c == '.' || c == '?' || c == '!') {
             newSentence = true;
-        }
-        if (c != ' ' && c != '.' && c != '?' && c != '!') {
+        } else if (c != ' ') {
             newSentence = false;
         }
     }
