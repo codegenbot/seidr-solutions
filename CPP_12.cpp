@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string longest(vector<string> strings){
+string longest(vector<string> strings) {
     if (strings.empty()) return "None";
     string longest_str = strings[0];
     for (const auto& str : strings) {
