@@ -1,17 +1,25 @@
 vector<string> by_length(vector<int> arr){
-    vector<int> valid_elements;
+    vector<string> result;
+    map<int, string> numToName = {
+        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
+        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
+    };
+    
+    // Filter elements between 1 and 9 inclusive
+    vector<int> filtered;
     for(int num : arr) {
-        if (num >= 1 && num <= 9) {
-            valid_elements.push_back(num);
+        if(num >= 1 && num <= 9) {
+            filtered.push_back(num);
         }
     }
-    sort(valid_elements.begin(), valid_elements.end());
-    reverse(valid_elements.begin(), valid_elements.end());
-
-    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    vector<string> result;
-    for(int num : valid_elements) {
-        result.push_back(names[num - 1]);
+    
+    // Sort and reverse the filtered vector
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
+    
+    // Replace each digit by its corresponding name
+    for(int num : filtered) {
+        result.push_back(numToName[num]);
     }
     
     return result;
