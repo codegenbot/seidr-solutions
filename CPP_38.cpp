@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string encode_cyclic(string s) {
+string encode_cyclic(string s){
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -35,6 +35,8 @@ int main(){
     encoded_str = encode_cyclic(str);
     
     assert(decode_cyclic(encoded_str) == str);
+
+    cout << "Encoded: " << encoded_str << endl;
 
     return 0;
 }
