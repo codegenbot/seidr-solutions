@@ -8,15 +8,12 @@ using namespace std;
 string string_to_md5(const string& text) {
     if (text.empty()) return "None";
 
-    MD5_CTX ctx;
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(digest, &ctx);
+    MD5((unsigned char*)text.c_str(), text.size(), digest);
 
     char md5_string[33];
-    for (int i = 0; i < 16; ++i)
-        sprintf(&md5_string[i * 2], "%02x", (unsigned int)digest[i]);
+    for(int i = 0; i < 16; ++i)
+        sprintf(&md5_string[i*2], "%02x", (unsigned int)digest[i]);
 
     return string(md5_string);
 }
