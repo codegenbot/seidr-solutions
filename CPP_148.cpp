@@ -8,15 +8,12 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    int idx1 = distance(planets.begin(), it1);
-    int idx2 = distance(planets.begin(), it2);
-
-    if (idx1 > idx2) {
-        swap(idx1, idx2);
+    if (it1 > it2) {
+        swap(it1, it2);
     }
 
-    for (int i = idx1 + 1; i < idx2; ++i) {
-        result.push_back(planets[i]);
+    for (auto it = it1 + 1; it != it2; ++it) {
+        result.push_back(*it);
     }
 
     return result;

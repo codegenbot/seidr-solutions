@@ -1,21 +1,17 @@
 #include <sstream>
 
 bool simplify(string x, string n) {
-    int num1, den1, num2, den2;
+    int x_num, x_den, n_num, n_den;
     char slash;
-    
-    // Parse the first fraction
-    stringstream ss1(x);
-    ss1 >> num1 >> slash >> den1;
-    
-    // Parse the second fraction
-    stringstream ss2(n);
-    ss2 >> num2 >> slash >> den2;
-    
-    // Calculate the product of the two fractions
-    int product_num = num1 * num2;
-    int product_den = den1 * den2;
-    
-    // Check if the product is a whole number
-    return (product_num % product_den == 0);
+
+    stringstream x_stream(x);
+    x_stream >> x_num >> slash >> x_den;
+
+    stringstream n_stream(n);
+    n_stream >> n_num >> slash >> n_den;
+
+    int result_num = x_num * n_num;
+    int result_den = x_den * n_den;
+
+    return result_num % result_den == 0;
 }
