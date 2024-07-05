@@ -1,26 +1,27 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
-using namespace std;
-
-vector<int> intersperse(vector<int> numbers, int delimiter) {
-    vector<int> result;
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
+    if (numbers.empty()) return numbers;
+    std::vector<int> result;
+    result.reserve(numbers.size() * 2 - 1); // Optimize memory allocation
     for (size_t i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
-        if (i < numbers.size() - 1) {
+        if (i != numbers.size() - 1) {
             result.push_back(delimiter);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    cout << "All tests passed!" << endl;
+    assert(issame(intersperse({1, 2, 3}, 0), {1, 0, 2, 0, 3}));
+    // Add more test cases as needed
+
     return 0;
 }
