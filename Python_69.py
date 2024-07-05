@@ -7,5 +7,6 @@ def search(lst):
             result = max(result, num)
     return result
 
-lst = list(map(int, input().split()))
-print(search(lst))
+if __name__ == "__main__":
+    lst = list(map(int, input().strip().split()))
+    print(search(lst))
