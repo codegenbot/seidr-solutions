@@ -10,7 +10,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     size_t n = text.length();
     size_t m = target.length();
 
-    for (int i = 0; i <= static_cast<size_t>(n - m); i++) {
+    for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
         }
