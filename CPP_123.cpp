@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert> // for assert
+#include <cassert>
 
 using namespace std;
 
