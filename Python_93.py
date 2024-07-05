@@ -11,3 +11,5 @@ def encode(message):
         return c.swapcase()
     
     return ''.join(transform_char(c) for c in message)
+
+print(encode("I DoNt KnOw WhAt tO WrItE"))
