@@ -5,10 +5,7 @@ using namespace std;
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c) && islower(c))
-            result += (c - 'a' + 4) % 26 + 'a';
-        else
-            result += c; // Preserve non-lowercase characters
+        result += (c - 'a' + 4) % 26 + 'a';
     }
     return result;
 }
