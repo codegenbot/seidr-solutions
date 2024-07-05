@@ -5,4 +5,3 @@ def select_words(s, n):
         if len(word) == n and word[0].isalpha():
             result.append(word)
     return result
-```
