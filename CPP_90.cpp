@@ -4,7 +4,7 @@
 #include <cassert>
 
 int next_smallest(const std::vector<int>& lst) {
-    if (lst.size() < 2) return -1;
+    if (lst.size() < 2) return -1; // Assuming -1 as None, as C++ does not have None
 
     std::vector<int> sorted_lst = lst;
     std::sort(sorted_lst.begin(), sorted_lst.end());
@@ -16,7 +16,7 @@ int next_smallest(const std::vector<int>& lst) {
         }
     }
 
-    return -1;
+    return -1; // If there is no second smallest element
 }
 
 int main() {
