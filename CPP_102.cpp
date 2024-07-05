@@ -18,6 +18,6 @@ int main() {
     assert(choose_num(5, 8) == 8);
     assert(choose_num(10, 5) == -1);
     std::cout << "All tests passed!" << std::endl;
-    
+
     return 0;
 }
