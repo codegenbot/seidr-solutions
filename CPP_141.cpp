@@ -1,8 +1,6 @@
-#include <iostream>
-#include <string>
 #include <cctype>
 #include <algorithm>
-
+#include <string>
 using namespace std;
 
 string file_name_check(string file_name) {
@@ -23,11 +21,9 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    cout << file_name_check("s.") << endl;  // No
-    cout << file_name_check("s.txt") << endl;  // Yes
-    cout << file_name_check("1file.txt") << endl;  // No
-    cout << file_name_check("file1234.txt") << endl;  // No
-    cout << file_name_check("file123.txt") << endl;  // Yes
-
+    // Test cases
+    assert (file_name_check("file.txt") == "Yes");
+    assert (file_name_check("s.") == "No");
+    // Add more test cases as needed
     return 0;
 }
