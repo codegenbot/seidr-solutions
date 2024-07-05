@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <string>
+#include <sstream>
 using namespace std;
 
 double diceGame(int n, int m) {
