@@ -3,7 +3,7 @@
 
 bool move_one_ball(const std::vector<int>& arr) {
     int n = arr.size();
-    if (n == 0) return true;  // Edge case check
+    if (n == 0) return true;
 
     int count = 0;
     for (int i = 1; i < n; ++i) {
@@ -22,8 +22,7 @@ int main() {
     std::cout << std::boolalpha;
 
     std::vector<int> arr;
-    int n, value;
-    
+    int n, value;    
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> value;
