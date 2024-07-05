@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
-#include <typeinfo>
 #include <boost/any.hpp>
+#include <typeinfo>
+#include <cassert>
 
 using namespace std;
 
@@ -21,7 +20,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert (issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    cout << "Assertion passed!" << endl;
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
