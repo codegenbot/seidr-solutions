@@ -14,6 +14,5 @@ if __name__ == "__main__":
             if test:
                 result = histogram(test)
                 print(result)
-                
     except EOFError:
         pass
