@@ -45,6 +45,7 @@ int main() {
     else
         cout << std::any_cast<double>(result) << endl;
 
+    // Another test case
     auto result2 = compare_one(string("1"), 1);
     if (result2.type() == typeid(int))
         cout << std::any_cast<int>(result2) << endl;
