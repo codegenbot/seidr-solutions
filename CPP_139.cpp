@@ -20,6 +20,6 @@ long long special_factorial(int n) {
 int main() {
     int n;
     cin >> n;
-    cout << special_factorial(n) << "\n";
+    cout << special_factorial(n) << endl;
     return 0;
 }

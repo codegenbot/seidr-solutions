@@ -28,6 +28,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    cout << "All tests passed!" << endl;
+    cout << "Test passed!" << endl;
     return 0;
 }

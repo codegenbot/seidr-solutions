@@ -1,31 +1,17 @@
-#include<sstream>
-
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
+#include <sstream>
 
 bool simplify(string x, string n) {
     int x_num, x_den, n_num, n_den;
-    char sep;
-    
-    stringstream ss_x(x);
-    ss_x >> x_num >> sep >> x_den;
-    
-    stringstream ss_n(n);
-    ss_n >> n_num >> sep >> n_den;
-    
+    char slash;
+
+    stringstream x_stream(x);
+    x_stream >> x_num >> slash >> x_den;
+
+    stringstream n_stream(n);
+    n_stream >> n_num >> slash >> n_den;
+
     int result_num = x_num * n_num;
     int result_den = x_den * n_den;
-    
-    int result_gcd = gcd(result_num, result_den);
-    
-    result_num /= result_gcd;
-    result_den /= result_gcd;
-    
-    return result_den == 1;
+
+    return result_num % result_den == 0;
 }
