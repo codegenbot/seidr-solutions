@@ -1,5 +1,6 @@
 def histogram(test):
     from collections import Counter
+
     if not test:
         return {}
     counts = Counter(test.split())
