@@ -11,5 +11,6 @@ def factorize(n: int) -> List[int]:
     return factors
 
 if __name__ == "__main__":
-    n = int(input("Enter an integer to factorize: "))
-    print(factorize(n))
+    n = int(input())  # Read input from user
+    result = factorize(n)
+    print(result)  # Print the result
