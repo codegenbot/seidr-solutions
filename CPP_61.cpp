@@ -12,8 +12,20 @@ bool correct_bracketing(const std::string &brackets) {
 }
 
 int main() {
-    std::string test;
-    std::cin >> test;
-    std::cout << correct_bracketing(test) << std::endl;
+    std::string test1 = "()()(()())";
+    std::cout << correct_bracketing(test1) << std::endl;
+
+    std::string test2 = "((())";
+    std::cout << correct_bracketing(test2) << std::endl;
+
+    std::string test3 = ")()(";
+    std::cout << correct_bracketing(test3) << std::endl;
+    
+    std::string test4 = "(()())()";
+    std::cout << correct_bracketing(test4) << std::endl;
+
+    std::string test5 = "";
+    std::cout << correct_bracketing(test5) << std::endl;
+
     return 0;
 }
