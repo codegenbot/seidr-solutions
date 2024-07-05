@@ -26,12 +26,9 @@ def minPath(grid, k):
             heappush(min_paths, (current_val + grid[nx][ny], new_path))
 
 
-# Read input from user
-n = int(input().strip())
-grid = []
-for _ in range(n):
-    grid.append(list(map(int, input().strip().split())))
-k = int(input().strip())
-
-result = minPath(grid, k)
-print(result)
+if __name__ == "__main__":
+    N = int(input())
+    grid = [list(map(int, input().split())) for i in range(N)]
+    k = int(input())
+    result = minPath(grid, k)
+    print(result)
