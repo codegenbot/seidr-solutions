@@ -20,11 +20,3 @@ string int_to_mini_roman(int number) {
     }
     return result;
 }
-
-int main() {
-    assert(int_to_mini_roman(1000) == "m");
-    assert(int_to_mini_roman(1994) == "mcmxciv");
-    assert(int_to_mini_roman(58) == "lviii");
-    assert(int_to_mini_roman(4) == "iv");
-    return 0;
-}
