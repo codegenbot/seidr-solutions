@@ -1,4 +1,4 @@
-vector<string> words_string(string s){
+vector<string> words_string(string s) {
     vector<string> result;
     string word;
     for (char c : s) {
