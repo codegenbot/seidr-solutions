@@ -17,14 +17,14 @@ def minPath(grid, k):
         x, y = path[-1]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in path:
+            if 0 <= nx < N and 0 <= ny < N:
                 new_path = path + [(nx, ny)]
                 new_path_sum = path_sum + grid[nx][ny]
                 heappush(min_heap, (new_path_sum, new_path))
 
 if __name__ == "__main__":
-    N = int(input("Enter grid size: "))
+    N = int(input())
     grid = [list(map(int, input().split())) for _ in range(N)]
-    k = int(input("Enter the path length k: "))
+    k = int(input())
     result = minPath(grid, k)
     print(result)
