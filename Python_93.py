@@ -3,10 +3,14 @@ def encode(message):
     encoded_message = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in vowels:
-                encoded_char = chr((ord(char) - ord("a") + 2) % 26 + ord("A"))
+            shift = ord(char) - ord("a") + 2
+            if char.islower():
+                shift %= 26
+            elif char.isupper():
+                shift %= 26
+                shift += ord("A")
             else:
                 encoded_message += char
-        elif char.isspace() or char.ispunct():
+        else:
             encoded_message += char
     return encoded_message
