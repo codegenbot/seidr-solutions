@@ -1,5 +1,12 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+#include <cassert>
+
+using namespace std;
+
 int do_algebra(vector<string> operato, vector<int> operand) {
-    if (operand.empty()) return 0;
     int result = operand[0];
     for (size_t i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
@@ -15,4 +22,9 @@ int do_algebra(vector<string> operato, vector<int> operand) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    return 0;
 }
