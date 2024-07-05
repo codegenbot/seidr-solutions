@@ -24,6 +24,6 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
+    cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 3) << endl;
     return 0;
 }
