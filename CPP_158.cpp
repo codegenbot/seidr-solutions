@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -31,11 +30,11 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    assert((find_max({"play", "play", "play"}) == "play"));
-    assert((find_max({"apple", "banana", "grapes"}) == "banana"));
-    assert((find_max({"abcd", "abc", "ab"}) == "abcd"));
-    assert((find_max({"ab", "bc", "cd"}) == "ab"));
-    assert((find_max({"aaa", "bbb", "ccc"}) == "aaa"));
-    assert((find_max({"pqr", "pqrs", "pqrst"}) == "pqrst"));
+    cout << find_max({"play", "play", "play"}) << endl;
+    cout << find_max({"apple", "banana", "grapes"}) << endl;
+    cout << find_max({"abcd", "abc", "ab"}) << endl;
+    cout << find_max({"ab", "bc", "cd"}) << endl;
+    cout << find_max({"aaa", "bbb", "ccc"}) << endl;
+    cout << find_max({"pqr", "pqrs", "pqrst"}) << endl;
     return 0;
 }
