@@ -1,26 +1,10 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int fuelCost(vector<int> v) {
+int solve(vector<int>& v) {
     int sum = 0;
-    for (int i : v) {
-        int x = i / 3;
-        x = floor(x);
-        x -= 2;
-        sum += x;
+    for (int x : v) {
+        int y = (x / 3) - 2;
+        sum += y;
     }
     return sum;
-}
-
-int main() {
-    vector<int> vec; // input your numbers here
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        vec.push_back(num);
-    }
-    cout << fuelCost(vec) << endl;
-    return 0;
 }

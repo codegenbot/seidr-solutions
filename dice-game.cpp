@@ -1,5 +1,3 @@
-Here is the solution:
-
 double probability(int n, int m) {
     if (n < m) {
         return 0.0;
