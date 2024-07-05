@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -25,17 +27,4 @@ vector<int> parse_music(string music_string) {
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
-}
-
-int main() {
-    string str1, str2;
-    getline(cin, str1);
-    getline(cin, str2);
-    
-    vector<int> music1 = parse_music(str1);
-    vector<int> music2 = parse_music(str2);
-    
-    cout << (issame(music1, music2) ? "Yes" : "No") << endl;
-    
-    return 0;
 }
