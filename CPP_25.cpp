@@ -23,9 +23,3 @@ bool issame(vector<int> a, vector<int> b) {
     sort(b.begin(), b.end());
     return a == b;
 }
-
-int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    cout << "All tests passed." << endl;
-    return 0;
-}

@@ -24,10 +24,11 @@ void test() {
     assert(car_race_collision("RRLL") == 4);
     assert(car_race_collision("RLRLRL") == 6);
     assert(car_race_collision("LLRR") == 0);
+    cout << "All test cases pass!\n";
 }
 
 int main() {
-    test();  // Run the test function before reading user input
+    test();
 
     string track;
     cin >> track;
