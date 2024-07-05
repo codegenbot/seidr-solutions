@@ -1,9 +1,10 @@
 def histogram(test=None):
     from collections import Counter
     if test is None:
-        test = input().strip()
+        import sys
+        test = sys.stdin.read().strip()
     if not test:
-        print("{}")
+        print("")
         return
     counts = Counter(test.split())
     max_count = max(counts.values())
