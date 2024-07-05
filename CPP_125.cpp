@@ -29,6 +29,9 @@ vector<string> split_words(string txt) {
             }
         }
         result.push_back(to_string(odd_count));
+        if (txt.empty()) {
+            result.push_back("0");
+        }
     }
     return result;
 }
