@@ -1,6 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 vector<string> numerical_letter_grade(vector<float> grades) {
@@ -29,6 +31,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
-    // Add more test cases as needed
+    assert(issame(numerical_letter_grade({4.0, 3.8, 2.9}), {"A+", "A", "B"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
