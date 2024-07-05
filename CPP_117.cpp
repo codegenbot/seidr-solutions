@@ -4,7 +4,8 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <cstring> // for strchr
+#include <cstring>
+
 using namespace std;
 
 vector<string> select_words(string s, int n) {
@@ -30,8 +31,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    assert (issame(select_words("hello world", 3), {"hello"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("hello world", 3), {"hello"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
