@@ -3,7 +3,7 @@ def double_the_difference(lst):
 
 def check(func):
     lst = [1, 2, 3, 4, 5]
-    odd_sum = sum(x**2 for x in lst if x > 0 and x % 2 != 0) * 2
+    odd_sum = 2 * sum(x**2 for x in lst if x > 0 and x % 2 != 0)
     assert func(lst) == odd_sum
 
 check(double_the_difference)
