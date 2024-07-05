@@ -26,19 +26,18 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 int main() {
     vector<string> operato;
     vector<int> operand;
+    string op;
+    int num;
 
-    int n;
-    cin >> n;
-    operato.resize(n);
-    operand.resize(n + 1);
-
-    for(int i = 0; i < n; ++i) {
-        cin >> operato[i];
-    }
-    for(int i = 0; i <= n; ++i) {
-        cin >> operand[i];
+    while (cin >> op) {
+        if (op == "=") break;
+        operato.push_back(op);
+        cin >> num;
+        operand.push_back(num);
     }
 
+    int result = operand[0];
+    operand.erase(operand.begin());
     cout << do_algebra(operato, operand) << endl;
     return 0;
 }
