@@ -1,6 +1,4 @@
-```Python
 import math
-
 
 def find_zero(xs):
     if len(xs) < 3:
@@ -14,14 +12,12 @@ def find_zero(xs):
 
     a = xs[0]
     b = xs[1]
-    c = [xs[i] for i in range(2, len(xs) - 1)]
+    c = xs[-1]
 
-    if all([x > 0 for x in [a, b] + c]):
-        return (-sum(c) + math.sqrt((sum(c)**2) - (4 * a * c[-1]))) / (2 * a)
+    if len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
+        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
     else:
-        zero = None
-        for i in range(len(c)):
-            if all([x > 0 for x in [a, b] + c[:i] + c[i+1:]]):
-                zero = (-sum(c[:i] + c[i+1:]) + math.sqrt((sum(c[:i] + c[i+1:])**2) - (4 * a * c[i]))) / (2 * a)
-                break
-        return zero
+        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+
+xs = [int(x) for x in input("Enter the list of numbers: ").split()]
+find_zero(xs)
