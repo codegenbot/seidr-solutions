@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int cents;
     cin >> cents;
@@ -11,23 +10,11 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
     
-    while (cents >= 25) {
-        int new_quarters = min(cents / 25, 1);
-        quarters += new_quarters;
-        cents -= new_quarters * 25;
-    }
-    
     int dimes = cents / 10;
     cents %= 10;
     
     int nickles = cents / 5;
     cents %= 5;
-    
-    while (cents >= 5) {
-        int new_nickles = min(cents / 5, 1);
-        nickles += new_nickles;
-        cents -= new_nickles * 5;
-    }
     
     int pennies = cents;
     

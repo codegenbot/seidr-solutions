@@ -1,9 +1,8 @@
+```c++
 #include <vector>
 #include <cmath>
-#include <iostream>
-#include <iomanip>
 
-int calculateFuelCost(std::vector<int> numbers) {
+int calculateFuelCost(std::initializer_list<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
         double result = std::floor((double(num) / 3));
@@ -18,8 +17,16 @@ int calculateFuelCost(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3};
-    int fuelCost = calculateFuelCost(numbers);
-    std::cout << "The total fuel cost is: " << fuelCost << std::endl;
+    int num1, num2, num3; 
+    std::cout << "Enter first number: ";
+    std::cin >> num1;
+    std::cout << "Enter second number: ";
+    std::cin >> num2;
+    std::cout << "Enter third number: ";
+    std::cin >> num3;
+
+    std::vector<int> numbers = {num1, num2, num3};
+    int result = calculateFuelCost(numbers);
+    std::cout << "The fuel cost is: " << result << std::endl;
     return 0;
 }
