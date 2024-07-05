@@ -12,14 +12,13 @@ int basement(std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums1(-2,1,-3,4,-1,2,1,-5,4);
+    std::vector<int> nums1 = {-2,1,-3,4,-1,2,1,-5,4};
+    nums1.reserve(nums1.size()); 
     std::cout << basement(nums1) << std::endl;
 
-    nums1.clear();
-    nums1.reserve(6);
-    nums1.push_back(0);nums1.push_back(-1);nums1.push_back(2);nums1.push_back(-3);nums1.push_back(1);
-
-    std::cout << basement(nums1) << std::endl;
+    std::vector<int> nums2 = {0,-1,2,-3,1};
+    nums2.reserve(nums2.size());
+    std::cout << basement(nums2) << std::endl;
 
     return 0;
 }
