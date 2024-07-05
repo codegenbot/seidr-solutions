@@ -1,7 +1,6 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> strange_sort_list(vector<int> lst) {
@@ -27,6 +26,5 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
-    // You can add more test cases here
     return 0;
 }
