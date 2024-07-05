@@ -1,11 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cmath> // for 'pow'
+#include <cmath>
 
-using namespace std;
-
-int do_algebra(vector<string> operato, vector<int> operand) {
+int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& operand) {
     int result = operand[0];
     for (size_t i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
@@ -14,16 +12,16 @@ int do_algebra(vector<string> operato, vector<int> operand) {
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "/") { // Changed from '//' to '/'
+        } else if (operato[i] == "//") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]);
+            result = std::pow(result, operand[i + 1]);
         }
     }
     return result;
 }
 
 int main() {
-    cout << do_algebra({"/", "*"}, {24, 3, 4}) << endl; // Output should be 32
+    std::cout << do_algebra({"+", "*"}, {2, 3, 4}) << std::endl;
     return 0;
 }
