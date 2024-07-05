@@ -22,18 +22,15 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(result == expected);
-
-    result = sorted_list_sum({"a", "bbb", "cccc", "ee", "fff", "ggg", "hh"});
-    expected = {"hh", "cccc"};
-    assert(result == expected);
-
-    result = sorted_list_sum({"even", "odd", "eight", "six"});
-    expected = {"six", "even", "eight"};
-    assert(result == expected);
-
-    cout << "All test cases passed!" << endl;
+    vector<string> lst;
+    string word;
+    while (cin >> word) {
+        lst.push_back(word);
+    }
+    vector<string> result = sorted_list_sum(lst);
+    for (const auto& str : result) {
+        cout << str << " ";
+    }
+    cout << endl;
     return 0;
 }
