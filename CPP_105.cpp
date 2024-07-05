@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <map>
 #include <algorithm>
 #include <cassert>
@@ -33,7 +32,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
-    cout << "Test passed!" << endl;
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
