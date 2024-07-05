@@ -12,7 +12,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     
     // Check if the result string is a palindrome
     std::string reversed_s = s;
-    std::reverse(reversed_s.begin(), reversed_s.end());
+    std::reverse(reversed_s.begin(), std::reverse(reversed_s.end()));
     bool is_palindrome = (s == reversed_s);
     
     // Return the result string and the palindrome check result
