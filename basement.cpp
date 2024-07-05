@@ -13,9 +13,3 @@ int basement(vector<int>& v) {
     }
     return -1; // return -1 if no index found where the sum becomes negative
 }
-
-int main() {
-    vector<int> v{1,2,3,4};
-    cout << basement(v) << endl;
-    return 0;
-}
