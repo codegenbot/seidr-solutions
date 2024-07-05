@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -16,18 +17,13 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1); // 1 is always part of the sequence
+    result.push_back(1); 
     sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
+    assert(get_odd_collatz(1) == vector<int>{1});
+    cout << "Test Passed." << endl;
     return 0;
 }
