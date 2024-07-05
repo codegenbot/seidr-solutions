@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-
 using namespace std;
 
 long long double_the_difference(const vector<float>& lst) {
@@ -11,7 +10,7 @@ long long double_the_difference(const vector<float>& lst) {
             sum += (long long)num * (long long)num;
         }
     }
-    return sum;
+    return sum * 2;
 }
 
 int main() {
