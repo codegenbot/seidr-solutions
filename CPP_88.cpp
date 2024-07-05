@@ -22,6 +22,5 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    // Add more asserts if needed for testing.
     return 0;
 }

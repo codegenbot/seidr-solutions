@@ -1,22 +1,18 @@
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 bool iscuber(int a) {
-    for (int i = 1; i * i * i <= a; ++i) {
-        if (i * i * i == a) {
-            return true;
-        }
-    }
-    return false;
+    int root = round(pow(a, 1.0/3));
+    return root * root * root == a;
 }
 
 int main() {
-    int a;
-    cin >> a;
-    if (iscuber(a)) {
-        cout << "True\n";
+    int num;
+    std::cin >> num;
+    if (iscuber(num)) {
+        std::cout << num << " is a perfect cube.\n";
     } else {
-        cout << "False\n";
+        std::cout << num << " is not a perfect cube.\n";
     }
     return 0;
 }
