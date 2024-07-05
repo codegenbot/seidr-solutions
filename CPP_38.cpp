@@ -1,8 +1,13 @@
 string decode_cyclic(string s){ 
+    /*
+    takes as input string encoded with encode_cyclic function. Returns decoded string. 
+    */
     int l = s.length();
+    int num = (l + 2) / 3;
     string x, output;
-    for (int i = 0; i*3 < l; i++) {
-        x = s.substr(i*3, 3);
+    int i;
+    for (i = 0; i * 3 < l; i++) {
+        x = s.substr(i * 3, 3);
         if (x.length() == 3) x = x[2] + x.substr(0, 2);
         output = output + x;
     }
