@@ -1,10 +1,9 @@
 def basement(arr):
     total = 0
-    i = 0
-    while True:
-        if total < 0:
+    prev_total = 0
+    for i, x in enumerate(arr):
+        total += x
+        if total < prev_total:
             return i + 1
-        if i == len(arr) - 1:
-            return -1
-        total += arr[i]
-        i += 1
+        prev_total = total
+    return -1
