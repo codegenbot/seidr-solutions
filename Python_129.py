@@ -23,9 +23,7 @@ def minPath(grid, k):
                 new_path = path + [(nx, ny)]
                 heappush(min_heap, (grid[nx][ny], new_path))
 
-
 import ast
-
 grid = ast.literal_eval(input())
 k = int(input())
 print(minPath(grid, k))
