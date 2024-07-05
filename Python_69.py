@@ -1,9 +1,9 @@
 def search(lst):
     from collections import Counter
 
-    freq = Counter(lst)
+    count = Counter(lst)
     result = -1
-    for num, count in freq.items():
-        if count >= num and num > result:
+    for num, freq in count.items():
+        if freq >= num and num > result:
             result = num
     return result
