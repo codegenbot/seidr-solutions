@@ -1,34 +1,24 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool move_one_ball(std::vector<int> arr) {
+bool move_one_ball(const std::vector<int>& arr) {
     int n = arr.size();
     if (n == 0) return true;
 
-    int count = 0;
-    for (int i = 1; i < n; ++i) {
-        if (arr[i] < arr[i - 1]) {
-            count++;
+    int shift_point = -1;
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] > arr[(i + 1) % n]) {
+            if (shift_point != -1) return false;
+            shift_point = i;
         }
     }
-    if (arr[n - 1] > arr[0]) {
-        count++;
-    }
-
-    return count <= 1;
+    return true;
 }
 
 int main() {
-    std::vector<int> arr;
-    int n, temp;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> temp;
-        arr.push_back(temp);
-    }
-    bool result = move_one_ball(arr);
-    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
+    assert(move_one_ball({}) == true);
+    assert(move_one_ball({1, 2, 3}) == true);
+    assert(move_one_ball({3, 1, 2}) == true);
+    assert(move_one_ball({2, 1, 3}) == false);
     return 0;
 }
