@@ -1,9 +1,8 @@
-```
-#include <sstream>
 #include <string>
+#include <sstream>
 
-std::string string_sequence(int n) {
-    std::stringstream ss;
+string string_sequence(int n) {
+    stringstream ss;
     for (int i = 0; i <= n; ++i) {
         ss << i << " ";
     }
