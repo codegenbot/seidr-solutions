@@ -9,10 +9,7 @@ def encode(message):
                     + (ord("a") if char.islower() else ord("A"))
                 )
             else:
-                encoded_char = chr(
-                    (ord(char) - ord("A") + 2) % 26
-                    + (ord("a") if char.islower() else ord("A"))
-                )
+                encoded_char = chr((ord(char) - ord("A") + 2) % 26 + ord("a"))
             if char in vowels:
                 encoded_char = chr((ord(encoded_char) + 2) % 26 + ord("A"))
             encoded_message += encoded_char
