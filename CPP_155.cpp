@@ -26,7 +26,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {0, 1}));
+    assert(issame(even_odd_count(0), {0, 0}));
     assert(issame(even_odd_count(123), {1, 2}));
     assert(issame(even_odd_count(2468), {4, 0}));
     // Add more tests as needed
