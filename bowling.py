@@ -1,4 +1,4 @@
-def bowling_score(frames):"""
+def bowling_score(frames):
     score = 0
     i = 0
     
@@ -26,7 +26,7 @@ def bowling_score(frames):"""
                 score += int(temp)
             elif len(temp) == 2:
                 if temp[0] == '1':
-                    score += 10 + int(temp[1])
+                    score += 10 + int(temp)
                 else:
                     score += int(temp) + int(temp[0])
     return score
