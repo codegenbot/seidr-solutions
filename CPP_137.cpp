@@ -12,7 +12,7 @@ double convertToDouble(const string &s) {
 }
 
 std::any compare_one(std::any a, std::any b) {
-    double valA, valB;
+    double valA = 0, valB = 0;
 
     if (a.type() == typeid(int))
         valA = std::any_cast<int>(a);
