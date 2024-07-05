@@ -1,21 +1,26 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <iostream>
 
 using namespace std;
 
-string findLongestString(const vector<string>& strings) {
+string longest(const vector<string>& strings) {
     if (strings.empty()) return "None";
-    string longestStr = strings[0];
-    for (const string& str : strings) {
-        if (str.length() > longestStr.length()) {
-            longestStr = str;
+    string longest_str = strings[0];
+    for (const auto& str : strings) {
+        if (str.length() > longest_str.length()) {
+            longest_str = str;
         }
     }
-    return longestStr;
+    return longest_str;
 }
 
 int main() {
-    cout << findLongestString({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) << endl;
+    vector<string> input;
+    string s;
+    while (cin >> s) {
+        input.push_back(s);
+    }
+    cout << longest(input) << endl;
     return 0;
 }
