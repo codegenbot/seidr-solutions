@@ -1,4 +1,4 @@
-
-def fruit_distribution(s, n):
-    apples, oranges = map(lambda x: int(x), s.split())
-    return n - apples - oranges
+def fruit_distribution(s):
+    apples = int(re.findall("\d+", s)[0])
+    oranges = int(re.findall("\d+", s)[1])
+    return apples + oranges
