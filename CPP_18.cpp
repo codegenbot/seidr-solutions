@@ -6,7 +6,7 @@ int how_many_times(string str, string substring) {
 
     while ((pos = str.find(substring, pos)) != string::npos) {
         ++count;
-        pos += 1; // increment position to avoid overlapping matches
+        pos += substring.length();
     }
 
     return count;
