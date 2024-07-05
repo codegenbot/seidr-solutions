@@ -25,9 +25,11 @@ void cutVector(vector<int>& vec) {
 
 int main() {
     vector<int> vec;
-    int n;
-    while (cin >> n) {
-        vec.push_back(n);
+    int n, x;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> x;
+        vec.push_back(x);
     }
     cutVector(vec);
     return 0;
