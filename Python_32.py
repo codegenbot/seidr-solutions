@@ -1,14 +1,16 @@
 ```
 def find_zero(xs: list):
-    if len(xs) < 2:
-        return "Invalid input" 
-    elif len(xs) == 2:
-        if xs[0] == 0:
-            return "Indeterminate"
-        else:
-            return -xs[1] / xs[0]
-    else:
-        if xs[0] == 0:
-            return "Indeterminate"
-        else:
-            return (-xs[2] + math.sqrt((xs[1] ** 2) - (4 * xs[0] * xs[3]))) / (2 * xs[0])
+    if len(xs) < 3:
+        return None
+    for i in range(len(xs)-2):
+        A = xs[i]
+        B = xs[i+1]
+        C = xs[i+2]
+        d = (B**2 - 4*A*C)**0.5
+        r1 = (-B + d) / (2 * A)
+        r2 = (-B - d) / (2 * A)
+        if abs(r1) < 10e-9:
+            return r1
+        elif abs(r2) < 10e-9:
+            return r2
+    return None
