@@ -12,6 +12,11 @@ def histogram(test):
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
-    test = input().strip()
+    import sys
+    input = sys.stdin.read
+    lines = []
+    for line in sys.stdin:
+        lines.append(line.strip())
+    test = ' '.join(lines)
     result = histogram(test)
     print(result)
