@@ -1,7 +1,7 @@
 def basement(v):
-    total = v[0]
-    for i, x in enumerate(v[1:], start=1):
-        total += x
-        if total < 0:
-            return i
-    return -1
+    total = sum(x for x in v if x < 0)
+    if total >= 0:
+        return next(
+            (i + 1 for i, x in enumerate(v) if sum(x for x in v[: i + 1]) < 0), -1
+        )
+    return 0
