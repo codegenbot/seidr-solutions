@@ -18,6 +18,7 @@ int main() {
     vector<int> testVec = {3, 13, 2, 9};
     assert(solutions(testVec) == 3);
 
+    // Read user input and call the function
     int n;
     cout << "Enter the number of elements in the vector: ";
     cin >> n;
