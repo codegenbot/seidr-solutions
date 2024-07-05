@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -15,10 +14,10 @@ int do_algebra(vector<string> operato, vector<int> operand) {
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "/") { // Corrected from "//" to "/"
+        } else if (operato[i] == "/") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
-            result = static_cast<int>(pow(result, operand[i + 1])); // Corrected to use std::pow
+            result = static_cast<int>(pow(result, operand[i + 1]));
         }
     }
     return result;
