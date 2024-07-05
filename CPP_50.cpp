@@ -3,18 +3,18 @@
 #include <cassert>
 using namespace std;
 
-string decode_shift(string s) {
+string decode_shift(const string &s){
     string out;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); ++i){
         int w = ((int)s[i] - 5 - (int)'a' + 26) % 26 + (int)'a';   
         out += (char)w;
     }
     return out;
 }
 
-string encode_shift(string s) {
+string encode_shift(const string &s){
     string out;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); ++i){
         int w = ((int)s[i] + 5 - (int)'a') % 26 + (int)'a';   
         out += (char)w;
     }
@@ -22,9 +22,10 @@ string encode_shift(string s) {
 }
 
 int main() {
-    string str = "your_test_string"; // replace with actual test string
+    string str = "abcde";  // Example input
     string encoded_str = encode_shift(str);
     assert(decode_shift(encoded_str) == str);
-    cout << "All tests passed." << endl;
+    cout << "Encoding: " << encoded_str << endl;
+    cout << "Decoding: " << decode_shift(encoded_str) << endl;
     return 0;
 }
