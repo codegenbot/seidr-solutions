@@ -1,10 +1,9 @@
 ```
 def leaders(input_vector):
-    max_seen = float('inf')
     leaders = []
-    for num in input_vector:
-        if num >= max_seen:
-            leaders.append(num)
-        else:
-            max_seen = num
-    return leaders[::-1]
+    max_right = input_vector[-1]
+    for i in range(len(input_vector) - 1, -1, -1):
+        if input_vector[i] >= max_right:
+            leaders.append(input_vector[i])
+            max_right = input_vector[i]
+    return list(reversed(leaders))
