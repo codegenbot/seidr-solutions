@@ -5,8 +5,5 @@ vector<int> sum_product(vector<int> numbers) {
         sum += num;
         product *= num;
     }
-    if (numbers.empty()) {
-        product = 1;
-    }
     return {sum, product};
 }
