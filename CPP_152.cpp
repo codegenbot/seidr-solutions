@@ -16,31 +16,28 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 int main() {
     assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>({2, 0, 0, 1}));
     
-    vector<int> game, guess;
-    int n, value;
-    
+    // For interactive user inputs and outputs
+    int n;
     cout << "Enter the number of elements: ";
     cin >> n;
-    
+
+    vector<int> game(n), guess(n);
     cout << "Enter game elements: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> value;
-        game.push_back(value);
+    for (int &x : game) {
+        cin >> x;
     }
-    
+
     cout << "Enter guess elements: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> value;
-        guess.push_back(value);
+    for (int &x : guess) {
+        cin >> x;
     }
-    
+
     vector<int> result = compare(game, guess);
-    
-    cout << "Result: ";
-    for (int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
+    cout << "Resultant differences: ";
+    for (const int &x : result) {
+        cout << x << " ";
     }
     cout << endl;
-    
+
     return 0;
 }
