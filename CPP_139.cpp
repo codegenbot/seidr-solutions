@@ -1,8 +1,9 @@
-#include <cstdio>
+#include <iostream>
+using namespace std;
 
 long long factorial(int n) {
     long long result = 1;
-    for(int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         result *= i;
     }
     return result;
@@ -10,7 +11,7 @@ long long factorial(int n) {
 
 long long special_factorial(int n) {
     long long result = 1;
-    for(int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         result *= factorial(i);
     }
     return result;
@@ -18,7 +19,7 @@ long long special_factorial(int n) {
 
 int main() {
     int n;
-    scanf("%d", &n);
-    printf("%lld\n", special_factorial(n));
+    cin >> n;
+    cout << special_factorial(n) << "\n";
     return 0;
 }
