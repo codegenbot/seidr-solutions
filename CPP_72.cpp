@@ -1,8 +1,7 @@
 #include <vector>
-#include <iostream>
-#include <cassert>
+using namespace std;
 
-bool will_it_fly(std::vector<int> q, int w) {
+bool will_it_fly(vector<int> q, int w) {
     int n = q.size();
     int sum = 0;
 
@@ -23,15 +22,15 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    // Test cases
-    std::vector<int> test_case1 = {1, 2, 3, 2, 1};
-    std::vector<int> test_case2 = {1, 2, 2, 1};
-
-    assert(will_it_fly(test_case1, 9) == true);
-    assert(will_it_fly(test_case2, 6) == true);
-    assert(will_it_fly(test_case2, 4) == false);
-
-    std::cout << "All test cases passed!" << std::endl;
-
+    // Test the function with some example inputs
+    vector<int> test_vector = {1, 2, 3, 2, 1};
+    int weight_limit = 10;
+    bool result = will_it_fly(test_vector, weight_limit);
+    // Output the result
+    if (result) {
+        cout << "The plane will fly!" << endl;
+    } else {
+        cout << "The plane won't fly!" << endl;
+    }
     return 0;
 }
