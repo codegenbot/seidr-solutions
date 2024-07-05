@@ -4,7 +4,8 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return [elem for num in numbers[:-1] for elem in (num, delimiter)] + numbers[-1:]
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().strip().split()))
-    delimiter = int(input().strip())
+    input_data = input().strip().split()
+    numbers = list(map(int, input_data[:-1]))
+    delimiter = int(input_data[-1])
     result = intersperse(numbers, delimiter)
-    print(" ".join(map(str, result)))
+    print(result)
