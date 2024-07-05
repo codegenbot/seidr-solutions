@@ -3,6 +3,8 @@ def histogram(test):
 
     if not test:
         return {}
+
     count = Counter(test.split())
     max_count = max(count.values())
-    return {char: cnt for char, cnt in count.items() if cnt == max_count}
+
+    return {k: v for k, v in count.items() if v == max_count}
