@@ -9,24 +9,24 @@ vector<string> split_words(const string& txt) {
     vector<string> result;
     size_t pos = 0;
     string delimiter = " ";
-    string temp_txt = txt;
 
-    if (txt.find(' ') != string::npos) {
-        while ((pos = temp_txt.find(' ')) != string::npos) {
-            result.push_back(temp_txt.substr(0, pos));
-            temp_txt.erase(0, pos + 1);
+    string txt_copy = txt; // Make a copy to work on
+    if (txt_copy.find(' ') != string::npos) {
+        while ((pos = txt_copy.find(' ')) != string::npos) {
+            result.push_back(txt_copy.substr(0, pos));
+            txt_copy.erase(0, pos + 1);
         }
-        result.push_back(temp_txt);
-    } else if (txt.find(',') != string::npos) {
+        result.push_back(txt_copy);
+    } else if (txt_copy.find(',') != string::npos) {
         delimiter = ",";
-        while ((pos = temp_txt.find(delimiter)) != string::npos) {
-            result.push_back(temp_txt.substr(0, pos));
-            temp_txt.erase(0, pos + delimiter.length());
+        while ((pos = txt_copy.find(delimiter)) != string::npos) {
+            result.push_back(txt_copy.substr(0, pos));
+            txt_copy.erase(0, pos + delimiter.length());
         }
-        result.push_back(temp_txt);
+        result.push_back(txt_copy);
     } else {
         int count = 0;
-        for (char c : txt) {
+        for (char c : txt_copy) {
             if (c >= 'a' && c <= 'z' && (c - 'a') % 2 == 0) {
                 count++;
             }
