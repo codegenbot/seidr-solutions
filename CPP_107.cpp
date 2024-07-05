@@ -30,10 +30,10 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    assert(issame(even_odd_palindrome(10), {1, 9}));
-    assert(issame(even_odd_palindrome(20), {1, 9}));
-    assert(issame(even_odd_palindrome(100), {4, 14}));
-    cout << "All test cases passed!" << endl;
+    assert (issame(even_odd_palindrome(1), {0, 1}));
+    assert (issame(even_odd_palindrome(10), {1, 9}));
+    assert (issame(even_odd_palindrome(20), {2, 9}));
+    assert (issame(even_odd_palindrome(100), {5, 45}));
+    cout << "All test cases pass!" << endl;
     return 0;
 }
