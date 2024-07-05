@@ -1,4 +1,7 @@
+```
 def sort_third(l):
-    result = [item for item in l]
-    result.sort()
-    return tuple(result)
+    result = []
+    for item in l:
+        if item % 3 == 0:
+            result.append(item)
+    return tuple(sorted(result))
