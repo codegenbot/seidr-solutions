@@ -25,6 +25,7 @@ def minPath(grid, k):
             new_path = path + [(nx, ny)]
             heappush(min_paths, (current_val + grid[nx][ny], new_path))
 
+
 # Read input from user
 n = int(input().strip())
 grid = []
