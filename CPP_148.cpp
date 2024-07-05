@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
 #include <cassert>
 
 using namespace std;
@@ -13,7 +14,7 @@ vector<string> bf(string planet1, string planet2) {
     auto it2 = find(planets.begin(), planets.end(), planet2);
 
     if (it1 == planets.end() || it2 == planets.end()) {
-        return result;
+        return result; // Return empty vector if either planet name is incorrect
     }
 
     if (it1 > it2) swap(it1, it2);
@@ -31,5 +32,9 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(issame(bf("Earth", "Saturn"), {"Mars", "Jupiter"}));
+    assert(issame(bf("Neptune", "Mercury"), {"Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus"}));
+
+    cout << "All test cases passed!" << endl;
     return 0;
 }
