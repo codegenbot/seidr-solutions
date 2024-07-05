@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -15,6 +16,11 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    int number, need, remaining;
+    cin >> number >> need >> remaining;
+    
+    vector<int> result = eat(number, need, remaining);
+    cout << result[0] << " " << result[1] << endl;
+    
     return 0;
 }
