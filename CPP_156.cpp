@@ -18,7 +18,7 @@ string int_to_mini_roman(int number){
 }
 
 int main() {
-    // Example test case to verify the function
-    cout << int_to_mini_roman(1000) << endl; // Should print "m"
+    assert(int_to_mini_roman(1000) == "m");
+    cout << "All tests passed.\n";
     return 0;
 }
