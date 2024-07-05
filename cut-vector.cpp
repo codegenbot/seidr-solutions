@@ -1,17 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    if(v[0] == v[1]) {
-        return make_pair(vector<int>(v.begin(), v.begin() + 1), vector<int>(v.begin() + 1, v.end()));
-    }
-    int minDiff = abs(v[0] - v[1]);
-    int index = 0;
-
-    for (int i = 1; i < v.size() - 1; i++) {
+    int minDiff = numeric_limits<int>::max();
+    int index = -1;
+    for (int i = 0; i < v.size() - 1; i++) {
         int diff = abs(v[i] - v[i + 1]);
-        if (diff < minDiff) {
+        if (diff == 0) {
+            index = i;
+            break;
+        } else if (diff < minDiff) {
             minDiff = diff;
             index = i;
         }
