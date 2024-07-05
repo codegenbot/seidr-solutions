@@ -1,16 +1,20 @@
 string encode(string message){
-    string result = "";
-    for (char &c : message) {
-        if (isalpha(c)) {
-            if (islower(c)) c = toupper(c);
-            else c = tolower(c);
-            
-            if (c == 'A') c = 'C';
-            else if (c == 'E') c = 'G';
-            else if (c == 'I') c = 'K';
-            else if (c == 'O') c = 'Q';
-            else if (c == 'U') c = 'W';
-        }
+    string result;
+    for(char c : message){
+        if(isupper(c)) c = tolower(c);
+        else c = toupper(c);
+        
+        if(c == 'a') c = 'C';
+        else if(c == 'e') c = 'G';
+        else if(c == 'i') c = 'K';
+        else if(c == 'o') c = 'Q';
+        else if(c == 'u') c = 'W';
+        else if(c == 'A') c = 'c';
+        else if(c == 'E') c = 'g';
+        else if(c == 'I') c = 'k';
+        else if(c == 'O') c = 'q';
+        else if(c == 'U') c = 'w';
+        
         result += c;
     }
     return result;
