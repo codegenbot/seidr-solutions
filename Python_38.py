@@ -1,14 +1,13 @@
-```
 def decode_cyclic(s):
     result = ""
     i = 0
     while len(result) < len(s):
-        j = (i + 1) % len(s)
+        j = i
         temp = ""
         while j < len(s) and s[j] != "<":
             temp += s[j]
-            j = (j + 1) % len(s)
+            j += 1
         if temp:
             result += temp + " "
-        i = j + 2
+        i = j + 1  
     return result.strip()
