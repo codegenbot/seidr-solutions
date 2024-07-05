@@ -7,11 +7,11 @@ int basement(vector<int>& v) {
     int sum = 0;
     for (i = 0; i < v.size(); i++) {
         sum += v[i];
-        if (sum < 0) { // check for a negative sum instead of non-negative
-            return i + 1; // return the first index where the sum becomes negative
+        if (sum < 0) {
+            return i + 1;
         }
     }
-    return -1; // no index found where the sum becomes negative
+    return -1;
 }
 
 int main() {
