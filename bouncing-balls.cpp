@@ -5,19 +5,15 @@
 using namespace std;
 
 int main() {
-    string startHeightStr, firstBounceStr, numBouncesStr;
-    long double startHeight, firstBounce;
+    int startHeight, firstBounce, numBounces;
+    char comma;
 
-    cin >> startHeightStr >> firstBounceStr >> numBouncesStr;
-    startHeight = stold(startHeightStr);
-    firstBounce = stold(firstBounceStr);
+    cin >> startHeight >> comma >> firstBounce >> comma >> numBounces;
 
-    // Calculate bounciness index
-    long double bouncinessIndex = static_cast<long double>(stold(firstBounceStr)) / static_cast<long double>(stold(startHeightStr));
+    long double bouncinessIndex = static_cast<long double>(firstBounce) / static_cast<long double>(startHeight);
 
-    // Calculate total distance traveled
     long double totalDistance = 0.0L;
-    for (int i = 1; i <= stoll(numBouncesStr); i++) {
+    for (int i = 1; i <= numBounces; i++) {
         totalDistance += pow(bouncinessIndex, i);
     }
 
