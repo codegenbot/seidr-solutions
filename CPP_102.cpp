@@ -1,6 +1,6 @@
 int choose_num(int x, int y) {
     if (x > y) return -1;
-    if (y % 2 == 0 && y >= x) return y;
-    if ((y - 1) >= x && (y - 1) % 2 == 0) return y - 1;
+    if (y % 2 != 0) y--; // Make y even if it is odd.
+    if (y >= x) return y;
     return -1;
 }

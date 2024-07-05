@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 bool is_nested(string str) {
@@ -15,15 +14,18 @@ bool is_nested(string str) {
         if (depth > 1) {
             return true;
         }
-        if (depth < 0) {
-            return false;
-        }
     }
-    return depth == 0;
+    return false;
 }
 
 int main() {
-    cout << is_nested("[[][]]") << endl; // Example test case
-    cout << is_nested("[[[[]]]]") << endl; // Example test case
+    string input;
+    cout << "Enter a string of brackets: ";
+    cin >> input;
+    if (is_nested(input)) {
+        cout << "The string has nested brackets" << endl;
+    } else {
+        cout << "The string does not have nested brackets" << endl;
+    }
     return 0;
 }
