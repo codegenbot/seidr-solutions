@@ -1,3 +1,5 @@
+#include <string>
+
 int bowlingScore(string s) {
     int score = 0;
     int currentFrame = 1;
@@ -19,4 +21,3 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
