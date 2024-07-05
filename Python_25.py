@@ -2,7 +2,7 @@ from typing import List
 
 def factorize(n: int) -> List[int]:
     if n <= 1:
-        return []
+        return [n]
     factors = []
     divisor = 2
     while n > 1:
@@ -15,9 +15,9 @@ def factorize(n: int) -> List[int]:
 if __name__ == "__main__":
     try:
         n = int(input().strip())
+        if n <= 0:
+            raise ValueError
         result = factorize(n)
-        if not result and n > 1:
-            result = [n]
         print(result)
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please enter a positive integer.")
