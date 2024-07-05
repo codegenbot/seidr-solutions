@@ -13,6 +13,6 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(make_a_pile(8) == vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
     return 0;
 }
