@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list> 
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -14,6 +14,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
     }
 
+    result.reserve(n - m + 1);
     return result;
 }
 
