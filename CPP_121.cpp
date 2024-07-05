@@ -15,9 +15,7 @@ int solutions(vector<int> lst) {
 }
 
 int main() {
-    // Test case to verify the function
-    vector<int> testVec = {3, 13, 2, 9};
-    assert(solutions(testVec) == 3);
+    assert(solutions({3, 13, 2, 9}) == 3);
 
     int n;
     cout << "Enter the number of elements in the vector: ";
