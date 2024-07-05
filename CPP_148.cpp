@@ -26,19 +26,11 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    auto res = bf("Jupiter", "Makemake");
-    if (res.empty()) {
-        cout << "[]" << endl;
-    } else {
-        cout << "[";
-        for (int i = 0; i < res.size(); ++i) {
-            cout << res[i];
-            if (i != res.size() - 1) {
-                cout << ", ";
-            }
-        }
-        cout << "]" << endl;
-    }
+    assert(issame(bf("Jupiter", "Makemake"), {}));
     return 0;
 }
