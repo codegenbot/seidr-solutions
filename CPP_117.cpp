@@ -1,32 +1,32 @@
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word;
-    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
-    
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                int consonant_count = count_if(word.begin(), word.end(), [&](char ch) {
-                    return consonants.find(ch) != string::npos;
-                });
-                if (consonant_count == n) {
-                    result.push_back(word);
-                }
-                word.clear();
-            }
-        } else {
-            word += c;
+#include <vector>
+#include <string>
+#include <sstream>
+#include <cctype>
+using namespace std;
+
+bool is_consonant(char c) {
+    c = tolower(c);
+    return c >= 'a' && c <= 'z' && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int count_consonants(const string &word) {
+    int count = 0;
+    for(char c : word) {
+        if(is_consonant(c)) {
+            count++;
         }
     }
-    
-    if (!word.empty()) {
-        int consonant_count = count_if(word.begin(), word.end(), [&](char ch) {
-            return consonants.find(ch) != string::npos;
-        });
-        if (consonant_count == n) {
+    return count;
+}
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    istringstream iss(s);
+    string word;
+    while(iss >> word) {
+        if(count_consonants(word) == n) {
             result.push_back(word);
         }
     }
-    
     return result;
 }
