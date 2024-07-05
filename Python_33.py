@@ -1,4 +1,3 @@
 ```
 def sort_third(l):
-    result = sorted([item for item in l])
-    return tuple(result)
+    return tuple(sorted([(i[2], i) for i in l]))
