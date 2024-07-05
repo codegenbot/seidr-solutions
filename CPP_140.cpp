@@ -1,21 +1,21 @@
 string result;
-    int spaceCount = 0;
-    for(char c : text) {
-        if(c == ' ') {
-            spaceCount++;
+    int space_count = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            space_count++;
         } else {
-            if(spaceCount == 1) {
+            if (space_count == 1) {
                 result += '_';
-            } else if(spaceCount > 1) {
+            } else if (space_count > 1) {
                 result += '-';
             }
+            space_count = 0;
             result += c;
-            spaceCount = 0;
         }
     }
-    if(spaceCount == 1) {
+    if (space_count == 1) {
         result += '_';
-    } else if(spaceCount > 1) {
+    } else if (space_count > 1) {
         result += '-';
     }
     return result;
