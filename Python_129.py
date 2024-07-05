@@ -14,26 +14,37 @@ def minPath(grid, k):
     min_path = None
     for i in range(N):
         for j in range(N):
-            heap = [(grid[i][j], i, j, 1, [grid[i][j]])]
+            heap = [(0, i, j, 1, [grid[i][j]])]
             while heap:
-                val, x, y, length, path = heappop(heap)
+                accumulated_val, x, y, length, path = heappop(heap)
                 if length == k:
-                    path_sum = sum(path)
-                    if path_sum < min_path_sum:
-                        min_path_sum = path_sum
+                    if accumulated_val < min_path_sum:
+                        min_path_sum = accumulated_val
                         min_path = path
                 else:
                     for nx, ny in neighbors(x, y):
                         new_path = path + [grid[nx][ny]]
-                        heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
+                        heappush(heap, (accumulated_val + grid[nx][ny], nx, ny, length + 1, new_path))
     return min_path
 
-
 if __name__ == "__main__":
-    N, k = map(int, input().strip().split())
-    grid = [list(map(int, input().strip().split())) for _ in range(N)]
-    result = minPath(grid, k)
-    if result:
-        print(" ".join(map(str, result)))
+    import sys
+    input = sys.stdin.read
+    data = list(map(int, input().strip().split()))
+
+    N = data[0]
+    k = data[1]
+    grid = []
+    idx = 2
+    for i in range(N):
+        grid.append(data[idx : idx + N])
+        idx += N
+
+    if k <= N * N:
+        result = minPath(grid, k)
+        if result:
+            print(" ".join(map(str, result)))
+        else:
+            print("")
     else:
         print("")
