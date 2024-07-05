@@ -1,19 +1,13 @@
-string encode(string message) {
-    for (char &ch : message) {
-        if (isalpha(ch)) {
-            if (isupper(ch)) 
-                ch = tolower(ch);
-            else 
-                ch = toupper(ch);
-            
-            switch (tolower(ch)) {
-                case 'a': ch = toupper(ch) ? 'C' : 'c'; break;
-                case 'e': ch = toupper(ch) ? 'G' : 'g'; break;
-                case 'i': ch = toupper(ch) ? 'K' : 'k'; break;
-                case 'o': ch = toupper(ch) ? 'Q' : 'q'; break;
-                case 'u': ch = toupper(ch) ? 'W' : 'w'; break;
-            }
+string encode(string message){
+    for (char &c : message) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
+        if (c == 'a' || c == 'A') c = (c == 'a') ? 'C' : 'c';
+        if (c == 'e' || c == 'E') c = (c == 'e') ? 'G' : 'g';
+        if (c == 'i' || c == 'I') c = (c == 'i') ? 'K' : 'k';
+        if (c == 'o' || c == 'O') c = (c == 'o') ? 'Q' : 'q';
+        if (c == 'u' || c == 'U') c = (c == 'u') ? 'W' : 'w';
     }
     return message;
 }
