@@ -22,7 +22,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(issame(filter_integers({'a', 3, 5, 'b', 7}), {3, 5, 7}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     cout << "All tests passed!" << endl;
     return 0;
 }

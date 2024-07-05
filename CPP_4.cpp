@@ -24,20 +24,15 @@ float mean_absolute_deviation(const vector<float>& numbers) {
 
 int main() {
     assert(fabs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
-
-    // Handle user input
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
     
-    vector<float> numbers(n);
-    cout << "Enter the elements: ";
-    for(int i = 0; i < n; ++i) {
-        cin >> numbers[i];
+    // Example user input handling
+    vector<float> numbers;
+    float number;
+    cout << "Enter numbers (end input with a non-numeric value): ";
+    while (cin >> number) {
+        numbers.push_back(number);
     }
+    cout << "Mean Absolute Deviation: " << mean_absolute_deviation(numbers) << endl;
 
-    float mad = mean_absolute_deviation(numbers);
-    cout << "Mean Absolute Deviation: " << mad << endl;
-    
     return 0;
 }
