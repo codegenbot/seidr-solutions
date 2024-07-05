@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 bool below_zero(std::vector<int> operations){
@@ -7,3 +8,4 @@ bool below_zero(std::vector<int> operations){
         if (balance < 0) return true;
     }
     return false;
+}
