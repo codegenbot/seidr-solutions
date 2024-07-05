@@ -1,3 +1,3 @@
-min_val = min(numbers)
-    max_val = max(numbers)
-    return [(num - min_val) / (max_val - min_val) for num in numbers]
+min_num = min(numbers)
+    max_num = max(numbers)
+    return [(num - min_num) / (max_num - min_num) for num in numbers]
