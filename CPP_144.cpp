@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <utility>
-#include <algorithm>
+#include <utility> // for std::pair
+#include <algorithm> // for std::gcd
 using namespace std;
 
 bool simplify(string x, string n) {
@@ -13,7 +13,7 @@ bool simplify(string x, string n) {
     };
 
     auto gcd = [](int a, int b) {
-        return __gcd(a, b);
+        return std::gcd(a, b);
     };
 
     auto simplify_fraction = [&](pair<int, int> frac) {
