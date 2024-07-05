@@ -6,18 +6,22 @@ using namespace std;
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
+
     for (int i = 0; i < lst.size(); ++i) {
-        vector<int> row_indices;
         for (int j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
-                row_indices.push_back(j);
+                result.push_back({i, j});
             }
         }
-        sort(row_indices.rbegin(), row_indices.rend());
-        for (int idx : row_indices) {
-            result.push_back({i, idx});
-        }
     }
+
+    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
+        if (a[0] == b[0]) {
+            return a[1] > b[1];  // Sort by columns in descending order
+        }
+        return a[0] < b[0];  // Sort by rows in ascending order
+    });
+
     return result;
 }
 
@@ -26,6 +30,9 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 }
 
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    vector<vector<int>> lst = {{}, {1}, {1, 2, 3}};
+    vector<vector<int>> expected = {{2, 2}};
+    vector<vector<int>> result = get_row(lst, 3);
+    assert(issame(result, expected));
     return 0;
 }
