@@ -32,11 +32,13 @@ if __name__ == "__main__":
 
     N = int(data[0])
     k = int(data[1])
+
     grid = []
     idx = 2
     for i in range(N):
-        grid.append([int(data[idx + j]) for j in range(N)])
+        row = list(map(int, data[idx:idx + N]))
+        grid.append(row)
         idx += N
 
     result = minPath(grid, k)
-    print(" ".join(map(str, result)))
+    print(result)
