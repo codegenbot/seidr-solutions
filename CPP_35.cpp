@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-float max_element(const std::vector<float>& l) {
+float max_element(std::vector<float> l) {
     float max_val = l[0];
     for (float num : l) {
         if (num > max_val) {
