@@ -37,7 +37,11 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(issame(bf("Jupiter", "Saturn"), {"Jupiter"}));
+    assert(issame(bf("Earth", "Mars"), {}));
+    assert(issame(bf("Mercury", "Neptune"), {"Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus"}));
+    assert(issame(bf("Neptune", "Mercury"), {"Uranus", "Saturn", "Jupiter", "Mars", "Earth", "Venus"}));
+    assert(issame(bf("Makemake", "Pluto"), {}));
     cout << "All tests passed" << endl;
     return 0;
 }
