@@ -5,7 +5,6 @@
 using namespace std;
 
 bool is_palindrome(string str) {
-    // Test if given string is a palindrome
     string s(str.rbegin(), str.rend());
     return s == str;
 }
@@ -20,7 +19,7 @@ string make_palindrome(string str) {
             return str + prefix;
         }
     }
-    return str; // This line is theoretically unreachable
+    return str; 
 }
 
 int main() {

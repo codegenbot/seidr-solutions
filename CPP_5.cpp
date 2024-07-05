@@ -21,7 +21,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 // Main function
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2, 2, 2, 2, 2}));
     assert(issame(intersperse({1, 2, 3}, 0), {1, 0, 2, 0, 3}));
     std::cout << "All tests passed!" << std::endl;
     return 0;
