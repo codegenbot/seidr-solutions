@@ -4,7 +4,7 @@ def decode_cyclic(s):
     while len(result) < len(s):
         j = (i + 1) % len(s)
         temp = ""
-        while j < len(s) and s[j] != "<":
+        while j < len(s) and s[j] != '<':
             temp += s[j]
             j = (j + 1) % len(s)
         if temp:
