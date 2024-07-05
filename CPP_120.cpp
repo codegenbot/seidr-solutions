@@ -8,7 +8,7 @@ using namespace std;
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
+    sort(result.begin(), result.end(), greater<int>());
     return result;
 }
 
@@ -18,8 +18,8 @@ bool issame(vector<int> a, vector<int> b){
 
 int main() {
     assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 2), {2, 3}));
-    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {1, 2, 3}));
+    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 2), {243, 3}));
+    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {243, 3, 2}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
