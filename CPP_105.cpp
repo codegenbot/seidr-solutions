@@ -15,18 +15,15 @@ vector<string> by_length(vector<int> arr) {
         {9, "Nine"}
     };
 
-    // Filter numbers between 1 and 9 inclusive
     for(int num : arr) {
         if(num >= 1 && num <= 9) {
             filtered.push_back(num);
         }
     }
 
-    // Sort and reverse the filtered vector
     sort(filtered.begin(), filtered.end());
     reverse(filtered.begin(), filtered.end());
 
-    // Replace each digit with its corresponding name
     vector<string> result;
     for(int num : filtered) {
         result.push_back(num_to_name[num]);
@@ -40,7 +37,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // Perform test case
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     cout << "Test passed!" << endl;
     return 0;
