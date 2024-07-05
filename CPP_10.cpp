@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // Include this header for reverse
-
+#include <algorithm>
 using namespace std;
 
 bool is_palindrome(string str) {
@@ -10,15 +9,15 @@ bool is_palindrome(string str) {
 }
 
 string make_palindrome(string str) {
-    int n = str.size();
-    for (int i = n; i >= 0; --i) {
+    if (str.empty()) return "";
+    for (int i = str.size(); i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
-            string prefix = str.substr(i);
-            reverse(prefix.begin(), prefix.end());
-            return str + prefix;
+            string suffix = str.substr(i);
+            reverse(suffix.begin(), suffix.end());
+            return str + suffix;
         }
     }
-    return str; // This line is just for safety, though logically it won't be reached.
+    return str;
 }
 
 int main() {
