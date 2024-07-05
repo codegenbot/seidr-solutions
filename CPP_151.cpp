@@ -4,7 +4,7 @@
 
 using namespace std;
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(const vector<float>& lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num && ((int)num % 2 != 0)) {
@@ -15,12 +15,14 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst;  // vector to hold inputs
-    float x;  // variable to read each input
-    while (cin >> x) {
-        lst.push_back(x);
+    vector<float> lst;
+    float input;
+    while (cin >> input) {
+        lst.push_back(input);
     }
+
     long long result = double_the_difference(lst);
-    cout << "Result: " << result << endl;
+    cout << result << endl;
+
     return 0;
 }
