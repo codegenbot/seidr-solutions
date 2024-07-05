@@ -1,6 +1,13 @@
 #include <cmath>
 
 bool iscuber(int a) {
-    int cbrt_a = std::cbrt(a);
-    return cbrt_a * cbrt_a * cbrt_a == a || (cbrt_a + 1) * (cbrt_a + 1) * (cbrt_a + 1) == a;
+    if (a < 0) 
+        return false; 
+    
+    for (int i = 0; i * i * i <= a; ++i) {
+        if (i * i * i == a) {
+            return true;
+        }
+    }
+    return false;
 }
