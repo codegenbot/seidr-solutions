@@ -11,7 +11,7 @@ def rolling_max(numbers: List[int]) -> List[int]:
 if __name__ == "__main__":
     try:
         numbers = list(map(int, input("Enter numbers separated by spaces: ").strip().split()))
+        result = rolling_max(numbers)
+        print(result)
     except ValueError:
-        numbers = []
-    result = rolling_max(numbers)
-    print(result)
+        print("Invalid input. Please enter a list of integers.")
