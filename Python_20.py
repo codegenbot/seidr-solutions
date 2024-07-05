@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     if len(numbers) < 2:
-        return (0.0, 0.0)
+        return (0.0, 0.0)  # Return immediately if there are fewer than 2 numbers
 
     numbers.sort()
     min_diff = float("inf")
@@ -16,12 +16,15 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
     return closest_pair
 
-if __name__ == "__main__":
+def main():
     try:
-        nums = list(map(float, input().split()))
+        nums = list(map(float, input().split()))  # Removed prompt string
         if len(nums) < 2:
             print("Please enter at least two numbers.")
         else:
             print(find_closest_elements(nums))
     except ValueError:
         print("Invalid input. Please enter valid numbers separated by spaces.")
+
+if __name__ == "__main__":
+    main()
