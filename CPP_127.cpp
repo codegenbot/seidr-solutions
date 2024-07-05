@@ -1,15 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <string>
 #include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    if (num == 2) return true;
-    if (num % 2 == 0) return false;
-    for (int i = 3; i * i <= num; i += 2) {
-        if (num % i == 0) return false;
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
     }
     return true;
 }
@@ -17,25 +19,21 @@ bool isPrime(int num) {
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0], end1 = interval1[1];
     int start2 = interval2[0], end2 = interval2[1];
-
-    int intersect_start = max(start1, start2);
-    int intersect_end = min(end1, end2);
-
-    if (intersect_start > intersect_end) {
-        return "NO";
-    }
-
-    int length = intersect_end - intersect_start + 1;
+    
+    int startIntersection = max(start1, start2);
+    int endIntersection = min(end1, end2);
+    
+    if (startIntersection > endIntersection) return "NO";
+    
+    int length = endIntersection - startIntersection + 1;
+    
     return isPrime(length) ? "YES" : "NO";
 }
 
 int main() {
     vector<int> interval1(2), interval2(2);
-    cout << "Enter first interval: ";
     cin >> interval1[0] >> interval1[1];
-    cout << "Enter second interval: ";
     cin >> interval2[0] >> interval2[1];
-    
     cout << intersection(interval1, interval2) << endl;
     return 0;
 }
