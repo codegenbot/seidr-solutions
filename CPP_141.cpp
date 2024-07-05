@@ -1,18 +1,16 @@
-#include <iostream>
-#include <string>
 #include <cctype>
 #include <algorithm>
+#include <string>
+#include <cassert>
 
-using namespace std;
-
-string file_name_check(string file_name) {
+std::string file_name_check(const std::string& file_name) {
     int dotPos = file_name.find('.');
-    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
+    if (dotPos == std::string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
         return "No";
     }
 
-    string beforeDot = file_name.substr(0, dotPos);
-    string afterDot = file_name.substr(dotPos + 1);
+    std::string beforeDot = file_name.substr(0, dotPos);
+    std::string afterDot = file_name.substr(dotPos + 1);
     
     if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
         return "No";
@@ -22,7 +20,7 @@ string file_name_check(string file_name) {
         return "No";
     }
 
-    int digitCount = count_if(beforeDot.begin(), beforeDot.end(), ::isdigit);
+    int digitCount = std::count_if(beforeDot.begin(), beforeDot.end(), ::isdigit);
     if (digitCount > 3) {
         return "No";
     }
@@ -31,8 +29,10 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string fileName;
-    cin >> fileName;
-    cout << file_name_check(fileName) << endl;
+    assert(file_name_check("file.txt") == "Yes");
+    assert(file_name_check("1234file.txt") == "No");
+    assert(file_name_check("file.ext") == "No");
+    assert(file_name_check(".txt") == "No");
+    assert(file_name_check("file.") == "No");
     return 0;
 }
