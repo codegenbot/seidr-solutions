@@ -13,20 +13,16 @@ vector<string> split_words(string txt) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + delimiter.length());
     }
-    result.push_back(txt);
+    if (!txt.empty())
+        result.push_back(txt);
 
     return result;
 }
 
 int main() {
-    cout << "Testing split_words function:\n";
-    auto result1 = split_words("");
-    auto result2 = split_words("hello world");
-    auto result3 = split_words("a,b,c");
-    
-    for (const auto& word : result1) cout << word << "\n";
-    for (const auto& word : result2) cout << word << "\n";
-    for (const auto& word : result3) cout << word << "\n";
-    
+    assert(split_words("") == vector<string>{});                    // Edge case: empty string should return an empty vector
+    assert(split_words("hello world") == vector<string>{"hello", "world"});  // Typical case
+    assert(split_words("a,b,c") == vector<string>{"a,b,c"});          // String with no spaces should be as is
+    cout << "All tests passed!" << endl;
     return 0;
 }
