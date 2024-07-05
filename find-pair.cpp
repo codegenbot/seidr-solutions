@@ -32,4 +32,3 @@ int main() {
         cout << "No solution found" << endl;
     }
     return 0;
-}
