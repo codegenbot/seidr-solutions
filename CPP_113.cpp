@@ -15,8 +15,7 @@ vector<string> odd_count(vector<string> lst) {
             }
         }
         string res = "the number of odd elements " + to_string(odd_count) +
-                     " in the string " + to_string(odd_count) +
-                     " of the input.";
+                     " in the string " + to_string(odd_count) + " of the input.";
         result.push_back(res);
     }
     return result;
