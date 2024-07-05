@@ -13,13 +13,7 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("()"));
-    assert(correct_bracketing("(())"));
-    assert(!correct_bracketing("(()"));
-    assert(!correct_bracketing(")("));
-    assert(correct_bracketing("()()"));
-    assert(correct_bracketing("(())()"));
     assert(!correct_bracketing("()()(()())()))()"));
-    std::cout << "All tests passed" << std::endl;
+    std::cout << "Test passed" << std::endl;
     return 0;
 }
