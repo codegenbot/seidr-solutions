@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <unordered_set>
+#include <string>
 
 using namespace std;
 
@@ -19,4 +20,9 @@ string find_max(vector<string> words) {
     }
 
     return result;
+}
+
+int main() {
+    cout << (find_max({"play", "display", "abcd"}) == "display") << endl; // Example Test
+    return 0;
 }

@@ -2,29 +2,39 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
-int do_algebra(vector<string> operators, vector<int> operands) {
-    int result = operands[0];
-    for (size_t i = 0; i < operators.size(); ++i) {
-        if (operators[i] == "+") {
-            result += operands[i + 1];
-        } else if (operators[i] == "-") {
-            result -= operands[i + 1];
-        } else if (operators[i] == "*") {
-            result *= operands[i + 1];
-        } else if (operators[i] == "//") {
-            result /= operands[i + 1];
-        } else if (operators[i] == "**") {
-            result = pow(result, operands[i + 1]);
+int do_algebra(const vector<string>& operato, const vector<int>& operand) {
+    int result = operand[0];
+    for (size_t i = 0; i < operato.size(); ++i) {
+        if (operato[i] == "+") {
+            result += operand[i + 1];
+        } else if (operato[i] == "-") {
+            result -= operand[i + 1];
+        } else if (operato[i] == "*") {
+            result *= operand[i + 1];
+        } else if (operato[i] == "/") {
+            result /= operand[i + 1];
+        } else if (operato[i] == "**") {
+            result = pow(result, operand[i + 1]);
         }
     }
     return result;
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    int n, m;
+    cin >> n;
+    vector<string> operato(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> operato[i];
+    }
+    cin >> m;
+    vector<int> operand(m);
+    for (int i = 0; i < m; ++i) {
+        cin >> operand[i];
+    }
+    cout << do_algebra(operato, operand) << endl;
     return 0;
-} 
+}
