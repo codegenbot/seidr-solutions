@@ -1,14 +1,20 @@
-bool is_nested(string str){
-    int openCount = 0, nestedCount = 0;
-    for(char c : str){
-        if(c == '[') {
-            openCount++;
-        } else if(c == ']') {
-            if(openCount > 0) {
-                openCount--;
-                nestedCount++;
+#include <stack>
+
+bool is_nested(string str) {
+    stack<char> s;
+    for (char ch : str) {
+        if (ch == '[') {
+            s.push(ch);
+        } else if (ch == ']') {
+            if (!s.empty() && s.top() == '[') {
+                s.pop();
+                if (!s.empty() && s.top() == '[') {
+                    return true;
+                }
+            } else {
+                return false;
             }
         }
     }
-    return nestedCount > 1;
+    return false;
 }
