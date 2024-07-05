@@ -14,8 +14,8 @@ bool check_if_last_char_is_a_letter(std::string txt) {
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pie ") == false);
-    assert(check_if_last_char_is_a_letter("apple pie") == true);
+    assert (check_if_last_char_is_a_letter("apple pie ") == false);
+    assert (check_if_last_char_is_a_letter("apple pie") == true);
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
