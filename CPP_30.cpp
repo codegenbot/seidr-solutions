@@ -1,16 +1,21 @@
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-bool issame(vector<float> l) {
-    float first = *l.begin();
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
     for (float num : l) {
-        if (num != first)
-            return false;
+        if (num > 0) {
+            result.push_back(num);
+        }
     }
-    return true;
+    return result;
 }
 
-int main() {
-    vector<float> l = {1.0, 2.0, 3.0};
-    cout << issame(l) << endl;
+bool issame(std::vector<float> a, std::vector<float>b){
+    return a.size() == b.size();
+}
+
+int main(){
+    assert(get_positive({}) == {});
+    return 0;
 }
