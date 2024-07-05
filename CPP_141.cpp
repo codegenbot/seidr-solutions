@@ -11,7 +11,7 @@ std::string file_name_check(const std::string& file_name) {
 
     std::string beforeDot = file_name.substr(0, dotPos);
     std::string afterDot = file_name.substr(dotPos + 1);
-    
+
     if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
         return "No";
     }
