@@ -21,16 +21,12 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    vector<int> arr;
-    int n, temp;
-    cout << "Enter number of elements: ";
+    int n;
     cin >> n;
-    cout << "Enter elements: ";
+    vector<int> arr(n);
     for (int i = 0; i < n; ++i) {
-        cin >> temp;
-        arr.push_back(temp);
+        cin >> arr[i];
     }
-    cout << "Result: " << prod_signs(arr) << endl;
+    cout << prod_signs(arr) << endl;
     return 0;
 }
