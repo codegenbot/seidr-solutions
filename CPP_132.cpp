@@ -1,18 +1,18 @@
 bool is_nested(string str){
-    int n = str.length();
-    int depth = 0;
+    int balance = 0;
     bool nested = false;
-
-    for (int i = 0; i < n; ++i) {
-        if (str[i] == '[') {
-            depth++;
-        } else if (str[i] == ']') {
-            if (depth > 1) {
-                nested = true;
-            }
-            depth--;
+    for (char ch : str) {
+        if (ch == '[') {
+            balance++;
+        } else if (ch == ']') {
+            balance--;
+        }
+        if (balance > 1) {
+            nested = true;
+        }
+        if (balance < 0) {
+            return false;
         }
     }
-
-    return nested;
+    return nested && balance == 0;
 }
