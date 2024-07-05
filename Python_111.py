@@ -9,5 +9,4 @@ def histogram():
     max_count = max(counts.values())
     return {k: v for k, v in counts.items() if v == max_count}
 
-
 print(histogram())
