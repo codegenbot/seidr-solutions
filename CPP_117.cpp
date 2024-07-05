@@ -21,7 +21,7 @@ int count_consonants(const string &word) {
     return count;
 }
 
-vector<string> select_words(string s, int n) {
+vector<string> select_words(const string &s, int n) {
     vector<string> result;
     istringstream iss(s);
     string word;
