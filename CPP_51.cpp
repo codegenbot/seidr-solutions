@@ -11,7 +11,7 @@ string remove_vowels(string text) {
 
 int main() {
     string input;
-    getline(cin, input);
-    cout << remove_vowels(input) << endl;
+    getline(cin, input); // Read entire line of text
+    cout << remove_vowels(input) << endl; // Output the modified string
     return 0;
 }
