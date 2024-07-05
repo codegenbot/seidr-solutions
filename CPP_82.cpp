@@ -1,28 +1,24 @@
-#include <string>
 #include <iostream>
+#include <string>
+#include <cassert>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
-    if (n == 2) return true;
-    if (n % 2 == 0) return false;
-    for (int i = 3; i * i <= n; i += 2) {
-        if (n % i == 0) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
     }
     return true;
 }
 
-bool prime_length(std::string str) {
-    int length = str.length();
-    return is_prime(length);
+bool prime_length(const std::string& str) {
+    return is_prime(str.length());
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    if (prime_length(input)) {
-        std::cout << "Prime length" << std::endl;
-    } else {
-        std::cout << "Not prime length" << std::endl;
-    }
+    assert(prime_length("0") == false);
+    assert(prime_length("hello") == true); // "hello" has length 5, which is prime
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
