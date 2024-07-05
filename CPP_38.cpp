@@ -1,4 +1,10 @@
-string decode_cyclic(string s){ 
+#include <iostream>
+#include <cassert>
+#include <string>
+
+using namespace std;
+
+string decode_cyclic(string s) {
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -7,4 +13,13 @@ string decode_cyclic(string s){
         output = output + x;
     }
     return output;
+}
+
+int main() {
+    // Example as a quick test. Replace with actual test scenarios if needed.
+    string str = "abc";
+    string encoded_str = "cab";
+    assert(decode_cyclic(encoded_str) == str);
+    cout << "Test passed!" << endl;
+    return 0;
 }
