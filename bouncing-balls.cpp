@@ -1,17 +1,17 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 int main() {
     int startHeight, firstBounce;
-    char comma;
     long double numBounces;
 
-    cin >> startHeight >> comma >> firstBounce >> comma >> numBounces;
+    cin >> startHeight >> firstBounce >> numBounces;
 
     // Calculate bounciness index
-    long double bouncinessIndex = static_cast<long double>(firstBounce) / static_cast<long double>(startHeight);
+    long double bouncinessIndex = (long double)firstBounce / startHeight;
 
     // Calculate total distance traveled
     long double totalDistance = 0.0L;
