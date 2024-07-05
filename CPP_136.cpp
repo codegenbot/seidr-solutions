@@ -5,8 +5,8 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int largest_negative = 0;
-    int smallest_positive = 0;
+    int largest_negative = INT_MIN;
+    int smallest_positive = INT_MAX;
     bool found_negative = false;
     bool found_positive = false;
 
