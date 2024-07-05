@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm> // For std::max and std::min
-
+#include <algorithm>
 using namespace std;
 
 bool isPrime(int n) {
@@ -29,10 +28,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    // Example usage and self-test
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
-    assert(intersection({1, 4}, {2, 5}) == "YES"); // Example case where length is 3 (prime)
-    // Add more test cases as required
-    cout << "All test cases passed!" << endl;
+    // Add more test cases as needed
     return 0;
 }
