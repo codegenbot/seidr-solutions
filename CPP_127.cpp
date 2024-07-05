@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -32,6 +31,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
+    // Test cases
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
     assert(intersection({1, 5}, {2, 4}) == "NO");
     assert(intersection({1, 5}, {2, 3}) == "YES");
