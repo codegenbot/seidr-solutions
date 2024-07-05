@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
- 
+
 using namespace std;
 
 vector<float> sort_even(vector<float> l) {
