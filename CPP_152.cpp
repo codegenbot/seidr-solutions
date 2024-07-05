@@ -12,11 +12,11 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(is_same(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
