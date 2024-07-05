@@ -1,7 +1,15 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <numeric>
+
+int gcd(int a, int b) {
+    while (b) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
 bool simplify(std::string x, std::string n) {
     int x_num, x_den, n_num, n_den;
@@ -13,19 +21,22 @@ bool simplify(std::string x, std::string n) {
     std::stringstream n_stream(n);
     n_stream >> n_num >> slash >> n_den;
     
-    int result_num = x_num * n_num;
-    int result_den = x_den * n_den;
+    // Simplify x
+    int gcd_x = gcd(x_num, x_den);
+    x_num /= gcd_x;
+    x_den /= gcd_x;
     
-    int gcd = std::gcd(result_num, result_den);
+    // Simplify n
+    int gcd_n = gcd(n_num, n_den);
+    n_num /= gcd_n;
+    n_den /= gcd_n;
     
-    result_num /= gcd;
-    result_den /= gcd;
-    
-    return result_num == result_den;
+    // Check if both fractions are equal
+    return x_num == n_num && x_den == n_den;
 }
 
 int main() {
-    std::cout << std::boolalpha; // for displaying true/false instead of 1/0
-    std::cout << (simplify("1/5", "1/5") == false) << std::endl; // should print true 
+    std::cout << std::boolalpha;
+    std::cout << simplify("1/5", "1/5") << std::endl; // Should print true since they are the same fraction
     return 0;
 }

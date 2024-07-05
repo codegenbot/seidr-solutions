@@ -1,4 +1,10 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
+#include <cmath> // For abs
+#include <cassert> // For assert
+
+using namespace std;
 
 int sum_of_digits(int n) {
     n = abs(n);
@@ -24,4 +30,14 @@ vector<int> order_by_points(vector<int> nums) {
         sorted_nums.push_back(nums[p.second]);
     }
     return sorted_nums;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main() {
+    assert (issame(order_by_points({0, 6, 6, -76, -21, 23, 4}) , vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+    cout << "All tests passed!" << endl;
+    return 0;
 }
