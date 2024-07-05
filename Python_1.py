@@ -18,5 +18,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 if __name__ == "__main__":
     paren_string = input().strip()
-    groups = separate_paren_groups(paren_string)
-    print(groups)
+    print(separate_paren_groups(paren_string))
