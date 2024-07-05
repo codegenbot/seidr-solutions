@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
-#include <cassert>
+#include <cmath> // for floor function
+
 using namespace std;
 
 long long double_the_difference(vector<float> lst) {
@@ -14,8 +15,17 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.0, 2.0, 3.5, 3.0, 4.0, 5.0}; // Example list
-    long long odd_sum = 35; // Example expected sum: 1*1 + 3*3 + 5*5 = 1 + 9 + 25 = 35
-    assert(double_the_difference(lst) == odd_sum);
+    vector<float> lst;
+    float num;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> num;
+        lst.push_back(num);
+    }
+    long long result = double_the_difference(lst);
+    cout << "Sum of squares of positive odd integers: " << result << endl;
     return 0;
 }
