@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cmath>
+#include <cmath>  // for pow
 
 using namespace std;
 
@@ -25,9 +25,6 @@ int do_algebra(vector<string> operators, vector<int> operands) {
 }
 
 int main() {
-    vector<string> operators = {"//", "*"};
-    vector<int> operands = {7, 3, 4};
-    cout << do_algebra(operators, operands) << endl;  // Expected output: 8
-
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
 }
