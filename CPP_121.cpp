@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9,4 +10,16 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    vector<int> lst;
+    int n, num;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> num;
+        lst.push_back(num);
+    }
+    cout << solutions(lst) << endl;
+    return 0;
 }
