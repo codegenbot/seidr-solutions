@@ -3,7 +3,7 @@
 
 int add_elements(const std::vector<int>& arr, int k) {
     int sum = 0;
-    for (int i = 0; i < k && i < arr.size(); ++i) {
+    for (int i = 0; i < k; ++i) {
         if (arr[i] >= -99 && arr[i] <= 99) {
             sum += arr[i];
         }
