@@ -1,14 +1,24 @@
-string encode(string message) {
-    string vowels = "aeiouAEIOU";
-    string replacements = "cgkqwCGKQW";
-    for (char &ch : message) {
-        if (isalpha(ch)) {
-            if (islower(ch)) ch = toupper(ch);
-            else ch = tolower(ch);
-            size_t pos = vowels.find(ch);
-            if (pos != string::npos) {
-                ch = replacements[pos];
-            }
+string encode(string message){
+    auto is_vowel = [](char c) {
+        char lower = tolower(c);
+        return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';
+    };
+
+    auto shift_vowel = [](char c) {
+        char lower = tolower(c);
+        if (lower == 'a') return 'C';
+        if (lower == 'e') return 'G';
+        if (lower == 'i') return 'K';
+        if (lower == 'o') return 'Q';
+        if (lower == 'u') return 'W';
+        return c;
+    };
+
+    for (char& c : message) {
+        if (is_vowel(c)) {
+            c = shift_vowel(c);
+        } else {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
     return message;
