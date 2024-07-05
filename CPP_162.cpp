@@ -28,9 +28,7 @@ string string_to_md5(const string &text) {
 }
 
 int main() {
-    string input;
-    cout << "Enter the string: ";
-    getline(cin, input);
-    cout << "MD5: " << string_to_md5(input) << endl;
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    cout << "All tests passed!" << endl;
     return 0;
 }
