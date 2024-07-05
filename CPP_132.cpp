@@ -1,13 +1,14 @@
-bool is_nested(string str){
-    int depth = 0;
-    bool nested = false;
-    for(char ch : str) {
-        if(ch == '[') {
+bool is_nested(string str) {
+    int depth = 0, max_depth = 0;
+    for (char ch : str) {
+        if (ch == '[') {
             depth++;
-            if(depth > 1) nested = true;
-        } else if(ch == ']') {
-            if(depth > 0) depth--;
+            if (depth > max_depth) {
+                max_depth = depth;
+            }
+        } else if (ch == ']') {
+            depth--;
         }
     }
-    return nested;
+    return max_depth > 1;
 }
