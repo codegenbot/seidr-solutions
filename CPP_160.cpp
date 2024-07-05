@@ -26,31 +26,3 @@ int do_algebra(const vector<string>& operato, const vector<int>& operand) {
     }
     return result;
 }
-
-int main() {
-    vector<string> operato;
-    vector<int> operand;
-    int n;
-    
-    cout << "Enter number of operations: ";
-    cin >> n;
-
-    cout << "Enter operands: ";
-    for (int i = 0; i <= n; ++i) {
-        int temp;
-        cin >> temp;
-        operand.push_back(temp);
-    }
-
-    cout << "Enter operators: ";
-    for (int i = 0; i < n; ++i) {
-        string temp;
-        cin >> temp;
-        operato.push_back(temp);
-    }
-
-    int result = do_algebra(operato, operand);
-    cout << "Result: " << result << endl;
-
-    return 0;
-}
