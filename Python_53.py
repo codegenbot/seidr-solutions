@@ -2,6 +2,7 @@ def add(x: int, y: int):
     return x + y
 
 
+# Read input from user and validate
 while True:
     try:
         x = int(input("Enter first number: "))
