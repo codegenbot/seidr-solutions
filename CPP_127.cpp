@@ -1,11 +1,11 @@
 #include <cmath>
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    if (n == 2) return true;
-    if (n % 2 == 0) return false;
-    for (int i = 3; i <= sqrt(n); i += 2) {
-        if (n % i == 0) return false;
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    if (num == 2) return true;
+    if (num % 2 == 0) return false;
+    for (int i = 3; i <= sqrt(num); i += 2) {
+        if (num % i == 0) return false;
     }
     return true;
 }
@@ -14,12 +14,12 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0], end1 = interval1[1];
     int start2 = interval2[0], end2 = interval2[1];
     
-    int intersectStart = max(start1, start2);
-    int intersectEnd = min(end1, end2);
+    int startIntersection = max(start1, start2);
+    int endIntersection = min(end1, end2);
     
-    if (intersectStart > intersectEnd) return "NO";
+    if (startIntersection > endIntersection) return "NO";
     
-    int length = intersectEnd - intersectStart + 1;
+    int intersectionLength = endIntersection - startIntersection + 1;
     
-    return isPrime(length) ? "YES" : "NO";
+    return isPrime(intersectionLength) ? "YES" : "NO";
 }
