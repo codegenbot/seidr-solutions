@@ -18,9 +18,18 @@ vector<int> factorize(int n) {
     return factors;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
+}
+
 int main() {
-    assert(factorize(3 * 2 * 3) == vector<int>({2, 3, 3}));
-    assert(factorize(60) == vector<int>({2, 2, 3, 5}));
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    assert(issame(factorize(60), {2, 2, 3, 5}));
+    assert(issame(factorize(100), {2, 2, 5, 5}));
+    assert(issame(factorize(37), {37}));
+    assert(issame(factorize(84), {2, 2, 3, 7}));
     cout << "All tests passed." << endl;
     return 0;
 }
