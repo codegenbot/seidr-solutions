@@ -1,7 +1,7 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.replace(" ", "")
+    paren_string = ''.join(filter(lambda x: x in '()', paren_string))
     result = []
     balance = 0
     start = 0
