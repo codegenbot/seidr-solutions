@@ -1,18 +1,21 @@
 #include <iostream>
 #include <string>
-#include <stdexcept>
+#include <any>
 
 using namespace std;
 
-using any = std::string;
-
-any compare_one(const any& a, const any& b) {
+any compare_one(any a, any b) {
     auto parse_real = [](const any& val) -> double {
-        try {
-            return stod(val);
-        } catch (const invalid_argument& e) {
-            throw invalid_argument("Unsupported type");
+        if (val.type() == typeid(int)) {
+            return any_cast<int>(val);
+        } else if (val.type() == typeid(float)) {
+            return any_cast<float>(val);
+        } else if (val.type() == typeid(string)) {
+            string str_val = any_cast<string>(val);
+            replace(str_val.begin(), str_val.end(), ',', '.');
+            return stod(str_val);
         }
+        throw invalid_argument("Unsupported type");
     };
 
     double val_a = parse_real(a);
@@ -28,12 +31,22 @@ any compare_one(const any& a, const any& b) {
 }
 
 int main() {
-    string a, b;
-    cout << "Enter first value: ";
-    cin >> a;
-    cout << "Enter second value: ";
-    cin >> b;
+    any a = string("3,14");
+    any b = 3.14;
+    any result = compare_one(a, b);
 
-    cout << "The result of comparison: " << compare_one(a, b) << endl;
+    try {
+        cout << any_cast<string>(result) << endl;
+    } catch(const bad_any_cast&) {
+        try {
+            cout << any_cast<int>(result) << endl;
+        } catch(const bad_any_cast&) {
+            try {
+                cout << any_cast<float>(result) << endl;
+            } catch(const bad_any_cast&) {
+                cout << "Invalid result type" << endl;
+            }
+        }
+    }
     return 0;
 }
