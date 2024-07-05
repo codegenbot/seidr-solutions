@@ -1,5 +1,4 @@
 import math
-import sys
 
 def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
@@ -20,6 +19,7 @@ def find_zero(xs: list):
     return (a + b) / 2
 
 if __name__ == "__main__":
+    import sys
     input = sys.stdin.read
     data = input().strip().split()
     xs = list(map(float, data))
