@@ -1,18 +1,16 @@
 #include <iostream>
 using namespace std;
 
+double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = startingHeight + (bouncinessIndex * (1 - pow(bouncinessIndex, numBounces)));
+    return totalDistance;
+}
+
 int main() {
-    double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance = 0;
+    double startingHeight, firstBounceHeight;
     int numBounces;
-    
     cin >> startingHeight >> firstBounceHeight >> numBounces;
-    bouncinessIndex = firstBounceHeight / startingHeight;
-    
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (startingHeight + (i * bouncinessIndex));
-    }
-    
-    cout << totalDistance << endl;
-    
+    cout << bouncingBalls(startingHeight, firstBounceHeight, numBounces) << endl;
     return 0;
 }
