@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -19,5 +20,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(issame(make_a_pile(8), vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+    cout << "Assertion passed!" << endl;
     return 0;
 }
