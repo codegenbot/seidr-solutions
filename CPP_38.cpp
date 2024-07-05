@@ -16,6 +16,7 @@ string decode_cyclic(string s) {
 }
 
 int main() {
+    // Example as a quick test. Replace with actual test scenarios if needed.
     string str = "abc";
     string encoded_str = "cab";
     assert(decode_cyclic(encoded_str) == str);
