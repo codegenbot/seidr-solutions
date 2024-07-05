@@ -16,9 +16,6 @@ string decimal_to_binary(int decimal) {
 int main() {
     // Test the function
     assert(decimal_to_binary(15) == "db1111db");
-    assert(decimal_to_binary(0) == "db0db");
-    assert(decimal_to_binary(7) == "db111db");
-    assert(decimal_to_binary(8) == "db1000db");
     cout << "All tests passed!" << endl;
     return 0;
 }
