@@ -7,5 +7,5 @@ def longest(strings: List[str]) -> Optional[str]:
 
 if __name__ == "__main__":
     import sys
-    strings = sys.stdin.read().strip().split("\n")
+    strings = sys.stdin.read().strip().splitlines()
     print(longest(strings))
