@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -31,7 +30,9 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 }
 
 int main() {
-    assert (issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    cout << "Test passed!" << endl;
+    vector<vector<int>> lst = {{}, {1}, {1, 2, 3}};
+    vector<vector<int>> expected = {{2, 2}};
+    vector<vector<int>> result = get_row(lst, 3);
+    assert(issame(result, expected));
     return 0;
 }
