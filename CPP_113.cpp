@@ -25,11 +25,12 @@ vector<string> odd_count(const vector<string>& lst) {
 }
 
 int main() {
-    assert(odd_count({"271", "137", "314"}) == vector<string>({
+    vector<string> expected = {
         "the number of odd elements 2 in the string 271 is 2 in the input.",
         "the number of odd elements 3 in the string 137 is 3 in the input.",
         "the number of odd elements 2 in the string 314 is 2 in the input."
-    }));
+    };
+    assert(odd_count({"271", "137", "314"}) == expected);
     cout << "All tests passed!" << endl;
     return 0;
 }
