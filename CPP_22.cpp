@@ -2,14 +2,13 @@
 #include <vector>
 #include <list>
 #include <typeinfo>
-#include <cassert>
 #include <boost/any.hpp>
+#include <cassert>
 
 using namespace std;
+using boost::any;
 
-typedef boost::any list_any;
-
-vector<int> filter_integers(list<list_any> values) {
+vector<int> filter_integers(const list<any>& values) {
     vector<int> result;
     for (const auto& val : values) {
         if (val.type() == typeid(int)) {
@@ -19,7 +18,7 @@ vector<int> filter_integers(list<list_any> values) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
