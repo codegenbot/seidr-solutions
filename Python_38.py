@@ -1,4 +1,3 @@
-
 def decode_cyclic(s):
     s = input("Enter a cyclic string to decode: ")
     if len(s) % 3 != 0:
