@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cmath>
 
 using namespace std;
@@ -18,16 +17,4 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    vector<int> nums;
-    int n, temp;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> temp;
-        nums.push_back(temp);
-    }
-    cout << specialFilter(nums) << endl;
-    return 0;
 }
