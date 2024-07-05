@@ -1,7 +1,7 @@
-string result = "";
-    int n = a.length();
-    for (int i = 0; i < n; i++) {
-        result += to_string((a[i] - '0') ^ (b[i] - '0'));
+string string_xor(string a, string b){
+    string result = "";
+    for (int i = 0; i < a.length(); ++i) {
+        result += (a[i] == b[i] ? '0' : '1');
     }
     return result;
 }
