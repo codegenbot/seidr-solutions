@@ -1,8 +1,10 @@
 def histogram(test=None):
     from collections import Counter
-
     if test is None:
-        test = input().strip()
+        try:
+            test = input().strip()
+        except:
+            return {}
     if not test:
         return {}
     counts = Counter(test.split())
