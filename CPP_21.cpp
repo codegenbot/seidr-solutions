@@ -4,8 +4,8 @@
 #include <cassert>
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
-    float min_val = *std::min_element(numbers.begin(), numbers.end());
-    float max_val = *std::max_element(numbers.begin(), numbers.end());
+    float min_val = *min_element(numbers.begin(), numbers.end());
+    float max_val = *max_element(numbers.begin(), numbers.end());
     for (auto &num : numbers) {
         num = (num - min_val) / (max_val - min_val);
     }
@@ -13,11 +13,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
 }
 
 bool issame(const std::vector<float> &a, const std::vector<float> &b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-6) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
