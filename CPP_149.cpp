@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
+#include <cassert> // Include necessary header
 
 using namespace std;
 
@@ -23,9 +23,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(result == expected);
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
     cout << "Test passed!" << endl;
     return 0;
 }
