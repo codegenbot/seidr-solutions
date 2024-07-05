@@ -1,5 +1,6 @@
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 using namespace std;
 
 int prod_signs(vector<int> arr){
@@ -19,9 +20,15 @@ int prod_signs(vector<int> arr){
 }
 
 int main() {
-    // Example usage of prod_signs
-    vector<int> arr = { -1, 2, 3, 0 };
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    vector<int> arr(n);
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
     int result = prod_signs(arr);
-    // Output the result
+    cout << "Result: " << result << endl;
     return 0;
 }
