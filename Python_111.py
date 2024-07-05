@@ -1,11 +1,12 @@
-def histogram(test):
+def histogram():
     from collections import Counter
+
+    test = input("Enter the strings: ")
+    if not test:
+        return {}
 
     counts = Counter(test.split())
     max_count = max(counts.values())
     return {k: v for k, v in counts.items() if v == max_count}
 
-if __name__ == "__main__":
-    user_input = input("Enter the text: ")
-    result = histogram(user_input)
-    print(result)
+print(histogram())
