@@ -16,7 +16,8 @@ vector<string> filter_by_prefix(const vector<string>& strings, const string& pre
 }
 
 int main() {
-    assert((filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"}));
+    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == expected);
     cout << "Test passed!" << endl;
     return 0;
 }
