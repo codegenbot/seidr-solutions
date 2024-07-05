@@ -16,7 +16,6 @@ string flip_case(string str) {
 
 int main() {
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    // You can add additional test cases or user input if needed
     cout << "All tests passed!" << endl;
     return 0;
 }
