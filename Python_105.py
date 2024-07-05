@@ -1,8 +1,6 @@
 def by_length(arr):
-    result = []
+    result = {}
     for num in arr:
         if 1 <= num <= 9:
-            result.append(str(num))
-    result.sort()
-    result.reverse()
-    return "".join(result)
+            result[num] = str(num)
+    return [result[key] for key in sorted(result, reverse=True)]
