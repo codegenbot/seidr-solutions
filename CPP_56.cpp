@@ -1,13 +1,9 @@
-int count = 0;
-    for (char ch : brackets) {
-        if (ch == '<') {
-            count++;
-        } else if (ch == '>') {
-            count--;
-            if (count < 0) {
-                return false;
-            }
-        }
+bool correct_bracketing(string brackets){
+    int balance = 0;
+    for(char ch : brackets) {
+        if(ch == '<') balance++;
+        else if(ch == '>') balance--;
+        if(balance < 0) return false;
     }
-    return count == 0;
+    return balance == 0;
 }
