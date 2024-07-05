@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string decimal_to_binary(int decimal) {
@@ -8,4 +10,9 @@ string decimal_to_binary(int decimal) {
         decimal /= 2;
     }
     return "db" + (binary.empty() ? "0" : binary) + "db";
+}
+
+int main() {
+    cout << decimal_to_binary(15) << endl; // For testing
+    return 0;
 }
