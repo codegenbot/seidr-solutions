@@ -40,7 +40,7 @@ any compare_one(any a, any b) {
         return sa > sb ? a : b;
     }
 
-    return "None"; // Different types or unable to compare
+    return "None";
 }
 
 int main() {

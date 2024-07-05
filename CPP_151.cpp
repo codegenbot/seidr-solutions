@@ -1,27 +1,26 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
-long long double_the_difference(const std::vector<float>& lst) {
+using namespace std;
+
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && floor(num) == num && ((int)num) % 2 != 0) {
-            sum += ((int)num) * ((int)num);
+        if (num == (int)num && num > 0 && ((int)num % 2 != 0)) {
+            sum += num * num;
         }
     }
-    return sum;
+    return 2 * sum;
 }
 
 int main() {
-    std::vector<float> lst;
-    float num;
-    
-    // Read input from user
-    while (std::cin >> num) {
-        lst.push_back(num);
+    vector<float> lst;
+    float input;
+    while (cin >> input) {
+        lst.push_back(input);
     }
 
-    std::cout << double_the_difference(lst) << std::endl;
-
+    long long result = double_the_difference(lst);
+    cout << result << endl;
     return 0;
 }
