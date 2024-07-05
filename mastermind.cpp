@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -23,23 +22,23 @@ int blackPegs(string code, string guess) {
             }
         }
     }
-    return 4 - whitePegs(code, guess);
+    return correctPosition;
 }
 
 int main() {
     string code;
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> code;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
 
     string guess;
-    std::cout << "Enter your guess: ";
-    std::cin >> guess;
+    cout << "Enter your guess: ";
+    cin >> guess;
 
     int black = blackPegs(code, guess);
     int white = 4 - blackPegs(code, guess);
 
-    std::cout << black << std::endl;
-    std::cout << white << std::endl;
+    cout << black << endl;
+    cout << white << endl;
 
     return 0;
 }
