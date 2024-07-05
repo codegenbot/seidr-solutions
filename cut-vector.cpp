@@ -16,13 +16,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             index = i;
         }
     }
-    
     int leftIndex = min(index, (int)v.size() - 1);
     vector<int> left(v.begin(), v.begin() + leftIndex + 1);
-    
     int rightIndex = max(0, index);
     vector<int> right(v.begin() + rightIndex, v.end());
-    
     return make_pair(left, right);
 }
 
