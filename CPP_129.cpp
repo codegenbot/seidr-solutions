@@ -1,49 +1,51 @@
 #include <vector>
 #include <queue>
 #include <tuple>
-
+#include <algorithm>
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int N = grid.size();
-    vector<vector<vector<int>>> dp(N, vector<vector<int>>(N, vector<int>(k + 1, INT_MAX)));
-    vector<vector<vector<vector<int>>>> path(N, vector<vector<vector<int>>>(N, vector<vector<int>>(k + 1)));
+    vector<vector<int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     
-    auto cmp = [](const tuple<int, int, int, vector<int>>& a, const tuple<int, int, int, vector<int>>& b) {
-        return get<3>(a) > get<3>(b);
+    auto cmp = [](const vector<int>& a, const vector<int>& b) {
+        return a > b;
     };
     
-    priority_queue<tuple<int, int, int, vector<int>>, vector<tuple<int, int, int, vector<int>>>, decltype(cmp)> pq(cmp);
+    priority_queue<vector<int>, vector<vector<int>>, decltype(cmp)> pq(cmp);
     
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
-            pq.push({i, j, 1, {grid[i][j]}});
-            dp[i][j][1] = grid[i][j];
-            path[i][j][1] = {grid[i][j]};
+            pq.push({grid[i][j], i, j});
         }
     }
     
-    vector<int> directions = {-1, 0, 1, 0, -1};
-    
     while (!pq.empty()) {
-        auto [x, y, length, currentPath] = pq.top();
+        auto current = pq.top();
         pq.pop();
         
-        if (length == k) {
-            return currentPath;
-        }
+        vector<int> path = {current[0]};
+        int x = current[1], y = current[2];
         
-        for (int d = 0; d < 4; ++d) {
-            int nx = x + directions[d];
-            int ny = y + directions[d + 1];
+        queue<tuple<int, int, vector<int>>> q;
+        q.push({x, y, path});
+        
+        while (!q.empty()) {
+            auto [cx, cy, cpath] = q.front();
+            q.pop();
             
-            if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
-                vector<int> newPath = currentPath;
-                newPath.push_back(grid[nx][ny]);
+            if (cpath.size() == k) {
+                return cpath;
+            }
+            
+            for (auto& dir : directions) {
+                int nx = cx + dir[0];
+                int ny = cy + dir[1];
                 
-                if (newPath < path[nx][ny][length + 1]) {
-                    path[nx][ny][length + 1] = newPath;
-                    pq.push({nx, ny, length + 1, newPath});
+                if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
+                    vector<int> newPath = cpath;
+                    newPath.push_back(grid[nx][ny]);
+                    q.push({nx, ny, newPath});
                 }
             }
         }
