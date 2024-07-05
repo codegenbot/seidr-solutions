@@ -21,10 +21,12 @@ def main():
     input = sys.stdin.read()
     try:
         nums = list(map(float, input.split()))
-        if len(nums) >= 2:
+        if len(nums) < 2:
+            print("Please enter at least two numbers.")
+        else:
             print(find_closest_elements(nums))
     except ValueError:
-        pass
+        print("Invalid input. Please enter valid numbers separated by spaces.")
 
 if __name__ == "__main__":
     main()
