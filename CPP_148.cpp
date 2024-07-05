@@ -26,11 +26,7 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(bf("Jupiter", "Makemake").empty());
     return 0;
 }
