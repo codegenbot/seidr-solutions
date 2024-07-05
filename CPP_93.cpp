@@ -1,24 +1,24 @@
 string encode(string message){
-    auto swap_case = [](char c) -> char {
-        if (islower(c)) return toupper(c);
-        if (isupper(c)) return tolower(c);
-        return c;
-    };
-    
-    auto replace_vowel = [](char c) -> char {
-        switch(tolower(c)) {
-            case 'a': return c + 2;
-            case 'e': return c + 2;
-            case 'i': return c + 2;
-            case 'o': return c + 2;
-            case 'u': return c + 2;
-            default: return c;
+    string result = "";
+    for (char c : message) {
+        if (isalpha(c)) {
+            if (islower(c)) {
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
+            if (c == 'A') c = 'C';
+            else if (c == 'E') c = 'G';
+            else if (c == 'I') c = 'K';
+            else if (c == 'O') c = 'Q';
+            else if (c == 'U') c = 'W';
+            else if (c == 'a') c = 'c';
+            else if (c == 'e') c = 'g';
+            else if (c == 'i') c = 'k';
+            else if (c == 'o') c = 'q';
+            else if (c == 'u') c = 'w';
         }
-    };
-    
-    for (char &c : message) {
-        c = swap_case(c);
-        c = replace_vowel(c);
+        result += c;
     }
-    return message;
+    return result;
 }
