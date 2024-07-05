@@ -1,4 +1,4 @@
-#include <cstdio>  // for printf and scanf
+#include <stdio.h>
 
 long long factorial(int x) {
     long long result = 1;

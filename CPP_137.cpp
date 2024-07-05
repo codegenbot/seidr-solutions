@@ -1,16 +1,15 @@
 #include <iostream>
 #include <string>
-#include <typeinfo>
 #include <stdexcept>
 
 using namespace std;
 
-using any = std::string; // Just using string to unify types for this particular problem
+using any = std::string;
 
 any compare_one(const any& a, const any& b) {
     auto parse_real = [](const any& val) -> double {
         try {
-            return stod(val); // Convert string to double
+            return stod(val);
         } catch (const invalid_argument& e) {
             throw invalid_argument("Unsupported type");
         }
