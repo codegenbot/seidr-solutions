@@ -7,5 +7,5 @@ def parse_music(music_string: str) -> List[int]:
 
 if __name__ == "__main__":
     import sys
-    input_stream = sys.stdin.read().strip()
-    print(parse_music(input_stream))
+    music_string = sys.stdin.read().strip()
+    print(parse_music(music_string))
