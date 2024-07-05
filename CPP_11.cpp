@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <cassert>
 using namespace std;
 
 string string_xor(string a, string b) {
@@ -11,6 +11,6 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    cout << string_xor("0101", "0000") << endl; // Expected output: 0101
+    assert(string_xor("0101", "0000") == "0101");
     return 0;
 }
