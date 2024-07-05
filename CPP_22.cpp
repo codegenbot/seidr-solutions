@@ -1,9 +1,11 @@
-#include <boost/variant.hpp>
+#include <boost/convert.hpp>
 
 vector<int> filter_integers(list-any values) {
     vector<int> result;
     for (const auto& value : values) {
-        boost::any_cast<boost::optional<int>>(value).emplace_if_some([&result](int i){ result.push_back(i); });
+        if (boost::any_cast<boost::optional<int>>(value)) {
+            result.push_back(boost::any_cast<int>(value));
+        }
     }
     return result;
 }
