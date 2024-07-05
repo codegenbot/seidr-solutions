@@ -1,8 +1,8 @@
 def search(lst):
     from collections import Counter
-    counts = Counter(lst)
+    freq = Counter(lst)
     result = -1
-    for num, freq in counts.items():
-        if freq >= num:
-            result = max(result, num)
+    for num, count in freq.items():
+        if count >= num and num > result:
+            result = num
     return result
