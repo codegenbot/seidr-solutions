@@ -1,7 +1,6 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-#include <iostream>
 
 int sum_squares(const std::vector<float>& lst) {
     int sum = 0;
@@ -13,12 +12,6 @@ int sum_squares(const std::vector<float>& lst) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<float> lst(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> lst[i];
-    }
-    std::cout << sum_squares(lst) << std::endl;
+    assert(sum_squares({-1, 1, 0}) == 2);
     return 0;
 }
