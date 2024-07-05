@@ -15,5 +15,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             balance -= 1
             if balance == 0:
                 groups.append(paren_string[start : i + 1])
-
     return groups
