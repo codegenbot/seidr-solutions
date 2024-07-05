@@ -1,13 +1,15 @@
 def separate_paren_groups(paren_string: str) -> List[str]:
     paren_string = paren_string.replace(" ", "")
-    result, balance, current_group = [], 0, []
+    result = []
+    balance = 0
+    group = ""
     for char in paren_string:
-        current_group.append(char)
+        group += char
         if char == "(":
             balance += 1
-        else:
+        elif char == ")":
             balance -= 1
-        if balance == 0:
-            result.append("".join(current_group))
-            current_group = []
+        if balance == 0 and group:
+            result.append(group)
+            group = ""
     return result
