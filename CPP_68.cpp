@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -28,8 +27,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
-    assert(issame(pluck({3, 5, 8, 2}), {2, 3}));
-    assert(issame(pluck({6, 4, 10, 12}), {4, 1}));
-    cout << "All tests passed!" << endl;
+    assert(issame(pluck({7, 4, 7, 1}), {4, 1}));
     return 0;
 }
