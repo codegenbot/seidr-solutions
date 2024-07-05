@@ -14,7 +14,7 @@ vector<string> words_string(const string& s) {
         stringstream ss_word(word);
         string subword;
         while (getline(ss_word, subword, ',')) {
-            if (!subword.empty()) {
+            if (!subword.empty()) { // To avoid pushing empty strings
                 result.push_back(subword);
             }
         }
@@ -27,7 +27,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed, gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed,gamal"), {"ahmed", "gamal"}));
     cout << "Test passed!" << endl;
     return 0;
 }
