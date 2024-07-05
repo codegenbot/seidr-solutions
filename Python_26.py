@@ -9,4 +9,4 @@ if __name__ == "__main__":
         result = remove_duplicates(numbers)
         print(result)
     except ValueError:
-        print("Invalid input. Please enter integers separated by spaces.")
+        print("Please provide a list of integers.")
