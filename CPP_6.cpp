@@ -1,35 +1,40 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
 
 using namespace std;
 
-vector<int> parse_nested_parens(string paren_string) {
+// Function to parse nested parentheses.
+vector<int> parse_nested_parens(const string& paren_string) {
     vector<int> result;
-    int current_depth = 0, max_depth = 0;
+    int max_depth = 0, current_depth = 0;
+
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
-            if (current_depth > max_depth) max_depth = current_depth;
+            if (current_depth > max_depth) {
+                max_depth = current_depth;
+            }
         } else if (c == ')') {
             current_depth--;
-        } else if (c == ' ') {
+        } else if (c == ' ' && current_depth == 0) { // space between groups of parentheses
             result.push_back(max_depth);
-            current_depth = 0;
             max_depth = 0;
         }
     }
-    result.push_back(max_depth); // For the last group
+    result.push_back(max_depth); // for the last group
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+// Function to compare two vectors
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(() (()) ((())))"), {2, 2, 3}));
+    assert(issame(parse_nested_parens("(()(())((()))) (()())"), {4, 2}));
+    assert(issame(parse_nested_parens("((())) (()) (()(()))"), {3, 2, 3}));
     cout << "All tests passed!" << endl;
     return 0;
 }
