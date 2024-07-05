@@ -17,7 +17,6 @@ vector<int> even_odd_count(int num) {
         }
         num /= 10;
     }
-    if (even_count == 0 && odd_count == 0) odd_count = 1; // For the case when num is 0
     return {even_count, odd_count};
 }
 
@@ -26,7 +25,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {0, 1}));
+    assert(issame(even_odd_count(0), {1, 0}));
     assert(issame(even_odd_count(123456), {3, 3}));
     assert(issame(even_odd_count(2468), {4, 0}));
     assert(issame(even_odd_count(13579), {0, 5}));
