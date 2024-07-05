@@ -1,29 +1,36 @@
+#include <vector>
+#include <string>
+#include <sstream>
+using namespace std;
+
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    string delimiter;
-
-    if (txt.find(' ') != string::npos) {
-        delimiter = " ";
-    } else if (txt.find(',') != string::npos) {
-        delimiter = ",";
-    }
-
-    if (!delimiter.empty()) {
-        while ((pos = txt.find(delimiter)) != string::npos) {
-            result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + delimiter.length());
+    size_t pos;
+    
+    if ((pos = txt.find(' ')) != string::npos) {
+        stringstream ss(txt);
+        string word;
+        while (ss >> word) {
+            result.push_back(word);
         }
-        result.push_back(txt);
+    } else if ((pos = txt.find(',')) != string::npos) {
+        stringstream ss(txt);
+        string word;
+        while (getline(ss, word, ',')) {
+            result.push_back(word);
+        }
     } else {
         int odd_count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 0) {
-                odd_count++;
+            if (c >= 'a' && c <= 'z') {
+                int order = c - 'a';
+                if (order % 2 == 0) {
+                    odd_count++;
+                }
             }
         }
         result.push_back(to_string(odd_count));
     }
-
+    
     return result;
 }
