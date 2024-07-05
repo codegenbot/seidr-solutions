@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
 int basement(const vector<int>& v) {
     int sum = 0;
     for (size_t i = 0; i < v.size(); i++) {
