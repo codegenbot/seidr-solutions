@@ -7,7 +7,7 @@ def histogram(test=None):
     if not test:
         print("{}")
         return
-
+    
     counts = Counter(test.split())
     max_count = max(counts.values())
     result = {k: v for k, v in counts.items() if v == max_count}
