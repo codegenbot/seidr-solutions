@@ -25,6 +25,7 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
 }
 
 int main() {
-    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+    // Example test case
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;  // Expected: "Sp.671235"
     return 0;
 }
