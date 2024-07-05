@@ -17,8 +17,7 @@ if __name__ == "__main__":
         n = int(input().strip())
         result = factorize(n)
         if not result and n > 1:
-            print([n])
-        else:
-            print(result)
+            result = [n]
+        print(result)
     except ValueError:
         print("Invalid input. Please enter an integer.")
