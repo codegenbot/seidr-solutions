@@ -9,9 +9,9 @@ def search(lst):
 
 if __name__ == "__main__":
     try:
-        line = input().strip()
-        if line:
-            lst = list(map(int, line.split()))
+        input_line = input().strip()
+        if input_line:
+            lst = list(map(int, input_line.split()))
             if all(0 <= x <= 100 for x in lst):
                 print(search(lst))
             else:
