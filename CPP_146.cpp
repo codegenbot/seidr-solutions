@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+
 using namespace std;
 
 int specialFilter(vector<int> nums) {
@@ -21,14 +22,11 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     vector<int> nums;
-    int n;
-    cout << "Enter the number of elements: ";
+    int n, temp;
     cin >> n;
-    cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
-        int elem;
-        cin >> elem;
-        nums.push_back(elem);
+        cin >> temp;
+        nums.push_back(temp);
     }
     cout << specialFilter(nums) << endl;
     return 0;
