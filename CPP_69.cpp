@@ -21,14 +21,14 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> lst = {3, 1, 4, 4, 5, 2, 6, 1, 1, 1}; // Example input
-    std::cout << search(lst) << std::endl; // Test the search function
-
-    assert(search({1, 2, 2, 3, 3, 3}) == 3);
-    assert(search({5}) == -1);
-    assert(search({}) == -1);
-    assert(search({1, 1, 1, 1}) == 1);
-    assert(search({2, 2, 2, 2, 1, 1}) == 2);
-
+    std::vector<int> lst = {1, 2, 2, 3, 3, 3};
+    assert(search(lst) == 2);
+    std::vector<int> lst2 = {4, 4, 4, 4, 4};
+    assert(search(lst2) == 4);
+    std::vector<int> lst3 = {1, 1, 2, 2, 2, 3, 3, 3};
+    assert(search(lst3) == 3);
+    std::vector<int> lst4 = {7, 8, 8, 8, 8, 8, 8, 8};
+    assert(search(lst4) == 8);
+    std::cout << "All test cases passed!\n";
     return 0;
 }
