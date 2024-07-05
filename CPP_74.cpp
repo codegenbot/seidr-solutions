@@ -1,3 +1,10 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     auto total_chars = [](const vector<string>& lst) {
         int total = 0;
