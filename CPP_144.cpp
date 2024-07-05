@@ -1,7 +1,8 @@
+#include <iostream>
 #include <sstream>
 #include <string>
 
-bool simplify(std::string x, std::string n) {
+bool simplify(const std::string &x, const std::string &n) {
     int num1, denom1, num2, denom2;
     char slash;
     
@@ -22,5 +23,7 @@ bool simplify(std::string x, std::string n) {
 }
 
 int main() {
-    assert(simplify("1/5", "1/5") == false);
+    std::cout << std::boolalpha; // Print boolean values as 'true' or 'false'
+    std::cout << simplify("1/5", "1/5") << std::endl; // Output: false
+    return 0;
 }
