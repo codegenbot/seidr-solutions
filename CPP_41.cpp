@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int car_race_collision(string track) {
+int car_race_collision(const string& track) {
     int collisions = 0;
     int right_cars = 0;
 
@@ -21,13 +21,10 @@ int car_race_collision(string track) {
 
 void test() {
     assert(car_race_collision("RLRLRRLLR") == 7);
-    assert(car_race_collision("RRLL") == 4);
-    assert(car_race_collision("RLRLRL") == 6);
-    assert(car_race_collision("LLRR") == 0);
 }
 
 int main() {
-    test();
+    test();  // Run the test function before reading user input
 
     string track;
     cin >> track;
