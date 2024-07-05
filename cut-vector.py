@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```Python
 def cut_vector(vector):
     total_sum = sum(vector)
