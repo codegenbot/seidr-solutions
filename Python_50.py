@@ -1,7 +1,11 @@
+import sys
+import click
+
 
 @click.command()
-@click.option('--shift', type=int, help='The number of characters to shift.')
+@click.option("--shift", type=int, help="The number of characters to shift.")
 def decode_shift(message):
-    import click
-    message = int(click.prompt('Enter the message to be decoded', default=''))
-    return ''.join([chr((ord(ch) - shift - ord('a')) % 26 + ord('a')) for ch in message])
+    shift = int(sys.argv[1])
+    return "".join(
+        [chr((ord(ch) - shift - ord("a")) % 26 + ord("a")) for ch in message]
+    )
