@@ -21,15 +21,11 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(strange_sort_list({111111}), {111111}));
-    assert(issame(strange_sort_list({1, 3, 2, 4, 5}), {1, 5, 2, 4, 3}));
-    assert(issame(strange_sort_list({5, 4, 3, 2, 1}), {1, 5, 2, 4, 3}));
-    assert(issame(strange_sort_list({10, 20, 30, 40}), {10, 40, 20, 30}));
+    assert(strange_sort_list({111111}) == vector<int>{111111});
+    assert(strange_sort_list({1, 3, 2, 4, 5}) == vector<int>{1, 5, 2, 4, 3});
+    assert(strange_sort_list({5, 4, 3, 2, 1}) == vector<int>{1, 5, 2, 4, 3});
+    assert(strange_sort_list({10, 20, 30, 40}) == vector<int>{10, 40, 20, 30});
     cout << "All tests passed!" << endl;
     return 0;
 }
