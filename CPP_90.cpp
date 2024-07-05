@@ -18,5 +18,6 @@ int next_smallest(const vector<int>& lst) {
 
 int main() {
     assert(next_smallest({-35, 34, 12, -45}) == -35);
+    cout << "All tests passed!" << endl;
     return 0;
 }
