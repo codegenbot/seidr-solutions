@@ -22,10 +22,14 @@ vector<int> pluck(vector<int> arr) {
     }
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(pluck({7, 9, 7, 1}) == vector<int>{});
-    assert(pluck({3, 5, 8, 2}) == vector<int>{2, 3});
-    assert(pluck({6, 4, 10, 12}) == vector<int>{4, 1});
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({3, 5, 8, 2}), {2, 3}));
+    assert(issame(pluck({6, 4, 10, 12}), {4, 1}));
     cout << "All tests passed!" << endl;
     return 0;
 }
