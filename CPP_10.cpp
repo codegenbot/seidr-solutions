@@ -14,7 +14,7 @@ string make_palindrome(string str) {
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
             string prefix = str.substr(i);
-            reverse(prefix.begin(), prefix.end()); // reverse function is now recognized
+            reverse(prefix.begin(), prefix.end());
             return str + prefix;
         }
     }
