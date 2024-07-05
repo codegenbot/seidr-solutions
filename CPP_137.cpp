@@ -10,14 +10,14 @@ any string_to_number(const string& s) {
     try {
         return stod(s_copy);
     } catch (const invalid_argument&) {
-        return s;
+        return s; // If conversion fails, return original string
     }
 }
 
 any compare_one(any a, any b) {
     auto get_value = [](const any& v) -> any {
-        if (v.type() == typeid(int)) return any_cast<int>(v);
-        if (v.type() == typeid(float)) return any_cast<float>(v);
+        if (v.type() == typeid(int)) return static_cast<double>(any_cast<int>(v));
+        if (v.type() == typeid(float)) return static_cast<double>(any_cast<float>(v));
         if (v.type() == typeid(double)) return any_cast<double>(v);
         if (v.type() == typeid(string)) return string_to_number(any_cast<string>(v));
         return v;
@@ -40,10 +40,11 @@ any compare_one(any a, any b) {
         return sa > sb ? a : b;
     }
 
-    return "None";
+    return "None"; // Different types or unable to compare
 }
 
 int main() {
+    // Example usage
     any result = compare_one(string("10"), string("25"));
     if (result.type() == typeid(string))
         cout << any_cast<string>(result) << endl;
