@@ -23,12 +23,8 @@ vector<float> find_closest_elements(const vector<float>& numbers) {
     return {closest_pair.first, closest_pair.second};
 }
 
-bool issame(const vector<float>& a, const vector<float>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-6) return false;
-    }
-    return true;
+bool issame(const vector<float>& a, const initializer_list<float>& b) {
+    return equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
