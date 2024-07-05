@@ -1,4 +1,5 @@
-if (txt.empty() || !isalpha(txt.back())) return false;
-    size_t last_non_space = txt.find_last_not_of(' ');
-    return last_non_space != string::npos && isalpha(txt[last_non_space]) && (last_non_space == 0 || txt[last_non_space - 1] == ' ');
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty() || !isalpha(txt.back())) return false;
+    size_t lastSpace = txt.find_last_of(' ');
+    return (lastSpace == string::npos || lastSpace == txt.size() - 2);
 }
