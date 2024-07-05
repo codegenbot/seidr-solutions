@@ -13,7 +13,8 @@ vector<string> by_length(vector<int> arr) {
             filtered.push_back(num);
         }
     }
-    sort(filtered.begin(), filtered.end(), greater<int>());
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
 
     map<int, string> numToStr = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
