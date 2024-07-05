@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -29,3 +30,4 @@ int main() {
     int result = calculateFuelCost(numbers);
     std::cout << "The fuel cost is: " << result << std::endl;
     return 0;
+}
