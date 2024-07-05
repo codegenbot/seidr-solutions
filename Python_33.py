@@ -1,3 +1,6 @@
-```
 def sort_third(l):
-    return tuple(sorted([(a[2], a) for a in l if isinstance(a, list) and len(a) == 3]))
+    return tuple(
+        sorted((l[i : i + 3],) if len(l) >= 3 else (l,) for i in range(len(l) - 2))
+        if len(l) > 1
+        else (tuple(),)
+    )
