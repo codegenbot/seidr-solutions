@@ -14,7 +14,11 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    // Test your functions here
-    cout << gcd(48, 18);  
+    int a, b;
+    cout << "Enter first number: ";
+    cin >> a;
+    cout << "Enter second number: ";
+    cin >> b;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
     return 0;
 }
