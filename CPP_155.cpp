@@ -5,7 +5,7 @@
 
 std::vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
-    num = std::abs(num);
+    num = abs(num);
     if (num == 0) {
         even_count++;
     } else {
@@ -28,5 +28,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(123456), {3, 3}));
+    assert(issame(even_odd_count(-2468), {4, 0}));
+    assert(issame(even_odd_count(13579), {0, 5}));
     return 0;
 }
