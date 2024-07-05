@@ -1,27 +1,23 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <iostream>
 
-using namespace std;
-
-// Function to calculate the sum and product of a list of numbers
-vector<int> sum_product(const vector<int>& numbers) {
+std::vector<int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
-    for(int num : numbers) {
+    for (int num : numbers) {
         sum += num;
         product *= num;
     }
     return {sum, product};
 }
 
-// Function to check if two vectors of integers are the same
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(sum_product({10}) ,{10, 10}));
-    cout << "Test passed!" << endl;
+    assert(issame(sum_product({10}), {10, 10}));
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
