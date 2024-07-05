@@ -1,13 +1,13 @@
 def decode_cyclic(s):
-    result = ""
-    i = 0
-    while len(result) < len(s):
-        j = i
-        temp = ""
-        while j < len(s) and s[j] != "<":
-            temp += s[j]
-            j += 1
-        if temp:
-            result += temp + " "
-        i = j + 1  
-    return result.strip()
+    while '<<<' in s:
+        s = s.replace('<<<', '')
+    return s
+
+def main():
+    s = "<<<" + input()
+    print(decode_cyclic(s).replace(",,", ","))
+
+from cfa35dd7_cb67_4db6_b39d_cefcf07c555e import main
+
+if __name__ == "__main__":
+    main()
