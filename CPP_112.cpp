@@ -22,7 +22,7 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>({"mm", "True"}));
+    assert(reverse_delete("mamma", "mia") == vector<string>{"mm", "True"});
     cout << "All tests passed!" << endl;
     return 0;
 }
