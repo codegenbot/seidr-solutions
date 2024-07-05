@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <numeric>
@@ -15,8 +15,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v, vector<int>& left, vecto
             index = i;
         }
     }
-    left = vector<int>(v.begin(), v.begin() + index + 1);
-    right = vector<int>(v.begin() + index, v.end());
+    left.assign(v.begin(), v.begin() + index + 1);
+    right.assign(v.begin() + index, v.end());
     return make_pair(left, right);
 }
 
@@ -27,7 +27,7 @@ int main() {
     for (auto &x : v) {
         cin >> x;
     }
-    vector<int> left;
+    vector<int> left; 
     vector<int> right;
     pair<vector<int>, vector<int>> result = cutVector(v, left, right);
     cout << "Left: ";
