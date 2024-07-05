@@ -1,7 +1,5 @@
-```cpp
-#include <string>
-
 int bowlingScore(std::string s) {
+    if (s.length() > 21) return 0;
     int score = 0;
     int currentRoll = 0;
     for (char c : s) {
@@ -9,6 +7,7 @@ int bowlingScore(std::string s) {
             score += 30;
             currentRoll++;
         } else if (c == '/') {
+            if (currentRoll > 1) return 0;
             score += 10 + currentRoll;
             currentRoll = 0;
         } else {
@@ -21,4 +20,4 @@ int bowlingScore(std::string s) {
             }
         }
     }
-}
+    return score;
