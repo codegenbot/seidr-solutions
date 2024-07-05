@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -21,10 +22,10 @@ int main() {
 
     int pennies = cents;
 
-    cout << "Quarters: " << std::to_string(quarters) << " coin" << (quarters > 1 ? "s" : "") << "\n";
-    cout << "Dimes: " << std::to_string(dimes) << " coin" << (dimes > 1 ? "s" : "") << "\n";
-    cout << "Nickles: " << std::to_string(nickles) << " coin" << (nickles > 1 ? "s" : "") << "\n";
-    cout << "Pennies: " << std::to_string(pennies) << " coin" << (pennies > 1 ? "s" : "") << "\n";
+    cout << "Quarters: " << std::to_string(quarters) << " coins\n";
+    cout << "Dimes: " << std::to_string(dimes) << " coins\n";
+    cout << "Nickles: " << std::to_string(nickles) << " coins\n";
+    cout << "Pennies: " << std::to_string(pennies) << " coins\n";
 
     return 0;
 }

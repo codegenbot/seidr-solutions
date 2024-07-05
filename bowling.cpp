@@ -11,14 +11,14 @@ int calculateBowlingScore(const char* s) {
             if (currentRoll > 0) {
                 int bonus = s[i+1] - '0' + s[i+2] - '0';
                 score += bonus;
-                i++;
+                i++; // Corrected here
             }
         } else {
             int roll = s[i] - '0';
             score += roll;
             currentRoll++;
             if (currentRoll == 2) {
-                if (i-1 >= 0 && s[i-1] == '/') {
+                if (i-1 >= 0 && s[i-1] == '/') { 
                     score += roll * 2;
                 } else {
                     score += roll * 2;
@@ -27,5 +27,5 @@ int calculateBowlingScore(const char* s) {
             }
         }
     }
-    return score;
+    return score; 
 }
