@@ -12,8 +12,9 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     import sys
+    input = sys.stdin.read
     try:
-        n = int(sys.stdin.read().strip())
+        n = int(input().strip())
         print(factorize(n))
     except ValueError:
         print("Invalid input. Please enter an integer.")
