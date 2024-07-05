@@ -9,3 +9,6 @@ def strange_sort_list(lst):
         min_val = min([x for x in lst if x not in result])
         result.append(min_val)
     return result
+
+input_list = list(map(int, input("Enter the numbers separated by space: ").split()))
+print(strange_sort_list(input_list))
