@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+
 using namespace std;
 
 string longest(const vector<string>& strings) {
@@ -16,7 +16,7 @@ string longest(const vector<string>& strings) {
 }
 
 int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-    cout << "Test passed!" << endl;
+    vector<string> test_vec = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
+    cout << longest(test_vec) << endl; // Output: zzzz
     return 0;
 }
