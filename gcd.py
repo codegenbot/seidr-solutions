@@ -1,6 +1,6 @@
 def gcd(a, b):
     if a == 0 and b == 0:
-        return "Not defined"
+        return 'Not defined'
     elif a < 0 or b < 0:
         if a < 0:
             a = -a
@@ -10,7 +10,6 @@ def gcd(a, b):
         while b != 0:
             a, b = b, a % b
     return abs(a)
-
 
 print(gcd(24, 54))
 print(gcd(400000, 4))
