@@ -24,5 +24,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(even_odd_count(0), {0, 0}));
+    assert(issame(even_odd_count(123456), {3, 3}));
+    assert(issame(even_odd_count(111), {0, 3}));
+    assert(issame(even_odd_count(2468), {4, 0}));
     return 0;
 }
