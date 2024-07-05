@@ -1,1 +1,1 @@
-```return '"{}"'.format(' '.join(map(str, res))) + " {}\n"```
+return '"{}"'.format(" ".join(map(str, res))) + " {}\n"
