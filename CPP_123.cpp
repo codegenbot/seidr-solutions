@@ -17,13 +17,18 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1); // 1 is always in the sequence
+    result.push_back(1);
     sort(result.begin(), result.end());
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(get_odd_collatz(1) == vector<int>{1});
+    assert(issame(get_odd_collatz(1), vector<int>{1}));
+    assert(issame(get_odd_collatz(7), vector<int>{1, 3, 5, 7, 11, 13, 17, 19, 25}));
     cout << "All tests passed!" << endl;
     return 0;
 }
