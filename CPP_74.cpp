@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     auto total_chars = [](const vector<string>& lst) {
         int sum = 0;
         for (const auto& str : lst) {
@@ -29,9 +29,10 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    assert(issame(total_match({"a", "b", "c"}, {"alpha", "beta"}), {"a", "b", "c"}));
-    assert(issame(total_match({"hello", "world"}, {"foo", "bar", "baz"}), {"hello", "world"}));
+    // Test case
+    assert(issame(total_match({"this"}, {}), vector<string>{}));
+    assert(issame(total_match({"a", "b", "c"}, {"alpha", "beta"}), vector<string>{"a", "b", "c"}));
+    assert(issame(total_match({"hello", "world"}, {"foo", "bar", "baz"}), vector<string>{"foo", "bar", "baz"}));
 
     cout << "All test cases passed!";
     return 0;
