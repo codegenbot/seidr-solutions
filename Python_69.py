@@ -10,12 +10,5 @@ def search(lst):
     return result
 
 if __name__ == "__main__":
-    try:
-        input_line = input().strip()
-        if not input_line:
-            print(-1)
-        else:
-            lst = list(map(int, input_line.split()))
-            print(search(lst))
-    except ValueError:
-        print(-1)
+    lst = list(map(int, input().strip().split()))
+    print(search(lst))
