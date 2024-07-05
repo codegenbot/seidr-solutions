@@ -1,10 +1,8 @@
 def histogram(test):
-    from collections import Counter
-
     if not test:
         return {}
-
-    count = Counter(test.split())
-    max_count = max(count.values())
-
-    return {k: v for k, v in count.items() if v == max_count}
+    counts = {}
+    for char in test.split():
+        counts[char] = counts.get(char, 0) + 1
+    max_count = max(counts.values())
+    return {char: count for char, count in counts.items() if count == max_count}
