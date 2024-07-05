@@ -1,12 +1,13 @@
 #include <sstream>
 #include <string>
+#include <cassert> // Include the assert header
 
-bool simplify(std::string x, std::string n) {
+bool simplify(std::string x, std::string n) { 
     int num1, denom1, num2, denom2;
     char slash;
     
     // Parse the first fraction
-    std::stringstream ss1(x);
+    std::stringstream ss1(x); 
     ss1 >> num1 >> slash >> denom1;
     
     // Parse the second fraction
@@ -23,4 +24,5 @@ bool simplify(std::string x, std::string n) {
 
 int main() {
     assert(simplify("1/5", "1/5") == false);
+    return 0;
 }
