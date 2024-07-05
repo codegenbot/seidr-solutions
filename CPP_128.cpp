@@ -1,19 +1,9 @@
-int prod_signs(vector<int> arr) {
-    if (arr.empty()) {
-        return -32768;
-    }
-
-    int sum_magnitude = 0;
-    int sign_product = 1;
-
+if (arr.empty()) return -32768;
+    int product_of_signs = 1;
+    int sum_of_magnitudes = 0;
     for (int num : arr) {
-        sum_magnitude += abs(num);
-        if (num != 0) {
-            sign_product *= (num > 0) ? 1 : -1;
-        } else {
-            sign_product = 0;
-        }
+        product_of_signs *= (num == 0) ? 0 : (num > 0 ? 1 : -1);
+        sum_of_magnitudes += abs(num);
     }
-
-    return sum_magnitude * sign_product;
+    return sum_of_magnitudes * product_of_signs;
 }
