@@ -9,7 +9,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 if __name__ == "__main__":
     import sys
-    input = sys.stdin.read()
-    numbers = list(map(int, input.split()))
-    result = sum_product(numbers)
+    input_numbers = list(map(int, sys.stdin.read().strip().split()))
+    result = sum_product(input_numbers)
     print(result)
