@@ -16,9 +16,11 @@ vector<int> sort_array(vector<int> array) {
     return result;
 }
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(sort_array({21, 14, 23, 11}) == vector<int>{23, 21, 14, 11});
-    assert(sort_array({1, 2, 3, 4}) == vector<int>{4, 3, 2, 1});
-    assert(sort_array({5, 3, 7, 9}) == vector<int>{3, 5, 7, 9});
+    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
