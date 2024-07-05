@@ -1,10 +1,11 @@
+```
 #include <iostream>
 #include <string>
 
 std::string camelCase(const std::string& str) {
     std::string result;
     bool first = true;
-    char prev = ' ';
+    char prev = '\0';
 
     for (char c : str) {
         if (c == '-') {
