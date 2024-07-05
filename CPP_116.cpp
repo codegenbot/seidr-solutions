@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <cassert>
 using namespace std;
 
 vector<int> sort_array(vector<int> arr) {
@@ -24,15 +24,7 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-    vector<int> sorted_array = sort_array(arr);
-    for (int num : sorted_array) {
-        cout << num << " ";
-    }
+    assert(sort_array({2, 4, 8, 16, 32}) == vector<int>({2, 4, 8, 16, 32}));
+    assert(sort_array({7, 2, 5, 3, 11}) == vector<int>({2, 3, 5, 7, 11}));
     return 0;
 }
