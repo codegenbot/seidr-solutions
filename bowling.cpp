@@ -1,14 +1,22 @@
-```int bowlingScore(std::string s) {
-    if(s.length() > 21) return -1; // invalid input
+#include <string>
+
+int bowlingScore(std::string s) {
     int score = 0;
     int currentRoll = 0;
+    bool strike = false;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
             currentRoll++;
+            strike = true;
         } else if (c == '/') {
-            score += 10 + currentRoll;
-            currentRoll = 0;
+            if(strike){
+                score += 20 + currentRoll * 10;
+                strike = false;
+            } else {
+                score += 10 + currentRoll;
+                currentRoll = 0;
+            }
         } else {
             int roll = c - '0';
             score += roll;
@@ -20,4 +28,10 @@
         }
     }
     return score;
-}``
+}
+
+int main() {
+    std::string s = "XXXX/8-5/7-3/X/2+6/9-X/4+5/";
+    int score = bowlingScore(s);
+    return score;
+}
