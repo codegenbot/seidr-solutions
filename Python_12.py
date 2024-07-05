@@ -10,7 +10,7 @@ def longest(strings: List[str]) -> Optional[str]:
 
 if __name__ == "__main__":
     try:
-        strings = sys.stdin.read().strip().split()
-        print(longest(strings))
+        inputs = sys.stdin.read().strip().split()
+        print(longest(inputs))
     except EOFError:
         pass
