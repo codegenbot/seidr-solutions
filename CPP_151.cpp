@@ -15,10 +15,11 @@ long long int double_the_difference(const vector<float>& lst) {
 }
 
 int main() {
-    vector<float> lst;
-    float num;
-    while (cin >> num) {
-        lst.push_back(num);
+    int n;
+    cin >> n;
+    vector<float> lst(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> lst[i];
     }
     cout << double_the_difference(lst) << endl;
     return 0;
