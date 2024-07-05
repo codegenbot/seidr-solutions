@@ -1,6 +1,6 @@
 #include <iostream>
+#include <sstream>
 using namespace std;
-#include <iomanip>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
@@ -14,8 +14,10 @@ double diceGame(int n, int m) {
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
+    string temp1, temp2;
+    cin >> temp1 >> temp2;
+    int n = stoi(temp1);
+    int m = stoi(temp2);
+    cout << fixed << setprecision(2) << (double)diceGame(n, m) << endl;
     return 0;
 }
