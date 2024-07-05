@@ -3,6 +3,7 @@
 #include <cctype>
 #include <cassert>
 
+// Function definition
 std::string flip_case(std::string str) {
     for (int i = 0; i < str.length(); ++i) {
         if (islower(str[i])) {
@@ -15,6 +16,7 @@ std::string flip_case(std::string str) {
 }
 
 int main() {
+    // Corrected function name from 'filp_case' to 'flip_case'
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
