@@ -3,5 +3,5 @@ string result = "";
         result = to_string(x % base) + result;
         x /= base;
     }
-    return result;
+    return result == "" ? "0" : result;
 }
