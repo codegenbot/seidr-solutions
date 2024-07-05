@@ -22,11 +22,11 @@ vector<float> find_closest_elements(vector<float> numbers) {
     return {closest_pair.first, closest_pair.second};
 }
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size())
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size())
         return false;
     for(size_t i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i])
+        if (a[i] != b[i])
             return false;
     }
     return true;
