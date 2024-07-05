@@ -30,7 +30,7 @@ int main() {
     int result = car_race_collision(track);
     cout << result << endl;
 
-    test();
+    test();  // Run the test function
 
     return 0;
 }
