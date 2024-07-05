@@ -16,7 +16,6 @@ bool is_sorted(vector<int> lst) {
 }
 
 int main() {
-    // Test cases
     assert(is_sorted({1, 2, 3, 4}) == true);
     assert(is_sorted({1, 1, 1, 4}) == false);
     assert(is_sorted({1, 2, 0, 4}) == false);
