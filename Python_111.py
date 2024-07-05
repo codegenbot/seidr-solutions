@@ -14,5 +14,5 @@ if __name__ == "__main__":
         test = input().strip()
         result = histogram(test)
         print(result)
-    except Exception as e:
-        print("Error:", e)
+    except EOFError:
+        pass
