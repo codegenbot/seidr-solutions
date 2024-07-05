@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -33,6 +32,6 @@ int main() {
 
     // Calculating and printing the result
     cout << mean_absolute_deviation(numbers) << endl;
-
+    
     return 0;
 }
