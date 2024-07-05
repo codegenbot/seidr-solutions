@@ -1,22 +1,30 @@
-```
 def decode_cyclic(s):
     result = ""
-    if s[0] in ["<", ">"]:
+    if s[0] == "<" or s[-1] == ">":
         i = 1
-        while len(result) < len(s):
-            j = (i + 1) % len(s)
-            temp = ""
-            inside_angles = 0
-            while j < len(s) and (s[j] != "<" or inside_angles > 0):
-                if s[j] == "<":
-                    inside_angles += 1
-                elif s[j] == ">":
-                    inside_angles -= 1
-                    if inside_angles == 0:
+        if s[0] == "<": 
+            while len(result) < len(s)-1:
+                j = (i + 1) % len(s)
+                temp = ""
+                while j < len(s) and s[j] != "<":
+                    if s[j] == ">":
                         break
-                temp += s[j]
-                j = (j + 1) % len(s)
-            if temp:
-                result += temp + " "
-            i = j
+                    temp += s[j]
+                    j = (j + 1) % len(s)
+                if temp:
+                    result += temp + " "
+                i = j
+        else: 
+            start = -2
+            while len(result) < len(s)-1:
+                end = (start + 1) % len(s)
+                temp = ""
+                while end < len(s) and s[end] != ">":
+                    if s[end] == "<":
+                        break
+                    temp += s[end]
+                    end = (end + 1) % len(s)
+                if temp:
+                    result += temp + " "
+                start = end
     return result.strip()
