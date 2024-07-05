@@ -15,7 +15,7 @@ int count_distinct_characters(string str) {
 
 int main() {
     string str;
-    getline(cin, str);
+    getline(cin, str); // To read a line of input
     cout << count_distinct_characters(str) << endl;
     return 0;
 }
