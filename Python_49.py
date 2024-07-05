@@ -3,5 +3,5 @@ def modp(n: int, p: int):
         return 1
     elif p == 3:
         return n % p
-    elif p % 2 != 0:
-        return (n ** (p - 2)) * n % p
+    else:
+        return pow(n, p-1, p) * n % p
