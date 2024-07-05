@@ -1,13 +1,13 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
-    for(float num : l) {
-        if(num > 0) {
+    for (float num : l) {
+        if (num > 0) {
             result.push_back(num);
         }
     }
@@ -21,6 +21,7 @@ bool issame(vector<float> a, vector<float> b) {
 int main() {
     assert(issame(get_positive({}), {}));
     assert(issame(get_positive({-1, 0, 1, 2}), {1, 2}));
-    cout << "All tests passed." << endl;
+    assert(issame(get_positive({-5.5, 3.3, 0.0, 2.1}), {3.3, 2.1}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
