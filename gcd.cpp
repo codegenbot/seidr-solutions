@@ -1,36 +1,36 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-long long gcd(long long a, long long b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        bool found = true;
+        for (int j = 0; j < target.length(); j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
+        }
+    }
+    return result;
 }
 
 int main() {
-    string text;
+    string text, target;
     cout << "Enter the text: ";
     getline(cin, text);
-
-    string target;
-    cout << "Enter the target: ";
+    cout << "Enter the target string: ";
     getline(cin, target);
-
-    vector<int> indices;
-
-    size_t pos = 0;
-    while ((pos = text.find(target)) != string::npos) {
-        indices.push_back(pos);
-        text.erase(0, pos + target.size());
-    }
-
-    for (int i : indices)
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int i : indices) {
         cout << i << " ";
-
+    }
     return 0;
 }
