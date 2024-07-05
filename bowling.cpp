@@ -20,6 +20,7 @@ int bowlingScore(const char* s) {
             currentRoll++;
             if (currentRoll == 2) {
                 if (s[i-1] != '\0' && s[i-1] == '/') {
+                    // Spare
                     score += roll * 2;
                 } else {
                     score += roll * 2;
@@ -28,5 +29,4 @@ int bowlingScore(const char* s) {
             }
         }
     }
-    return score;
 }
