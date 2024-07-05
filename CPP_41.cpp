@@ -19,6 +19,10 @@ int car_race_collision(string track) {
     return collisions;
 }
 
+void test() {
+    assert(car_race_collision("RLRLRRLLR") == 7);
+}
+
 int main() {
     string track;
     cin >> track;
@@ -26,8 +30,7 @@ int main() {
     int result = car_race_collision(track);
     cout << result << endl;
     
-    // Correct assert statement with a valid test string
-    assert(car_race_collision("RLRL") == 2);
+    test();  // Run the test function
 
     return 0;
 }
