@@ -16,5 +16,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(paren_string[start : i + 1])
     return result
 
-input_string = input("Enter a string of parentheses: ")
-print(separate_paren_groups(input_string))
+if __name__ == "__main__":
+    paren_string = input().strip()
+    separated_groups = separate_paren_groups(paren_string)
+    print(separated_groups)
