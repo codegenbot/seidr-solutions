@@ -1,2 +1,2 @@
-  def words_string(s):
-        return s.strip().split()
+def words_string(s):
+    return s.replace("  ", " ").split()
