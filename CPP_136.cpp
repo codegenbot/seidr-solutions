@@ -1,31 +1,30 @@
 #include <vector>
+#include <limits>
 #include <cassert>
+
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int largest_negative = 0;
-    int smallest_positive = 0;
-    bool found_negative = false;
-    bool found_positive = false;
-
-    for (int num : lst) {
-        if (num < 0) {
-            if (!found_negative || num > largest_negative) {
+    int largest_negative = numeric_limits<int>::min();
+    int smallest_positive = numeric_limits<int>::max();
+    bool has_negative = false, has_positive = false;
+    
+    for(int num : lst) {
+        if(num < 0) {
+            has_negative = true;
+            if(num > largest_negative) {
                 largest_negative = num;
-                found_negative = true;
             }
-        } else if (num > 0) {
-            if (!found_positive || num < smallest_positive) {
+        }
+        if(num > 0) {
+            has_positive = true;
+            if(num < smallest_positive) {
                 smallest_positive = num;
-                found_positive = true;
             }
         }
     }
 
-    if (!found_negative) largest_negative = 0;
-    if (!found_positive) smallest_positive = 0;
-
-    return {largest_negative, smallest_positive};
+    return {has_negative ? largest_negative : 0, has_positive ? smallest_positive : 0};
 }
 
 bool issame(vector<int> a, vector<int> b) {
