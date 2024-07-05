@@ -22,7 +22,8 @@ int main() {
     std::cout << std::boolalpha;
 
     std::vector<int> arr;
-    int n, value;    
+    int n, value;
+    
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> value;
