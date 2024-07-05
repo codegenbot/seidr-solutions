@@ -8,6 +8,8 @@ def search(lst):
     return result
 
 if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read
     try:
         lst = list(map(int, input().strip().split()))
         if all(0 <= x <= 100 for x in lst):
