@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include<stdio.h>
 
 long long factorial(int n) {
     long long result = 1;
@@ -19,7 +18,7 @@ long long special_factorial(int n) {
 
 int main() {
     int n;
-    cin >> n;
-    cout << special_factorial(n) << endl;
+    scanf("%d", &n);
+    printf("%lld\n", special_factorial(n));
     return 0;
 }
