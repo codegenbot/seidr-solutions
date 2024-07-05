@@ -1,22 +1,33 @@
-string result;
-    int space_count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            space_count++;
+#include <iostream>
+#include <string>
+
+std::string fix_spaces(const std::string &text) {
+    std::string result;
+    int spaceCount = 0;
+    for(char c : text) {
+        if(c == ' ') {
+            spaceCount++;
         } else {
-            if (space_count == 1) {
+            if(spaceCount == 1) {
                 result += '_';
-            } else if (space_count > 1) {
+            } else if(spaceCount > 1) {
                 result += '-';
             }
-            space_count = 0;
             result += c;
+            spaceCount = 0;
         }
     }
-    if (space_count == 1) {
+    if(spaceCount == 1) {
         result += '_';
-    } else if (space_count > 1) {
+    } else if(spaceCount > 1) {
         result += '-';
     }
     return result;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << fix_spaces(input) << std::endl;
+    return 0;
 }
