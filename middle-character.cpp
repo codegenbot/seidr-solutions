@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 int main() {
     std::string s;
@@ -9,6 +9,6 @@ int main() {
     if (len % 2 == 0) {
         std::cout << s.substr(len / 2 - 1, 2) << std::endl;
     } else {
-        std::cout << s.substr(len / 2, 1) << std::endl;
+        std::cout << s[len / 2] << std::endl;
     }
-}
+    return 0;
