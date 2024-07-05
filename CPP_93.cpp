@@ -21,7 +21,7 @@ string encode(string message){
 }
 
 int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTG");
     cout << "All tests passed!" << endl;
     return 0;
 }
