@@ -4,18 +4,23 @@
 
 using namespace std;
 
-string encode(string message) {
+string encode(string message){
     for (char &c : message) {
         // Swap case
         if (isupper(c)) c = tolower(c);
         else if (islower(c)) c = toupper(c);
 
         // Replace vowels
-        if (c == 'a' || c == 'A') c = 'C';
-        else if (c == 'e' || c == 'E') c = 'G';
-        else if (c == 'i' || c == 'I') c = 'K';
-        else if (c == 'o' || c == 'O') c = 'Q';
-        else if (c == 'u' || c == 'U') c = 'W';
+        if (c == 'a') c = 'C';
+        else if (c == 'e') c = 'G';
+        else if (c == 'i') c = 'K';
+        else if (c == 'o') c = 'Q';
+        else if (c == 'u') c = 'W';
+        else if (c == 'A') c = 'c';
+        else if (c == 'E') c = 'g';
+        else if (c == 'I') c = 'k';
+        else if (c == 'O') c = 'q';
+        else if (c == 'U') c = 'w';
     }
     return message;
 }
