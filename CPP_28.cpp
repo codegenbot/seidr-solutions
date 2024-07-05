@@ -1,5 +1,4 @@
-string concatenate(vector<string> strings){
-    string result;
+string result;
     for(const auto& str : strings) {
         result += str;
     }
