@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // Include this header for reverse
-
+#include <algorithm>
 using namespace std;
 
 bool is_palindrome(string str) {
@@ -18,7 +17,7 @@ string make_palindrome(string str) {
             return str + prefix;
         }
     }
-    return str; // This line is just for safety, though logically it won't be reached.
+    return str;
 }
 
 int main() {
