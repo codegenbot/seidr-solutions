@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for (auto num : lst) {
+    for (float num : lst) {
         if (num == (int)num && num > 0 && ((int)num % 2 != 0)) {
             sum += (int)num * (int)num;
         }
@@ -15,9 +14,14 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.0, 2.0, 3.0, 4.5, 5.5, 6.0};
-    long long odd_sum = 1*1 + 3*3;  // sum of squares of 1 and 3
-    assert(double_the_difference(lst) == odd_sum);
-    cout << "Test passed!" << endl;
+    int n;
+    cin >> n;  // Number of elements
+    vector<float> lst(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> lst[i];  // Reading elements
+    }
+    
+    cout << double_the_difference(lst) << endl;  // Output the result
+    
     return 0;
 }
