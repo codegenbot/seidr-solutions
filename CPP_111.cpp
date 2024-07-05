@@ -1,12 +1,12 @@
+#include <iostream>
 #include <sstream>
 #include <algorithm>
 #include <map>
-#include <string>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
+// Function to compute the histogram of characters.
 map<char, int> histogram(string test) {
     map<char, int> freq;
     stringstream ss(test);
@@ -32,13 +32,14 @@ map<char, int> histogram(string test) {
     return result;
 }
 
+// Function to compare two maps for equality.
 bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
 int main() {
+    // Test case
     assert(issame(histogram("a"), {{'a', 1}}));
-    // Add more tests if needed
     cout << "All tests passed!" << endl;
     return 0;
 }
