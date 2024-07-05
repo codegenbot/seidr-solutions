@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```
+```Python
 def bowling_score(frames):
     score = 0
     frame_num = 1
