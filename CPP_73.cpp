@@ -1,7 +1,7 @@
-#include <vector> 
+#include <vector>
 #include <iostream>
 
-int smallest_change(const std::vector<int>& arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     int changes = 0;
     for (int i = 0; i < n / 2; ++i) {
@@ -14,14 +14,14 @@ int smallest_change(const std::vector<int>& arr) {
 
 int main() {
     std::vector<int> arr;
-    int size, element;
-    std::cout << "Enter the size of the array: ";
-    std::cin >> size;
-    std::cout << "Enter the elements of the array: ";
-    for (int i = 0; i < size; ++i) {
-        std::cin >> element;
-        arr.push_back(element);
+    int n, temp;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> temp;
+        arr.push_back(temp);
     }
-    std::cout << smallest_change(arr) << std::endl;
+    std::cout << "Smallest number of changes to make the array a palindrome: " << smallest_change(arr) << std::endl;
     return 0;
 }

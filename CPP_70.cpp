@@ -21,8 +21,16 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(strange_sort_list({111111}) == vector<int>({111111}));
-    assert(strange_sort_list({3, 1, 2}) == vector<int>({1, 3, 2}));
+    assert(issame(strange_sort_list({111111}), {111111}));
+    assert(issame(strange_sort_list({3, 1, 2}), {1, 3, 2}));
+    assert(issame(strange_sort_list({10, 20, 30, 40, 50}), {10, 50, 20, 40, 30}));
+    assert(issame(strange_sort_list({1, 2, 3, 4}), {1, 4, 2, 3}));
+    assert(issame(strange_sort_list({5, 1, 9, 3, 7, 2, 8}), {1, 9, 2, 8, 3, 7, 5}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
