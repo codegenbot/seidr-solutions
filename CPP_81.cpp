@@ -30,7 +30,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
-    // You can add more test cases here if needed
+    assert (issame(numerical_letter_grade({4.0, 3.8}), {"A+", "A"}));
+    assert (issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
