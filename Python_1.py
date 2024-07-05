@@ -1,16 +1,19 @@
-paren_string = paren_string.replace(' ', '')
-    result = []
+from typing import List
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    paren_string = paren_string.replace(" ", "")
+    groups = []
     balance = 0
-    group = ''
-    
-    for char in paren_string:
-        group += char
-        if char == '(':
+    start = 0
+
+    for i, char in enumerate(paren_string):
+        if char == "(":
+            if balance == 0:
+                start = i
             balance += 1
-        elif char == ')':
+        elif char == ")":
             balance -= 1
-        if balance == 0:
-            result.append(group)
-            group = ''
-    
-    return result
+            if balance == 0:
+                groups.append(paren_string[start : i + 1])
+
+    return groups
