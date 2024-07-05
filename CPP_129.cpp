@@ -1,7 +1,5 @@
 #include <vector>
 #include <queue>
-#include <tuple>
-#include <algorithm>
 
 using namespace std;
 
@@ -9,26 +7,19 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     int N = grid.size();
     vector<vector<int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     
-    auto compare = [](const vector<int>& a, const vector<int>& b) {
-        return lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
+    auto compare = [k](const vector<int>& a, const vector<int>& b) {
+        return vector<int>(a.begin(), a.begin() + k) > vector<int>(b.begin(), b.begin() + k);
     };
     
-    vector<int> result;
     priority_queue<vector<int>, vector<vector<int>>, decltype(compare)> pq(compare);
-    
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            pq.push({grid[i][j], i, j});
-        }
-    }
+    pq.push({grid[0][0], 0, 0});
     
     while (!pq.empty()) {
         auto current = pq.top();
         pq.pop();
         
         if (current.size() == k + 2) {
-            result.assign(current.begin(), current.begin() + k);
-            break;
+            return vector<int>(current.begin(), current.begin() + k);
         }
         
         int x = current[current.size() - 2];
@@ -48,5 +39,5 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
     
-    return result;
+    return {};
 }

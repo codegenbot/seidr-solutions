@@ -11,7 +11,7 @@ string match_parens(vector<string> lst) {
         int balance = 0;
         for (char c : s) {
             if (c == '(') balance++;
-            else balance--;
+            else if (c == ')') balance--;
             if (balance < 0) return false;
         }
         return balance == 0;
