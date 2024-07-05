@@ -6,8 +6,8 @@ using namespace std;
 string anti_shuffle(string s) {
     string result = "";
     string word = "";
-    for (char c : s) {
-        if (c == ' ') {
+    for(char c : s) {
+        if(c == ' ') {
             sort(word.begin(), word.end());
             result += word + ' ';
             word = "";
@@ -15,8 +15,8 @@ string anti_shuffle(string s) {
             word += c;
         }
     }
-    sort(word.begin(), word.end());
-    result += word;
+    sort(word.begin(), word.end()); // Sort the last word
+    result += word; // Append the last word to result
     return result;
 }
 
