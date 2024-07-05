@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
-vector<string> all_prefixes(string str){
+vector<string> all_prefixes(string str) {
     vector<string> prefixes;
     for (size_t i = 1; i <= str.length(); ++i) {
         prefixes.push_back(str.substr(0, i));
