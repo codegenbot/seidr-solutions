@@ -37,7 +37,7 @@ std::any compare_one(std::any a, std::any b) {
             return str_a > str_b ? a : b;
         }
     }
-    
+
     double double_a = to_double(a);
     double double_b = to_double(b);
     if (double_a == double_b) return "None";
@@ -47,6 +47,7 @@ std::any compare_one(std::any a, std::any b) {
 int main() {
     std::any a = 42;
     std::any b = 3.14f;
+
     try {
         std::any result = compare_one(a, b);
         if (result.type() == typeid(string)) {
