@@ -62,6 +62,7 @@ int main() {
             cout << "Unexpected type" << endl;
         }
 
+        // Correcting the test case using std::any_cast instead of boost::any_cast
         assert (std::any_cast<string>(compare_one(string("1"), 1)) == "None");
         
     } catch (const std::bad_any_cast& e) {
