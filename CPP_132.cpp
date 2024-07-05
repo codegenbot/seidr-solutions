@@ -1,16 +1,14 @@
-bool is_nested(string str){
-    int n = str.length();
-    int depth = 0;
-    bool nested = false;
-
-    for (int i = 0; i < n; ++i) {
-        if (str[i] == '[') {
-            depth++;
-            if (depth > 1) nested = true;
-        } else if (str[i] == ']') {
-            if (depth > 0) depth--;
+bool is_nested(string str) {
+    int openBrackets = 0;
+    for (char c : str) {
+        if (c == '[') {
+            openBrackets++;
+        } else if (c == ']') {
+            openBrackets--;
+            if (openBrackets > 0) {
+                return true;
+            }
         }
     }
-
-    return nested;
+    return false;
 }
