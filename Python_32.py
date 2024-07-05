@@ -1,14 +1,6 @@
-```Python
-import math
-
-def find_zero():
-    a = float(input("Enter coefficient a: "))
-    b = float(input("Enter coefficient b: "))
-    c = float(input("Enter constant c: "))
-
-    if (b ** 2) - (4 * a * c) < 0:
-        return None
-    else:
-        return (-b + math.sqrt((b ** 2) - (4 * a * c))) / (2 * a)
-
-print(find_zero())
+def find_zero(xs: list):
+    if len(xs) < 2:
+        raise ValueError("List must have at least two elements")
+    a, b, c = xs
+    d = math.sqrt((b**2) - (4*a*c))
+    return (-b + d)/(2*a)
