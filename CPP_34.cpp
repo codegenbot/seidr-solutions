@@ -1,6 +1,6 @@
-vector<int> unique(vector<int> l){
-    sort(l.begin(), l.end());
-    auto last = unique(l.begin(), l.end());
-    l.erase(last, l.end());
-    return l;
+#include <set>
+
+vector<int> unique(vector<int> l) {
+    set<int> s(l.begin(), l.end());
+    return vector<int>(s.begin(), s.end());
 }
