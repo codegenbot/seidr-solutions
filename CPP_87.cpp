@@ -26,6 +26,7 @@ bool issame(const vector<vector<int>> &a, const vector<vector<int>> &b) {
 
 int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    assert(issame(get_row({{3}, {2, 3}, {1, 2, 3, 4}}, 2), {{1, 0}, {2, 1}})); // Added more test to ensure correctness
     cout << "All tests passed!" << endl;
     return 0;
 }
