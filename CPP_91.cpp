@@ -1,5 +1,6 @@
-#include<stdio.h>
+#include<iostream>
 #include<string>
+#include<algorithm>
 using namespace std;
 
 int is_bored(string S) {
@@ -18,6 +19,13 @@ int is_bored(string S) {
             newSentence = false;
         }
     }
-    
+
     return count;
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+    cout << is_bored(input) << endl;
+    return 0;
 }
