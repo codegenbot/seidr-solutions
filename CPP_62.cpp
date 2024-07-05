@@ -1,5 +1,5 @@
-#include <vector>  // Include the necessary header
-#include <cassert> // Include assert
+#include <vector>  
+#include <cassert> 
 using namespace std;
 
 vector<float> derivative(const vector<float> &xs) {
