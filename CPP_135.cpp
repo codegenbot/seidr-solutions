@@ -11,11 +11,12 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    int n;
+    std::vector<int> arr;
+    int n, temp;
     std::cin >> n;
-    std::vector<int> arr(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
+        std::cin >> temp;
+        arr.push_back(temp);
     }
     std::cout << can_arrange(arr) << std::endl;
     return 0;
