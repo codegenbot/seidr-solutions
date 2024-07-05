@@ -14,7 +14,7 @@ vector<int> eat(int number, int need, int remaining) {
     return {totalEaten, carrotsLeft};
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
