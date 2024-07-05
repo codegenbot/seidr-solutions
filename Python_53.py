@@ -1,5 +1,14 @@
 
 def add(x: int, y: int):
-   num1 = int(input("Enter first number: "))
-   num2 = int(input("Enter second number: "))
-   return num1 + num2
+    return x + y
+
+# Prompt user for input
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+# Add the two numbers using the `add` function
+result = add(x, y)
+
+# Print the result
+print(f"{x} + {y} = {result}")
+```
