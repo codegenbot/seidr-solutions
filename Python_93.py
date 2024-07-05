@@ -15,8 +15,8 @@ def encode(message):
         if char.isalpha():
             if char.islower():
                 encoded_char = vowels[char]
-            elif char.isupper() and char not in vowels:
-                encoded_char = char.lower()
+            elif char.isupper():
+                encoded_char = vowels[char].lower()
         else:
             if char not in vowels:
                 encoded_message += char
