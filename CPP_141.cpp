@@ -1,11 +1,15 @@
 #include <cctype>
 #include <string>
 
-std::string file_name_check(std::string file_name) {
+std::string file_name_check(const std::string& file_name) {
     int len = file_name.length();
     int dot_count = 0;
     int digit_count = 0;
     int dot_position = -1;
+
+    if (len < 5) {  // Minimum length for something like "a.b"
+        return "No";
+    }
 
     for (int i = 0; i < len; ++i) {
         if (isdigit(file_name[i])) {
@@ -13,10 +17,12 @@ std::string file_name_check(std::string file_name) {
         } else if (file_name[i] == '.') {
             dot_count++;
             dot_position = i;
+        } else if (!isalnum(file_name[i])) {
+            return "No";
         }
     }
 
-    if (dot_count != 1 || digit_count > 3 || dot_position == 0 || dot_position == len - 1) {
+    if (dot_count != 1 || digit_count > 3 || dot_position <= 0 || dot_position >= len - 1) {
         return "No";
     }
 
