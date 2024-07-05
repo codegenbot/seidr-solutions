@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <any>
+#include <cassert>
 
 using namespace std;
 
@@ -23,31 +24,30 @@ std::any compare_one(std::any a, std::any b) {
         if (a.type() == typeid(int)) {
             int int_a = std::any_cast<int>(a);
             int int_b = std::any_cast<int>(b);
-            if (int_a == int_b) return "None";
+            if (int_a == int_b) return string("None");
             return int_a > int_b ? a : b;
         } else if (a.type() == typeid(float)) {
             float float_a = std::any_cast<float>(a);
             float float_b = std::any_cast<float>(b);
-            if (float_a == float_b) return "None";
+            if (float_a == float_b) return string("None");
             return float_a > float_b ? a : b;
         } else if (a.type() == typeid(string)) {
             string str_a = std::any_cast<string>(a);
             string str_b = std::any_cast<string>(b);
-            if (str_a == str_b) return "None";
+            if (str_a == str_b) return string("None");
             return str_a > str_b ? a : b;
         }
     }
-
+    
     double double_a = to_double(a);
     double double_b = to_double(b);
-    if (double_a == double_b) return "None";
+    if (double_a == double_b) return string("None");
     return double_a > double_b ? a : b;
 }
 
 int main() {
     std::any a = 42;
     std::any b = 3.14f;
-
     try {
         std::any result = compare_one(a, b);
         if (result.type() == typeid(string)) {
@@ -62,5 +62,11 @@ int main() {
     } catch (const std::bad_any_cast& e) {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
     }
+
+    // Including assertions
+    assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
+    assert(std::any_cast<int>(compare_one(42, 10)) == 42);
+    assert(std::any_cast<float>(compare_one(3.14f, 2.718f)) == 3.14f);
+
     return 0;
 }
