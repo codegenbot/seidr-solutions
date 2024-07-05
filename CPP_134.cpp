@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cctype>
 #include <cassert>
+#include <string>
 
-bool check_if_last_char_is_a_letter(const std::string& txt) {
+bool check_if_last_char_is_a_letter(const std::string &txt) {
     if (txt.empty() || txt.back() == ' ')
         return false;
     int n = txt.length();
@@ -15,11 +16,4 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
         }
     }
     return false;
-}
-
-int main() {
-    assert(check_if_last_char_is_a_letter("apple pie ") == false);
-    assert(check_if_last_char_is_a_letter("apple pie") == true);
-    std::cout << "All tests passed!" << std::endl;
-    return 0;
 }
