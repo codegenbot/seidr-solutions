@@ -1,7 +1,6 @@
 def encrypt(s):
-    new_string = ""
+    encrypted = ""
     for char in s:
-        if char.islower():
-            new_char = chr((ord(char) + 2 - ord("a")) % 26 + ord("a"))
-            new_string += new_char
-    return new_string
+        new_char = chr((ord(char) + 2) % 26)
+        encrypted += new_char
+    return encrypted
