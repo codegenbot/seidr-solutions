@@ -18,6 +18,7 @@ vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1); // 1 is always part of the sequence
+    sort(result.begin(), result.end());
     return result;
 }
 
@@ -27,7 +28,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
-    assert(issame(get_odd_collatz(5), {5, 1}));
+    assert(issame(get_odd_collatz(5), {1, 5}));
     assert(issame(get_odd_collatz(10), {1, 5}));
     
     cout << "All tests passed!" << endl;
