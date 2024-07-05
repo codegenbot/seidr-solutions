@@ -23,7 +23,7 @@ int sumOfDigits(int n) {
     return sum;
 }
 
-int largestPrimeDigitSum(vector<int> lst) {
+int largestPrimeDigitSum(const vector<int>& lst) {
     int largestPrime = -1;
     for (int num : lst) {
         if (isPrime(num) && num > largestPrime) {
@@ -31,19 +31,4 @@ int largestPrimeDigitSum(vector<int> lst) {
         }
     }
     return largestPrime == -1 ? 0 : sumOfDigits(largestPrime);
-}
-
-int main() {
-    int n;
-    cout << "Enter number of elements: ";
-    cin >> n;
-    vector<int> lst(n);
-    cout << "Enter elements: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> lst[i];
-    }
-    
-    cout << "Result: " << largestPrimeDigitSum(lst) << endl;
-
-    return 0;
 }

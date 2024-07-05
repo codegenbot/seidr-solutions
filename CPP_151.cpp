@@ -14,18 +14,15 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float val;
-    
-    std::cout << "Enter float values (enter any non-number to stop): ";
-    while (std::cin >> val) {
-        lst.push_back(val);
+    float input;
+    std::cout << "Enter numbers (end input with a non-numeric character): ";
+    while (std::cin >> input) {
+        lst.push_back(input);
     }
-    
     std::cin.clear();
-    std::string dummy;
-    std::cin >> dummy; // Consume non-number input
-
-    std::cout << "Sum of squares of positive odd integers: " << double_the_difference(lst) << std::endl;
-
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    
+    long long result = double_the_difference(lst);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
