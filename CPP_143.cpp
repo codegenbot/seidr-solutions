@@ -3,6 +3,7 @@
 #include <vector>
 #include <cmath>
 #include <string>
+#include <cassert>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -27,8 +28,8 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << words_in_sentence(input) << std::endl;
+    assert(words_in_sentence("here is") == "is");
+    assert(words_in_sentence("test sentence with prime length words") == "prime length words");
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
