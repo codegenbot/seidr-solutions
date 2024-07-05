@@ -18,7 +18,7 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 def main():
     try:
-        nums = list(map(float, input("Enter numbers separated by spaces: ").strip().split()))
+        nums = list(map(float, input().strip().split()))
         if len(nums) < 2:
             print("Please enter at least two numbers.")
         else:
