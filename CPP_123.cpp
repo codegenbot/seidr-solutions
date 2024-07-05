@@ -17,7 +17,7 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    odd_numbers.push_back(1);
+    odd_numbers.push_back(1); // since the sequence always ends with 1
     sort(odd_numbers.begin(), odd_numbers.end());
     return odd_numbers;
 }
@@ -28,5 +28,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(get_odd_collatz(1), vector<int>{1}));
+    // Add other test cases as needed
     return 0;
 }
