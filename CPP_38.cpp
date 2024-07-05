@@ -1,10 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 string decode_cyclic(string s){ 
     int l = s.length();
-    string x, output;
-    for (int i = 0; i * 3 < l; i++) {
+    int num = (l + 2) / 3;
+    string x, output = "";  // Initialize output to an empty string
+    int i;
+    for (i = 0; i * 3 < l; i++) {
         x = s.substr(i * 3, 3);
         if (x.length() == 3) x = x[2] + x.substr(0, 2);
-        output += x;
+        output = output + x;
     }
     return output;
+}
+
+int main() {
+    // Test case
+    string str = "abcdefghi";
+    string encoded_str = "cfabihedg"; // This is presumed to be the output of some encode function
+    cout << decode_cyclic(encoded_str) << endl;  // Should print the decoded string
+    return 0;
 }
