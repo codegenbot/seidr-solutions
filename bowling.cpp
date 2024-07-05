@@ -32,7 +32,4 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-int main() { 
-    std::cout << bowlingScore("XXXX/") << std::endl; 
-    return 0; 
-}
+int main() { std::cout << bowlingScore("XXXX/"); return 0; }
