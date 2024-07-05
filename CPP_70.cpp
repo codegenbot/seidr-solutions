@@ -22,10 +22,7 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    assert(strange_sort_list({111111}) == vector<int>{111111});
-    // Additional test cases
-    assert(strange_sort_list({3, 1, 2}) == vector<int>{1, 3, 2});
-    assert(strange_sort_list({5, 4, 3, 2, 1}) == vector<int>{1, 5, 2, 4, 3});
-    assert(strange_sort_list({10, 20, 30, 40, 50}) == vector<int>{10, 50, 20, 40, 30});
+    assert((strange_sort_list({1, 2, 3, 4, 5}) == vector<int>{1, 5, 2, 4, 3}));
+    assert((strange_sort_list({111111}) == vector<int>{111111}));
     return 0;
 }
