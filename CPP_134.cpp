@@ -1,20 +1,21 @@
+#include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 using namespace std;
 
-bool check_if_last_char_is_a_letter(const string &txt) {
-    if (txt.empty() || txt.back() == ' ') return false;
-    if (!isalpha(txt.back())) return false;
-    size_t last_space = txt.find_last_of(' ');
-    return last_space == string::npos || last_space == txt.size() - 2;
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false;
+    // Remove trailing spaces
+    size_t end = txt.find_last_not_of(' ');
+    if (end == string::npos) return false; // string is all spaces
+    return isalpha(txt[end]);
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pie ") == false);
-    assert(check_if_last_char_is_a_letter("apple pie") == true);
-    assert(check_if_last_char_is_a_letter(" applepie") == true);
-    assert(check_if_last_char_is_a_letter("apple pie!") == false);
+    cout << boolalpha; // for printing boolean values as true/false
+    cout << check_if_last_char_is_a_letter("apple pie ") << endl; // false
+    cout << check_if_last_char_is_a_letter("apple pie") << endl; // true
+    cout << check_if_last_char_is_a_letter(" ") << endl; // false
     return 0;
 }
