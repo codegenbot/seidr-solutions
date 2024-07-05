@@ -1,4 +1,3 @@
-
 def decode_shift(message):
     shift = int(input("Enter a shift amount (1-25): "))
     if not 1 <= shift <= 25:
