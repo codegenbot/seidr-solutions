@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cmath>
 #include <string>
 #include <vector>
@@ -16,6 +15,8 @@ bool isPrime(int num) {
 }
 
 string intersection(vector<int> interval1, vector<int> interval2) {
+    if (interval1.size() < 2 || interval2.size() < 2) return "NO";
+    
     int start1 = min(interval1[0], interval1[1]);
     int end1 = max(interval1[0], interval1[1]);
     int start2 = min(interval2[0], interval2[1]);
@@ -29,11 +30,4 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int intersectionLength = endIntersection - startIntersection + 1;
     
     return isPrime(intersectionLength) ? "YES" : "NO";
-}
-
-int main() {
-    vector<int> interval1(2), interval2(2);
-    cin >> interval1[0] >> interval1[1] >> interval2[0] >> interval2[1];
-    cout << intersection(interval1, interval2) << endl;
-    return 0;
 }
