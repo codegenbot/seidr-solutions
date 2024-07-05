@@ -6,15 +6,23 @@
 using namespace std;
 
 vector<string> all_prefixes(const string& str) {
-    vector<string> prefixes;
-    for (size_t i = 1; i <= str.length(); ++i) {
-        prefixes.push_back(str.substr(0, i));
+    vector<string> result;
+    for (size_t i = 1; i <= str.size(); ++i) {
+        result.push_back(str.substr(0, i));
     }
-    return prefixes;
+    return result;
 }
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
