@@ -1,4 +1,4 @@
-def intercalate(numbers, delimiter):
+def insert_delimiter(numbers, delimiter):
     if not numbers:
         return []
     result = [numbers[0]]
