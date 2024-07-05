@@ -1,9 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-int solutions(const std::vector<int>& lst) {
+using namespace std;
+
+int solutions(vector<int> lst) {
     int sum = 0;
-    for (size_t i = 0; i < lst.size(); i += 2) {
+    for (int i = 0; i < lst.size(); i += 2) {
         if (lst[i] % 2 != 0) {
             sum += lst[i];
         }
@@ -12,6 +14,7 @@ int solutions(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::cout << (solutions({3, 13, 2, 9}) == 3) << std::endl; // Expected output: 1 (true)
+    vector<int> sample {3, 13, 2, 9};
+    cout << solutions(sample) << endl; // should print 3
     return 0;
 }
