@@ -15,7 +15,6 @@ def minPath(grid, k):
     for i in range(N):
         for j in range(N):
             heap = [(grid[i][j], i, j, [grid[i][j]])]
-            visited = set()
             while heap:
                 val, x, y, path = heappop(heap)
                 if len(path) == k:
@@ -23,8 +22,7 @@ def minPath(grid, k):
                         min_path = path
                     continue
                 for nx, ny in neighbors(x, y):
-                    if (nx, ny) not in visited or len(path) < k:
-                        visited.add((nx, ny))
+                    if len(path) + 1 <= k:
                         new_path = path + [grid[nx][ny]]
                         heappush(heap, (grid[nx][ny], nx, ny, new_path))
     
