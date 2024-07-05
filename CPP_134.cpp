@@ -1,4 +1,10 @@
-if (txt.empty() || txt.back() == ' ')
+#include <iostream>
+#include <cctype>
+#include <cassert>
+#include <string>
+
+bool check_if_last_char_is_a_letter(const std::string &txt) {
+    if (txt.empty() || txt.back() == ' ')
         return false;
     int n = txt.length();
     if (isalpha(txt[n - 1])) {
