@@ -12,9 +12,6 @@ def find_zero(xs):
             return None
 
     if len(xs) == 2:
-        return (-xs[1]) / xs[0]
+        return -xs[1] / xs[0]
     else:
-        a = xs[0]
-        b = xs[1]
-        c = xs[-1]
-        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+        return (-xs[-1] + math.sqrt((xs[1] ** 2) - (4 * xs[0] * xs[-1]))) / (2 * xs[0])
