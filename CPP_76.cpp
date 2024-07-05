@@ -1,8 +1,9 @@
 #include <iostream>
+using namespace std;
 
 bool is_simple_power(int x, int n) {
     if (n <= 1) return x == 1;
-    if (x < 1) return false;
+    if (x == 1) return true;
     while (x % n == 0) {
         x /= n;
     }
@@ -11,11 +12,11 @@ bool is_simple_power(int x, int n) {
 
 int main() {
     int x, n;
-    std::cin >> x >> n;
+    cin >> x >> n;
     if (is_simple_power(x, n)) {
-        std::cout << "true" << std::endl;
+        cout << "True" << endl;
     } else {
-        std::cout << "false" << std::endl;
+        cout << "False" << endl;
     }
     return 0;
 }
