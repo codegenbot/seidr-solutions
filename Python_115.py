@@ -1,6 +1,4 @@
-def max_fill(grid, capacity):
-    import math
-
+def max_fill(grid):
     rows = len(grid)
     cols = len(grid[0])
     water = 0

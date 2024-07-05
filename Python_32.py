@@ -1,4 +1,8 @@
-def find_zero(xs: list):
-    if not xs:
-        return None  # or some other appropriate value for your use case
-    return xs[0] / xs[1]
+def find_zero(xs: list[int]) -> float:
+    if len(xs) == 0:
+        raise ValueError("Input list must not be empty.")
+    for i in range(len(xs)):
+        if xs[i] == 0:
+            continue
+        x = -xs[i-1] / (xs[i] * xs[i])
+        return round(x, 2)
