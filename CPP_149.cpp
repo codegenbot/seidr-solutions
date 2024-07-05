@@ -24,7 +24,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert((sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"}));
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>({"cc", "dd", "aaaa", "bbbb"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
