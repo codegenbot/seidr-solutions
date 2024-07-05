@@ -1,5 +1,5 @@
-
 import numpy as np
+
 
 def first_negative_index(arr):
     total = 0
