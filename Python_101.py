@@ -1,2 +1,2 @@
 def words_string(s):
-    return s.strip().replace("  ", " ").split()
+    return [word.strip() for word in s.split()]
