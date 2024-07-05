@@ -1,4 +1,3 @@
-```cpp
 int calculateBowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
@@ -12,7 +11,7 @@ int calculateBowlingScore(const char* s) {
             if (currentRoll > 0) {
                 int bonus = s[i+1] - '0' + s[i+2] - '0';
                 score += bonus;
-                i++;
+                i++; // Move to the next character
             }
         } else {
             int roll = s[i] - '0';
@@ -28,5 +27,5 @@ int calculateBowlingScore(const char* s) {
             }
         }
     }
-    return score;
+    return score; // Return the total score
 }
