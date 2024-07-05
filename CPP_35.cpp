@@ -1,8 +1,9 @@
-float max_element(vector<float> l){
+float max_element(vector<float> l) {
+    if (l.empty()) return -INFINITY; // Handle empty vector case
     float max_val = l[0];
-    for(int i = 1; i < l.size(); i++) {
-        if(l[i] > max_val) {
-            max_val = l[i];
+    for (float el : l) {
+        if (el > max_val) {
+            max_val = el;
         }
     }
     return max_val;
