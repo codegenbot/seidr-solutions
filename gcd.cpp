@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -34,7 +33,6 @@ int main() {
 
     long long num1 = 12, num2 = 15;
     long long gcdResult = gcd(num1, num2);
-    
     cout << "Indices of substring are: ";
     for (int i : result) {
         cout << i << " ";
