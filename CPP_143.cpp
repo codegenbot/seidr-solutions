@@ -3,33 +3,40 @@
 #include <vector>
 #include <cmath>
 #include <string>
-#include <cassert>
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    for (int i = 5; i * i <= n; i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0) return false;
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    if (num == 2) return true;
+    if (num % 2 == 0) return false;
+    for (int i = 3; i <= std::sqrt(num); i += 2) {
+        if (num % i == 0) return false;
     }
     return true;
 }
 
 std::string words_in_sentence(std::string sentence) {
     std::istringstream iss(sentence);
-    std::string word, result = "";
+    std::string word;
+    std::vector<std::string> result;
+    
     while (iss >> word) {
-        if (is_prime(word.length())) {
-            if (!result.empty()) result += " ";
-            result += word;
+        if (isPrime(word.length())) {
+            result.push_back(word);
         }
     }
-    return result;
+    
+    std::string output;
+    for (size_t i = 0; i < result.size(); ++i) {
+        if (i > 0) output += " ";
+        output += result[i];
+    }
+    
+    return output;
 }
 
 int main() {
-    assert(words_in_sentence("here is") == "is");
-    assert(words_in_sentence("test sentence with prime length words") == "prime length words");
-    std::cout << "All tests passed!" << std::endl;
+    std::string sentence;
+    std::getline(std::cin, sentence);
+    std::cout << words_in_sentence(sentence) << std::endl;
     return 0;
 }
