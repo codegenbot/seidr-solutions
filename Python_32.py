@@ -1,19 +1,24 @@
-def poly(xs, x):
-    return sum(coef * (x ** i) for i, coef in enumerate(xs))
+import math
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
 def find_zero(xs: list):
     def f(x):
         return poly(xs, x)
 
     def df(x):
-        h = 1e-5
-        return (f(x + h) - f(x)) / h
+        return sum([i * coeff * math.pow(x, i - 1) for i, coeff in enumerate(xs) if i > 0])
 
-    x = 0  # initial guess
-    for _ in range(100):  # maximum iterations
-        x = x - f(x) / df(x)
-    return x
+    x0 = 0
+    for _ in range(100):
+        x1 = x0 - f(x0) / df(x0)
+        if abs(x1 - x0) < 1e-7:
+            break
+        x0 = x1
+    return x0
 
-# example usage
-coefficients = [float(x) for x in input().split()]
-print(find_zero(coefficients))
+if __name__ == "__main__":
+    xs = list(map(float, input().strip().split()))
+    zero = find_zero(xs)
+    print(zero)
