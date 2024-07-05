@@ -1,6 +1,3 @@
-def sort_third(l):
-    result = []
-    for item in l:
-        if item % 3 == 0:
-            result.append(item)
-    return tuple(result)
+```Python
+def sort_third(lst):
+    return tuple(x for i,x in enumerate(lst) if x % 3 != 0)
