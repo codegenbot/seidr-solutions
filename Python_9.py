@@ -9,6 +9,8 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().strip().split()))
+    import sys
+    input = sys.stdin.read().strip()
+    numbers = list(map(int, input.split()))
     result = rolling_max(numbers)
     print(" ".join(map(str, result)))
