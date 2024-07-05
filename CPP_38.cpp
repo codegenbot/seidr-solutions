@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-string decode_cyclic(string s) {
+string decode_cyclic(const string& s) {
     int l = s.length();
     string output;
     for (int i = 0; i * 3 < l; i++) {
