@@ -1,12 +1,10 @@
-import re
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     balance = 0
     current_group = []
-    paren_string = re.sub(r'[^()]+', '', paren_string)
-    for char in paren_string:
+    for char in paren_string.strip().replace(" ", ""):
         current_group.append(char)
         if char == "(":
             balance += 1
@@ -18,6 +16,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    paren_string = input().strip()
-    result = separate_paren_groups(paren_string)
-    print(result if paren_string else [])
+    try:
+        paren_string = input().strip()
+        if paren_string:
+            result = separate_paren_groups(paren_string)
+            print(result)
+        else:
+            print([])  # Handle empty input
+    except EOFError:
+        print([])  # Handle cases where input is not provided
