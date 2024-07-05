@@ -15,14 +15,8 @@ def histogram(test):
     max_count = max(count.values())
     return {k: v for k, v in count.items() if v == max_count}
 
-
 if __name__ == "__main__":
-    try:
-        while True:
-            test = input().strip()
-            if test == "":
-                break
-            result = histogram(test)
-            print(result)
-    except EOFError:
-        pass
+    import sys
+    test = sys.stdin.read().strip()
+    result = histogram(test)
+    print(result)
