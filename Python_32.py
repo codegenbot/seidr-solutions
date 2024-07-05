@@ -1,16 +1,18 @@
 ```
-def find_zero(xs: list):
-    if len(xs) < 3:
+import math
+def find_zero(xs):
+    if len(xs) < 1:
+        print("Error: List should have at least one element.")
         return None
-    for i in range(len(xs)-2):
-        A = xs[i]
-        B = xs[i+1]
-        C = xs[i+2]
-        d = (B**2 - 4*A*C)**0.5
-        r1 = (-B + d) / (2 * A)
-        r2 = (-B - d) / (2 * A)
-        if abs(r1) < 10e-9:
-            return r1
-        elif abs(r2) < 10e-9:
-            return r2
-    return None
+    
+    for x in xs:
+        if not isinstance(x, (int, float)):
+            print("Error: All elements in the list should be numbers.")
+            return None
+            
+    if len(xs) < 2:
+        return -xs[1] / xs[0]
+    elif len(xs) == 2:
+        return -xs[1] / xs[0]
+    else:
+        return (-xs[2] + math.sqrt((xs[1] ** 2) - (4 * xs[0] * xs[-1]))) / (2 * xs[0])
