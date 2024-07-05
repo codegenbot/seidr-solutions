@@ -10,9 +10,10 @@ int is_bored(const string& S) {
         if (newSentence && c == 'I') {
             count++;
             newSentence = false;
-        } else if (c == '.' || c == '?' || c == '!') {
+        }
+        if (c == '.' || c == '?' || c == '!') {
             newSentence = true;
-        } else if (c != ' ' && c != '.' && c != '?' && c != '!') {
+        } else if (c != ' ') {
             newSentence = false;
         }
     }
@@ -21,8 +22,8 @@ int is_bored(const string& S) {
 }
 
 int main() {
-    string S;
-    getline(cin, S);
-    cout << is_bored(S) << endl;
+    string input;
+    getline(cin, input);
+    cout << is_bored(input) << endl;
     return 0;
 }
