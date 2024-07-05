@@ -10,14 +10,14 @@ any string_to_number(const string& s) {
     try {
         return stod(s_copy);
     } catch (const invalid_argument&) {
-        return s;
+        return s; // If conversion fails, return original string
     }
 }
 
 any compare_one(any a, any b) {
     auto get_value = [](const any& v) -> any {
-        if (v.type() == typeid(int)) return any_cast<int>(v);
-        if (v.type() == typeid(float)) return any_cast<float>(v);
+        if (v.type() == typeid(int)) return static_cast<double>(any_cast<int>(v));
+        if (v.type() == typeid(float)) return static_cast<double>(any_cast<float>(v));
         if (v.type() == typeid(double)) return any_cast<double>(v);
         if (v.type() == typeid(string)) return string_to_number(any_cast<string>(v));
         return v;
@@ -29,21 +29,22 @@ any compare_one(any a, any b) {
     if (va.type() == typeid(double) && vb.type() == typeid(double)) {
         double da = any_cast<double>(va);
         double db = any_cast<double>(vb);
-        if (da == db) return string("None");
+        if (da == db) return "None";
         return da > db ? a : b;
     }
 
     if (va.type() == typeid(string) && vb.type() == typeid(string)) {
         string sa = any_cast<string>(va);
         string sb = any_cast<string>(vb);
-        if (sa == sb) return string("None");
+        if (sa == sb) return "None";
         return sa > sb ? a : b;
     }
 
-    return string("None");
+    return "None"; // Different types or unable to compare
 }
 
 int main() {
+    // Example usage
     any result = compare_one(string("10"), string("25"));
     if (result.type() == typeid(string))
         cout << any_cast<string>(result) << endl;
