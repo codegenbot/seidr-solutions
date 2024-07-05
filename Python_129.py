@@ -21,7 +21,7 @@ def minPath(grid, k):
         for nx, ny in neighbors(x, y):
             if (nx, ny) not in path:
                 new_path = path + [(nx, ny)]
-                heappush(min_heap, (grid[nx][ny], new_path))
+                heappush(min_heap, (sum(grid[x][y] for x, y in new_path), new_path))
 
 import ast
 grid = ast.literal_eval(input())
