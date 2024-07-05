@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -17,12 +18,13 @@ vector<float> sort_even(vector<float> l) {
     return l;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(const vector<float>& a, const vector<float>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), 
-                  {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> result = sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    assert(issame(result, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    cout << "Test passed!" << endl;
     return 0;
 }
