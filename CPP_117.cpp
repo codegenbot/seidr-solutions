@@ -1,17 +1,18 @@
 #include <iostream>
-#include <vector>
 #include <sstream>
 #include <cctype>
-#include <cstring>
+#include <vector>
+#include <string>
 #include <cassert>
+#include <cstring>
 
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    istringstream stream(s);
+    istringstream iss(s);
     string word;
-    while (stream >> word) {
+    while (iss >> word) {
         int consonant_count = 0;
         for (char c : word) {
             if (isalpha(c) && !strchr("AEIOUaeiou", c)) {
@@ -30,7 +31,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    cout << "Test passed!" << endl;
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("hello world", 3), {"hello"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
