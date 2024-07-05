@@ -8,8 +8,8 @@ def search(lst):
     return result
 
 if __name__ == "__main__":
-    try:
-        lst = list(map(int, input().strip().split()))
-        print(search(lst) if lst else -1)
-    except ValueError:
-        print(-1)
+    import sys
+    input = sys.stdin.read
+    data = input().strip().split()
+    lst = list(map(int, data))
+    print(search(lst) if lst else -1)
