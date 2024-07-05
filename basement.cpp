@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int getFirstNegativeIndex(vector<int> input) {
     int sum = 0;
     for (int i = 0; i < input.size(); i++) {
@@ -8,3 +11,4 @@ int getFirstNegativeIndex(vector<int> input) {
     }
     return -1;
 }
+```
