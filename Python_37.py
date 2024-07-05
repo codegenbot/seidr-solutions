@@ -3,6 +3,4 @@ def sort_even_indices(l):
     l[::2] = even_indices_values
     return l
 
-# Example call
-result = sort_even_indices([5, 3, 2, 8, 1, 4])
-print(result)
+check(sort_even_indices)
