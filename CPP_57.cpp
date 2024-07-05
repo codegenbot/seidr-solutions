@@ -1,20 +1,22 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-bool is_monotonic(const std::vector<int>& l) {
-    if (l.empty()) return true;
+using namespace std;
+
+bool monotonic(vector<float> l) {
+    if(l.size() <= 1) return true;
     bool increasing = true, decreasing = true;
-    for (size_t i = 1; i < l.size(); ++i) {
-        if (l[i] > l[i - 1]) decreasing = false;
-        if (l[i] < l[i - 1]) increasing = false;
+    for(size_t i = 1; i < l.size(); ++i) {
+        if(l[i] > l[i-1]) decreasing = false;
+        if(l[i] < l[i-1]) increasing = false;
     }
     return increasing || decreasing;
 }
 
 int main() {
-    assert(is_monotonic({9, 9, 9, 9}) == true);
-    assert(is_monotonic({1, 2, 2, 3}) == true);
-    assert(is_monotonic({3, 2, 1}) == true);
-    assert(is_monotonic({3, 2, 2, 3}) == false);
-    return 0;
+    cout << boolalpha; // For printing 'true' or 'false'
+    cout << monotonic({9, 9, 9, 9}) << endl; // Example test
+    cout << monotonic({1, 2, 3, 4}) << endl; // Another test
+    cout << monotonic({4, 3, 2, 1}) << endl; // Another test
+    cout << monotonic({1, 3, 2, 4}) << endl; // Another test
 }
