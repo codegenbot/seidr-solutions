@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -16,7 +17,7 @@ int calculateFuelCost(std::initializer_list<int> numbers) {
 }
 
 int main() {
-    int result = calculateFuelCost({1,2,3});
+    int result = calculateFuelCost({10, 20, 30});
     std::cout << "The fuel cost is: " << result << std::endl;
     return 0;
 }
