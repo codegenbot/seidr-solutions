@@ -1,11 +1,10 @@
 def concatenate_strings(strings):
     return "".join(strings)
 
-def check(func):
-    test_cases = [["abc", "def"], ["hello", " ", "world"], ["concatenate", " ", "strings"]]
-    expected = ["abcdef", "hello world", "concatenate strings"]
-    for i, case in enumerate(test_cases):
-        assert func(case) == expected[i], f"Test case {i+1} failed"
-    print("All test cases passed!")
+def check(concatenate_strings):
+    assert concatenate_strings(["Hello", " ", "World"]) == "Hello World"
+    assert concatenate_strings(["Python", "3", ".", "8"]) == "Python3.8"
+    assert concatenate_strings(["Concatenate", " ", "these", " ", "strings"]) == "Concatenate these strings"
+    print("All tests passed.")
 
 check(concatenate_strings)
