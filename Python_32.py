@@ -1,21 +1,20 @@
 def find_zero(xs: list):
     def f(x):
-        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+        return poly(xs, x)
 
-    def derivative(xs):
-        return [i * xs[i] for i in range(1, len(xs))]
+    def f_prime(x):
+        return sum(
+            [i * coeff * math.pow(x, i - 1) for i, coeff in enumerate(xs) if i != 0]
+        )
 
-    guess = 1.0
-    tol = 1e-7
-    max_iter = 1000
-
-    for _ in range(max_iter):
-        y = f(guess)
-        if abs(y) < tol:
-            return guess
-        dy = sum([coeff * math.pow(guess, i) for i, coeff in enumerate(derivative(xs))])
-        if dy == 0:
+    x = 0
+    for _ in range(1000):
+        fx = f(x)
+        if abs(fx) < 1e-7:
+            return x
+        fpx = f_prime(x)
+        if fpx == 0:
             break
-        guess -= y / dy
+        x = x - fx / fpx
 
-    return guess
+    raise ValueError("No zero found")
