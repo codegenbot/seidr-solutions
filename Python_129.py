@@ -2,26 +2,35 @@ def minPath(grid, k):
     from heapq import heappush, heappop
 
     N = len(grid)
-    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    min_heap = []
 
-    def in_bounds(x, y):
-        return 0 <= x < N and 0 <= y < N
+    for i in range(N):
+        for j in range(N):
+            heappush(min_heap, (grid[i][j], i, j, [grid[i][j]]))
 
-    def bfs():
-        heap = []
-        for i in range(N):
-            for j in range(N):
-                heappush(heap, (grid[i][j], i, j, [grid[i][j]]))
+    while min_heap:
+        val, x, y, path = heappop(min_heap)
+        if len(path) == k:
+            return path
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < N and 0 <= ny < N:
+                heappush(min_heap, (grid[nx][ny], nx, ny, path + [grid[nx][ny]]))
 
-        while heap:
-            value, x, y, path = heappop(heap)
-            if len(path) == k:
-                return path
-
-            for dx, dy in directions:
-                nx, ny = x + dx, y + dy
-                if in_bounds(nx, ny):
-                    new_path = path + [grid[nx][ny]]
-                    heappush(heap, (grid[nx][ny], nx, ny, new_path))
-
-    return bfs()
+if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    k = int(data[0])
+    size = int(data[1])
+    grid = []
+    index = 2
+    for i in range(size):
+        row = list(map(int, data[index:index + size]))
+        grid.append(row)
+        index += size
+    
+    result = minPath(grid, k)
+    print(result)
