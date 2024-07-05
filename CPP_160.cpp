@@ -1,4 +1,5 @@
 int do_algebra(vector<string> operato, vector<int> operand) {
+    if (operand.empty()) return 0;
     int result = operand[0];
     for (size_t i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
