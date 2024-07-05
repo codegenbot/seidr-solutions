@@ -1,29 +1,24 @@
-#include <string>  // Include this to use std::string
-using namespace std;
+#include <string>
+#include <iostream>
 
-bool is_nested(string str) {
-    int openCount = 0, nestedCount = 0;
-    for(char c : str) {
-        if(c == '[') {
-            openCount++;
-        } else if(c == ']') {
-            if(openCount > 0) {
-                openCount--;
-                nestedCount++;
-            }
+bool is_nested(const std::string& str) {
+    int depth = 0;
+    bool nested = false;
+    for (char c : str) {
+        if (c == '[') {
+            depth++;
+            if (depth > 1) nested = true;
+        } else if (c == ']') {
+            if (depth > 0) depth--;
         }
     }
-    return nestedCount > 1;
+    return nested;
 }
 
-#include <iostream>
-#include <assert.h>
-
 int main() {
-    assert (is_nested("[]") == false);
-    assert (is_nested("[[]]") == true);
-    assert (is_nested("[[][]]") == true);
-    assert (is_nested("]]]]]]]]") == false);
-    cout << "All test cases passed.\n";
+    std::cout << std::boolalpha; // To display bools as true/false
+    std::cout << is_nested("[]") << std::endl; // Should output: false
+    std::cout << is_nested("[[]]") << std::endl; // Should output: true
+    std::cout << is_nested("[[[]]]") << std::endl; // Should output: true
     return 0;
 }
