@@ -1,4 +1,4 @@
-#include <vector>
+#include <vector> 
 #include <iostream>
 
 int smallest_change(std::vector<int> arr) {
