@@ -30,8 +30,12 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    assert(bf("Jupiter", "Makemake") == vector<string>{});
+    assert(issame(bf("Jupiter", "Makemake"), {}));
     cout << "All tests passed" << endl;
     return 0;
 }
