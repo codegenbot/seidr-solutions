@@ -14,7 +14,7 @@ vector<string> split_words(string txt) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-
+    
     // If no spaces but contains commas, handle commas
     if (result.empty()) {
         while ((pos = txt.find(',')) != string::npos) {
