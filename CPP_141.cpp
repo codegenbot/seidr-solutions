@@ -1,7 +1,6 @@
 #include <cctype>
 #include <algorithm>
-#include <string> 
-#include <cassert>
+#include <string>
 using namespace std;
 
 string file_name_check(string file_name) {
@@ -22,7 +21,9 @@ string file_name_check(string file_name) {
 }
 
 int main() {
+    // Test cases
     assert (file_name_check("file.txt") == "Yes");
     assert (file_name_check("s.") == "No");
+    // Add more test cases as needed
     return 0;
 }
