@@ -23,7 +23,7 @@ int do_algebra(vector<string> operato, vector<int> operand) {
     return result;
 }
 
-int main() {
+int main(){
     cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
     return 0;
 }
