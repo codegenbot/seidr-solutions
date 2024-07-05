@@ -9,11 +9,11 @@ int choose_num(int x, int y) {
 }
 
 int main() {
+    // Test cases
     assert(choose_num(546, 546) == 546);
-    // You can add more test cases here
-    int x, y;
-    std::cout << "Enter values for x and y:";
-    std::cin >> x >> y;
-    std::cout << "Result: " << choose_num(x, y) << std::endl;
+    assert(choose_num(100, 101) == 100);
+    assert(choose_num(100, 102) == 102);
+    assert(choose_num(126, 123) == -1);
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
