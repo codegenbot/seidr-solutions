@@ -28,5 +28,6 @@ int main() {
     vector<string> operators = {"//", "*"};
     vector<int> operands = {7, 3, 4};
     cout << do_algebra(operators, operands) << endl;  // Expected output: 8
+
     return 0;
 }
