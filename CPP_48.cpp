@@ -1,6 +1,5 @@
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 bool is_palindrome(string text){
