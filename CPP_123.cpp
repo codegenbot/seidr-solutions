@@ -1,8 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
-
+#include <cassert>
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
