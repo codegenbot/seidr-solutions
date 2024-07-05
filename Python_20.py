@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     if len(numbers) < 2:
-        return (0.0, 0.0)
+        return (0.0, 0.0)  # Return immediately if there are fewer than 2 numbers
 
     numbers.sort()
     min_diff = float("inf")
