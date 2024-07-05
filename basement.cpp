@@ -1,7 +1,7 @@
-int getFirstNegativeIndex(vector<int> numbers) {
+int getFirstNegativeIndex(vector<int> input) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        sum += numbers[i];
+    for (int i = 0; i < input.size(); i++) {
+        sum += input[i];
         if (sum < 0) {
             return i;
         }
