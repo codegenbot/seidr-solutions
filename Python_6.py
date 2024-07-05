@@ -1,12 +1,10 @@
 from typing import List
 
-def parse_nested_parens() -> List[int]:
-    paren_string = input().strip()
-    
+def parse_nested_parens(paren_string: str) -> List[int]:
     def max_depth(s: str) -> int:
         depth = max_depth = 0
         for char in s:
-            if (char == "("):
+            if char == "(":
                 depth += 1
                 max_depth = max(max_depth, depth)
             elif char == ")":
@@ -15,4 +13,6 @@ def parse_nested_parens() -> List[int]:
 
     return [max_depth(group) for group in paren_string.split()]
 
-print(parse_nested_parens())
+if __name__ == "__main__":
+    paren_string = input().strip()
+    print(parse_nested_parens(paren_string))
