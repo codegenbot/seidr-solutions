@@ -29,7 +29,7 @@ int main() {
     string decoded_str = decode_shift(encoded_str);
     cout << "Encoded String: " << encoded_str << endl;
     cout << "Decoded String: " << decoded_str << endl;
-    assert(decoded_str == str);
+    assert(decode_shift(encoded_str) == str);
     cout << "Test passed" << endl;
     return 0;
 }
