@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 using namespace std;
@@ -21,7 +22,7 @@ int sumOfDigits(int n) {
     return sum;
 }
 
-int largestPrimeSumOfDigits(vector<int> lst) {
+int sumOfDigitsOfLargestPrime(const vector<int>& lst) {
     int largestPrime = -1;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -32,4 +33,15 @@ int largestPrimeSumOfDigits(vector<int> lst) {
     }
     if (largestPrime == -1) return 0;
     return sumOfDigits(largestPrime);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> lst(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> lst[i];
+    }
+    cout << sumOfDigitsOfLargestPrime(lst) << endl;
+    return 0;
 }
