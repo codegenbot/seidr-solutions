@@ -29,8 +29,8 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 int main() {
     assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.Bb");
     // Additional tests can be added here
-    assert(Strongest_Extension("Project", {"ExtA", "extB", "ExtC"}) == "Project.ExtA");
-    assert(Strongest_Extension("Test", {"Aa", "AB", "aA"}) == "Test.AB");
-    assert(Strongest_Extension("Class", {"123", "A1B2C3", "abc"}) == "Class.A1B2C3");
+    assert(Strongest_Extension("Cls", {"aB", "Ab", "BBb"}) == "Cls.BBb");
+    assert(Strongest_Extension("X", {"aaa", "AA", "aaA"}) == "X.AA");
+    assert(Strongest_Extension("Test", {"onlylower", "OnlyUPPER", "mixedCASE"}) == "Test.OnlyUPPER");
     return 0;
 }
