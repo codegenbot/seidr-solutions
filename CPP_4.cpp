@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-float mean_absolute_deviation(std::vector<float> numbers) {
+float mean_absolute_deviation(const std::vector<float>& numbers) {
     float sum = 0.0, mean, mad = 0.0;
     int n = numbers.size();
 
