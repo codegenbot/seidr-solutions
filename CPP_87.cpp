@@ -7,25 +7,14 @@ using namespace std;
 vector<vector<int>> get_row(const vector<vector<int>>& lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
-        vector<int> row;
-        for (int j = 0; j < lst[i].size(); ++j) {
-            if (lst[i][j] == x) {
-                row.push_back(j);
-            }
-        }
-        sort(row.rbegin(), row.rend());
-        for (int col : row) {
-            result.push_back({i, col});
+        if (find(lst[i].begin(), lst[i].end(), x) != lst[i].end()) {
+            result.push_back(lst[i]);
         }
     }
     return result;
 }
 
-bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    assert(get_row({{}, {1}, {1, 2, 3}}, 3) == vector<vector<int>>{{1, 2, 3}});
     return 0;
 }

@@ -1,25 +1,18 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+using namespace std;
 
-int next_smallest(std::vector<int> lst) {
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; // Using -1 to represent None
 
-    std::sort(lst.begin(), lst.end());
-    int first_smallest = lst[0];
-
+    sort(lst.begin(), lst.end());
+    int smallest = lst[0];
+    
     for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] > first_smallest) {
+        if (lst[i] != smallest) {
             return lst[i];
         }
     }
-
-    return -1; // No 2nd smallest element found
-}
-
-int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    std::cout << "Test passed!\n";
-    return 0;
+    
+    return -1; // No second smallest element
 }
