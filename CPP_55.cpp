@@ -1,4 +1,8 @@
-if (n <= 0) return 0;
+#include <iostream>
+using namespace std;
+
+int fib(int n) {
+    if (n <= 0) return 0;
     if (n == 1) return 1;
     int a = 0, b = 1, c;
     for (int i = 2; i <= n; i++) {
@@ -7,4 +11,12 @@ if (n <= 0) return 0;
         b = c;
     }
     return b;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    cout << "Fibonacci(" << n << ") = " << fib(n) << endl;
+    return 0;
 }
