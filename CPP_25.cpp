@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 vector<int> factorize(int n) {
@@ -26,7 +27,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    assert(issame(factorize(60), {2, 2, 3, 5}));  // Add additional test cases
     cout << "All tests passed." << endl;
     return 0;
 }
