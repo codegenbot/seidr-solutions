@@ -1,7 +1,8 @@
-def decode_cyclic(s):
-    s = input("Enter a cyclic string to decode: ")
-    if len(s) % 3 != 0:
-        s = s.rjust(len(s) + (3 - len(s) % 3), " ")
-    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
-    decoded_groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+def decode_cyclic(my_list):
+    if len(my_list) % 3 != 0:
+        my_list = my_list.rjust(len(my_list) + (3 - len(my_list) % 3), " ")
+    groups = [my_list[i : i + 3] for i in range(0, len(my_list), 3)]
+    decoded_groups = [
+        (group[1:] + group[0]) if len(group) == 3 else group for group in groups
+    ]
     return "".join(decoded_groups)
