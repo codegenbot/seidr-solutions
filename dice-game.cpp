@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
-#include <iomanip>
-
+#include <string>
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -15,7 +15,10 @@ double diceGame(int n, int m) {
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
+    string temp1, temp2;
+    cin >> temp1 >> temp2;
+    int n = stoi(temp1);
+    int m = stoi(temp2);
     cout << fixed << setprecision(2) << (double)diceGame(n, m) << endl;
     return 0;
+}
