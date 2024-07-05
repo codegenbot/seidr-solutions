@@ -1,20 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-bool isPalindrome(int num) {
-    string str = to_string(num);
-    string rev_str = string(str.rbegin(), str.rend());
-    return str == rev_str;
-}
-
 vector<int> even_odd_palindrome(int n) {
     int even_count = 0, odd_count = 0;
+
     for (int i = 1; i <= n; ++i) {
-        if (isPalindrome(i)) {
+        string s = to_string(i);
+        string rev_s = string(s.rbegin(), s.rend());
+        if (s == rev_s) {
             if (i % 2 == 0) {
                 ++even_count;
             } else {
@@ -22,15 +20,19 @@ vector<int> even_odd_palindrome(int n) {
             }
         }
     }
+
     return {even_count, odd_count};
 }
 
-bool issame(const vector<int> &a, const vector<int> &b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert (issame(even_odd_palindrome(1), {0, 1}));
-    cout << "Test passed." << endl;
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    assert(issame(even_odd_palindrome(10), {2, 9}));
+    assert(issame(even_odd_palindrome(20), {3, 10}));
+
+    cout << "All test cases passed!" << endl;
     return 0;
 }
