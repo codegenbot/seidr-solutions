@@ -4,11 +4,12 @@
 
 using namespace std;
 
+// Function to double the sum of positive odd integers in the vector
 long long int double_the_difference(const vector<float>& lst) {
     long long int sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num && (int)num % 2 != 0) {
-            sum += 2 * (int)num; 
+            sum += 2 * (int)num;
         }
     }
     return sum;
