@@ -21,9 +21,9 @@ int main() {
     string brackets;
     cin >> brackets;
     if (correct_bracketing(brackets)) {
-        cout << "The bracketing is correct." << endl;
+        cout << "Correctly bracketed." << endl;
     } else {
-        cout << "The bracketing is incorrect." << endl;
+        cout << "Incorrectly bracketed." << endl;
     }
     return 0;
 }
