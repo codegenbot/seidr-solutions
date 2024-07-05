@@ -1,12 +1,9 @@
 ```
-def decode_cyclic(s: str):
-    result = ""
-    i = 0
-    while i < len(s) - 1:
-        if s[i] == s[-1]:
-            result += s[i]
-            i += 2
-        else:
-            result += s[i]
-            i += 1
-    return result
+def decode_cyclic(s):
+    while '<<<' in s:
+        s = s.replace('<<<', '')
+    return s
+
+if __name__ == "__main__":
+    s = "<<<" + input()
+    print(decode_cyclic(s).replace(",,", ","))
