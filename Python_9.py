@@ -9,8 +9,9 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    numbers = list(map(int, input().strip().split()))
-    result = rolling_max(numbers)
-    print(" ".join(map(str, result)))
+    try:
+        numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+        result = rolling_max(numbers)
+        print(result)
+    except ValueError:
+        print("Invalid input. Please enter space-separated integers.")
