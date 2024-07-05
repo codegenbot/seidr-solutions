@@ -14,7 +14,7 @@ bool is_nested(const string& str) {
             return true;
         }
     }
-    return depth != 0;
+    return depth != 0; // Check if the brackets are not properly closed
 }
 
 int main() {
