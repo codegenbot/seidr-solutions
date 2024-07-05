@@ -1,23 +1,22 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
-vector<int> rolling_max(const vector<int>& numbers) {
+vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    if (numbers.empty()) return result;
-    int max_so_far = numbers[0];
-    result.push_back(max_so_far);
-    for (size_t i = 1; i < numbers.size(); ++i) {
-        if (numbers[i] > max_so_far) {
-            max_so_far = numbers[i];
+    int current_max = numbers[0];
+    for (int num : numbers) {
+        if (num > current_max) {
+            current_max = num;
         }
-        result.push_back(max_so_far);
+        result.push_back(current_max);
     }
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
