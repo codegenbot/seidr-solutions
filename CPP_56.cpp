@@ -12,19 +12,17 @@ bool correct_bracketing(const std::string& brackets) {
                 return false;
             }
         }
-        // Ignore other characters
     }
     return balance == 0;
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string of brackets: ";
     std::cin >> input;
     if (correct_bracketing(input)) {
-        std::cout << "Correctly bracketed!" << std::endl;
+        std::cout << "Correct" << std::endl;
     } else {
-        std::cout << "Incorrectly bracketed!" << std::endl;
+        std::cout << "Incorrect" << std::endl;
     }
     return 0;
 }
