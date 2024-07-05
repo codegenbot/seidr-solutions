@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -13,6 +12,7 @@ string string_xor(string a, string b){
 }
 
 int main() {
+    // Example usage and assertion
     assert(string_xor("0101", "0000") == "0101");
     return 0;
 }
