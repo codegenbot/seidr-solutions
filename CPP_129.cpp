@@ -8,35 +8,41 @@ using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int N = grid.size();
     vector<vector<int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    auto cmp = [](const tuple<int, int, vector<int>>& a, const tuple<int, int, vector<int>>& b) {
-        return get<2>(a) > get<2>(b);
+    vector<int> result(k, N * N + 1);
+    auto cmp = [](const vector<int>& a, const vector<int>& b) {
+        return a > b;
     };
-    priority_queue<tuple<int, int, vector<int>>, vector<tuple<int, int, vector<int>>>, decltype(cmp)> pq(cmp);
+    priority_queue<vector<int>, vector<vector<int>>, decltype(cmp)> pq(cmp);
 
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
-            pq.push(make_tuple(i, j, vector<int>{grid[i][j]}));
+            pq.push({grid[i][j], i, j});
         }
     }
 
     while (!pq.empty()) {
-        auto [x, y, path] = pq.top();
+        vector<int> path = pq.top();
         pq.pop();
-
-        if (path.size() == k) {
-            return path;
-        }
-
-        for (auto& dir : directions) {
-            int nx = x + dir[0];
-            int ny = y + dir[1];
-            if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
-                vector<int> newPath = path;
-                newPath.push_back(grid[nx][ny]);
-                pq.push(make_tuple(nx, ny, newPath));
+        if (path.size() == k + 2) {
+            vector<int> candidate(path.begin(), path.begin() + k);
+            if (candidate < result) {
+                result = candidate;
+            }
+        } else {
+            int x = path[path.size() - 2];
+            int y = path[path.size() - 1];
+            for (auto& dir : directions) {
+                int nx = x + dir[0], ny = y + dir[1];
+                if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
+                    vector<int> newPath = path;
+                    newPath.insert(newPath.end() - 2, grid[nx][ny]);
+                    newPath[newPath.size() - 2] = nx;
+                    newPath[newPath.size() - 1] = ny;
+                    pq.push(newPath);
+                }
             }
         }
     }
 
-    return {};
+    return result;
 }

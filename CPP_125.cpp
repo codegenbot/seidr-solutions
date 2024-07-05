@@ -23,13 +23,13 @@ vector<string> split_words(string txt) {
         }
         result.push_back(txt);
     } else {
-        int even_odd_count = 0;
+        int odd_count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) { // odd-indexed letters are odd in 0-indexed alphabet
-                even_odd_count++;
+            if (islower(c) && (c - 'a') % 2 != 0) {
+                odd_count++;
             }
         }
-        result.push_back(to_string(even_odd_count));
+        result.push_back(to_string(odd_count));
     }
     return result;
 }
