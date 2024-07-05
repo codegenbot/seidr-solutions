@@ -5,16 +5,16 @@
 
 using namespace std;
 
-vector<string> split_words(string txt) {
+vector<string> split_words(const string& txt) {
     vector<string> result;
-    size_t pos = 0;
+    size_t pos = 0, start = 0;
     string delimiter = " ";
 
-    while ((pos = txt.find(delimiter)) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + delimiter.length());
+    while ((pos = txt.find(delimiter, start)) != string::npos) {
+        result.push_back(txt.substr(start, pos - start));
+        start = pos + delimiter.length();
     }
-    result.push_back(txt);
+    result.push_back(txt.substr(start));
 
     return result;
 }
