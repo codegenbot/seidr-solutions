@@ -1,20 +1,22 @@
 #include <sstream>
 #include <string>
 
-using namespace std;
-
-bool simplify(string x, string n) {
-    int x_num, x_den, n_num, n_den;
+bool simplify(std::string x, std::string n) {
+    int num1, den1, num2, den2;
     char slash;
     
-    stringstream x_stream(x);
-    x_stream >> x_num >> slash >> x_den;
+    // Parse the first fraction
+    std::stringstream ss1(x);
+    ss1 >> num1 >> slash >> den1;
     
-    stringstream n_stream(n);
-    n_stream >> n_num >> slash >> n_den;
+    // Parse the second fraction
+    std::stringstream ss2(n);
+    ss2 >> num2 >> slash >> den2;
     
-    int result_num = x_num * n_num;
-    int result_den = x_den * n_den;
+    // Calculate the product of the two fractions
+    int product_num = num1 * num2;
+    int product_den = den1 * den2;
     
-    return result_num % result_den == 0;
+    // Check if the product is a whole number
+    return (product_num % product_den == 0);
 }
