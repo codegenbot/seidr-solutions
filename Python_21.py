@@ -1,10 +1,4 @@
-def normalize(numbers):
-    min_val = min(numbers)
-    max_val = max(numbers)
-    return [(num - min_val) / (max_val - min_val) for num in numbers]
-
-
-# Example usage:
-numbers = [10, 20, 30]
-normalized_numbers = normalize(numbers)
-print(normalized_numbers)
+def normalize_numbers(numbers):
+    min_num = min(numbers)
+    max_num = max(numbers)
+    return [(num - min_num) / (max_num - min_num) for num in numbers]
