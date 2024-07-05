@@ -13,9 +13,15 @@ int can_arrange(vector<int> arr) {
 }
 
 int main() {
-    // Test cases
-    cout << can_arrange({4, 3, 1, 2}) << endl; // Expected output: 2
-    cout << can_arrange({1, 2, 3, 4}) << endl; // Expected output: -1
-    cout << can_arrange({}) << endl;           // Expected output: -1
+    vector<int> arr;
+    int n, temp;
+    cin >> n;
+
+    for (int i = 0; i < n; ++i) {
+        cin >> temp;
+        arr.push_back(temp);
+    }
+    
+    cout << can_arrange(arr) << endl;
     return 0;
 }
