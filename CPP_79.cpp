@@ -4,7 +4,7 @@
 using namespace std;
 
 string decimal_to_binary(int decimal) {
-    if (decimal == 0) return "db0db";  // Directly handle 0 case
+    if (decimal == 0) return "db0db";
     string binary = "";
     while (decimal > 0) {
         binary = (decimal % 2 == 0 ? "0" : "1") + binary;
