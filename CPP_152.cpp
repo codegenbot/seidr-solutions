@@ -1,6 +1,6 @@
 #include <vector>
-#include <cmath>   // For abs
-#include <cassert> // For assert
+#include <cmath>    // For abs
+#include <cassert>  // For assert
 
 using namespace std;
 
