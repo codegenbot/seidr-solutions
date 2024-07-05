@@ -13,6 +13,15 @@ int next_smallest(std::vector<int> lst) {
 }
 
 int main() {
-    std::cout << next_smallest({-35, 34, 12, -45}) << std::endl; // Example usage
+    std::vector<int> input;
+    int n, element;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for(int i = 0; i < n; ++i) {
+        std::cin >> element;
+        input.push_back(element);
+    }
+    std::cout << next_smallest(input) << std::endl; // Example usage
     return 0;
 }
