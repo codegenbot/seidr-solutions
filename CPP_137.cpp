@@ -1,61 +1,61 @@
 #include <iostream>
-#include <variant>
 #include <string>
+#include <any>
 #include <algorithm>
+#include <stdexcept>
 
 using namespace std;
 
-string replace_comma_with_dot(const string &s) {
-    string result = s;
-    replace(result.begin(), result.end(), ',', '.');
-    return result;
+string replace_comma_with_dot(string s) {
+    replace(s.begin(), s.end(), ',', '.');
+    return s;
 }
 
-variant<string, int, float> compare_one(variant<int, float, string> a, variant<int, float, string> b) {
+any compare_one(any a, any b) {
     try {
-        if (a.index() == b.index()) {
-            if (holds_alternative<int>(a)) {
-                int int_a = get<int>(a);
-                int int_b = get<int>(b);
-                if (int_a == int_b) return "None";
-                return int_a > int_b ? a : b;
-            } else if (holds_alternative<float>(a)) {
-                float float_a = get<float>(a);
-                float float_b = get<float>(b);
-                if (float_a == float_b) return "None";
-                return float_a > float_b ? a : b;
-            } else if (holds_alternative<string>(a)) {
-                string str_a = replace_comma_with_dot(get<string>(a));
-                string str_b = replace_comma_with_dot(get<string>(b));
-                float float_a = stof(str_a);
-                float float_b = stof(str_b);
-                if (float_a == float_b) return "None";
-                return float_a > float_b ? a : b;
-            }
+        if (a.type() == typeid(int) && b.type() == typeid(int)) {
+            int int_a = any_cast<int>(a);
+            int int_b = any_cast<int>(b);
+            if (int_a == int_b) return "None";
+            return int_a > int_b ? a : b;
+        } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+            float float_a = any_cast<float>(a);
+            float float_b = any_cast<float>(b);
+            if (float_a == float_b) return "None";
+            return float_a > float_b ? a : b;
+        } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+            string str_a = any_cast<string>(a);
+            string str_b = any_cast<string>(b);
+            float float_a = stof(replace_comma_with_dot(str_a));
+            float float_b = stof(replace_comma_with_dot(str_b));
+            if (float_a == float_b) return "None";
+            return float_a > float_b ? a : b;
         } else {
-            string str_a = holds_alternative<string>(a) ? get<string>(a) : to_string(get<holds_alternative<int>(a) ? int : float>(a));
-            string str_b = holds_alternative<string>(b) ? get<string>(b) : to_string(get<holds_alternative<int>(b) ? int : float>(b));
+            string str_a = a.type() == typeid(string) ? any_cast<string>(a) : to_string(any_cast<int>(a));
+            string str_b = b.type() == typeid(string) ? any_cast<string>(b) : to_string(any_cast<int>(b));
             float float_a = stof(replace_comma_with_dot(str_a));
             float float_b = stof(replace_comma_with_dot(str_b));
             if (float_a == float_b) return "None";
             return float_a > float_b ? a : b;
         }
-    } catch (const bad_variant_access &) {
+    } catch (const bad_any_cast &) {
         return "None";
     }
 }
 
 int main() {
-    variant<int, float, string> a, b;
-    a = 42;
-    b = "42,0";
-    auto result = compare_one(a, b);
-    if (holds_alternative<string>(result)) {
-        cout << get<string>(result) << endl;
-    } else if (holds_alternative<int>(result)) {
-        cout << get<int>(result) << endl;
-    } else if (holds_alternative<float>(result)) {
-        cout << get<float>(result) << endl;
-    }
+    any a = 42;
+    any b = string("42,5");
+
+    any result = compare_one(a, b);
+    if (result.type() == typeid(string))
+        cout << any_cast<string>(result) << endl;
+    else if (result.type() == typeid(int))
+        cout << any_cast<int>(result) << endl;
+    else if (result.type() == typeid(float))
+        cout << any_cast<float>(result) << endl;
+    else
+        cout << "None" << endl;
+
     return 0;
 }
