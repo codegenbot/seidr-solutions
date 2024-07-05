@@ -1,60 +1,48 @@
 #include <iostream>
 #include <string>
-#include <any>
 #include <algorithm>
-#include <stdexcept>
-
+#include <any>
 using namespace std;
 
-any compare_one(any a, any b) {
-    auto parse_real = [](const any& val) -> double {
-        if (val.type() == typeid(int)) {
-            return any_cast<int>(val);
-        } else if (val.type() == typeid(float)) {
-            return any_cast<float>(val);
-        } else if (val.type() == typeid(double)) {
-            return any_cast<double>(val);
-        } else if (val.type() == typeid(string)) {
-            string str_val = any_cast<string>(val);
-            replace(str_val.begin(), str_val.end(), ',', '.');
-            return stod(str_val);
-        }
-        throw invalid_argument("Unsupported type");
-    };
+double convertToDouble(const string &s) {
+    string temp = s;
+    replace(temp.begin(), temp.end(), ',', '.');
+    return stod(temp);
+}
 
-    double val_a = parse_real(a);
-    double val_b = parse_real(b);
+std::any compare_one(std::any a, std::any b) {
+    double valA, valB;
 
-    if (val_a == val_b) {
-        return "None";
-    } else if (val_a > val_b) {
+    if (a.type() == typeid(int))
+        valA = std::any_cast<int>(a);
+    else if (a.type() == typeid(float))
+        valA = std::any_cast<float>(a);
+    else if (a.type() == typeid(string))
+        valA = convertToDouble(std::any_cast<string>(a));
+    
+    if (b.type() == typeid(int))
+        valB = std::any_cast<int>(b);
+    else if (b.type() == typeid(float))
+        valB = std::any_cast<float>(b);
+    else if (b.type() == typeid(string))
+        valB = convertToDouble(std::any_cast<string>(b));
+
+    if (valA > valB)
         return a;
-    } else {
+    else if (valB > valA)
         return b;
-    }
+    else
+        return string("None");
 }
 
 int main() {
-    any a = string("3,14");
-    any b = 3.14;
-    any result = compare_one(a, b);
+    auto result = compare_one(5, string("4,9"));
+    if (result.type() == typeid(int))
+        cout << std::any_cast<int>(result) << endl;
+    else if (result.type() == typeid(string))
+        cout << std::any_cast<string>(result) << endl;
+    else
+        cout << std::any_cast<double>(result) << endl;
 
-    try {
-        cout << any_cast<string>(result) << endl;
-    } catch(const bad_any_cast&) {
-        try {
-            cout << any_cast<int>(result) << endl;
-        } catch(const bad_any_cast&) {
-            try {
-                cout << any_cast<float>(result) << endl;
-            } catch(const bad_any_cast&) {
-                try {
-                    cout << any_cast<double>(result) << endl;
-                } catch(const bad_any_cast&) {
-                    cout << "Invalid result type" << endl;
-                }
-            }
-        }
-    }
     return 0;
 }
