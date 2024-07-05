@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <any>
-
 using namespace std;
 
 double to_double(std::any val) {
@@ -48,18 +47,15 @@ int main() {
     std::any a = 42;
     std::any b = 3.14f;
     try {
-        std::any result = compare_one(a, b);
-        if (result.type() == typeid(string)) {
-            cout << std::any_cast<string>(result) << endl;
-        } else if (result.type() == typeid(int)) {
-            cout << std::any_cast<int>(result) << endl;
-        } else if (result.type() == typeid(float)) {
-            cout << std::any_cast<float>(result) << endl;
+        if (auto res = std::any_cast<int>(&compare_one(a, b))) {
+            std::cout << *res << std::endl;
+        } else if (auto res = std::any_cast<string>(&compare_one(a, b))) {
+            std::cout << *res << std::endl;
         } else {
-            cout << "Unexpected type" << endl;
+            std::cout << "None" << std::endl;
         }
     } catch (const std::bad_any_cast& e) {
-        cout << "Cannot cast result. Possibly a None comparison." << endl;
+        cout << "Cannot cast result to int. Possibly a string or None comparison." << endl;
     }
     return 0;
 }
