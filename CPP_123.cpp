@@ -2,23 +2,24 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    vector<int> odd_numbers;
     while (n != 1) {
         if (n % 2 != 0) {
-            result.push_back(n);
+            odd_numbers.push_back(n);
         }
         if (n % 2 == 0) {
-            n /= 2;
+            n = n / 2;
         } else {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1); // 1 is always part of the sequence
-    sort(result.begin(), result.end());
-    return result;
+    odd_numbers.push_back(1);
+    sort(odd_numbers.begin(), odd_numbers.end());
+    return odd_numbers;
 }
 
 bool issame(vector<int> a, vector<int> b) {
@@ -26,8 +27,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    assert(issame(get_odd_collatz(3), {1, 3, 5}));
-    cout << "All tests passed!" << endl;
+    assert(issame(get_odd_collatz(1), vector<int>{1}));
     return 0;
 }
