@@ -1,6 +1,9 @@
+
 def find_zero(xs: list[int]) -> float:
     if len(xs) == 0:
         raise ValueError("Input list must not be empty.")
+    if len(xs) == 1:
+        return 0.0
     for i in range(len(xs)):
         if xs[i] == 0:
             continue
