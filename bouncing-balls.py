@@ -7,9 +7,9 @@ total_distance = starting_height
 
 current_height = first_bounce_height
 if num_bounces > 0:
-    total_distance += current_height  # Add first bounce height
+    total_distance += current_height
     for _ in range(1, num_bounces):
         current_height *= bounciness_index
-        total_distance += 2 * current_height  # Add double the height for subsequent bounces
+        total_distance += 2 * current_height
 
 print(total_distance)
