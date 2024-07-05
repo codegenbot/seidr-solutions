@@ -16,27 +16,29 @@ std::string sort_numbers(const std::string &numbers) {
         {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"},
         {8, "eight"}, {9, "nine"}
     };
-
+    
     std::stringstream ss(numbers);
     std::string word;
     std::vector<int> nums;
-
+    
     while (ss >> word) {
         nums.push_back(num_map[word]);
     }
-
+    
     std::sort(nums.begin(), nums.end());
-
+    
     std::string result;
     for (size_t i = 0; i < nums.size(); ++i) {
         if (i > 0) result += " ";
         result += rev_map[nums[i]];
     }
-
+    
     return result;
 }
 
 int main() {
-    std::cout << (sort_numbers("six five four three two one zero") == "zero one two three four five six") << std::endl;
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << sort_numbers(input) << std::endl;
     return 0;
 }
