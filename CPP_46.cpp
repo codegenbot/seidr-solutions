@@ -1,24 +1,26 @@
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int fib4(int n) {
-    if (n == 0 || n == 1 || n == 3) return 0;
+    if (n == 0) return 0;
+    if (n == 1) return 0;
     if (n == 2) return 2;
+    if (n == 3) return 0;
 
-    int a = 0, b = 0, c = 2, d = 0, e;
+    int a = 0, b = 0, c = 2, d = 0, next;
     for (int i = 4; i <= n; ++i) {
-        e = a + b + c + d;
+        next = a + b + c + d;
         a = b;
         b = c;
         c = d;
-        d = e;
+        d = next;
     }
     return d;
 }
 
 int main() {
     int n;
-    scanf("%d", &n);
-    printf("%d\n", fib4(n));
+    cin >> n;
+    cout << fib4(n) << endl;
     return 0;
 }
