@@ -17,9 +17,6 @@ def histogram(test):
 
 if __name__ == "__main__":
     import sys
-    try:
-        input_text = sys.stdin.read().strip()
-        result = histogram(input_text)
-        print(result)
-    except EOFError:
-        pass
+    input_text = sys.stdin.read().strip()
+    result = histogram(input_text)
+    print(result)
