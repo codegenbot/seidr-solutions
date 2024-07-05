@@ -1,9 +1,16 @@
-float sum = 0.0;
-    for (float num : numbers) sum += num;
-    float mean = sum / numbers.size();
+int n = numbers.size();
+    float sum = 0.0, mean = 0.0, mad = 0.0;
 
-    float mad_sum = 0.0;
-    for (float num : numbers) mad_sum += fabs(num - mean);
+    // Calculate mean
+    for (int i = 0; i < n; ++i) {
+        sum += numbers[i];
+    }
+    mean = sum / n;
 
-    return mad_sum / numbers.size();
+    // Calculate Mean Absolute Deviation
+    for (int i = 0; i < n; ++i) {
+        mad += fabs(numbers[i] - mean);
+    }
+
+    return mad / n;
 }
