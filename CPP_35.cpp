@@ -1,12 +1,8 @@
-#include <iostream>
 #include <vector>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
-using namespace std;
-
-float max_element(vector<float> l) {
-    if (l.empty()) return NAN;
+float max_element(std::vector<float> l) {
     float max_val = l[0];
     for (float num : l) {
         if (num > max_val) {
@@ -17,7 +13,6 @@ float max_element(vector<float> l) {
 }
 
 int main() {
-    assert(abs(max_element({5.0f, 3.0f, -5.0f, 2.0f, -3.0f, 3.0f, 9.0f, 0.0f, 124.0f, 1.0f, -10.0f}) - 124.0f) < 1e-4);
-    cout << "Assertion passed!" << endl;
+    assert (std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
     return 0;
 }
