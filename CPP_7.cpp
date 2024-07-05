@@ -21,5 +21,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
