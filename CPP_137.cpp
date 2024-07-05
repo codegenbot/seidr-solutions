@@ -1,52 +1,40 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <any>
+#include <typeinfo>
+#include <stdexcept>
 
 using namespace std;
 
-double convertToDouble(const string &s) {
-    string temp = s;
-    replace(temp.begin(), temp.end(), ',', '.');
-    return stod(temp);
-}
+using any = std::string; // Just using string to unify types for this particular problem
 
-std::any compare_one(std::any a, std::any b) {
-    double valA = 0, valB = 0;
+any compare_one(const any& a, const any& b) {
+    auto parse_real = [](const any& val) -> double {
+        try {
+            return stod(val); // Convert string to double
+        } catch (const invalid_argument& e) {
+            throw invalid_argument("Unsupported type");
+        }
+    };
 
-    if (a.type() == typeid(int))
-        valA = std::any_cast<int>(a);
-    else if (a.type() == typeid(float))
-        valA = std::any_cast<float>(a);
-    else if (a.type() == typeid(string))
-        valA = convertToDouble(std::any_cast<string>(a));
-    
-    if (b.type() == typeid(int))
-        valB = std::any_cast<int>(b);
-    else if (b.type() == typeid(float))
-        valB = std::any_cast<float>(b);
-    else if (b.type() == typeid(string))
-        valB = convertToDouble(std::any_cast<string>(b));
+    double val_a = parse_real(a);
+    double val_b = parse_real(b);
 
-    if (valA > valB)
+    if (val_a == val_b) {
+        return "None";
+    } else if (val_a > val_b) {
         return a;
-    else if (valB > valA)
+    } else {
         return b;
-    else
-        return string("None");
+    }
 }
 
 int main() {
-    std::any a = 42;
-    std::any b = string("45,5");
-    std::any result = compare_one(a, b);
-    
-    if (result.type() == typeid(int))
-        cout << std::any_cast<int>(result) << endl;
-    else if (result.type() == typeid(float))
-        cout << std::any_cast<float>(result) << endl;
-    else if (result.type() == typeid(string))
-        cout << std::any_cast<string>(result) << endl;
-    
+    string a, b;
+    cout << "Enter first value: ";
+    cin >> a;
+    cout << "Enter second value: ";
+    cin >> b;
+
+    cout << "The result of comparison: " << compare_one(a, b) << endl;
     return 0;
 }
