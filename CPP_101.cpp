@@ -27,7 +27,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed,gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed, gamal"), {"ahmed", "gamal"}));
     cout << "Test passed!" << endl;
     return 0;
 }
