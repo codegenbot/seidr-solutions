@@ -24,12 +24,13 @@ vector<string> numerical_letter_grade(const vector<float>& grades) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert(issame(numerical_letter_grade({3.8, 2.9}), {"A", "B-"}));
     cout << "All tests passed!" << endl;
     return 0;
 }

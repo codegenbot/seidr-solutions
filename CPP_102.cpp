@@ -9,5 +9,5 @@ int choose_num(int x, int y) {
 
 int main() {
     assert(choose_num(546, 546) == 546);
-    // You can add more test cases here if needed
+    return 0;
 }
