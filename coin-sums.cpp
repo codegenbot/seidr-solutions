@@ -8,15 +8,15 @@ int main() {
     }
 
     int quarters = cents / 25;
-    int remainingCents = cents % 25;
+    cents %= 25;
 
-    int dimes = remainingCents / 10;
-    int remainingDimeCents = remainingCents % 10;
+    int dimes = cents / 10;
+    cents %= 10;
 
-    int nickles = remainingDimeCents / 5;
-    int remainingNickleCents = remainingDimeCents % 5;
+    int nickles = cents / 5;
+    cents %= 5;
 
-    int pennies = remainingNickleCents;
+    int pennies = cents;
 
     cout << "Quarters: " << quarters << " coins\n";
     cout << "Dimes: " << dimes << " coins\n";
