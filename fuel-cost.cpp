@@ -28,4 +28,3 @@ int main() {
     int result = calculateFuelCost({num1, num2, num3});
     std::cout << "The fuel cost is: " << result << std::endl;
     return 0;
-}
