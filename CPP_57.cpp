@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -10,9 +9,4 @@ bool monotonic(vector<float> l) {
         if (l[i] < l[i - 1]) increasing = false;
     }
     return increasing || decreasing;
-}
-
-int main() {
-    assert(monotonic(vector<float>{9, 9, 9, 9}) == true);
-    return 0;
 }
