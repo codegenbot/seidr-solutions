@@ -1,3 +1,4 @@
+```cpp
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
     int targetLength = target.length();
