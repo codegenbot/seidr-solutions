@@ -17,6 +17,5 @@ bool cycpattern_check(string a, string b) {
 
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
-    cout << cycpattern_check("hello", "llohe") << endl; // Example test case
     return 0;
 }
