@@ -3,10 +3,9 @@ def sort_third(l):
         (
             i
             if i % 3 != 0
-            else min(
-                (x for x in l[: ((min(len(l), i + 2)) // 3) * 3] if x % 3 != 0),
-                default=None,
-            )
+            else sorted([x for x in l[: min((i + 2) // 3 * 3, len(l))] if x % 3 != 0])[
+                -1
+            ]
         )
         for i in range(len(l))
     ]
