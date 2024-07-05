@@ -10,20 +10,22 @@ int main() {
         return -1;
     }
 
-    int quarters = cents / 25;
-    cents %= 25;
-
-    while (cents >= 10) {
+    int quarters = cents / 25, quarterRemainder = cents % 25;
+    while (quarterRemainder >= 25) {
+        quarters++;
+        quarterRemainder -= 25;
+    }
+    int dimes = quarterRemainder / 10, dimeRemainder = quarterRemainder % 10;
+    while (dimeRemainder >= 10) {
         dimes++;
-        cents -= 10;
+        dimeRemainder -= 10;
     }
-
-    while (cents >= 5) {
+    int nickles = dimeRemainder / 5, nickelRemainder = dimeRemainder % 5;
+    while (nickelRemainder >= 5) {
         nickles++;
-        cents -= 5;
+        nickelRemainder -= 5;
     }
-
-    pennies = cents;
+    int pennies = nickelRemainder;
 
     cout << quarters << "\n";
     cout << dimes << "\n";
