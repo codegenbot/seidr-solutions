@@ -16,10 +16,9 @@ int main() {
     std::cin >> test;
     
     if (!is_happy(test)) {
-        std::cout << "Test failed\n";
-    } else {
         std::cout << "Test passed\n";
+    } else {
+        std::cout << "Test failed\n";
     }
-    
     return 0;
 }
