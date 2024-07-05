@@ -2,8 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <limits>
-
+#include <algorithm>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -16,13 +15,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             index = i;
         }
     }
-    
-    int leftIndex = min(index, (int)v.size() - 1);
-    vector<int> left(v.begin(), v.begin() + leftIndex + 1);
-    
-    int rightIndex = max(0, index);
-    vector<int> right(v.begin() + rightIndex, v.end());
-    
+    vector<int> left(v.begin(), v.begin() + index + 1);
+    vector<int> right(v.begin() + index, v.end());
     return make_pair(left, right);
 }
 
