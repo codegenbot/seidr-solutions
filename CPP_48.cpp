@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+using namespace std;
 
-bool is_palindrome(const std::string &text) {
+bool is_palindrome(string text) {
     int left = 0;
     int right = text.length() - 1;
     while (left < right) {
@@ -16,8 +17,8 @@ bool is_palindrome(const std::string &text) {
 }
 
 int main() {
-    assert(is_palindrome("xywzx") == false);
     assert(is_palindrome("radar") == true);
-    std::cout << "All test cases passed.\n";
+    assert(is_palindrome("hello") == false);
+    cout << "All tests passed!" << endl;
     return 0;
 }
