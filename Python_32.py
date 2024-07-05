@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -15,7 +16,16 @@ def find_zero(xs):
     b = xs[1]
     c = xs[-1]
 
-    if len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
-        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
-    elif len(xs) > 3 or xs[1] != xs[-2]:
-        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+    d = b**2 - 4 * a * c
+    if d < 0:
+        return "The equation has no real roots."
+    elif d == 0:
+        root = (-b + math.sqrt(d)) / (2 * a)
+        return root
+    else:
+        r1 = (-b + math.sqrt(d)) / (2 * a)
+        r2 = (-b - math.sqrt(d)) / (2 * a)
+        if r1 > r2:
+            return r2, r1
+        else:
+            return r1, r2
