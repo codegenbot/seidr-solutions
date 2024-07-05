@@ -16,7 +16,7 @@ int main() {
     assert(largest_divisor(21) == 7);
     assert(largest_divisor(15) == 5);
     
-    // Additional test code, e.g.:
+    // Additional test code
     std::cout << "Enter a number: ";
     int n;
     std::cin >> n;
