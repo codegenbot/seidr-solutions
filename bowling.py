@@ -1,14 +1,34 @@
-def bowling_score(score_string):
+```
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for frame in score_string.split("/"):
-        if len(frame) == 1:
-            score += 10
-        elif frame[0] != "X":
-            if int(frame[0]) + int(frame[-1]) > 10:
-                score += 10
-            else:
-                score += int(frame[0]) + int(frame[-1])
+    frame_index = 0
+    for i in range(1, 11):
+        if frames[frame_index] == 'X':
+            score += 30
+            frame_index += 1
+        elif frames[frame_index] == '/':
+            first_roll = int(frames[frame_index-1])
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            frame_index += 2
         else:
-            roll += 1
+            first_roll = int(frames[frame_index])
+            if i < 10 and frames[frame_index+1] == 'X':
+                score += 10 + 30
+                frame_index += 2
+            elif i < 10 and frames[frame_index+1] == '/':
+                second_roll = 10 - int(frames[frame_index+1].split('/')[0])
+                score += first_roll + second_roll
+                frame_index += 3
+            else:
+                if len(frames) > frame_index + 2 and frames[frame_index+1] == 'X' and frames[frame_index+2] == 'X':
+                    score += 10 + 30 + 30
+                    frame_index += 3
+                elif i < 10 and int(frames[frame_index+1]) + int(frames[frame_index+2]) <= 10:
+                    second_roll = int(frames[frame_index+1]) + int(frames[frame_index+2])
+                    score += first_roll + second_roll
+                    frame_index += 3
+                else:
+                    score += 10 + int(frames[frame_index+1]) + int(frames[frame_index+2])
+                    frame_index += 3
     return score
