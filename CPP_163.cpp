@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
     int start = min(a, b);
@@ -8,4 +15,14 @@ vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(generate_integers(2, 10), {2, 4, 6, 8, 10}));
+    cout << "All tests passed!" << endl;
+    return 0;
 }
