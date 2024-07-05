@@ -1,4 +1,5 @@
 def fizz_buzz(n):
+    # Initialize a list of divisors
     divisors = [3, 5, 7]
     count = 0
     for i in range(1, n + 1):
