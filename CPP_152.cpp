@@ -16,6 +16,7 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 int main() {
     assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>({2, 0, 0, 1}));
     
+    // Additional code to get input from user
     int n;
     cout << "Enter number of elements: ";
     cin >> n;
