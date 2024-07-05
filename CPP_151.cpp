@@ -19,8 +19,10 @@ int main() {
     int n;
     float val;
     
+    cout << "Enter the number of elements: ";
     cin >> n;
     
+    cout << "Enter the elements:\n";
     for (int i = 0; i < n; ++i) {
         cin >> val;
         lst.push_back(val);
