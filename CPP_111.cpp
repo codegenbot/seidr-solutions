@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
-#include <sstream>
 #include <algorithm>
+#include <cctype>
 #include <cassert>
 
 std::map<char, int> histogram(const std::string& test) {
