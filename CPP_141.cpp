@@ -31,11 +31,11 @@ string file_name_check(string file_name){
 }
 
 int main(){
-    assert (file_name_check("s.") == "No");
-    assert (file_name_check("s.exe") == "Yes");
-    assert (file_name_check("1.dll") == "No");
-    assert (file_name_check("1.234.txt") == "No");
-    assert (file_name_check("abc4.txt") == "Yes");
+    assert(file_name_check("s.") == "No");
+    assert(file_name_check("s.exe") == "Yes");
+    assert(file_name_check("1.dll") == "No");
+    assert(file_name_check("1.234.txt") == "No");
+    assert(file_name_check("abc4.txt") == "Yes");
     cout << "All tests passed!" << endl;
     return 0;
 }
