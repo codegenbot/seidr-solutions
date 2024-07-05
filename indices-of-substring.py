@@ -1,3 +1,4 @@
+```
 def indices_of_substring():
     text = input()
     target = input()
@@ -10,3 +11,5 @@ def indices_of_substring():
         result.append(i)
         i += 1
     return result
+
+indices_of_substring()
