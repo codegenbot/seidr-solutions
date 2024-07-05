@@ -31,13 +31,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    vector<int> interval1(2);
-    vector<int> interval2(2);
-    
+    vector<int> interval1(2), interval2(2);
     cin >> interval1[0] >> interval1[1];
     cin >> interval2[0] >> interval2[1];
-    
     cout << intersection(interval1, interval2) << endl;
-    
     return 0;
 }
