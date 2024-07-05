@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
-bool isPrime(int num) {
+bool is_prime(int num) {
     if (num <= 1) return false;
     if (num <= 3) return true;
     if (num % 2 == 0 || num % 3 == 0) return false;
@@ -14,16 +15,16 @@ bool isPrime(int num) {
 
 int prime_fib(int n) {
     vector<int> fib = {0, 1};
-    vector<int> primeFibs;
+    vector<int> prime_fibs;
     int i = 2;
-    while (primeFibs.size() < n) {
+    while (prime_fibs.size() < n) {
         fib.push_back(fib[i-1] + fib[i-2]);
-        if (isPrime(fib[i])) {
-            primeFibs.push_back(fib[i]);
+        if (is_prime(fib[i])) {
+            prime_fibs.push_back(fib[i]);
         }
         i++;
     }
-    return primeFibs[n-1];
+    return prime_fibs[n-1];
 }
 
 int main() {
