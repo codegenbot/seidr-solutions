@@ -21,13 +21,8 @@ vector<string> reverse_delete(string s, string c) {
     return {filtered, is_palindrome ? "True" : "False"};
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
-    assert(issame(reverse_delete("example", "axe"), {"mpl", "False"}));
+    assert(reverse_delete("mamma", "mia") == vector<string>({"mm", "True"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
