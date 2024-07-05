@@ -4,10 +4,10 @@ using namespace std;
 
 string change_base(int x, int base) {
     if (x == 0) return "0";
-    if (base < 2 || base > 36) return "Error: Base out of range";  // Error handling for invalid bases
+    if (base < 2 || base > 36) return "Error: Base out of range";
 
     string result = "";
-    const char digits[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Digit characters for bases
+    const char digits[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     while (x > 0) {
         result = digits[x % base] + result;
