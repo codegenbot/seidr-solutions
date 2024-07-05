@@ -1,4 +1,3 @@
-
 def pluck(arr):
     if len(arr) == 0:
         return []
