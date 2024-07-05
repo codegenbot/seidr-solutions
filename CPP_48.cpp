@@ -16,7 +16,13 @@ bool is_palindrome(const std::string &text) {
 }
 
 int main() {
-    assert(is_palindrome("xywzx") == false);
-    assert(is_palindrome("radar") == true);
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    if (is_palindrome(input)) {
+        std::cout << "YES\n";
+    } else {
+        std::cout << "NO\n";
+    }
     return 0;
 }
