@@ -1,13 +1,13 @@
 auto is_vowel = [](char c) {
-        string vowels = "aeiouAEIOU";
-        return vowels.find(c) != string::npos;
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
     };
 
-    int n = word.size();
-    for (int i = n - 2; i > 0; --i) {
-        if (!is_vowel(word[i]) && is_vowel(word[i - 1]) && !is_vowel(word[i - 2])) {
-            return string(1, word[i - 1]);
+    for (int i = word.length() - 2; i > 0; --i) {
+        if (is_vowel(word[i]) && !is_vowel(word[i - 1]) && !is_vowel(word[i + 1])) {
+            return string(1, word[i]);
         }
     }
+
     return "";
 }
