@@ -1,8 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <cassert>
-
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
