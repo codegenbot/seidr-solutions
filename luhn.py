@@ -11,4 +11,4 @@ def luhn(card_number):
     return result
 
 card_number = input("Enter a credit card number: ")
-print(luhn(card_number))
+print(luhn(int(card_number)))
