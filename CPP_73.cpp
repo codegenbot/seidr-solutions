@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 int smallest_change(vector<int> arr) {
@@ -16,23 +14,9 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    // Tests (these can be removed or modified as necessary)
     assert(smallest_change({0, 1}) == 1);
-    assert(smallest_change({1, 2, 3, 2, 1}) == 0);
-    assert(smallest_change({1, 2, 3, 4, 5}) == 2);
-    
-    // Read input and test the function
-    int n;
-    cout << "Enter the size of the array: ";
-    cin >> n;
-    
-    vector<int> arr(n);
-    cout << "Enter the elements of the array: ";
-    for(int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-    
-    cout << "The smallest number of changes needed: " << smallest_change(arr) << endl;
-
+    assert(smallest_change({1, 2, 2, 1}) == 0);
+    assert(smallest_change({1, 2, 3, 4}) == 2);
+    assert(smallest_change({1, 2, 1, 2, 1}) == 0);
     return 0;
 }
