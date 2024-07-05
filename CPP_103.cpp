@@ -11,12 +11,15 @@ string rounded_avg(int n, int m) {
         count++;
     }
     int avg = round(static_cast<double>(sum) / count);
+    
+    if (avg == 0) return "0";
+
     string binary = "";
     while (avg > 0) {
         binary = (avg % 2 == 0 ? "0" : "1") + binary;
         avg /= 2;
     }
-    return binary == "" ? "0" : binary;
+    return binary;
 }
 
 int main() {
