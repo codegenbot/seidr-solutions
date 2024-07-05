@@ -17,6 +17,8 @@ std::any compare_one(std::any a, std::any b) {
         valA = std::any_cast<int>(a);
     else if (a.type() == typeid(float))
         valA = std::any_cast<float>(a);
+    else if (a.type() == typeid(double))
+        valA = std::any_cast<double>(a);
     else if (a.type() == typeid(string))
         valA = convertToDouble(std::any_cast<string>(a));
     
@@ -24,6 +26,8 @@ std::any compare_one(std::any a, std::any b) {
         valB = std::any_cast<int>(b);
     else if (b.type() == typeid(float))
         valB = std::any_cast<float>(b);
+    else if (b.type() == typeid(double))
+        valB = std::any_cast<double>(b);
     else if (b.type() == typeid(string))
         valB = convertToDouble(std::any_cast<string>(b));
 
