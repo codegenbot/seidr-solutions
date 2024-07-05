@@ -18,13 +18,13 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 def main():
     try:
-        nums = list(map(float, input().strip().split()))
+        nums = list(map(float, input().split()))
         if len(nums) < 2:
-            print("Please enter at least two numbers.")
+            print((0.0, 0.0))
         else:
             print(find_closest_elements(nums))
     except ValueError:
-        print("Invalid input. Please enter valid numbers separated by spaces.")
+        print((0.0, 0.0))
 
 if __name__ == "__main__":
     main()
