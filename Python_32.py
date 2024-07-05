@@ -1,30 +1,25 @@
-```
 import math
 
 
-def find_zero():
-    while True:
-        try:
-            x0 = float(input("Enter coefficient a: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+def find_zero(xs):
+    if len(xs) < 1:
+        return None
 
-    while True:
-        try:
-            x1 = float(input("Enter constant term: "))
-            if len([x0, x1]) == 2:
-                return (-x1) / x0
-            else:
-                while True:
-                    try:
-                        x2 = float(input("Enter coefficient c: "))
-                        break
-                    except ValueError:
-                        print("Invalid input. Please enter a number.")
-                b = x1
-                c = x2
-                a = x0
-                return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+    for x in xs:
+        if not isinstance(x, (int, float)):
+            return None
+
+    if len(xs) == 2:
+        return -xs[1] / xs[0]
+    else:
+        return (-xs[-1] + math.sqrt((xs[1] ** 2) - (4 * xs[0] * xs[-1]))) / (2 * xs[0])
+
+
+xs = input("Enter a list of numbers: ").split()
+try:
+    xs = [float(x) for x in xs]
+except ValueError:
+    print("Error: All elements should be numbers.")
+    return None
+
+find_zero(xs)
