@@ -1,4 +1,4 @@
-def sort_even_indices(l):
+def solve(l):
     even_indices_values = sorted(l[::2])
     l[::2] = even_indices_values
     return l
