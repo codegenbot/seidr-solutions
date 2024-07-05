@@ -31,6 +31,8 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    cout << file_name_check("s.") << endl; // Output: No
+    string fileName;
+    cin >> fileName;
+    cout << file_name_check(fileName) << endl;
     return 0;
 }
