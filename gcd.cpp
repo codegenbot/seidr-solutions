@@ -1,8 +1,10 @@
-#include <iostream>
+Here is the modified code:
+
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
@@ -14,6 +16,7 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    cout << gcd(48, 18);  
+    cout << gcd(48, 18);  // Output: 6
+
     return 0;
 }
