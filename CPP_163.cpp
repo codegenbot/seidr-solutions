@@ -22,7 +22,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {})); // The test case seems incorrect, it should test for an even range.
+    assert(issame(generate_integers(17, 89), {}));
     cout << "All tests passed!" << endl;
     return 0;
 }
