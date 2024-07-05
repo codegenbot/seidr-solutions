@@ -23,7 +23,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    // Testing the function
     assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
     cout << "Test passed!" << endl;
     return 0;

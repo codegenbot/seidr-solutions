@@ -9,9 +9,13 @@ def search(lst):
 
 if __name__ == "__main__":
     try:
-        lst = list(map(int, input("Enter integers separated by spaces: ").strip().split()))
-        if all(0 <= x <= 100 for x in lst):
-            print(search(lst) if lst else -1)
+        line = input().strip()
+        if line:
+            lst = list(map(int, line.split()))
+            if all(0 <= x <= 100 for x in lst):
+                print(search(lst))
+            else:
+                print(-1)
         else:
             print(-1)
     except ValueError:
