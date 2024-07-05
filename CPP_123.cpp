@@ -22,7 +22,7 @@ vector<int> get_odd_collatz(int n) {
     return odd_numbers;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
