@@ -22,7 +22,7 @@ int main() {
     std::cout << std::boolalpha;
 
     std::vector<int> arr = {3, 4, 5, 1, 2};
-    std::cout << move_one_ball(arr) << std::endl;
+    std::cout << move_one_ball(arr) << std::endl; // Example usage
 
     return 0;
 }
