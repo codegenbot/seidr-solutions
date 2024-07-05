@@ -1,7 +1,9 @@
-def double_the_difference(lst):
-    return sum(x**2 for x in lst if isinstance(x, int) and x > 0 and x % 2 != 0)
+def double_the_difference(input_lst):
+    return sum(x**2 for x in input_lst if isinstance(x, int) and x > 0 and x % 2 != 0)
 
-if __name__ == "__main__":
-    import sys
-    lst = list(map(int, input().strip().split()))
-    print(double_the_difference(lst))
+def check(func):
+    input_lst = [1, 2, 3, 4, 5]
+    odd_sum = sum(x**2 for x in input_lst if x > 0 and x % 2 != 0)
+    assert func(input_lst) == odd_sum
+
+check(double_the_difference)
