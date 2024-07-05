@@ -1,8 +1,8 @@
 #include <iostream>
-#include <sstream>
 #include <vector>
-#include <string>
+#include <sstream>
 #include <cctype>
+#include <cstring>
 #include <cassert>
 
 using namespace std;
@@ -30,7 +30,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    cout << "All tests passed!" << endl;
+    assert (issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    cout << "Test passed!" << endl;
     return 0;
 }
