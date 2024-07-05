@@ -8,9 +8,7 @@ def encode(message):
             elif char.isupper():
                 encoded_char = vowels[char].lower()
         else:
-            if char == "I":
-                encoded_char = "1"
-            elif char.isvowel():
+            if char.isvowel():
                 encoded_char = "?"
             else:
                 encoded_message += char
