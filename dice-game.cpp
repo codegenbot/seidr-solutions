@@ -1,22 +1,11 @@
 Here is the solution:
 
-#include <iostream>
-using namespace std;
-
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double p = 0.0;
-
-    for(int i = 1; i <= m; i++) {
-        p += (n - i) / total;
+double probability(int n, int m) {
+    if (n < m) {
+        return 0.0;
     }
-
-    return p;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
-    return 0;
+    double total = pow(n + m - 1, 2);
+    double peter = pow(n, 2);
+    double colin = pow(m, 2);
+    return (peter - colin) / total;
 }
