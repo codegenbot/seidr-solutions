@@ -5,7 +5,7 @@
 using namespace std;
 
 // Function to calculate the sum and product of a list of numbers
-vector<int> sum_product(vector<int> numbers) {
+vector<int> sum_product(const vector<int>& numbers) {
     int sum = 0;
     int product = 1;
     for(int num : numbers) {
@@ -16,7 +16,7 @@ vector<int> sum_product(vector<int> numbers) {
 }
 
 // Function to check if two vectors of integers are the same
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
