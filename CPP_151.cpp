@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-long long double_the_difference(const vector<float>& lst) {
+long long doubleTheDifference(const vector<float>& lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num && ((int)num % 2 != 0)) {
@@ -22,7 +22,7 @@ int main() {
         lst.push_back(temp);
     }
 
-    long long result = double_the_difference(lst);
+    long long result = doubleTheDifference(lst);
     cout << result << endl;
 
     return 0;
