@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 bool is_sorted(vector<int> lst) {
     if (lst.size() <= 1) return true;
     for (size_t i = 1; i < lst.size(); ++i) {
