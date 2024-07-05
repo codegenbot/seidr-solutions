@@ -11,8 +11,6 @@ def below_zero(operations: List[int]) -> bool:
 if __name__ == "__main__":
     try:
         operations = list(map(int, input().strip().split()))
-        if not operations:
-            raise ValueError
         print(below_zero(operations))
     except ValueError:
-        print("Invalid input")
+        print("Invalid input. Please enter a space-separated list of integers.")
