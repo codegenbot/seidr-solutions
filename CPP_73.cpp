@@ -1,4 +1,4 @@
-#include <vector> 
+#include <vector>
 #include <iostream>
 
 int smallest_change(const std::vector<int>& arr) {
@@ -14,9 +14,11 @@ int smallest_change(const std::vector<int>& arr) {
 
 int main() {
     std::vector<int> arr;
-    int num;
-    while (std::cin >> num) {
-        arr.push_back(num);
+    int n, element;
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::cin >> element;
+        arr.push_back(element);
     }
     std::cout << smallest_change(arr) << std::endl;
     return 0;
