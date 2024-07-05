@@ -27,8 +27,11 @@ def minPath(grid, k):
 
 
 if __name__ == "__main__":
-    N = int(input())
-    grid = [list(map(int, input().split())) for i in range(N)]
-    k = int(input())
+    N = int(input("Enter the size of the grid N: "))
+    grid = [
+        list(map(int, input(f"Enter row {i+1} (space-separated): ").split()))
+        for i in range(N)
+    ]
+    k = int(input("Enter the length of the path k: "))
     result = minPath(grid, k)
-    print(result)
+    print("Minimum path values:", result)
