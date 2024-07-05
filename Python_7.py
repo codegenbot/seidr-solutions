@@ -4,7 +4,8 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [s for s in strings if substring in s]
 
 if __name__ == "__main__":
-    strings = input("Enter strings separated by space: ").split()
-    substring = input("Enter substring: ").strip()
+    n = int(input().strip())
+    strings = [input().strip() for _ in range(n)]
+    substring = input().strip()
     filtered_strings = filter_by_substring(strings, substring)
     print(filtered_strings)
