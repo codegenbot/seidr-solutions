@@ -33,5 +33,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    assert(issame(largest_smallest_integers({0, -1, 2, -8, 3, -5}), {-1, 2}));
+    assert(issame(largest_smallest_integers({5, 3, 1, 7, 9}), {0, 1}));
+    assert(issame(largest_smallest_integers({-7, -3, -5, -2}), {-2, 0}));
     return 0;
 }
