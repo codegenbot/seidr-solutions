@@ -3,8 +3,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-
-print(gcd(a, b))
+print(gcd(24, 54))
+print(gcd(400000, 4))
+print(gcd(3528, 4200))
+print(gcd(63550, 820000))
