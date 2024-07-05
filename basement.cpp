@@ -1,5 +1,4 @@
 #include <vector>
-#include <initializer_list>
 
 int basement(std::vector<int>& nums) {
     int total = 0;
@@ -9,4 +8,10 @@ int basement(std::vector<int>& nums) {
             return i; 
     }
     return -1; 
+}
+
+int main() {
+    std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+    int result = basement(nums);
+    return 0;
 }
