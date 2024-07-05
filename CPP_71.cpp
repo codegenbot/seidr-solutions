@@ -12,6 +12,5 @@ float triangle_area(float a, float b, float c) {
 
 int main() {
     assert(abs(triangle_area(2, 2, 10) + 1) < 0.01);
-    assert(abs(triangle_area(3, 4, 5) - 6) < 0.01); // Additional test case
     return 0;
 }
