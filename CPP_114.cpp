@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> // Include for std::min
+
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
@@ -16,7 +17,7 @@ int main() {
     int n;
     cin >> n;
     vector<long long> nums(n);
-    for(int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
     cout << minSubArraySum(nums) << endl;
