@@ -1,3 +1,4 @@
+```
 def leaders(input_vector):
     max_seen = float('inf')
     leaders = []
