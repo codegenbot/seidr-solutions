@@ -1,6 +1,4 @@
 #include <vector>
-#include <initializer_list>
-
 using namespace std;
 
 int luhn(vector<int> digits) {
@@ -24,3 +22,4 @@ int main() {
     int result = luhn(testDigits);
     cout << "Result: " << result << endl;
     return 0;
+}
