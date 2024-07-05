@@ -1,7 +1,5 @@
-````
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int luhn(vector<int> digits) {
