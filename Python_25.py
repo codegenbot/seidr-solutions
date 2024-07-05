@@ -14,11 +14,9 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        n = int(input("Enter an integer: ").strip())
-        if n <= 1:
-            print([] if n == 1 else "Input must be greater than 0.")
-        else:
-            result = factorize(n)
+        numbers = list(map(int, input().strip().split()))
+        results = [factorize(n) if n > 1 else [] for n in numbers]
+        for result in results:
             print(result)
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please enter integers.")
