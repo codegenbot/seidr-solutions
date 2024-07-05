@@ -2,12 +2,11 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     paren_string = paren_string.strip()
-
     if not paren_string:
         return []
 
     if not all(char in "()" for char in paren_string):
-        return ["Invalid parenthesis string."]
+        return []
 
     depth_list = []
     current_depth = 0
@@ -17,15 +16,15 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             depth_list.append(current_depth)
         elif char == ")":
             if current_depth == 0:
-                return ["Invalid parenthesis string."]
+                return []
             current_depth -= 1
 
-    return depth_list if current_depth == 0 else ["Invalid parenthesis string."]
+    return depth_list if current_depth == 0 else []
 
 if __name__ == "__main__":
-    try:
-        paren_string = input().strip()
-        result = parse_nested_parens(paren_string)
+    paren_string = input().strip()
+    result = parse_nested_parens(paren_string)
+    if result or paren_string == "":
         print(result)
-    except:
-        print("Error in input.")
+    else:
+        print("Invalid parenthesis string.")
