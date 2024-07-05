@@ -1,5 +1,6 @@
 def poly(xs, x):
-    return sum(coef * (x ** i) for i, coef in enumerate(xs))
+    return sum(coef * (x**i) for i, coef in enumerate(xs))
+
 
 def find_zero(xs: list):
     def f(x):
@@ -14,5 +15,7 @@ def find_zero(xs: list):
         x = x - f(x) / df(x)
     return x
 
+
+# example usage
 coefficients = [float(x) for x in input().split()]
 print(find_zero(coefficients))
