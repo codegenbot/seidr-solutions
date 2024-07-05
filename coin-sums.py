@@ -1,6 +1,5 @@
-```
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
+    coins = [1, 5, 10, 25]
     res = [0, 0, 0, 0]
 
     for i in range(len(coins)):
@@ -9,5 +8,6 @@ def coin_sums(cents):
             res[i] = count
             cents -= count * coins[i]
     
-    print(' '.join(map(str, res)))
+    return ' '.join(map(str, res)) + '\n'
+
 print(coin_sums(int(input())))
