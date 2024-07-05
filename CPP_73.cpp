@@ -13,13 +13,11 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input;
-    int n, element;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        std::cin >> element;
-        input.push_back(element);
+    std::vector<int> arr;
+    int num;
+    while (std::cin >> num) {
+        arr.push_back(num);
     }
-    std::cout << smallest_change(input) << std::endl;
+    std::cout << smallest_change(arr) << std::endl;
     return 0;
 }
