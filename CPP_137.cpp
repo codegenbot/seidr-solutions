@@ -33,18 +33,18 @@ std::any compare_one(std::any a, std::any b) {
         return da > db ? a : b;
     }
 
-    if (va.type() == typeid(std::string) && vb.type() == typeid(std::string)) {
+    if (va.type() == typeid(string) && vb.type() == typeid(string)) {
         string sa = std::any_cast<std::string>(va);
         string sb = std::any_cast<std::string>(vb);
         if (sa == sb) return "None";
         return sa > sb ? a : b;
     }
 
-    if (va.type() == typeid(double) && vb.type() == typeid(std::string)) {
+    if (va.type() == typeid(double) && vb.type() == typeid(string)) {
         return a;
     }
 
-    if (va.type() == typeid(std::string) && vb.type() == typeid(double)) {
+    if (va.type() == typeid(string) && vb.type() == typeid(double)) {
         return b;
     }
 
