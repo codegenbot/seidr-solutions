@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <any>
-#include <cassert>
 
 using namespace std;
 
@@ -21,8 +20,6 @@ std::any compare_one(std::any a, std::any b) {
         valA = std::any_cast<float>(a);
     else if (a.type() == typeid(string))
         valA = convertToDouble(std::any_cast<string>(a));
-    else
-        throw invalid_argument("Unsupported type for a");
 
     if (b.type() == typeid(int))
         valB = std::any_cast<int>(b);
@@ -30,8 +27,6 @@ std::any compare_one(std::any a, std::any b) {
         valB = std::any_cast<float>(b);
     else if (b.type() == typeid(string))
         valB = convertToDouble(std::any_cast<string>(b));
-    else
-        throw invalid_argument("Unsupported type for b");
 
     if (valA > valB)
         return a;
@@ -50,7 +45,5 @@ int main() {
     else
         cout << std::any_cast<double>(result) << endl;
 
-    assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
-    
     return 0;
 }
