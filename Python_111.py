@@ -6,7 +6,9 @@ def histogram(test):
     cleaned_test = re.sub(r'\W+', ' ', test.lower().strip())
     test_list = cleaned_test.split()
     count = Counter(test_list)
-    max_count = max(count.values(), default=0)
+    if not count:
+        return {}
+    max_count = max(count.values())
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
