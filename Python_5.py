@@ -1,8 +1,7 @@
 if not numbers:
-        return numbers
-    result = []
-    for i in range(len(numbers) - 1):
-        result.append(numbers[i])
+        return []
+    result = [numbers[0]]
+    for num in numbers[1:]:
         result.append(delimeter)
-    result.append(numbers[-1])
+        result.append(num)
     return result
