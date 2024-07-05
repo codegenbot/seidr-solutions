@@ -22,7 +22,7 @@ int sumOfDigits(int n) {
     return sum;
 }
 
-int sumOfDigitsOfLargestPrimeInList(vector<int> lst) {
+int skjkasdkd(vector<int> lst) {
     int largestPrime = -1;
     for (int num : lst) {
         if (isPrime(num) && num > largestPrime) {
@@ -39,6 +39,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
-    cout << sumOfDigitsOfLargestPrimeInList(lst) << endl;
+    cout << skjkasdkd(lst) << endl;
     return 0;
 }
