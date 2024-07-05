@@ -18,8 +18,13 @@ vector<int> rolling_max(const vector<int>& numbers) {
     return result;
 }
 
+// Keep only this issame function
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(rolling_max({3, 2, 3, 100, 3}) == vector<int>({3, 3, 3, 100, 100}));
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     cout << "Test passed." << endl;
     return 0;
 }
