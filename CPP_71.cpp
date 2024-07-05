@@ -3,6 +3,6 @@ float triangle_area(float a, float b, float c) {
         return -1;
     }
     float s = (a + b + c) / 2;
-    float area = sqrt(s * (s - a) * (s - b) * (s - c));
+    float area = sqrt(s * (s - a) (s - b) * (s - c));
     return round(area * 100) / 100;
 }
