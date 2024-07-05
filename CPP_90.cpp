@@ -2,26 +2,23 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(std::vector<int> lst) {
-    if (lst.size() < 2) return -1; // Assuming -1 represents None
-    std::sort(lst.begin(), lst.end());
-    int smallest = lst[0];
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] != smallest) return lst[i];
+int next_smallest(const std::vector<int>& lst) {
+    if (lst.size() < 2) return -1; // Assuming -1 as None, as C++ does not have None
+
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
+
+    int first_smallest = sorted_lst[0];
+    for (int i = 1; i < sorted_lst.size(); ++i) {
+        if (sorted_lst[i] != first_smallest) {
+            return sorted_lst[i];
+        }
     }
-    return -1; // If no second smallest element is found
+
+    return -1; // If there is no second smallest element
 }
 
 int main() {
-    std::vector<int> input;
-    int n, element;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::cout << "Enter the elements: ";
-    for(int i = 0; i < n; ++i) {
-        std::cin >> element;
-        input.push_back(element);
-    }
-    std::cout << next_smallest(input) << std::endl; // Example usage
+    std::cout << next_smallest({-35, 34, 12, -45}) << std::endl;
     return 0;
 }
