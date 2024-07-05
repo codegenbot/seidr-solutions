@@ -3,8 +3,8 @@ def basement(arr):
     i = -1
     while True:
         i += 1
-        total += arr[i]
-        if total < sum(arr[:i+1]):
-            return i + 1
-        if i == len(arr) - 1:
+        if i >= len(arr): 
             return -1
+        total += arr[i]
+        if total < 0:
+            return i + 1
