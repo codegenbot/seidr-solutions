@@ -1,5 +1,3 @@
-#include <cmath>
-
 bool iscuber(int a) {
     if (a < 0) 
         return false; 
