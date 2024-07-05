@@ -1,5 +1,8 @@
+Here is the modified code:
+
+```python
 def is_palindrome(string: str) -> bool:
-    = string == string[::-1]
+    return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
