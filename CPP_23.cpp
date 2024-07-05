@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
+#include <cassert>
+using namespace std;
 
-int my_strlen(const std::string& str) {
+int string_length(string str) {
     return str.length();
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << my_strlen(input) << std::endl;
+    assert(string_length("asdasnakj") == 9);
+    cout << "Test passed!" << endl;
     return 0;
 }
