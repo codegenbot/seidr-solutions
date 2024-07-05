@@ -1,9 +1,18 @@
-bool correct_bracketing(string brackets){
-    int balance = 0;
-    for(char ch : brackets) {
-        if(ch == '<') balance++;
-        else if(ch == '>') balance--;
-        if(balance < 0) return false;
+#include<stdio.h>
+#include<string>
+using namespace std;
+
+bool correct_bracketing(string brackets) {
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '<') {
+            count++;
+        } else if (c == '>') {
+            count--;
+        }
+        if (count < 0) {
+            return false;
+        }
     }
-    return balance == 0;
+    return count == 0;
 }
