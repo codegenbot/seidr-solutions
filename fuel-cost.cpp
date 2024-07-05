@@ -1,5 +1,3 @@
-Here is the solution:
-
 int solve(vector<int>& v) {
     int sum = 0;
     for (int x : v) {
@@ -7,4 +5,3 @@ int solve(vector<int>& v) {
         sum += y;
     }
     return sum;
-}
