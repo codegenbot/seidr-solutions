@@ -1,6 +1,4 @@
-#include <string>
-using namespace std;
-
+```cpp
 string change_base(int x, int base) {
     string res = "";
     while (x > 0) {
