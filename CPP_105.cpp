@@ -32,8 +32,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    vector<string> expected = {"Nine", "Eight", "Four"};
-    assert(issame(by_length({9, 4, 8}), expected));
+    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
     cout << "Test passed!" << endl;
     return 0;
 }
