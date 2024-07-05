@@ -8,7 +8,7 @@ using namespace std;
 
 vector<int> filter_integers(const vector<boost::any>& values) {
     vector<int> result;
-    for (const auto& val : values) {
+    for (auto& val : values) {
         if (val.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(val));
         }
@@ -21,7 +21,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert (issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     cout << "Assertion passed!" << endl;
     return 0;
 }
