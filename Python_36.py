@@ -1,6 +1,8 @@
-def fizz_buzz(n: int):
+def fizz_buzz(n):
     count = 0
     for i in range(1, n + 1):
-        if i % 13 == 0 or "7" in str(i):
+        if (i % 13 == 0 and str(i).find("7") != -1) or (
+            i % 11 == 0 and str(i).find("7") != -1
+        ):
             count += 1
     return count
