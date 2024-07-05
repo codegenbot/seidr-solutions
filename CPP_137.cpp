@@ -38,7 +38,7 @@ std::any compare_one(std::any a, std::any b) {
             return str_a > str_b ? a : b;
         }
     }
-
+    
     double double_a = to_double(a);
     double double_b = to_double(b);
     if (double_a == double_b) return string("None");
@@ -48,10 +48,8 @@ std::any compare_one(std::any a, std::any b) {
 int main() {
     std::any a = 42;
     std::any b = 3.14f;
-
     try {
         std::any result = compare_one(a, b);
-
         if (result.type() == typeid(string)) {
             cout << std::any_cast<string>(result) << endl;
         } else if (result.type() == typeid(int)) {
@@ -64,7 +62,7 @@ int main() {
             cout << "Unexpected type" << endl;
         }
 
-        assert (std::any_cast<string>(compare_one(string("42"), 42)) == "None");
+        assert (std::any_cast<string>(compare_one(string("42"), 42)) == string("None"));
     } catch (const std::bad_any_cast& e) {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
     }
