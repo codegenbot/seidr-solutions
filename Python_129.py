@@ -1,31 +1,28 @@
 def minPath(grid, k):
-    from heapq import heappush, heappop
-
-    def valid(x, y):
-        return 0 <= x < n and 0 <= y < n
-
+    N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-    n = len(grid)
-    heap = []
 
-    # Push all starting points into heap
-    for i in range(n):
-        for j in range(n):
-            heappush(heap, (grid[i][j], [(i, j)], [grid[i][j]]))
+    def in_bounds(x, y):
+        return 0 <= x < N and 0 <= y < N
 
-    while heap:
-        val, path, values = heappop(heap)
-        if len(path) == k:
-            return values
-        x, y = path[-1]
+    def get_neighbors(x, y):
+        neighbors = []
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if valid(nx, ny):
-                heappush(
-                    heap,
-                    (
-                        values + [grid[nx][ny]],
-                        path + [(nx, ny)],
-                        values + [grid[nx][ny]],
-                    ),
-                )
+            if in_bounds(nx, ny):
+                neighbors.append((nx, ny))
+        return neighbors
+
+    import heapq
+
+    heap = []
+    for i in range(N):
+        for j in range(N):
+            heapq.heappush(heap, (grid[i][j], i, j, [grid[i][j]]))
+
+    while heap:
+        value, x, y, path = heapq.heappop(heap)
+        if len(path) == k:
+            return path
+        for nx, ny in get_neighbors(x, y):
+            heapq.heappush(heap, (grid[nx][ny], nx, ny, path + [grid[nx][ny]]))
