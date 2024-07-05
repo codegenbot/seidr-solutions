@@ -1,22 +1,21 @@
 #include <vector>
-#include <typeinfo>
-#include <boost/any.hpp>
-#include <boost/any_cast.hpp>
 #include <cassert>
+#include <boost/any.hpp>
+#include <typeinfo>
 
 using namespace std;
 
 vector<int> filter_integers(const vector<boost::any>& values) {
     vector<int> result;
-    for (const auto& val : values) {
-        if (val.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(val));
+    for (const auto& value : values) {
+        if (value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
