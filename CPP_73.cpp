@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -17,14 +16,14 @@ int smallest_change(vector<int> arr) {
 
 int main() {
     int n;
+    cout << "Enter number of elements: ";
     cin >> n;
-    assert(n >= 0); // Ensure non-negative size
-
     vector<int> arr(n);
+    cout << "Enter elements: ";
     for(int i = 0; i < n; ++i) {
         cin >> arr[i];
     }
-
-    cout << smallest_change(arr) << endl;
+    int result = smallest_change(arr);
+    cout << "Minimum changes required to make the array a palindrome: " << result << endl;
     return 0;
 }
