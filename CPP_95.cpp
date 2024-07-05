@@ -16,16 +16,16 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 }
 
 int main() {
-    std::map<std::string, std::string> test_case1 = {{"key", "value"}, {"anotherkey", "anothervalue"}};
-    std::map<std::string, std::string> test_case2 = {{"Key", "value"}, {"AnotherKey", "anothervalue"}};
-    std::map<std::string, std::string> test_case3 = {{"key", "value"}, {"AnotherKey", "anothervalue"}};
-    std::map<std::string, std::string> test_case4 = {};
-
-    std::cout << std::boolalpha;
-    std::cout << "Test Case 1: " << check_dict_case(test_case1) << "\n"; // Should return true
-    std::cout << "Test Case 2: " << check_dict_case(test_case2) << "\n"; // Should return true
-    std::cout << "Test Case 3: " << check_dict_case(test_case3) << "\n"; // Should return false
-    std::cout << "Test Case 4: " << check_dict_case(test_case4) << "\n"; // Should return false
+    // Test cases to validate the code
+    std::map<std::string, std::string> test1 = {{"apple", "fruit"}, {"banana", "fruit"}};
+    std::map<std::string, std::string> test2 = {{"Apple", "fruit"}, {"Banana", "fruit"}};
+    std::map<std::string, std::string> test3 = {{"apple", "fruit"}, {"Banana", "fruit"}};
+    std::map<std::string, std::string> test4 = {{"Apple", "fruit"}, {"banana", "fruit"}};
+    
+    std::cout << check_dict_case(test1) << std::endl; // Expected: true
+    std::cout << check_dict_case(test2) << std::endl; // Expected: true
+    std::cout << check_dict_case(test3) << std::endl; // Expected: false
+    std::cout << check_dict_case(test4) << std::endl; // Expected: false
 
     return 0;
 }
