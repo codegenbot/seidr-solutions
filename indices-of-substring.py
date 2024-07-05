@@ -10,3 +10,5 @@ def indices_of_substring():
         result.append(i)
         i += len(target) 
     return sorted(result)
+
+indices_of_substring()
