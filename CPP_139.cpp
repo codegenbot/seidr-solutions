@@ -1,8 +1,8 @@
-#include <cstdio>  // for printf and scanf
+#include <cstdio>
 
-long long factorial(int x) {
+long long factorial(int n) {
     long long result = 1;
-    for (int i = 1; i <= x; ++i) {
+    for (int i = 1; i <= n; ++i) {
         result *= i;
     }
     return result;
