@@ -22,12 +22,11 @@ int main() {
     std::cout << std::boolalpha;
 
     std::vector<int> arr;
-    int n, value;
-    
+    int n;
     std::cin >> n;
+    arr.resize(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> value;
-        arr.push_back(value);
+        std::cin >> arr[i];
     }
 
     std::cout << move_one_ball(arr) << std::endl;
