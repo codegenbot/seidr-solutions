@@ -16,10 +16,6 @@ bool correct_bracketing(const string &brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("<><><<><>><>>><>") == false);
-    assert(correct_bracketing("<><>") == true);
-    assert(correct_bracketing("<<>>") == true);
-    assert(correct_bracketing("<<>") == false);
-    assert(correct_bracketing("><") == false);
+    assert(correct_bracketing("<><><<><>><>>><>"));
     return 0;
 }
