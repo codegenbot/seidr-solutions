@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -20,11 +20,13 @@ vector<int> even_odd_count(int num) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return (a == b);
+    return a == b;
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
-    cout << "Test passed!" << endl;
+    assert(issame(even_odd_count(0), {0, 0}));
+    assert(issame(even_odd_count(1234), {2, 2}));
+    assert(issame(even_odd_count(-56789), {1, 4}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
