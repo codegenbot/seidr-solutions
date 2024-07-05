@@ -1,31 +1,23 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 using namespace std;
 
-string decode_shift(const string& s) {
+string decode_shift(const string& s){
     string out;
-    for (char c : s) {
-        char w = ((c - 5 - 'a' + 26) % 26) + 'a';
-        out += w;
-    }
-    return out;
-}
-
-string encode_shift(const string& s) {
-    string out;
-    for (char c : s) {
-        char w = ((c + 5 - 'a') % 26) + 'a';
-        out += w;
+    for (char ch : s) {
+        int w = ((int)ch - 5 - (int)'a' + 26) % 26 + (int)'a';
+        out += (char)w;
     }
     return out;
 }
 
 int main() {
-    string str = "hello"; // example input
-    string encoded_str = encode_shift(str);
-    assert(decode_shift(encoded_str) == str);
-    cout << "Encoded: " << encoded_str << endl;
-    cout << "Decoded: " << decode_shift(encoded_str) << endl;
+    string s;
+    cout << "Enter encoded string: ";
+    cin >> s;
+
+    string decoded_str = decode_shift(s);
+    cout << "Decoded string: " << decoded_str << endl;
+
     return 0;
 }
