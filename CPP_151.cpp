@@ -11,7 +11,7 @@ long long double_the_difference(const vector<float>& lst) {
             sum += (long long)num * (long long)num;
         }
     }
-    return sum;
+    return 2 * sum; // Return the doubled sum
 }
 
 int main() {
