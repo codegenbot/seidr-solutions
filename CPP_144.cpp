@@ -1,4 +1,7 @@
 #include <sstream>
+#include <string>
+
+using namespace std;
 
 bool simplify(string x, string n) {
     int x_num, x_den, n_num, n_den;
