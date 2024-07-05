@@ -10,8 +10,6 @@ std::string string_xor(std::string a, std::string b) {
 }
 
 int main() {
-    std::string a, b;
-    std::cin >> a >> b;
-    std::cout << string_xor(a, b) << std::endl;
+    std::cout << string_xor("0101", "0000") << std::endl;
     return 0;
 }
