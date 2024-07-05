@@ -36,7 +36,7 @@ std::any compare_one(std::any a, std::any b) {
             return str_a > str_b ? a : b;
         }
     }
-    
+
     double double_a = to_double(a);
     double double_b = to_double(b);
     if (double_a == double_b) return "None";
@@ -46,14 +46,15 @@ std::any compare_one(std::any a, std::any b) {
 int main() {
     std::any a = 42;
     std::any b = 3.14f;
-    try {
-        std::cout << std::any_cast<int>(compare_one(a, b)) << std::endl; 
-    } catch (const std::bad_any_cast& e) {
-        try {
-            std::cout << std::any_cast<float>(compare_one(a, b)) << std::endl;
-        } catch (const std::bad_any_cast& e) {
-            std::cout << std::any_cast<string>(compare_one(a, b)) << std::endl;
-        }
+    std::any result = compare_one(a, b);
+    if (result.type() == typeid(int)) {
+        std::cout << std::any_cast<int>(result) << std::endl;
+    } else if (result.type() == typeid(float)) {
+        std::cout << std::any_cast<float>(result) << std::endl;
+    } else if (result.type() == typeid(string)) {
+        std::cout << std::any_cast<string>(result) << std::endl;
+    } else if (result.type() == typeid(const char*)) {
+        std::cout << std::any_cast<const char*>(result) << std::endl;
     }
     return 0;
 }
