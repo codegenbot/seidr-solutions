@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def rolling_max(numbers: List[int]) -> List[int]:
     max_so_far = float("-inf")
@@ -9,6 +10,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    raw_input = input("Enter space-separated integers: ").strip()
+    raw_input = sys.stdin.read().strip()
     numbers = list(map(int, raw_input.split())) if raw_input else []
     print(rolling_max(numbers))
