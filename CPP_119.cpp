@@ -17,7 +17,22 @@ string match_parens(vector<string> lst) {
         return balance == 0;
     };
 
-    if (isBalanced(s1) && isBalanced(s2) && (isBalanced(s1 + s2) || isBalanced(s2 + s1))) {
+    auto canBeCombinedBalanced = [](const string &a, const string &b) {
+        int balance = 0;
+        for (char c : a) {
+            if (c == '(') balance++;
+            else if (c == ')') balance--;
+            if (balance < 0) return false;
+        }
+        for (char c : b) {
+            if (c == '(') balance++;
+            else if (c == ')') balance--;
+            if (balance < 0) return false;
+        }
+        return balance == 0;
+    };
+
+    if (isBalanced(s1) && isBalanced(s2) && (canBeCombinedBalanced(s1, s2) || canBeCombinedBalanced(s2, s1))) {
         return "Yes";
     }
     return "No";
