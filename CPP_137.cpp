@@ -10,7 +10,7 @@ any string_to_number(const string& s) {
     try {
         return stod(s_copy);
     } catch (const invalid_argument&) {
-        return s; // If conversion fails, return original string
+        return s;
     }
 }
 
@@ -40,7 +40,7 @@ any compare_one(any a, any b) {
         return sa > sb ? a : b;
     }
 
-    return "None"; // Different types or unable to compare
+    return "None";
 }
 
 int main() {
@@ -49,6 +49,6 @@ int main() {
         cout << any_cast<string>(result) << endl;
     else if (result.type() == typeid(double))
         cout << any_cast<double>(result) << endl;
-    
+
     return 0;
 }
