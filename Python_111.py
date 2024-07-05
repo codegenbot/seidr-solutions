@@ -10,6 +10,9 @@ def histogram(test):
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
-    test = input().strip()
-    result = histogram(test)
-    print(result)
+    try:
+        test = input().strip()
+        result = histogram(test)
+        print(result)
+    except Exception as e:
+        print("Error:", e)
