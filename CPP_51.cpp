@@ -1,6 +1,6 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 string remove_vowels(string text) {
@@ -11,7 +11,7 @@ string remove_vowels(string text) {
 
 int main() {
     string input;
-    getline(cin, input); // Read entire line of text
-    cout << remove_vowels(input) << endl; // Output the modified string
+    getline(cin, input);
+    cout << remove_vowels(input) << endl;
     return 0;
 }
