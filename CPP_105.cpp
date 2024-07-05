@@ -1,27 +1,38 @@
-vector<string> by_length(vector<int> arr){
-    vector<int> filtered;
-    map<int, string> num_to_name = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"},
-        {9, "Nine"}
-    };
+#include <iostream>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <cassert>
 
-    // Filter numbers between 1 and 9 inclusive
-    for(int num : arr) {
-        if(num >= 1 && num <= 9) {
+using namespace std;
+
+vector<string> by_length(const vector<int>& arr) {
+    vector<int> filtered;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
             filtered.push_back(num);
         }
     }
+    sort(filtered.begin(), filtered.end(), greater<int>());
 
-    // Sort and reverse the filtered vector
-    sort(filtered.begin(), filtered.end());
-    reverse(filtered.begin(), filtered.end());
+    map<int, string> numToStr = {
+        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
+        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
+    };
 
-    // Replace each digit with its corresponding name
     vector<string> result;
-    for(int num : filtered) {
-        result.push_back(num_to_name[num]);
+    for (int num : filtered) {
+        result.push_back(numToStr[num]);
     }
-
     return result;
+}
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    cout << "Test passed!" << endl;
+    return 0;
 }
