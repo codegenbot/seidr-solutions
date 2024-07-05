@@ -47,9 +47,7 @@ std::any compare_one(std::any a, std::any b) {
 int main() {
     std::string a, b;
     cin >> a >> b;
-    std::any aa = (a.find_first_not_of("0123456789.,") == string::npos) ? string_to_number(a) : a;
-    std::any bb = (b.find_first_not_of("0123456789.,") == string::npos) ? string_to_number(b) : b;
-    std::any result = compare_one(aa, bb);
+    std::any result = compare_one(a, b);
     if (result.type() == typeid(std::string)) {
         cout << std::any_cast<std::string>(result);
     } else {
