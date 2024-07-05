@@ -10,6 +10,9 @@ string encrypt(string s) {
 }
 
 int main() {
-    cout << (encrypt("a") == "e") << endl;
+    string input;
+    cout << "Enter a string to encrypt: ";
+    cin >> input;
+    cout << "Encrypted string: " << encrypt(input) << endl;
     return 0;
 }
