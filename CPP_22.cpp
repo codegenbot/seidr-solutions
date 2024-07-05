@@ -18,7 +18,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Use boost::any to create vector with different data types
     std::vector<boost::any> input = {3, 'c', 3, 3, 'a', 'b'};
     assert(issame(filter_integers(input), {3, 3, 3}));
     return 0;
