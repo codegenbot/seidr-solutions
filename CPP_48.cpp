@@ -18,6 +18,16 @@ bool is_palindrome(const std::string &text) {
 int main() {
     assert(is_palindrome("xywzx") == false);
     assert(is_palindrome("radar") == true);
-    std::cout << "All test cases passed.\n";
+    
+    // To take input from the user and print the result
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    if (is_palindrome(input)) {
+        std::cout << "The string is a palindrome.\n";
+    } else {
+        std::cout << "The string is not a palindrome.\n";
+    }
+    
     return 0;
 }
