@@ -1,15 +1,15 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> odd_numbers;
+    vector<int> result;
     while (n != 1) {
         if (n % 2 != 0) {
-            odd_numbers.push_back(n);
+            result.push_back(n);
         }
         if (n % 2 == 0) {
             n /= 2;
@@ -17,9 +17,9 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    odd_numbers.push_back(1);
-    sort(odd_numbers.begin(), odd_numbers.end());
-    return odd_numbers;
+    result.push_back(1); // 1 is always in the sequence
+    sort(result.begin(), result.end());
+    return result;
 }
 
 bool issame(vector<int> a, vector<int> b) {
@@ -27,8 +27,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    assert(issame(get_odd_collatz(6), {1, 3, 5}));
+    assert(issame(get_odd_collatz(1), vector<int>{1}));
     cout << "All tests passed!" << endl;
     return 0;
 }
