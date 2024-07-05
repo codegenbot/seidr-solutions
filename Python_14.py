@@ -1,4 +1,7 @@
 def generate_substrings(string):
     return [string[:i] for i in range(1, len(string) + 1)]
 
-check(generate_substrings)
+if __name__ == "__main__":
+    input_string = input("Enter a string: ")
+    all_prefixes = generate_substrings(input_string)
+    check(all_prefixes)  # Assuming `check` is defined somewhere else in your code
