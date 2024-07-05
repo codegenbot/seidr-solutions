@@ -1,2 +1,8 @@
 def by_length(arr):
-    return sorted(arr, key=lambda x: len(x))
+    result = []
+    for num in arr:
+        if isinstance(num, int) and 1 <= num <= 9:
+            result.append(str(num))
+        elif isinstance(num, str):
+            result.append(num.capitalize())
+    return sorted(result, key=lambda x: len(x), reverse=True)
