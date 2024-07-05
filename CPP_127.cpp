@@ -1,6 +1,9 @@
-#include <cmath>
+#include <iostream>
 #include <vector>
+#include <cmath>
+#include <algorithm>
 #include <string>
+
 using namespace std;
 
 bool isPrime(int n) {
@@ -25,4 +28,12 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int length = intersectEnd - intersectStart + 1;
     
     return isPrime(length) ? "YES" : "NO";
+}
+
+int main() {
+    vector<int> interval1(2), interval2(2);
+    cin >> interval1[0] >> interval1[1];
+    cin >> interval2[0] >> interval2[1];
+    cout << intersection(interval1, interval2) << endl;
+    return 0;
 }
