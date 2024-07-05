@@ -1,7 +1,7 @@
 def make_palindrome(string: str) -> str:
-    if is_palindrome(string):
-        return string
+    if not string:
+        return ""
     for i in range(len(string)):
         if is_palindrome(string[i:]):
             return string + string[:i][::-1]
-    return string
+    return string  # Fallback, should not be reached
