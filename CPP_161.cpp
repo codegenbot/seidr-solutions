@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cctype>
 
 using namespace std;
 
@@ -15,9 +14,8 @@ string solve(string s) {
     }
     if (hasLetter) {
         for (char &c : s) {
-            if (isalpha(c)) {
-                c = islower(c) ? toupper(c) : tolower(c);
-            }
+            if (islower(c)) c = toupper(c);
+            else if (isupper(c)) c = tolower(c);
         }
     } else {
         reverse(s.begin(), s.end());
@@ -26,6 +24,8 @@ string solve(string s) {
 }
 
 int main() {
-    cout << solve("#ccc") << endl;
+    string input;
+    cin >> input;
+    cout << solve(input) << endl;
     return 0;
 }
