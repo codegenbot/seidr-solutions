@@ -5,6 +5,6 @@ def check_pairs(numbers, threshold):
                 return True
     return False
 
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+numbers = list(map(int, input("Enter numbers: ").split()))
 threshold = int(input("Enter threshold: "))
 print(check_pairs(numbers, threshold))
