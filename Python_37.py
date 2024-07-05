@@ -3,5 +3,4 @@ def sort_even_indices(l):
     l[::2] = even_indices_values
     return l
 
-# Assuming there's a check function to verify your solution
 check(sort_even_indices)
