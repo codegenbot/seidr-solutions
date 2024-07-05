@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 #include <initializer_list> 
@@ -25,14 +26,9 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    cout << "Indices of substring: ";
-    for (auto i : indicesOfSubstring("abcdeabcdabef", "ab")) {
-        cout << i << " ";
-    }
-    cout << endl;
-    
-    long long a = 48, b = 18;
-    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
-
+    long long a = 12;
+    long long b = 16;
+    long long result = gcd(a, b);
+    cout << "GCD of " << a << " and " << b << " is " << result << endl;
     return 0;
 }
