@@ -1,18 +1,18 @@
 from typing import List
 
-def parse_nested_parens(paren_string: str) -> List[int]:
-    result = []
-    depth = 0
-    max_depth_for_current = 0
-
-    for char in paren_string:
-        if char == "(":
-            depth += 1
-            max_depth_for_current = max(max_depth_for_current, depth)
-        elif char == ")":
-            depth -= 1
-            if depth == 0:
-                result.append(max_depth_for_current)
-                max_depth_for_current = 0
+def parse_nested_parens() -> List[int]:
+    paren_string = input().strip()
     
-    return result
+    def max_depth(s: str) -> int:
+        depth = max_depth = 0
+        for char in s:
+            if (char == "("):
+                depth += 1
+                max_depth = max(max_depth, depth)
+            elif (char == ")"):
+                depth -= 1
+        return max_depth
+
+    return [max_depth(group) for group in paren_string.split()]
+
+print(parse_nested_parens())
