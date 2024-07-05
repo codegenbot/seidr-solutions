@@ -8,3 +8,5 @@ def prime_fib(n):
             fib.append(next_fib)
         i += 1
     return fib[n]
+
+import math
