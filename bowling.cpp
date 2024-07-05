@@ -27,6 +27,6 @@ int bowlingScore(const char* s) {
 
 int main() {
     const char* input = "X/X || 3/5 1/9 X 2/- 8/3 5/7 X 3/6 -/- 1/4";
-    std::cout << bowlingScore(input) << std::endl;
+    cout << bowlingScore(input) << endl;
     return 0;
 }
