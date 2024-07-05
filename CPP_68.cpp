@@ -1,24 +1,21 @@
 #include <vector>
+#include <limits>
 #include <cassert>
 
 using namespace std;
 
 vector<int> pluck(vector<int> arr) {
-    int smallestEven = -1;
-    int index = -1;
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0) {
-            if (smallestEven == -1 || arr[i] < smallestEven) {
-                smallestEven = arr[i];
-                index = i;
-            }
+    if(arr.empty()) return {};
+    int min_value = numeric_limits<int>::max();
+    int min_index = -1;
+    for(int i = 0; i < arr.size(); ++i) {
+        if(arr[i] % 2 == 0 && arr[i] < min_value) {
+            min_value = arr[i];
+            min_index = i;
         }
     }
-    if (smallestEven == -1) {
-        return {};
-    } else {
-        return {smallestEven, index};
-    }
+    if(min_index == -1) return {};
+    return {min_value, min_index};
 }
 
 bool issame(vector<int> a, vector<int> b) {
@@ -26,7 +23,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    assert(issame(pluck({7, 4, 7, 1}), {4, 1}));
+    assert (issame(pluck({7, 9, 7, 1}), {}));
+    assert (issame(pluck({8, 4, 2, 6, 3}), {2, 2}));
     return 0;
 }
