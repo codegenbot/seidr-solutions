@@ -1,23 +1,19 @@
 #include <vector>
 #include <cassert>
-#include <cmath>
 using namespace std;
 
 vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
     num = abs(num);
-    if (num == 0) {
-        even_count++;
-    } else {
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit % 2 == 0) {
-                even_count++;
-            } else {
-                odd_count++;
-            }
-            num /= 10;
+    if (num == 0) return {1, 0};  // Special case for 0
+    while (num > 0) {
+        int digit = num % 10;
+        if (digit % 2 == 0) {
+            even_count++;
+        } else {
+            odd_count++;
         }
+        num /= 10;
     }
     return {even_count, odd_count};
 }
