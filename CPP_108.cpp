@@ -1,12 +1,18 @@
-int count = 0;
+int sum_of_digits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+int count_nums(vector<int> n) {
+    int count = 0;
     for (int num : n) {
-        int temp = abs(num);
-        int sum = 0;
-        while (temp > 0) {
-            sum += temp % 10;
-            temp /= 10;
+        if (sum_of_digits(abs(num)) > 0) {
+            count++;
         }
-        if (sum > 0) count++;
     }
     return count;
 }
