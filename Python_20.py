@@ -17,12 +17,12 @@ def main():
     try:
         nums = list(map(float, input().strip().split()))
         if len(nums) < 2:
-            return
+            print("Please enter at least two numbers.")
         else:
             pair = find_closest_elements(nums)
             print(f"{pair[0]} {pair[1]}")
     except ValueError:
-        return
+        print("Invalid input. Please enter valid numbers separated by spaces.")
 
 if __name__ == "__main__":
     main()
