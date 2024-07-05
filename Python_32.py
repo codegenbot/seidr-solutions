@@ -1,4 +1,4 @@
-```
+```Python
 import math
 
 
@@ -14,18 +14,14 @@ def find_zero(xs):
 
     a = xs[0]
     b = xs[1]
-    c = xs[-1]
+    c = [xs[i] for i in range(2, len(xs) - 1)]
 
-    d = b**2 - 4 * a * c
-    if d < 0:
-        return "The equation has no real roots."
-    elif d == 0:
-        root = (-b + math.sqrt(d)) / (2 * a)
-        return root
+    if all([x > 0 for x in [a, b] + c]):
+        return (-sum(c) + math.sqrt((sum(c)**2) - (4 * a * c[-1]))) / (2 * a)
     else:
-        r1 = (-b + math.sqrt(d)) / (2 * a)
-        r2 = (-b - math.sqrt(d)) / (2 * a)
-        if r1 > r2:
-            return r2, r1
-        else:
-            return r1, r2
+        zero = None
+        for i in range(len(c)):
+            if all([x > 0 for x in [a, b] + c[:i] + c[i+1:]]):
+                zero = (-sum(c[:i] + c[i+1:]) + math.sqrt((sum(c[:i] + c[i+1:])**2) - (4 * a * c[i]))) / (2 * a)
+                break
+        return zero
