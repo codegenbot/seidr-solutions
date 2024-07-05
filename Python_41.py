@@ -6,4 +6,4 @@ def car_race_collision(n: int):
         return len([x for x in left_to_right if x in right_to_left]) + 1
     else:
         # Handle even case by returning half the total number of cars
-        return (n // 2) * (n - n // 2)
+        return n // 2
