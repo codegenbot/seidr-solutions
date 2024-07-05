@@ -18,7 +18,6 @@ vector<int> get_odd_collatz(int n) {
     }
     result.push_back(1); // 1 is always part of the sequence
     sort(result.begin(), result.end());
-    result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
 
