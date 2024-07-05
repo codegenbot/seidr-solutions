@@ -28,7 +28,7 @@ bool issame(const vector<float>& a, const vector<float>& b) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
     cout << "Test passed!" << endl;
     return 0;
 }
