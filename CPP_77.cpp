@@ -1,4 +1,4 @@
-#include <cmath> // Include the cmath header for cbrt and round
+#include <cmath>
 
 bool iscuber(int a) {
     int cbrt_a = std::round(std::cbrt(a));
