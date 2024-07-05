@@ -4,6 +4,8 @@
 #include <cmath>
 #include <string>
 
+using namespace std;
+
 bool isPrime(int num) {
     if (num <= 1) return false;
     if (num == 2) return true;
@@ -14,10 +16,10 @@ bool isPrime(int num) {
     return true;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    std::istringstream iss(sentence);
-    std::string word;
-    std::vector<std::string> result;
+string words_in_sentence(string sentence) {
+    istringstream iss(sentence);
+    string word;
+    vector<string> result;
     
     while (iss >> word) {
         if (isPrime(word.length())) {
@@ -25,7 +27,7 @@ std::string words_in_sentence(std::string sentence) {
         }
     }
     
-    std::string output;
+    string output;
     for (size_t i = 0; i < result.size(); ++i) {
         if (i > 0) output += " ";
         output += result[i];
@@ -35,8 +37,6 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << words_in_sentence(input) << std::endl;
+    cout << (words_in_sentence("Here is a prime example") == "Here is prime") << endl;
     return 0;
 }
