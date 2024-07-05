@@ -4,12 +4,8 @@
 
 bool same_chars(const std::string& s0, const std::string& s1) {
     std::unordered_set<char> set0(s0.begin(), s0.end());
-    for (char c : s1) {
-        if (set0.find(c) == set0.end()) {
-            return false;
-        }
-    }
-    return set0.size() == s1.size();
+    std::unordered_set<char> set1(s1.begin(), s1.end());
+    return set0 == set1;
 }
 
 int main() {
