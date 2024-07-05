@@ -4,41 +4,31 @@
 #include <cmath>
 #include <string>
 
-using namespace std;
-
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    if (num == 2) return true;
-    if (num % 2 == 0) return false;
-    for (int i = 3; i <= std::sqrt(num); i += 2) {
-        if (num % i == 0) return false;
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
     }
     return true;
 }
 
-string words_in_sentence(string sentence) {
-    istringstream iss(sentence);
-    string word;
-    vector<string> result;
-    
+std::string words_in_sentence(std::string sentence) {
+    std::istringstream iss(sentence);
+    std::string word, result = "";
     while (iss >> word) {
-        if (isPrime(word.length())) {
-            result.push_back(word);
+        if (is_prime(word.length())) {
+            if (!result.empty()) result += " ";
+            result += word;
         }
     }
-    
-    string output;
-    for (size_t i = 0; i < result.size(); ++i) {
-        if (i > 0) output += " ";
-        output += result[i];
-    }
-    
-    return output;
+    return result;
 }
 
 int main() {
-    string sentence;
-    getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << words_in_sentence(input) << std::endl;
     return 0;
 }
