@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-bool cycpattern_check(std::string a, std::string b) {
+bool cycpattern_check(string a, string b) {
     int len = b.length();
-    std::string rotated = b + b;
+    string rotated = b + b;
     for (int i = 0; i < len; ++i) {
-        if (a.find(rotated.substr(i, len)) != std::string::npos) {
+        if (a.find(rotated.substr(i, len)) != string::npos) {
             return true;
         }
     }
@@ -13,7 +14,6 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    std::cout << std::boolalpha; // prints bools as true/false
-    std::cout << (cycpattern_check("winemtt", "tinem") == true) << std::endl;
+    assert(cycpattern_check("winemtt", "tinem") == true);
     return 0;
 }
