@@ -16,11 +16,10 @@ string longest(const vector<string>& strings) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<string> input(n);
-    for(int i = 0; i < n; ++i) {
-        cin >> input[i];
+    vector<string> input;
+    string val;
+    while (cin >> val) {
+        input.push_back(val);
     }
     cout << longest(input) << endl;
     return 0;
