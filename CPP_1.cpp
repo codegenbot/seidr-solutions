@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
 
@@ -29,8 +29,19 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> input = {"( ) (( "};
-    vector<string> expected = {"()", "(())"};
-    assert(separate_paren_groups(input[0]) == expected);
+    vector<string> expected = {"()", "(())", "(()())"};
+    vector<string> actual = separate_paren_groups("( ) (( )) (( )( ");
+    if (!issame(expected, actual)) {
+        cout << "Incorrect result. Expected: ";
+        for (string s : expected) {
+            cout << s << " ";
+        }
+        cout << endl;
+        cout << "Actual: ";
+        for (string s : actual) {
+            cout << s << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
