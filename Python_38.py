@@ -1,3 +1,5 @@
+Here's the corrected code:
+
 def decode_cyclic(s: str):
     result = []
     group = ""
