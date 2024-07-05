@@ -1,8 +1,8 @@
-
 def encrypt(s):
-    new_string = ""
-    for char in s:
-        offset = ord("a") - ord("z")
-        new_char = chr((ord(char) + offset) % 26 + ord("a"))
-        new_string += new_char
-    return new_string
+    if not s:  # Check if the input string is empty
+        return ""  # Return an empty string if it is
+    
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
+    table = str.maketrans(alphabet, rotated_alphabet)
+    return s.translate(table)
