@@ -16,6 +16,7 @@ string longest(vector<string> strings){
 }
 
 int main() {
-    cout << longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) << endl;
+    // Example test
+    cout << (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz") << endl;
     return 0;
 }
