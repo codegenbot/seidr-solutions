@@ -11,19 +11,19 @@ bool is_palindrome(string str) {
 string make_palindrome(string str) {
     int n = str.length();
     if (n == 0) return "";
-    for (int i = n; i >= 0; i--) {
+    for (int i = n; i > 0; i--) {
         if (is_palindrome(str.substr(0, i))) {
-            string prefix = str.substr(i);
-            reverse(prefix.begin(), prefix.end());
-            return str + prefix;
+            string suffix = str.substr(i);
+            reverse(suffix.begin(), suffix.end());
+            return str + suffix;
         }
     }
     return str;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << make_palindrome(input) << endl;
+    string str;
+    cin >> str;
+    cout << make_palindrome(str) << endl;
     return 0;
 }
