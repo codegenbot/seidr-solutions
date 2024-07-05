@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
@@ -32,7 +35,7 @@ int main() {
     cin >> guess;
 
     int black = blackPegs(code, guess);
-    int white = 4 - blackPegs(code, guess);
+    int white = 4 - black;
 
     cout << black << endl;
     cout << white << endl;
