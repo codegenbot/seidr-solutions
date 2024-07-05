@@ -4,7 +4,7 @@
 #include <cassert>
 using namespace std;
 
-string file_name_check(string file_name){
+string file_name_check(string file_name) {
     int dot_pos = file_name.find('.');
     if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1)
         return "No";
@@ -30,7 +30,7 @@ string file_name_check(string file_name){
     return "Yes";
 }
 
-int main(){
+int main() {
     assert(file_name_check("s.") == "No");
     assert(file_name_check("s.exe") == "Yes");
     assert(file_name_check("1.dll") == "No");
