@@ -3,6 +3,7 @@
 #include <unordered_set>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -20,10 +21,13 @@ vector<string> reverse_delete(string s, string c) {
     return {filtered, is_palindrome ? "True" : "False"};
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    string s, c;
-    cin >> s >> c;
-    vector<string> result = reverse_delete(s, c);
-    cout << result[0] << endl << result[1] << endl;
+    assert(issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
+    assert(issame(reverse_delete("example", "axe"), {"mpl", "False"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }

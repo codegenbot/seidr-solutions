@@ -16,19 +16,7 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1);
+    result.push_back(1); // 1 is always part of the sequence
     sort(result.begin(), result.end());
-    result.erase(unique(result.begin(), result.end()), result.end()); // Remove duplicates
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-    return 0;
 }

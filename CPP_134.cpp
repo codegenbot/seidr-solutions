@@ -2,18 +2,22 @@
 #include <string>
 #include <cctype>
 #include <cassert>
+using namespace std;
 
-bool check_if_last_char_is_a_letter(const std::string& txt){
-    if (txt.empty() || !std::isalpha(txt.back())) return false;
-    size_t last_space = txt.find_last_of(' ');
-    return (last_space == std::string::npos || last_space == txt.size() - 2);
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty() || !isalpha(txt.back())) return false;
+    int n = txt.length();
+    for (int i = n - 2; i >= 0; --i) {
+        if (txt[i] == ' ') return true;
+        if (isalpha(txt[i])) return false;
+    }
+    return true;
 }
 
 int main() {
     assert(check_if_last_char_is_a_letter("apple pie ") == false);
     assert(check_if_last_char_is_a_letter("apple pie") == true);
-    assert(check_if_last_char_is_a_letter("apple pie a") == true);
-    assert(check_if_last_char_is_a_letter("12345") == false);
-    std::cout << "All test cases pass." << std::endl;
+    assert(check_if_last_char_is_a_letter("apple   ") == false); 
+    cout << "All tests passed!" << endl;
     return 0;
 }

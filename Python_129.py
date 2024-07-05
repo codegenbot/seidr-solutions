@@ -14,17 +14,18 @@ def minPath(grid, k):
     min_path = None
     for i in range(N):
         for j in range(N):
-            heap = [(0, i, j, 1, [grid[i][j]])]
+            heap = [(grid[i][j], i, j, 1, [grid[i][j]])]
             while heap:
-                accumulated_val, x, y, length, path = heappop(heap)
+                val, x, y, length, path = heappop(heap)
                 if length == k:
-                    if accumulated_val < min_path_sum:
-                        min_path_sum = accumulated_val
+                    path_sum = sum(path)
+                    if path_sum < min_path_sum:
+                        min_path_sum = path_sum
                         min_path = path
                 else:
                     for nx, ny in neighbors(x, y):
                         new_path = path + [grid[nx][ny]]
-                        heappush(heap, (accumulated_val + grid[nx][ny], nx, ny, length + 1, new_path))
+                        heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
     return min_path
 
 if __name__ == "__main__":
@@ -40,11 +41,8 @@ if __name__ == "__main__":
         grid.append(data[idx : idx + N])
         idx += N
 
-    if k <= N * N:
-        result = minPath(grid, k)
-        if result:
-            print(" ".join(map(str, result)))
-        else:
-            print("")
+    result = minPath(grid, k)
+    if result:
+        print(" ".join(map(str, result)))
     else:
         print("")
