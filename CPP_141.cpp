@@ -4,7 +4,7 @@
 using namespace std;
 
 string file_name_check(string file_name) {
-    int dot_pos = file_name.find('.');
+    size_t dot_pos = file_name.find('.');
     if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.length() - 1)
         return "No";
 
