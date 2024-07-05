@@ -1,45 +1,37 @@
-#include <iostream>
-#include <sstream>
-#include <algorithm>
 #include <map>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
-// Function to compute the histogram of characters.
 map<char, int> histogram(string test) {
     map<char, int> freq;
-    stringstream ss(test);
-    string word;
-    while (ss >> word) {
-        for (char ch : word) {
-            freq[ch]++;
-        }
+    for (char ch : test) {
+        freq[ch]++;
     }
-    
+
     int max_count = 0;
-    for (const auto& p : freq) {
-        max_count = max(max_count, p.second);
-    }
-    
-    map<char, int> result;
-    for (const auto& p : freq) {
-        if (p.second == max_count) {
-            result[p.first] = p.second;
+    for (const auto &entry : freq) {
+        if (entry.second > max_count) {
+            max_count = entry.second;
         }
     }
-    
+
+    map<char, int> result;
+    for (const auto &entry : freq) {
+        if (entry.second == max_count) {
+            result[entry.first] = entry.second;
+        }
+    }
+
     return result;
 }
 
-// Function to compare two maps for equality.
-bool issame(map<char, int> a, map<char, int> b) {
+bool issame(map<char,int> a, map<char,int> b){
     return a == b;
 }
 
 int main() {
-    // Test case
-    assert(issame(histogram("a"), {{'a', 1}}));
-    cout << "All tests passed!" << endl;
+    assert (issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
