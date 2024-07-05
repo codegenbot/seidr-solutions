@@ -1,14 +1,9 @@
-#include <vector>
-#include <iostream>
-#include <numeric>
-#include <cmath>
-using namespace std;
-
-void cutVector(const vector<int>& vec) {
+void cutVector(vector<int>& vec) {
     int n = vec.size();
-    int totalSum = accumulate(vec.begin(), vec.end(), 0);
-    int leftSum = 0, minDiff = INT_MAX, cutIndex = -1;
+    int totalSum = 0;
+    for (int num : vec) totalSum += num;
 
+    int leftSum = 0, minDiff = INT_MAX, cutIndex = 0;
     for (int i = 0; i < n - 1; ++i) {
         leftSum += vec[i];
         int rightSum = totalSum - leftSum;
@@ -22,23 +17,17 @@ void cutVector(const vector<int>& vec) {
     vector<int> leftVec(vec.begin(), vec.begin() + cutIndex + 1);
     vector<int> rightVec(vec.begin() + cutIndex + 1, vec.end());
 
-    for (int num : leftVec) {
-        cout << num << " ";
-    }
+    for (int num : leftVec) cout << num << " ";
     cout << endl;
-
-    for (int num : rightVec) {
-        cout << num << " ";
-    }
+    for (int num : rightVec) cout << num << " ";
     cout << endl;
 }
 
 int main() {
+    vector<int> vec;
     int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+    while (cin >> n) {
+        vec.push_back(n);
     }
     cutVector(vec);
     return 0;
