@@ -27,7 +27,7 @@ def minPath(grid, k):
                         visited.add((nx, ny))
                         new_path = path + [grid[nx][ny]]
                         heappush(heap, (grid[nx][ny], nx, ny, new_path))
-
+    
     return min_path
 
 if __name__ == "__main__":
