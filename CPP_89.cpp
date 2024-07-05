@@ -4,9 +4,7 @@ using namespace std;
 
 string encrypt(string s) {
     for(char &c : s) {
-        if(c >= 'a' && c <= 'z') {
-            c = ((c - 'a' + 4) % 26) + 'a';
-        }
+        c = ((c - 'a' + 4) % 26) + 'a';
     }
     return s;
 }
