@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
@@ -13,12 +12,6 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
-    int input;
-    std::cout << "Enter numbers (end input with any non-integer value): " << std::endl;
-    while (std::cin >> input) {
-        lst.push_back(input);
-    }
-    std::cout << "Sum of odd numbers at even indices: " << solution(lst) << std::endl;
+    assert(solution({3, 13, 2, 9}) == 3);
     return 0;
 }
