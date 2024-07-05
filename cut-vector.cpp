@@ -1,21 +1,22 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <limits> 
+#include <limits>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = numeric_limits<int>::max();
     int index = -1;
-    for (int i = 0; i < v.size() - 1; i++) { 
+    for (int i = 0; i < v.size() - 1; i++) {
         int diff = abs(v[i] - v[i + 1]);
         if (diff < minDiff) {
             minDiff = diff;
             index = i;
         }
     }
-    vector<int> left(v.begin(), v.begin() + index + 1);
-    vector<int> right(v.begin() + index, v.end());
+    vector<int> left(vector<int>(v.begin(), v.begin() + index + 1));
+    vector<int> right(vector<int>(v.begin() + index, v.end()));
     return make_pair(left, right);
 }
 
@@ -37,5 +38,4 @@ int main() {
         cout << x << " ";
     }
     cout << endl;
-    return 0;
 }

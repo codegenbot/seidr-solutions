@@ -1,5 +1,4 @@
 def luhn(card_number):
     card_number = list(map(int, str(card_number)))
-    doubled = [i * 2 if i % 2 else i for i in card_number]
-    result = sum([i // 10 + i % 10 if i > 9 else i for i in doubled])
-    return (result % 10) == 0
+    total = sum([i if i % 2 == 1 else i * 2 // 10 + i % 10 if i * 2 > 9 else i * 2 for i in card_number])
+    return (total - ((total % 10) * 9)) % 10
