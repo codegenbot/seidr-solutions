@@ -1,4 +1,3 @@
-```cpp
 #include <cstring>
 int bowlingScore(const char* s) {
     int score = 0;
