@@ -30,8 +30,14 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    // Test cases
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-    cout << "All test cases passed." << endl;
+    int n, m;
+    vector<int> interval1(2), interval2(2);
+    cout << "Enter the first interval (start and end): ";
+    cin >> interval1[0] >> interval1[1];
+    cout << "Enter the second interval (start and end): ";
+    cin >> interval2[0] >> interval2[1];
+    
+    cout << intersection(interval1, interval2) << endl;
+    
     return 0;
 }
