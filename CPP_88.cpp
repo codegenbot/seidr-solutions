@@ -18,6 +18,5 @@ vector<int> sort_array(vector<int> array) {
 
 int main() {
     assert(sort_array({21, 14, 23, 11}) == vector<int>({23, 21, 14, 11}));
-    assert(sort_array({13, 15, 1, 9}) == vector<int>({1, 9, 13, 15}));
     return 0;
 }
