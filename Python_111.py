@@ -16,7 +16,9 @@ def histogram(test):
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
-    import sys
-    input_data = sys.stdin.read()
-    result = histogram(input_data)
-    print(result)
+    try:
+        input_text = input().strip()
+        result = histogram(input_text)
+        print(result)
+    except EOFError:
+        pass  # Handle end of input
