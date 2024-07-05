@@ -1,7 +1,7 @@
-import click
 
-
-@click.command()
-@click.option("--shift", type=int, help="The number of characters to shift.")
 def decode_shift(message):
-    return "".join([chr((ord(ch) - 5 - ord("a")) % 26 + ord("a")) for ch in message])
+    shift = int(input("Enter a shift amount (1-25): "))
+    if not 1 <= shift <= 25:
+        print("Invalid shift amount, please enter a value between 1 and 25")
+        return None
+    return "".join([chr((ord(ch) - shift - ord("a")) % 26 + ord("a")) for ch in message])
