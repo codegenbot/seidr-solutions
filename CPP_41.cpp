@@ -19,14 +19,18 @@ int car_race_collision(string track) {
     return collisions;
 }
 
+void test() {
+    assert(car_race_collision("RLRLRRLLR") == 7);
+}
+
 int main() {
     string track;
     cin >> track;
 
     int result = car_race_collision(track);
     cout << result << endl;
-
-    assert(car_race_collision("RLRRLLRRL") == 6);
+    
+    test();  // Run the test function
 
     return 0;
 }
