@@ -18,7 +18,6 @@ int main() {
     vector<float> lst;
     float temp;
     while (cin >> temp) {
-        if (cin.fail()) break;
         lst.push_back(temp);
     }
 
