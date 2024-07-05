@@ -8,7 +8,7 @@ def decode_cyclic(s):
         temp = ""
         while j < len(s) and s[j] != '<':
             if s[j] == '>':  
-                while j < len(s) and s[j] != '<':
+                while j < len(s) and s[j] != '>':
                     temp += s[j]
                     j = (j + 1) % len(s)
                 break
