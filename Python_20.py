@@ -16,7 +16,7 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
     return closest_pair
 
-if __name__ == "__main__":
+def main():
     try:
         nums = list(map(float, input().split()))
         if len(nums) < 2:
@@ -25,3 +25,6 @@ if __name__ == "__main__":
             print(find_closest_elements(nums))
     except ValueError:
         print("Invalid input. Please enter valid numbers separated by spaces.")
+
+if __name__ == "__main__":
+    main()
