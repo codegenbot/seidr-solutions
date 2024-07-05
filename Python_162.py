@@ -6,9 +6,10 @@ def string_to_md5(text):
 if __name__ == "__main__":
     try:
         text = input().strip()
-        if not text:
-            raise EOFError
-        result = string_to_md5(text)
-        print(result)
-    except EOFError:
-        print("No input received.")
+        if text:
+            result = string_to_md5(text)
+            print(result)
+        else:
+            print("No input received.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
