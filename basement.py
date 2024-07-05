@@ -9,3 +9,4 @@ def basement(v):
             total = 0
         else:
             break
+        i += 1
