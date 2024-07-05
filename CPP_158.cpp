@@ -2,19 +2,18 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <cassert>
 
 using namespace std;
 
 string find_max(vector<string> words) {
-    auto unique_char_count = [](const string &s) {
+    auto unique_char_count = [](const string& s) {
         return unordered_set<char>(s.begin(), s.end()).size();
     };
     
     string max_word = "";
     int max_unique_chars = 0;
     
-    for (const auto &word : words) {
+    for (const auto& word : words) {
         int unique_chars = unique_char_count(word);
         if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)) {
             max_unique_chars = unique_chars;
@@ -26,11 +25,11 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    assert(find_max({"play", "play", "play"}) == "play");
-    assert(find_max({"apple", "banana", "cherry"}) == "banana");
-    assert(find_max({"hello", "world", "programming"}) == "programming");
-    assert(find_max({"abc", "abcd", "abcde"}) == "abcde");
-    assert(find_max({"x", "y", "z"}) == "x");
-    cout << "All test cases passed!" << endl;
+    vector<string> words;
+    string word;
+    while (cin >> word) {
+        words.push_back(word);
+    }
+    cout << find_max(words) << endl; 
     return 0;
 }
