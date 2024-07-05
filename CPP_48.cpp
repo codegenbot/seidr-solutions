@@ -19,6 +19,7 @@ int main() {
     assert(is_palindrome("xywzx") == false);
     assert(is_palindrome("radar") == true);
     
+    // To take input from the user and print the result
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
