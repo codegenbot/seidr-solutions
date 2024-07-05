@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -13,7 +12,6 @@ int sum_squares(const std::vector<float>& lst) {
 }
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
-    std::cout << "Test passed!" << std::endl;
+    assert(sum_squares({-1, 1, 0}) == 2); // You may add more test cases here
     return 0;
 }
