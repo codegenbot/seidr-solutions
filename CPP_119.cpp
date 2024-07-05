@@ -1,6 +1,5 @@
-string match_parens(vector<string> lst) {
+string match_parens(vector<string> lst){
     string s1 = lst[0], s2 = lst[1];
-    
     auto is_good = [](const string &s) {
         int balance = 0;
         for (char c : s) {
