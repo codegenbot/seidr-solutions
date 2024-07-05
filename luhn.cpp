@@ -1,12 +1,13 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 int luhn(vector<int> digits) {
     int sum = 0;
-    for(int i=0; i<digits.size(); i++) {
-        if(i % 2 == 1) {
+    for (int i = 0; i < digits.size(); i++) {
+        if ((i % 2 == 1)) {
             int temp = digits[i] * 2;
-            if(temp > 9) {
+            if (temp > 9) {
                 temp -= 9;
             }
             sum += temp;
@@ -18,12 +19,7 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> digits(n);
-    for(int i=0; i<n; i++) {
-        cin >> digits[i];
-    }
+    vector<int> digits = {3, 4, 5, 1, 3, 5, 2, 8, 6, 2, 8, 9, 7, 1, 0};
     cout << luhn(digits) << endl;
     return 0;
 }
