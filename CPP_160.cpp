@@ -26,20 +26,17 @@ int do_algebra(const vector<string>& operato, const vector<int>& operand) {
 int main() {
     vector<string> operato;
     vector<int> operand;
-    string op;
-    int num, count;
+    string input;
+    int num;
 
-    cout << "Enter the number of operators: ";
-    cin >> count;
-    cout << "Enter operators: ";
-    for (int i = 0; i < count; ++i) {
-        cin >> op;
-        operato.push_back(op);
+    cout << "Enter operators (e.g. + - * / **) ending with 'done':" << endl;
+    while (cin >> input && input != "done") {
+        operato.push_back(input);
     }
 
-    cout << "Enter operands: ";
-    for (int i = 0; i <= count; ++i) {
-        cin >> num;
+    cout << "Enter operands ending with 'done':" << endl;
+    while (cin >> input && input != "done") {
+        num = stoi(input);
         operand.push_back(num);
     }
 
