@@ -7,5 +7,5 @@ def max_fill(grid, capacity):
 
 if __name__ == "__main__":
     result = max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9)
-    assert result == 2, f"Unexpected result: {result}"
     print(result)  # Should output 2
+    assert result == 2, "Error"
