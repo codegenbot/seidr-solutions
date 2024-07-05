@@ -17,5 +17,6 @@ vector<string> by_length(vector<int> arr) {
     for (int num : filtered) {
         result.push_back(numToStr[num]);
     }
+
     return result;
 }
