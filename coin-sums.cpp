@@ -21,10 +21,10 @@ int main() {
 
     int pennies = cents;
 
-    cout << quarters << "\n";
-    cout << dimes << "\n";
-    cout << nickles << "\n";
-    cout << pennies << "\n";
+    cout << "Quarters: " << quarters << "\n";
+    cout << "Dimes: " << dimes << "\n";
+    cout << "Nickles: " << nickles << "\n";
+    cout << "Pennies: " << pennies << "\n";
 
     return 0;
 }
