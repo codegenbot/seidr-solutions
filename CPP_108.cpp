@@ -2,21 +2,18 @@
 #include<math.h>
 #include<vector>
 using namespace std;
-
-int sum_of_digits(int num) {
-    int sum = 0;
-    while(num != 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
-int count_nums(vector<int> n) {
+int count_nums(vector<int> n){
     int count = 0;
-    for(int num : n) {
-        if(sum_of_digits(num) > 0) 
-            count++;
+    for(int num : n){
+        int sum = 0;
+        int temp = num;
+        
+        while (temp != 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+
+        if(sum > 0) count++;
     }
     return count;
 }
