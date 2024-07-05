@@ -13,9 +13,6 @@ bool is_happy(std::string s) {
 
 int main() {
     std::cout << std::boolalpha;
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    std::cout << is_happy(input) << std::endl;
+    std::cout << is_happy("iopaxioi") << std::endl; // Should print: false
     return 0;
 }
