@@ -25,7 +25,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(total_match({"this"}, {}).empty());
+    assert(total_match({"this"}, {}) == vector<string>{});
     cout << "All tests passed!" << endl;
     return 0;
 }
