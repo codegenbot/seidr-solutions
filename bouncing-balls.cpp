@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -5,7 +6,6 @@ using namespace std;
 
 int main() {
     double startHeight, firstBounce, numBounces;
-
     cin >> ws >> startHeight >> ws >> firstBounce >> ws >> numBounces;
 
     // Calculate bounciness index
