@@ -1,18 +1,6 @@
-#include <iostream>
-#include <cmath>
+#include <cmath> // Include the cmath header for cbrt and round
 
 bool iscuber(int a) {
-    int root = round(pow(a, 1.0/3));
-    return root * root * root == a;
-}
-
-int main() {
-    int num;
-    std::cin >> num;
-    if (iscuber(num)) {
-        std::cout << num << " is a perfect cube.\n";
-    } else {
-        std::cout << num << " is not a perfect cube.\n";
-    }
-    return 0;
+    int cbrt_a = std::round(std::cbrt(a));
+    return cbrt_a * cbrt_a * cbrt_a == a;
 }
