@@ -1,6 +1,8 @@
-from typing import List, Optional
-
-def longest(strings: list) -> Optional[str]:
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max(strings, key=len)
+    try:
+        return max(strings, key=len)
+    except (TypeError, AttributeError) as e:
+        print(f"An error occurred: {e}")
+        return None
