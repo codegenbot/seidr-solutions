@@ -15,7 +15,7 @@ def factorize(n: int) -> List[int]:
 if __name__ == "__main__":
     try:
         numbers = list(map(int, input().strip().split()))
-        results = [factorize(n) if n > 1 else [] for n in numbers]
+        results = [factorize(n) if n > 1 else [n] for n in numbers]
         for result in results:
             print(result)
     except ValueError:
