@@ -1,20 +1,13 @@
-#include <iostream>
-#include <sstream>
-#include <cctype>
-
-using namespace std;
-
-string toCamelCase(const string& str) {
-    stringstream ss(str);
-    string token, result;
-    bool firstWord = true;
-
-    while (getline(ss, token, '-')) {
-        if (!firstWord) {
-            token[0] = toupper(token[0]);
+string toCamelCase(const string &s) {
+    string result;
+    bool toUpper = false;
+    for (char ch : s) {
+        if (ch == '-') {
+            toUpper = true;
+        } else {
+            result += toUpper ? toupper(ch) : ch;
+            toUpper = false;
         }
-        result += token;
-        firstWord = false;
     }
     return result;
 }
@@ -22,17 +15,13 @@ string toCamelCase(const string& str) {
 int main() {
     string input;
     getline(cin, input);
-    
     stringstream ss(input);
-    string word, output;
-
+    string word;
+    bool first = true;
     while (ss >> word) {
-        if (!output.empty()) {
-            output += " ";
-        }
-        output += toCamelCase(word);
+        if (!first) cout << ' ';
+        cout << toCamelCase(word);
+        first = false;
     }
-
-    cout << output << endl;
     return 0;
 }
