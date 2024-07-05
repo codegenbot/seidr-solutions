@@ -11,9 +11,6 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             closest_pair = (numbers[i], numbers[i + 1])
     return closest_pair
 
-if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    numbers = list(map(float, input().strip().split()))
-    result = find_closest_elements(numbers)
-    print(result)
+input_numbers = list(map(float, input("Enter a list of numbers separated by spaces: ").split()))
+result = find_closest_elements(input_numbers)
+print("The closest pair of numbers is:", result)
