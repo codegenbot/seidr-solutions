@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // Include this header for reverse
-
+#include <algorithm>
 using namespace std;
 
 bool is_palindrome(string str) {
@@ -21,7 +20,7 @@ string make_palindrome(string str) {
     return str; // This line is just for safety, though logically it won't be reached.
 }
 
-int main() {
+int main() { // Keep only one definition of main function
     string input;
     cin >> input;
     cout << make_palindrome(input) << endl;
