@@ -4,7 +4,7 @@ string int_to_mini_roman(int number) {
         {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"},
         {5, "v"}, {4, "iv"}, {1, "i"}
     };
-    string result;
+    string result = "";
     for (const auto& [value, symbol] : roman) {
         while (number >= value) {
             result += symbol;
