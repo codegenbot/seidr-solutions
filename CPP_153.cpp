@@ -4,10 +4,8 @@
 #include <cctype>
 #include <climits>
 
-using namespace std;
-
-string Strongest_Extension(const string& class_name, const vector<string>& extensions) {
-    string strongest_extension = "";
+std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
+    std::string strongest_extension = "";
     int max_strength = INT_MIN;
 
     for (const auto& ext : extensions) {
@@ -27,6 +25,13 @@ string Strongest_Extension(const string& class_name, const vector<string>& exten
 }
 
 int main() {
-    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl; // Expected: "Sp.671235"
+    std::string class_name;
+    int num_extensions;
+    std::cin >> class_name >> num_extensions;
+    std::vector<std::string> extensions(num_extensions);
+    for (int i = 0; i < num_extensions; ++i) {
+        std::cin >> extensions[i];
+    }
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
     return 0;
 }
