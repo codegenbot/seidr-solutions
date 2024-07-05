@@ -1,13 +1,13 @@
-#include <unordered_map>
-
-using namespace std;
-
-unordered_map<int, int> memo;
-
 int fibfib(int n) {
     if (n == 0 || n == 1) return 0;
     if (n == 2) return 1;
-    if (memo.find(n) != memo.end()) return memo[n];
-    memo[n] = fibfib(n-1) + fibfib(n-2) + fibfib(n-3);
-    return memo[n];
+
+    int a = 0, b = 0, c = 1, d;
+    for (int i = 3; i <= n; i++) {
+        d = a + b + c;
+        a = b;
+        b = c;
+        c = d;
+    }
+    return c;
 }
