@@ -50,5 +50,10 @@ int main() {
     else if (result.type() == typeid(double))
         cout << any_cast<double>(result) << endl;
 
+    if (any_cast<string>(compare_one(string("1"), 1)) == "None")
+        cout << "Check passed" << endl;
+    else
+        cout << "Check failed" << endl;
+
     return 0;
 }
