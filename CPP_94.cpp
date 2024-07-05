@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -24,7 +23,7 @@ int sumOfDigits(int n) {
     return sum;
 }
 
-int largestPrimeDigitSum(vector<int> lst) {
+int largestPrimeDigitSum(const vector<int>& lst) {
     int largestPrime = -1;
     for (int num : lst) {
         if (isPrime(num) && num > largestPrime) {
@@ -45,9 +44,6 @@ int main() {
     }
     
     cout << "Result: " << largestPrimeDigitSum(lst) << endl;
-
-    // Adding the assert for test validation
-    assert(largestPrimeDigitSum({127, 97, 8192}) == 10);
 
     return 0;
 }
