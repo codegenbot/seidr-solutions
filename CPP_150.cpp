@@ -1,6 +1,6 @@
 #include <cmath>
 
-bool is_prime(int n) {
+bool isPrime(int n) {
     if (n <= 1) return false;
     if (n <= 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
@@ -11,5 +11,5 @@ bool is_prime(int n) {
 }
 
 int x_or_y(int n, int x, int y) {
-    return is_prime(n) ? x : y;
+    return isPrime(n) ? x : y;
 }
