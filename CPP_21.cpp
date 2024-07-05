@@ -18,7 +18,7 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-6) return false;
+        if (fabs(a[i] - b[i]) > 1e-6) return false; // Allowing a small tolerance due to floating-point comparisons
     }
     return true;
 }
