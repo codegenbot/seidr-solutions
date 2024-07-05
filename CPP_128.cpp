@@ -9,7 +9,7 @@ int prod_signs(const std::vector<int>& arr) {
     int product_of_signs = 1;
 
     for (int num : arr) {
-        sum_magnitudes += abs(num);
+        sum_magnitudes += std::abs(num);
         if (num > 0) product_of_signs *= 1;
         else if (num < 0) product_of_signs *= -1;
         else product_of_signs *= 0;
@@ -19,7 +19,6 @@ int prod_signs(const std::vector<int>& arr) {
 }
 
 int main() {
-    // Test case
     std::cout << prod_signs({-1, 1, 1, 0}) << std::endl; // Expected output: 0
     return 0;
 }
