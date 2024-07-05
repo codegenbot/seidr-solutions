@@ -9,12 +9,12 @@ vector<int> make_a_pile(int n) {
     int stones = n;
     for (int i = 0; i < n; ++i) {
         pile.push_back(stones);
-        stones += (n % 2 == 0) ? 2 : 1;
+        stones += 2;
     }
     return pile;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
