@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <any>
-
 using namespace std;
 
 double to_double(std::any val) {
@@ -42,4 +41,19 @@ std::any compare_one(std::any a, std::any b) {
     double double_b = to_double(b);
     if (double_a == double_b) return "None";
     return double_a > double_b ? a : b;
+}
+
+int main() {
+    std::any a = 42;
+    std::any b = 3.14f;
+    try {
+        std::cout << std::any_cast<int>(compare_one(a, b)) << std::endl; 
+    } catch (const std::bad_any_cast& e) {
+        try {
+            std::cout << std::any_cast<float>(compare_one(a, b)) << std::endl;
+        } catch (const std::bad_any_cast& e) {
+            std::cout << std::any_cast<string>(compare_one(a, b)) << std::endl;
+        }
+    }
+    return 0;
 }
