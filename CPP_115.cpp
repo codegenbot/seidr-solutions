@@ -1,18 +1,25 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
+
 using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water_units = 0;
-    for (const auto& row : grid) {
-        for (int water_unit : row) {
-            total_water_units += water_unit;
+    int count = 0;
+    for (const auto &row : grid) {
+        int water_units = 0;
+        for (int cell : row) {
+            if (cell == 1) water_units++;
         }
+        count += (water_units + capacity - 1) / capacity; // Ceiling division
     }
-    return (total_water_units + capacity - 1) / capacity;
+    return count;
 }
 
 int main() {
-    assert(max_fill({{1, 1, 1, 1}, {1, 1, 1, 1}}, 9) == 2);
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 3) == 3);
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 6) == 2);
+    assert(max_fill({{1,1,1,1}, {0,0,0,0}}, 5) == 1);
+    cout << "All tests passed!" << endl;
     return 0;
 }
