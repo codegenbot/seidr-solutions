@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cassert>
+using namespace std;
 
 int largest_divisor(int n) {
     for (int i = n / 2; i >= 1; --i) {
@@ -12,7 +12,8 @@ int largest_divisor(int n) {
 
 int main() {
     int n;
-    std::cin >> n;
-    std::cout << largest_divisor(n) << std::endl;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "Largest divisor of " << n << " is: " << largest_divisor(n) << endl;
     return 0;
 }
