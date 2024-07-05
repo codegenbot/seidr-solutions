@@ -11,18 +11,17 @@ string encode(string message){
         else if (islower(c)) c = toupper(c);
 
         // Replace vowels
-        if (c == 'a') c = 'C';
-        else if (c == 'e') c = 'G';
-        else if (c == 'i') c = 'K';
-        else if (c == 'o') c = 'Q';
-        else if (c == 'u') c = 'W';
+        if (c == 'a' || c == 'A') c = 'C';
+        else if (c == 'e' || c == 'E') c = 'G';
+        else if (c == 'i' || c == 'I') c = 'K';
+        else if (c == 'o' || c == 'O') c = 'Q';
+        else if (c == 'u' || c == 'U') c = 'W';
     }
     return message;
 }
 
 int main() {
-    string message;
-    getline(cin, message);
-    cout << encode(message) << endl;
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTG");
+    cout << "All tests passed!" << endl;
     return 0;
 }
