@@ -1,4 +1,6 @@
 ```
 def luhn(card_number):
-    card_number = [int(d) for d in str(card_number)]
-    return sum(sum(divmod(x*2,10)) if i % 2 != 0 else x for i, x in enumerate(card_number))
+    card_number = [int(x) for x in str(card_number)]
+    return sum(
+        [i - 9 if i * 2 > 9 else i * 2 if i % 2 != 0 else i for i in card_number[1:]]
+    )
