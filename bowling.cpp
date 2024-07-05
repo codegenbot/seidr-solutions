@@ -3,20 +3,13 @@
 int bowlingScore(std::string s) {
     int score = 0;
     int currentRoll = 0;
-    bool strike = false;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
             currentRoll++;
-            strike = true;
         } else if (c == '/') {
-            if(strike){
-                score += 20 + currentRoll * 10;
-                strike = false;
-            } else {
-                score += 10 + currentRoll;
-                currentRoll = 0;
-            }
+            score += 10 + currentRoll;
+            currentRoll = 0;
         } else {
             int roll = c - '0';
             score += roll;
@@ -28,4 +21,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
