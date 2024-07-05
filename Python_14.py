@@ -3,4 +3,4 @@ def generate_substrings(string):
 
 string = input("Enter a string: ")
 all_prefixes = generate_substrings(string)
-check(all_prefixes)
+print(all_prefixes)
