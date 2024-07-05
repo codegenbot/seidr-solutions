@@ -15,10 +15,3 @@ int modp(int n, int p) {
 
     return result;
 }
-
-int main() {
-    int n, p;
-    scanf("%d %d", &n, &p);
-    printf("%d\n", modp(n, p));
-    return 0;
-}
