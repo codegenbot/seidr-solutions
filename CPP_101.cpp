@@ -14,7 +14,7 @@ vector<string> words_string(const string& s) {
         stringstream ss_word(word);
         string subword;
         while (getline(ss_word, subword, ',')) {
-            if (!subword.empty()) {
+            if (!subword.empty()) { // To avoid pushing empty strings
                 result.push_back(subword);
             }
         }
