@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int count_upper(string s) {
@@ -14,8 +15,8 @@ int count_upper(string s) {
 
 int main() {
     string input;
-    getline(cin, input); // To handle spaces in the input string
-    int result = count_upper(input);
-    cout << result << endl;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << "Number of uppercase letters: " << count_upper(input) << endl;
     return 0;
 }
