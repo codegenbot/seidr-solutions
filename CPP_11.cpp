@@ -1,16 +1,21 @@
-#include <string>
 #include <iostream>
-#include <cassert>
+#include <string>
+using namespace std;
 
-std::string string_xor(const std::string& a, const std::string& b) {
-    std::string result = "";
-    for(size_t i = 0; i < a.length(); ++i) {
+string string_xor(string a, string b) {
+    string result = "";
+    for (size_t i = 0; i < a.length(); ++i) {
         result += (a[i] == b[i]) ? '0' : '1';
     }
     return result;
 }
 
 int main() {
-    assert(string_xor("0101", "0000") == "0101");
+    string a, b;
+    cout << "Enter first binary string: ";
+    cin >> a;
+    cout << "Enter second binary string: ";
+    cin >> b;
+    cout << string_xor(a, b) << endl;
     return 0;
 }
