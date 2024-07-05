@@ -1,10 +1,6 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
 int basement(vector<int>& v) {
-    size_t i = 0;
     int sum = 0;
+    int i = 0; // declare and initialize i here
     for (i = 0; i < v.size(); i++) {
         sum += v[i];
         if (sum >= 0) {
@@ -12,10 +8,4 @@ int basement(vector<int>& v) {
         }
     }
     return i + 1; // return the first index where the sum becomes negative
-}
-
-int main() {
-    vector<int> v{1,2,3,4};
-    cout << basement(v) << endl;
-    return 0;
 }
