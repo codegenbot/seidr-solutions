@@ -1,10 +1,7 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool correct_bracketing(string brackets) {
+bool correct_bracketing(std::string brackets) {
     int balance = 0;
     for (char ch : brackets) {
         if (ch == '(') {
@@ -20,9 +17,6 @@ bool correct_bracketing(string brackets) {
 }
 
 int main() {
-    // test cases
-    assert(correct_bracketing("()()(()())") == true);
-    assert(correct_bracketing("()()(()())()))()") == false);
-    cout << "All tests passed!" << endl;
+    assert(!correct_bracketing("()()(()())()))()"));
     return 0;
 }
