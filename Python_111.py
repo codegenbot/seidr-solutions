@@ -17,6 +17,6 @@ def histogram(test):
 
 if __name__ == "__main__":
     import sys
-    input_data = sys.stdin.read()
+    input_data = sys.stdin.read().strip()
     result = histogram(input_data)
     print(result)
