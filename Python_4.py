@@ -6,7 +6,5 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return mad
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    numbers = list(map(float, input().strip().split()))
+    numbers = list(map(float, input().split()))
     print(mean_absolute_deviation(numbers))
