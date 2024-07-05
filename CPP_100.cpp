@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -14,6 +15,12 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(make_a_pile(8) == vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
+    int n;
+    cin >> n;
+    vector<int> result = make_a_pile(n);
+    for(int number : result) {
+        cout << number << " ";
+    }
+    cout << endl;
     return 0;
 }
