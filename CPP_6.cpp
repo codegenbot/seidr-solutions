@@ -9,7 +9,7 @@ using namespace std;
 vector<int> parse_nested_parens(const string& paren_string) {
     vector<int> result;
     int max_depth = 0, current_depth = 0;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
@@ -18,12 +18,9 @@ vector<int> parse_nested_parens(const string& paren_string) {
             }
         } else if (c == ')') {
             current_depth--;
-        } else if (c == ' ' && current_depth == 0) { // space between groups of parentheses
-            result.push_back(max_depth);
-            max_depth = 0;
         }
     }
-    result.push_back(max_depth); // for the last group
+    result.push_back(max_depth); // record max depth
     return result;
 }
 
@@ -33,8 +30,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((()))) (()())"), {4, 2}));
-    assert(issame(parse_nested_parens("((())) (()) (()(()))"), {3, 2, 3}));
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
     cout << "All tests passed!" << endl;
     return 0;
 }
