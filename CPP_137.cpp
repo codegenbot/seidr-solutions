@@ -29,18 +29,18 @@ any compare_one(any a, any b) {
     if (va.type() == typeid(double) && vb.type() == typeid(double)) {
         double da = any_cast<double>(va);
         double db = any_cast<double>(vb);
-        if (da == db) return "None";
+        if (da == db) return string("None");
         return da > db ? a : b;
     }
 
     if (va.type() == typeid(string) && vb.type() == typeid(string)) {
         string sa = any_cast<string>(va);
         string sb = any_cast<string>(vb);
-        if (sa == sb) return "None";
+        if (sa == sb) return string("None");
         return sa > sb ? a : b;
     }
 
-    return "None"; // Different types or unable to compare
+    return string("None"); // Different types or unable to compare
 }
 
 int main() {
