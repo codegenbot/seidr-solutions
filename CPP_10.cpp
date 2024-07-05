@@ -9,7 +9,7 @@ bool is_palindrome(string str) {
 
 string make_palindrome(string str) {
     int n = str.length();
-    if (n == 0) return str;
+    if (n == 0) return "";
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
             string prefix = str.substr(i);
@@ -17,7 +17,7 @@ string make_palindrome(string str) {
             return str + prefix;
         }
     }
-    return str; // This line is never reached
+    return "";
 }
 
 int main() {
