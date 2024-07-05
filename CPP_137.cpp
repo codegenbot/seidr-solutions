@@ -60,7 +60,7 @@ int main() {
         std::cout << std::any_cast<double>(result) << std::endl;
 
     // Example usage 2
-    result = compare_one("1", 1);
+    result = compare_one(std::string("1"), 1);
     if (result.type() == typeid(std::string))
         std::cout << std::any_cast<std::string>(result) << std::endl;
     else if (result.type() == typeid(double))
