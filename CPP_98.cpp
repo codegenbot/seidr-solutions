@@ -1,6 +1,6 @@
+#include <iostream>
 #include <string>
 #include <cctype>
-#include <iostream>
 
 int count_upper(const std::string& s) {
     int count = 0;
@@ -14,10 +14,7 @@ int count_upper(const std::string& s) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
-    
-    int result = count_upper(input);
-    std::cout << result << std::endl;
-    
+    std::cin >> input;
+    std::cout << count_upper(input) << std::endl;
     return 0;
 }
