@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <cmath> // for abs
+#include <cmath>
 
 using namespace std;
 
@@ -30,9 +30,9 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
-    assert(issame(even_odd_count(123456), {3, 3}));
-    assert(issame(even_odd_count(-13579), {0, 5}));
-    assert(issame(even_odd_count(24680), {5, 0}));
+    assert(issame(even_odd_count(12345), {2, 3}));
+    assert(issame(even_odd_count(-24680), {5, 0}));
+    assert(issame(even_odd_count(13579), {0, 5}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
