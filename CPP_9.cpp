@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -22,6 +22,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    cout << "All tests passed!" << endl;
+    cout << "All test cases pass." << endl;
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // For reverse
+#include <algorithm>
 using namespace std;
 
 bool is_palindrome(string str) {
