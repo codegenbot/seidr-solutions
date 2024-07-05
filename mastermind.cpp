@@ -8,10 +8,10 @@ int blackPegs(string code, string guess) {
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
-                if (i == j) { // correct position
+                if (i == j) { 
                     correctPosition++;
-                } else { // correct color, wrong position
-                    codeArray[i] = ' '; // mark as seen
+                } else { 
+                    codeArray[i] = ' '; 
                     correctColorWrongPos++;
                 }
             }
