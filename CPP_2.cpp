@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-float truncate_number(float number){
+int truncate_number(float number){
     return static_cast<int>(number);
 }
 
