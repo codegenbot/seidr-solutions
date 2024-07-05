@@ -1,9 +1,9 @@
-def sort_third(l: list):
+def sort_third(l):
     return [
         (
             i
             if i % 3 != 0
-            else sorted([x for x in l[: (i + 2) // 3 * 3] if x % 3 != 0])[-1]
+            else min((x for x in l[: ((min(len(l), i + 2)) // 3) * 3] if x % 3 != 0), default=None)
         )
         for i in range(len(l))
     ]
