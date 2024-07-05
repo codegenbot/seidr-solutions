@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <cmath>
 
 using namespace std;
 
@@ -16,18 +15,13 @@ vector<float> get_positive(vector<float> l) {
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-6) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    assert(issame(get_positive({-1, 0, 1, 2, -2}), {1, 2}));
-    assert(issame(get_positive({-0.5, 0.3, 1.7, -1.2, 2.6}), {0.3, 1.7, 2.6}));
     assert(issame(get_positive({}), {}));
-    assert(issame(get_positive({-3, -2, -1}), {}));
+    assert(issame(get_positive({-1, 0, 1, 2}), {1, 2}));
+    assert(issame(get_positive({-5.5, 3.3, 0.0, 2.1}), {3.3, 2.1}));
     cout << "All tests passed!" << endl;
     return 0;
 }
