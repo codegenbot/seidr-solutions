@@ -2,25 +2,29 @@
 #include <vector>
 #include <string>
 
-using namespace std;
+std::string longest(const std::vector<std::string>& strings) {
+    if (strings.empty()) {
+        return "None";
+    }
 
-string longest(const vector<string>& strings) {
-    if (strings.empty()) return "None";
-    string longest_str = strings[0];
+    std::string longestStr = strings[0];
     for (const auto& str : strings) {
-        if (str.length() > longest_str.length()) {
-            longest_str = str;
+        if (str.length() > longestStr.length()) {
+            longestStr = str;
         }
     }
-    return longest_str;
+    return longestStr;
 }
 
 int main() {
-    vector<string> input;
-    string word;
-    while (cin >> word) {
-        input.push_back(word);
+    for (std::string s; std::getline(std::cin, s); ) {
+        std::vector<std::string> strings;
+        std::string word;
+        std::istringstream stream(s);
+        while (stream >> word) {
+            strings.push_back(word);
+        }
+        std::cout << longest(strings) << std::endl;
     }
-    cout << longest(input) << endl;
     return 0;
 }
