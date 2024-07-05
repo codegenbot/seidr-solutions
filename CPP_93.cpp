@@ -1,25 +1,24 @@
-string encode(string message){
-    auto is_vowel = [](char c) {
-        char lower = tolower(c);
-        return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';
-    };
-
-    auto shift_vowel = [](char c) {
-        char lower = tolower(c);
-        if (lower == 'a') return 'C';
-        if (lower == 'e') return 'G';
-        if (lower == 'i') return 'K';
-        if (lower == 'o') return 'Q';
-        if (lower == 'u') return 'W';
-        return c;
-    };
-
-    for (char& c : message) {
-        if (is_vowel(c)) {
-            c = shift_vowel(c);
-        } else {
-            c = islower(c) ? toupper(c) : tolower(c);
+string encode(string message) {
+    string result = "";
+    for (char &c : message) {
+        if (isalpha(c)) {
+            // Swap case
+            if (islower(c)) c = toupper(c);
+            else c = tolower(c);
+            
+            // Replace vowels
+            if (c == 'A') c = 'C';
+            else if (c == 'E') c = 'G';
+            else if (c == 'I') c = 'K';
+            else if (c == 'O') c = 'Q';
+            else if (c == 'U') c = 'W';
+            else if (c == 'a') c = 'c';
+            else if (c == 'e') c = 'g';
+            else if (c == 'i') c = 'k';
+            else if (c == 'o') c = 'q';
+            else if (c == 'u') c = 'w';
         }
+        result += c;
     }
-    return message;
+    return result;
 }
