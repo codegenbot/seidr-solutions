@@ -1,5 +1,8 @@
-#include<algorithm>
-
-float max_element(vector<float> l){
-    return *max_element(l.begin(), l.end());
+float max_val = l[0];
+    for(float val : l) {
+        if(val > max_val) {
+            max_val = val;
+        }
+    }
+    return max_val;
 }
