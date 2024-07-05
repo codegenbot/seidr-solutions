@@ -14,8 +14,8 @@ bool correct_bracketing(const std::string &brackets) {
 
 int main() {
     // Testing the function
-    assert (correct_bracketing("<><><<><>><>>><>") == false);
-    assert (correct_bracketing("<><>") == true);
+    assert(correct_bracketing("<><><<><>><>>><>") == false);
+    assert(correct_bracketing("<><>") == true);
     std::cout << "All test cases passed." << std::endl;
     return 0;
 }
