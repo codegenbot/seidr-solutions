@@ -2,8 +2,7 @@ def add(x: int, y: int):
     return x + y
 
 try:
-    x, y = input().strip().split()
-    x, y = int(x), int(y)
+    x, y = map(int, input().strip().split())
     print(add(x, y))
 except (ValueError, TypeError):
     print("Invalid input")
