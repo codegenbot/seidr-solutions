@@ -1,50 +1,34 @@
-#include <iostream>
-using namespace std;
-
 int bowlingScore(const char* s) {
     int score = 0;
-    int currentRoll1 = 0;
-    int currentRoll2 = 0;
+    int currentRoll = 0;
+
     for (int i = 0; s[i] != '\0'; i++) {
         if (s[i] == 'X') {
-            score += 30;
-            currentRoll1++;
-            if (currentRoll1 < 2) {
-                // Add the score of the strike roll(s)
-                int strikeRoll = bowlingScore(&s[i+1]);
-                score += strikeRoll;
+            // Strike! Add 10 + next two rolls (if they exist)
+            if (i + 2 < strlen(s)) {
+                score += 10 + (s[i+1] - '0') * 2 + (s[i+2] - '0');
+            } else {
+                score += 10 + currentRoll * 2;
             }
         } else if (s[i] == '/') {
-            score += 10 + currentRoll1;
-            currentRoll1 = 0;
-            currentRoll2 = 0;
-            // Add the score of the spare roll
-            int spareRoll = bowlingScore(&s[i+1]) - 10;
-            score += spareRoll;
+            // Spare! Add 10 to the score
+            score += 10;
+            currentRoll = 0; // Reset roll counter
         } else {
             int roll = s[i] - '0';
-            if (currentRoll1 == 0) {
-                currentRoll1 = roll;
-                currentRoll2 = 0;
-            } else {
-                currentRoll1 += roll;
-                if (currentRoll1 < 10) {
-                    currentRoll2 = roll;
+            score += roll;
+            currentRoll++;
+
+            // If we've had two rolls, add their sum (if not a strike)
+            if (currentRoll == 2) {
+                if (s[i+1] != 'X' && s[i+1] != '/') {
+                    score += roll * 2;
                 } else {
-                    // Add the score of the rolls
-                    score += currentRoll1 + currentRoll2;
-                    currentRoll1 = 0;
-                    currentRoll2 = 0;
+                    currentRoll = 0; // Reset roll counter
                 }
             }
         }
     }
-    return score;
-}
 
-int main() {
-    char s[100];
-    cin.getline(s, 100);
-    cout << "The bowling score is: " << bowlingScore(s) << endl;
-    return 0;
+    return score;
 }
