@@ -4,5 +4,5 @@ def basement(v):
     while True:
         total += v[i]
         if total < 0:
-            return i
+            return i + 1
         i += 1
