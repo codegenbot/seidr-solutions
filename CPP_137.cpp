@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <any>
+#include <algorithm>
+#include <stdexcept>
 
 using namespace std;
 
@@ -10,6 +12,8 @@ any compare_one(any a, any b) {
             return any_cast<int>(val);
         } else if (val.type() == typeid(float)) {
             return any_cast<float>(val);
+        } else if (val.type() == typeid(double)) {
+            return any_cast<double>(val);
         } else if (val.type() == typeid(string)) {
             string str_val = any_cast<string>(val);
             replace(str_val.begin(), str_val.end(), ',', '.');
@@ -44,7 +48,11 @@ int main() {
             try {
                 cout << any_cast<float>(result) << endl;
             } catch(const bad_any_cast&) {
-                cout << "Invalid result type" << endl;
+                try {
+                    cout << any_cast<double>(result) << endl;
+                } catch(const bad_any_cast&) {
+                    cout << "Invalid result type" << endl;
+                }
             }
         }
     }
