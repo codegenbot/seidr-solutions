@@ -1,9 +1,10 @@
-#include <string>
 #include <iostream>
-#include <cassert>
+#include <string>
 
-std::string fix_spaces(std::string text) {
-    std::string result;
+using namespace std;
+
+string fix_spaces(string text) {
+    string result;
     int space_count = 0;
 
     for (char c : text) {
@@ -30,7 +31,6 @@ std::string fix_spaces(std::string text) {
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    std::cout << "Test passed!" << std::endl;
+    cout << (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple" ? "Test passed" : "Test failed") << endl;
     return 0;
 }
