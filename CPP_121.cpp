@@ -15,6 +15,6 @@ int solutions(vector<int> lst) {
 
 int main() {
     vector<int> sample {3, 13, 2, 9};
-    cout << solutions(sample) << endl; // should print 3
+    cout << solutions(sample) << endl;
     return 0;
 }
