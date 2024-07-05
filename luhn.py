@@ -1,4 +1,4 @@
-```python
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     result = 0
@@ -8,7 +8,8 @@ def luhn(card_number):
             result += 9 - double_digit if double_digit > 9 else double_digit
         else:
             result += digit
-    return result
+    total_count = len(card_number)
+    return result + (total_count // 2) if total_count % 2 != 0 else 0
 
 card_number = int(input("Enter a credit card number: "))
 print(luhn(card_number))
