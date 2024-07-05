@@ -1,14 +1,12 @@
-vector<int> pluck(vector<int> arr) {
-    int min_even = -1;
-    int min_index = -1;
+vector<int> pluck(vector<int> arr){
+    int smallest_even = INT_MAX;
+    int index = -1;
     for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0) {
-            if (min_even == -1 || arr[i] < min_even) {
-                min_even = arr[i];
-                min_index = i;
-            }
+        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
+            smallest_even = arr[i];
+            index = i;
         }
     }
-    if (min_even == -1) return {};
-    return {min_even, min_index};
+    if (index == -1) return {};
+    return {smallest_even, index};
 }
