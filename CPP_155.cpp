@@ -29,7 +29,8 @@ int main() {
     assert(issame(even_odd_count(0), {0, 0}));
     assert(issame(even_odd_count(123), {1, 2}));
     assert(issame(even_odd_count(2468), {4, 0}));
-    // Add more tests as needed
+    assert(issame(even_odd_count(1357), {0, 4}));
+    assert(issame(even_odd_count(102030), {3, 2}));
 
     cout << "All tests passed!" << endl;
     return 0;
