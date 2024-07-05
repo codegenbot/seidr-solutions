@@ -2,7 +2,6 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
-#include <iostream>
 
 double median(std::vector<int> l) {
     std::sort(l.begin(), l.end());
@@ -15,11 +14,7 @@ double median(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-    std::cout << median(input) << std::endl;
+    assert(abs(median({8, 1, 3, 9, 9, 2, 7}) - 7.0) < 1e-4);
+    assert(abs(median({8, 1, 3, 9, 9, 2, 7, 6}) - 6.0) < 1e-4);
     return 0;
 }
