@@ -1,7 +1,7 @@
 def gcd(a, b):
     while b:
         a, b = b, a % b
-    return abs(a)
+    return a
 
 print(gcd(24, 54))
 print(gcd(400000, 4))

@@ -1,16 +1,19 @@
-```cpp
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
-    int numBounces;
+    int startHeight, firstBounce;
+    long double numBounces;
 
-    cin >> startHeight >> ' ' >> firstBounce >> ' ' >> numBounces;
+    cin >> startHeight >> firstBounce >> numBounces;
 
-    double bouncinessIndex = stod((firstBounce + " / " + to_string(startHeight)).c_str());
+    // Calculate bounciness index
+    long double bouncinessIndex = (long double)firstBounce / startHeight;
 
-    double totalDistance = 0.0;
+    // Calculate total distance traveled
+    long double totalDistance = 0.0L;
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += pow(bouncinessIndex, i);
     }
