@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string encode_shift(string s) {
