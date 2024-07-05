@@ -1,20 +1,24 @@
-#include <unordered_map>
-
-std::unordered_map<int, int> memo;
+#include <iostream>
+using namespace std;
 
 int fibfib(int n) {
     if (n == 0) return 0;
     if (n == 1) return 0;
     if (n == 2) return 1;
-    if (memo.find(n) != memo.end()) return memo[n];
-    memo[n] = fibfib(n - 1) + fibfib(n - 2) + fibfib(n - 3);
-    return memo[n];
+
+    int a = 0, b = 0, c = 1, d;
+    for (int i = 3; i <= n; ++i) {
+        d = a + b + c;
+        a = b;
+        b = c;
+        c = d;
+    }
+    return c;
 }
 
 int main() {
     int n;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("fibfib(%d) = %d\n", n, fibfib(n));
+    cin >> n;
+    cout << fibfib(n) << endl;
     return 0;
 }
