@@ -8,6 +8,8 @@ int my_strlen(string str) {
 }
 
 int main() {
-    assert(my_strlen("asdasnakj") == 9);
+    string input;
+    cin >> input;
+    cout << my_strlen(input) << endl;
     return 0;
 }
