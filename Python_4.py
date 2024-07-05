@@ -6,7 +6,8 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return mad
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    numbers = list(map(float, input().split()))
-    print(mean_absolute_deviation(numbers))
+    try:
+        numbers = list(map(float, input("Enter numbers separated by spaces: ").strip().split()))
+        print(mean_absolute_deviation(numbers))
+    except ValueError:
+        print("Please enter valid numbers separated by spaces.")
