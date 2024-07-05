@@ -14,6 +14,7 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    cout << gcd(48, 18);  
+    cout << gcd(48, 18);
+    
     return 0;
 }
