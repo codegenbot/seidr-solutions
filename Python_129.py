@@ -27,17 +27,16 @@ def minPath(grid, k):
 
 if __name__ == "__main__":
     import sys
+
     input = sys.stdin.read
-    data = input().split()
+    data = list(map(int, input().strip().split()))
 
-    N = int(data[0])
-    k = int(data[1])
-
+    N = data[0]
+    k = data[1]
     grid = []
     idx = 2
     for i in range(N):
-        row = list(map(int, data[idx:idx + N]))
-        grid.append(row)
+        grid.append(data[idx:idx + N])
         idx += N
 
     result = minPath(grid, k)
