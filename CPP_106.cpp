@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -23,4 +24,15 @@ vector<int> f(int n) {
         }
     }
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = f(n);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }

@@ -1,11 +1,9 @@
-#include<stdio.h>
-#include<math.h>
-using namespace std;
 bool is_simple_power(int x, int n) {
-    if (n <= 1) return x == 1;
-    while (x > 1) {
-        if (x % n != 0) return false;
-        x /= n;
+    if (x < 1 || n < 1) return false; // Check for valid input values
+    if (n == 1) return x == 1;
+    int power = 1;
+    while (power <= x / n) {
+        power *= n;
     }
-    return x == 1;
+    return power == x;
 }
