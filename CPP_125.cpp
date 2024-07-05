@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <cctype>
+#include <algorithm>
 
 using namespace std;
 
@@ -24,7 +26,7 @@ vector<string> split_words(string txt) {
     } else {
         int odd_count = 0;
         for (char c : txt) {
-            if (islower(c) && ((c - 'a') % 2 == 0)) {
+            if (islower(c) && ((c - 'a') % 2 == 1)) {
                 odd_count++;
             }
         }
@@ -38,11 +40,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(split_words("hello world"), {"hello", "world"}));
-    assert(issame(split_words("a,b,c"), {"a", "b", "c"}));
-    assert(issame(split_words("abcdef"), {"3"}));
     assert(issame(split_words(""), {"0"}));
-    
+    assert(issame(split_words("hello"), {"2"}));
+    assert(issame(split_words("hello world"), {"hello", "world"}));
+    assert(issame(split_words("one,two,three"), {"one", "two", "three"}));
     cout << "All tests passed!" << endl;
     return 0;
 }

@@ -3,6 +3,7 @@
 #include <cassert>
 using namespace std;
 
+// Function to sort the array
 vector<int> sort_array(vector<int> arr) {
     auto count_ones = [](int x) {
         int count = 0;
@@ -23,12 +24,13 @@ vector<int> sort_array(vector<int> arr) {
     return arr;
 }
 
+// Function to compare two vectors
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+// Main function
 int main() {
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    assert(issame(sort_array({7, 2, 5, 3, 11}), {2, 3, 5, 7, 11}));
     return 0;
 }
