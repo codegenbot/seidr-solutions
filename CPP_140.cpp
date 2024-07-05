@@ -24,10 +24,3 @@ std::string fix_spaces(const std::string &text) {
     }
     return result;
 }
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << fix_spaces(input) << std::endl;
-    return 0;
-}
