@@ -20,9 +20,9 @@ if __name__ == "__main__":
     try:
         while True:
             test = input().strip()
-            if test == "":  # Stop input on empty line
+            if test == "":
                 break
             result = histogram(test)
             print(result)
     except EOFError:
-        pass  # Handle end of input
+        pass
