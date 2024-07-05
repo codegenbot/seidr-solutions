@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm> // for std::equal
 
 using namespace std;
 
