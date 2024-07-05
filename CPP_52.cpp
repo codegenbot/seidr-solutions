@@ -19,9 +19,9 @@ int main() {
         cin >> l[i];
     }
     if(below_threshold(l, t)) {
-        cout << "True" << endl;
+        cout << "All elements are below threshold." << endl;
     } else {
-        cout << "False" << endl;
+        cout << "Some elements are above or equal to threshold." << endl;
     }
     return 0;
 }
