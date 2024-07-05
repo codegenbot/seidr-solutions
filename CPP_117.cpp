@@ -26,15 +26,13 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    vector<string> expected1 = {"b", "c", "d", "f"};
-    vector<string> actual1 = select_words("a b c d e f", 1);
-    assert(actual1 == expected1);
-
-    vector<string> expected2 = {"hello"};
-    vector<string> actual2 = select_words("hello world", 3);
-    assert(actual2 == expected2);
-
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("hello world", 3), {"hello"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
