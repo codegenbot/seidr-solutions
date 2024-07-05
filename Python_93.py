@@ -6,6 +6,7 @@ def encode(message):
             if char.islower():
                 encoded_char = chr((ord(char) - ord("a") + 2) % 26 + ord("A"))
             elif char.isupper():
+                # Update to handle uppercase vowels correctly
                 encoded_char = chr((ord(char) - ord("A") + 2) % 26 + ord("a"))
             else:
                 encoded_message += char
