@@ -11,11 +11,6 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    string a, b;
-    cout << "Enter first binary string: ";
-    cin >> a;
-    cout << "Enter second binary string: ";
-    cin >> b;
-    cout << string_xor(a, b) << endl;
+    cout << string_xor("0101", "0000") << endl; // Expected output: 0101
     return 0;
 }
