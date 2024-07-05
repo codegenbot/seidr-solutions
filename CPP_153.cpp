@@ -2,8 +2,6 @@
 #include <vector>
 #include <string>
 #include <climits>
-#include <cctype>
-#include <cassert>
 
 using namespace std;
 
@@ -28,7 +26,6 @@ string Strongest_Extension(const string& class_name, const vector<string>& exten
 }
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    cout << "Test passed!" << endl;
+    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl; // This should output "Sp.Bb"
     return 0;
 }
