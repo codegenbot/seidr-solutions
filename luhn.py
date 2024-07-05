@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     checksum = 0
@@ -9,7 +8,3 @@ def luhn(card_number):
         else:
             checksum += digit
     return checksum % 10 == 0
-
-if __name__ == "__main__":
-    card_number = input("Enter a credit card number: ")
-    print(luhn(int(card_number)))
