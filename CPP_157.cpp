@@ -1,9 +1,11 @@
-#include<stdio.h>
-#include<math.h>
+#include <cstdio>
+#include <cmath>
 using namespace std;
-bool right_angle_triangle(float a,float b,float c){
-    float x = max(a, max(b, c));
+
+bool right_angle_triangle(float a, float b, float c) {
+    float x = fmax(a, fmax(b, c));
     float y, z;
+
     if (x == a) {
         y = b;
         z = c;
@@ -14,5 +16,6 @@ bool right_angle_triangle(float a,float b,float c){
         y = a;
         z = b;
     }
-    return fabs(x*x - (y*y + z*z)) < 1e-6;
+
+    return fabs(x * x - (y * y + z * z)) < 1e-6;
 }
