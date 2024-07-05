@@ -29,11 +29,13 @@ map<char, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<char, int> a, map<char, int> b) {
+bool issame(map<char,int> a, map<char,int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("a b"), {{'a', 1}, {'b', 1}}));
+    assert(issame(histogram("apple banana cherry date apple"), {{'a', 3}}));
     return 0;
 }
