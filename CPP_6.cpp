@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Function to parse nested parentheses.
 vector<int> parse_nested_parens(const string& paren_string) {
     vector<int> result;
     int max_depth = 0, current_depth = 0;
@@ -18,19 +17,24 @@ vector<int> parse_nested_parens(const string& paren_string) {
             }
         } else if (c == ')') {
             current_depth--;
+        } else if (c == ' ') {
+            result.push_back(max_depth);
+            max_depth = 0;
+            current_depth = 0;
         }
     }
-    result.push_back(max_depth); // record max depth
+    result.push_back(max_depth);
     return result;
 }
 
-// Function to compare two vectors
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    assert(issame(parse_nested_parens("(()(()) ((())))"), {3, 3}));
+    assert(issame(parse_nested_parens("(()) () (())"), {2, 1, 2}));
+    assert(issame(parse_nested_parens("(()) (())"), {2, 2}));
     cout << "All tests passed!" << endl;
     return 0;
 }
