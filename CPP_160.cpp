@@ -24,23 +24,9 @@ int do_algebra(const vector<string>& operato, const vector<int>& operand) {
 }
 
 int main() {
-    vector<string> operato;
-    vector<int> operand;
-    string input;
-    int num;
-
-    cout << "Enter operators (e.g. + - * / **) ending with 'done':" << endl;
-    while (cin >> input && input != "done") {
-        operato.push_back(input);
-    }
-
-    cout << "Enter operands ending with 'done':" << endl;
-    while (cin >> input && input != "done") {
-        num = stoi(input);
-        operand.push_back(num);
-    }
-
+    vector<string> operato = {"+", "*", "-", "**", "/"};
+    vector<int> operand = {2, 3, 4, 2, 2, 5};
     cout << do_algebra(operato, operand) << endl;
-
+    
     return 0;
 }
