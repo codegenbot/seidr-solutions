@@ -1,7 +1,9 @@
 def histogram(test=None):
     from collections import Counter
+    import sys
+
     if test is None:
-        test = input("Enter a string of words: ").strip()
+        test = sys.stdin.read().strip()
     if not test:
         return {}
     counts = Counter(test.split())
