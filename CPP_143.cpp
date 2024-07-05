@@ -2,7 +2,7 @@
 #include <sstream>
 #include <vector>
 #include <cmath>
-#include <string> // Include string header
+#include <string>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -14,7 +14,7 @@ bool isPrime(int n) {
     return true;
 }
 
-std::string words_in_sentence(std::string sentence) { // Use std::string
+std::string words_in_sentence(std::string sentence) {
     std::stringstream ss(sentence);
     std::string word, result;
     while (ss >> word) {
