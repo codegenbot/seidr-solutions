@@ -1,13 +1,20 @@
-bool is_nested(string str){
-    int depth = 0;
-    bool nested = false;
-    for(char c : str){
-        if(c == '[') {
-            depth++;
-            if(depth > 1) nested = true;
-        } else if(c == ']') {
-            if(depth > 0) depth--;
+#include <stack>
+
+bool is_nested(string str) {
+    stack<char> s;
+    for (char ch : str) {
+        if (ch == '[') {
+            s.push(ch);
+        } else if (ch == ']') {
+            if (!s.empty() && s.top() == '[') {
+                s.pop();
+                if (!s.empty() && s.top() == '[') {
+                    return true;
+                }
+            } else {
+                return false;
+            }
         }
     }
-    return nested;
+    return false;
 }
