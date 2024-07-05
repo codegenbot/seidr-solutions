@@ -3,6 +3,7 @@
 #include <sstream>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 map<char, int> histogram(string test) {
@@ -34,5 +35,8 @@ bool issame(map<char, int> a, map<char, int> b) {
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("apple art act"), {{'a', 3}}));
+    assert(issame(histogram("bear beat ball bike"), {{'b', 4}}));
+    assert(issame(histogram("cat dog fish bird"), {{'c', 1}, {'d', 1}, {'f', 1}, {'b', 1}}));
     return 0;
 }
