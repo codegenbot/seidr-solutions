@@ -1,35 +1,28 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int main() {
+    int balance = 0;
     std::vector<int> operations;
+    
+    // get input from the user and store in vector
     int operation;
-
-    // Input from user
-    std::cout << "Enter number of operations: ";
-    int n;
-    std::cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        std::cout << "Operation " << i+1 << ": ";
-        std::cin >> operation;
+    while (std::cin >> operation) {
+        balance += operation;
         operations.push_back(operation);
-    }
-
-    if (below_zero(operations)) {
-        std::cout << "Balance went below zero.\n";
-    } else {
-        std::cout << "Balance never went below zero.\n";
+        if (balance < 0) break;  // if balance becomes negative, stop reading input
     }
     
-    return 0;
-}
-
-bool below_zero(std::vector<int> operations){
-    int balance = 0;
-    for (int operation : operations) {
-        balance += operation;
-        if (balance < 0) return true;
+    bool result = false;
+    for (int op : operations) {
+        balance += op;
+        if (balance < 0) {
+            result = true;
+            break;
+        }
     }
-    return false;
+    
+    std::cout << (result ? "True" : "False") << std::endl;
+    
+    return 0;
 }
