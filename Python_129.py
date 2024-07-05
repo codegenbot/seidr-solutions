@@ -23,6 +23,7 @@ def minPath(grid, k):
 
     return min_path
 
+# User input handling
 if __name__ == "__main__":
     import sys
     input = sys.stdin.read
