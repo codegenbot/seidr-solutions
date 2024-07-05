@@ -26,8 +26,6 @@ string solve(string s) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << solve(input) << endl;
+    cout << solve("#ccc") << endl;
     return 0;
 }

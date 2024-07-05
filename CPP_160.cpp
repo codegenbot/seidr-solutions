@@ -24,7 +24,19 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    // Test case
-    cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
+    int numOperators;
+    cin >> numOperators;
+    vector<string> operato(numOperators);
+    vector<int> operand(numOperators + 1);
+
+    for (int i = 0; i < numOperators; ++i) {
+        cin >> operato[i];
+    }
+
+    for (int i = 0; i <= numOperators; ++i) {
+        cin >> operand[i];
+    }
+
+    cout << do_algebra(operato, operand) << endl;
     return 0;
 }
