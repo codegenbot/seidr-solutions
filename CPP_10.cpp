@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-
 using namespace std;
 
-bool is_palindrome(const string &s) {
-    int start = 0, end = s.size() - 1;
-    while (start < end) {
-        if (s[start] != s[end]) return false;
-        ++start;
-        --end;
+bool is_palindrome(const string& str) {
+    int left = 0, right = str.size() - 1;
+    while (left < right) {
+        if (str[left] != str[right]) {
+            return false;
+        }
+        ++left;
+        --right;
     }
     return true;
 }
@@ -29,6 +30,6 @@ string make_palindrome(string str) {
 }
 
 int main() {
-    cout << make_palindrome("jerry") << endl; // Output: jerryrrej
+    cout << make_palindrome("jerry") << endl; // Output: "jerryrrej"
     return 0;
 }
