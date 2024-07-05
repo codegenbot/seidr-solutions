@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 
 int largest_divisor(int n) {
     for (int i = n / 2; i >= 1; --i) {
@@ -11,15 +10,8 @@ int largest_divisor(int n) {
 }
 
 int main() {
-    // Test case
-    assert(largest_divisor(49) == 7);
-    std::cout << "Test passed!" << std::endl;
-
-    // Additional user input example
     int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-    std::cout << "Largest divisor of " << n << " is: " << largest_divisor(n) << std::endl;
-
+    std::cin >> n; // Read input from user
+    std::cout << largest_divisor(n) << std::endl; // Output the result
     return 0;
 }
