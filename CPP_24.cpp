@@ -12,6 +12,9 @@ int largest_divisor(int n) {
 
 int main() {
     assert(largest_divisor(49) == 7);
+    assert(largest_divisor(100) == 50);
+    assert(largest_divisor(17) == 1);
+    assert(largest_divisor(81) == 27);
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
