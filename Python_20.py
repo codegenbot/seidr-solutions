@@ -1,7 +1,8 @@
-import sys
 from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    if len(numbers) < 2:
+        raise ValueError("At least two numbers are required")
     numbers.sort()
     min_diff = float("inf")
     closest_pair = (numbers[0], numbers[1])
@@ -12,6 +13,9 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             closest_pair = (numbers[i], numbers[i + 1])
     return closest_pair
 
-numbers = list(map(float, sys.stdin.read().strip().split()))
-result = find_closest_elements(numbers)
-print(result)
+numbers = list(map(float, input().split()))
+if len(numbers) < 2:
+    print("Insufficient input, please enter at least two numbers.")
+else:
+    result = find_closest_elements(numbers)
+    print(result)
