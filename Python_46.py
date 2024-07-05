@@ -1,5 +1,5 @@
 
-def fib4(n: int):
+def fib4(n):
     if n <= 3:
         return 0
     elif n == 4:
@@ -10,3 +10,4 @@ def fib4(n: int):
             if i >= 3 and i - 2 < len(memo):
                 memo.append(memo[i - 3] + memo[i - 2])
         return memo[n]
+    
