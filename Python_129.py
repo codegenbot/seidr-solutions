@@ -1,6 +1,4 @@
 def minPath(grid, k):
-    from heapq import heappop, heappush
-
     N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     min_path = [float("inf")] * k
