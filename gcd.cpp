@@ -1,6 +1,16 @@
-```cpp
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+#include <vector>
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
     int targetLength = target.length();
     for (int i = 0; i <= text.length() - targetLength; i++) {
         bool match = true;
@@ -15,13 +25,4 @@ std::vector<int> findIndices(std::string text, std::string target) {
         }
     }
     return indices;
-}
-
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
 }
