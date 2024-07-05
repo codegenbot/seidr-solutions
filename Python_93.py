@@ -9,4 +9,5 @@ def encode(message):
     
     return ''.join(transform_char(c) for c in message)
 
+# Testing the function with the given assertion
 print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "k dQnT kNqW wHcT Tq wRkTg"
