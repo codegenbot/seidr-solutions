@@ -19,9 +19,6 @@ def find_zero(xs: list):
     return (a + b) / 2
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    data = input().strip().split()
-    xs = list(map(float, data))
+    xs = list(map(float, input().strip().split()))
     zero = find_zero(xs)
     print("{:.6f}".format(zero))
