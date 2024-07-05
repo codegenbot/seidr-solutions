@@ -1,6 +1,3 @@
-import click
-
-
 @click.command()
 def decode_shift():
     message = click.prompt("Enter the message to be decoded", default="")
