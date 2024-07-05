@@ -29,7 +29,11 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
+    assert(issame(words_string("ahmed,gamal"), {"ahmed", "gamal"}));
     assert(issame(words_string("ahmed , gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed,"), {"ahmed"}));
+    assert(issame(words_string("ahmed"), {"ahmed"}));
+    assert(issame(words_string("ahmed ,"), {"ahmed"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
