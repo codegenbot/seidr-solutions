@@ -16,12 +16,15 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    if (it1 > it2) {
-        swap(it1, it2);
+    int idx1 = distance(planets.begin(), it1);
+    int idx2 = distance(planets.begin(), it2);
+
+    if (idx1 > idx2) {
+        swap(idx1, idx2);
     }
 
-    for (auto it = it1 + 1; it != it2; ++it) {
-        result.push_back(*it);
+    for (int i = idx1 + 1; i < idx2; ++i) {
+        result.push_back(planets[i]);
     }
 
     return result;
@@ -32,9 +35,11 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    assert(issame(bf("Mercury", "Mars"), {"Venus", "Earth"}));
-    assert(issame(bf("Neptune", "Jupiter"), {"Saturn", "Uranus"}));
-    cout << "All tests passed!" << endl;
+    assert(issame(bf("Jupiter", "Saturn"), {"Mars"}));
+    assert(issame(bf("Mercury", "Neptune"), {"Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus"}));
+    assert(issame(bf("Earth","Mars"), {}));
+    assert(issame(bf("Mars","Earth"), {}));
+    assert(issame(bf("Earth", "Pluto"), {}));
+    cout << "All tests passed" << endl;
     return 0;
 }
