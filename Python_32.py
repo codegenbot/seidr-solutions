@@ -22,7 +22,6 @@ def find_zero(xs: list):
     return x
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    coefficients = list(map(float, input().split()))
-    print(find_zero(coefficients))
+    xs = list(map(float, input("Enter coefficients separated by spaces: ").split()))
+    root = find_zero(xs)
+    print(f"The root of the polynomial is: {root}")
