@@ -31,7 +31,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 // Main function with test cases
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
-    // Add more test cases if needed
     std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
