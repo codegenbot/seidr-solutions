@@ -1,9 +1,9 @@
-string remove_vowels(string text){
+string remove_vowels(string text) {
     string result;
-    for (char c : text) {
-        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
-            c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
-            result += c;
+    for (char ch : text) {
+        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
+            ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
+            result += ch;
         }
     }
     return result;
