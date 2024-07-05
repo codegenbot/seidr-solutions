@@ -58,7 +58,6 @@ int main() {
     else
         cout << std::any_cast<double>(result2) << endl;
 
-    // Adding assert to confirm the expected output
     assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
 
     return 0;
