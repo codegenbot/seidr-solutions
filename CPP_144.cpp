@@ -36,7 +36,17 @@ bool simplify(std::string x, std::string n) {
 }
 
 int main() {
-    std::cout << std::boolalpha;
-    std::cout << simplify("1/5", "1/5") << std::endl; // Should print true since they are the same fraction
+    std::string x, n;
+    std::cout << "Enter the first fraction (x): ";
+    std::cin >> x;
+    std::cout << "Enter the second fraction (n): ";
+    std::cin >> n;
+    
+    if(simplify(x, n)) {
+        std::cout << "Fractions are equal when simplified.\n";
+    } else {
+        std::cout << "Fractions are not equal when simplified.\n";
+    }
+    
     return 0;
 }
