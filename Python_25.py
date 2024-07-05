@@ -13,11 +13,8 @@ def factorize(n: int) -> List[int]:
     return factors
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
     try:
-        data = input().strip()
-        n = int(data)
+        n = int(input().strip())
         if n <= 0:
             raise ValueError
         result = factorize(n)
