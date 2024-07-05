@@ -1,23 +1,22 @@
 string encode(string message){
-    string result = "";
-    for (char c : message) {
-        // Swap case
-        if (islower(c)) c = toupper(c);
-        else c = tolower(c);
+    for (char &ch : message) {
+        if (isalpha(ch)) {
+            // Swap case
+            if (islower(ch)) {
+                ch = toupper(ch);
+            } else {
+                ch = tolower(ch);
+            }
 
-        // Replace vowels
-        if (c == 'A') c = 'C';
-        else if (c == 'E') c = 'G';
-        else if (c == 'I') c = 'K';
-        else if (c == 'O') c = 'Q';
-        else if (c == 'U') c = 'W';
-        else if (c == 'a') c = 'c';
-        else if (c == 'e') c = 'g';
-        else if (c == 'i') c = 'k';
-        else if (c == 'o') c = 'q';
-        else if (c == 'u') c = 'w';
-
-        result += c;
+            // Replace vowels
+            switch (tolower(ch)) {
+                case 'a': ch = (isupper(ch) ? 'C' : 'c'); break;
+                case 'e': ch = (isupper(ch) ? 'G' : 'g'); break;
+                case 'i': ch = (isupper(ch) ? 'K' : 'k'); break;
+                case 'o': ch = (isupper(ch) ? 'Q' : 'q'); break;
+                case 'u': ch = (isupper(ch) ? 'W' : 'w'); break;
+            }
+        }
     }
-    return result;
+    return message;
 }
