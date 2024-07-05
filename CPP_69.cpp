@@ -1,7 +1,6 @@
 #include <unordered_map>
 #include <algorithm>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
@@ -21,13 +20,12 @@ int search(vector<int> lst) {
     return result;
 }
 
+#include <cassert>
+
 int main() {
-    int n;
-    cin >> n;
-    vector<int> lst(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> lst[i];
-    }
-    cout << search(lst) << endl;
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    assert(search({1, 2, 2, 3, 3, 3}) == 3);
+    assert(search({1, 1, 1, 1}) == 1);
+    assert(search({5, 5, 5, 5, 5}) == 5);
     return 0;
 }
