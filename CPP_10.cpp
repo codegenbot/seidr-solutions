@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+
 using namespace std;
 
-bool is_palindrome(string str) {
-    string s(str.rbegin(), str.rend());
-    return s == str;
+bool is_palindrome(const string& str) {
+    return equal(str.begin(), str.begin() + str.size()/2, str.rbegin());
 }
 
-string make_palindrome(string str) {
+string make_palindrome(const string& str) {
     int n = str.length();
     if (n == 0) return "";
     for (int i = n; i > 0; i--) {
@@ -18,12 +18,14 @@ string make_palindrome(string str) {
             return str + suffix;
         }
     }
-    return str;
+    return str;  // This line is theoretically unreachable
 }
 
 int main() {
     string str;
+    cout << "Enter the string: ";
     cin >> str;
-    cout << make_palindrome(str) << endl;
+    
+    cout << "Palindrome: " << make_palindrome(str) << endl;
     return 0;
 }
