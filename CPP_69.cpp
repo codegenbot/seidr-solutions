@@ -21,20 +21,14 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    // Test cases
-    assert(search({1, 2, 2, 3, 3, 3}) == 3);
-    assert(search({1, 2, 2, 3, 3, 4}) == 2);
-    assert(search({4, 4, 4, 4}) == 4);
-    assert(search({1, 1, 1}) == 1);
-    assert(search({}) == -1);
+    std::vector<int> lst = {3, 1, 4, 4, 5, 2, 6, 1, 1, 1}; // Example input
+    std::cout << search(lst) << std::endl; // Test the search function
 
-    // Example usage
-    std::vector<int> input;
-    int n;
-    std::cout << "Enter elements, followed by EOF (Ctrl+D):\n";
-    while (std::cin >> n) {
-        input.push_back(n);
-    }
-    std::cout << "Result: " << search(input) << std::endl;
+    assert(search({1, 2, 2, 3, 3, 3}) == 3);
+    assert(search({5}) == -1);
+    assert(search({}) == -1);
+    assert(search({1, 1, 1, 1}) == 1);
+    assert(search({2, 2, 2, 2, 1, 1}) == 2);
+
     return 0;
 }
