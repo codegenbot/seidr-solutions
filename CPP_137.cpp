@@ -1,39 +1,38 @@
 #include <iostream>
 #include <string>
-#include <typeinfo>
 #include <algorithm>
-#include <variant>
+#include <any>
 
 using namespace std;
 
-float convert_to_float(variant<int, float, string> var) {
-    if (holds_alternative<int>(var)) {
-        return get<int>(var);
-    } else if (holds_alternative<float>(var)) {
-        return get<float>(var);
-    } else if (holds_alternative<string>(var)) {
-        string str = get<string>(var);
+float convert_to_float(std::any var) {
+    if (var.type() == typeid(int)) {
+        return std::any_cast<int>(var);
+    } else if (var.type() == typeid(float)) {
+        return std::any_cast<float>(var);
+    } else if (var.type() == typeid(string)) {
+        string str = std::any_cast<string>(var);
         replace(str.begin(), str.end(), ',', '.');
-        return stof(str);
+        return std::stof(str);
     }
     return 0.0;
 }
 
-variant<int, float, string> compare_one(variant<int, float, string> a, variant<int, float, string> b) {
-    if (a.index() == b.index()) {
-        if (holds_alternative<int>(a)) {
-            int int_a = get<int>(a);
-            int int_b = get<int>(b);
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() == b.type()) {
+        if (a.type() == typeid(int)) {
+            int int_a = std::any_cast<int>(a);
+            int int_b = std::any_cast<int>(b);
             if (int_a == int_b) return "None";
             return int_a > int_b ? a : b;
-        } else if (holds_alternative<float>(a)) {
-            float float_a = get<float>(a);
-            float float_b = get<float>(b);
+        } else if (a.type() == typeid(float)) {
+            float float_a = std::any_cast<float>(a);
+            float float_b = std::any_cast<float>(b);
             if (float_a == float_b) return "None";
             return float_a > float_b ? a : b;
-        } else if (holds_alternative<string>(a)) {
-            string str_a = get<string>(a);
-            string str_b = get<string>(b);
+        } else if (a.type() == typeid(string)) {
+            string str_a = std::any_cast<string>(a);
+            string str_b = std::any_cast<string>(b);
             float float_a = convert_to_float(a);
             float float_b = convert_to_float(b);
             if (float_a == float_b) return "None";
@@ -46,18 +45,4 @@ variant<int, float, string> compare_one(variant<int, float, string> a, variant<i
         return float_a > float_b ? a : b;
     }
     return "None";
-}
-
-int main() {
-    variant<int, float, string> val1 = 5;
-    variant<int, float, string> val2 = "4.2";
-    auto result = compare_one(val1, val2);
-    if (holds_alternative<string>(result)) {
-        cout << get<string>(result) << endl; 
-    } else if (holds_alternative<int>(result)) {
-        cout << get<int>(result) << endl; 
-    } else if (holds_alternative<float>(result)) {
-        cout << get<float>(result) << endl; 
-    }
-    return 0;
 }
