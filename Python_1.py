@@ -1,16 +1,16 @@
 paren_string = paren_string.replace(" ", "")
-    groups = []
+    result = []
     balance = 0
-    start = 0
-
-    for i, char in enumerate(paren_string):
+    current_group = []
+    
+    for char in paren_string:
+        current_group.append(char)
         if char == '(':
-            if balance == 0:
-                start = i
             balance += 1
         elif char == ')':
             balance -= 1
-            if balance == 0:
-                groups.append(paren_string[start:i+1])
-
-    return groups
+        if balance == 0 and current_group:
+            result.append(''.join(current_group))
+            current_group = []
+    
+    return result
