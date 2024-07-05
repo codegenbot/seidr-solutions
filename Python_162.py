@@ -6,6 +6,5 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 if __name__ == "__main__":
-    import sys
-    user_input = sys.stdin.read().strip()
+    user_input = input()
     print(string_to_md5(user_input))
