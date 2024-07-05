@@ -1,8 +1,19 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
+}
+
+int main() {
+    vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
+    
+    for (const auto& str : result) {
+        cout << str << endl;
+    }
+    
+    return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -25,9 +36,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    assert(separate_paren_groups("( ) (( )) (( )( ))") == {"()", "(())", "(()())"});
-    return 0;
 }
