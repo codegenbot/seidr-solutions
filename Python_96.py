@@ -1,10 +1,9 @@
-def count_up_to(n):
+def count_up_to(n, start=2):
     result = []
-    for i in range(2, n + 1):
+    for i in range(start, n + 1):
         if is_prime(i):
             result.append(i)
     return result
-
 
 def is_prime(n):
     if n <= 1:
