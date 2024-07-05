@@ -13,16 +13,9 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float input;
-    std::cout << "Enter numbers (end input with a non-numeric character): ";
-    while (std::cin >> input) {
-        lst.push_back(input);
-    }
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    
-    long long result = double_the_difference(lst);
-    std::cout << "Result: " << result << std::endl;
+    std::vector<float> lst = {1.0, 2.5, 3.0, 5.0, 7.2, 9.0};
+    long long odd_sum = 1*1 + 3*3 + 9*9;
+    assert(double_the_difference(lst) == odd_sum);
+    std::cout << "Test Passed!" << std::endl;
     return 0;
 }
