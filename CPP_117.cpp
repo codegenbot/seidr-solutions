@@ -1,48 +1,50 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
-#include <cctype>
-#include <iostream>
+#include <cassert>
+#include <algorithm>
+
 using namespace std;
-
-bool is_consonant(char c) {
-    c = tolower(c);
-    return c >= 'a' && c <= 'z' && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
-int count_consonants(const string &word) {
-    int count = 0;
-    for(char c : word) {
-        if(is_consonant(c)) {
-            count++;
-        }
-    }
-    return count;
-}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    istringstream iss(s);
     string word;
-    while(iss >> word) {
-        if(count_consonants(word) == n) {
+    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    
+    for (char c : s) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                int consonant_count = count_if(word.begin(), word.end(), [&](char ch) {
+                    return consonants.find(ch) != string::npos;
+                });
+                if (consonant_count == n) {
+                    result.push_back(word);
+                }
+                word.clear();
+            }
+        } else {
+            word += c;
+        }
+    }
+    
+    if (!word.empty()) {
+        int consonant_count = count_if(word.begin(), word.end(), [&](char ch) {
+            return consonants.find(ch) != string::npos;
+        });
+        if (consonant_count == n) {
             result.push_back(word);
         }
     }
+    
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    string s;
-    int n;
-    getline(cin, s);
-    cin >> n;
-    
-    vector<string> words = select_words(s, n);
-    for(const string &word : words) {
-        cout << word << " ";
-    }
-    cout << endl;
-    
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
