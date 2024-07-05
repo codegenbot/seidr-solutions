@@ -7,7 +7,7 @@
 std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> freqMap;
     for (char ch : test) {
-        if (std::isalpha(ch)) {
+        if (isalpha(ch)) {
             freqMap[ch]++;
         }
     }
@@ -32,10 +32,10 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    assert(issame(histogram("aaabb"), {{'a', 3}}));
-    assert(issame(histogram("ababab"), {{'a', 3}, {'b', 3}}));
-    assert(issame(histogram("test"), {{'t', 2}}));
+    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
+    assert(issame(histogram("aaabb"), std::map<char, int>{{'a', 3}}));
+    assert(issame(histogram("ababab"), std::map<char, int>{{'a', 3}, {'b', 3}}));
+    assert(issame(histogram("test"), std::map<char, int>{{'t', 2}}));
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
