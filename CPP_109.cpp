@@ -21,8 +21,15 @@ bool move_one_ball(const std::vector<int>& arr) {
 int main() {
     std::cout << std::boolalpha;
 
-    std::vector<int> arr = {3, 4, 5, 1, 2};
-    std::cout << move_one_ball(arr) << std::endl; // Example usage
+    int n;
+    std::cin >> n;
+    std::vector<int> arr(n);
+
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
+    }
+
+    std::cout << move_one_ball(arr) << std::endl;
 
     return 0;
 }
