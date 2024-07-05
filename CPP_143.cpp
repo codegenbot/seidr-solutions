@@ -32,8 +32,3 @@ int main() {
     std::cout << words_in_sentence(input) << std::endl;
     return 0;
 }
-
-// Commented out duplicate main function
-// int main(){
-//    // some other function here for testing 
-//}
