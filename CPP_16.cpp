@@ -1,8 +1,9 @@
-int count_distinct_characters(string str){ 
-    vector<bool> present(26, false);
-    for(char& c : str) {
-        c = tolower(c);
-        present[c - 'a'] = true;
+#include <unordered_set>
+
+int count_distinct_characters(string str) {
+    unordered_set<char> distinct_chars;
+    for (char c : str) {
+        distinct_chars.insert(tolower(c));
     }
-    return count(present.begin(), present.end(), true);
+    return distinct_chars.size();
 }
