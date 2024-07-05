@@ -16,9 +16,8 @@ string decode_cyclic(string s){
 }
 
 int main() {
-    // Test case
-    string str = "abcdefghi";
-    string encoded_str = "cfabihedg"; // This is presumed to be the output of some encode function
-    cout << decode_cyclic(encoded_str) << endl;  // Should print the decoded string
+    string str;
+    cin >> str;
+    cout << decode_cyclic(str) << endl;
     return 0;
 }
