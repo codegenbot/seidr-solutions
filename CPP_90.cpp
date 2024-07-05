@@ -1,12 +1,9 @@
-if (lst.size() < 2) return -1; // Using -1 to represent None
-
+if (lst.size() < 2) return -1; // Assuming None is represented by -1
 sort(lst.begin(), lst.end());
-
-int smallest = lst[0];
+int first_smallest = lst[0];
 for (int i = 1; i < lst.size(); ++i) {
-    if (lst[i] > smallest) {
+    if (lst[i] != first_smallest) {
         return lst[i];
     }
 }
-
-return -1; // If no 2nd smallest element is found
+return -1; // No second smallest element found
