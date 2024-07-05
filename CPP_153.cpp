@@ -1,19 +1,31 @@
-{
-    string strongestExtension = "";
-    int maxStrength = INT_MIN;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <climits>
+
+using namespace std;
+
+string Strongest_Extension(const string& class_name, const vector<string>& extensions) {
+    string strongest_extension = "";
+    int max_strength = INT_MIN;
 
     for (const string& ext : extensions) {
-        int CAP = 0, SM = 0;
-        for (char c : ext) {
-            if (isupper(c)) CAP++;
-            else if (islower(c)) SM++;
+        int cap = 0, sm = 0;
+        for (char ch : ext) {
+            if (isupper(ch)) cap++;
+            else if (islower(ch)) sm++;
         }
-        int strength = CAP - SM;
-        if (strength > maxStrength) {
-            maxStrength = strength;
-            strongestExtension = ext;
+        int strength = cap - sm;
+        if (strength > max_strength) {
+            max_strength = strength;
+            strongest_extension = ext;
         }
     }
 
-    return class_name + "." + strongestExtension;
+    return class_name + "." + strongest_extension;
+}
+
+int main() {
+    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl; // This should output "Sp.671235"
+    return 0;
 }
