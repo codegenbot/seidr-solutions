@@ -1,6 +1,5 @@
 ```
 import math
-
 def find_zero(xs):
     if len(xs) < 1:
         print("Error: List should have at least one element.")
@@ -16,8 +15,18 @@ def find_zero(xs):
     elif len(xs) == 2:
         return -xs[1] / xs[0]
     else:
-        root = (-xs[2] + math.sqrt((xs[1] ** 2) - (4 * xs[0] * xs[-1]))) / (2 * xs[0])
-        if root.is_integer():
-            return int(root)
+        b = xs[1]
+        c = xs[-1]
+        d = b**2 - 4*xs[0]*c
+        if d < 0:
+            print("Error: The equation has no real roots.")
+            return None
+        elif d == 0:
+            root = (-b + math.sqrt(d)) / (2 * xs[0])
+            print(f"The equation has one real root {root}.")
+            return root
         else:
-            return round(root, 6)
+            root1 = (-b + math.sqrt(d)) / (2 * xs[0])
+            root2 = (-b - math.sqrt(d)) / (2 * xs[0])
+            print(f"The equation has two real roots {root1} and {root2}.")
+            return root1, root2
