@@ -16,8 +16,8 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    assert(issame(derivative({1}), {}));
-    assert(issame(derivative({3, 4}), {4}));
-    assert(issame(derivative({5, 0, 2}), {0, 4}));
+    assert (issame(derivative({1}), {}));
+    assert (issame(derivative({3, 4}), {4}));
+    assert (issame(derivative({5, 0, 2}), {0, 4}));
     return 0;
 }
