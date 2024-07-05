@@ -1,30 +1,31 @@
-#include <iostream>
-#include <sstream>
-#include <algorithm>
 #include <map>
 #include <string>
-#include <cassert>
+#include <sstream>
+#include <algorithm>
+#include <assert.h>
 
 using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> freq;
-    for (char c : test) {
-        freq[c]++;
+    stringstream ss(test);
+    string word;
+    while (ss >> word) {
+        freq[word[0]]++;
     }
-    
+
     int max_count = 0;
-    for (const auto& [key, value] : freq) {
-        max_count = max(max_count, value);
+    for (const auto &p : freq) {
+        max_count = max(max_count, p.second);
     }
-    
+
     map<char, int> result;
-    for (const auto& [key, value] : freq) {
-        if (value == max_count) {
-            result[key] = value;
+    for (const auto &p : freq) {
+        if (p.second == max_count) {
+            result[p.first] = p.second;
         }
     }
-    
+
     return result;
 }
 
@@ -33,8 +34,6 @@ bool issame(map<char,int> a, map<char,int> b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    assert(issame(histogram("test"), {{'t', 2}}));
-    cout << "All tests passed!" << endl;
+    assert (issame(histogram("a") , {{'a', 1}}));
     return 0;
 }

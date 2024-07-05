@@ -2,21 +2,18 @@ def histogram(test):
     from collections import Counter
     import re
 
-    if not test:
-        return {}
-
     cleaned_test = re.sub(r"\W+", " ", test.lower()).strip()
+    if not cleaned_test:
+        return {}
+        
     words = cleaned_test.split()
     count = Counter(words)
-
-    if not count:
-        return {}
 
     max_count = max(count.values())
     return {k: v for k, v in count.items() if v == max_count}
 
+
 if __name__ == "__main__":
-    import sys
-    test = sys.stdin.read().strip()
+    test = input().strip()
     result = histogram(test)
     print(result)
