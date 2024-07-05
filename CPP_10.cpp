@@ -9,7 +9,7 @@ bool is_palindrome(string str) {
 
 string make_palindrome(string str) {
     int n = str.size();
-    for (int i = n; i >= 0; i--) {
+    for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
             string prefix = str.substr(i);
             reverse(prefix.begin(), prefix.end());
