@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-bool is_nested(string str) {
+bool is_nested(const std::string& str) {
     int depth = 0;
     bool nested = false;
     for (char c : str) {
@@ -17,12 +17,11 @@ bool is_nested(string str) {
 }
 
 int main() {
-    cout << boolalpha; // Print bools as true/false instead of 1/0
-    cout << (is_nested("[[]]") == true) << endl;
-    cout << (is_nested("[]") == false) << endl;
-    cout << (is_nested("[[[[[]]]]") == true) << endl;
-    cout << (is_nested("[[") == true) << endl;
-    cout << (is_nested("]") == false) << endl;
-    cout << (is_nested("[][[[]]]") == true) << endl;
+    assert(is_nested("]]]]]]]]") == false);
+    assert(is_nested("[[]]") == true);
+    assert(is_nested("[][[]]") == true);
+    assert(is_nested("[]") == false);
+    assert(is_nested("[[][]]") == true);
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
