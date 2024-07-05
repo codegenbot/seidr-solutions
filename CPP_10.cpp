@@ -17,7 +17,7 @@ string make_palindrome(string str) {
             return str + prefix;
         }
     }
-    return str; 
+    return str;
 }
 
 int main() {
