@@ -21,9 +21,10 @@ vector<int> generate_integers(int a, int b) {
 int main() {
     int a, b;
     cin >> a >> b;
-    vector<int> evens = generate_integers(a, b);
     
-    for (int num : evens) {
+    vector<int> result = generate_integers(a, b);
+    
+    for (int num : result) {
         cout << num << " ";
     }
     
