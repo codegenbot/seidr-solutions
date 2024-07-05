@@ -36,10 +36,14 @@ vector<string> split_words(string txt) {
     return result;
 }
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(split_words("") == vector<string>{"0"});
-    assert(split_words("hello world") == vector<string>{"hello", "world"});
-    assert(split_words("a,b,c") == vector<string>{"a", "b", "c"});
+    assert(issame(split_words(""), vector<string>{"0"}));
+    assert(issame(split_words("hello world"), vector<string>{"hello", "world"}));
+    assert(issame(split_words("a,b,c"), vector<string>{"a", "b", "c"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
