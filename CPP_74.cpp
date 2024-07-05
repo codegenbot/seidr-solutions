@@ -32,7 +32,7 @@ int main() {
     // Test case
     assert(issame(total_match({"this"}, {}), vector<string>{}));
     assert(issame(total_match({"a", "b", "c"}, {"alpha", "beta"}), vector<string>{"a", "b", "c"}));
-    assert(issame(total_match({"hello", "world"}, {"foo", "bar", "baz"}), vector<string>{"hello", "world"}));
+    assert(issame(total_match({"hello", "world"}, {"foo", "bar", "baz"}), vector<string>{"foo", "bar", "baz"}));
 
     cout << "All test cases passed!";
     return 0;
