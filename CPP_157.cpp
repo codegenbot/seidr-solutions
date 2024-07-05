@@ -17,7 +17,7 @@ bool right_angle_triangle(float a, float b, float c) {
         z = b;
     }
 
-    return fabs(x * x - (y * y + z * z)) < 1e-6;
+    return fabs(x*x - (y*y + z*z)) < 1e-6;
 }
 
 int main() {
