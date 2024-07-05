@@ -1,16 +1,14 @@
-string match_parens(vector<string> lst) {
-    string a = lst[0];
-    string b = lst[1];
-
-    auto is_balanced = [](const string &s) {
+string match_parens(vector<string> lst){
+    auto isBalanced = [](const string& s) {
         int balance = 0;
         for (char ch : s) {
             if (ch == '(') balance++;
-            else if (ch == ')') balance--;
+            else balance--;
             if (balance < 0) return false;
         }
         return balance == 0;
     };
 
-    return (is_balanced(a + b) || is_balanced(b + a)) ? "Yes" : "No";
+    if (isBalanced(lst[0] + lst[1]) || isBalanced(lst[1] + lst[0])) return "Yes";
+    return "No";
 }
