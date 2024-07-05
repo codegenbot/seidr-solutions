@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 using namespace std;
 
-string encode(string message) {
+string encode(string message){
     string vowels = "aeiouAEIOU";
     string replace = "cgkqwCGKQW";
     for (char &c : message) {
@@ -20,6 +19,8 @@ string encode(string message) {
 }
 
 int main() {
-    cout << encode("I DoNt KnOw WhAt tO WrItE") << endl;
+    string input;
+    getline(cin, input);
+    cout << encode(input) << endl;
     return 0;
 }
