@@ -17,9 +17,8 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << boolalpha << is_palindrome(input) << endl;
+    // Test cases to check the is_palindrome function
+    cout << boolalpha << is_palindrome("madam") << endl; // true
+    cout << is_palindrome("hello") << endl;            // false
     return 0;
 }
