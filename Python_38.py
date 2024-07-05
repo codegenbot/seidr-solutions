@@ -8,4 +8,5 @@ def decode_cyclic(s: str) -> str:
 
 if __name__ == "__main__":
     s = input().strip()
+    s = s.replace(" ", "")
     print(decode_cyclic(s))
