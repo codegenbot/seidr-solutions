@@ -1,13 +1,10 @@
 def decode_cyclic(s):
-    result = ""
-    i = 0
-    while len(result) < len(s):
-        j = i
-        temp = ""
-        while j < len(s) and s[j] != "<":
-            temp += s[j]
-            j += 1
-        if temp:
-            result += temp + " "
-        i = j + 2
-    return result.strip()
+    s = s.replace("<<=", "")
+    while "<<<" in s:
+        s = s.replace("<<<", ",")
+    return s.strip().split(",")[:-1]
+
+
+if __name__ == "__main__":
+    s = "<<<" + input()
+    print(",".join(map(str, decode_cyclic(s).replace(",,", ","))))
