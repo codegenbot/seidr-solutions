@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-
 using namespace std;
 
 bool isPrime(int n) {
@@ -35,15 +34,14 @@ int largestPrimeDigitSum(vector<int> lst) {
 
 int main() {
     int n;
-    cout << "Enter number of elements: ";
     cin >> n;
     vector<int> lst(n);
-    cout << "Enter elements: ";
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
-    
-    cout << "Result: " << largestPrimeDigitSum(lst) << endl;
+
+    int result = largestPrimeDigitSum(lst);
+    cout << result << endl;
 
     return 0;
 }
