@@ -1,31 +1,40 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            count++;
+    vector<char> codeUsed;
+    for (int i = 0; i < code.size(); ++i) {
+        bool foundInCode = false;
+        for (int j = 0; j < code.size(); ++j) {
+            if (code[i] == guess[j]) {
+                foundInCode = true;
+                if (!binary_search(codeUsed.begin(), codeUsed.end(), guess[j])) {
+                    count++;
+                    codeUsed.push_back(guess[j]);
+                }
+            }
         }
     }
     return count;
 }
 
 int blackPegs(string code, string guess) {
-    int correctPosition = 0;
-    int matchingColors = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            correctPosition++;
-            matchingColors--;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            matchingColors++;
+    int count = 0;
+    vector<char> codeUsed;
+    for (int i = 0; i < code.size(); ++i) {
+        bool foundInCode = false;
+        for (int j = 0; j < code.size(); ++j) {
+            if (code[i] == guess[j]) {
+                foundInCode = true;
+                if (i == j) {
+                    count++;
+                    codeUsed.push_back(guess[j]);
+                }
+            }
         }
     }
-
-    return correctPosition;
+    return count;
 }
 
 int main() {
