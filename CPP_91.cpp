@@ -1,11 +1,23 @@
+#include<stdio.h>
+#include<string>
+using namespace std;
+
 int is_bored(string S) {
     int count = 0;
-    bool new_sentence = true;
+    bool newSentence = true;
+    
     for (char c : S) {
-        if (new_sentence && c == 'I') {
+        if (newSentence && c == 'I') {
             count++;
+            newSentence = false;
         }
-        new_sentence = (c == '.' || c == '?' || c == '!');
+        if (c == '.' || c == '?' || c == '!') {
+            newSentence = true;
+        }
+        if (c != ' ' && c != '.' && c != '?' && c != '!') {
+            newSentence = false;
+        }
     }
+    
     return count;
 }
