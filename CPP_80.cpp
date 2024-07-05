@@ -13,6 +13,8 @@ bool is_happy(const std::string& s) {
 
 int main() {
     std::cout << std::boolalpha;
-    std::cout << is_happy("iopaxioi") << std::endl; // Example usage
+    std::string s;
+    std::cin >> s;
+    std::cout << is_happy(s) << std::endl;
     return 0;
 }
