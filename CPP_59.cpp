@@ -1,4 +1,5 @@
 #include <cmath>
+#include <iostream>
 
 int largest_prime_factor(int n) {
     int largest = -1;
@@ -20,4 +21,11 @@ int largest_prime_factor(int n) {
     }
     
     return largest;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << largest_prime_factor(n) << std::endl;
+    return 0;
 }
