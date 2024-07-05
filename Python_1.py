@@ -1,17 +1,16 @@
-def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.replace(" ", "")
+paren_string = paren_string.replace(' ', '')
     result = []
     balance = 0
-    group = []
-
+    group = ''
+    
     for char in paren_string:
-        group.append(char)
-        if char == "(":
+        group += char
+        if char == '(':
             balance += 1
-        elif char == ")":
+        elif char == ')':
             balance -= 1
-        if balance == 0 and group:
-            result.append("".join(group))
-            group = []
-
+        if balance == 0:
+            result.append(group)
+            group = ''
+    
     return result
