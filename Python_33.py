@@ -1,4 +1,3 @@
 ```
 def sort_third(l):
-    result = sorted([item for item in l if item % 3 == 0])
-    return tuple(result)
+    return tuple(sorted([(a[2], a) for a in l if isinstance(a, list) and len(a) == 3]))
