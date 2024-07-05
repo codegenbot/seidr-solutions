@@ -1,4 +1,5 @@
-def luhn(card_number):
+def luhn():
+    card_number = int(input("Enter a vector of 16 digits: "))
     card_number = [int(x) for x in str(card_number)]
     result = 0
     for i, digit in enumerate(card_number):
@@ -7,4 +8,4 @@ def luhn(card_number):
             result += 9 - double_digit if double_digit > 9 else double_digit
         else:
             result += digit
-    return result
+    print("The sum of all new digits is: ", result)
