@@ -1,20 +1,23 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 #include <cctype>
 
-using namespace std;
-
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    size_t end = txt.find_last_not_of(' ');
-    if (end == string::npos) return false;
-    return isalpha(txt[end]);
+bool check_if_last_char_is_a_letter(std::string txt) {
+    if (txt.empty() || txt.back() == ' ') return false;
+    if (isalpha(txt.back())) {
+        size_t last_space = txt.find_last_of(' ');
+        return last_space == std::string::npos || last_space == txt.size() - 2;
+    }
+    return false;
 }
 
 int main() {
-    cout << boolalpha;
-    cout << check_if_last_char_is_a_letter("apple pie ") << endl;
-    cout << check_if_last_char_is_a_letter("apple pie") << endl;
-    cout << check_if_last_char_is_a_letter(" ") << endl;
+    assert(check_if_last_char_is_a_letter("apple pie ") == false);
+    assert(check_if_last_char_is_a_letter("apple pie") == true);
+    assert(check_if_last_char_is_a_letter("") == false);
+    assert(check_if_last_char_is_a_letter("a ") == false);
+    assert(check_if_last_char_is_a_letter("a") == true);
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
