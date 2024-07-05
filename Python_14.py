@@ -2,7 +2,7 @@ def generate_substrings(string):
     return [string[:i] for i in range(1, len(string) + 1)]
 
 def check(prefixes):
-    print(prefixes)  # Dummy check function for local testing
+    pass  # Dummy function for local testing
 
 string = input().strip()
 all_prefixes = generate_substrings(string)
