@@ -38,17 +38,23 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    auto result1 = compare_one(5, string("4,9"));
-    if (result1.type() == typeid(int))
-        cout << std::any_cast<int>(result1) << endl;
-    else if (result1.type() == typeid(string))
-        cout << std::any_cast<string>(result1) << endl;
+    auto result = compare_one(5, string("4,9"));
+    if (result.type() == typeid(int))
+        cout << std::any_cast<int>(result) << endl;
+    else if (result.type() == typeid(string))
+        cout << std::any_cast<string>(result) << endl;
     else
-        cout << std::any_cast<double>(result1) << endl;
+        cout << std::any_cast<double>(result) << endl;
 
     auto result2 = compare_one(string("1"), 1);
-    if (result2.type() == typeid(string))
-        assert(std::any_cast<string>(result2) == "None");
+    if (result2.type() == typeid(int))
+        cout << std::any_cast<int>(result2) << endl;
+    else if (result2.type() == typeid(string))
+        cout << std::any_cast<string>(result2) << endl;
+    else
+        cout << std::any_cast<double>(result2) << endl;
+
+    assert (std::any_cast<string>(compare_one(string("1"), 1)) == "None");
 
     return 0;
 }
