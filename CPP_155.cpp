@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// The given function
 vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
     num = abs(num); // Ensure num is positive
@@ -24,7 +23,6 @@ vector<int> even_odd_count(int num) {
     return {even_count, odd_count};
 }
 
-// Function to compare two vectors
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
