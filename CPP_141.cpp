@@ -1,38 +1,33 @@
 #include <cctype>
-#include <algorithm>
 #include <string>
-#include <cassert>
 
-std::string file_name_check(const std::string& file_name) {
-    int dotPos = file_name.find('.');
-    if (dotPos == std::string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
+std::string file_name_check(std::string file_name) {
+    int len = file_name.length();
+    int dot_count = 0;
+    int digit_count = 0;
+    int dot_position = -1;
+
+    for (int i = 0; i < len; ++i) {
+        if (isdigit(file_name[i])) {
+            digit_count++;
+        } else if (file_name[i] == '.') {
+            dot_count++;
+            dot_position = i;
+        }
+    }
+
+    if (dot_count != 1 || digit_count > 3 || dot_position == 0 || dot_position == len - 1) {
         return "No";
     }
 
-    std::string beforeDot = file_name.substr(0, dotPos);
-    std::string afterDot = file_name.substr(dotPos + 1);
-
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    if (!isalpha(file_name[0])) {
         return "No";
     }
 
-    if (!isalpha(beforeDot[0])) {
-        return "No";
+    std::string extension = file_name.substr(dot_position + 1);
+    if (extension == "txt" || extension == "exe" || extension == "dll") {
+        return "Yes";
     }
 
-    int digitCount = std::count_if(beforeDot.begin(), beforeDot.end(), ::isdigit);
-    if (digitCount > 3) {
-        return "No";
-    }
-
-    return "Yes";
-}
-
-int main() {
-    assert(file_name_check("file.txt") == "Yes");
-    assert(file_name_check("1234file.txt") == "No");
-    assert(file_name_check("file.ext") == "No");
-    assert(file_name_check(".txt") == "No");
-    assert(file_name_check("file.") == "No");
-    return 0;
+    return "No";
 }
