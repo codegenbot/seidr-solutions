@@ -13,8 +13,5 @@ def histogram(test):
 
 if __name__ == "__main__":
     test = input().strip()
-    if not test:
-        print({})
-    else:
-        result = histogram(test)
-        print(result)
+    result = histogram(test)
+    print(result)
