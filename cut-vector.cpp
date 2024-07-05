@@ -1,39 +1,57 @@
-```
+```cpp
 #include <vector>
+#include <climits>
 #include <iostream>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    vector<vector<int>> res(2);
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
     int min_diff = INT_MAX;
-    int idx = -1;
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || vec[i] <= vec[i - 1]) {
-            res[0].insert(res[0].end(), vec.begin(), vec.begin() + i);
-            res[1].insert(res[1].begin(), vec.begin() + i, vec.end());
-            break;
+    int split_index = 0;
+
+    for (int i = 1; i < n; i++) {
+        int diff = std::abs(v[i-1] - v[i]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            split_index = i;
         }
     }
-    return res;
+
+    vector<int> left = {v[0]};
+    for (int i = 1; i < split_index; i++) {
+        left.push_back(v[i]);
+    }
+
+    vector<int> right = {v[split_index], v.back()};
+    for (int i = split_index + 1; i < n - 1; i++) {
+        right.push_back(v[i]);
+    }
+
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        cin >> v[i];
     }
-    vector<vector<int>> res = cutVector(vec);
+    pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i] << " ";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i];
+        if (i < result.first.size() - 1) {
+            cout << " ";
+        }
     }
-    cout << "] [" << "[";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
+    cout << "]\n[";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i];
+        if (i < result.second.size() - 1) {
+            cout << " ";
+        }
     }
-    cout << "]";
+    cout << "]\n";
     return 0;
 }
