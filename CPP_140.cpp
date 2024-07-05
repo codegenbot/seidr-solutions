@@ -1,8 +1,8 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string fix_spaces(const std::string &text) {
-    std::string result;
+string fix_spaces(const string& text) {
+    string result;
     int spaceCount = 0;
     for(char c : text) {
         if(c == ' ') {
@@ -26,8 +26,6 @@ std::string fix_spaces(const std::string &text) {
 }
 
 int main() {
-    std::string text;
-    std::getline(std::cin, text);
-    std::cout << fix_spaces(text) << std::endl;
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
     return 0;
 }
