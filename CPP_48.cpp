@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool is_palindrome(string text){
+bool is_palindrome(string text) {
     int left = 0;
     int right = text.length() - 1;
     while (left < right) {
@@ -17,9 +17,7 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << boolalpha << is_palindrome(input) << endl;
+    cout << boolalpha << is_palindrome("madam") << endl;
+    cout << is_palindrome("hello") << endl;
     return 0;
 }
