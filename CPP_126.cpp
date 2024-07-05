@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -14,8 +15,9 @@ bool is_sorted(vector<int> lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    assert(is_sorted({1, 2, 2, 3}) == true);
-    assert(is_sorted({3, 2, 1}) == false);
-    assert(is_sorted({1, 2, 2, 2}) == false);
+    assert(is_sorted({1, 2, 2, 4}) == true);
+    assert(is_sorted({1, 2, 3, 2}) == false);
+    assert(is_sorted({1, 1, 1}) == false);
+    cout << "All tests passed!" << endl;
     return 0;
 }
