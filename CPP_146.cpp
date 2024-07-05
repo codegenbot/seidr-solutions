@@ -1,13 +1,10 @@
 int specialFilter(vector<int> nums) {
+    auto isOdd = [](int n) { return (n % 2 != 0); };
     int count = 0;
     for (int num : nums) {
-        if (num <= 10 && num >= -10) continue;
-        int absNum = abs(num);
-        string strNum = to_string(absNum);
-        char firstDigit = strNum[0];
-        char lastDigit = strNum[strNum.size() - 1];
-        if ((firstDigit == '1' || firstDigit == '3' || firstDigit == '5' || firstDigit == '7' || firstDigit == '9') &&
-            (lastDigit == '1' || lastDigit == '3' || lastDigit == '5' || lastDigit == '7' || lastDigit == '9')) {
+        if (num <= 10) continue;
+        string str = to_string(abs(num));
+        if (isOdd(str.front() - '0') && isOdd(str.back() - '0')) {
             count++;
         }
     }
