@@ -1,4 +1,7 @@
-int bowlingScore(string s) {
+#include <iostream>
+#include <string>
+
+int bowlingScore(std::string s) {
     int score = 0;
     int currentRoll = 0;
     for (char c : s) {
