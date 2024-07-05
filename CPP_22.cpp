@@ -1,28 +1,25 @@
 #include <vector>
 #include <boost/any.hpp>
-#include <cassert>
 #include <typeinfo>
+#include <cassert>
 
-using namespace std;
-
-// Function to filter integers from a vector of boost::any
-vector<int> filter_integers(const vector<boost::any>& values) {
-    vector<int> result;
-    for (const auto& val : values) {
-        if (val.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(val));
+std::vector<int> filter_integers(const std::vector<boost::any>& values) {
+    std::vector<int> result;
+    for (const auto& value : values) {
+        if (value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
-// Function to compare two vectors of integers
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    // Test filter_integers and issame functions
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    // Use boost::any to create vector with different data types
+    std::vector<boost::any> input = {3, 'c', 3, 3, 'a', 'b'};
+    assert(issame(filter_integers(input), {3, 3, 3}));
     return 0;
 }
