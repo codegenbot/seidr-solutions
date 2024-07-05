@@ -27,7 +27,9 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    cout << "Test passed!" << endl;
+    assert (issame(get_odd_collatz(1), vector<int>{1}));
+    assert (issame(get_odd_collatz(13), vector<int>{1, 3, 5, 7, 9, 11, 13, 15}));
+
+    cout << "All tests passed!" << endl;
     return 0;
 }
