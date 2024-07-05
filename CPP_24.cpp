@@ -9,3 +9,10 @@ int largest_divisor(int n) {
     }
     return 1; // Should never reach here since 1 is always a divisor
 }
+
+int main() {
+    int n;
+    cin >> n;
+    cout << largest_divisor(n) << endl;
+    return 0;
+}
