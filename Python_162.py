@@ -1,17 +1,16 @@
 import hashlib
+import sys
 
 def string_to_md5(text):
-    if not text.strip():
-        return None
     return hashlib.md5(text.encode()).hexdigest()
 
 if __name__ == "__main__":
     try:
-        text = input("Enter text: ").strip()
-        result = string_to_md5(text)
-        if result:
+        text = sys.stdin.read().strip()
+        if text:
+            result = string_to_md5(text)
             print(result)
         else:
-            print("No valid input received.")
-    except EOFError:
-        print("No input received.")
+            print("No input received.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
