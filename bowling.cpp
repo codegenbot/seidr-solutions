@@ -1,4 +1,3 @@
-```
 int calculateBowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
@@ -24,6 +23,7 @@ int calculateBowlingScore(const char* s) {
         }
     }
     return score;
+
 }
 
-int main() { calculateBowlingScore("XXX//"); return 0; }
+int main() { calculateBowlingScore("X/"); return 0; }
