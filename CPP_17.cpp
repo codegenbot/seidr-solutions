@@ -1,4 +1,4 @@
-vector<int> parse_music(string music_string){
+vector<int> parse_music(string music_string) {
     vector<int> result;
     string note;
     for (size_t i = 0; i < music_string.size(); ++i) {
