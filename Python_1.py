@@ -5,7 +5,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     balance = 0
     current_group = []
-    # Remove invalid characters
     paren_string = re.sub(r'[^()]+', '', paren_string)
     for char in paren_string:
         current_group.append(char)
