@@ -8,7 +8,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
     vector<int> result;
-
+    
     for (int elem : s1) {
         if (s2.find(elem) != s2.end()) {
             result.push_back(elem);
@@ -26,18 +26,18 @@ int main() {
     for (int i = 0; i < n1; ++i) {
         cin >> l1[i];
     }
-    
+
     cin >> n2;
     vector<int> l2(n2);
     for (int i = 0; i < n2; ++i) {
         cin >> l2[i];
     }
-    
+
     vector<int> result = common(l1, l2);
     for (int n : result) {
         cout << n << " ";
     }
     cout << endl;
-    
+
     return 0;
 }
