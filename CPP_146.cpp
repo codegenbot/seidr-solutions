@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -9,10 +8,8 @@ int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num > 10) {
-            string str = to_string(abs(num));
-            int firstDigit = str[0] - '0';
-            int lastDigit = str[str.size() - 1] - '0';
-            if ((firstDigit % 2 != 0) && (lastDigit % 2 != 0)) {
+            string str = to_string(num);
+            if ((str[0] - '0') % 2 != 0 && (str.back() - '0') % 2 != 0) {
                 count++;
             }
         }
@@ -21,7 +18,6 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {103, 22, 315, 4689, 7};
-    cout << specialFilter(nums) << endl;
+    cout << specialFilter({15, 22, 33, 44, 53}) << endl; // Sample test
     return 0;
 }
