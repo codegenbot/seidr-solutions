@@ -12,11 +12,12 @@ int add_elements(const std::vector<int>& arr, int k) {
 }
 
 int main() {
-    int k, n;
+    int k, n, element;
     std::cin >> n >> k;
     std::vector<int> arr(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
+        std::cin >> element;
+        arr[i] = element;
     }
     std::cout << add_elements(arr, k) << std::endl;
     return 0;
