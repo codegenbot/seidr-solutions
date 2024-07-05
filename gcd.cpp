@@ -1,14 +1,12 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <initializer_list> 
 using namespace std;
-using std::size_t;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    size_t n = text.length();
-    size_t m = target.length();
+    int n = text.length();
+    int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
@@ -24,4 +22,17 @@ long long gcd(long long a, long long b) {
         return a;
     else
         return gcd(b, a % b);
+}
+
+int main() {
+    cout << "Indices of substring: ";
+    for (auto i : indicesOfSubstring("abcdeabcdabef", "ab")) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    long long a = 48, b = 18;
+    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
+
+    return 0;
 }
