@@ -1,4 +1,3 @@
-```
 def sort_third(l):
     first = [i for i in l if i % 3 != 0]
     second = sorted([i for i in l if i % 3 == 0])
