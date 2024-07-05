@@ -11,10 +11,10 @@ double diceGame(int n, int m) {
     }
     
     for(int i = max(n-m+1, 1); i <= n; i++) {
-        p += (n-i) / total;
+        p -= (n-i) / total;
     }
 
-    return p;
+    return (double)p;
 }
 
 int main() {
