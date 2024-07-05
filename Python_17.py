@@ -4,7 +4,6 @@ def parse_music(music_string: str) -> List[int]:
     note_map = {'o': 4, 'o|': 2, '.|': 1}
     return [note_map[note] for note in music_string.split()]
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     music_string = input().strip()
-    result = parse_music(music_string)
-    print(result)
+    print(parse_music(music_string))
