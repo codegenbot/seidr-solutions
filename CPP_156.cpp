@@ -1,15 +1,17 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <utility>
+#include <string>
+#include <cassert>
 
-std::string int_to_mini_roman(int number) {
-    std::vector<std::pair<int, std::string>> roman = {
+using namespace std;
+
+string int_to_mini_roman(int number) {
+    vector<pair<int, string>> roman = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"},
         {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"},
         {5, "v"}, {4, "iv"}, {1, "i"}
     };
-    std::string result = "";
+    string result = "";
     for (const auto& [value, symbol] : roman) {
         while (number >= value) {
             result += symbol;
@@ -20,6 +22,8 @@ std::string int_to_mini_roman(int number) {
 }
 
 int main() {
-    std::cout << int_to_mini_roman(1000) << std::endl; // Outputs: m
+    // Example usage and test
+    assert(int_to_mini_roman(1000) == "m");
+    cout << "All tests passed!" << endl;
     return 0;
 }
