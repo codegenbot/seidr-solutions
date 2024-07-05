@@ -30,9 +30,7 @@ string words_in_sentence(string sentence) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a sentence: ";
-    getline(cin, input);
-    cout << words_in_sentence(input) << endl;
+    assert(words_in_sentence("here is a test sentence") == "is a");
+    cout << "All tests passed!" << endl;
     return 0;
 }
