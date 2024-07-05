@@ -11,7 +11,9 @@ def minPath(grid, k):
                 yield nx, ny
 
     min_heap = []
-    heappush(min_heap, (grid[0][0], [(0, 0)]))
+    for i in range(n):
+        for j in range(n):
+            heappush(min_heap, (grid[i][j], [(i, j)]))
 
     while min_heap:
         _, path = heappop(min_heap)
@@ -19,11 +21,14 @@ def minPath(grid, k):
             return [grid[x][y] for x, y in path]
         x, y = path[-1]
         for nx, ny in neighbors(x, y):
-            if (nx, ny) not in path:
-                new_path = path + [(nx, ny)]
-                heappush(min_heap, (sum(grid[x][y] for x, y in new_path), new_path))
+            new_path = path + [(nx, ny)]
+            heappush(min_heap, (grid[nx][ny], new_path))
 
-import ast
-grid = ast.literal_eval(input())
+n = int(input())
+grid = []
+for _ in range(n):
+    grid.append(list(map(int, input().split())))
 k = int(input())
-print(minPath(grid, k))
+
+result = minPath(grid, k)
+print(" ".join(map(str, result)))
