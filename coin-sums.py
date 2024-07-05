@@ -4,8 +4,10 @@ def coin_sums(cents):
 
     for i in range(len(coins)):
         count = cents // coins[i]
-        if count > 0:
-            res[i] = count
+        res[i] = count
+        if cents < coins[i]:
+            res[i] = 0
+        else:
             cents -= count * coins[i]
     
     return ' '.join(map(str, res)) + '\n'
