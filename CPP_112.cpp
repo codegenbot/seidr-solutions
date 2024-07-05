@@ -4,32 +4,22 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<string> reverse_delete(string s, string c) {
-    // Remove characters in c from s
-    string result;
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
-            result += ch;
-        }
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    for (char ch : c) {
+        s.erase(std::remove(s.begin(), s.end(), ch), s.end());
     }
-
-    // Check if the resulting string is a palindrome
-    string reversed_result = result;
-    reverse(reversed_result.begin(), reversed_result.end());
-    bool is_palindrome = (result == reversed_result);
-
-    // Return the result string and palindrome check
-    return {result, is_palindrome ? "True" : "False"};
+    std::string reversed_s = s;
+    std::reverse(reversed_s.begin(), reversed_s.end());
+    bool is_palindrome = (s == reversed_s);
+    return {s, is_palindrome ? "True" : "False"};
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 int main() {
-    assert (issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
-    cout << "All tests passed!" << endl;
+    assert (issame(reverse_delete("mamma", "mia") , {"mm", "True"}));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
