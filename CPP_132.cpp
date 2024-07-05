@@ -19,10 +19,10 @@ bool is_nested(string str){
 }
 
 int main() {
-    assert (is_nested("[]") == false);
-    assert (is_nested("[[]]") == true);
-    assert (is_nested("[[][]]") == true);
-    assert (is_nested("]]]]]]]]") == false);
+    assert(is_nested("[]") == false);
+    assert(is_nested("[[]]") == true);
+    assert(is_nested("[[][]]") == true);
+    assert(is_nested("]]]]]]]]") == false);
     cout << "All test cases passed.\n";
     return 0;
 }
