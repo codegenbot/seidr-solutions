@@ -15,8 +15,8 @@ string anti_shuffle(string s) {
             word += c;
         }
     }
-    sort(word.begin(), word.end()); // Sort the last word
-    result += word; // Append the last word to result
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
 
