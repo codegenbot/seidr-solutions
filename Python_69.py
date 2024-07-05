@@ -1,6 +1,6 @@
 def search(lst):
     from collections import Counter
-    
+
     count = Counter(lst)
     result = -1
     for num, freq in count.items():
@@ -8,5 +8,6 @@ def search(lst):
             result = num
     return result
 
+# Read input
 lst = list(map(int, input().split()))
 print(search(lst))
