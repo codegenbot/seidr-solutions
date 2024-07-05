@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<float> derivative(vector<float> xs) {
+vector<float> derivative(const vector<float> &xs) {
     vector<float> result;
     for (size_t i = 1; i < xs.size(); ++i) {
         result.push_back(xs[i] * i);
@@ -12,7 +12,7 @@ vector<float> derivative(vector<float> xs) {
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(const vector<float> &a, const vector<float> &b) {
     return a == b;
 }
 
