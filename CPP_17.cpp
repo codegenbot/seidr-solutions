@@ -2,38 +2,33 @@
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
-vector<int> parse_music(string music_string){ 
+vector<int> parse_music(string music_string) { 
     vector<int> beats;
-    size_t i = 0;
-    while (i < music_string.size()) {
-        if (music_string[i] == 'o') {
-            if (i + 1 < music_string.size() && music_string[i + 1] == '|') {
-                beats.push_back(2);
-                i += 2;
-            } else {
-                beats.push_back(4);
-                i++;
-            }
-        } else if (music_string[i] == '.' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
-            beats.push_back(1);
-            i += 2;
+    string note;
+    for (char c : music_string) {
+        if (c == ' ') {
+            if (note == "o") beats.push_back(4);
+            else if (note == "o|") beats.push_back(2);
+            else if (note == ".|") beats.push_back(1);
+            note = "";
         } else {
-            i++;
+            note += c;
         }
-        if (i < music_string.size() && music_string[i] == ' ') i++;
     }
+    if (note == "o") beats.push_back(4);
+    else if (note == "o|") beats.push_back(2);
+    else if (note == ".|") beats.push_back(1);
     return beats;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert (issame(parse_music("o| .| o| .| o o| o o|") , {2, 1, 2, 1, 4, 2, 4, 2}));
-    cout << "Test passed!" << endl;
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
