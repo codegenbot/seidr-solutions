@@ -1,3 +1,6 @@
 def words_string(s):
-    s = s.strip()  # Remove leading/trailing whitespace
+    s = s.strip()
     return s.split(", ")
+
+
+assert words_string("ahmed, gamal") == ["ahmed", "gamal"]
