@@ -62,6 +62,7 @@ int main() {
             cout << "Unexpected type" << endl;
         }
 
+        // Updated assertion to compare compatible types
         assert(std::any_cast<string>(compare_one(string("42"), string("42"))) == "None");
         
     } catch (const std::bad_any_cast& e) {
