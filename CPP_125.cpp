@@ -38,7 +38,7 @@ int main() {
     assert(split_words("a,b,c") == vector<string>{"a", "b", "c"});
     assert(split_words("abcdef") == vector<string>{"3"});
     assert(split_words("") == vector<string>{"0"});
-
+    
     cout << "All tests passed!" << endl;
     return 0;
 }
