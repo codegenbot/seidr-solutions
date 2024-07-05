@@ -1,3 +1,3 @@
 ```
 def sort_third(l):
-    return tuple(sorted([(i[2], i) for i in l]))
+    return tuple(sorted([(l[i], l) for i in range(len(l))]))
