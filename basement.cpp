@@ -3,13 +3,16 @@
 using namespace std;
 
 int basement(vector<int>& v) {
-    int i = 0; // initialize i to 0
-    int sum = 0;
-    for (size_t i = 0; i < v.size(); i++) {
+    int i = 0, sum = 0;
+    for (; i < v.size(); ++i) {
         sum += v[i];
-        if (sum >= 0) {
-            return -1; // return -1 if no index found where the sum becomes negative
-        }
+        if (sum < 0) break;
     }
-    return i + 1; // return the first index where the sum becomes negative
+    return i == v.size() ? -1 : i + 1;
+}
+
+int main() {
+    vector<int> v{1,2,3,4};
+    cout << basement(v) << endl;
+    return 0;
 }
