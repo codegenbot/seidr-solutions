@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -20,6 +19,5 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    cout << "Test passed!" << endl;
     return 0;
 }
