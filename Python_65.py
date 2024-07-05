@@ -1,6 +1,6 @@
-x_str = str(x)
-    n = len(x_str)
-    if shift > n:
-        return x_str[::-1]
+s = str(x)
+    n = len(s)
+    if shift >= n:
+        return s[::-1]
     shift = shift % n
-    return x_str[-shift:] + x_str[:-shift]
+    return s[-shift:] + s[:-shift]
