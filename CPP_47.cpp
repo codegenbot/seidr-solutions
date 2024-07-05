@@ -1,7 +1,8 @@
 #include <algorithm>
 #include <vector>
-#include <iostream>
+#include <cassert>
 #include <cmath>
+#include <iostream>
 
 double median(std::vector<int> l) {
     std::sort(l.begin(), l.end());
@@ -14,12 +15,15 @@ double median(std::vector<int> l) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> numbers(n);
-    for(int i = 0; i < n; ++i) {
-        std::cin >> numbers[i];
+    assert(abs(median({8, 1, 3, 9, 9, 2, 7}) - 7.0) < 1e-4);
+    
+    std::vector<int> input;
+    int num;
+    std::cout << "Enter numbers followed by end-of-file: ";
+    while (std::cin >> num) {
+        input.push_back(num);
     }
-    std::cout << median(numbers) << std::endl;
+
+    std::cout << "Median is: " << median(input) << std::endl;
     return 0;
 }
