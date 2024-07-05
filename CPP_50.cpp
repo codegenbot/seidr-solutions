@@ -23,9 +23,9 @@ string encode_shift(string s) {
 }
 
 int main() {
-    string str = "hello";
+    string str = "teststring";
     string encoded_str = encode_shift(str);
     assert(decode_shift(encoded_str) == str);
-    cout << "Test passed." << endl;
+    cout << "Encoding and decoding is correct." << endl;
     return 0;
 }
