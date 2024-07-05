@@ -3,9 +3,9 @@ def coin_sums(cents):
     res = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        n = min(res[i], int(cents / coins[i]))
-        cents -= n * coins[i]
-        res[i] = n
+        count = cents // coins[i]
+        res[i] = count
+        cents -= count * coins[i]
 
     return res
 
