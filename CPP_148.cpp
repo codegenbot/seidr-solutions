@@ -38,6 +38,6 @@ vector<string> bf(string planet1, string planet2) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
-    cout << "All tests passed" << endl;
+    cout << "All tests passed!" << endl;
     return 0;
 }
