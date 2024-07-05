@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
 int basement(vector<int>& v) {
     int sum = 0;
     int result = -1;
