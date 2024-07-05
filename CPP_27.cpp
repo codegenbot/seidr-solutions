@@ -1,22 +1,20 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 #include <cassert>
 
-// Function definition
-std::string flip_case(std::string str) {
-    for (int i = 0; i < str.length(); ++i) {
-        if (islower(str[i])) {
-            str[i] = toupper(str[i]);
-        } else if (isupper(str[i])) {
-            str[i] = tolower(str[i]);
-        }
+using namespace std;
+
+string flip_case(string str) {
+    for (char &c : str) {
+        if (isupper(c))
+            c = tolower(c);
+        else if (islower(c))
+            c = toupper(c);
     }
     return str;
 }
 
 int main() {
-    // Corrected function name from 'filp_case' to 'flip_case'
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOlent DELIGHTS HAVE VIOtent ENDS");
     return 0;
 }
