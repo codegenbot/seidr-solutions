@@ -22,10 +22,9 @@ def minPath(grid, k):
                 new_path_sum = path_sum + grid[nx][ny]
                 heappush(min_heap, (new_path_sum, new_path))
 
-
 if __name__ == "__main__":
-    N = int(input())
+    N = int(input("Enter grid size: "))
     grid = [list(map(int, input().split())) for _ in range(N)]
-    k = int(input())
+    k = int(input("Enter the path length k: "))
     result = minPath(grid, k)
     print(result)
