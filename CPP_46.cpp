@@ -1,9 +1,10 @@
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int fib4(int n) {
-    if (n == 0 || n == 1 || n == 3) return 0;
+    if (n == 0 || n == 1) return 0;
     if (n == 2) return 2;
+    if (n == 3) return 0;
 
     int a = 0, b = 0, c = 2, d = 0, e;
     for (int i = 4; i <= n; ++i) {
@@ -13,12 +14,13 @@ int fib4(int n) {
         c = d;
         d = e;
     }
-    return d;
+
+    return e;
 }
 
 int main() {
     int n;
-    scanf("%d", &n);
-    printf("%d\n", fib4(n));
+    cin >> n;
+    cout << fib4(n) << endl;
     return 0;
 }
