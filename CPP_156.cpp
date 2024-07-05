@@ -23,6 +23,6 @@ string int_to_mini_roman(int number) {
 
 int main() {
     assert(int_to_mini_roman(1000) == "m");
-    // Add more test cases if needed
+    cout << "All tests passed!" << endl;
     return 0;
 }
