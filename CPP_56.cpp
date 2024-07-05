@@ -18,14 +18,11 @@ bool correct_bracketing(const std::string& brackets) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a sequence of brackets: ";
     std::cin >> input;
-    
     if (correct_bracketing(input)) {
-        std::cout << "Correctly bracketed" << std::endl;
+        std::cout << "YES" << std::endl;
     } else {
-        std::cout << "Incorrectly bracketed" << std::endl;
+        std::cout << "NO" << std::endl;
     }
-    
     return 0;
 }
