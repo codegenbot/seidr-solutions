@@ -1,15 +1,15 @@
-vector<int> sort_third(vector<int> l) {
-    vector<int> to_sort;
+vector<int> sort_third(vector<int> l){
+    vector<int> third_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            to_sort.push_back(l[i]);
+            third_indices.push_back(l[i]);
         }
     }
-    sort(to_sort.begin(), to_sort.end());
-    int sort_index = 0;
+    sort(third_indices.begin(), third_indices.end());
+    int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            l[i] = to_sort[sort_index++];
+            l[i] = third_indices[j++];
         }
     }
     return l;
