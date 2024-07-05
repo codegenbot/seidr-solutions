@@ -1,26 +1,28 @@
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    auto is_consonant = [](char c) {
-        c = tolower(c);
-        return (c >= 'a' && c <= 'z' && !strchr("aeiou", c));
-    };
+    string vowels = "aeiouAEIOU";
+    size_t start = 0, end = 0;
 
-    auto count_consonants = [&](const string& word) {
-        return count_if(word.begin(), word.end(), is_consonant);
-    };
+    while ((end = s.find(' ', start)) != string::npos) {
+        string word = s.substr(start, end - start);
+        int consonant_count = count_if(word.begin(), word.end(), [&](char c){
+            return !isspace(c) && vowels.find(c) == string::npos;
+        });
 
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty() && count_consonants(word) == n)
-                result.push_back(word);
-            word.clear();
-        } else {
-            word += c;
+        if (consonant_count == n) {
+            result.push_back(word);
         }
+        start = end + 1;
     }
-    if (!word.empty() && count_consonants(word) == n)
+
+    string word = s.substr(start);
+    int consonant_count = count_if(word.begin(), word.end(), [&](char c){
+        return !isspace(c) && vowels.find(c) == string::npos;
+    });
+
+    if (consonant_count == n) {
         result.push_back(word);
+    }
 
     return result;
 }
