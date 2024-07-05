@@ -6,7 +6,6 @@ def indices_of_substring(text, target):
         index = text.find(target, index + 1)
     return indices
 
-
 text = input(r"Enter the text: ")
 target = input(r"Enter the target: ")
 indices = indices_of_substring(text, target)
