@@ -10,4 +10,3 @@ int calculateFuelCost(std::vector<int> numbers) {
         sum += static_cast<int>(result);
     }
     return sum;
-}
