@@ -3,7 +3,7 @@
 #include <cctype>
 #include <cassert>
 
-bool check_if_last_char_is_a_letter(const std::string& txt){
+bool check_if_last_char_is_a_letter(const std::string& txt) {
     return !txt.empty() && std::isalpha(txt.back());
 }
 
