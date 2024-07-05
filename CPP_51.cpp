@@ -1,21 +1,24 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <cassert>
 
-std::string remove_vowels(const std::string& text) {
-    std::string result;
-    for (char ch : text) {
-        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
-            ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
-            result += ch;
+using namespace std;
+
+string remove_vowels(string text) {
+    string result;
+    for(char c : text) {
+        if(!strchr("aeiouAEIOU", c)) {
+            result += c;
         }
     }
     return result;
 }
 
 int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
-    assert(remove_vowels("beautiful") == "btfl");
-    std::cout << "All test cases passed!" << std::endl;
+    assert (remove_vowels("ybcd") == "ybcd");
+    assert (remove_vowels("hello") == "hll");
+    assert (remove_vowels("AEIOUaeiou") == "");
+    cout << "All tests passed!\n";
     return 0;
 }
