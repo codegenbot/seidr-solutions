@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -6,9 +6,11 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
+    int min_diff = INT_MAX;
+    int idx = -1;
     for (int i = 0; i < n; i++) {
-        if (i == 0 || vec[i] == vec[i - 1]) {
-            res[0].insert(res[0].end(), vec.begin(), vec.begin() + i + 1);
+        if (i == 0 || vec[i] <= vec[i - 1]) {
+            res[0].insert(res[0].end(), vec.begin(), vec.begin() + i);
             res[1].insert(res[1].begin(), vec.begin() + i, vec.end());
             break;
         }
