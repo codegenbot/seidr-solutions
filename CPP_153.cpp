@@ -26,11 +26,11 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
 
 int main() {
     std::string class_name;
-    int num_extensions;
-    std::cin >> class_name >> num_extensions;
-    std::vector<std::string> extensions(num_extensions);
-    for (int i = 0; i < num_extensions; ++i) {
-        std::cin >> extensions[i];
+    int n;
+    std::cin >> class_name >> n;
+    std::vector<std::string> extensions(n);
+    for(auto& ext : extensions) {
+        std::cin >> ext;
     }
     std::cout << Strongest_Extension(class_name, extensions) << std::endl;
     return 0;
