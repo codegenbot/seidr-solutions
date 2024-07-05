@@ -5,52 +5,64 @@
 
 using namespace std;
 
-std::any string_to_number(const string& s) {
-    string s_copy = s;
-    replace(s_copy.begin(), s_copy.end(), ',', '.');
-    try {
-        return std::stod(s_copy);
-    } catch (const std::invalid_argument&) {
-        return s; // If conversion fails, return original string
+any convert_to_float(any value) {
+    if (value.type() == typeid(int)) {
+        return static_cast<float>(any_cast<int>(value));
+    } else if (value.type() == typeid(float)) {
+        return any_cast<float>(value);
+    } else if (value.type() == typeid(string)) {
+        string str = any_cast<string>(value);
+        replace(str.begin(), str.end(), ',', '.');
+        return stof(str);
     }
+    return 0.0f; // Default fallback
 }
 
-std::any compare_one(std::any a, std::any b) {
-    auto get_value = [](const std::any& v) -> std::any {
-        if (v.type() == typeid(int)) return std::any_cast<int>(v);
-        if (v.type() == typeid(float)) return std::any_cast<float>(v);
-        if (v.type() == typeid(double)) return std::any_cast<double>(v);
-        if (v.type() == typeid(string)) return string_to_number(std::any_cast<string>(v));
-        return v;
-    };
-
-    auto va = get_value(a);
-    auto vb = get_value(b);
-
-    if (va.type() == typeid(double) && vb.type() == typeid(double)) {
-        double da = std::any_cast<double>(va);
-        double db = std::any_cast<double>(vb);
-        if (da == db) return "None";
-        return da > db ? a : b;
-    }
-
-    if (va.type() == typeid(string) && vb.type() == typeid(string)) {
-        string sa = std::any_cast<string>(va);
-        string sb = std::any_cast<string>(vb);
-        if (sa == sb) return "None";
-        return sa > sb ? a : b;
-    }
-
-    return "None";
+any compare_one(any a, any b) {
+    float fa = any_cast<float>(convert_to_float(a));
+    float fb = any_cast<float>(convert_to_float(b));
+    
+    if (fa > fb) return a;
+    if (fa < fb) return b;
+    return string("None");
 }
 
 int main() {
-    std::string a, b;
-    cin >> a >> b;
-    std::any result = compare_one(a, b);
-    if (result.type() == typeid(std::string)) {
-        cout << std::any_cast<std::string>(result);
-    } else {
-        cout << "None";
+    any a, b;
+    string inputA, inputB;
+
+    cout << "Enter first value: ";
+    cin >> inputA;
+    try {
+        a = stoi(inputA);
+    } catch (...) {
+        try {
+            a = stof(inputA);
+        } catch (...) {
+            a = inputA;
+        }
     }
+
+    cout << "Enter second value: ";
+    cin >> inputB;
+    try {
+        b = stoi(inputB);
+    } catch (...) {
+        try {
+            b = stof(inputB);
+        } catch (...) {
+            b = inputB;
+        }
+    }
+
+    any result = compare_one(a, b);
+    if (result.type() == typeid(string)) {
+        cout << any_cast<string>(result) << endl;
+    } else if (result.type() == typeid(int)) {
+        cout << any_cast<int>(result) << endl;
+    } else if (result.type() == typeid(float)) {
+        cout << any_cast<float>(result) << endl;
+    }
+
+    return 0;
 }
