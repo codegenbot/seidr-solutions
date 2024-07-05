@@ -27,9 +27,6 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    string input;
-    cout << "Enter space-separated number words (like 'one two three'):";
-    getline(cin, input);
-    cout << sort_numbers(input) << endl;
+    cout << sort_numbers("six five four three two one zero") << endl;
     return 0;
 }
