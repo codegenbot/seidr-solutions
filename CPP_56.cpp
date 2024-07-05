@@ -1,29 +1,22 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-bool correct_bracketing(const std::string& brackets) {
-    int balance = 0;
+bool correct_bracketing(const std::string &brackets) {
+    int count = 0;
     for (char ch : brackets) {
-        if (ch == '<') {
-            balance++;
-        } else if (ch == '>') {
-            balance--;
-            if (balance < 0) return false;
-        }
+        if (ch == '<') count++;
+        else if (ch == '>') count--;
+        if (count < 0) return false;
     }
-    return balance == 0;
+    return count == 0;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter brackets sequence: ";
-    std::cin >> input;
-
-    if (correct_bracketing(input)) {
-        std::cout << "Correct bracketing" << std::endl;
-    } else {
-        std::cout << "Incorrect bracketing" << std::endl;
-    }
-    
+    assert(correct_bracketing("<><><<><>><>>><>") == false);
+    assert(correct_bracketing("<><>><<>") == true);
+    assert(correct_bracketing("<<>") == false);
+    assert(correct_bracketing("<<>>") == true);
+    std::cout << "All test cases passed!" << std::endl;
     return 0;
 }

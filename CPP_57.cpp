@@ -1,10 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool monotonic(vector<float> l) {
+bool is_monotonic(const std::vector<int>& l) {
+    if (l.empty()) return true;
     bool increasing = true, decreasing = true;
     for (size_t i = 1; i < l.size(); ++i) {
         if (l[i] > l[i - 1]) decreasing = false;
@@ -14,11 +12,9 @@ bool monotonic(vector<float> l) {
 }
 
 int main() {
-    assert(monotonic({9, 9, 9, 9}) == true);
-    assert(monotonic({1, 2, 3, 4}) == true);
-    assert(monotonic({4, 3, 2, 1}) == true);
-    assert(monotonic({1, 3, 2, 4}) == false);
-
-    cout << "All test cases passed!" << endl;
+    assert(is_monotonic({9, 9, 9, 9}) == true);
+    assert(is_monotonic({1, 2, 2, 3}) == true);
+    assert(is_monotonic({3, 2, 1}) == true);
+    assert(is_monotonic({3, 2, 2, 3}) == false);
     return 0;
 }
