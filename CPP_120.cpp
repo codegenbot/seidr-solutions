@@ -22,6 +22,5 @@ int main() {
     assert(issame(maximum({5, 1, 5, 5, 3}, 2), {5, 5}));
     assert(issame(maximum({-1, -2, -3, -4}, 2), {-2, -1}));
     assert(issame(maximum({1}, 1), {1}));
-    cout << "All test cases passed!" << endl;
     return 0;
 }
