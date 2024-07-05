@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<float> rescale_to_unit(const vector<float>& numbers) {
+vector<float> rescale_to_unit(vector<float> numbers) {
     float min_val = *min_element(numbers.begin(), numbers.end());
     float max_val = *max_element(numbers.begin(), numbers.end());
     vector<float> rescaled;
@@ -15,13 +15,17 @@ vector<float> rescale_to_unit(const vector<float>& numbers) {
     return rescaled;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
+bool issame(vector<float> a, vector<float> b) {
+    const float EPSILON = 1e-6;
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > EPSILON) return false;
+    }
+    return true;
 }
 
 int main() {
-    vector<float> result = rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0});
-    assert(issame(result, {0.25, 0.0, 1.0, 0.5, 0.75}));
-    cout << "Test passed!" << endl;
+    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
+    cout << "Assertion passed." << endl;
     return 0;
 }
