@@ -24,13 +24,13 @@ void test() {
 }
 
 int main() {
+    test();  // Run the test function before reading user input
+
     string track;
     cin >> track;
 
     int result = car_race_collision(track);
     cout << result << endl;
-    
-    test();  // Run the test function
 
     return 0;
 }
