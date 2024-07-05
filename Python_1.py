@@ -17,12 +17,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 if __name__ == "__main__":
     try:
-        while True:
-            paren_string = input().strip()
-            if paren_string:
-                result = separate_paren_groups(paren_string)
-                print(result)
-            else:
-                print([])
+        paren_string = input().strip()
+        if paren_string:
+            result = separate_paren_groups(paren_string)
+            print(result)
+        else:
+            print([])
     except EOFError:
-        pass
+        print([])
