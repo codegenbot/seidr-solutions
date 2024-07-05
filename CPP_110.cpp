@@ -21,7 +21,7 @@ string exchange(vector<int> lst1, vector<int> lst2) {
 }
 
 int main() {
-    cout << exchange({100, 200}, {200, 200}) << endl; // Output should be "YES"
-    cout << exchange({101, 202}, {200, 200}) << endl; // Output should be "NO"
+    cout << exchange({100, 200}, {200, 200}) << endl;
+    cout << exchange({101, 202}, {200, 200}) << endl;
     return 0;
 }
