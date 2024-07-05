@@ -38,7 +38,7 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    auto result1 = compare_one(5, string("4,9"));
+    auto result1 = compare_one(5, string("4.9"));
     if (result1.type() == typeid(int))
         cout << std::any_cast<int>(result1) << endl;
     else if (result1.type() == typeid(string))
