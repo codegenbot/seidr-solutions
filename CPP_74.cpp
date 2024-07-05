@@ -28,7 +28,7 @@ int main() {
     // Test case
     assert(total_match({"this"}, {}) == vector<string>{});
     assert(total_match({"a", "b", "c"}, {"alpha", "beta"}) == vector<string>{"a", "b", "c"});
-    assert(total_match({"hello", "world"}, {"foo", "bar", "baz"}) == vector<string>{"hello", "world"});
+    assert(total_match({"hello", "world"}, {"foo", "bar", "baz"}) == vector<string>{"foo", "bar", "baz"});
 
     cout << "All test cases passed!";
     return 0;
