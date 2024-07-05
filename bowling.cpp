@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
