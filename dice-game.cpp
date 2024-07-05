@@ -1,5 +1,3 @@
-Here is the solution:
-
 #include <iostream>
 using namespace std;
 
@@ -17,6 +15,5 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(2) << std::to_string(diceGame(n, m)) << endl;
     return 0;
-}
