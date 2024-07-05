@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int add_elements(vector<int> arr, int k) {
+int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; ++i) {
         if (arr[i] >= -99 && arr[i] <= 99) {
@@ -14,6 +12,12 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    cout << add_elements({1}, 1) << endl; // Output should be 1
+    int n, k;
+    std::cin >> n >> k;
+    std::vector<int> arr(n);
+    for(int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
+    }
+    std::cout << add_elements(arr, k) << std::endl;
     return 0;
 }

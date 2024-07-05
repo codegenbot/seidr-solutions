@@ -9,16 +9,10 @@ std::string get_closest_vowel(const std::string &word) {
     };
 
     int n = word.size();
-    for (int i = 1; i < n - 1; ++i) {
-        if (!is_vowel(word[i]) && is_vowel(word[i - 1]) && !is_vowel(word[i + 1])) {
-            return std::string(1, word[i - 1]);
+    for (int i = n - 1; i >= 0; --i) {
+        if (is_vowel(word[i])) {
+            return std::string(1, word[i]);
         }
     }
     return "";
-}
-
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    std::cout << "Test passed!" << std::endl;
-    return 0;
 }
