@@ -1,8 +1,7 @@
-```
 #include <string>
 
 string string_sequence(int n) {
-    stringstream ss;
+    ostringstream ss;
     for (int i = 1; i <= n; ++i) {
         ss << i << " ";
     }
