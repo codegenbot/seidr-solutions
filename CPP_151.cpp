@@ -15,8 +15,8 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst;
-    float x;
+    vector<float> lst;  // vector to hold inputs
+    float x;  // variable to read each input
     while (cin >> x) {
         lst.push_back(x);
     }
