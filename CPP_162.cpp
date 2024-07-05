@@ -29,6 +29,6 @@ string string_to_md5(const string &text) {
 
 int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    cout << string_to_md5("password") << endl;  // To display the actual MD5 hash of "password"
+    cout << "All tests passed!" << endl;
     return 0;
 }
