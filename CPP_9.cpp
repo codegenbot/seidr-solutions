@@ -1,12 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <iostream>
+using namespace std;
 
-std::vector<int> rolling_max(const std::vector<int>& numbers) {
-    std::vector<int> result;
-    int current_max = numbers[0];
-    for(int num : numbers) {
-        if(num > current_max) {
+vector<int> rolling_max(vector<int> numbers) {
+    vector<int> result;
+    int current_max = INT_MIN;
+    for (int num : numbers) {
+        if (num > current_max) {
             current_max = num;
         }
         result.push_back(current_max);
@@ -14,11 +15,12 @@ std::vector<int> rolling_max(const std::vector<int>& numbers) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    assert (issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
