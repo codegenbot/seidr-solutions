@@ -1,15 +1,13 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 using namespace std;
 
-int my_strlen(string str) {
+int my_strlen(const string& str) {
     return str.length();
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Length of the string is: " << my_strlen(input) << endl;
+    assert(my_strlen("asdasnakj") == 9);
     return 0;
 }
