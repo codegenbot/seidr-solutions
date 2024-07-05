@@ -14,10 +14,7 @@ int solutions(vector<int> lst) {
     return sum;
 }
 
-int main() {
-    vector<int> testVec = {3, 13, 2, 9};
-    assert(solutions(testVec) == 3);
-
+vector<int> inputVector() {
     int n;
     cout << "Enter the number of elements in the vector: ";
     cin >> n;
@@ -27,7 +24,15 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> userVec[i];
     }
+    return userVec;
+}
 
+int main() {
+    vector<int> testVec = {3, 13, 2, 9};
+    assert(solutions(testVec) == 3);
+
+    vector<int> userVec = inputVector();
     cout << "The sum is: " << solutions(userVec) << endl;
+    
     return 0;
 }
