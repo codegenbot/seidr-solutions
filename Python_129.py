@@ -23,24 +23,16 @@ def minPath(grid, k):
                         min_path = path
                     continue
                 for nx, ny in neighbors(x, y):
-                    new_path = path + [grid[nx][ny]]
-                    heappush(heap, (grid[nx][ny], nx, ny, new_path))
+                    if (nx, ny) not in visited or len(path) < k:
+                        new_path = path + [grid[nx][ny]]
+                        heappush(heap, (val + grid[nx][ny], nx, ny, new_path))
+                        visited.add((nx, ny))
 
-    return min_path
+    return min_path if min_path else []
 
 
 if __name__ == "__main__":
-    import sys
-
-    input = sys.stdin.read
-    data = list(map(int, input().split()))
-    n = data[0]
-    k = data[-1]
-    grid = []
-
-    index = 1
-    for _ in range(n):
-        grid.append(data[index : index + n])
-        index += n
-
+    n = int(input())
+    grid = [list(map(int, input().split())) for _ in range(n)]
+    k = int(input())
     print(minPath(grid, k))
