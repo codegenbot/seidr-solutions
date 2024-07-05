@@ -4,19 +4,22 @@ vector<int> largest_smallest_integers(vector<int> lst){
     bool found_negative = false;
     bool found_positive = false;
 
-    for(int num : lst){
-        if(num < 0){
-            if(!found_negative || num > largest_negative){
+    for(int num : lst) {
+        if(num < 0) {
+            if(!found_negative || num > largest_negative) {
                 largest_negative = num;
                 found_negative = true;
             }
-        } else if(num > 0){
-            if(!found_positive || num < smallest_positive){
+        } else if(num > 0) {
+            if(!found_positive || num < smallest_positive) {
                 smallest_positive = num;
                 found_positive = true;
             }
         }
     }
 
-    return {found_negative ? largest_negative : 0, found_positive ? smallest_positive : 0};
+    if(!found_negative) largest_negative = 0;
+    if(!found_positive) smallest_positive = 0;
+
+    return {largest_negative, smallest_positive};
 }
