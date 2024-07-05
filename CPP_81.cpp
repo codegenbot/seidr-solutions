@@ -1,5 +1,5 @@
-#include <iostream> 
-#include <vector> 
+#include <iostream>
+#include <vector>
 #include <string>
 #include <cassert>
 
@@ -30,8 +30,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
-    assert(issame(numerical_letter_grade({4.0, 3.8, 2.9}), {"A+", "A", "C+"}));
+    assert (issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert (issame(numerical_letter_grade({4.0, 3.8, 3.5, 2.8, 1.9}), {"A+", "A", "A-", "B", "C-"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
