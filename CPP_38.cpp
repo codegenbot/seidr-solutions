@@ -13,7 +13,6 @@ string decode_cyclic(const string &s){
     return output;
 }
 
-// Assuming there's a corresponding encode_cyclic function somewhere
 string encode_cyclic(const string &s);
 
 int main(){
