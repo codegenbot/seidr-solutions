@@ -12,9 +12,8 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    std::cout << std::boolalpha;
-    std::string input;
-    std::cin >> input;
-    std::cout << is_happy(input) << std::endl;
+    std::string s;
+    std::cin >> s;
+    std::cout << std::boolalpha << is_happy(s) << std::endl;
     return 0;
 }
