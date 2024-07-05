@@ -39,8 +39,11 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {
     vector<int> nums;
-    int num;
-    while (cin >> num) {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        cin >> num;
         nums.push_back(num);
     }
 
@@ -48,6 +51,7 @@ int main() {
     for (int num : sorted_nums) {
         cout << num << " ";
     }
+    cout << endl;
 
     return 0;
 }
