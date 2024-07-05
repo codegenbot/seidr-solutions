@@ -1,4 +1,4 @@
-```python
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     result = 0
@@ -10,5 +10,5 @@ def luhn(card_number):
             result += digit
     return result
 
-card_number = int(input("Enter a credit card number: "))
-print(luhn(card_number))
+card_number = input("Enter a credit card number: ")
+print(luhn(int(card_number)))
