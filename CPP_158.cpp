@@ -1,4 +1,9 @@
 #include <unordered_set>
+#include <vector>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 string find_max(vector<string> words) {
     auto unique_char_count = [](const string& s) {
@@ -17,4 +22,9 @@ string find_max(vector<string> words) {
     }
     
     return max_word;
+}
+
+int main() {
+    cout << find_max({"play", "drive", "swim"}) << endl;
+    return 0;
 }
