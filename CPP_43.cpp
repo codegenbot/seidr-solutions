@@ -19,13 +19,13 @@ int main() {
     
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
     std::cout << "Enter the elements:\n";
     for (int i = 0; i < n; ++i) {
         std::cin >> temp;
         l.push_back(temp);
     }
-    
+
     std::cout << std::boolalpha << pairs_sum_to_zero(l) << std::endl;
     return 0;
 }
