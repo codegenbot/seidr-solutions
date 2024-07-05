@@ -25,10 +25,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (issame(total_match({"this"}, {}) , {}));
-    assert (issame(total_match({"this"}, {"other", "test"}), {"this"}));
-    assert (issame(total_match({"this"}, {"more", "words"}), {"this"}));
-    assert (issame(total_match({"fewer"}, {"this", "list"}), {"fewer"}));
+    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, {"other", "test"}), {"this"}));
+    assert(issame(total_match({"this"}, {"more", "words"}), {"this"}));
+    assert(issame(total_match({"fewer"}, {"this", "list"}), {"fewer"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
