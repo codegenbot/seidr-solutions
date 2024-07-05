@@ -15,7 +15,7 @@ int main() {
     int n, k;
     std::cin >> n >> k;
     std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
+    for(int i = 0; i < n; ++i) {
         std::cin >> arr[i];
     }
     std::cout << add_elements(arr, k) << std::endl;
