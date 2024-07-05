@@ -8,13 +8,13 @@ string rounded_avg(int n, int m) {
     int sum = 0, count = 0;
     for (int i = n; i <= m; ++i) {
         sum += i;
-        ++count;
+        count++;
     }
-    int avg = floor((double)sum / count + 0.5); // round to nearest integer
+    int avg = sum / count;
     string binary = "";
     while (avg > 0) {
         binary = (avg % 2 == 0 ? "0" : "1") + binary;
         avg /= 2;
     }
-    return binary == "" ? "0" : binary; // handle case when avg is 0
+    return binary == "" ? "0" : binary;
 }
