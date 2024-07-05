@@ -7,8 +7,8 @@ using namespace std;
 
 bool check_if_last_char_is_a_letter(string txt) {
     if (txt.empty() || !isalpha(txt.back())) return false;
-    size_t lastSpace = txt.find_last_not_of(' ');
-    return isalpha(txt[lastSpace]);
+    size_t lastSpace = txt.find_last_not_of(' ') + 1;
+    return isalpha(txt[lastSpace - 1]);
 }
 
 int main() {
