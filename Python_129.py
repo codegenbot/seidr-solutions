@@ -1,37 +1,31 @@
 def minPath(grid, k):
     from heapq import heappush, heappop
 
-    n = len(grid)
+    N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-
-    def neighbors(x, y):
-        for dx, dy in directions:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n:
-                yield nx, ny
-
     min_heap = []
-    for i in range(n):
-        for j in range(n):
+
+    for i in range(N):
+        for j in range(N):
             heappush(min_heap, (grid[i][j], [(i, j)]))
 
     while min_heap:
-        _, path = heappop(min_heap)
+        path_sum, path = heappop(min_heap)
         if len(path) == k:
             return [grid[x][y] for x, y in path]
+
         x, y = path[-1]
-        for nx, ny in neighbors(x, y):
-            new_path = path + [(nx, ny)]
-            heappush(min_heap, (grid[nx][ny], new_path))
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < N and 0 <= ny < N:
+                new_path = path + [(nx, ny)]
+                new_path_sum = path_sum + grid[nx][ny]
+                heappush(min_heap, (new_path_sum, new_path))
 
 
-# Read input
-n = int(input("Enter the size of the grid: "))
-grid = []
-for _ in range(n):
-    grid.append(list(map(int, input().split())))
-k = int(input("Enter the path length k: "))
-
-# Get result and print
-result = minPath(grid, k)
-print(" ".join(map(str, result)))
+if __name__ == "__main__":
+    N = int(input())
+    grid = [list(map(int, input().split())) for _ in range(N)]
+    k = int(input())
+    result = minPath(grid, k)
+    print(result)
