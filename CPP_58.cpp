@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <set>
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<set>
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
