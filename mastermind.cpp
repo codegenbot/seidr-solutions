@@ -3,30 +3,42 @@ using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    int freqCode[6] = {0}, freqGuess[6] = {0};
-    for (char c : code) {
-        freqCode[c - 'A']++;
-    }
-    for (char c : guess) {
-        freqGuess[c - 'A']++;
-    }
+    int freqCode[6] = {0};
+    int freqGuess[6] = {0};
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
+            // Correct color, correct position
             count++;
-        } else if (freqCode[guess[i] - 'A'] > 0) {
-            count++;
-            freqCode[guess[i] - 'A]--;
+            freqCode[code[i]-'A']++;
+            freqGuess[guess[i]-'A']++;
+        }
+        else {
+            // Correct color, wrong position
+            freqCode[code[i]-'A']++;
+            freqGuess[guess[i]-'A']++;
         }
     }
 
     for (int i = 0; i < 6; ++i) {
-        if (freqGuess[i] > freqCode[i]) {
-            count += freqGuess[i] - freqCode[i];
+        if (freqCode[i] > 0 && freqGuess[i] > 0) {
+            count++;
         }
     }
 
     return count;
+}
+
+int blackPegs(string code, string guess) {
+    int correctPosition = 0;
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            correctPosition++;
+        }
+    }
+
+    return correctPosition;
 }
 
 int main() {
@@ -39,7 +51,7 @@ int main() {
     cin >> guess;
 
     int white = whitePegs(code, guess);
-    int black = 4 - white;
+    int black = blackPegs(code, guess);
 
     cout << black << endl;
     cout << white << endl;
