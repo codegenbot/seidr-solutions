@@ -15,9 +15,9 @@ def factorize(n: int) -> List[int]:
 if __name__ == "__main__":
     try:
         n_str = input().strip()
-        if not n_str.isdigit() or int(n_str) <= 0:
-            raise ValueError
         n = int(n_str)
+        if n <= 0:
+            raise ValueError
         result = factorize(n)
         print(result)
     except ValueError:
