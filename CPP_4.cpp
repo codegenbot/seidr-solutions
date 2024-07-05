@@ -1,16 +1,12 @@
-int n = numbers.size();
-    if (n == 0) return 0.0;
-
-    float sum = 0.0;
-    for (float num : numbers) {
-        sum += num;
+float sum = 0.0;
+    for(float number : numbers) {
+        sum += number;
     }
-    float mean = sum / n;
-
+    float mean = sum / numbers.size();
+    
     float mad_sum = 0.0;
-    for (float num : numbers) {
-        mad_sum += fabs(num - mean);
+    for(float number : numbers) {
+        mad_sum += fabs(number - mean);
     }
-
-    return mad_sum / n;
+    return mad_sum / numbers.size();
 }
