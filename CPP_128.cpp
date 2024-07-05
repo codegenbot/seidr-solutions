@@ -13,7 +13,6 @@ int prod_signs(vector<int> arr) {
         sum_magnitudes += abs(num);
         if (num > 0) product_of_signs *= 1;
         else if (num < 0) product_of_signs *= -1;
-        else product_of_signs *= 0;
     }
 
     return sum_magnitudes * product_of_signs;
