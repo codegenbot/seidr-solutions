@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 bool monotonic(vector<float> l) {
