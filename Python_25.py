@@ -14,11 +14,14 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        n_str = input().strip()
-        n = int(n_str)
-        if n <= 0:
-            raise ValueError
-        result = factorize(n)
-        print(result)
+        while True:
+            n = input().strip()
+            if not n:
+                break
+            n = int(n)
+            if n <= 0:
+                raise ValueError
+            result = factorize(n)
+            print(result)
     except ValueError:
         print("Invalid input. Please enter a positive integer.")
