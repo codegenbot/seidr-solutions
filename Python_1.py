@@ -22,6 +22,6 @@ if __name__ == "__main__":
             result = separate_paren_groups(paren_string)
             print(result)
         else:
-            print([])  # Handle empty input
+            print([])
     except EOFError:
-        print([])  # Handle cases where input is not provided
+        print([])
