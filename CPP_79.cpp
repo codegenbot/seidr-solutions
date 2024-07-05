@@ -1,21 +1,12 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string decimal_to_binary(int decimal) {
-    if (decimal == 0) {
-        return "db0db";
-    }
-    std::string binary = "";
+string decimal_to_binary(int decimal) {
+    if (decimal == 0) return "db0db";  // Handle the edge case for 0
+    string binary = "";
     while (decimal > 0) {
         binary = (decimal % 2 == 0 ? "0" : "1") + binary;
         decimal /= 2;
     }
     return "db" + binary + "db";
-}
-
-int main() {
-    int decimal;
-    std::cin >> decimal;
-    std::cout << decimal_to_binary(decimal);
-    return 0;
 }
