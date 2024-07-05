@@ -5,4 +5,4 @@ def histogram(test):
         return {}
     counts = Counter(test.split())
     max_count = max(counts.values())
-    return {char: count for char, count in counts.items() if count == max_count}
+    return {k: v for k, v in counts.items() if v == max_count}
