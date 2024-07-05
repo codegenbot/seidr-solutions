@@ -1,8 +1,8 @@
 bool cycpattern_check(string a, string b) {
     int len = b.length();
-    string rotation = b + b;
+    string rotated = b + b;
     for (int i = 0; i < len; ++i) {
-        if (a.find(rotation.substr(i, len)) != string::npos) {
+        if (a.find(rotated.substr(i, len)) != string::npos) {
             return true;
         }
     }
