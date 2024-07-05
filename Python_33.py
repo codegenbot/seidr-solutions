@@ -1,23 +1,7 @@
-```
-def sort_third(l):
-    result = []
-    i = 0
-    j = 0
-    while j < len(l):
-        if i < j:
-            if i >= len(l):
-                while True:
-                    if l[i % len(l)] % 3 != 0:
-                        break
-                    i += 1
-            if l[i % len(l)] % 3 == 0:
-                result.append(l.pop(i % len(l)))
-        else:
-            if j >= len(l):
-                while True:
-                    if l[j % len(l)] % 3 != 0:
-                        break
-                    j += 1
-            if l[j % len(l)] % 3 != 0:
-                result.append(l.pop(j % len(l)))
-    return tuple(result)
+```Python
+def sort_third(lst):
+    lst = [(1, 2, 'apple'), (4, 3, 'banana'), (7, 5, 'cherry')]
+    sorted_lst = [x[2] for x in sorted(lst, key=lambda x: x[2])]
+    return tuple(sorted_lst)
+
+print(sort_third())
