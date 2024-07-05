@@ -1,4 +1,5 @@
-from typing import List
-
-def concatenate(strings: List[str]) -> str:
+def concatenate_strings(strings):
     return "".join(strings)
+
+# Add this line to test the function
+check(concatenate_strings)
