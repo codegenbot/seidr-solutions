@@ -10,3 +10,5 @@ def coin_sums(cents):
             break
 
     return res[:i+1]
+cents = int(input())
+print(*coin_sums(cents))
