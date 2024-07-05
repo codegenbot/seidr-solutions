@@ -1,12 +1,11 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int is_bored(string S) {
     int count = 0;
     bool newSentence = true;
-    
+
     for (char c : S) {
         if (newSentence && c == 'I') {
             count++;
