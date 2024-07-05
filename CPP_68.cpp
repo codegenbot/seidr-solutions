@@ -29,5 +29,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({7, 8, 6, 1}), {6, 2}));
+    assert(issame(pluck({4, 5, 6, 2}), {2, 3}));
+    assert(issame(pluck({4, 4, 4, 4}), {4, 0}));
     return 0;
 }
