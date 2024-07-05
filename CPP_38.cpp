@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string decode_cyclic(string s){ 
@@ -14,7 +15,7 @@ string decode_cyclic(string s){
     return output;
 }
 
-string encode_cyclic(string s) {
+string encode_cyclic(string s){
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
@@ -26,13 +27,14 @@ string encode_cyclic(string s) {
 }
 
 int main() {
-    string str = "abc";
-    string chr;
-    for (char chr : str) {
-        // However, chr is not used inside the loop
+    string str;
+    char chr;
+    while (cin.get(chr)) {
+        str += chr;
     }
+
     string encoded_str = encode_cyclic(str);
-    assert (decode_cyclic(encoded_str) == str);
-    cout << "All tests passed." << endl;
+    assert(decode_cyclic(encoded_str) == str);
+
     return 0;
 }
