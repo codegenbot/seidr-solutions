@@ -4,13 +4,11 @@ def coin_sums(cents):
     res = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        while cents >= coins[i]:
-            res[i] = res[i] + 1
-            cents -= coins[i]
-        if cents > 0:
-            break
+        n = min(res[i], int(cents / coins[i]))
+        cents -= n * coins[i]
+        res[i] = n
 
-    return res[:i+1] + [cents]
+    return res
 
 cents = int(input())
 print(*coin_sums(cents))
