@@ -1,9 +1,11 @@
 def search(lst):
     from collections import Counter
-
-    count = Counter(lst)
+    freq = Counter(lst)
     result = -1
-    for num, freq in count.items():
-        if freq >= num:
-            result = max(result, num)
+    for num, count in freq.items():
+        if count >= num and num > result:
+            result = num
     return result
+
+input_lst = list(map(int, input().split()))
+print(search(input_lst))
