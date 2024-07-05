@@ -23,11 +23,11 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    cout << file_name_check("s.") << endl;  // No
-    cout << file_name_check("s.txt") << endl;  // Yes
-    cout << file_name_check("1file.txt") << endl;  // No
-    cout << file_name_check("file1234.txt") << endl;  // No
-    cout << file_name_check("file123.txt") << endl;  // Yes
+    cout << file_name_check("s.") << endl;          // No
+    cout << file_name_check("s.txt") << endl;       // Yes
+    cout << file_name_check("1file.txt") << endl;   // No
+    cout << file_name_check("file1234.txt") << endl;// No
+    cout << file_name_check("file123.txt") << endl; // Yes
 
     return 0;
 }
