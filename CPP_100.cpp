@@ -1,12 +1,11 @@
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int current_stones = n;
-    for(int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         pile.push_back(current_stones);
         current_stones += 2;
     }
@@ -19,5 +18,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(3), {3, 5, 7}));
     return 0;
 }
