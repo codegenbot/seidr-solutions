@@ -22,8 +22,8 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"mm", "True"});
-    assert(reverse_delete("example", "axe") == vector<string>{"mpl", "False"});
+    assert((reverse_delete("mamma", "mia") == vector<string>{"mm", "True"}));
+    assert((reverse_delete("example", "axe") == vector<string>{"mpl", "False"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
