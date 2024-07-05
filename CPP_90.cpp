@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 int next_smallest(vector<int> lst) {
@@ -23,6 +24,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
-    cout << next_smallest(lst) << endl;
+    int result = next_smallest(lst);
+    cout << result << endl;
     return 0;
 }

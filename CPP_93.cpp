@@ -19,6 +19,8 @@ string encode(string message){
 }
 
 int main() {
-    cout << encode("I DoNt KnOw WhAt tO WrItE") << endl;
+    string input;
+    getline(cin, input);
+    cout << encode(input) << endl;
     return 0;
 }
