@@ -19,6 +19,8 @@ def find_zero(xs: list):
     return (a + b) / 2
 
 if __name__ == "__main__":
-    xs = list(map(float, input("Enter coefficients separated by space: ").strip().split()))
+    import sys
+    input = sys.stdin.read
+    xs = list(map(float, input().strip().split()))
     zero = find_zero(xs)
     print("{:.6f}".format(zero))
