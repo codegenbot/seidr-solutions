@@ -1,20 +1,11 @@
-Here's the corrected code:
-
-def decode_cyclic(s: str):
-    result = []
-    group = ""
-    for char in s:
-        group += char
-        if len(group) == 3:
-            if len(result) > 0 and result[-1] != "":
-                result.append("".join([result.pop() + group[0], group[1:] or ""]))
-            else:
-                result.append(group)
-            group = ""
-    while len(group) > 0:
-        if len(result) > 0 and result[-1] != "":
-            result.append("".join([result.pop() + group[0], group[1:] or ""]))
-        else:
-            result.append(group)
-        group = group[1:]
-    return ",".join(result).replace(",,", ",")
+def decode_cyclic(s):
+    s = s.replace("<<<", "")
+    if "," not in s:
+        return s
+    data, *rest = map(int, s.split(","))
+    n = len(data)
+    decoded_data = [data[0]]
+    for d in data[1:]:
+        i = (d + 1) % n
+        decoded_data.append(decoded_data[i])
+    return ",".join(map(str, decoded_data))
