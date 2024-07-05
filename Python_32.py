@@ -21,7 +21,7 @@ def find_zero(xs):
         return None
     elif len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
         roots = (-b + math.sqrt(discriminant)) / (2 * a)
-        return roots.real  
+        return roots.real  # Assuming you want the real part of complex roots
     else:
         return None
 
