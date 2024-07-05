@@ -1,8 +1,8 @@
 #include <vector>
-#include <algorithm> // for std::swap
-#include <cassert>   // for assert
+#include <algorithm>
+#include <cassert>
+#include <iostream>
 
-// Use the std namespace for brevity
 using namespace std;
 
 vector<int> generate_integers(int a, int b) {
@@ -21,6 +21,10 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88}));
+    assert(issame(generate_integers(17, 18), {18}));
+    assert(issame(generate_integers(10, 15), {10, 12, 14}));
+    assert(issame(generate_integers(5, 5), {}));
+    assert(issame(generate_integers(20, 23), {20, 22}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
