@@ -1,13 +1,13 @@
-#include <iostream>
 #include <sstream>
 #include <vector>
 #include <algorithm>
 #include <map>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-string sort_numbers(const string& numbers) {
+string sort_numbers(string numbers) {
     map<string, int> num_map = {
         {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4},
         {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}
@@ -37,6 +37,6 @@ string sort_numbers(const string& numbers) {
 }
 
 int main() {
-    cout << (sort_numbers("six five four three two one zero") == "zero one two three four five six") << endl;
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
     return 0;
 }
