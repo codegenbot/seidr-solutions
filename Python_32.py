@@ -1,8 +1,8 @@
+```
 def find_zero(xs: list):
-    if len(xs) < 2:
-        return "Invalid input. List must have at least 2 elements."
-    elif len(xs) != 3:
-        return "Invalid input. List should only have 3 elements (ax^2 + bx + c)."
+    if len(xs) == 2 and xs[0] == 0 and xs[1] != 0:
+        return -xs[1] / xs[0]
+    elif len(xs) >= 3:
+        return (-xs[2] + math.sqrt((xs[1] ** 2) - (4 * xs[0] * xs[3]))) / (2 * xs[0])
     else:
-        a, b, c = xs
-        return -b / (2 * a)
+        raise ValueError("Invalid input")
