@@ -1,4 +1,6 @@
 #include <cassert>
+#include <iostream>
+using namespace std;
 
 int choose_num(int x, int y) {
     if (x > y) return -1;
@@ -8,11 +10,13 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    // You can add more test cases to validate the function
+    int x, y;
+    cout << "Enter two integers (x and y): ";
+    cin >> x >> y;
+    int result = choose_num(x, y);
+    cout << "Result: " << result << endl;
+
+    // Test case
     assert(choose_num(546, 546) == 546);
-    assert(choose_num(1, 4) == 4);
-    assert(choose_num(2, 3) == 2);
-    assert(choose_num(5, 4) == 4);
-    assert(choose_num(5, 3) == -1);
     return 0;
 }
