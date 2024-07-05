@@ -1,2 +1,2 @@
-def substrings(string):
+def substring_list(string):
     return [string[:i] for i in range(1, len(string) + 1)]
