@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -35,6 +34,5 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(separate_paren_groups("() (()) (()())"), {"()", "(())", "(()())"}));
-    cout << "All tests passed!" << endl;
     return 0;
 }
