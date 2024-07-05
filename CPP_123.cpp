@@ -22,9 +22,13 @@ vector<int> get_odd_collatz(int n) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(get_odd_collatz(1) == vector<int>{1});
-    assert(get_odd_collatz(7) == vector<int>{1, 3, 5, 7, 11, 13, 17, 19, 25});
+    assert(issame(get_odd_collatz(1), vector<int>{1}));
+    assert(issame(get_odd_collatz(7), vector<int>{1, 3, 5, 7, 11, 13, 17, 19, 25}));
     cout << "All tests passed!" << endl;
     return 0;
 }
