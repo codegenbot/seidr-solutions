@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <climits>
-#include <cassert> // Include this header
+#include <cassert>
 
 using namespace std;
 
