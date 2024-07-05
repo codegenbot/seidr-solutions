@@ -18,13 +18,11 @@ int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
-    
     vector<float> lst(n);
     cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
-    
     cout << double_the_difference(lst) << endl;
     return 0;
 }
