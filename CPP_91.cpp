@@ -4,15 +4,20 @@ using namespace std;
 
 int is_bored(string S) {
     int count = 0;
-    bool new_sentence = true;
+    bool newSentence = true;
+    
     for (char c : S) {
-        if (new_sentence && c == 'I') {
+        if (newSentence && c == 'I') {
             count++;
-            new_sentence = false;
+            newSentence = false;
         }
         if (c == '.' || c == '?' || c == '!') {
-            new_sentence = true;
+            newSentence = true;
+        }
+        if (c != ' ' && c != '.' && c != '?' && c != '!') {
+            newSentence = false;
         }
     }
+    
     return count;
 }
