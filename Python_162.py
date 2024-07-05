@@ -1,11 +1,11 @@
 import hashlib
+import sys
 
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 if __name__ == "__main__":
     try:
-        import sys
         input = sys.stdin.read
         text = input().strip()
         if text:
