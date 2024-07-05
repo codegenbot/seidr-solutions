@@ -1,17 +1,25 @@
-string vowels = "aeiouAEIOU";
-    string replace = "cgkqwgCKKQW";
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
 
-    for (auto &c : message) {
-        // Swap case
-        if (islower(c)) c = toupper(c);
-        else if (isupper(c)) c = tolower(c);
-        
-        // Replace vowels
-        auto pos = vowels.find(c);
+string encode(string message) {
+    string vowels = "aeiouAEIOU";
+    string replace = "cgkqwCGKQW";
+    for (char &c : message) {
+        if (isalpha(c)) {
+            if (islower(c)) c = toupper(c);
+            else c = tolower(c);
+        }
+        size_t pos = vowels.find(c);
         if (pos != string::npos) {
             c = replace[pos];
         }
     }
-
     return message;
+}
+
+int main() {
+    cout << encode("I DoNt KnOw WhAt tO WrItE") << endl;
+    return 0;
 }
