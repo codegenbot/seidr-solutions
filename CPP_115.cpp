@@ -9,7 +9,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
             total_water_units += cell;
         }
     }
-    return (total_water_units + capacity - 1) / capacity; // Ceiling division
+    return (total_water_units + capacity - 1) / capacity;
 }
 
 int main() {
