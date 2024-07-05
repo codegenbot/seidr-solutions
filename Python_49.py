@@ -1,8 +1,7 @@
-```
-def gcd(a: int, b: int) -> int:
-    while b != 0:
+def gcd(a: int, b: int):
+    while b:
         a, b = b, a % b
-    return abs(a)
+    return a
 
 def modp(n: int, p: int):
     if p == 1:
