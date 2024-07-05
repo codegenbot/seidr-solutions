@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <any>
-#include <cassert> // for assert
+#include <cassert>
 
 using namespace std;
 
