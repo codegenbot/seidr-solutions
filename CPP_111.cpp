@@ -1,13 +1,13 @@
 #include <iostream>
 #include <map>
-#include <sstream>
 #include <algorithm>
-#include <assert.h>
+#include <cctype>
+#include <cassert>
 
 std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> freqMap;
     for (char ch : test) {
-        if (isalpha(ch)) { // Consider only alphabetic characters
+        if (std::isalpha(ch)) {
             freqMap[ch]++;
         }
     }
