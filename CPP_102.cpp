@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 
 int choose_num(int x, int y) {
@@ -8,7 +9,13 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    // You can add more test cases to validate the function
+    // Add more test cases
     assert(choose_num(546, 546) == 546);
+    assert(choose_num(100, 101) == 100);
+    assert(choose_num(50, 49) == 48);
+    assert(choose_num(10, 3) == -1);
+    assert(choose_num(5, 8) == 8);
+
+    std::cout << "All test cases passed.\n";
     return 0;
 }
