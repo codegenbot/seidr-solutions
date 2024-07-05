@@ -7,4 +7,6 @@ def string_to_md5(text):
 
 if __name__ == "__main__":
     user_input = input().strip()
-    print(string_to_md5(user_input))
+    result = string_to_md5(user_input)
+    if result:
+        print(result)
