@@ -1,7 +1,8 @@
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
-int calculateFuelCost(std::initializer_list<int> numbers) {
+int calculateFuelCost(std::vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
         double result = std::floor((double(num) / 3));
@@ -13,4 +14,11 @@ int calculateFuelCost(std::initializer_list<int> numbers) {
         sum += static_cast<int>(result);
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3};
+    int fuelCost = calculateFuelCost(numbers);
+    std::cout << "The total fuel cost is: " << fuelCost << std::endl;
+    return 0;
 }
