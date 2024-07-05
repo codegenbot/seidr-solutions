@@ -7,7 +7,7 @@ double diceGame(int n, int m) {
     double p = 0.0;
     
     for(int i = 1; i <= min(m, n-m); i++) {
-        p += 1.0 / total; // probability that rolls are equal
+        p += 1.0 / total; 
     }
     
     for(int i = max(n-m+1, 1); i <= n; i++) {
