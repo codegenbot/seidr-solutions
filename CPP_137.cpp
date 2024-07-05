@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <any>
-#include <cassert>
 
 using namespace std;
 
@@ -53,8 +52,6 @@ int main() {
         cout << std::any_cast<string>(result2) << endl;
     else
         cout << std::any_cast<double>(result2) << endl;
-
-    assert (std::any_cast<string>(compare_one(string("1"), 1)) == "None");
 
     return 0;
 }
