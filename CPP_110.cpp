@@ -1,18 +1,19 @@
-string exchange(vector<int> lst1, vector<int> lst2) {
-    int odd_count_lst1 = 0;
-    int even_count_lst2 = 0;
+#include <vector>
+#include <string>
 
+std::string checkEvenInLists(const std::vector<int>& lst1, const std::vector<int>& lst2) {
+    bool hasEvenInLst2 = false;
     for (int num : lst1) {
-        if (num % 2 != 0) odd_count_lst1++;
+        if (num % 2 != 0) {
+            hasEvenInLst2 = false;
+            for (int num2 : lst2) {
+                if (num2 % 2 == 0) {
+                    hasEvenInLst2 = true;
+                    break;
+                }
+            }
+            if (!hasEvenInLst2) return "NO";
+        }
     }
-
-    for (int num : lst2) {
-        if (num % 2 == 0) even_count_lst2++;
-    }
-
-    if (odd_count_lst1 <= even_count_lst2) {
-        return "YES";
-    } else {
-        return "NO";
-    }
+    return "YES";
 }
