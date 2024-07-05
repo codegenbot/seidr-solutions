@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cassert>
+using namespace std;
 
 int fib(int n) {
     if (n <= 0) return 0;
@@ -14,7 +14,9 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(12) == 144);
-    std::cout << fib(12) << std::endl; // This will print 144
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    cout << "Fibonacci(" << n << ") = " << fib(n) << endl;
     return 0;
 }
