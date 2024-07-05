@@ -1,2 +1,6 @@
 def fizz_buzz(n):
-    return len([i for i in range(1, n + 1) if i % 3 == 0 or "7" in str(i)])
+    count = 0
+    for i in range(1, n + 1):
+        if i % 3 == 0 and "7" in str(i) or i % 7 == 0:
+            count += 1
+    return count
