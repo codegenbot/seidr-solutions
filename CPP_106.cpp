@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> 
 #include <vector>
 using namespace std;
 
@@ -30,8 +30,8 @@ int main() {
     int n;
     cin >> n;
     vector<int> result = f(n);
-    for (int num : result) {
-        cout << num << " ";
+    for (int i : result) {
+        cout << i << " ";
     }
     cout << endl;
     return 0;
