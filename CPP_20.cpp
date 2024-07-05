@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
-#include <iostream> // for user input/output
+#include <iostream>
 
 using namespace std;
 
@@ -26,12 +26,22 @@ bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); ++i)
-        if (fabs(a[i] - b[i]) > 1e-6) // Tolerance for floating point comparison
+        if (fabs(a[i] - b[i]) > 1e-6)
             return false;
     return true;
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
+    vector<float> numbers;
+    float number;
+    cout << "Enter numbers (non-number to stop): ";
+    while (cin >> number) {
+        numbers.push_back(number);
+    }
+
+    vector<float> result = find_closest_elements(numbers);
+    cout << "Closest elements: " << result[0] << " " << result[1] << endl;
+
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     return 0;
 }
