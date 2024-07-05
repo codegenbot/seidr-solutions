@@ -4,7 +4,7 @@
 using namespace std;
 
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1;
+    if (lst.size() < 2) return -1; // Return -1 to signify None
 
     sort(lst.begin(), lst.end());
     int smallest = lst[0];
@@ -13,7 +13,7 @@ int next_smallest(vector<int> lst) {
             return lst[i];
         }
     }
-    return -1;
+    return -1; // Return -1 to signify None
 }
 
 int main() {
