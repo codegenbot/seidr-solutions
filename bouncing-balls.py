@@ -1,5 +1,5 @@
+```
 import math
-
 
 def bouncing_balls():
     h0 = float(input())
