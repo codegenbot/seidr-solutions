@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <any>
+
 using namespace std;
 
 any string_to_number(const string& s) {
@@ -10,7 +11,7 @@ any string_to_number(const string& s) {
     try {
         return stod(s_copy);
     } catch (const invalid_argument&) {
-        return s; // If conversion fails, return original string
+        return s; // If conversion fails, return the original string
     }
 }
 
