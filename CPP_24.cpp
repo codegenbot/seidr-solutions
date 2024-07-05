@@ -1,7 +1,10 @@
-for (int i = n / 2; i >= 1; --i) {
-        if (n % i == 0) {
+#include<stdio.h>
+using namespace std;
+int largest_divisor(int n){
+    for(int i = n/2; i > 0; --i) {
+        if(n % i == 0) {
             return i;
         }
     }
-    return 1; // This line is never reached since n > 1
+    return 1; // This line is just a fallback, it should never be reached for n > 1
 }
