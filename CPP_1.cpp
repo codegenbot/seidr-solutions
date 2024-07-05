@@ -9,7 +9,12 @@ vector<string> separate_paren_groups(string paren_string) {
     int balanced = 0;
 
     for(char ch : paren_string) {
-        if (ch == ' ') continue; // Ignore spaces
+        if (ch != '(' && ch != ')' && ch != ' ') {
+            continue; // Ignore invalid characters
+        }
+        if (ch == ' ') {
+            continue; // Ignore spaces
+        }
         current_group += ch;
         if(ch == '(') {
             balanced++;
@@ -21,16 +26,12 @@ vector<string> separate_paren_groups(string paren_string) {
             current_group = "";
         }
     }
-    return result;
-}
 
-int main() {
-    string input;
-    getline(cin, input); // Read full line input including spaces
-    vector<string> groups = separate_paren_groups(input);
-    
-    for(const string &group : groups) {
-        cout << group << endl;
+    // Handle edge case: unbalanced parentheses
+    if (balanced != 0) {
+        cerr << "Unbalanced parentheses detected." << endl;
+        return {};
     }
-    return 0;
+    
+    return result;
 }
