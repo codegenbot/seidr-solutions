@@ -14,6 +14,7 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
+    // Example usage
     cout << add_elements({1, 2, 3, 100, -100}, 3) << endl;  // Output should be 6
     return 0;
 }
