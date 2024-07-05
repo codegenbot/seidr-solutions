@@ -47,8 +47,7 @@ int main() {
         cout << std::any_cast<double>(result1) << endl;
 
     auto result2 = compare_one(string("1"), 1);
-    if (result2.type() == typeid(string))
-        assert(std::any_cast<string>(result2) == "None");
+    assert(std::any_cast<string>(result2) == "None");
 
     return 0;
 }
