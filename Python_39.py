@@ -1,4 +1,4 @@
-from math import gcd
+from gmpy2 import *
 
 
 def prime_fib(n):
@@ -6,7 +6,7 @@ def prime_fib(n):
     i = 2
     while len(fib) <= n:
         next_fib = (fib[i - 1] + fib[i - 2]) % 2
-        if gcd(next_fib, 2) == 1:
+        if is_prime(next_fib):
             fib.append(next_fib)
         i += 1
     return fib[n]
