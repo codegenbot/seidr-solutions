@@ -3,6 +3,7 @@ def basement(arr):
     index = -1
     for i in range(len(arr)):
         total += arr[i]
-        if total >= 0 and index == -1:
+        if total < 0:
             index = i
+            break
     return index if index != -1 else -1
