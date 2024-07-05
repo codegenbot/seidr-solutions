@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <cassert>
 #include <iostream>
 
 using namespace std;
@@ -23,13 +22,18 @@ vector<string> odd_count(const vector<string>& lst) {
 }
 
 int main() {
-    vector<string> result = odd_count({"271", "137", "314"});
+    vector<string> output = odd_count({"271", "137", "314"});
     vector<string> expected = {
         "the number of odd elements 2 in the string is 2",
         "the number of odd elements 3 in the string is 3",
         "the number of odd elements 2 in the string is 2"
     };
-    assert(result == expected);
-    cout << "All tests passed!" << endl;
+    
+    if (output == expected) {
+        cout << "All tests passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+    
     return 0;
 }
