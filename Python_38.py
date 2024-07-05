@@ -4,5 +4,5 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 if __name__ == "__main__":
-    s = input().strip()
-    print(decode_cyclic(s))
+    input_str = input().strip()
+    print(decode_cyclic(input_str))
