@@ -6,7 +6,7 @@
 using namespace std;
 
 float mean_absolute_deviation(const vector<float>& numbers) {
-    if (numbers.empty()) return 0.0; // Handle empty vector edge case
+    if (numbers.empty()) return 0.0;
 
     float sum = 0.0;
     for (float num : numbers) {
@@ -23,10 +23,8 @@ float mean_absolute_deviation(const vector<float>& numbers) {
 }
 
 int main() {
-    // Assertion test
     assert(fabs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
     
-    // Option to handle user input:
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
