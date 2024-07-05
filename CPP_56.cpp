@@ -10,11 +10,11 @@ bool correct_bracketing(string brackets) {
         } else if (c == '>') {
             count--;
         }
-        if (count < 0) {
+        if (count < 0) {  // More '>' than '<' encountered
             return false;
         }
     }
-    return count == 0;
+    return count == 0;  // Ensure all '<' are matched by '>'
 }
 
 int main() {
