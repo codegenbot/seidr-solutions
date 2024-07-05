@@ -8,6 +8,6 @@ def decode_cyclic(s):
             temp += s[j]
             j = (j + 1) % len(s)
         if temp:
-            result += temp + " "
+            result += temp + ' '
         i = j
     return result.strip()
