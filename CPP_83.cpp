@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <cmath>
+#include <stdio.h>
 using namespace std;
 
 int starts_one_ends(int n) {
