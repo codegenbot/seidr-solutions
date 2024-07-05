@@ -1,3 +1,8 @@
 def select_words(s, n):
     words = s.split()
-    return list(filter(lambda w: len([c for c in w if c.islower()]) == n, words))
+    result = []
+    for word in words:
+        if len(word) == n and word[0].isalpha():
+            result.append(word)
+    return result
+```
