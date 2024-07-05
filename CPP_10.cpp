@@ -1,35 +1,29 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <algorithm> // Include this header for reverse
 using namespace std;
 
-bool is_palindrome(const string& str) {
-    int left = 0, right = str.size() - 1;
-    while (left < right) {
-        if (str[left] != str[right]) {
-            return false;
-        }
-        ++left;
-        --right;
-    }
-    return true;
+bool is_palindrome(string str) {
+    string s(str.rbegin(), str.rend());
+    return s == str;
 }
 
 string make_palindrome(string str) {
-    int n = str.size();
-    if (n == 0) return str;
-    
+    int n = str.length();
+    if (n == 0) return "";
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
-            string suffix = str.substr(i);
-            reverse(suffix.begin(), suffix.end());
-            return str + suffix;
+            string prefix = str.substr(i);
+            reverse(prefix.begin(), prefix.end());
+            return str + prefix;
         }
     }
-    return str; // This line should never be reached
+    return "";
 }
 
 int main() {
-    cout << make_palindrome("jerry") << endl; // Output: "jerryrrej"
+    string input;
+    cin >> input;
+    cout << make_palindrome(input) << endl;
     return 0;
 }
