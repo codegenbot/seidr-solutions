@@ -1,27 +1,24 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
-
 using namespace std;
 
-vector<vector<int>> get_row(const vector<vector<int>>& lst, int x) {
+vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         vector<int> row;
-        for (int j = 0; j < lst[i].size(); ++j) {
+        for (int j = lst[i].size() - 1; j >= 0; --j) {
             if (lst[i][j] == x) {
                 row.push_back(j);
             }
         }
-        sort(row.rbegin(), row.rend());
-        for (int col : row) {
-            result.push_back({i, col});
+        for (int j = 0; j < row.size(); ++j) {
+            result.push_back({i, row[j]});
         }
     }
     return result;
 }
 
-bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
+bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     return a == b;
 }
 
