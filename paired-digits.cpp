@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int pairedDigits(const std::string& s) {
@@ -13,5 +12,5 @@ int pairedDigits(const std::string& s) {
 }
 
 int main() {
-    return pairedDigits("123333"); // replace "input_string" with your desired input
+    return pairedDigits("123333"); 
 }
