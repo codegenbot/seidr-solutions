@@ -2,10 +2,10 @@
 #include <sstream>
 #include <string>
 
-bool simplify(const std::string &x, const std::string &n) {
+bool simplify(const std::string& x, const std::string& n) {
     int num1, denom1, num2, denom2;
     char slash;
-    
+
     // Parse the first fraction
     std::stringstream ss1(x);
     ss1 >> num1 >> slash >> denom1;
