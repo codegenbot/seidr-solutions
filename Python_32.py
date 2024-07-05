@@ -18,6 +18,5 @@ def find_zero(xs: list):
             a = c
     return (a + b) / 2
 
-# Input reading
 xs = list(map(float, input().strip().split()))
 print(find_zero(xs))
