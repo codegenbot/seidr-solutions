@@ -1,11 +1,10 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm>
 #include <set>
+
 using namespace std;
 
-int count_distinct_characters(string str){ 
+int count_distinct_characters(string str){
     set<char> distinct_chars;
     for(char c : str) {
         distinct_chars.insert(tolower(c));
@@ -14,8 +13,8 @@ int count_distinct_characters(string str){
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << count_distinct_characters(input) << endl;
+    string str;
+    getline(cin, str);
+    cout << count_distinct_characters(str) << endl;
     return 0;
 }
