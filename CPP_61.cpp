@@ -1,19 +1,12 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-bool correct_bracketing(const std::string& brackets){
+bool correct_bracketing(string brackets) {
     int balance = 0;
-    for(char ch : brackets) {
-        if(ch == '(') balance++;
-        else if(ch == ')') balance--;
-        if(balance < 0) return false;
+    for (char ch : brackets) {
+        if (ch == '(') balance++;
+        else if (ch == ')') balance--;
+        if (balance < 0) return false;
     }
     return balance == 0;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << (correct_bracketing(input) ? "YES" : "NO") << std::endl;
-    return 0;
 }
