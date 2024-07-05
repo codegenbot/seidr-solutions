@@ -16,10 +16,10 @@ int main() {
     // Calculate total distance traveled
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += pow(bouncinessIndex, i);
+        totalDistance += std::pow(bouncinessIndex, i);
     }
 
-    cout << fixed << setprecision(5) << totalDistance << endl;
+    cout << fixed << std::setprecision(5) << totalDistance << endl;
 
     return 0;
 }
