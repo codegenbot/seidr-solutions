@@ -1,28 +1,38 @@
-#include<stdio.h>
-#include<string>
+#include <iostream>
+#include <sstream>
 using namespace std;
 
 bool valid_date(string date) {
-    if (date.empty() || date.length() != 10 || date[2] != '-' || date[5] != '-')
-        return false;
+    if (date.empty() || date.length() != 10) return false;
+    if (date[2] != '-' || date[5] != '-') return false;
 
-    int month = stoi(date.substr(0, 2));
-    int day = stoi(date.substr(3, 2));
-    int year = stoi(date.substr(6, 4));
+    int month, day, year;
+    char dash1, dash2;
+    stringstream ss(date);
+    ss >> month >> dash1 >> day >> dash2 >> year;
 
-    if (month < 1 || month > 12)
-        return false;
+    if (ss.fail() || dash1 != '-' || dash2 != '-') return false;
+    if (month < 1 || month > 12) return false;
+    if (year < 1) return false;
 
+    bool valid = false;
     if (month == 2) {
-        if (day < 1 || day > 29)
-            return false;
+        valid = (day >= 1 && day <= 29);
     } else if (month == 4 || month == 6 || month == 9 || month == 11) {
-        if (day < 1 || day > 30)
-            return false;
+        valid = (day >= 1 && day <= 30);
     } else {
-        if (day < 1 || day > 31)
-            return false;
+        valid = (day >= 1 && day <= 31);
     }
 
-    return true;
+    return valid;
+}
+
+int main() {
+    // Test cases
+    cout << valid_date("03-11-2000") << endl; // true
+    cout << valid_date("15-01-2012") << endl; // false
+    cout << valid_date("04-0-2040") << endl; // false
+    cout << valid_date("06-04-2020") << endl; // true
+    cout << valid_date("06/04/2020") << endl; // false
+    return 0;
 }
