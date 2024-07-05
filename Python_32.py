@@ -19,6 +19,6 @@ def find_zero(xs: list):
     return (a + b) / 2
 
 if __name__ == "__main__":
-    xs = list(map(float, input("Enter coefficients separated by spaces: ").strip().split()))
+    xs = list(map(float, input("Enter polynomial coefficients: ").strip().split()))
     zero = find_zero(xs)
     print(zero)
