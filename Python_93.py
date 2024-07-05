@@ -1,8 +1,9 @@
 def encode(message):
-    def transform_char(c):
+    def swap_case_and_replace_vowel(char):
         vowels = 'aeiouAEIOU'
-        if c in vowels:
-            return chr(ord(c) + 2)
-        return c.swapcase()
+        replacements = 'cgkqwCGKQW'
+        if char in vowels:
+            return replacements[vowels.index(char)]
+        return char.swapcase()
     
-    return ''.join(transform_char(c) for c in message)
+    return ''.join(swap_case_and_replace_vowel(c) for c in message)
