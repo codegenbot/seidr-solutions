@@ -1,5 +1,6 @@
 std::string camelCase(const std::string& str) {
     std::string result;
+    bool first = true;
 
     for (char c : str) {
         if (c == '-') {
@@ -15,9 +16,10 @@ std::string camelCase(const std::string& str) {
         if (!first)
             result.push_back(std::tolower(c));
         else
-            result.push_back(c);
-        first = false;
+            result += c;
 
+        first = false;
     }
+
     return result;
 }
