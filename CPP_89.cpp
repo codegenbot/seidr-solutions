@@ -5,16 +5,16 @@
 using namespace std;
 
 string encrypt(string s){
-    string result = "";
-    for(char c : s) {
-        result += (c - 'a' + 4) % 26 + 'a';
+    for (char &c : s) {
+        c = ((c - 'a' + 4) % 26) + 'a';
     }
-    return result;
+    return s;
 }
 
 int main() {
     assert(encrypt("a") == "e");
-    assert(encrypt("xyz") == "bcd");
-    cout << "All test cases passed!" << endl;
+    assert(encrypt("z") == "d");
+    assert(encrypt("hello") == "lipps");
+    cout << "All tests passed" << endl;
     return 0;
 }
