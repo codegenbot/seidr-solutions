@@ -5,10 +5,6 @@ int main() {
     int cents;
     cin >> cents;
 
-    if (cents < 0) {
-        cout << "";
-    }
-
     int quarters = cents / 25;
     cents %= 25;
 
@@ -18,12 +14,12 @@ int main() {
     int nickles = cents / 5;
     cents %= 5;
 
-    int pennies = cents; // Move this line to the end!
+    int pennies = cents;
 
-    cout << quarters << "\n";
-    cout << dimes << "\n";
-    cout << nickles << "\n";
-    cout << pennies << "\n";
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
 
     return 0;
 }
