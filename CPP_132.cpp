@@ -1,18 +1,13 @@
 bool is_nested(string str){
-    int balance = 0;
+    int depth = 0;
     bool nested = false;
-    for (char ch : str) {
-        if (ch == '[') {
-            balance++;
-        } else if (ch == ']') {
-            balance--;
-        }
-        if (balance > 1) {
-            nested = true;
-        }
-        if (balance < 0) {
-            return false;
+    for(char ch : str) {
+        if(ch == '[') {
+            depth++;
+            if(depth > 1) nested = true;
+        } else if(ch == ']') {
+            if(depth > 0) depth--;
         }
     }
-    return nested && balance == 0;
+    return nested;
 }
