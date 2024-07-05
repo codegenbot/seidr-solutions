@@ -37,8 +37,12 @@ vector<int> order_by_points(vector<int> nums) {
     return sorted_nums;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == vector<int>({-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     cout << "All tests passed!" << endl;
     return 0;
 }
