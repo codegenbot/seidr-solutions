@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <utility>
@@ -23,9 +22,6 @@ string int_to_mini_roman(int number){
 }
 
 int main() {
-    int number;
-    cout << "Enter a number to convert to mini roman: ";
-    cin >> number;
-    cout << "Mini Roman: " << int_to_mini_roman(number) << endl;
+    assert(int_to_mini_roman(1000) == "m");
     return 0;
 }
