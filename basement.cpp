@@ -1,9 +1,7 @@
-
-// Function to find first negative index in a vector of integers
-int basement(vector<int> input) {
+int getFirstNegativeIndex(vector<int> numbers) {
     int sum = 0;
-    for (int i = 0; i < input.size(); i++) {
-        sum += input[i];
+    for (int i = 0; i < numbers.size(); i++) {
+        sum += numbers[i];
         if (sum < 0) {
             return i;
         }
