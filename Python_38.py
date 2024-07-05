@@ -1,5 +1,4 @@
 def decode_cyclic(s):
-    s = s.replace("<<", "")
     while "<<<" in s:
-        s = s.replace("<<<", "<<")
+        s = s.replace("<<<", ",,", 1)
     return s
