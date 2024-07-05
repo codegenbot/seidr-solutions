@@ -1,10 +1,13 @@
 ```
-def sort_third(l):
-    return [
-        (
-            min(x for x in l[i // 3 * 3:(i // 3 + 1) * 3] if x % 3 != 0)
-            if i % 3 == 0
-            else i
-        )
-        for i in range(len(l))
-    ]
+def sort_third(lst):
+    result = []
+    prev_non_multiple_of_three = None
+    for i, num in enumerate(lst):
+        if num % 3 == 0:
+            while prev_non_multiple_of_three is None or prev_non_multiple_of_three % 3 != 0:
+                prev_non_multiple_of_three = next((x for x in lst[:i] if x % 3 != 0), None)
+            result.append(prev_non_multiple_of_three)
+            prev_non_multiple_of_three = None
+        else:
+            result.append(num)
+    return tuple(result)
