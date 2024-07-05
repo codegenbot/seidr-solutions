@@ -1,10 +1,7 @@
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    count = {}
+    freq = {}
     for num in numbers:
-        if num in count:
-            count[num] += 1
-        else:
-            count[num] = 1
-    return [num for num in numbers if count[num] == 1]
+        freq[num] = freq.get(num, 0) + 1
+    return [num for num in numbers if freq[num] == 1]
