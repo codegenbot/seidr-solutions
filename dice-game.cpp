@@ -6,10 +6,12 @@ double diceGame(int n, int m) {
     double total = (double)(n*m);
     double p = 0.0;
 
+    // Calculate probability where Peter's roll exceeds Colin's
     for(int i = 1; i <= m && i < n; i++) {
         p += (n-i) / total;
     }
 
+    // Calculate probability where Peter's and Colin's rolls are equal
     for(int i = 0; i <= m && i <= n; i++) {
         p -= i / total;
     }

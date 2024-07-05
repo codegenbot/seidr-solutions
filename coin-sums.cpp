@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -17,10 +17,10 @@ int main() {
     
     int pennies = cents;
     
-    std::cout << "Quarters: " << quarters << " coins\n";
-    std::cout << "Dimes: " << dimes << " coins\n";
-    std::cout << "Nickles: " << nickles << " coins\n";
-    std::cout << "Pennies: " << pennies << " coins\n";
+    cout << "Quarters: " << quarters << " coins\n";
+    cout << "Dimes: " << dimes << " coins\n";
+    cout << "Nickles: " << nickles << " coins\n";
+    cout << "Pennies: " << pennies << " coins\n";
 
     return 0;
 }
