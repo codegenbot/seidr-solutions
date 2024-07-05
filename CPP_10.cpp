@@ -1,28 +1,35 @@
-#include<stdio.h>
-#include<string>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-bool is_palindrome(string str){
-    string s(str.rbegin(),str.rend());
+bool is_palindrome(string str) {
+    string s(str.rbegin(), str.rend());
     return s == str;
 }
 
-string make_palindrome(string str){
-    int n = str.size();
-    for (int i = n; i >= 0; --i) {
-        if (is_palindrome(str.substr(0, i))) {
-            string suffix = str.substr(i);
-            string suffix_rev(suffix.rbegin(), suffix.rend());
-            return str + suffix_rev;
+string make_palindrome(string str) {
+    int len = str.length();
+    if (is_palindrome(str)) {
+        return str;
+    }
+    
+    for (int i = 1; i < len; ++i) {
+        if (is_palindrome(str.substr(i))) {
+            string prefix = str.substr(0, i);
+            reverse(prefix.begin(), prefix.end());
+            return str + prefix;
         }
     }
-    return ""; // this line is never reached because the loop ensures at least an empty string ("") palindrome.
+    
+    string rev_str = str;
+    reverse(rev_str.begin(), rev_str.end());
+    return str + rev_str.substr(1);
 }
 
 int main() {
-    string input;
-    printf("Enter a string: ");
-    getline(cin, input);
-    printf("Shortest palindrome: %s\n", make_palindrome(input).c_str());
+    string str;
+    cin >> str;
+    cout << make_palindrome(str) << endl;
     return 0;
 }
