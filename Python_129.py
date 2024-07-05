@@ -36,10 +36,9 @@ if __name__ == "__main__":
     data = input().split()
     k = int(data[0])
     grid = []
-    size = int(len(data[1:]) ** 0.5)
     index = 1
-    for i in range(size):
-        grid.append(list(map(int, data[index : index + size])))
-        index += size
+    for i in range(int(len(data[1:]) ** 0.5)):
+        grid.append(list(map(int, data[index : index + int(len(data[1:]) ** 0.5)])))
+        index += int(len(data[1:]) ** 0.5)
     result = minPath(grid, k)
     print(result)
