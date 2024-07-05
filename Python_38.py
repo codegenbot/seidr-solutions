@@ -1,3 +1,4 @@
+```python
 def decode_cyclic(s):
     result = ""
     i = 0
