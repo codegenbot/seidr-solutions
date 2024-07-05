@@ -9,7 +9,6 @@ using namespace std;
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-    
     auto it1 = find(planets.begin(), planets.end(), planet1);
     auto it2 = find(planets.begin(), planets.end(), planet2);
 
