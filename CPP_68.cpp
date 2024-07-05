@@ -1,11 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-#include <cassert>
+#include <iostream>     
+#include <vector>       
+#include <climits>      
+#include <cassert>      
 
 using namespace std;
 
-vector<int> pluck(vector<int> arr) {
+vector<int> pluck(vector<int> arr){
     if(arr.empty()) return {};
     int min_value = INT_MAX;
     int min_index = -1;
@@ -24,8 +24,8 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert (issame(pluck({7, 9, 7, 1}), {}));
-    assert (issame(pluck({7, 9, 8, 1}), {8, 2}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({7, 9, 8, 1}), {8, 2}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
