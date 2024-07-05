@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<math.h>
-#include<string>
+#include <iostream>
+#include <string>
+#include <cmath>
 using namespace std;
 
 string rounded_avg(int n, int m) {
@@ -10,11 +10,18 @@ string rounded_avg(int n, int m) {
         sum += i;
         count++;
     }
-    int avg = sum / count;
+    int avg = round(static_cast<double>(sum) / count); // Rounding the average
     string binary = "";
     while (avg > 0) {
         binary = (avg % 2 == 0 ? "0" : "1") + binary;
         avg /= 2;
     }
     return binary == "" ? "0" : binary;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << rounded_avg(n, m) << endl;
+    return 0;
 }
