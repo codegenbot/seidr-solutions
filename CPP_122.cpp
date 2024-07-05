@@ -14,12 +14,6 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    cin >> n >> k;
-    vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-    cout << add_elements(arr, k) << endl;
+    cout << add_elements({1, 2, 3, 100, -100}, 3) << endl;  // Output should be 6
     return 0;
 }
