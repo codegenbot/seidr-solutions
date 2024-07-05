@@ -14,9 +14,7 @@ int next_smallest(const std::vector<int>& lst) {
 }
 
 int main() {
-    // You can add test cases here to validate the implementation
-    // Example:
-    std::vector<int> test_vector = {-35, 34, 12, -45};
-    std::cout << next_smallest(test_vector) << std::endl; // Expected output: -35
+    std::vector<int> lst = {-35, 34, 12, -45};
+    std::cout << next_smallest(lst) << std::endl;
     return 0;
 }
