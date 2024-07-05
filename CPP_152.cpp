@@ -1,10 +1,11 @@
+#include <iostream>
 #include <vector>
-#include <cmath>    // For abs
-#include <cassert>  // For assert
+#include <cmath>
+#include <cassert>
 
 using namespace std;
 
-vector<int> compare(vector<int> game, vector<int> guess) {
+vector<int> compare(const vector<int>& game, const vector<int>& guess) {
     vector<int> result;
     for (size_t i = 0; i < game.size(); ++i) {
         result.push_back(abs(game[i] - guess[i]));
@@ -12,12 +13,8 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 int main() {
