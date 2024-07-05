@@ -1,5 +1,8 @@
+
 def encode(message):
-    vowels = {"a": "A", "e": "E", "i": "I", "o": "O", "u": "U", "I": "?", " ": ""}
+    vowels = {"a": "A", "e": "E", "o": "O", "u": "U"}
+    # Add entry for 'I' in the dictionary
+    vowels["i"] = "I"
     encoded_message = ""
     for char in message:
         if char.isalpha():
