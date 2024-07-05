@@ -4,4 +4,5 @@ def add(x: int, y: int):
 if __name__ == "__main__":
     x = int(input("Enter first number: "))
     y = int(input("Enter second number: "))
-    print(add(x, y))
+    result = add(x, y)
+    print(result)
