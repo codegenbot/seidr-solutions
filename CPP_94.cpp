@@ -35,15 +35,13 @@ int largestPrimeDigitSum(vector<int> lst) {
 
 int main() {
     int n;
-    cout << "Enter number of elements: ";
     cin >> n;
     vector<int> lst(n);
-    cout << "Enter elements: ";
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
     
-    cout << "Result: " << largestPrimeDigitSum(lst) << endl;
+    cout << largestPrimeDigitSum(lst) << endl;
 
     return 0;
 }
