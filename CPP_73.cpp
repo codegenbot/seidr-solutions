@@ -14,10 +14,8 @@ int smallest_change(std::vector<int> arr) {
 
 int main() {
     std::vector<int> arr;
-    int n, temp;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        std::cin >> temp;
+    int temp;
+    while (std::cin >> temp) {
         arr.push_back(temp);
     }
     std::cout << smallest_change(arr) << std::endl;
