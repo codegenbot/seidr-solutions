@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
     int start = min(a, b);
