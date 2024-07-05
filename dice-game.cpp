@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -18,6 +17,5 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << std::setprecision(2) << (double)diceGame(n, m) << endl;
+    cout << fixed << setprecision(2) << (double)diceGame(n, m) << endl;
     return 0;
-}
