@@ -4,3 +4,4 @@ def basement(v):
         total += x
         if total < 0:
             return i
+    return -1
