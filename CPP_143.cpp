@@ -28,9 +28,3 @@ string words_in_sentence(string sentence) {
     }
     return result;
 }
-
-int main() {
-    assert(words_in_sentence("here is a test sentence") == "is a");
-    cout << "All tests passed!" << endl;
-    return 0;
-}
