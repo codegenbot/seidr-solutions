@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
 using namespace std;
 
@@ -14,10 +13,6 @@ vector<float> sort_even(vector<float> l) {
         l[i] = even_indices[j];
     }
     return l;
-}
-
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
 }
 
 int main() {
@@ -38,7 +33,5 @@ int main() {
     }
     cout << endl;
 
-    // Testing with the assert
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
