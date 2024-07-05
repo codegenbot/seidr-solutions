@@ -31,8 +31,17 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    // Test case
-    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    cout << "All test cases passed." << endl;
+    vector<int> arr;
+    int n, x;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> x;
+        arr.push_back(x);
+    }
+    vector<int> sorted_arr = sort_array(arr);
+    for (auto val : sorted_arr) {
+        cout << val << " ";
+    }
+    cout << endl;
     return 0;
 }
