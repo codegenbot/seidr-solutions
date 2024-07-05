@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -17,12 +16,11 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    // Sample usage
-    assert(issame(generate_integers(2, 8), {2, 4, 6, 8}));
+    assert(issame(generate_integers(17, 89), {}));
     return 0;
 }
