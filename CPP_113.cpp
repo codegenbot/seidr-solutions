@@ -5,12 +5,13 @@
 
 using namespace std;
 
+// Corrected odd_count function
 vector<string> odd_count(const vector<string>& lst) {
     vector<string> result;
     for (const auto& str : lst) {
         int odd_count = 0;
         for (char ch : str) {
-            if ((ch - '0') % 2 != 0) {
+            if (isdigit(ch) && (ch - '0') % 2 != 0) {
                 odd_count++;
             }
         }
@@ -21,6 +22,7 @@ vector<string> odd_count(const vector<string>& lst) {
     return result;
 }
 
+// Helper function to compare vectors of strings
 bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); i++) {
