@@ -1,15 +1,24 @@
-#include<sstream>
-#include<vector>
-#include<algorithm>
+#include <sstream>
+#include <vector>
+#include <algorithm>
 
-string sort_numbers(string numbers){
-    map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-    map<int, string> inv_num_map = {{0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"}};
-    stringstream ss(numbers);
-    string word;
-    vector<int> num_list;
+string sort_numbers(string numbers) {
+    map<string, int> num_map = {
+        {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+        {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+        {"eight", 8}, {"nine", 9}
+    };
     
-    while (ss >> word) {
+    map<int, string> rev_num_map = {
+        {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"},
+        {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"},
+        {8, "eight"}, {9, "nine"}
+    };
+    
+    istringstream iss(numbers);
+    vector<int> num_list;
+    string word;
+    while (iss >> word) {
         num_list.push_back(num_map[word]);
     }
     
@@ -17,8 +26,8 @@ string sort_numbers(string numbers){
     
     string result;
     for (int i = 0; i < num_list.size(); i++) {
-        if (i > 0) result += " ";
-        result += inv_num_map[num_list[i]];
+        if (i != 0) result += " ";
+        result += rev_num_map[num_list[i]];
     }
     
     return result;
