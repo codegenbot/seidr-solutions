@@ -19,7 +19,15 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = { -23, 8, 15, 42, 107 };
+    vector<int> nums;
+    int n, element;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    cout << "Enter elements separated by space: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> element;
+        nums.push_back(element);
+    }
     cout << specialFilter(nums) << endl;
     return 0;
 }
