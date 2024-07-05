@@ -6,7 +6,7 @@ using namespace std;
 
 // Function to increment each element in a vector by 1
 vector<int> incr_list(vector<int> l) {
-    for(int i = 0; i < l.size(); i++) {
+    for (int i = 0; i < l.size(); i++) {
         l[i]++;
     }
     return l;
@@ -14,9 +14,9 @@ vector<int> incr_list(vector<int> l) {
 
 // Function to compare if two vectors are the same
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
