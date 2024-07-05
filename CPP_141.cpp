@@ -27,8 +27,6 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string file_name;
-    cin >> file_name;
-    cout << file_name_check(file_name) << endl;
+    cout << (file_name_check("s.") == "No") << endl;
     return 0;
 }
