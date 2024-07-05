@@ -1,19 +1,11 @@
-import re
-
-
 def fruit_distribution(s, n):
-    try:
-        # Parse the input string using regular expressions to extract the number of apples and oranges
-        matches = re.search(r"(\d+) apples", s)
-        apple_count = int(matches[1])
+    import re
 
-        matches = re.search(r"(\d+) oranges", s)
-        orange_count = int(matches[1])
+    # Parse the input string to extract the number of apples and oranges
+    apple_count = int(re.search("\d+", s.split("and")[0]).group())
+    orange_count = int(re.search("\d+", s.split("and")[1]).group())
 
-        # Calculate the number of mango fruits in the basket
-        mango_count = n - apple_count - orange_count
-
-    except ValueError:
-        return "Invalid input: No apples or oranges found."
+    # Calculate the number of mango fruits in the basket
+    mango_count = n - apple_count - orange_count
 
     return mango_count
