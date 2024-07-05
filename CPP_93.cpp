@@ -6,10 +6,8 @@ using namespace std;
 
 string encode(string message) {
     for (char &c : message) {
-        if (isupper(c))
-            c = tolower(c);
-        else if (islower(c))
-            c = toupper(c);
+        if (isupper(c)) c = tolower(c);
+        else if (islower(c)) c = toupper(c);
 
         if (c == 'a' || c == 'A') c = 'C';
         else if (c == 'e' || c == 'E') c = 'G';
