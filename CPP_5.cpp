@@ -19,6 +19,5 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    // Add more tests if necessary
     return 0;
 }
