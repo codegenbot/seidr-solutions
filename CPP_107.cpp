@@ -29,9 +29,11 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
+    // Test cases to validate the code
     assert(issame(even_odd_palindrome(1), {0, 1}));
     assert(issame(even_odd_palindrome(10), {2, 9}));
     assert(issame(even_odd_palindrome(20), {2, 9}));
+    // You can add more test cases as needed
     
     cout << "All test cases passed!" << endl;
     return 0;
