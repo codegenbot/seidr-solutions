@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-string encrypt(const string& s) {
+string encrypt(string s) {
     string result = "";
     for (char c : s) {
         result += (c - 'a' + 4) % 26 + 'a';
