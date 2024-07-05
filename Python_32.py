@@ -1,5 +1,5 @@
 def poly(xs, x):
-    return sum(c * (x ** i) for i, c in enumerate(xs))
+    return sum(c * x**i for i, c in enumerate(xs))
 
 def find_zero(xs: list):
     def derivative(xs):
@@ -20,6 +20,6 @@ def find_zero(xs: list):
 
     return x
 
-# Read input
-xs = list(map(float, input().strip().split()))
+import ast
+xs = ast.literal_eval(input())
 print(find_zero(xs))
