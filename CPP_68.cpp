@@ -1,12 +1,12 @@
 vector<int> pluck(vector<int> arr) {
-    int minEvenIndex = -1;
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && (minEvenIndex == -1 || arr[i] < arr[minEvenIndex])) {
-            minEvenIndex = i;
+    int min_even_value = INT_MAX;
+    int min_index = -1;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < min_even_value) {
+            min_even_value = arr[i];
+            min_index = i;
         }
     }
-    if (minEvenIndex == -1) {
-        return {};
-    }
-    return {arr[minEvenIndex], minEvenIndex};
+    if (min_index == -1) return {};
+    return {min_even_value, min_index};
 }
