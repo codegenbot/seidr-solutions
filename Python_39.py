@@ -8,5 +8,5 @@ def prime_fib(n):
         next_fib = (fib[i - 1] + fib[i - 2]) % 2
         if math.gcd(next_fib, 2) == 1:
             fib.append(next_fib)
-        i += 1
+            i += 1
     return fib[n]
