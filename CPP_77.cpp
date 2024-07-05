@@ -2,7 +2,7 @@
 #include <cmath>
 
 bool iscuber(int a) {
-    int root = round(pow(a, 1.0/3));
+    int root = round(pow(a, 1.0 / 3));
     return root * root * root == a;
 }
 
