@@ -1,9 +1,9 @@
 from typing import List
-import sys
 
 def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
-input_strings = sys.stdin.read().strip().split('\n')
+import sys
+input_strings = [line.strip() for line in sys.stdin]
 result = concatenate(input_strings)
 print(result)
