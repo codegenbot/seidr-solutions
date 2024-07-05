@@ -26,7 +26,6 @@ int main() {
     for (int num : evens) {
         cout << num << " ";
     }
-    cout << endl;
     
     return 0;
 }
