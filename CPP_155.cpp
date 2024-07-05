@@ -5,7 +5,7 @@
 
 std::vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
-    num = abs(num);
+    num = std::abs(num);
     if (num == 0) {
         even_count++;
     } else {
@@ -27,7 +27,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
+    // Add more test cases as needed
     assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(123456), {3, 3}));
+    assert(issame(even_odd_count(-1234), {2, 2}));
     std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
