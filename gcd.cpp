@@ -1,13 +1,7 @@
-#include <vector>
+Here is the modified code:
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
+```
+#include <vector>
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
@@ -25,4 +19,13 @@ vector<int> findIndices(string text, string target) {
         }
     }
     return indices;
+}
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
