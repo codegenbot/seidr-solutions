@@ -8,7 +8,7 @@ vector<int> make_a_pile(int n) {
     int current_stones = n;
     for (int i = 0; i < n; ++i) {
         pile.push_back(current_stones);
-        current_stones += 2;  // Always add 2 regardless of n being even or odd
+        current_stones += 2;
     }
     return pile;
 }
