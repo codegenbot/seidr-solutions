@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
