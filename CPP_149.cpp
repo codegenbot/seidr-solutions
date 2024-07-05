@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -7,15 +8,14 @@ using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
     // Remove strings with odd lengths
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string &s) {
+    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) {
         return s.length() % 2 != 0;
     }), lst.end());
 
-    // Sort the vector by length, and then alphabetically
-    sort(lst.begin(), lst.end(), [](const string &a, const string &b) {
-        if (a.length() == b.length()) {
+    // Sort the remaining strings first by length, then alphabetically
+    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
+        if (a.length() == b.length())
             return a < b;
-        }
         return a.length() < b.length();
     });
 
@@ -28,5 +28,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    cout << "Test passed!" << endl;
     return 0;
 }
