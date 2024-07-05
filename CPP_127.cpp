@@ -32,7 +32,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
 int main() {
     vector<int> interval1(2), interval2(2);
+    cout << "Enter the first interval (two integers): ";
     cin >> interval1[0] >> interval1[1];
+    cout << "Enter the second interval (two integers): ";
     cin >> interval2[0] >> interval2[1];
     
     cout << intersection(interval1, interval2) << endl;
