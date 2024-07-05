@@ -7,7 +7,7 @@
 std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> freqMap;
     for (char ch : test) {
-        if (std::isalpha(ch)) {
+        if (std::isalpha(ch)) { // Consider only alphabetic characters
             freqMap[ch]++;
         }
     }
