@@ -1,27 +1,18 @@
 #include <cctype>
 
-bool is_all_lower(const string &s) {
-    for (char c : s) {
-        if (!islower(c)) return false;
-    }
-    return true;
-}
-
-bool is_all_upper(const string &s) {
-    for (char c : s) {
-        if (!isupper(c)) return false;
-    }
-    return true;
-}
-
-bool check_dict_case(map<string,string> dict) {
+bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
-    bool all_lower = true, all_upper = true;
+    
+    auto it = dict.begin();
+    bool is_lower = islower(it->first[0]);
+    bool is_upper = isupper(it->first[0]);
 
     for (const auto &pair : dict) {
-        if (!is_all_lower(pair.first)) all_lower = false;
-        if (!is_all_upper(pair.first)) all_upper = false;
+        for (char c : pair.first) {
+            if (isdigit(c)) return false;
+        }
+        if (is_lower && !all_of(pair.first.begin(), pair.first.end(), ::islower)) return false;
+        if (is_upper && !all_of(pair.first.begin(), pair.first.end(), ::isupper)) return false;
     }
-
-    return all_lower || all_upper;
+    return true;
 }
