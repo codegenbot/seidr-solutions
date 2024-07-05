@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 vector<string> words_string(string s) {
@@ -29,7 +28,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    cout << "All tests passed!" << endl;
+    assert(issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
+    cout << "All tests passed." << endl;
     return 0;
 }
