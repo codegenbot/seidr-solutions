@@ -7,6 +7,4 @@ def encrypt(s):
         elif char.isupper():
             new_char = chr((ord(char) + 2 - ord("A")) % 26 + ord("A"))
             new_string += new_char
-        else:
-            new_string += char
     return new_string
