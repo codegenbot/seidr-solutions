@@ -1,4 +1,3 @@
-```Python
 def decode_cyclic(s):
     result = ""
     if s[0] in ["<", ">"]:
