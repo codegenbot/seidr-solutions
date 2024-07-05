@@ -1,6 +1,4 @@
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    result = []
+counts = {}
     for num in numbers:
-        if numbers.count(num) == 1:
-            result.append(num)
-    return result
+        counts[num] = counts.get(num, 0) + 1
+    return [num for num in numbers if counts[num] == 1]
