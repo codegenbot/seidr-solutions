@@ -1,6 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <iostream>
+
 using namespace std;
 
 vector<float> derivative(vector<float> xs) {
@@ -16,8 +17,10 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    assert(issame(derivative({1}), {}));
-    assert(issame(derivative({0, 1, 2, 3}), {1, 4, 9}));
+    assert (issame(derivative({1}), {}));
+    assert (issame(derivative({2, 3}), {3}));
+    assert (issame(derivative({1, 2, 3}), {2, 6}));
+    
     cout << "All tests passed!" << endl;
     return 0;
 }
