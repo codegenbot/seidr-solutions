@@ -13,6 +13,6 @@ int sum_squares(const std::vector<float>& lst) {
 
 int main() {
     std::vector<float> input = {-1, 1, 0};
-    std::cout << (sum_squares(input) == 2) << std::endl;
+    std::cout << (sum_squares(input) == 2) << std::endl;  // Expected output: 1 for true
     return 0;
 }
