@@ -4,28 +4,29 @@
 #include <cctype>
 using namespace std;
 
-bool is_lower_case(const string &s) {
-    for (char c : s) {
-        if (!islower(c)) return false;
+bool is_lowercase(const string &str) {
+    for (char ch : str) {
+        if (!islower(ch)) return false;
     }
     return true;
 }
 
-bool is_upper_case(const string &s) {
-    for (char c : s) {
-        if (!isupper(c)) return false;
+bool is_uppercase(const string &str) {
+    for (char ch : str) {
+        if (!isupper(ch)) return false;
     }
     return true;
 }
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
+    auto it = dict.begin();
+    bool all_lower = is_lowercase(it->first);
+    bool all_upper = is_uppercase(it->first);
 
-    bool all_lower = true, all_upper = true;
-    for (const auto &p : dict) {
-        if (!is_lower_case(p.first)) all_lower = false;
-        if (!is_upper_case(p.first)) all_upper = false;
+    for (; it != dict.end(); ++it) {
+        if (all_lower && !is_lowercase(it->first)) return false;
+        if (all_upper && !is_uppercase(it->first)) return false;
     }
-
-    return all_lower || all_upper;
+    return true;
 }
