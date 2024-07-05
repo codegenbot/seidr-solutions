@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
+// Generate a vector of even integers between a and b
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
     if (a > b) std::swap(a, b);
@@ -14,6 +15,7 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
+// Check if two vectors are the same
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
