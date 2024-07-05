@@ -5,7 +5,7 @@ using namespace std;
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int current = 8;
+    int current = n;
     for(int i = 0; i < n; ++i) {
         pile.push_back(current);
         current += 2;
