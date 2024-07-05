@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
 vector<float> derivative(const vector<float> &xs) {
