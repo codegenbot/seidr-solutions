@@ -1,5 +1,5 @@
-from typing import List
 import sys
+from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
     max_so_far = float("-inf")
