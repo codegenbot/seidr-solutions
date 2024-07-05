@@ -8,7 +8,7 @@ bool is_palindrome(string str) {
 }
 
 string make_palindrome(string str) {
-    int n = str.length();
+    int n = str.size();
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
             string suffix = str.substr(i);
@@ -16,7 +16,7 @@ string make_palindrome(string str) {
             return str + suffix;
         }
     }
-    return str; // Default return, though this line should never be reached
+    return str;
 }
 
 int main() {
