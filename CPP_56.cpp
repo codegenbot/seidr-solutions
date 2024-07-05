@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool correct_bracketing(const std::string& brackets) {
     int balance = 0;
@@ -12,12 +13,11 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    if (correct_bracketing(input)) {
-        std::cout << "Valid" << std::endl;
-    } else {
-        std::cout << "Invalid" << std::endl;
-    }
+    assert(correct_bracketing("<><><<><>><>>><>") == false);
+    assert(correct_bracketing("<<>>") == true);
+    assert(correct_bracketing("<><>") == true);
+    assert(correct_bracketing("<<>><>") == true);
+    assert(correct_bracketing(">><<") == false);
+    std::cout << "All tests passed.\n";
     return 0;
 }
