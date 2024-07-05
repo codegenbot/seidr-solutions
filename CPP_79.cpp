@@ -1,9 +1,11 @@
-string decimal_to_binary(int decimal){
-    string binary = "db";
+string decimal_to_binary(int decimal) {
+    string binary = "";
     while (decimal > 0) {
-        binary.insert(2, 1, (decimal % 2 == 0 ? '0' : '1'));
+        binary = (decimal % 2 == 0 ? "0" : "1") + binary;
         decimal /= 2;
     }
-    binary.append("db");
-    return binary;
+    if (binary.empty()) {
+        binary = "0";  // Handle the case for decimal = 0
+    }
+    return "db" + binary + "db";
 }
