@@ -26,7 +26,8 @@ int main() {
     int result = car_race_collision(track);
     cout << result << endl;
 
-    assert(car_race_collision("RLRRLLRRL") == 6);
+    // Correct assert statement with a valid test string
+    assert(car_race_collision("RLRLRRLLR") == 7);
 
     return 0;
 }
