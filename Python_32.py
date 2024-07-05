@@ -1,6 +1,7 @@
 ```
 import math
 
+
 def find_zero(xs):
     if len(xs) < 3:
         print("Error: List should have at least three elements.")
@@ -19,6 +20,7 @@ def find_zero(xs):
         return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
     else:
         return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+
 
 xs = [int(x) for x in input("Enter the list of numbers: ").split()]
 find_zero(xs)
