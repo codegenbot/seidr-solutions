@@ -1,7 +1,6 @@
-```
 def decode_cyclic(s):
     result = ""
-    i = 1
+    i = 0
     while len(result) < len(s):
         j = (i + 1) % len(s)
         temp = ""
@@ -10,5 +9,5 @@ def decode_cyclic(s):
             j = (j + 1) % len(s)
         if temp:
             result += temp + " "
-        i = j + 2
+        i = j
     return result.strip()
