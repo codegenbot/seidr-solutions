@@ -25,7 +25,5 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    // Call your gcd function here if needed
-
     return 0;
 }
