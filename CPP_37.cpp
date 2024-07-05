@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -14,9 +13,4 @@ vector<float> sort_even(vector<float> l) {
         l[i] = even_indices[j];
     }
     return l;
-}
-
-int main() {
-    assert((sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-    return 0;
 }
