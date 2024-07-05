@@ -8,13 +8,13 @@ vector<string> split_words(string txt) {
     } else if (txt.find(',') != string::npos) {
         delimiter = ",";
     } else {
-        int count = 0;
+        int odd_count = 0;
         for (char c : txt) {
             if (islower(c) && ((c - 'a') % 2 == 0)) {
-                count++;
+                odd_count++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(to_string(odd_count));
         return result;
     }
 
