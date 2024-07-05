@@ -4,6 +4,8 @@
 
 using namespace std;
 
+string decode_shift(string s);
+
 string encode_shift(string s) {
     string out;
     for (int i = 0; i < s.length(); i++) {
