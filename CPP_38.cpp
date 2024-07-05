@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
 string decode_cyclic(string s) {
