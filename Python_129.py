@@ -22,10 +22,10 @@ def minPath(grid, k):
 
         x, y = path[-1]
         for nx, ny in neighbors(x, y):
-            if (nx, ny) not in path:
-                new_path = path + [(nx, ny)]
-                heappush(min_paths, (current_val + grid[nx][ny], new_path))
+            new_path = path + [(nx, ny)]
+            heappush(min_paths, (current_val + grid[nx][ny], new_path))
 
+# Read input from user
 n = int(input().strip())
 grid = []
 for _ in range(n):
