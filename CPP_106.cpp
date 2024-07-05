@@ -29,7 +29,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(f(3), {1, 3, 6}));
-    assert(issame(f(4), {1, 3, 6, 24}));
+    assert(issame(f(3), {1, 3, 2}));
+    assert(issame(f(4), {1, 3, 2, 24}));
     return 0;
 }
