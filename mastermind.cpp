@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -22,6 +22,7 @@ int blackPegs(string code, string guess) {
             }
         }
     }
+    int black = 4 - whitePegs(code, guess);
     return correctPosition;
 }
 
@@ -35,7 +36,7 @@ int main() {
     cin >> guess;
 
     int black = blackPegs(code, guess);
-    int white = 4 - blackPegs(code, guess);
+    int white = 4 - black;
 
     cout << black << endl;
     cout << white << endl;
