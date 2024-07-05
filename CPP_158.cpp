@@ -31,7 +31,7 @@ int main() {
     vector<string> test3 = {"abc", "def", "ghij"};
 
     cout << (find_max(test1) == "play") << endl;
-    cout << (find_max(test2) == "hello") << endl;
+    cout << (find_max(test2) == "world") << endl;  // "world" and "hello" both have 4 unique characters, but "hello" < "world"
     cout << (find_max(test3) == "ghij") << endl;
 
     return 0;
