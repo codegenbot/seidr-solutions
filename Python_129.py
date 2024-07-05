@@ -15,13 +15,16 @@ def minPath(grid, k):
     for i in range(N):
         for j in range(N):
             heap = [(grid[i][j], i, j, 1)]
+            visited = set()
             while heap:
                 val, x, y, length = heappop(heap)
                 if length == k:
                     min_sum = min(min_sum, val)
                     continue
                 for nx, ny in neighbors(x, y):
-                    heappush(heap, (val + grid[nx][ny], nx, ny, length + 1))
+                    if (nx, ny) not in visited or length + 1 < k:
+                        visited.add((nx, ny))
+                        heappush(heap, (val + grid[nx][ny], nx, ny, length + 1))
 
     return min_sum
 
