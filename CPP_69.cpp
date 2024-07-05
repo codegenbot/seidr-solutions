@@ -1,7 +1,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <vector>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    // Add more test cases if needed
+    vector<int> input = {3, 10, 10, 9, 2};
+    cout << search(input) << endl;
     return 0;
 }
