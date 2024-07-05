@@ -1,4 +1,3 @@
-import sys
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -8,6 +7,9 @@ def longest(strings: List[str]) -> Optional[str]:
 
 if __name__ == "__main__":
     strings = []
-    for line in sys.stdin:
-        strings.extend(line.strip().split())
+    while True:
+        line = input().strip()
+        if line == "":
+            break
+        strings.append(line)
     print(longest(strings))
