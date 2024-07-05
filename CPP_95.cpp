@@ -1,28 +1,31 @@
+#include <map>
+#include <string>
 #include <cctype>
 
-bool is_lower(const string& s) {
-    for (char c : s) {
-        if (!islower(c)) return false;
-    }
-    return true;
-}
-
-bool is_upper(const string& s) {
-    for (char c : s) {
-        if (!isupper(c)) return false;
-    }
-    return true;
-}
-
-bool check_dict_case(map<string, string> dict) {
+bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;
-    
-    bool all_lower = true, all_upper = true;
-    
+
+    bool isLower = islower(dict.begin()->first[0]);
     for (const auto& pair : dict) {
-        if (!is_lower(pair.first)) all_lower = false;
-        if (!is_upper(pair.first)) all_upper = false;
+        for (char c : pair.first) {
+            if (isLower && !islower(c)) return false;
+            if (!isLower && !isupper(c)) return false;
+        }
     }
-    
-    return all_lower || all_upper;
+    return true;
+}
+
+int main() {
+    std::map<std::string, std::string> test_case1 = {{"key", "value"}, {"anotherkey", "anothervalue"}};
+    std::map<std::string, std::string> test_case2 = {{"Key", "value"}, {"AnotherKey", "anothervalue"}};
+    std::map<std::string, std::string> test_case3 = {{"key", "value"}, {"AnotherKey", "anothervalue"}};
+    std::map<std::string, std::string> test_case4 = {};
+
+    std::cout << std::boolalpha;
+    std::cout << "Test Case 1: " << check_dict_case(test_case1) << "\n"; // Should return true
+    std::cout << "Test Case 2: " << check_dict_case(test_case2) << "\n"; // Should return true
+    std::cout << "Test Case 3: " << check_dict_case(test_case3) << "\n"; // Should return false
+    std::cout << "Test Case 4: " << check_dict_case(test_case4) << "\n"; // Should return false
+
+    return 0;
 }
