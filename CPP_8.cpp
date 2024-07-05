@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
-#include <iostream>
+using namespace std;
 
-std::vector<int> sum_product(std::vector<int> numbers) {
+vector<int> sum_product(const vector<int>& numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
@@ -12,12 +13,13 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(sum_product({10}), {10, 10}));
-    std::cout << "All tests passed!" << std::endl;
+    assert(issame(sum_product({1, 2, 3}), {6, 6}));
+    cout << "All test cases pass" << endl;
     return 0;
 }
