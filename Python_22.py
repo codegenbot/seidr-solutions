@@ -7,5 +7,8 @@ if __name__ == "__main__":
     user_input = input("Enter a list of values: ").split()
     values = []
     for item in user_input:
-        values.append(int(item) if item.isdigit() else item)
+        try:
+            values.append(int(item))
+        except ValueError:
+            values.append(item)
     print(filter_integers(values))
