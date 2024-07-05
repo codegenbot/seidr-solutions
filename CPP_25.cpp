@@ -19,12 +19,10 @@ vector<int> factorize(int n) {
 int main() {
     int n;
     cin >> n;
-
-    vector<int> factors = factorize(n);
-    for (int factor : factors) {
+    vector<int> result = factorize(n);
+    for (int factor : result) {
         cout << factor << " ";
     }
     cout << endl;
-
     return 0;
 }
