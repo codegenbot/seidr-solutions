@@ -14,9 +14,10 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        n = int(input("Enter a positive integer: ").strip())
-        if n <= 0:
+        n_str = input().strip()
+        if not n_str.isdigit() or int(n_str) <= 0:
             raise ValueError
+        n = int(n_str)
         result = factorize(n)
         print(result)
     except ValueError:
