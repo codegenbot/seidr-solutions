@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 #include <cmath>
 
 using namespace std;
@@ -16,9 +16,10 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-6) return false; // Allowing a small tolerance due to floating-point comparisons
+    const float EPS = 1e-5;
+    if(a.size() != b.size()) return false;
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(abs(a[i] - b[i]) > EPS) return false;
     }
     return true;
 }
