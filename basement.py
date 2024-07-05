@@ -1,9 +1,10 @@
+```
 def basement(arr):
     total = 0
     i = -1
     while True:
         i += 1
-        if i >= len(arr): 
+        if i >= len(arr):  
             return -1
         total += arr[i]
         if total < 0:
