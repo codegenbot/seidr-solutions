@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < code.size(); ++i) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             count++;
         }
@@ -12,17 +13,19 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < code.size(); ++i) {
-        for (int j = 0; j < code.size(); ++j) {
-            if (code[i] == guess[j]) {
-                if (i == j) {
-                    count++;
-                }
-            }
+    int correctPosition = 0;
+    int matchingColors = 0;
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            correctPosition++;
+            matchingColors--;
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+            matchingColors++;
         }
     }
-    return count;
+
+    return correctPosition;
 }
 
 int main() {
