@@ -1,5 +1,9 @@
+#include <vector>
+#include <string>
 #include <sstream>
 #include <cctype>
+#include <cassert>
+using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
