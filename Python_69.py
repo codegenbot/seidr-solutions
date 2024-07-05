@@ -1,4 +1,5 @@
-def search(lst):
+def search():
+    lst = list(map(int, input().split()))
     from collections import Counter
     freq = Counter(lst)
     result = -1
@@ -7,6 +8,4 @@ def search(lst):
             result = num
     return result
 
-if __name__ == "__main__":
-    lst = list(map(int, input().strip().split()))
-    print(search(lst))
+print(search())
