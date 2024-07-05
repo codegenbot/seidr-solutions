@@ -12,8 +12,8 @@ vector<float> derivative(const vector<float> &xs) {
 }
 
 int main() {
-    assert((derivative({1}) == vector<float>{}));
-    assert((derivative({1, 2}) == vector<float>{2}));
-    assert((derivative({1, 2, 3}) == vector<float>{2, 6}));
+    assert(derivative({1}) == vector<float>{});
+    assert(derivative({1, 2}) == vector<float>{2});
+    assert(derivative({1, 2, 3}) == vector<float>{2, 6});
     return 0;
 }
