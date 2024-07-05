@@ -1,5 +1,3 @@
-#include<cmath>
-
 bool is_prime(int n) {
     if (n <= 1) return false;
     if (n <= 3) return true;
@@ -10,7 +8,6 @@ bool is_prime(int n) {
     return true;
 }
 
-bool prime_length(string str){
-    int length = str.length();
-    return is_prime(length);
+bool prime_length(string str) {
+    return is_prime(str.length());
 }
