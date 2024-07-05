@@ -13,4 +13,4 @@ if __name__ == "__main__":
         operations = list(map(int, input().strip().split()))
         print(below_zero(operations))
     except ValueError:
-        print("Input must be a space-separated list of integers.")
+        print(False)

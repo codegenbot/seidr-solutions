@@ -14,5 +14,6 @@ def find_zero(xs: list):
         x = x - f(x) / df(x)
     return x
 
+# example usage
 coefficients = [float(x) for x in input().split()]
 print(find_zero(coefficients))
