@@ -1,6 +1,6 @@
-#include<unordered_set>
+#include<set>
 int count_distinct_characters(string str){ 
-    unordered_set<char> distinct_chars;
+    set<char> distinct_chars;
     for(char c : str) {
         distinct_chars.insert(tolower(c));
     }
