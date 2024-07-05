@@ -1,14 +1,16 @@
 ```
-def sort_third(l: list):
+def sort_third(l):
+    first = [i for i in l if i % 3 != 0]
+    second = sorted([i for i in l if i % 3 == 0])
     result = []
-    for i in range(len(l)):
-        if i % 3 != 0:
-            result.append(i)
+    i, j = 0, 0
+    while i < len(first) and j < len(second):
+        if first[i] <= second[j]:
+            result.append(first.pop(i))
         else:
-            chunk_size = (i // 3) * 3 + 1
-            non_zeros = [x for x in l[:chunk_size] if x % 3 != 0]
-            if non_zeros:
-                result.append(non_zeros[-1])
-            else:
-                result.append(i)
+            result.append(second.pop(j))
+        i += 1
+        j += 1
+    result.extend(first)
+    result.extend(second)
     return tuple(result)
