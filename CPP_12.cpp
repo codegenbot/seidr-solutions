@@ -18,9 +18,9 @@ string longest(const vector<string>& strings) {
 int main() {
     vector<string> input;
     string s;
-    while (cin >> s) {
+    while(cin >> s){
         input.push_back(s);
     }
-    cout << longest(input) << endl;
+    cout << longest(input) << endl; 
     return 0;
 }
