@@ -15,3 +15,12 @@ int modp(int n, int p) {
 
     return result;
 }
+
+int main() {
+    printf("%d\n", modp(3, 5));  // 3
+    printf("%d\n", modp(1101, 101));  // 2
+    printf("%d\n", modp(0, 101));  // 1
+    printf("%d\n", modp(3, 11));  // 8
+    printf("%d\n", modp(100, 101));  // 1
+    return 0;
+}
