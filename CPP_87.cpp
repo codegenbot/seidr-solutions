@@ -17,9 +17,9 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
 
     sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
         if (a[0] == b[0]) {
-            return a[1] > b[1];  // Sort by columns in descending order
+            return a[1] > b[1];
         }
-        return a[0] < b[0];  // Sort by rows in ascending order
+        return a[0] < b[0];
     });
 
     return result;
