@@ -16,9 +16,9 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.0, 2.0, 3.0, -3.0, 4.5, 5.0};
-    long long odd_sum = 35;
-    assert(double_the_difference(lst) == odd_sum);
-    cout << double_the_difference(lst) << endl;
+    vector<float> lst = {1.0, 2.0, 3.5, 5.0, -1.0, 6.0};
+    long long expected_sum = 1*1 + 5*5; // 26
+    assert(double_the_difference(lst) == expected_sum);
+    cout << "Test passed!" << endl;
     return 0;
 }
