@@ -17,7 +17,6 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-// Test
 int main() {
     assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     cout << "Test passed!" << endl;
