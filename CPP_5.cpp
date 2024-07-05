@@ -1,12 +1,9 @@
-vector<int> result;
-    if (numbers.empty()) return result;
-    
-    for (size_t i = 0; i < numbers.size(); ++i) {
+if (numbers.empty()) return numbers;
+    vector<int> result;
+    result.push_back(numbers[0]);
+    for (size_t i = 1; i < numbers.size(); ++i) {
+        result.push_back(delimeter);
         result.push_back(numbers[i]);
-        if (i != numbers.size() - 1) {
-            result.push_back(delimeter);
-        }
     }
-    
     return result;
 }
