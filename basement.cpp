@@ -1,4 +1,3 @@
-```cpp
 int basement(vector<int>& nums) {
     int total = 0;
     int basementIndex = -1; 
