@@ -10,6 +10,9 @@ def search(lst):
 if __name__ == "__main__":
     try:
         lst = list(map(int, input().strip().split()))
-    except:
-        lst = []
-    print(search(lst) if lst else -1)
+        if all(0 <= x <= 100 for x in lst):  # Adjust range as needed.
+            print(search(lst) if lst else -1)
+        else:
+            print(-1)
+    except ValueError:
+        print(-1)
