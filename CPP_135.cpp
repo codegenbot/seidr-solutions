@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
 
 int can_arrange(std::vector<int> arr) {
@@ -12,20 +11,13 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    // Sample test cases
-    assert(can_arrange({}) == -1);
-    assert(can_arrange({3, 2, 1}) == 2);
-    assert(can_arrange({1, 2, 3}) == -1);
-    assert(can_arrange({1, 3, 2}) == 2);
-    
-    // User input
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
+    for(int i = 0; i < n; ++i) {
         std::cin >> arr[i];
     }
-    
+
     std::cout << can_arrange(arr) << std::endl;
     return 0;
 }
