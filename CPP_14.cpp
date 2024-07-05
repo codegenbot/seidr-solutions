@@ -13,12 +13,12 @@ vector<string> all_prefixes(const string& str) {
     return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    cout << "Test passed!" << endl;
+    assert(issame(all_prefixes("WWW") ,{"W", "WW", "WWW"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
