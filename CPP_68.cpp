@@ -22,9 +22,13 @@ vector<int> pluck(vector<int> arr) {
     return {min_even, min_index};
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(pluck({7, 9, 7, 1}) == vector<int>{});
-    assert(pluck({8, 3, 4, 2}) == vector<int>{2, 3});
-    assert(pluck({2, 4, 6, 8}) == vector<int>{2, 0});
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({8, 3, 4, 2}), {2, 3}));
+    assert(issame(pluck({2, 4, 6, 8}), {2, 0}));
     return 0;
 }
