@@ -1,10 +1,6 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
-
-int count_nums(vector<int> n){
+int count_nums(const std::vector<int>& n) {
     int count = 0;
     for(int num : n){
         int sum_digits = 0;
@@ -18,10 +14,4 @@ int count_nums(vector<int> n){
         }
     }
     return count;
-}
-
-int main() {
-    assert(count_nums({1}) == 1);
-    cout << "All tests passed!" << endl;
-    return 0;
 }

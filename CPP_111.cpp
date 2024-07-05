@@ -1,8 +1,9 @@
+#include <iostream>
 #include <map>
 #include <string>
 #include <sstream>
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 
 using namespace std;
 
@@ -10,8 +11,12 @@ map<char, int> histogram(string test) {
     map<char, int> freq;
     stringstream ss(test);
     string word;
+    
     while (ss >> word) {
-        freq[word[0]]++;
+        char first_char = word.empty() ? '\0' : word[0];
+        if (first_char != '\0') {
+            freq[first_char]++;
+        }
     }
 
     int max_count = 0;
@@ -29,11 +34,14 @@ map<char, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<char,int> a, map<char,int> b) {
+bool issame(const map<char, int>& a, const map<char, int>& b) {
     return a == b;
 }
 
 int main() {
-    assert (issame(histogram("a") , {{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("a a b"), {{'a', 2}}));
+    assert(issame(histogram("c b b a a"), {{'a', 2}, {'b', 2}}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
