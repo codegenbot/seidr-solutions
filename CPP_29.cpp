@@ -5,7 +5,8 @@
 
 using namespace std;
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+// Function to filter strings by prefix
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
     vector<string> result;
     for (const auto& str : strings) {
         if (str.find(prefix) == 0) {
@@ -15,7 +16,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+// Function to compare two vectors of strings
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -24,9 +26,9 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"),
-                  {"xxx", "xxxAAA", "xxx"}));
-
-    cout << "Test passed." << endl;
+    // Test case
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    
+    cout << "Test passed!" << endl;
     return 0;
 }
