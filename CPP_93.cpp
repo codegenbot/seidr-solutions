@@ -1,15 +1,36 @@
-string encode(string message){
-    for(char &c : message){
-        if(isalpha(c)){
-            if(isupper(c)) c = tolower(c);
-            else c = toupper(c);
+#include <iostream>
+#include <string>
+#include <cctype> // For tolower, toupper, islower, isupper 
 
-            if(c == 'a' || c == 'A') c = c + 2;
-            else if(c == 'e' || c == 'E') c = c + 2;
-            else if(c == 'i' || c == 'I') c = c + 2;
-            else if(c == 'o' || c == 'O') c = c + 2;
-            else if(c == 'u' || c == 'U') c = c + 2;
+using namespace std;
+
+string encode(string message) {
+    auto swap_case = [](char c) -> char {
+        if (islower(c)) return toupper(c);
+        if (isupper(c)) return tolower(c);
+        return c;
+    };
+    
+    auto replace_vowel = [](char c) -> char {
+        switch(tolower(c)) {
+            case 'a': return c + 2;
+            case 'e': return c + 2;
+            case 'i': return c + 2;
+            case 'o': return c + 2;
+            case 'u': return c + 2;
+            default: return c;
         }
+    };
+    
+    for (char &c : message) {
+        c = swap_case(c);
+        c = replace_vowel(c);
     }
     return message;
+}
+
+int main() {
+    // Example usage:
+    cout << encode("I DoNt KnOw WhAt tO WrItE") << endl;
+    return 0;
 }
