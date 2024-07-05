@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int bowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
@@ -19,4 +22,11 @@ int bowlingScore(const char* s) {
         }
     }
     return score;
+}
+
+int main() {
+    char s[100];
+    cin.getline(s, 100);
+    cout << "The bowling score is: " << bowlingScore(s) << endl;
+    return 0;
 }
