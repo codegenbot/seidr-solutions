@@ -28,6 +28,7 @@ def minPath(grid, k):
                         heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
     return min_path
 
+
 if __name__ == "__main__":
     data = input().strip().split()
     
