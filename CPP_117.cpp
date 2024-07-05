@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <cctype>
-
+#include <iostream>
 using namespace std;
 
 bool is_consonant(char c) {
@@ -34,14 +33,13 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    string input;
+    string s;
     int n;
-    
-    getline(cin, input);
+    getline(cin, s);
     cin >> n;
     
-    vector<string> result = select_words(input, n);
-    for (const string &word : result) {
+    vector<string> words = select_words(s, n);
+    for(const string &word : words) {
         cout << word << " ";
     }
     cout << endl;
