@@ -6,7 +6,7 @@ int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> firstBounce >> numBounces;
+    std::cin >> startHeight >> firstBounce >> numBounces;
 
     // Calculate bounciness index
     double bouncinessIndex = firstBounce / startHeight;
@@ -17,7 +17,7 @@ int main() {
         totalDistance += pow(bouncinessIndex, i);
     }
 
-    cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
+    std::cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
 
     return 0;
 }
