@@ -8,19 +8,19 @@ using namespace std;
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0;
-    string delimiter = " ";
+    const string space_delimiter = " ";
+    const string comma_delimiter = ",";
     
-    if (txt.find(' ') != string::npos) {
-        while ((pos = txt.find(' ')) != string::npos) {
+    if (txt.find(space_delimiter) != string::npos) {
+        while ((pos = txt.find(space_delimiter)) != string::npos) {
             result.push_back(txt.substr(0, pos));
             txt.erase(0, pos + 1);
         }
         result.push_back(txt);
-    } else if (txt.find(',') != string::npos) {
-        delimiter = ",";
-        while ((pos = txt.find(delimiter)) != string::npos) {
+    } else if (txt.find(comma_delimiter) != string::npos) {
+        while ((pos = txt.find(comma_delimiter)) != string::npos) {
             result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + delimiter.length());
+            txt.erase(0, pos + comma_delimiter.length());
         }
         result.push_back(txt);
     } else {
