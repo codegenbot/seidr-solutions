@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int add_elements(const std::vector<int>& arr, int k) {
     int sum = 0;
@@ -12,10 +12,10 @@ int add_elements(const std::vector<int>& arr, int k) {
 }
 
 int main() {
-    int n, k;
+    int k, n;
     std::cin >> n >> k;
     std::vector<int> arr(n);
-    for(int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> arr[i];
     }
     std::cout << add_elements(arr, k) << std::endl;
