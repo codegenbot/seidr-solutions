@@ -1,6 +1,6 @@
 def leaders(input_vector):
-    return [
-        x
-        for x in reversed(input_vector)
-        if all(x >= y for y in input_vector[input_vector.index(x) + 1 :])
-    ]
+    leaders = [input_vector[-1]]  # rightmost element is always a leader
+    for i in reversed(range(len(input_vector) - 1)):
+        if input_vector[i] >= input_vector[i + 1]:
+            leaders.append(input_vector[i])
+    return leaders[::-1]
