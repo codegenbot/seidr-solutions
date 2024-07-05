@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -31,7 +29,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("() (()) (()())"), {"()", "(())", "(()())"} ));
-    cout << "Test passed!" << endl;
+    assert(issame(separate_paren_groups("() (()) (()())"), {"()", "(())", "(()())"}));
     return 0;
 }
