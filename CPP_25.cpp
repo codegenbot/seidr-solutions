@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 vector<int> factorize(int n) {
