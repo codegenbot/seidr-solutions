@@ -19,15 +19,16 @@ vector<float> sort_even(vector<float> l) {
 int main() {
     int n;
     cin >> n;
+    
     vector<float> l(n);
     for (int i = 0; i < n; ++i) {
         cin >> l[i];
     }
 
-    vector<float> sorted_list = sort_even(l);
+    vector<float> result = sort_even(l);
 
-    for (float num : sorted_list) {
-        cout << num << " ";
+    for (float val : result) {
+        cout << val << " ";
     }
 
     return 0;
