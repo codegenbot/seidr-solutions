@@ -1,16 +1,18 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string fizzBuzz(int x) {
+    std::stringstream ss;
     if (x % 3 == 0 && x % 5 == 0)
-        return "FizzBuzz";
+        ss << "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
+        ss << "Fizz";
     else if (x % 5 == 0)
-        return "Buzz";
+        ss << "Buzz";
     else
-        return std::to_string(x);
+        ss << x;
+    return ss.str();
 }
 
 int main() {
