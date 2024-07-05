@@ -1,5 +1,5 @@
 #include <cmath>
-#include <iostream>
+#include <stdio.h>
 using namespace std;
 
 int starts_one_ends(int n) {
@@ -12,11 +12,4 @@ int starts_one_ends(int n) {
     // Remove double counted numbers (start and end with 1)
     count -= pow(10, n-2); // 1XXX1... (n-2 digits)
     return count;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    cout << starts_one_ends(n) << endl;
-    return 0;
 }
