@@ -14,6 +14,6 @@ int next_smallest(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::cout << next_smallest({-35, 34, 12, -45}) << std::endl;
+    std::cout << next_smallest({-35, 34, 12, -45}) << std::endl; // Should print -35
     return 0;
 }
