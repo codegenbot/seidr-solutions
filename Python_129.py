@@ -3,32 +3,31 @@ def minPath(grid, k):
 
     N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-    min_heap = []
 
-    start_path = [(0, 0)]
-    heappush(min_heap, (grid[0][0], start_path))
-
-    while min_heap:
-        path_sum, path = heappop(min_heap)
-        if len(path) == k:
-            return [grid[x][y] for x, y in path]
-
-        x, y = path[-1]
+    def neighbors(x, y):
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in path:
-                new_path = path + [(nx, ny)]
-                new_path_sum = path_sum + grid[nx][ny]
-                heappush(min_heap, (new_path_sum, new_path))
+            if 0 <= nx < N and 0 <= ny < N:
+                yield nx, ny
+
+    min_sum = float("inf")
+
+    for i in range(N):
+        for j in range(N):
+            heap = [(grid[i][j], i, j, 1)]
+            while heap:
+                val, x, y, length = heappop(heap)
+                if length == k:
+                    min_sum = min(min_sum, val)
+                    continue
+                for nx, ny in neighbors(x, y):
+                    heappush(heap, (val + grid[nx][ny], nx, ny, length + 1))
+
+    return min_sum
+
 
 if __name__ == "__main__":
-    k = int(input().strip())
-    grid = []
-    while True:
-        try:
-            row = list(map(int, input().strip().split()))
-            grid.append(row)
-        except EOFError:
-            break
-    result = minPath(grid, k)
-    print(result)
+    n = int(input())
+    grid = [list(map(int, input().split())) for _ in range(n)]
+    k = int(input())
+    print(minPath(grid, k))
