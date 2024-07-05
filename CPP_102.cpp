@@ -12,6 +12,10 @@ int main() {
     int x, y;
     std::cout << "Enter values of x and y: ";
     std::cin >> x >> y;
+    if(std::cin.fail() || x > y) {
+        std::cout << "Invalid input or invalid range." << std::endl;
+        return -1;
+    }
     int result = choose_num(x, y);
     if (result != -1) std::cout << "The largest even number is: " << result << std::endl;
     else std::cout << "No even number found in the range." << std::endl;
