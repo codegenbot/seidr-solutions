@@ -13,8 +13,11 @@ bool is_nested(const string& str) {
         if (depth > 1) {
             return true;
         }
+        if (depth < 0) {
+            return false; // If we have more closing brackets than opening
+        }
     }
-    return false;
+    return false; // Check if the brackets are nested
 }
 
 int main() {
