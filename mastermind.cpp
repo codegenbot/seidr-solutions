@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <unordered_map>
 using namespace std;
 
 int whitePegs(string code, string guess) {
