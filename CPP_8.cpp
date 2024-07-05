@@ -14,7 +14,7 @@ vector<int> sum_product(vector<int> numbers) {
     return {sum, product};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
