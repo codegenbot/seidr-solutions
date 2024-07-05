@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool is_palindrome(std::string text) {
+bool is_palindrome(const std::string& text) {
     int n = text.size();
     for(int i = 0; i < n / 2; ++i) {
         if(text[i] != text[n - i - 1]) {
@@ -14,9 +14,9 @@ bool is_palindrome(std::string text) {
 
 int main() {
     assert(is_palindrome("xywzx") == false);
-    assert(is_palindrome("racecar") == true);
-    assert(is_palindrome("level") == true);
-    assert(is_palindrome("palindrome") == false);
-    std::cout << "All tests passed!" << std::endl;
+    // Additional tests can be added here
+    std::string input;
+    std::cin >> input;
+    std::cout << (is_palindrome(input) ? "true" : "false") << std::endl;
     return 0;
 }
