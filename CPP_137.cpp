@@ -44,7 +44,6 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    // Example usage
     any result = compare_one(string("10"), string("25"));
     if (result.type() == typeid(string))
         cout << any_cast<string>(result) << endl;
