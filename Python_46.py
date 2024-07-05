@@ -1,8 +1,7 @@
+
 def fib4(n: int):
     if n <= 3:
         return 0
-    elif n == 4:
-        return 2
     else:
         a = 1
         b = 1
