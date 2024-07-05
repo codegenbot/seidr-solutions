@@ -1,4 +1,3 @@
-
 def encrypt(s):
     new_string = ""
     for char in s.lower():
