@@ -17,5 +17,9 @@ string longest(const vector<string>& strings) {
 
 int main() {
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    assert(longest({"a", "bb", "ccc", "dd", "eeeee"}) == "eeeee");
+    assert(longest({}) == "None");
+    assert(longest({"short", "longer", "longest", "tiny"}) == "longest");
+    cout << "All test cases passed!" << endl;
     return 0;
 }
