@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -25,15 +24,10 @@ vector<int> f(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for(size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    assert (issame(f(3) , {1, 3, 6}));
-    cout << "All tests passed!" << endl;
+    assert(issame(f(3), {1, 2, 6}));
     return 0;
 }
