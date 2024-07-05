@@ -1,19 +1,14 @@
-#include <stack>
-
-bool is_nested(string str) {
-    stack<char> stk;
-    bool nested = false;
-
+bool is_nested(string str){
+    int nested = 0, open = 0;
     for (char ch : str) {
         if (ch == '[') {
-            stk.push(ch);
-        } else if (ch == ']' && !stk.empty()) {
-            stk.pop();
-            if (!stk.empty()) {
-                nested = true;
+            open++;
+        } else if (ch == ']') {
+            if (open > 0) {
+                nested = 1;
+                open--;
             }
         }
     }
-    
-    return nested;
+    return nested && open > 0;
 }
