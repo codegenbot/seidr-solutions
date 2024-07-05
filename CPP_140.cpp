@@ -1,4 +1,8 @@
-string result;
+#include <iostream>
+#include <string>
+
+std::string fix_spaces(const std::string &text) {
+    std::string result;
     int spaceCount = 0;
     for(char c : text) {
         if(c == ' ') {
