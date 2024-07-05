@@ -1,4 +1,5 @@
 def encode(message):
+    vowels = 'aeiouAEIOU'
     replacements = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'w',
                     'A': 'C', 'E': 'G', 'I': 'K', 'O': 'Q', 'U': 'W'}
     encoded_message = []
