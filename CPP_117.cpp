@@ -1,15 +1,17 @@
-vector<string> result;
+vector<string> select_words(string s, int n) {
+    vector<string> result;
     string word;
     string vowels = "aeiouAEIOU";
-
-    auto is_consonant = [&](char c) {
-        return isalpha(c) && vowels.find(c) == string::npos;
-    };
 
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                int consonant_count = count_if(word.begin(), word.end(), is_consonant);
+                int consonant_count = 0;
+                for (char wc : word) {
+                    if (vowels.find(wc) == string::npos) {
+                        consonant_count++;
+                    }
+                }
                 if (consonant_count == n) {
                     result.push_back(word);
                 }
@@ -21,7 +23,12 @@ vector<string> result;
     }
 
     if (!word.empty()) {
-        int consonant_count = count_if(word.begin(), word.end(), is_consonant);
+        int consonant_count = 0;
+        for (char wc : word) {
+            if (vowels.find(wc) == string::npos) {
+                consonant_count++;
+            }
+        }
         if (consonant_count == n) {
             result.push_back(word);
         }
