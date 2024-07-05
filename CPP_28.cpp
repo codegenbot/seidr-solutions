@@ -13,5 +13,6 @@ std::string concatenate(const std::vector<std::string>& strings) {
 
 int main() {
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    std::cout << "All tests passed." << std::endl;
     return 0;
 }
