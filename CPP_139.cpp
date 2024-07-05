@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <stdio.h>
 
 long long factorial(int n) {
     long long result = 1;
