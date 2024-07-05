@@ -1,5 +1,6 @@
 
 def decode_cyclic(s):
+    # Pad input string with spaces to ensure length is a multiple of 3
     while len(s) % 3 != 0:
         s += " "
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
