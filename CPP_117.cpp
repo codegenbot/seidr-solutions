@@ -3,9 +3,9 @@
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    istringstream iss(s);
+    istringstream stream(s);
     string word;
-    while (iss >> word) {
+    while (stream >> word) {
         int consonant_count = 0;
         for (char c : word) {
             if (isalpha(c) && !strchr("AEIOUaeiou", c)) {
