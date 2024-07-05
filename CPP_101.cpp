@@ -5,20 +5,17 @@
 
 using namespace std;
 
-vector<string> words_string(string s) {
+vector<string> words_string(const string& s) {
     vector<string> result;
     string word;
-    bool delim_last = true; // To handle cases with leading delimiters
     for (char c : s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 result.push_back(word);
                 word.clear();
             }
-            delim_last = true;
         } else {
             word += c;
-            delim_last = false;
         }
     }
     if (!word.empty()) {
