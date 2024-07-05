@@ -44,6 +44,7 @@ any compare_one(any a, any b) {
 }
 
 int main() {
+    // Example Usage
     any a = 42;
     any b = string("42,5");
 
