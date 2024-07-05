@@ -8,16 +8,16 @@ using namespace std;
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0;
-    string delimiter = " ";
 
     if (txt.find(' ') != string::npos) {
-        while ((pos = txt.find(' ')) != string::npos) {
+        string delimiter = " ";
+        while ((pos = txt.find(delimiter)) != string::npos) {
             result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + 1);
+            txt.erase(0, pos + delimiter.length());
         }
         result.push_back(txt);
     } else if (txt.find(',') != string::npos) {
-        delimiter = ",";
+        string delimiter = ",";
         while ((pos = txt.find(delimiter)) != string::npos) {
             result.push_back(txt.substr(0, pos));
             txt.erase(0, pos + delimiter.length());
@@ -36,14 +36,10 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(split_words(""), {"0"}));
-    assert(issame(split_words("hello world"), {"hello", "world"}));
-    assert(issame(split_words("a,b,c"), {"a", "b", "c"}));
+    assert(split_words("") == vector<string>{"0"});
+    assert(split_words("hello world") == vector<string>{"hello", "world"});
+    assert(split_words("a,b,c") == vector<string>{"a", "b", "c"});
     cout << "All tests passed!" << endl;
     return 0;
 }

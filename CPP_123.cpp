@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -19,6 +19,7 @@ vector<int> get_odd_collatz(int n) {
     }
     result.push_back(1); // 1 is always in the sequence
     sort(result.begin(), result.end());
+    result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
 
