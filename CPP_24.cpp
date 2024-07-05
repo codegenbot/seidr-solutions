@@ -12,13 +12,11 @@ int largest_divisor(int n) {
 
 int main() {
     assert(largest_divisor(49) == 7);
-    assert(largest_divisor(15) == 5);
-    assert(largest_divisor(97) == 1);
-    
+    assert(largest_divisor(100) == 50);
+    assert(largest_divisor(17) == 1);
     int n;
-    std::cout << "Enter an integer: ";
+    std::cout << "Enter a number: ";
     std::cin >> n;
     std::cout << "The largest divisor of " << n << " is " << largest_divisor(n) << std::endl;
-    
     return 0;
 }
