@@ -16,5 +16,3 @@ float mean_absolute_deviation(const std::vector<float>& numbers) {
     }
     return mad_sum / numbers.size();
 }
-
-// No main function required as per task description
