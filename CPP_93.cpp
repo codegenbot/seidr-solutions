@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string encode(string message) {
+string encode(string message){
     for (char &c : message) {
         // Swap case
         if (isupper(c)) c = tolower(c);
