@@ -24,15 +24,6 @@ vector<int> get_odd_collatz(int n) {
 
 int main() {
     assert(get_odd_collatz(1) == vector<int>{1});
-    // Additional test cases if needed
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> odd_collatz_sequence = get_odd_collatz(n);
-    cout << "Odd numbers in the Collatz sequence:";
-    for (int num : odd_collatz_sequence) {
-        cout << " " << num;
-    }
-    cout << endl;
+    cout << "Test Passed." << endl;
     return 0;
 }
