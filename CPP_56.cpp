@@ -15,15 +15,3 @@ bool correct_bracketing(const std::string& brackets) {
     }
     return balance == 0;
 }
-
-int main() {
-    std::string test_case;
-    std::cout << "Enter a string of brackets: ";
-    std::cin >> test_case;
-    if (correct_bracketing(test_case)) {
-        std::cout << "The brackets are balanced.\n";
-    } else {
-        std::cout << "The brackets are not balanced.\n";
-    }
-    return 0;
-}
