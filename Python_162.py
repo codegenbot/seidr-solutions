@@ -1,14 +1,10 @@
 import hashlib
 
 def string_to_md5(text):
-    if text is None or text == "":
-        return None
-    return hashlib.md5(text.encode()).hexdigest()
+    return hashlib.md5(text.encode()).hexdigest() if text else None
 
 if __name__ == "__main__":
-    try:
-        user_input = input().strip()
-    except EOFError:
-        user_input = ""
+    user_input = input().strip()
     result = string_to_md5(user_input)
-    print(result if result else "None")
+    if result:
+        print(result)
