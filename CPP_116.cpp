@@ -24,7 +24,7 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    assert((sort_array({2, 4, 8, 16, 32}) == vector<int>{2, 4, 8, 16, 32}));
-    assert((sort_array({7, 2, 5, 3, 11}) == vector<int>{2, 3, 5, 7, 11}));
+    assert(sort_array({2, 4, 8, 16, 32}) == vector<int>({2, 4, 8, 16, 32}));
+    assert(sort_array({7, 2, 5, 3, 11}) == vector<int>({2, 3, 5, 7, 11}));
     return 0;
 }
