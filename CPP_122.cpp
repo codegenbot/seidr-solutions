@@ -16,7 +16,7 @@ int add_elements(vector<int> arr, int k) {
 
 int main() {
     assert(add_elements({1}, 1) == 1);
-    assert(add_elements({100, -100, 50, -50, -99}, 5) == -99);
+    assert(add_elements({100, -100, 50, -50, -99}, 5) == -99); // Example additional test case
     cout << "All test cases passed." << endl;
     return 0;
 }
