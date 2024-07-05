@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -21,7 +21,11 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    cout << "Test passed!" << endl;
+    assert (issame(intersperse({1, 2, 3}, 0), {1, 0, 2, 0, 3}));
+    assert (issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert (issame(intersperse({1}, 0), {1}));
+    assert (issame(intersperse({}, 1), {}));
+    
+    cout << "All tests passed!" << endl;
     return 0;
 }
