@@ -1,6 +1,5 @@
 def basement(arr):
     total = 0
-    index = 0
     for i in range(len(arr)):
         total += arr[i]
         if total < 0:
