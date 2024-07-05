@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 bool isPrime(int num) {
     if (num <= 1) return false;
@@ -12,8 +13,9 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    std::vector<int> fib = {1, 1};
+    std::vector<int> fib = {0, 1}; // Adjust the initial Fibonacci numbers
     std::vector<int> primeFibs;
+
     while (primeFibs.size() < n) {
         int nextFib = fib[fib.size() - 1] + fib[fib.size() - 2];
         fib.push_back(nextFib);
@@ -22,4 +24,11 @@ int prime_fib(int n) {
         }
     }
     return primeFibs[n - 1];
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << prime_fib(n) << std::endl;
+    return 0;
 }
