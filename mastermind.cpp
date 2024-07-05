@@ -1,23 +1,32 @@
 #include <iostream>
 using namespace std;
 
-int blackPegs(string code, string guess) {
-    int correctPosition = 0;
-    int correctColorWrongPos = 0;
-    vector<char> codeArray(code.begin(), code.end());
+int whitePegs(string code, string guess) {
+    int count = 0;
+    int freqCode[6] = {0}, freqGuess[6] = {0};
+    for (char c : code) {
+        freqCode[c - 'A']++;
+    }
+    for (char c : guess) {
+        freqGuess[c - 'A']++;
+    }
+
     for (int i = 0; i < 4; ++i) {
-        for (int j = 0; j < 4; ++j) {
-            if (code[i] == guess[j]) {
-                if (i == j) { 
-                    correctPosition++;
-                } else { 
-                    codeArray[i] = ' '; 
-                    correctColorWrongPos++;
-                }
-            }
+        if (code[i] == guess[i]) {
+            count++;
+        } else if (freqCode[guess[i] - 'A'] > 0) {
+            count++;
+            freqCode[guess[i] - 'A]--;
         }
     }
-    return correctPosition;
+
+    for (int i = 0; i < 6; ++i) {
+        if (freqGuess[i] > freqCode[i]) {
+            count += freqGuess[i] - freqCode[i];
+        }
+    }
+
+    return count;
 }
 
 int main() {
@@ -29,8 +38,11 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
 
-    int black = blackPegs(code, guess);
+    int white = whitePegs(code, guess);
+    int black = 4 - white;
+
     cout << black << endl;
+    cout << white << endl;
 
     return 0;
 }
