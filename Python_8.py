@@ -1,4 +1,3 @@
-import sys
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
@@ -9,6 +8,12 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, total_product
 
 if __name__ == "__main__":
-    numbers = list(map(int, sys.stdin.read().strip().split()))
-    result = sum_product(numbers)
-    print(result[0], result[1])
+    try:
+        numbers = list(map(int, input().strip().split()))
+        if numbers:
+            result = sum_product(numbers)
+            print(result[0], result[1])
+        else:
+            print("0 0")
+    except:
+        print("Invalid input")
