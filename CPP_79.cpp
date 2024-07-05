@@ -4,21 +4,20 @@
 using namespace std;
 
 string decimal_to_binary(int decimal) {
+    if (decimal == 0) return "db0db";  // Directly handle 0 case
     string binary = "";
     while (decimal > 0) {
         binary = (decimal % 2 == 0 ? "0" : "1") + binary;
         decimal /= 2;
     }
-    return "db" + (binary.empty() ? "0" : binary) + "db";
+    return "db" + binary + "db";
 }
 
 int main() {
     assert(decimal_to_binary(15) == "db1111db");
+    assert(decimal_to_binary(0) == "db0db");
+    assert(decimal_to_binary(1) == "db1db");
+    assert(decimal_to_binary(8) == "db1000db");
     // Add more tests if needed
-    // Add user input functionality
-    int num;
-    cout << "Enter a decimal number: ";
-    cin >> num;
-    cout << "Binary representation: " << decimal_to_binary(num) << endl;
     return 0;
 }
