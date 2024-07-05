@@ -15,13 +15,19 @@ def find_zero(xs):
     b = xs[1]
     c = xs[-1]
 
-    if all([x > 0 for x in [a, b, c]]):
-        d = (b**2) - (4 * a * c)
-        if d < 0:
-            return None
-        else:
-            return (-b + math.sqrt(d)) / (2 * a)
+    if len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
+        root = math.sqrt((b**2) - (4 * a * c))
+        return (-b + root) / (2 * a), (-b - root) / (2 * a)
+    else:
+        return None
 
 
 xs = [int(x) for x in input("Enter the list of numbers: ").split()]
-find_zero(xs)
+result = find_zero(xs)
+if result is not None:
+    print("The zero(s) are: ", end="")
+    if len(result) == 1:
+        print(f"{result[0]}")
+    else:
+        for r in result:
+            print(f"{r},", end="")
