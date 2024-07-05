@@ -3,7 +3,7 @@
 #include <cassert>
 using namespace std;
 
-vector<float> sort_even(vector<float> l) {
+vector<float> sort_even(vector<float> l){
     vector<float> evens;
     for (int i = 0; i < l.size(); i += 2) {
         evens.push_back(l[i]);
@@ -15,7 +15,7 @@ vector<float> sort_even(vector<float> l) {
     return l;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b){
     return a == b;
 }
 
