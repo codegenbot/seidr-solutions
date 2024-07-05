@@ -1,4 +1,9 @@
 def find_zero(xs: list):
-    if not xs:
-        return None  # or some other appropriate value for your use case
-    return xs[0] / xs[1]
+    x = input("Enter a value for x: ")
+    y = input("Enter a value for y: ")
+
+    # call the find_zero function with the user's inputs as arguments
+    result = find_zero(x, y)
+
+    print("The result is", result)
+    return result
