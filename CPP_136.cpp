@@ -28,11 +28,11 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 }
 
 int main() {
-    assert((largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1}));
-    assert((largest_smallest_integers({-1, -2, -3, 1, 2, 3}) == vector<int>{-1, 1}));
-    assert((largest_smallest_integers({0, 0, 0}) == vector<int>{0, 0}));
-    assert((largest_smallest_integers({-1, -2, -3, -4}) == vector<int>{-1, 0}));
-    assert((largest_smallest_integers({1, 2, 3, 4}) == vector<int>{0, 1}));
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>({-3, 1}));
+    assert(largest_smallest_integers({-1, -2, -3, 1, 2, 3}) == vector<int>({-1, 1}));
+    assert(largest_smallest_integers({0, 0, 0}) == vector<int>({0, 0}));
+    assert(largest_smallest_integers({-1, -2, -3, -4}) == vector<int>({-1, 0}));
+    assert(largest_smallest_integers({1, 2, 3, 4}) == vector<int>({0, 1}));
     cout << "All tests passed!" << endl;
     return 0;
 }
