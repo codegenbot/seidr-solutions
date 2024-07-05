@@ -1,6 +1,6 @@
 vector<int> incr_list(vector<int> l){
-    for(int &i : l) {
-        ++i;
+    for(int &n : l) {
+        n += 1;
     }
     return l;
 }
