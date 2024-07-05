@@ -15,6 +15,6 @@ std::string get_closest_vowel(const std::string& word) {
 }
 
 int main() {
-    std::cout << get_closest_vowel("Above") << std::endl;
+    std::cout << get_closest_vowel("Above") << std::endl;  // Should print "o"
     return 0;
 }
