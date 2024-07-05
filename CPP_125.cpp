@@ -1,27 +1,26 @@
 vector<string> split_words(string txt) {
     vector<string> result;
+    size_t pos = 0;
     if (txt.find(' ') != string::npos) {
-        size_t start = 0, end = 0;
-        while ((end = txt.find(' ', start)) != string::npos) {
-            result.push_back(txt.substr(start, end - start));
-            start = end + 1;
+        while ((pos = txt.find(' ')) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
         }
-        result.push_back(txt.substr(start));
+        result.push_back(txt);
     } else if (txt.find(',') != string::npos) {
-        size_t start = 0, end = 0;
-        while ((end = txt.find(',', start)) != string::npos) {
-            result.push_back(txt.substr(start, end - start));
-            start = end + 1;
+        while ((pos = txt.find(',')) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
         }
-        result.push_back(txt.substr(start));
+        result.push_back(txt);
     } else {
-        int odd_count = 0;
+        int count = 0;
         for (char c : txt) {
-            if (islower(c) && ((c - 'a') % 2 != 0)) {
-                odd_count++;
+            if (islower(c) && (c - 'a') % 2 == 0) {
+                count++;
             }
         }
-        result.push_back(to_string(odd_count));
+        result.push_back(to_string(count));
     }
     return result;
 }
