@@ -1,22 +1,20 @@
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
-// Forward declare incr_list
-vector<int> incr_list(vector<int> l);
-
-// Define issame function
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-// Define incr_list function
 vector<int> incr_list(vector<int> l) {
-    for(int &num : l) {
-        num += 1;
+    for (int i = 0; i < l.size(); i++) {
+        l[i]++;
     }
     return l;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
