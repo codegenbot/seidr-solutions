@@ -1,18 +1,14 @@
-vector<string> words_string(string s) {
+#include<sstream>
+
+vector<string> words_string(string s){
     vector<string> result;
+    stringstream ss(s);
     string word;
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
+    while (getline(ss, word, ' ')) {
+        stringstream ws(word);
+        while (getline(ws, word, ',')) {
+            result.push_back(word);
         }
-    }
-    if (!word.empty()) {
-        result.push_back(word);
     }
     return result;
 }
