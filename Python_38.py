@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s: str):
     result = []
     group = ""
@@ -37,4 +36,4 @@ def decode_cyclic(s: str):
                 result.append("".join([result.pop() + group[0], group[1:] or ""]))
             else:
                 result.append(group)
-    return "".join(result).replace(",,", ",")
+    return ",".join(map(str, filter(None, result))).replace(",,", ",")
