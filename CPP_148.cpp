@@ -1,3 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<string> bf(string planet1, string planet2);
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
@@ -8,13 +22,22 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    if (it1 > it2) {
-        swap(it1, it2);
+    int idx1 = distance(planets.begin(), it1);
+    int idx2 = distance(planets.begin(), it2);
+
+    if (idx1 > idx2) {
+        swap(idx1, idx2);
     }
 
-    for (auto it = it1 + 1; it != it2; ++it) {
-        result.push_back(*it);
+    for (int i = idx1 + 1; i < idx2; ++i) {
+        result.push_back(planets[i]);
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+    cout << "All tests passed" << endl;
+    return 0;
 }
