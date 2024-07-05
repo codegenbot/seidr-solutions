@@ -1,6 +1,6 @@
-
 def add(x: int, y: int):
     return x + y
+
 
 # Prompt user for input
 x = int(input("Enter first number: "))
@@ -11,4 +11,3 @@ result = add(x, y)
 
 # Print the result
 print(f"{x} + {y} = {result}")
-```
