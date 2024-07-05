@@ -40,7 +40,7 @@ if __name__ == "__main__":
     grid = []
     idx = 2
     for i in range(N):
-        grid.append(list(map(int, data[idx : idx + N])))
+        grid.append(list(map(int, data[idx:idx + N])))
         idx += N
 
     result = minPath(grid, k)
