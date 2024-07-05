@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <cmath> // for fabs and abs
 #include <cassert>
 
+// Function to calculate Mean Absolute Deviation
 float mean_absolute_deviation(const std::vector<float>& numbers) {
     float sum = 0.0;
     for(float num : numbers) {
@@ -18,7 +19,8 @@ float mean_absolute_deviation(const std::vector<float>& numbers) {
 }
 
 int main() {
-    assert (std::abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
-    std::cout << "Test passed!" << std::endl;
+    // Test case
+    assert(std::fabs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+    std::cout << "Test passed" << std::endl;
     return 0;
 }
