@@ -1,4 +1,3 @@
-
 def max_fill(grid):
     rows = len(grid)
     cols = len(grid[0])
