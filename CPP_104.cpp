@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -32,6 +32,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(unique_digits({135, 103, 31}), {31, 135}));
-    cout << "Test passed!" << endl;
+    cout << "Test passed." << endl;
     return 0;
 }
