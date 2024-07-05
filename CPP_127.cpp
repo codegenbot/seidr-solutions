@@ -34,10 +34,7 @@ int main() {
     vector<int> interval1(2);
     vector<int> interval2(2);
 
-    cout << "Enter the first interval (start end): ";
     cin >> interval1[0] >> interval1[1];
-
-    cout << "Enter the second interval (start end): ";
     cin >> interval2[0] >> interval2[1];
 
     cout << intersection(interval1, interval2) << endl;
