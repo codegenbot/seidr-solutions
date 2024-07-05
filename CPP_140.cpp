@@ -1,7 +1,5 @@
-string fix_spaces(string text) {
-    string result;
+string result;
     int space_count = 0;
-
     for (char c : text) {
         if (c == ' ') {
             space_count++;
@@ -15,12 +13,10 @@ string fix_spaces(string text) {
             result += c;
         }
     }
-
     if (space_count == 1) {
         result += '_';
     } else if (space_count > 1) {
         result += '-';
     }
-
     return result;
 }
