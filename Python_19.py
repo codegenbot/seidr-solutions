@@ -6,5 +6,5 @@ def sort_numbers(numbers: str) -> str:
         'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9
     }
     words = numbers.split()
-    sorted_words = sorted(words, key=lambda word: num_map[word])
+    sorted_words = sorted(words, key=lambda x: num_map[x])
     return ' '.join(sorted_words)
