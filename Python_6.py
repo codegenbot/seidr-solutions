@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -14,5 +15,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return [max_depth(group) for group in paren_string.split()]
 
 if __name__ == "__main__":
-    paren_string = input().strip()
-    print(parse_nested_parens(paren_string))
+    input_string = sys.stdin.read().strip()
+    result = parse_nested_parens(input_string)
+    print(result)
