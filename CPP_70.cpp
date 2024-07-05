@@ -1,18 +1,15 @@
-vector<int> result;
-    bool pick_min = true;  // Flag to toggle between min and max pick
-
-    while (!lst.empty()) {
-        if (pick_min) {
-            auto min_it = min_element(lst.begin(), lst.end());
-            result.push_back(*min_it);
-            lst.erase(min_it);
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
+    sort(lst.begin(), lst.end());
+    int i = 0, j = lst.size() - 1;
+    bool flag = true;
+    while (i <= j) {
+        if (flag) {
+            result.push_back(lst[i++]);
         } else {
-            auto max_it = max_element(lst.begin(), lst.end());
-            result.push_back(*max_it);
-            lst.erase(max_it);
+            result.push_back(lst[j--]);
         }
-        pick_min = !pick_min;
+        flag = !flag;
     }
-    
     return result;
 }
