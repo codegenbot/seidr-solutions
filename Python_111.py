@@ -5,7 +5,7 @@ def histogram(test):
     if not test:
         return {}
 
-    cleaned_test = re.sub(r'\W+', ' ', test.lower().strip())
+    cleaned_test = re.sub(r'\W+', ' ', test.lower())
     words = cleaned_test.split()
     count = Counter(words)
 
