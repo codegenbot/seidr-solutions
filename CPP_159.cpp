@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> // for min and max
 #include <cassert>
 
 using namespace std;
@@ -16,5 +17,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(eat(4, 5, 1), {5, 0}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
