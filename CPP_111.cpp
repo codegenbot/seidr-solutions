@@ -2,23 +2,24 @@
 #include <algorithm>
 
 map<char, int> histogram(string test) {
-    map<char, int> freqMap;
+    map<char, int> freq;
     stringstream ss(test);
-    string letter;
-    
-    while (ss >> letter) {
-        freqMap[letter[0]]++;
+    string word;
+    while (ss >> word) {
+        for (char ch : word) {
+            freq[ch]++;
+        }
     }
     
-    int maxFreq = 0;
-    for (const auto &entry : freqMap) {
-        maxFreq = max(maxFreq, entry.second);
+    int max_count = 0;
+    for (const auto& p : freq) {
+        max_count = max(max_count, p.second);
     }
     
     map<char, int> result;
-    for (const auto &entry : freqMap) {
-        if (entry.second == maxFreq) {
-            result[entry.first] = entry.second;
+    for (const auto& p : freq) {
+        if (p.second == max_count) {
+            result[p.first] = p.second;
         }
     }
     
