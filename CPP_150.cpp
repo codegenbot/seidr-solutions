@@ -11,9 +11,13 @@ bool is_prime(int n) {
     return true;
 }
 
+int x_or_y(int n, int x, int y) {
+    return is_prime(n) ? x : y;
+}
+
 int main() {
     int n, x, y;
     std::cin >> n >> x >> y;
-    std::cout << (is_prime(n) ? x : y) << std::endl;
+    std::cout << x_or_y(n, x, y) << std::endl;
     return 0;
 }
