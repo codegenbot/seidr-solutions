@@ -23,7 +23,9 @@ int specialFilter(vector<int> nums) {
 int main() {
     vector<int> nums;
     int n, temp;
+    cout << "Enter the number of elements: ";
     cin >> n;
+    cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
         cin >> temp;
         nums.push_back(temp);
