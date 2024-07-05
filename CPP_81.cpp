@@ -25,8 +25,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    assert(numerical_letter_grade({0, 0.7}) == vector<string>{"E", "D-"});
-    // Additional test cases can be added here
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
     return 0;
 }
