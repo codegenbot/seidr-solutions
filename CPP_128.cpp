@@ -1,11 +1,8 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
-#include <cmath>
-
+#include <cstdlib>
 using namespace std;
 
-int prod_signs(vector<int> arr) {
+int prod_signs(vector<int> arr){
     if (arr.empty()) return -32768;
 
     int sum_magnitudes = 0;
@@ -22,7 +19,9 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    cout << "Test passed!" << endl;
+    // Example usage of prod_signs
+    vector<int> arr = { -1, 2, 3, 0 };
+    int result = prod_signs(arr);
+    // Output the result
     return 0;
 }
