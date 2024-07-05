@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <cctype>
 
 using namespace std;
 
