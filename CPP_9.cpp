@@ -3,7 +3,6 @@
 #include <cassert>
 using namespace std;
 
-// Define rolling_max function
 vector<int> rolling_max(const vector<int>& numbers) {
     vector<int> result;
     int current_max = numbers[0];
@@ -17,7 +16,6 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
-    // Test with an example
     assert(rolling_max({3, 2, 3, 100, 3}) == vector<int>({3, 3, 3, 100, 100}));
     cout << "Test passed!" << endl;
     return 0;
