@@ -4,6 +4,9 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return list(dict.fromkeys(numbers))
 
 if __name__ == "__main__":
-    numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
-    result = remove_duplicates(numbers)
-    print(result)
+    try:
+        numbers = list(map(int, input().strip().split()))
+        result = remove_duplicates(numbers)
+        print(result)
+    except ValueError:
+        print("Please enter valid integers separated by spaces.")
