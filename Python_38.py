@@ -1,11 +1,13 @@
 def decode_cyclic(s):
-    s = s.replace("<<<", "")
-    if "," not in s:
-        return s
-    data, *rest = map(int, s.split(","))
-    n = len(data)
-    decoded_data = [data[0]]
-    for d in data[1:]:
-        i = (d + 1) % n
-        decoded_data.append(decoded_data[i])
-    return ",".join(map(str, decoded_data))
+    result = ""
+    i = 0
+    while len(result) < len(s):
+        j = i
+        temp = ""
+        while j < len(s) and s[j] != "<":
+            temp += s[j]
+            j += 1
+        if temp:
+            result += temp + " "
+        i = j + 1  
+    return result.strip()
