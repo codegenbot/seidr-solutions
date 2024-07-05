@@ -2,13 +2,14 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
 using namespace std;
 
 vector<float> rescale_to_unit(const vector<float>& numbers) {
+    if (numbers.empty()) return {};
     float min_val = *min_element(numbers.begin(), numbers.end());
     float max_val = *max_element(numbers.begin(), numbers.end());
+    if (min_val == max_val) return vector<float>(numbers.size(), 0.0);
     vector<float> rescaled;
     for (float num : numbers) {
         rescaled.push_back((num - min_val) / (max_val - min_val));
