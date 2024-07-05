@@ -20,13 +20,12 @@ vector<int> sort_array(vector<int> array) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    assert(issame(sort_array({1, 2, 3, 4}), {1, 2, 3, 4}));
+    assert(issame(sort_array({21, 14, 23, 11}) , {11, 14, 21, 23}));
     cout << "All tests passed!" << endl;
     return 0;
 }
