@@ -1,12 +1,18 @@
 def find_zero(xs: list):
-    def f(x):
-        return poly(xs, x)
+    def derivative(xs):
+        return [i * xs[i] for i in range(1, len(xs))]
 
-    def df(x):
-        h = 1e-5
-        return (f(x + h) - f(x)) / h
+    x = 0
+    tolerance = 1e-7
+    max_iterations = 1000
 
-    x = 0  # initial guess
-    for _ in range(100):  # maximum iterations
-        x = x - f(x) / df(x)
+    for _ in range(max_iterations):
+        y = poly(xs, x)
+        if abs(y) < tolerance:
+            return x
+        dy = poly(derivative(xs), x)
+        if dy == 0:
+            break
+        x -= y / dy
+
     return x
