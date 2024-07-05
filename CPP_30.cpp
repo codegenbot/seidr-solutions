@@ -1,6 +1,7 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -27,5 +28,6 @@ int main() {
     assert(issame(get_positive({-1.0, -2.0, -3.5}), {}));
     assert(issame(get_positive({}), {}));
     assert(issame(get_positive({0.0, 4.2, 5.1}), {4.2, 5.1}));
+    cout << "All tests passed.\n";
     return 0;
 }
