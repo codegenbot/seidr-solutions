@@ -13,12 +13,11 @@ int solutions(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
-    int n, num;
+    int n;
     cin >> n;
+    vector<int> lst(n);
     for (int i = 0; i < n; ++i) {
-        cin >> num;
-        lst.push_back(num);
+        cin >> lst[i];
     }
     cout << solutions(lst) << endl;
     return 0;
