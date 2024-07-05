@@ -1,17 +1,13 @@
 string encode(string message) {
+    string vowels = "aeiouAEIOU";
+    string replacements = "cgkqwCGKQW";
     for (char &ch : message) {
         if (isalpha(ch)) {
-            // Swap case
-            if (isupper(ch)) ch = tolower(ch);
-            else ch = toupper(ch);
-            
-            // Replace vowels
-            switch (tolower(ch)) {
-                case 'a': ch = isupper(ch) ? 'C' : 'c'; break;
-                case 'e': ch = isupper(ch) ? 'G' : 'g'; break;
-                case 'i': ch = isupper(ch) ? 'K' : 'k'; break;
-                case 'o': ch = isupper(ch) ? 'Q' : 'q'; break;
-                case 'u': ch = isupper(ch) ? 'W' : 'w'; break;
+            if (islower(ch)) ch = toupper(ch);
+            else ch = tolower(ch);
+            size_t pos = vowels.find(ch);
+            if (pos != string::npos) {
+                ch = replacements[pos];
             }
         }
     }
