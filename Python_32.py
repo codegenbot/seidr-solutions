@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -15,13 +16,20 @@ def find_zero(xs):
     b = xs[1]
     c = xs[-1]
 
-    if all([x > 0 for x in [a, b, c]]):
-        d = (b**2) - (4 * a * c)
-        if d < 0:
-            return None
-        else:
-            return (-b + math.sqrt(d)) / (2 * a)
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        return None
+    elif len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
+        roots = (-b + math.sqrt(discriminant)) / (2 * a)
+        return roots.real  # Assuming you want the real part of complex roots
+    else:
+        return None
 
 
 xs = [int(x) for x in input("Enter the list of numbers: ").split()]
-find_zero(xs)
+result = find_zero(xs)
+
+if result is not None:
+    print(f"The zero of the quadratic equation is {result}")
+else:
+    print("No valid input received.")
