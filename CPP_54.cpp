@@ -14,8 +14,11 @@ bool same_chars(string s0, string s1) {
 
 int main() {
     cout << boolalpha; // To print 'true' or 'false' instead of '1' or '0'
-    string s0, s1;
-    cin >> s0 >> s1;
-    cout << same_chars(s0, s1) << endl;
+    string str1, str2;
+    cout << "Enter first string: ";
+    cin >> str1;
+    cout << "Enter second string: ";
+    cin >> str2;
+    cout << same_chars(str1, str2) << endl;
     return 0;
 }
