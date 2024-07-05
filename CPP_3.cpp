@@ -8,6 +8,7 @@ bool below_zero(std::vector<int> operations){
         if(balance < 0) return true;
     }
     return false;
+
 }
 
 int main() {
