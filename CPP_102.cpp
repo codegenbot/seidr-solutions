@@ -10,9 +10,10 @@ int choose_num(int x, int y) {
 
 int main() {
     assert(choose_num(546, 546) == 546);
-    assert(choose_num(543, 546) == 546);
-    assert(choose_num(545, 547) == 546);
-    assert(choose_num(548, 546) == -1);
-    std::cout << "All test cases passed!" << std::endl; 
+    assert(choose_num(546, 547) == 546);
+    assert(choose_num(546, 545) == -1);
+    assert(choose_num(1, 3) == 2);
+    assert(choose_num(2, 4) == 4);
+    std::cout << "All test cases pass.\n";
     return 0;
 }
