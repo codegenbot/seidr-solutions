@@ -1,19 +1,16 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
     vector<int> result;
-    int leader = -1;
-
-    for(int i = arr.size() - 1; i >= 0; --i) {
-        if(arr[i] >= leader) {
-            leader = arr[i];
-            result.push_back(leader);
-        }
+    
+    for(int i = 0; i < n; ++i) {
+        if(i == n - 1 || arr[i] >= arr[i + 1]) 
+            result.push_back(arr[i]);
     }
-
-    reverse(result.begin(), result.end());
     
     return result;
 }
