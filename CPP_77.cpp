@@ -1,8 +1,6 @@
-#include<stdio.h>
-#include<math.h>
-using namespace std;
+#include <cmath> // Include the cmath header for cbrt and round
 
 bool iscuber(int a) {
-    int root = round(cbrt(a));
-    return root * root * root == a;
+    int cbrt_a = std::round(std::cbrt(a));
+    return cbrt_a * cbrt_a * cbrt_a == a;
 }
