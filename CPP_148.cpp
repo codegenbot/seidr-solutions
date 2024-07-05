@@ -13,7 +13,7 @@ vector<string> bf(string planet1, string planet2) {
     auto it2 = find(planets.begin(), planets.end(), planet2);
 
     if (it1 == planets.end() || it2 == planets.end()) {
-        return result; // Return empty vector if either planet name is incorrect
+        return result;
     }
 
     if (it1 > it2) swap(it1, it2);
