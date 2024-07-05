@@ -1,8 +1,13 @@
 def histogram(test=None):
     from collections import Counter
     if test is None:
-        import sys
-        test = sys.stdin.read().strip()
+        test = ""
+        while True:
+            line = input().strip()
+            if line == "":
+                break
+            test += line + " "
+        test = test.strip()
     if not test:
         print("")
         return
