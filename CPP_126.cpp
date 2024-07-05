@@ -1,4 +1,4 @@
-#include <vector> 
+#include <vector>
 using namespace std;
 
 bool is_sorted(vector<int> lst) {
