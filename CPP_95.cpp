@@ -16,6 +16,5 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 }
 
 int main() {
-    // Test cases to validate the code
     return 0;
 }
