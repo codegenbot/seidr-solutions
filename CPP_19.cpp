@@ -35,8 +35,8 @@ std::string sort_numbers(const std::string& numbers) {
 }
 
 int main() {
-    std::string input = "six five four three two one zero";
-    std::string expected = "zero one two three four five six";
-    std::cout << (sort_numbers(input) == expected ? "Success" : "Failed") << std::endl;
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << sort_numbers(input) << std::endl;
     return 0;
 }
