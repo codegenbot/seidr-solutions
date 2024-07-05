@@ -1,22 +1,21 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <numeric>
 #include <limits>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v, vector<int>& left, vector<int>& right) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = numeric_limits<int>::max();
     int index = -1;
-    for (int i = 0; i < v.size() - 1; i++) {
+    for (int i = 0; i < v.size() - 1; i++) { 
         int diff = abs(v[i] - v[i + 1]);
         if (diff < minDiff) {
             minDiff = diff;
             index = i;
         }
     }
-    left.assign(v.begin(), v.begin() + index + 1);
-    right.assign(v.begin() + index, v.end());
+    vector<int> left(v.begin(), v.begin() + index + 1);
+    vector<int> right(v.begin() + index, v.end());
     return make_pair(left, right);
 }
 
@@ -27,9 +26,7 @@ int main() {
     for (auto &x : v) {
         cin >> x;
     }
-    vector<int> left; 
-    vector<int> right;
-    pair<vector<int>, vector<int>> result = cutVector(v, left, right);
+    pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "Left: ";
     for (const auto &x : result.first) {
         cout << x << " ";
