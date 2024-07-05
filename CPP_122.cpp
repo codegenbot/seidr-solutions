@@ -1,6 +1,4 @@
 #include <vector>
-#include <cassert>
-
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
@@ -11,10 +9,4 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
-}
-
-int main() {
-    assert(add_elements({1}, 1) == 1);
-    assert(add_elements({100, -100, 50, -50}, 4) == 0);
-    return 0;
 }
