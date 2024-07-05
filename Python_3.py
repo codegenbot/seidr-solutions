@@ -9,6 +9,8 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 if __name__ == "__main__":
-    import sys
-    operations = [int(line.strip()) for line in sys.stdin]
-    print(below_zero(operations))
+    try:
+        operations = list(map(int, input().strip().split()))
+        print(below_zero(operations))
+    except ValueError:
+        print("Invalid input. Please enter a space-separated list of integers.")
