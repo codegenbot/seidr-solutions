@@ -20,8 +20,9 @@ int luhn(vector<int> digits) {
 
 int main() {
     vector<int> testDigits;
-    for(int i : {4,3,2,1,8,7,6,5,4,3,2,1}) 
-    testDigits.push_back(i); 
+    for(int i = 0; i < 12; i++) { 
+        testDigits.push_back(i%2+1); 
+    } 
     int result = luhn(testDigits);
     cout << "Result: " << result << endl;
     return 0;
