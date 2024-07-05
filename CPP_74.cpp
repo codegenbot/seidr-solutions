@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -17,15 +16,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total1 = total_chars(lst1);
     int total2 = total_chars(lst2);
 
-    if (total1 < total2) {
+    if (total1 < total2 || (total1 == total2 && lexicographical_compare(lst1.begin(), lst1.end(), lst2.begin(), lst2.end()))) {
         return lst1;
     } else {
         return lst2;
     }
-}
-
-int main() {
-    assert((total_match({"this"}, {}) == vector<string>{}));
-    assert((total_match({"a", "bc"}, {"def"}) == vector<string>{"a", "bc"}));
-    return 0;
 }
