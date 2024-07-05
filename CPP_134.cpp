@@ -8,7 +8,6 @@ using namespace std;
 bool check_if_last_char_is_a_letter(string txt) {
     if (txt.empty() || !isalpha(txt.back())) return false;
     size_t lastSpace = txt.find_last_not_of(' ');
-    if (lastSpace == string::npos) return false;
     return isalpha(txt[lastSpace]);
 }
 
