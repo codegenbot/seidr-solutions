@@ -2,9 +2,20 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
+
+vector<int> parse_music(string music_string);
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size())
+        return false;
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
 
 vector<int> parse_music(string music_string) {
     vector<int> result;
@@ -23,10 +34,6 @@ vector<int> parse_music(string music_string) {
     else if (note == "o|") result.push_back(2);
     else if (note == ".|") result.push_back(1);
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
