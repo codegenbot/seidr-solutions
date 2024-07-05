@@ -1,26 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 #include <cassert>
+#include <cfloat> // For FLT_MAX
 
 using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
-    if (numbers.size() < 2) return {};
-    
     sort(numbers.begin(), numbers.end());
     float min_diff = FLT_MAX;
-    float num1 = 0, num2 = 0;
+    pair<float, float> closest_pair;
     for (size_t i = 1; i < numbers.size(); ++i) {
-        float diff = fabs(numbers[i] - numbers[i - 1]);
+        float diff = numbers[i] - numbers[i - 1];
         if (diff < min_diff) {
             min_diff = diff;
-            num1 = numbers[i - 1];
-            num2 = numbers[i];
+            closest_pair = {numbers[i - 1], numbers[i]};
         }
     }
-    return {num1, num2};
+    return {closest_pair.first, closest_pair.second};
 }
 
 bool issame(vector<float> a, vector<float> b) {
