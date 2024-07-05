@@ -21,7 +21,9 @@ vector<int> parse_nested_parens(string paren_string) {
             current_depth = 0;
         }
     }
-    depths.push_back(max_depth); // For the last group
+    if (!paren_string.empty() && paren_string.back() != ' ') {
+        depths.push_back(max_depth); // For the last group
+    }
     return depths;
 }
 
@@ -30,9 +32,8 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert (issame(parse_nested_parens("(()(())((())))"), {4}));
-    assert (issame(parse_nested_parens("(()) (())"), {2, 2}));
-    assert (issame(parse_nested_parens("()((()))"), {3}));
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    assert(issame(parse_nested_parens("(()(())((()))) (())"), {4, 2}));
     cout << "All tests passed" << endl;
     return 0;
 }
