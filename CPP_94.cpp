@@ -40,6 +40,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> lst[i];
     }
+    
     cout << largestPrimeDigitSum(lst) << endl;
+
     return 0;
 }
