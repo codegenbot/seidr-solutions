@@ -4,8 +4,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-print(gcd(48, 18))
-print(gcd(200, 150))
-print(gcd(12, 15))
-print(gcd(24, 30))
-print(gcd(36, 54))
+print(gcd(24, 54))
+print(gcd(400000, 4))
+print(gcd(3528, 4200))
+print(gcd(63550, 820000))
