@@ -1,13 +1,14 @@
-vector<float> result = l;
-    vector<float> even_indices;
+vector<float> sort_even(vector<float> l){
+    vector<float> even_indices_values;
     for (size_t i = 0; i < l.size(); i += 2) {
-        even_indices.push_back(l[i]);
+        even_indices_values.push_back(l[i]);
     }
-    sort(even_indices.begin(), even_indices.end());
+    sort(even_indices_values.begin(), even_indices_values.end());
     
-    for (size_t i = 0, j = 0; i < l.size(); i += 2, j++) {
-        result[i] = even_indices[j];
+    size_t j = 0;
+    for (size_t i = 0; i < l.size(); i += 2) {
+        l[i] = even_indices_values[j++];
     }
     
-    return result;
+    return l;
 }
