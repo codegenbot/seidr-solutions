@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// sum_product function
 vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
@@ -15,7 +14,6 @@ vector<int> sum_product(vector<int> numbers) {
     return {sum, product};
 }
 
-// issame function
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
