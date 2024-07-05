@@ -1,3 +1,2 @@
-def decode_cyclic(s):
-    n = len(s) // 3
-    return "".join(s[i * n : (i + 1) * n] for i in range(3))
+def decode_cyclic(my_list):
+    # code to decode the list goes here
