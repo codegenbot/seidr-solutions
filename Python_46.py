@@ -1,3 +1,4 @@
+
 def fib4(n):
     if n <= 3:
         return 0
