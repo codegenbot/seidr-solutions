@@ -23,9 +23,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 int main() {
     vector<string> lst1 = {"hello", "world"};
     vector<string> lst2 = {"hi", "planet"};
-
+    
     vector<string> result = total_match(lst1, lst2);
-
+    
     for (const string& s : result) {
         cout << s << " ";
     }
