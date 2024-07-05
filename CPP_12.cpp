@@ -1,22 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
 string longest(const vector<string>& strings) {
     if (strings.empty()) return "None";
-    string longest_str = "";
-    for (const string& s : strings) {
-        if (s.length() > longest_str.length()) {
-            longest_str = s;
+    
+    string longest_str = strings[0];
+    for (const auto& str : strings) {
+        if (str.length() > longest_str.length()) {
+            longest_str = str;
         }
     }
     return longest_str;
 }
 
 int main() {
-    vector<string> test_vec = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
-    cout << longest(test_vec) << endl; // Output: zzzz
+    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     return 0;
 }
