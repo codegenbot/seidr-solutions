@@ -38,7 +38,6 @@ std::any compare_one(std::any a, std::any b) {
             return str_a > str_b ? a : b;
         }
     }
-    
     double double_a = to_double(a);
     double double_b = to_double(b);
     if (double_a == double_b) return string("None");
