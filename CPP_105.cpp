@@ -27,12 +27,8 @@ vector<string> by_length(const vector<int>& arr) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
+    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
     cout << "Test passed!" << endl;
     return 0;
 }
