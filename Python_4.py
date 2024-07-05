@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -10,5 +11,8 @@ print(mean_absolute_deviation([1, 2, 3, 4, 5]))
 
 # Test case 2
 user_input = input("Enter a list of numbers separated by space: ")
-numbers = [float(num) for num in user_input.replace('\n', ' ').split()]
-print(mean_absolute_deviation(numbers))
+try:
+    numbers = [float(num) for num in user_input.split()]
+    print(mean_absolute_deviation(numbers))
+except ZeroDivisionError:
+    print(0)
