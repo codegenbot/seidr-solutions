@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 #include <algorithm>
 
 using namespace std;
@@ -27,4 +26,9 @@ vector<int> parse_music(string music_string) {
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
+}
+
+int main() {
+    // Sample test cases can be added here for testing
+    return 0;
 }
