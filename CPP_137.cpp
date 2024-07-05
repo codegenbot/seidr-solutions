@@ -41,8 +41,10 @@ int main() {
         cout << std::any_cast<int>(result) << endl;
     else if (result.type() == typeid(string))
         cout << std::any_cast<string>(result) << endl;
-    else
+    else if (result.type() == typeid(double))
         cout << std::any_cast<double>(result) << endl;
+    else
+        cout << "None" << endl;
 
     return 0;
 }
