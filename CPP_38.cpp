@@ -1,15 +1,13 @@
 #include <iostream>
+#include <cassert>
 #include <string>
 
 using namespace std;
 
-string decode_cyclic(string s){ 
+string decode_cyclic(string s) {
     int l = s.length();
-    int num = (l + 2) / 3;
     string x, output;
-    int i;
-    for (i = 0; i * 3 < l; i++) {
-        // reverse cycle elements in each group. Unless group has fewer elements than 3.
+    for (int i = 0; i * 3 < l; i++) {
         x = s.substr(i * 3, 3);
         if (x.length() == 3) x = x[2] + x.substr(0, 2);
         output = output + x;
@@ -18,9 +16,9 @@ string decode_cyclic(string s){
 }
 
 int main() {
-    string input;
-    cout << "Enter a string to decode: ";
-    cin >> input;
-    cout << "Decoded string: " << decode_cyclic(input) << endl;
+    string str = "abc";
+    string encoded_str = decode_cyclic("cab");
+    assert(encoded_str == str);
+    cout << "Test passed!" << endl;
     return 0;
 }
