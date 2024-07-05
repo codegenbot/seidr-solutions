@@ -8,13 +8,13 @@ vector<int> eat(int number, int need, int remaining) {
     int totalEaten = number + need;
     int carrotsLeft = remaining - need;
     if (carrotsLeft < 0) {
-        totalEaten += carrotsLeft; // adjust for negative carrotsLeft
+        totalEaten += carrotsLeft; // subtract the negative value to adjust totalEaten
         carrotsLeft = 0;
     }
     return {totalEaten, carrotsLeft};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
