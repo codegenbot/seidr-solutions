@@ -1,6 +1,6 @@
-vector<string> prefixes;
+vector<string> result;
     for (size_t i = 1; i <= str.size(); ++i) {
-        prefixes.push_back(str.substr(0, i));
+        result.push_back(str.substr(0, i));
     }
-    return prefixes;
+    return result;
 }
