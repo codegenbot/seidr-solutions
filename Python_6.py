@@ -1,5 +1,6 @@
 from typing import List
 
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     def max_depth(s):
         depth = max_depth = 0
