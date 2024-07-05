@@ -10,7 +10,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
     vector<vector<int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     auto compare = [](const vector<int>& a, const vector<int>& b) {
-        return lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
+        return lexicographical_compare(b.begin(), b.end(), a.begin(), a.end());
     };
 
     priority_queue<vector<int>, vector<vector<int>>, decltype(compare)> pq(compare);
@@ -20,7 +20,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             pq.push({grid[i][j], i, j});
         }
     }
-    
+
     while (!pq.empty()) {
         auto current = pq.top();
         pq.pop();
@@ -32,7 +32,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         
         int x = current[current.size() - 2];
         int y = current.back();
-        
+
         for (auto& dir : directions) {
             int nx = x + dir[0];
             int ny = y + dir[1];
@@ -40,7 +40,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
                 vector<int> nextPath = path;
                 nextPath.push_back(grid[nx][ny]);
-                pq.push({nextPath.begin(), nextPath.end(), nx, ny});
+                nextPath.push_back(nx);
+                nextPath.push_back(ny);
+                pq.push(nextPath);
             }
         }
     }
