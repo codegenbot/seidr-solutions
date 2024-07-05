@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     std::vector<float> rescaled(numbers);
