@@ -1,5 +1,9 @@
+#include <iostream>
+#include <string>
 #include <cctype>
 #include <algorithm>
+
+using namespace std;
 
 string file_name_check(string file_name) {
     int dotPos = file_name.find('.');
@@ -24,4 +28,11 @@ string file_name_check(string file_name) {
     }
 
     return "Yes";
+}
+
+int main() {
+    string fileName;
+    cin >> fileName;
+    cout << file_name_check(fileName) << endl;
+    return 0;
 }
