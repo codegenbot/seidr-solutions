@@ -1,4 +1,5 @@
 import math
+
 def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
@@ -20,5 +21,6 @@ def find_zero(xs: list):
 
     return newton_method(xs)
 
-coefficients = list(map(float, input().strip().split()))
-print(find_zero(coefficients))
+coefficients = list(map(float, input("Enter the polynomial coefficients separated by spaces: ").split()))
+zero = find_zero(coefficients)
+print(f"The root of the polynomial is approximately: {zero}")
