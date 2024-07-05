@@ -5,12 +5,12 @@
 
 using namespace std;
 
-vector<string> odd_count(const vector<string>& lst) {
+vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (const auto& str : lst) {
         int odd_count = 0;
         for (char c : str) {
-            if ((c - '0') % 2 != 0) {
+            if (isdigit(c) && (c - '0') % 2 != 0) {
                 odd_count++;
             }
         }
@@ -20,7 +20,7 @@ vector<string> odd_count(const vector<string>& lst) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
