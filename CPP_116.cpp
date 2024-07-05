@@ -29,14 +29,17 @@ vector<int> sort_array(vector<int> arr) {
 int main() {
     int n;
     cin >> n;
+    
     vector<int> arr(n);
     for(int i = 0; i < n; i++) {
         cin >> arr[i];
     }
+    
     vector<int> sorted_arr = sort_array(arr);
+    
     for(int num : sorted_arr) {
         cout << num << " ";
     }
-    cout << endl;
+    
     return 0;
 }
