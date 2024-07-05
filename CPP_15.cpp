@@ -11,6 +11,8 @@ std::string string_sequence(int n) {
 }
 
 int main() {
-    std::cout << string_sequence(10) << std::endl;
+    int n;
+    std::cin >> n;
+    std::cout << string_sequence(n) << std::endl;
     return 0;
 }
