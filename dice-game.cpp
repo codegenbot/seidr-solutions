@@ -6,7 +6,7 @@ double diceGame(int n, int m) {
     double total = (double)(n*m);
     double p = 0.0;
     
-    for(int i = max(m, n-m); i <= min(m, n-m); i++) {
+    for(int i = max(1, min(m-1,n-m)); i <= min(m-1,n-m); i++) {
         p += (m-i+1) / total;
     }
     return p;
