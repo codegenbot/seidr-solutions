@@ -18,6 +18,6 @@ std::string longest(const std::vector<std::string>& strings) {
 
 int main() {
     std::vector<std::string> testStrings = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
-    std::cout << longest(testStrings) << std::endl;  // Output should be "zzzz"
+    std::cout << longest(testStrings) << std::endl;
     return 0;
 }
