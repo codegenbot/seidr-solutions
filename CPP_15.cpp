@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
+// Function signature
 string string_sequence(int n) {
     string result;
     for (int i = 0; i <= n; ++i) {
@@ -12,6 +15,8 @@ string string_sequence(int n) {
 }
 
 int main() {
-    cout << string_sequence(10) << endl;
+    // Test cases
+    assert(string_sequence(10) == "0 1 2 3 4 5 6 7 8 9 10");
+    cout << "All tests passed!" << endl;
     return 0;
 }
