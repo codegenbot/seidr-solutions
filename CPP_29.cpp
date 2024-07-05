@@ -1,7 +1,6 @@
+```
 #include <vector>
 #include <string>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -11,7 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (string s : strings) {
         if (s.find(prefix) == 0) {
@@ -20,8 +19,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     }
     return result;
 }
-
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAaaAa", "xxx"};
+    string prefix = "xxx";
+    assert(issame(filter_by_prefix(strings, prefix) , {"xxx", "xxxAAA", "xxx"}));
     return 0;
-}
+}.
