@@ -10,30 +10,29 @@ def minPath(grid, k):
             if 0 <= nx < N and 0 <= ny < N:
                 yield nx, ny
 
-    def encode_path(path):
-        return sum(x * (N**i) for i, x in enumerate(path))
-
     min_path = None
 
     for i in range(N):
         for j in range(N):
             heap = [(grid[i][j], i, j, [grid[i][j]])]
-            visited = set((i, j))
             while heap:
                 val, x, y, path = heappop(heap)
                 if len(path) == k:
-                    if min_path is None or encode_path(path) < encode_path(min_path):
+                    if min_path is None or path < min_path:
                         min_path = path
                     continue
                 for nx, ny in neighbors(x, y):
                     new_path = path + [grid[nx][ny]]
-                    heappush(heap, (val + grid[nx][ny], nx, ny, new_path))
-                    visited.add((nx, ny))
-    
-    return min_path if min_path else []
+                    heappush(heap, (grid[nx][ny], nx, ny, new_path))
+
+    return min_path
 
 if __name__ == "__main__":
-    n = int(input())
-    grid = [list(map(int, input().split())) for _ in range(n)]
-    k = int(input())
-    print(minPath(grid, k))
+    n = int(input().strip())
+    grid = [list(map(int, input().strip().split())) for _ in range(n)]
+    k = int(input().strip())
+    result = minPath(grid, k)
+    if result:
+        print(' '.join(map(str, result)))
+    else:
+        print("Path not found")
