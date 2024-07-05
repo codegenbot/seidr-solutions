@@ -17,20 +17,10 @@ string longest(const vector<string>& strings) {
 
 int main() {
     vector<string> input;
-    string temp;
-    int n;
-    
-    cout << "Enter number of strings: ";
-    cin >> n;
-    cin.ignore();  // To consume the newline character after integer input
-
-    for (int i = 0; i < n; ++i) {
-        cout << "Enter string " << i + 1 << ": ";
-        getline(cin, temp);
-        input.push_back(temp);
+    string word;
+    while (cin >> word) {
+        input.push_back(word);
     }
-
-    cout << "The longest string is: " << longest(input) << endl;
-
+    cout << longest(input) << endl;
     return 0;
 }
