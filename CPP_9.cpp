@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> rolling_max(const vector<int>& numbers) {
