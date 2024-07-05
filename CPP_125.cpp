@@ -5,28 +5,27 @@
 
 using namespace std;
 
-vector<string> split_words(const string& txt) {
+vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0;
     string delimiter = " ";
 
-    string txt_copy = txt; // Make a copy to work on
-    if (txt_copy.find(' ') != string::npos) {
-        while ((pos = txt_copy.find(' ')) != string::npos) {
-            result.push_back(txt_copy.substr(0, pos));
-            txt_copy.erase(0, pos + 1);
+    if (txt.find(' ') != string::npos) {
+        while ((pos = txt.find(' ')) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
         }
-        result.push_back(txt_copy);
-    } else if (txt_copy.find(',') != string::npos) {
+        result.push_back(txt);
+    } else if (txt.find(',') != string::npos) {
         delimiter = ",";
-        while ((pos = txt_copy.find(delimiter)) != string::npos) {
-            result.push_back(txt_copy.substr(0, pos));
-            txt_copy.erase(0, pos + delimiter.length());
+        while ((pos = txt.find(delimiter)) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + delimiter.length());
         }
-        result.push_back(txt_copy);
+        result.push_back(txt);
     } else {
         int count = 0;
-        for (char c : txt_copy) {
+        for (char c : txt) {
             if (c >= 'a' && c <= 'z' && (c - 'a') % 2 == 0) {
                 count++;
             }
