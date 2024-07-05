@@ -21,6 +21,7 @@ def find_zero(xs: list):
 
     return newton_method(xs)
 
+# Read input
 coefficients = list(map(float, input("Enter the polynomial coefficients separated by spaces: ").split()))
 zero = find_zero(coefficients)
 print(f"The root of the polynomial is approximately: {zero}")
