@@ -1,5 +1,5 @@
-from typing import List, Optional
 import sys
+from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
@@ -7,5 +7,5 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 if __name__ == "__main__":
-    strings = [line.strip() for line in sys.stdin]
+    strings = sys.stdin.read().strip().split()
     print(longest(strings))
