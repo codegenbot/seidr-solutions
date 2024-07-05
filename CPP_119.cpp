@@ -1,6 +1,7 @@
 string match_parens(vector<string> lst) {
-    string a = lst[0], b = lst[1];
-    auto is_good = [](const string &s) {
+    string s1 = lst[0], s2 = lst[1];
+    
+    auto is_balanced = [](const string &s) {
         int balance = 0;
         for (char c : s) {
             if (c == '(') balance++;
@@ -9,6 +10,10 @@ string match_parens(vector<string> lst) {
         }
         return balance == 0;
     };
-    if (is_good(a + b) || is_good(b + a)) return "Yes";
+    
+    if (is_balanced(s1 + s2) || is_balanced(s2 + s1)) {
+        return "Yes";
+    }
+    
     return "No";
 }
