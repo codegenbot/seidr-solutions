@@ -25,13 +25,9 @@ vector<int> parse_nested_parens(string paren_string) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    assert(issame(parse_nested_parens("() (()) ((()))"), {1, 2, 3}));
+    assert(parse_nested_parens("(()(())((())))") == vector<int>{4});
+    assert(parse_nested_parens("() (()) ((()))") == vector<int>{1, 2, 3});
     cout << "All tests passed!" << endl;
     return 0;
 }
