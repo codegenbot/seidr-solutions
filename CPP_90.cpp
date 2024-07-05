@@ -1,14 +1,19 @@
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Using -1 to represent None
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-    sort(lst.begin(), lst.end());
-    int first_smallest = lst[0];
-
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] > first_smallest) {
-            return lst[i];
-        }
+int next_smallest(const std::vector<int>& lst) {
+    if (lst.size() < 2) return -1; // Assuming -1 represents None
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
+    int smallest = sorted_lst[0];
+    for (int i = 1; i < sorted_lst.size(); ++i) {
+        if (sorted_lst[i] != smallest) return sorted_lst[i];
     }
+    return -1; // If no second smallest element is found
+}
 
-    return -1; // No 2nd smallest element found
+int main() {
+    std::cout << next_smallest({-35, 34, 12, -45}) << std::endl;
+    return 0;
 }
