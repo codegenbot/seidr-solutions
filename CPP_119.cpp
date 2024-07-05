@@ -1,15 +1,25 @@
-string match_parens(vector<string> lst) {
-    string s1 = lst[0], s2 = lst[1];
-    auto is_balanced = [](const string& s) {
-        int count = 0;
-        for(char c : s) {
-            if(c == '(') count++;
-            else if(c == ')') {
-                count--;
-                if(count < 0) return false;
-            }
+#include <vector>
+#include <string>
+
+using namespace std;
+
+string match_parens(vector<string> lst){
+    string a = lst[0];
+    string b = lst[1];
+    
+    auto isBalancedConcat = [](string a, string b) {
+        int balance = 0;
+        for (char ch : (a + b)) {
+            if (ch == '(') balance++;
+            else if (ch == ')') balance--;
+            if (balance < 0) return false;
         }
-        return count == 0;
+        return balance == 0;
     };
-    return (is_balanced(s1 + s2) || is_balanced(s2 + s1)) ? "Yes" : "No";
+    
+    if (isBalancedConcat(a, b) || isBalancedConcat(b, a)) {
+        return "Yes";
+    } else {
+        return "No";
+    }
 }
