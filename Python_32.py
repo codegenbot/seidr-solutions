@@ -20,5 +20,6 @@ def find_zero(xs: list):
 
     return x
 
+# Read input
 xs = list(map(float, input().strip().split()))
 print(find_zero(xs))
