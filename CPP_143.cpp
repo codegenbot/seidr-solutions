@@ -1,23 +1,26 @@
-#include <iostream>
 #include <sstream>
 #include <vector>
 #include <cmath>
 #include <string>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    for (int i = 5; i * i <= n; i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+    for (int i = 3; i <= sqrt(n); i += 2) {
+        if (n % i == 0) return false;
     }
     return true;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    std::stringstream ss(sentence);
-    std::string word, result;
-    while (ss >> word) {
+string words_in_sentence(string sentence) {
+    istringstream iss(sentence);
+    string word, result;
+    while (iss >> word) {
         if (isPrime(word.length())) {
             if (!result.empty()) result += " ";
             result += word;
@@ -27,8 +30,7 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 int main() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
-    std::cout << words_in_sentence(sentence) << std::endl;
+    assert(words_in_sentence("here is a test sentence") == "is a");
+    cout << "All tests passed!" << endl;
     return 0;
 }

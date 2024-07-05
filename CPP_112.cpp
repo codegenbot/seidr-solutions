@@ -3,6 +3,7 @@
 #include <unordered_set>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -21,9 +22,8 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    string s, c;
-    cin >> s >> c;
-    vector<string> result = reverse_delete(s, c);
-    cout << result[0] << endl << result[1] << endl;
+    assert((reverse_delete("mamma", "mia") == vector<string>{"mm", "True"}));
+    assert((reverse_delete("example", "axe") == vector<string>{"mpl", "False"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
