@@ -1,4 +1,5 @@
-````
+```    
+```
 import math
 
 def find_zero(xs):
@@ -15,10 +16,17 @@ def find_zero(xs):
     b = xs[1]
     c = xs[-1]
 
-    if len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
-        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+    d = 2 * a
+    e = b**2
+    f = 4 * a * c
+
+    if e - f < 0:
+        return "Imaginary roots"
+    elif len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
+        return (-b + math.sqrt(e - f)) / d
     else:
-        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+        return (-b - math.sqrt(e - f)) / d
 
 xs = [int(x) for x in input("Enter the list of numbers: ").split()]
 find_zero(xs)
+```
