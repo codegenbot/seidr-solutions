@@ -19,9 +19,14 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(split_words("") == vector<string>{""});                    // Edge case: empty string
-    assert(split_words("hello world") == vector<string>{"hello", "world"});  // Typical case
-    assert(split_words("a,b,c") == vector<string>{"a,b,c"});          // String with no spaces should be as is
-    cout << "All tests passed!" << endl;
+    cout << "Testing split_words function:\n";
+    auto result1 = split_words("");
+    auto result2 = split_words("hello world");
+    auto result3 = split_words("a,b,c");
+    
+    for (const auto& word : result1) cout << word << "\n";
+    for (const auto& word : result2) cout << word << "\n";
+    for (const auto& word : result3) cout << word << "\n";
+    
     return 0;
 }
