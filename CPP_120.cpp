@@ -18,7 +18,9 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    assert(issame(maximum({5, 3, 9, 1, 6}, 2), {6, 9}));
-    cout << "All tests passed!" << endl;
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {2, 3, 243}));
+    assert(issame(maximum({0, -1, 2, 1, 5, 9, -5}, 2), {5, 9}));
+    assert(issame(maximum({10, 20, 30, 40, 50}, 5), {10, 20, 30, 40, 50}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
