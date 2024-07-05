@@ -32,10 +32,10 @@ string find_max(vector<string> words) {
 
 int main() {
     assert((find_max({"play", "play", "play"}) == "play"));
-    assert((find_max({"apple", "banana", "grapes"}) == "banana"));
-    assert((find_max({"abcd", "abc", "ab"}) == "abcd"));
-    assert((find_max({"ab", "bc", "cd"}) == "ab"));
-    assert((find_max({"aaa", "bbb", "ccc"}) == "aaa"));
-    assert((find_max({"pqr", "pqrs", "pqrst"}) == "pqrst"));
+    assert((find_max({"apple", "banana", "cherry"}) == "banana"));
+    assert((find_max({"abcabc", "aabbcc", "abcdef"}) == "abcdef"));
+    assert((find_max({"zxy", "zzx", "xzz"}) == "xzz"));
+    assert((find_max({"aaaaa", "bbbbb", "ccccc"}) == "aaaaa"));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
