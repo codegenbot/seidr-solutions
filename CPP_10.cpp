@@ -8,16 +8,15 @@ bool is_palindrome(string str) {
 }
 
 string make_palindrome(string str) {
-    int n = str.size();
-    if (n == 0) return "";
+    int n = str.length();
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
-            string prefix = str.substr(i);
-            reverse(prefix.begin(), prefix.end());
-            return str + prefix;
+            string suffix = str.substr(i);
+            reverse(suffix.begin(), suffix.end());
+            return str + suffix;
         }
     }
-    return "";
+    return str; // Default return, though this line should never be reached
 }
 
 int main() {
