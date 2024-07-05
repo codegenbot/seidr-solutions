@@ -9,7 +9,8 @@ double diceGame(int n, int m) {
     for(int i = max(n-m+1, 1); i < n; i++) {
         p += (n-i) / total;
     }
-    
+    p -= (double(min(m, n-m)))/total;
+
     return p;
 }
 
