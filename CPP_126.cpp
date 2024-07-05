@@ -1,3 +1,8 @@
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
 bool is_sorted(vector<int> lst){
     if (lst.empty()) return true;
     
