@@ -6,29 +6,32 @@
 
 using namespace std;
 
-vector<float> find_closest_elements(const vector<float>& numbers) {
-    vector<float> sorted_numbers = numbers;
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-    float min_diff = fabs(sorted_numbers[1] - sorted_numbers[0]);
-    pair<float, float> closest_pair = {sorted_numbers[0], sorted_numbers[1]};
+vector<float> find_closest_elements(vector<float> numbers) {
+    sort(numbers.begin(), numbers.end());
+    if (numbers.size() < 2) {
+        return {}; // Return empty vector if there are less than 2 numbers
+    }
     
-    for (size_t i = 1; i < sorted_numbers.size() - 1; ++i) {
-        float diff = fabs(sorted_numbers[i + 1] - sorted_numbers[i]);
+    float min_diff = fabs(numbers[1] - numbers[0]);
+    pair<float, float> closest_pair = {numbers[0], numbers[1]};
+    
+    for (size_t i = 1; i < numbers.size() - 1; ++i) {
+        float diff = fabs(numbers[i + 1] - numbers[i]);
         if (diff < min_diff) {
             min_diff = diff;
-            closest_pair = {sorted_numbers[i], sorted_numbers[i + 1]};
+            closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
     
     return {closest_pair.first, closest_pair.second};
 }
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     cout << "Test passed!" << endl;
     return 0;
 }
