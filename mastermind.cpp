@@ -3,7 +3,7 @@ using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < code.size(); ++i) {
         if (code[i] == guess[i]) {
             count++;
         }
@@ -12,13 +12,17 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    int correctPosition = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            correctPosition++;
+    int count = 0;
+    for (int i = 0; i < code.size(); ++i) {
+        for (int j = 0; j < code.size(); ++j) {
+            if (code[i] == guess[j]) {
+                if (i == j) {
+                    count++;
+                }
+            }
         }
     }
-    return correctPosition;
+    return count;
 }
 
 int main() {
