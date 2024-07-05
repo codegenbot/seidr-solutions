@@ -1,14 +1,8 @@
+```
 def gcd(a, b):
-    a = abs(a)
-    b = abs(b)
-    
-    def gcd_helper(a, b):
-        if b == 0:
-            return a
-        else:
-            return gcd_helper(b, a % b)
-
-    return gcd_helper(a, b)
+    while b:
+        a, b = b, a % b
+    return abs(a)
 
 print(gcd(24, 54))
 print(gcd(400000, 4))
