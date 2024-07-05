@@ -18,7 +18,6 @@ int main() {
     int nickles = cents / 5;
     cents %= 5;
 
-    int pennies = 0;
     while (cents > 0) {
         pennies++;
         cents--;
