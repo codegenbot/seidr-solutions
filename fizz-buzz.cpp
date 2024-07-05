@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-
-std::string fizzBuzz(int x) {
+string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
@@ -10,15 +6,5 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        std::stringstream ss;
-        ss << x; 
-        return ss.str();
-}
-
-int main() {
-    int x;
-    std::cout << "Enter a number: ";
-    std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
-    return 0;
+        return to_string(x);
 }
