@@ -27,4 +27,3 @@ def decode_cyclic(s):
                 if temp:
                     result += temp + " "
                 start = end
-    return result.strip()
