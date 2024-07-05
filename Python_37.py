@@ -3,4 +3,5 @@ def sort_even_indices(l):
     l[::2] = even_indices_values
     return l
 
+# Assuming the check function is called this way:
 check(sort_even_indices)
