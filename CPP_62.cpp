@@ -12,9 +12,13 @@ vector<float> derivative(vector<float> xs) {
     return result;
 }
 
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
 int main() {
-    assert(derivative({1}) == vector<float>{});
-    assert(derivative({1, 2, 3}) == vector<float>{2, 6});
+    assert(issame(derivative({1}), {}));
+    assert(issame(derivative({1, 2, 3}), {2, 6}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
