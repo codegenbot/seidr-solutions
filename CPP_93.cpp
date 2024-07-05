@@ -7,7 +7,7 @@ using namespace std;
 string encode(string message) {
     for (char &c : message) {
         if (isalpha(c)) {
-          if (isupper(c)) c = tolower(c);
+            if (isupper(c)) c = tolower(c);
             else c = toupper(c);
         }
         if (c == 'a' || c == 'A') c = 'C';
