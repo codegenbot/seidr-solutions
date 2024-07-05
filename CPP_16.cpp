@@ -1,9 +1,10 @@
-#include <unordered_set>
-
-int count_distinct_characters(string str) {
-    unordered_set<char> distinct_chars;
-    for (char c : str) {
-        distinct_chars.insert(tolower(c));
+int count_distinct_characters(string str){ 
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<bool> seen(26, false);
+    for(char c : str) {
+        if(isalpha(c)) {
+            seen[c - 'a'] = true;
+        }
     }
-    return distinct_chars.size();
+    return count(seen.begin(), seen.end(), true);
 }
