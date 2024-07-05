@@ -19,9 +19,9 @@ float mean_absolute_deviation(const std::vector<float> &numbers) {
 
 int main() {
     std::vector<float> numbers;
-    float num;
-    while (std::cin >> num) {
-        numbers.push_back(num);
+    float input;
+    while (std::cin >> input) {
+        numbers.push_back(input);
     }
     std::cout << "Mean Absolute Deviation: " << mean_absolute_deviation(numbers) << std::endl;
     return 0;
