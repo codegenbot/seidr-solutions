@@ -18,7 +18,6 @@ vector<int> rolling_max(const vector<int>& numbers) {
     return result;
 }
 
-// Keep only this issame function
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
