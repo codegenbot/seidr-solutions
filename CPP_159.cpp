@@ -1,6 +1,6 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <algorithm> // For min and max functions
 
 using namespace std;
 
