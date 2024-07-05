@@ -1,4 +1,3 @@
-```c++
 int bowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
@@ -23,7 +22,7 @@ int bowlingScore(const char* s) {
 }
 
 int main() {
-    const char* input = "X/X/XXX/----/-5--"; 
+    const char* input = "X/X/XXX/----/-5--";
     int score = bowlingScore(input);
     std::cout << "The score is: " << score << std::endl; 
     return 0;
