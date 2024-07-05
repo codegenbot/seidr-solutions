@@ -1,30 +1,26 @@
-string match_parens(vector<string> lst) {
-    int balance1 = 0, balance2 = 0;
-    for (char ch : lst[0]) {
-        if (ch == '(') balance1++;
-        else balance1--;
-        if (balance1 < 0) break;
-    }
-    for (char ch : lst[1]) {
-        if (ch == '(') balance2++;
-        else balance2--;
-        if (balance2 < 0) break;
-    }
-    if (balance1 == 0 && balance2 == 0) return "Yes";
+#include <vector>
+#include <string>
 
-    swap(lst[0], lst[1]);
-    balance1 = balance2 = 0;
-    for (char ch : lst[0]) {
-        if (ch == '(') balance1++;
-        else balance1--;
-        if (balance1 < 0) break;
-    }
-    for (char ch : lst[1]) {
-        if (ch == '(') balance2++;
-        else balance2--;
-        if (balance2 < 0) break;
-    }
-    if (balance1 == 0 && balance2 == 0) return "Yes";
+using namespace std;
 
-    return "No";
+string match_parens(vector<string> lst){
+    string a = lst[0];
+    string b = lst[1];
+    
+    // Function to check if the parenthesis string is balanced
+    auto isBalanced = [](string s) {
+        int balance = 0;
+        for (char ch : s) {
+            if (ch == '(') balance++;
+            else if (ch == ')') balance--;
+            if (balance < 0) return false;
+        }
+        return balance == 0;
+    };
+    
+    if (isBalanced(a + b) || isBalanced(b + a)) {
+        return "Yes";
+    } else {
+        return "No";
+    }
 }
