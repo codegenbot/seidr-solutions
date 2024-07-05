@@ -10,16 +10,15 @@ long long double_the_difference(vector<float> lst) {
             sum += num * num;
         }
     }
-    return 2 * sum;
+    return sum;
 }
 
 int main() {
     vector<float> lst;
-    float input;
-    while (cin >> input) {
-        lst.push_back(input);
+    float num;
+    while (cin >> num) {
+        lst.push_back(num);
     }
-
     long long result = double_the_difference(lst);
     cout << result << endl;
     return 0;
