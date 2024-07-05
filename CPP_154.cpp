@@ -15,6 +15,8 @@ bool cycpattern_check(string a, string b) {
 }
 
 int main() {
-    cout << (cycpattern_check("winemtt", "tinem") == true) << endl;
+    string a, b;
+    cin >> a >> b;
+    cout << (cycpattern_check(a, b) ? "true" : "false") << endl;
     return 0;
 }
