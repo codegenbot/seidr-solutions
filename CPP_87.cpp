@@ -1,4 +1,11 @@
-vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>
+
+using namespace std;
+
+vector<vector<int>> get_row(const vector<vector<int>> &lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         vector<int> row;
