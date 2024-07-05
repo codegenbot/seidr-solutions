@@ -3,24 +3,32 @@
 #include <vector>
 #include <cmath>
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    for (int i = 5; i * i <= n; i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0) return false;
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    if (num == 2) return true;
+    if (num % 2 == 0) return false;
+    for (int i = 3; i <= std::sqrt(num); i += 2) {
+        if (num % i == 0) return false;
     }
     return true;
 }
 
 string words_in_sentence(string sentence) {
     istringstream iss(sentence);
-    string word, result = "";
+    string word;
+    vector<string> result;
+    
     while (iss >> word) {
-        if (is_prime(word.length())) {
-            if (!result.empty()) result += " ";
-            result += word;
+        if (isPrime(word.length())) {
+            result.push_back(word);
         }
     }
-    return result;
+    
+    string output;
+    for (size_t i = 0; i < result.size(); ++i) {
+        if (i > 0) output += " ";
+        output += result[i];
+    }
+    
+    return output;
 }
