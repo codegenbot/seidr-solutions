@@ -1,3 +1,3 @@
 def encrypt(s):
-    table = str.maketrans("abcdefghijklmnopqrstuvwxyz", "cdefghijklmnopqrstuvwxyza", padchar=' ')
+    table = str.maketrans("abcdefghijklmnopqrstuvwxyz", "cdefghijklmnopqrstuvwxyza")
     return s.translate(table)
