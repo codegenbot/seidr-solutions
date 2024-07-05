@@ -1,9 +1,12 @@
-if (strings.empty()) return "None";
-    string longest_str = strings[0];
+if (strings.empty()) {
+        return "None";
+    }
+
+    string longestStr = strings[0];
     for (const auto& str : strings) {
-        if (str.length() > longest_str.length()) {
-            longest_str = str;
+        if (str.length() > longestStr.length()) {
+            longestStr = str;
         }
     }
-    return longest_str;
+    return longestStr;
 }
