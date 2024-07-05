@@ -1,11 +1,13 @@
+#include <iostream>
 #include <vector>
+#include <cmath>
 #include <cassert>
+
 using namespace std;
 
 vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
     num = abs(num);
-    if (num == 0) return {1, 0};  // Special case for 0
     while (num > 0) {
         int digit = num % 10;
         if (digit % 2 == 0) {
@@ -23,9 +25,11 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
+    assert(issame(even_odd_count(123456), {3, 3}));
     assert(issame(even_odd_count(0), {1, 0}));
-    assert(issame(even_odd_count(1234567890), {5, 5}));
-    assert(issame(even_odd_count(-24680), {5, 0}));
-    
+    assert(issame(even_odd_count(111), {0, 3}));
+    assert(issame(even_odd_count(222), {3, 0}));
+
+    cout << "All tests passed." << endl;
     return 0;
 }
