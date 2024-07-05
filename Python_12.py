@@ -1,8 +1,6 @@
 def longest(strings: List[str]) -> Optional[str]:
+    if not all(isinstance(s, str) for s in strings):
+        return "Invalid input type. Please enter only strings."
     if not strings:
         return None
-    try:
-        return max(strings, key=len)
-    except TypeError as e:
-        print(f"An error occurred: {e}")
-        return None
+    return max(strings, key=len)
