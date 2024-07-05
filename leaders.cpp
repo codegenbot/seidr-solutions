@@ -16,6 +16,20 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int rightmost = arr.back();
+    
+    for(int i = 0; i < arr.size(); ++i) {
+        if(i == arr.size() - 1 || arr[i] >= rightmost) {
+            result.push_back(arr[i]);
+            rightmost = arr[i];
+        }
+    }
+    
+    return result;
+}
+
 int main() {
     vector<int> input = {1, 3, 4, 2, 3};
     vector<int> result = leaders(input);
