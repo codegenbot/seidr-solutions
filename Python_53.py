@@ -6,4 +6,4 @@ if __name__ == "__main__":
         x, y = map(int, input().strip().split())
         print(add(x, y))
     except ValueError:
-        print("Invalid input. Please enter two integers.")
+        print("Please enter two integers separated by space.")
