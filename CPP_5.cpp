@@ -22,6 +22,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    // Additional test cases can be added here
     cout << "All tests passed!" << endl;
     return 0;
 }
