@@ -11,18 +11,17 @@ string make_palindrome(string str) {
     int n = str.size();
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
-            string suffix = str.substr(i);
-            string prefix = string(suffix.rbegin(), suffix.rend());
+            string prefix = str.substr(i);
+            reverse(prefix.begin(), prefix.end());
             return str + prefix;
         }
     }
-    return str;
+    return str; // This line is just for safety, though logically it won't be reached.
 }
 
 int main() {
     string input;
-    cout << "Enter a string: ";
     cin >> input;
-    cout << "Shortest palindrome: " << make_palindrome(input) << endl;
+    cout << make_palindrome(input) << endl;
     return 0;
 }
