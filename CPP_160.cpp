@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cmath>  // for pow
+#include <cmath>
 
 using namespace std;
 
