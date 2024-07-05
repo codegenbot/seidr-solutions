@@ -1,4 +1,8 @@
-```cpp
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
@@ -9,8 +13,8 @@ int main() {
 
     for (int i = 3; i >= 0; --i) {
         int count = cents / coins[i];
-        result[i] = count;
         cents %= coins[i];
+        result[i] += count;
     }
 
     cout << result[3] << endl;
