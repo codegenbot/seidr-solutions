@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
+#include <cassert>
 
-bool correct_bracketing(const std::string& brackets) {
+bool correct_bracketing(const std::string &brackets) {
     int balance = 0;
     for(char ch : brackets) {
         if(ch == '<') balance++;
@@ -12,12 +12,7 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    if (correct_bracketing(input)) {
-        std::cout << "Balanced" << std::endl;
-    } else {
-        std::cout << "Not Balanced" << std::endl;
-    }
+    assert(!correct_bracketing("<><><<><>><>>><>"));
+    std::cout << "All tests passed!" << std::endl;
     return 0;
 }
