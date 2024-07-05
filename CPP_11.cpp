@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-string string_xor(string a, string b) {
+string string_xor(string a, string b){
     string result = "";
     for(size_t i = 0; i < a.length(); ++i) {
         result += (a[i] == b[i]) ? '0' : '1';
