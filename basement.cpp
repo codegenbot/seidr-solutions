@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
-
 int basement(std::vector<int>& v) {
+    int i = 0;
     int sum = 0;
     for (size_t i = 0; i < v.size(); i++) {
         sum += v[i];
