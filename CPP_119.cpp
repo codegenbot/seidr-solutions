@@ -1,12 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 string match_parens(vector<string> lst) {
-    string s1 = lst[0];
-    string s2 = lst[1];
-
-    auto isBalanced = [](const string &s) {
+    auto is_good = [](const string& s) {
         int balance = 0;
         for (char c : s) {
             if (c == '(') balance++;
@@ -15,13 +15,16 @@ string match_parens(vector<string> lst) {
         }
         return balance == 0;
     };
-
-    if (isBalanced(s1 + s2) || isBalanced(s2 + s1)) {
-        return "Yes";
-    }
+    
+    string s1 = lst[0] + lst[1];
+    string s2 = lst[1] + lst[0];
+    
+    if (is_good(s1) || is_good(s2)) return "Yes";
     return "No";
 }
 
 int main() {
     assert(match_parens({")", "("}) == "Yes");
+    cout << "All tests passed!" << endl;
+    return 0;
 }
