@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -23,8 +23,14 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(result == expected);
+    vector<string> input;
+    string temp;
+    while (cin >> temp) {
+        input.push_back(temp);
+    }
+    vector<string> result = sorted_list_sum(input);
+    for (const string& str : result) {
+        cout << str << " ";
+    }
     return 0;
 }
