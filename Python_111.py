@@ -11,7 +11,9 @@ def histogram(test):
 
 if __name__ == "__main__":
     import sys
-    input = sys.stdin.read
-    test = input().strip()
-    result = histogram(test)
-    print(result)
+    try:
+        test = sys.stdin.read().strip()
+        result = histogram(test)
+        print(result)
+    except Exception as e:
+        print("Error:", e)
