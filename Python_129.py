@@ -17,7 +17,7 @@ def minPath(grid, k):
         x, y = path[-1]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N:
+            if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in path:
                 new_path = path + [(nx, ny)]
                 new_path_sum = path_sum + grid[nx][ny]
                 heappush(min_heap, (new_path_sum, new_path))
