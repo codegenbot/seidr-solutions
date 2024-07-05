@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-
 using namespace std;
 
 bool is_palindrome(string str) {
@@ -19,7 +18,7 @@ string make_palindrome(string str) {
             return str + prefix;
         }
     }
-    return str; 
+    return str;
 }
 
 int main() {
