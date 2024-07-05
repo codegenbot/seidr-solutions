@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -20,3 +21,5 @@ def bowling_score(frames):
             score += int(temp)
 
     return score
+
+print(bowling_score('1262365421327154-52/9'))
