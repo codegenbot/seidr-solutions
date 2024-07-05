@@ -5,8 +5,8 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        numbers = list(map(int, input().strip().split()))
+        numbers = list(map(int, input("Enter space-separated integers: ").split()))
         result = remove_duplicates(numbers)
         print(result)
     except ValueError:
-        print("Invalid input. Please enter integers separated by spaces.")
+        print("Invalid input. Please enter space-separated integers.")
