@@ -26,8 +26,11 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
-    assert(issame(pluck({8, 3, 6, 4}), {4, 3}));
-    assert(issame(pluck({1, 3, 8, 4, 10}), {4, 3}));
+    assert(issame(pluck({8, 7, 10, 1}), {8, 0}));
+    assert(issame(pluck({9, 11, 12, 7}), {12, 2}));
+    assert(issame(pluck({3, 3, 2, 4}), {2, 2}));
+    assert(issame(pluck({}), {}));
+    
     cout << "All test cases passed!" << endl;
     return 0;
 }
