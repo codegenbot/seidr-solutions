@@ -12,9 +12,7 @@ def histogram(test):
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
+    print("Enter a string:")
     test = input().strip()
-    if not test:
-        print({})
-    else:
-        result = histogram(test)
-        print(result)
+    result = histogram(test)
+    print(result)
