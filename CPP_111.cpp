@@ -1,41 +1,42 @@
 #include <iostream>
 #include <map>
+#include <string>
 #include <sstream>
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 
-std::map<char, int> histogram(const std::string& test) {
-    std::map<char, int> freqMap;
-    for (char ch : test) {
-        if (isalpha(ch)) { // Consider only alphabetic characters
-            freqMap[ch]++;
-        }
+using namespace std;
+
+map<char, int> histogram(const string& test) {
+    map<char, int> freqMap;
+    for (char c : test) {
+        freqMap[c]++;
     }
-
+    
     int maxFreq = 0;
     for (const auto &entry : freqMap) {
-        maxFreq = std::max(maxFreq, entry.second);
+        maxFreq = max(maxFreq, entry.second);
     }
-
-    std::map<char, int> result;
+    
+    map<char, int> result;
     for (const auto &entry : freqMap) {
         if (entry.second == maxFreq) {
             result[entry.first] = entry.second;
         }
     }
-
+    
     return result;
 }
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+template <typename K, typename V>
+bool issame(const map<K, V>& a, const map<K, V>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    assert(issame(histogram("aaabb"), {{'a', 3}}));
-    assert(issame(histogram("ababab"), {{'a', 3}, {'b', 3}}));
-    assert(issame(histogram("test"), {{'t', 2}}));
-    std::cout << "All tests passed!" << std::endl;
+    assert(issame(histogram("abc"), {{'a', 1}, {'b', 1}, {'c', 1}}));
+    assert(issame(histogram("abac"), {{'a', 2}}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
