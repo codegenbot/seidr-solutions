@@ -17,5 +17,5 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::cout << specialFilter({15, 28, 33, -19, 12}) << std::endl; // Example usage
+    std::cout << specialFilter({15, 28, 33, -19, 12}) << std::endl;
 }
