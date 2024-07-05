@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <map>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
@@ -13,7 +13,8 @@ vector<string> by_length(vector<int> arr) {
             filtered.push_back(num);
         }
     }
-    sort(filtered.begin(), filtered.end(), greater<int>());
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
 
     map<int, string> numToStr = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -34,6 +35,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    cout << "Test passed!" << endl;
+    assert(issame(by_length({3, 2, 1}), {"Three", "Two", "One"}));
+    assert(issame(by_length({7, 6, 5, 7}), {"Seven", "Seven", "Six", "Five"}));
     return 0;
 }
