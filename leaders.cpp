@@ -15,25 +15,9 @@ int main() {
         return res;
     }
 
-    vector<int> arr;
-    int num;
-    
-    cout << "Enter numbers: ";
-    while (cin >> num) {
-        arr.push_back(num);
-    }
-    
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
     vector<int> result = leaders(arr);
-    
-    if(result.size() > 0) {
-        cout << "Leaders are: ";
-        for(int i=0; i<result.size(); i++) {
-            cout << result[i] << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "No leaders found." << endl;
+    for(int i: result) {
+        cout << i << " ";
     }
-
-    return 0;
 }
