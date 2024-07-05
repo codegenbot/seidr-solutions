@@ -23,22 +23,7 @@ int do_algebra(vector<string> operato, vector<int> operand) {
     return result;
 }
 
-int main() {
-    vector<string> operato;
-    vector<int> operand;
-
-    int n;
-    cin >> n;
-    operato.resize(n);
-    operand.resize(n + 1);
-
-    for(int i = 0; i < n; ++i) {
-        cin >> operato[i];
-    }
-    for(int i = 0; i <= n; ++i) {
-        cin >> operand[i];
-    }
-
-    cout << do_algebra(operato, operand) << endl;
+int main(){
+    cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
     return 0;
 }
