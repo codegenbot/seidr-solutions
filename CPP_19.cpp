@@ -36,7 +36,7 @@ std::string sort_numbers(const std::string& numbers) {
 
 int main() {
     std::string input;
-    getline(std::cin, input);
+    std::getline(std::cin, input);
     std::cout << sort_numbers(input) << std::endl;
     return 0;
 }
