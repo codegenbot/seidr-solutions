@@ -1,7 +1,9 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-bool monotonic(std::vector<float> l) {
+using namespace std;
+
+bool monotonic(vector<float> l) {
     if(l.size() <= 1) return true;
     bool increasing = true, decreasing = true;
     for(size_t i = 1; i < l.size(); ++i) {
@@ -12,6 +14,9 @@ bool monotonic(std::vector<float> l) {
 }
 
 int main() {
-    assert(monotonic({9, 9, 9, 9}) == true);
-    return 0;
+    cout << boolalpha;
+    cout << monotonic({9, 9, 9, 9}) << endl;
+    cout << monotonic({1, 2, 3, 4}) << endl;
+    cout << monotonic({4, 3, 2, 1}) << endl;
+    cout << monotonic({1, 3, 2, 4}) << endl;
 }
