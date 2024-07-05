@@ -1,44 +1,26 @@
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
-#include <locale>
-
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+#include<boost/lexical_cast.hpp>
 using namespace std;
 
-string replace_comma_with_dot(string s) {
-    replace(s.begin(), s.end(), ',', '.');
-    return s;
-}
-
 boost::any compare_one(boost::any a, boost::any b) {
-    try {
-        if (a.type() == typeid(int) && b.type() == typeid(int)) {
-            int int_a = boost::any_cast<int>(a);
-            int int_b = boost::any_cast<int>(b);
-            if (int_a == int_b) return "None";
-            return int_a > int_b ? a : b;
-        } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-            float float_a = boost::any_cast<float>(a);
-            float float_b = boost::any_cast<float>(b);
-            if (float_a == float_b) return "None";
-            return float_a > float_b ? a : b;
-        } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-            string str_a = boost::any_cast<string>(a);
-            string str_b = boost::any_cast<string>(b);
-            float float_a = boost::lexical_cast<float>(replace_comma_with_dot(str_a));
-            float float_b = boost::lexical_cast<float>(replace_comma_with_dot(str_b));
-            if (float_a == float_b) return "None";
-            return float_a > float_b ? a : b;
-        } else {
-            string str_a = a.type() == typeid(string) ? boost::any_cast<string>(a) : boost::lexical_cast<string>(boost::any_cast<int>(a));
-            string str_b = b.type() == typeid(string) ? boost::any_cast<string>(b) : boost::lexical_cast<string>(boost::any_cast<int>(b));
-            float float_a = boost::lexical_cast<float>(replace_comma_with_dot(str_a));
-            float float_b = boost::lexical_cast<float>(replace_comma_with_dot(str_b));
-            if (float_a == float_b) return "None";
-            return float_a > float_b ? a : b;
+    auto to_double = [](const boost::any& val) -> double {
+        if (val.type() == typeid(int)) return boost::any_cast<int>(val);
+        if (val.type() == typeid(float)) return boost::any_cast<float>(val);
+        if (val.type() == typeid(string)) {
+            string str = boost::any_cast<string>(val);
+            replace(str.begin(), str.end(), ',', '.');
+            return boost::lexical_cast<double>(str);
         }
-    } catch (const boost::bad_any_cast &) {
-        return "None";
-    }
+        return 0.0;
+    };
+
+    double val_a = to_double(a);
+    double val_b = to_double(b);
+
+    if (val_a == val_b) return "None";
+    if (val_a > val_b) return a;
+    return b;
 }
