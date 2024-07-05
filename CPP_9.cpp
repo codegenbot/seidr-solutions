@@ -18,7 +18,7 @@ vector<int> rolling_max(const vector<int>& numbers) {
 
 int main() {
     // Test with an example
-    assert((rolling_max({3, 2, 3, 100, 3}) == vector<int>{3, 3, 3, 100, 100}));
+    assert(rolling_max({3, 2, 3, 100, 3}) == vector<int>({3, 3, 3, 100, 100}));
     cout << "Test passed!" << endl;
     return 0;
 }
