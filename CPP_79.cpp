@@ -16,7 +16,8 @@ int main() {
     assert(decimal_to_binary(15) == "db1111db");
     assert(decimal_to_binary(0) == "db0db");
     assert(decimal_to_binary(1) == "db1db");
-    assert(decimal_to_binary(8) == "db1000db");
+    assert(decimal_to_binary(10) == "db1010db");
     assert(decimal_to_binary(255) == "db11111111db");
+    // Add more tests if needed
     return 0;
 }
