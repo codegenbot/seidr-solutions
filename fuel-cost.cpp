@@ -1,25 +1,15 @@
 #include <vector>
-#include <iostream>
 
-using namespace std;
-
-int calculateFuelCost(vector<int> numbers) {
-    int totalFuel = 0;
+int calculateFuelCost(std::vector<int> numbers) {
+    int sum = 0;
     for (int num : numbers) {
-        int result = (num / 3);
-        if (result >= 2) {
-            result -= 2;
-        } else {
+        int result = static_cast<int>(std::floor(double(num) / 3));
+        if(result < 1) {
             result = 0;
+        } else {
+            result--;
         }
-        totalFuel += result;
+        sum += result;
     }
-    return totalFuel;
+    return sum;
 }
-
-int main() {
-    vector<vector<int>> inputs = {{1}, {6}, {1, 7}, {1, 8}, {1, 9}, {1, 10}};
-    for (const auto& input : inputs) {
-        cout << calculateFuelCost(input) << endl;
-    }
-    return 0;
