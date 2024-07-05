@@ -21,7 +21,9 @@ int main() {
     while (cin >> input) {
         lst.push_back(input);
     }
-    assert(!lst.empty());  // Ensure the vector is not empty
+    
+    assert(!lst.empty()); // Ensure the list is not empty
+
     cout << double_the_difference(lst) << endl;
     return 0;
 }
