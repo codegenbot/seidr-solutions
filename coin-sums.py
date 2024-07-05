@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     res = [0, 0, 0, 0]
@@ -8,7 +9,6 @@ def coin_sums(cents):
             res[i] = count
             cents -= count * coins[i]
     
-    # Swap the last two elements of res
     res[3], res[2] = res[2], res[3]
 
     return ' '.join(map(str, res)) + '\n'
