@@ -17,5 +17,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return result
 
 if __name__ == "__main__":
-    paren_string = input().strip()
-    print(separate_paren_groups(paren_string))
+    paren_string = input("Enter the parenthesis string (no spaces, only '(' and ')'): ").strip()
+    if set(paren_string) <= {"(", ")"}:
+        print(separate_paren_groups(paren_string))
+    else:
+        print("Invalid input. Please enter a string containing only '(' and ')'.")
