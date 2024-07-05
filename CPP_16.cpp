@@ -1,9 +1,8 @@
+#include<unordered_set>
 int count_distinct_characters(string str){ 
-    vector<bool> seen(26, false);
-    for(char c : str) {
-        if(isalpha(c)) {
-            seen[tolower(c) - 'a'] = true;
-        }
+    unordered_set<char> distinct_chars;
+    for (char c : str) {
+        distinct_chars.insert(tolower(c));
     }
-    return count(seen.begin(), seen.end(), true);
+    return distinct_chars.size();
 }
