@@ -6,4 +6,5 @@ int pairedDigits(const char* s) {
         }
     }
     return sum;
+
 }
