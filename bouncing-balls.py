@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```python
+```
 import math
 
 def bouncing_balls():
