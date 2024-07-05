@@ -1,12 +1,14 @@
-#include <unordered_set>
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
 
 int hex_key(string num) {
-    unordered_set<char> prime_hex_digits = {'2', '3', '5', '7', 'B', 'D'};
-    int count = 0;
+    int prime_count = 0;
     for (char c : num) {
-        if (prime_hex_digits.find(c) != prime_hex_digits.end()) {
-            count++;
+        if (c == '2' || c == '3' || c == '5' || c == '7' || c == 'B' || c == 'D') {
+            prime_count++;
         }
     }
-    return count;
+    return prime_count;
 }
