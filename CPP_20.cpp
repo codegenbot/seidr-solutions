@@ -1,8 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <cmath>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
-#include <iostream>
 
 using namespace std;
 
@@ -23,25 +23,11 @@ vector<float> find_closest_elements(vector<float> numbers) {
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
-        return false;
-    for (size_t i = 0; i < a.size(); ++i)
-        if (fabs(a[i] - b[i]) > 1e-6)
-            return false;
-    return true;
+    return a == b;
 }
 
 int main() {
-    vector<float> numbers;
-    float number;
-    cout << "Enter numbers (non-number to stop): ";
-    while (cin >> number) {
-        numbers.push_back(number);
-    }
-
-    vector<float> result = find_closest_elements(numbers);
-    cout << "Closest elements: " << result[0] << " " << result[1] << endl;
-
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    cout << "Test passed!" << endl;
     return 0;
 }
