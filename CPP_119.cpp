@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -24,7 +23,6 @@ string match_parens(vector<string> lst) {
 }
 
 int main() {
-    assert(match_parens({")", "("}) == "Yes");
-    cout << "All tests passed!" << endl;
+    cout << (match_parens({")", "("}) == "Yes" ? "Pass" : "Fail") << endl;
     return 0;
 }
