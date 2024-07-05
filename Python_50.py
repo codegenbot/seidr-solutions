@@ -9,6 +9,5 @@ def decode_shift(s: str) -> str:
     return "".join(shift_char(ch) for ch in s)
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read().strip()
-    print(decode_shift(input))
+    s = input().strip()
+    print(decode_shift(s))
