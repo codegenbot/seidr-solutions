@@ -14,7 +14,7 @@ vector<string> all_prefixes(const string& str) {
 }
 
 int main() {
-    assert(all_prefixes("WWW") == vector<string>({"W", "WW", "WWW"}));
+    assert(all_prefixes("WWW") == vector<string>{"W", "WW", "WWW"});
     cout << "All tests passed!" << endl;
     return 0;
 }
