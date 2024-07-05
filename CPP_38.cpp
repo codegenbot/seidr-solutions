@@ -16,8 +16,9 @@ string decode_cyclic(string s){
 }
 
 int main() {
+    // Test case
     string str;
-    cin >> str;
-    cout << decode_cyclic(str) << endl;
+    getline(cin, str);
+    cout << decode_cyclic(str) << endl;  // Should print the decoded string
     return 0;
 }
