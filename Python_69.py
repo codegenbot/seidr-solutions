@@ -9,14 +9,14 @@ def search(lst):
 
 if __name__ == "__main__":
     try:
-        input_data = input().strip()
-        if not input_data:
+        line = input().strip()
+        if not line:
             print(-1)
         else:
-            lst = list(map(int, input_data.split()))
+            lst = list(map(int, line.split()))
             if all(0 <= x <= 100 for x in lst):
-                print(search(lst) if lst else -1)
+                print(search(lst))
             else:
                 print(-1)
-    except Exception:
+    except (ValueError, TypeError):
         print(-1)
