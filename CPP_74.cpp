@@ -14,24 +14,25 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         return sum;
     };
 
-    int total1 = total_chars(lst1);
-    int total2 = total_chars(lst2);
+    int sum1 = total_chars(lst1);
+    int sum2 = total_chars(lst2);
 
-    if (total1 < total2) {
+    if (sum1 <= sum2) {
         return lst1;
-    } else if (total2 < total1) {
-        return lst2;
     } else {
-        return {}; // Return an empty list when totals are the same
+        return lst2;
     }
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    cout << "All tests passed!" << endl;
+    // Test case
+    assert(issame(total_match({"this"}, {}), vector<string>{}));
+    assert(issame(total_match({"a", "b", "c"}, {"alpha", "beta"}), vector<string>{"a", "b", "c"}));
+    assert(issame(total_match({"hello", "world"}, {"foo", "bar", "baz"}), vector<string>{"hello", "world"}));
+    cout << "All test cases passed!";
     return 0;
 }
