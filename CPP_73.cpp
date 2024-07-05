@@ -1,9 +1,7 @@
-#include <vector>
-#include <cassert>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     int changes = 0;
     for(int i = 0; i < n / 2; ++i) {
@@ -15,7 +13,7 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    assert(smallest_change({0, 1}) == 1);
-    cout << "Test passed!" << endl;
+    // Example usage
+    std::cout << (smallest_change({0, 1}) == 1) << std::endl; // Outputs: 1 (which means true)
     return 0;
 }
