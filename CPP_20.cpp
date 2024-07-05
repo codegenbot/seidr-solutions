@@ -23,8 +23,12 @@ vector<float> find_closest_elements(const vector<float>& numbers) {
     return {closest_pair.first, closest_pair.second};
 }
 
+bool issame(const vector<float>& a, const vector<float>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == vector<float>{2.2, 3.1});
+    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), {2.2f, 3.1f}));
     cout << "Test passed!" << endl;
     return 0;
 }
