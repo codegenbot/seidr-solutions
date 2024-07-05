@@ -4,13 +4,17 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)(n*m);
-    double totalProbability = 0.0;
+    double p = 0.0;
     
-    for(int i = max(n-m+1, 1); i <= n; i++) {
-        totalProbability += (n-i+1) / total;
+    for(int i = 1; i <= min(m, n-m); i++) {
+        p -= (2.0 / total); // probability that rolls are equal
     }
     
-    return totalProbability;
+    for(int i = max(n-m+1, 1); i <= n; i++) {
+        p += (n-i) / total;
+    }
+
+    return p;
 }
 
 int main() {

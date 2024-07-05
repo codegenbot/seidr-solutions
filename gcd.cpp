@@ -1,17 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 long long gcd(long long a, long long b) {
     if (b == 0)
-        return a;
+        return abs(a);
     else
-        return gcd(b, a % b);
-}
-
-int main() {
-    cout << gcd(48, 18);  
-    return 0;
+        return gcd(abs(b), abs(a) % abs(b));
 }
