@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int basement(vector<int>& nums) {
