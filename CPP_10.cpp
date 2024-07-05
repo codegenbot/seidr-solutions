@@ -9,20 +9,21 @@ bool is_palindrome(string str) {
 }
 
 string make_palindrome(string str) {
-    if (str.empty()) return "";
-    for (int i = str.size(); i >= 0; --i) {
+    int n = str.size();
+    for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
-            string suffix = str.substr(i);
-            reverse(suffix.begin(), suffix.end());
-            return str + suffix;
+            string prefix = str.substr(i);
+            reverse(prefix.begin(), prefix.end());
+            return str + prefix;
         }
     }
-    return str;
+    return str; // should never reach here
 }
 
 int main() {
     string input;
+    cout << "Enter a string: ";
     cin >> input;
-    cout << make_palindrome(input) << endl;
+    cout << "Shortest palindrome: " << make_palindrome(input) << endl;
     return 0;
 }
