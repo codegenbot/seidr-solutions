@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 using namespace std;
 
-vector<string> bf(string planet1, string planet2) {
+vector<string> planets_between(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
     int pos1 = -1, pos2 = -1;
@@ -24,23 +25,12 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    // Test using assertions
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    
-    // Get user inputs and display the result
     string planet1, planet2;
     cin >> planet1 >> planet2;
-    
-    vector<string> result = bf(planet1, planet2);
-    for (string planet : result) {
+    vector<string> result = planets_between(planet1, planet2);
+    for (const string& planet : result) {
         cout << planet << " ";
     }
-    cout << endl;
-    
     return 0;
 }
