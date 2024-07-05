@@ -20,6 +20,8 @@ int main() {
     while (cin >> temp) {
         if (cin.fail()) break;
         lst.push_back(temp);
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
     long long result = double_the_difference(lst);
