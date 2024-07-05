@@ -24,8 +24,8 @@ void test() {
 }
 
 int main() {
-    test();  // Run the test function before reading user input
-
+    test();  // Run the test function
+    
     string track;
     cin >> track;
 

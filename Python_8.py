@@ -1,6 +1,8 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not numbers:  # Handle empty input
+        return 0, 0
     total_sum = sum(numbers)
     total_product = 1
     for num in numbers:
@@ -10,10 +12,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 if __name__ == "__main__":
     try:
         numbers = list(map(int, input().strip().split()))
-        if numbers:
-            result = sum_product(numbers)
-            print(result[0], result[1])
-        else:
-            print("0 0")
-    except:
-        print("Invalid input")
+    except ValueError:  # Handle non-integer values
+        numbers = []
+    result = sum_product(numbers)
+    print(result[0], result[1])
