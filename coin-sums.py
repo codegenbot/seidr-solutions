@@ -7,7 +7,5 @@ def coin_sums(cents):
         while cents >= coins[i]:
             res[i] += 1
             cents -= coins[i]
-
-    return ' '.join(map(str, res)) + '\n' + str(cents)
-
-print(coin_sums(int(input())))
+    
+    return '\n'.join(map(str, res))
