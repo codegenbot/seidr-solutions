@@ -7,7 +7,7 @@ using namespace std;
 
 vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
-    if(num == 0) {
+    if (num == 0) {
         even_count = 1;
     } else {
         num = abs(num); // Handle negative numbers
