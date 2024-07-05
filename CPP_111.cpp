@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <sstream>
 #include <algorithm>
 #include <cctype>
 #include <cassert>
@@ -7,7 +8,8 @@
 std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> freqMap;
     for (char ch : test) {
-        if (std::isalpha(ch)) {
+        if (std::isalpha(static_cast<unsigned char>(ch))) {
+            ch = std::tolower(ch);
             freqMap[ch]++;
         }
     }
