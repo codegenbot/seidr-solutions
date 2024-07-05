@@ -1,11 +1,8 @@
-
 def by_length(arr):
     result = []
     for num in arr:
-        if isinstance(num, int):
-            result.append(int(num))
-        elif isinstance(num, str):
-            result.append(num)
+        if 1 <= num <= 9:
+            result.append(str(num))
     result.sort()
     result.reverse()
     return result
