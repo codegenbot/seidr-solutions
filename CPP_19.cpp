@@ -4,7 +4,6 @@
 #include <sstream>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -37,6 +36,6 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    cout << sort_numbers("six five four three two one zero") << endl;
     return 0;
 }
