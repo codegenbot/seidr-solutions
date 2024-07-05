@@ -11,8 +11,8 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
                 row.push_back(j);
             }
         }
-        for (int j = 0; j < row.size(); ++j) {
-            result.push_back({i, row[j]});
+        for (int col : row) {
+            result.push_back({i, col});
         }
     }
     return result;
