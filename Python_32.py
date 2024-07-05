@@ -7,7 +7,6 @@ def poly(xs: list, x: float):
 def find_zero(xs: list):
     return fsolve(lambda x: poly(xs, x), 0)[0]
 
-# Input handling
 if __name__ == "__main__":
     xs = list(map(float, input().split()))
     zero = find_zero(xs)
