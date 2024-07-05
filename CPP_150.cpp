@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 
-// Check if a number is a prime number
 bool is_prime(int n) {
     if (n <= 1) return false;
     if (n <= 3) return true;
@@ -12,7 +11,6 @@ bool is_prime(int n) {
     return true;
 }
 
-// Return x if n is prime, otherwise return y
 int x_or_y(int n, int x, int y) {
     return is_prime(n) ? x : y;
 }
