@@ -17,7 +17,6 @@ long long double_the_difference(const vector<float>& lst) {
 int main() {
     vector<float> lst;
     float temp;
-
     while (cin >> temp) {
         if (cin.fail()) break;
         lst.push_back(temp);
@@ -25,6 +24,6 @@ int main() {
 
     long long result = double_the_difference(lst);
     cout << result << endl;
-
+    
     return 0;
 }
