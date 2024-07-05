@@ -16,8 +16,8 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    assert(issame(get_positive({-1.0, 2.0, -3.0, 4.0}), {2.0, 4.0}));
-    assert(issame(get_positive({0.0, -2.0, -3.0, -4.0}), {}));
-    assert(issame(get_positive({1.0, 2.0, 3.0}), {1.0, 2.0, 3.0}));
+    assert (issame(get_positive({-1.0, 2.0, -3.0, 4.0}) , {2.0, 4.0}));
+    assert (issame(get_positive({0.0, -2.0, -3.0, -4.0}) , {}));
+    assert (issame(get_positive({1.0, 2.0, 3.0}) , {1.0, 2.0, 3.0}));
     return 0;
 }
