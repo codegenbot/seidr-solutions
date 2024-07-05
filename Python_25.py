@@ -11,11 +11,8 @@ def factorize(n: int) -> List[int]:
     return factors
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
     try:
-        numbers = map(int, input().strip().split())
-        for n in numbers:
-            print(factorize(n))
+        n = int(input().strip())
+        print(factorize(n))
     except ValueError:
-        print("Invalid input. Please enter integers only.")
+        print("Invalid input. Please enter an integer.")
