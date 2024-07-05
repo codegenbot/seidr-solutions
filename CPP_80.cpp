@@ -14,5 +14,7 @@ bool is_happy(std::string s) {
 int main() {
     std::cout << std::boolalpha;
     std::cout << is_happy("iopaxioi") << std::endl; // Should print: false
+    std::cout << is_happy("abcdef") << std::endl; // Should print: true
+    std::cout << is_happy("abca") << std::endl; // Should print: false
     return 0;
 }
