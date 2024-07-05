@@ -8,6 +8,5 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-if __name__ == "__main__":
-    operations = list(map(int, input().split()))
-    print(below_zero(operations))
+operations = list(map(int, input().split()))
+print(below_zero(operations))
