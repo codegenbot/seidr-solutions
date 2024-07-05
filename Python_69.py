@@ -1,5 +1,7 @@
+import sys
+from collections import Counter
+
 def search(lst):
-    from collections import Counter
     freq = Counter(lst)
     result = -1
     for num, count in freq.items():
@@ -9,11 +11,14 @@ def search(lst):
 
 if __name__ == "__main__":
     try:
-        line = input().strip()
-        if line:
-            lst = list(map(int, line.split()))
-            print(search(lst))
+        lines = sys.stdin.read().strip()
+        if lines:
+            lst = list(map(int, lines.split()))
+            if all(0 <= x <= 100 for x in lst):
+                print(search(lst))
+            else:
+                print(-1)
         else:
             print(-1)
-    except (ValueError, TypeError):
+    except ValueError:
         print(-1)
