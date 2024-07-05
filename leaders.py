@@ -1,6 +1,9 @@
 def leaders(input_vector):
-    leaders = [input_vector[-1]]
-    for i in range(len(input_vector)-1, 0, -1):
-        if input_vector[i] >= leaders[0]:
-            leaders.insert(0, input_vector[i])
-    return leaders
+    max_seen = float('inf')
+    leaders = []
+    for num in input_vector:
+        if num >= max_seen:
+            leaders.append(num)
+        else:
+            max_seen = num
+    return leaders[::-1]
