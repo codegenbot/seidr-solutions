@@ -1,11 +1,14 @@
 def decode_cyclic(s: str) -> str:
-    if not s:
+    if not s:  # Check for empty input
         return ""
-    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
-    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
+    groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
+    groups = [
+        (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups
+    ]
     return "".join(groups)
+
 
 if __name__ == "__main__":
     s = input().strip()
-    if s:
+    if s:  # Ensuring s is not empty
         print(decode_cyclic(s))
