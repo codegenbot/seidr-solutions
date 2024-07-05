@@ -1,8 +1,4 @@
-def insert_delimiter(numbers, delimiter):
-    if not numbers:
-        return []
-    result = [numbers[0]]
-    for num in numbers[1:]:
-        result.append(delimiter)
-        result.append(num)
-    return result
+from typing import List
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    return [val for pair in zip(numbers, [delimeter] * (len(numbers) - 1)) for val in pair] + numbers[-1:] if numbers else []
