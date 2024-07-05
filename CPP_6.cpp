@@ -21,7 +21,7 @@ vector<int> parse_nested_parens(string paren_string) {
             max_depth = 0;
         }
     }
-    result.push_back(max_depth); // for the last group
+    result.push_back(max_depth);
     return result;
 }
 
