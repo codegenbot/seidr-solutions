@@ -5,9 +5,8 @@ def minPath(grid, k):
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     min_heap = []
 
-    for i in range(N):
-        for j in range(N):
-            heappush(min_heap, (grid[i][j], [(i, j)]))
+    start_path = [(0, 0)]
+    heappush(min_heap, (grid[0][0], start_path))
 
     while min_heap:
         path_sum, path = heappop(min_heap)
@@ -17,14 +16,19 @@ def minPath(grid, k):
         x, y = path[-1]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N:
+            if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in path:
                 new_path = path + [(nx, ny)]
                 new_path_sum = path_sum + grid[nx][ny]
                 heappush(min_heap, (new_path_sum, new_path))
 
 if __name__ == "__main__":
-    N = int(input())
-    grid = [list(map(int, input().split())) for _ in range(N)]
-    k = int(input())
+    k = int(input().strip())
+    grid = []
+    while True:
+        try:
+            row = list(map(int, input().strip().split()))
+            grid.append(row)
+        except EOFError:
+            break
     result = minPath(grid, k)
     print(result)
