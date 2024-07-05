@@ -20,7 +20,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             pq.push({grid[i][j], i, j});
         }
     }
-
+    
     while (!pq.empty()) {
         auto current = pq.top();
         pq.pop();
@@ -32,7 +32,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         
         int x = current[current.size() - 2];
         int y = current.back();
-
+        
         for (auto& dir : directions) {
             int nx = x + dir[0];
             int ny = y + dir[1];
@@ -40,9 +40,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
                 vector<int> nextPath = path;
                 nextPath.push_back(grid[nx][ny]);
-                nextPath.push_back(nx);
-                nextPath.push_back(ny);
-                pq.push(nextPath);
+                pq.push({nextPath.begin(), nextPath.end(), nx, ny});
             }
         }
     }
