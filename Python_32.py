@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -16,16 +15,13 @@ def find_zero(xs):
     b = xs[1]
     c = xs[-1]
 
-    if len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
-        return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
-    else:
-        return None
+    if all([x > 0 for x in [a, b, c]]):
+        d = (b**2) - (4 * a * c)
+        if d < 0:
+            return None
+        else:
+            return (-b + math.sqrt(d)) / (2 * a)
 
 
 xs = [int(x) for x in input("Enter the list of numbers: ").split()]
-result = find_zero(xs)
-
-if result is not None:
-    print(f"The zero of the quadratic equation is {result}")
-else:
-    print("No valid input received.")
+find_zero(xs)
