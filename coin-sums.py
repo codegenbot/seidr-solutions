@@ -9,6 +9,7 @@ def coin_sums(cents):
         if cents > 0:
             break
 
-    return ' '.join(map(str, res))
+    return res[:len(coins)]
 
-print(*coin_sums(int(input())))
+cents = int(input())
+print(*coin_sums(cents))
