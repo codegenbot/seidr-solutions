@@ -3,7 +3,7 @@
 #include <cassert>
 using namespace std;
 
-int my_strlen(string str) {
+int my_strlen(const string& str) {
     return str.length();
 }
 
