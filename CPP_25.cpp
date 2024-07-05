@@ -1,9 +1,10 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
-std::vector<int> factorize(int n) {
-    std::vector<int> factors;
+using namespace std;
+
+vector<int> factorize(int n) {
+    vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
             factors.push_back(i);
@@ -16,14 +17,11 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    assert(issame(factorize(3 * 2 * 3) , vector<int>{2, 3, 3}));
     return 0;
 }
