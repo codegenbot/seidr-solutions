@@ -23,12 +23,8 @@ string encode_shift(string s) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string to encode: ";
-    cin >> str;
+    string str = "teststring";
     string encoded_str = encode_shift(str);
-    cout << "Encoded string: " << encoded_str << endl;
-    cout << "Decoded string: " << decode_shift(encoded_str) << endl;
     assert(decode_shift(encoded_str) == str);
     cout << "Encoding and decoding is correct." << endl;
     return 0;
