@@ -29,7 +29,7 @@ map<char, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<char,int> a, map<char,int> b) {
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
