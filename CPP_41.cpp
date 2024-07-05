@@ -21,11 +21,14 @@ int car_race_collision(string track) {
 
 void test() {
     assert(car_race_collision("RLRLRRLLR") == 7);
+    assert(car_race_collision("RRLL") == 4);
+    assert(car_race_collision("RLRLRL") == 6);
+    assert(car_race_collision("LLRR") == 0);
 }
 
 int main() {
-    test();  // Run the test function
-    
+    test();  // Run the test function before reading user input
+
     string track;
     cin >> track;
 
