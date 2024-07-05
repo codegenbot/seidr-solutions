@@ -9,7 +9,4 @@ def coin_sums(cents):
         if cents > 0:
             break
 
-    return res[:len(coins)]
-
-cents = int(input())
-print(*coin_sums(cents))
+    return res[:i+1]
