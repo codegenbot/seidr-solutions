@@ -5,12 +5,13 @@
 #include <cctype>
 #include <cassert>
 
-int count_distinct_characters(const std::string& str) { 
-    std::string lower_str = str;
-    transform(lower_str.begin(), lower_str.end(), lower_str.begin(), ::tolower);
-    std::vector<bool> seen(26, false);
+using namespace std;
+
+int count_distinct_characters(string str){ 
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<bool> seen(26, false);
     int count = 0;
-    for (char c : lower_str) {
+    for (char c : str) {
         if (isalpha(c) && !seen[c - 'a']) {
             seen[c - 'a'] = true;
             count++;
@@ -21,6 +22,6 @@ int count_distinct_characters(const std::string& str) {
 
 int main() {
     assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
-    std::cout << "Test passed!" << std::endl;
+    cout << "Test passed!" << endl;
     return 0;
 }
