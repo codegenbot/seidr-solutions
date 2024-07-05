@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 string solve(string s) {
@@ -24,4 +24,11 @@ string solve(string s) {
         }
     }
     return s;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << solve(s) << endl;
+    return 0;
 }
