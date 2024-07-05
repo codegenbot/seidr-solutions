@@ -1,31 +1,35 @@
-#include <iostream>
 #include <vector>
-#include <limits.h>
 #include <cassert>
-using namespace std;
+#include <iostream>
 
-vector<int> pluck(vector<int> arr) {
-    int smallest_even = INT_MAX;
-    int index = -1;
+std::vector<int> pluck(std::vector<int> arr) {
+    int minEven = -1;
+    int minIndex = -1;
+    
     for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
-            smallest_even = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0) {
+            if (minEven == -1 || arr[i] < minEven) {
+                minEven = arr[i];
+                minIndex = i;
+            }
         }
     }
-    if (index == -1) {
+    
+    if (minEven == -1) {
         return {};
+    } else {
+        return {minEven, minIndex};
     }
-    return {smallest_even, index};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
-    assert(issame(pluck({7, 2, 9}), {2, 1}));
-    cout << "All tests passed." << endl;
+    assert(issame(pluck({7, 9, 2, 1}), {2, 2}));
+
+    std::cout << "All tests passed successfully!" << std::endl;
     return 0;
 }
