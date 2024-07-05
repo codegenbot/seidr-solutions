@@ -1,5 +1,5 @@
-#include <vector>  // Include vector header
-#include <cassert> // Include assert header
+#include <vector>
+#include <cassert>
 
 bool below_zero(std::vector<int> operations) {
     int balance = 0;
