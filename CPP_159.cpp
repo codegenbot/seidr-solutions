@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
+#include <algorithm> // for min and max
 
 using namespace std;
 
