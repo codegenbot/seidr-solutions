@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 string encrypt(string s) {
@@ -11,6 +10,6 @@ string encrypt(string s) {
 }
 
 int main() {
-    cout << encrypt("a") << endl; // Output should be "e"
+    cout << (encrypt("a") == "e") << endl;
     return 0;
 }
