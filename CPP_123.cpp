@@ -23,7 +23,12 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(get_odd_collatz(1) == vector<int>{1});
-    cout << "Test Passed." << endl;
+    int n;
+    cin >> n;
+    vector<int> result = get_odd_collatz(n);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
