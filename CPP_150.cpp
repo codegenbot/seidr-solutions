@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
