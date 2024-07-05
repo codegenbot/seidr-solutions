@@ -1,31 +1,21 @@
-#include<sstream>
-
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
+#include <sstream>
 
 bool simplify(string x, string n) {
-    int x_num, x_den, n_num, n_den;
-    char sep;
+    int num1, den1, num2, den2;
+    char slash;
     
-    stringstream ss_x(x);
-    ss_x >> x_num >> sep >> x_den;
+    // Parse the first fraction
+    stringstream ss1(x);
+    ss1 >> num1 >> slash >> den1;
     
-    stringstream ss_n(n);
-    ss_n >> n_num >> sep >> n_den;
+    // Parse the second fraction
+    stringstream ss2(n);
+    ss2 >> num2 >> slash >> den2;
     
-    int result_num = x_num * n_num;
-    int result_den = x_den * n_den;
+    // Calculate the product of the two fractions
+    int product_num = num1 * num2;
+    int product_den = den1 * den2;
     
-    int result_gcd = gcd(result_num, result_den);
-    
-    result_num /= result_gcd;
-    result_den /= result_gcd;
-    
-    return result_den == 1;
+    // Check if the product is a whole number
+    return (product_num % product_den == 0);
 }
