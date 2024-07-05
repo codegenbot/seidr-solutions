@@ -24,8 +24,12 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(total_match({"this"}, {}) == vector<string>{});
-    assert(total_match({"a", "bc"}, {"def"}) == vector<string>{"a", "bc"});
+    assert(issame(total_match({"this"}, {}), vector<string>{}));
+    assert(issame(total_match({"a", "bc"}, {"def"}), vector<string>{"a", "bc"}));
     return 0;
 }
