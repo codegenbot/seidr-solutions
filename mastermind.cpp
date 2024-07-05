@@ -1,4 +1,8 @@
-int whitePegs(string code, string guess) {
+```c++
+#include <iostream>
+using namespace std;
+
+int totalMatchingCharacters(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -8,20 +12,18 @@ int whitePegs(string code, string guess) {
     return count;
 }
 
-int blackPegs(string code, string guess) {
-    int correctPosition = 0;
-    int matchingColors = 0;
-
+int whitePegs(string code, string guess) {
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            correctPosition++;
-            matchingColors--;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            matchingColors++;
+        int j = 0;
+        while (j < 4 && guess[j] != code[i]) {
+            j++;
+        }
+        if (j < 4) {
+            count++;
         }
     }
-
-    return correctPosition;
+    return count;
 }
 
 int main() {
@@ -33,11 +35,11 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
 
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
+    int totalMatching = totalMatchingCharacters(code, guess);
+    int blackPegs = totalMatching - whitePegs(code, guess);
 
-    cout << black << endl;
-    cout << white << endl;
+    cout << blackPegs << endl;
+    cout << (totalMatching - blackPegs) << endl; 
 
     return 0;
 }
