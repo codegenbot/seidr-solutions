@@ -9,7 +9,7 @@ std::vector<int> unique(std::vector<int> l) {
     return l;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 

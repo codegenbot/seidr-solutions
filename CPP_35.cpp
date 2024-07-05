@@ -1,5 +1,13 @@
-#include<algorithm>
-
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 float max_element(vector<float> l){
-    return *max_element(l.begin(), l.end());
+    float max_val = l[0];
+    for (float num : l) {
+        if (num > max_val) {
+            max_val = num;
+        }
+    }
+    return max_val;
 }

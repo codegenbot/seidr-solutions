@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 vector<int> factorize(int n) {
@@ -14,4 +14,17 @@ vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> factors = factorize(n);
+    for (int factor : factors) {
+        cout << factor << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
