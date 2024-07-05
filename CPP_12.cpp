@@ -17,14 +17,6 @@ std::string longest(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    for (std::string s; std::getline(std::cin, s); ) {
-        std::vector<std::string> strings;
-        std::string word;
-        std::istringstream stream(s);
-        while (stream >> word) {
-            strings.push_back(word);
-        }
-        std::cout << longest(strings) << std::endl;
-    }
+    std::cout << (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     return 0;
 }
