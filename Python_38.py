@@ -1,5 +1,5 @@
 def decode_cyclic(s):
-    s = input().rstrip()
+    s = input().rstrip() + " "
     if len(s) % 3 != 0:
         # If the length of the string is not divisible by 3, add spaces to make it so.
         # This ensures that all inputs are handled consistently and avoids IndexErrors.
