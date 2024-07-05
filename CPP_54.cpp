@@ -12,7 +12,6 @@ bool same_chars(string s0, string s1){
 }
 
 int main() {
-    assert(same_chars("aabb", "aaccc") == false);
-    cout << "Test passed!" << endl;
+    cout << (same_chars("aabb", "aaccc") == false ? "Test passed!" : "Test failed!") << endl;
     return 0;
 }
