@@ -1,4 +1,14 @@
 from typing import List, Any
 
 def filter_integers(values: List[Any]) -> List[int]:
-    return [x for x in values if isinstance(x, int)]
+    return [v for v in values if isinstance(v, int)]
+
+if __name__ == "__main__":
+    user_input = input("Enter a list of values: ").split()
+    values = []
+    for item in user_input:
+        try:
+            values.append(int(item))
+        except ValueError:
+            values.append(item)
+    print(filter_integers(values))
