@@ -1,4 +1,5 @@
 #include <stdio.h>
+using namespace std;
 
 int fib4(int n) {
     if (n == 0 || n == 1 || n == 3) return 0;
