@@ -1,20 +1,31 @@
-#include <sstream>
-#include <cctype>
-
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    stringstream ss(s);
+vector<string> result;
     string word;
-    while (ss >> word) {
-        int consonant_count = 0;
-        for (char c : word) {
-            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
-                consonant_count++;
+    string vowels = "aeiouAEIOU";
+
+    auto is_consonant = [&](char c) {
+        return isalpha(c) && vowels.find(c) == string::npos;
+    };
+
+    for (char c : s) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                int consonant_count = count_if(word.begin(), word.end(), is_consonant);
+                if (consonant_count == n) {
+                    result.push_back(word);
+                }
+                word.clear();
             }
+        } else {
+            word += c;
         }
+    }
+
+    if (!word.empty()) {
+        int consonant_count = count_if(word.begin(), word.end(), is_consonant);
         if (consonant_count == n) {
             result.push_back(word);
         }
     }
+
     return result;
 }
