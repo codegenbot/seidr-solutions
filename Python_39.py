@@ -1,10 +1,11 @@
+import math
 
 def prime_fib(n):
     fib = [0, 1]
     i = 2
-    while len(fib) <= n:
+    while len(fib) <= n and i < len(fib):
         next_fib = (fib[i - 1] + fib[i - 2]) % 2
-        if math.gcd(next_fib, 2) == 1 and i < len(fib):
+        if math.gcd(next_fib, 2) == 1:
             fib.append(next_fib)
         i += 1
     return fib[n]
