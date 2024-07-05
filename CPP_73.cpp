@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -12,15 +13,4 @@ int smallest_change(vector<int> arr) {
         }
     }
     return changes;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int& x : arr) {
-        cin >> x;
-    }
-    cout << smallest_change(arr) << endl;
-    return 0;
 }
