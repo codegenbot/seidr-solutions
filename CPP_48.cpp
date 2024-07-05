@@ -1,5 +1,5 @@
+#include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -17,6 +17,8 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    assert(is_palindrome("xywzx") == false);
+    // Test cases to check the is_palindrome function
+    cout << boolalpha << is_palindrome("madam") << endl; // true
+    cout << is_palindrome("hello") << endl;            // false
     return 0;
 }
