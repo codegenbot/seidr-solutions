@@ -2,9 +2,8 @@
 #include <string>
 using namespace std;
 
-string decode_cyclic(string s) { 
+string decode_cyclic(string s) {
     int l = s.length();
-    int num = (l + 2) / 3;
     string output;
     for (int i = 0; i * 3 < l; i++) {
         string x = s.substr(i * 3, 3);
@@ -19,7 +18,7 @@ int main() {
     string input;
     cout << "Enter the encoded string: ";
     cin >> input;
-    
+
     string decoded = decode_cyclic(input);
     cout << "Decoded string: " << decoded << endl;
 
