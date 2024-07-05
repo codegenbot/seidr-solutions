@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
@@ -8,19 +9,19 @@ using namespace std;
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-    int index1 = -1, index2 = -1;
+    auto it1 = find(planets.begin(), planets.end(), planet1);
+    auto it2 = find(planets.begin(), planets.end(), planet2);
 
-    for (int i = 0; i < planets.size(); ++i) {
-        if (planets[i] == planet1) index1 = i;
-        if (planets[i] == planet2) index2 = i;
+    if (it1 == planets.end() || it2 == planets.end()) {
+        return result;
     }
 
-    if (index1 == -1 || index2 == -1) return result;
+    if (it1 > it2) {
+        swap(it1, it2);
+    }
 
-    if (index1 > index2) swap(index1, index2);
-
-    for (int i = index1 + 1; i < index2; ++i) {
-        result.push_back(planets[i]);
+    for (auto it = it1 + 1; it != it2; ++it) {
+        result.push_back(*it);
     }
 
     return result;
@@ -32,5 +33,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
+    // Add more test cases if needed
+    cout << "All tests passed!" << endl;
     return 0;
 }
