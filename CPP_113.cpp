@@ -14,7 +14,7 @@ vector<string> odd_count(vector<string> lst) {
                 odd_count++;
             }
         }
-        string res = "the number of odd elements " + to_string(odd_count) + " in the string " + str + ".";
+        string res = "the number of odd elements " + to_string(odd_count) + " in the string " + str + " of the input.";
         result.push_back(res);
     }
     return result;
@@ -26,9 +26,9 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 2 in the string 271.",
-        "the number of odd elements 3 in the string 137.",
-        "the number of odd elements 2 in the string 314."
+        "the number of odd elements 2 in the string 271 of the input.",
+        "the number of odd elements 3 in the string 137 of the input.",
+        "the number of odd elements 2 in the string 314 of the input."
     }));
     cout << "All tests passed!" << endl;
     return 0;
