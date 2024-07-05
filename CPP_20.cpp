@@ -34,13 +34,5 @@ bool issame(vector<float> a, vector<float> b) {
 int main() {
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     // Additional test cases and input/output can be added here
-    vector<float> numbers;
-    float input;
-    cout << "Enter float numbers separated by spaces (end input with non-float value): ";
-    while (cin >> input) {
-        numbers.push_back(input);
-    }
-    vector<float> result = find_closest_elements(numbers);
-    cout << "Closest elements are: " << result[0] << " and " << result[1] << endl;
     return 0;
 }
