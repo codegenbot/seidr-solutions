@@ -1,5 +1,5 @@
+```
 import math
-
 
 def modp(n: int, p: int):
     if p == 2:
@@ -7,4 +7,4 @@ def modp(n: int, p: int):
     elif p == 3:
         return n % p
     else:
-        return n % p if p == 2 or p == 3 else math.fmod(math.pow(n, p - 1), p) * n
+        return n % p if n < p else math.fmod(math.pow(n, p - 1), p) * n % p
