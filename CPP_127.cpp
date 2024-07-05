@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -30,10 +31,12 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    cout << intersection({1, 10}, {5, 15}) << endl;
-    cout << intersection({1, 10}, {3, 7}) << endl;
-    cout << intersection({1, 10}, {10, 10}) << endl;
-    cout << intersection({11, 30}, {25, 50}) << endl;
-    cout << intersection({2, 5}, {3, 4}) << endl;
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    assert(intersection({1, 10}, {5, 15}) == "NO");
+    assert(intersection({1, 10}, {3, 7}) == "NO");
+    assert(intersection({1, 10}, {10, 10}) == "NO");
+    assert(intersection({11, 30}, {25, 50}) == "NO");
+    assert(intersection({2, 5}, {3, 4}) == "YES");
+    cout << "All assertions passed!" << endl;
     return 0;
 }
