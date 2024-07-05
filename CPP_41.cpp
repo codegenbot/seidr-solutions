@@ -20,13 +20,10 @@ int car_race_collision(string track) {
 }
 
 int main() {
-    // Remove the extra main function.
-
     string track;
     cin >> track;
 
-    // Fixed the assert condition with a valid string input.
-    assert(car_race_collision("RL") == 1);
+    assert(car_race_collision("RRLL") == 4);
 
     int result = car_race_collision(track);
     cout << result << endl;
