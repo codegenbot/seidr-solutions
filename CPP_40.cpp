@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool triples_sum_to_zero(std::vector<int> l){
+bool triples_sum_to_zero(std::vector<int> l) {
     int n = l.size();
     if (n < 3) return false;
     std::sort(l.begin(), l.end());
