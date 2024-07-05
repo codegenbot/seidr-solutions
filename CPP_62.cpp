@@ -23,6 +23,5 @@ int main() {
     assert(issame(derivative({1}), {}));
     assert(issame(derivative({1, 2}), {2}));
     assert(issame(derivative({1, 2, 3}), {2, 6}));
-    // Add more tests if needed
     return 0;
 }
