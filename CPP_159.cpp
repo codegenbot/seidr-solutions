@@ -1,18 +1,21 @@
 #include <vector>
-#include <algorithm>
 #include <iostream>
 #include <cassert>
 
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
-    int totalEaten = number + min(need, remaining);
-    int carrotsLeft = max(remaining - need, 0);
+    int totalEaten = number + need;
+    int carrotsLeft = remaining - need;
+    if (carrotsLeft < 0) {
+        totalEaten += carrotsLeft; // subtract the negative value to adjust totalEaten
+        carrotsLeft = 0;
+    }
     return {totalEaten, carrotsLeft};
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b; 
+    return a == b;
 }
 
 int main() {
