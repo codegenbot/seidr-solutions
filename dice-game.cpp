@@ -5,13 +5,13 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = (double)(n*m);
     double p = 0.0;
-
-    for(int i = 1; i <= m && i < n; i++) {
-        p += (n-i) / total;
+    
+    for(int i = 1; i <= min(m, n-m); i++) {
+        p += 2.0 / total; // probability that rolls are equal
     }
-
-    for(int i = 0; i <= m && i <= n; i++) {
-        p -= i / total;
+    
+    for(int i = max(n-m+1, 1); i <= n; i++) {
+        p -= (n-i) / total;
     }
 
     return p;
