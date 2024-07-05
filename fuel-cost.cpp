@@ -1,30 +1,26 @@
 #include <vector>
-#include <cmath>
-#include <iostream>
+using namespace std;
 
-int calculateFuelCost(std::vector<int> numbers) {
+int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int num : numbers) {
-        double result = std::floor((double(num) / 3));
-        if(result >= 1) {
-            result -= 1;
-        } else {
-            result = 0;
-        }
-        sum += static_cast<int>(result);
+    for (int i : v) {
+        int x = i / 3;
+        x = floor(x);
+        x -= 2;
+        sum += x;
     }
     return sum;
 }
 
 int main() {
-    int num1, num2, num3; 
-    std::cout << "Enter first number: ";
-    std::cin >> num1;
-    std::cout << "Enter second number: ";
-    std::cin >> num2;
-    std::cout << "Enter third number: ";
-    std::cin >> num3;
-
-    int result = calculateFuelCost({num1, num2, num3});
-    std::cout << "The fuel cost is: " << result << std::endl;
+    vector<int> vec; // input your numbers here
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        vec.push_back(num);
+    }
+    cout << fuelCost(vec) << endl;
     return 0;
+}
