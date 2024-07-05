@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int do_algebra(vector<string> operators, vector<int> operands) {
+    if (operands.empty()) return 0;
+    int result = operands[0];
+    for (size_t i = 0; i < operators.size(); ++i) {
+        if (operators[i] == "+") {
+            result += operands[i + 1];
+        } else if (operators[i] == "-") {
+            result -= operands[i + 1];
+        } else if (operators[i] == "*") {
+            result *= operands[i + 1];
+        } else if (operators[i] == "//") {
+            result /= operands[i + 1];
+        } else if (operators[i] == "**") {
+            result = pow(result, operands[i + 1]);
+        }
+    }
+    return result;
+}
+
+int main() {
+    vector<string> operators = {"//", "*"};
+    vector<int> operands = {7, 3, 4};
+    cout << do_algebra(operators, operands) << endl;  // Expected output: 8
+
+    return 0;
+}
