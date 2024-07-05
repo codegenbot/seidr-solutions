@@ -12,8 +12,6 @@ bool is_happy(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << std::boolalpha << is_happy(input) << std::endl;
+    assert(is_happy("iopaxioi") == false);
     return 0;
 }
