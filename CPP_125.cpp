@@ -1,34 +1,28 @@
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos;
+    size_t pos = 0;
+    string delimiter;
 
-    // Check for whitespace
-    if ((pos = txt.find(' ')) != string::npos) {
-        size_t start = 0;
-        while ((pos = txt.find(' ', start)) != string::npos) {
-            result.push_back(txt.substr(start, pos - start));
-            start = pos + 1;
+    if (txt.find(' ') != string::npos) {
+        delimiter = " ";
+    } else if (txt.find(',') != string::npos) {
+        delimiter = ",";
+    } 
+
+    if (!delimiter.empty()) {
+        while ((pos = txt.find(delimiter)) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + delimiter.length());
         }
-        result.push_back(txt.substr(start));
-    }
-    // Check for commas
-    else if ((pos = txt.find(',')) != string::npos) {
-        size_t start = 0;
-        while ((pos = txt.find(',', start)) != string::npos) {
-            result.push_back(txt.substr(start, pos - start));
-            start = pos + 1;
-        }
-        result.push_back(txt.substr(start));
-    }
-    // No spaces or commas
-    else {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && ((c - 'a') % 2 == 0)) {
-                count++;
+        result.push_back(txt);
+    } else {
+        int countOdd = 0;
+        for (char ch : txt) {
+            if (ch >= 'a' && ch <= 'z' && ((ch - 'a') % 2 != 0)) {
+                countOdd++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(to_string(countOdd));
     }
 
     return result;
