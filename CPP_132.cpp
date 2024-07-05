@@ -1,9 +1,11 @@
-#include <string>  // Include this to use std::string
+#include <string>
+#include <iostream>
+#include <assert.h>
 using namespace std;
 
-bool is_nested(string str) {
+bool is_nested(string str){
     int openCount = 0, nestedCount = 0;
-    for(char c : str) {
+    for(char c : str){
         if(c == '[') {
             openCount++;
         } else if(c == ']') {
@@ -15,9 +17,6 @@ bool is_nested(string str) {
     }
     return nestedCount > 1;
 }
-
-#include <iostream>
-#include <assert.h>
 
 int main() {
     assert (is_nested("[]") == false);
