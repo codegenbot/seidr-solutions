@@ -12,5 +12,5 @@ def decode_cyclic(s):
                 j = (j + 1) % len(s)
             if temp:
                 result += temp + " "
-            i = j
+            i = j + 2
     return result.strip()
