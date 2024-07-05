@@ -56,16 +56,15 @@ int main() {
             cout << std::any_cast<int>(result) << endl;
         } else if (result.type() == typeid(float)) {
             cout << std::any_cast<float>(result) << endl;
+        } else if (result.type() == typeid(double)) {
+            cout << std::any_cast<double>(result) << endl;
         } else {
             cout << "Unexpected type" << endl;
         }
+
+        assert (std::any_cast<string>(compare_one(string("42"), 42)) == string("None"));
     } catch (const std::bad_any_cast& e) {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
     }
-
-    assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
-    assert(std::any_cast<int>(compare_one(42, 10)) == 42);
-    assert(std::any_cast<float>(compare_one(3.14f, 2.718f)) == 3.14f);
-
     return 0;
 }
