@@ -8,5 +8,7 @@ def search(lst):
     return result
 
 if __name__ == "__main__":
-    lst = list(map(int, input().split()))
+    import sys
+    input = sys.stdin.read().strip()
+    lst = list(map(int, input.split()))
     print(search(lst))
