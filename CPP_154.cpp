@@ -13,9 +13,7 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    std::cout << std::boolalpha;
-    std::string input_a, input_b;
-    std::cin >> input_a >> input_b;
-    std::cout << cycpattern_check(input_a, input_b) << std::endl;
+    std::cout << std::boolalpha; // prints bools as true/false
+    std::cout << (cycpattern_check("winemtt", "tinem") == true) << std::endl;
     return 0;
 }
