@@ -3,9 +3,9 @@ auto is_vowel = [](char c) {
                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
     };
 
-    for (int i = word.length() - 2; i > 0; --i) {
-        if (is_vowel(word[i]) && !is_vowel(word[i-1]) && !is_vowel(word[i+1])) {
-            return string(1, word[i]);
+    for (int i = word.size() - 2; i > 0; --i) {
+        if (!is_vowel(word[i]) && is_vowel(word[i-1]) && !is_vowel(word[i-2])) {
+            return string(1, word[i-1]);
         }
     }
     return "";
