@@ -22,17 +22,19 @@ def minPath(grid, k):
                 else:
                     for nx, ny in neighbors(x, y):
                         new_path = path + [grid[nx][ny]]
-                        heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
+                        heappush(heap, (sum(new_path), nx, ny, length + 1, new_path))
     return min_path
+
 
 if __name__ == "__main__":
     import sys
+
     input = sys.stdin.read
     data = input().split()
-    
+
     k = int(data.pop())
-    N = int(len(data)**0.5)
-    grid = [[int(data[N*i + j]) for j in range(N)] for i in range(N)]
-    
+    N = int(len(data) ** 0.5)
+    grid = [[int(data[N * i + j]) for j in range(N)] for i in range(N)]
+
     result = minPath(grid, k)
     print(result)
