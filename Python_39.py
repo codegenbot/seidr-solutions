@@ -1,10 +1,12 @@
+
 def prime_fib(n: int):
-    fib = [0, 1]
-    i = 2
-    while len(fib) <= n:
-        fib.append((fib[i - 1] + fib[i - 2]) % 2)
-        if (fib[i - 1] + fib[i - 2]) % 2 == 0:
-            i += 1
-        else:
-            return -1
-    return fib[n]
+    primes = [2]
+    for i in range(3, n+1):
+        is_prime = True
+        for j in range(2, int(i**0.5) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(i)
+    return primes[-1]
