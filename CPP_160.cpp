@@ -1,4 +1,11 @@
-int do_algebra(vector<string> operato, vector<int> operand){
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int do_algebra(vector<string> operato, vector<int> operand) {
     int result = operand[0];
     for (size_t i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
