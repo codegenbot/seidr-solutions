@@ -17,9 +17,11 @@ long long double_the_difference(vector<float> lst) {
 int main() {
     vector<float> lst;
     float input;
+
     while (cin >> input) {
         lst.push_back(input);
     }
+
     cout << double_the_difference(lst) << endl;
     return 0;
 }
