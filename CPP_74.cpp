@@ -29,7 +29,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    // Test cases
+    // Test case
     assert(issame(total_match({"this"}, {}), {}));
     assert(issame(total_match({"a", "b", "c"}, {"alpha", "beta"}), {"a", "b", "c"}));
     assert(issame(total_match({"hello", "world"}, {"foo", "bar", "baz"}), {"hello", "world"}));
