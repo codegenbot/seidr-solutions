@@ -1,4 +1,4 @@
-string solve(string s) {
+string solve(string s){
     bool hasLetter = false;
     for (char c : s) {
         if (isalpha(c)) {
@@ -8,9 +8,8 @@ string solve(string s) {
     }
     if (hasLetter) {
         for (char &c : s) {
-            if (isalpha(c)) {
-                c = islower(c) ? toupper(c) : tolower(c);
-            }
+            if (islower(c)) c = toupper(c);
+            else if (isupper(c)) c = tolower(c);
         }
     } else {
         reverse(s.begin(), s.end());
