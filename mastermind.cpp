@@ -1,25 +1,37 @@
 #include <iostream>
 using namespace std;
 
-int totalMatchingCharacters(string code, string guess) {
+int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            count++;
+    vector<char> codeUsed;
+    for (int i = 0; i < code.size(); ++i) {
+        bool foundInCode = false;
+        for (int j = 0; j < code.size(); ++j) {
+            if (code[i] == guess[j]) {
+                foundInCode = true;
+                if (!binary_search(codeUsed.begin(), codeUsed.end(), guess[j])) {
+                    count++;
+                    codeUsed.push_back(guess[j]);
+                }
+            }
         }
     }
     return count;
 }
 
-int whitePegs(string code, string guess) {
+int blackPegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        int j = 0;
-        while (j < 4 && guess[j] != code[i]) {
-            j++;
-        }
-        if (j < 4) {
-            count++;
+    vector<char> codeUsed;
+    for (int i = 0; i < code.size(); ++i) {
+        bool foundInCode = false;
+        for (int j = 0; j < code.size(); ++j) {
+            if (code[i] == guess[j]) {
+                foundInCode = true;
+                if (i == j) {
+                    count++;
+                    codeUsed.push_back(guess[j]);
+                }
+            }
         }
     }
     return count;
@@ -34,11 +46,11 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
 
-    int totalMatching = totalMatchingCharacters(code, guess);
-    int blackPegs = totalMatching - whitePegs(code, guess);
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
 
-    cout << blackPegs << endl;
-    cout << (totalMatching - blackPegs) << endl; 
+    cout << black << endl;
+    cout << white << endl;
 
     return 0;
 }
