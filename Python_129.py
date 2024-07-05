@@ -29,7 +29,7 @@ if __name__ == "__main__":
     import sys
     input = sys.stdin.read
     data = list(map(int, input().split()))
-    
+
     N = data[0]
     k = data[1]
     grid = []
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     for i in range(N):
         grid.append(data[idx:idx + N])
         idx += N
-    
+
     result = minPath(grid, k)
     if result:
         print(" ".join(map(str, result)))
