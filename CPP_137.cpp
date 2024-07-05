@@ -4,22 +4,22 @@
 #include <any>
 using namespace std;
 
-std::any string_to_number(const std::string& s) {
-    std::string s_copy = s;
-    std::replace(s_copy.begin(), s_copy.end(), ',', '.');
+any string_to_number(const string& s) {
+    string s_copy = s;
+    replace(s_copy.begin(), s_copy.end(), ',', '.');
     try {
-        return std::stod(s_copy);
-    } catch (const std::invalid_argument&) {
-        return s; // If conversion fails, return original string
+        return stod(s_copy);
+    } catch (const invalid_argument&) {
+        return s;
     }
 }
 
-std::any compare_one(std::any a, std::any b) {
-    auto get_value = [](const std::any& v) -> std::any {
-        if (v.type() == typeid(int)) return std::any_cast<int>(v);
-        if (v.type() == typeid(float)) return std::any_cast<float>(v);
-        if (v.type() == typeid(double)) return std::any_cast<double>(v);
-        if (v.type() == typeid(std::string)) return string_to_number(std::any_cast<std::string>(v));
+any compare_one(any a, any b) {
+    auto get_value = [](const any& v) -> any {
+        if (v.type() == typeid(int)) return any_cast<int>(v);
+        if (v.type() == typeid(float)) return any_cast<float>(v);
+        if (v.type() == typeid(double)) return any_cast<double>(v);
+        if (v.type() == typeid(string)) return string_to_number(any_cast<string>(v));
         return v;
     };
 
@@ -27,44 +27,28 @@ std::any compare_one(std::any a, std::any b) {
     auto vb = get_value(b);
 
     if (va.type() == typeid(double) && vb.type() == typeid(double)) {
-        double da = std::any_cast<double>(va);
-        double db = std::any_cast<double>(vb);
+        double da = any_cast<double>(va);
+        double db = any_cast<double>(vb);
         if (da == db) return "None";
         return da > db ? a : b;
     }
 
     if (va.type() == typeid(string) && vb.type() == typeid(string)) {
-        string sa = std::any_cast<std::string>(va);
-        string sb = std::any_cast<std::string>(vb);
+        string sa = any_cast<string>(va);
+        string sb = any_cast<string>(vb);
         if (sa == sb) return "None";
         return sa > sb ? a : b;
     }
 
-    if (va.type() == typeid(double) && vb.type() == typeid(string)) {
-        return a;
-    }
-
-    if (va.type() == typeid(string) && vb.type() == typeid(double)) {
-        return b;
-    }
-
-    return "None"; // Different types or unable to compare
+    return "None";
 }
 
 int main() {
-    // Example usage 1
-    std::any result = compare_one(std::string("10"), std::string("25"));
-    if (result.type() == typeid(std::string))
-        std::cout << std::any_cast<std::string>(result) << std::endl;
+    any result = compare_one(string("10"), string("25"));
+    if (result.type() == typeid(string))
+        cout << any_cast<string>(result) << endl;
     else if (result.type() == typeid(double))
-        std::cout << std::any_cast<double>(result) << std::endl;
-
-    // Example usage 2
-    result = compare_one("1", 1);
-    if (result.type() == typeid(std::string))
-        std::cout << std::any_cast<std::string>(result) << std::endl;
-    else if (result.type() == typeid(double))
-        std::cout << std::any_cast<double>(result) << std::endl;
+        cout << any_cast<double>(result) << endl;
 
     return 0;
 }

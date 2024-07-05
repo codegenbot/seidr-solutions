@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Function to double the sum of positive odd integers in the vector
 long long int double_the_difference(const vector<float>& lst) {
     long long int sum = 0;
     for (float num : lst) {
@@ -17,7 +18,12 @@ long long int double_the_difference(const vector<float>& lst) {
 int main() {
     vector<float> lst;
     float num;
-    while (cin >> num) {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> num;
         lst.push_back(num);
     }
     cout << double_the_difference(lst) << endl;
