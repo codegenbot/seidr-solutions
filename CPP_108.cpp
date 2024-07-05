@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib> // For abs
-
+#include <cassert>
 using namespace std;
 
 int count_nums(vector<int> n) {
