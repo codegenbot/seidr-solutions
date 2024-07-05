@@ -27,8 +27,11 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string file_name;
-    cin >> file_name;
-    cout << file_name_check(file_name) << endl;
+    // Test cases to validate the function
+    cout << (file_name_check("example1.txt") == "Yes") << endl;
+    cout << (file_name_check("example.xyz") == "No") << endl;
+    cout << (file_name_check("example1234.txt") == "No") << endl;
+    cout << (file_name_check("1example.txt") == "No") << endl;
+    cout << (file_name_check("s.") == "No") << endl;
     return 0;
 }
