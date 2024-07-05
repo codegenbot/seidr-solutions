@@ -1,48 +1,56 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-#include<boost/lexical_cast.hpp>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <any>
 using namespace std;
 
-float convert_to_float(boost::any var) {
-    if (var.type() == typeid(int)) {
-        return boost::any_cast<int>(var);
-    } else if (var.type() == typeid(float)) {
-        return boost::any_cast<float>(var);
-    } else if (var.type() == typeid(string)) {
-        string str = boost::any_cast<string>(var);
-        replace(str.begin(), str.end(), ',', '.');
-        return boost::lexical_cast<float>(str);
+double to_double(std::any val) {
+    if (val.type() == typeid(int)) {
+        return std::any_cast<int>(val);
+    } else if (val.type() == typeid(float)) {
+        return std::any_cast<float>(val);
+    } else if (val.type() == typeid(string)) {
+        string str_val = std::any_cast<string>(val);
+        replace(str_val.begin(), str_val.end(), ',', '.');
+        return stod(str_val);
     }
     return 0.0;
 }
 
-boost::any compare_one(boost::any a, boost::any b) {
+std::any compare_one(std::any a, std::any b) {
     if (a.type() == b.type()) {
         if (a.type() == typeid(int)) {
-            int int_a = boost::any_cast<int>(a);
-            int int_b = boost::any_cast<int>(b);
+            int int_a = std::any_cast<int>(a);
+            int int_b = std::any_cast<int>(b);
             if (int_a == int_b) return "None";
             return int_a > int_b ? a : b;
         } else if (a.type() == typeid(float)) {
-            float float_a = boost::any_cast<float>(a);
-            float float_b = boost::any_cast<float>(b);
+            float float_a = std::any_cast<float>(a);
+            float float_b = std::any_cast<float>(b);
             if (float_a == float_b) return "None";
             return float_a > float_b ? a : b;
         } else if (a.type() == typeid(string)) {
-            string str_a = boost::any_cast<string>(a);
-            string str_b = boost::any_cast<string>(b);
-            float float_a = convert_to_float(a);
-            float float_b = convert_to_float(b);
-            if (float_a == float_b) return "None";
-            return float_a > float_b ? a : b;
+            string str_a = std::any_cast<string>(a);
+            string str_b = std::any_cast<string>(b);
+            if (str_a == str_b) return "None";
+            return str_a > str_b ? a : b;
         }
-    } else {
-        float float_a = convert_to_float(a);
-        float float_b = convert_to_float(b);
-        if (float_a == float_b) return "None";
-        return float_a > float_b ? a : b;
     }
-    return "None";
+    
+    double double_a = to_double(a);
+    double double_b = to_double(b);
+    if (double_a == double_b) return "None";
+    return double_a > double_b ? a : b;
+}
+
+int main() {
+    std::any a = 42;
+    std::any b = 3.14f;
+    try {
+        std::cout << std::any_cast<int>(compare_one(a, b)) << std::endl;
+    } catch (const std::bad_any_cast& e) {
+        // Handling the case when the result is not of int type
+        cout << "Cannot cast result to int. Possibly a string or None comparison." << endl;
+    }
+    return 0;
 }
