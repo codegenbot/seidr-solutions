@@ -3,7 +3,7 @@
 
 int largest_prime_factor(int n) {
     int largest = -1;
-
+    
     while (n % 2 == 0) {
         largest = 2;
         n /= 2;
@@ -19,7 +19,7 @@ int largest_prime_factor(int n) {
     if (n > 2) {
         largest = n;
     }
-
+    
     return largest;
 }
 
