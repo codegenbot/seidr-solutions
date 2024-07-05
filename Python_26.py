@@ -1,5 +1,6 @@
 from typing import List
 
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
@@ -9,16 +10,17 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             result.append(num)
     return result
 
+
 def main():
     try:
-        numbers = input().strip()
-        if not numbers:
-            print([])
-            return
-        numbers = list(map(int, numbers.split()))
+        input_data = input().strip()
+        numbers = list(map(int, input_data.split()))
         print(remove_duplicates(numbers))
     except ValueError:
         print("Invalid input. Please enter integers separated by spaces.")
+    except:
+        print([])
+
 
 if __name__ == "__main__":
     main()
