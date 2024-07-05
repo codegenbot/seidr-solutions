@@ -1,6 +1,10 @@
 def encode(message):
-    vowels = "aeiouAEIOU"
-    vowel_map = {
-        v: "q" if v == "o" else "Q" if v == "O" else chr(ord(v) + 2) for v in vowels
-    }
-    return "".join(vowel_map.get(c, c.swapcase()) for c in message)
+    replacements = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'w',
+                    'A': 'C', 'E': 'G', 'I': 'K', 'O': 'Q', 'U': 'W'}
+    encoded_message = []
+    for char in message:
+        if char in replacements:
+            encoded_message.append(replacements[char])
+        else:
+            encoded_message.append(char.swapcase())
+    return ''.join(encoded_message)

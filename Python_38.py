@@ -5,4 +5,5 @@ def decode_cyclic(s: str) -> str:
 
 if __name__ == "__main__":
     s = input().strip()
-    print(decode_cyclic(s))
+    if s:
+        print(decode_cyclic(s))
