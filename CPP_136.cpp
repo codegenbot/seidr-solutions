@@ -4,21 +4,21 @@
 
 using namespace std;
 
-vector<int> largest_smallest_integers(vector<int> lst) {
+vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = numeric_limits<int>::min();
     int smallest_positive = numeric_limits<int>::max();
     bool has_negative = false, has_positive = false;
     
-    for(int num : lst) {
-        if(num < 0) {
+    for(int num : lst){
+        if(num < 0){
             has_negative = true;
-            if(num > largest_negative) {
+            if(num > largest_negative){
                 largest_negative = num;
             }
         }
-        if(num > 0) {
+        if(num > 0){
             has_positive = true;
-            if(num < smallest_positive) {
+            if(num < smallest_positive){
                 smallest_positive = num;
             }
         }
