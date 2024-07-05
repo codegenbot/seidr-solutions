@@ -1,13 +1,12 @@
-string encode(string message) {
+string encode(string message){
     string vowels = "aeiouAEIOU";
-    string replace = "cgkqwCGKQW";
-    for (char &c : message) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-            auto pos = vowels.find(c);
-            if (pos != string::npos) {
-                c = replace[pos];
+    string replacements = "cgkqwCGKQW";
+    for(char &c : message){
+        if(isalpha(c)){
+            if(vowels.find(c) != string::npos){
+                c = replacements[vowels.find(c)];
             }
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
     return message;
