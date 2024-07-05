@@ -1,4 +1,4 @@
-```
+```python
 def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
@@ -18,5 +18,6 @@ def cut_vector(vector):
     return str(vector[:split_index]), str(vector[split_index:])
 
 vector = [6438, 9881, 7054, 5424, 8598, 2084, 911, 946, 4802, 3239, 3363, 8450, 6751, 879]
-print("Sub-vector 1: ", vector[0:split_index])
-print("Sub-vector 2: ", vector[split_index:])
+sub_vector1, sub_vector2 = cut_vector(vector)
+print("Sub-vector 1: ", sub_vector1)
+print("Sub-vector 2: ", sub_vector2)
