@@ -17,6 +17,7 @@ bool is_palindrome(string text){
 }
 
 int main() {
+    // Test cases to check the is_palindrome function
     cout << boolalpha << is_palindrome("madam") << endl; // true
     cout << is_palindrome("hello") << endl;            // false
     return 0;
