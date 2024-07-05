@@ -1,10 +1,8 @@
 def fib4(n: int):
-    if n <= 3:
+    if n <= 1:
         return 0
-    elif n == 4:
-        return 386
     else:
-        a, b, c, d = 0, 0, 2, 4
-        for i in range(5, n + 1):
-            a, b, c, d = b, c, d, a + b + c + d
-        return a
+        d = {0: 0, 1: 1}
+        for i in range(2, n+1):
+            d[i] = d[i-1] + d[i-2]
+        return d[n]
