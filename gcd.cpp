@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -22,8 +24,4 @@ long long gcd(long long a, long long b) {
         return a;
     else
         return gcd(b, a % b);
-}
-
-int main() {
-    return 0;
 }

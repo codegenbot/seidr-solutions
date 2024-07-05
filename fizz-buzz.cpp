@@ -13,10 +13,7 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int x;
-    std::cout << "Enter an integer: ";
-    std::cin >> x;
-    std::string result = fizzBuzz(x);
-    std::cout << result << std::endl;
+    int x = 15;
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }

@@ -1,8 +1,10 @@
 ```cpp
-int bowlingScore(std::string s) {
+int bowlingScore() {
     int score = 0;
     int currentRoll = 0;
-    for (char c : s) {
+    char c;
+    std::cin >> c;
+    for (; c != ' '; ) {
         if (c == 'X') {
             score += 30;
             currentRoll++;
@@ -18,5 +20,7 @@ int bowlingScore(std::string s) {
                 currentRoll = 0;
             }
         }
+        std::cin >> c;
     }
+    return score;
 }
