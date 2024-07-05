@@ -1,6 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -32,6 +34,7 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
     assert(issame(bf("Earth", "Saturn"), {"Mars", "Jupiter"}));
-    // Add more test cases as needed
+    assert(issame(bf("Neptune", "Venus"), {"Earth", "Mars", "Jupiter", "Saturn", "Uranus"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
