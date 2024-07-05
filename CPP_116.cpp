@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 vector<int> sort_array(vector<int> arr) {
@@ -23,8 +24,12 @@ vector<int> sort_array(vector<int> arr) {
     return arr;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(sort_array({2, 4, 8, 16, 32}) == vector<int>({2, 4, 8, 16, 32}));
-    assert(sort_array({7, 2, 5, 3, 11}) == vector<int>({2, 3, 5, 7, 11}));
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert(issame(sort_array({7, 2, 5, 3, 11}), {2, 3, 5, 7, 11}));
     return 0;
 }
