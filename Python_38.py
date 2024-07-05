@@ -1,4 +1,7 @@
+```
 def decode_cyclic(s):
+    if s[0] in ['<', '>']:
+        return "Input string should not start with '<' or '>'"
     result = ""
     i = 0
     while len(result) < len(s):
@@ -13,3 +16,6 @@ def decode_cyclic(s):
             result += temp + " "
         i = j + 2
     return result.strip()
+
+input_string = input("Enter the string: ")
+print(decode_cyclic(input_string))
