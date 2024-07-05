@@ -1,4 +1,3 @@
-```Python
 def decode_shift(s: str):
     if any(not ch.isalpha() or ch.isupper() for ch in s):
         return "Invalid input. Please provide only lowercase English alphabets."
