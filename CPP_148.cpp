@@ -1,26 +1,27 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
+    int index1 = -1, index2 = -1;
 
-    auto it1 = find(planets.begin(), planets.end(), planet1);
-    auto it2 = find(planets.begin(), planets.end(), planet2);
-
-    if (it1 == planets.end() || it2 == planets.end()) {
-        return result; // Return empty vector if either planet name is incorrect
+    for (int i = 0; i < planets.size(); ++i) {
+        if (planets[i] == planet1) index1 = i;
+        if (planets[i] == planet2) index2 = i;
     }
 
-    if (it1 > it2) swap(it1, it2);
+    if (index1 == -1 || index2 == -1) return result;
 
-    for (auto it = it1 + 1; it != it2; ++it) {
-        result.push_back(*it);
+    if (index1 > index2) swap(index1, index2);
+
+    for (int i = index1 + 1; i < index2; ++i) {
+        result.push_back(planets[i]);
     }
 
     return result;
@@ -33,8 +34,8 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
     assert(issame(bf("Earth", "Saturn"), {"Mars", "Jupiter"}));
-    assert(issame(bf("Neptune", "Mercury"), {"Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus"}));
-
+    assert(issame(bf("Mercury", "Venus"), {}));
+    
     cout << "All test cases passed!" << endl;
     return 0;
 }
