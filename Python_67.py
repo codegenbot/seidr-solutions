@@ -1,5 +1,4 @@
 def fruit_distribution(s, n):
-    words = s.split()
-    num_apples = int(words[1].split(' ')[0])
-    num_oranges = int(words[-2].split(' ')[0])
-    return n - num_apples - num_oranges
+    s = s.replace("apples", "apple").replace("oranges", "orange")
+    quantities = [int(i) for i in s.split() if i.isdigit()]
+    return n - min(quantities) - max(quantities)
