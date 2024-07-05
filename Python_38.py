@@ -1,3 +1,4 @@
+
 def decode_cyclic(s):
     if len(s) % 3 != 0:
         s = s.rjust(len(s) + (3 - len(s) % 3), " ")
