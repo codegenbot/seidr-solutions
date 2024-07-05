@@ -1,8 +1,7 @@
 #include <vector>
-#include <iostream>
-using namespace std;
+#include <cassert>
 
-int add_elements(vector<int> arr, int k) {
+int add_elements(const std::vector<int>& arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; ++i) {
         if (arr[i] >= -99 && arr[i] <= 99) {
@@ -13,12 +12,6 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    cin >> n >> k;
-    vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-    cout << add_elements(arr, k) << endl;
+    assert(add_elements({1}, 1) == 1);
     return 0;
 }
