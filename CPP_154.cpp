@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -15,8 +16,7 @@ bool cycpattern_check(string a, string b) {
 }
 
 int main() {
-    // Test case
-    cout << boolalpha;
-    cout << cycpattern_check("winemtt", "tinem") << endl;
+    assert(cycpattern_check("winemtt", "tinem") == true);
+    cout << "All tests passed!" << endl;
     return 0;
 }
