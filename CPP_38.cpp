@@ -5,7 +5,7 @@ using namespace std;
 string decode_cyclic(string s){ 
     int l = s.length();
     int num = (l + 2) / 3;
-    string x, output = "";  // Initialize output to an empty string
+    string x, output = "";
     int i;
     for (i = 0; i * 3 < l; i++) {
         x = s.substr(i * 3, 3);
@@ -16,9 +16,8 @@ string decode_cyclic(string s){
 }
 
 int main() {
-    // Test case
     string str = "abcdefghi";
-    string encoded_str = "cfabihedg"; // This is presumed to be the output of some encode function
-    cout << decode_cyclic(encoded_str) << endl;  // Should print the decoded string
+    string encoded_str = "cfabihedg"; 
+    cout << decode_cyclic(encoded_str) << endl;
     return 0;
 }
