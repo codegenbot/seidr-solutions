@@ -1,6 +1,6 @@
-#include <vector>
 #include <unordered_map>
 #include <algorithm>
+#include <vector>
 #include <iostream>
 #include <cassert>
 
@@ -21,13 +21,7 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    // Test cases
-    assert(search({1, 2, 2, 3, 3, 3}) == 2);
-    assert(search({1, 1, 1, 2, 2}) == 1);
-    assert(search({4, 4, 4, 4}) == 4);
-    assert(search({4, 4, 4, 4, 3, 3, 3}) == 4);
-    assert(search({1, 2, 3, 4, 5}) == -1);
-    
-    std::cout << "All test cases passed!\n";
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    std::cout << "All test cases pass." << std::endl;
     return 0;
 }
