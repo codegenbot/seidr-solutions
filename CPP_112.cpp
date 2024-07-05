@@ -10,13 +10,11 @@ using namespace std;
 vector<string> reverse_delete(string s, string c) {
     unordered_set<char> to_delete(c.begin(), c.end());
     string result;
-
     for (char ch : s) {
         if (to_delete.find(ch) == to_delete.end()) {
             result += ch;
         }
     }
-
     string reversed_result = result;
     reverse(reversed_result.begin(), reversed_result.end());
     bool is_palindrome = (result == reversed_result);
@@ -29,13 +27,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    string s, c;
-    cin >> s >> c;
-    vector<string> result = reverse_delete(s, c);
-    
-    for (const string& str : result) {
-        cout << str << endl;
-    }
-    
+    assert((reverse_delete("mamma", "mia") == vector<string>{"mm", "True"}));
     return 0;
 }
