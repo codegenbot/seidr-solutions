@@ -5,7 +5,7 @@
 using namespace std;
 
 bool is_palindrome(const string& str) {
-    return equal(str.begin(), str.begin() + str.size()/2, str.rbegin());
+    return equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
 }
 
 string make_palindrome(const string& str) {
@@ -25,7 +25,7 @@ int main() {
     string str;
     cout << "Enter the string: ";
     cin >> str;
-    
+
     cout << "Palindrome: " << make_palindrome(str) << endl;
     return 0;
 }
