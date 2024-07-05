@@ -2,6 +2,7 @@
 #include <algorithm> // for std::swap
 #include <cassert>   // for assert
 
+// Use the std namespace for brevity
 using namespace std;
 
 vector<int> generate_integers(int a, int b) {
