@@ -1,4 +1,3 @@
-```
 int pairedDigits(const char* s) {
     int sum = 0;
     for (int i = 0; i < strlen(s) - 1; i++) {
@@ -8,8 +7,4 @@ int pairedDigits(const char* s) {
     }
     return sum;
 
-}
-
-int main() {
-    return pairedDigits("123333");
 }
