@@ -1,4 +1,5 @@
 #include <cassert>
+#include <iostream>
 
 int choose_num(int x, int y) {
     if (x > y) return -1;
@@ -8,6 +9,9 @@ int choose_num(int x, int y) {
 }
 
 int main() {
+    // Test cases
     assert(choose_num(546, 546) == 546);
+    // More test cases can be added
+    std::cout << "All tests passed successfully!" << std::endl;
     return 0;
 }
