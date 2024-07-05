@@ -1,11 +1,3 @@
-def count_up_to(n):
-    result = []
-    for i in range(2, n + 1):
-        if is_prime(i):
-            result.append(i)
-    return result
-
-
 def is_prime(n):
     if n <= 1:
         return False
@@ -13,3 +5,12 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
+
+
+def count_up_to(n):
+    return sum(range(1, n + 1))
+
+
+# Test case:
+print(is_prime(37))  # Should be True
+print(count_up_to(5))  # Should be 15
