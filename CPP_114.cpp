@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
