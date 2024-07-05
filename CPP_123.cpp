@@ -1,10 +1,11 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 != 0) {
             result.push_back(n);
@@ -16,17 +17,20 @@ std::vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1); // 1 is always part of the sequence
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
-    std::cout << "Test passed!" << std::endl;
-
+    // Add more tests as needed
     return 0;
 }
