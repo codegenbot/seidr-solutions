@@ -1,19 +1,21 @@
-import math
-
-def poly(xs: list, x: float):
-    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
-
 def find_zero(xs: list):
     def f(x):
-        return poly(xs, x)
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-    def df(x):
-        return sum([i * coeff * math.pow(x, i - 1) for i, coeff in enumerate(xs) if i != 0])
+    def derivative(xs):
+        return [i * xs[i] for i in range(1, len(xs))]
 
-    x0 = 0
-    for _ in range(100):
-        x1 = x0 - f(x0) / df(x0)
-        if abs(x1 - x0) < 1e-7:
-            return x1
-        x0 = x1
-    return x0
+    guess = 1.0
+    tol = 1e-7
+    max_iter = 1000
+
+    for _ in range(max_iter):
+        y = f(guess)
+        if abs(y) < tol:
+            return guess
+        dy = sum([coeff * math.pow(guess, i) for i, coeff in enumerate(derivative(xs))])
+        if dy == 0:
+            break
+        guess -= y / dy
+
+    return guess
