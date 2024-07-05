@@ -1,6 +1,5 @@
 
-def fruit_distribution(s, n):
-    apple_count = re.search("\d+", s.split("and")[0])
-    orange_count = re.search("\d+", s.split("and")[1])
-    mango_count = n - int(apple_count) - int(orange_count)
-    return mango_count
+def fruit_distribution(s):
+    apple_count = int(re.search(r"\d+", s).group())
+    orange_count = int(re.search(r"\d+", s).group())
+    return apple_count + orange_count
