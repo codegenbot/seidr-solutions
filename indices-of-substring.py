@@ -10,5 +10,3 @@ def indices_of_substring():
         result.append(i)
         i += len(target)  
     return result
-
-indices_of_substring()
