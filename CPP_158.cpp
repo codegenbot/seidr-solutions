@@ -24,11 +24,10 @@ string find_max(vector<string> words) {
 
 int main() {
     vector<string> words;
-    string input;
-    while (cin >> input) {
-        words.push_back(input);
+    string word;
+    while (cin >> word) {
+        words.push_back(word);
     }
-
     cout << find_max(words) << endl;
     return 0;
 }
