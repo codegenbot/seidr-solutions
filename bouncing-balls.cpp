@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
 int main() {
     double startHeight, firstBounce;
     int numBounces;
