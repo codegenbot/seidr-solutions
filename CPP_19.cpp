@@ -37,8 +37,6 @@ std::string sort_numbers(const std::string &numbers) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << sort_numbers(input) << std::endl;
+    std::cout << (sort_numbers("six five four three two one zero") == "zero one two three four five six") << std::endl;
     return 0;
 }
