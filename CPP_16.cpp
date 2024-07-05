@@ -1,5 +1,9 @@
-#include<unordered_set>
-int count_distinct_characters(string str){ 
+#include <unordered_set>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int count_distinct_characters(string str) { 
     unordered_set<char> distinct_chars;
     for (char c : str) {
         distinct_chars.insert(tolower(c));
