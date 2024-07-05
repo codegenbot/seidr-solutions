@@ -1,10 +1,9 @@
-```cpp
 int bowlingScore() {
     int score = 0;
     int currentRoll = 0;
-    char c;
-    std::cin >> c;
-    for (; c != ' '; ) {
+    std::string s;
+    std::cin >> s;
+    for (char c : s) {
         if (c == 'X') {
             score += 30;
             currentRoll++;
@@ -20,7 +19,5 @@ int bowlingScore() {
                 currentRoll = 0;
             }
         }
-        std::cin >> c;
     }
     return score;
-}
