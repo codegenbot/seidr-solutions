@@ -14,9 +14,6 @@ int fib(int n) {
 
 int main() {
     assert(fib(12) == 144);
-    int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-    std::cout << "The " << n << "th Fibonacci number is " << fib(n) << std::endl;
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
