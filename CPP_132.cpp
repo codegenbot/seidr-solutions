@@ -2,13 +2,12 @@
 #include <string>
 using namespace std;
 
-bool is_nested(string str) {
-    int n = str.size();
+bool is_nested(const string& str) {
     int depth = 0;
-    for (int i = 0; i < n; ++i) {
-        if (str[i] == '[') {
+    for (char ch : str) {
+        if (ch == '[') {
             depth++;
-        } else if (str[i] == ']') {
+        } else if (ch == ']') {
             depth--;
         }
         if (depth > 1) {

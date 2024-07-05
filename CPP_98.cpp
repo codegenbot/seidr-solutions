@@ -2,10 +2,10 @@
 #include <string>
 using namespace std;
 
-int count_upper(const string& s) {
+int count_upper(string s) {
     int count = 0;
-    for (size_t i = 0; i < s.length(); i += 2) {
-        if (isupper(s[i])) {
+    for (int i = 0; i < s.length(); i += 2) {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
             count++;
         }
     }
