@@ -30,8 +30,8 @@ def minPath(grid, k):
 
 if __name__ == "__main__":
     import sys
-    input = sys.stdin.read()
-    data = list(map(int, input.strip().split()))
+    input = sys.stdin.read
+    data = list(map(int, input().strip().split()))
     
     N = data[0]
     k = data[1]

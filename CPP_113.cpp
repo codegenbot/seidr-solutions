@@ -10,7 +10,7 @@ vector<string> odd_count(vector<string> lst) {
     for (const auto& str : lst) {
         int odd_count = 0;
         for (char c : str) {
-            if (isdigit(c) && (c - '0') % 2 != 0) {
+            if ((c - '0') % 2 != 0) {
                 odd_count++;
             }
         }
@@ -20,7 +20,7 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
