@@ -1,15 +1,10 @@
 def encode(message):
-    def transform_char(c):
+    def swap_case_and_replace_vowel(char):
         vowels = 'aeiouAEIOU'
-        if c in vowels:
-            if c == 'u':
-                return 'a'
-            elif c == 'U':
-                return 'A'
-            else:
-                return chr(ord(c) + 2)
-        return c.swapcase()
-    
-    return ''.join(transform_char(c) for c in message)
+        replacements = 'cgkqwCGKQW'
+        char = char.swapcase()
+        if char in vowels:
+            return replacements[vowels.index(char)]
+        return char
 
-print(encode("I DoNt KnOw WhAt tO WrItE"))
+    return ''.join(swap_case_and_replace_vowel(c) for c in message)
