@@ -31,7 +31,6 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    // Test cases
     vector<int> interval1(2), interval2(2);
     
     // Read inputs for interval1
