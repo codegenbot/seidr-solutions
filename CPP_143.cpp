@@ -1,8 +1,7 @@
 #include <iostream>
 #include <sstream>
-#include <vector>
 #include <cmath>
-#include <string>
+#include <string>  // Include this header for std::string
 
 using namespace std;
 
