@@ -1,26 +1,55 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-#include<boost/lexical_cast.hpp>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <any>
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    auto to_double = [](const boost::any& val) -> double {
-        if (val.type() == typeid(int)) return boost::any_cast<int>(val);
-        if (val.type() == typeid(float)) return boost::any_cast<float>(val);
-        if (val.type() == typeid(string)) {
-            string str = boost::any_cast<string>(val);
-            replace(str.begin(), str.end(), ',', '.');
-            return boost::lexical_cast<double>(str);
-        }
-        return 0.0;
+any string_to_number(const string& s) {
+    string s_copy = s;
+    replace(s_copy.begin(), s_copy.end(), ',', '.');
+    try {
+        return stod(s_copy);
+    } catch (const invalid_argument&) {
+        return s; // If conversion fails, return original string
+    }
+}
+
+any compare_one(any a, any b) {
+    auto get_value = [](const any& v) -> any {
+        if (v.type() == typeid(int)) return any_cast<int>(v);
+        if (v.type() == typeid(float)) return any_cast<float>(v);
+        if (v.type() == typeid(double)) return any_cast<double>(v);
+        if (v.type() == typeid(string)) return string_to_number(any_cast<string>(v));
+        return v;
     };
 
-    double val_a = to_double(a);
-    double val_b = to_double(b);
+    auto va = get_value(a);
+    auto vb = get_value(b);
 
-    if (val_a == val_b) return "None";
-    if (val_a > val_b) return a;
-    return b;
+    if (va.type() == typeid(double) && vb.type() == typeid(double)) {
+        double da = any_cast<double>(va);
+        double db = any_cast<double>(vb);
+        if (da == db) return "None";
+        return da > db ? a : b;
+    }
+
+    if (va.type() == typeid(string) && vb.type() == typeid(string)) {
+        string sa = any_cast<string>(va);
+        string sb = any_cast<string>(vb);
+        if (sa == sb) return "None";
+        return sa > sb ? a : b;
+    }
+
+    return "None";
+}
+
+int main() {
+    // Example usage
+    any result = compare_one(string("10"), string("25"));
+    if (result.type() == typeid(string))
+        cout << any_cast<string>(result) << endl;
+    else if (result.type() == typeid(double))
+        cout << any_cast<double>(result) << endl;
+
+    return 0;
 }
