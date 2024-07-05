@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert> // Add this line to include the assert header
+#include <cassert>
 
 using namespace std;
 
@@ -13,7 +13,6 @@ bool check_if_last_char_is_a_letter(string txt) {
 }
 
 int main() {
-    // Ensure all test cases are present within the original main function
     assert(check_if_last_char_is_a_letter("apple pie") == true);
     assert(check_if_last_char_is_a_letter("apple pie ") == false);
     return 0;
