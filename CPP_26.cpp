@@ -1,13 +1,15 @@
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
-    unordered_map<int, int> count;
+vector<int> result;
+    unordered_map<int, int> count_map;
+
     for (int num : numbers) {
-        count[num]++;
+        count_map[num]++;
     }
+
     for (int num : numbers) {
-        if (count[num] == 1) {
+        if (count_map[num] == 1) {
             result.push_back(num);
         }
     }
+
     return result;
 }
