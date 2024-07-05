@@ -24,7 +24,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(filter_integers({list_any(3), list_any('c'), list_any(3), list_any(3), list_any('a'), list_any('b')}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     cout << "Test passed!" << endl;
     return 0;
 }
