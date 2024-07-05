@@ -29,7 +29,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
