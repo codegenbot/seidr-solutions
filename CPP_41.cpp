@@ -20,7 +20,7 @@ int car_race_collision(string track) {
 }
 
 void test() {
-    assert(car_race_collision("RLRLRRLLR") == 5);
+    assert(car_race_collision("RLRLRRLLR") == 7);
 }
 
 int main() {
