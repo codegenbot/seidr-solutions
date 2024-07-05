@@ -1,7 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <cctype>
+
 using namespace std;
 
 bool is_consonant(char c) {
@@ -29,4 +31,20 @@ vector<string> select_words(string s, int n) {
         }
     }
     return result;
+}
+
+int main() {
+    string input;
+    int n;
+    
+    getline(cin, input);
+    cin >> n;
+    
+    vector<string> result = select_words(input, n);
+    for (const string &word : result) {
+        cout << word << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
