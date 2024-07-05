@@ -42,7 +42,7 @@ int main() {
         cout << std::any_cast<int>(result) << endl;
     else if (result.type() == typeid(string))
         cout << std::any_cast<string>(result) << endl;
-    else if (result.type() == typeid(double))
+    else
         cout << std::any_cast<double>(result) << endl;
 
     auto result2 = compare_one(string("1"), 1);
@@ -50,7 +50,7 @@ int main() {
         cout << std::any_cast<int>(result2) << endl;
     else if (result2.type() == typeid(string))
         cout << std::any_cast<string>(result2) << endl;
-    else if (result2.type() == typeid(double))
+    else
         cout << std::any_cast<double>(result2) << endl;
 
     return 0;
