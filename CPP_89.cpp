@@ -1,6 +1,5 @@
-#include <iostream>
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 string encrypt(string s) {
@@ -11,6 +10,8 @@ string encrypt(string s) {
 }
 
 int main() {
-    cout << encrypt("a") << endl;  // For testing purpose
+    string input;
+    cin >> input;
+    cout << encrypt(input) << endl;
     return 0;
 }
