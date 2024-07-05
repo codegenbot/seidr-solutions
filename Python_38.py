@@ -1,5 +1,7 @@
+import sys
+
+
 def decode_cyclic(s):
-    s = input().rstrip()
     if len(s) % 3 != 0:
         s = s.rjust(len(s) + (3 - len(s) % 3), " ")
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
