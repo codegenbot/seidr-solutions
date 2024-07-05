@@ -1,6 +1,4 @@
-string match_parens(vector<string> lst){
-    string a = lst[0], b = lst[1];
-    // Function to check if a string is balanced
+string match_parens(vector<string> lst) {
     auto isBalanced = [](const string& s) -> bool {
         int balance = 0;
         for (char c : s) {
@@ -10,10 +8,12 @@ string match_parens(vector<string> lst){
         }
         return balance == 0;
     };
-    // Check both possible concatenations
-    if (isBalanced(a + b) || isBalanced(b + a)) {
+
+    string s1 = lst[0] + lst[1];
+    string s2 = lst[1] + lst[0];
+
+    if (isBalanced(s1) || isBalanced(s2)) {
         return "Yes";
-    } else {
-        return "No";
     }
+    return "No";
 }
