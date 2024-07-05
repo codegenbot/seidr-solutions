@@ -5,8 +5,8 @@ def encode(message):
         "i": "I",
         "o": "O",
         "u": "U",
-        "t": "T",  # add this line to include the letter "t" in the vowels dictionary
         "I": "?",
+        "t": "T",
         " ": "",
         "d": "",
     }
