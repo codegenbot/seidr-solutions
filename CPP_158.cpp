@@ -1,7 +1,6 @@
-#include <iostream>
-#include <vector>
 #include <unordered_set>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -23,14 +22,4 @@ string find_max(vector<string> words) {
     }
 
     return result;
-}
-
-int main() {
-    vector<string> words;
-    string word;
-    while (cin >> word) {
-        words.push_back(word);
-    }
-    cout << find_max(words) << endl; 
-    return 0;
 }
