@@ -1,23 +1,19 @@
+```c++
 #include <string>
 
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
+    int roll = 0;
     for (char c : s) {
         if (c == 'X') {
-            score += 30;
-            currentFrame++;
+            score += 10 + max(0, roll);
+            roll = 0;
         } else if (c == '/') {
-            score += 10;
-            currentFrame++;
+            score += 10 - roll;
+            roll = 0;
         } else {
-            int pins = c - '0';
-            score += pins;
-            if (currentFrame < 10) {
-                if (s[2 + s.find(c)] == 'X' || s[3 + s.find(c)] == '/') {
-                    score += 10;
-                }
-            }
+            roll++;
         }
     }
     return score;
+}
