@@ -1,7 +1,12 @@
+```
 def indices_of_substring(text):
-    target = input()
     result = []
-    for i in range(len(text)):
-        if text[i:].startswith(target):
-            result.append(i)
-    return result
+    target = input()
+    i = 0
+    while True:
+        i = text.find(target, i)
+        if i == -1:
+            break
+        result.append(i)
+        i += len(target)
+    return sorted(result)
