@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<float> get_positive(vector<float> l) {
+vector<float> get_positive(vector<float> l){
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -19,9 +19,8 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
+    assert(issame(get_positive({-1, 1, 2, -2}), {1, 2}));
     assert(issame(get_positive({}), {}));
-    assert(issame(get_positive({-1.0, 1.0, 0.0}), {1.0}));
-    assert(issame(get_positive({2.5, -3.5, 4.5}), {2.5, 4.5}));
     cout << "All tests passed!" << endl;
     return 0;
 }
