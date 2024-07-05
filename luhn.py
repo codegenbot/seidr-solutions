@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     result = 0
@@ -12,4 +11,4 @@ def luhn(card_number):
 
 if __name__ == "__main__":
     card_number = input("Enter a credit card number: ")
-    print(luhn(card_number))
+    print(luhn(int(card_number)))
