@@ -3,14 +3,12 @@
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    istringstream iss(s);
+    stringstream ss(s);
     string word;
-    string vowels = "aeiouAEIOU";
-    
-    while (iss >> word) {
+    while (ss >> word) {
         int consonant_count = 0;
         for (char c : word) {
-            if (isalpha(c) && vowels.find(c) == string::npos) {
+            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
                 consonant_count++;
             }
         }
@@ -18,6 +16,5 @@ vector<string> select_words(string s, int n) {
             result.push_back(word);
         }
     }
-    
     return result;
 }
