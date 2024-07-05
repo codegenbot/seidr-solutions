@@ -15,4 +15,4 @@ def cut_vector(vector):
 
         left_sum += vector[i]
 
-    return str(vector[:split_index]), str(vector[split_index:])
+    return str(vector[:split_index+1]), str(vector[split_index:])

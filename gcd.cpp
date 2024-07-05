@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -25,5 +26,16 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
+    string text = "HelloWorld";
+    string target = "o";
+    vector<int> result = indicesOfSubstring(text, target);
+    cout << "Indices of substring: ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+    long long a = 48;
+    long long b = 12;
+    cout << "GCD is: " << gcd(a, b) << endl;
     return 0;
 }
