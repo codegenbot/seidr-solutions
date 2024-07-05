@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm> // For min and max functions
-#include <cassert> // For assert function
+#include <cassert>   // For assert function
 
 using namespace std;
 
