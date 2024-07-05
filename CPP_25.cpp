@@ -1,10 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
 
-vector<int> factorize(int n) {
+vector<int> factorize(int n){
     vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
@@ -18,7 +19,9 @@ vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
