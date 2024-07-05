@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 using namespace std;
 
 int next_smallest(vector<int> lst) {
@@ -16,9 +15,4 @@ int next_smallest(vector<int> lst) {
     }
     
     return -1; // No second smallest element
-}
-
-int main() {
-    cout << next_smallest({-35, 34, 12, -45}) << endl; // Should output -35
-    return 0;
 }
