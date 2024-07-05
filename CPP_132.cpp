@@ -1,15 +1,25 @@
-bool is_nested(string str){
-    int openCount = 0;
-    bool nested = false;
-    for(char ch : str) {
-        if(ch == '[') {
+#include <iostream>
+#include <string>
+#include <cassert>
+
+bool is_nested(const std::string &str) {
+    int openCount = 0, nestedCount = 0;
+    for(char c : str){
+        if(c == '[') {
             openCount++;
-        } else if(ch == ']') {
-            if(openCount > 1) {
-                nested = true;
+        } else if(c == ']') {
+            if(openCount > 0) {
+                openCount--;
+                nestedCount++;
             }
-            openCount--;
         }
     }
-    return nested;
+    return nestedCount > 1;
+}
+
+int main() {
+    assert(is_nested("]]]]]]]]") == false);
+    assert(is_nested("[][[]]") == true);
+    std::cout << "All tests passed!" << std::endl;
+    return 0;
 }
