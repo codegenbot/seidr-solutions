@@ -1,5 +1,4 @@
-Here is the solution:
-
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -12,7 +11,6 @@ def indices_of_substring(text, target):
             result.append(i)
     return result
 
-# Test cases
 print(gcd(1, 1)) # Output: 1
 print(gcd(4, 400000)) # Output: 4
 print(gcd(54, 24)) # Output: 6
