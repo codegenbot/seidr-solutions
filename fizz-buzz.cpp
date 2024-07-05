@@ -1,6 +1,1 @@
-int main() {
-    int x;
-    std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
-    return 0;
-}
+std::cout << "Enter a number: " << std::endl << fizzBuzz(x) << std::endl;
