@@ -1,5 +1,7 @@
 ```
 def decode_cyclic(s: str):
+    if len(s) == 0:
+        return ""
     result = []
     group = ""
     for char in s:
@@ -10,10 +12,9 @@ def decode_cyclic(s: str):
             else:
                 result.append(group)
             group = ""
-    while len(group) > 0:
+    if len(group) > 0:
         if len(result) > 0 and result[-1] != "":
             result.append("".join([result.pop() + group[0], group[1:] or ""]))
         else:
             result.append(group)
-        group = group[1:]
     return "".join(result).replace(",,", ",")
