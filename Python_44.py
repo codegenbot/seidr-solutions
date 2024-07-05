@@ -1,2 +1,6 @@
+
 def change_base(x: int, base: int):
-    return str(bin(x)[2:])[::-1]
+    if base == 2:
+        return format(x, 'b')
+    else:
+        return format(x, 'o')
