@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-int can_arrange(std::vector<int> arr){
+int can_arrange(std::vector<int> arr) {
     for (int i = arr.size() - 1; i > 0; --i) {
         if (arr[i] < arr[i - 1]) {
             return i;
@@ -11,17 +11,13 @@ int can_arrange(std::vector<int> arr){
 }
 
 int main() {
-    std::vector<int> input; 
-    int n, num;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n; 
-    std::cout << "Enter elements: ";
+    int n;
+    std::cin >> n;
+    std::vector<int> arr(n);
     for(int i = 0; i < n; ++i) {
-        std::cin >> num;
-        input.push_back(num);
+        std::cin >> arr[i];
     }
-    int result = can_arrange(input);
-    std::cout << "Result: " << result << std::endl;
-
+    
+    std::cout << can_arrange(arr) << std::endl;
     return 0;
 }
