@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     words = s.split()
     num_apples = int(words[1].split(' ')[0])
