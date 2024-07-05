@@ -9,7 +9,7 @@ vector<int> sort_array(vector<int> arr) {
     auto count_ones = [](int n) {
         return __builtin_popcount(n);
     };
-    
+
     sort(arr.begin(), arr.end(), [&](int a, int b) {
         int ones_a = count_ones(a);
         int ones_b = count_ones(b);
@@ -18,7 +18,7 @@ vector<int> sort_array(vector<int> arr) {
         }
         return ones_a < ones_b;
     });
-    
+
     return arr;
 }
 
@@ -28,6 +28,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    cout << "All tests passed!" << endl;
+    cout << "Test passed!" << endl;
     return 0;
 }
