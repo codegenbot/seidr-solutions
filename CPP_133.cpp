@@ -13,7 +13,7 @@ int sum_squares(const std::vector<float>& lst) {
 }
 
 int main() {
-    assert(sum_squares({-1.0f, 1.0f, 0.0f}) == 2);
+    assert(sum_squares({-1, 1, 0}) == 2);
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
