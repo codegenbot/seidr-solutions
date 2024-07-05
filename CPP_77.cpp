@@ -1,8 +1,22 @@
-#include<stdio.h>
-#include<math.h>
+#include <iostream>
 using namespace std;
 
 bool iscuber(int a) {
-    int root = round(cbrt(a));
-    return root * root * root == a;
+    for (int i = 1; i * i * i <= a; ++i) {
+        if (i * i * i == a) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    int a;
+    cin >> a;
+    if (iscuber(a)) {
+        cout << "True\n";
+    } else {
+        cout << "False\n";
+    }
+    return 0;
 }
