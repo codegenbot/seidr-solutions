@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,6 +14,7 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
+    // Test your functions here
     cout << gcd(48, 18);  
     return 0;
 }
