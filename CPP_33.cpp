@@ -1,4 +1,8 @@
-vector<int> sort_third(vector<int> l){
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> sort_third(vector<int> l) {
     vector<int> to_sort;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
