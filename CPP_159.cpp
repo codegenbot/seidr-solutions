@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
+#include <algorithm> // For min and max functions
 
 using namespace std;
 
@@ -10,7 +10,7 @@ vector<int> eat(int number, int need, int remaining) {
     return {totalEaten, carrotsLeft};
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
