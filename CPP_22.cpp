@@ -1,14 +1,12 @@
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
-#include <boost/optional.hpp>
+#include <optional>
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if(boost::any_cast<boost::optional<int>>(value).has_value()){
-            int i = *boost::any_cast<boost::optional<int>>(value);
-            result.push_back(i);
+        if(std::any_cast<std::optional<int>>(value).has_value()){
+            result.push_back(*std::any_cast<std::optional<int>>(value));
         }
     }
     return result;
