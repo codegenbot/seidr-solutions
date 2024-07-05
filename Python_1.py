@@ -4,9 +4,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     balance = 0
     current_group = []
-    for char in paren_string:
-        if char not in '()':
-            continue
+    for char in paren_string.strip().replace(" ", ""):
         current_group.append(char)
         if char == "(":
             balance += 1
@@ -18,11 +16,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return groups
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    paren_string = input().strip()
-    if paren_string:
-        result = separate_paren_groups(paren_string)
-        print(result)
-    else:
-        print([])
+    try:
+        while True:
+            paren_string = input().strip()
+            if paren_string:
+                result = separate_paren_groups(paren_string)
+                print(result)
+            else:
+                print([])
+    except EOFError:
+        pass
