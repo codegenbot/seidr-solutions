@@ -14,7 +14,7 @@ int count_upper(const std::string& s) {
 
 int main() {
     std::string input;
-    std::cin >> input;  // Assuming the input is read as a single word
+    std::cin >> input;
     std::cout << count_upper(input) << std::endl;
     return 0;
 }
