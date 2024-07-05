@@ -1,7 +1,7 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<set>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <set>
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -17,4 +17,35 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    int n, m;
+    
+    // Read sizes of the two arrays
+    cin >> n >> m;
+
+    vector<int> l1(n);
+    vector<int> l2(m);
+    
+    // Read elements of the first array
+    for (int i = 0; i < n; ++i) {
+        cin >> l1[i];
+    }
+    
+    // Read elements of the second array
+    for (int i = 0; i < m; ++i) {
+        cin >> l2[i];
+    }
+
+    // Get the common elements
+    vector<int> result = common(l1, l2);
+
+    // Print the common elements
+    for (int elem : result) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
