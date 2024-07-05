@@ -16,7 +16,7 @@ def bowling_score(frames):
         elif '/' in frames[i:]:
             if frames[i] != '/':
                 score += int(frames[i])
-            score += int(frames[i+1:].replace('/', ''))
+            score += 10 - int(frames[i+1:])
             i += 3
         else:
             temp = ''
