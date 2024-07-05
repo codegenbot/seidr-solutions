@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -6,30 +5,29 @@
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    auto total_chars = [](const vector<string>& lst) {
-        int total = 0;
-        for (const string& s : lst) {
-            total += s.size();
+    auto char_count = [](const vector<string>& lst) {
+        size_t count = 0;
+        for (const auto& str : lst) {
+            count += str.size();
         }
-        return total;
+        return count;
     };
 
-    int total1 = total_chars(lst1);
-    int total2 = total_chars(lst2);
-
-    if (total1 < total2) {
+    if (char_count(lst1) <= char_count(lst2)) {
         return lst1;
     } else {
         return lst2;
     }
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
-    cout << "All tests passed!" << endl;
+    assert(issame(total_match({"this"}, {"is"}), {"is"}));
+    assert(issame(total_match({"ab", "cd"}, {"efg"}), {"efg"}));
+    assert(issame(total_match({}, {}), {}));
     return 0;
 }

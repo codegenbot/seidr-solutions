@@ -9,10 +9,8 @@ def histogram(test):
 
 if __name__ == "__main__":
     try:
-        while True:
-            test = input().strip()
-            if test:
-                result = histogram(test)
-                print(result)
+        test = input().strip()
     except EOFError:
-        pass
+        test = ""
+    result = histogram(test)
+    print(result)
