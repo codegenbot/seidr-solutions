@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <cassert>
+#include <algorithm> // For std::remove
+#include <cassert>   // For assert
 
 using namespace std;
 
