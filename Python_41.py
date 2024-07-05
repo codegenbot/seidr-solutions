@@ -1,5 +1,10 @@
-
 def car_race_collision(n):
-    left_to_right = {i for i in range(1, n + 1)}
-    right_to_left = {i for i in range(n, 0, -1)}
-    return len(left_to_right & right_to_left)
+    count = 0
+    for i in range(1, n + 1):
+        if i % 2 == 0:
+            # Even numbered cars move left to right
+            count += (n - i) // 2
+        else:
+            # Odd numbered cars move right to left
+            count += (i - 1) // 2
+    return count * 2
