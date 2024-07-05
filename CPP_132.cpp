@@ -1,29 +1,29 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+bool is_nested(std::string str) {
+    int open_brackets = 0;
+    bool nested = false;
 
-bool is_nested(string str) {
-    int n = str.size();
-    int depth = 0;
-    for (int i = 0; i < n; ++i) {
-        if (str[i] == '[') {
-            depth++;
-        } else if (str[i] == ']') {
-            depth--;
-        }
-        if (depth > 1) {
-            return true;
-        }
-        if (depth < 0) {
-            return false;
+    for (char c : str) {
+        if (c == '[') {
+            open_brackets++;
+            if (open_brackets > 1) {
+                nested = true;
+            }
+        } else if (c == ']') {
+            open_brackets--;
         }
     }
-    return depth == 0;
+
+    return nested;
 }
 
 int main() {
-    cout << is_nested("[[][]]") << endl; // Example test case
-    cout << is_nested("[[[[]]]]") << endl; // Example test case
-    return 0;
+    std::cout << std::boolalpha; // To print boolean as true/false
+    std::cout << is_nested("[]") << std::endl;           // false
+    std::cout << is_nested("[[]]") << std::endl;         // true
+    std::cout << is_nested("[][]") << std::endl;         // false
+    std::cout << is_nested("[[[]]]") << std::endl;       // true
+    std::cout << is_nested("]") << std::endl;            // false
 }
