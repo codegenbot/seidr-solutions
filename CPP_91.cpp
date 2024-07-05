@@ -22,7 +22,7 @@ int is_bored(const string& S) {
     return count;
 }
 
-int main() {
+int main(){
     string input;
     getline(cin, input);
     cout << is_bored(input) << endl;
