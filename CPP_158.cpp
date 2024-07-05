@@ -26,11 +26,13 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    vector<string> words;
-    string word;
-    while (cin >> word) {
-        words.push_back(word);
-    }
-    cout << find_max(words) << endl;
+    vector<string> test1 = {"play", "play", "play"};
+    vector<string> test2 = {"hello", "world", "code"};
+    vector<string> test3 = {"abc", "def", "ghij"};
+
+    cout << (find_max(test1) == "play") << endl;
+    cout << (find_max(test2) == "hello") << endl;
+    cout << (find_max(test3) == "ghij") << endl;
+
     return 0;
 }
