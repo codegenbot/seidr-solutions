@@ -42,7 +42,7 @@ int main() {
     assert(issame(split_words("a,b,c"), {"a", "b", "c"}));
     assert(issame(split_words("abcdef"), {"3"}));
     assert(issame(split_words(""), {"0"}));
-
+    
     cout << "All tests passed!" << endl;
     return 0;
 }
