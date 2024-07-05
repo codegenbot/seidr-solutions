@@ -2,7 +2,7 @@ def by_length(arr):
     result = []
     for num in arr:
         if 1 <= num <= 9:
-            result.append(str(num))
+            result.append(num)
     result.sort()
     result.reverse()
-    return result
+    return [len(str(x)) for x in result]
