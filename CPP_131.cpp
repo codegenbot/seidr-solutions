@@ -1,4 +1,5 @@
-int product = 1;
+int digits(int n){
+    int product = 1;
     bool hasOdd = false;
     while (n > 0) {
         int digit = n % 10;
