@@ -25,8 +25,9 @@ def minPath(grid, k):
                         min_path = path
                 else:
                     for nx, ny in neighbors(x, y):
-                        new_path = path + [grid[nx][ny]]
-                        heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
+                        if len(path) < k:
+                            new_path = path + [grid[nx][ny]]
+                            heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
 
     return min_path
 
