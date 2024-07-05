@@ -1,12 +1,13 @@
 def encode(message):
-    vowels = ["a", "e", "i", "o", "u"]
-    encoded_message = ""
-    for char in message:
-        if char.isalpha():
-            if char.lower() in vowels:
-                encoded_char = chr((ord(char) - ord("A") + 2) % 26 + ord("A"))
-            else:
-                encoded_message += char
-        elif char.isspace() or char.ispunct():
-            encoded_message += char
+    # Use a list comprehension to create a new string with all vowels encoded
+    encoded_message = "".join(
+        [
+            (
+                char
+                if char not in ["a", "e", "i", "o", "u"]
+                else chr((ord(char) - ord("a") + 2) % 26 + ord("A"))
+            )
+            for char in message
+        ]
+    )
     return encoded_message
