@@ -1,9 +1,6 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cassert>
-
 using namespace std;
 
 string find_max(vector<string> words) {
@@ -25,10 +22,4 @@ string find_max(vector<string> words) {
     }
 
     return max_word;
-}
-
-int main() {
-    cout << find_max({"play", "play", "play"}) << endl;  // Expected output: play
-    cout << find_max({"apple", "banana", "cherry", "date"}) << endl;  // Example case for testing
-    return 0;
 }
