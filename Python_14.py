@@ -3,4 +3,4 @@ def generate_substrings(string):
 
 # Example usage or testing
 all_prefixes = generate_substrings("example")  # Sample input string
-print(all_prefixes)
+print(all_prefixes)  # Replace this line with the check function if needed
