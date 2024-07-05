@@ -22,6 +22,6 @@ vector<vector<int>> get_row(const vector<vector<int>>& lst, int x) {
 }
 
 int main() {
-    assert((get_row({{}, {1}, {1, 2, 3}}, 3) == vector<vector<int>>{{2, 2}}));
+    assert (get_row({{}, {1}, {1, 2, 3}}, 3) == vector<vector<int>>{{2, 2}});
     return 0;
 }
