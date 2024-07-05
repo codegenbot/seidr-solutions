@@ -15,12 +15,10 @@ def factorize(n: int) -> List[int]:
 if __name__ == "__main__":
     try:
         n = int(input().strip())
-        if n <= 0:
-            raise ValueError
         result = factorize(n)
         if not result and n > 1:
             print([n])
         else:
             print(result)
     except ValueError:
-        print("Invalid input. Please enter a positive integer.")
+        print("Invalid input. Please enter an integer.")
