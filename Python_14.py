@@ -9,7 +9,5 @@ try:
         print("\n".join(prefixes(input_string)))
     else:
         print("No input provided.")
-except (EOFError, KeyboardInterrupt):
-    print("No input provided.")
 except Exception as e:
     print(f"Error: {e}")
