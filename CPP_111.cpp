@@ -11,7 +11,7 @@ map<char, int> histogram(string test) {
     stringstream ss(test);
     string word;
     while (ss >> word) {
-        freq[word[0]]++;
+        freq[tolower(word[0])]++;
     }
 
     int max_count = 0;
@@ -36,6 +36,7 @@ bool issame(map<char,int> a, map<char,int> b) {
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
     assert(issame(histogram("a b"), {{'a', 1}, {'b', 1}}));
-    assert(issame(histogram("apple banana cherry date"), {{'a', 1}, {'b', 1}, {'c', 1}, {'d', 1}}));
+    assert(issame(histogram("apple banana cherry date"), {{'d', 1}, {'b', 1}, {'c', 1}}));
+    assert(issame(histogram("apple apricot banana blue"), {{'a', 2}, {'b', 2}}));
     return 0;
 }
