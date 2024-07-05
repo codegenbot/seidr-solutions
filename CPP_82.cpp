@@ -17,11 +17,12 @@ bool prime_length(std::string str) {
 
 int main() {
     std::string input;
+    std::cout << "Enter a string: ";
     std::cin >> input;
     if (prime_length(input)) {
-        std::cout << "The length of the input string is a prime number.\n";
+        std::cout << "The length of the string is a prime number." << std::endl;
     } else {
-        std::cout << "The length of the input string is not a prime number.\n";
+        std::cout << "The length of the string is not a prime number." << std::endl;
     }
     return 0;
 }
