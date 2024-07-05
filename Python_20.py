@@ -17,8 +17,10 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return closest_pair
 
 def main():
+    import sys
+    input = sys.stdin.read()
     try:
-        nums = list(map(float, input().split()))
+        nums = list(map(float, input.split()))
         if len(nums) < 2:
             print("Please enter at least two numbers.")
         else:
