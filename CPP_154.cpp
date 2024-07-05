@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 bool cycpattern_check(string a, string b) {
     int len = b.length();
     string temp = b + b;
