@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <unordered_set>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
@@ -9,19 +9,16 @@ using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     unordered_set<char> to_delete(c.begin(), c.end());
-
-    string result;
+    string filtered;
     for (char ch : s) {
         if (to_delete.find(ch) == to_delete.end()) {
-            result += ch;
+            filtered.push_back(ch);
         }
     }
-
-    string reversed_result = result;
-    reverse(reversed_result.begin(), reversed_result.end());
-    bool is_palindrome = (result == reversed_result);
-
-    return {result, is_palindrome ? "True" : "False"};
+    string reversed_filtered = filtered;
+    reverse(reversed_filtered.begin(), reversed_filtered.end());
+    bool is_palindrome = (filtered == reversed_filtered);
+    return {filtered, is_palindrome ? "True" : "False"};
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -29,6 +26,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"mm", "True"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
