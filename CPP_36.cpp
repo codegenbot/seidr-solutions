@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <stdio.h>
 
 int fizz_buzz(int n) {
     int count = 0;
