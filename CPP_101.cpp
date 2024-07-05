@@ -2,7 +2,18 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 using namespace std;
+
+vector<string> words_string(string s);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 vector<string> words_string(string s) {
     vector<string> result;
@@ -23,12 +34,7 @@ vector<string> words_string(string s) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
     assert(issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
-    cout << "All tests passed." << endl;
     return 0;
 }
