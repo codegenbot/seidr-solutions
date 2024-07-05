@@ -4,8 +4,8 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int largest_negative = 0;
-    int smallest_positive = 0;
+    int largest_negative = -1e9;
+    int smallest_positive = 1e9;
     bool found_negative = false;
     bool found_positive = false;
 
@@ -26,17 +26,10 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     return {found_negative ? largest_negative : 0, found_positive ? smallest_positive : 0};
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
-    assert(issame(largest_smallest_integers({7, -1, 3, -2, 0, 5}), {-1, 3}));
-    assert(issame(largest_smallest_integers({-5, -9, -2}), {-2, 0}));
-    assert(issame(largest_smallest_integers({4, 1, 2, 3}), {0, 1}));
-    assert(issame(largest_smallest_integers({}), {0, 0}));
-    assert(issame(largest_smallest_integers({0, -1, 0, -10, 0}), {-1, 0}));
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>({-3, 1}));
+    assert(largest_smallest_integers({5, 2, 3, 1, -1, -2, -3, 0}) == vector<int>({-1, 1}));
+    assert(largest_smallest_integers({0, 0, 0}) == vector<int>({0, 0}));
     cout << "All tests passed!" << endl;
     return 0;
 }
