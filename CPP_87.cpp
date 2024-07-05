@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,10 +19,4 @@ vector<vector<int>> get_row(const vector<vector<int>> &lst, int x) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(get_row({{}, {1}, {1, 2, 3}}, 3) == vector<vector<int>>{{2, 2}});
-    cout << "All tests passed!" << endl;
-    return 0;
 }
