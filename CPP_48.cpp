@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 using namespace std;
 
 bool is_palindrome(string text){
@@ -18,13 +18,11 @@ bool is_palindrome(string text){
 int main() {
     string input;
     cout << "Enter a string: ";
-    getline(cin, input);
-    
+    cin >> input;
     if (is_palindrome(input)) {
         cout << "The string is a palindrome." << endl;
     } else {
         cout << "The string is not a palindrome." << endl;
     }
-    
     return 0;
 }
