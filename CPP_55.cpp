@@ -13,7 +13,7 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(12) == 144); // Test to verify the function
+    assert(fib(12) == 144);
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
