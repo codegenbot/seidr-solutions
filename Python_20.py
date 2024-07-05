@@ -1,5 +1,4 @@
 from typing import List, Tuple
-import sys
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     if len(numbers) < 2:
@@ -19,11 +18,10 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 if __name__ == "__main__":
     try:
-        nums = list(map(float, sys.stdin.read().strip().split()))
+        nums = list(map(float, input().split()))
         if len(nums) < 2:
             print("Please enter at least two numbers.")
         else:
-            result = find_closest_elements(nums)
-            print(result)
+            print(find_closest_elements(nums))
     except ValueError:
         print("Invalid input. Please enter valid numbers separated by spaces.")

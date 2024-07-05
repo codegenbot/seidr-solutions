@@ -1,8 +1,6 @@
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    if not numbers:
-        return []
     seen = set()
     result = []
     for num in numbers:
@@ -12,11 +10,8 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return result
 
 def main():
+    input_data = input().strip()
     try:
-        input_data = input().strip()
-        if not input_data:
-            print([])
-            return
         numbers = list(map(int, input_data.split()))
         print(remove_duplicates(numbers))
     except ValueError:
