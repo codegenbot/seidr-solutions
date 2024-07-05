@@ -1,4 +1,5 @@
 from typing import List, Optional
+import sys
 
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
@@ -6,10 +7,8 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
     try:
-        strings = input().strip().split()
-        print(longest(strings))
+        inputs = sys.stdin.read().strip().split()
+        print(longest(inputs))
     except EOFError:
         pass
