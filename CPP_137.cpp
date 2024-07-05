@@ -19,18 +19,14 @@ std::any compare_one(std::any a, std::any b) {
         valA = std::any_cast<float>(a);
     else if (a.type() == typeid(string))
         valA = convertToDouble(std::any_cast<string>(a));
-    else
-        valA = std::any_cast<double>(a);
-
+    
     if (b.type() == typeid(int))
         valB = std::any_cast<int>(b);
     else if (b.type() == typeid(float))
         valB = std::any_cast<float>(b);
     else if (b.type() == typeid(string))
         valB = convertToDouble(std::any_cast<string>(b));
-    else
-        valB = std::any_cast<double>(b);
-    
+
     if (valA > valB)
         return a;
     else if (valB > valA)
