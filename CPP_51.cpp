@@ -1,9 +1,9 @@
-string result;
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
+string remove_vowels(string text){
     string vowels = "aeiouAEIOU";
-    for(char c : text) {
-        if(vowels.find(c) == string::npos) {
-            result += c;
-        }
-    }
-    return result;
+    text.erase(remove_if(text.begin(), text.end(), [&](char c){ return vowels.find(c) != string::npos; }), text.end());
+    return text;
 }
