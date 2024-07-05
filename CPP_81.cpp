@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -25,16 +26,9 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<float> grades(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> grades[i];
-    }
-    vector<string> result = numerical_letter_grade(grades);
-    for (const string &grade : result) {
-        cout << grade << " ";
-    }
-    cout << endl;
+    assert(numerical_letter_grade({0, 0.7}) == vector<string>{"E", "D-"});
+    assert(numerical_letter_grade({4.0, 3.8, 3.4, 3.1, 2.8, 2.4, 2.1, 1.8, 1.4, 1.1, 0.8, 0.1}) == 
+           vector<string>{"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-"});
+    assert(numerical_letter_grade({2.5, 3.5, 4.0}) == vector<string>{"B-", "B+", "A+"});
     return 0;
 }
