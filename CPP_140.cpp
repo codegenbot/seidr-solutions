@@ -17,6 +17,7 @@ std::string fix_spaces(const std::string &text) {
             spaceCount = 0;
         }
     }
+    // Handle trailing spaces
     if(spaceCount == 1) {
         result += '_';
     } else if(spaceCount > 1) {
