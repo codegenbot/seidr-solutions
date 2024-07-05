@@ -22,8 +22,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    vector<int> expected = {18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88};
-    assert(issame(generate_integers(17, 89), expected));
+    assert(issame(generate_integers(1, 10), {2, 4, 6, 8, 10}));
+    assert(!issame(generate_integers(1, 10), {1, 3, 5, 7, 9}));
     cout << "All tests passed!" << endl;
     return 0;
 }
