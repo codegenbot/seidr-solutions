@@ -4,11 +4,15 @@
 int countWhitePegs(string code, string guess) {
     int whitePegs = 0;
     for (int i = 0; i < 4; i++) {
+        bool found = false;
         for (int j = 0; j < 4; j++) {
-            if (code[i] == guess[j] && code[i] != guess[i]) {
-                whitePegs++;
+            if (code[i] == guess[j]) {
+                found = true;
                 break;
             }
+        }
+        if (found && code[i] != guess[i]) {
+            whitePegs++;
         }
     }
     return whitePegs;
@@ -26,8 +30,8 @@ int countBlackPegs(string code, string guess) {
 
 int main() {
     string code, guess;
-    std::cin >> code >> guess;
-    std::cout << countWhitePegs(code, guess) << std::endl;
-    std::cout << countBlackPegs(code, guess) << std::endl;
+    cin >> code >> guess;
+    cout << countWhitePegs(code, guess) << endl;
+    cout << countBlackPegs(code, guess) << endl;
     return 0;
 }
