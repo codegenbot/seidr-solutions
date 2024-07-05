@@ -1,5 +1,6 @@
-#include <string>
 #include <iostream>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -16,6 +17,6 @@ bool cycpattern_check(string a, string b) {
 }
 
 int main() {
-    cout << cycpattern_check("winemtt", "tinem") << endl; // Expected output: 1 (true)
+    assert(cycpattern_check("winemtt", "tinem") == true);
     return 0;
 }
