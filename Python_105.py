@@ -1,4 +1,3 @@
-
 def by_length(arr):
     result = []
     for num in arr:
