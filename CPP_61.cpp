@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-bool correct_bracketing(const std::string &brackets) {
+bool correct_bracketing(std::string brackets) {
     int balance = 0;
     for (char ch : brackets) {
         if (ch == '(') balance++;
@@ -12,20 +13,13 @@ bool correct_bracketing(const std::string &brackets) {
 }
 
 int main() {
-    std::string test1 = "()()(()())";
-    std::cout << correct_bracketing(test1) << std::endl;
-
-    std::string test2 = "((())";
-    std::cout << correct_bracketing(test2) << std::endl;
-
-    std::string test3 = ")()(";
-    std::cout << correct_bracketing(test3) << std::endl;
-    
-    std::string test4 = "(()())()";
-    std::cout << correct_bracketing(test4) << std::endl;
-
-    std::string test5 = "";
-    std::cout << correct_bracketing(test5) << std::endl;
-
+    assert(correct_bracketing("()"));
+    assert(correct_bracketing("(())"));
+    assert(!correct_bracketing("(()"));
+    assert(!correct_bracketing(")("));
+    assert(correct_bracketing("()()"));
+    assert(correct_bracketing("(())()"));
+    assert(!correct_bracketing("()()(()())()))()"));
+    std::cout << "All tests passed" << std::endl;
     return 0;
 }
