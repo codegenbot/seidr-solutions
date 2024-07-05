@@ -2,7 +2,6 @@
 #include <string>
 #include <cctype>
 #include <cassert>
-
 using namespace std;
 
 bool check_if_last_char_is_a_letter(string txt) {
