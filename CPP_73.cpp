@@ -14,9 +14,13 @@ int smallest_change(const std::vector<int>& arr) {
 
 int main() {
     std::vector<int> arr;
-    int num;
-    while (std::cin >> num) {
-        arr.push_back(num);
+    int size, element;
+    std::cout << "Enter the size of the array: ";
+    std::cin >> size;
+    std::cout << "Enter the elements of the array: ";
+    for (int i = 0; i < size; ++i) {
+        std::cin >> element;
+        arr.push_back(element);
     }
     std::cout << smallest_change(arr) << std::endl;
     return 0;
