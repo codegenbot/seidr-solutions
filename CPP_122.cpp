@@ -1,3 +1,9 @@
+#include <vector>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; ++i) {
@@ -6,4 +12,11 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
+}
+
+int main() {
+    assert(add_elements({1}, 1) == 1);
+    assert(add_elements({100, -100, 50, -50, -99}, 5) == -99);
+    cout << "All test cases passed." << endl;
+    return 0;
 }
