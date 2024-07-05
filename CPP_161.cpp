@@ -1,10 +1,11 @@
 #include <iostream>
+#include <algorithm> // for reverse
+#include <cctype>   // for isalpha, isupper, islower, toupper, tolower
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
-string solve(string s) {
+string solve(string s){
     bool hasLetter = false;
     for (char c : s) {
         if (isalpha(c)) {
@@ -24,8 +25,7 @@ string solve(string s) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << solve(input) << endl;
+    // Test cases
+    cout << solve("#ccc") << endl; // Output: "#CCC"
     return 0;
 }
