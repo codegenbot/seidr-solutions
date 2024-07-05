@@ -1,3 +1,4 @@
+
 def fizz_buzz(n):
     mapping = {3: "Fizz", 5: "Buzz", 15: "FizzBuzz"}
     count = 0
