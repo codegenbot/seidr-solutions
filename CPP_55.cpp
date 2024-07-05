@@ -16,6 +16,6 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    cout << "Fibonacci number is: " << fib(n) << endl;
+    cout << "Fibonacci number: " << fib(n) << endl;
     return 0;
 }
