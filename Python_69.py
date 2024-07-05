@@ -7,6 +7,5 @@ def search(lst):
             result = max(result, num)
     return result
 
-# Read input
 lst = list(map(int, input().split()))
 print(search(lst))
