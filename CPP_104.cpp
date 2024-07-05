@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -26,12 +27,11 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
 int main() {
     assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    cout << "All tests passed!\n";
     return 0;
 }
