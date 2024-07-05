@@ -1,23 +1,17 @@
-```python
 def cut_vector(vector):
-    total_sum = sum(vector)
-    left_sum = 0
+    n = len(vector)
+    dp = [float("inf")] * (n + 1)
     
-    min_diff = float("inf")
-    split_index = 0
-
-    for i in range(len(vector)):
-        right_sum = total_sum - left_sum
+    for i in range(n+1):
+        left_sum = sum(vector[:i])
         
-        if (left_sum == right_sum or abs(left_sum - right_sum) < min_diff):
-            min_diff = abs(left_sum - right_sum)
-            split_index = i
+        if i == 0:
+            right_sum = 0
+        else:
+            right_sum = sum(vector[i:])
         
-        left_sum += vector[i]
-
-    return str(vector[:split_index]), str(vector[split_index:])
-
-vector = [6438, 9881, 7054, 5424, 8598, 2084, 911, 946, 4802, 3239, 3363, 8450, 6751, 879]
-sub_vector1, sub_vector2 = cut_vector(vector)
-print("Sub-vector 1: ", sub_vector1)
-print("Sub-vector 2: ", sub_vector2)
+        dp[i] = abs(left_sum - right_sum)
+        
+    min_diff_index = dp.index(min(dp))
+    
+    return vector[:min_diff_index], vector[min_diff_index:]
