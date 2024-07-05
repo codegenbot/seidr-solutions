@@ -2,13 +2,13 @@
 #include<vector>
 #include<string>
 #include<algorithm>
-#include<set>
+#include<unordered_set>
 using namespace std;
 
 int count_distinct_characters(string str){ 
-    set<char> distinct_chars;
+    unordered_set<char> distinctChars;
     for(char c : str) {
-        distinct_chars.insert(tolower(c));
+        distinctChars.insert(tolower(c));
     }
-    return distinct_chars.size();
+    return distinctChars.size();
 }
