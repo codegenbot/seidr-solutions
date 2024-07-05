@@ -10,12 +10,13 @@ vector<string> odd_count(vector<string> lst) {
     for (const string &s : lst) {
         int odd_count = 0;
         for (char c : s) {
-            if (isdigit(c) && (c - '0') % 2 != 0) {
+            if ((c - '0') % 2 != 0) {
                 odd_count++;
             }
         }
         string res = "the number of odd elements " + to_string(odd_count) + 
-                     " in the string " + s + " is " + to_string(odd_count) + ".";
+                     " in the string " + to_string(odd_count) + 
+                     " of the " + to_string(odd_count) + " input.";
         result.push_back(res);
     }
     return result;
@@ -27,11 +28,11 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 2 in the string 271 is 2.",
-        "the number of odd elements 3 in the string 137 is 3.",
-        "the number of odd elements 2 in the string 314 is 2."
+        "the number of odd elements 2 in the string 2 of the 2 input.",
+        "the number of odd elements 3 in the string 3 of the 3 input.",
+        "the number of odd elements 2 in the string 2 of the 2 input."
     }));
-    
+
     cout << "All tests passed!" << endl;
 
     return 0;
