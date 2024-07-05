@@ -6,16 +6,15 @@ using namespace std;
 
 bool check_if_last_char_is_a_letter(string txt) {
     if (txt.empty()) return false;
-    // Remove trailing spaces
     size_t end = txt.find_last_not_of(' ');
-    if (end == string::npos) return false; // string is all spaces
+    if (end == string::npos) return false;
     return isalpha(txt[end]);
 }
 
 int main() {
-    cout << boolalpha; // for printing boolean values as true/false
-    cout << check_if_last_char_is_a_letter("apple pie ") << endl; // false
-    cout << check_if_last_char_is_a_letter("apple pie") << endl; // true
-    cout << check_if_last_char_is_a_letter(" ") << endl; // false
+    cout << boolalpha;
+    cout << check_if_last_char_is_a_letter("apple pie ") << endl;
+    cout << check_if_last_char_is_a_letter("apple pie") << endl;
+    cout << check_if_last_char_is_a_letter(" ") << endl;
     return 0;
 }
