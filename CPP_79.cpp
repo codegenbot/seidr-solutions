@@ -19,7 +19,7 @@ int main() {
     assert(decimal_to_binary(0) == "db0db");
     assert(decimal_to_binary(1) == "db1db");
     assert(decimal_to_binary(2) == "db10db");
-    assert(decimal_to_binary(3) == "db11db");
+    assert(decimal_to_binary(7) == "db111db");
     cout << "All tests passed!" << endl;
     return 0;
 }
