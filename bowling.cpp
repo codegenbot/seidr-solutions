@@ -1,4 +1,3 @@
-```c++
 int currentRoll = 0;
 int bowlingScore(const char* s) {
     int score = 0;
@@ -30,4 +29,3 @@ int bowlingScore(const char* s) {
         }
     }
     return score;
-}
