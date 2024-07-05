@@ -18,6 +18,6 @@ string encode_cyclic(const string &s);
 int main(){
     string str = "example";
     string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
+    assert (decode_cyclic(encoded_str) == str);
     return 0;
 }
