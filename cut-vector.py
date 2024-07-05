@@ -1,4 +1,4 @@
-```python
+```
 def cut_vector(vector):
     """Given a vector of positive integers, find the spot where, if you cut the vector, 
     the numbers on both sides are either equal, or the difference is as small as possible. 
