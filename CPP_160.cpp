@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cmath> // for 'pow'
+
 using namespace std;
 
 int do_algebra(vector<string> operato, vector<int> operand) {
