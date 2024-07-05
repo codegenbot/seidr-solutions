@@ -10,16 +10,13 @@ string rounded_avg(int n, int m) {
         sum += i;
         count++;
     }
-    int avg = round(static_cast<double>(sum) / count);
-    
-    if (avg == 0) return "0";
-
+    int avg = round(static_cast<double>(sum) / count); // Rounding the average
     string binary = "";
     while (avg > 0) {
         binary = (avg % 2 == 0 ? "0" : "1") + binary;
         avg /= 2;
     }
-    return binary;
+    return binary == "" ? "0" : binary;
 }
 
 int main() {
