@@ -2,13 +2,17 @@
 using namespace std;
 
 int whitePegs(string code, string guess) {
-    int count = 0;
+    int colorCorrect = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
+            // correct position
+            return 1;
+        } else if (count(guess[i], code) > 0) {
+            // correct color, wrong position
+            colorCorrect++;
         }
     }
-    return count;
+    return colorCorrect;
 }
 
 int blackPegs(string code, string guess) {
@@ -17,12 +21,15 @@ int blackPegs(string code, string guess) {
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
                 if (i == j) {
+                    // correct color and position
                     correctPosition++;
+                } else {
+                    // correct color, wrong position (already counted in whitePegs)
                 }
             }
         }
     }
-    return 4 - whitePegs(code, guess);
+    return 4 - whitePegs(code, guess) - correctPosition;
 }
 
 int main() {
@@ -34,8 +41,8 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
 
-    int white = whitePegs(code, guess);
-    int black = 4 - white;
+    int black = blackPegs(code, guess);
+    int white = 4 - black;
 
     cout << black << endl;
     cout << white << endl;
