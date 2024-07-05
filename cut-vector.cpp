@@ -12,7 +12,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             index = i;
         }
     }
-    vector<int> left = vector<int>(v.begin(), v.begin() + index + 1);
+    vector<int> left = vector<int>(v.begin(), v.begin() + index);
     vector<int> right = vector<int>(v.begin() + index, v.end());
     return make_pair(left, right);
 }
@@ -34,5 +34,6 @@ int main() {
     for (const auto &x : result.second) {
         cout << x << " ";
     }
-    cout << endl;
+    cout << std::endl;
     return 0;
+}
