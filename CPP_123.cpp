@@ -10,7 +10,7 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1); // Adding 1 at the end as required by the sequence
+    result.push_back(1); // as n=1 is also odd and part of the sequence.
     sort(result.begin(), result.end());
     return result;
 }
