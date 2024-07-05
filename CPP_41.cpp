@@ -25,8 +25,8 @@ int main() {
 
     int result = car_race_collision(track);
     cout << result << endl;
-    
-    assert(car_race_collision("RLRL") == 2);
+
+    assert(car_race_collision("RLRRLLRRL") == 6);
 
     return 0;
 }
