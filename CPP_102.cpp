@@ -9,10 +9,18 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    assert(choose_num(1, 4) == 4);
-    assert(choose_num(1, 5) == 4);
-    assert(choose_num(6, 5) == -1);
-    assert(choose_num(5, 5) == 5);
-    assert(choose_num(2, 3) == 2);
+    assert(choose_num(546, 546) == 546);
+    assert(choose_num(500, 501) == 500);
+    assert(choose_num(10, 9) == 9);
+    assert(choose_num(9, 8) == 8);
+    assert(choose_num(5, 3) == -1);
+    assert(choose_num(4, 6) == 6);
+    
+    // Test with user input
+    int x, y;
+    std::cout << "Enter x and y values: ";
+    std::cin >> x >> y;
+    std::cout << "Result: " << choose_num(x, y) << std::endl;
+
     return 0;
 }
