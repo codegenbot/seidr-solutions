@@ -1,3 +1,4 @@
+
 def snow_day(hours, snow_on_ground, snow_fall_rate, melting_proportion):
     # Calculate the amount of snow that falls in each hour
     snow_fallen = snow_fall_rate * hours
