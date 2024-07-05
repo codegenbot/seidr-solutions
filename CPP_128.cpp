@@ -1,3 +1,9 @@
+#include <vector>
+#include <cmath>
+#include <cstdlib>
+
+using namespace std;
+
 int prod_signs(vector<int> arr) {
     if (arr.empty()) return -32768;
     
