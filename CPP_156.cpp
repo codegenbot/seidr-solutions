@@ -22,14 +22,12 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    // Test the function
     assert(int_to_mini_roman(1000) == "m");
     assert(int_to_mini_roman(938) == "cmxxxviii");
     assert(int_to_mini_roman(4) == "iv");
     assert(int_to_mini_roman(44) == "xliv");
     assert(int_to_mini_roman(3999) == "mmmcmxcix");
-    
-    cout << "All tests passed." << endl;
 
+    cout << "All tests passed." << endl;
     return 0;
 }
