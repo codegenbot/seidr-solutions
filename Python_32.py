@@ -1,7 +1,6 @@
 def find_zero(xs: list):
     if len(xs) < 2:
-        return -xs[1] / xs[0]
-    elif len(xs) == 2:
-        return -xs[1] / xs[0]
-    else:
-        return (-xs[2] + math.sqrt((xs[1]**2) - (4*xs[0]*xs[-1])))/(2*xs[0])
+        raise ValueError("List must have at least two elements")
+    a, b, c = xs
+    d = math.sqrt((b**2) - (4*a*c))
+    return (-b + d)/(2*a)
