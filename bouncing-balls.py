@@ -9,6 +9,6 @@ total_distance = 0
 
 for _ in range(num_bounces):
     total_distance += math.log(start_height * bounciness_index)
-    start_height *= 1 - 0.5
+    start_height *= (1 - 0.5)  
 
 print(round(total_distance, 4))

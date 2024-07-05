@@ -16,16 +16,6 @@ int calculateFuelCost(std::initializer_list<int> numbers) {
 }
 
 int main() {
-    int num1, num2, num3; 
-    std::cout << "Enter first number: ";
-    std::cin >> num1;
-    std::cout << "Enter second number: ";
-    std::cin >> num2;
-    std::cout << "Enter third number: ";
-    std::cin >> num3;
-
-    std::vector<int> numbers = {num1, num2, num3};
-    int result = calculateFuelCost(numbers);
-    std::cout << "The fuel cost is: " << result << std::endl;
-    return 0;
+    int result = calculateFuelCost({12, 45, 7, 34});
+    return result;
 }
