@@ -1,8 +1,13 @@
-if (lst.size() < 2) return -1; // Assuming -1 represents None
+if (lst.size() < 2) return -1; // Assuming -1 as None, as C++ does not have None
+
     sort(lst.begin(), lst.end());
-    int smallest = lst[0];
+
+    int first_smallest = lst[0];
     for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] != smallest) return lst[i];
+        if (lst[i] != first_smallest) {
+            return lst[i];
+        }
     }
-    return -1; // If no second smallest element is found
+
+    return -1; // If there is no second smallest element
 }
