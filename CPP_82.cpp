@@ -15,7 +15,6 @@ bool prime_length(const std::string& str) {
     return is_prime(str.length());
 }
 
-// Remove or comment out the duplicate main function.
 int main() {
     std::string input;
     std::cin >> input;
