@@ -1,5 +1,5 @@
 def search(lst):
     from collections import Counter
-    freq = Counter(lst)
-    candidates = [num for num, count in freq.items() if count >= num]
+    count = Counter(lst)
+    candidates = [num for num, freq in count.items() if freq >= num]
     return max(candidates, default=-1)
