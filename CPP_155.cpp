@@ -3,7 +3,6 @@
 #include <cmath>
 #include <cassert>
 
-// Function to count even and odd digits in a number
 std::vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
     num = abs(num);
@@ -23,12 +22,10 @@ std::vector<int> even_odd_count(int num) {
     return {even_count, odd_count};
 }
 
-// Function to check if two vectors are the same
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-// Main function with test cases
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
     std::cout << "All test cases passed!" << std::endl;
