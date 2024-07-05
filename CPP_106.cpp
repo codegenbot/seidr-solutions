@@ -25,10 +25,15 @@ vector<int> f(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for(size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert (issame(f(3) , {1, 2, 6}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
