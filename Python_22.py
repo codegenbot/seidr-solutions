@@ -3,13 +3,9 @@ from typing import List, Any
 def filter_integers(values: List[Any]) -> List[int]:
     return [v for v in values if isinstance(v, int)]
 
-user_input = input("Enter values separated by spaces: ").split()
-
-parsed_input = []
-for item in user_input:
-    try:
-        parsed_input.append(int(item))
-    except ValueError:
-        parsed_input.append(item)
-
-print(filter_integers(parsed_input))
+if __name__ == "__main__":
+    user_input = input("Enter a list of values separated by spaces: ")
+    values = user_input.split()
+    converted_values = [int(v) if v.isdigit() else v for v in values]
+    result = filter_integers(converted_values)
+    print(result)
