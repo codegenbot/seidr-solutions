@@ -30,4 +30,3 @@ int calculateBowlingScore(const char* s) {
         }
     }
     return score;
-}
