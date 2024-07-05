@@ -10,7 +10,7 @@ vector<string> odd_count(const vector<string>& lst) {
     for (const auto& str : lst) {
         int odd_count = 0;
         for (char c : str) {
-            if ((c - '0') % 2 != 0) {
+            if ((c - '0') % 2 != 0) { 
                 odd_count++;
             }
         }
@@ -25,7 +25,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(odd_count({"271", "137", "314"}), {
+    assert(issame(odd_count({"271", "137", "314"}), vector<string>{
         "the number of odd elements 2 in the string 271 of the input.",
         "the number of odd elements 3 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
