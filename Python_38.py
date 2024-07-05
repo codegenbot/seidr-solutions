@@ -1,19 +1,18 @@
-```python
-def decode_cyclic(s: str):
-    result = []
-    group = ""
-    for char in s:
-        group += char
-        if len(group) == 3:
-            if result and result[-1] != "":
-                result.append(result.pop() + group[0] + group[1:])
-            else:
-                result.append(group)
-            group = ""
-    while group:
-        if result and result[-1] != "":
-            result.append(result.pop() + group[0] + group[1:])
+def decode_cyclic(s):
+    s = s[3:]
+    result = ""
+    i = 0
+    while len(s) > 0:
+        if s[0] == 'r':
+            if len(s) > 1 and s[1] != ',':
+                return "Invalid sequence"
+            result += s[:i]
+            s = s[i+2:]
+            i = 0
         else:
-            result.append(group)
-        group = group[1:]
-    return ",".join(result).replace(",,", ",")
+            i += 1
+    return result
+
+if __name__ == "__main__":
+    s = "<<<" + input()
+    print(decode_cyclic(s).replace(",,", ","))
