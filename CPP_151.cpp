@@ -18,7 +18,7 @@ int main() {
     float temp;
 
     while (cin >> temp) {
-        if (cin.fail() || floor(temp) != temp) break;
+        if (cin.fail()) break;
         lst.push_back(temp);
     }
 
