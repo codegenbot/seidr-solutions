@@ -1,47 +1,54 @@
 #include <iostream>
 #include <string>
-#include <variant>
 #include <algorithm>
-#include <stdexcept>
-
+#include <any>
 using namespace std;
 
-variant<int, float, string> compare_one(variant<int, float, string> a, variant<int, float, string> b) {
-    auto to_double = [](const variant<int, float, string>& val) -> double {
-        if (holds_alternative<int>(val)) return get<int>(val);
-        if (holds_alternative<float>(val)) return get<float>(val);
-        if (holds_alternative<string>(val)) {
-            string str = get<string>(val);
-            replace(str.begin(), str.end(), ',', '.');
-            return stod(str);
-        }
-        throw invalid_argument("Invalid type");
+any string_to_number(const string& s) {
+    string s_copy = s;
+    replace(s_copy.begin(), s_copy.end(), ',', '.');
+    try {
+        return stod(s_copy);
+    } catch (const invalid_argument&) {
+        return s;
+    }
+}
+
+any compare_one(any a, any b) {
+    auto get_value = [](const any& v) -> any {
+        if (v.type() == typeid(int)) return any_cast<int>(v);
+        if (v.type() == typeid(float)) return any_cast<float>(v);
+        if (v.type() == typeid(double)) return any_cast<double>(v);
+        if (v.type() == typeid(string)) return string_to_number(any_cast<string>(v));
+        return v;
     };
 
-    double val_a = to_double(a);
-    double val_b = to_double(b);
+    auto va = get_value(a);
+    auto vb = get_value(b);
 
-    if (val_a == val_b) return "None";
-    if (val_a > val_b) return a;
-    return b;
+    if (va.type() == typeid(double) && vb.type() == typeid(double)) {
+        double da = any_cast<double>(va);
+        double db = any_cast<double>(vb);
+        if (da == db) return "None";
+        return da > db ? a : b;
+    }
+
+    if (va.type() == typeid(string) && vb.type() == typeid(string)) {
+        string sa = any_cast<string>(va);
+        string sb = any_cast<string>(vb);
+        if (sa == sb) return "None";
+        return sa > sb ? a : b;
+    }
+
+    return "None";
 }
 
 int main() {
-    variant<int, float, string> a, b;
-    // Example inputs - these would typically come from user input or other sources
-    a = 5;
-    b = string("4,5");
-
-    variant<int, float, string> result = compare_one(a, b);
-
-    if (holds_alternative<string>(result) && get<string>(result) == "None")
-        cout << "None" << endl;
-    else if (holds_alternative<int>(result))
-        cout << "Greater: " << get<int>(result) << endl;
-    else if (holds_alternative<float>(result))
-        cout << "Greater: " << get<float>(result) << endl;
-    else
-        cout << "Greater: " << get<string>(result) << endl;
+    any result = compare_one(string("10"), string("25"));
+    if (result.type() == typeid(string))
+        cout << any_cast<string>(result) << endl;
+    else if (result.type() == typeid(double))
+        cout << any_cast<double>(result) << endl;
 
     return 0;
 }
