@@ -3,8 +3,7 @@ def histogram():
     
     test = input().strip()
     if not test:
-        print({})
-        return
+        return {}
     
     counts = Counter(test.split())
     max_count = max(counts.values())
