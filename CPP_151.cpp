@@ -13,19 +13,9 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float val;
-    
-    std::cout << "Enter float values (enter any non-number to stop): ";
-    while (std::cin >> val) {
-        lst.push_back(val);
-    }
-    
-    std::cin.clear();
-    std::string dummy;
-    std::cin >> dummy; // Consume non-number input
-
-    std::cout << "Sum of squares of positive odd integers: " << double_the_difference(lst) << std::endl;
-
+    std::vector<float> lst = {1.0, 2.5, 3.0, 5.0, 7.2, 9.0};
+    long long odd_sum = 1*1 + 3*3 + 9*9; // precalculated expected value for {1.0, 3.0, 9.0}
+    assert(double_the_difference(lst) == odd_sum);
+    std::cout << "Test Passed!" << std::endl;
     return 0;
 }
