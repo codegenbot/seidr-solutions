@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -15,13 +16,10 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr;
-    int n, elem;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> elem;
-        arr.push_back(elem);
-    }
-    cout << smallest_change(arr) << endl;
+    // All test cases should pass
+    assert(smallest_change({0, 1}) == 1);
+    assert(smallest_change({1, 2, 3, 2, 1}) == 0);
+    assert(smallest_change({1, 2, 3, 4, 5}) == 2);
+    cout << "All test cases pass" << endl;
     return 0;
 }
