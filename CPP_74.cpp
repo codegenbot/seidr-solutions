@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -21,7 +22,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else if (total2 < total1) {
         return lst2;
     } else {
-        return lst1;
+        return {}; // Return an empty list when totals are the same
     }
 }
 
@@ -31,6 +32,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
-    // Add more test cases if needed
+    cout << "All tests passed!" << endl;
     return 0;
 }
