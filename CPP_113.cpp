@@ -22,14 +22,21 @@ vector<string> odd_count(const vector<string>& lst) {
     return result;
 }
 
+// Helper function to compare vectors of strings
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 int main() {
-    vector<string> result = odd_count({"271", "137", "314"});
-    vector<string> expected = {
+    assert(issame(odd_count({"271", "137", "314"}), {
         "the number of odd elements 2 in the string is 2",
         "the number of odd elements 3 in the string is 3",
         "the number of odd elements 2 in the string is 2"
-    };
-    assert(result == expected);
+    }));
     cout << "All tests passed!" << endl;
     return 0;
 }

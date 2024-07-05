@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
 int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -9,4 +16,18 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    vector<int> nums;
+    int n, temp;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for(int i = 0; i < n; ++i) {
+        cin >> temp;
+        nums.push_back(temp);
+    }
+    cout << specialFilter(nums) << endl;
+    return 0;
 }
