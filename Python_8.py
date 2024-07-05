@@ -8,10 +8,11 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, total_product
 
 if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read().strip()
     try:
-        input_line = input().strip()
-        if input_line:
-            numbers = list(map(int, input_line.split()))
+        if input:
+            numbers = list(map(int, input.split()))
             result = sum_product(numbers)
             print(result[0], result[1])
         else:
