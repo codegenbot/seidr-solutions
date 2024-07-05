@@ -6,12 +6,12 @@ int largest_divisor(int n) {
             return i;
         }
     }
-    return 1;
+    return 1; // This line will never be reached for n > 1
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    std::cout << largest_divisor(n) << std::endl;
+    std::cin >> n; // Read input from user
+    std::cout << largest_divisor(n) << std::endl; // Output the result
     return 0;
 }
