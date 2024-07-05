@@ -26,6 +26,6 @@ string Strongest_Extension(const string& class_name, const vector<string>& exten
 }
 
 int main() {
-    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl; // This should output "Sp.Bb"
+    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl; // This should output "Sp.671235"
     return 0;
 }
