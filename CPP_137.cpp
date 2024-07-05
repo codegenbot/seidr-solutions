@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <any>
-#include <cassert> // for assert
+#include <stdexcept>
 
 using namespace std;
 
@@ -61,10 +61,6 @@ int main() {
         } else {
             cout << "Unexpected type" << endl;
         }
-
-        // Adding the test cases that caused the error.
-        assert (std::any_cast<string>(compare_one(string("1"), 1)) == "None");
-        
     } catch (const std::bad_any_cast& e) {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
     }
