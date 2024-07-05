@@ -3,7 +3,5 @@ def sort_even_indices(l):
     l[::2] = even_indices_values
     return l
 
-
-# Assuming check is a function that tests your sort_even_indices function
-# Use the correct function name
+# Assuming there's a check function to verify your solution
 check(sort_even_indices)
