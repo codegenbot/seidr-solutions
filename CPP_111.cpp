@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
-#include <cassert>
+#include <assert.h>
 
 using namespace std;
 
