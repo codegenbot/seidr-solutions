@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 using namespace std;
 
@@ -12,7 +11,6 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(rightmost);
         }
     }
-    result.push_back(arr.back()); // Rightmost element is always a leader.
     
     return result;
 }
