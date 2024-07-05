@@ -1,7 +1,8 @@
 from typing import List
-import sys
 
 def factorize(n: int) -> List[int]:
+    if n <= 1:
+        return []
     factors = []
     divisor = 2
     while n > 1:
@@ -13,7 +14,13 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        n = int(sys.stdin.read().strip())
-        print(factorize(n))
+        n = int(input().strip())
+        if n <= 0:
+            raise ValueError
+        result = factorize(n)
+        if not result and n > 1:
+            print([n])
+        else:
+            print(result)
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please enter a positive integer.")
