@@ -1,5 +1,7 @@
 vector<int> sort_array(vector<int> array) {
-    if (array.empty()) return array;
+    if (array.empty()) {
+        return array;
+    }
 
     vector<int> sorted_array = array;
     int sum = array.front() + array.back();
