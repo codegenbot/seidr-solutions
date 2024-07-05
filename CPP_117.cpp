@@ -1,24 +1,22 @@
 #include<sstream>
 
+bool is_consonant(char c) {
+    c = tolower(c);
+    return (c >= 'a' && c <= 'z') && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int consonant_count(const string& word) {
+    return count_if(word.begin(), word.end(), is_consonant);
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    if (s.empty()) return result;
-
-    stringstream ss(s);
+    istringstream stream(s);
     string word;
-
-    while (ss >> word) {
-        int consonant_count = 0;
-        for (char c : word) {
-            char lower_c = tolower(c);
-            if (lower_c >= 'a' && lower_c <= 'z' && lower_c != 'a' && lower_c != 'e' && lower_c != 'i' && lower_c != 'o' && lower_c != 'u') {
-                consonant_count++;
-            }
-        }
-        if (consonant_count == n) {
+    while (stream >> word) {
+        if (consonant_count(word) == n) {
             result.push_back(word);
         }
     }
-
     return result;
 }
