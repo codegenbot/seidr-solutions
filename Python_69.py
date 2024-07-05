@@ -1,8 +1,5 @@
 def search(lst):
     from collections import Counter
-
-    if not lst:
-        return -1
     freq = Counter(lst)
     result = -1
     for num, count in freq.items():
@@ -10,7 +7,9 @@ def search(lst):
             result = max(result, num)
     return result
 
-
 if __name__ == "__main__":
-    lst = list(map(int, input().strip().split()))
-    print(search(lst))
+    try:
+        lst = list(map(int, input().strip().split()))
+        print(search(lst) if lst else -1)
+    except ValueError:
+        print(-1)
