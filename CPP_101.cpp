@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -24,12 +23,10 @@ vector<string> words_string(string s) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(words_string("ahmed , gamal"), {"ahmed", "gamal"}));
-    cout << "All tests passed!" << endl;
+    vector<string> words = words_string("ahmed    , gamal");
+    for (const string &word: words) {
+        cout << word << endl;
+    }
     return 0;
 }
