@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string longest(const vector<string>& strings) {
+string findLongestString(const vector<string>& strings) {
     if (strings.empty()) return "None";
     string longestStr = strings[0];
     for (const string& str : strings) {
@@ -16,6 +16,6 @@ string longest(const vector<string>& strings) {
 }
 
 int main() {
-    cout << longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) << endl;
+    cout << findLongestString({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) << endl;
     return 0;
 }
