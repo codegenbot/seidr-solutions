@@ -55,8 +55,6 @@ int main() {
             cout << std::any_cast<int>(result) << endl;
         } else if (result.type() == typeid(float)) {
             cout << std::any_cast<float>(result) << endl;
-        } else if (result.type() == typeid(double)) {
-            cout << std::any_cast<double>(result) << endl;
         } else {
             cout << "Unexpected type" << endl;
         }
