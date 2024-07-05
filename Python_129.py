@@ -1,20 +1,19 @@
 def minPath(grid, k):
     from heapq import heappush, heappop
-
+    
     N = len(grid)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-
+    
     def neighbors(x, y):
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
             if 0 <= nx < N and 0 <= ny < N:
                 yield nx, ny
-
+    
     min_path = None
     for i in range(N):
         for j in range(N):
             heap = [(grid[i][j], i, j, 1, [grid[i][j]])]
-            visited = set()
             while heap:
                 val, x, y, length, path = heappop(heap)
                 if length == k:
@@ -22,28 +21,23 @@ def minPath(grid, k):
                         min_path = path
                 else:
                     for nx, ny in neighbors(x, y):
-                        if (nx, ny) not in visited:
-                            visited.add((nx, ny))
-                            new_path = path + [grid[nx][ny]]
-                            heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
+                        new_path = path + [grid[nx][ny]]
+                        heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
     return min_path
-
 
 if __name__ == "__main__":
     import sys
-
     input = sys.stdin.read
     data = list(map(int, input().split()))
-
+    
     N = data[0]
     k = data[1]
     grid = []
     idx = 2
     for i in range(N):
-        row = data[idx : idx + N]
-        grid.append(row)
+        grid.append(data[idx:idx + N])
         idx += N
-
+    
     result = minPath(grid, k)
     if result:
         print(" ".join(map(str, result)))
