@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
-#include <initializer_list> 
+#include <algorithm>
+#include <initializer_list>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -22,17 +24,4 @@ long long gcd(long long a, long long b) {
         return a;
     else
         return gcd(b, a % b);
-}
-
-int main() {
-    cout << "Indices of substring: ";
-    for (auto i : indicesOfSubstring("abcdeabcdabef", "ab")) {
-        cout << i << " ";
-    }
-    cout << endl;
-    
-    long long a = 48, b = 18;
-    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
-
-    return 0;
 }
