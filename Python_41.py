@@ -1,14 +1,4 @@
-def car_race_collision(n):
-left_to_right = []
-right_to_left = []
-for i in range(1, n + 1):
-if i % 2 == 0:
-left_to_right.append(i)
-else:
-right_to_left.append(n - i)
-collisions = 0
-for car in left_to_right:
-for other_car in right_to_left:
-if abs(car - other_car) <= 1:
-collisions += 1
-return collisions
+def car_race_collision(n: int):
+    left_to_right = list(range(1, n + 1))
+    right_to_left = list(range(n, 0, -1))
+    return len([x for x in left_to_right if x in right_to_left])
