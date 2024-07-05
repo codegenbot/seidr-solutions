@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <cassert> // For assert()
+#include <cassert>
 
 using namespace std;
 
