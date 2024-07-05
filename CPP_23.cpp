@@ -8,6 +8,12 @@ int my_strlen(string str) {
 }
 
 int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << "Length of the string is: " << my_strlen(input) << endl;
+    
+    // Test case
     assert(my_strlen("asdasnakj") == 9);
     return 0;
 }
