@@ -1,13 +1,22 @@
-int count_nums(vector<int> n){
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int count_nums(vector<int> n) {
     int count = 0;
-    for(int num : n){
-        int sum_of_digits = 0;
-        int temp = abs(num);
-        while(temp > 0){
-            sum_of_digits += temp % 10;
-            temp /= 10;
+    for (int num : n) {
+        int sum = 0;
+        bool firstDigit = true;
+        while (num != 0) {
+            int digit = num % 10;
+            if (firstDigit && num < 0) {
+                digit = -digit;
+                firstDigit = false;
+            }
+            sum += abs(digit);
+            num /= 10;
         }
-        if(sum_of_digits > 0) count++;
+        if (sum > 0) count++;
     }
     return count;
 }
