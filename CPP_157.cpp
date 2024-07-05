@@ -1,9 +1,10 @@
-bool right_angle_triangle(float a, float b, float c) {
-    // Sort the sides so that c is the largest
-    if (a > b) swap(a, b);
-    if (b > c) swap(b, c);
-    if (a > b) swap(a, b);
+#include <cstdio>
+#include <cmath>
+#include <algorithm>
+using namespace std;
 
-    // Check the Pythagorean theorem
-    return fabs(c * c - (a * a + b * b)) < 1e-6;
+bool right_angle_triangle(float a, float b, float c) {
+    float sides[3] = {a, b, c};
+    sort(sides, sides + 3);
+    return fabs(sides[0] * sides[0] + sides[1] * sides[1] - sides[2] * sides[2]) < 1e-6;
 }
