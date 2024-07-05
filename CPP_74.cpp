@@ -22,7 +22,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else if (total2 < total1) {
         return lst2;
     } else {
-        return {}; // Return an empty list when totals are the same
+        return {};
     }
 }
 
