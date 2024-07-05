@@ -1,25 +1,26 @@
-string encode(string message){
-    auto is_vowel = [](char c) {
-        char lower = tolower(c);
-        return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';
-    };
-
-    auto shift_vowel = [](char c) {
-        char lower = tolower(c);
-        if (lower == 'a') return 'C';
-        if (lower == 'e') return 'G';
-        if (lower == 'i') return 'K';
-        if (lower == 'o') return 'Q';
-        if (lower == 'u') return 'W';
-        return c;
-    };
-
-    for (char& c : message) {
-        if (is_vowel(c)) {
-            c = shift_vowel(c);
-        } else {
-            c = islower(c) ? toupper(c) : tolower(c);
+string encode(string message) {
+    string result = "";
+    for (char c : message) {
+        if (isalpha(c)) {
+            if (isupper(c)) {
+                c = tolower(c);
+            } else {
+                c = toupper(c);
+            }
+            if (strchr("aeiouAEIOU", c)) {
+                if (c == 'a') c = 'C';
+                else if (c == 'e') c = 'G';
+                else if (c == 'i') c = 'K';
+                else if (c == 'o') c = 'Q';
+                else if (c == 'u') c = 'W';
+                else if (c == 'A') c = 'c';
+                else if (c == 'E') c = 'g';
+                else if (c == 'I') c = 'k';
+                else if (c == 'O') c = 'q';
+                else if (c == 'U') c = 'w';
+            }
         }
+        result += c;
     }
-    return message;
+    return result;
 }
