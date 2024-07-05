@@ -1,8 +1,7 @@
-string decimal_to_binary(int decimal){
-    string binary = "";
-    while(decimal > 0) {
-        binary = (decimal % 2 == 0 ? "0" : "1") + binary;
-        decimal /= 2;
-    }
-    return "db" + (binary.empty() ? "0" : binary) + "db";
+#include <bitset>
+
+string decimal_to_binary(int decimal) {
+    string binary = bitset<32>(decimal).to_string();
+    binary = binary.substr(binary.find('1')); // Remove leading zeros
+    return "db" + binary + "db";
 }
