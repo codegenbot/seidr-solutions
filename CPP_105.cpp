@@ -6,14 +6,15 @@
 
 using namespace std;
 
-vector<string> by_length(const vector<int>& arr) {
+vector<string> by_length(vector<int> arr) {
     vector<int> filtered;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             filtered.push_back(num);
         }
     }
-    sort(filtered.begin(), filtered.end(), greater<int>());
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
 
     map<int, string> numToStr = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -27,12 +28,12 @@ vector<string> by_length(const vector<int>& arr) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    cout << "Test passed!" << endl;
+    cout << "Test passed" << endl;
     return 0;
 }
