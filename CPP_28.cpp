@@ -1,7 +1,18 @@
-string concatenate(vector<string> strings){
-    string result;
-    for(const string& s : strings){
-        result += s;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+std::string concatenate(const std::vector<std::string>& strings) {
+    std::string result;
+    for (const auto& str : strings) {
+        result += str;
     }
     return result;
+}
+
+int main() {
+    assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    std::cout << "Test passed!" << std::endl;
+    return 0;
 }
