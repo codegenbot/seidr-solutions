@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Forward declarations
 vector<string> separate_paren_groups(string paren_string);
 bool issame(vector<string> a, vector<string> b);
 
@@ -36,7 +37,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("() (()) (()())"), {"()", "(())", "(()())"}));
+    assert(issame(separate_paren_groups("() ((())) (()())"), {"()", "((()))", "(()())"}));
     cout << "All test cases pass." << endl;
     return 0;
 }
