@@ -16,6 +16,6 @@ long long int double_the_difference(vector<float> lst) {
 
 int main() {
     vector<float> lst = {1.0, 3.0, 2.0, -3.0, 5.0};
-    cout << double_the_difference(lst) << endl;  // Expected sum of double the odd numbers: 2*(1+3+5)
+    cout << double_the_difference(lst) << endl;
     return 0;
 }
