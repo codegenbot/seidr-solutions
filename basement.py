@@ -1,9 +1,8 @@
-```
 def basement(arr):
-    for i in range(len(arr)):
-        total = 0
-        for j in range(i+1):
-            total += arr[j]
+    total = 0
+    for i, x in enumerate(arr):
+        total += x
         if total < 0:
             return i + 1
+        total = 0  
     return -1
