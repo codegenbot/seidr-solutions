@@ -1,3 +1,4 @@
+```
 for i in range(len(coins) - 1):
     count = cents // coins[i]
     if count > 0:
@@ -5,4 +6,5 @@ for i in range(len(coins) - 1):
         cents -= count * coins[i]
 
 res[-1] = cents
-return " ".join(map(str, res)) + "\n"
+return ' '.join(map(str, res)) + '\n'
+print(coin_sums(int(input())))
