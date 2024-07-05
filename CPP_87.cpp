@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<vector<int>> get_row(const vector<vector<int>> &lst, int x) {
