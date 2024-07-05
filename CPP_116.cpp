@@ -26,13 +26,17 @@ vector<int> sort_array(vector<int> arr) {
     return arr;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    // Test case
-    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    cout << "All test cases passed." << endl;
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    vector<int> sorted_arr = sort_array(arr);
+    for(int num : sorted_arr) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
