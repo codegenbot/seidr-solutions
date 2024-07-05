@@ -7,13 +7,15 @@ int largest_divisor(int n) {
             return i;
         }
     }
-    return 1;
+    return 1; // This line will never be reached for n > 1
 }
 
 int main() {
+    // Test case
     assert(largest_divisor(49) == 7);
     std::cout << "Test passed!" << std::endl;
 
+    // Additional user input example
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
