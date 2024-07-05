@@ -9,7 +9,7 @@ int main() {
     bouncinessIndex = firstBounceHeight / startingHeight;
     
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (startingHeight + (i * bouncinessIndex));
+        totalDistance = startingHeight + (bouncinessIndex * numBounces) + (0.5 * bouncinessIndex * (numBounces - 1));
     }
     
     cout << totalDistance << endl;
