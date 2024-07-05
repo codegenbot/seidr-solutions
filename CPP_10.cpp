@@ -20,10 +20,3 @@ string make_palindrome(string str) {
     }
     return str;
 }
-
-int main() {
-    string input;
-    cin >> input;
-    cout << make_palindrome(input) << endl;
-    return 0;
-}
