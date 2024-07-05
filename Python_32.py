@@ -1,15 +1,22 @@
+```
 import math
 
-
 def find_zero(xs: list):
-    a, b, c = xs[0], xs[1], xs[2]
-    d = (b**2) - (4 * a * c)
-    if d > 0:
-        x1 = (-b + math.sqrt(d)) / (2 * a)
-        x2 = (-b - math.sqrt(d)) / (2 * a)
-        return min(x1, x2), max(x1, x2)
-    elif d == 0:
+    a = xs[0]
+    b = xs[1]
+    c = xs[-1]
+    D = b**2 - 4*a*c
+    if D < 0:
+        return "The function has no real solutions."
+    elif D == 0:
         x = -b / (2 * a)
-        return x, x
+        return x
     else:
-        return None
+        x1 = (-b + math.sqrt(D)) / (2 * a)
+        x2 = (-b - math.sqrt(D)) / (2 * a)
+        if x1 > x2:
+            return f"Two solutions: {x2} and {x1}"
+        elif x2 > x1:
+            return f"Two solutions: {x1} and {x2}"
+        else:
+            return "One solution."
