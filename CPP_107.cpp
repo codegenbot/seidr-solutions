@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> even_odd_palindrome(int n) {
+vector<int> even_odd_palindrome(int n){
     int even_count = 0, odd_count = 0;
     
     for (int i = 1; i <= n; ++i) {
