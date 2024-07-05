@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -17,6 +18,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    // Add more tests if needed
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 2), {2, 243}));
     return 0;
 }
