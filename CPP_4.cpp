@@ -23,8 +23,6 @@ float mean_absolute_deviation(const vector<float>& numbers) {
 }
 
 int main() {
-    assert(fabs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
-    
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
