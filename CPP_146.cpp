@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <cmath>
-
+#include <cmath>    // For abs
 using namespace std;
 
 int specialFilter(vector<int> nums) {
@@ -21,15 +20,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int n, temp;
-    cout << "Enter number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> temp;
-        nums.push_back(temp);
-    }
+    vector<int> nums = {23, 12, 35, 47, 56};
     cout << specialFilter(nums) << endl;
     return 0;
 }
