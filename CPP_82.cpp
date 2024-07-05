@@ -1,6 +1,7 @@
-#include <cmath>
+#include <iostream>
 #include <string>
 #include <cassert>
+using namespace std;
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -12,12 +13,14 @@ bool is_prime(int n) {
     return true;
 }
 
-bool prime_length(const std::string& str) {
-    int length = str.length();
-    return is_prime(length);
+bool prime_length(string str) {
+    return is_prime(str.length());
 }
 
 int main() {
     assert(prime_length("0") == false);
+    assert(prime_length("abc") == true);
+    assert(prime_length("abcd") == false);
+    cout << "All test cases passed!" << endl;
     return 0;
 }
