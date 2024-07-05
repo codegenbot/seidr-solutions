@@ -8,7 +8,3 @@ def luhn(card_number):
         else:
             result += digit
     return result
-
-if __name__ == "__main__":
-    card_number = input("Enter a credit card number: ")
-    print(luhn(int(card_number)))
