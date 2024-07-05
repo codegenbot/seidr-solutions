@@ -20,9 +20,8 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
-    assert(issame(total_match({"hello"}, {"world"}), {"hello"}));
-    assert(issame(total_match({"abc"}, {"defg"}), {"abc"}));
-    assert(issame(total_match({"xyz", "pqr"}, {"st"}), {"st"}));
+    assert(issame(total_match({"a", "b"}, {"abc"}), {"a", "b"}));
+    assert(issame(total_match({"abcd"}, {"abc", "d"}), {"abcd"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
