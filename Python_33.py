@@ -1,10 +1,12 @@
-def sort_third(lst):
+def sort_third(l):
     result = []
-    while lst:
-        if lst[0] % 3 != 0:
-            result.append(lst.pop(0))
+    i = 0
+    j = 0
+    while j < len(l):
+        if l[j] % 3 != 0:
+            result.append(l.pop(j))
+        elif min(x for x in l[:j] if x % 3 != 0) is None or min(x for x in l[:j] if x % 3 != 0) <= l[j]:
+            result.append(l.pop(j))
         else:
-            break
-    for num in sorted([n for n in lst if n % 3 != 0]):
-        result.append(num)
+            j += 1
     return tuple(result)
