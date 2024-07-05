@@ -9,7 +9,7 @@ std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> freqMap;
     for (char ch : test) {
         if (std::isalpha(static_cast<unsigned char>(ch))) { // Consider only alphabetic characters
-            ch = std::tolower(ch); // Make it case insensitive if required
+            ch = std::tolower(static_cast<unsigned char>(ch)); // Make it case insensitive if required
             freqMap[ch]++;
         }
     }
