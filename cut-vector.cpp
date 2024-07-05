@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <numeric>
 #include <limits>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -14,8 +16,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             index = i;
         }
     }
-    vector<int> left(v.begin(), v.begin() + index + 1);
-    vector<int> right(v.begin() + index, v.end());
+    vector<int> left((index > 0 ? v.begin() + index : v.begin()), 
+                     (index > 0 ? v.begin() + index : v.begin()) + 1);
+    vector<int> right((index < v.size() - 1 ? v.begin() + index + 1 : v.begin()),
+                      v.end());
     return make_pair(left, right);
 }
 
