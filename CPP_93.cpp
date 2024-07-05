@@ -1,4 +1,7 @@
-string encode(string message){
+#include <string>
+using namespace std;
+
+string encode(string message) {
     auto swap_case = [](char c) -> char {
         if (islower(c)) return toupper(c);
         if (isupper(c)) return tolower(c);
