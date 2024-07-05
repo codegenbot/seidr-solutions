@@ -6,7 +6,7 @@ using namespace std;
 bool valid_date(string date) {
     if (date.size() != 10 || date[2] != '-' || date[5] != '-') return false;
     
-    int day, month, year;
+    int month, day, year;
     stringstream ss(date);
     ss >> month;
     ss.ignore(1);
@@ -28,6 +28,7 @@ bool valid_date(string date) {
 }
 
 int main() {
+    // Example usage
     cout << valid_date("03-11-2000") << endl; // true
     cout << valid_date("15-01-2012") << endl; // false
     cout << valid_date("04-0-2040") << endl;  // false
