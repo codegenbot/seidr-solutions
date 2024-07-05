@@ -26,7 +26,7 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b; // Check if both vectors are the same
+    return a == b;
 }
 
 int main() {
