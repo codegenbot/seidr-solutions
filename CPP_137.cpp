@@ -12,7 +12,7 @@ double convertToDouble(const string &s) {
 }
 
 std::any compare_one(std::any a, std::any b) {
-    double valA, valB;
+    double valA = 0, valB = 0;
 
     if (a.type() == typeid(int))
         valA = std::any_cast<int>(a);
@@ -43,7 +43,7 @@ int main() {
     else if (result.type() == typeid(string))
         cout << std::any_cast<string>(result) << endl;
     else
-        cout << std::any_cast<double>(result) << endl;  // just in case
+        cout << std::any_cast<double>(result) << endl;
 
     auto result2 = compare_one(string("1"), 1);
     if (result2.type() == typeid(int))
@@ -51,7 +51,7 @@ int main() {
     else if (result2.type() == typeid(string))
         cout << std::any_cast<string>(result2) << endl;
     else
-        cout << std::any_cast<double>(result2) << endl;  // just in case
+        cout << std::any_cast<double>(result2) << endl;
 
     return 0;
 }
