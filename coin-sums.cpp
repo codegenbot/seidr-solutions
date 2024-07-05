@@ -1,14 +1,10 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
     int cents;
     cin >> cents;
-    
-    if(cents < 0) {
-        cout << "Error: Please enter a non-negative integer.\n";
-        return -1;
-    }
     
     int quarters = cents / 25;
     cents %= 25;

@@ -2,13 +2,13 @@
 #include <vector>
 #include <string>
 #include <initializer_list>
-
 using namespace std;
+using std::size_t;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
+    size_t n = text.length();
+    size_t m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
