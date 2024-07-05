@@ -3,17 +3,16 @@ int main() {
     cin >> cents;
 
     if (cents < 0) {
-        cout << "Error: Please enter a non-negative integer.\n";
-        return -1;
+        cout << "";
     }
 
-    int quarters = static_cast<int>(cents / 25.0);
+    int quarters = cents / 25;
     cents %= 25;
 
-    int dimes = static_cast<int>(cents / 10.0);
+    int dimes = cents / 10;
     cents %= 10;
 
-    int nickles = static_cast<int>(cents / 5.0);
+    int nickles = cents / 5;
     cents %= 5;
 
     int pennies = cents;
