@@ -1,27 +1,30 @@
 #include <cctype>
 
-bool is_all_lower(const string &s) {
-    for (char c : s) {
-        if (!islower(c)) return false;
+bool is_all_lowercase(const string& str) {
+    for(char c : str) {
+        if(!islower(c)) return false;
     }
     return true;
 }
 
-bool is_all_upper(const string &s) {
-    for (char c : s) {
-        if (!isupper(c)) return false;
+bool is_all_uppercase(const string& str) {
+    for(char c : str) {
+        if(!isupper(c)) return false;
     }
     return true;
 }
 
 bool check_dict_case(map<string,string> dict) {
-    if (dict.empty()) return false;
-    bool all_lower = true, all_upper = true;
+    if(dict.empty()) return false;
 
-    for (const auto &pair : dict) {
-        if (!is_all_lower(pair.first)) all_lower = false;
-        if (!is_all_upper(pair.first)) all_upper = false;
+    auto it = dict.begin();
+    bool lower = is_all_lowercase(it->first);
+    bool upper = is_all_uppercase(it->first);
+
+    for(; it != dict.end(); ++it) {
+        if(lower && !is_all_lowercase(it->first)) return false;
+        if(upper && !is_all_uppercase(it->first)) return false;
     }
 
-    return all_lower || all_upper;
+    return true;
 }
