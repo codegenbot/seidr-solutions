@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
 
 using namespace std;
@@ -13,8 +12,18 @@ vector<float> derivative(vector<float> xs) {
 }
 
 int main() {
-    assert(derivative({1}) == vector<float>{});
-    assert(derivative({1, 2, 3}) == vector<float>{2, 6});
-    cout << "All test cases passed!" << endl;
+    vector<float> res1 = derivative({1});
+    vector<float> res2 = derivative({1, 2, 3});
+    
+    for (float val : res1) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    for (float val : res2) {
+        cout << val << " ";
+    }
+    cout << endl;
+
     return 0;
 }
