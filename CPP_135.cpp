@@ -9,15 +9,3 @@ int can_arrange(const std::vector<int>& arr) {
     }
     return -1;
 }
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for(int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
-    }
-
-    std::cout << can_arrange(arr) << std::endl;
-    return 0;
-}
