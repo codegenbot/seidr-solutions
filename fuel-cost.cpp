@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <cmath>
 
@@ -14,11 +13,3 @@ int calculateFuelCost(std::vector<int> numbers) {
         sum += static_cast<int>(result);
     }
     return sum;
-}
-
-int main() {
-    std::vector<int> numbers = {1, 2, 3};
-    int result = calculateFuelCost(numbers);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
-}
