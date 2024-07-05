@@ -32,7 +32,5 @@ int main() {
         "the number of odd elements 2 in the string 2 of the input."
     }));
 
-    cout << "All tests passed!" << endl;
-
     return 0;
 }
