@@ -1,11 +1,10 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> seen(26, false);
-    int count = 0;
-    for (char c : str) {
-        if (isalpha(c) && !seen[c - 'a']) {
-            seen[c - 'a'] = true;
-            count++;
+int count_distinct_characters(string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower); // Convert to lowercase
+    vector<bool> present(26, false); // Track presence of characters
+    for (char ch : str) {
+        if (isalpha(ch)) {
+            present[ch - 'a'] = true;
         }
     }
-    return count;
+    return count(present.begin(), present.end(), true);
 }
