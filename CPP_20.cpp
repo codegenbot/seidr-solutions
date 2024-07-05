@@ -3,11 +3,12 @@
 #include <algorithm>
 #include <cmath>
 #include <cassert>
-#include <cfloat>
 
 using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
+    if (numbers.size() < 2) return {};
+    
     sort(numbers.begin(), numbers.end());
     float min_diff = FLT_MAX;
     float num1 = 0, num2 = 0;
