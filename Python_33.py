@@ -1,15 +1,22 @@
 def sort_third(l):
-    first = [i for i in l if i % 3 != 0]
-    second = sorted([i for i in l if i % 3 == 0])
     result = []
-    i, j = 0, 0
-    while i < len(first) and j < len(second):
-        if first[i] <= second[j]:
-            result.append(first.pop(i))
+    i = 0
+    j = 0
+    while j < len(l):
+        if i < j:
+            if i >= len(l):
+                while True:
+                    if l[i % len(l)] % 3 != 0:
+                        break
+                    i += 1
+            if l[i % len(l)] % 3 == 0:
+                result.append(l.pop(i % len(l)))
         else:
-            result.append(second.pop(j))
-        i += 1
-        j += 1
-    result.extend(first)
-    result.extend(second)
+            if j >= len(l):
+                while True:
+                    if l[j % len(l)] % 3 != 0:
+                        break
+                    j += 1
+            if l[j % len(l)] % 3 != 0:
+                result.append(l.pop(j % len(l)))
     return tuple(result)
