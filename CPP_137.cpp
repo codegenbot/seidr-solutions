@@ -1,63 +1,61 @@
 #include <iostream>
 #include <string>
-#include <typeinfo>
 #include <algorithm>
-#include <variant>
-
+#include <any>
 using namespace std;
 
-float convert_to_float(variant<int, float, string> var) {
-    if (holds_alternative<int>(var)) {
-        return get<int>(var);
-    } else if (holds_alternative<float>(var)) {
-        return get<float>(var);
-    } else if (holds_alternative<string>(var)) {
-        string str = get<string>(var);
-        replace(str.begin(), str.end(), ',', '.');
-        return stof(str);
+double to_double(std::any val) {
+    if (val.type() == typeid(int)) {
+        return std::any_cast<int>(val);
+    } else if (val.type() == typeid(float)) {
+        return std::any_cast<float>(val);
+    } else if (val.type() == typeid(string)) {
+        string str_val = std::any_cast<string>(val);
+        replace(str_val.begin(), str_val.end(), ',', '.');
+        return stod(str_val);
     }
     return 0.0;
 }
 
-variant<int, float, string> compare_one(variant<int, float, string> a, variant<int, float, string> b) {
-    if (a.index() == b.index()) {
-        if (holds_alternative<int>(a)) {
-            int int_a = get<int>(a);
-            int int_b = get<int>(b);
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() == b.type()) {
+        if (a.type() == typeid(int)) {
+            int int_a = std::any_cast<int>(a);
+            int int_b = std::any_cast<int>(b);
             if (int_a == int_b) return "None";
             return int_a > int_b ? a : b;
-        } else if (holds_alternative<float>(a)) {
-            float float_a = get<float>(a);
-            float float_b = get<float>(b);
+        } else if (a.type() == typeid(float)) {
+            float float_a = std::any_cast<float>(a);
+            float float_b = std::any_cast<float>(b);
             if (float_a == float_b) return "None";
             return float_a > float_b ? a : b;
-        } else if (holds_alternative<string>(a)) {
-            string str_a = get<string>(a);
-            string str_b = get<string>(b);
-            float float_a = convert_to_float(a);
-            float float_b = convert_to_float(b);
-            if (float_a == float_b) return "None";
-            return float_a > float_b ? a : b;
+        } else if (a.type() == typeid(string)) {
+            string str_a = std::any_cast<string>(a);
+            string str_b = std::any_cast<string>(b);
+            if (str_a == str_b) return "None";
+            return str_a > str_b ? a : b;
         }
-    } else {
-        float float_a = convert_to_float(a);
-        float float_b = convert_to_float(b);
-        if (float_a == float_b) return "None";
-        return float_a > float_b ? a : b;
     }
-    return "None";
+    
+    double double_a = to_double(a);
+    double double_b = to_double(b);
+    if (double_a == double_b) return "None";
+    return double_a > double_b ? a : b;
 }
 
 int main() {
-    variant<int, float, string> val1 = 5;
-    variant<int, float, string> val2 = "4.2";
-    auto result = compare_one(val1, val2);
-    if (holds_alternative<string>(result)) {
-        cout << get<string>(result) << endl; 
-    } else if (holds_alternative<int>(result)) {
-        cout << get<int>(result) << endl; 
-    } else if (holds_alternative<float>(result)) {
-        cout << get<float>(result) << endl; 
+    std::any a = 42;
+    std::any b = 3.14f;
+    try {
+        if (auto res = std::any_cast<int>(&compare_one(a, b))) {
+            std::cout << *res << std::endl;
+        } else if (auto res = std::any_cast<string>(&compare_one(a, b))) {
+            std::cout << *res << std::endl;
+        } else {
+            std::cout << "None" << std::endl;
+        }
+    } catch (const std::bad_any_cast& e) {
+        cout << "Cannot cast result to int. Possibly a string or None comparison." << endl;
     }
     return 0;
 }
