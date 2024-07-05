@@ -8,5 +8,5 @@ if __name__ == "__main__":
         numbers = list(map(int, input().strip().split()))
         result = remove_duplicates(numbers)
         print(result)
-    except:
-        print([])
+    except ValueError:
+        print("Invalid input. Please enter integers separated by spaces.")
