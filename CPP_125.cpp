@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
 #include <cassert>
 
 using namespace std;
 
+// Function to split words based on space or comma, or count specific characters
 vector<string> split_words(string txt) {
     vector<string> result;
     if (txt.find(' ') != string::npos) {
@@ -34,17 +34,17 @@ vector<string> split_words(string txt) {
     return result;
 }
 
+// Function to compare two vector<string>
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    // Test cases
-    assert(issame(split_words("hello world") ,{"hello", "world"}));
-    assert(issame(split_words("hello,world") ,{"hello", "world"}));
-    assert(issame(split_words("abcdefg") ,{"3"})); // 'a', 'c', 'e' are even-index lowercase letters
-
-    cout << "All tests passed." << endl;
-
+    assert (issame(split_words("hello world"), {"hello", "world"}));
+    assert (issame(split_words("apple,banana,cherry"), {"apple", "banana", "cherry"}));
+    assert (issame(split_words("abcdef"), {"3"}));
+    assert (issame(split_words("") ,{"0"}));
+    
+    cout << "All tests passed!" << endl;
     return 0;
 }
