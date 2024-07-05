@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 vector<int> f(int n) {
@@ -10,27 +12,24 @@ vector<int> f(int n) {
             for (int j = 1; j <= i; ++j) {
                 factorial *= j;
             }
-            result[i-1] = factorial;
+            result[i - 1] = factorial;
         } else {
             int sum = 0;
             for (int j = 1; j <= i; ++j) {
                 sum += j;
             }
-            result[i-1] = sum;
+            result[i - 1] = sum;
         }
     }
     return result;
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert(issame(f(3), {1, 3, 2}));
+    assert(issame(f(4), {1, 3, 2, 24}));
     return 0;
 }
