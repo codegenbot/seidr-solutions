@@ -13,8 +13,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             index = i;
         }
     }
-    vector<int> left(v.begin(), v.begin() + index + 1);
-    vector<int> right(v.begin() + index, v.end());
+    vector<int> left(v.begin(), v.begin() + i + 1);
+    vector<int> right(v.begin() + i, v.end());
     return make_pair(left, right);
 }
 
@@ -37,3 +37,4 @@ int main() {
     }
     cout << endl;
     return 0;
+}
