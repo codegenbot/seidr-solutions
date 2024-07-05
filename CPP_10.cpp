@@ -25,7 +25,7 @@ int main() {
     string str;
     cout << "Enter the string: ";
     cin >> str;
-
+    
     cout << "Palindrome: " << make_palindrome(str) << endl;
     return 0;
 }
