@@ -7,15 +7,16 @@ def bowling_score(frames):
         if frames[i] == 'X':
             score += 10
             i += 1
-            if i < len(frames) and (frames[i] == 'X' or frames[i:i+2].isdigit()):
-                if frames[i] == 'X':
-                    score += 10
-                else:
-                    score += int(frames[i:i+2])
+            if i < len(frames) and frames[i] == 'X':
+                score += 10
+                i += 1
+            elif i + 1 < len(frames) and frames[i:i+2].isdigit():
+                score += int(frames[i:i+2])
+                i += 2
         elif '/' in frames[i:]:
-            score += 10
-            if i + 1 < len(frames) and frames[i+1].isdigit():
-                score += int(frames[i+1])
+            roll1, roll2 = map(int, frames[i:].split('/'))
+            score += roll1 + roll2
+            i += 2
         else:
             temp = ''
             while i < len(frames) and frames[i].isdigit():
@@ -24,3 +25,5 @@ def bowling_score(frames):
             score += int(temp)
     
     return score
+
+print(bowling_score('1262365421327154-52/9'))
