@@ -1,6 +1,8 @@
-result = []
-    for i, num in enumerate(numbers):
-        if i > 0:
-            result.append(delimeter)
+def intercalate(numbers, delimiter):
+    if not numbers:
+        return []
+    result = [numbers[0]]
+    for num in numbers[1:]:
+        result.append(delimiter)
         result.append(num)
     return result
