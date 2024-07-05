@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
-using namespace std;
+```c++
+#include <stdio.h>
 
 int bowlingScore(const char* s) {
     int score = 0;
@@ -26,7 +25,8 @@ int bowlingScore(const char* s) {
 }
 
 int main() {
-    const char* input = "X/X || 3/5 1/9 X 2/- 8/3 5/7 X 3/6 -/- 1/4";
-    cout << bowlingScore(input) << endl;
+    const char* s = "X|9-8/7-X6/5-4/3|2";
+    int score = bowlingScore(s);
+    printf("The score is: %d\n", score);
     return 0;
 }
