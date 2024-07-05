@@ -6,12 +6,18 @@ def sort_third(l):
     while j < len(l):
         if i < j:
             if i >= len(l):
-                i %= len(l)
-            if l[i] % 3 == 0:
-                result.append(l.pop(i))
+                while True:
+                    if l[i % len(l)] % 3 != 0:
+                        break
+                    i += 1
+            if l[i % len(l)] % 3 == 0:
+                result.append(l.pop(i % len(l)))
         else:
             if j >= len(l):
-                j %= len(l)
-            if l[j] % 3 != 0:
-                result.append(l.pop(j))
+                while True:
+                    if l[j % len(l)] % 3 != 0:
+                        break
+                    j += 1
+            if l[j % len(l)] % 3 != 0:
+                result.append(l.pop(j % len(l)))
     return tuple(result)
