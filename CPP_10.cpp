@@ -18,7 +18,7 @@ string make_palindrome(string str){
             return str + prefix;
         }
     }
-    return str; // This line is theoretically unreachable
+    return str;
 }
 
 int main() {
