@@ -7,23 +7,24 @@ using namespace std;
 vector<int> sort_array(vector<int> array) {
     if (array.empty()) return array;
     
+    vector<int> sorted_array = array;
     int sum = array.front() + array.back();
-    vector<int> result = array;
-
+    
     if (sum % 2 == 0) {
-        sort(result.rbegin(), result.rend());
+        sort(sorted_array.rbegin(), sorted_array.rend());
     } else {
-        sort(result.begin(), result.end());
+        sort(sorted_array.begin(), sorted_array.end());
     }
-
-    return result;
+    
+    return sorted_array;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(sort_array({21, 14, 23, 11}), {11, 14, 21, 23}));
+    assert(issame(sort_array({22, 14, 23, 11}), {23, 22, 14, 11}));
     return 0;
 }
