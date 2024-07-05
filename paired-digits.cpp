@@ -1,0 +1,12 @@
+int main() {
+    string digits;
+    cin >> digits;
+    int sum = 0;
+    for (size_t i = 0; i < digits.length() - 1; ++i) {
+        if (digits[i] == digits[i + 1]) {
+            sum += digits[i] - '0';
+        }
+    }
+    cout << sum << endl;
+    return 0;
+}
