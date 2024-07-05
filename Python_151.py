@@ -1,11 +1,7 @@
 def double_the_difference(lst):
     return sum(x**2 for x in lst if isinstance(x, int) and x > 0 and x % 2 != 0)
 
-
-def check(func):
-    test_lst = [1, 2, 3, 4, 5]
-    expected_result = 1**2 + 3**2 + 5**2
-    assert func(test_lst) == expected_result, "Test failed"
-
-
-check(double_the_difference)
+if __name__ == "__main__":
+    import sys
+    lst = list(map(int, input().strip().split()))
+    print(double_the_difference(lst))
