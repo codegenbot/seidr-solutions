@@ -17,7 +17,6 @@ int calculateFuelCost(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> numbers = {1, 2, 3};
-    int fuelCost = calculateFuelCost(numbers);
-    std::cout << "The total fuel cost is: " << fuelCost << std::endl;
+    int result = calculateFuelCost(numbers);
     return 0;
 }
