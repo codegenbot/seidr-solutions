@@ -10,4 +10,4 @@ def encode(message):
             encoded_message.append(char)
     return ''.join(encoded_message)
 
-print(encode("I DoNt KnOw WhAt tO WrItE")) 
+print(encode("I DoNt KnOw WhAt tO WrItE"))  # Expected: "k DQnT KnqW Whct tq WrkTg"
