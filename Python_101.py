@@ -1,3 +1,3 @@
-
+import re
 def words_string(s):
-    return s.strip().split(", ")
+    return [word for word in re.split(r"\s+", s) if word]
