@@ -16,7 +16,6 @@ int starts_one_ends(int n) {
 
 int main() {
     int n;
-    cout << "Enter a number: ";
     cin >> n;
     cout << starts_one_ends(n) << endl;
     return 0;
