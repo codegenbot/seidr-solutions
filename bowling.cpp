@@ -1,9 +1,7 @@
-#include <cstring>
 int bowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
-    for (int i = 0; i < strlen(s); i++) { 
-        char c = s[i];
+    for (char c : s) {
         if (c == 'X') {
             score += 30;
             currentRoll++;
@@ -20,5 +18,4 @@ int bowlingScore(const char* s) {
             }
         }
     }
-    return score;
 }
