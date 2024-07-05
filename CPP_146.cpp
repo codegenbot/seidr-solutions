@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
-#include <iostream>
-
+#include <cassert>
 using namespace std;
 
 int specialFilter(vector<int> nums) {
@@ -18,6 +17,10 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    cout << specialFilter({15, 22, 33, 44, 53}) << endl; // Sample test
+    // Test with example cases
+    assert(specialFilter({}) == 0);
+    assert(specialFilter({11, 22, 33, 44, 55}) == 3);
+    // Further tests can be added
+
     return 0;
 }
