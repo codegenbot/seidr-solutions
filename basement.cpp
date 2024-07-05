@@ -1,25 +1,14 @@
 #include <iostream>
 #include <vector>
 
-int basement(std::vector<int>& v) {
+int basement(const std::vector<int>& v) {
     int i = 0;
     int sum = 0;
     for (size_t i = 0; i < v.size(); i++) {
         sum += v[i];
-        if (sum < 0) {
-            return i + 1;
+        if (sum >= 0) {
+            return -1;
         }
     }
-    return -1;
-}
-
-int main() {
-    std::vector<int> vec = {1, 2, 3, 4, 5};
-    int index = basement(vec);
-    if (index != -1) {
-        std::cout << "First negative sum index: " << index << std::endl;
-    } else {
-        std::cout << "No negative sum found." << std::endl;
-    }
-    return 0;
+    return sum;
 }
