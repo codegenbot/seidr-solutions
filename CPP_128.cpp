@@ -1,19 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+using namespace std;
+
 int prod_signs(vector<int> arr) {
-    if (arr.empty()) {
-        return -32768;
-    }
-
-    int sum_magnitude = 0;
-    int sign_product = 1;
-
+    if (arr.empty()) return -32768;
+    
+    int sum_magnitudes = 0;
+    int product_signs = 1;
+    
     for (int num : arr) {
-        sum_magnitude += abs(num);
-        if (num != 0) {
-            sign_product *= (num > 0) ? 1 : -1;
-        } else {
-            sign_product = 0;
-        }
+        sum_magnitudes += abs(num);
+        if (num == 0) return 0;
+        product_signs *= (num > 0) ? 1 : -1;
     }
+    
+    return sum_magnitudes * product_signs;
+}
 
-    return sum_magnitude * sign_product;
+int main() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    vector<int> arr(n);
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    cout << "Result: " << prod_signs(arr) << endl;
+    return 0;
 }
