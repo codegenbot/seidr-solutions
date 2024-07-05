@@ -25,7 +25,7 @@ vector<int> even_odd_palindrome(int n) {
     return {even_count, odd_count};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
