@@ -16,6 +16,8 @@ int sum_squares(const std::vector<float>& lst) {
 int main() {
     // Test cases to verify the function
     assert(sum_squares({-1, 1, 0}) == 2);
+    assert(sum_squares({1.2, 2.5, 3.8}) == 20);
+    assert(sum_squares({0.1, 0.9, 1.5}) == 6);
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
