@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -17,8 +16,10 @@ int main() {
     int numBounces;
     cin >> numBounces;
 
+    // Calculate bounciness index
     long double bouncinessIndex = firstBounce / startHeight;
 
+    // Calculate total distance traveled
     long double totalDistance = 0.0L;
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += pow(bouncinessIndex, i);
