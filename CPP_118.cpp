@@ -5,7 +5,6 @@ using namespace std;
 string get_closest_vowel(const string& word) {
     string vowels = "aeiouAEIOU";
     
-    // iterate from the second character to the second-to-last character
     for (int i = 1; i < word.length() - 1; ++i) {
         if (vowels.find(word[i]) != string::npos &&
             vowels.find(word[i - 1]) == string::npos &&
@@ -17,6 +16,6 @@ string get_closest_vowel(const string& word) {
 }
 
 int main() {
-    cout << get_closest_vowel("Above") << endl; // expected output: "o"
+    cout << get_closest_vowel("Above") << endl;
     return 0;
 }
