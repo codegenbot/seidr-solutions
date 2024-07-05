@@ -1,9 +1,22 @@
-if (strings.empty()) return "None";
-    string longestStr = strings[0];
-    for (const string& str : strings) {
-        if (str.length() > longestStr.length()) {
-            longestStr = str;
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+string longest(const vector<string>& strings) {
+    if (strings.empty()) return "None";
+    string longest_str = strings[0];
+    for (const auto& str : strings) {
+        if (str.length() > longest_str.length()) {
+            longest_str = str;
         }
     }
-    return longestStr;
+    return longest_str;
+}
+
+int main() {
+    vector<string> input = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
+    cout << longest(input) << endl; // Output should be "zzzz"
+    return 0;
 }
