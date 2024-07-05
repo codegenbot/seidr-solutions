@@ -6,20 +6,10 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-int main() {
-    vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
-    
-    for (const auto& str : result) {
-        cout << str << endl;
-    }
-    
-    return 0;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group = "";
     int open_count = 0;
+    string current_group;
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -30,10 +20,15 @@ vector<string> separate_paren_groups(string paren_string) {
             current_group += c;
             if (open_count == 0) {
                 result.push_back(current_group);
-                current_group = "";
+                current_group.clear();
             }
         }
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( "), {{"()", "()"}, {"(())"} }));
+    return 0;
 }
