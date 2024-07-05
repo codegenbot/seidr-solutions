@@ -1,5 +1,5 @@
-#include <iostream>
-#include <string>
+#include<stdio.h>
+#include<string>
 using namespace std;
 
 bool is_palindrome(string str) {
@@ -8,20 +8,21 @@ bool is_palindrome(string str) {
 }
 
 string make_palindrome(string str) {
-    int n = str.length();
+    int n = str.size();
+    if (n == 0) return str;
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
             string suffix = str.substr(i);
-            reverse(suffix.begin(), suffix.end());
-            return str + suffix;
+            string prefix(suffix.rbegin(), suffix.rend());
+            return str + prefix;
         }
     }
-    return str; // Default return, though this line should never be reached
+    return str; // Should not reach here
 }
 
 int main() {
     string input;
-    cin >> input;
-    cout << make_palindrome(input) << endl;
+    scanf("%s", &input[0]);
+    printf("%s\n", make_palindrome(input).c_str());
     return 0;
 }
