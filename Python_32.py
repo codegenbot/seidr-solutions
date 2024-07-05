@@ -1,15 +1,19 @@
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+
 def find_zero(xs: list):
+    from scipy.optimize import fsolve
+
     def f(x):
         return poly(xs, x)
 
-    def f_prime(x):
-        h = 1e-5
-        return (f(x + h) - f(x)) / h
+    return fsolve(f, 0)[0]
 
-    guess = 1.0
-    for _ in range(1000):
-        guess = guess - f(guess) / f_prime(guess)
-        if abs(f(guess)) < 1e-7:
-            return guess
 
-    return None
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
