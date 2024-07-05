@@ -1,14 +1,12 @@
 import hashlib
 
 def string_to_md5(text):
-    if text.strip() == "":
-        return None
     return hashlib.md5(text.encode()).hexdigest()
 
 if __name__ == "__main__":
-    text = input("Enter text: ").strip()
-    result = string_to_md5(text)
-    if result is not None:
+    try:
+        text = input().strip()
+        result = string_to_md5(text)
         print(result)
-    else:
-        print("Empty input received, no MD5 hash generated.")
+    except EOFError:
+        print("No input received.")
