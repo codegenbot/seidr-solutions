@@ -14,6 +14,6 @@ bool check_if_last_char_is_a_letter(string txt) {
 }
 
 int main() {
-    cout << boolalpha << check_if_last_char_is_a_letter("apple pi e ") << endl; // should output false
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
     return 0;
 }
