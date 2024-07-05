@@ -17,6 +17,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return result
 
 if __name__ == "__main__":
-    paren_string = input().strip()
-    groups = separate_paren_groups(paren_string)
-    print(groups)
+    paren_string = input("Enter the parenthesis string: ")
+    print(separate_paren_groups(paren_string))
