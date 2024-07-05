@@ -19,7 +19,7 @@ int main() {
     vector<float> lst = {1.0, 3.0, 2.0, -3.0, 5.0};
     long long int odd_sum = 2 * (1 + 3 + 5); // Calculate expected sum
 
-    assert(double_the_difference(lst) == odd_sum); // Validation using assert
+    assert (double_the_difference(lst) == odd_sum); // Validation using assert
 
     cout << double_the_difference(lst) << endl;    
     return 0;
