@@ -1,5 +1,6 @@
 from math import gcd
 
+
 def prime_fib(n):
     fib = [0, 1]
     i = 2
