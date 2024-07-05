@@ -13,7 +13,8 @@ bool correct_bracketing(const std::string &brackets) {
 
 int main() {
     std::string test;
+    std::cout << "Enter a string of brackets: ";
     std::cin >> test;
-    std::cout << correct_bracketing(test) << std::endl;
+    std::cout << std::boolalpha << correct_bracketing(test) << std::endl;
     return 0;
 }
