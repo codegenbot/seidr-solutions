@@ -12,7 +12,7 @@ int largest_divisor(int n) {
 
 int main() {
     int n;
-    cin >> n; // Read input from user
-    cout << largest_divisor(n) << endl; // Output the result
+    cin >> n;
+    cout << largest_divisor(n) << endl;
     return 0;
 }
