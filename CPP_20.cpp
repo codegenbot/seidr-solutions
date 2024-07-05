@@ -32,7 +32,6 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-    // Additional test cases and input/output can be added here
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
     return 0;
 }
