@@ -22,8 +22,8 @@ def main():
         if len(nums) < 2:
             print("Please enter at least two numbers.")
         else:
-            pair = find_closest_elements(nums)
-            print(f"The closest pair is: {pair}")
+            closest_pair = find_closest_elements(nums)
+            print(f"The closest pair is: {closest_pair[0]} and {closest_pair[1]}")
     except ValueError:
         print("Invalid input. Please enter valid numbers separated by spaces.")
 
