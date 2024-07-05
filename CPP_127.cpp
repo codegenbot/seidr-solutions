@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <cmath>
 
 bool isPrime(int n) {
@@ -15,12 +14,12 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0], end1 = interval1[1];
     int start2 = interval2[0], end2 = interval2[1];
     
-    int startIntersection = max(start1, start2);
-    int endIntersection = min(end1, end2);
+    int intersect_start = max(start1, start2);
+    int intersect_end = min(end1, end2);
     
-    if (startIntersection > endIntersection) return "NO";
+    if (intersect_start > intersect_end) return "NO";
     
-    int length = endIntersection - startIntersection + 1;
+    int length = intersect_end - intersect_start + 1;
     
     return isPrime(length) ? "YES" : "NO";
 }
