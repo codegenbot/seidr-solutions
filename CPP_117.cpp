@@ -1,31 +1,17 @@
+#include<sstream>
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
+    if (s.empty()) return result;
+
+    stringstream ss(s);
     string word;
-    string vowels = "aeiouAEIOU";
 
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                int consonant_count = 0;
-                for (char wc : word) {
-                    if (vowels.find(wc) == string::npos) {
-                        consonant_count++;
-                    }
-                }
-                if (consonant_count == n) {
-                    result.push_back(word);
-                }
-                word.clear();
-            }
-        } else {
-            word += c;
-        }
-    }
-
-    if (!word.empty()) {
+    while (ss >> word) {
         int consonant_count = 0;
-        for (char wc : word) {
-            if (vowels.find(wc) == string::npos) {
+        for (char c : word) {
+            char lower_c = tolower(c);
+            if (lower_c >= 'a' && lower_c <= 'z' && lower_c != 'a' && lower_c != 'e' && lower_c != 'i' && lower_c != 'o' && lower_c != 'u') {
                 consonant_count++;
             }
         }
