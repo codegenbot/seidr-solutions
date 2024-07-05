@@ -8,8 +8,9 @@ std::string get_closest_vowel(const std::string &word) {
         return vowels.find(c) != std::string::npos;
     };
 
-    for (int i = 1; i < word.size() - 1; ++i) {
-        if (!is_vowel(word[i]) && is_vowel(word[i - 1]) && !is_vowel(word[i + 1])) {
+    int n = word.size();
+    for (int i = n - 2; i > 0; --i) {
+        if (!is_vowel(word[i]) && is_vowel(word[i - 1]) && !is_vowel(word[i - 2])) {
             return std::string(1, word[i - 1]);
         }
     }
