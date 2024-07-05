@@ -1,7 +1,7 @@
 def histogram(test=None):
     from collections import Counter
     import sys
-    
+
     if test is None:
         test = sys.stdin.read().strip()
     if not test:
