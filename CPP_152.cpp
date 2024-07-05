@@ -1,6 +1,6 @@
-#include <vector>  // Include vector header
-#include <cmath>   // Include cmath header for abs
-#include <cassert> // Include assert header
+#include <vector>
+#include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -17,6 +17,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
     return 0;
 }
