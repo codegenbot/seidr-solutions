@@ -1,6 +1,7 @@
-for(int num : l) {
-        if(num >= t) 
+for (int num : l) {
+        if (num >= t) {
             return false;
+        }
     }
     return true;
 }
