@@ -12,7 +12,7 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
