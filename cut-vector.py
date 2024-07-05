@@ -1,4 +1,4 @@
-Here is the modified code:
+Here's the modified code:
 
 ```Python
 def cut_vector(vector):
