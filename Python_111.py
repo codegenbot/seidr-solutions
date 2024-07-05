@@ -21,4 +21,4 @@ if __name__ == "__main__":
         result = histogram(input_text)
         print(result)
     except EOFError:
-        pass
+        pass  # Handle end of input
