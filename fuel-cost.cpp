@@ -16,6 +16,7 @@ int calculateFuelCost(std::initializer_list<int> numbers) {
 }
 
 int main() {
-    int result = calculateFuelCost({12, 45, 7, 34});
-    return result;
+    int result = calculateFuelCost({1,2,3});
+    std::cout << "The fuel cost is: " << result << std::endl;
+    return 0;
 }
