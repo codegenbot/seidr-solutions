@@ -10,7 +10,7 @@ vector<string> odd_count(vector<string> lst) {
     for (const auto& str : lst) {
         int odd_count = 0;
         for (char c : str) {
-            if ((c - '0') % 2 != 0) {
+            if (isdigit(c) && (c - '0') % 2 != 0) {
                 odd_count++;
             }
         }
