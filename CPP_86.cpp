@@ -1,14 +1,13 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-
 using namespace std;
 
-string anti_shuffle(string s){
+string anti_shuffle(string s) {
     string result = "";
     string word = "";
-    for(char c : s){
-        if(c == ' '){
+    for(char c : s) {
+        if(c == ' ') {
             sort(word.begin(), word.end());
             result += word + ' ';
             word = "";
@@ -22,8 +21,8 @@ string anti_shuffle(string s){
 }
 
 int main() {
-    string s;
-    getline(cin, s);
-    cout << anti_shuffle(s) << endl;
+    string input;
+    getline(cin, input);
+    cout << anti_shuffle(input) << endl;
     return 0;
 }
