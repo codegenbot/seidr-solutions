@@ -17,11 +17,5 @@ def find_zero(xs):
         return (-xs[-1] + math.sqrt((xs[1] ** 2) - (4 * xs[0] * xs[-1]))) / (2 * xs[0])
 
 
-xs = input("Enter a list of numbers: ").split()
-try:
-    xs = [float(x) for x in xs]
-except ValueError:
-    print("Error: All elements should be numbers.")
-    return None
-
+xs = [float(x) for x in input("Enter a list of numbers separated by space: ").split()]
 find_zero(xs)
