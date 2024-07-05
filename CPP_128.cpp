@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <cmath>
+#include <cmath> // Include for abs function
 
-using namespace std;
+using namespace std; // Using the standard namespace
 
 int prod_signs(vector<int> arr) {
     if (arr.empty()) return -32768;
@@ -21,12 +20,6 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    int n;
-    cin >> n;  
-    vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-    cout << prod_signs(arr) << endl;
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
