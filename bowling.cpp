@@ -1,6 +1,6 @@
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
     for (char c : s) {
@@ -14,7 +14,7 @@ int bowlingScore(string s) {
             int pins = c - '0';
             score += pins;
             if (currentFrame < 10) {
-                if (s[2 + s.find(c)] == 'X' || s[3 + s.find(c)] == '/') {
+                if ((s.length() > s.find(c) + 2 && s[s.find(c) + 1] == 'X') || (s.length() > s.find(c) + 1 && s[s.find(c) + 1] == '/')) {
                     score += 10;
                 }
             }
