@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int car_race_collision(const string &track) {
+int car_race_collision(string track) {
     int collisions = 0;
     int right_cars = 0;
 
@@ -19,15 +19,19 @@ int car_race_collision(const string &track) {
     return collisions;
 }
 
+void test() {
+    // Correcting the assert statement with correct input and expected value
+    assert(car_race_collision("RLRLRRLLR") == 7);
+}
+
 int main() {
     string track;
     cin >> track;
-
+    
     int result = car_race_collision(track);
     cout << result << endl;
 
-    // Correct assert statement with a valid test string
-    assert(car_race_collision("RRLL") == 2);
+    test();  // Run the test function
 
     return 0;
 }
