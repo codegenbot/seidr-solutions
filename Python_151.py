@@ -3,7 +3,7 @@ def double_the_difference(lst):
 
 def check(func):
     lst = [1, 2, -3, 4, 5]
-    odd_sum = 27  # which is 1^2 + 5^2
+    odd_sum = 1**2 + 5**2
     assert func(lst) == odd_sum
 
 check(double_the_difference)
