@@ -24,20 +24,6 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    vector<string> operato;
-    vector<int> operand;
-    string op;
-    int num;
-
-    while (cin >> op) {
-        if (op == "=") break;
-        operato.push_back(op);
-        cin >> num;
-        operand.push_back(num);
-    }
-
-    int result = operand[0];
-    operand.erase(operand.begin());
-    cout << do_algebra(operato, operand) << endl;
+    cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
     return 0;
 }
