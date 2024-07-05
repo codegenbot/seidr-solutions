@@ -1,6 +1,7 @@
+#include <iostream>
 #include <cmath>
 
-bool isPrime(int n) {
+bool is_prime(int n) {
     if (n <= 1) return false;
     if (n <= 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
@@ -11,5 +12,12 @@ bool isPrime(int n) {
 }
 
 int x_or_y(int n, int x, int y) {
-    return isPrime(n) ? x : y;
+    return is_prime(n) ? x : y;
+}
+
+int main() {
+    int n, x, y;
+    std::cin >> n >> x >> y;
+    std::cout << x_or_y(n, x, y) << std::endl;
+    return 0;
 }
