@@ -4,39 +4,35 @@
 
 using namespace std;
 
-string kebabToCamelCase(const string &s) {
-    stringstream ss(s);
+string toCamelCase(const string& str) {
+    stringstream ss(str);
     string token, result;
     bool firstWord = true;
 
     while (getline(ss, token, '-')) {
-        if (firstWord) {
-            result += token;
-            firstWord = false;
-        } else {
+        if (!firstWord) {
             token[0] = toupper(token[0]);
-            result += token;
         }
+        result += token;
+        firstWord = false;
     }
-
     return result;
 }
 
 int main() {
     string input;
     getline(cin, input);
-
+    
     stringstream ss(input);
-    string group, output;
+    string word, output;
 
-    while (getline(ss, group, ' ')) {
+    while (ss >> word) {
         if (!output.empty()) {
             output += " ";
         }
-        output += kebabToCamelCase(group);
+        output += toCamelCase(word);
     }
 
     cout << output << endl;
-
     return 0;
 }
