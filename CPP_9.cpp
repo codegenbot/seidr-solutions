@@ -1,11 +1,29 @@
-vector<int> rolling_max(vector<int> numbers){
+#include <iostream>
+#include <vector>
+#include <cassert>
+using namespace std;
+
+// Define rolling_max function
+vector<int> rolling_max(const vector<int>& numbers) {
     vector<int> result;
-    int current_max = INT_MIN;
-    for (int num : numbers) {
-        if (num > current_max) {
+    int current_max = numbers[0];
+    for(int num : numbers) {
+        if(num > current_max) {
             current_max = num;
         }
         result.push_back(current_max);
     }
     return result;
+}
+
+// Define issame function to compare two vectors
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    // Test with an example
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    cout << "Test passed!" << endl;
+    return 0;
 }
