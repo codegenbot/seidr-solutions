@@ -12,6 +12,7 @@ int sum_squares(const std::vector<float>& lst) {
 }
 
 int main() {
+    // Test case to validate the function
     assert(sum_squares({-1, 1, 0}) == 2);
     
     // More test cases could be added here
