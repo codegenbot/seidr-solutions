@@ -33,6 +33,6 @@ int main() {
 
     // Calculating and printing the result
     cout << mean_absolute_deviation(numbers) << endl;
-
+    
     return 0;
 }
