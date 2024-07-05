@@ -1,13 +1,13 @@
-bool is_nested(string str) {
-    int depth = 0;
+bool is_nested(string str){
+    int openCount = 0;
     for (char ch : str) {
         if (ch == '[') {
-            depth++;
+            openCount++;
         } else if (ch == ']') {
-            depth--;
-        }
-        if (depth > 1) {
-            return true;
+            if (openCount > 1) {
+                return true;
+            }
+            openCount--;
         }
     }
     return false;
