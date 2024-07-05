@@ -1,27 +1,25 @@
-#include <cmath>
-#include <vector>
-#include <string>
+#include<stdio.h>
+#include<vector>
+#include<string>
 using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    for (int i = 5; i * i <= n; i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+    for (int i = 3; i * i <= n; i += 2) {
+        if (n % i == 0) return false;
     }
     return true;
 }
 
 string intersection(vector<int> interval1, vector<int> interval2) {
-    int start1 = interval1[0], end1 = interval1[1];
-    int start2 = interval2[0], end2 = interval2[1];
+    int start = max(interval1[0], interval2[0]);
+    int end = min(interval1[1], interval2[1]);
 
-    int startIntersection = max(start1, start2);
-    int endIntersection = min(end1, end2);
+    if (start > end) return "NO";
 
-    if (startIntersection > endIntersection) return "NO";
-
-    int length = endIntersection - startIntersection + 1;
-    return isPrime(length) ? "YES" : "NO";
+    int intersectionLength = end - start + 1;
+    if (isPrime(intersectionLength)) return "YES";
+    return "NO";
 }
