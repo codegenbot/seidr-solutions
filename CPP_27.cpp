@@ -1,7 +1,14 @@
-string flip_case(string str){
-    for(size_t i = 0; i < str.size(); ++i){
-        if(islower(str[i])) str[i] = toupper(str[i]);
-        else if(isupper(str[i])) str[i] = tolower(str[i]);
+#include<stdio.h>
+#include<string>
+using namespace std;
+
+string flip_case(string str) {
+    for (int i = 0; i < str.size(); i++) {
+        if (islower(str[i])) {
+            str[i] = toupper(str[i]);
+        } else if (isupper(str[i])) {
+            str[i] = tolower(str[i]);
+        }
     }
     return str;
 }
