@@ -28,9 +28,31 @@ variant<int, float, string> compare_one(variant<int, float, string> a, variant<i
 
 int main() {
     variant<int, float, string> a, b;
-    // Example inputs - these would typically come from user input or other sources
-    a = 5;
-    b = string("4,5");
+
+    cout << "Enter first value (int/float/string): ";
+    string input;
+    cin >> input;
+    try {
+        a = stoi(input);
+    } catch (...) {
+        try {
+            a = stof(input);
+        } catch (...) {
+            a = input;
+        }
+    }
+
+    cout << "Enter second value (int/float/string): ";
+    cin >> input;
+    try {
+        b = stoi(input);
+    } catch (...) {
+        try {
+            b = stof(input);
+        } catch (...) {
+            b = input;
+        }
+    }
 
     variant<int, float, string> result = compare_one(a, b);
 
