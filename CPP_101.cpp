@@ -4,7 +4,7 @@
 #include <cassert>
 using namespace std;
 
-vector<string> words_string(string s) {
+vector<string> words_string(string s){
     vector<string> result;
     stringstream ss(s);
     string word;
