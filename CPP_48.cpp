@@ -18,6 +18,6 @@ bool is_palindrome(string text){
 
 int main() {
     cout << boolalpha << is_palindrome("madam") << endl; // true
-    cout << is_palindrome("hello") << endl;             // false
+    cout << is_palindrome("hello") << endl;            // false
     return 0;
 }
