@@ -1,4 +1,8 @@
-#include<set>
+#include <set>
+#include <string>
+#include <cctype> // for tolower
+
+using namespace std;
 
 int count_distinct_characters(string str){ 
     set<char> distinct_chars;
