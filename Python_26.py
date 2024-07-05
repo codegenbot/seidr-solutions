@@ -1,12 +1,12 @@
 from typing import List
+from collections import Counter
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    count = {}
-    for num in numbers:
-        count[num] = count.get(num, 0) + 1
-    return [num for num in numbers if count[num] == 1]
+    counter = Counter(numbers)
+    return [num for num in numbers if counter[num] == 1]
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().strip().split()))
+    import sys
+    numbers = list(map(int, sys.stdin.read().split()))
     result = remove_duplicates(numbers)
-    print(result)
+    print(" ".join(map(str, result)))
