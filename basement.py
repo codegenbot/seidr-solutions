@@ -3,5 +3,5 @@ def basement(arr):
     for i in range(len(arr)):
         cum_sum += arr[i]
         if cum_sum < 0:
-            return i
+            return i + 1
     return -1
