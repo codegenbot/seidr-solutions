@@ -1,4 +1,8 @@
-int balance = 0;
+#include <iostream>
+#include <string>
+
+bool correct_bracketing(const std::string& brackets) {
+    int balance = 0;
     for (char ch : brackets) {
         if (ch == '<') {
             balance++;
