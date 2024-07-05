@@ -1,13 +1,7 @@
-import math
-
-def find_zero():
-    a = float(input("Enter coefficient a: "))
-    b = float(input("Enter coefficient b: "))
-    c = float(input("Enter constant c: "))
-
-    if (b ** 2) - (4 * a * c) < 0:
-        return None
+def find_zero(xs: list):
+    if len(xs) < 2:
+        return -xs[1] / xs[0]
+    elif len(xs) == 2:
+        return -xs[1] / xs[0]
     else:
-        return (-b + math.sqrt((b ** 2) - (4 * a * c))) / (2 * a)
-
-print(find_zero())
+        return (-xs[2] + math.sqrt((xs[1]**2) - (4*xs[0]*xs[-1])))/(2*xs[0])
