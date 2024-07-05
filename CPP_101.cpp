@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Function to split a string by spaces and commas into a vector of words
 vector<string> words_string(string s) {
     vector<string> result;
     string word;
@@ -25,7 +24,6 @@ vector<string> words_string(string s) {
     return result;
 }
 
-// Function to check if two vectors of strings are the same
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
