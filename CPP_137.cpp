@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <any>
-#include <typeinfo>
 using namespace std;
 
 any string_to_number(const string& s) {
