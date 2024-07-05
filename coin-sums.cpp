@@ -6,17 +6,17 @@ int main() {
     cin >> cents;
 
     if (cents < 0) {
-        cout << "";
+        cout << "Error: Please enter a non-negative integer.\n";
         return -1;
     }
 
-    int quarters = (cents - (cents / 10 * 10 + cents / 5 * 5)) / 25;
+    int quarters = static_cast<int>(cents / 25.0);
     cents %= 25;
 
-    int dimes = cents / 10;
+    int dimes = static_cast<int>(cents / 10.0);
     cents %= 10;
 
-    int nickles = cents / 5;
+    int nickles = static_cast<int>(cents / 5.0);
     cents %= 5;
 
     int pennies = cents;
