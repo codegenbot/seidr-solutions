@@ -1,17 +1,12 @@
-vector<float> even_elements;
-
-    // Extract even index elements
-    for(size_t i = 0; i < l.size(); i += 2) {
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_elements;
+    for (int i = 0; i < l.size(); i += 2) {
         even_elements.push_back(l[i]);
     }
-
-    // Sort the even index elements
     sort(even_elements.begin(), even_elements.end());
-
-    // Replace even index elements in the original vector with sorted values
-    for(size_t i = 0; i < l.size(); i += 2) {
-        l[i] = even_elements[i/2];
+    int even_idx = 0;
+    for (int i = 0; i < l.size(); i += 2) {
+        l[i] = even_elements[even_idx++];
     }
-
     return l;
 }
