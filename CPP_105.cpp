@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include <algorithm>
+#include <algorithm> // for sort, reverse
+#include <cassert>
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
@@ -32,6 +33,5 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    cout << "Test passed!" << endl;
     return 0;
 }
