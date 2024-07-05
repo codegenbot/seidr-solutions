@@ -1,4 +1,6 @@
-"""
+Here is the modified code:
+
+```
 import math
 
 def bouncing_balls():
