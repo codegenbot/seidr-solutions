@@ -21,4 +21,4 @@ def find_zero(xs: list):
 if __name__ == "__main__":
     xs = list(map(float, input().strip().split()))
     zero = find_zero(xs)
-    print(zero)
+    print(f"{zero:.6f}")
