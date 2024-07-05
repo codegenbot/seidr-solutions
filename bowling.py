@@ -2,7 +2,7 @@
 def bowling_score(frames):
     score = 0
     i = 0
-    
+
     while i < len(frames):
         if frames[i] == 'X':
             score += 10
@@ -24,5 +24,5 @@ def bowling_score(frames):
                 temp += frames[i]
                 i += 1
             score += int(temp)
-    
+
     return score
