@@ -22,7 +22,7 @@ vector<int> even_odd_count(int num) {
 }
 
 // Function to compare two vectors
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
