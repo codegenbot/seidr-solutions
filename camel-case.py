@@ -1,3 +1,13 @@
-    def camel_case(s):
-        return "".join(word.capitalize() if not word or word[0].isalpha() else word[0].upper() + word[1:].lower()
-                      for word in s.replace("-", " ").split())
+```
+def camel_case(s):
+    s = s.replace("-", " ")
+    words = s.split()
+    result = ""
+    first_word = True
+    for word in words:
+        if first_word:
+            result += word.lower()
+            first_word = False
+        else:
+            result += word.capitalize()
+    return result
