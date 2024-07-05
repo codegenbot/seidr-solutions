@@ -12,6 +12,6 @@ string decimal_to_binary(int decimal) {
 }
 
 int main() {
-    cout << decimal_to_binary(15) << endl; // Example test
+    assert(decimal_to_binary(15) == "db1111db");
     return 0;
 }
