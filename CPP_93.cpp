@@ -21,8 +21,7 @@ string encode(string message){
 }
 
 int main() {
-    string message;
-    getline(cin, message);
-    cout << encode(message) << endl;
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTG");
+    cout << "All tests passed!" << endl;
     return 0;
 }
