@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-def longest(strings: List[str]) -> Optional[str]:
+def longest(strings: List[Optional[str]]) -> Optional[str]:
     if not strings:
         return None
-    max_length = max(len(s) for s in strings)
-    return next((s for s in strings if len(s) == max_length), None)
+    strings = [s for s in strings if isinstance(s, str)]
+    return max(strings, key=len) if strings else None
