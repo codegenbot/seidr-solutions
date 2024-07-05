@@ -1,21 +1,25 @@
+#include <iostream>
 #include <sstream>
+#include <string>
 
-bool simplify(string x, string n) {
-    int num1, denom1, num2, denom2;
+bool simplify(std::string x, std::string n) {
+    int x_num, x_den, n_num, n_den;
     char slash;
     
-    // Parse the first fraction
-    stringstream ss1(x);
-    ss1 >> num1 >> slash >> denom1;
+    std::stringstream x_stream(x);
+    x_stream >> x_num >> slash >> x_den;
     
-    // Parse the second fraction
-    stringstream ss2(n);
-    ss2 >> num2 >> slash >> denom2;
+    std::stringstream n_stream(n);
+    n_stream >> n_num >> slash >> n_den;
     
-    // Multiply the fractions
-    int result_num = num1 * num2;
-    int result_denom = denom1 * denom2;
+    int result_num = x_num * n_num;
+    int result_den = x_den * n_den;
     
-    // Check if the result is a whole number
-    return result_num % result_denom == 0;
+    return result_num % result_den == 0;
+}
+
+int main() {
+    std::cout << std::boolalpha; // for displaying true/false instead of 1/0
+    std::cout << (simplify("1/5", "1/5") == false) << std::endl; // should print true 
+    return 0;
 }
