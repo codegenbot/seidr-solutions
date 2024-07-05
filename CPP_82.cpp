@@ -14,7 +14,7 @@ bool prime_length(const std::string &str) {
 }
 
 int main() {
-    std::cout << std::boolalpha; 
+    std::cout << std::boolalpha;
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input); 
