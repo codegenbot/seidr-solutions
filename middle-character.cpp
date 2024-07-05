@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <iostream>
 
@@ -6,7 +7,7 @@ std::string middleCharacter(std::string s) {
     if (len % 2 == 0) {
         return s.substr(len / 2 - 1, 2);
     } else {
-        return std::to_string(s[len / 2]);
+        return std::string(1, s[len / 2]);
     }
 }
 

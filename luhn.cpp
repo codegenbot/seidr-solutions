@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
-
+#include <initializer_list>
+#include <iostream> 
 using namespace std;
 
 int luhn(vector<int> digits) {
@@ -26,4 +25,4 @@ int main() {
     testDigits.push_back(i); 
     int result = luhn(testDigits);
     cout << "Result: " << result << endl;
-    return 0; }
+}
