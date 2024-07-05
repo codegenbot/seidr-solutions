@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <iostream>
 using namespace std;
 
 int fib4(int n) {
@@ -20,7 +20,7 @@ int fib4(int n) {
 
 int main() {
     int n;
-    scanf("%d", &n);
-    printf("%d\n", fib4(n));
+    cin >> n;
+    cout << fib4(n) << endl;
     return 0;
 }
