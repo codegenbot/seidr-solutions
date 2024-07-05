@@ -9,11 +9,10 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 if __name__ == "__main__":
     try:
-        numbers = list(map(int, input("Enter space-separated integers: ").strip().split()))
-        if numbers:
-            result = sum_product(numbers)
-            print(result[0], result[1])
-        else:
-            print("No input numbers provided")
+        numbers = list(map(int, input("Enter numbers separated by spaces: ").strip().split()))
+        result = sum_product(numbers)
+        print(result[0], result[1])
     except ValueError:
-        print("Invalid input. Please provide a space-separated list of integers.")
+        print("Invalid input. Please provide a list of integers.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
