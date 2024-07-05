@@ -1,9 +1,9 @@
-```
-def indices_of_substring(text):
+def indices_of_substring():
+    text = input()
     result = []
-    target = input()
     i = 0
     while True:
+        target = input()
         i = text.find(target, i)
         if i == -1:
             break
