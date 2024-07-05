@@ -8,8 +8,6 @@ def fib4(n: int):
         for i in range(5, n + 1):
             if i >= 3 and i - 2 < len(memo):
                 memo.append(memo[i - 3] + memo[i - 2])
-    if n <= len(memo):
-        return memo[n]
-    else:
-        # Handle the error or raise a more specific exception
-        pass
+    if n >= len(memo):
+        memo.append(0)
+    return memo[n]
