@@ -1,23 +1,31 @@
 def minPath(grid, k):
-    from heapq import heappop, heappush
+    from heapq import heappush, heappop
 
-    N = len(grid)
-    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    min_path = None
+    def valid(x, y):
+        return 0 <= x < n and 0 <= y < n
 
-    def dfs(x, y, path):
-        nonlocal min_path
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    n = len(grid)
+    heap = []
+
+    # Push all starting points into heap
+    for i in range(n):
+        for j in range(n):
+            heappush(heap, (grid[i][j], [(i, j)], [grid[i][j]]))
+
+    while heap:
+        val, path, values = heappop(heap)
         if len(path) == k:
-            if min_path is None or path < min_path:
-                min_path = path
-            return
+            return values
+        x, y = path[-1]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N:
-                dfs(nx, ny, path + [grid[nx][ny]])
-
-    for i in range(N):
-        for j in range(N):
-            dfs(i, j, [grid[i][j]])
-
-    return min_path
+            if valid(nx, ny):
+                heappush(
+                    heap,
+                    (
+                        values + [grid[nx][ny]],
+                        path + [(nx, ny)],
+                        values + [grid[nx][ny]],
+                    ),
+                )
