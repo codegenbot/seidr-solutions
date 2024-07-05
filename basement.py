@@ -1,7 +1,10 @@
-def get_negative_index(numbers):
-    current_sum = 0
-    for i, num in enumerate(numbers):
-        current_sum += num
-        if current_sum < 0:
+
+import numpy as np
+
+def first_negative_index(arr):
+    total = 0
+    for i in range(len(arr)):
+        total += arr[i]
+        if total < 0:
             return i
     return -1
