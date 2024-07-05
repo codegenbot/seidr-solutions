@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 #include <iostream>
 
 bool isPrime(int num) {
@@ -13,7 +12,7 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    std::vector<int> fib = {0, 1}; 
+    std::vector<int> fib = {0, 1}; // Adjust the initial Fibonacci numbers
     std::vector<int> primeFibs;
 
     while (primeFibs.size() < n) {
