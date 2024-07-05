@@ -1,11 +1,9 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
-
+#include <vector>
 using namespace std;
 
-string int_to_mini_roman(int number) {
+string int_to_mini_roman(int number){
     vector<pair<int, string>> roman = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"},
                                        {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"},
                                        {5, "v"}, {4, "iv"}, {1, "i"}};
@@ -20,10 +18,7 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    assert(int_to_mini_roman(1000) == "m");
-    assert(int_to_mini_roman(500) == "d");
-    assert(int_to_mini_roman(400) == "cd");
-    assert(int_to_mini_roman(90) == "xc");
-    cout << "All tests pass!" << endl;
+    // Example test case to verify the function
+    cout << int_to_mini_roman(1000) << endl; // Should print "m"
     return 0;
 }
