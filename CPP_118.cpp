@@ -6,8 +6,8 @@ std::string get_closest_vowel(const std::string& word) {
     int n = word.size();
     for (int i = n - 2; i > 0; --i) {
         if (vowels.find(word[i]) != std::string::npos && 
-            vowels.find(word[i - 1]) == std::string::npos && 
-            vowels.find(word[i + 1]) == std::string::npos) {
+            vowels.find(word[i-1]) == std::string::npos && 
+            vowels.find(word[i+1]) == std::string::npos) {
             return std::string(1, word[i]);
         }
     }
@@ -15,6 +15,8 @@ std::string get_closest_vowel(const std::string& word) {
 }
 
 int main() {
-    std::cout << get_closest_vowel("Above") << std::endl;  // Should print "o"
+    std::string word;
+    std::cin >> word;
+    std::cout << get_closest_vowel(word) << std::endl;
     return 0;
 }
