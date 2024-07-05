@@ -1,26 +1,42 @@
+#include <iostream>
 #include <sstream>
 #include <string>
 
+int gcd(int a, int b) {
+    while (b) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 bool simplify(std::string x, std::string n) {
-    int num1, denom1, num2, denom2;
+    int x_num, x_den, n_num, n_den;
     char slash;
     
-    // Parse the first fraction
-    std::stringstream ss1(x);
-    ss1 >> num1 >> slash >> denom1;
+    std::stringstream x_stream(x);
+    x_stream >> x_num >> slash >> x_den;
     
-    // Parse the second fraction
-    std::stringstream ss2(n);
-    ss2 >> num2 >> slash >> denom2;
+    std::stringstream n_stream(n);
+    n_stream >> n_num >> slash >> n_den;
     
-    // Multiply the fractions
-    int result_num = num1 * num2;
-    int result_denom = denom1 * denom2;
+    // Simplify x
+    int gcd_x = gcd(x_num, x_den);
+    x_num /= gcd_x;
+    x_den /= gcd_x;
     
-    // Check if the result is a whole number
-    return result_num % result_denom == 0;
+    // Simplify n
+    int gcd_n = gcd(n_num, n_den);
+    n_num /= gcd_n;
+    n_den /= gcd_n;
+    
+    // Check if both fractions are equal
+    return x_num == n_num && x_den == n_den;
 }
 
 int main() {
-    assert(simplify("1/5", "1/5") == false);
+    std::cout << std::boolalpha;
+    std::cout << simplify("1/5", "1/5") << std::endl; // Should print true since they are the same fraction
+    return 0;
 }
