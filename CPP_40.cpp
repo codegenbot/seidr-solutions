@@ -1,4 +1,6 @@
-bool triples_sum_to_zero(vector<int> l){
+#include <algorithm>
+
+bool triples_sum_to_zero(vector<int> l) {
     int n = l.size();
     if (n < 3) return false;
     sort(l.begin(), l.end());
