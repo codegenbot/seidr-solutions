@@ -1,20 +1,26 @@
 #include <iostream>
 #include <string>
-#include <set>
+#include <vector>
+#include <algorithm>
+#include <cctype>
+#include <cassert>
 
-using namespace std;
-
-int count_distinct_characters(string str){
-    set<char> distinct_chars;
-    for(char c : str) {
-        distinct_chars.insert(tolower(c));
+int count_distinct_characters(const std::string& str) { 
+    std::string lower_str = str;
+    transform(lower_str.begin(), lower_str.end(), lower_str.begin(), ::tolower);
+    std::vector<bool> seen(26, false);
+    int count = 0;
+    for (char c : lower_str) {
+        if (isalpha(c) && !seen[c - 'a']) {
+            seen[c - 'a'] = true;
+            count++;
+        }
     }
-    return distinct_chars.size();
+    return count;
 }
 
 int main() {
-    string str;
-    getline(cin, str);
-    cout << count_distinct_characters(str) << endl;
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
