@@ -21,7 +21,10 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
+    assert(issame(generate_integers(17, 18), {18}));
+    assert(issame(generate_integers(10, 15), {10, 12, 14}));
+    assert(issame(generate_integers(5, 5), {}));
+    assert(issame(generate_integers(20, 23), {20, 22}));
     cout << "All tests passed!" << endl;
     return 0;
 }
