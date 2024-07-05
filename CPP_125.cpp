@@ -24,7 +24,7 @@ vector<string> split_words(string txt) {
     } else {
         int odd_count = 0;
         for (char c : txt) {
-            if (islower(c) && ((c - 'a') % 2 != 0)) {
+            if (islower(c) && ((c - 'a') % 2 == 1)) {
                 odd_count++;
             }
         }
@@ -42,7 +42,7 @@ int main() {
     assert(issame(split_words("a,b,c"), {"a", "b", "c"}));
     assert(issame(split_words("abcdef"), {"3"}));
     assert(issame(split_words(""), {"0"}));
-
+    
     cout << "All tests passed!" << endl;
     return 0;
 }
