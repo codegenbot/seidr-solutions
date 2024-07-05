@@ -2,7 +2,7 @@
 #include <cassert>
 using namespace std;
 
-int max_fill(const vector<vector<int>>& grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     int total_water_units = 0;
     for (const auto& row : grid) {
         for (int cell : row) {
@@ -14,6 +14,5 @@ int max_fill(const vector<vector<int>>& grid, int capacity) {
 
 int main() {
     assert(max_fill({{1, 1, 1, 1}, {1, 1, 1, 1}}, 9) == 2);
-    // Add more test cases if needed
     return 0;
 }
