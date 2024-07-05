@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -16,9 +15,20 @@ long long int double_the_difference(const vector<float>& lst) {
 }
 
 int main() {
-    vector<float> lst = {1.0, 3.0, 2.0, -3.0, 5.0};
-    long long int odd_sum = 18; // Precomputed expected output for given lst
-    assert(double_the_difference(lst) == odd_sum);
+    vector<float> lst;
+    float num;
+    int n;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> num;
+        lst.push_back(num);
+    }
+
     cout << double_the_difference(lst) << endl;
+
     return 0;
 }
