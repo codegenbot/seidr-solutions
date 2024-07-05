@@ -1,4 +1,3 @@
-
 def fruit_distribution(s, n):
     apple_count = s.count("apples")
     orange_count = s.count("oranges")
