@@ -27,7 +27,6 @@ def minPath(grid, k):
 
     return min_path
 
-
 if __name__ == "__main__":
     n = int(input().strip())
     grid = [list(map(int, input().strip().split())) for _ in range(n)]
