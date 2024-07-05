@@ -1,4 +1,6 @@
+```
 #include <string>
+#include <iostream>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -30,8 +32,7 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-int main() {
-    std::string s = "XXXX/8-5/7-3/X/2+6/9-X/4+5/";
-    int score = bowlingScore(s);
-    return score;
+int main() { 
+    std::cout << bowlingScore("XXXX/") << std::endl; 
+    return 0; 
 }
