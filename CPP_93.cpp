@@ -1,17 +1,17 @@
-string encode(string message) {
+string encode(string message){
+    string result = "";
     for (char &c : message) {
-        // Swap case
-        if (isupper(c))
-            c = tolower(c);
-        else
-            c = toupper(c);
-        
-        // Replace vowels
-        if (c == 'a' || c == 'A') c = 'C';
-        else if (c == 'e' || c == 'E') c = 'G';
-        else if (c == 'i' || c == 'I') c = 'K';
-        else if (c == 'o' || c == 'O') c = 'Q';
-        else if (c == 'u' || c == 'U') c = 'W';
+        if (isalpha(c)) {
+            if (islower(c)) c = toupper(c);
+            else c = tolower(c);
+            
+            if (c == 'A') c = 'C';
+            else if (c == 'E') c = 'G';
+            else if (c == 'I') c = 'K';
+            else if (c == 'O') c = 'Q';
+            else if (c == 'U') c = 'W';
+        }
+        result += c;
     }
-    return message;
+    return result;
 }
