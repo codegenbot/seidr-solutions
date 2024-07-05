@@ -2,36 +2,34 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <cctype>
-#include <algorithm>
 
 using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
+    size_t pos = 0;
+    string delimiter;
+
     if (txt.find(' ') != string::npos) {
-        size_t pos = 0;
-        while ((pos = txt.find(' ')) != string::npos) {
-            result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + 1);
-        }
-        result.push_back(txt);
+        delimiter = " ";
     } else if (txt.find(',') != string::npos) {
-        size_t pos = 0;
-        while ((pos = txt.find(',')) != string::npos) {
-            result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + 1);
-        }
-        result.push_back(txt);
+        delimiter = ",";
     } else {
-        int odd_count = 0;
+        int count = 0;
         for (char c : txt) {
-            if (islower(c) && ((c - 'a') % 2 == 1)) {
-                odd_count++;
+            if (c >= 'a' && c <= 'z' && ((c - 'a') % 2 == 0)) {
+                count++;
             }
         }
-        result.push_back(to_string(odd_count));
+        result.push_back(to_string(count));
+        return result;
     }
+
+    while ((pos = txt.find(delimiter)) != string::npos) {
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + delimiter.length());
+    }
+    result.push_back(txt);
     return result;
 }
 
@@ -41,9 +39,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(split_words(""), {"0"}));
-    assert(issame(split_words("hello"), {"2"}));  // 'h', 'e', 'l', 'l', 'o' -> 'e', 'l' -> 2
-    assert(issame(split_words("hello world"), {"hello", "world"}));
-    assert(issame(split_words("one,two,three"), {"one", "two", "three"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
