@@ -1,15 +1,7 @@
-#include <iostream>
-#include <cmath>
-using namespace std;
+#include<stdio.h>
+#include<math.h>
 
 float truncate_number(float number) {
-    return trunc(number);
-}
-
-int main() {
-    float number;
-    cout << "Enter a number: ";
-    cin >> number;
-    cout << "Truncated number: " << truncate_number(number) << endl;
-    return 0;
+    int integer_part = (int)number;
+    return (float)integer_part;
 }
