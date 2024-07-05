@@ -15,7 +15,7 @@ std::any convert_to_float(std::any value) {
         replace(str.begin(), str.end(), ',', '.');
         return stof(str);
     }
-    return 0.0f; // Default fallback
+    return 0.0f;
 }
 
 std::any compare_one(std::any a, std::any b) {
@@ -29,7 +29,7 @@ std::any compare_one(std::any a, std::any b) {
 
 int main() {
     std::any a, b;
-    a = 5; // Example inputs
+    a = 5;
     b = string("4.5");
     
     std::any result = compare_one(a, b);
