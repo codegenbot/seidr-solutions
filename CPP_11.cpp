@@ -1,4 +1,4 @@
-string string_xor(string a, string b) {
+string string_xor(string a, string b){
     string result = "";
     for(size_t i = 0; i < a.size(); ++i) {
         result += (a[i] == b[i]) ? '0' : '1';
