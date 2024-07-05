@@ -27,6 +27,13 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.Bb");
+    string class_name;
+    int n;
+    cin >> class_name >> n;
+    vector<string> extensions(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> extensions[i];
+    }
+    cout << Strongest_Extension(class_name, extensions) << endl;
     return 0;
 }
