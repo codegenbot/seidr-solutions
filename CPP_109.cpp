@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool move_one_ball(const std::vector<int>& arr) {
+bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     if (n == 0) return true;
 
@@ -19,10 +19,16 @@ bool move_one_ball(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::cout << std::boolalpha;
-
-    std::vector<int> arr = {3, 4, 5, 1, 2};
-    std::cout << move_one_ball(arr) << std::endl;
-
+    std::vector<int> arr;
+    int n, temp;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> temp;
+        arr.push_back(temp);
+    }
+    bool result = move_one_ball(arr);
+    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
     return 0;
 }

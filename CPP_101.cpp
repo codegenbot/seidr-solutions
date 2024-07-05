@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -24,9 +25,7 @@ vector<string> words_string(string s) {
 }
 
 int main() {
-    vector<string> words = words_string("ahmed    , gamal");
-    for (const string &word: words) {
-        cout << word << endl;
-    }
+    assert((words_string("ahmed    , gamal") == vector<string>{"ahmed", "gamal"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
