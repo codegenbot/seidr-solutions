@@ -12,11 +12,6 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main() {
-    vector<int> pile_a = make_a_pile(8);
-    vector<int> pile_b = {8, 10, 12, 14, 16, 18, 20, 22};
-
-    assert(pile_a == pile_b);
-
-    return 0;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
