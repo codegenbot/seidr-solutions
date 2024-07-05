@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 using namespace std;
 
 bool is_prime(int num) {
@@ -14,17 +13,18 @@ bool is_prime(int num) {
 }
 
 int prime_fib(int n) {
-    vector<int> fib = {0, 1};
+    vector<int> fib = {1, 1};
     vector<int> prime_fibs;
     int i = 2;
     while (prime_fibs.size() < n) {
-        fib.push_back(fib[i-1] + fib[i-2]);
-        if (is_prime(fib[i])) {
-            prime_fibs.push_back(fib[i]);
+        int next_fib = fib[i - 1] + fib[i - 2];
+        fib.push_back(next_fib);
+        if (is_prime(next_fib)) {
+            prime_fibs.push_back(next_fib);
         }
         i++;
     }
-    return prime_fibs[n-1];
+    return prime_fibs[n - 1];
 }
 
 int main() {
