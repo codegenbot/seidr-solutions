@@ -1,10 +1,6 @@
+```
 def fruit_distribution(s, n):
-    s = s.lower()
-    n = int(n)
     words = s.split()
-    for i in range(len(words)):
-        if "apples" in words[i]:
-            apples = int("".join(filter(str.isdigit, words[i])))
-        elif "oranges" in words[i]:
-            oranges = int("".join(filter(str.isdigit, words[i])))
-    return n - apples - oranges
+    num_apples = int(words[1].split(' ')[0])
+    num_oranges = int(words[-2].split(' ')[0])
+    return n - num_apples - num_oranges
