@@ -1,9 +1,9 @@
-int bowlingScore() {
+#include <cstring>
+int bowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
-    std::string s;
-    std::cin >> s;
-    for (char c : s) {
+    for (int i = 0; i < strlen(s); i++) { 
+        char c = s[i];
         if (c == 'X') {
             score += 30;
             currentRoll++;
@@ -21,3 +21,4 @@ int bowlingScore() {
         }
     }
     return score;
+}
