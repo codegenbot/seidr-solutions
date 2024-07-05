@@ -4,7 +4,10 @@
 #include <algorithm>
 using namespace std;
 
-bool simplify(string x, string n) {
+int main() {
+    string x, n;
+    cin >> x >> n;
+
     auto parse_fraction = [](string frac) {
         size_t pos = frac.find('/');
         int numerator = stoi(frac.substr(0, pos));
@@ -34,5 +37,11 @@ bool simplify(string x, string n) {
     auto simplified_x = simplify_fraction(make_pair(num_x, den_x));
     auto simplified_n = simplify_fraction(make_pair(num_n, den_n));
 
-    return simplified_x == simplified_n;
+    if (simplified_x == simplified_n) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+
+    return 0;
 }
