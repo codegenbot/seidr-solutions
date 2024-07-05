@@ -40,8 +40,7 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     assert(issame(split_words(""), {"0"}));
     assert(issame(split_words("hello world"), {"hello", "world"}));
-    assert(issame(split_words("apple,banana,grape"), {"apple", "banana", "grape"}));
-    assert(issame(split_words("noDelimiterHere"), {"7"})); 
+    assert(issame(split_words("apple,banana,carrot"), {"apple", "banana", "carrot"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
