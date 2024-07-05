@@ -24,8 +24,12 @@ vector<string> words_string(string s) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    assert((words_string("ahmed    , gamal") == vector<string>{"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
