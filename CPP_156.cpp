@@ -23,6 +23,9 @@ string int_to_mini_roman(int number) {
 
 int main() {
     assert(int_to_mini_roman(1000) == "m");
-    cout << "Test passed!" << endl;
+    assert(int_to_mini_roman(9) == "ix");
+    assert(int_to_mini_roman(58) == "lviii");
+    assert(int_to_mini_roman(1994) == "mcmxciv");
+    cout << "All test cases pass." << endl;
     return 0;
 }
