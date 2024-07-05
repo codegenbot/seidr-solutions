@@ -1,6 +1,6 @@
-vector<int> even_odd_count(int num){
+vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
-    num = abs(num);
+    num = abs(num); // Handle negative numbers
     while (num > 0) {
         int digit = num % 10;
         if (digit % 2 == 0) {
