@@ -8,7 +8,7 @@ bool is_nested(string str) {
     for (int i = 0; i < n; ++i) {
         if (str[i] == '[') {
             depth++;
-        } else {
+        } else if (str[i] == ']') {
             depth--;
         }
         if (depth > 1) {
