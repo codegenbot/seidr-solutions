@@ -8,15 +8,15 @@ vector<string> separate_paren_groups(string paren_string) {
     string current_group;
     int balanced = 0;
 
-    for (char ch : paren_string) {
+    for(char ch : paren_string) {
         if (ch == ' ') continue; // Ignore spaces
         current_group += ch;
-        if (ch == '(') {
+        if(ch == '(') {
             balanced++;
-        } else if (ch == ')') {
+        } else if(ch == ')') {
             balanced--;
         }
-        if (balanced == 0 && !current_group.empty()) {
+        if(balanced == 0 && !current_group.empty()) {
             result.push_back(current_group);
             current_group = "";
         }
@@ -28,8 +28,8 @@ int main() {
     string input;
     getline(cin, input); // Read full line input including spaces
     vector<string> groups = separate_paren_groups(input);
-
-    for (const string &group : groups) {
+    
+    for(const string &group : groups) {
         cout << group << endl;
     }
     return 0;
