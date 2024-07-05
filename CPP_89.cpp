@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -13,6 +13,6 @@ string encrypt(string s){
 
 int main() {
     assert(encrypt("a") == "e");
-    cout << "All tests passed!" << endl;
+    cout << "Test passed" << endl;
     return 0;
 }
