@@ -5,8 +5,7 @@
 
 using namespace std;
 
-// Function to filter strings containing the substring
-vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
+vector<string> filter_by_substring(const vector<string> &strings, const string &substring) {
     vector<string> result;
     for (const auto& str : strings) {
         if (str.find(substring) != string::npos) {
@@ -16,8 +15,7 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
     return result;
 }
 
-// Function to compare two vectors of strings
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string> &a, const vector<string> &b) {
     return a == b;
 }
 
