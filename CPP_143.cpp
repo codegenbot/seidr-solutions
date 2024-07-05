@@ -37,6 +37,8 @@ string words_in_sentence(string sentence) {
 }
 
 int main() {
-    cout << (words_in_sentence("Here is a prime example") == "Here is prime") << endl;
+    string sentence;
+    getline(cin, sentence);
+    cout << words_in_sentence(sentence) << endl;
     return 0;
 }
