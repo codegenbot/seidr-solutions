@@ -19,25 +19,28 @@ def minPath(grid, k):
                 if length == k:
                     if min_path is None or path < min_path:
                         min_path = path
-                else:
-                    for nx, ny in neighbors(x, y):
+                    continue
+                for nx, ny in neighbors(x, y):
+                    if length < k:
                         new_path = path + [grid[nx][ny]]
                         heappush(heap, (grid[nx][ny], nx, ny, length + 1, new_path))
     return min_path
 
+
 if __name__ == "__main__":
     import sys
+
     input = sys.stdin.read
-    data = list(map(int, input().strip().split()))
-    
+    data = list(map(int, input().split()))
+
     N = data[0]
     k = data[1]
     grid = []
     idx = 2
     for i in range(N):
-        grid.append(data[idx:idx + N])
+        grid.append(data[idx : idx + N])
         idx += N
-    
+
     result = minPath(grid, k)
     if result:
         print(" ".join(map(str, result)))
