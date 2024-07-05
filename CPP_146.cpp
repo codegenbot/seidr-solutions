@@ -22,12 +22,13 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     vector<int> nums;
-    int n, num;
-    cout << "Enter the number of elements: ";
+    int n, temp;
+    cout << "Enter number of elements: ";
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> num;
-        nums.push_back(num);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> temp;
+        nums.push_back(temp);
     }
     cout << specialFilter(nums) << endl;
     return 0;
