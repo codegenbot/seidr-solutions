@@ -3,10 +3,10 @@ def add(x: int, y: int):
 
 try:
     input_line = input().strip()
-    if input_line:
-        x, y = map(int, input_line.split())
-        print(add(x, y))
-    else:
-        print("Invalid input")
-except (ValueError, EOFError):
+    parts = input_line.split()
+    if len(parts) != 2:
+        raise ValueError
+    x, y = map(int, parts)
+    print(add(x, y))
+except (ValueError, EOFError, TypeError):
     print("Invalid input")
