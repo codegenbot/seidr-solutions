@@ -14,7 +14,7 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    assert(cycpattern_check("winemtt","tinem") == true);
+    assert(cycpattern_check("winemtt", "tinem") == true);
     std::cout << "Test passed." << std::endl;
     return 0;
 }

@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -32,4 +31,17 @@ int largestPrimeDigitSum(vector<int> lst) {
         }
     }
     return largestPrime == -1 ? 0 : sumOfDigits(largestPrime);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> lst(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> lst[i];
+    }
+    
+    cout << largestPrimeDigitSum(lst) << endl;
+
+    return 0;
 }
