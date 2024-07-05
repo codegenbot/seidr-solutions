@@ -1,18 +1,22 @@
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
-// Function to increment each element in the list by 1
+// Forward declare incr_list
+vector<int> incr_list(vector<int> l);
+
+// Define issame function
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+// Define incr_list function
 vector<int> incr_list(vector<int> l) {
     for(int &num : l) {
         num += 1;
     }
     return l;
-}
-
-// Function to check if two vectors are the same
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
