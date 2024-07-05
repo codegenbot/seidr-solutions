@@ -1,9 +1,13 @@
-vector<int> get_odd_collatz(int n) {
-    vector<int> odd_numbers;
-    
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 != 0) {
-            odd_numbers.push_back(n);
+            result.push_back(n);
         }
         if (n % 2 == 0) {
             n /= 2;
@@ -11,8 +15,18 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    odd_numbers.push_back(1);
-    
-    sort(odd_numbers.begin(), odd_numbers.end());
-    return odd_numbers;
+    result.push_back(1); // 1 is always part of the sequence
+    std::sort(result.begin(), result.end());
+    return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
+    std::cout << "Test passed!" << std::endl;
+
+    return 0;
 }
