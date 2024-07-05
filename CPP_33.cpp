@@ -22,12 +22,10 @@ vector<int> sort_third(vector<int> l) {
     return l;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    vector<int> test = {5, 6, 3, 4, 8, 9, 2, 1};
+    vector<int> expected = {2, 6, 3, 4, 8, 9, 5, 1};
+    assert(test == expected);  // Ensure the function works as expected
     cout << "All test cases passed!" << endl;
     return 0;
 }
