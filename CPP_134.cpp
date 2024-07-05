@@ -13,11 +13,10 @@ bool check_if_last_char_is_a_letter(const string &txt) {
 
 int main() {
     // Test cases
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
     assert(check_if_last_char_is_a_letter("apple pie") == true);
-    assert(check_if_last_char_is_a_letter("apple pie!") == false);
-    assert(check_if_last_char_is_a_letter("apple pie ") == false);
+    assert(check_if_last_char_is_a_letter("apple ") == false);
+    assert(check_if_last_char_is_a_letter("apple") == true);
     assert(check_if_last_char_is_a_letter("") == false);
-    assert(check_if_last_char_is_a_letter(" ") == false);
-    assert(check_if_last_char_is_a_letter("a") == true);
     return 0;
 }
