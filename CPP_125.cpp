@@ -29,7 +29,7 @@ vector<string> split_words(string txt) {
     } else if (result.empty()) {
         int odd_count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {  // Corrected to count odd-indexed
+            if (islower(c) && (c - 'a') % 2 != 0) {
                 odd_count++;
             }
         }
@@ -47,7 +47,7 @@ int main() {
     assert(issame(split_words(""), {"0"}));
     assert(issame(split_words("Hello World"), {"Hello", "World"}));
     assert(issame(split_words("One,Two,Three"), {"One", "Two", "Three"}));
-    assert(issame(split_words("abc"), {"1"}));  // Example you might test odd indices 
+    assert(issame(split_words("abc"), {"1"}));
     cout << "All tests passed!" << endl;
     return 0;
 }
