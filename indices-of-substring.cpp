@@ -1,26 +1,22 @@
-vector<int> findSubstringIndices(const string& text, const string& target) {
+vector<int> indices_of_substring(const string &text, const string &target) {
     vector<int> indices;
-    if (target.empty() || text.empty() || target.size() > text.size()) return indices;
-    
-    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
-        if (text.substr(i, target.size()) == target) {
-            indices.push_back(i);
-        }
+    size_t pos = text.find(target);
+    while (pos != string::npos) {
+        indices.push_back(pos);
+        pos = text.find(target, pos + 1);
     }
     return indices;
 }
 
 int main() {
     string target, text;
-    cin >> target >> text;
-
-    vector<int> indices = findSubstringIndices(text, target);
-    
-    cout << indices.size() << endl;
-    for (int index : indices) {
+    getline(cin, target);
+    getline(cin, text);
+    vector<int> result = indices_of_substring(text, target);
+    cout << result.size() << endl;
+    for (int index : result) {
         cout << index << " ";
     }
     cout << endl;
-
     return 0;
 }
