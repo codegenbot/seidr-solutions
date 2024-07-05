@@ -1,25 +1,28 @@
-#include <string>
+#include <unordered_set>
 #include <vector>
-#include <algorithm>
+#include <string>
+#include <iostream>
 using namespace std;
 
 string find_max(vector<string> words) {
-    auto count_unique = [](const string& s) {
-        vector<int> freq(256, 0);
-        for (char c : s) freq[c]++;
-        return count_if(freq.begin(), freq.end(), [](int count) { return count > 0; });
-    };
-
     string max_word;
-    int max_unique = 0;
+    int max_unique_chars = 0;
 
-    for (const string& word : words) {
-        int unique_chars = count_unique(word);
-        if (unique_chars > max_unique || (unique_chars == max_unique && word < max_word)) {
-            max_unique = unique_chars;
+    for (const auto& word : words) {
+        unordered_set<char> unique_chars(word.begin(), word.end());
+        int unique_count = unique_chars.size();
+
+        if (unique_count > max_unique_chars || 
+           (unique_count == max_unique_chars && word < max_word)) {
+            max_unique_chars = unique_count;
             max_word = word;
         }
     }
 
     return max_word;
+}
+
+int main() {
+    cout << find_max({"play", "play", "play"}) << endl;
+    return 0;
 }
