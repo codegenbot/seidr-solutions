@@ -1,12 +1,15 @@
+```
 def sort_third(l):
     result = []
+    non_three_numbers = [x for x in l if x % 3 != 0]
+    non_three_numbers.sort()
+    
     i = 0
-    j = 0
-    while j < len(l):
-        if l[j] % 3 != 0:
-            result.append(l.pop(j))
-        elif min(x for x in l[:j] if x % 3 != 0) is None or min(x for x in l[:j] if x % 3 != 0) <= l[j]:
-            result.append(l.pop(j))
+    while i < len(l):
+        if l[i] % 3 != 0:
+            result.append(non_three_numbers.pop(0))
         else:
-            j += 1
+            result.append(l.pop(i))
+        i += 1
+    
     return tuple(result)
