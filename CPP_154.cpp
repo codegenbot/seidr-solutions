@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-bool cycpattern_check(std::string a, std::string b) {
-    int lenB = b.length();
-    std::string rotation = b + b;
-    for (int i = 0; i < lenB; ++i) {
-        if (a.find(rotation.substr(i, lenB)) != std::string::npos) {
+using namespace std;
+
+bool cycpattern_check(string a, string b) {
+    int len = b.length();
+    string temp = b + b;
+    for (int i = 0; i < len; ++i) {
+        if (a.find(temp.substr(i, len)) != string::npos) {
             return true;
         }
     }
@@ -13,9 +16,7 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    std::cout << std::boolalpha; // for displaying 'true'/'false' instead of '1'/'0'
-    std::string a, b;
-    std::cin >> a >> b;
-    std::cout << cycpattern_check(a, b) << std::endl;
+    assert(cycpattern_check("winemtt", "tinem") == true);
+    cout << "All tests passed!" << endl;
     return 0;
 }
