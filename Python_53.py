@@ -1,10 +1,10 @@
-
-def add(x: int, y: int):
+def add(x: int, y: int) -> int:
     return x + y
 
-while True:
-    x = int(input("Enter first number: "))
-    if x == "done":
-        break
-    y = int(input("Enter second number: "))
-    print(add(x, y))
+
+# Read input from user
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+# Print result
+print(add(x, y))
