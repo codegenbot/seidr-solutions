@@ -1,5 +1,6 @@
 #include<stdio.h>
 using namespace std;
+
 bool is_prime(long long n){
     if (n <= 1) return false;
     if (n <= 3) return true;
