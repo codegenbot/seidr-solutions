@@ -36,8 +36,7 @@ bool simplify(std::string x, std::string n) {
 }
 
 int main() {
-    std::string x_input, n_input;
-    std::cin >> x_input >> n_input;
-    std::cout << std::boolalpha << simplify(x_input, n_input) << std::endl;
+    std::cout << std::boolalpha;
+    std::cout << simplify("1/5", "1/5") << std::endl; // Should print true since they are the same fraction
     return 0;
 }
