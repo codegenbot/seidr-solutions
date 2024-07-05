@@ -2,15 +2,11 @@
 using namespace std;
 
 int main() {
-    double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance = 0;
-    int numBounces;
-    
+    double startingHeight, firstBounceHeight, bouncinessIndex, numBounces;
     cin >> startingHeight >> firstBounceHeight >> numBounces;
     bouncinessIndex = firstBounceHeight / startingHeight;
     
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance = startingHeight + (bouncinessIndex * numBounces) + (0.5 * bouncinessIndex * (numBounces - 1));
-    }
+    totalDistance = startingHeight + (bouncinessIndex * numBounces) + (numBounces - 1) / 2 * bouncinessIndex;
     
     cout << totalDistance << endl;
     
