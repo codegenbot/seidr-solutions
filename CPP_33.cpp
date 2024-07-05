@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
@@ -13,10 +11,10 @@ vector<int> sort_third(vector<int> l) {
         }
     }
     sort(to_sort.begin(), to_sort.end());
-    int idx = 0;
+    int index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            l[i] = to_sort[idx++];
+            l[i] = to_sort[index++];
         }
     }
     return l;
@@ -28,6 +26,5 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    cout << "All tests passed!" << endl;
     return 0;
 }
