@@ -18,7 +18,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    vector<int> expected1 = {2, 2, 2, 2, 2};
-    assert(issame(intersperse({2, 2, 2}, 2), expected1));
+    vector<int> expected_result = {2, 2, 2, 2, 2};
+    assert(issame(intersperse({2, 2, 2}, 2), expected_result));
     return 0;
 }
