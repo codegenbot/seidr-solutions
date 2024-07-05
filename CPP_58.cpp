@@ -1,8 +1,18 @@
+#include<stdio.h>
+#include<vector>
+#include<algorithm>
+#include<set>
+using namespace std;
+
 vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
     vector<int> result;
-    sort(l1.begin(), l1.end());
-    sort(l2.begin(), l2.end());
-    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
-    result.erase(unique(result.begin(), result.end()), result.end());
+    for (auto num : s1) {
+        if (s2.find(num) != s2.end()) {
+            result.push_back(num);
+        }
+    }
+    sort(result.begin(), result.end());
     return result;
 }
