@@ -30,6 +30,7 @@ def minPath(grid, k):
 
 if __name__ == "__main__":
     data = input().strip().split()
+    
     N = int(data[0])
     k = int(data[1])
     grid = []
