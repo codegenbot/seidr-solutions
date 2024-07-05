@@ -6,5 +6,10 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return mad
 
 if __name__ == "__main__":
-    numbers = list(map(float, input().split()))
-    print(mean_absolute_deviation(numbers))
+    try:
+        numbers = list(map(float, input("Enter numbers separated by spaces: ").strip().split()))
+        if not numbers:
+            raise ValueError("Input cannot be empty")
+        print(mean_absolute_deviation(numbers))
+    except ValueError as e:
+        print(f"Invalid input: {e}")
