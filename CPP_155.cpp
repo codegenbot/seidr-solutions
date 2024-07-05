@@ -7,9 +7,9 @@ using namespace std;
 
 // The given function
 vector<int> even_odd_count(int num) {
-    if(num == 0) return {1, 0};
     int even_count = 0, odd_count = 0;
     num = abs(num); // Ensure num is positive
+    if (num == 0) even_count = 1; // Special case for 0
     while (num > 0) {
         int digit = num % 10;
         if (digit % 2 == 0)
