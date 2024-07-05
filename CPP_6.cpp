@@ -10,8 +10,10 @@ vector<int> parse_nested_parens(string paren_string) {
         if (c == '(') {
             nesting_levels.push(nesting_levels.size() + 1);
         } else if (c == ')') {
-            result.push_back(nesting_levels.top());
-            nesting_levels.pop();
+            if (!nesting_levels.empty()) {
+                result.push_back(nesting_levels.top());
+                nesting_levels.pop();
+            }
         }
     }
     return result;
