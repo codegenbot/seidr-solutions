@@ -16,6 +16,5 @@ int digitSum(string s) {
 int main() {
     assert(digitSum("123abc") == 6);
     assert(digitSum("4x5y6z") == 15);
-    // Add more test cases as needed
     return 0;
 }
