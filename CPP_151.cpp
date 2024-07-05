@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -15,12 +16,9 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst;
-    float temp;
-    while (cin >> temp) {
-        lst.push_back(temp);
-    }
-    long long result = double_the_difference(lst);
-    cout << result << endl;
+    vector<float> lst = {1.0, 2.0, 3.0, 4.5, 5.0};
+    long long expected_output = 1*1 + 3*3 + 5*5;
+    assert(double_the_difference(lst) == expected_output);
+    cout << "Test passed!" << endl;
     return 0;
 }
