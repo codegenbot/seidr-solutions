@@ -9,9 +9,7 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 if __name__ == "__main__":
-    try:
-        input_line = input().strip()
-        operations = list(map(int, input_line.split()))
-        print(below_zero(operations))
-    except ValueError:
-        print(False)
+    import sys
+    input_line = sys.stdin.read().strip()
+    operations = list(map(int, input_line.split()))
+    print(below_zero(operations))
