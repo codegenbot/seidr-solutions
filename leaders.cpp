@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 using namespace std;
 
@@ -11,6 +12,14 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(rightmost);
         }
     }
+    result.push_back(arr.back()); // Rightmost element is always a leader.
     
     return result;
+}
+
+int main() {
+    vector<int> arr = {1, 3, 4, 2};
+    vector<int> result = leaders(arr);
+    for (int i : result) cout << i << endl;
+    return 0;
 }

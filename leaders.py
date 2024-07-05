@@ -1,5 +1,3 @@
-Here is the Python solution:
-
 def leaders(a):
     n = len(a)
     leaders_list = [a[n-1]]
