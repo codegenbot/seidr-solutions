@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 int calculateFuelCost(std::vector<int> numbers) {
     int sum = 0;
@@ -26,8 +25,7 @@ int main() {
     std::cout << "Enter third number: ";
     std::cin >> num3;
 
-    std::vector<int> numbers = {num1, num2, num3};
-    int result = calculateFuelCost(numbers);
+    int result = calculateFuelCost({num1, num2, num3});
     std::cout << "The fuel cost is: " << result << std::endl;
     return 0;
 }
