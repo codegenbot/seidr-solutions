@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <cmath>
-
 using namespace std;
 
 int do_algebra(vector<string> operato, vector<int> operand) {
@@ -24,6 +23,27 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
+    vector<string> operato;
+    vector<int> operand;
+    int n;
+    
+    cout << "Enter the number of operators: ";
+    cin >> n;
+
+    cout << "Enter operators: ";
+    for (int i = 0; i < n; ++i) {
+        string op;
+        cin >> op;
+        operato.push_back(op);
+    }
+
+    cout << "Enter operands: ";
+    for (int i = 0; i <= n; ++i) {
+        int num;
+        cin >> num;
+        operand.push_back(num);
+    }
+    
+    cout << "Result: " << do_algebra(operato, operand) << endl;
     return 0;
 }
