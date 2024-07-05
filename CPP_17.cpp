@@ -1,17 +1,20 @@
-#include <sstream>
-
-vector<int> parse_music(string music_string) {
-    vector<int> beats;
+vector<int> parse_music(string music_string){
+    vector<int> result;
     string note;
-    stringstream ss(music_string);
-    while (ss >> note) {
-        if (note == "o") {
-            beats.push_back(4);
-        } else if (note == "o|") {
-            beats.push_back(2);
-        } else if (note == ".|") {
-            beats.push_back(1);
+    for (char c : music_string) {
+        if (c == ' ') {
+            if (note == "o") result.push_back(4);
+            else if (note == "o|") result.push_back(2);
+            else if (note == ".|") result.push_back(1);
+            note = "";
+        } else {
+            note += c;
         }
     }
-    return beats;
+    // for the last note if there's any
+    if (note == "o") result.push_back(4);
+    else if (note == "o|") result.push_back(2);
+    else if (note == ".|") result.push_back(1);
+    
+    return result;
 }
