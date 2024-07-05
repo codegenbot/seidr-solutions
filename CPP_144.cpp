@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <numeric>
 
 bool simplify(std::string x, std::string n) {
     int x_num, x_den, n_num, n_den;
@@ -15,7 +16,12 @@ bool simplify(std::string x, std::string n) {
     int result_num = x_num * n_num;
     int result_den = x_den * n_den;
     
-    return result_num % result_den == 0;
+    int gcd = std::gcd(result_num, result_den);
+    
+    result_num /= gcd;
+    result_den /= gcd;
+    
+    return result_num == result_den;
 }
 
 int main() {
