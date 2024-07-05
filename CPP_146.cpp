@@ -19,15 +19,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int n, temp;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for(int i = 0; i < n; ++i) {
-        cin >> temp;
-        nums.push_back(temp);
-    }
+    vector<int> nums = { -23, 8, 15, 42, 107 };
     cout << specialFilter(nums) << endl;
     return 0;
 }
