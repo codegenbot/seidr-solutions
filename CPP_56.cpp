@@ -1,7 +1,8 @@
-#include <iostream>
 #include <string>
+#include <cassert>
+using namespace std;
 
-bool correct_bracketing(const std::string& brackets) {
+bool correct_bracketing(const string &brackets) {
     int balance = 0;
     for (char ch : brackets) {
         if (ch == '<') {
@@ -15,15 +16,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter brackets sequence: ";
-    std::cin >> input;
-
-    if (correct_bracketing(input)) {
-        std::cout << "Correct bracketing" << std::endl;
-    } else {
-        std::cout << "Incorrect bracketing" << std::endl;
-    }
-    
+    assert(correct_bracketing("<><><<><>><>>><>"));
     return 0;
 }
