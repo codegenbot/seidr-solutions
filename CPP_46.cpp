@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 int fib4(int n) {
     if (n == 0 || n == 1) return 0;
@@ -19,7 +18,7 @@ int fib4(int n) {
 
 int main() {
     int n;
-    cin >> n;
-    cout << fib4(n) << endl;
+    std::cin >> n;
+    std::cout << fib4(n) << std::endl;
     return 0;
 }
