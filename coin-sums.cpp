@@ -1,9 +1,11 @@
-```cpp
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
 
-    if(cents < 0) {
+    if (cents < 0) {
         cout << "Error: Please enter a non-negative integer.\n";
         return -1;
     }
@@ -19,10 +21,10 @@ int main() {
 
     int pennies = cents;
 
-    cout << "Quarters: " << quarters << " coins\n";
-    cout << "Dimes: " << dimes << " coins\n";
-    cout << "Nickles: " << nickles << " coins\n";
-    cout << "Pennies: " << pennies << " coins\n";
+    cout << quarters << "\n";
+    cout << dimes << "\n";
+    cout << nickles << "\n";
+    cout << pennies << "\n";
 
     return 0;
 }
