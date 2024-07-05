@@ -19,7 +19,7 @@ string rounded_avg(int n, int m) {
     return binary == "" ? "0" : binary;
 }
 
-int main() {
+int main(){
     int n, m;
     cin >> n >> m;
     cout << rounded_avg(n, m) << endl;
