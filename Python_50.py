@@ -1,5 +1,3 @@
-import sys
-
 def decode_shift(s: str) -> str:
     def shift_char(ch):
         if 'a' <= ch <= 'z':
@@ -11,5 +9,5 @@ def decode_shift(s: str) -> str:
     return "".join(shift_char(ch) for ch in s)
 
 if __name__ == "__main__":
-    s = sys.stdin.read().strip()
+    s = input().strip()
     print(decode_shift(s))
