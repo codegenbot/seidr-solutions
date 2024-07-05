@@ -1,15 +1,18 @@
-bool is_nested(string str) {
-    int n = str.size();
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool is_nested(const string& str) {
     int depth = 0;
-    for (int i = 0; i < n; ++i) {
-        if (str[i] == '[') {
+    for (char ch : str) {
+        if (ch == '[') {
             depth++;
-        } else {
+        } else if (ch == ']') {
             depth--;
         }
         if (depth > 1) {
             return true;
         }
     }
-    return false;
+    return depth != 0; // Check if the brackets are not properly closed
 }
