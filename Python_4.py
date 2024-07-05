@@ -7,7 +7,7 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 if __name__ == "__main__":
     try:
-        numbers = list(map(float, input("Enter numbers separated by spaces: ").strip().split()))
+        numbers = list(map(float, input("Enter space-separated numbers: ").strip().split()))
         print(mean_absolute_deviation(numbers))
     except ValueError:
-        print("Please enter valid numbers separated by spaces.")
+        print("Invalid input. Please enter space-separated numeric values.")
