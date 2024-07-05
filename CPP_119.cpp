@@ -1,12 +1,11 @@
-#include <string>
 #include <vector>
-
+#include <string>
 using namespace std;
 
 string match_parens(vector<string> lst) {
     string s1 = lst[0];
     string s2 = lst[1];
-    
+
     auto isBalanced = [](const string &s) {
         int balance = 0;
         for (char c : s) {
@@ -21,4 +20,8 @@ string match_parens(vector<string> lst) {
         return "Yes";
     }
     return "No";
+}
+
+int main() {
+    assert(match_parens({")", "("}) == "Yes");
 }
