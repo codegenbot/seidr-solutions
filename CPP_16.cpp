@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <set>
-
 using namespace std;
 
 int count_distinct_characters(string str){
