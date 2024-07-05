@@ -32,6 +32,7 @@ int main() {
     assert(issame(even_odd_palindrome(1), {0, 1}));
     assert(issame(even_odd_palindrome(10), {4, 5}));
     assert(issame(even_odd_palindrome(20), {5, 10}));
+    // You can add more tests if needed
     cout << "All tests passed!" << endl;
     return 0;
 }
