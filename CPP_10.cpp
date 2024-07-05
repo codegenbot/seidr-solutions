@@ -1,28 +1,28 @@
-#include<iostream>
+#include<stdio.h>
 #include<string>
 using namespace std;
 
 bool is_palindrome(string str){
-    string s(str.rbegin(),str.rend());
+    //Test if given string is a palindrome 
+    string s(str.rbegin(), str.rend());
     return s == str;
 }
 
 string make_palindrome(string str){
     int n = str.size();
-    if(is_palindrome(str)) return str;
-    for(int i=n-1; i >= 0; --i){
-        if(is_palindrome(str.substr(i))){
-            string prefix = str.substr(0, i);
-            string rev_prefix(prefix.rbegin(), prefix.rend());
-            return str + rev_prefix;
+    for (int i = n; i >= 0; --i) {
+        if (is_palindrome(str.substr(0, i))) {
+            string suffix = str.substr(i);
+            string prefix_rev(suffix.rbegin(), suffix.rend());
+            return str + prefix_rev;
         }
     }
-    return "";
+    return str;
 }
 
-int main(){
+int main() {
     string input;
     cin >> input;
-    cout << make_palindrome(input);
+    printf("%s\n", make_palindrome(input).c_str());
     return 0;
 }
