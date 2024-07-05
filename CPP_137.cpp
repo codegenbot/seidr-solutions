@@ -2,25 +2,25 @@
 #include <string>
 #include <algorithm>
 #include <any>
-
+#include <sstream>
 using namespace std;
 
-any convert_to_float(any value) {
+std::any convert_to_float(std::any value) {
     if (value.type() == typeid(int)) {
-        return static_cast<float>(any_cast<int>(value));
+        return static_cast<float>(std::any_cast<int>(value));
     } else if (value.type() == typeid(float)) {
-        return any_cast<float>(value);
+        return std::any_cast<float>(value);
     } else if (value.type() == typeid(string)) {
-        string str = any_cast<string>(value);
+        string str = std::any_cast<string>(value);
         replace(str.begin(), str.end(), ',', '.');
         return stof(str);
     }
     return 0.0f; // Default fallback
 }
 
-any compare_one(any a, any b) {
-    float fa = any_cast<float>(convert_to_float(a));
-    float fb = any_cast<float>(convert_to_float(b));
+std::any compare_one(std::any a, std::any b) {
+    float fa = std::any_cast<float>(convert_to_float(a));
+    float fb = std::any_cast<float>(convert_to_float(b));
     
     if (fa > fb) return a;
     if (fa < fb) return b;
@@ -28,41 +28,25 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    any a, b;
-    string inputA, inputB;
-
-    cout << "Enter first value: ";
-    cin >> inputA;
+    std::any a, b;
+    a = 5; // Example inputs
+    b = string("4.5");
+    
+    std::any result = compare_one(a, b);
+    
     try {
-        a = stoi(inputA);
-    } catch (...) {
+        cout << std::any_cast<string>(result) << endl;
+    } catch (const std::bad_any_cast&) {
         try {
-            a = stof(inputA);
-        } catch (...) {
-            a = inputA;
+            cout << std::any_cast<int>(result) << endl;
+        } catch (const std::bad_any_cast&) {
+            try {
+                cout << std::any_cast<float>(result) << endl;
+            } catch (const std::bad_any_cast&) {
+                cout << "None" << endl;
+            }
         }
     }
-
-    cout << "Enter second value: ";
-    cin >> inputB;
-    try {
-        b = stoi(inputB);
-    } catch (...) {
-        try {
-            b = stof(inputB);
-        } catch (...) {
-            b = inputB;
-        }
-    }
-
-    any result = compare_one(a, b);
-    if (result.type() == typeid(string)) {
-        cout << any_cast<string>(result) << endl;
-    } else if (result.type() == typeid(int)) {
-        cout << any_cast<int>(result) << endl;
-    } else if (result.type() == typeid(float)) {
-        cout << any_cast<float>(result) << endl;
-    }
-
+    
     return 0;
 }
