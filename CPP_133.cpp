@@ -3,7 +3,9 @@
 #include <cmath>
 #include <cassert>
 
-int sum_squares(const std::vector<float>& lst) {
+using namespace std;
+
+int sum_squares(vector<float> lst) {
     int sum = 0;
     for (float num : lst) {
         int ceil_num = ceil(num);
@@ -14,6 +16,6 @@ int sum_squares(const std::vector<float>& lst) {
 
 int main() {
     assert(sum_squares({-1, 1, 0}) == 2);
-    std::cout << "All tests passed.\n";
+    cout << "Test passed!" << endl;
     return 0;
 }
