@@ -23,20 +23,11 @@ def minPath(grid, k):
 
     return min_path
 
-# User input handling
-if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    data = input().split()
-    
-    k = int(data[0])
-    grid = []
-    
-    data = data[1:]
-    n = int(len(data) ** 0.5)
-    for i in range(n):
-        row = list(map(int, data[i*n:(i+1)*n]))
-        grid.append(row)
-    
-    result = minPath(grid, k)
-    print(result)
+# Reading input
+N = int(input())
+grid = [list(map(int, input().split())) for _ in range(N)]
+k = int(input())
+
+# Calling the function and printing the result
+result = minPath(grid, k)
+print(" ".join(map(str, result)))
