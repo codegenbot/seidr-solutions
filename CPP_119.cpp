@@ -17,7 +17,7 @@ string match_parens(vector<string> lst) {
         return balance == 0;
     };
 
-    if (isBalanced(s1 + s2) || isBalanced(s2 + s1)) {
+    if (isBalanced(s1) && isBalanced(s2) && (isBalanced(s1 + s2) || isBalanced(s2 + s1))) {
         return "Yes";
     }
     return "No";
