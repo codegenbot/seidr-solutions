@@ -1,13 +1,14 @@
-#include<iostream>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
-int truncate_number(float number){
-    return static_cast<int>(number);
+float truncate_number(float number) {
+    return trunc(number);
 }
 
-int main(){
+int main() {
     float number;
-    cout << "Enter a float number: ";
+    cout << "Enter a number: ";
     cin >> number;
     cout << "Truncated number: " << truncate_number(number) << endl;
     return 0;
