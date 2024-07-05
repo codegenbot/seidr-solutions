@@ -1,3 +1,4 @@
+
 def by_length(arr):
     result = []
     for num in arr:
@@ -5,4 +6,6 @@ def by_length(arr):
             result.append(str(num))
         elif isinstance(num, str):
             result.append(num.capitalize())
-    return sorted(result, key=len)
+    result.sort(key=len)
+    result.reverse()
+    return result
