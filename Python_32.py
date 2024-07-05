@@ -1,4 +1,3 @@
-```
 def find_zero(xs: list):
     if len(xs) == 2 and xs[0] == 0 and xs[1] != 0:
         return -xs[1] / xs[0]
