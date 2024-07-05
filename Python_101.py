@@ -1,3 +1,2 @@
 def words_string(s):
-    import re
-    return re.split(r'[,\s]+', s.strip())
+    return [word.strip() for word in s.replace(',', ' ').split()]
