@@ -2,24 +2,25 @@
 #include <string>
 #include <algorithm>
 #include <any>
+
 using namespace std;
 
-any string_to_number(const string& s) {
+std::any string_to_number(const string& s) {
     string s_copy = s;
     replace(s_copy.begin(), s_copy.end(), ',', '.');
     try {
-        return stod(s_copy);
-    } catch (const invalid_argument&) {
+        return std::stod(s_copy);
+    } catch (const std::invalid_argument&) {
         return s; // If conversion fails, return original string
     }
 }
 
-any compare_one(any a, any b) {
-    auto get_value = [](const any& v) -> any {
-        if (v.type() == typeid(int)) return any_cast<int>(v);
-        if (v.type() == typeid(float)) return any_cast<float>(v);
-        if (v.type() == typeid(double)) return any_cast<double>(v);
-        if (v.type() == typeid(string)) return string_to_number(any_cast<string>(v));
+std::any compare_one(std::any a, std::any b) {
+    auto get_value = [](const std::any& v) -> std::any {
+        if (v.type() == typeid(int)) return std::any_cast<int>(v);
+        if (v.type() == typeid(float)) return std::any_cast<float>(v);
+        if (v.type() == typeid(double)) return std::any_cast<double>(v);
+        if (v.type() == typeid(string)) return string_to_number(std::any_cast<string>(v));
         return v;
     };
 
@@ -27,15 +28,15 @@ any compare_one(any a, any b) {
     auto vb = get_value(b);
 
     if (va.type() == typeid(double) && vb.type() == typeid(double)) {
-        double da = any_cast<double>(va);
-        double db = any_cast<double>(vb);
+        double da = std::any_cast<double>(va);
+        double db = std::any_cast<double>(vb);
         if (da == db) return "None";
         return da > db ? a : b;
     }
 
     if (va.type() == typeid(string) && vb.type() == typeid(string)) {
-        string sa = any_cast<string>(va);
-        string sb = any_cast<string>(vb);
+        string sa = std::any_cast<string>(va);
+        string sb = std::any_cast<string>(vb);
         if (sa == sb) return "None";
         return sa > sb ? a : b;
     }
@@ -44,12 +45,14 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    // Example usage
-    any result = compare_one(string("10"), string("25"));
-    if (result.type() == typeid(string))
-        cout << any_cast<string>(result) << endl;
-    else if (result.type() == typeid(double))
-        cout << any_cast<double>(result) << endl;
-
-    return 0;
+    std::string a, b;
+    cin >> a >> b;
+    std::any aa = (a.find_first_not_of("0123456789.,") == string::npos) ? string_to_number(a) : a;
+    std::any bb = (b.find_first_not_of("0123456789.,") == string::npos) ? string_to_number(b) : b;
+    std::any result = compare_one(aa, bb);
+    if (result.type() == typeid(std::string)) {
+        cout << std::any_cast<std::string>(result);
+    } else {
+        cout << "None";
+    }
 }
