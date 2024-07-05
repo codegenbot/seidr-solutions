@@ -2,12 +2,14 @@
 #include <map>
 #include <sstream>
 #include <algorithm>
+#include <cctype>
 #include <cassert>
 
 std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> freqMap;
     for (char ch : test) {
-        if (isalpha(ch)) { // Consider only alphabetic characters
+        if (std::isalpha(static_cast<unsigned char>(ch))) { // Consider only alphabetic characters
+            ch = std::tolower(static_cast<unsigned char>(ch)); // Make it case insensitive if required
             freqMap[ch]++;
         }
     }
@@ -32,10 +34,10 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
-    assert(issame(histogram("aaabb"), std::map<char, int>{{'a', 3}}));
-    assert(issame(histogram("ababab"), std::map<char, int>{{'a', 3}, {'b', 3}}));
-    assert(issame(histogram("test"), std::map<char, int>{{'t', 2}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("aaabb"), {{'a', 3}}));
+    assert(issame(histogram("ababab"), {{'a', 3}, {'b', 3}}));
+    assert(issame(histogram("test"), {{'t', 2}}));
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
