@@ -21,5 +21,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
     assert(issame(common({4, 3, 2, 8}, {3, 3, 2, 5}), {2, 3}));
+    // More test cases can be added here
     return 0;
 }
