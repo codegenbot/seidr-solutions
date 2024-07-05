@@ -1,6 +1,7 @@
 #include <iostream>
+using namespace std;
 
-int choose_num(int x, int y){
+int choose_num(int x, int y) {
     if (x > y) return -1;
     for (int i = y; i >= x; --i) {
         if (i % 2 == 0) return i;
@@ -10,14 +11,7 @@ int choose_num(int x, int y){
 
 int main() {
     int x, y;
-    std::cout << "Enter values of x and y: ";
-    std::cin >> x >> y;
-    if(std::cin.fail() || x > y) {
-        std::cout << "Invalid input or invalid range." << std::endl;
-        return -1;
-    }
-    int result = choose_num(x, y);
-    if (result != -1) std::cout << "The largest even number is: " << result << std::endl;
-    else std::cout << "No even number found in the range." << std::endl;
+    cin >> x >> y;
+    cout << choose_num(x, y) << endl;
     return 0;
 }
