@@ -1,15 +1,14 @@
 vector<int> sort_array(vector<int> array) {
-    if (array.empty()) return array; // Handle empty vector case
+    if (array.empty()) return array;
 
-    vector<int> result = array;
-    int first = array.front();
-    int last = array.back();
-    
-    if ((first + last) % 2 == 0) {
-        sort(result.begin(), result.end(), greater<int>());
+    vector<int> sorted_array = array;
+    int sum = array.front() + array.back();
+
+    if (sum % 2 == 0) {
+        sort(sorted_array.rbegin(), sorted_array.rend());
     } else {
-        sort(result.begin(), result.end());
+        sort(sorted_array.begin(), sorted_array.end());
     }
-    
-    return result;
+
+    return sorted_array;
 }
