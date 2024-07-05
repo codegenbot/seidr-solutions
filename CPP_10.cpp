@@ -11,12 +11,12 @@ string make_palindrome(string str) {
     int n = str.size();
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
-            string prefix = str.substr(i);
-            reverse(prefix.begin(), prefix.end());
+            string suffix = str.substr(i);
+            string prefix = string(suffix.rbegin(), suffix.rend());
             return str + prefix;
         }
     }
-    return str; // should never reach here
+    return str;
 }
 
 int main() {
