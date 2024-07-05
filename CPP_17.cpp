@@ -2,10 +2,9 @@
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
-vector<int> parse_music(const string &music_string) { 
+vector<int> parse_music(string music_string) { 
     vector<int> beats;
     string note;
     for (char c : music_string) {
@@ -24,7 +23,7 @@ vector<int> parse_music(const string &music_string) {
     return beats;
 }
 
-bool issame(const vector<int> &a, const vector<int> &b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 

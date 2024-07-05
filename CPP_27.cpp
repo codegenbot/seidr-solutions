@@ -1,8 +1,9 @@
+#include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert>
+using namespace std;
 
-std::string flip_case(std::string str) {
+string flip_case(string str) {
     for (int i = 0; i < str.length(); ++i) {
         if (isupper(str[i])) {
             str[i] = tolower(str[i]);
