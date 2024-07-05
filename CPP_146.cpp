@@ -17,10 +17,8 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    // Test with example cases
     assert(specialFilter({}) == 0);
     assert(specialFilter({11, 22, 33, 44, 55}) == 3);
-    // Further tests can be added
 
     return 0;
 }
