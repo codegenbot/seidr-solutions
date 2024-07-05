@@ -17,8 +17,8 @@ bool is_nested(const std::string& str) {
 
 int main() {
     std::cout << std::boolalpha;
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << is_nested(input) << std::endl;
+    std::string s;
+    std::cin >> s;
+    std::cout << is_nested(s) << std::endl;
     return 0;
 }
