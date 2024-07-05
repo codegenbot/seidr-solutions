@@ -13,5 +13,6 @@ bool is_happy(const std::string& s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
+    // You can add more test cases to validate the function
     return 0;
 }
