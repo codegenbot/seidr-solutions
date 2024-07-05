@@ -13,12 +13,16 @@ def factorize(n: int) -> List[int]:
     return factors
 
 if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read
+    data = input().strip().split()
+    
     try:
-        n_str = input().strip()
-        n = int(n_str)
-        if n <= 0:
-            raise ValueError
-        result = factorize(n)
-        print(result)
+        for item in data:
+            n = int(item)
+            if n <= 0:
+                raise ValueError
+            result = factorize(n)
+            print(result)
     except ValueError:
         print("Invalid input. Please enter a positive integer.")
