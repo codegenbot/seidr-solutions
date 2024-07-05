@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
-bool is_happy(const std::string& s) {
+bool is_happy(std::string s) {
     if (s.length() < 3) return false;
     for (size_t i = 0; i <= s.length() - 3; ++i) {
         if (s[i] == s[i+1] || s[i+1] == s[i+2] || s[i] == s[i+2]) {
@@ -13,8 +12,8 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    assert(is_happy("iopaxioi") == false);
-    assert(is_happy("abcdef") == true);
-    std::cout << "All tests passed\n";
+    std::string input;
+    std::cin >> input;
+    std::cout << (is_happy(input) ? "true" : "false") << std::endl;
     return 0;
 }
