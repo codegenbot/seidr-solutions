@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <cstring> 
+#include <cstring> // for strchr
 using namespace std;
 
 vector<string> select_words(string s, int n) {
