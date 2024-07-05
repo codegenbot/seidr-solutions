@@ -1,15 +1,17 @@
 #include <iostream>
 #include <vector>
-#include <any>
+#include <variant>
 #include <cassert>
 
 using namespace std;
 
-vector<int> filter_integers(const vector<any>& values) {
+using VarType = variant<int, char>;
+
+vector<int> filter_integers(const vector<VarType>& values) {
     vector<int> result;
     for (const auto& val : values) {
-        if (val.type() == typeid(int)) {
-            result.push_back(any_cast<int>(val));
+        if (holds_alternative<int>(val)) {
+            result.push_back(get<int>(val));
         }
     }
     return result;
