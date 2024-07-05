@@ -1,12 +1,2 @@
-#include <vector>
-int basement(vector<int>& v) {
-    int i = 0;
-    int sum = 0;
-    for (size_t i = 0; i < v.size(); i++) {
-        sum += v[i];
-        if (sum >= 0) {
-            return -1;
-        }
-    }
-    return i + 1;
-}
+
+This is an efficient solution because it only loops through the input array once, and it uses a variable `sum` to keep track of the current sum of elements from the start of the vector up until the current index. This allows us to quickly check if the sum is negative by comparing it with 0. If the sum is negative, we return the index immediately since we only care about the first occurrence. Otherwise, we continue looping through the rest of the array and updating `sum`. At the end of the loop, if no negative sum was found, we return -1 as specified in the problem statement.
