@@ -1,4 +1,3 @@
-```
 from math import gcd
 
 def modp(n: int, p: int):
