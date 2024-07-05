@@ -9,10 +9,8 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read()
-    data = input.strip().split()
-    numbers = list(map(int, data[:-1]))
-    delimiter = int(data[-1])
+    data = input().strip().split()  # Read all input in one call separated by spaces
+    numbers = list(map(int, data[:-1]))  # All except the last item are numbers
+    delimiter = int(data[-1])  # The last item is the delimiter
     result = intersperse(numbers, delimiter)
-    print(' '.join(map(str, result)))
+    print(" ".join(map(str, result)))
