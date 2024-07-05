@@ -14,9 +14,9 @@ bool monotonic(vector<float> l) {
 }
 
 int main() {
-    cout << boolalpha;
-    cout << monotonic({9, 9, 9, 9}) << endl;
-    cout << monotonic({1, 2, 3, 4}) << endl;
-    cout << monotonic({4, 3, 2, 1}) << endl;
-    cout << monotonic({1, 3, 2, 4}) << endl;
+    cout << boolalpha; // For printing 'true' or 'false'
+    cout << monotonic({9, 9, 9, 9}) << endl; // Example test
+    cout << monotonic({1, 2, 3, 4}) << endl; // Another test
+    cout << monotonic({4, 3, 2, 1}) << endl; // Another test
+    cout << monotonic({1, 3, 2, 4}) << endl; // Another test
 }
