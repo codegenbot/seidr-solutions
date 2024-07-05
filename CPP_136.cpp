@@ -1,4 +1,4 @@
-vector<int> largest_smallest_integers(vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst) {
     int largest_negative = 0;
     int smallest_positive = 0;
     bool found_negative = false;
@@ -18,5 +18,8 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
 
-    return {found_negative ? largest_negative : 0, found_positive ? smallest_positive : 0};
+    if(!found_negative) largest_negative = 0;
+    if(!found_positive) smallest_positive = 0;
+
+    return {largest_negative, smallest_positive};
 }
