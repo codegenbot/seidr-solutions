@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -11,10 +12,8 @@ def factorize(n: int) -> List[int]:
     return factors
 
 if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
     try:
-        n = int(input().strip())
+        n = int(sys.stdin.read().strip())
         print(factorize(n))
     except ValueError:
         print("Invalid input. Please enter an integer.")
