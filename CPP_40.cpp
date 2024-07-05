@@ -1,11 +1,14 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
-bool triples_sum_to_zero(std::vector<int> l){
+using namespace std;
+
+bool triples_sum_to_zero(vector<int> l) {
     int n = l.size();
     if (n < 3) return false;
-    std::sort(l.begin(), l.end());
+    sort(l.begin(), l.end());
     for (int i = 0; i < n - 2; ++i) {
         int left = i + 1, right = n - 1;
         while (left < right) {
@@ -20,5 +23,7 @@ bool triples_sum_to_zero(std::vector<int> l){
 
 int main() {
     assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+    assert(triples_sum_to_zero({-1, 0, 1, 2, -1, -4}) == true);
+    cout << "All test cases pass\n";
     return 0;
 }
