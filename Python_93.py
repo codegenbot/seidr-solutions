@@ -1,10 +1,9 @@
 def encode(message):
-    vowels = "aeiouAEIOU"
-    replacement = "cgCG"
-    def transform(char):
-        if char in vowels:
-            idx = (vowels.index(char) + 2) % len(vowels)
-            return vowels[idx]
-        return char.swapcase()
-    
-    return ''.join(transform(c) for c in message)
+    def swap_case_and_replace_vowel(char):
+        if char.isalpha():
+            char = char.swapcase()
+            if char in "aeiouAEIOU":
+                return chr(ord(char) + 2)
+        return char
+
+    return "".join(swap_case_and_replace_vowel(c) for c in message)
