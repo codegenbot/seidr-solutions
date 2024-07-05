@@ -1,16 +1,17 @@
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    auto char_count = [](const vector<string>& lst) {
-        int count = 0;
-        for (const auto& str : lst)
-            count += str.size();
-        return count;
-    };
-    
-    int count1 = char_count(lst1);
-    int count2 = char_count(lst2);
-    
-    if (count1 < count2 || count1 == count2)
+    int sum1 = 0, sum2 = 0;
+    for (const auto& str : lst1) {
+        sum1 += str.length();
+    }
+    for (const auto& str : lst2) {
+        sum2 += str.length();
+    }
+
+    if (sum1 < sum2) {
         return lst1;
-    else
+    } else if (sum2 < sum1) {
         return lst2;
+    } else {
+        return lst1;
+    }
 }
