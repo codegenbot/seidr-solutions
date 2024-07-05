@@ -1,3 +1,8 @@
-```
 def dice_game(n, m):
-    return sum((n-i)*(m-j) / (n*m) for i in range(1,n) for j in range(1,m))
+    total_outcomes = n * m
+    sum_probabilities = 0
+    for i in range(1, n):
+        colin_lower_outcomes = min(i, m)
+        probability = colin_lower_outcomes / total_outcomes
+        sum_probabilities += probability
+    return sum_probabilities
