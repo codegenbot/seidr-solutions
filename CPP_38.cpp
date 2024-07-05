@@ -16,8 +16,8 @@ string decode_cyclic(string s) {
 }
 
 int main() {
-    string str = "abcabcabc";  
-    string encoded_str = "cabcabcab";  
+    string str = "abc";
+    string encoded_str = "cab";
     assert(decode_cyclic(encoded_str) == str);
     cout << "Test passed!" << endl;
     return 0;
