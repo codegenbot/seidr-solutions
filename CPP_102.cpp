@@ -10,10 +10,13 @@ int choose_num(int x, int y) {
 
 int main() {
     assert(choose_num(546, 546) == 546);
-    // You can add more test cases here
-    int x, y;
-    std::cout << "Enter values for x and y:";
-    std::cin >> x >> y;
-    std::cout << "Result: " << choose_num(x, y) << std::endl;
+    // Additional test cases
+    assert(choose_num(3, 7) == 6);
+    assert(choose_num(2, 4) == 4);
+    assert(choose_num(5, 3) == -1);
+    assert(choose_num(1, 1) == -1);
+    assert(choose_num(6, 9) == 8);
+
+    std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
