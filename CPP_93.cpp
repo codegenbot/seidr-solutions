@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cctype> // For tolower, toupper, islower, isupper 
+#include <cctype> 
 
 using namespace std;
 
@@ -30,7 +30,8 @@ string encode(string message) {
 }
 
 int main() {
-    // Example usage:
-    cout << encode("I DoNt KnOw WhAt tO WrItE") << endl;
+    string message;
+    getline(cin, message);
+    cout << encode(message) << endl;
     return 0;
 }
