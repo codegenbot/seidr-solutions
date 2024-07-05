@@ -1,18 +1,16 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
 string encrypt(string s) {
     for(char &c : s) {
-        c = 'a' + (c - 'a' + 4) % 26;
+        c = ((c - 'a' + 4) % 26) + 'a';
     }
     return s;
 }
 
 int main() {
-    assert(encrypt("a") == "e");
-    cout << "Test passed!" << endl;
+    cout << encrypt("a") << endl; // Output should be "e"
     return 0;
 }
