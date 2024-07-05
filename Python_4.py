@@ -12,8 +12,5 @@ print(mean_absolute_deviation([1, 2, 3, 4, 5]))
 
 # Test case 2
 user_input = input("Enter a list of numbers separated by space: ")
-try:
-    numbers = [float(num) for num in user_input.split()]
-    print(mean_absolute_deviation(numbers))
-except ValueError as e:
-    print(f"Invalid input: {e}")
+numbers = [float(num) for num in user_input.split()]
+print(mean_absolute_deviation(numbers))
