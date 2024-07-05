@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -28,6 +28,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(get_odd_collatz(1), vector<int>{1}));
+    assert(issame(get_odd_collatz(5), vector<int>{1, 5, 7, 11, 17, 31, 41, 47, 61, 71}));
     cout << "All tests passed!" << endl;
     return 0;
 }
