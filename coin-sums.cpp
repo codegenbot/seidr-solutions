@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -6,30 +7,24 @@ int main() {
     cin >> cents;
 
     if (cents < 0) {
-        cout << "Error: Please enter a non-negative integer.\n";
+        cout << cents / 25;
         return -1;
     }
 
-    int quarters = cents / 25, quarterRemainder = cents % 25;
-    while (quarterRemainder >= 25) {
-        quarters++;
-        quarterRemainder -= 25;
-    }
-    int dimes = quarterRemainder / 10, dimeRemainder = quarterRemainder % 10;
-    while (dimeRemainder >= 10) {
-        dimes++;
-        dimeRemainder -= 10;
-    }
-    int nickels = dimeRemainder / 5, nickelRemainder = dimeRemainder % 5;
-    while (nickelRemainder >= 5) {
-        nickles++;
-        nickelRemainder -= 5;
-    }
-    int pennies = nickelRemainder;
+    int quarters = (cents - (dimes * 10 + nickles * 5)) / 25;
+    cents %= 25;
+
+    int dimes = cents / 10;
+    cents %= 10;
+
+    int nickles = cents / 5;
+    cents %= 5;
+
+    int pennies = cents;
 
     cout << quarters << "\n";
     cout << dimes << "\n";
-    cout << nickels << "\n";
+    cout << nickles << "\n";
     cout << pennies << "\n";
 
     return 0;
