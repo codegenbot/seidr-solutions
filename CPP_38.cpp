@@ -1,8 +1,10 @@
-#include <string>
 #include <iostream>
+#include <string>
+#include <cassert>
+
 using namespace std;
 
-string decode_cyclic(string s) { 
+string decode_cyclic(string s) {
     int l = s.length();
     int num = (l + 2) / 3;
     string x, output;
@@ -15,10 +17,14 @@ string decode_cyclic(string s) {
     return output;
 }
 
+// Assuming the presence of encode_cyclic function defined elsewhere
+string encode_cyclic(string s);
+
 int main() {
-    string str;
-    cout << "Enter the string to decode: ";
-    cin >> str;
-    cout << "Decoded string: " << decode_cyclic(str) << endl;
+    string str = "exampleinput";
+    string encoded_str = encode_cyclic(str);  // This should call the actual encode function
+    assert(decode_cyclic(encoded_str) == str);
+    cout << "Test passed" << endl;
+
     return 0;
 }
