@@ -46,11 +46,6 @@ std::any compare_one(std::any a, std::any b) {
 int main() {
     std::any a = 42;
     std::any b = 3.14f;
-    try {
-        std::cout << std::any_cast<int>(compare_one(a, b)) << std::endl;
-    } catch (const std::bad_any_cast& e) {
-        // Handling the case when the result is not of int type
-        cout << "Cannot cast result to int. Possibly a string or None comparison." << endl;
-    }
+    std::cout << std::any_cast<int>(compare_one(a, b)) << std::endl; // Output will depend on input types and values.
     return 0;
 }
