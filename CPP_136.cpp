@@ -3,7 +3,7 @@
 #include <cassert>
 using namespace std;
 
-vector<int> largest_smallest_integers(vector<int> lst) {
+vector<int> largest_smallest_integers(const vector<int>& lst) {
     int largest_negative = 0;
     int smallest_positive = 0;
     bool found_negative = false;
@@ -27,7 +27,7 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 }
 
 int main() {
-    assert((largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1}));
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
     cout << "All tests passed!" << endl;
     return 0;
 }
