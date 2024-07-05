@@ -24,9 +24,12 @@ int sumOfDigits(int n) {
 int skjkasdkd(vector<int> lst) {
     int largestPrime = -1;
     for (int num : lst) {
-        if (isPrime(num) && num > largestPrime) {
-            largestPrime = num;
+        if (isPrime(num)) {
+            if (num > largestPrime) {
+                largestPrime = num;
+            }
         }
     }
-    return largestPrime == -1 ? 0 : sumOfDigits(largestPrime);
+    if (largestPrime == -1) return 0;
+    return sumOfDigits(largestPrime);
 }
