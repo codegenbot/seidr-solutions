@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
+#include <cassert>
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     float min_val = *std::min_element(numbers.begin(), numbers.end());
@@ -13,16 +13,11 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
 }
 
 bool issame(const std::vector<float> &a, const std::vector<float> &b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (std::fabs(a[i] - b[i]) > 1e-6) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    std::vector<float> result = rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0});
-    assert(issame(result, {0.25, 0.0, 1.0, 0.5, 0.75}));
+    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
     std::cout << "Test passed!" << std::endl;
     return 0;
 }

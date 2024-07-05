@@ -21,12 +21,12 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
-    // Add more tests if needed
+    cout << "All tests passed!" << endl;
     return 0;
 }
