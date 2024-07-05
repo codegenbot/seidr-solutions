@@ -1,6 +1,6 @@
 def histogram(test):
     from collections import Counter
-    if not test.strip():
+    if not test:
         return {}
     test_list = test.split()
     count = Counter(test_list)
@@ -8,6 +8,9 @@ def histogram(test):
     return {k: v for k, v in count.items() if v == max_count}
 
 if __name__ == "__main__":
-    test = input().strip()
+    try:
+        test = input().strip()
+    except EOFError:
+        test = ""
     result = histogram(test)
     print(result)
