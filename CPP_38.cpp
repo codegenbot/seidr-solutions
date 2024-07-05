@@ -1,7 +1,4 @@
 string decode_cyclic(string s){ 
-    /*
-    takes as input string encoded with encode_cyclic function. Returns decoded string. 
-    */
     int l = s.length();
     int num = (l + 2) / 3;
     string x, output;
