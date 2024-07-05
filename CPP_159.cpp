@@ -15,7 +15,7 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert((eat(4, 5, 1) == vector<int>{5, 0}));
+    assert(eat(4, 5, 1) == vector<int>{5, 0});
     cout << "All tests passed!" << endl;
     return 0;
 }
