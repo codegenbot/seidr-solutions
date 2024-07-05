@@ -4,8 +4,10 @@ def luhn(card_number):
     result = 0
     for i, digit in enumerate(card_number):
         if i % 2 == 1:
-            double_digit = digit * 2
-            result += 9 - double_digit if double_digit > 9 else double_digit
+            if digit * 2 <= 9:
+                result += digit * 2
+            else:
+                result += digit * 2 - 9
         else:
             result += digit
     return result
