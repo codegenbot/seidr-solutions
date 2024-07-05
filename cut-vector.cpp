@@ -1,47 +1,45 @@
-vector<int> cutVector(const vector<int>& nums) {
-    int n = nums.size();
-    vector<int> leftSum(n, 0), rightSum(n, 0);
-    leftSum[0] = nums[0];
-    rightSum[n-1] = nums[n-1];
-    
-    for (int i = 1; i < n; ++i) {
-        leftSum[i] = leftSum[i-1] + nums[i];
-    }
-    for (int i = n-2; i >= 0; --i) {
-        rightSum[i] = rightSum[i+1] + nums[i];
-    }
-    
-    int minDiff = INT_MAX, cutIndex = -1;
-    for (int i = 0; i < n-1; ++i) {
-        int diff = abs(leftSum[i] - rightSum[i+1]);
+#include <vector>
+#include <iostream>
+#include <numeric>
+#include <cmath>
+using namespace std;
+
+void cutVector(const vector<int>& vec) {
+    int n = vec.size();
+    int totalSum = accumulate(vec.begin(), vec.end(), 0);
+    int leftSum = 0, minDiff = INT_MAX, cutIndex = -1;
+
+    for (int i = 0; i < n - 1; ++i) {
+        leftSum += vec[i];
+        int rightSum = totalSum - leftSum;
+        int diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
-    
-    vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> right(nums.begin() + cutIndex + 1, nums.end());
-    
-    cout << "Left subvector: ";
-    for (int num : left) cout << num << " ";
+
+    vector<int> leftVec(vec.begin(), vec.begin() + cutIndex + 1);
+    vector<int> rightVec(vec.begin() + cutIndex + 1, vec.end());
+
+    for (int num : leftVec) {
+        cout << num << " ";
+    }
     cout << endl;
-    
-    cout << "Right subvector: ";
-    for (int num : right) cout << num << " ";
+
+    for (int num : rightVec) {
+        cout << num << " ";
+    }
     cout << endl;
-    
-    return {left, right};
 }
 
 int main() {
-    vector<int> nums;
-    int temp;
-    while (cin >> temp) {
-        nums.push_back(temp);
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
     }
-    
-    cutVector(nums);
-    
+    cutVector(vec);
     return 0;
 }
