@@ -2,9 +2,11 @@
 #include <map>
 #include <sstream>
 #include <cassert>
+#include <string>
+
 using namespace std;
 
-map<char, int> histogram(const string &test) {
+map<char,int> histogram(string test) {
     map<char, int> freq;
     stringstream ss(test);
     char ch;
@@ -26,13 +28,14 @@ map<char, int> histogram(const string &test) {
     return result;
 }
 
-bool issame(const map<char, int> &a, const map<char, int> &b) {
+bool issame(map<char,int> a, map<char,int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    assert(issame(histogram("abac"), {{'a', 2}}));
-    cout << "All test cases passed." << endl;
+    assert(issame(histogram("test"), {{'t', 2}}));
+    assert(issame(histogram("success"), {{'s', 3}}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
