@@ -5,4 +5,5 @@ def decode_cyclic(s: str) -> str:
 
 if __name__ == "__main__":
     s = input().strip()
-    print(decode_cyclic(s))
+    if s:  # Check if the user provided a non-empty input
+        print(decode_cyclic(s))

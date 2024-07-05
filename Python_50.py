@@ -9,8 +9,5 @@ def decode_shift(s: str) -> str:
     return "".join(shift_char(ch) for ch in s)
 
 if __name__ == "__main__":
-    try:
-        s = input().strip()
-    except EOFError: 
-        s = ""
+    s = input("Enter the string to decode: ")
     print(decode_shift(s))

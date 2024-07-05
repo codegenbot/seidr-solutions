@@ -1,8 +1,4 @@
 def encode(message):
-    def transform_char(c):
-        vowels = 'aeiouAEIOU'
-        if c in vowels:
-            return chr(ord(c) + 2)
-        return c.swapcase()
-    
-    return ''.join(transform_char(c) for c in message)
+    vowels = 'aeiouAEIOU'
+    vowel_map = {v: ('q' if v == 'o' else 'Q' if v == 'O' else chr(ord(v) + 2)) for v in vowels}
+    return ''.join(vowel_map.get(c, c.swapcase()) for c in message)
