@@ -27,6 +27,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 int main() {
     assert(total_match({"this"}, {}) == vector<string>{});
     assert(total_match({"a", "bc"}, {"def"}) == vector<string>{"a", "bc"});
-    
     return 0;
 }
