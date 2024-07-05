@@ -9,8 +9,8 @@ using namespace std;
 vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
     num = abs(num); // Ensure num is positive
-    if (num == 0) { // special case for num == 0
-        even_count++;
+    if (num == 0) {
+        even_count = 1; // Special case for 0
     } else {
         while (num > 0) {
             int digit = num % 10;
@@ -34,7 +34,7 @@ int main() {
     assert(issame(even_odd_count(123), {1, 2}));
     assert(issame(even_odd_count(2468), {4, 0}));
     // Add more tests as needed
-
+    
     cout << "All tests passed!" << endl;
     return 0;
 }
