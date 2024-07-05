@@ -3,6 +3,9 @@ def basement(v):
     i = 0
     while True:
         total += v[i]
-        if total <= 0:
-            return i
-        i += 1
+        if total < 0:
+            return i + 1
+        elif total == 0:
+            total = 0
+        else:
+            break
