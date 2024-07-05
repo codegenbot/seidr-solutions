@@ -3,6 +3,7 @@ def basement(arr):
     prev_total = float('inf')
     for i, x in enumerate(arr):
         total += x
-        if total < prev_total:
+        if total < prev_total: 
             return i + 1
         prev_total = total
+    return -1
