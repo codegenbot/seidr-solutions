@@ -7,10 +7,9 @@ string match_parens(vector<string> lst){
     string a = lst[0];
     string b = lst[1];
     
-    // Function to check if the parenthesis string is balanced
-    auto isBalanced = [](string s) {
+    auto isBalancedConcat = [](string a, string b) {
         int balance = 0;
-        for (char ch : s) {
+        for (char ch : (a + b)) {
             if (ch == '(') balance++;
             else if (ch == ')') balance--;
             if (balance < 0) return false;
@@ -18,7 +17,7 @@ string match_parens(vector<string> lst){
         return balance == 0;
     };
     
-    if (isBalanced(a + b) || isBalanced(b + a)) {
+    if (isBalancedConcat(a, b) || isBalancedConcat(b, a)) {
         return "Yes";
     } else {
         return "No";
