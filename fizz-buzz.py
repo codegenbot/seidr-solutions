@@ -1,9 +1,5 @@
 def fizz_buzz(n):
-    if n % 15 == 0:
-        return "FizzBuzz"
-    elif n % 3 == 0:
-        return "Fizz"
-    elif n % 5 == 0:
-        return "Buzz"
-    else:
-        return str(n)
+    result = ""
+    for i in range(1, n+1):
+        result += "FizzBuzz" if (i % 3 == 0) and (i % 5 == 0) else "Fizz" if i % 3 == 0 else "Buzz" if i % 5 == 0 else str(i) + " "
+    return result
