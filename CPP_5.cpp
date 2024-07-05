@@ -3,7 +3,7 @@
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     std::vector<int> result;
-    for (size_t i = 0; i < numbers.size(); ++i) {
+    for (int i = 0; i < numbers.size(); ++i) {
         if (i > 0) {
             result.push_back(delimiter);
         }
@@ -18,5 +18,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    // Add more test cases if needed
     return 0;
 }
