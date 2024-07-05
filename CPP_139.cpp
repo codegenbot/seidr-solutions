@@ -1,17 +1,16 @@
-#include<stdio.h>
-using namespace std;
+#include <cstdio>
 
 long long factorial(int n) {
     long long result = 1;
-    for(int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         result *= i;
     }
     return result;
 }
 
-long long special_factorial(int n){
+long long special_factorial(int n) {
     long long result = 1;
-    for(int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         result *= factorial(i);
     }
     return result;
