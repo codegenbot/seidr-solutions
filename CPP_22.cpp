@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <optional>
@@ -10,3 +11,4 @@ std::vector<int> filter_integers(std::list<std::any> values) {
         }
     }
     return result;
+}
