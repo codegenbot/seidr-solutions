@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int choose_num(int x, int y) {
     if (x > y) return -1;
@@ -10,7 +11,7 @@ int choose_num(int x, int y) {
 
 int main() {
     int x, y;
-    std::cin >> x >> y;
-    std::cout << choose_num(x, y) << std::endl;
+    cin >> x >> y;
+    cout << choose_num(x, y) << endl;
     return 0;
 }
