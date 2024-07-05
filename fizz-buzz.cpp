@@ -1,18 +1,21 @@
-```c++
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string fizzBuzz(int x) {
-    if (x % 15 == 0) 
+    if (x % 15 == 0)
         return "FizzBuzz";
+    else if (x % 3 == 0)
+        return "Fizz";
     else if (x % 5 == 0)
-        return x % 3 == 0 ? "Fizz" : "Buzz";
+        return "Buzz";
     else
         return std::to_string(x);
 }
 
 int main() {
-    int x = 15; // test input
+    int x;
+    std::cout << "Enter a number: ";
+    std::cin >> x;
     std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
