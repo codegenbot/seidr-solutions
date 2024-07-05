@@ -30,18 +30,13 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
     vector<string> expected = {"()", "(())", "(()())"};
-    vector<string> actual = separate_paren_groups("( ) (( )) (( )( ");
+    vector<string> actual = separate_paren_groups("( ) (( )) (( )( "));
     if (!issame(expected, actual)) {
-        cout << "Incorrect result. Expected: ";
-        for (string s : expected) {
-            cout << s << " ";
+        for (const string& s : actual) {
+            cout << s << endl;
         }
-        cout << endl;
-        cout << "Actual: ";
-        for (string s : actual) {
-            cout << s << " ";
-        }
-        cout << endl;
+    } else {
+        cout << "Tests passed." << endl;
     }
     return 0;
 }
