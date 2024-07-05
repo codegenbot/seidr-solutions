@@ -1,7 +1,8 @@
 from typing import List
+import sys
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = ''.join(filter(lambda x: x in '()', paren_string))
+    paren_string = paren_string.replace(" ", "")
     result = []
     balance = 0
     start = 0
@@ -17,5 +18,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return result
 
 if __name__ == "__main__":
-    paren_string = input().strip()
+    paren_string = sys.stdin.read().strip()
     print(separate_paren_groups(paren_string))
