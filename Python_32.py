@@ -1,10 +1,10 @@
+```    
 ```
 import math
 
-
 def find_zero(xs):
-    if len(xs) < 1:
-        print("Error: List should have at least one element.")
+    if len(xs) < 3:
+        print("Error: List should have at least three elements.")
         return None
 
     for x in xs:
@@ -12,11 +12,21 @@ def find_zero(xs):
             print("Error: All elements in the list should be numbers.")
             return None
 
-    if len(xs) == 2:
-        a, b = xs
-        return -b / a
-    elif len(xs) == 3:
-        a, b, c = xs
-        return (-b + math.sqrt((b ** 2) - (4 * a * c))) / (2 * a)
+    a = xs[0]
+    b = xs[1]
+    c = xs[-1]
+
+    d = 2 * a
+    e = b**2
+    f = 4 * a * c
+
+    if e - f < 0:
+        return "Imaginary roots"
+    elif len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
+        return (-b + math.sqrt(e - f)) / d
     else:
-        return None
+        return (-b - math.sqrt(e - f)) / d
+
+xs = [int(x) for x in input("Enter the list of numbers: ").split()]
+find_zero(xs)
+```
