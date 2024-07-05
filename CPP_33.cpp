@@ -23,9 +23,7 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    vector<int> test = {5, 6, 3, 4, 8, 9, 2, 1};
-    vector<int> expected = {2, 6, 3, 4, 8, 9, 5, 1};
-    assert(test == expected);  // Ensure the function works as expected
+    assert(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) == vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
     cout << "All test cases passed!" << endl;
     return 0;
 }
