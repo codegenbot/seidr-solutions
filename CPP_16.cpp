@@ -1,13 +1,10 @@
-int count_distinct_characters(string str){ 
-    vector<bool> is_present(256, false);
-    for (char& c : str) {
-        is_present[tolower(c)] = true;
-    }
-    int count = 0;
-    for (bool present : is_present) {
-        if (present) {
-            count++;
+int count_distinct_characters(string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower); // Convert to lowercase
+    vector<bool> present(26, false); // Track presence of characters
+    for (char ch : str) {
+        if (isalpha(ch)) {
+            present[ch - 'a'] = true;
         }
     }
-    return count;
+    return count(present.begin(), present.end(), true);
 }
