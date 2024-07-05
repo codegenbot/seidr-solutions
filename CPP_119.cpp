@@ -1,14 +1,8 @@
-#include <vector>
-#include <string>
-
-using namespace std;
-
-string match_parens(vector<string> lst){
+string match_parens(vector<string> lst) {
     string a = lst[0];
     string b = lst[1];
-    
-    // Function to check if the parenthesis string is balanced
-    auto isBalanced = [](string s) {
+
+    auto is_balanced = [](const string &s) {
         int balance = 0;
         for (char ch : s) {
             if (ch == '(') balance++;
@@ -17,10 +11,6 @@ string match_parens(vector<string> lst){
         }
         return balance == 0;
     };
-    
-    if (isBalanced(a + b) || isBalanced(b + a)) {
-        return "Yes";
-    } else {
-        return "No";
-    }
+
+    return (is_balanced(a + b) || is_balanced(b + a)) ? "Yes" : "No";
 }
