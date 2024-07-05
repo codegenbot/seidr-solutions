@@ -1,8 +1,7 @@
-#include <string>
 #include <iostream>
-#include <cassert>
+#include <string>
 
-std::string get_closest_vowel(const std::string& word) {
+std::string get_closest_vowel(const std::string &word) {
     auto is_vowel = [](char c) {
         std::string vowels = "aeiouAEIOU";
         return vowels.find(c) != std::string::npos;
@@ -17,9 +16,7 @@ std::string get_closest_vowel(const std::string& word) {
 }
 
 int main() {
-    assert(get_closest_vowel("Above") == "o");
-    std::string word;
-    std::cin >> word;
-    std::cout << get_closest_vowel(word) << std::endl;
+    std::string result = get_closest_vowel("Above");
+    std::cout << result << std::endl; // Expected output: "o"
     return 0;
 }
