@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ vector<string> odd_count(vector<string> lst) {
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
