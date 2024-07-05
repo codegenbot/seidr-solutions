@@ -8,9 +8,4 @@ def is_prime(n):
 
 
 def count_up_to(n):
-    return sum(range(1, n + 1))
-
-
-# Test case:
-print(is_prime(37))  # Should be True
-print(count_up_to(5))  # Should be 15
+    return sum(range(n + 1))
