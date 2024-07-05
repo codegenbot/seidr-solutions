@@ -1,9 +1,8 @@
 #include <iostream>
 #include <sstream>
+#include <vector>
 #include <cmath>
-#include <string>  // Include this header for std::string
-
-using namespace std;
+#include <string>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -15,9 +14,9 @@ bool isPrime(int n) {
     return true;
 }
 
-string words_in_sentence(string sentence) {
-    stringstream ss(sentence);
-    string word, result;
+std::string words_in_sentence(std::string sentence) {
+    std::stringstream ss(sentence);
+    std::string word, result;
     while (ss >> word) {
         if (isPrime(word.length())) {
             if (!result.empty()) result += " ";
@@ -28,8 +27,8 @@ string words_in_sentence(string sentence) {
 }
 
 int main() {
-    string sentence;
-    getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
+    std::string sentence;
+    std::getline(std::cin, sentence);
+    std::cout << words_in_sentence(sentence) << std::endl;
     return 0;
 }
