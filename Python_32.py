@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -18,9 +17,5 @@ def find_zero(xs):
 
     if len(xs) == 3 and all([x > 0 for x in [a, b, c]]):
         return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
-    else:
+    elif len(xs) > 3 or xs[1] != xs[-2]:
         return (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
-
-
-xs = [int(x) for x in input("Enter the list of numbers: ").split()]
-find_zero(xs)
