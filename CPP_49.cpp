@@ -1,6 +1,6 @@
 #include<stdio.h>
 using namespace std;
-int modp(int n,int p){
+int modp(int n, int p) {
     long long result = 1;
     long long base = 2;
     while (n > 0) {
@@ -11,11 +11,4 @@ int modp(int n,int p){
         n /= 2;
     }
     return result;
-}
-
-int main() {
-    int n, p;
-    scanf("%d %d", &n, &p);
-    printf("%d\n", modp(n, p));
-    return 0;
 }
