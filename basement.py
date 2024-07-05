@@ -8,6 +8,6 @@ def basement(v):
         elif total == 0:
             total = 0
         else:
-            if total == 0:
-                return i + 1
-            i += 1
+            if total == 0: 
+                return i+1 
+        i += 1
