@@ -1,24 +1,22 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int basement(std::vector<int>& nums) {
-    int total = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        total += nums[i];
-        if (total < 0)
-            return i; 
+int findFirstNegativeIndex(const vector<int>& vec) {
+    int sum = 0;
+    for (int i = 0; i < vec.size(); ++i) {
+        sum += vec[i];
+        if (sum < 0) return i;
     }
-    return -1; 
+    return -1; // not found
 }
 
 int main() {
-    std::vector<int> nums1(-2,1,-3,4,-1,2,1,-5,4);
-    std::cout << basement(nums1) << std::endl;
-
-    std::vector<int> nums2;
-    nums2.push_back(0);nums2.push_back(-1);nums2.push_back(2);nums2.push_back(-3);nums2.push_back(1);
-
-    std::cout << basement(nums2) << std::endl;
-
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
+    }
+    cout << findFirstNegativeIndex(vec) << endl;
     return 0;
 }
