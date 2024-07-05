@@ -1,23 +1,23 @@
 #include <vector>
 #include <cassert>
+using namespace std;
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
-    std::vector<int> result;
+vector<int> intersperse(vector<int> numbers, int delimeter) {
+    vector<int> result;
     for (int i = 0; i < numbers.size(); ++i) {
         if (i > 0) {
-            result.push_back(delimiter);
+            result.push_back(delimeter);
         }
         result.push_back(numbers[i]);
     }
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    // Add more test cases if needed
     return 0;
 }
