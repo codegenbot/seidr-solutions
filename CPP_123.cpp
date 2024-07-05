@@ -1,8 +1,9 @@
 vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    vector<int> odd_numbers;
+    
     while (n != 1) {
         if (n % 2 != 0) {
-            result.push_back(n);
+            odd_numbers.push_back(n);
         }
         if (n % 2 == 0) {
             n /= 2;
@@ -10,7 +11,8 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1); // as n=1 is also odd and part of the sequence.
-    sort(result.begin(), result.end());
-    return result;
+    odd_numbers.push_back(1);
+    
+    sort(odd_numbers.begin(), odd_numbers.end());
+    return odd_numbers;
 }
