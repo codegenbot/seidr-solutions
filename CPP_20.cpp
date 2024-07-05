@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cfloat>
+#include <cfloat> // For FLT_MAX
 
 using namespace std;
 
