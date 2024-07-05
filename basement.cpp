@@ -1,13 +1,12 @@
 #include <vector>
-#include <iostream>
-using namespace std;
 
-void basement(vector<int>& v) {
-    sort(v.begin(), v.end());
-    for (int i = 0; i < v.size(); i++) {
-        if (v[i] < 0) {
-            return i + 1; // since we want the first index, not the value
+int basement(vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0) {
+            return i;
         }
     }
-    return -1; // no negative element found
+    return -1;
 }
