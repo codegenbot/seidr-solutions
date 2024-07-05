@@ -1,16 +1,17 @@
 #include <vector>
-#include <set>
-
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i = 0; i < s.size(); i++) {
-        int target = -s[i];
-        int j = 0;
-        while (j < i && j < s.size()) {
-            if (target + s[j] == s[i]) {
-                return true;
+    sort(l.begin(), l.end());
+    for (int i = 0; i < l.size() - 2; i++) {
+        int j = i + 1;
+        while (j < l.size()) {
+            int k = j + 1;
+            while (k < l.size()) {
+                if ((l[i] + l[j]) == -(l[k])) {
+                    return true;
+                }
+                k++;
             }
             j++;
         }
