@@ -1,3 +1,10 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<string> sorted_list_sum(vector<string> lst) {
     // Remove strings with odd lengths
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) {
@@ -13,4 +20,13 @@ vector<string> sorted_list_sum(vector<string> lst) {
     });
     
     return lst;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
