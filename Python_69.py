@@ -8,8 +8,10 @@ def search(lst):
     return result
 
 if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read
     try:
-        lst = list(map(int, input("Enter numbers separated by space: ").strip().split()))
+        lst = list(map(int, input().strip().split()))
         print(search(lst) if lst else -1)
     except ValueError:
         print(-1)
