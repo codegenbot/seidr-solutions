@@ -1,6 +1,5 @@
 def histogram(test=None):
     from collections import Counter
-
     if test is None:
         test = input().strip()
     if not test:
