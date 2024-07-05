@@ -20,7 +20,7 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(split_words("") == vector<string>{""});
+    assert(split_words("") == vector<string>{});
     assert(split_words("hello world") == vector<string>{"hello", "world"});
     assert(split_words("a,b,c") == vector<string>{"a,b,c"});
     cout << "All tests passed!" << endl;
