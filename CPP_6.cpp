@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> parse_nested_parens(string paren_string) {
+vector<int> parse_nested_parens(const string& paren_string) {
     vector<int> result;
     int max_depth = 0, current_depth = 0;
 
@@ -31,7 +31,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    assert(issame(parse_nested_parens("(()(())((()))) "), {4}));
     cout << "Test passed!" << endl;
     return 0;
 }
