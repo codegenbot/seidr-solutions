@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
-vector<int> rolling_max(const vector<int>& numbers) {
+// Function to compute running maximum
+vector<int> rolling_max(vector<int>& numbers) {
     vector<int> result;
     if (!numbers.empty()) {
         int max_so_far = numbers[0];
@@ -18,12 +20,13 @@ vector<int> rolling_max(const vector<int>& numbers) {
     return result;
 }
 
+// Function to check if two vectors are the same
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    cout << "Test passed." << endl;
+    assert(issame(rolling_max(vector<int>{3, 2, 3, 100, 3}), vector<int>{3, 3, 3, 100, 100}));
+    cout << "Test passed!" << endl;
     return 0;
 }
