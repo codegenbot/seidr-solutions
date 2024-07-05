@@ -13,7 +13,16 @@ string decimal_to_binary(int decimal) {
 }
 
 int main() {
+    assert(decimal_to_binary(0) == "db0db");
+    assert(decimal_to_binary(1) == "db1db");
+    assert(decimal_to_binary(2) == "db10db");
     assert(decimal_to_binary(15) == "db1111db");
-    // Add more tests if needed
+    assert(decimal_to_binary(255) == "db11111111db");
+    
+    int num;
+    cout << "Enter a decimal number: ";
+    cin >> num;
+    cout << "Binary representation: " << decimal_to_binary(num) << endl;
+
     return 0;
 }
