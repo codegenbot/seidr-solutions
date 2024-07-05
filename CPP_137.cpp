@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <any>
+#include <cassert>
 
 using namespace std;
 
@@ -55,9 +56,14 @@ int main() {
             cout << std::any_cast<int>(result) << endl;
         } else if (result.type() == typeid(float)) {
             cout << std::any_cast<float>(result) << endl;
+        } else if (result.type() == typeid(double)) {
+            cout << std::any_cast<double>(result) << endl;
         } else {
             cout << "Unexpected type" << endl;
         }
+
+        assert (std::any_cast<string>(compare_one(string("1"), 1)) == "None");
+
     } catch (const std::bad_any_cast& e) {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
     }
