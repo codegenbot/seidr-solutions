@@ -1,5 +1,4 @@
-#include<stdio.h>
-using namespace std;
+#include <stdio.h>
 
 long long factorial(int n) {
     long long result = 1;
