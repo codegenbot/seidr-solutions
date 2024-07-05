@@ -13,11 +13,18 @@ bool monotonic(vector<float> l){
 }
 
 int main() {
-    vector<float> l;
-    float x;
-    while (cin >> x) {
-        l.push_back(x);
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    vector<float> nums(n);
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
-    cout << (monotonic(l) ? "true" : "false") << endl;
+    if (monotonic(nums)) {
+        cout << "The sequence is monotonic." << endl;
+    } else {
+        cout << "The sequence is not monotonic." << endl;
+    }
     return 0;
 }
