@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Function to find planets between two given planets
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
@@ -27,13 +26,15 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-// Helper function to check if two vectors are the same
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-// Main function to test the logic
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(issame(bf("Earth", "Saturn"), {"Mars", "Jupiter"}));
+    assert(issame(bf("Mercury", "Neptune"), {"Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus"}));
+    assert(issame(bf("Venus", "Jupiter"), {"Earth", "Mars"}));
+    assert(issame(bf("Uranus", "Mars"), {"Jupiter", "Saturn"}));
     return 0;
 }
