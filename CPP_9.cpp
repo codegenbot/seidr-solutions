@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> rolling_max(const vector<int>& numbers) {
@@ -24,6 +23,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    cout << "Test passed." << endl;
+    cout << "All tests passed!" << endl;
     return 0;
 }
