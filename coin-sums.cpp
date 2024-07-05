@@ -7,6 +7,7 @@ int main() {
 
     if (cents < 0) {
         cout << "";
+        return -1;
     }
 
     int quarters = cents / 25;
