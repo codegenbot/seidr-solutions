@@ -1,8 +1,7 @@
 def basement(v):
     total = 0
-    i = 0
-    while True:
-        total += v[i]
+    for i, n in enumerate(v):
         if total < 0:
-            return i + 1
-        i += 1
+            return i
+        total += n
+    return -1
