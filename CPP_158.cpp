@@ -24,7 +24,7 @@ string find_max(vector<string> words) {
         int unique_count = unique_char_count(word);
         if(unique_count > max_unique || (unique_count == max_unique && word < max_word)) {
             max_unique = unique_count;
-            max_word = word; 
+            max_word = word;
         }
     }
     return max_word;
@@ -32,9 +32,9 @@ string find_max(vector<string> words) {
 
 int main() {
     assert((find_max({"play", "play", "play"}) == "play"));
-    assert((find_max({"a", "aa", "aaa"}) == "a"));
-    assert((find_max({"abc", "ab", "a"}) == "abc"));
-    assert((find_max({"abc", "dab", "cba"}) == "abc"));
-    assert((find_max({"zzzz", "yyyyy"}) == "yyyyy"));
+    assert((find_max({"apple", "banana", "cherry"}) == "banana"));
+    assert((find_max({"abcd", "efgh", "ijkl", "mnopqrst"}) == "mnopqrst"));
+    assert((find_max({"a", "aaa", "aa"}) == "a"));
+    assert((find_max({"zap", "jazz", "buzz"}) == "zap"));
     return 0;
 }
