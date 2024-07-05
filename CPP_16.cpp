@@ -1,9 +1,11 @@
 #include <iostream>
-#include <unordered_set>
+#include <vector>
 #include <string>
+#include <algorithm>
+#include <unordered_set>
 using namespace std;
 
-int count_distinct_characters(string str){ 
+int count_distinct_characters(string str) { 
     unordered_set<char> distinctChars;
     for(char c : str) {
         distinctChars.insert(tolower(c));
@@ -12,8 +14,8 @@ int count_distinct_characters(string str){
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    cout << count_distinct_characters(input) << endl;
+    string str;
+    getline(cin, str); // To read a line of input
+    cout << count_distinct_characters(str) << endl;
     return 0;
 }
