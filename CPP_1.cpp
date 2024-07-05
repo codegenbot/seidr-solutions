@@ -1,9 +1,16 @@
-```c++
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -29,8 +36,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> input = {"( ) (( "};
-    vector<string> expected = {"()", "(())"};
-    assert(separate_paren_groups(input[0]) == expected);
+    assert(issame(separate_paren_groups("( ) (( )) (( )( "),"{"()", "(())", "(()())"}"));
     return 0;
 }
