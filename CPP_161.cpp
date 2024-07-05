@@ -1,6 +1,7 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
+#include <string>
+#include <algorithm>
+#include <cctype>
+
 using namespace std;
 
 string solve(string s) {
@@ -11,16 +12,15 @@ string solve(string s) {
             break;
         }
     }
-
     if (!hasLetter) {
         reverse(s.begin(), s.end());
         return s;
     }
-
     for (char &c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) c = toupper(c);
-            else c = tolower(c);
+        if (islower(c)) {
+            c = toupper(c);
+        } else if (isupper(c)) {
+            c = tolower(c);
         }
     }
     return s;
