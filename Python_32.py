@@ -1,26 +1,28 @@
 import math
 
-def poly(xs: list, x: float):
-    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
-
 def find_zero(xs: list):
-    def derivative(xs: list):
-        return [i * xs[i] for i in range(1, len(xs))]
+    def f(x):
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-    def newton_method(xs: list, initial_guess: float = 0.0, tolerance: float = 1e-7, max_iterations: int = 1000):
-        x = initial_guess
-        for _ in range(max_iterations):
-            fx = poly(xs, x)
-            if abs(fx) < tolerance:
-                return x
-            dfx = poly(derivative(xs), x)
-            if dfx == 0:
-                break
-            x -= fx / dfx
-        return x
+    def derivative(xs):
+        return [i * coeff for i, coeff in enumerate(xs)][1:]
 
-    return newton_method(xs)
+    def df(x):
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(derivative(xs))])
 
-coefficients = list(map(float, input("Enter the polynomial coefficients separated by spaces: ").split()))
-zero = find_zero(coefficients)
-print(f"The root of the polynomial is approximately: {zero}")
+    x = 0
+    for _ in range(100):
+        fx = f(x)
+        if abs(fx) < 1e-7:
+            return x
+        dfx = df(x)
+        if dfx == 0:
+            break
+        x -= fx / dfx
+    return x
+
+if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read
+    coefficients = list(map(float, input().split()))
+    print(find_zero(coefficients))
