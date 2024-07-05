@@ -11,6 +11,6 @@ string encrypt(string s) {
 }
 
 int main() {
-    cout << encrypt("a") << endl; // Output should be "e"
+    cout << encrypt("a") << endl;
     return 0;
 }
