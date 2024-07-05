@@ -10,6 +10,5 @@ def below_zero(operations: List[int]) -> bool:
 
 if __name__ == "__main__":
     import sys
-    input_data = sys.stdin.read().strip()
-    operations = list(map(int, input_data.split()))
+    operations = [int(line.strip()) for line in sys.stdin]
     print(below_zero(operations))
