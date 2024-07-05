@@ -21,7 +21,7 @@ int main() {
     assert(n >= 0); // Ensure non-negative size
 
     vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
+    for(int i = 0; i < n; ++i) {
         cin >> arr[i];
     }
 

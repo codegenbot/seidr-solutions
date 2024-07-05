@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <map>
 #include <cassert>
-
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
@@ -13,7 +12,8 @@ vector<string> by_length(vector<int> arr) {
             filtered.push_back(num);
         }
     }
-    sort(filtered.begin(), filtered.end(), greater<int>());
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
 
     map<int, string> numToString = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -28,12 +28,8 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
     cout << "Test passed!" << endl;
     return 0;
 }
