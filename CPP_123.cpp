@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -16,20 +17,18 @@ vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1);
+    result.push_back(1); // Add 1 to the result as the sequence always ends at 1
     sort(result.begin(), result.end());
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    assert (issame(get_odd_collatz(1), {1}));
+    assert (issame(get_odd_collatz(7), {1, 3, 5, 7, 11, 13, 17, 31}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
