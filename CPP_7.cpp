@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    cout << "Test passed" << endl;
+    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
