@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string remove_vowels(const string &text) {
-    string result;
+std::string remove_vowels(const std::string& text) {
+    std::string result;
     for (char ch : text) {
         if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
             ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
@@ -14,6 +14,8 @@ string remove_vowels(const string &text) {
 }
 
 int main() {
-    cout << remove_vowels("Hello World") << endl;
+    assert(remove_vowels("ybcd") == "ybcd");
+    assert(remove_vowels("beautiful") == "btfl");
+    std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
