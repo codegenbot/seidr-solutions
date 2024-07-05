@@ -1,6 +1,4 @@
 ```c++
-#include <stdio.h>
-
 int bowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
@@ -25,8 +23,8 @@ int bowlingScore(const char* s) {
 }
 
 int main() {
-    const char* s = "X|9-8/7-X6/5-4/3|2";
-    int score = bowlingScore(s);
-    printf("The score is: %d\n", score);
+    const char* input = "X/X/XXX/----/-5--"; 
+    int score = bowlingScore(input);
+    std::cout << "The score is: " << score << std::endl; 
     return 0;
 }
