@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -11,7 +10,7 @@ int main() {
     cin >> startHeight >> firstBounce >> numBounces;
 
     // Calculate bounciness index
-    long double bouncinessIndex = static_cast<long double>(firstBounce) / static_cast<long double>(startHeight);
+    long double bouncinessIndex = (long double)firstBounce / startHeight;
 
     // Calculate total distance traveled
     long double totalDistance = 0.0L;
