@@ -1,5 +1,6 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
@@ -17,9 +18,8 @@ int calculateFuelCost(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> inputs = {{1}, {6}, {1, 7}, {1, 8}, {1, 9}, {1, 10}};
-    for (vector<int> input : inputs) {
+    vector<vector<int>> inputs = {{1}, {6}, {1, 7}, {1, 8}, {1, 9}, {1, 10}};
+    for (const auto& input : inputs) {
         cout << calculateFuelCost(input) << endl;
     }
     return 0;
-}
