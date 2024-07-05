@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 vector<int> unique(vector<int> l) {
@@ -9,11 +10,7 @@ vector<int> unique(vector<int> l) {
     return l;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    assert((unique({5, 3, 5, 2, 3, 3, 9, 0, 123}) == vector<int>({0, 2, 3, 5, 9, 123})));
     return 0;
 }
