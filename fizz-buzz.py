@@ -1,6 +1,9 @@
-```
-def fizz_buzz(n):
+def fizz_buzz(x):
     result = ""
-    for i in range(1, n+1):
-        result += "FizzBuzz" if i % 15 == 0 else "Fizz" if i % 3 == 0 else "Buzz" if i % 5 == 0 else str(i) + " "
-    return result.strip()
+    if x % 3 == 0:
+        result += "Fizz"
+    if x % 5 == 0:
+        result += "Buzz"
+    if not result:
+        result = str(x)
+    return result

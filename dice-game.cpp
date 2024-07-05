@@ -1,24 +1,18 @@
-```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
     double p = 0.0;
-
+    
     for(int i = 1; i <= m; i++) {
-        p += (n - i) / total;
+        if(i < n)
+            p += 1.0 / (n * m);
     }
 
     return p;
 }
 
 int main() {
-    string temp1, temp2;
-    cin >> temp1 >> temp2;
-    int n = stoi(temp1);
-    int m = stoi(temp2);
-    cout << fixed << setprecision(2) << (double)diceGame(n, m) << endl;
+    cout << fixed << setprecision(2) << diceGame(6, 6) << endl;
     return 0;
 }
