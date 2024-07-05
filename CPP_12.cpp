@@ -4,19 +4,19 @@
 
 using namespace std;
 
-string longest(const vector<string>& strings) {
+string longest(vector<string> strings){
     if (strings.empty()) return "None";
-    string longestStr = strings[0];
+    string longest_str = strings[0];
     for (const auto& str : strings) {
-        if (str.length() > longestStr.length()) {
-            longestStr = str;
+        if (str.length() > longest_str.length()) {
+            longest_str = str;
         }
     }
-    return longestStr;
+    return longest_str;
 }
 
 int main() {
-    vector<string> test = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
-    cout << longest(test) << endl; // Expected output: zzzz
+    // Example test
+    cout << (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz") << endl;
     return 0;
 }
