@@ -12,7 +12,10 @@ string string_xor(string a, string b) {
 
 int main() {
     string a, b;
-    cin >> a >> b;
+    cout << "Enter first binary string: ";
+    cin >> a;
+    cout << "Enter second binary string: ";
+    cin >> b;
     cout << string_xor(a, b) << endl;
     return 0;
 }
