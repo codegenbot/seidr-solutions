@@ -1,12 +1,12 @@
 #include <iostream>
-#include <string>
 #include <cassert>
+#include <string>
+using namespace std;
 
-std::string decimal_to_binary(int decimal) {
-    std::string binary = "";
-    if (decimal == 0) {
-        return "db0db";
-    }
+string decimal_to_binary(int decimal) {
+    string binary = "";
+    if (decimal == 0) return "db0db"; // Handle the special case when decimal is 0
+
     while (decimal > 0) {
         binary = (decimal % 2 == 0 ? "0" : "1") + binary;
         decimal /= 2;
@@ -15,12 +15,9 @@ std::string decimal_to_binary(int decimal) {
 }
 
 int main() {
-    // Test cases
     assert(decimal_to_binary(15) == "db1111db");
     assert(decimal_to_binary(0) == "db0db");
-    assert(decimal_to_binary(1) == "db1db");
-
-    // Additional cases for thorough testing
-    std::cout << decimal_to_binary(10) << std::endl; // Output should be "db1010db"
+    assert(decimal_to_binary(8) == "db1000db");
+    cout << "All test cases passed!" << endl;
     return 0;
 }
