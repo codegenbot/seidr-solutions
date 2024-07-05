@@ -31,7 +31,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("() (()) (()())"), {"()", "(())", "(()())"} ));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"} ));
     cout << "Test passed!" << endl;
     return 0;
 }
