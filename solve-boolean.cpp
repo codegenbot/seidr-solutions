@@ -1,18 +1,13 @@
-#include <string>
-#include <iostream>
-using namespace std;
 
-bool evaluate(const string &expression) {
+bool solveBoolean(string expression) {
     bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
+    for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '|') {
-            result |= expression[i + 1];
+            result = false;
+            break;
         } else if (expression[i] == '&') {
-            result &= expression[i + 1];
-        } else if (expression[i] == '^') {
-            result ^= expression[i + 1];
-        } else if (expression[i] == '~') {
-            result = !result;
+            result = true;
+            break;
         }
     }
     return result;
