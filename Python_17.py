@@ -11,7 +11,7 @@ if __name__ == "__main__":
         if not music_string:
             raise ValueError("Input cannot be empty")
         result = parse_music(music_string)
-        if result:
+        if result and all(note in note_to_beats for note in music_string.split()):
             print(result)
         else:
             raise ValueError("Invalid music notation input")
