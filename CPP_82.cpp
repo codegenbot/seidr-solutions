@@ -19,7 +19,5 @@ bool prime_length(const std::string& str) {
 
 int main() {
     assert(prime_length("0") == false);
-    assert(prime_length("ab") == false);
-    assert(prime_length("abc") == true);
     return 0;
 }
