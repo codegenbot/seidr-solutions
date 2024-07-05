@@ -14,7 +14,7 @@ int do_algebra(vector<string> operato, vector<int> operand) {
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "/") {
+        } else if (operato[i] == "//") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
             result = pow(result, operand[i + 1]);
@@ -24,7 +24,6 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    // Test case
-    cout << (do_algebra({"/", "*"}, {7, 3, 4}) == 8) << endl;
+    cout << do_algebra({"//", "*"}, {7, 3, 4}) << endl; // Expected output: 8
     return 0;
 }
