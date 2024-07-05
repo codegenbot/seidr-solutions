@@ -1,7 +1,7 @@
-def basement(v):
+def basement(arr):
     total = 0
-    for i, x in enumerate(v):
-        total += x
+    for i, n in enumerate(arr):
+        total += n
         if total < 0:
-            return i + 1
+            return i
     return -1
