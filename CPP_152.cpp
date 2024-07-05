@@ -1,6 +1,6 @@
-#include <vector>  // Include vector header
-#include <cmath>   // Include cmath header for abs
-#include <cassert> // Include assert header
+#include <vector>
+#include <cmath>
+#include <cassert>
 
 using namespace std;
 
