@@ -19,7 +19,7 @@ bool correct_bracketing(const std::string& brackets) {
 int main() {
     std::string input;
     std::cin >> input;
-    if(correct_bracketing(input)) {
+    if (correct_bracketing(input)) {
         std::cout << "Balanced" << std::endl;
     } else {
         std::cout << "Not Balanced" << std::endl;
