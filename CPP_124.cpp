@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-bool valid_date(string date) {
+bool valid_date(const string& date) {
     if (date.empty() || date.size() != 10 || date[2] != '-' || date[5] != '-') {
         return false;
     }
