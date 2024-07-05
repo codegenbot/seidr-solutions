@@ -1,35 +1,35 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    int minEven = -1;
-    int minIndex = -1;
-    
+using namespace std;
+
+vector<int> pluck(vector<int> arr) {
+    int smallestEven = -1;
+    int index = -1;
     for (int i = 0; i < arr.size(); ++i) {
         if (arr[i] % 2 == 0) {
-            if (minEven == -1 || arr[i] < minEven) {
-                minEven = arr[i];
-                minIndex = i;
+            if (smallestEven == -1 || arr[i] < smallestEven) {
+                smallestEven = arr[i];
+                index = i;
             }
         }
     }
-    
-    if (minEven == -1) {
+    if (smallestEven == -1) {
         return {};
     } else {
-        return {minEven, minIndex};
+        return {smallestEven, index};
     }
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
-    assert(issame(pluck({7, 9, 2, 1}), {2, 2}));
-
-    std::cout << "All tests passed successfully!" << std::endl;
+    assert(issame(pluck({3, 5, 8, 2}), {2, 3}));
+    assert(issame(pluck({6, 4, 10, 12}), {4, 1}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
