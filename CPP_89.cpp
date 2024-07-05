@@ -1,19 +1,20 @@
 #include <iostream>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
-string encrypt(string s) {
+string encrypt(string s){
     string result = "";
-    for (char c : s) {
+    for(char c : s) {
         result += (c - 'a' + 4) % 26 + 'a';
     }
     return result;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string to encrypt: ";
-    cin >> input;
-    cout << "Encrypted string: " << encrypt(input) << endl;
+    assert(encrypt("a") == "e");
+    assert(encrypt("xyz") == "bcd");
+    cout << "All test cases passed!" << endl;
     return 0;
 }
