@@ -1,13 +1,15 @@
 def search(lst):
     from collections import Counter
-
-    count = Counter(lst)
+    freq = Counter(lst)
     result = -1
-    for num, freq in count.items():
-        if freq >= num and num > result:
-            result = num
+    for num, count in freq.items():
+        if count >= num:
+            result = max(result, num)
     return result
 
-# Read input
-lst = list(map(int, input().split()))
-print(search(lst))
+if __name__ == "__main__":
+    try:
+        lst = list(map(int, input().strip().split()))
+        print(search(lst if lst else [-1]))
+    except ValueError:
+        print(-1)
