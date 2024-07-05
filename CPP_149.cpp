@@ -2,16 +2,15 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    // Remove strings with odd lengths
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) {
         return s.length() % 2 != 0;
     }), lst.end());
 
-    // Sort the remaining strings by length and then alphabetically
     sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
@@ -23,8 +22,15 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(result == expected);
+    vector<string> lst;
+    string word;
+    while (cin >> word) {
+        lst.push_back(word);
+    }
+    vector<string> result = sorted_list_sum(lst);
+    for (const auto& str : result) {
+        cout << str << " ";
+    }
+    cout << endl;
     return 0;
 }

@@ -7,7 +7,7 @@ std::vector<int> even_odd_count(int num) {
     int even_count = 0, odd_count = 0;
     num = abs(num);
     if (num == 0) {
-        even_count = 1;
+        even_count++;
     } else {
         while (num > 0) {
             int digit = num % 10;
@@ -22,11 +22,12 @@ std::vector<int> even_odd_count(int num) {
     return {even_count, odd_count};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
+    std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
