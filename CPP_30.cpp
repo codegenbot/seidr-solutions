@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <cmath> // for fabs
+#include <cmath>
 
 using namespace std;
 
