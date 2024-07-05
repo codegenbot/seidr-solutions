@@ -6,6 +6,7 @@ int choose_num(int x, int y) {
 }
 
 int main() {
+    // Sample usage
     assert(choose_num(546, 546) == 546);
     return 0;
 }
