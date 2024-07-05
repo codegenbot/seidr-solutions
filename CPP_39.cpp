@@ -12,6 +12,8 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
+    if (n <= 0) return -1; // handle invalid input
+
     std::vector<int> fib = {1, 1};
     std::vector<int> primeFibs;
     while (primeFibs.size() < n) {
@@ -21,5 +23,5 @@ int prime_fib(int n) {
             primeFibs.push_back(nextFib);
         }
     }
-    return primeFibs[n - 1];
+    return primeFibs.back();
 }
