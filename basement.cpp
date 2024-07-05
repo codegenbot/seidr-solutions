@@ -3,19 +3,12 @@
 using namespace std;
 
 int basement(vector<int>& v) {
-    int sum = 0;
-    int i = 0; // declare and initialize i here
+    int sum = 0, firstNegativeIndex = -1;
     for (int i = 0; i < v.size(); i++) {
         sum += v[i];
-        if (sum >= 0) {
-            return -1; // return -1 if no index found where the sum becomes negative
+        if (sum < 0 && firstNegativeIndex == -1) {
+            firstNegativeIndex = i;
         }
     }
-    return i + 1; // return the first index where the sum becomes negative
-}
-
-int main() {
-    vector<int> v{1,2,3,4};
-    cout << basement(v) << endl;
-    return 0;
+    return firstNegativeIndex;
 }
