@@ -1,7 +1,7 @@
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<int> filtered;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
+    for(int num : arr) {
+        if(num >= 1 && num <= 9) {
             filtered.push_back(num);
         }
     }
@@ -14,7 +14,7 @@ vector<string> by_length(vector<int> arr) {
     };
 
     vector<string> result;
-    for (int num : filtered) {
+    for(int num : filtered) {
         result.push_back(num_to_name[num]);
     }
     return result;
