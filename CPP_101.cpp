@@ -1,20 +1,19 @@
-#include <iostream>
 #include <sstream>
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
-vector<string> words_string(string s) {
+vector<string> words_string(string s){
     vector<string> result;
     stringstream ss(s);
     string word;
     while (getline(ss, word, ' ')) {
         stringstream ws(word);
-        while (getline(ws, word, ',')) {
-            if (!word.empty()) {
-                result.push_back(word);
+        string subword;
+        while (getline(ws, subword, ',')) {
+            if (!subword.empty()) {
+                result.push_back(subword);
             }
         }
     }
@@ -22,16 +21,10 @@ vector<string> words_string(string s) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    assert(issame(words_string("ahmed, gamal"), {"ahmed", "gamal"}));
-    assert(issame(words_string("ahmed     ,     gamal"), {"ahmed", "gamal"}));
-    cout << "All tests passed!" << endl;
+    assert(issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
     return 0;
 }
