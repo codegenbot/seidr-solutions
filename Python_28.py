@@ -1,5 +1,4 @@
-```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    return ''.join(strings)
+    return ''.join([s.strip() for s in strings])
