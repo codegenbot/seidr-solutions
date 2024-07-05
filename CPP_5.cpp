@@ -2,21 +2,24 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> intersperse(const std::vector<int>& numbers, int delimeter) {
+// Function to intersperse the delimiter between vector elements
+std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
     std::vector<int> result;
     for (size_t i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
-            result.push_back(delimeter);
+            result.push_back(delimiter);
         }
     }
     return result;
 }
 
+// Function to check if two vectors are the same
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
+// Main function
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     assert(issame(intersperse({1, 2, 3}, 0), {1, 0, 2, 0, 3}));
