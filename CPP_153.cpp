@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <climits>
+#include <cctype>
+#include <cassert>
 
 using namespace std;
 
