@@ -17,22 +17,22 @@ string sort_numbers(string numbers) {
         {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"},
         {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"}
     };
-    
+
     vector<int> num_list;
     stringstream ss(numbers);
     string word;
     while (ss >> word) {
         num_list.push_back(num_map[word]);
     }
-    
+
     sort(num_list.begin(), num_list.end());
-    
+
     string result;
     for (int i = 0; i < num_list.size(); ++i) {
         if (i > 0) result += " ";
         result += rev_map[num_list[i]];
     }
-    
+
     return result;
 }
 
