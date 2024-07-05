@@ -10,13 +10,12 @@ vector<string> odd_count(vector<string> lst) {
     for (const string &s : lst) {
         int odd_count = 0;
         for (char c : s) {
-            if ((c - '0') % 2 != 0) {
+            if (isdigit(c) && (c - '0') % 2 != 0) {
                 odd_count++;
             }
         }
         string res = "the number of odd elements " + to_string(odd_count) + 
-                     " in the string " + s + 
-                     " is " + to_string(odd_count) + ".";
+                     " in the string " + s + " is " + to_string(odd_count) + ".";
         result.push_back(res);
     }
     return result;
