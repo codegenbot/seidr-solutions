@@ -27,9 +27,6 @@ string encode_cyclic(string s) {
 
 int main() {
     string str = "abc";
-    string chr;
-    for (char chr : str) {
-    }
     string encoded_str = encode_cyclic(str);
     assert (decode_cyclic(encoded_str) == str);
     cout << "All tests passed." << endl;
