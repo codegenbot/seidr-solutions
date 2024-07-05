@@ -14,11 +14,11 @@ vector<int> pluck(vector<int> arr) {
             }
         }
     }
-
+    
     if (min_even == -1) {
         return {};
     }
-
+    
     return {min_even, min_index};
 }
 
