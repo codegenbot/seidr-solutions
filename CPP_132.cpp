@@ -1,18 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool is_nested(string str) {
-    int balance = 0;
-    bool has_nested = false;
+    int depth = 0;
+    bool nested = false;
     for (char c : str) {
         if (c == '[') {
-            balance++;
+            depth++;
+            if (depth > 1) nested = true;
         } else if (c == ']') {
-            balance--;
-            if (balance > 0) {
-                has_nested = true;
-            }
-        }
-        if (balance < 0) {
-            balance = 0;
+            depth--;
         }
     }
-    return has_nested;
+    return nested;
+}
+
+int main() {
+    cout << boolalpha; // Print bools as true/false instead of 1/0
+    cout << (is_nested("[[]]") == true) << endl;
+    cout << (is_nested("[]") == false) << endl;
+    cout << (is_nested("[[[[[]]]]") == true) << endl;
+    cout << (is_nested("[[") == true) << endl;
+    cout << (is_nested("]") == false) << endl;
+    cout << (is_nested("[][[[]]]") == true) << endl;
+    return 0;
 }
