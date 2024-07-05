@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -21,19 +20,23 @@ vector<int> parse_nested_parens(string paren_string) {
             current_depth = 0;
         }
     }
-    if (!paren_string.empty() && paren_string.back() != ' ') {
-        depths.push_back(max_depth); // For the last group
-    }
+    depths.push_back(max_depth); // For the last group
     return depths;
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
     assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    assert(issame(parse_nested_parens("(()(())((()))) (())"), {4, 2}));
-    cout << "All tests passed" << endl;
+    assert(issame(parse_nested_parens("( ) ( )"), {1, 1}));
+    assert(issame(parse_nested_parens("(() ) (())"), {2, 2}));
+    assert(issame(parse_nested_parens("(( )) () (())"), {2, 1, 2}));
+    assert(issame(parse_nested_parens(""), {0}));
     return 0;
 }
