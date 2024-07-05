@@ -20,3 +20,4 @@ int main() {
     cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
 
     return 0;
+}
