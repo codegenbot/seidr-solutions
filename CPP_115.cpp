@@ -11,7 +11,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         for (int cell : row) {
             if (cell == 1) water_units++;
         }
-        count += (water_units + capacity - 1) / capacity; // Ceiling division
+        count += (water_units + capacity - 1) / capacity;
     }
     return count;
 }
