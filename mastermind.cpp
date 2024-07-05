@@ -1,37 +1,29 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int whitePegs(string code, string guess) {
-    int count = 0;
-    vector<char> codeUsed;
-    for (int i = 0; i < code.size(); ++i) {
-        bool foundInCode = false;
-        for (int j = 0; j < code.size(); ++j) {
-            if (code[i] == guess[j]) {
-                foundInCode = true;
-                if (!binary_search(codeUsed.begin(), codeUsed.end(), guess[j])) {
-                    count++;
-                    codeUsed.push_back(guess[j]);
-                }
-            }
-        }
+    unordered_map<char, int> code_freq, guess_freq;
+    for (char c : code) {
+        code_freq[c]++;
     }
-    return count;
+    for (char c : guess) {
+        guess_freq[c]++;
+    }
+
+    int white = 0;
+    for (auto p : code_freq) {
+        white += abs(p.second - guess_freq.count(p.first));
+    }
+
+    return white;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    vector<char> codeUsed;
     for (int i = 0; i < code.size(); ++i) {
-        bool foundInCode = false;
-        for (int j = 0; j < code.size(); ++j) {
-            if (code[i] == guess[j]) {
-                foundInCode = true;
-                if (i == j) {
-                    count++;
-                    codeUsed.push_back(guess[j]);
-                }
-            }
+        if (code[i] == guess[i]) {
+            count++;
         }
     }
     return count;
