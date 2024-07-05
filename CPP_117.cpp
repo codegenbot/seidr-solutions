@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <cctype>
+
 using namespace std;
 
 bool is_consonant(char c) {
