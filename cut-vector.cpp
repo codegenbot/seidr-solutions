@@ -1,7 +1,6 @@
 #include <vector>
 #include <climits>
 #include <iostream>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -10,7 +9,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int split_index = 0;
 
     for (int i = 1; i < n; i++) {
-        int diff = std::abs(v[i-1] - v[i]);
+        int diff = abs(v[i-1] - v[i]);
         if (diff <= min_diff) {
             min_diff = diff;
             split_index = i;
@@ -30,7 +29,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return make_pair(left, right);
 }
 
-int main() {
+pair<vector<int>, vector<int>> main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -53,5 +52,5 @@ int main() {
         }
     }
     cout << "]\n";
-    return 0;
+    return make_pair(result.first, result.second);
 }
