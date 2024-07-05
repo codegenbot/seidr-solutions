@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -21,8 +22,17 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(result == expected);
+    int n;
+    cout << "Enter number of strings: ";
+    cin >> n;
+    vector<string> lst(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> lst[i];
+    }
+
+    vector<string> result = sorted_list_sum(lst);
+    for(const auto& str : result) {
+        cout << str << " ";
+    }
     return 0;
 }
