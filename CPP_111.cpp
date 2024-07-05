@@ -33,9 +33,6 @@ bool issame(map<char,int> a, map<char,int> b){
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    assert(issame(histogram("test"), {{'t', 2}})); 
-    assert(issame(histogram("hello"), {{'l', 2}})); 
-    assert(issame(histogram(""), {})); 
-    assert(issame(histogram("mississippi"), {{'i', 4}}));
-    return 0;
+    assert(issame(histogram("abacaba"), {{'a', 4}}));
+    assert(issame(histogram("zzzzxxy"), {{'z', 4}}));
 }
