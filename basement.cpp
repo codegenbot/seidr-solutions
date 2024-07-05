@@ -1,12 +1,12 @@
-#include <vector>
-int basement(std::vector<int>& v) {
-    int i = 0;
+
+// Function to find first negative index in a vector of integers
+int basement(vector<int> input) {
     int sum = 0;
-    for (size_t i = 0; i < v.size(); i++) {
-        sum += v[i];
-        if (sum >= 0) {
-            return -1;
+    for (int i = 0; i < input.size(); i++) {
+        sum += input[i];
+        if (sum < 0) {
+            return i;
         }
     }
-    return i + 1;
+    return -1;
 }
