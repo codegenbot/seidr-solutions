@@ -1,7 +1,7 @@
 int bowlingScore(const char* s) {
     int score = 0;
     int currentRoll = 0;
-    for (int i = 0; s[i] != '\0'; i++) {
+    for (int i = 0; s[i]; i++) {
         if (s[i] == 'X') {
             score += 30;
             currentRoll++;
@@ -19,4 +19,3 @@ int bowlingScore(const char* s) {
         }
     }
     return score;
-}
