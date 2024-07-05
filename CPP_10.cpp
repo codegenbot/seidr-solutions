@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <algorithm> // Include this header for reverse
 using namespace std;
 
 bool is_palindrome(string str) {
@@ -14,7 +14,7 @@ string make_palindrome(string str) {
     for (int i = n; i >= 0; --i) {
         if (is_palindrome(str.substr(0, i))) {
             string prefix = str.substr(i);
-            reverse(prefix.begin(), prefix.end());
+            reverse(prefix.begin(), prefix.end()); // reverse function is now recognized
             return str + prefix;
         }
     }
