@@ -25,8 +25,8 @@ int main() {
 
     int result = car_race_collision(track);
     cout << result << endl;
-    
-    // Correct assert statement with a valid test string
+
+    // Example string to test the function
     assert(car_race_collision("RLRL") == 2);
 
     return 0;
