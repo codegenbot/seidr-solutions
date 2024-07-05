@@ -1,9 +1,8 @@
-def indices_of_substring():
-    text = input()
+def indices_of_substring(text):
+    target = input()
     result = []
     i = 0
     while True:
-        target = input()
         i = text.find(target, i)
         if i == -1:
             break
