@@ -1,10 +1,9 @@
-def camel_case(input_str):
-    return (
-        "".join(word.capitalize() for word in input_str.split("-"))
-        if "-" in input_str
-        else input_str
-    )
+def camel_case(s):
+    words = s.replace("-", " ").split()
+    return "".join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(words))
 
 
-input_str = input()
-print(camel_case(input_str))
+print(camel_case("nospaceordash"))
+print(camel_case("two-words"))
+print(camel_case("two words"))
+print(camel_case("all separate words"))
