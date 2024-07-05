@@ -6,32 +6,20 @@
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    auto total_chars = [](const vector<string>& lst) {
-        int sum = 0;
-        for (const auto& str : lst) {
-            sum += str.size();
-        }
-        return sum;
-    };
-
-    int sum1 = total_chars(lst1);
-    int sum2 = total_chars(lst2);
-
-    if (sum1 <= sum2) {
-        return lst1;
-    } else {
-        return lst2;
-    }
+    int sum1 = 0, sum2 = 0;
+    for (const auto& str : lst1) sum1 += str.size();
+    for (const auto& str : lst2) sum2 += str.size();
+    return (sum1 <= sum2) ? lst1 : lst2;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
-    assert(issame(total_match({"a", "b", "c"}, {"alpha", "beta"}), {"a", "b", "c"}));
-    assert(issame(total_match({"hello", "world"}, {"foo", "bar", "baz"}), {"hello", "world"}));
-    cout << "All test cases passed!";
+    assert(issame(total_match({"a"}, {"ab"}), {"a"}));
+    assert(issame(total_match({"ab"}, {"cde"}), {"cde"}));
+    cout << "All tests passed!" << endl;
     return 0;
 }
