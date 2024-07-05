@@ -16,7 +16,7 @@ int vowels_count(const std::string &s) {
 
 int main() {
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
     std::cout << vowels_count(input) << std::endl;
     return 0;
 }
