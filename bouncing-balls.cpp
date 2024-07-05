@@ -3,10 +3,7 @@
 using namespace std;
 double bouncingBalls(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
-+   double totalDistance = 0;
-+   for (int i = 0; i < numBounces; i++) {
-+       totalDistance += startingHeight * pow(bouncinessIndex, i);
-+   }
+    double totalDistance = startingHeight + bouncinessIndex * (1 - pow(bouncinessIndex, numBounces)) / 2;
     return totalDistance;
 }
 int main() {
