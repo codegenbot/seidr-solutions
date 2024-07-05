@@ -1,7 +1,8 @@
+
 def pluck(arr):
     if len(arr) == 0:
         return []
     else:
-        smallest_even = min([x for x in arr if x % 2 == 0])
-        smallest_index = arr.index(smallest_even)
-        return [smallest_even, smallest_index]
+        min_even = min(filter(lambda x: x % 2 == 0, arr))
+        min_index = arr.index(min_even)
+        return [min_even, min_index]
