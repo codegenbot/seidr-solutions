@@ -1,11 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_set>
-#include <iostream>
 
 using namespace std;
 
-string find_max(vector<string> words) {
+string find_max(const vector<string>& words) {
     string result = "";
     int max_unique = 0;
 
@@ -26,10 +26,12 @@ int main() {
     int n;
     cin >> n;
     vector<string> words(n);
+    
     for (int i = 0; i < n; ++i) {
         cin >> words[i];
     }
-
+    
     cout << find_max(words) << endl;
+    
     return 0;
 }
