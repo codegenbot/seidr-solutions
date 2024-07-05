@@ -1,14 +1,19 @@
+#include <stack>
+
 bool is_nested(string str) {
-    int openBrackets = 0;
-    for (char c : str) {
-        if (c == '[') {
-            openBrackets++;
-        } else if (c == ']') {
-            openBrackets--;
-            if (openBrackets > 0) {
-                return true;
+    stack<char> stk;
+    bool nested = false;
+
+    for (char ch : str) {
+        if (ch == '[') {
+            stk.push(ch);
+        } else if (ch == ']' && !stk.empty()) {
+            stk.pop();
+            if (!stk.empty()) {
+                nested = true;
             }
         }
     }
-    return false;
+    
+    return nested;
 }

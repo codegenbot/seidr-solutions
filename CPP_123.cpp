@@ -22,13 +22,12 @@ vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
-    // You can add more test cases as needed.
-    cout << "All tests passed!" << endl;
+    // Add more test cases if needed
     return 0;
 }
