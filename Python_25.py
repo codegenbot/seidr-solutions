@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 def factorize(n: int) -> List[int]:
     if n <= 1:
@@ -15,8 +14,7 @@ def factorize(n: int) -> List[int]:
 
 if __name__ == "__main__":
     try:
-        input_data = sys.stdin.read().strip()
-        n = int(input_data)
+        n = int(input().strip())
         if n <= 0:
             raise ValueError
         result = factorize(n)
