@@ -11,5 +11,5 @@ def below_zero(operations: List[int]) -> bool:
 if __name__ == "__main__":
     import sys
     input = sys.stdin.read
-    operations = list(map(int, input().strip().split()))
+    operations = list(map(int, input().strip().split() if input else []))
     print(below_zero(operations))
