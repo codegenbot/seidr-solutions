@@ -11,7 +11,16 @@ int largest_divisor(int n) {
 }
 
 int main() {
+    // Sample assertions to test the function
     assert(largest_divisor(49) == 7);
-    // Additional test cases can be added here
+    assert(largest_divisor(21) == 7);
+    assert(largest_divisor(15) == 5);
+    
+    // Additional test code
+    std::cout << "Enter a number: ";
+    int n;
+    std::cin >> n;
+    std::cout << "Largest divisor of " << n << " is " << largest_divisor(n) << "\n";
+    
     return 0;
 }
