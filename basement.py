@@ -4,5 +4,4 @@ def basement(arr):
         total += x
         if total < 0:
             return i
-        break
     return -1
