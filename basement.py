@@ -3,6 +3,6 @@ def basement(arr):
     for i, x in enumerate(arr):
         total += x
         if total < 0:
-            return i + 1
-            total = 0
+            return i
+        break
     return -1
