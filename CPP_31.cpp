@@ -1,6 +1,6 @@
-#include <cmath>
-
-bool is_prime(long long n) {
+#include<stdio.h>
+using namespace std;
+bool is_prime(long long n){
     if (n <= 1) return false;
     if (n <= 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
