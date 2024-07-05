@@ -1,3 +1,10 @@
+#include <vector>
+#include <string>
+#include <cassert>
+#include <iostream>
+
+using namespace std;
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letterGrades;
     for (float gpa : grades) {
@@ -13,7 +20,17 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (gpa > 1.0) letterGrades.push_back("D+");
         else if (gpa > 0.7) letterGrades.push_back("D");
         else if (gpa > 0.0) letterGrades.push_back("D-");
-        else letterGrades.push_back("E");
+        else if (gpa == 0.0) letterGrades.push_back("E");
     }
     return letterGrades;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    cout << "All tests passed successfully!" << endl;
+    return 0;
 }
