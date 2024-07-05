@@ -62,8 +62,8 @@ int main() {
             cout << "Unexpected type" << endl;
         }
 
-        assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
-        
+        assert (std::any_cast<string>(compare_one(string("1"), 1)) == "None");
+
     } catch (const std::bad_any_cast& e) {
         cout << "Cannot cast result. Possibly a None comparison." << endl;
     }
