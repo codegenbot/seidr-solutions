@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <any>
+
 using namespace std;
 
 double convertToDouble(const string &s) {
@@ -11,7 +12,7 @@ double convertToDouble(const string &s) {
 }
 
 std::any compare_one(std::any a, std::any b) {
-    double valA, valB;
+    double valA = 0, valB = 0;
 
     if (a.type() == typeid(int))
         valA = std::any_cast<int>(a);
@@ -36,13 +37,16 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    auto result = compare_one(5, string("4,9"));
+    std::any a = 42;
+    std::any b = string("45,5");
+    std::any result = compare_one(a, b);
+    
     if (result.type() == typeid(int))
         cout << std::any_cast<int>(result) << endl;
+    else if (result.type() == typeid(float))
+        cout << std::any_cast<float>(result) << endl;
     else if (result.type() == typeid(string))
         cout << std::any_cast<string>(result) << endl;
-    else
-        cout << std::any_cast<double>(result) << endl;
-
+    
     return 0;
 }
