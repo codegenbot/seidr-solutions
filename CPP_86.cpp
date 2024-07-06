@@ -3,18 +3,22 @@ using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
-    size_t pos = 0;
-    while (pos < s.length()) {
-        size_t nextSpace = s.find(' ', pos);
-        if (nextSpace == string::npos) {
-            nextSpace = s.length();
+    string word;
+    
+    for (char c : s) {
+        if (c == ' ') {
+            sort(word.begin(), word.end());
+            result += word;
+            word.clear();
+        } else {
+            word += c;
         }
-        string word = s.substr(pos, nextSpace - pos);
-        result += "";
-        for (char c : word) {
-            result += (char)(c);
-        }
-        pos = nextSpace + 1;
     }
+    
+    if (!word.empty()) {
+        sort(word.begin(), word.end());
+        result += word;
+    }
+    
     return result;
 }
