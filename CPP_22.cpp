@@ -19,9 +19,10 @@ bool issame(const vector<T1>& v1, const vector<T2>& v2) {
 vector<int> filter_integers(list<boost::any>& values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value).get());
-        }
+        try {
+            int val = boost::any_cast<int>(value).get();
+            result.push_back(val);
+        } catch (boost::bad_get<>) {}
     }
     return result;
 }
