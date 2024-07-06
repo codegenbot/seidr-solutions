@@ -1,3 +1,4 @@
+```python
 from typing import List
 
 def has_close_elements() -> bool:
