@@ -1,10 +1,11 @@
+Here is the corrected code:
+
+```
 from collections import deque
 
 
 def minPath(m):
     n = len(m)
-    
-    k = int(input("Enter the value of k: "))
     
     def dfs(i, j, path):
         if len(path) == k:
@@ -26,13 +27,6 @@ def minPath(m):
 
     k = int(input("Enter the value of k: "))
     min_path = None
-    n = int(input("Enter the size of the matrix (n): "))
-    m = []
-    
-    for i in range(n):
-        row = list(map(int, input("Enter the row {}: ".format(i+1)).split()))
-        m.append(row)
-    
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [m[i][j]])
