@@ -1,3 +1,3 @@
 def sorted_list_sum(lst):
-    even_words = [int("".join(filter(str.isdigit, word))) if "".join(filter(str.isdigit, word)).isdigit() else 0 for word in lst]
-    return sum(sorted(map(str, set(even_words))))
+    even_words = ["".join(filter(str.isdigit, word)) for word in lst]
+    return " ".join(sorted([word for word in lst if word in even_words], key=lambda x: sum(int(digit) for digit in x)))
