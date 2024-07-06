@@ -1,4 +1,4 @@
-def fruit_distribution(input, mango_count):
+def fruit_distribution(input):
     import re
 
     # Check if the input string contains both "apples" and "oranges"
