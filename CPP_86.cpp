@@ -1,25 +1,27 @@
-```cpp
-#include <string>
+#include <algorithm>
+using namespace std;
 
-string anti_shuffle(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += ' ';
-        }else{
-            char c = s[i];
-            while(c != ' ' && i < s.length()){
-                int j = i+1;
-                while(j < s.length() && s[j] <= c){
-                    c = s[j];
-                    j++;
-                }
-                for(int k=j-1; k>=i; k--){
-                    result += s[k];
-                }
-                i = j-1;
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            result += " ";
+        } else {
+            string word;
+            while (i < s.size() && s[i] != ' ') {
+                word += s[i];
+                i++;
+            }
+            for (char c : word) {
+                result += to_string(c);
             }
         }
     }
     return result;
+}
+
+int main() {
+    std::string input = "Hi. My name is Mister Robot. How are you?";
+    std::cout << anti_shuffle(input) << endl;
+    return 0;
 }
