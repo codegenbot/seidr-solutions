@@ -4,7 +4,8 @@ def prime_fib(n: int):
     for i in range(2, n+1):
         fib.append(fib[i-1] + fib[i-2])
     return next((x for x in fib if is_prime(x)), None)
-def is_prime(n: int):
+
+def is_prime(n):
     if n <= 1:
         return False
     for i in range(2, int(n**0.5) + 1):
