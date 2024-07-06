@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <assert.h>
 
