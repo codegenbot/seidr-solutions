@@ -1,7 +1,11 @@
-while True:
+import hashlib
+
+def string_to_md5():
     text = input("Enter your string: ")
     confirm = input("Do you want to continue? (yes/no): ")
-    if text and confirm.lower() == 'yes':
+    if text.strip() and confirm.lower() == 'yes':
         return hashlib.md5(text.encode()).hexdigest()
-    elif confirm.lower() != 'yes' or not text:
-        print("Please try again.")
+    else:
+        return None
+
+print(string_to_md5())

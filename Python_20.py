@@ -1,29 +1,24 @@
 ```
 def find_closest_elements():
-    while True:
-        try:
-            num_list = list(map(int, input("Enter numbers separated by space: ").split()))
-            num_list.sort()
-            
-            target = int(input("Enter a target number to find closest elements: "))
-            
-            k = int(input("Enter the number of closest elements to find: "))
+    num_list = list(map(int, input("Enter numbers separated by space: ").split()))
+    num_list.sort()
 
-            if k > len(num_list):
-                print("Closest pair of elements are: ", (num_list[0], num_list[-1]))
-            else:
-                left, right = 0, len(num_list) - k
-                closest_pair = num_list[left:right+1]
-                
-                min_diff = abs(target - num_list[0])
-                for i in range(left, right+1):
-                    if abs(target - num_list[i]) < min_diff:
-                        min_diff = abs(target - num_list[i])
-                        closest_pair = num_list[i-k+1:i+1]
+    target = int(input("Enter a target number to find closest elements: "))
+    
+    k = int(input("Enter the number of closest elements to find: "))
 
-                print("The {} closest elements to {} are: {}".format(k, target, tuple(closest_pair)))
-            break
-        except ValueError:
-            print("Invalid input. Please enter valid numbers and integers.")
+    if k > len(num_list):
+        print(f"Closest pair of elements are: {(num_list[0], num_list[-1])}")
+    else:
+        left, right = len(num_list) - k + 1, len(num_list)
+        min_diff = abs(target - num_list[0])
+        closest_pair = num_list[:k]
+
+        for i in range(len(num_list)-k+1):
+            if abs(target - num_list[i]) < min_diff:
+                min_diff = abs(target - num_list[i])
+                closest_pair = num_list[i:i+k]
+            
+        print(f"The {k} closest elements to {target} are: {' '.join(map(str, closest_pair))}")
 
 find_closest_elements()
