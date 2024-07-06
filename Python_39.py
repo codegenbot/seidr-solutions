@@ -1,6 +1,4 @@
 def prime_fib(n):
-    import math
-
     fib = [0, 1]
     i = 2
     while len(fib) <= n:

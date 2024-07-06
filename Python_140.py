@@ -1,5 +1,1 @@
-
-def fix_spaces(text):
-    if "  " in text:
-        text = text.replace("  ", "-")
-    return text.replace(" ", "_")
+import re
