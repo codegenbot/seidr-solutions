@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,5 +15,5 @@ int main(){
         }
     }
     
-    cout<<"Sum of digit is: "<<sum;
+     cout<<"Sum of digit is: "<<sum;
 }
