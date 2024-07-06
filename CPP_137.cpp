@@ -6,28 +6,22 @@
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (int) a.convert_to<int>() > (int) b.convert_to<int>() ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return (int) a.convert_to<int>() > (float) b.convert_to<float>() ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return (int) a.convert_to<int>() > (double) b.convert_to<double>() ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return (float) a.convert_to<float>() > (float) b.convert_to<float>() ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(double)) {
         return (float) a.convert_to<float>() > (double) b.convert_to<double>() ? a : b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = any_cast<std::string>(a);
-        std::string strB = any_cast<std::string>(b);
-        return stof(strA) > stod(strB) ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int numA = any_cast<int>(a);
-        double numB = stod(any_cast<std::string>(b));
-        return numA > numB ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        double numA = any_cast<double>(a);
-        int numB = std::stoi(any_cast<std::string>(b));
-        return numA > numB ? a : b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        double numA = stod(any_cast<std::string>(a));
-        int numB = any_cast<int>(b);
-        return numA > numB ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return (double) a.convert_to<double>() > (double) b.convert_to<double>() ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
+        return stod(strA) > stod(strB) ? a : b;
     }
-    return boost::any();
+    return "None";
 }
