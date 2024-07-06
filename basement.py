@@ -1,4 +1,4 @@
-def find_negative_sum(arr):
+def basement(arr):
     total = 0
     index = 0
     while True:
