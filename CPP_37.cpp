@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
+```cpp
+bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,11 +7,11 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size());
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> evenVals;
+            vector<float> evenVals;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenVals.push_back(l[j]);
@@ -30,24 +27,12 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> input;
-    for(int i=0; i<5; i++){
-        float x;
-        std::cin >> x;
-        input.push_back(x);
-    }
-
-    std::vector<float> output = sort_even(input);
-
-    if(issame(input, output)) {
-        std::cout << "The sorted even elements are identical." << std::endl;
+    vector<float> v1 = {3.5, 2.7, 6.8, 4.9};
+    vector<float> v2 = sort_even(v1);
+    
+    if(issame(v1,v2)) {
+        cout << "Vectors are same" << endl;
     } else {
-        std::cout << "Sorted even elements: ";
-        for(auto e : output) {
-            std::cout << e << " ";
-        }
-        std::cout << std::endl;
+        cout << "Vectors are not same" << endl;
     }
-
     return 0;
-}
