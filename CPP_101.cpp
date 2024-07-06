@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -33,6 +34,6 @@ std::vector<std::string> words_string(std::string s) {
 }
 
 int main() {
-    std::vector<std::string> expected = {"ahmed", "gamal"};
-    assert(issame(words_string("ahmed     , gamal"), expected));
+    std::vector<std::string> b = {"ahmed", "gamal"};
+    assert(issame(words_string("ahmed     , gamal"), b));
 }
