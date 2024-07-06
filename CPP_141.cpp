@@ -1,4 +1,4 @@
-string file_name_check(string file_name) {
+string file_name_check(string file_name){
     int digit_count = 0;
     bool has_dot = false;
     string before_dot;
@@ -21,4 +21,3 @@ string file_name_check(string file_name) {
     if(before_dot.empty() || !isalpha(before_dot[0])) return "No";
 
     return has_dot ? "Yes" : "No";
-}
