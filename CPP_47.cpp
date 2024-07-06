@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,22 +21,20 @@ int main() {
     std::vector<std::string> vec(n);
 
     for (std::string &x : vec) {
-        std::cout << "Enter element: ";
-        char temp[100]; // declare a character array to hold user input
-        std::cin >> temp;  // read the input into the character array
-        x = temp;          // convert the character array to string
+        char temp[100]; 
+        std::cin >> temp;  
+        x = temp;         
     }
 
     try {
-        float medianVal = 0.0f; // initialize median value as 0
-        for (const auto &num : vec) { // iterate through each element in vector
-            medianVal += std::stof(num); // convert each string to a floating point number and add it to the sum
+        float medianVal = 0.0f; 
+        for (const auto &num : vec) { 
+            medianVal += stof(num); 
         }
-        medianVal /= vec.size();      // calculate the average of the numbers
+        medianVal /= vec.size();      
         std::cout << "Median is " << medianVal << std::endl;
     } catch (const std::exception& e) {
         std::cerr << e.what() << '\n';
     }
 
     return 0;
-}
