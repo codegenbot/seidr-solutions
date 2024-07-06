@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,6 +16,21 @@ bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) { 
+    bool result = compareVectors(a, b);
+    if(result) {
+        for(auto s : a) {
+            std::cout << s << " ";
+        }
+        std::cout << std::endl;
+        for(auto s : b) {
+            std::cout << s << " ";
+        }
+        std::cout << std::endl;
+    }
+    return result;
+}
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
@@ -30,19 +46,29 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
-    result.push_back(temp);
+    result.push_back({temp});
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    result.push_back((rev == temp) ? "True" : "False");
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     return result;
 }
 
-int main() {
+void testMain() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
+    assert(isSame({ "", "True" }, result)); 
     if (!compareVectors({ "", "True" }, result)) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
     }
+    return;
+}
+
+int main() {
+    testMain();
     return 0;
 }
