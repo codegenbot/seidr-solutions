@@ -9,9 +9,8 @@ def hex_key(num):
 
     count = 0
     for char in num.upper():
-        if char.isdigit():
-            if is_prime(int(char)):
-                count += 1
+        if char.isdigit() and is_prime(int(char)):
+            count += 1
         elif char in ["B", "D"]:
             count += 1
-    return str(count).zfill(6)
+    return count
