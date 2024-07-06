@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <map>
 using namespace std;
@@ -26,3 +27,4 @@ map<char, int> histogram(string test) {
         }
     }
     return maxMap;
+}
