@@ -1,3 +1,3 @@
 ```
-def car_race_collision(n: int):
-    return sum(range(1, n+1))
+def car_race_collision(n: int, speeds):
+    return sum(speed * (n - i) for i, speed in enumerate(speeds))
