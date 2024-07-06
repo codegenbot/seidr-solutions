@@ -1,8 +1,9 @@
 def minPath(grid, k):
+    # Initialize variables
     n = len(grid)
     m = len(grid[0])
     visited = set()
-    queue = collections.deque([(0, 0, [])])
+    queue = deque([(0, 0, [])])
 
     while queue:
         x, y, path = queue.popleft()
