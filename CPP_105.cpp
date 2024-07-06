@@ -1,6 +1,7 @@
-#include <map>
+#include <iostream>
 #include <vector>
-#include <string>
+#include <map>
+#include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::map<int, std::string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
