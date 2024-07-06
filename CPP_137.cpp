@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
-#include <boost/conversion_to.hpp>
+#include <boost/variant.hpp>
 
 using namespace std;
 
@@ -38,7 +37,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         istringstream iss(str);
         float f;
         iss >> f;
-        return f > boost::any_cast<float>(b) ? a : b;
+        return f > b.convert_to<float>() ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         return compare_one(b, a);
@@ -71,7 +70,7 @@ int main(){
     if(result.type() == typeid(string))
         cout << "Result: None";
     else
-        cout << "Result: " << boost::any_cast<int>(result);
+        cout << "Result: " << result.convert_to<int>();
 
     return 0;
 }
