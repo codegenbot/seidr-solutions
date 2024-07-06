@@ -1,10 +1,8 @@
-```cpp
-#include <string>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
+// Function to check if two vectors are equal
 bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) { return find(b.begin(), b.end(), s) != b.end(); });
+    return a == b;
 }
 
 vector<string> select_words(string s, int n) {
@@ -32,4 +30,9 @@ vector<string> select_words(string s, int n) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    return 0;
 }
