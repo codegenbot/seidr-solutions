@@ -33,3 +33,8 @@ map<char, int> histogram(string test) {
 
     return maxMap;
 }
+
+int main() {
+    assert(histogram("a") == {{'a', 1}});
+    return 0;
+}
