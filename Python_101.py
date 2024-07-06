@@ -1,2 +1,6 @@
+import re
+
+
 def words_string(s):
-    return re.split(r"\s+", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s.split()
