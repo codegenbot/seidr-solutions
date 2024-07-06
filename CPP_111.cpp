@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -7,12 +8,11 @@ std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
     if (test.empty()) return result;
 
-    std::transform(test.begin(), test.end(), test.begin(),
-                   [&](char c){return ::tolower(c);});
-    for (char c : std::unique(test.begin(), test.end())) {
+    std::string letters = test;
+    for (char c : std::unique(letters.begin(), letters.end())) {
         int count = 0;
         size_t pos = 0;
-        while ((pos = test.find(c, pos)) != std::string::npos) {
+        while ((pos = letters.find(c, pos)) != std::string::npos) {
             count++;
             pos += 1; // skip the same character
         }
