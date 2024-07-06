@@ -15,17 +15,17 @@ bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) { 
+bool isSame(vector<string> a, vector<string> b) {
     bool result = compareVectors(a, b);
     if(result) {
         for(auto s : a) {
-            std::cout << s << " ";
+            cout << s << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
         for(auto s : b) {
-            std::cout << s << " ";
+            cout << s << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
     return result;
 }
