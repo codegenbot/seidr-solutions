@@ -2,10 +2,9 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.isupper():
-                result += chr((ord(char) - ord("A") + 2) % 26 + ord("A"))
-            else:
-                result += chr((ord(char) - ord("a") + 2) % 26 + ord("a"))
+            # Use the modulo operator to shift the character by 2 positions
+            new_char = chr((ord(char) - ord("A") + 2) % 26 + ord("A"))
+            result += new_char
         else:
             result += char
     return result
