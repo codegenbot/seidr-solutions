@@ -5,13 +5,11 @@ import re
 def words_string():
     results = {}
     while True:
-        s = input(
-            "Please enter a string with comma-separated values or press Enter to stop: "
-        )
+        s = input("Please enter a string with comma-separated values or press Enter to stop: ")
         if not s:
             break
-        elif not s.strip():
-            print("Program did not receive expected input. Please try again.")
+        elif s.strip() == "":
+            print("No input provided. Please try again.")
             continue
         result = [x.strip() for x in re.split("[,\s]+", s) if x]
         for word in set(result):
