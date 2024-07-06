@@ -1,33 +1,14 @@
-#include <boost/any.hpp>
-#include <vector>
-#include <list>
-#include <typeindex>
-
-using namespace std;
-using namespace boost;
-
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
-    }
-    return true;
+bool issame(vector<int> a,vector<int>b){
+    return a == b;
 }
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).which() == typeindex<int>()) {
-            int x = any_cast<int>(value).get();
-            bool duplicate = false;
-            for (const auto& y : result) {
-                if (y == x) {
-                    duplicate = true;
-                    break;
-                }
-            }
-            if (!duplicate) {
-                result.push_back(x);
+        if (boost::any_cast<int>(value).good()) {
+            int num = boost::any_cast<int>(value).get();
+            if (num >= 0) { 
+                result.push_back(num);
             }
         }
     }
