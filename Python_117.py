@@ -4,13 +4,8 @@ def select_words(s, n):
     if n <= 0:
         return []
     elif n == 1:
-        return list(filter(lambda x: len([c for c in x[1:] if c.islower()]) == n, words))
+        return list(filter(lambda x: x.islower(), words))
     else:
         return list(
-            filter(lambda x: len([c for c in x[1:] if c.islower()]) == n, words)
+            filter(lambda x: len([c for c in x[1:] if c.islower()]) <= n, words)
         )
-
-# test the function
-s = "Hello World"
-n = 3
-print(select_words(s, n)) # should print ["World"]
