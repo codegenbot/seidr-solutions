@@ -1,4 +1,3 @@
-```
 def sort_third(l):
     result = []
     for i, x in enumerate(l):
@@ -9,14 +8,5 @@ def sort_third(l):
             result.append(min_element)
     return sorted(result)
 
-input_list = input("Enter the list of numbers separated by space: ")
-try:
-    input_list = [int(i) for i in input_list.split()]
-except ValueError:
-    print("Invalid input. Please enter a list of numbers separated by space.")
-    input_list = []
-
-if not input_list:
-    print("No input provided. No output generated.")
-else:
-    print(sort_third(input_list))
+input_list = [3, 1, 2, 5, 4]
+print(sort_third(input_list))
