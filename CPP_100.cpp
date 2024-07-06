@@ -1,7 +1,8 @@
-```cpp
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
@@ -19,12 +20,14 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    bool issame(vector<int> a, vector<int> b) {
-        return a == b;
+    int n;
+    cout << "Enter the number of stones: ";
+    cin >> n;
+    vector<int> p = make_a_pile(n);
+    cout << "Pile: ";
+    for (int i : p) {
+        cout << i << " ";
     }
-
-    int n; cin >> n;
-    vector<int> result = make_a_pile(n);
-    // Your logic here
+    cout << endl;
     return 0;
 }
