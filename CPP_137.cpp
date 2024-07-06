@@ -3,19 +3,11 @@
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any<a>(b)) {
-        double da = get<double>(a);
-        double db = get<double>(b);
-
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-
-        return boost::any("None");
-    } else {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
+    if (is_any(a) && is_any(b)) {
+        return "Both values are not numeric";
+    } else if (!is_numeric(a) && !is_numeric(b)) {
+        string sa = any_cast<string>(a);
+        string sb = any_cast<string>(b);
 
         double da = stod(sa);
         double db = stod(sb);
@@ -26,5 +18,16 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
 
         return boost::any("None");
+    } else {
+        if (!is_numeric(a)) {
+            string sa = any_cast<string>(a);
+            double da = stod(sa);
+            return (da > get<double>(b)) ? a : b;
+        } else {
+            if (get<double>(a) > get<double>(b))
+                return a;
+            else
+                return b;
+        }
     }
 }
