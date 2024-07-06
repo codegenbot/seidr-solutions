@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 int sumOfDigits(int num) {
     int sum = 0;
