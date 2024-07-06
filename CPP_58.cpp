@@ -12,7 +12,7 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
         }
     }
 
-    std::vector<int> res;
+    vector<int> res;
     for (int i : result) {
         res.push_back(i);
     }
