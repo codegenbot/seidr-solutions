@@ -1,6 +1,5 @@
 ```
 import re
-
 def bowling_score(s):
     score = 0
     roll = 0
