@@ -8,4 +8,3 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         }
     }
     return total_water / capacity + (total_water % capacity != 0);
-}
