@@ -1,21 +1,16 @@
+```cpp
 #include <vector>
-#include <cassert>
-#include <iostream>
+#include <assert.h>
 
-using namespace std;
-
-int solutions(vector<int> lst) {
-    int sum = 0;
-    for(int i = 0; i < lst.size(); i++) {
-        if(i % 2 == 1 && lst[i] % 2 != 0) {
-            sum += lst[i];
-        }
+int solutions(std::vector<int> lst) {
+    if (lst.size() == 0) {
+        return -1;
     }
-    return sum;
+}
 
 int main() {
-    vector<int> lst = {3, 13, 2, 9};
+    std::vector<int> lst = {3, 13, 2, 9};
     int result = solutions(lst);
-    cout << "Result: " << result << endl;
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
