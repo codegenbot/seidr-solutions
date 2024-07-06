@@ -1,8 +1,7 @@
-Here is the solution:
+Here is the completed code:
 
 def find_zero(xs: list):
-    degree = len(xs) // 2
-    a = xs[-1]
-    for i in range(degree + 1):
-        a -= xs[degree - i] / math.factorial(i) * (-a)**(i+1)
-    return round(-a, 2)
+    n = len(xs)
+    a = xs[n//2]
+    b = -xs[n//2-1]/a
+    return round(-b/2, 2) if abs(a) > 0.01 else round(-b, 2)
