@@ -1,4 +1,3 @@
-```
 def modp(x, y):
     if y == 0:
         return x
@@ -8,4 +7,5 @@ def modp(x, y):
         temp = modp(x, y//2)
         return (temp*temp) % y
     else:
-        return pow(x, y-1, y) % y
+        temp = modp(x, y - 1)
+        return (x * temp) % y
