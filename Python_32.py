@@ -4,6 +4,7 @@ def find_zero(xs):
             return True
     return False
 
-user_input = input("Enter a list of integers separated by spaces: ")
-xs = list(map(int, user_input.split()))
+
+user_input = input("Enter an integer: ")
+xs = [int(x) for x in user_input.split()]
 find_zero(xs)
