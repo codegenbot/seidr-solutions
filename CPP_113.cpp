@@ -12,7 +12,7 @@ bool issame(vector<string> a,vector<string> b){
 }
 
 std::vector<std::string> odd_count(std::vector<std::string> lst) {
-    std::vector<std::string> result; // Initialize an empty vector
+    std::vector<std::string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
@@ -21,9 +21,9 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
             }
         }
         std::string temp = "the number of odd elements ";
-        temp += to_string(count);
+        temp += (count > 0 ? std::to_string(count) : "no");
         temp += " in the str";
-        temp += to_string(i+1);
+        temp += std::to_string(i+1);
         temp += " of the input.";
         result.push_back(temp);
     }
