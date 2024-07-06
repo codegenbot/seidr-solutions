@@ -3,7 +3,7 @@ from typing import List
 import math
 
 
-def factorize() -> List[int]:
+def factorize(n: int) -> List[int]:
     n = int(input("Enter a number: "))
     factors = []
     i = 2
