@@ -6,35 +6,34 @@
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
-        float diff = a[i] - b[i];
-        if(abs(diff) > 1e-5f) return false;
+        std::cout << "Checking element at index " << i << ": ";
+        if(abs(a[i] - b[i]) > 1e-5f) {
+            std::cout << "Elements are not same. Difference is: " << abs(a[i] - b[i]) << std::endl;
+            return false;
+        }
     }
+    std::cout << "Elements are the same." << std::endl;
     return true;
 }
 
 int main() {
     int n;
     std::cin >> n;
-
-    std::vector<float> vec1, vec2;
-
+    
+    std::vector<float> a(n), b(n);
+    
     for(int i = 0; i < n; ++i) {
-        float x;
-        std::cin >> x;
-        vec1.push_back(x);
+        float x, y;
+        std::cin >> x >> y;
+        a[i] = x; 
+        b[i] = y; 
     }
-
-    for(int i = 0; i < n; ++i) {
-        float y;
-        std::cin >> y;
-        vec2.push_back(y);
-    }
-
-    if(isSame(vec1, vec2)) {
-        std::cout << "The vectors are the same." << std::endl;
+    
+    if(isSame(a, b)) {
+        std::cout << "The vectors are identical." << std::endl;
     } else {
-        std::cout << "The vectors are different." << std::endl;
+        std::cout << "The vectors are not identical." << std::endl;
     }
-
+    
     return 0;
 }
