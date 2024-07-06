@@ -10,11 +10,14 @@ def has_close_elements() -> bool:
             print("Invalid input! Please enter numeric values separated by spaces.")
 
     while True:
-        threshold = float(input("Enter a number to determine close elements: "))
-        if 0 < threshold:
-            break
-        else:
-            print("Please enter a positive number for the threshold.")
+        try:
+            threshold = float(input("Enter a number to determine close elements: "))
+            if 0 < threshold:
+                break
+            else:
+                print("Please enter a positive number for the threshold.")
+        except ValueError:
+            print("Invalid input! Please enter a numeric value.")
 
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
