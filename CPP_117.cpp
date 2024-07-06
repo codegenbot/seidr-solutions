@@ -1,12 +1,32 @@
 #include <vector>
 #include <string>
+#include <algorithm>
+
+std::vector<std::string> split(const std::string& str, char sep) {
+    std::vector<std::string> tokens;
+    size_t prev = 0, next = 0;
+
+    do {
+        next = str.find(sep, prev);
+        if (next == std::string::npos)
+            break;
+
+        tokens.push_back(str.substr(prev, next - prev));
+        prev = next + 1;
+    } while (next != std::string::npos);
+
+    if (prev < str.size())
+        tokens.push_back(str.substr(prev));
+
+    return tokens;
+}
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!a[i].compare(0, a[i].size(), b[i]) == 0) { 
+        if (!std::equal(a[i].begin(), a[i].end(), b[i].begin())) { 
             return false;
         }
     }
@@ -16,28 +36,18 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 bool select_words(std::vector<std::string> input) {
     std::vector<std::string> output;
     for (const auto& word : input) {
-        bool found = false;
+        bool unique = true;
         for (const auto& out_word : output) {
-            if (!issame(vector<std::string>{word}, vector<std::string>{out_word})) continue;
-            found = true;
-            break;
+            if (!std::equal(word.begin(), word.end(), out_word.begin())) { 
+                unique = false;
+                break;
+            }
         }
-        if (!found) {
+        if (unique) {
             output.push_back(word);
         }
     }
-    return issame(input, output);
-}
-
-#include <sstream>
-std::vector<std::string> split(const std::string& str, char delim) {
-    std::stringstream ss(str);
-    std::string item;
-    std::vector<std::string> tokens;
-    while (std::getline(ss, item, delim)) {
-        tokens.push_back(item);
-    }
-    return tokens;
+    return true;
 }
 
 int main() {
