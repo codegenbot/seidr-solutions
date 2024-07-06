@@ -6,7 +6,7 @@ def sort_third(l: list):
             else (
                 sorted([y for y in l if y == x and i % 3 != 0])[0]
                 if [y for y in l if y == x and i % 3 != 0]
-                else [x]
+                else x
             )
         )
         for i, x in enumerate(l)
