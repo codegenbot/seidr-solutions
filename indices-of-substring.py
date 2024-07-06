@@ -1,3 +1,3 @@
 def indices_of_substring(text, target):
-    pattern = r"(?=(%s))" % re.escape(target)
-    return [match.start() for match in re.finditer(pattern, text, overlapped=True)]
+    pattern = r"(?<!%s)(%s)" % (re.escape(target), re.escape(target))
+    return [match.start() for match in re.finditer(pattern, text)]
