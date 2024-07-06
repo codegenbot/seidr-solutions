@@ -1,3 +1,6 @@
+from math import isqrt
+
+
 def count_up_to(n):
     if n < 2:
         return []
