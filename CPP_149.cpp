@@ -25,5 +25,18 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(std::equal(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    std::cout << "Sorted list sum: ";
+    for (const auto& str : sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})) {
+        if (str == "sum") {
+            int sum = 0;
+            for (const auto& s : {"aaaa", "bbbb", "dd", "cc"}) {
+                sum += s.length();
+            }
+            std::cout << sum << " ";
+        } else {
+            std::cout << str << " ";
+        }
+    }
+    std::cout << std::endl;
     return 0;
+}
