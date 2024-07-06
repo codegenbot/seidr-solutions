@@ -11,14 +11,27 @@ int main() {
     }
     vector<vector<int>> res = cutVector(vec);
     cout << "[";
+    
+    std::vector<std::string> output1;
     for (int i = 0; i < res[0].size(); i++) {
-        cout << std::to_string(res[0][i]) << " ";
+        output1.push_back(std::to_string(res[0][i]));
     }
-    cout << "] [" << "[";
+    cout << "{";
+    for (auto it = output1.begin(); it != output1.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << "} [";
+    
+    std::vector<std::string> output2;
     for (int i = 0; i < res[1].size(); i++) {
-        cout << std::to_string(res[1][i]) << " ";
+        output2.push_back(std::to_string(res[1][i]));
+    }
+    cout << "{";
+    for (auto it = output2.begin(); it != output2.end(); ++it) {
+        cout << *it << " ";
     }
     cout << "]";
+
     return 0;
 }
 
