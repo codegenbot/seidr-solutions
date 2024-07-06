@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total_sum = 0
     for i in range(len(lst)):
@@ -20,4 +21,4 @@ elif operation == "cube":
         result += num ** 3
     print(result)
 else:
-    print("Invalid operation. Please enter 'square' or 'cube'."
+    print("Invalid operation. Please enter 'square' or 'cube'.")
