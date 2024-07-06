@@ -1,17 +1,9 @@
-```
-import inspect
-
-
 def modp(x, y):
     return x % y
 
 
-def check(f):
-    source = str(inspect.getsource(f))
-    if "def modp(x, y):" in source and "return x % y" in source:
-        return f"{f.__name__} is Correct"
+def check(function, arguments):
+    if str(inspect.getsource(function)) == "def modp(x, y): return x % y":
+        return f"Modular Polynomial Arithmetic Function is Correct for {arguments}"
     else:
-        return f"{f.__name__}: Not a Modular Polynomial Arithmetic Function"
-
-
-print(check(modp))
+        return "Error: Not a Modular Polynomial Arithmetic Function"

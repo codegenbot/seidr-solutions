@@ -1,34 +1,28 @@
-def main():
-    def decode_shift(direction):
-        if direction not in ["encode", "decode"]:
-            return "Invalid input. Enter 'encode' to encode or 'decode' to decode: "
-        
-        s = input("Enter the string to encode/decode: ")
-        
-        is_encoding = direction == "encode"
-        result = ""
-        for ch in s:
-            if ch.isalpha():
-                ascii_offset = 97 if ch.islower() else 65
-                if is_encoding:
-                    if ch.islower():
-                        result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
-                    elif ch.isupper():
-                        result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset).upper()
-                else:
-                    if ch.islower():
-                        result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
-                    elif ch.isupper():
-                        result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset).upper()
-            else:
-                result += ch
-        return result
-
-    direction = input("Enter 'encode' to encode or 'decode' to decode: ")
+def decode_shift(direction):
+    if direction not in ["encode", "decode"]:
+        return "Invalid input. Enter 'encode' to encode or 'decode' to decode: "
     
-    if direction == "encode":
-        print(decode_shift(direction))
-    elif direction == "decode":
-        print(decode_shift(direction))
-    else:
-        print("Invalid input.")
+    s = input("Enter the string to encode/decode: ")
+    
+    is_encoding = direction == "encode"
+    result = ""
+    for ch in s:
+        if ch.isalpha():
+            ascii_offset = 97 if ch.islower() else 65
+            if is_encoding:
+                if ch.islower():
+                    result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
+                elif ch.isupper():
+                    result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset).upper()
+            else:
+                if ch.islower():
+                    result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
+                elif ch.isupper():
+                    result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset).upper()
+        else:
+            result += ch
+    return result
+
+def main():
+    direction = input("Enter 'encode' or 'decode': ")
+    print(decode_shift(direction))
