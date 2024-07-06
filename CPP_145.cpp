@@ -3,11 +3,11 @@
 #include <utility>
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<pair<int, int>> pairs;
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         pairs.emplace_back(abs(nums[i]), i);
     }
-    sort(pairs.begin(), pairs.end());
+    std::sort(pairs.begin(), pairs.end());
     std::vector<int> result;
     for (const auto& pair : pairs) {
         if (pair.first > 0) {
