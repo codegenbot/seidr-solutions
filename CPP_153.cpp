@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = INT_MIN;
