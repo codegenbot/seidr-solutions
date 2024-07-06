@@ -18,7 +18,7 @@ def incr_list():
                 if i < 1:
                     print("Number should be positive. Try again.")
                 else:
-                    result.append(i)
+                    result.append(i + 1)
                     break
             except ValueError:
                 print("Invalid input. Please enter an integer.")
