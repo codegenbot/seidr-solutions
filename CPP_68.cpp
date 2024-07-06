@@ -23,6 +23,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == vector<pair<int, int>>()); 
+    assert(pluck({7, 9, 7, 1}) == vector<pair<int, int>>());
     return 0;
 }
