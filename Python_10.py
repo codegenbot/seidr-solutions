@@ -1,8 +1,12 @@
+```
 def make_palindrome(string: str) -> str:
-    reversed_string = string[::-1]
-    if string != reversed_string:
-        middle_index = (len(string) + 1) // 2
-        new_string = string[:middle_index] + reversed_string
+    reverse = string[::-1]
+    middle_char = ""
+
+    if len(string) % 2 == 0:
+        new_string = string + reverse
     else:
-        new_string = string + string
+        middle_char = string[len(string) // 2]
+        new_string = middle_char + string[: len(string) // 2] + reverse
+
     return new_string
