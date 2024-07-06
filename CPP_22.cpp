@@ -1,8 +1,14 @@
-vector<int> filter_integers(list-any values) {
-    vector<int> result;
+#include <boost/any.hpp>
+#include <vector>
+#include <list>
+
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value) == 0) continue;
-        result.push_back(boost::any_cast<int>(value));
+        if (value.type() != typeid(int)) continue;
+        int number = boost::any_cast<int>(value);
+        if (number == 0) continue;
+        result.push_back(number);
     }
     return result;
 }
