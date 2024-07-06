@@ -1,4 +1,6 @@
 def make_palindrome(string):
     suffix = string[::-1]
-    prefix = string[: len(suffix)]
-    return string + prefix + suffix
+    if not string.endswith(suffix):
+        return string + suffix + suffix[::-1]
+    else:
+        return string + suffix[::-1]
