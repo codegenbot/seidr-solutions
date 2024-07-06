@@ -1,11 +1,15 @@
 #include <vector>
-#include <numeric>
+
+using namespace std;
 
 vector<int> sum_product(vector<int> numbers) {
-    if (numbers.empty()) {
-        return {0, 1};
+    int sum = 0;
+    long long product = 1;
+    
+    for (int num : numbers) {
+        sum += num;
+        product *= num;
     }
-    int sum = accumulate(numbers.begin(), numbers.end(), 0);
-    int product = accumulate(numbers.begin(), numbers.end(), 1);
+    
     return {sum, product};
 }
