@@ -1,8 +1,6 @@
-import re
 def sort_numbers(numbers):
-    if not numbers.isdigit():
-        return "Invalid input"
-     number_map = {
+    numbers = numbers.split()
+    number_map = {
         "zero": 0,
         "one": 1,
         "two": 2,
@@ -14,6 +12,5 @@ def sort_numbers(numbers):
         "eight": 8,
         "nine": 9,
     }
-    numbers = [int(number_map[num]) for num in re.findall(r"\d+", numbers)]
-    sorted_numbers = sorted(numbers)
-    return " ".join([str(num) for num in sorted_numbers])
+    sorted_numbers = sorted(numbers, key=lambda x: number_map[x])
+    return " ".join(sorted_numbers)
