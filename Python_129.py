@@ -1,4 +1,3 @@
-
 def minPath(grid, k):
     # Initialize variables
     rows = len(grid)
@@ -19,5 +18,9 @@ def minPath(grid, k):
                     queue.append((nx, ny))
         if len(path) == k:
             break
+
+    # Check if the path is valid
+    if path[-1] != grid[rows - 1][cols - 1]:
+        return None
 
     return path
