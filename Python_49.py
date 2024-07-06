@@ -1,8 +1,7 @@
-```
 def modp(a, b):
-    return a % b
+    if b == 0:
+        return "Error: Division by zero is not allowed"
+    else:
+        return a % b
 
-def check(func):
-    return func(5,2)
-
-print(check(modp)(5,2))
+print(check(lambda a, b: modp(a, b)))
