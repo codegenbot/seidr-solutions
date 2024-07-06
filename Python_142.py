@@ -1,1 +1,2 @@
+```
 print("Invalid operation. Please enter 'square' or 'cube')"
