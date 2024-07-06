@@ -1,4 +1,3 @@
-```Python
 def find_zero(xs):
     total_sum = sum(xs)
     if total_sum == 0:
