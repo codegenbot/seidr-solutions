@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -8,6 +7,25 @@ bool issame(const std::string& s1, const std::string& s2) {
     }
     for (int i = 0; i < s1.length(); ++i) {
         if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool compare(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    if (vec1.size() != vec2.size()) {
+        return false;
+    }
+    for (int i = 0; i < vec1.size(); ++i) {
+        bool found = false;
+        for (const auto& str : vec2) {
+            if (issame(vec1[i], str)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
             return false;
         }
     }
