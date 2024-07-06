@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -14,9 +15,9 @@ bool issame(const std::string& s1, const std::string& s2) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::initializer_list<std::string> lst) {
-    std::vector<std::string> result(lst);
-    for (auto& str : result) {
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
+    for (const auto& str : lst) {
         if (str.length() % 2 == 0 || issame(str, "sum")) {
             result.push_back(str);
         }
