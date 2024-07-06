@@ -1,3 +1,4 @@
+```python
 def find_zero(xs):
     if not xs:  
         x1 = int(input("Enter first number: "))
