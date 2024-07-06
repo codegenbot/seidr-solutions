@@ -1,8 +1,4 @@
-def modp(x, y):
-    if y == 0:
-        return "Error: Division by zero"
-    else:
-        return x % y
+def check(func):
+    return func(5, 2)
 
-modp = lambda x, y: x % y
-print(check(modp))
+print(check(lambda x, y: x % y))
