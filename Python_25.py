@@ -1,5 +1,5 @@
 
-def factorize(n: int) -> list[int]:
+def factorize(n):
     factors = []
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
