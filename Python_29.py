@@ -6,4 +6,4 @@ def filter_by_prefix(strings: list, prefix: str) -> List[str]:
     return filtered_strings
 
 filtered_strings = filter_by_prefix(["apple", "banana", "cherry"], "ba")
-print(filtered_strings)  # Output: ["banana"]
+print(filtered_strings)  # Output: ['banana']
