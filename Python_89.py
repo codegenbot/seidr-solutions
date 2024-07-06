@@ -1,4 +1,3 @@
-
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     new_alphabet = alphabet[2:] + alphabet[:2]
