@@ -2,22 +2,13 @@
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
-    for (int i = 0; i < nums.size(); ++i) {
-        int sumOfDigits = 0;
-        int num = nums[i];
-        while (num != 0) {
-            sumOfDigits += num % 10;
-            num /= 10;
-        }
-        pairs.push_back({sumOfDigits, i});
+    for (int i = 0; i < nums.size(); i++) {
+        pairs.emplace_back(abs(nums[i]), i);
     }
-
     sort(pairs.begin(), pairs.end());
-
     vector<int> result;
-    for (int i = 0; i < nums.size(); ++i) {
-        result.push_back(nums[pairs[i].second]);
+    for (const auto& pair : pairs) {
+        result.push_back(pair.first > 0 ? pair.second < 0 ? -pair.first : pair.first : -pair.first);
     }
-
     return result;
 }
