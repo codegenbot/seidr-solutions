@@ -1,18 +1,9 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <map>
 #include <string>
-using namespace std;
+#include <algorithm>
+#include <map>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
-int main() {
-    // your code here
-    return 0;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::vector<std::string> by_length(std::vector<int>());
+    return true;
 }
