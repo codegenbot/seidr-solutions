@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool isIdentical(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -36,7 +36,7 @@ int main() {
     std::cout << "Enter the number of maximum elements to find: ";
     std::cin >> k;
     
-    std::vector<int> myVector (arr, arr+n);
-    assert(same({0, 1, 2, 3}, maximum(myVector, 4)));
+    std::vector<int> myVector(arr, arr+n);
+    assert(isIdentical({0, 1, 2, 3}, maximum(myVector, 4)));
     return 0;
 }
