@@ -1,3 +1,4 @@
-```
 def dice_game(n, m):
-    return sum(1 for _ in range(m)) / (n * m)
+    same = 1 / (n * m)
+    greater = sum(1 / i for i in range(1, min(n, m) + 1)) - same
+    return greater
