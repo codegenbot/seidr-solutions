@@ -1,11 +1,8 @@
-```cpp
-#pragma GCC diagnostic push
 #include <vector>
 #include <limits>
-#pragma GCC diagnostic pop
 
 int main() {
-    long long minSubArraySum(std::vector<long long> nums) {
+    int minSubArraySum(std::vector<long long> nums) {
         long long sum = 0, min_sum = LLONG_MAX;
         for (int i = 0; i < nums.size(); i++) {
             sum += nums[i];
@@ -14,7 +11,7 @@ int main() {
                 sum = 0;
             }
         }
-        return min_sum;
+        return static_cast<int>(min_sum);
     }
 
     assert(minSubArraySum({1, -1}) == -1);
