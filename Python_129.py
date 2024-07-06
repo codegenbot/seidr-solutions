@@ -1,11 +1,15 @@
-```
 def minPath(grid, k):
     N = len(grid)
     visited = set()
     queue = [(0, 0, [])]  # (row, col, path)
 
+    shortest_path = []
+
     while queue:
         row, col, path = queue.pop(0)
+
+        if not shortest_path or len(path) < len(shortest_path):
+            shortest_path = path
 
         if len(path) == k:
             return path
@@ -17,4 +21,4 @@ def minPath(grid, k):
                 queue.append((nr, nc, path + [grid[nr][nc]]))
                 visited.add((nr, nc))
 
-    return []
+    return shortest_path
