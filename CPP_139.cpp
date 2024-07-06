@@ -1,5 +1,9 @@
-#include<iostream>
-using namespace std;
+int main() {
+    int n;
+    cin >> n; 
+    cout << special_factorial(n) << endl; 
+    return 0;
+}
 
 long long special_factorial(int n) {
     long long result = 1;
@@ -15,11 +19,4 @@ long long fact(int n) {
         result *= i;
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    cout << special_factorial(n) << endl;
-    return 0;
 }
