@@ -8,4 +8,5 @@ def solution():
         except ValueError:
             print("Invalid input. Please enter a whole number for both sums.")
 
-print(solution())
+while True:
+    print(solution())
