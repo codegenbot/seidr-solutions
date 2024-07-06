@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,3 +14,4 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(std::remove(arr.begin(), arr.end(), max_val), arr.end());
     }
     return result;
+}

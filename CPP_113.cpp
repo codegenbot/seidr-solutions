@@ -1,9 +1,7 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib>
 
 bool issame(vector<string>, vector<string>);
 
@@ -36,9 +34,8 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
 
 int main() {
     vector<string> test = {"271", "137", "314"};
-    vector<string> result = odd_count(test);
-    assert(issame(result, {"the number of odd elements 2 in the str1 of the input.", 
-                          "the number of odd elements 1 in the str2 of the input.", 
-                          "the number of odd elements 0 in the str3 of the input."}));
+    assert(issame(odd_count(test), {"the number of odd elements 2 in the str1 of the input.", 
+                                 "the number of odd elements 1 in the str2 of the input.", 
+                                 "the number of odd elements 0 in the str3 of the input."}));
     return 0;
 }

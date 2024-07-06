@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool same(const vector<string>& a, const vector<string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -15,8 +16,8 @@ bool same(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<vector<string>> by_length(const vector<int>& arr) {
-    vector<vector<string>> result(10);
+std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
+    std::vector<std::vector<std::string>> result(10);
     
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
@@ -58,3 +59,4 @@ vector<vector<string>> by_length(const vector<int>& arr) {
 int main() {
     assert(same(by_length({1,4,8}) , {"One","Four","Eight"}));
     return 0;
+}

@@ -1,5 +1,4 @@
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;

@@ -1,16 +1,16 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 using namespace std;
 
-bool issame(vector<vector<char>> a, vector<vector<char>> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
-    sort(a.begin(), a.end(), [](const auto& x, const auto& y){return string(x.begin(), x.end()).compare(string(y.begin(), y.end())) < 0;});
-    sort(b.begin(), b.end(), [](const auto& x, const auto& y){return string(x.begin(), x.end()).compare(string(y.begin(), y.end())) < 0;});
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     for(auto str1 : a) {
         bool found = false;
         for(auto str2 : b) {
-            if(string(str1.begin(), str1.end()) == string(str2.begin(), str2.end())) {
+            if(str1 == str2) {
                 found = true;
                 break;
             }
@@ -20,32 +20,32 @@ bool issame(vector<vector<char>> a, vector<vector<char>> b) {
     return true;
 }
 
-vector<string> total_match(vector<vector<char>> lst1, vector<vector<char>> lst2) {
+vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> lst2) {
     int sum1 = 0;
-    for (const auto& str : lst1) {
-        sum1 += string(str.begin(), str.end()).length();
+    for (const auto& str : lst1[0]) {
+        sum1 += str.length();
     }
     
     int sum2 = 0;
-    for (const auto& str : lst2) {
-        sum2 += string(str.begin(), str.end()).length();
+    for (const auto& str : lst2[0]) {
+        sum2 += str.length();
     }
     
     if (sum1 < sum2) {
-        return vector<string>(lst2.begin(), lst2.end());
+        return lst2; 
     } else if (sum1 > sum2) {
-        return vector<string>(lst1.begin(), lst1.end());
+        return lst1;
     } else {
-        if(issame(vector<vector<char>>(lst1.begin(), lst1.end()), vector<vector<char>>(lst2.begin(), lst2.end())))
-            return vector<string>(lst1.begin(), lst1.end());
+        if(issame(lst1, lst2))
+            return lst1;
         else
-            return vector<string>(lst2.begin(), lst2.end()); 
+            return lst2; 
     }
 }
 
 vector<string> testMain() {
-    vector<vector<char>> vec1 = {{'t'}, {'h'}, {'i'}, {'s'}};
-    vector<vector<char>> vec2 = {{"", "", ""}};
-    vector<string> result = total_match(vec1,vec2);
-    return result;
+    vector<string> vec1 = {"this"};
+    vector<string> vec2 = {""};
+    vector<vector<string>> result = total_match({vec1},{vec2});
+    return result[0];
 }

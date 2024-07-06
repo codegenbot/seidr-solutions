@@ -1,4 +1,7 @@
-```
+```cpp
+#include <string>
+#include <sstream>
+
 std::istringstream encrypt(std::istringstream s) {
     std::string result = "";  
     for(int i=0; i<s.str().length(); i++){

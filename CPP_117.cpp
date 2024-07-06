@@ -1,9 +1,9 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+```
+bool same(string a, string b) {
+    if (a.length() != b.length()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.length(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -13,7 +13,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = ""; 
+    string word = "";
 
     for (char c : s) {
         if (isalpha(c)) {
@@ -34,6 +34,11 @@ vector<string> select_words(string s, int n) {
                 result.push_back(word);
             }
             word = ""; 
+        }
+    }
+    for (int i = 0; i < result.size() - 1; i++) {
+        if (!same(result[i], result[i+1])) {
+            return vector<string>();
         }
     }
     return result;
