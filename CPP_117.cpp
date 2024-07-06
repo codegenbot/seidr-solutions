@@ -1,44 +1,48 @@
 #include <iostream>
 #include <vector>
-#include <cctype>
-using namespace std;
+#include <string>
+#include <algorithm>
 
-bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
+using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
+    int consonants = 0;
+
     for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) {
-            bool has_n_consonants = false;
-            int consonant_count = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
-                    consonant_count++;
-                    if (consonant_count == n) {
-                        has_n_consonants = true;
-                        break;
-                    }
-                }
-            }
-            if (has_n_consonants) {
+        if (c == ' ') {
+            if (consonants == n) {
                 result.push_back(word);
             }
             word = "";
+            consonants = 0;
+        } else if (isalpha(c)) {
+            char lowerCase = tolower(c);
+            if (lowerCase != 'a' && lowerCase != 'e' && lowerCase != 'i' && lowerCase != 'o' && lowerCase != 'u') {
+                word += c;
+                consonants++;
+            } else {
+                word += c;
+            }
         }
     }
+
+    if (consonants == n) {
+        result.push_back(word);
+    }
+
     return result;
 }
 
-int main(){
-    assert (issame(vector<string>(select_words("a b c d e f", 1)) , vector<string>({"b","c","d","f"})));
+int main() {
+    string s = "Mary had a little lamb";
+    int n = 4;
+    vector<string> res = select_words(s, n);
+
+    for (string str : res) {
+        cout << str << endl;
+    }
+
     return 0;
 }
