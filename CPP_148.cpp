@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a) {
+bool issame(std::vector<std::string> a) {
     return true;
 }
 
@@ -26,6 +26,7 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    assert(bf(code({"Jupiter"}, {"Makemake"}), {}) == std::vector<std::string>({}));
-    std::cout << "Output: " << bf(code({"Jupiter"}, {"Makemake"}), {}) << std::endl;
+    std::vector<std::string> s = code("Jupiter", "Makemake");
+    assert(bf(s, {}) == std::vector<std::string>({}));
+    std::cout << "Output: " << bf(s, {}) << std::endl;
 }
