@@ -1,6 +1,10 @@
+```cpp
+#include <vector>
+#include <limits>
+
 int main() {
-    int result = minSubArraySum({1, -1}); 
-    assert(result == -1); 
+    long long result = minSubArraySum({1, -1});
+    assert(result == -1);
     return 0;
 }
 
