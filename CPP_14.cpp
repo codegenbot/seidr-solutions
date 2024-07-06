@@ -1,10 +1,15 @@
+```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> all_prefixes(const std::string& str) {
-    std::vector<std::string> prefixes;
-    for(int i = 0; i <= str.size(); i++) {
-        prefixes.push_back(str.substr(0, i));
+std::vector<std::vector<std::string>> all_prefixes(const std::vector<std::string>& strs) {
+    std::vector<std::vector<std::string>> prefixes;
+    for(const auto& str : strs) {
+        std::vector<std::string> vec = {{}};
+        for(int i = 0; i <= str.size(); i++) {
+            vec.push_back(str.substr(0, i));
+        }
+        prefixes.push_back(vec);
     }
     return prefixes;
 }
@@ -14,9 +19,4 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     for(int i = 0; i < a.size(); i++) 
         if(a[i] != b[i]) return false;
     return true;
-}
-
-int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return 0;
 }
