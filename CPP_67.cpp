@@ -7,10 +7,10 @@ int fruit_distribution(std::string s, int n) {
     int oranges = 0;
 
     while (std::getline(iss, token, ' ')) {
-        if (token == "apples") {
-            iss >> apples;
-        } else if (token == "oranges") {
-            iss >> oranges;
+        if (token.find("apples") != std::string::npos) {
+            app_token >> apples;
+        } else if (token.find("oranges") != std::string::npos) {
+            ora_token >> oranges;
         }
     }
 
