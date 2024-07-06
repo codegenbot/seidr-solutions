@@ -1,9 +1,11 @@
-#include <array>
+#include <vector>
+#include <initializer_list>
 
-bool below_threshold(std::array<int, n> l, int t) {
+bool below_threshold(std::initializer_list<int> l, int t) {
     for (int num : l) {
         if (num >= t) {
             return false;
         }
     }
     return true;
+}
