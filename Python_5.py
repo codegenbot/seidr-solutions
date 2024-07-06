@@ -1,6 +1,7 @@
 ```
+"""
 import re
-
+"""
 
 def intersperse(numbers: list[int], delimiter: int) -> list[int]:
     if not isinstance(numbers, list):
