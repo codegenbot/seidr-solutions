@@ -8,4 +8,3 @@ int hex_key(std::string num) {
         }
     }
     return count;
-}
