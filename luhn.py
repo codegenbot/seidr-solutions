@@ -1,5 +1,5 @@
 def luhn_algorithm(digits):
-    digits = [int(d) for d in digits]  # Convert input to array of integers
+    digits = [int(d) for d in digits]
     sum = 0
     for i, digit in enumerate(digits):
         if i % 2 == 0:
