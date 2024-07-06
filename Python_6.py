@@ -10,4 +10,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             elif char == ')':
                 level -= 1
             max_level = max(max_level, level)
-        result.append(max_level + 1)  # syntax error!
+        result.append(max_level + 1)
+    return [i if i > 0 else -i for i in result]
