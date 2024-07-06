@@ -24,8 +24,12 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> v1 = get_positive({1.0f, -2.0f, 3.0f});
-    std::vector<float> v2 = {1.0f, 3.0f};
-    assert(issame(v1, v2));
+    std::vector<float> input = {-1.5, -2.5, 3.5};
+    std::vector<float> expected = {3.5};
+    
+    std::vector<float> output = get_positive(input);
+    
+    assert(issame(output, expected));
+    
     return 0;
 }
