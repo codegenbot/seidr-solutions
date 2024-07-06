@@ -11,20 +11,16 @@ int fruit_distribution(std::string s, int n) {
     while (std::getline(iss, token, ' ')) {
         if (token.find("apples") != std::string::npos) {
             std::istringstream app_token(token);
-            int count;
-            app_token >> count;
-            apples += count;
+            app_token >> apples;
         } else if (token.find("oranges") != std::string::npos) {
             std::istringstream ora_token(token);
-            int count;
-            ora_token >> count;
-            oranges += count;
+            ora_token >> oranges;
         }
     }
 
-    total = std::max(0, n - apples - oranges);
+    total = n - apples - oranges;
 
-    return apples + oranges > n ? 0 : total;
+    return total > 0 ? total : 0;
 }
 
 int main() {
