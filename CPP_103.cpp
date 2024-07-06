@@ -1,5 +1,3 @@
-#include<stdio.h>
-#include<math.h>
 #include<string>
 using namespace std;
 
@@ -9,14 +7,14 @@ string rounded_avg(int n,int m){
     for(int i=n; i<=m; i++) {
         sum += i;
     }
-    double avg = round((double)sum / (m - n + 1));
-    string res="";
+    double avg = (double)sum / (m - n + 1);
+    avg = floor(avg);
+    string res = "";
     while(avg > 0) {
-        if(avg & 1)
-            res = "1" + res;
-        else
-            res = "0" + res;
-        avg >>= 1;
+        if((int)(avg) & 1) res.push_back('1');
+        else res.push_back('0');
+        avg = static_cast<double>(avg)/2;
     }
-    return res.length() == 0 ? "-1" : res;
+    reverse(res.begin(), res.end());
+    return res;
 }
