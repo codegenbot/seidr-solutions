@@ -1,3 +1,4 @@
+```
 def main():
     choice = int(
         input(
@@ -12,4 +13,9 @@ def main():
         solve = oct(int(N, 2))[2:]
     else:
         print("Invalid choice. Please choose (1) or (2).")
-    print(solve)
+    check(solve)
+
+def check(s):
+    pass
+
+main()

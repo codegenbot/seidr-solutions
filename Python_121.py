@@ -1,2 +1,2 @@
 def solution(lst):
-    return 1 if any(i % 2 != 0 for i in lst) else 2
+    return sum(1 for i in lst if i % 2 != 0) + 1
