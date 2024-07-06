@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int solutions(std::vector<int> lst) {
