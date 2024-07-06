@@ -19,10 +19,6 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    vector<string> expected = all_prefixes(input);
-    assert (issame(expected, expected));  
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
