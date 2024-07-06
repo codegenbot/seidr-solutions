@@ -1,3 +1,4 @@
+```
 def calculate_average_grade():
     total = 0
     count = 0
