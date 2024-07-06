@@ -1,14 +1,13 @@
 #include <vector>
 #include <algorithm>
-#include <string>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(int i = 0; i<a.size();i++){
-        if (std::stoi(a[i]) != std::stoi(b[i]))return false;
+    for(auto str_a : a, auto str_b : b){
+        if(str_a != str_b) return false;
     }
     return true;
 }
