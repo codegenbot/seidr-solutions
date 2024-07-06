@@ -1,27 +1,30 @@
+
 #include <iostream>
 #include <vector>
-#include <stack>
-
 using namespace std;
 
 int main() {
     vector<int> input = {19, 494, 365, 201, 974, 391, 598, 809, 569, 215, 311, 152, 85, 744, 146, 927, 138, 946, 944, 857};
-    stack<int> leaders;
+    vector<int> leaders;
 
-    for (auto it = input.begin(); it != input.end(); ++it) {
-        if (!leaders.empty() && *it >= leaders.top()) {
-            leaders.push(*it);
-        } else {
-            while (!leaders.empty() && *it < leaders.top()) {
-                leaders.pop();
+    for (int i = 0; i < input.size(); i++) {
+        bool is_leader = true;
+        for (int j = i + 1; j < input.size(); j++) {
+            if (input[i] < input[j]) {
+                is_leader = false;
+                break;
             }
+        }
+        if (is_leader) {
+            leaders.push_back(input[i]);
         }
     }
 
-    cout << "Leaders: ";
-    for (auto it = leaders.begin(); it != leaders.end(); ++it) {
-        cout << *it << " ";
+    cout << "The leaders are: ";
+    for (int i : leaders) {
+        if (i == input.size() - 1)
+            cout << i << endl;
+        else
+            cout << i << ", ";
     }
-
-    return 0;
 }
