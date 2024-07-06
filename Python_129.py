@@ -1,31 +1,18 @@
+```
 def minPath(grid, k):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
-    dp = [[[float("inf")] * (k + 1) for _ in range(n)] for _ in range(n)]
-    dp[0][0][0] = m[0][0]
-    for i in range(1, n):
-        dp[i][0][0] = min(dp[i - 1][0][0], m[i][0])
-    for j in range(1, n):
-        dp[0][j][0] = min(dp[0][j - 1][0], m[0][j])
-    for i in range(1, n):
-        for j in range(1, n):
-            if i == 0:
-                dp[i][j][0] = min(dp[i][j - 1][0], m[i][j])
-            elif j == 0:
-                dp[i][j][0] = min(dp[i - 1][j][0], m[i][j])
-            else:
-                dp[i][j][0] = min(min(dp[i - 1][j][0], dp[i][j - 1][0]), m[i][j])
-    path = []
-    i, j = n - 1, n - 1
-    for _ in range(k):
-        if i > 0 and j > 0:
-            if m[i - 1][j] < m[i][j - 1]:
-                i -= 1
-            else:
-                j -= 1
-        elif i > 0:
-            i -= 1
-        else:
-            j -= 1
-        path.append(m[i][j])
-    return path[::-1]
+    N = len(grid)
+    visited = set()
+    queue = [(0, 0, [])]  # (row, col, path)
+
+    while queue:
+        row, col, path = queue.pop(0)
+
+        if len(path) == k:
+            return path
+
+        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nr, nc = row + dr, col + dc
+
+            if 0 <= nr < N and 0 <= nc < N and (nr, nc) not in visited:
+                queue.append((nr, nc, path + [grid[nr][nc]]))
+                visited.add((nr, nc))
