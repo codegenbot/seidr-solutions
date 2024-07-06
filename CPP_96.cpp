@@ -1,14 +1,9 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <cassert>
 
-using namespace std;
-
-bool operator==(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-vector<int> count_up_to(int n) {
-    vector<int> primes;
+std::vector<int> count_up_to(int n) {
+    std::vector<int> primes;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
         if(i == 2)
@@ -28,18 +23,6 @@ vector<int> count_up_to(int n) {
     return primes;
 }
 
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    
-    vector<int> result = count_up_to(n);
-
-    cout << "Primes up to " << n << ": ";
-    for (auto prime : result) {
-        cout << prime << " ";
-    }
-    cout << endl;
-
-    return 0;
+bool isEqual(vector<int> a, vector<int> b) {
+    return a == b;
 }

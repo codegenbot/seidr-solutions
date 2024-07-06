@@ -1,39 +1,47 @@
-#include <string>
+```cpp
+#include <iostream>
 #include <map>
+#include <set>
+#include <string>
+
 using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string str = test + " ";
+    set<char> letters(test.begin(), test.end());
+    for (char c : letters) {
+        int count = 0;
+        size_t pos = 0;
+        while ((pos = test.find(c, pos)) != string::npos) {
+            count++;
+            pos += 1; // skip the same character
+        }
+        if (count > 0) result[c] = count;
+    }
+
+    map<char, int> maxCountMap;
     int maxCount = 0;
-    char mostRepeatedChar = ' ';
-
-    for (char c : unique(str)) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str[i] == c) {
-                count++;
-            }
-        }
-        if (count > maxCount || (count == maxCount && mostRepeatedChar == ' ')) {
-            maxCount = count;
-            mostRepeatedChar = c;
-        }
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+            maxCountMap.clear();
+            maxCountMap[pair.first] = pair.second;
+        } else if (pair.second == maxCount)
+            maxCountMap[pair.first] = pair.second;
     }
 
-    for (char c : unique(str)) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str[i] == c) {
-                count++;
-            }
-        }
-        if (count == maxCount) {
-            result[c]++;
-        }
-    }
+    return maxCountMap;
+}
 
-    return result;
+int main() {
+    string test;
+    cout << "Enter a string: ";
+    cin >> test;
+    map<char, int> result = histogram(test);
+    for (auto& pair : result) {
+        cout << "Character: " << pair.first << ", Count: " << pair.second << endl;
+    }
+    return 0;
 }
