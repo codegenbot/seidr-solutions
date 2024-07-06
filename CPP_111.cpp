@@ -1,35 +1,7 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
-
-    string words[256]; 
-    int wordCount = 0;
-    for (char c : test) {
-        if (c == ' ') {
-            wordCount++;
-        } else {
-            words[wordCount].push_back(c);
-        }
+bool issame(map<char,int> a,map<char,int> b){
+    if(a.size() != b.size()) return false;
+    for(auto p : a) {
+        if(b.find(p.first) == b.end() || b[p.first] != p.second) return false;
     }
-
-    for (int i = 0; i <= wordCount; i++) {
-        if (!words[i].empty()) {
-            char ch = words[i][0];
-            result[ch]++;
-        }
-    }
-
-    map<char, int> maxMap;
-    int maxCount = 0;
-    for (auto& p : result) {
-        if (p.second > maxCount) {
-            maxCount = p.second;
-            maxMap.clear();
-            maxMap[p.first] = p.second;
-        } else if (p.second == maxCount) {
-            maxMap[p.first] = p.second;
-        }
-    }
-
-    return maxMap;
+    return true;
 }
