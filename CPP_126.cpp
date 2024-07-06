@@ -1,16 +1,14 @@
-Here's the solution:
+Here's the completed code:
 
+```cpp
 bool is_sorted(vector<int> lst) {
-    if (lst.size() < 2)
-        return true;
-
     for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] >= lst[i-1]) 
-            continue;
-        else if (count(lst.begin(), lst.end(), lst[i-1]) > 1) 
-            continue;
-        else
-            return false;
+        if (lst[i] >= lst[i-1]) continue;
+        int count = 0;
+        for (int j = 0; j < i; j++) {
+            if (lst[j] == lst[i]) count++;
+        }
+        return false;
     }
     return true;
 }
