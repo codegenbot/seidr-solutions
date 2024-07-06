@@ -6,4 +6,4 @@ def sort_array(input_array=None):
     try:
         return sorted(array)
     except ValueError as e:
-        return str(e)
+        return "Error: Array contains non-integer values"
