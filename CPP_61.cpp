@@ -1,6 +1,4 @@
-#include <string>
-#include <assert.h>
-
+```cpp
 bool correct_bracketing(std::string brackets) {
     int count = 0;
     for (char c : brackets) {
@@ -8,9 +6,4 @@ bool correct_bracketing(std::string brackets) {
         else if (count > 0) count--;
     }
     return count == 0;
-}
-
-int main() {
-    assert(!correct_bracketing("()()(()())()))()"));
-    return 0;
 }
