@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <initializer_list>
-#include <assert.h>
 
 int solutions(std::vector<int> lst) {
     if (lst.size() == 0) {
