@@ -1,24 +1,32 @@
-def shortestPathLength(grid, k):
+def findShortestPath(grid, k):
+    m = len(grid[0])
     n = len(grid)
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-
-    queue = [
-        (i, j, [grid[i][j]]) for i in range(n) for j in range(n) if grid[i][j] == k
-    ]
-    min_len = float("inf")
+    visited = set()
+    queue = [(0, 0, [])]
+    shortest_paths = {}
 
     while queue:
         x, y, path = queue.pop(0)
 
-        if len(path) < min_len:
-            min_len = len(path)
-        else:
+        if len(path) > k:
             continue
 
-        for dx, dy in directions:
+        if (x, y) in visited:
+            continue
+        visited.add((x, y))
+
+        for dx, dy in [(1, 0), (-1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
 
-            if 0 <= nx < n and 0 <= ny < n and grid[nx][ny] == k:
-                queue.append((nx, ny, path + [grid[nx][ny]]))
+            if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < m:
+                new_path = path + [grid[nx][ny]]
 
-    return [grid[i][j] for i in range(n) for j in range(n) if grid[i][j] == k][:min_len]
+                if len(new_path) not in shortest_paths or len(
+                    new_path
+                ) < shortest_paths.get(len(new_path), float("inf")):
+                    queue.append((nx, ny, new_path))
+                    shortest_paths[len(new_path)] = min(
+                        shortest_paths.get(len(new_path), float("inf")), len(new_path)
+                    )
+
+    return sorted(list(shortest_paths.keys()))[:k]
