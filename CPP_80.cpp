@@ -2,29 +2,21 @@
 using namespace std;
 
 bool is_happy(string s) {
-    long long num = 0;
-    for (char c : s) {
-        num = num * 10 + (c - '0');
+    int num = stoi(s);
+    set<int> seen;
+    while (num != 1 && !seen.count(num)) {
+        seen.insert(num);
+        num = get_digit_sum(num);
     }
-    
-    if (num == 1)
-        return true;
-    
-    set<long long> seen;
-    while (true) {
-        long long next = 0;
-        while (num > 0) {
-            long long digit = num % 10;
-            next = next * 10 + digit;
-            num /= 10;
-        }
-        if (next == 1)
-            return true;
-        
-        if (seen.find(next) != seen.end())
-            return false;
-        
-        seen.insert(next);
-        num = next;
+    return num == 1;
+}
+
+int get_digit_sum(int n) {
+    int sum = 0;
+    while (n > 0) {
+        int digit = n % 10;
+        sum += digit * digit;
+        n /= 10;
     }
+    return sum;
 }
