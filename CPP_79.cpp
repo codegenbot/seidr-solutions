@@ -7,5 +7,5 @@ std::string decimal_to_binary(int n){
         else binary += '1';
         n /= 2;
     }while(n > 0);
-    return "db" + binary + "db";
+    return std::to_string(n) + "db" + binary + "db";
 }
