@@ -1,9 +1,9 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr) {
     int n = arr.size();
-    std::vector<std::vector<int>> dp(n, std::vector<int>(n));
+    vector<vector<int>> dp(n, vector<int>(n));
     
     for (int i = 0; i < n; i++) {
         dp[i][i] = 0;
@@ -25,9 +25,8 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    // Add your input and test cases here
-    std::vector<int> arr = {2, 4, 3};
-    int result = smallest_change(arr);
-    std::cout << "Smallest change is: " << result << std::endl;
+    // Example usage:
+    vector<int> arr = {2, 4, 3};
+    cout << smallest_change(arr) << endl;
     return 0;
 }
