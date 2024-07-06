@@ -1,4 +1,5 @@
-from typing import list, float
+```
+from typing import List
 
 def has_close_elements(numbers: list[float], threshold: float) -> bool:
     for i in range(len(numbers)):
