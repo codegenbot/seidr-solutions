@@ -1,3 +1,2 @@
-```
 def truncate_number(number: float) -> float:
-    return number - int(number)
+    return int(str(number).split(".")[0] + "." + str(number).split(".")[1][:15])
