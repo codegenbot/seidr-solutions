@@ -1,9 +1,14 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <assert.h>
 
 using namespace std;
+
+int main() {
+    int count = specialFilter({1,2,3});
+    cout << "Count: " << count << endl;
+    return 0;
+}
 
 int specialFilter(vector<int> nums) {
     int count = 0;
@@ -13,10 +18,4 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    int count = specialFilter({1,2,3});
-    cout << "Count: " << count << endl;
-    return 0;
 }
