@@ -5,3 +5,4 @@ int add(std::vector<int> lst){
         if(lst[i] % 2 == 0) sum += lst[i];
     }
     return sum;
+}
