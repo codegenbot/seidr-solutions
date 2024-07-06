@@ -1,5 +1,6 @@
 ```
-def make_palindrome(s: str) -> str:
+def make_palindrome():
+    s = input("Enter a string to make palindrome: ")
     if s == s[::-1]:
         return s
 
