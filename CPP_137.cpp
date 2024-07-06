@@ -15,7 +15,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (std::stof(bs) > ai) {
             return b;
         } else {
-            returntypeid(int);
+            return a;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float af = boost::any_cast<float>(a);
@@ -53,6 +53,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
 
-    // If none of the above conditions are met, return the first value
     return a;
 }
