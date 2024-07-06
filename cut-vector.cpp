@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
@@ -9,15 +9,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> vec[i];
     }
-    vector<vector<int>> res;
-    res = cutVector(vec);
+    vector<vector<int>> res = cutVector(vec);
     cout << "[";
     for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i] << " ";
-    }
-    cout << "] [" << "[" << res[1].size() << "] ";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
+        for(int num : res[0][i]){
+            cout<<num<<" ";
+        }
+        cout << " ] [";
+        for(int j = 0; j < res[1].size(); j++){
+            for(int num:res[1][j]){
+                cout<<num<<" ";
+            }
+        }
     }
     cout << "]";
     return 0;
