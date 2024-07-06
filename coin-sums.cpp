@@ -1,16 +1,9 @@
-```c++
 #include <iostream>
 using namespace std;
 
 int main() {
     int cents;
     cin >> cents;
-
-    int pennies = 0;
-    while (cents > 4) { 
-        pennies++;
-        cents -= 1; 
-    }
 
     int quarters = 0;
     while (cents >= 25) {
@@ -28,6 +21,11 @@ int main() {
     while (cents >= 5) {
         nickles++;
         cents -= 5;
+    }
+
+    int pennies = 0;
+    if (cents > 0) {
+        pennies = cents;
     }
 
     cout << quarters << endl;
