@@ -1,3 +1,7 @@
-def hex_key(num):
-    hex_digits = set('0123456789ABCDEF')
-    return sum(1 for char in num.upper() if char in hex_digits)
+    def hex_key(num):
+        primes = {'2', '3', '5', '7', 'B', 'D'}
+        count = 0
+        for char in num:
+            if char.upper() in primes:
+                count += 1
+        return count
