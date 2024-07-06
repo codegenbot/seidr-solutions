@@ -3,5 +3,5 @@ def indices_of_substring(text, target):
     for i in range(len(text) - len(target) + 1):
         if text[i : i + len(target)] == target:
             result.append(i)
-        i += len(target) - 1
+            i += 1
     return result
