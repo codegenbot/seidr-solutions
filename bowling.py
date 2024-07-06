@@ -11,11 +11,11 @@ def bowling_score(games):
                 score += 10
                 current_roll = 0
             elif current_roll > 0:
-                if frames[i] == 'X':
-                    current_roll = 10
+                if len(frames) - i >= 2 and frames[i+1:i+3].isdigit():
+                    score += 10 + int(frames[i+1:i+3])
+                    i += 1
                 else:
-                    current_roll -= int(frames[i])
-                score += current_roll + (1 if current_roll < 10 else 2)
+                    score += current_roll
                 current_roll = 0
 
     return score
