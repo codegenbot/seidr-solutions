@@ -1,6 +1,5 @@
-```cpp
-#include <vector>
 #include <string>
+#include <vector>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
@@ -9,5 +8,5 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
             oddCount++;
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    return (oddCount == 0) ? "YES" : "NO";
 }
