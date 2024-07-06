@@ -5,4 +5,7 @@ def double_the_difference(lst):
 
 
 input_list = [1, 2, 3]
-print(double_the_difference(input_list))
+if double_the_difference(input_list) == 18:
+    print("The function works correctly")
+else:
+    print("There is a problem with the function")
