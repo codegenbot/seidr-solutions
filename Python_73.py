@@ -1,7 +1,7 @@
 ```
 def smallest_change(arr):
-    n = len(arr)
     arr.sort()
+    n = len(arr)
     left, right = 0, n - 1
     changes = 0
     
