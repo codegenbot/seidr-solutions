@@ -1,39 +1,29 @@
-```
 #include <iostream>
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
+#include <any>
+#include <algorithm>
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
-    }
-    return true;
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        try {
-            int integer = boost::any_cast<int>(value);
-            if (integer > 0) {
-                result.push_back(integer);
+        if (!value.type()->is_same_v<std::any::type<char>>()) {
+            if (value.has_value() && value.type()->is_same_v<int>()) {
+                result.push_back(std::any_cast<int>(value).get());
             }
-        } catch (...) {
-            // Handle the exception
         }
     }
     return result;
 }
 
-int main() {
-    std::list<boost::any> values = {{1}, {2}, {-3}, {4}};
+int main_func() {
+    std::vector<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     std::vector<int> output = filter_integers(values);
-    if (issame(std::vector<int>{1, 2, 4}, output)) {
-        std::cout << "Success!";
-    } else {
-        std::cout << "Failure!";
+    for (const auto& num : output) {
+        std::cout << num << "\n";
     }
-    return 0;
 }
