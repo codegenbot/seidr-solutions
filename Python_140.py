@@ -1,2 +1,6 @@
 def fix_spaces(text):
-    return text.strip().replace(" +", " ").strip().replace("--", "-").replace("\n", "").strip().replace(" ", "_")
+    text = text.strip().replace(" +", " ").strip().replace("--", "-").replace(" ", "_")
+    return text
+
+text = input("Enter the text: ")
+print(fix_spaces(text))
