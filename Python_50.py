@@ -1,7 +1,9 @@
 ```
 def decode_shift():
-    direction = input("Enter 'encode' to encode or 'decode' to decode: ")
-    
+    while True:
+        direction = input("Enter 'encode' to encode or 'decode' to decode: ")
+        if direction in ["encode", "decode"]:
+            break
     while not isinstance(direction, str):
         direction = input("Invalid input. Enter 'encode' to encode or 'decode' to decode: ")
         
@@ -19,15 +21,14 @@ def decode_shift():
         if ch.isalpha():
             ascii_offset = 97 if ch.islower() else 65
             if is_encoding:
-                if ch.islower():
-                    result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
-                elif ch.isupper():
-                    result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset).upper()
+                result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
             else:
-                if ch.islower():
-                    result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
-                elif ch.isupper():
-                    result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset).upper()
-        else:
+                result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
+        elif not ch.isalpha():
             result += ch
+        else:
+            if is_encoding:
+                result += chr(ord(ch) + 3)
+            else:
+                result += chr(ord(ch) - 3)
     return result
