@@ -1,13 +1,13 @@
-Here is the completed code:
+def encode_cyclic(s: str):
+    if len(s) % 3 == 1:
+        s += ' ' * (2 - len(s) % 3)
+    elif len(s) % 3 == 2:
+        s = s[:2] + ' ' + s[2:]
+    return "".join([s[i : i + 3][1:] + s[i : i + 3][0] for i in range(0, len(s), 3)])
 
 def decode_cyclic(s: str):
-    result = ""
-    while len(s) >= 3:
-        group = s[:3]
-        s = s[3:]
-        if len(group) == 3:
-            result += group[-1] + group[1:-1] + group[0]
-        else:
-            result += group
-    result += s
-    return result
+    if len(s) % 3 == 1:
+        s += ' ' * (2 - len(s) % 3)
+    elif len(s) % 3 == 2:
+        s = s[:2] + ' ' + s[2:]
+    return "".join([s[i : i + 3][1:] + s[i : i + 3][0] for i in range(0, len(s), 3)])
