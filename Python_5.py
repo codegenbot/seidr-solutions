@@ -1,21 +1,12 @@
-```
 from typing import List
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    if len(numbers) == 0:
-        return []
 
-    result = [numbers[0]]
-    for i in range(1, len(numbers)):
-        if isinstance(delimiter, int):
-            if isinstance(numbers[i], int):
-                result.extend([result[-1], delimiter, numbers[i]])
-            else:
-                raise ValueError("Non-integer value in the list")
+def intersperse(input_string: str) -> List[str]:
+    result = []
+    for char in input_string:
+        if char == " ":
+            if len(result) > 0:
+                result.append(" ")
         else:
-            raise ValueError("Non-integer delimiter")
-
-    if len(numbers) > 1:
-        result.extend([delimiter] + [element for element in numbers[1:]])
-
+            result.append(char)
     return result
