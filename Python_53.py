@@ -1,7 +1,4 @@
-```
 def add(x: int, y: int):
-    try:
-        return x + y
-    except Exception as e:
-        print(f"Error occurred: {e}")
-        return None
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+    return x + y
