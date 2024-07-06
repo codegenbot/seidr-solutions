@@ -1,8 +1,7 @@
-
-def gcd(a, b):
-    while b > 0 and a_mod >= 0:
-        a_mod = a % b
-        if a_mod == 0:
-            break
-        b = b - (a_mod // b) * b
-    return b
+def gcd(a: int, b: int) -> int:
+    """
+    Calculate the greatest common divisor (GCD) of two integers using the Euclidean algorithm.
+    """
+    while b != 0:
+        a, b = b, a % b
+    return a
