@@ -1,6 +1,5 @@
+```cpp
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
-
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -13,19 +12,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string strA = any_cast<string>(a);
         string strB = any_cast<string>(b);
-        return lexical_cast<int>(strA) > lexical_cast<int>(strB) ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int numA = any_cast<int>(a);
-        double numB = boost::lexical_cast<double>(any_cast<string>(b));
-        return numA > numB ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double numA = any_cast<double>(a);
-        int numB = boost::lexical_cast<int>(any_cast<string>(b));
-        return numA > numB ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        double numA = boost::lexical_cast<double>(any_cast<string>(a));
-        int numB = any_cast<int>(b);
-        return numA > numB ? a : b;
+        return stof(strA) > stod(strB) ? a : b;
     }
-    return "None";
+    return a; 
 }
