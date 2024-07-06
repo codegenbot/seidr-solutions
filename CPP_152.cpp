@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 bool myissame(std::vector<int> a, std::vector<int> b) {
     return a == b;
