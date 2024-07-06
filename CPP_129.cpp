@@ -1,10 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <climits>
+
 using namespace std;
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
     for (int i = 0; i < k; ++i) {
         int minVal = INT_MAX;
