@@ -3,30 +3,37 @@ def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
     path = []
-    visited = set()
+    visited = [[False for _ in range(m)] for _ in range(n)]
 
-    # Define a function to check if a cell is valid and not visited before
-    def isValidCell(i, j):
-        return 0 <= i < n and 0 <= j < m and (i, j) not in visited
+    def dfs(i, j, count, current_path):
+        # Base case: if the current cell is out of bounds or has already been visited, return
+        if i < 0 or i >= n or j < 0 or j >= m or visited[i][j]:
+            return
 
-    # Define a function to find the minimum path of length k
-    def findMinPath(k):
-        if k == 1:
-            for i in range(n):
-                for j in range(m):
-                    if isValidCell(i, j) and grid[i][j] not in visited:
-                        return [grid[i][j]]
-        else:
-            for i in range(n):
-                for j in range(m):
-                    if isValidCell(i, j) and grid[i][j] not in visited:
-                        path.append(grid[i][j])
-                        visited.add((i, j))
-                        findMinPath(k - 1)
-                        path.pop()
-                        visited.remove((i, j))
+        # If we have reached the end of the path, check if it's less than the current minimum path
+        if count == k:
+            if len(current_path) < len(path):
+                path = current_path[:]
+                return
 
-    # Call the function to find the minimum path of length k
-    findMinPath(k)
+        # Mark the current cell as visited and add its value to the path
+        visited[i][j] = True
+        current_path.append(grid[i][j])
+
+        # Recursively explore neighboring cells
+        for di in range(-1, 2):
+            for dj in range(-1, 2):
+                if abs(di) == abs(dj):
+                    continue
+                dfs(i + di, j + dj, count + 1, current_path)
+
+        # Backtrack and remove the current cell from the path
+        visited[i][j] = False
+        current_path.pop()
+
+    # Start the DFS from each cell in the grid
+    for i in range(n):
+        for j in range(m):
+            dfs(i, j, 0, [])
 
     return path
