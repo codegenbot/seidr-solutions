@@ -1,10 +1,8 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
-using namespace std;
-
-int add(vector<int> lst) {
+int add(std::vector<int> lst) {
     int sum = 0;
     for(int i=1; i<lst.size(); i++){
         if(i%2!=0) sum += lst[i];
@@ -13,13 +11,21 @@ int add(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
-    cout << "Enter elements (space-separated): ";
-    for (int i = 0; i < 5; i++) {
-        int x;
-        cin >> x;
-        lst.push_back(x);
+    std::vector<int> numbers;
+    int n;
+    std::cout << "Enter the number of elements in the list: ";
+    std::cin >> n;
+
+    for(int i=1; i<=n; i++){
+        std::cout << "Enter element " << i << ": ";
+        int num;
+        std::cin >> num;
+        numbers.push_back(num);
     }
-    cout << "Sum of odd-indexed elements: " << add(lst) << endl;
+
+    int result = add(numbers);
+
+    std::cout << "The sum of odd positioned elements is: " << result;
+
     return 0;
 }
