@@ -1,21 +1,21 @@
-```
-#include <vector>
 #include <string>
+#include <vector>
+#include <algorithm>
 
-int intersection(vector<int> interval1, vector<int> interval2) {
-    int start = max(interval1[0], interval2[0]);
-    int end = min(interval1[1], interval2[1]);
+std::string intersection(const std::vector<int>& interval1, const std::vector<int>& interval2) {
+    int start = std::max(interval1[0], interval2[0]);
+    int end = std::min(interval1[1], interval2[1]);
 
     if (start > end)
-        return 0;
+        return "NO";
 
     int length = end - start + 1;
 
     for (int i = 2; i * i <= length; i++) {
         if (length % i == 0) {
-            return 0;
+            return "NO";
         }
     }
 
-    return 1;
+    return "YES";
 }
