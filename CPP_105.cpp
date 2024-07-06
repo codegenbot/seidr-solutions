@@ -47,23 +47,15 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
+    int n; 
     std::cin >> n;
-    
     std::vector<int> arr(n);
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
-    
-    std::vector<std::string> result = by_length(arr);
-    
-    std::cout << "The numbers in descending order with their English representations are: ";
-    for (const auto& str : result) {
-        std::cout << str << " ";
+    std::vector<std::string> res = by_length(arr);
+    for (const auto& s : res) {
+        std::cout << s << " ";
     }
-    std::cout << "\n";
-    
     return 0;
 }
