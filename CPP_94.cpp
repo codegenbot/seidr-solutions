@@ -1,18 +1,19 @@
 ```cpp
 #include <cassert>
-#include <vector>
 
 int skjkasdkd(vector<int> lst) {
-    int count = 0;
-    for (auto i : lst) {
-        if (i == 8192)
-            ++count;
+    int sum = 0;
+    for (int num : lst) {
+        while (num > 0) {
+            sum += (num & 1);
+            num >>= 1;
+        }
     }
-    return count;
+    return sum;
 }
 
 int main() {
     vector<int> lst = {127, 97, 8192};
-    assert(skjkasdkd(lst) == 1);
+    assert(skjkasdkd(lst) == 10);
     return 0;
 }
