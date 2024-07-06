@@ -1,6 +1,6 @@
-
 def sort_numbers(numbers: str) -> str:
     import re
+
     number_map = {
         "zero": 0,
         "one": 1,
