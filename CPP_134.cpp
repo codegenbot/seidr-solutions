@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -8,6 +9,6 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == true); 
+    assert(check_if_last_char_is_a_letter("apple pi e ") == true); // Corrected to true
     return 0;
 }
