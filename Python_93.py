@@ -7,6 +7,6 @@ def encode(message):
             elif char.isupper():
                 encoded_char = chr(ord("A") + (ord(char) - ord("A")) % 26)
         else:
-            encoded_char = char
+            encoded_char = chr(ord(char))
         encoded_message += encoded_char
     return encoded_message
