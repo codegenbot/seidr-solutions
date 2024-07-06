@@ -3,19 +3,20 @@
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    std::string str = "";
+    std::string s = "";
     for (int i : arr) {
-        str += std::to_string(i);
+        s += std::to_string(i);
     }
-    int left = 0;
-    int right = n - 1;
-    int count = 0;
+    int left = 0, right = n - 1;
+    int changes = 0;
     while (left < right) {
-        if (str[left] != str[right]) {
-            count++;
+        if (s[left] != s[right]) {
+            changes++;
+            right--;
+        } else {
+            left++;
+            right--;
         }
-        left++;
-        right--;
     }
-    return count;
+    return changes;
 }
