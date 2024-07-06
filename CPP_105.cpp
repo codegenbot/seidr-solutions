@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,46 +20,48 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
     std::vector<std::string> result[10];
     
     for (int i : arr) {
-        switch (i) {
-            case 1:
-                result[0].push_back("One");
-                break;
-            case 2:
-                result[0].push_back("Two");
-                break;
-            case 3:
-                result[0].push_back("Three");
-                break;
-            case 4:
-                result[0].push_back("Four");
-                break;
-            case 5:
-                result[0].push_back("Five");
-                break;
-            case 6:
-                result[0].push_back("Six");
-                break;
-            case 7:
-                result[0].push_back("Seven");
-                break;
-            case 8:
-                result[0].push_back("Eight");
-                break;
-            case 9:
-                result[0].push_back("Nine");
-                break;
+        if(i >= 1 && i <= 9) {
+            switch (i) {
+                case 1:
+                    result[0].push_back("One");
+                    break;
+                case 2:
+                    result[0].push_back("Two");
+                    break;
+                case 3:
+                    result[0].push_back("Three");
+                    break;
+                case 4:
+                    result[0].push_back("Four");
+                    break;
+                case 5:
+                    result[0].push_back("Five");
+                    break;
+                case 6:
+                    result[0].push_back("Six");
+                    break;
+                case 7:
+                    result[0].push_back("Seven");
+                    break;
+                case 8:
+                    result[0].push_back("Eight");
+                    break;
+                case 9:
+                    result[0].push_back("Nine");
+                    break;
+            }
         }
     }
 
-    for (int i = 1; i < 10; i++) {
+    std::vector<std::string> output;
+    for(int i = 1; i <= 9; i++){
         if(result[i-1].size() > 0) {
-            result[0].clear();
-            result[0].insert(result[0].end(), result[i-1].begin(), result[i-1].end());
-            result[i-1].clear();
+            output.push_back(std::move(result[i-1][0]));
+            result[i-1].erase(result[i-1].begin());
         }
     }
 
-    return {result[0]};
+    return output;
 }
 
 int main() {
