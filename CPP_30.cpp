@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -5,15 +6,8 @@ bool issame(const std::vector<float>& a,const std::vector<float>& b) {
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
-std::vector<float> get_positive(std::vector<float> v) {
-    for (auto &i : v)
-        if (i < 0.0f) 
-            i = 0;
-    return v;
-}
-
 int main() {
-    assert(std::equal(get_positive({}), {}));
+    assert(std::all_of(get_positive({-2, 3.5, -10.2}).begin(),get_positive({-2, 3.5, -10.2}).end(), [](float x) { return x >= 0; }) == false);
     std::vector<float> v1 = get_positive({-2, 3.5, -10.2});
     std::vector<float> v2 = get_positive({1, 0, -1.9});
 
