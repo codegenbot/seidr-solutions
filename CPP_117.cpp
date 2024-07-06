@@ -35,8 +35,11 @@ bool are_words_the_same(std::vector<std::string> a, std::vector<std::string> b) 
     return true;
 }
 
+bool issame(vector<string>a,vector<string>b){
+    return are_words_the_same(a,b);
+}
+
 int main() {
-    std::vector<std::string> result = select_words("a b c d e f", 4);
-    assert(are_words_the_same(result, {"b", "c", "d", "e"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
