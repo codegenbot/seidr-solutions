@@ -2,16 +2,13 @@
 #include <cassert>
 
 bool is_simple_power(int x, int n) {
-    if (x <= 0 || n <= 0) {
-        return false;
-    }
-    
-    for (int i = 2; i * i <= x; ++i) {
-        double temp = pow(i, 1.0 / log2(x));
-        if (std::round(temp) == n) {
-            return true;
-        }
-    }
-    
-    return false;
+    if(x == 1)
+        return true;
+    double y = pow(n, 1.0 / log2(x));
+    return ceil(y) == floor(y);
+}
+
+int main() {
+    assert(is_simple_power(1, 12) == true);
+    return 0;
 }
