@@ -58,9 +58,9 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> a, b;
-    a = reverse_delete("mamma", "mia");
-    if (!isSame(a, a)) {
+    std::vector<std::string> a = reverse_delete("mamma", "mia");
+    assert(isSame({{""}, {"True"}}, a)); 
+    if (!compareVectors({{"", "True"}}, a)) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
