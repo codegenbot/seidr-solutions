@@ -1,14 +1,18 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size()!=b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i]!=b[i])return false;
+    }
+    return true;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
@@ -20,7 +24,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    assert(is_same(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
-    // your code here
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
