@@ -1,9 +1,11 @@
+```cpp
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
-        if (isalpha(c)) {
-            c = toupper(c);
+        if (isupper(c)) {
             sum += c - 'A' + 1; 
+        } else if (islower(c)) {
+            sum += c - 'a' + 1; 
         }
     }
     return sum;
