@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 long long double_the_difference(std::vector<double> lst) {
     long long sum = 0;
@@ -12,7 +14,23 @@ long long double_the_difference(std::vector<double> lst) {
 }
 
 int main() {
-    std::vector<double> input_list = {1.5, 3.7, 4.8}; // declare and initialize lst
-    long long odd_sum = double_the_difference(input_list);
+    std::vector<double> lst;
+    double num;
+
+    std::cout << "Enter numbers (0 to stop):" << std::endl;
+
+    while (std::cin >> num) {
+        if (num >= 0) {
+            lst.push_back(num);
+        }
+        else {
+            break;
+        }
+    }
+
+    long long odd_sum = double_the_difference(lst);
+
+    std::cout << "Sum of squares: " << odd_sum << std::endl;
+
     return 0;
 }
