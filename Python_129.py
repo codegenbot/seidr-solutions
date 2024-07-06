@@ -2,20 +2,31 @@ def minPath(grid, k):
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
+    path = []
     visited = set()
-    queue = deque([(0, 0, 1)])
-    min_path = []
 
-    while queue:
-        i, j, path = queue.popleft()
-        if (i, j) in visited:
-            continue
-        visited.add((i, j))
-        if len(min_path) < k:
-            min_path.append(grid[i][j])
+    # Define a function to check if a cell is valid and not visited before
+    def isValidCell(i, j):
+        return 0 <= i < n and 0 <= j < m and (i, j) not in visited
+
+    # Define a function to find the minimum path of length k
+    def findMinPath(k):
+        if k == 1:
+            for i in range(n):
+                for j in range(m):
+                    if isValidCell(i, j) and grid[i][j] not in visited:
+                        return [grid[i][j]]
         else:
-            break
-        for ni, nj in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
-            if 0 <= ni < n and 0 <= nj < m and (ni, nj) not in visited:
-                queue.append((ni, nj, path + 1))
-    return min_path
+            for i in range(n):
+                for j in range(m):
+                    if isValidCell(i, j) and grid[i][j] not in visited:
+                        path.append(grid[i][j])
+                        visited.add((i, j))
+                        findMinPath(k - 1)
+                        path.pop()
+                        visited.remove((i, j))
+
+    # Call the function to find the minimum path of length k
+    findMinPath(k)
+
+    return path
