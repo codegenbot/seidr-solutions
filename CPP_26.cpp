@@ -1,17 +1,25 @@
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> unique_numbers;
-    for(int num : numbers){
-        if(unique_index(num, unique_numbers) == unique_numbers.size()){
-            unique_numbers.push_back(num);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result;
+    for (int num : numbers) {
+        if (find(result.begin(), result.end(), num) == result.end()) {
+            result.push_back(num);
         }
     }
-    return unique_numbers;
+    return result;
 }
 
-int unique_index(int num, vector<int>& vec){
-    for(int i = 0; i < vec.size(); i++){
-        if(vec[i] == num)
-            return i;
+int main() {
+    vector<int> numbers = {1, 2, 3, 2, 4};
+    vector<int> result = remove_duplicates(numbers);
+    for (int num : result) {
+        cout << num << " ";
     }
-    return -1;
+    cout << endl;
+    return 0;
 }
