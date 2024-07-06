@@ -1,7 +1,4 @@
-```
-import sys
-
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    numbers = list(map(int, sys.stdin.readline().split()))
-    unique_numbers = [num for num in set(numbers)]
+    global input  
+    unique_numbers = [int(num) for num in set(map(int, input("Enter space-separated numbers: ").split()))]
     return sorted(unique_numbers)
