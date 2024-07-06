@@ -1,14 +1,12 @@
-```cpp
 #include<string>
 using namespace std;
 
-int str_length(string str){
-    return str.length();
+int str_length(const char* str){
+    string s(str);
+    return s.length();
 }
 
 int main() {
-    const char *input = "asdasnakj";
-    string s(input);
-    assert (str_length(s) == 12);
+    assert (str_length("asdasnakj") == 12);
     return 0;
 }
