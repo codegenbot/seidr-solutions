@@ -1,30 +1,26 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int index1 = -1;
-    int index2 = -1;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
-    for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
-            index1 = i;
-        } else if (planets[i] == planet2) {
-            index2 = i;
+std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
+    std::vector<std::string> res;
+    for (char c : s1 + s2) {
+        if (c >= 'A' && c <= 'H') {
+            res.push_back(std::to_string((c - 'A' + 1)));
+        } else {
+            res.push_back(std::string(1, c));
         }
     }
+    return res;
+}
 
-    if (index1 == -1 || index2 == -1) {
-        return {};
-    }
-
-    std::vector<std::string> result;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if ((index1 <= i && i <= index2) || (index1 >= i && i >= index2)) {
-            result.push_back(planets[i]);
-        }
-    }
-
-    return result;
+int main() {
+    std::cout << "Output: " << issame(bf("Jupiter", "Makemake"), {"J2U5P3T3R", "M1K3M4K3"}) << std::endl;
 }
