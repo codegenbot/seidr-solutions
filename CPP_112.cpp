@@ -38,8 +38,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (!compareVectors({ "", "True" }, result)) {
+    if (!compareVectors({ "", "True" }, reverse_delete("mamma", "mia"))) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
