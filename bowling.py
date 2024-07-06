@@ -20,6 +20,8 @@ def bowling_score(game):
                 roll = []
             else:
                 score += 30
+
     for i in range(len(roll)):
         score += roll[i]
+
     return score
