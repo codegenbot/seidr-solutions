@@ -5,19 +5,21 @@ using namespace std;
 int how_many_times(string str, string substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != string::npos) {
+    string temp = str; // Create a copy of the original string
+    while ((pos = temp.find(substring)) != string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        temp.erase(pos, substring.length());
     }
     return count;
+}
 
 int main() {
-    string inputStr, subStr;
-    cout << "Enter a string: ";
-    getline(cin, inputStr);
-    cout << "Enter a substring: ";
-    getline(cin, subStr);
-    int result = how_many_times(inputStr, subStr);
-    cout << "The substring appears " << result << " times in the given string." << endl;
+    string str, substring;
+    cout << "Enter the string: ";
+    getline(cin, str);
+    cout << "Enter the substring: ";
+    getline(cin, substring);
+    int result = how_many_times(str, substring);
+    cout << "The substring appears " << result << " times." << endl;
     return 0;
 }
