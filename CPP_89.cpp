@@ -8,7 +8,7 @@ int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s;
-    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
+    std::cout << "The encrypted string is: " << encrypt(s) << std::endl;
 }
 
 std::string encrypt(std::string s) {
