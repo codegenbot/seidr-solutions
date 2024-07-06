@@ -19,13 +19,9 @@ std::string encrypt(std::string s) {
 int main() {
     char c;
     std::cout << "Enter a string: ";
-    while((c = getchar()) != '\n'){
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 3) % 26 + 'a';
-        } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 3) % 26 + 'A';
-        }
-        printf("%c", c);
-    }
-    printf("\n");
+    std::cin >> c;
+
+    // Now you can call this function:
+    std::string encrypted = encrypt(std::to_string(c));
+    std::cout << "Encrypted: " << encrypted << std::endl;
 }
