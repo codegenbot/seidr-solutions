@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 int digitSum(string s) {
@@ -12,3 +13,6 @@ int digitSum(string s) {
     }
     return sum;
 }
+
+assert(digitSum("You arE Very Smart") == 327);
+return 0;
