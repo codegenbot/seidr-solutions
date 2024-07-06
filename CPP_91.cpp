@@ -1,29 +1,16 @@
 ```cpp
-#include <iostream>
-#include <string>
-
-int is_bored(std::string S){
+int is_bored(string S) {
     int count = 0;
-    std::string boredom = "I";
-    size_t pos = 0;
-    while ((pos = S.find(". ")) != std::string::npos || (pos = S.find("? ")) != std::string::npos || (pos = S.find("! ")) != std::string::npos) {
-        if (S.substr(0, boredom.size()) == boredom) {
+    int pos = 0;
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
             count++;
         }
-        S.erase(0, pos + 1);
+        pos = S.find("I", pos);
     }
     return count;
 }
 
 int main() {
-    std::string sentence;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, sentence);
-    int bored = is_bored(sentence);
-    if(bored > 0) {
-        std::cout << "The sentence is considered bored.\n";
-    } else {
-        std::cout << "The sentence is not considered bored.\n";
-    }
-    return 0;
+    assert(is_bored("You and I are going for a walk") == 0);
 }
