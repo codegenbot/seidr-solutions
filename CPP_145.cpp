@@ -1,8 +1,8 @@
-```
-using namespace std;
-
+```cpp
 #include <algorithm>
 #include <vector>
+
+using namespace std;
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<int> res = nums;
