@@ -1,13 +1,16 @@
+```
 def mastermind(code, guess):
     white = 0
     black = 0
-    code_count = [code.count(c) for c in set(code)]
-    guess_count = [guess.count(c) for c in set(guess)]
-
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-        elif code_count[ord(code[i]) - ord('A')] > 0 and code_count[ord(code[i]) - ord('A')] > guess_count[ord(code[i]) - ord('A')]:
-            white += 1
-
+    
+    for c in set(guess):
+        code_index = code.find(c)
+        if code_index != -1:
+            if code_index == guess.index(c):
+                black += 1
+                code = code[:code_index] + 'A' * (4-1) 
+            else:
+                white += 1
+                code = code[:code_index] + 'A' * (4-code.index(c)-1) 
+                
     return black, white
