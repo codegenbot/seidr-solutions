@@ -13,13 +13,11 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> input; // read input from user
-    float num;
-    while (std::cin >> num) {
-        input.push_back(num);
+    float temp;
+    while(std::cin >> temp) {
+        input.push_back(temp);
     }
-    // process the input
     float output = double_the_difference(input);
-    // print the output
-    std::cout << "The doubled difference is: " << output << std::endl;
+    std::cout << output << std::endl;
     return 0;
 }
