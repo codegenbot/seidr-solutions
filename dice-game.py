@@ -1,4 +1,3 @@
-```
 def dice_game(n, m):
     total_ways = n*m
     ways_peterwins = 0
