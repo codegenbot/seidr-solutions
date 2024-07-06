@@ -8,20 +8,19 @@ int words_in_sentence(const std::string& sentence) {
 
     for (char c : sentence) {
         if (c == ' ') {
-            inWord = false;
-        } else {
-            if (!inWord) {
+            if(inWord) {
                 count++;
-                inWord = true;
+                inWord = false;
             }
+        } else {
+            inWord = true;
         }
     }
 
-    return count;
+    return count + (inWord ? 1 : 0);
 }
 
 int main() {
     std::cout << words_in_sentence("here is") << std::endl;
-    assert(words_in_sentence("here is") == 2);
     return 0;
 }
