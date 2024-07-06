@@ -1,6 +1,5 @@
 #include <cstdlib>
 
-int randomAdd(int x, int y) {
-    srand(time(0)); // seed the random number generator
-    return rand() % (x + y) + 1;
+int generateRandomNumber(int min, int max) {
+    return rand() % (max - min + 1) + min;
 }
