@@ -19,14 +19,15 @@ def decode_shift():
         if ch.isalpha():
             ascii_offset = 97 if ch.islower() else 65
             if is_encoding:
-                result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
+                if ch.islower():
+                    result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
+                elif ch.isupper():
+                    result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset).upper()
             else:
-                result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
-        elif not ch.isalpha():
-            result += ch
+                if ch.islower():
+                    result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
+                elif ch.isupper():
+                    result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset).upper()
         else:
-            if is_encoding:
-                result += chr(ord(ch) + 3)
-            else:
-                result += chr(ord(ch) - 3)
+            result += ch
     return result
