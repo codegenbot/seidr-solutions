@@ -1,21 +1,27 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "cryptopp/sha.h"
-#include "cryptopp/hex.h"
 
 using namespace std;
-using namespace CryptoPP;
 
-string string_to_sha(string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    SHA sha;
-    byte digest[SHA::DigestSize()];
-    sha.Update((const byte*)text.c_str(), text.length());
-    sha.Final(digest);
+    // include the necessary Cryptopp libraries
+    #include "cryptopp/md5.h"
+    #include "cryptopp/sha.h"
 
-    string result = HexEncoder().Encode(digest, SHA::DigestSize());
+    MD5 md;
+    md.Update((const unsigned char*)text.c_str(), text.length());
+    string result = hexEncode(md.Digest());
 
     return result;
+}
+
+string hexEncode(const byte* data, int length) {
+    string str;
+    for(int i=0; i<length; i++) {
+        str += setfill('0') << setw(2) << hex << (int)data[i];
+    }
+    return str;
 }
