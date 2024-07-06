@@ -1,15 +1,17 @@
-```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) { return find(b.begin(), b.end(), s) != b.end(); });
+bool all_of(const std::vector<std::string>& a) {
+    for (const auto& s : a) {
+        if (find(s.begin(), s.end(), ' ') != s.end()) return false;
+    }
+    return true;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = s;
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
@@ -28,7 +30,7 @@ vector<string> select_words(string s, int n) {
             if (has_n_consonants) {
                 result.push_back(word);
             }
-            word = s;
+            word = "";
         }
     }
     return result;
