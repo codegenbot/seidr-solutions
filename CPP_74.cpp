@@ -35,8 +35,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main_func() {
+int main() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    return total_match(vec1,vec2).size();
+    if(total_match(vec1,vec2) == vec1)
+        cout << "total_match returned " << vec1.size() << " strings.\n";
+    else
+        cout << "total_match returned " << vec2.size() << " strings.\n";
 }
