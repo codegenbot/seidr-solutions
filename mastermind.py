@@ -14,5 +14,4 @@ def mastermind(code, guess):
         elif code[i] in guess:
             white_pegs += 1
 
-    # Return the number of white and black pegs
-    return (white_pegs, black_pegs)
+    return (white_pegs, black_pegs) if white_pegs > 0 or black_pegs > 0 else 1
