@@ -10,8 +10,9 @@ def string_to_md5(text):
     else:
         return None
 
-text = input("Please enter a string: ")
 try:
-    print(string_to_md5(text))
-except Exception as e:
-    print(str(e))
+    text = input("Please enter a string: ")
+except:
+    print("Invalid input. Please try again.")
+    text = None
+print(string_to_md5(text))
