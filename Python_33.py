@@ -1,5 +1,12 @@
+```
 def sort_third(l: list):
-    return [
-        x if i % 3 != 0 else min([y for y in l[:i] + l[i + 1:] if y % 3 == 0], default=l[i])
-        for i, x in enumerate(sorted(l))
-    ]
+    sorted_list = []
+    for i, x in enumerate(l):
+        if i % 3 == 0:
+            if len(sorted_list) > 0 and sorted_list[-1] % 3 == 0:
+                sorted_list.append(min([x for x in l if x % 3 == 0]))
+            else:
+                sorted_list.append(x)
+        else:
+            sorted_list.append(x)
+    return tuple(sorted_list)
