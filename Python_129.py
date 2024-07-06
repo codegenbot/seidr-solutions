@@ -1,5 +1,5 @@
-from collections import deque
 
+from collections import deque
 
 def minPath(grid, k):
     # Initialize a priority queue to keep track of the minimum path and its length
