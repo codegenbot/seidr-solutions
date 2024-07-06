@@ -4,10 +4,11 @@
 
 std::string decode(std::string cipher, std::string mapping) {
     std::size_t mappingIdx = 0;
+    std::string result = "";
     for (char c : cipher) {
         char m = mapping[mappingIdx];
-        result += m; 
-        mappingIdx++; 
+        result += m; // add the character from mapping to the result
+        mappingIdx++; // increment the index for next iteration
     }
     return result;
 }
