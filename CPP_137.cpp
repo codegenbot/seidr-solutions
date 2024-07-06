@@ -1,8 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
-#include <iostream>
 
-using namespace std;
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -10,11 +8,11 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int bInt = std::stoi(b.convert_to<std::string>().any_cast<string>::value);
+        int bInt = std::stoi(b.convert_to<std::string>().any_to<string>());
         return a > bInt ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float bFloat = std::stof(b.convert_to<std::string>().any_cast<string>::value);
+        float bFloat = std::stof(b.convert_to<std::string>().any_to<string>());
         return a > bFloat ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -28,25 +26,11 @@ boost::any compare_one(boost::any a, boost::any b) {
         return aFloat > bFloat ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        string aStr = boost::any_cast<string>(a);
-        string bStr = boost::any_cast<string>(b);
+        std::string aStr = boost::any_cast<std::string>(a);
+        std::string bStr = boost::any_cast<std::string>(b);
         return aStr > bStr ? a : b;
     }
     else {
-        return "None";
-    }
-}
-
-int main()
-{
-    boost::any a = 10; 
-    boost::any b = 20.5f;
-
-    boost::any result = compare_one(a, b);
-
-    if (result.type() == typeid(std::string)) {
-        cout << "Result: " << boost::any_cast<std::string>(result) << endl;
-    } else {
-        cout << "Result: " << boost::any_cast<int>(result) << endl;
+        return any("None");
     }
 }
