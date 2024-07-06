@@ -1,9 +1,10 @@
 ```
 bool issame(int a, int b) {
-    if (a == b)
+    if (a == b) {
         return true;
-    else
+    } else {
         return false;
+    }
 }
 
 vector<string> by_length(vector<int> arr) {
