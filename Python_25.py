@@ -1,19 +1,9 @@
-```
-def factorize(n: int) -> List[int]:
-    if n < 2:
-        return [n]
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
-    return factors
+def calculate_greatest_common_divisor_and_factorize(num: int) -> (int, List[int]):
+    greatest_common_divisor = num
+    factors = factorize(num)
+    
+    for i in range(2, greatest_common_divisor + 1):
+        while greatest_common_divisor % i == 0:
+            greatest_common_divisor //= i
+            
+    return greatest_common_divisor, factors
