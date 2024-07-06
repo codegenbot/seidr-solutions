@@ -27,10 +27,12 @@ map<char, int> histogram(string test) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            for (auto& p : result) 
+            for (auto& p : result) {
                 if (p.second == maxCount)
                     maxCountMap[p.first] = p.second;
-        } 
+            }
+        } else if (pair.second == maxCount)
+            maxCountMap[pair.first] = pair.second;
     }
 
     return maxCountMap;
