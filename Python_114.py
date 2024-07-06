@@ -1,4 +1,3 @@
-```
 def minSubArraySum(nums):
     min_sum = float('inf')
     window_sum = 0
