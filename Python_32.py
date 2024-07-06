@@ -3,5 +3,5 @@ def find_zero(x):
         return -1
     elif x < 0:
         return 1
-    else:
+    elif x == 0:
         return 0
