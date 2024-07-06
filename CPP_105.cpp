@@ -1,6 +1,12 @@
-```cpp
+#include <vector>
+#include <algorithm>
+#include <string>
+
 bool issame(int a, int b) {
-    return (a == b);
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -15,9 +21,9 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (int num : numbers) {
+    for (int i = 0; i < numbers.size(); i++) {
         string str = "";
-        switch (num) {
+        switch (numbers[i]) {
             case 1:
                 str = "One";
                 break;
