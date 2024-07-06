@@ -1,7 +1,12 @@
-import collections
 def minPath(grid, k):
-    # ... existing code ...
+    n = len(grid)
+    dp = [[float("inf") for _ in range(n)] for _ in range(n)]
+    dp[0][0] = grid[0][0]
 
-# Call minPath with the user input
-result = minPath(grid, k)
-print(result)
+    for i in range(1, n):
+        for j in range(m):
+            if i == 0 and j == 0:
+                continue
+            dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
+
+    return dp[-1][-1]
