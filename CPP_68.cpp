@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <climits>
@@ -11,24 +12,28 @@ pair<vector<int>, int> pluck(vector<int> arr) {
     pair<vector<int>, int> result;
     if (arr.empty()) {
         result.first = arr;
+        result.second = 0;
+        return result;
+    }
+
+    int minEven = INT_MAX;
+    int minIndex = -1;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
+            minIndex = i;
+        }
+    }
+
+    if (minEven == INT_MAX) {
+        result.first = arr;
         result.second = -1;
         return result;
     }
 
-    vector<int> minEvens;
-    int minIndex = -1;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            minEvens.push_back(arr[i]);
-            if (minEvens.back() < INT_MAX) {
-                minIndex = i;
-            }
-        }
-    }
-
-    if (minEvens.empty()) return {arr, -1};
-
-    result.first = minEvens;
+    vector<int> tempArr = arr;
+    tempArr.erase(remove(tempArr.begin(), tempArr.end(), minEven), tempArr.end());
+    result.first = tempArr;
     result.second = minIndex;
     return result;
 }
