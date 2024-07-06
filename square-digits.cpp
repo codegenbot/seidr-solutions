@@ -1,7 +1,7 @@
 #include <string>
 using namespace std;
 
-std::string squareDigits(int n) {
+string squareDigits(int n) {
     string str = to_string(n);
     string result;
     for (char c : str) {
