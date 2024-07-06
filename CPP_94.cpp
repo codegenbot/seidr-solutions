@@ -1,5 +1,7 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
+
+using namespace std;
 
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
@@ -25,5 +27,4 @@ bool isPrime(int n){
 
 int main() {
     assert (skjkasdkd({127, 97, 8192}) == 10);
-    return 0;
 }
