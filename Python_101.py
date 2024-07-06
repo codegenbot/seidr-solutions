@@ -1,7 +1,5 @@
-import re
 
-
-def words_string():
+def words_string(s):
     inp = sys.stdin.readline()
     words = re.split(r"\s+", inp)
     if len(words) == 1:
