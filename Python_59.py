@@ -1,4 +1,3 @@
-```
 def largest_prime_factor(n: int):
     i = n - 1
     while i > 1:
@@ -9,4 +8,3 @@ def largest_prime_factor(n: int):
                     break
             return i
         i -= 1
-    return None
