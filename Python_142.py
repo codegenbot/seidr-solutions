@@ -1,9 +1,13 @@
+```Python
 def sum_squares(lst):
+    if len(lst) == 0:
+        return 0
+
     total_sum = 0
     for i in range(len(lst)):
-        if (i % 3 == 0) and (i % 4 == 0):
+        if i % 3 == 0:
             total_sum += lst[i] ** 2
-        elif (i % 3 != 0) and (i % 4 == 0):
+        elif i % 4 == 0:
             total_sum += lst[i] ** 3
     return total_sum
 
