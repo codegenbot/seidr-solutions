@@ -29,6 +29,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_list({111111}) , {111111}));
+    assert(issame(strange_sort_list({1}), {1}));
+    assert(!issame(strange_sort_list({1,2}), {1, 2}));
     // Test your function here
 }
