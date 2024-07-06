@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -12,13 +11,4 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
-}
-
-bool arePilesEqual(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(arePilesEqual(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    // ...
 }
