@@ -1,10 +1,10 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
+using namespace std;
 
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0)
@@ -13,29 +13,18 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     for (int i = 0; i < lst2.size(); i++) {
         if (lst2[i] % 2 != 0 && oddCount > 0) {
             lst1.push_back(lst2[i]);
-            lst2.erase(std::remove(lst2.begin(), lst2.end(), lst2[i]), lst2.end());
+            lst2.erase(lst2.begin() + i);
             i--;
             oddCount--;
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    return std::to_string(oddCount == 0 ? 1 : 0);
 }
 
 int main() {
-    std::vector<int> lst1, lst2;
-    int n1, n2;
-    std::cout << "Enter the number of elements in list 1: ";
-    std::cin >> n1;
-    for (int i = 0; i < n1; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> lst1.push_back(i);
-    }
-    std::cout << "Enter the number of elements in list 2: ";
-    std::cin >> n2;
-    for (int i = 0; i < n2; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> lst2.push_back(i);
-    }
-    std::cout << exchange(lst1, lst2) << std::endl;
+    vector<int> lst1 = {1, 3, 5};
+    vector<int> lst2 = {4, 6, 8, 10};
+    string result = exchange(lst1, lst2);
+    cout << "The output is: " << result << endl;
     return 0;
 }
