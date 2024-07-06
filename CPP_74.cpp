@@ -6,8 +6,8 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(const auto& str1 : a) {
-        if(find(b.begin(),b.end(),str1) == b.end()) return false;
+    for(size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -36,7 +36,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 vector<string> testMain() {
-    vector<string> vec1 = {"this"};
+    vector<string> vec1 = {{"this"}};
     vector<string> vec2 = {""};
     return total_match(vec1,vec2);
 }
