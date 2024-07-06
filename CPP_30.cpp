@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -26,10 +25,22 @@ int main() {
 
     assert(issame(get_positive({1.0, -2.0, 3.0})) == true);
     
-    vector<float> positive_nums = get_positive(l);
-    cout << "Positive numbers are: ";
+    vector<float> input;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        float num;
+        cin >> num;
+        input.push_back(num);
+    }
+    cout << issame(input) << endl;
+
+    vector<float> positive_nums = get_positive(input);
+    cout << "Positive numbers: ";
     for (float num : positive_nums) {
         cout << num << " ";
     }
     cout << endl;
+    
+    return 0;
 }
