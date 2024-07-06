@@ -1,5 +1,4 @@
 if __name__ == "__main__":
-
     def is_palindrome(string: str) -> bool:
         return string == string[::-1]
 
@@ -7,6 +6,6 @@ if __name__ == "__main__":
         if string == string[::-1]:
             return string + string[::-1]
         for i in range(len(string)):
-            if string[: i + 1] == string[: i + 1][::-1]:
-                return string[: i + 1] + string[i:][::-1]
+            if string[:i+1] == string[:i+1][::-1]:
+                return string[:i+1] + string[i:][::-1]
         return string + string[::-1]
