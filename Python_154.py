@@ -1,10 +1,14 @@
-Here is the corrected function definition:
-
+```
 def cycpattern_check(a, b):
     if len(b) != len(a):
         return False
-    for i in range(len(a)):
-        for j in [-1, 0, 1]:
-            if a[i:] + (a[:i] if j == 0 else a[i::-1])[::j] == b:
-                return True
+    else:
+        a = list(a)
+        for _ in range(len(a)):
+            b = list(b)
+            for i in range(len(a)):
+                a[:] = a[i:] + (a[:i] if _ == 0 else a[i::-1])
+                if ''.join(a) == ''.join(b):
+                    return True
+            b[:] = [c for r in zip(*[iter(b)]*len(b))][0]
     return False
