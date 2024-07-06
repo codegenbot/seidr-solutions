@@ -4,13 +4,45 @@
 #include <string>
 
 bool issame(int a, int b) {
-    if (a > 9 || b > 9)
-        return false;
-    return a == b;
+    vector<string> result;
+    for (int i = 0; i < a; ++i) {
+        string str;
+        switch (b) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+                break;
+        }
+        result.push_back(str);
+    }
+    return result;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -20,7 +52,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : numbers) {
         string str = "";
         switch (num) {
