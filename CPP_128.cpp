@@ -1,4 +1,3 @@
-```cpp
 #include<vector>
 
 int prod_signs(std::vector<int> arr){
@@ -12,5 +11,5 @@ int prod_signs(std::vector<int> arr){
         sum += std::abs(num);
     }
 
-    return sign_product * sum;
+    return sign_product * static_cast<int>(sum);
 }
