@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 long long special_factorial(int n);
