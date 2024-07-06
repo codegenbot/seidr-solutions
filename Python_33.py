@@ -1,2 +1,4 @@
+```
 def sort_third(l: list):
-    return sorted(l, key=lambda x: x % 3)
+    l.sort(key=lambda x: x % 3)
+    return tuple(l)

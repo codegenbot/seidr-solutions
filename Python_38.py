@@ -1,9 +1,8 @@
+```
 def decode_cyclic(s: str):
-    if len(s) < 3:
-        return s
     result = []
     temp = ""
-    if len(s) >= 3:
+    if len(s) >= 1:
         for char in s:
             temp += char
             if len(temp) == 3:
