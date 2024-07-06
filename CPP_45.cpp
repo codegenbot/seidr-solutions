@@ -1,3 +1,11 @@
-Here is the solution:
+#include <iostream>
+#include <cmath>
 
-return (0.5f * a * h);
+float triangle_area(float a, float h) {
+    return (a * h) / 2.0f;
+}
+
+int main() {
+    assert(std::abs(triangle_area(10, 8) - 40.0)<1e-4);
+    return 0;
+}
