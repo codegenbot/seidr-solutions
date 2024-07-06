@@ -1,15 +1,13 @@
+```
 from typing import List
 import math
 
 
 def factorize():
-    while True:
-        try:
-            n = int(input("Enter a number: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    
+    n = int(input("Enter a number: ") or None)
+    if n is None:
+        print("Program did not receive expected input")
+        return
     factors = []
     i = 2
     while i * i <= n:
