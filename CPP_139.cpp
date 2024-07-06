@@ -1,14 +1,7 @@
-#include <cassert>
-
-long long special_factorial(int n) {
+long long special_factorial(int n){
     long long result = 1;
-    for (int i = n; i > 0; --i) {
+    for(int i = n; i > 0; --i){
         result *= 1LL * i * special_factorial(i-1);
     }
     return result;
-}
-
-int main() {
-    assert(special_factorial(1) == 1);  
-    return 0;
 }
