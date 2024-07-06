@@ -1,8 +1,4 @@
-from typing import List
-
-def read_integers() -> List[int]:
-    input_str = input("Enter numbers separated by space: ")
-    integers = list(map(int, input_str.split()))
-    return integers
-
-print(read_integers())
+def calculate_average_age_and_names(students):
+    average_age = sum(student["age"] for student in students) / len(students)
+    names = [student["name"] for student in students]
+    return average_age, names

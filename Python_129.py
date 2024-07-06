@@ -7,7 +7,6 @@ def minPath(grid, k):
             if grid[i][j] == 1:
                 path = [grid[i][j]]
                 dfs(i, j, k - 1, grid, path, res)
-                path = []
     return res
 
 def dfs(i, j, k, grid, path, res):
