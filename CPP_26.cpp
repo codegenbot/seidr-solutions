@@ -1,6 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <set>
+#include <algorithm>
+#include <initializer_list>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -12,11 +14,11 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> removeDuplicates(std::vector<int> numbers) {
+std::vector<int> removeDuplicates(std::initializer_list<int> numbers) {
     std::set<int> result;
-    for(int i = 0; i < numbers.size(); i++){
-        if(result.insert(numbers[i]).second){
-            result.insert(numbers[i]); 
+    for(int i : numbers){
+        if(result.insert(i).second){
+            result.insert(i); 
         }
     }
     return std::vector<int>(result.begin(), result.end());
