@@ -29,8 +29,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> expected = {"()", "(())"};
-    vector<string> output = separate_paren_groups("( ) (( )) (( )( )");
-    assert(issame(output, expected));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( "), {{"()", "()"}, {"(())"} }));
     return 0;
 }
