@@ -1,7 +1,9 @@
-```
-from typing import List
-
-user_input = input("Enter some strings (space-separated): ")
-def concatenate(strings: List[str] = []) -> str:
-    return "".join([s.strip() for s in strings]).strip()
-print(concatenate(user_input.split()))
+class Concatenator:
+    def concatenate(self, strings_list: List[str]) -> str:
+        result = ""
+        while True:
+            s = input("Enter a string (or 'stop' if finished): ")
+            if s.lower() == "stop":
+                break
+            result += s + " "
+        return result.strip()

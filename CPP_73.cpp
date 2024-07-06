@@ -1,12 +1,12 @@
+```c++
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     std::string str = "";
     for (int i : arr)
-        str += to_string(i);
+        str += std::to_string(i);
     int left = 0, right = n - 1;
     int changes = 0;
     while (left < right) {
@@ -16,3 +16,6 @@ int smallest_change(std::vector<int> arr) {
             ++left, --right;
     }
     return changes;
+
+int main {
+}
