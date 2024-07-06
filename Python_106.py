@@ -1,4 +1,10 @@
 ```
+def factorial(k):
+    if k == 0 or k == 1:
+        return 1
+    else:
+        return k * factorial(k-1)
+
 def f(n):
     result = []
     for i in range(1, n+1):
@@ -7,9 +13,3 @@ def f(n):
         else:
             result.append(sum(range(1, i+1)))
     return result
-
-def factorial(k):
-    if k == 0 or k == 1:
-        return 1
-    else:
-        return k * factorial(k-1)
