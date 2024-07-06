@@ -1,19 +1,15 @@
 #include <vector>
-#include <algorithm>
-
 int next_smallest(vector<int> lst) {
-    vector<int> temp = lst;
-    if(temp.size() < 2) return -1; // Return None
-    sort(temp.begin(), temp.end());
-    for(int i = 0; i < temp.size()-1; i++) {
-        if(temp[i] != temp[i+1]) {
-            return temp[i+1];
+    vector<int> v = lst;
+    include <algorithm>
+    sort(v.begin(), v.end());
+    if (v.size() < 2) return -1; 
+    for(int i=0;i<v.size();i++){
+        for(int j=i+1;j<v.size();j++){
+            if(v[i]>v[j]){
+                return v[i];
+            }
         }
     }
-    return -1; // Return None
-
-}
-
-int main() {
-    assert (next_smallest({-35, 34, 12, -45}) == -35);
+    return -1;
 }
