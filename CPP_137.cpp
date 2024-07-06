@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
@@ -12,14 +13,10 @@ void compareOne(int x) {
 int main() {
     cout << "Enter two values: ";
     int val1;
-    while (!(cin >> val1) || val1 <= 0) {
-        cout << "Invalid input. Please enter a positive integer.\n";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
+    cin >> val1;
 
     if (cin.fail()) {
-        cout << "Invalid input again. Please enter a valid number.\n";
+        cout << "Invalid input. Please enter an integer.\n";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cin >> val1;
@@ -29,10 +26,15 @@ int main() {
     }
 
     cout << "Enter the second value: ";
-    if (!(cin >> val1) || val1 <= 0) {
-        cout << "Invalid input. Please enter a valid number.\n";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    int val2;
+    cin >> val2;
+
+    if (val1 > val2) {
+        cout << "The first number is bigger.\n";
+    } else if (val1 < val2) {
+        cout << "The second number is bigger.\n";
+    } else {
+        cout << "Both numbers are equal.\n";
     }
 
     compareOne(val1);
