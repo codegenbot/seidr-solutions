@@ -1,3 +1,5 @@
+import numpy as np
+
 
 def shopping_list(prices, discounts):
     prices = [float(input("Enter prices: "))]
