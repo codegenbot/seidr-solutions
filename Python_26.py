@@ -16,3 +16,6 @@ def remove_duplicates() -> List[int]:
             result.append(num)
             seen.add(num)
     return result
+
+if __name__ == "__main__":
+    remove_duplicates()

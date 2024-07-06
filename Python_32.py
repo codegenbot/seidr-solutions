@@ -1,3 +1,4 @@
+```
 print("Enter 'a', 'b', 'c': ")
 while True:
     try:
@@ -9,8 +10,8 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a number.")
 
+print("Enter non-zero values for 'b' and 'c': ")
 while True:
-    print("Enter non-zero values for 'b' and 'c': ")
     try:
         b = float(input())
         c = float(input())
