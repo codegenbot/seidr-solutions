@@ -1,3 +1,4 @@
+```
 def decode_shift(direction):
     if direction not in ["encode", "decode"]:
         return "Invalid input. Enter 'encode' to encode or 'decode' to decode: "
@@ -27,8 +28,8 @@ def main():
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
     if direction == "encode":
-        print(decode_shift(direction))
+        print(decode_shift("encode"))
     elif direction == "decode":
-        print(decode_shift(direction))
+        print(decode_shift("decode"))
     else:
         print("Invalid input.")
