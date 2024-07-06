@@ -20,6 +20,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame({get_odd_collatz(12)}, vector<int>{1, 19, 36})) ;
+    assert(issame({get_odd_collatz(12)}, {1, 19, 36})) ;
     return 0;
 }
