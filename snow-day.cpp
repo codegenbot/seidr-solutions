@@ -1,9 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int hours;
+    float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
+
+    // Read input from user
+    cout << "Enter number of hours: ";
+    cin >> hours;
+    cout << "Enter initial snow: ";
+    cin >> initialSnow;
+    cout << "Enter rate of snow fall: ";
+    cin >> rateOfSnowfall;
+    cout << "Enter proportion of snow melting per hour: ";
+    cin >> proportionMeltingPerHour;
+
+    double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour);
+    
+    // Print output
+    cout << "Amount of snow on the ground after " << to_string(hours) << " hours is: " << result << endl;
+
+    return 0;
+}
+
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
     double totalSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
-        // Melting occurs first, then new snow falls
-        totalSnow -= totalSnow * proportionMeltingPerHour / 100.0; 
+        totalSnow -= totalSnow * proportionMeltingPerHour; 
         totalSnow += rateOfSnowfall; 
     }
     
