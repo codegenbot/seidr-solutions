@@ -1,7 +1,6 @@
-def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
+Here is the completed code:
 
-    max_coeff_idx = xs.index(max(filter(None, xs)))
-    x = -xs[max_coeff_idx] / xs[1]
-    return round(x, 2)
+def find_zero(xs: list):
+    assert len(xs) % 2 == 0, "List xs must have even number of coefficients"
+    max_coeff = max(x for x in xs if abs(x) > 1e-10)
+    return -max_coeff / sum([x * i for x, i in zip(xs, range(len(xs)))])
