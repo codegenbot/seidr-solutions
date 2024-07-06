@@ -1,7 +1,7 @@
-#include <vector>
-#include <string>
 #include <boost/any.hpp>
+#include <vector>
 #include <list>
+
 typedef std::list<boost::any> list_any;
 using namespace std;
 
