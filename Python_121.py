@@ -1,8 +1,7 @@
-```
-def beautifulDays(i, j, k):
-    count = 0
-    for day in range(int(i), int(j)+1):
-        rev_day = str(day)[::-1]
-        if abs(int(day) - int(rev_day)) <= k:
-            count += 1
-    return count
+def sum_of_even_length_words(sentence):
+    words = sentence.split()
+    total = 0
+    for word in words:
+        if len(word) % 2 == 0 and len(word) > 1:
+            total += len(word)
+    return total

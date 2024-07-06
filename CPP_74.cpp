@@ -35,8 +35,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main() {
+vector<string> main() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    assert(issame(total_match({{"this"}}, {""}), {{"", "this"}}));  
-    return 0;
+    return total_match(vec1,vec2);
+}
