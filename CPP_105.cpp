@@ -1,4 +1,10 @@
-namespace std { using string = std::string; }
+#include <vector>
+#include <algorithm>
+#include <string>
+
+namespace std {
+    using string = std::string;
+}
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
