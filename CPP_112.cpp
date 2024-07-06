@@ -1,22 +1,8 @@
+```cpp
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include <string>
 
-bool compareVectors(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
+std::string reverse_delete(std::string s, std::string c) {
     std::string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -30,19 +16,12 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
-    result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    result.push_back(temp == rev ? "True" : "False");
-    return result;
+    return temp.empty() ? "True" : "False";
 }
 
 int main() {
-    vector<string> result = reverse_delete("mamma", "mia");
-    if (!compareVectors({ "", "True" }, result)) {
-        cout << "Test failed." << endl;
-    } else {
-        cout << "Test passed." << endl;
-    }
+    std::cout << reverse_delete("mamma", "mia") << std::endl;
     return 0;
 }
