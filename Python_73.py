@@ -1,4 +1,6 @@
+```
 def smallest_change(arr):
+    arr = list(set(arr))
     n = len(arr)
     left, right = 0, n - 1
     changes = 0
@@ -16,6 +18,3 @@ def smallest_change(arr):
             right -= 1
     
     return changes
-
-arr = input("Enter the array: ").split()
-print(smallest_change(list(map(int, arr))))
