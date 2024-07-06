@@ -1,14 +1,13 @@
-```
-from typing import Optional
+from typing import List, Optional
 
-def longest_file_line(input_file: str) -> Optional[str]:
-    if not input_file:
+
+def longest(strings: List[str]) -> Optional[str]:
+    if not strings:
         return None
     max_length = 0
-    longest_line = None
-    with open(input_file, "r") as f:
-        for line in f:
-            if len(line.strip()) > max_length:
-                max_length = len(line.strip())
-                longest_line = line.strip()
-    return longest_line
+    longest_str = ''
+    for s in strings:
+        if len(s) > max_length:
+            max_length = len(s)
+            longest_str = s
+    return longest_str
