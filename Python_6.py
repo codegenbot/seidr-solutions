@@ -14,4 +14,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             result.append(max_level)
         else:
             max_level = 0
-    return [max_level])
+    return result
