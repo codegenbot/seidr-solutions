@@ -1,3 +1,2 @@
-
 def words_string(s):
-     return s.replace(r"\s+", " ").split()
+    return re.split(r"\s+", s)
