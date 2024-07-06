@@ -36,3 +36,7 @@ def minPath(grid, k):
 
     # Return the minimum path
     return min_path
+
+
+# Test case 1
+print(minPath([[1, 3], [3, 2]], 10))  # Should print [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
