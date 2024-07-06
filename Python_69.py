@@ -1,4 +1,4 @@
-````
+```
 lst = list(map(int, input("Enter numbers separated by space: ").split()))
 
 def search(lst):
