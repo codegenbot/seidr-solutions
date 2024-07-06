@@ -1,3 +1,2 @@
-```
 def sort_third(l: list):
-    return sorted((i % 3 and 'multiple of 3' or 'not a multiple of 3') for i in l)
+    return [list(i) for i in zip(*[l[i:i+3] for l in [[i%3,i] for i in l][::-1]])]
