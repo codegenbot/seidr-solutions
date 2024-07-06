@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -15,7 +14,7 @@ def parse_music(music_string: str) -> List[int]:
                 note = ""
         elif char == ".":
             note += char
-            if len(note) == 3 and note == ".|":
+            if note == ".|":
                 result.append(1)
                 note = ""
     if note:
