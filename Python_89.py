@@ -1,8 +1,5 @@
 def encrypt(s):
-    encrypted = ''
-    for char in s:
-        if char.isalpha():
-            encrypted += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
-        else:
-            encrypted += char
-    return encrypted
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
+    table = str.maketrans(alphabet, rotated_alphabet)
+    return s.translate(table)
