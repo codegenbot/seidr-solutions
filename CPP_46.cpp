@@ -2,21 +2,23 @@
 using namespace std;
 
 int fib4(int n) {
-    if (n <= 3)
+    if (n <= 1)
         return 0;
-    int prevPrev = 0, prev = 0, cur = 2;
-    for (int i = 4; i <= n; ++i) {
-        int next = prevPrev + prev + cur;
-        prevPrev = prev;
-        prev = cur;
-        cur = next;
+    int a = 0, b = 2, c = 0, d = 2;
+    for (int i = 3; i <= n; i++) {
+        int temp = a + b + c + d;
+        a = b; 
+        b = c; 
+        c = d; 
+        d = temp;
     }
-    return cur;
+    return d;
 }
 
 int main() {
-    printf("%d\n", fib4(5));
-    printf("%d\n", fib4(6));
-    printf("%d\n", fib4(7));
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("Fib4(%d) is %d\n", n, fib4(n));
     return 0;
 }
