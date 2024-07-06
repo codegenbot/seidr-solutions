@@ -1,4 +1,4 @@
-```python
+```
 def make_palindrome(string: str) -> str:
     reverse = string[::-1]
     middle_char = ""
