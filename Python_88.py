@@ -1,6 +1,6 @@
-def sort_array(input_array=None):
-    if input_array is None:
+def sort_array(arr=None):
+    if arr is None:
         array = list(map(int, input("Enter numbers separated by space: ").split()))
     else:
-        array = input_array
+        array = arr
     return sorted(array)
