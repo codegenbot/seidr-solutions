@@ -1,4 +1,7 @@
 ```
-def fruit_distribution(s,n):
-    s = s.replace('apples', '0').replace('oranges', '0')
-    return n - int(s.split()[2].replace('and', '').replace('0', ''))
+def fruit_distribution(s, n):
+    words = s.split()
+    n_apples = int(
+        "".join(filter(str.isdigit, [word for word in words if "apples" in word])) or '0'
+    )
+    return max(0, n - n_apples)
