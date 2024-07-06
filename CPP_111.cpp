@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <map>
 #include <set>
@@ -10,7 +10,7 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    set<char> letters(test.begin(), test.end()); // Correct way to convert string to set of characters
+    set<char> letters(test.begin(), test.end());
     for (char c : letters) {
         int count = 0;
         size_t pos = 0;
