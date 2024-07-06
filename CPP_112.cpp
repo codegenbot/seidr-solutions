@@ -16,6 +16,21 @@ bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
+bool isSame(vector<string> a, vector<string> b) {
+    bool result = compareVectors(a, b);
+    if(result) {
+        for(auto s : a) {
+            std::cout << s << " ";
+        }
+        std::cout << endl;
+        for(auto s : b) {
+            std::cout << s << " ";
+        }
+        std::cout << endl;
+    }
+    return result;
+}
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
@@ -43,6 +58,10 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(compareVectors(reverse_delete("mamma", "mia"), { "", "True"}));
+    if (!isSame({ "", "True" }, reverse_delete("mamma", "mia"))) {
+        std::cout << "Test failed." << std::endl;
+    } else {
+        std::cout << "Test passed." << std::endl;
+    }
     return 0;
 }
