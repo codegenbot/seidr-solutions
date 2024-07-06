@@ -21,7 +21,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     sort(result.begin(), result.end());
     
     return result;
-
 }
 
 vector<int> l1 = {1, 4, 3, 34, 653, 2, 5};
