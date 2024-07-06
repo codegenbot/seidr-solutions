@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -25,7 +24,7 @@ int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     string prefix = "xxx";
     
-    assert(issame(filter_by_prefix(strings, prefix), {"xxx", "xxxA"}));
+    assert(issame(filter_by_prefix(strings, prefix), {"xxx", "xxxxA"}));
     
     return 0;
 }
