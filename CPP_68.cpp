@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <vector>
 
 std::vector<int> pluck(std::vector<int> arr) {
@@ -18,4 +20,15 @@ std::vector<int> pluck(std::vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> input = {2, 4, 6, 8, 10};
+    std::vector<int> output = pluck(input);
+
+    for (int i : output) {
+        std::cout << i << " ";
+    }
+    
+    return 0;
 }
