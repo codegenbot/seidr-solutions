@@ -1,27 +1,41 @@
+```
 def solve_boolean(expression):
     bool_map = {'T': True, 'F': False}
 
     def eval_expression(expr):
-        if '(' in expr:
-            start = expr.index('(')
-            end = expr.index(')')
-            return eval_expression(expr[:start] + str(eval_expression(expr[start+1:end])).lower() + expr[end+1:])
-        
-        if '&' in expr and '|' in expr:
-            parts = expr.split('&')
-            result = True
-            for part in parts:
-                result = result and eval_expression(part).lower()
-            return 'F' if not result else 'T'
+        stack = []
+        i = 0
+        while i < len(expr):
+            if expr[i] in ('(', '|', '&'):
+                if expr[i] == '(':
+                    stack.append(expr[i])
+                    i += 1
+                elif expr[i] in ('|', '&'):
+                    j = i + 1
+                    while j < len(expr) and expr[j] not in ('|', '&', '(', ')'):
+                        j += 1
+                    if expr[j] == '(':
+                        stack.append('(')
+                    else:
+                        stack.append(expr[i:j+1])
+                        i = j
+                elif expr[i] == ')':
+                    while stack[-1] != '(':
+                        stack.pop()
+                    stack.pop()
+                    i += 1
+            elif expr[i] in bool_map:
+                return str(bool_map.get(expr[i], None)).lower()
+            i += 1
 
-        if '|' in expr and '&' not in expr:
-            parts = expr.split('|')
-            result = False
-            for part in parts:
-                result = result or eval_expression(part).lower()
-            return 'F' if not result else 'T'
+        while len(stack) > 0 and stack[-1] == '(':
+            stack.pop()
 
-        if expr[0] in bool_map:
-            return str(bool_map.get(expr[0], None)).lower()
+        if len(stack) == 1:
+            return stack[0].upper() if stack[0][0].isalpha() else bool_map[stack[0]]
+        elif '&' in stack:
+            return all(eval_expression(s) for s in stack)
+        else:
+            return any(eval_expression(s) for s in stack)
 
-    return eval_expression(expression)
+    return eval_expression(expression.lower())
