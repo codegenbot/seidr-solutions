@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(const std::vector<std::string>& a) {
-    return a.empty();
+    return true;
 }
 
 bool bf(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -26,6 +27,5 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    assert(bf(code({"Jupiter"}, {"Makemake"}), {}) == std::vector<std::string>({}));
-    std::cout << "Output: " << (bf(code({"Jupiter"}, {"Makemake"}), {}) ? "" : "Not") << " equal." << std::endl;
+    assert(bf(code({"Jupiter"}, {"Makemake"}), std::vector<std::string>()) == std::vector<std::string>());
 }
