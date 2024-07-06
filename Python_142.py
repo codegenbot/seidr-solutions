@@ -14,4 +14,5 @@ def sum_squares(lst):
 def main():
     print(sum_squares([{"x": [2]}, {"y": [4]}]))
 
-main()
+if __name__ == "__main__":
+    main()
