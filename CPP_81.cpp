@@ -1,10 +1,8 @@
 #include <vector>
 #include <string>
 
-// Define this function before using it
 std::vector<std::string> numerical_letter_grade(std::vector<int> grades) {
     std::vector<std::string> result;
-    
     for (int grade : grades) {
         if (grade >= 90)
             result.push_back("A");
@@ -17,7 +15,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<int> grades) {
         else
             result.push_back("F");
     }
-    
     return result;
 }
 
