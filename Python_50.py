@@ -4,7 +4,7 @@ def decode_shift(s: str):
         return "Error: Input must be a string."
     
     is_encoding = s[:6] == "encode"
-    s = s[7:] if is_encoding else s
+    s = s[6:] if not is_encoding else s
     result = ""
     for ch in s:
         if ch.isalpha():
