@@ -1,5 +1,4 @@
-#pragma GCC target "c++11"
-
+```cpp
 #include <cctype>
 #include <algorithm>
 
