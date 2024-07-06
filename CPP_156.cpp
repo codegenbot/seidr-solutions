@@ -2,83 +2,89 @@
 using namespace std;
 string int_to_mini_roman(int number) {
     string roman = "";
-    if (number >= 1000) {
-        while (number >= 1000) {
+    if(number >=1000){
+        while(number>=1000){
             roman += "M";
             number -= 1000;
         }
     }
-    if (number >= 900) {
-        while (number >= 900) {
-            roman += "CM";
+    if(number >= 900){
+        while(number>=900){
+            roman +="CM";
             number -= 900;
         }
     }
-    if (number >= 500) {
-        while (number >= 500) {
+    if(number >=500){
+        while(number>=500){
             roman += "D";
             number -= 500;
         }
     }
-    if (number >= 400) {
-        while (number >= 400) {
-            roman += "CD";
+    if(number >=400){
+        while(number>=400){
+            roman +="CD";
             number -= 400;
         }
     }
-    if (number >= 100) {
-        while (number >= 100) {
-            if (number >= 900) break;
-            roman += "C";
+    if(number >=100){
+        while(number>=100){
+            if(number<100 && number>90)roman += "XC";
+            else roman += "C";
             number -= 100;
         }
     }
-    if (number >= 90) {
-        while (number >= 90) {
+    if(number >=90){
+        while(number>=90){
             roman += "XC";
             number -= 90;
         }
     }
-    if (number >= 50) {
-        while (number >= 50) {
+    if(number >=50){
+        while(number>=50){
             roman += "L";
             number -= 50;
         }
     }
-    if (number >= 40) {
-        while (number >= 40) {
-            roman += "XL";
+    if(number >=40){
+        while(number>=40){
+            roman +="XL";
             number -= 40;
         }
     }
-    if (number >= 10) {
-        while (number >= 10) {
-            if (number >= 90) break;
-            roman += "X";
+    if(number >=10){
+        while(number>=10){
+            if(number<10 && number>9)roman += "IX";
+            else roman += "X";
             number -= 10;
         }
     }
-    if (number >= 9) {
-        while (number >= 9) {
+    if(number >=9){
+        while(number>=9){
             roman += "IX";
             number -= 9;
         }
     }
-    if (number >= 5) {
-        while (number >= 5) {
+    if(number >=5){
+        while(number>=5){
             roman += "V";
             number -= 5;
         }
     }
-    if (number >= 4) {
-        while (number >= 4) {
-            roman += "IV";
+    if(number >=4){
+        while(number>=4){
+            roman +="IV";
             number -= 4;
         }
     }
-    if (number > 0) {
-        roman += "I";
-        number--;
+    if(number >=1){
+        while(number>0){
+            if(number<4)roman+="I";
+            else if(number==4) roman+="IV";
+            else if(number==5) roman+="V";
+            else if(number<9)roman+="VI";
+            else if(number==9) roman+="IX";
+            number -=1;
+        }
     }
     return roman;
 }
