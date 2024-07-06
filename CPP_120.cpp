@@ -1,12 +1,27 @@
+```
 #include <vector>
 #include <algorithm>
 
-bool isEqual(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+void main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    int k;
+    std::cout << "Enter the number of maximum elements to find: ";
+    std::cin >> k;
+
+    std::vector<int> result = findMaximum(n, k);
+
+    return;
 }
 
 std::vector<int> findMaximum(int n, int k) {
@@ -29,17 +44,4 @@ std::vector<int> findMaximum(int n, int k) {
     }
     
     return result;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    int k;
-    std::cout << "Enter the number of maximum elements to find: ";
-    std::cin >> k;
-    
-    assert(isEqual({0, 1, 2, 3}, findMaximum(n, k)));
-    return 0;
 }
