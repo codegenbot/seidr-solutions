@@ -27,19 +27,19 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 0.7)
             result.push_back("D");
         else
-            result.push_back("E");
+            result.push_back("F");
     }
     return result;
 }
 
 int main() {
-    std::vector<float> grades = {4.5, 3.2};
-    std::vector<std::string> result = numerical_letter_grade(grades);
+    vector<float> grades = {4.0, 2.5};
+    vector<string> result = numerical_letter_grade(grades);
     for (int i = 0; i < result.size(); i++) {
-        if ((i < result.size() - 1) && result[i] == "E" && result[i+1] == "D-")
-            std::cout << "Test passed.\n";
+        if (i != result.size() - 1 && result[i] == "F" && result[i+1] == "D-")
+            cout << "Test passed.\n";
         else
-            std::cout << "Test failed.\n";
+            cout << "Test failed.\n";
     }
     return 0;
 }
