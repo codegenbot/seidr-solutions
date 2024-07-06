@@ -1,4 +1,3 @@
-```Python
 def skjkasdkd(lst):
     def is_prime(n):
         if n < 2:
