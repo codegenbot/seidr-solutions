@@ -12,6 +12,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             group = ''
             while stack:
-                group += `stack.pop()`
-            groups.append(group + char)
-    return groups
+                group += ```+stack.pop()+```
+            groups.append(group + ```)``)
