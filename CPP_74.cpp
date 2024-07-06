@@ -6,9 +6,15 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(const auto& str1 : a) {
-        int idx = distance(b.begin(), find(b.begin(), b.end(), str1));
-        if(idx == b.end() || str1 != b.at(idx))return false;
+    for(auto str1 : a) {
+        bool found = false;
+        for(auto str2 : b) {
+            if(str1 == str2) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) return false;
     }
     return true;
 }
@@ -37,22 +43,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 vector<string> testMain() {
-    vector<string> vec1;
-    vector<string> vec2;
-    int n1,n2;
-    cin >> n1 >> n2;
-    
-    for(int i=0;i<n1;i++) {
-        string s;
-        cin >> s;
-        vec1.push_back(s);
-    }
-    
-    for(int i=0;i<n2;i++) {
-        string s;
-        cin >> s;
-        vec2.push_back(s);
-    }
-    
-    return total_match(vec1,vec2);
+    vector<string> vec1 = {"this"};
+    vector<string> vec2 = {""};
+    vector<string> result = total_match(vec1,vec2); // Pass vectors not integers
+    return result;
 }
