@@ -14,13 +14,7 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0 || abs(xs[0]) < 1e-9) 
-        return -1.0; // invalid input
-    double x = 1.0;
-    for(int i=0; i<xs.size(); i+=2)
-    {
-        while(poly(xs, x) > 0 && poly(xs, x) < 1e-9)
-            x -= 0.5;
-    }
-    return round(x, 10);
+    if(xs.size() % 2 != 0) return -1; // If the number of coefficients is odd, there's no solution
+    double x = xs[1] / xs[0]; // The zero point is where the derivative equals to 0
+    return poly(xs, x);
 }
