@@ -1,8 +1,10 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n = n / 2;
@@ -18,11 +20,14 @@ std::vector<int> get_odd_collatz(int n) {
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    auto collatzSequence = get_odd_collatz(num);
-    for (auto val : collatzSequence) {
-        std::cout << val << " ";
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    vector<int> odd_collatz = get_odd_collatz(num);
+
+    for (int i : odd_collatz) {
+        cout << i << " ";
     }
+    
     return 0;
 }
