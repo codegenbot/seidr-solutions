@@ -26,6 +26,6 @@ int main() {
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     int n = sizeof(arr)/sizeof(arr[0]);
     std::vector<int> array (arr, arr+n);
-    assert(issame(maximum(array, 4), std::vector<int>({0, 1, 2, 3})));
+    assert(issame(maximum(array, 4), std::vector<int>{0, 1, 2, 3}));
     return 0;
 }
