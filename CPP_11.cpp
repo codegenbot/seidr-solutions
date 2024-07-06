@@ -1,8 +1,8 @@
-```cpp
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
-std::string string_xor(std::string a, std::string b) {
-    std::string result = "";
+string string_xor(string a, string b) {
+    string result = "";
     for (int i = 0; i < a.length(); i++) {
         if ((a[i] - '0') ^ (b[i] - '0')) {
             result += "1";
@@ -11,4 +11,9 @@ std::string string_xor(std::string a, std::string b) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(string_xor("0101", "0000") == "0101");
+    return 0;
 }
