@@ -12,17 +12,17 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> input; // read input from user
+    std::vector<float> input; 
     int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        float x;
-        cin >> x;
-        input.push_back(x);
+    float num;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        input.push_back(num);
     }
-    // process the input
     float output = double_the_difference(input);
-    // print the output
-    cout << output;
+    std::cout << "The sum of the squares is: " << output << std::endl;
     return 0;
 }
