@@ -1,3 +1,3 @@
-```Python
+```
 def solution(lst):
-    return 1 if any(i % 2 != 0 for i in lst) else 2
+    return [i for i in lst if i % 12 == 0]
