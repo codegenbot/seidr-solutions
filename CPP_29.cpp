@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
 
@@ -14,18 +13,19 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for(auto str : strings){
         if(str.find(prefix) == 0)
             result.push_back(str);
     }
     return result;
+
 }
 
 int main() {
-    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    string prefix = "xxx";
-    assert(issame(filter_by_prefix(strings, prefix) , {"xxx", "xxxAAA", "xxx"}));
+    vector<string> input = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    vector<string> expected = filter_by_prefix(input, "xxx");
+    assert(issame(expected, {"xxx", "xxxAAA"}));
     return 0;
 }
