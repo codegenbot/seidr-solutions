@@ -1,4 +1,5 @@
-def separate_paren_groups(paren_string):
+
+def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     start = 0
     while True:
