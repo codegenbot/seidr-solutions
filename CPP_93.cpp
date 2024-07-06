@@ -1,19 +1,17 @@
-#include<string>
-#include<cctype>
-
-using namespace std;
-
 string encode(string message) {
     string result = "";
-    
     for (char c : message) {
         if (isalpha(c)) {
-            char newC = islower(c) ? c + 3 : c - 19;
-            result += tolower(isupper(newC)) ? toupper(newC) : tolower(newC);
+            char newChar;
+            if (islower(c)) {
+                newChar = 'a' + ((c - 'a') + 2) % 26;
+            } else {
+                newChar = 'A' + ((c - 'A') + 2) % 26;
+            }
+            result += tolower(newChar);
         } else {
-            result += c;
+            result += c; // Non-alphabetical characters remain the same
         }
     }
-    
     return result;
 }
