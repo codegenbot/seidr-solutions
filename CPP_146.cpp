@@ -21,7 +21,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> nums.push_back(i);
+        std::cin >> nums[i];
     }
 
     int count = specialFilter(nums);
