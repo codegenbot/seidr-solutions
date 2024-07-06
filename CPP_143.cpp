@@ -1,8 +1,8 @@
 #include <string>
 #include <vector>
 
-string words_in_sentence(string sentence) {
-    string result = "";
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
             result += word + " ";
@@ -11,10 +11,10 @@ string words_in_sentence(string sentence) {
     return result;
 }
 
-vector<string> split(const string& str, const string& delim) {
-    vector<string> tokens;
+std::vector<std::string> split(const std::string& str, const std::string& delim) {
+    std::vector<std::string> tokens;
     size_t pos = 0;
-    while ((pos = str.find(delim)) != string::npos) {
+    while ((pos = str.find(delim)) != std::string::npos) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + delim.length());
     }
