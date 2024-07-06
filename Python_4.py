@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -5,9 +6,9 @@ def main():
     while True:
         try:
             user_input = input("Enter a list of numbers separated by space: ")
-            if not user_input.strip() or user_input.lower() == 'q':  
-                print("Thank you for using this program!")
-                break
+            if not user_input.strip():  
+                print("Invalid input. Please enter some valid numbers.")
+                continue
             numbers = [float(num) for num in user_input.split()]
 
             # Check if all inputs can be converted to float
@@ -17,6 +18,7 @@ def main():
                 print("Please enter at least two numbers.")
             else:
                 print(mean_absolute_deviation(numbers))
+                break
         except ValueError as e:
             print(f"Invalid input: {e}")
 
