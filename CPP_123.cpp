@@ -2,10 +2,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b); 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == 0 && b.size() == 0) || (a.size() == b.size() && a == b);
-}
+};
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -34,6 +33,5 @@ int main() {
             std::cout << i << " ";
         }
         std::cout << std::endl;
-    }
+    };
     return 0;
-}
