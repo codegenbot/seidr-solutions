@@ -1,6 +1,3 @@
-Here is the solution to the problem:
-
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -41,8 +38,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 int main() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    vector<string> result = total_match(vec1,vec2);
-    if(result == vec1) cout << "Vector 1 is the smallest.\n";
-    else cout << "Vector 2 is the smallest or they are equal.\n";  
-    return 0;
+    if(total_match(vec1,vec2) == vec1)
+        cout << "total_match returned " << vec1.size() << " strings.\n";
+    else
+        cout << "total_match returned " << vec2.size() << " strings.\n";
 }
