@@ -1,24 +1,25 @@
 #include <string>
 #include <iostream>
-#include <cctype>
 
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool t = true;
-    bool f = false;
+    bool res = false;
+    string op;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') {
-            t = (i + 1 < s.length() && s[i+1] == '&') ? (t & (i+2<s.length() && s[i+2]=='t')) : ((i+2<s.length())&&(s[i+2]=='|'||s[i+2]=='f'))? t | true : false;
-            i += (s[i + 1] == '|') ? 2 : 1;
-        } else if (s[i] == 'f') {
-            f = (i + 1 < s.length() && s[i+1] == '&') ? (f & (i+2<s.length() && s[i+2]=='f')) : ((i+2<s.length())&&(s[i+2]=='|'||s[i+2]=='t'))? f | false : true;
-            i += (s[i + 1] == '|') ? 2 : 1;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'T' || s[i] == 't') {
+            res = (op == "|") ? true : res;
+            op = "";
+        } else if(s[i] == 'F' || s[i] == 'f') {
+            res = (op == "&") ? false : res;
+            op = "";
+        } else if(s[i] == '&' || s[i] == '|') {
+            op = (s[i] == '&') ? "&" : "|";
         }
     }
 
-    return t;
+    return res;
 }
 
 int main() {
@@ -31,5 +32,4 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-    return 0;
-}
+    return 0;}
