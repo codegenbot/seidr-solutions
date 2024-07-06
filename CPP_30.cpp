@@ -1,19 +1,34 @@
 #include <vector>
-#include <algorithm>
 #include <iostream>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
+        }
+    }
+    return result;
 }
 
 int main() {
-    std::vector<float> l = {1.0, 2.0, 3.0};
-    std::vector<float> m;
-    // Input from user
-    int n; std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        float x; std::cin >> x;
-        m.push_back(x);
+    std::vector<float> v = {1, -2, 3};
+    assert(std::all_of(v.begin(), v.end(), [](float x) { return x > 0; }));
+    std::cout << "Only positive numbers are: ";
+    for (float num : get_positive(v)) {
+        std::cout << num << " ";
     }
-    std::cout << std::boolalpha << issame(l, m) << std::endl;
+    std::cout << std::endl;
 }
