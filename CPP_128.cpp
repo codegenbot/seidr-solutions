@@ -1,15 +1,13 @@
-Problem: CPP/128
+```cpp
+long long prod_signs(vector<int> arr){
+    int sign_product = 1;
+    long long sum_of_magnitudes = 0;
 
-Given an array of integers, determine and return the product of signs and sum of magnitudes.
-If all numbers are zero then return -32768.
+    for(int num : arr){
+        if(num == 0) continue;
+        sign_product *= (num > 0 ? 1 : -1);
+        sum_of_magnitudes += abs(num);
+    }
 
-Task description:
-Complete the function prod_signs(vector<int> arr) that accepts a vector of integer values. The function should calculate the product of signs and sum of magnitudes in the input array. 
-
-The product of signs is calculated by considering each number in the array separately. 
-- If the number is positive, append 1 to the product of signs.
-- If the number is negative, append -1 to the product of signs.
-- If the number is zero, skip it.
-
-The sum of magnitudes is simply the sum of absolute values of all numbers in the array.
-If all numbers are zero then return -32768.
+    return (arr.empty()) ? -32768 : sign_product * sum_of_magnitudes;
+}
