@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "";
@@ -11,8 +12,9 @@ std::string decimal_to_binary(int decimal){
             binary.insert(0,"1");
         decimal /= 2;
     }
+    // Reverse the string
     std::string result = binary;
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return "db" + result + "db";
 }
 

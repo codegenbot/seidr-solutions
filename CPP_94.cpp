@@ -1,14 +1,5 @@
 int main(){
-    vector<int> lst;
-    int num;
-    cout << "Enter number of elements: ";
-    cin >> num;
-    cout << "Enter elements: ";
-    for(int i = 0; i < num; i++){
-        int temp;
-        cin >> temp;
-        lst.push_back(temp);
-    }
+    vector<int> lst = {2,3,4};
     int output = skjkasdkd(lst);
     cout << output;
 }
