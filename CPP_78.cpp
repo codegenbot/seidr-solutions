@@ -1,9 +1,10 @@
-int hex_key(string num) {
+using namespace std;
+
+int hex_key(const string& num) {
     int count = 0;
     for (char c : num) {
-        if (isxdigit(c)) {
+        if (!isxdigit(c)) { 
             count++;
         }
     }
     return count;
-}

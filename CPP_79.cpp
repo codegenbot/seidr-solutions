@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 std::string decimal_to_binary(int decimal){
     std::string binary = "";
     while(decimal > 0){
