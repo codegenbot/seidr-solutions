@@ -1,6 +1,4 @@
-#include <vector>
-#include <algorithm>
-
+```
 int findNextSmallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
     std::vector<int> sorted = lst;
