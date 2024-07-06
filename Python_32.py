@@ -1,7 +1,7 @@
-def find_zero(xs):
-    if len(xs) == 0:
-        raise ValueError("Input list must not be empty.")
-    for i in range(len(xs)):
-        if xs[i] == 0:
-            return i
-    raise ValueError("No zero found in the input list.")
+def find_zero(x):
+    if x > 0:
+        return -1
+    elif x < 0:
+        return 1
+    else:
+        return 0
