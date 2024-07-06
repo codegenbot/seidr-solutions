@@ -1,18 +1,5 @@
-```cpp
 #include <vector>
 #include <initializer_list>
-
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -26,12 +13,11 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-#include <cassert>
+bool arePilesEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> p = make_a_pile(n);
-    assert(isSame(p, {1,3,5,7,9}));
-    // Your additional code here
+    assert(arePilesEqual(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    // ...
 }
