@@ -1,5 +1,4 @@
-import re
-
-def fruit_distribution(s, n):
-    s = s.replace("apples", "0").replace("oranges", "0")
-    return n - int(int(re.search(r'\d+', s.split()[2]).group()))
+def fruit_distribution():
+    s = input()
+    n = sum(1 for _ in re.finditer(r'\D+', s))
+    return n - len(re.findall(r'0+', s))
