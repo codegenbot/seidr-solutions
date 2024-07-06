@@ -1,6 +1,6 @@
-
 def digits(n):
-    max_digit = max(map(int, str(abs(n))))
-    return 0 if n < 0 else max_digit
-
-assert digits(2468) == 8
+    if n < 0:
+        return len(str(-n)) - 1
+    else:
+        max_digit = max(map(int, str(abs(n))))
+        return max_digit
