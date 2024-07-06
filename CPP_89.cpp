@@ -5,9 +5,9 @@ string encrypt(string s) {
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c >= 'a' && c <= 'z') {
-            c = (c - 'a' + 4 * 2) % 26 + 'a';
+            c = ('a' + (c - 'a' + 4) % 26);
         } else if (c >= 'A' && c <= 'Z') {
-            c = (c - 'A' + 4 * 2) % 26 + 'A';
+            c = ('A' + (c - 'A' + 4) % 26);
         }
         result += c;
     }
