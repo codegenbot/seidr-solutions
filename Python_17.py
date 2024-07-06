@@ -15,5 +15,5 @@ def parse_music(music_string: str) -> List[int]:
             i += 2
         elif music_string[i:i + 3] == ".| ":
             music_list.append(1)
-            i += 4  # increment i here
+            i += 4
     return music_list
