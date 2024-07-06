@@ -20,7 +20,7 @@ vector<int> filterIntegers(vector<any> values) {
     return result;
 }
 
-int myMain() {  
+int myMain() {
     vector<any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     vector<int> output = filterIntegers(values);
     for (const auto& num : output) {
