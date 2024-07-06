@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -6,8 +5,6 @@ bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     return std::equal(a.begin(), a.end(), b.begin());
 }
-
-vector<int> sort_third(vector<int> l);
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
@@ -35,8 +32,12 @@ vector<int> sort_third(vector<int> l) {
     return result;
 }
 
+void printVector(vector<int> v) {
+    for(int i : v) cout << i << " ";
+}
+
 int main() {
     vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
     vector<int> res = sort_third(l);
-    for(int i : res) cout << i << " ";
+    printVector(res);
 }
