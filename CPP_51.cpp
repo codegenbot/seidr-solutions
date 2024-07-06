@@ -1,9 +1,10 @@
+Here is the solution:
+
 string remove_vowels(string text){
     string result = "";
     for(char c : text){
-        if(toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I' && toupper(c) != 'O' && toupper(c) != 'U'){
+        if(strchr("aeiouAEIOU", c) == NULL){
             result += c;
         }
     }
     return result;
-}
