@@ -1,15 +1,28 @@
-bool issame(vector<string> a,vector<string>b){
-    for(const auto &s : a){
-        if(std::find(b.begin(),b.end(),s)!=b.end())
+#include <vector>
+#include <string>
+
+// Function to compare two vectors for similarity
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (find(b.begin(), b.end(), a[i]) == b.end())
             return false;
     }
     return true;
 }
 
-int main(){
-    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    vector<string> result = filter_by_substring(strings, substring);
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+// Function to filter strings containing a given substring
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
+    for (const auto& str : strings) {
+        if(str.find(substring) != string::npos)
+            result.push_back(str);
+    }
+    return result;
+}
+
+int main() {
+    // Test the functions
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
