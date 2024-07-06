@@ -12,7 +12,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 using namespace std;
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+std::vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade;
@@ -39,7 +39,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         } else if (grade > 0.7) {
             letterGrade = "D";
         } else {
-            letterGrade = "F";
+            letterGrade = "E";
         }
         result.push_back(letterGrade);
     }
@@ -48,8 +48,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     vector<float> testGrades = {0, 0.7};
-    if (!issame(numerical_letter_grade(testGrades), vector<string>{ "E", "D-" })) {
-        cout << "Failed assertion!" << endl;
-    }
+    assert(issame(numerical_letter_grade(testGrades), {"E", "D-"}) && "wrong letter grade");
     return 0;
 }
