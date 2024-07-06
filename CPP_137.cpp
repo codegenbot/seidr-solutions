@@ -9,7 +9,7 @@ void compareOne(int x) {
     cin >> val2;
 }
 
-int originalMain() {
+int main() {
     cout << "Enter two values: ";
     int val1;
     cin >> val1;
@@ -43,10 +43,5 @@ int originalMain() {
 
     compareOne(val1);
 
-    return 0;
-}
-
-int main() {
-    originalMain();
     return 0;
 }
