@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 def fix_spaces(text):
     result = ''
     prev_was_space = True
