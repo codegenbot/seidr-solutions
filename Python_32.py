@@ -7,7 +7,6 @@ def find_zero(xs):
             return x
     return None
 
-
 def main():
     num = int(input("Enter a number: "))
     find_zero([num])
