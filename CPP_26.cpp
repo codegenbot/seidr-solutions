@@ -1,7 +1,10 @@
 bool issame(vector<int> a, vector<int>b) {
-    if(a.size() != b.size()) 
-        return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+    return (a.size() == b.size());
+}
+
+int main() {
+    vector<int> numbers = {1,2,3,4,5};
+    vector<int> result = remove_duplicates(numbers);
+    assert(issame(result, {1, 2, 3, 4, 5}));
+    return 0;
 }
