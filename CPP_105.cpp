@@ -3,10 +3,12 @@
 #include <string>
 
 bool issame(int a, int b) {
-    if (a == b)
+    if (a == 0 && b == 0)
         return true;
-    else
+    else if ((a >= 1 && a <= 9) && (b >= 1 && b <= 9))
         return false;
+    else
+        return a == b;
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -53,6 +55,12 @@ vector<string> by_length(vector<int> arr) {
                 break;
         }
         result.push_back(str);
+    }
+
+    for (int i = 0; i < numbers.size() - 1; i++) {
+        if (!issame(numbers[i], numbers[i + 1])) {
+            result.insert(result.end(), " ";
+        }
     }
 
     return result;
