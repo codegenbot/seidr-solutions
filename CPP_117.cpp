@@ -1,10 +1,6 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int select_words(string str, int n) {
     vector<string> result;
     for (auto i = 0; i < n; i++) {
@@ -21,4 +17,12 @@ int select_words(string str, int n) {
         result.push_back(word);
     }
     return result.size();
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    for (int i = 0; i < min(a.size(), b.size()); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return a.size() == b.size();
 }
