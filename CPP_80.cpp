@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 bool is_happy(string s) {
@@ -11,10 +13,21 @@ bool is_happy(string s) {
         for(char c : sub){
             if(find(sub.begin(), sub.end(), c) == sub.end())
                 unique = false;
-                break;
         }
         if(unique)
             return true;
     }
     return false;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    if(is_happy(str))
+        cout << "Happy" << endl;
+    else
+        cout << "Not Happy" << endl;
+    
+    return 0;
 }
