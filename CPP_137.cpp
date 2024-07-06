@@ -1,29 +1,40 @@
-```cpp
 #include <iostream>
-#include <vector>
-#include <any>
+#include <string>
+#include <limits>
+
 using namespace std;
 
-bool compare(any a, any b) {
-    if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string s1 = any_cast<string>(a);
-        string s2 = any_cast<string>(b);
-        return s1 == s2;
-    } else {
-        return false;
-    }
-}
-
 int main() {
-    std::any a, b;
-    if (std::cin >> a >> b) {
-        if (compare(a, b))
-            std::cout << "true\n";
-        else
-            std::cout << "false\n";
-    } else {
-        std::cerr << "Invalid input.\n";
-        return 1; // exit with error code
+    cout << "Enter two values: ";
+    int val1;
+    cin >> val1;
+
+    if (cin.fail()) {
+        cout << "Invalid input. Please enter an integer.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> val1;
+        if (cin.fail()) {
+            cout << "Invalid input again. Please enter a valid number.\n";
+        }
     }
+
+    cout << "Enter the second value: ";
+    string val2;
+    cin >> val2;
+
+    if (!val2.empty()) {
+        int num = stoi(val2);
+        if (val1 > num) {
+            cout << "The first number is bigger.\n";
+        } else if (val1 < num) {
+            cout << "The second number is bigger.\n";
+        } else {
+            cout << "Both numbers are equal.\n";
+        }
+    } else {
+        cout << "Please enter a valid value for the second number.\n";
+    }
+
     return 0;
 }
