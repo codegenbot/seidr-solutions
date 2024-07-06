@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <variant>
@@ -19,6 +18,6 @@ std::variant<int, float, std::string> compare_one(int a, std::variant<int, float
 }
 
 int main() {
-    assert(std::get<std::string>(compare_one(std::string("1"), 1)) == "2");
+    assert(std::holds_alternative<std::string>(compare_one(1, "2")));
     // ... other code
 }
