@@ -1,3 +1,7 @@
-```
 def anti_shuffle(s):
-    return ' '.join(word[::-1] for word in s.split())
+    words = s.split()
+    result = []
+    for word in words:
+        sorted_word = "".join(sorted(word))
+        result.append(sorted_word)
+    return " ".join(result)
