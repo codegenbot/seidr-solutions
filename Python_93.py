@@ -2,8 +2,8 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            # Shift the letter by 2 positions
-            result += chr((ord(char) - ord("A") + 2) % 26)
+            new_char = chr((ord(char) - ord("A") + 2) % 26 + ord("A"))
+            result += new_char
         else:
             result += char
     return result
