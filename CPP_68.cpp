@@ -1,35 +1,27 @@
-```cpp
-#include <iostream>
+#include <climits>
 #include <vector>
 
-std::vector<int> pluck(const std::vector<int>& arr) {
-    int minEvenValueIndex = -1;
-    int minEvenValue = INT_MAX;
+using namespace std;
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
-            minEvenValueIndex = i;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if(arr.empty()) return result;
+    
+    int minEven = INT_MAX;
+    int minIndex = -1;
+    for(int i = 0; i < arr.size(); i++) {
+        if(arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
+            minIndex = i;
         }
     }
-
-    if (minEvenValue != INT_MAX) {
-        return {minEvenValue, minEvenValueIndex};
-    }
-
-    return {};
+    
+    result.push_back({minEven, minIndex});
+    
+    return result;
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 6};
-    std::vector<int> result = pluck(numbers);
-
-    if (!result.empty()) {
-        std::cout << "The smallest even number is: " << result[0] << "\n";
-        std::cout << "Its index in the array is: " << result[1] << "\n";
-    } else {
-        std::cout << "There are no even numbers in the array.\n";
-    }
-
+    assert(pluck({7, 9, 7, 1}) == vector<pair<int,int>>());
     return 0;
 }
