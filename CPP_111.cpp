@@ -16,7 +16,7 @@ map<char, int> histogram(string test) {
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
             count++;
-            pos += 1; // skip the same character
+            pos += 1; 
         }
         if (count > 0) result[c] = count;
     }
