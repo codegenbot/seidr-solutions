@@ -1,29 +1,23 @@
+def minPath(grid, k):
+    # Initialize the minimum path and its length
+    min_path = []
+    min_length = float("inf")
 
-def get_neighbors(grid, cell):
-    # Get the row and column of the current cell
-    row, col = cell
+    # Initialize the queue with all possible starting cells
+    queue = [(cell, 0) for cell in grid[0]]
 
-    # Initialize a list to store the neighbors
-    neighbors = []
+    while queue:
+        # Get the next cell and its current path length
+        cell, length = queue.pop(0)
 
-    # Check if the cell has a neighbor above it
-    if row > 0:
-        # Add the neighbor above to the list
-        neighbors.append(grid[row-1][col])
+        # If the current path length is less than the minimum path length, update the minimum path and length
+        if length < min_length:
+            min_path = [cell]
+            min_length = length
 
-    # Check if the cell has a neighbor below it
-    if row < len(grid)-1:
-        # Add the neighbor below to the list
-        neighbors.append(grid[row+1][col])
+        # If the current cell is not the last cell in the grid, add its neighboring cells to the queue
+        if cell != grid[-1][-1]:
+            for neighbor in get_neighbors(grid, cell):
+                queue.append((neighbor, length + 1))
 
-    # Check if the cell has a neighbor to its left
-    if col > 0:
-        # Add the neighbor to the left to the list
-        neighbors.append(grid[row][col-1])
-
-    # Check if the cell has a neighbor to its right
-    if col < len(grid[0])-1:
-        # Add the neighbor to the right to the list
-        neighbors.append(grid[row][col+1])
-
-    return neighbors
+    return min_path
