@@ -7,8 +7,7 @@ num_bounces = int(input())
 last_height = first_bounce_height
 distance = 0
 for _ in range(num_bounces):
-    start_height = last_height * (1 - bounciness_index) * 2  
-    distance += start_height
-    last_height = start_height
+    last_height = last_height * (1 - bounciness_index) * 2  
+    distance += last_height
 
 print(round(distance, 5))
