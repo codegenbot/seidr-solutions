@@ -1,8 +1,9 @@
+```
 def longest_file_line(input_file: str) -> Optional[str]:
     if not input_file:
         return None
     if " " in input_file or any(not c.isprintable for c in input_file):
-        return None
+        return None  
     max_length = 0
     longest_line = None
     with open(input_file, "r") as f:
