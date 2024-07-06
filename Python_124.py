@@ -1,5 +1,6 @@
 ```
-def valid_date(date):
+def valid_date():
+    date = input("Enter the date in YYYY-MM-DD format: ")
     day, month, year = date.split('-')
     if len(day) < 1 or len(month) < 1 or len(year) < 4:
         return False
