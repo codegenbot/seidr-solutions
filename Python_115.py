@@ -1,4 +1,3 @@
-
 def max_fill(grid: list[list[int]], capacity: int) -> int:
     rows = len(grid)
     cols = len(grid[0])
