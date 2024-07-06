@@ -7,4 +7,3 @@ bool correct_bracketing(std::string brackets) {
         else return false;
     }
     return count == 0;
-}
