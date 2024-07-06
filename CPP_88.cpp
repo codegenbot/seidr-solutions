@@ -13,9 +13,9 @@ vector<int> sort_array(vector<int> array) {
     vector<int> result = array;
 
     if (sum % 2 == 0) {
-        sort(result.begin(), result.end(), greater<int>());
-    } else {
         sort(result.begin(), result.end());
+    } else {
+        sort(result.begin(), result.end(), greater<int>());
     }
 
     return result;
