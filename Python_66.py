@@ -1,3 +1,4 @@
+```
 def check(n: int) -> str:
     digit_sum = sum(int(digit) for digit in str(n))
     if digit_sum % 3 == 0:
@@ -5,5 +6,4 @@ def check(n: int) -> str:
     else:
         return "NO"
 
-n = int(input("Enter an integer: "))
-print(check(n))
+print(check(int(input("Enter an integer: "))))
