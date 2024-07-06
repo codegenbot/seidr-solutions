@@ -1,2 +1,10 @@
 def decode_shift(s: str):
-    return "".join([chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch for ch in s])
+    result = ""
+    shift = int(input("Enter the shift value: "))
+    for ch in s:
+        if ch.isalpha():
+            ascii_offset = 97 if ch.islower() else 65
+            result += chr((ord(ch) - ascii_offset - shift) % 26 + ascii_offset)
+        else:
+            result += ch
+    return result
