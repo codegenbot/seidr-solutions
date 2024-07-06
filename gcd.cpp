@@ -26,8 +26,8 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     cin >> a >> b;
-    int gcdResult = gcd(a, b);
-    cout << gcdResult << "\n";
+    cout << "\n";
+    cout << gcd(a, b) << "\n";
 
     string text;
     string target;
