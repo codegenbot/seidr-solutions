@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
     std::vector<std::string> result;
@@ -15,5 +14,9 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b){
-    return (a == b);
+    if(a.size() != b.size()) return false; 
+    for (int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
