@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool sameVectors(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector a, std::vector b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +13,8 @@ bool sameVectors(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
-    std::vector<float> result;
+std::vector get_positive(std::vector l, std::vector v = {}) {
+    std::vector result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
@@ -24,7 +24,7 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
 }
 
 int main() {
-    std::vector<float> v = {1.0, -2.0, 3.0};
+    std::vector v = {1, -2, 3};
     std::cout << "Only positive numbers are: ";
     for (float num : get_positive(v)) {
         std::cout << num << " ";
