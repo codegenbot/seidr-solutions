@@ -1,7 +1,7 @@
 ```
-first_bounce_height = float(input("Enter height after the first bounce: "))
 start_height = float(input("Enter starting height: "))
-bounciness_index = (first_bounce_height - start_height) / start_height
+first_bounce_height = float(input("Enter height after first bounce: "))
+bounciness_index = first_bounce_height / start_height
 
 distance = 0
 height = start_height
