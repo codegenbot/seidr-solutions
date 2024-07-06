@@ -15,9 +15,9 @@ bool below_zero(std::vector<std::string> operations) {
 
 int main() {
     std::vector<std::string> operations;
-    
-    // Read the number of operations from user
     int num_operations;
+
+    // Read the number of operations from user
     std::cout << "Enter the number of operations: ";
     std::cin >> num_operations;
 
