@@ -1,6 +1,13 @@
-from typing import Optional, List
+```
+from typing import List, Union
 
-def longest(strings: List[str]) -> Optional[str]:
+"def longest(strings: List[str]) -> Union[str, None]:"
     if not strings:
         return None
-    return max(strings, key=len)
+    max_length = 0
+    result = strings[0]
+    for s in strings:
+        if len(s) > max_length:
+            max_length = len(s)
+            result = s
+    return result"
