@@ -2,21 +2,25 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); ++i)
-        if(a[i] != b[i]) return false;
-    return true;
-}
-
-int main(){
-    vector<string> strings = {"apple", "banana", "cherry", "date"};
-    string substring = "e";
-    vector<string> result = filter_by_substring(strings, substring);
+    if(a.size() != b.size())
+        return false;
     
-    for(string s : result)
-        cout << s << endl;
+    for(int i = 0; i < a.size(); i++){
+        int indexA = a[i].find(substring);
+        int indexB = b[i].find(substring);
         
-    return 0;
+        if(indexA == string::npos || indexB == string::npos){
+            if(indexA != string::npos && indexB == string::npos)
+                return false;
+            else
+                continue;
+        }
+        
+        if(indexA != indexB)
+            return false;
+    }
+    
+    return true;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
