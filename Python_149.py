@@ -1,7 +1,2 @@
-
 def sorted_list_sum(lst):
-    result = []
-    for word in lst:
-        if len(word) % 2 == 0:
-            result.append(word)
-    return sorted(result, key=len)
+    return sorted(lst, key=lambda x: (len(x) % 2 == 0, -len(x)))
