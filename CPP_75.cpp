@@ -1,21 +1,24 @@
-#include <cmath>
-
 bool is_multiply_prime(int a) {
     for (int i = 2; i * i <= a; ++i) {
-        if (a % i == 0) {
-            int j = 1;
-            while (i*j <= a) {
-                k = 1;
-                while (i*j*k <= a) {
-                    if (i*j*k == a) {
-                        return false;
+        for (int j = 1; j * i <= a; ++j) {
+            int k = 1;
+            while (i*j*k <= a) {
+                if (i * j * k == a) {
+                    int prime = true;
+                    for (int x = 2; x <= sqrt(a); ++x) {
+                        if ((i % x == 0) || (j % x == 0)) {
+                            prime = false;
+                            break;
+                        }
                     }
-                    k++;
+                    return prime;
                 }
-                j++;
+                else if (i * j * k > a) {
+                    return true; // No perfect or non-perfect cube division
+                }
+                k++;
             }
-            return false;
         }
     }
-    return true;
+    return true; // No such division is found
 }
