@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -7,10 +6,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) {
-        cout << "Error: Vector is empty" << endl; 
-        return vector<int>(); 
-    }
+    if (array.empty()) 
+        return array; 
+
     int sum = 0;
     for (int i : array) {
         sum += i;
