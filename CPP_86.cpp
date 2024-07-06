@@ -2,7 +2,7 @@
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
-    string result = "";
+    std::string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == ' ') {
             result += " ";
@@ -13,8 +13,12 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                result += to_string(c);
-            }
+                if (c >= 'a' && c <= 'z') 
+                    result += ('a' + (c - 'a') % 13);
+                else if (c >= 'A' && c <= 'Z')
+                    result += ('A' + (c - 'A') % 13);
+                else
+                    result += c;
         }
     }
     return result;
