@@ -1,10 +1,10 @@
-def fruit_distribution(s,n):
-    s = s.split()
-    n = int(n)
+```
+def fruit_distribution(s, n):
+    words = s.split()
     count_apples = 0
-    for i in range(len(s)):
-        if s[i] == 'apples' or s[i] == 'apple':
-            try:
-                count_apples = int(s[i-1])
-            except ValueError:
-                return n - count_apples
+    for word in words:
+        if "apples" in word:
+            count_apples += int(''.join(filter(str.isdigit, word)))
+    if not count_apples:
+        return n - 0
+    return n - count_apples
