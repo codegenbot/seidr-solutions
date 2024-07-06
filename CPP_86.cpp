@@ -1,19 +1,25 @@
-string anti_shuffle(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
+#include <string>
+
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == ' ') {
-            result += " ";
+            result += ' ';
+            i++;
         } else {
-            string word;
+            string word = "";
             while (i < s.length() && s[i] != ' ') {
                 word += s[i];
                 i++;
             }
-            sort(word.begin(), word.end());
-            result += word;
+            for (char c : word) {
+                result += c;
+            }
+            if (i < s.length()) {
+                result += ' ';
+            }
         }
-        // Fix: Increment i after processing each word
-        i--;
     }
     return result;
 }

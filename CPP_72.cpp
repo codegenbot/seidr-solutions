@@ -1,7 +1,7 @@
 #include <cassert>
 #include <string>
 
-bool will_it_fly(vector<int> q,int w){
+bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for(int i:q)str+=to_string(i);
     if(str!=string(rbegin(str),rend(str)))return false;
@@ -11,7 +11,6 @@ bool will_it_fly(vector<int> q,int w){
 }
 
 int main() {
-    assert (will_it_fly({5}, 5) == true);
-    // Add more test cases as needed
+    assert(will_it_fly({5}, 5) == true);
     return 0;
 }

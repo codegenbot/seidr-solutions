@@ -1,7 +1,9 @@
 #include <vector>
+#include <climits>
+
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -12,7 +14,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
-    
+
     int minEven = INT_MAX;
     int index = 0;
     for (int i = 0; i < arr.size(); i++) {
@@ -21,7 +23,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
             index = i;
         }
     }
-    
+
     result.push_back({minEven, index});
     return result;
 }

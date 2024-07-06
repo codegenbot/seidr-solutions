@@ -1,12 +1,13 @@
-vector<int> sort_array(vector<int> array){
-    int sum = array[0] + array[array.size()-1];
-    if(sum % 2 == 0) {
-        vector<int> sortedArray = array;
-        sort(sortedArray.begin(), sortedArray.end(), greater<int>());
-        return sortedArray;
-    } else {
-        vector<int> sortedArray = array;
-        sort(sortedArray.begin(), sortedArray.end());
-        return sortedArray;
-    }
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> sort_array(vector<int> array) {
+    int sum = array[0] + array.back();
+    if (sum % 2 == 1)
+        return vector<int>(array.begin(), array.end());
+    else
+        return vector<int>(array.rbegin(), array.rend());
 }
