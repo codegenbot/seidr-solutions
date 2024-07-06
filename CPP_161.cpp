@@ -1,15 +1,27 @@
-#include <algorithm>
-using namespace std;
+#include <iostream>
+#include <string>
+#include <cctype>
 
-string solve(string s) {
-    string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? c + ('A' - 'a') : c + ('a' - 'A');
-        } else {
+std::string solve(std::string s) {
+    std::string result = "";
+    for(int i = 0; i < s.length(); i++){
+        if(isalpha(s[i])){
+            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
             result += c;
         }
+        else{
+            result += s[i];
+        }
     }
-    reverse(result.begin(), result.end());
-    return s.empty() ? string(1, c) : result;
+    return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    std::cout << solve(input) << std::endl;
+    
+    return 0;
 }
