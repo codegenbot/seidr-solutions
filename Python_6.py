@@ -1,7 +1,8 @@
-```Python
-from typing import List
+def main():
+    s = input("Enter a string with nested parentheses: ")
+    print(parse_nested_parens(s))
 
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> None:
     result = []
     stack = 0
     max_level = 0
@@ -22,7 +23,10 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             result.append(current_level)
             current_level = 0
     
-    return result
+    if stack == 0:
+        result.append(max_level)
+    
+    print(result)
 
-paren_string = input("Enter a string of parentheses: ")
-print(parse_nested_parens(paren_string))
+if __name__ == "__main__":
+    main()
