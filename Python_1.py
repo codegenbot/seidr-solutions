@@ -7,7 +7,7 @@ def separate_paren_groups(paren_string):
             depth += 1
         elif paren_string[i] == ")":
             depth -= 1
-            if depth == 0 and start < len(paren_string):
+            if depth == 0 and start < i:
                 result.append(paren_string[start : i + 1])
                 start = i + 1
     return result
