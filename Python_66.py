@@ -1,11 +1,10 @@
-def sum_of_digits(n):
-    return sum(int(digit) for digit in str(n))
-
-def check(digit_sum):
+```
+def check(n: int) -> str:
+    digit_sum = sum(int(digit) for digit in str(n))
     if digit_sum % 3 == 0:
         return "YES"
     else:
         return "NO"
 
-input_value = int(input())
-print(check(sum_of_digits(input_value)))
+n = int(input("Enter an integer: "))
+print(check(n))
