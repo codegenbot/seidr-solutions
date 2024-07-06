@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     if(a.size() != b.size()) {
@@ -56,6 +57,5 @@ vector<vector<string>> by_length(const vector<int>& arr) {
 }
 
 int main() {
-    assert(issame(by_length({1,4,8}) , {"One","Four","Eight"}));
-    return 0;
+    assert(issame(by_length({1, 4, 8}), {"One", "Four", "Eight"}));
 }
