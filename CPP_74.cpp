@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -39,20 +40,24 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 vector<string> testMain() {
     vector<string> vec1;
     vector<string> vec2;
-    int n1,n2;
-    cin >> n1 >> n2;
-    
-    for(int i=0;i<n1;i++) {
-        string s;
-        cin >> s;
-        vec1.push_back(s);
+    cout << "Enter strings for vec1 (separated by spaces): ";
+    string temp;
+    getline(cin, temp);
+    size_t pos = 0;
+    while ((pos = temp.find(" ")) != std::string::npos) {
+        vec1.push_back(temp.substr(0, pos));
+        temp.erase(0, pos + 1);
     }
-    
-    for(int i=0;i<n2;i++) {
-        string s;
-        cin >> s;
-        vec2.push_back(s);
+    vec1.push_back(temp);
+
+    cout << "Enter strings for vec2 (separated by spaces): ";
+    getline(cin, temp);
+    pos = 0;
+    while ((pos = temp.find(" ")) != std::string::npos) {
+        vec2.push_back(temp.substr(0, pos));
+        temp.erase(0, pos + 1);
     }
-    
+    vec2.push_back(temp);
+
     return total_match(vec1,vec2);
 }
