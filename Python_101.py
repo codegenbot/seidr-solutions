@@ -1,4 +1,4 @@
-def words_string():
+def words_string(s):
     inp = input("Enter a string: ")
     words = re.split(r"\s+", inp)
     if len(words) == 1:
