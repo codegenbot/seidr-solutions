@@ -2,28 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string>, vector<string>) {
-    // implementation for this function
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-    
-    std::vector<string> result = by_length(arr);
-    
-    for (const auto& str : result) {
-        std::cout << str << " ";
-    }
-    return 0;
-}
-
-std::vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             temp.push_back(i);
@@ -31,9 +11,9 @@ std::vector<string> by_length(vector<int> arr) {
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i : temp) {
-        string str = "";
+        std::string str = "";
         switch (i) {
             case 1:
                 str = "One";
