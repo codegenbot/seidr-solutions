@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <ostream>
 
 using namespace std;
 
@@ -41,3 +41,4 @@ int main() {
     cout << endl;
 
     return 0;
+}
