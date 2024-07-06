@@ -1,25 +1,24 @@
-```
+Here's the modified code:
+
+```python
 from typing import List
 
 def has_close_elements() -> bool:
     found_close_elements = False
-
     while True:
+        numbers = input("Enter space-separated numbers: ")
         try:
-            numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
+            numbers = [float(num) for num in numbers.split()]
             break
         except ValueError:
             print("Invalid input! Please enter numeric values separated by spaces.")
 
     while True:
-        try:
-            threshold = float(input("Enter a number to determine close elements: "))
-            if 0 < threshold:
-                break
-            else:
-                print("Please enter a positive number for the threshold.")
-        except ValueError:
-            print("Invalid input! Please enter a numeric value.")
+        threshold = float(input("Enter a number to determine close elements: "))
+        if 0 < threshold:
+            break
+        else:
+            print("Please enter a positive number for the threshold.")
 
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
@@ -29,5 +28,23 @@ def has_close_elements() -> bool:
 
     cont = input("Do you want to check another set of numbers? (y/n): ")
     while cont.lower() != 'n':
-        pass
+        numbers = input("Enter space-separated numbers: ")
+        try:
+            numbers = [float(num) for num in numbers.split()]
+        except ValueError:
+            print("Invalid input! Please enter numeric values separated by spaces.")
+        while True:
+            threshold = float(input("Enter a number to determine close elements: "))
+            if 0 < threshold:
+                break
+            else:
+                print("Please enter a positive number for the threshold.")
+
+        found_close_elements = False
+        for i in range(len(numbers)):
+            for j in range(i + 1, len(numbers)):
+                if abs(numbers[i] - numbers[j]) <= threshold:
+                    found_close_elements = True
+                    break
+
     return found_close_elements
