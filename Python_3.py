@@ -10,7 +10,7 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 
-def below_zero():
+def main():
     operations = []
     while True:
         operation = input("Enter an operation (or 'stop' if done): ")
@@ -23,4 +23,4 @@ def below_zero():
             print("Invalid input. Please enter a number or type 'stop'.")
     return below_zero(operations)
 
-print(below_zero())
+print(main())
