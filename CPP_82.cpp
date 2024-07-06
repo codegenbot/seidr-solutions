@@ -1,4 +1,6 @@
-bool prime_length(string str){
+#include <string>
+
+bool prime_length(std::string str) {
     int n = str.length();
     bool isPrime = true;
 
