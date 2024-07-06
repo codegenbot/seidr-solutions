@@ -1,10 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <iostream>
-#include <cassert>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -35,6 +31,7 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
 
 int main() {
     assert(issame(get_positive({1, 2, 3}, {4, 5, 6}), {2, 3, 6}));
+    std::cout << "Vectors are not same.\n";
     std::cout << "Only positive numbers are: ";
     for (float num : get_positive({1, 2, 3}, {4, 5, 6})) {
         std::cout << num << " ";
