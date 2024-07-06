@@ -18,7 +18,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(str);
     }
     return result;
-}
 
 int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
