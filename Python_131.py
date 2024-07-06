@@ -1,5 +1,9 @@
+
 def digits(n):
     if n < 0:
-        return '0'
+        return len(str(-n))
+    elif n == 0:
+        return 0
     else:
-        return str(max(map(int, str(abs(n))), key=lambda x: x[0]))
+        max_digit = max(map(int, str(abs(n))))
+        return max_digit
