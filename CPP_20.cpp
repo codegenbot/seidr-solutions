@@ -1,5 +1,16 @@
-if (a.size() != b.size())
+bool isSame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size())
         return false;
-    auto equal_pred = [&](float x, float y){return std::abs(x - y) <= std::numeric_limits<float>::epsilon();};
-    return std::equal(a.begin(), a.end(), b.begin(), b.end(), equal_pred);
+    for (int i = 0; i < a.size(); ++i)
+        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon())
+            return false;
+    return true;
+}
+
+float findClosestElements(std::vector<float> v) {
+    float minDiff = std::numeric_limits<float>::max();
+    for (int i = 0; i < v.size() - 1; ++i)
+        if (std::abs(v[i] - v[i + 1]) < minDiff)
+            minDiff = std::abs(v[i] - v[i + 1]);
+    return minDiff;
 }
