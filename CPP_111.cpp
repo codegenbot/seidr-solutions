@@ -1,8 +1,3 @@
-#include <string>
-#include <map>
-
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
@@ -26,13 +21,13 @@ map<char, int> histogram(string test) {
     map<char, int> maxCountMap;
     int maxCount = 0;
 
-    for (auto& pair : result) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
             maxCountMap.clear();
-            maxCountMap[pair.first] = pair.second;
-        } else if (pair.second == maxCount) {
-            maxCountMap[pair.first] = pair.second;
+            maxCountMap[it->first] = it->second;
+            maxCount = it->second;
+        } else if (it->second == maxCount) {
+            maxCountMap[it->first] = it->second;
         }
     }
 
