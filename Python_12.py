@@ -3,10 +3,15 @@ from typing import Optional
 
 
 def longest_file_line(input_file: str) -> Optional[str]:
-    if not input_file:
-        return None
     max_length = 0
     longest_line = None
+
+    print("Enter the path to the file:")
+    input_file = input()
+
+    if not input_file:
+        return None
+
     try:
         with open(input_file, "r") as f:
             for line in f:
@@ -14,14 +19,7 @@ def longest_file_line(input_file: str) -> Optional[str]:
                     max_length = len(line.strip())
                     longest_line = line.strip()
     except FileNotFoundError:
-        print("File not found.")
         return None
     except IOError:
-        print("Error reading file. Please check permissions.")
         return None
-    if longest_line is None:
-        return "File is empty."
-    else:
-        return longest_line
-
-print(longest_file_line("path_to_your_file.txt"))
+    return longest_line if longest_line is not None else ""
