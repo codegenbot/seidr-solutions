@@ -10,5 +10,5 @@ if __name__ == "__main__":
             substring = input("Enter a substring to search: ")
             if not substring:
                 break
-            result = filter_by_substring(strings, substring)
+            result = [s for s in strings if substring in s]
             print(result)
