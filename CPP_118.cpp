@@ -1,11 +1,18 @@
 string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
-    int left = 0;
-    for (int i = word.size() - 1; i >= 0; --i) {
-        if (!ispunct(word[i]) && !isalpha(word[i])) break;
-        if (vowels.find(toupper(word[i])) != string::npos)
-            return word.substr(left, i - left + 1);
-        left = i + 1;
+    int left = 0, right = word.size() - 1;
+    while (left < right) {
+        if (!isvowel(word[left])) {
+            ++left;
+        } else if (!isvowel(word[right])) {
+            --right;
+        } else {
+            return word.substr(left + 1, right - left - 1);
+        }
     }
     return "";
+}
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
