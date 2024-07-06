@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,7 +6,7 @@ std::string encrypt(std::string s) {
     for (char c : s) {
         if (isalpha(c)) {
             char baseChar = isupper(c) ? 'A' : 'a';
-            c = ((c - baseChar + 3) % 26) + baseChar;
+            c = ((c - baseChar + 2 * 26) % 26) + baseChar;
         }
         result += c;
     }
