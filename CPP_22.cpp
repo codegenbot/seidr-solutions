@@ -1,5 +1,5 @@
 #define BOOST_ALL_DYN_LINK 1
-#include <boost/version.hpp>
+#include <boost/config.hpp>
 
 #include <vector>
 #include <list>
