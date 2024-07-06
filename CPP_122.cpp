@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -34,3 +35,4 @@ int main() {
     std::cout << "The sum of the elements is: " << result << std::endl;
 
     return 0;
+}
