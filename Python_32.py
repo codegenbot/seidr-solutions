@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     left_sum = 0
     right_sum = sum(xs[len(xs)//2+1:])
