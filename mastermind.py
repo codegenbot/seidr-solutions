@@ -8,8 +8,8 @@ def mastermind():
     for i, c in enumerate(guess):
         if c == code[i]:
             black += 1
-            del code[i]
-            del guess[i]
+            code.pop(i)
+            guess.pop(i)
         else:
             if c in code:
                 white += 1
