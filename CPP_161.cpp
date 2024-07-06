@@ -1,20 +1,15 @@
+```
 #include <string>
 #include <cctype>
 
-std::string solve(std::string s){
+std::string solve(std::string s) {
     std::string result;
     for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+        if(std::isalpha(s[i])){
+            result += (std::tolower(s[i]) <= 'z') ? std::toupper(s[i]) : std::tolower(s[i]);
         } else {
             result += s[i];
         }
     }
     return result;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    // Add more test cases as needed
-    return 0;
 }
