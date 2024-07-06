@@ -1,28 +1,30 @@
 def minPath(grid, k):
-    # Initialize the minimum path and its length
-    min_path = []
-    min_length = float("inf")
+    # Initialize variables
+    n = len(grid)
+    m = len(grid[0])
+    path = []
+    visited = set()
 
-    # Initialize the current position and the visited cells
-    current_position = (0, 0)
-    visited_cells = set()
+    # Start from the top-left corner
+    i = 0
+    j = 0
 
-    # Loop until we have visited all the cells or reached the maximum length
-    while len(visited_cells) < len(grid) ** 2 and min_length > k:
-        # Get the neighbors of the current position
-        neighbors = get_neighbors(current_position, grid)
+    # Loop until we have visited all cells or reached the end of the path
+    while len(path) < k and i < n and j < m:
+        # Add the current cell to the path
+        path.append(grid[i][j])
+        visited.add((i, j))
 
-        # Loop through the neighbors and update the minimum path and its length
-        for neighbor in neighbors:
-            if neighbor not in visited_cells:
-                visited_cells.add(neighbor)
-                current_path = min_path + [grid[neighbor]]
-                current_length = len(current_path)
-                if current_length < min_length:
-                    min_path = current_path
-                    min_length = current_length
+        # Find the next cell in the path
+        next_cell = None
+        for x in range(max(0, i - 1), min(n, i + 2)):
+            for y in range(max(0, j - 1), min(m, j + 2)):
+                if (x, y) not in visited:
+                    next_cell = (x, y)
+                    break
+            if next_cell is not None:
+                break
+        i, j = next_cell
 
-        # Update the current position
-        current_position = neighbors[-1]
-
-    return min_path
+    # Return the path
+    return path
