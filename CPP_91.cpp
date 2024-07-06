@@ -11,4 +11,3 @@ int is_bored(string S){
         S.erase(0, pos + 1);
     }
     return count;
-}
