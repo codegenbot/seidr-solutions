@@ -1,4 +1,3 @@
-
 def eat(number, need):
     total = number + need
     if total > 10:
