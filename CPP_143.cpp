@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 
-string words_in_sentence(string sentence){
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int i = 0;
     while(i < sentence.size()){
         int j = i + 1;
@@ -9,7 +10,7 @@ string words_in_sentence(string sentence){
             j++;
         }
         if(j > i){
-            string word = sentence.substr(i, j - i);
+            std::string word = sentence.substr(i, j - i);
             bool is_prime = true;
             for(int k = 2; k*k <= stol(word); k++){
                 if(stol(word) % k == 0){
@@ -23,4 +24,9 @@ string words_in_sentence(string sentence){
         i = j;
     }
     return result;
+}
+
+int main() {
+    std::cout << words_in_sentence("here is") << std::endl;
+    return 0;
 }
