@@ -1,5 +1,12 @@
+#include <iostream>
 #include <vector>
-using namespace std;
+
+long long minSubArraySum(std::vector<long long> nums);
+
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
+    return 0;
+}
 
 long long minSubArraySum(vector<long long> nums){
     long long sum = 0;
@@ -15,10 +22,4 @@ long long minSubArraySum(vector<long long> nums){
     }
 
     return min_sum;
-}
-
-int main() {
-    assert(minSubArraySum({1, -1}) == -1);
-    // Test your function with different inputs here
-    return 0;
 }
