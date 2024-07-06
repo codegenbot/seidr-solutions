@@ -1,8 +1,5 @@
-Here is the solution:
-
-def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    a = xs[n // 2]
-    return -a / xs[0]
+def find_zero(xs):
+    x1 = int(input("Enter first number: "))
+    x2 = int(input("Enter second number: "))
+    n = (x1 + x2) // 2
+    return -n / x2
