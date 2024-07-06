@@ -1,11 +1,12 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b);
+bool issame(vector<string> a, vector<string> b);
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 // Function definitions
-bool issame(vector<string> a,vector<string>b){
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size();i++)
@@ -23,9 +24,11 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 
 }
+
 int main() {
     vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     string substring = "run";
-    assert (issame(filter_by_substring(strings, substring) ,vector<string> {strings[0], strings[2]}));
+    vector<string> expected = {"grunt", "prune"};
+    assert (issame(filter_by_substring(strings, substring) ,expected));
     return 0;
 }
