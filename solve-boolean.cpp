@@ -1,4 +1,3 @@
-```cpp
 int main() {
     string s;
     cout << "Enter a Boolean expression: ";
