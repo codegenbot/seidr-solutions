@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -18,9 +16,7 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-int main() {
+void main() {
     std::vector<int> arr = {1, 2, 3};
     int result = smallest_change(arr);
-    std::cout << "The number of smallest changes is: " << result << std::endl;
-    return 0;
 }
