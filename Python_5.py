@@ -1,10 +1,7 @@
-```
+```Python
 def intersperse(lst, delimiter):
-    result = [delimiter]
-    for item in lst:
-        result.extend([item, delimiter])
-    result.pop()
-    return result
+    result = [delimiter.join(map(str, lst))]
+    return [item + delimiter for item in result[0].split(delimiter)]
 
 input_numbers = input("Enter a list of integers separated by commas: ")
 numbers = [int(num) for num in input_numbers.split(",")]
@@ -16,5 +13,5 @@ while True:
     except ValueError:
         print("Error: Invalid input for delimiter. Please try again.")
 
-output = intersperse([int(num) for num in numbers], str(delimiter))
+output = intersperse(numbers, str(delimiter))
 print(output)
