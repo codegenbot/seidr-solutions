@@ -7,10 +7,6 @@ def minPath(grid, k):
     path = []
 
     while queue:
-        # Check if the queue is empty
-        if not queue:
-            return []
-
         # Pop the first element from the queue
         i, j = queue.pop(0)
 
@@ -26,5 +22,7 @@ def minPath(grid, k):
 
     # Return the path
     for i in range(k):
+        if len(queue) == 0:
+            return []
         path.append(queue[i].pop())
     return path
