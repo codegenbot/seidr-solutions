@@ -14,16 +14,26 @@ std::string get_closest_vowel(std::string word) {
         } else if (!isvowel(word[right])) {
             --right;
         } else {
-            return word.substr(left, min(right - left + 1, string::npos));
+            return isVowelCloserToTheStart(word, left, right) ? word.substr(0, left) : word.substr(right + 1);
         }
     }
-    return (isvowel(word[0])) ? word : (isvowel(word[word.size() - 1])) ? word.substr(word.size() - 1) : "";
+    return isVowelInWord(word) ? std::to_string(word[0]) : " ";
 }
 
-#include <algorithm>
-using namespace std;
+bool isVowelInWord(std::string word) {
+    for (char c : word) {
+        if (isvowel(c)) {
+            return true;
+        }
+    }
+    return false;
+}
 
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    return 0;
+bool isVowelCloserToTheStart(std::string word, int left, int right) {
+    for (int i = 0; i <= right - left; i++) {
+        if (isvowel(word[left + i])) {
+            return true;
+        }
+    }
+    return false;
 }

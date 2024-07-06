@@ -1,14 +1,10 @@
 #include <vector>
-using namespace std;
-
-bool isPrime(int n);
-
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst) {
     int sum = 0;
-    vector<int>::iterator it;
+    std::vector<int>::iterator it;
     for(it=lst.begin();it!=lst.end();++it)
     {
-        if(!isPrime(*it)) continue; // Skip non-prime numbers
+        if(!isPrime(*it)) continue; 
         int n = *it;
         while(n > 0) 
         {
