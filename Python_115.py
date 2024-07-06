@@ -1,5 +1,4 @@
-Here is the completed code:
-
 def max_fill(grid, capacity):
-    total_water = sum(sum(row) for row in grid)
-    return math.ceil(total_water / capacity)
+    return sum(
+        (grid[i].count(1) + (capacity - 1)) // capacity for i in range(len(grid))
+    )
