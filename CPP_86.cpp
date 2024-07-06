@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -36,7 +35,7 @@ int main() {
     if (s.empty()) {
         cout << "Anti-Shuffle of input sentence is: " << "" << endl;
     } else {
-        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) + " " << endl;
     }
     return 0;
 }

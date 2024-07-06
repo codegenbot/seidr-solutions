@@ -3,15 +3,14 @@
 #include <sstream>
 
 int main() {
-    std::string inputStr;
-    std::getline(std::cin, inputStr);
-    std::istringstream in(inputStr);  
-
-    // Then use this encrypt function:
-    std::string encrypt(std::istringstream s) {
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::cin >> input; 
+    
+    std::string encrypt(std::string s) {  
         std::string result = "";  
-        for(int i=0; i<s.str().length(); i++){
-            char c = s.str()[i];
+        for(int i=0; i<s.length(); i++){
+            char c = s[i];
             if(c >= 'a' && c <= 'z'){
                 c = (c - 'a' + 3) % 26 + 'a';
             } else if(c >= 'A' && c <= 'Z'){
@@ -22,7 +21,6 @@ int main() {
         return result;
     }
 
-    // Now you can call this function:
-    std::string encrypted = encrypt(in);
+    std::string encrypted = encrypt(input);
     std::cout << "Encrypted: " << encrypted << std::endl;
 }
