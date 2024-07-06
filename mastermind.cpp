@@ -1,6 +1,8 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
+
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
@@ -11,10 +13,18 @@ int main() {
         for (int i = 0; i < code.length(); i++) { // iterate through characters of "code" and "guess"
             if (code[i] == guess[i]) { // if characters match, increment blackPegs
                 blackPegs++;
-            } else if (code.find(guess[i]) != string::npos) { // if character in "code" is found in "guess", increment whitePegs
-                whitePegs++;
+            } else {
+                if (code.find(guess[i]) != string::npos) { // if character in "code" is found in "guess", increment whitePegs
+                    whitePegs++;
+                }
             }
         }
-        cout << blackPegs << endl; // print results
+
+        cout << whitePegs << " " << blackPegs << endl; // print results
+
+        whitePegs = 0; // reset whitePegs for next iteration
+        blackPegs = 0; // reset blackPegs for next iteration
     }
+
+    return 0;
 }
