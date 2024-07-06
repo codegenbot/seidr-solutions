@@ -1,37 +1,34 @@
-```cpp
 #include <vector>
 #include <string>
 
 std::string int_to_mini_roman(int number) {
-    std::string result;
+    std::string mini_roman;
+    std::vector<std::pair<int, const char*>> roman_map;
+    roman_map.push_back({1000, "M"});
+    roman_map.push_back({900, "CM"});
+    roman_map.push_back({500, "D"});
+    roman_map.push_back({400, "CD"});
+    roman_map.push_back({100, "C"});
+    roman_map.push_back({90, "XC"});
+    roman_map.push_back({50, "L"});
+    roman_map.push_back({40, "XL"});
+    roman_map.push_back({10, "X"});
+    roman_map.push_back({9, "IX"});
+    roman_map.push_back({5, "V"});
+    roman_map.push_back({4, "IV"});
+    roman_map.push_back({1, "I"});
+
     for (const auto& pair : roman_map) {
         while (number >= pair.first) {
+            mini_roman += pair.second;
             number -= pair.first;
-            result += pair.second;
         }
     }
-    return result;
+
+    return mini_roman;
 }
 
 int main() {
-    std::vector<std::pair<int, const char*>> roman_map;
-    for (int i = 1000; i >= 1; i /= 10) {
-        std::string roman = "";
-        if (i == 1000) roman = "M";
-        else if (i == 900) roman = "CM";
-        else if (i == 500) roman = "D";
-        else if (i == 400) roman = "CD";
-        else if (i == 100) roman = "C";
-        else if (i == 90) roman = "XC";
-        else if (i == 50) roman = "L";
-        else if (i == 40) roman = "XL";
-        else if (i == 10) roman = "X";
-        else if (i == 9) roman = "IX";
-        else if (i == 5) roman = "V";
-        else if (i == 4) roman = "IV";
-        else roman = "I" + std::to_string(i);
-        roman_map.push_back({i, roman.c_str()});
-    }
     assert(int_to_mini_roman(1000) == "M");
     return 0;
 }
