@@ -1,16 +1,14 @@
-```
+```Python
 def incr_list():
-    lst = []
     while True:
-        num = input("Enter a number (or 'done' if finished): ")
-        if num.lower() == 'done':
-            break
         try:
-            num = int(num)
+            n = int(input("Enter a number: "))
+            if n < 1:
+                print("Number should be positive. Try again.")
+            else:
+                return list(range(1, n+1))
+            break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-            continue
-        lst.append(num)
-    return sorted(lst)
 
 print(incr_list())
