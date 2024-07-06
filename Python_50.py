@@ -1,6 +1,5 @@
 ```
 def decode_shift():
-    '''Function to encode or decode strings using Caesar Cipher with a shift of 5.'''
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
     if not isinstance(direction, str):
@@ -17,9 +16,9 @@ def decode_shift():
         if ch.isalpha():
             ascii_offset = 97 if ch.islower() else 65
             if is_encoding:
-                result += chr((ord(ch) - ascii_offset + 5) % 26 + ascii_offset)
+                result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
             else:
-                result += chr((ord(ch) - ascii_offset - 5) % 26 + ascii_offset)
+                result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
         else:
             result += ch
     return result
