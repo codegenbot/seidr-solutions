@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -23,6 +22,6 @@ bool is_happy(std::string s){
 }
 
 int main() {
-    assert(is_happy("iopaxioi") == false );
+    std::cout << std::boolalpha << is_happy("iopaxioi") << std::endl;
     return 0;
 }
