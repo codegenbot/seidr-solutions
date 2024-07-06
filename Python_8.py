@@ -1,9 +1,6 @@
-from typing import List, Tuple
-
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    total_sum = 0
-    product = 1
+def find_max(numbers: List[int]) -> int:
+    max_num = 0
     for num in numbers:
-        total_sum += num
-        product *= num
-    return total_sum, product if product != 0 else 1
+        if num > max_num:
+            max_num = num
+    return max_num
