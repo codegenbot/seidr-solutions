@@ -8,10 +8,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == ' ':
             continue
         if char == '(':
-            stack.append(char)
+            stack.append('`')
         elif char == ')':
             group = ''
             while stack:
-                group += `stack.pop()`
-            groups.append(group + char)
+                group += stack.pop()
+            groups.append(group + ``)
     return groups
