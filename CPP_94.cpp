@@ -1,35 +1,38 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cmath>
 
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxPrime = -1;
-    for (int num : lst) {
-        if (isPrime(num)) {
-            if (num > maxPrime)
-                maxPrime = num;
+int calculateSumOfDigitsLargestPrime(const std::vector<int>& lst) {
+    int max_num = *std::max_element(lst.begin(), lst.end());
+    
+    int sum_of_digits = 0;
+    while (max_num > 1) {
+        int temp_sum = 0;
+        for (; max_num > 0; ) {
+            int digit = max_num % 10;
+            if (digit != 0) temp_sum += digit;
+            max_num /= 10;
+        }
+        sum_of_digits += temp_sum;
+        while (temp_sum > 1 && isPrime(temp_sum)) {
+            for (; temp_sum > 0; ) {
+                int digit = temp_sum % 10;
+                if (digit != 0) temp_sum -= digit;
+                temp_sum /= 10;
+            }
+            sum_of_digits += temp_sum + 1;
+            break;
         }
     }
-    
-    return isSumOfDigits(maxPrime);
+    return sum_of_digits;
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
             return false;
     return true;
-}
-
-int isSumOfDigits(int n) {
-    int sum = 0;
-    while(n > 0) {
-        sum += n % 10;
-        n /= 10;
-    }
-    return sum;
 }
 
 int main_test(std::vector<int> lst) {

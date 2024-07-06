@@ -1,18 +1,31 @@
 #include <iostream>
 #include <string>
-#include <variant>
+#include <limits>
 
-std::variant<int, float, std::string> compare_one(int a, std::variant<int, float, std::string> b) {
-    if (std::holds_alternative<int>(b)) {
-        int bi = std::get<std::variant_cast<int>>(b);
-        return (a > bi) ? a : (bi > a) ? bi : a;
+using namespace std;
+
+int main() {
+    cout << "Enter two values: ";
+    int val1;
+    string val2;
+    cin >> val1;
+
+    if (cin.fail()) {
+        cout << "Invalid input. Please enter an integer.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> val1;  
+    } 
+
+    cout << "The first number is: " << val1 << endl;
+    
+    if (val1 > stoi(val2)) {
+        cout << "The first number is bigger.\n";
+    } else if (val1 < stoi(val2)) {
+        cout << "The second number is bigger.\n";
+    } else {
+        cout << "Both numbers are equal.\n";
     }
-    else if (std::holds_alternative<float>(b)) {
-        float bf = std::get<std::variant_cast<float>>(b);
-        return (a > bf) ? a : (bf > a) ? bf : a;
-    }
-    else {
-        std::string bs = std::get<std::string>(b);
-        return (stoi(bs) > a) ? bs : (a > stoi(bs)) ? bs : std::to_string(a);
-    }
+
+    return 0;
 }
