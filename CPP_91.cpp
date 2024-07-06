@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 int is_bored(string S) {
@@ -16,5 +15,4 @@ int is_bored(string S) {
 
 int main() {
     assert(is_bored("You and I are going for a walk") == 0);
-
 }
