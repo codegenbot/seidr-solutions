@@ -1,7 +1,8 @@
-def find_zero(x):
-    if x > 0:
-        return -1
-    elif x < 0:
+
+def find_zero(s):
+    if s == "0":
+        return 0
+    elif s == "+":
         return 1
     else:
-        return 0
+        return -1
