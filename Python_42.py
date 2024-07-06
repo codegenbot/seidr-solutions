@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```
+```Python
 def incr_list(lst):
     result = []
     while True:
