@@ -11,8 +11,8 @@ def decode_cyclic():
             result += group[0]
             i += 2  
         else:
-            result += group
-        i += 3
+            result += group[0]
+        i += 1
     return result
 
 print(decode_cyclic())
