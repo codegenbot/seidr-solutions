@@ -2,14 +2,11 @@
 #include <vector>
 #include <string>
 
-bool isSame(const std::string& s1, const std::string& s2) {
-    if (s1.size() != s2.size()) return false;
-    for (int i = 0; i < s1.size(); ++i)
-        if (s1[i] != s2[i]) return false;
-    return true;
+bool isSame(const std::string& str1, const std::string& str2) {
+    return str1 == str2;
 }
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     std::vector<std::string> result;
     for(auto str : strings) {
         if(str.find(substring) != std::string::npos)
@@ -20,27 +17,20 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 
 int main() {
     int n;
-    std::cout << "Enter the number of strings: ";
     std::cin >> n;
-
+    
     std::vector<std::string> strings(n);
-    for (auto& s : strings) {
-        std::cout << "Enter string " << &s << ": ";
-        std::cin >> s;
+    for(int i = 0; i < n; ++i) {
+        std::cin >> strings[i];
     }
-
+    
     std::string substring;
-    std::cout << "Enter the substring: ";
     std::cin >> substring;
-
-    std::vector<std::string> filtered = filter_by_substring(strings, substring);
-
-    if(filtered.size() == 0) {
-        std::cout << "No strings match the given substring." << std::endl;
-    } else {
-        for(const auto& str : filtered)
-            std::cout << str << std::endl;
-    }
-
+    
+    auto filtered_strings = filter_by_substring(strings, substring);
+    
+    for(const auto& str : filtered_strings)
+        std::cout << str << '\n';
+    
     return 0;
 }
