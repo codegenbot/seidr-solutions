@@ -5,7 +5,9 @@ def parse_nested_parens(paren_string):
         if char == "(":
             stack.append(char)
         elif char == ")":
-            stack.pop()
-            level = len(stack) - 1
+            level = 0
+            while len(stack) > 0 and stack[-1] != ")":
+                level += 1
+                stack.pop()
             result.append(level)
     return result
