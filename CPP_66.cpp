@@ -1,5 +1,4 @@
 ```
-cpp
 int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
@@ -8,4 +7,4 @@ int digitSum(std::string s) {
         }
     }
     return sum;
-}
+}```
