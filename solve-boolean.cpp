@@ -1,26 +1,27 @@
-#include <string>
+```
 #include <iostream>
+#include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool t = true;
-    bool f = false;
-    
+    bool result = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            return t && f;
+        if (s[i] == 't') {
+            result = true;
+        } else if (s[i] == 'f') {
+            result = false;
         } else if (s[i] == '|') {
-            return t || f;
-        } else if (s[i] == 'T' || s[i] == 't') {
-            t = true;
-            f = false;
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            t = false;
-            f = true;
+            bool temp = result;
+            result = !result;
+            if (!temp) return false;
+        } else if (s[i] == '&') {
+            if (!result) return false;
+            bool temp = result;
+            result = !result;
+            if (result && temp) return true;
         }
     }
-    
-    return t;
+    return result;
 }
 
 int main() {
@@ -34,3 +35,4 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
+}
