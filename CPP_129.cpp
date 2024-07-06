@@ -1,5 +1,11 @@
-```
-vector<int> minPath(vector<vector<int>> grid, int k){
+#include <bits/stdc++.h>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+vector<vector<int>> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
@@ -42,4 +48,12 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     }
 
     return path;
+}
+
+int main() {
+    vector<int> path = minPath({{1, 3}, {3, 2}}, 10);
+    
+    assert (path == vector<int>(10, 1));
+    
+    return 0;
 }
