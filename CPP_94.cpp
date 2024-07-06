@@ -1,56 +1,45 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
-int sumOfDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
+int isPrime(int n) {
+    if (n <= 1)
+        return 0;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return 0;
     }
-    return sum;
-}
-
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
-    }
-    return true;
-}
-
-int largestPrime(std::vector<int> lst) {
-    int maxPrime = -1;
-    for (int i : lst) {
-        if (isPrime(i)) {
-            maxPrime = i > maxPrime ? i : maxPrime;
-        }
-    }
-    return maxPrime;
+    return 1;
 }
 
 int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxPrime = largestPrime(lst);
-    return sumOfDigits(maxPrime);
+    int largestPrime = -1, sum = 0;
+
+    for (int num : lst) {
+        for (int digit : {num}) {
+            if (isPrime(digit)) {
+                if (digit > largestPrime)
+                    largestPrime = digit;
+            }
+        }
+    }
+
+    while (largestPrime > 0) {
+        sum += largestPrime % 10;
+        largestPrime /= 10;
+    }
+
+    return sum;
 }
 
-int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
+int main_test() {
+    int num;
+    std::cout << "Enter the list of numbers (space separated): ";
+    std::cin >> num;
 
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        lst.push_back(num);
-    }
+    // code to read the vector
+    std::vector<int> lst = {num};
 
-    if (!lst.empty()) {
-        std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
-    } else {
-        std::cout << "The list is empty." << std::endl;
-    }
+    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
     return 0;
 }
