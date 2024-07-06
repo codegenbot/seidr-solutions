@@ -1,3 +1,2 @@
-```
 def digitSum(s):
-    return sum(int(c) for c in s if c.isdigit())
+    return sum(ord(c) for c in s if c.isupper())
