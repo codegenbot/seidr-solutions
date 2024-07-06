@@ -1,8 +1,6 @@
-```c++
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <initializer_list>
 
 long long double_the_difference(std::vector<double> lst) {
     long long sum = 0;
@@ -35,6 +33,6 @@ int main_func() {
         }
     }
 
-    assert(sum == (long long)pow(odd_sum, 2)); 
+    assert(sum == pow(odd_sum, 2)); 
     return 0;
 }
