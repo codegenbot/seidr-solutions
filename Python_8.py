@@ -1,6 +1,4 @@
-```
 from typing import List, Tuple
-
 
 def sum_product():
     numbers = [int(num) for num in input("Enter numbers separated by spaces: ").split()]
