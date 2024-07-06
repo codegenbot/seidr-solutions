@@ -1,13 +1,20 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <limits>
 
 using namespace std;
 
-void compareOne(int x) {
+string compareOne(int x) {
     int val2;
     cin >> val2;
+
+    if (x > val2) {
+        return "The first number is bigger.";
+    } else if (x < val2) {
+        return "The second number is bigger.";
+    } else {
+        return "Both numbers are equal.";
+    }
 }
 
 int main() {
@@ -42,7 +49,7 @@ int main() {
         cout << "Please enter a valid value for the second number.\n";
     }
 
-    compareOne(val1);
+    cout << compareOne(val1);
 
     return 0;
 }
