@@ -1,4 +1,3 @@
-```cpp
 std::string rounded_avg(int n, int m) {
     if (n > m)
         return "-1";
