@@ -16,4 +16,5 @@ def encode(message):
             else:
                 result += char.swapcase()
         else:
-            result += char 
+            result += char  
+    return result
