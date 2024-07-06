@@ -35,7 +35,7 @@ int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
 }
 
 int main() {
-    int result = calculateSumOfDigitsLargestPrime({127, 97, 8192});
-    std::cout << "The sum of digits for the largest prime is: " << result << std::endl;
+    int sum = calculateSumOfDigitsLargestPrime({127, 97, 8192});
+    std::cout << "The sum of digits for the largest prime is: " << sum << std::endl;
     return 0;
 }
