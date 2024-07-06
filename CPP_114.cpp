@@ -1,5 +1,6 @@
 #include <vector>
 #include <limits>
+#include <climits>
 
 int minSubArraySum(std::vector<long long> nums) {
     long long sum = 0, min_sum = std::numeric_limits<long long>::max();
