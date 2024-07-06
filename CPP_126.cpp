@@ -1,9 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace std {
-using namespace vector;
-}
+using namespace std;
 
 bool is_sorted(vector<int> lst) {
     for (int i = 1; i < lst.size(); i++) {
