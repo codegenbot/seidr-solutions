@@ -1,24 +1,29 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
     int hours;
+    string hoursString;
     float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
 
     // Read input from user
     cout << "Enter number of hours: ";
-    cin >> hours;
+    cin >> hoursString;
+    initialSnow = stof(hoursString);
     cout << "Enter initial snow: ";
-    cin >> initialSnow;
+    cin >> hoursString;
+    rateOfSnowfall = stof(hoursString);
     cout << "Enter rate of snow fall: ";
-    cin >> rateOfSnowfall;
-    cout << "Enter proportion of snow melting per hour: ";
-    cin >> proportionMeltingPerHour;
+    cin >> hoursString;
+    proportionMeltingPerHour = stof(hoursString);
 
-    double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour);
+    cout << "Enter number of hours: ";
+    cin >> hoursString;
+    float result = snowDay(stoi(hoursString), initialSnow, rateOfSnowfall, proportionMeltingPerHour);
     
     // Print output
-    cout << "Amount of snow on the ground after " << to_string(hours) << " hours is: " << result << endl;
+    cout << "Amount of snow on the ground after " << hoursString << " hours is: " << to_string(result) << endl;
 
     return 0;
 }
