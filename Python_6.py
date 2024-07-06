@@ -1,9 +1,9 @@
-```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in ' '.join([paren_string]).split():
+    groups = ' '.join(paren_string.split()) # join the groups back together
+    for group in groups:
         depth = 0
         nested_depth = 0
         for char in group:
