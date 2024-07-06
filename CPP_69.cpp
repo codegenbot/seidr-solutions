@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -27,14 +26,21 @@ int search(std::vector<int> lst) {
 
 int main() {
     std::vector<int> lst;
-    int num;
-
-    std::cout << "Enter numbers (0 to stop): ";
-    while ((std::cin >> num) && (num != 0)) {
-        lst.push_back(num);
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i=0; i<n; i++){
+        int x;
+        std::cout << "Enter element "<<i+1<<": ";
+        std::cin >> x;
+        lst.push_back(x);
     }
-
-    std::cout << "The number with the highest frequency is: " << search(lst) << std::endl;
     
+    int maxOccurrence = search(lst);
+    if(maxOccurrence != -1)
+        std::cout << "The maximum occurrence is: " << maxOccurrence << std::endl;
+    else
+        std::cout << "No element occurs more than once." << std::endl;
+
     return 0;
 }
