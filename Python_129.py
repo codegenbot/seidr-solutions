@@ -10,7 +10,7 @@ def minPath(grid, k):
         if len(path) > k:
             continue
         if len(path) == k:
-            if not min_path or sum(int(i) for i in path) < sum(int(i) for i in min_path):
+            if not min_path or str(path) < str(min_path):
                 min_path = path
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
