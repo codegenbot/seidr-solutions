@@ -1,4 +1,4 @@
-```#include <vector>
+#include <vector>
 
 int can_arrange(vector<int> arr){
     for(int i = 1; i < arr.size(); i++){
@@ -7,4 +7,4 @@ int can_arrange(vector<int> arr){
         }
     }
     return -1;
-}```
+}
