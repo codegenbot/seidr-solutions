@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -15,11 +14,10 @@ bool starts_one_ends(int n) {
         }
     }
     return count > 0;
-
 }
 
 int main() {
     int n;
     cin >> n;
-    cout << starts_one_ends(n) << endl;
+    cout << starts_one_ends(n);
 }
