@@ -1,3 +1,4 @@
+
 def gcd(a, b):
     a = abs(a)
     b = abs(b)
