@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -15,7 +16,7 @@ int main() {
         totalDistance += (2 * startHeight) * pow(bouncinessIndex, i);
     }
 
-    cout.precision(6); 
+    cout.precision(6); // Display the output with 6 decimal places
     cout << fixed << totalDistance << endl;
 
     return 0;
