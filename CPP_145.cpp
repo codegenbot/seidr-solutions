@@ -1,24 +1,33 @@
 #include <algorithm>
 #include <vector>
-#include <string>
 
-bool issame(vector<int> a,vector<int>b){
-    int sumA = 0, sumB = 0;
-    for (char c : to_string(a[0])) sumA += c - '0';
-    for (char c : to_string(b[0])) sumB += c - '0';
-    return sumA == sumB && a.size() == b.size();
+bool issame(int num) {
+    int sumOfDigits = 0;
+    while (num > 0) {
+        sumOfDigits += num % 10;
+        num /= 10;
+    }
+    return true;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    auto compare = [&nums](int a, int b) {
-        if (issame({a},{b})) return 0;
-        int sumA = 0, sumB = 0;
-        for (char c : to_string(a)) sumA += c - '0';
-        for (char c : to_string(b)) sumB += c - '0';
-        if (sumA != sumB) return sumA - sumB > 0 ? 1 : -1;
-        return nums.size() - distance(nums.begin(), find(nums.begin(), nums.end(), a)) -
-               distance(nums.begin(), find(nums.begin(), nums.end(), b));
-    };
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); i++) {
+        int sumOfDigits = 0;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            sumOfDigits += num % 10;
+            num /= 10;
+        }
+        pairs.push_back({sumOfDigits, i});
+    }
+
+    sort(pairs.begin(), pairs.end());
+
+    std::vector<int> result;
+    for (const auto& pair : pairs) {
+        result.push_back(nums[pair.second]);
+    }
+
+    return result;
 }
