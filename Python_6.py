@@ -1,8 +1,11 @@
-```
-def parse_nested_parens(input_string: str) -> List[int]:
+```Python
+import re
+from typing import List
+
+def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in re.split(r'\(|\)', input_string):
-        if not group:
+    for group in re.split(r'\(([^()]+)\)|\)', paren_string):
+        if not group or group == '':
             continue
         depth = 0
         nested_depth = 0

@@ -2,4 +2,8 @@ from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return [x for i, x in enumerate(sorted(set(numbers))) if numbers.index(x) == i]
+    unique_numbers = []
+    for number in numbers:
+        if number not in unique_numbers:
+            unique_numbers.append(number)
+    return unique_numbers
