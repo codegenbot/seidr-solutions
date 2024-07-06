@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,7 +8,9 @@ vector<string> split(const string& str, const string& delimiter) {
     size_t pos = 0;
     vector<string> tokens;
     while ((pos = str.find(delimiter)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
+        if (pos > 0) { 
+            tokens.push_back(str.substr(0, pos));
+        }
         str.erase(0, pos + delimiter.length());
     }
     tokens.push_back(str);
