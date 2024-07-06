@@ -1,4 +1,11 @@
+```
 def solution():
-    first_half_sum = int(input("Enter the sum of the first half: "))
-    second_half_sum = int(input("Enter the sum of the second half: "))
-    return abs(first_half_sum - 2*second_half_sum)
+    while True:
+        try:
+            first_half_sum = int(input("Enter first half sum: "))
+            second_half_sum = int(input("Enter second half sum: "))
+            return abs(first_half_sum - 2*second_half_sum)
+        except ValueError:
+            print("Invalid input. Please enter a whole number for both sums.")
+
+print(solution())
