@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```cpp
 #include <boost/config.hpp>
 #include <boost/any.hpp>
@@ -16,7 +18,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (std::stof(bs) > ai) {
             return b;
         } else {
-            returntypeid(int);
+            return a;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float af = boost::any_cast<float>(a);
@@ -24,7 +26,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (std::stof(bs) > af) {
             return b;
         } else {
-            return typeid(int);
+            return a;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string as = boost::any_cast<std::string>(a);
@@ -32,7 +34,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (std::stof(as) > bi) {
             return a;
         } else {
-            return typeid(int);
+            return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string as = boost::any_cast<std::string>(a);
@@ -40,7 +42,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (std::stof(as) > bf) {
             return a;
         } else {
-            return typeid(int);
+            return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string as = boost::any_cast<std::string>(a);
@@ -50,7 +52,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (std::stof(as) < std::stof(bs)) {
             return b;
         } else {
-            return typeid(int);
+            return a;
         }
     }
 
