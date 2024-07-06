@@ -1,21 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
+```cpp
 int next_smallest(const std::vector<int>& lst) {
-    if(lst.size() < 2) return -1; // None
-    int result = INT_MAX;
-    for(int i=0; i<lst.size(); i++){
-        for(int j=i+1; j<lst.size(); j++){
-            if(lst[i] > lst[j])
-                result = std::min(result, lst[j]);
-        }
+    std::vector<int> v = {lst};  
+    sort(v.begin(), v.end());
+    if (v.size() < 2) return -1; 
+    for(int i=0; i<v.size(); i++){
+        if(find(lst.begin(), lst.end(), v[i]) != lst.end())
+            return v[i];
     }
-    return result;
-}
-
-int main_test() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    return 0;
+    return -1;
 }
