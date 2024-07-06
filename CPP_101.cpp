@@ -1,13 +1,12 @@
-#include <stdio.h>
+#include <iostream>
 #include <vector>
-#include <string>
 using namespace std;
 
 vector<string> words_string(string s) {
     vector<string> result;
     string word = "";
     for (char c : s) {
-        if (c == ' ' || c == ',') {
+        if (c == ' ' || c == ',' || c == '.') {
             result.push_back(word);
             word = "";
         } else {
@@ -16,3 +15,4 @@ vector<string> words_string(string s) {
     }
     result.push_back(word);
     return result;
+}

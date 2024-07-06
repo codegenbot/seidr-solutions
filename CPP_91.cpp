@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int is_bored(std::string S){
@@ -11,4 +10,3 @@ int is_bored(std::string S){
             ++count;
     }
     return count;
-}

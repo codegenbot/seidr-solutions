@@ -1,6 +1,5 @@
-#include <initializer_list>
 #include <vector>
-#include <bits/stdc++.h>
+#include <initializer_list>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -12,3 +11,4 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
