@@ -22,7 +22,8 @@ std::string anti_shuffle(std::string s) {
 
 int main() {
     std::string input = "Hi. My name is Mister Robot. How are you?";
-    std::string expectedOutput = ".Hi My aemn is Meirst .Rboot How aer ?ouy";
-    assert(anti_shuffle(input) == expectedOutput);
+    string output = anti_shuffle(input);
+    cout << output << endl;
+    assert(output == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
