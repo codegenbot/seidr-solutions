@@ -7,12 +7,15 @@ def simplify(x, n):
         while b:
             a, b = b, a % b
         return a
-
-    common = gcd(x_denom, n_denom)
-    new_x_num = x_num // common
-    new_n_num = n_num // common
     
-    if x_num // common / (n_denom // common) == n_num // common / x_denom // common:
-        return True
+    common = gcd(x_denom, n_denom)
+    
+    simplified_x = str(x_num // common) + '/' + str(x_denom // common)
+    simplified_n = str(n_num // common) + '/' + str(n_denom // common)
+    
+    if x_num // common == 0:
+        return "0/1" if x_denom // common == 1 else "0/" + str(x_denom // common)
+    elif n_num // common == 0:
+        return "0/1"
     else:
-        return False
+        return simplified_x + ' / ' + simplified_n if simplified_x != simplified_n else simplified_x
