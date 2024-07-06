@@ -1,32 +1,31 @@
-int largestPrimeSum(const vector<int>& lst) {
-    int maxPrime = 0;
-    for (int num : lst) {
-        if (isPrime(num)) {
-            if (num > maxPrime) {
-                maxPrime = num;
-            }
+Here is the completed code:
+
+int skjkasdkd(vector<int> lst){
+    int maxPrime = -1;
+    for(int num : lst){
+        if(isPrime(num) && num > maxPrime){
+            maxPrime = num;
         }
     }
     return sumOfDigits(maxPrime);
 }
 
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
+bool isPrime(int n){
+    if(n <= 1) return false;
+    if(n == 2 || n == 3) return true;
+    if(n % 2 == 0 || n % 3 == 0) return false;
+    for(int i = 5; i * i <= n; i += 6){
+        if(n % i == 0 || n % (i + 2) == 0)
             return false;
-        }
     }
     return true;
 }
 
-int sumOfDigits(int num) {
+int sumOfDigits(int n){
     int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
+    while(n > 0){
+        sum += n % 10;
+        n /= 10;
     }
     return sum;
 }
