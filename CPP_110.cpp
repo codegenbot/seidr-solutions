@@ -1,5 +1,3 @@
-#include <sstream>
-
 using namespace std;
 
 string exchange(vector<int> lst1, vector<int> lst2) {
@@ -8,4 +6,4 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         if (num % 2 != 0)
             oddCount++;
     }
-    return to_string(oddCount == 0) + "YES" + to_string(oddCount > 0) + "NO";
+    return (oddCount == 0) ? "YES" : "NO";

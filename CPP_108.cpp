@@ -1,8 +1,10 @@
-int count_nums(std::vector<int> n) {
+#include <vector>
+
+int count_nums(std::vector<int> nums) {
     int count = 0;
-    for (int num : n) {
+    for (int num : nums) {
         bool has_positive_sum = false;
-        long abs_num = labs(num);
+        long abs_num = std::abs(num);
         while (abs_num > 0) {
             int digit = abs_num % 10;
             if (digit != 0 || num < 0) {
