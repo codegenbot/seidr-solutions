@@ -7,7 +7,17 @@ def decode_cyclic(s):
     while i < len(s):
         group = s[i:i+3]
         if group[0] == group[1] and group[0] == group[2]:
-            result += group[0]
+            cycle_length = 3
+            j = i + 1
+            while j < len(s) and s[j] == s[i]:
+                j += 1
+            cycle_length = j - i
+            while i < len(s):
+                if (i % cycle_length) in range(1, 2):
+                    result += group[0]
+                else:
+                    result += s[i]
+                i += 1
         elif group[0] != group[1]:
             result += group[0] + group[1]
         else:
