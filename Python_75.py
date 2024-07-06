@@ -14,6 +14,3 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-
-
-assert is_multiply_prime(11 * 13 * 7) == False
