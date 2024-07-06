@@ -1,9 +1,9 @@
+```cpp
 #include<string>
 using namespace std;
 
 int str_length(const char* str){
-    string s(str);
-    return s.length();
+    return string(str).length();
 }
 
 int main() {
