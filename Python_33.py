@@ -1,6 +1,6 @@
 def sort_third(input_list):
     result = [sorted(input_list[i : i + 3]) for i in range(0, len(input_list), 3)]
     remaining = input_list[len(input_list) // 3 * 3:]
-    if remaining:
+    if remaining and len(remaining) > 1:  
         result.append(sorted(remaining))
     return tuple(map(tuple, result))
