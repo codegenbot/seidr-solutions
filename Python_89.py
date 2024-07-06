@@ -1,6 +1,6 @@
 
 def encrypt(s):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    rotated_alphabet = alphabet[2:] + alphabet[:2]
-    table = str.maketrans(alphabet, rotated_alphabet)
-    return s.translate(table)
+    result = ''
+    for char in s:
+        result += chr((ord(char) - ord('a') + 2 * 2) % 26 + ord('a'))
+    return result
