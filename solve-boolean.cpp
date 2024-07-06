@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -13,9 +14,9 @@ bool solveBoolean(string s) {
             res &= f;
             f = false;
         } else if (s[i] == '|') {
-            res |= t;
-            t = f;
-            f = false;
+            res |= f;
+            f = t;
+            t = false;
         } else if (s[i] == 't') {
             t = true;
             f = false;
@@ -38,4 +39,5 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-    return 0;}
+    cin.ignore();
+}
