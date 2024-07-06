@@ -1,5 +1,4 @@
-```
-def anti_shuffle(s):
+def anti_shuffle(s: str):
     words = s.split()
     result = []
     for word in words:
