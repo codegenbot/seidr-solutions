@@ -1,6 +1,7 @@
+```cpp
 #include <openssl/md5.h>
-#include <sstream>
 #include <string>
+#include <sstream>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
