@@ -1,38 +1,19 @@
 ```
-def bowling_score(games):
+import re
+
+def bowling_score(s):
     score = 0
-    game = ""
-    for char in games:
-        if char.isdigit():
-            game += char
-        else:
-            if game:
-                if len(game) == 1:
-                    score += int(game)
-                elif len(game) == 2:
-                    score += int(game[0]) * 10 + int(game[1])
-                else:
-                    if game == "X":
-                        score += 10 + bowling_score(games[len(games)-1:])
-                    elif game == "/":
-                        score += 10 + int(game[0]) + int(game[1])
-                    else:
-                        score += sum(range(1, int(game[0]) + 1)) * 10 + sum(
-                            range(1, int(game[-1]) + 1)
-                        )
-                game = ""
-    if game:
-        if len(game) == 1:
-            score += int(game)
-        elif len(game) == 2:
-            score += int(game[0]) * 10 + int(game[1])
-        else:
-            if game == "X":
-                score += 10 + bowling_score(games[len(games)-1:])
-            elif game == "/":
-                score += 10 + int(game[0]) + int(game[1])
+    roll = 0
+    for i in range(10):
+        if '/' in s[i*2:i*2+1]:
+            first, second = map(int, re.split('/',s[i*2:i*2+2]))
+            if first == 10:
+                score += 10 + sum(map(int,s[(i+1)*2:(i+1)*2+1]))
             else:
-                score += sum(range(1, int(game[0]) + 1)) * 10 + sum(
-                    range(1, int(game[-1]) + 1)
-                )
+                score += first + second
+        elif s[i*2] == 'X':
+            score += 10
+            roll = 0
+        else:
+            score += int(s[i*2])
     return score
