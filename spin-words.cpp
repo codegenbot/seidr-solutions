@@ -9,16 +9,15 @@ std::string spinWords(std::string sentence) {
     for (size_t i = 0; i <= sentence.size(); ++i) {
         if (i == sentence.size() || sentence[i] == ' ') {
             std::string word = sentence.substr(start, i - start);
-            word.erase(0, 1); // skip the first character (the space)
             if (word.size() >= 5) {
-                result += std::string(word.rbegin(), word.rend());
+                result += std::string(word.rbegin(), word.rend()) + " ";
             } else {
-                result += word;
+                result += word + " ";
             }
             start = i + 1;
         }
     }
-    return result;
+    return result.substr(0, result.find_last_of(' ')) + "\n";
 }
 
 int main() {
