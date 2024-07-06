@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 bool below_zero(std::vector<int> operations){
