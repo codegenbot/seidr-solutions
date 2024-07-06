@@ -6,7 +6,11 @@ bool is_happy(string s) {
         string sub = s.substr(i, 3);
         bool unique = true;
         for(char c : sub) {
-            unique &= find(sub.begin(), sub.end(), c) == sub.end();
+            int j = i;
+            while(j < i+3 && s[j] == c) j++;
+            if(j < i+3)
+                unique = false;
+            break;
         }
         if(unique)
             return true;
