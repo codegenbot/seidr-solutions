@@ -1,6 +1,10 @@
 #include <vector>
 #include <string>
 
+std::vector<std::string> bf(std::string s1, std::string s2) {
+    return {s1, s2};
+}
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
@@ -9,16 +13,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> bf(const std::string& a, const std::string& b) {
-    std::vector<std::string> result;
-    for(char c : a) {
-        if(std::find(b.begin(), b.end(), c) != b.end()) {
-            result.push_back(std::string(1, c));
-        }
-    }
-    return result;
-}
-
 int main() {
-    std::cout << "Output: " << (issame(bf("Jupiter", "Makemake"), {"J", "u", "e", "t", "e", "r"}) ? "True" : "False") << std::endl;
+    std::vector<std::string> b = bf("Jupiter", "Makemake");
+    std::cout << "Output: " << (issame(b, {}) ? "true" : "false") << std::endl;
 }
