@@ -1,5 +1,4 @@
-
-#include <vector>
+    #include <vector>
 
 std::vector<int> leaders(const std::vector<int>& v) {
     std::vector<int> result;

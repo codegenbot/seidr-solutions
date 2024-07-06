@@ -2,10 +2,8 @@
 
 std::string getMiddle(std::string str) {
     int len = str.length();
-    if (len % 2 == 0) {
-        return str.substr((len / 2) - 1, 2);
-    } else if (len > 1 && str[len - 1] == '-') {
-        return std::string(1, str[len - 1]) + "U";
+    if (len % 2 == 0 && len > 1) {
+        return str.substr(0, 2);
     } else {
         return str.substr(len / 2, 1);
     }

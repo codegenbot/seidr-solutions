@@ -15,4 +15,4 @@ def mastermind(code, guess):
             white_pegs += 1
 
     # Return the number of white and black pegs
-    return (white_pegs, black_pegs) if white_pegs + black_pegs == 1 else (0, 0)
+    return (white_pegs, black_pegs)
