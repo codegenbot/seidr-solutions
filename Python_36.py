@@ -1,15 +1,17 @@
-```
 def fizz_buzz(n):
-    result = ""
+    count = 0
     for i in range(1, n + 1):
         out = ""
         if i % 15 == 0:
             out = "FizzBuzz"
-        elif i % 5 == 0:
-            out = "Buzz"
-        elif i % 3 == 0:
+            count += 1
+        elif i % 3 == 0 and i % 5 != 0:
             out = "Fizz"
-        else:
-            out = str(i)
-        result += out + "\n"
-    return result
+        elif i % 5 == 0 and i % 3 != 0:
+            out = "Buzz"
+        
+        print(out)
+    
+    return count
+
+print(fizz_buzz(100000))
