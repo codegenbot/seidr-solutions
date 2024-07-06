@@ -6,5 +6,5 @@ float triangle_area(int a, int h) {
 
 int main() {
     assert(std::abs(triangle_area(10, 8) - 40.0) < 1e-4);
-    return triangle_area(20,15); 
+    // ... rest of the code ...
 }
