@@ -11,13 +11,11 @@ std::vector<int> sort_array(std::vector<int> array) {
         std::cout << "Error: The input array is empty." << std::endl;
         exit(0);
     }
-    int sum = 0;
-    for(int i : array)
-        sum += i;
+    int sum = array[0] + array.back();
     if (sum % 2 == 1)
         return array; 
     else
-        return vector<int>(array.rbegin(), array.rend()); 
+        return std::vector<int>(array.rbegin(), array.rend());
 }
 
 int main() {
