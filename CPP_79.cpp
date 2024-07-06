@@ -6,4 +6,3 @@ std::string decimal_to_binary(int n){
         n /= 2;
     }while(n > 0);
     return binary;
-}
