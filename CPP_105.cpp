@@ -8,7 +8,6 @@ bool std::vector<std::string> issame(std::vector<std::string> a, const std::vect
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
 }
