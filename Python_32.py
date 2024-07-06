@@ -1,5 +1,9 @@
+Here is the completed code:
+
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    leading_coeff = max((abs(x), i) for i, x in enumerate(xs))
-    return -leading_coeff[1] / (len(xs) // 2)
+        return None
+    a = xs[0]
+    b = sum(i * c for i, c in enumerate(xs[1:], 1))
+    x = -b / (2 * a)
+    return round(x, 2)
