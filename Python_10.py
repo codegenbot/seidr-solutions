@@ -1,4 +1,3 @@
-
 def make_palindrome(string):
     palindrome = []
     for i, c in enumerate(string):
