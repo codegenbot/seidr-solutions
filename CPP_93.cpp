@@ -7,7 +7,7 @@ string encode(string message) {
                 (c >= 'A' && c <= 'Z') ? (c - 'A' - 19) % 26 + 'A' : c;
             result += tolower(isupper(newC)) ? toupper(newC) : tolower(newC);
         } else {
-            result += c; // preserve non-alphabetic characters
+            result += c; 
         }
     }
     
