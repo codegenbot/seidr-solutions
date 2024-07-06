@@ -1,4 +1,3 @@
-
 def car_race_collision():
     left_to_right = list(range(1, 10))
     right_to_left = list(range(9, 0, -1))
