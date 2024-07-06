@@ -1,9 +1,10 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool std::equal(const std::vector<std::string>::iterator a, const std::vector<std::string>::iterator c, const std::vector<std::string>::iterator b) {
+    return a == c;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {

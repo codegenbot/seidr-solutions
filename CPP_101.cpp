@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -30,4 +31,8 @@ std::vector<std::string> words_string(std::string s) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
 }
