@@ -1,17 +1,21 @@
+```cpp
 long long double_the_difference(vector<float> lst) {
-    long long odd_sum = 0;
+    long long sum = 0;
     for (float x : lst) {
         if (x >= 0 && (int)x == x) {
-            odd_sum += pow(x, 2);
+            sum += pow(x, 2);
         }
     }
-    return odd_sum;
+    return sum;
 }
 
 int main() {
     vector<float> lst;
-    // Input elements into the list
-    long long odd_sum = 0;
-    assert(double_the_difference(lst) == odd_sum);
+    float input;
+    while (cin >> input) {
+        lst.push_back(input);
+    }
+    long long odd_sum = double_the_difference(lst);
+    cout << "The difference is: " << odd_sum << endl;
     return 0;
 }
