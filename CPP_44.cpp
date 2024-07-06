@@ -3,14 +3,15 @@
 using namespace std;
 
 string change_base(int x, int base) {
-    string res = "";
+    string result = "";
     while (x > 0) {
-        int r = x % base;
-        if (r > 9)
-            res.insert(0, 1, (char)(r + 'A'));
-        else
-            res.insert(0, 1, to_string(r));
+        int remainder = x % base;
+        if (remainder >= 10) {
+            result = char(55 + remainder) + result; // convert to uppercase letter
+        } else {
+            result = to_string(remainder) + result;
+        }
         x /= base;
     }
-    return res;
+    return result;
 }
