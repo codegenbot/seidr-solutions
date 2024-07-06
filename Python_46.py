@@ -1,11 +1,55 @@
 
 def fib4(n):
-    if n <= 1:
+    if n <= 3:
         return 0
-    elif n == 2:
-        return 1
+    elif n == 4:
+        return 2
     else:
-        a, b = 0, 1
-        for i in range(3, n+1):
-            a, b = b, a + b
+        a, b, c, d = 0, 0, 2, 0
+        for i in range(5, n+1):
+            a, b, c, d = b, c, d, a + b + c + d
+        return a
+
+def fib4(n):
+    if n <= 3:
+        return 0
+    elif n == 4:
+        return 2
+    else:
+        a, b, c, d = 0, 0, 2, 0
+        for i in range(5, n+1):
+            a, b, c, d = b, c, d, a + b + c + d
+        return a
+
+def fib4(n):
+    if n <= 3:
+        return 0
+    elif n == 4:
+        return 2
+    else:
+        a, b, c, d = 0, 0, 2, 0
+        for i in range(5, n+1):
+            a, b, c, d = b, c, d, a + b + c + d
+        return a
+
+def fib4(n):
+    if n <= 3:
+        return 0
+    elif n == 4:
+        return 2
+    else:
+        a, b, c, d = 0, 0, 2, 0
+        for i in range(5, n+1):
+            a, b, c, d = b, c, d, a + b + c + d
+        return a
+
+def fib4(n):
+    if n <= 3:
+        return 0
+    elif n == 4:
+        return 2
+    else:
+        a, b, c, d = 0, 0, 2, 0
+        for i in range(5, n+1):
+            a, b, c, d = b, c, d, a + b + c + d
         return a
