@@ -25,7 +25,7 @@ map<char, int> histogram(string test) {
             maxMap[pair.first] = pair.second;
             maxCount = pair.second;
         } else if (pair.second == maxCount) {
-            maxMap[pair.first] = pair.second;
+            maxMap[pair.first] = pair.second; 
         }
     }
 

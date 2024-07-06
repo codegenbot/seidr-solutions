@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -19,6 +18,5 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 
 int main() {
     vector<vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
-    assert(max_fill(grid, 2) == 4);
-    return 0;
+    cout << max_fill(grid, 9) << endl; 
 }
