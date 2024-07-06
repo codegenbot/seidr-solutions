@@ -6,6 +6,4 @@ def sum_squares(lst):
             total_sum += lst[i] ** 2
         elif i % 4 == 0:
             total_sum += lst[i] ** 3
-        else:
-            total_sum += lst[i] ** 1
     return total_sum
