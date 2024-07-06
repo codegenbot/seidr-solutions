@@ -7,5 +7,5 @@ def main():
         N = input("Enter a binary number: ")
         solve = oct(int(N, 2))[2:]
     else:
-        solve = "Invalid choice. Please choose (1) or (2)."
+        print("Invalid choice. Please choose (1) or (2).")
     print(solve)
