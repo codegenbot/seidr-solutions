@@ -18,4 +18,4 @@ def factorize(n: int) -> List[int]:
             i += 1
     if n > 1:
         factors.append(n)
-    return [int(factor) for factor in set(map(int, factors))]
+    return list(set(factors))
