@@ -7,6 +7,4 @@ def find_zero(xs):
                     return -xs[n - 1] / xs[i]
             return -xs[n - 1] / xs[-1]
         except ZeroDivisionError:
-            print(
-                "Invalid input. Please provide a list with at least two non-zero elements."
-            )
+            print("Invalid input. Please provide a list with at least two non-zero elements.")
