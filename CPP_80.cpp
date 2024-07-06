@@ -2,26 +2,14 @@
 using namespace std;
 
 bool is_happy(string s) {
-    long long num = stol(s);
-    while (num != 1 && !is_one_digit(num)) {
-        num = get_sum_of_digits(num);
+    int num = stoi(s);
+    while (num != 1 && num != 4) {
+        int next_num = 0;
+        for (int i = 0; i < 10; i++) {
+            if ((num / i) % 10 + (num % i)) 
+                next_num = next_num * 16 + i;
+        }
+        num = next_num;
     }
     return num == 1;
-}
-
-long long get_sum_of_digits(long long n) {
-    long long sum = 0;
-    while (n > 0) {
-        int digit = n % 10;
-        sum += digit * digit;
-        n /= 10;
-    }
-    return sum;
-}
-
-bool is_one_digit(long long n) {
-    while (n > 9) {
-        n = get_sum_of_digits(n);
-    }
-    return n == 1 || n == 4 || n == 7;
 }
