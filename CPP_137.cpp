@@ -22,7 +22,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = boost::any_cast<string>(a), str2 = boost::any_cast<string>(b);
         float f1 = boost::lexical_cast<float>(str1), f2 = boost::lexical_cast<float>(str2);
-        return (f1 > f2) ? a : ((f1 == f2) ? boost::any("None") : b);
+        return (f1 > f2) ? a : ((f1 == f2) ? b : boost::any("None"));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         string str = boost::any_cast<string>(a);
