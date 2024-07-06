@@ -1,3 +1,4 @@
+```
 input_str = input("Enter space-separated or comma-separated numbers: ")
 if not input_str.strip():
     print("Error: No input provided")
@@ -12,7 +13,7 @@ max_val = max(numbers)
 result = [(x - min_val) / (max_val - min_val) for x in numbers]
 print(result)
 
-try:
+finally:
     except ValueError as e:
         print(f"Error: {e}")
         exit(1)
