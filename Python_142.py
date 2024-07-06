@@ -1,1 +1,1 @@
-print("Invalid operation. Please enter 'square' or 'cube'.")
+print("Invalid operation. Please enter 'square' or 'cube'")
