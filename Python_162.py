@@ -1,3 +1,4 @@
+```
 import hashlib
 
 def string_to_md5(text):
@@ -6,5 +7,9 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 text = input("Please enter a string: ")
-result = string_to_md5(text)
-print(result)
+try:
+    result = string_to_md5(text)
+except Exception as e:
+    print(f"Error: {e}")
+else:
+    print(result)

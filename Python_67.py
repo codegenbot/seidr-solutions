@@ -8,8 +8,10 @@ def fruit_distribution(fruit_list, amount):
         distribution[fruit] += int(amount) // len(fruits)
 
     remaining_amount = int(amount) % len(fruits)
+    fruits_list = [x.strip() for x in fruit_list.split(',')]
+    indices = list(range(len(fruits_list)))
     for i in range(remaining_amount):
-        distribution[fruits[i]] += 1
+        distribution[fruits_list[i]] += 1
 
     return distribution
 
