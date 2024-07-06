@@ -1,54 +1,27 @@
-using namespace std;
+```cpp
+#include <vector>
+#include <string>
+#include <algorithm>
 
-vector<string> bf(string first, string second) {
-    if (first.size() == 0 || second.size() == 0) {
-        vector<string> result;
-        return result;
-    }
-
-    int i = 0, j = 0;
-    vector<string> result;
-    
-    while (i < first.size() && j < second.size()) {
-        if (first[i] == first[0]) {
-            result.push_back(first.substr(0, i + 1));
-            i = 0;
-        } else {
-            i++;
-        }
-        
-        if (j < second.size() - 1) {
-            if (second[j] == second[0]) {
-                j = 0;
-            } else {
-                j++;
-            }
-        } else {
-            return result;
-        }
-    }
-
-    while (i < first.size()) {
-        if (first[i] == first[0]) {
-            result.push_back(first.substr(0, i + 1));
-            i = 0;
-        } else {
-            i++;
-        }
-    }
-    
-    while (j < second.size()) {
-        j++;
-    }
-
-    return result;
-}
-
-bool issame(vector<string> a, vector<string> second){
+bool issame(std::vector<std::string> a, std::string b) {
     for (int i = 0; i < a.size(); i++) {
-        if (find(second.begin(),second.end(),a[i]) == second.end()) {
+        if (b.find(a[i]) == std::string::npos) {
             return false;
         }
     }
     return true;
+}
+
+std::vector<std::string> bf(std::string a, std::string b) {
+    std::vector<std::string> result;
+    int pos = 0;
+    while (pos < a.size()) {
+        int found = b.find(a.substr(pos));
+        if (found == std::string::npos) {
+            break;
+        }
+        result.push_back(b.substr(found, a.size() - pos));
+        pos += found + 1;
+    }
+    return result;
 }
