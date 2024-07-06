@@ -14,6 +14,7 @@ def factorize(n):
     if n > 1:
         print("The number is prime.")
     else:
+        input("Press Enter to continue...: ")
         print(factors)
 
     again = input("Do you want to factorize another number? (yes/no): ")
@@ -21,27 +22,29 @@ def factorize(n):
         try:
             m = int(input("Enter a new number: "))
             if m < 2:
-                print("Invalid input. Please enter an integer greater than or equal to 2.")
+                print(
+                    "Invalid input. Please enter an integer greater than or equal to 2."
+                )
                 continue
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-        while again.lower() in ["yes", "y"]:
-            factorized_factors = []
-            i = 2
-            while i * i <= m:
-                if m % i:
-                    i += 1
-                else:
-                    count = 0
-                    while m % i == 0:
-                        m //= i
-                        count += 1
-                    factorized_factors.extend([i] * count)
-            if m > 1:
-                print("The number is prime.")
+        factorized_factors = []
+        i = 2
+        while i * i <= m:
+            if m % i:
+                i += 1
             else:
-                print(factorized_factors)
+                count = 0
+                while m % i == 0:
+                    m //= i
+                    count += 1
+                factorized_factors.extend([i] * count)
+        if m > 1:
+            print("The number is prime.")
+        else:
+            input("Press Enter to continue...: ")
+            print(factorized_factors)
 
-            again = input("Do you want to factorize another number? (yes/no): ")
+        again = input("Do you want to factorize another number? (yes/no): ")
