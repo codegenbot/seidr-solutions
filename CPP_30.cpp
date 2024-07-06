@@ -1,12 +1,13 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) != std::abs(b[i])) {
+        if (!(a[i] == b[i])) {
             return false;
         }
     }
@@ -23,10 +24,11 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
     return result;
 }
 
-int main(int argc, char* argv[]) {
-    std::vector<float> v = {1, -2, 3};
+int main() {
+    std::vector<float> vec1 = {1, 2.5, 3}; 
+    std::vector<float> vec2 = {-4, -5, 6};
     std::cout << "Only positive numbers are: ";
-    for (float num : get_positive(v)) {
+    for (float num : get_positive(vec1,vec2)) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
