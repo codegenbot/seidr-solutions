@@ -1,10 +1,7 @@
 ```
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
 def make_palindrome(string: str) -> str:
-    reversed_string = string[::-1]
-    for i in range(len(string), -1, -1):
-        if string[:i] + reversed_string[i:] == (string + reversed_string)[::-1]:
-            return string + reversed_string
-    return string + reversed_string
+    reverse = string[::-1]
+    new_string = string + reverse
+    if len(string) % 2 != 0:
+        new_string = string[0] + new_string + string[0]
+    return new_string
