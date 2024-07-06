@@ -13,4 +13,5 @@ bool is_palindrome(std::string text){
 
 int main() {
     assert(is_palindrome("xywzx") == false);
+    std::cout << is_palindrome("radar") << std::endl; 
 }
