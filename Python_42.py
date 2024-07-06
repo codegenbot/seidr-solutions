@@ -1,7 +1,5 @@
+```
 def incr_list():
-    """
-    Returns a list of numbers from 1 to n.
-    
     while True:
         try:
             n = int(input("Enter a number: "))
@@ -9,7 +7,6 @@ def incr_list():
                 print("Number should be positive. Try again.")
             else:
                 return list(range(1, n+1))
-            break
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
