@@ -1,1 +1,1 @@
-print(all_prefixes("hello"))
+print(all_prefixes("abc"))
