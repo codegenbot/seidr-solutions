@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -13,14 +12,12 @@ int specialFilter(std::vector<int> nums) {
     return count;
 }
 
-int main
-{
-    std::vector<int> nums;
+int main() {
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
-    nums.resize(n);
     
+    std::vector<int> nums(n);  
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> nums[i];
@@ -31,4 +28,3 @@ int main
     std::cout << "Count: " << count << std::endl;
     assert(count == 0);
     return 0;
-}
