@@ -1,3 +1,4 @@
+```
 def intersperse(lst, delimiter):
     result = [delimiter]
     for item in lst:
@@ -15,5 +16,5 @@ while True:
     except ValueError:
         print("Error: Invalid input for delimiter. Please try again.")
 
-output = intersperse(numbers, delimiter)
+output = intersperse([int(num) for num in numbers], str(delimiter))
 print(output)
