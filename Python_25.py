@@ -5,7 +5,7 @@ import math
 
 def factorize(n: int) -> List[int]:
     """Enter a number: """
-    n = int(input("Enter a number: "))
+    n = int(input())
     factors = []
     i = 2
     while i * i <= n:
