@@ -1,12 +1,15 @@
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
+
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> pq;
-    for (int num : arr) {
-        pq.push(num);
-    }
-    vector<int> result;
+    vector<int> result = arr;
+    sort(result.begin(), result.end());
     for (int i = 0; i < k; i++) {
-        result.push_back(pq.top());
-        pq.pop();
+        cout << "Maximum number at position " << i << ": " << result[i] << endl;
     }
     return result;
 }
