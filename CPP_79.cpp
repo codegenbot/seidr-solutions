@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::string decimal_to_binary(int decimal){
-    std::string binary = "db"; 
+    std::string binary = "db"; // initialize it with some value
     while(decimal > 0){
         if(decimal % 2 == 0)
             binary.insert(0,"0");
