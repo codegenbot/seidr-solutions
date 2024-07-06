@@ -10,7 +10,7 @@ string encode(string message) {
             }
             result += tolower(newChar);
         } else {
-            result += c; // Non-alphabetical characters remain the same
+            result += c;
         }
     }
     return result;
