@@ -1,11 +1,4 @@
 #include <vector>
-#include <cmath>
-
-int main() {
-    int count = specialFilter({1,2,3});
-    std::cout << "Count: " << count << std::endl;
-    return 0;
-}
 
 int specialFilter(vector<int> nums) {
     int count = 0;
@@ -15,4 +8,3 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-}
