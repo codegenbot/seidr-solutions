@@ -1,5 +1,8 @@
+```
+import math
 def rounded_avg(n, m):
     if n > m:
         return -1
-    avg = sum(range(n, m+1)) / len(range(n, m+1))
-    return format(int(round(avg)), "b")
+    total = sum(range(n, m+1))
+    avg = math.ceil(total / (m-n+1))  
+    return bin(avg).replace("0b", "0" + "0" * (math.floor(math.log2(m-n+1))+1))

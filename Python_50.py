@@ -1,12 +1,8 @@
 def decode_shift():
-    while True:
-        s = input("Enter 'encode', 'decode', or 'quit': ")
-        if s == "encode":
-            return "".join([chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in input("Enter the message to encode: ")])
-        elif s == "decode":
-            return "".join([chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in input("Enter the message to decode: ")])
-        elif s.lower() == 'quit':
-            print("Goodbye!")
-            exit()
-        else:
-            print("Invalid choice. Please choose 'encode', 'decode', or 'quit'")
+    shift = input("Choose 'encode' or 'decode': ")
+    s = input("Enter the string: ")
+
+    if shift == "encode":
+        return "".join([chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in s.lower()])
+    elif shift == "decode":
+        return "".join([chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()])

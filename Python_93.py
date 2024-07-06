@@ -1,23 +1,23 @@
-def encode(message):
-    result = ""
-    for char in message:
-        if char.isalpha():
-            if char.lower() in "aeiou":
-                if char.lower() == "a":
-                    result += "c"
-                elif char.lower() == "e":
-                    result += "g"
-                elif char.lower() == "i":
-                    result += "k"
-                elif char.lower() == "o":
-                    result += "q"
-                elif char.lower() == "u":
-                    result += "y"
-            else:
-                if char.isupper():
-                    result += char.lower()
-                else:
-                    result += char.upper()
+``` 
+def calculate_result():
+    a = float(input("Enter first number: "))
+    b = float(input("Enter second number: "))
+    operation = input("Enter an operator (+, -, *, /): ")
+    
+    if operation == "+":
+        result = """Your output calculation goes here"""
+        result = a + b
+    elif operation == "-":
+        result = """Your output calculation goes here"""
+        result = a - b
+    elif operation == "*":
+        result = """Your output calculation goes here"""
+        result = a * b
+    elif operation == "/":
+        if b != 0:
+            result = """The result of the division is: """
+            result = a / b
         else:
-            result += char
-    return result
+            result = """Error! Division by zero is not allowed."""
+    
+    print(result)
