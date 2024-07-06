@@ -1,4 +1,3 @@
-```
 #include <cassert>
 #include <vector>
 #include <string>
@@ -10,10 +9,4 @@ bool will_it_fly(std::vector<int> q, int w) {
     int sum = 0;
     for (int i : q) sum += i;
     return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    //assert(will_it_fly({1,2,3,4}, 10) == false);
-    return 0;
 }
