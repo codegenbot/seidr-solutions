@@ -14,14 +14,16 @@ long long double_the_difference(std::vector<double> lst) {
 
 int main() {
     std::vector<double> lst;
-    long long odd_sum;
+    double num;
 
-    double input;
-    while (std::cin >> input) {
-        lst.push_back(input);
+    printf("Enter the numbers (negative to stop):\n");
+    while (scanf("%lf", &num) == 1) {
+        lst.push_back(num);
     }
 
-    odd_sum = double_the_difference(lst);
-    
+    long long odd_sum = double_the_difference(lst);
+
+    printf("Sum of squares: %lld\n", odd_sum);
+
     return 0;
 }
