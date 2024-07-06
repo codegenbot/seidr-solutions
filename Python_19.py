@@ -1,5 +1,5 @@
-
-def sort_numbers(numbers: str) -> str:
+def sort_numbers(numbers):
+    numbers = numbers.split()
     number_map = {
         "zero": 0,
         "one": 1,
@@ -10,7 +10,7 @@ def sort_numbers(numbers: str) -> str:
         "six": 6,
         "seven": 7,
         "eight": 8,
-        "nine": 9
+        "nine": 9,
     }
-    sorted_numbers = sorted(number_map[number] for number in numbers.split())
-    return " ".join(str(number) for number in sorted_numbers)
+    sorted_numbers = sorted(numbers, key=lambda x: number_map[x])
+    return " ".join(sorted_numbers)
