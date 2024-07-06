@@ -5,17 +5,9 @@ def is_palindrome(string: str) -> bool:
 
 def make_palindrome(string: str) -> str:
     if string.islower():
-        prefix = ''
-        for i in range(len(string)):
-            if not is_palindrome(string[i:]):
-                prefix += string[i]
-                break
-        return string + string[::-1][len(prefix):]
+        i = len(string) - 1
+        while i > 0 and string[i] == string[0]:
+            i -= 1
+        return string + string[i-1::-1]
     else:
-        string = string.lower()
-        prefix = ''
-        for i in range(len(string)):
-            if not is_palindrome(string[i:]):
-                prefix += string[i]
-                break
-        return (string + string[::-1][len(prefix):]).upper()
+        return string + string[::-1].lstrip(string.lower())
