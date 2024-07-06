@@ -29,9 +29,7 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
     return result;
 }
 
-std::cout << "Vectors are " << (issame(vec1,vec2) ? "" : "not ") << "same.\n";
 std::cout << "Only positive numbers are: ";
 for (float num : get_positive(vec1,vec2)) {
     std::cout << num << " ";
 }
-std::cout << std::endl;
