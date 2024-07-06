@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     if len(xs) < 2:
         return "Invalid input: List must have at least two elements."
