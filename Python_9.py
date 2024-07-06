@@ -1,11 +1,6 @@
-```
 from typing import List
 
+
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = []
-    max_so_far = numbers[0]
-    for num in numbers:
-        result.append(max(num, max_so_far))
-        if num > max_so_far:
-            max_so_far = num
+    result = [sum(map(max, *zip(*[map(list, [[0]] + [list(nums) for nums in zip(*[map(list, [[i] + numbers[:i]] for i in range(len(numbers))])])])))] if i == 0 else sum(map(min, *zip(*[map(list, [[i]] + [list(nums) for nums in zip(*[map(list, [[i] + numbers[:i]] for i in range(len(numbers))])])])))) for i in range(len(numbers))])
     return result
