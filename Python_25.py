@@ -1,9 +1,15 @@
-```"
+```
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
+    """"
+    Factors of a number.
+    
+    :param n: The input number to be factored.
+    :return: A list of factors.
+    """
     factors = []
     i = 2
     while i * i <= n:
@@ -19,4 +25,4 @@ def factorize(n: int) -> List[int]:
             i += 1
     if n > 1:
         factors.append(n)
-    return factors"
+    return factors
