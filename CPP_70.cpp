@@ -7,12 +7,16 @@ vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
+    vector<int> sortedList(lst);
+    sort(sortedList.begin(), sortedList.end());
     while (!lst.empty()) {
-        result.push_back(*lst.begin());
-        lst.erase(lst.begin());
-        if (!lst.empty())
-            sort(lst.begin(), lst.end());
+        result.push_back(*std::min_element(lst.begin(), lst.end()));
+        for(auto it = lst.begin(); it != lst.end(); ++it) {
+            if (*it == *min_element(lst.begin(), lst.end())) {
+                lst.erase(it);
+                break;
+            }
+        }
     }
 
     return result;
