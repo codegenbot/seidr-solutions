@@ -4,9 +4,13 @@
 using namespace std;
 
 vector<float> derivative(vector<float> xs) {
-    vector<float> result(xs.size() - 1);
-    for (int i = 1; i < xs.size(); i++) {
-        result[i-1] = xs[i] * i;
+    vector<float> result;
+    if(xs.size() > 1){
+        for (int i = 1; i < xs.size(); i++) {
+            result.push_back((xs[i] - xs[i-1]) / (static_cast<double>(i)));
+        }
+    } else {
+        result = {};
     }
     return result;
 }
