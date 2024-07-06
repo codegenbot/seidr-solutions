@@ -10,10 +10,7 @@ void by_length(vector<int> arr) {
     }
     sort(result.begin(), result.end());
     reverse(result.begin(), result.end());
-    cout << "Lengths and Names are: ";
-    for(auto i : result) {
-        cout << "Length: " << i.first << ", Name: " << i.second << endl;
-    }
+    return;
 }
 
 int main(){
