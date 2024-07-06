@@ -3,7 +3,7 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<boost::any>(boost::any(a) > boost::any(b) ? a : b);
+        return (int)boost::any_cast<int>(a) > (double)boost::any_cast<double>(b) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         std::string str_a = boost::any_cast<std::string>(a);
