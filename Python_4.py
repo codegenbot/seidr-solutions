@@ -1,11 +1,7 @@
-from typing import List
-
-
 def main():
     while True:
         try:
             user_input = input("Enter a list of numbers separated by space: ")
-
             if not user_input.strip():
                 print("No input provided.")
             else:
