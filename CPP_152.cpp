@@ -21,5 +21,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 
 int main() {
     assert(is_same(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    // your code here
     return 0;
 }
