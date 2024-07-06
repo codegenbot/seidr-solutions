@@ -24,3 +24,4 @@ int main() {
     int result = solutions(lst);
     std::cout << "Result: " << result << std::endl;
     return 0;
+}

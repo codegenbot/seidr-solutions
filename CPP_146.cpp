@@ -2,15 +2,7 @@
 #include <iostream>
 #include <vector>
 
-int specialFilter(stdvector<int> nums) {
-    int count = 0;
-    for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && ((num / 10) % 10) % 2 != 0) {
-            count++;
-        }
-    }
-    return count;
-}
+int specialFilter(stdvector<int> nums);
 
 int main() {
     int n;
@@ -28,4 +20,14 @@ int main() {
     int count = specialFilter(nums);
 
     std::cout << "Count: " << count << std::endl;
+}
+
+int specialFilter(stdvector<int> nums) {
+    int count = 0;
+    for (int num : nums) {
+        if (abs(num) > 10 && (num % 10) % 2 != 0 && ((num / 10) % 10) % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
 }
