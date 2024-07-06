@@ -1,6 +1,3 @@
-from itertools import chain
-
-
 def minPath(grid, k):
     # Initialize the minimum path and its length
     min_path = []
@@ -22,7 +19,7 @@ def minPath(grid, k):
 
                 # If we have reached the end of the path, update the minimum path and its length
                 if grid[x][y] == k:
-                    min_path = chain((i, j), queue)
+                    min_path = [(i, j)] + queue
                     min_len = len(queue)
                     break
 
@@ -32,5 +29,5 @@ def minPath(grid, k):
                     if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
                         queue.append((nx, ny))
 
-    # Return the minimum path as a list of integers
-    return list(chain(*min_path))
+    # Return the minimum path
+    return min_path
