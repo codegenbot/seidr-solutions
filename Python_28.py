@@ -1,9 +1,5 @@
 ```
 while True:
-    choice = input("Do you want to enter more strings? (yes/no): ")
-    if choice.lower() == 'no':
-        break
-
     strings = ""
     while True:
         user_input = input("Please enter a string or 'stop' to finish: ")
@@ -15,6 +11,6 @@ while True:
     else:
         output_string = ""
         for s in strings.split():
-            words = s.title().split()
-            output_string += ' '.join(words) + " "
+            words = ' '.join(w.strip() for w in s.title().split())  
+            output_string += words + " "
         print(output_string.strip())
