@@ -1,4 +1,3 @@
-```
 from functools import reduce
 
 def car_race_collision():
