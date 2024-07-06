@@ -6,7 +6,7 @@ def sort_even(l: list):
     even_index = 0
     for i, x in enumerate(l):
         if i in even_idx:
-            result.append(sorted_evens[even_index])
+            result.append(sorted_evens[even_index % len(sorted_evens)])
             even_index += 1
         else:
             result.append(x)
