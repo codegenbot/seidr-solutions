@@ -7,29 +7,31 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
+    int n, k;
+    std::cin >> n >> k;
+
+    if (k > n) {
+        std::cout << "Error: k is greater than n." << std::endl;
+        return 1;
+    }
+
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        std::cin >> arr[i];
     }
-    int k;
-    cin >> k;
-    
-    vector<int> result = maximum(arr, k);
-    
-    if(result.size() == k) {
-        cout << "The first " << k << " elements are the same: ";
-        for (int i = 0; i < k; i++) {
-            cout << *result.rbegin();
-            if(i != k - 1)
-                cout << " ";
+
+    std::vector<int> result = maximum(arr, k);
+
+    if (!issame(result, arr)) {
+        std::cout << "Maximum elements: ";
+        for (const auto& val : result) {
+            std::cout << val << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     } else {
-        cout << "The first " << k << " elements are not the same." << endl;
+        std::cout << "Array has repeated maximum values." << std::endl;
     }
-    
+
     return 0;
 }
 
