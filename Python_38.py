@@ -6,6 +6,9 @@ def decode_cyclic(s: str):
             group = s[i : i + 3]
         else:
             group = s[i:]
-        result += group[0] + group[1]
+        if i > 0:
+            result += group[1:] # decode the pair except first character
+        else:
+            result += group
         i += 3
     return result
