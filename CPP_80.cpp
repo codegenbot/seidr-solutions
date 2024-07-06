@@ -9,16 +9,14 @@ bool is_happy(string s) {
         string sub = s.substr(i, 3);
         unique = true;
         for(char c : sub) {
-            bool found = false;
-            for(int j = i; (j < i+3) && !found; j++) {
-                if(s[j] == c) {
-                    found = true;
-                }
+            for(int j = i; j < i+3; j++) {
+                if(s[j] != c)
+                    break;
+                if(j == i+2)
+                    return true;
             }
-            if(!found) {
+            if(sub[0] == sub[1] || sub[0] == sub[2] || sub[1] == sub[2])
                 unique = false;
-                break;
-            }
         }
         if(unique)
             return true;
