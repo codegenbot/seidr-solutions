@@ -1,8 +1,9 @@
 def gcd(a, b):
+    if a < b:
+        a, b = b, a
     while b != 0:
         a, b = b, a % b
-    return a if a >= 0 else -a
-
+    return a
 
 def indices_of_substring(text, target):
     window_size = len(target)
