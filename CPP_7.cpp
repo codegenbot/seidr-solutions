@@ -14,6 +14,9 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{{"grunt","prune"}}));
+    vector<string> strings {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> result = filter_by_substring(strings, substring);
+    assert(issame(result ,{{"grunt","prune"}}));
     return 0;
 }
