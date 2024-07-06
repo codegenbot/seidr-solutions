@@ -1,4 +1,5 @@
 def find_zero(xs):
+    # Read input from the user
     xs = [int(x) for x in input().split()]
     for i, x in enumerate(xs):
         if x == 0:
