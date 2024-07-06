@@ -1,13 +1,9 @@
-def sort_third(l):
+def sort_third(l: list):
     result = []
     for i, x in enumerate(l):
         if i % 3 != 0:
             result.append(x)
         else:
-            min_element = min(l[max(0,i-2):i+1])
+            min_element = min(l[i-2:i+1])
             result.append(min_element)
     return sorted(result)
-
-input_list = input("Enter the list of numbers separated by space: ")
-input_list = [int(i) for i in input_list.split()]
-print(sort_third(input_list))
