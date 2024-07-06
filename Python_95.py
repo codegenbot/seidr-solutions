@@ -1,8 +1,13 @@
 ```
 def check_dict_case(dict):
-    if len(dict) == 0:
+    if not dict:
         return False
-    keys = list(dict.keys())
-    all_lower = all(key.islower() for key in keys)
-    all_upper = all(key.isupper() for key in keys)
-    return all_lower or all_upper
+    case = set()
+    for key in dict:
+        if key.islower():
+            case.add('lower')
+        elif key.isupper():
+            case.add('upper')
+        else:
+            return False
+    return len(case) == 1
