@@ -12,9 +12,3 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     }
     return result;
 }
-
-bool issame(vector<int> a,vector<int>b) {
-    if(a[0]==b[0])
-        return true;
-    return false;
-}
