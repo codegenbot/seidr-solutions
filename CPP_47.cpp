@@ -2,10 +2,10 @@
 #include <vector>
 
 float median(std::vector<float> arr) {
-    size_t n = arr.size();
     std::sort(arr.begin(), arr.end());
-    if (n % 2 == 0)
-        return (arr[n/2 - 1] + arr[n/2]) / 2;
+    int n = arr.size();
+    if(n%2==0)
+        return (arr[n/2 - 1] + arr[n/2]) / 2.0;
     else
         return arr[n/2];
 }
