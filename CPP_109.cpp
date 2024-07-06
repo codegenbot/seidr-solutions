@@ -1,8 +1,13 @@
+#include <vector>
+using namespace std;
+
 bool move_one_ball(vector<int> arr) {
-    int maxIndex = 0; // Initialize maxIndex to be the first element's index
-    for(int i = 1; i < arr.size(); i++) { 
-        if(arr[i] <= arr[maxIndex]) 
-            maxIndex = i; 
-    }    
+    if (arr.empty()) return true;
+    int max_element = *max_element(arr.begin(), arr.end());
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] > max_element - arr.size() + i) {
+            return false;
+        }
+    }
     return true;
 }

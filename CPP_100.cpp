@@ -16,3 +16,4 @@ vector<int> make_a_pile(int n) {
     }
     
     return pile;
+}
