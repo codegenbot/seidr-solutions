@@ -1,3 +1,4 @@
+
 def decode_shift(s: str):
     if not s:
         return "" # or some other default value
