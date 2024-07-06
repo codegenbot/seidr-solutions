@@ -1,5 +1,6 @@
 #include<string>
-#include<cassert>
+#include<assert.h>
+#include<cstring>
 
 using namespace std;
 
@@ -7,7 +8,7 @@ int str_length(string str){
     return str.length();
 }
 
-int main() {
+int main2() {
     assert (str_length("asdasnakj") == 12);
     return 0;
 }
