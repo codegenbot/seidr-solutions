@@ -18,13 +18,11 @@ def has_close_elements() -> bool:
             print("Please enter a positive number for the threshold.")
 
     found_close_elements = False
-
-    for _ in range(1):  
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                if abs(numbers[i] - numbers[j]) <= threshold:
-                    found_close_elements = True
-                    return found_close_elements
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if abs(numbers[i] - numbers[j]) <= threshold:
+                found_close_elements = True
+                break
 
     cont = input("Do you want to check another set of numbers? (y/n): ")
     while cont.lower() != 'n':
@@ -41,12 +39,10 @@ def has_close_elements() -> bool:
                 print("Please enter a positive number for the threshold.")
 
         found_close_elements = False
-
-        for _ in range(1):  
-            for i in range(len(numbers)):
-                for j in range(i + 1, len(numbers)):
-                    if abs(numbers[i] - numbers[j]) <= threshold:
-                        found_close_elements = True
-                        return found_close_elements
+        for i in range(len(numbers)):
+            for j in range(i + 1, len(numbers)):
+                if abs(numbers[i] - numbers[j]) <= threshold:
+                    found_close_elements = True
+                    break
 
     return found_close_elements
