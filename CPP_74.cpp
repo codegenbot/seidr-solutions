@@ -4,7 +4,7 @@
 bool issame(std::vector<std::string> a) {
     if (a.empty()) return true;
     for (const std::string& s : a) {
-        if (!s.size()) return false;
+        if (s.size() != 0) return false;
     }
     return true;
 }
