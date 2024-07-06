@@ -11,22 +11,31 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int num;
     std::vector<int> lst;
+    int n;
     
-    // read input
-    while(std::cin >> num) {
-        lst.push_back(num);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        lst.push_back(x);
     }
-
+    
     std::vector<int> result = strange_sort_list(lst);
-
-    if(issame(lst, result)) {
-        for(int i : result) std::cout << i << " ";
-    } else {
-        std::cout << "Error: Lists are not the same.\n";
-    }
     
+    if(result.size() > 0) {
+        std::cout << "The sorted list is: ";
+        for(int val : result) {
+            std::cout << val << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Empty list." << std::endl;
+    }
+
     return 0;
 }
 
