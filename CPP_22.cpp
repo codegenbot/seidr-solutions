@@ -2,10 +2,6 @@
 #include <optional>
 #include <vector>
 
-bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
@@ -17,6 +13,13 @@ std::vector<int> filter_integers(std::list<std::any> values) {
         }
     }
     return result;
+}
+
+#include <optional>
+#include <vector>
+
+bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
