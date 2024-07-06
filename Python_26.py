@@ -10,5 +10,5 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
         if num not in seen:
             seen[num] = None
             result.append(num)
-        
+            
     return result
