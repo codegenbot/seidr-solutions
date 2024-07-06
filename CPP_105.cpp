@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <map>
@@ -33,6 +34,5 @@ int main() {
     for (string str : output) {
         cout << str << endl;
     }
-
     return 0;
 }
