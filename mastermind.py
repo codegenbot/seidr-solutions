@@ -4,14 +4,14 @@ def mastermind():
 
     black = 0
     white = 0
-    code_count = [0]*6  # Count of each color in the code
+    code_count = [0] * 6  # Count of each color in the code
 
     for c in guess:
         if c in code:
             code_index = code.index(c)
             if c == code[code_index]:
                 black += 1
-                code[code_index] = ''  # Mark as guessed
+                code[code_index] = ""  # Mark as guessed
             else:
                 white += 1
                 code_count[code.index(c)] += 1
