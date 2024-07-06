@@ -2,10 +2,10 @@
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) return false;
+bool issame(const std::string& s1, const std::string& s2) {
+    if (s1.size() != s2.size()) return false;
+    for (int i = 0; i < s1.size(); ++i) {
+        if (s1[i] != s2[i]) return false;
     }
     return true;
 }
@@ -20,14 +20,13 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> vec1 = {"apple", "banana", "cherry"};
-    std::vector<std::string> vec2 = {"apple", "banana", "cherry"};
-
-    if (isSame(vec1, vec2)) {
-        std::cout << "Vectors are same" << std::endl;
-    } else {
-        std::cout << "Vectors are different" << std::endl;
+    std::vector<std::string> input_strings = {"hello", "world", "hellolol", "abc"};
+    std::string substring = "ell";
+    
+    for (const auto& str : filter_by_substring(input_strings, substring)) {
+        if (issame(str, substring)) {
+            std::cout << str << std::endl;
+        }
     }
-
     return 0;
 }
