@@ -5,14 +5,14 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-int main() {
-    vector<int> sort_array(vector<int> array) {
-        int sum = 0;
-        for(int i : array)
-            sum += i;
-
-        if(sum % 2 != 0) 
-            return vector<int>(array.begin(), array.end());
-        else
-            return vector<int>(array.rbegin(), array.rend());
+vector<int> sort_array(const vector<int>& array) {
+    int total = 0;
+    for (int num : array) {
+        total += num;
     }
+    if (total % 2 == 1)
+        return array;
+    else
+        std::vector<int> reversed(array.rbegin(), array.rend());
+        return reversed;
+}
