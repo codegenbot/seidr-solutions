@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 #include <string>
 
@@ -7,7 +8,7 @@ int main() {
     assert(encrypt("a") == "e");
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s); 
+    getline(std::cin, s);
     std::cout << "Encrypted string: " << encrypt(s) << std::endl;
 }
 
