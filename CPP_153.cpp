@@ -1,25 +1,12 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cctype>
 
-using namespace std;
-
 string Strongest_Extension(string class_name, vector<string> extensions);
 
 int main() {
-    string className;
-    int n;
-    cin >> className >> n;
-    
-    vector<string> extensions(n);
-    for (int i = 0; i < n; i++) {
-        cin >> extensions[i];
-    }
-    
-    cout << Strongest_Extension(className, extensions) << endl;
-
+    // Your code here
     return 0;
 }
 
