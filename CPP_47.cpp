@@ -21,7 +21,7 @@ int main() {
 
     std::vector<float> vec;
     
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         float x;
         std::cout << "Enter element: ";
         std::cin >> x;
