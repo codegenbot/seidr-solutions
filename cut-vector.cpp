@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
@@ -9,8 +8,10 @@ vector<vector<int>> cutVector(vector<int> vec) {
     vector<vector<int>> res(2);
     for (int i = 0; i < n; i++) {
         if (i == 0 || vec[i] == vec[i - 1]) {
-            res[0].assign(vec.begin(), vec.begin() + i + 1);
-            res[1].assign(vec.begin() + i, vec.end());
+            res[0].resize(i + 1);
+            copy(vec.begin(), vec.begin() + i + 1, res[0].begin());
+            res[1].resize(n - i - 1);
+            copy(vec.begin() + i, vec.end(), res[1].begin());
             break;
         }
     }
