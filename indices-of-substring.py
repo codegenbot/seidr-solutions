@@ -1,6 +1,8 @@
 import re
-
-
 def indices_of_substring(text, target):
-    matches = re.finditer(target, text)
-    return [match.start() for match in matches]
+    # Get user input for text and target strings
+    text = input("Enter text string: ")
+    target = input("Enter target string: ")
+    
+    # Return list of indices at which target appears in text
+    return [m.start() for m in re.finditer(target, text)]
