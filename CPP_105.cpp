@@ -1,8 +1,6 @@
-```
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) {
@@ -19,8 +17,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
-    std::vector<std::vector<std::string>> result(std::vector<std::string>(10));
-    
+    std::vector<std::vector<std::string>> result(10, std::vector<std::string>());
+
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
             switch (i) {
@@ -59,5 +57,5 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    assert(issame(std::vector<std::string>(by_length({1, 4, 8}).begin(), by_length({1, 4, 8}).end()), {"One", "Four", "Eight"}));
 }

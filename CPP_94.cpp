@@ -34,10 +34,3 @@ int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
     int maxPrime = largestPrime(lst);
     return sumOfDigits(maxPrime);
 }
-
-int main() {
-#include <initializer_list>
-    std::vector<int> lst = {1, 2, 3, 4, 5};
-    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
-    return 0;
-}
