@@ -6,6 +6,7 @@ def is_prime(n):
             return False
     return True
 
+
 def is_multiply_prime(a):
     if a < 1:
         return False
