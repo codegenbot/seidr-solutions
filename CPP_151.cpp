@@ -1,12 +1,15 @@
-```cpp
+#include<vector>
+using namespace std;
 long long double_the_difference(vector<float> lst) {
-    long long odd_sum = 0;
+    long long sum = 0;
+    vector<float> odd_nums;
     for (float x : lst) {
         if (x >= 0 && (int)x == x) {
-            odd_sum += pow(x, 2);
+            odd_nums.push_back(x);
+            sum += pow(x, 2);
         }
     }
-    return odd_sum;
+    return sum;
 }
 
 int main() {
