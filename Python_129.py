@@ -1,3 +1,4 @@
+```
 def findShortestPath(grid, k):
     m = len(grid[0])
     n = len(grid)
@@ -29,4 +30,4 @@ def findShortestPath(grid, k):
                         shortest_paths.get(len(new_path), float("inf")), len(new_path)
                     )
 
-    return sorted(list(shortest_paths.keys()))[:k]
+    return sorted([path for path in shortest_paths.values()])[:k]
