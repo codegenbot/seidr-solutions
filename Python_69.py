@@ -8,6 +8,6 @@ def search(lst):
             frequency_dict[num] = 1
     max_num = -1
     for key, value in frequency_dict.items():
-        if value >= key and key > 0 and (max_num == -1 or key > max_num):
+        if key > 0 and value >= key:
             max_num = key
     return max_num
