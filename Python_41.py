@@ -1,24 +1,32 @@
-def car_race_collision(num_cars=None):
+def car_race_collision(): 
     while True:
-        try:
-            if num_cars is None:
+        n = 0
+        while n < 1:
+            try:
                 n = int(input("Enter the number of cars: "))
-            else:
-                n = num_cars
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    
-    if n < 1:
-        return None
-    
-    total_damage = 0
-    for i in range(n):
-        speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
-        total_damage += damage * speed
+                break
+            except ValueError:
+                print("Invalid input. Please enter an integer.")
         
-    cont = input("Do you want to continue? (yes/no): ")
-    if cont.lower() != 'yes':
-        return None
-    
-    return f'Total damage: ${total_damage:,}'
+        if n < 1:
+            return None
+        
+        total_damage = 0
+        for i in range(n):
+            while True:
+                try:
+                    speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter two integers separated by a space.")
+                
+            total_damage += damage * speed
+        
+        cont = input("Do you want to continue? (yes/no): ")
+        while True:
+            if cont.lower() == 'yes':
+                return f'Total damage: ${total_damage:,}'
+            elif cont.lower() == 'no':
+                return None
+            else:
+                print("Invalid input. Please enter either yes or no.")
