@@ -3,6 +3,9 @@
 
 bool same(vector<int> a, vector<int>b);
 
+int get_sum_of_digits(int num);
+vector<int> order_by_points(vector<int> nums);
+
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
@@ -34,7 +37,7 @@ bool same(vector<int> a, vector<int>b) {
     return true;
 }
 
-int kaggle_main() {
+int main() {
    assert(same(vector<int>(order_by_points({0,6,6,-76,-21,23,4})), vector<int>((-76, -21, 0, 4, 23, 6, 6)));
    return 0;
 }
