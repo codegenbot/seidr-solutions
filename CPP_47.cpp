@@ -1,11 +1,12 @@
-#include <cmath>
+#include <vector>
+#include <algorithm>
 
-float median(vector<float> l) {
+float median(std::vector<float> l) {
+    std::sort(l.begin(), l.end());
     int n = l.size();
-    sort(l.begin(), l.end());
-    
-    if (n % 2 == 1)
+    if (n % 2 == 0) {
+        return ((l[n / 2 - 1] + l[n / 2]) / 2.0);
+    } else {
         return l[n / 2];
-    else
-        return (l[n / 2 - 1] + l[n / 2]) / 2.0;
+    }
 }
