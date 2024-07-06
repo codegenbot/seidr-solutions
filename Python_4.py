@@ -1,31 +1,32 @@
 from typing import List
 
 
+def main():
+    while True:
+        try:
+            user_input = input("Enter a list of numbers separated by space: ")
+            if not user_input:
+                print("Invalid input. Please enter some valid numbers.")
+                continue
+            numbers = [float(num) for num in user_input.split()]
+
+            # Check if all inputs can be converted to float
+            if any(not isinstance(n, (int, float)) for n in numbers):
+                print("Invalid input. Please enter some valid numbers.")
+            elif len(numbers) < 2:
+                print("Please enter at least two numbers.")
+            else:
+                print(mean_absolute_deviation(numbers))
+                confirm = input("Do you want to continue? (yes/no): ")
+                if confirm.lower() != "yes":
+                    break
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+
+
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
     return sum(abs(num - mean) for num in numbers) / len(numbers)
 
 
-def main():
-    while True:
-        try:
-            user_input = input("Enter a list of numbers separated by space: ")
-            if not user_input.strip():
-                print("Please enter some valid numbers.")
-            else:
-                numbers = [float(num) for num in user_input.split()]
-
-                # Check if all inputs can be converted to float
-                if any(not isinstance(n, (int, float)) for n in numbers):
-                    print("Invalid input. Please enter some valid numbers.")
-                elif len(numbers) < 2:
-                    print("Please enter at least two numbers.")
-                else:
-                    print(mean_absolute_deviation(numbers))
-                    return
-        except ValueError as e:
-            print(f"Invalid input: {e}")
-
-
-if __name__ == "__main__":
-    main()
+main()
