@@ -1,17 +1,8 @@
-```Python
 def fruit_distribution(s, n):
+    s = s.lower()
     words = s.split()
-    apples = False
-    oranges = False
-    for i in range(len(words)):
-        if words[i].endswith("apples"):
-            apples = True
-        elif words[i].endswith("oranges"):
-            oranges = True
-    if apples:
-        for _ in range(1, len(words)-1):
-            n -= int(words[_]) + 11
-    if oranges:
-        for _ in range(1, len(words)-1):
-            n -= int(words[_]) + 11
-    return n
+    count = 0
+    for word in words:
+        if ("apples" in word and int(word.replace(" apples", "").replace("apple", "")) < n) or ("oranges" in word and int(word.replace(" oranges", "").replace("orange", "")) < n):
+            count += int(word.replace(" "+str({"apples": " apples", "oranges": " oranges"}).get(word.lower(), "").split()[0].replace(str({"apple": "apples", "orange": "oranges"})[word.lower().replace("s","").startswith("a")]).replace(str({"apple", "orange"})[0]))
+    return n - count
