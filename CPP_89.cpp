@@ -1,16 +1,19 @@
-Here is the solution:
+#include <string>
 
-```cpp
-string encrypt(string s){
+using namespace std;
+
+string encrypt(string s) {
     string result = "";
-    for (int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 2*2) % 26 + 'a';
-        } else if (c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 2*2) % 26 + 'A';
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            int index = (int)(c - 'a' + 1) % 26;
+            result += 'a' + index;
+        } else if (c >= 'A' && c <= 'Z') {
+            int index = (int)(c - 'A' + 1) % 26;
+            result += 'A' + index;
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }

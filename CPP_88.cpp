@@ -1,29 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include<stdio.h>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
-vector<int> sort_array(vector<int> array) {
-    int sum = array[0] + array[array.size() - 1];
-    if (sum % 2 == 0) {
-        vector<int> result(array);
-        sort(result.begin(), result.end(), greater<int>());
-        return result;
+vector<int> sort_array(vector<int> array){
+    int first = array[0];
+    int last = array[array.size() - 1];
+    if ((first + last) % 2 == 0) {
+        sort(array.begin(), array.end(), greater<int>());
     } else {
-        vector<int> result(array);
-        sort(result.begin(), result.end());
-        return result;
+        sort(array.begin(), array.end());
     }
-}
-
-int main() {
-    vector<int> array = {2, 4, 3, 0, 1, 5};
-    array = sort_array(array);
-
-    for (int num : array) {
-        cout << num << " ";
-    }
-
-    return 0;
+    return array;
 }
