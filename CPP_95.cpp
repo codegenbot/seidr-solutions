@@ -11,7 +11,24 @@ bool check_dict_case(map<string, string> dict) {
     for (auto it = dict.begin(); it != dict.end(); ++it) {
         string key = it->first;
         if (!allLower && !allUpper) break;
-        if (!allLower) allLower = allUpper = tolower(key[0]) == toupper(key[0]);
+        if (!allLower) {
+            allLower = allUpper = true;
+            for (char c : key) {
+                if (std::tolower(c) != std::toupper(c)) {
+                    allLower = false;
+                    allUpper = false;
+                    break;
+                }
+            }
+        } else if (!allUpper) {
+            allUpper = true;
+            for (char c : key) {
+                if (std::tolower(c) == std::toupper(c)) {
+                    allUpper = false;
+                    break;
+                }
+            }
+        }
     }
 
     return allLower || allUpper;
