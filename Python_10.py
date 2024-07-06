@@ -1,8 +1,6 @@
 def make_palindrome(string):
-    def is_palindrome(s):
-        return s == s[::-1]
-
-    if is_palindrome(string):
-        return string
-    else:
-        return "".join(reversed(string))
+    rev = list(reversed(string))
+    for i in range(len(rev)):
+        if rev[i] != string[i]:
+            return False
+    return True
