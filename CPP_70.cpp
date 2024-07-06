@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -6,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+    vector<int> result;
 
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
