@@ -1,4 +1,4 @@
-def fruit_distribution(s, n):
-    s = s.replace("apples", "a").replace("oranges", "o")
-    a = int(s.split()[2].split(" ")[0])
-    return n - a
+```
+def fruit_distribution(s,n):
+    s = s.replace('apples and', '').replace('oranges', '').split()
+    return n - int(s[0].replace('apples', '')) - int(s[-1].replace('oranges', ''))
