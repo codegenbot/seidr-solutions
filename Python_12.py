@@ -1,12 +1,12 @@
+```
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
     while True:
         try:
-            user_input = input("Enter a series of strings (space separated): ")
-            strings = list(map(str, user_input.split()))
-            if strings:  
+            strings = list(map(str, input("Enter a series of strings (space separated): ").split()))
+            if len(set(strings)) == len(strings):
                 return max(strings, key=len)
-            break  
+            print("Invalid input. Please enter strings separated by spaces.")
         except ValueError:
             print("Invalid input. Please enter strings separated by spaces.")
