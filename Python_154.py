@@ -1,2 +1,8 @@
 def cycpattern_check(a, b):
-    return any(b in a[i : i + len(b)] for i in range(len(a)))
+    if b in a:
+        return True
+    for i in range(len(b)):
+        b_rotated = b[i:] + b[:i]
+        if b_rotated in a:
+            return True
+    return False
