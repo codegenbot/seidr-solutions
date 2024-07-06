@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,8 +14,8 @@ std::string words_in_sentence(std::string sentence){
 
 std::vector<std::string> split(const std::string& str, char c) {
     std::vector<std::string> tokens;
-    std::string temp = str;
     size_t pos = 0;
+    std::string temp = str;
     while ((pos = temp.find(c)) != std::string::npos) {
         tokens.push_back(temp.substr(0, pos));
         temp.erase(0, pos + 1);
