@@ -1,17 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <list>
-#include <any>
-#include <algorithm>
-
-bool checkVectors(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+```cpp
+bool isSame(const vector<int>& v1, const vector<int>& v2) {
+    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
 }
 
-std::vector<int> filter_integers(std::vector<std::any> values) {
-    std::vector<int> result;
+vector<int> filterIntegers(vector<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (!value.type()->is_same_v<std::any::type<char>>()) {
+        if (!value.type()->is_same_v<any::type<char>>()) {
             if (value.has_value()) {
                 result.push_back(value.get_as<int>());
             }
@@ -20,10 +15,11 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     return result;
 }
 
-int main() {
-    std::vector<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
-    std::vector<int> output = filter_integers(values);
+int myMain() {
+    vector<any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
+    vector<int> output = filterIntegers(values);
     for (const auto& num : output) {
-        std::cout << num << "\n";
+        cout << num << "\n";
     }
+    return 0;
 }
