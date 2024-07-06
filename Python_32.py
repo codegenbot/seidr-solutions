@@ -1,10 +1,8 @@
-```Python
 def find_zero(xs):
-    total_sum = sum(xs)
-    if total_sum == 0:
-        return 0
-    left_sum = 0
-    right_sum = sum(xs[len(xs)//2+1:])
-    for i in range(len(xs) // 2):
-        left_sum += xs[i]
-    return -(left_sum - right_sum) / (right_sum + left_sum)
+    if not all(isinstance(x, int) for x in xs):
+        return "Error: Input must be a list of integers."
+    n = len(xs) // 2
+    for i in range(len(xs)):
+        if xs[i] == 0:
+            return -xs[n - 1] / xs[i]
+    return -xs[n - 1] / xs[-1]
