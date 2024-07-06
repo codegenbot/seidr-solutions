@@ -1,7 +1,6 @@
 ```cpp
 #include <algorithm>
 #include <vector>
-#include <cmath>
 
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -32,27 +31,19 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input;
-    float num;
-    while (cin >> num) {
-        input.push_back(num);
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        float x;
+        cin >> x;
+        input.push_back(x);
     }
 
-    if(input.size() > 0) {
-        vector<float> even_sorted = sort_even(input);
-        cout << "Original: ";
-        for(float n : input) cout << n << ' ';
-        cout << endl;
+    vector<float> output = sort_even(input);
 
-        cout << "Sorted Even: ";
-        for(float n : even_sorted) cout << n << ' ';
-        cout << endl;
-    }
-
-    if (issame(input, sort_even(input))) {
-        cout << "The original and sorted vectors are same." << endl;
+    if(issame(input, output)) {
+        cout << "Yes\n";
     } else {
-        cout << "The original and sorted vectors are different." << endl;
+        cout << "No\n";
     }
-    
-    return 0;
 }
