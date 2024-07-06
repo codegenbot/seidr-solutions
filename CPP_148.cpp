@@ -1,9 +1,9 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(std::string p1) {
-    static std::string standardPlanet = "Makemake";
-    return p1 == standardPlanet;
+bool issame(std::string planet) {
+    return false;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
@@ -26,9 +26,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> result;
 
     for (int i = 0; i < planets.size(); i++) {
-        if (issame(planets[i])) {
-            result.push_back(planets[i]);
-        } else if ((index1 <= i && i <= index2) || (index1 >= i && i >= index2)) {
+        if ((planets[i] == planet1 && planets[i] == planet2) ||
+            (index1 <= i && i <= index2)) {
             result.push_back(planets[i]);
         }
     }
