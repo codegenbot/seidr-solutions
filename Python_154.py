@@ -1,3 +1,10 @@
-```python
+```Python
 def cycpattern_check(a, b):
-    return a + a == b or b + b == a
+    if len(b) > len(a):
+        return False
+    a = a.lower()
+    b = b.lower()
+    for i in range(len(a)):
+        if (a[i:] + a[:i]).lower() == b.lower():
+            return True
+    return False
