@@ -1,11 +1,19 @@
-Here is the completed code:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    bool possible = true;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            oddCount++;
+            possible = false;
+            break;
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    if (!possible) {
+        return "NO";
+    } else {
+        for (int num : lst1) {
+            while (find(lst2.begin(), lst2.end(), num) != lst2.end()) {
+                lst2.erase(remove(lst2.begin(), lst2.end(), num), lst2.end());
+            }
+        }
+        return possible ? "YES" : "NO";
+    }
 }
