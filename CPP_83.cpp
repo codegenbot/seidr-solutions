@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iostream>
 
 int starts_one_ends(int n) {
     int count = 0;
@@ -17,12 +16,4 @@ int starts_one_ends(int n) {
         }
     }
     return count;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number: ";
-    std::cin >> n;
-    std::cout << "Count of starts one ends numbers up to " << n << ": " << starts_one_ends(n) << std::endl;
-    return 0;
 }
