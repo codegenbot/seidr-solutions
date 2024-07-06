@@ -1,3 +1,4 @@
+```python
 def modp(n: int, p: int):
     if n < p:
         return n
