@@ -8,10 +8,3 @@ int digitSum(std::string s) {
         }
     }
     return sum;
-
-}
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 7);
-    return 0;
-}
