@@ -1,6 +1,9 @@
-```
 #include <vector>
 using namespace std;
+#include <map>
+
+map<int, string> numToName = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}; 
+
 vector<pair<int, string>> by_length(vector<int> arr){
     vector<int> temp;
     for(int i: arr){
@@ -8,7 +11,6 @@ vector<pair<int, string>> by_length(vector<int> arr){
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    map<int, string> numToName = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}; 
     vector<pair<int, string>> result;
     for(int i: temp){
         result.push_back({i, numToName[i]});
@@ -17,16 +19,14 @@ vector<pair<int, string>> by_length(vector<int> arr){
 }
 
 int main(){
-    vector<int> arr; // input array
-    // get input from user
+    vector<int> arr; 
     int n;
     cin >> n;
     arr.resize(n);
     for(int i = 0; i < n; ++i) {
         cin >> arr[i];
-    }
+   
     
-    // call your function and print result
     vector<pair<int, string>> output = by_length(arr);
     for(auto p : output) {
         cout << p.first << " - " << p.second << endl;
