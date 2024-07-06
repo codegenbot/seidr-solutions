@@ -1,17 +1,16 @@
+Here is the completed code:
+
 vector<int> largest_smallest_integers(vector<int> lst) {
-    vector<int> result(2);
-    if (!lst.empty()) {
-        int max_negative = INT_MAX;
-        int min_positive = INT_MIN;
-        for (int num : lst) {
-            if (num < 0 && num > max_negative) {
-                max_negative = num;
-            } else if (num > 0 && num < min_positive) {
-                min_positive = num;
-            }
+    int max_neg = 0;
+    int min_pos = INT_MAX;
+
+    for (int num : lst) {
+        if (num < 0 && num > max_neg) {
+            max_neg = num;
+        } else if (num > 0 && num < min_pos) {
+            min_pos = num;
         }
-        result[0] = max_negative;
-        result[1] = min_positive;
     }
-    return result;
+
+    return {max_neg, min_pos};
 }
