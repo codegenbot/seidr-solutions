@@ -1,5 +1,5 @@
 ```
-print("""Enter 'a', 'b', 'c': """)
+print("Enter 'a', 'b', 'c': ")
 a = float(input())
 
 while True:
@@ -11,7 +11,7 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a number.")
 
-print("""Enter non-zero values for 'b' and 'c': """)
+print("Enter non-zero values for 'b' and 'c': ")
 b = float(input())
 c = float(input())
 
