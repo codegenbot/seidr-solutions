@@ -1,39 +1,37 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-int sumOfDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
-int largestPrime(vector<int> lst) {
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = -1;
-    for (int i : lst) {
-        if (isPrime(i)) {
-            maxPrime = i > maxPrime ? i : maxPrime;
+    for(int i : lst){
+        if(i > 1 && isPrime(i)){
+            if(maxPrime < i) maxPrime = i;
         }
     }
-    return maxPrime;
+    return sumOfDigits(maxPrime);
 }
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
+bool isPrime(int n) {
+    if(n <= 1) return false;
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0) return false;
     }
     return true;
 }
 
-int sumOfLargestPrimeDigits(vector<int> lst) {
-    int maxPrime = largestPrime(lst);
-    return sumOfDigits(maxPrime);
+int sumOfDigits(int n) {
+    int sum = 0;
+    while(n > 0){
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
 }
 
 int main() {
-    assert(sumOfLargestPrimeDigits({127, 97, 8192}) == 10);
+    std::vector<int> lst = {127, 97, 8192};
+    int result = skjkasdkd(lst);
+    std::cout << "The result is: " << result << std::endl;
+    return 0;
 }

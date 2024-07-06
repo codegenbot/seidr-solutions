@@ -1,30 +1,35 @@
-def minPath(grid, k):
-    n = len(grid)
+def findShortestWay(board, help):
+    m = len(board)
+    n = len(board[0])
+    target = help[1:]
+    k = help[0]
 
-    queue = [(0, 0, [])]
-    visited = {(0, 0)}
-    path_lengths = {}
-    shortest_paths = {}
+    def bfs(x, y):
+        queue = [(x, y, "")]
+        visited = set((x, y))
 
-    while queue:
-        x, y, path = queue.pop(0)
+        while queue:
+            x, y, path = queue.pop(0)
 
-        if len(path) > k:
-            return []
+            if board[x][y] == target[0]:
+                return path
 
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
+            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                nx, ny = x + dx, y + dy
 
-            if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < n:
-                new_path = path + [grid[nx][ny]]
-
-                if len(new_path) not in shortest_paths or len(
-                    new_path
-                ) < shortest_paths.get(len(new_path), float("inf")):
-                    queue.append((nx, ny, new_path))
+                if (nx, ny) not in visited and 0 <= nx < m and 0 <= ny < n:
+                    queue.append(
+                        (nx, ny, path + chr(97 + ord(board[nx][ny]) - ord("A")))
+                    )
                     visited.add((nx, ny))
-                    path_lengths[len(new_path)] = len(new_path)
-                    shortest_paths[len(new_path)] = len(new_path)
 
-    min_length = sorted(path_lengths.keys())[-1] if path_lengths else 0
-    return [grid[0][j] for j in range(min_length)] if k == 0 else []
+        return ""
+
+    shortest_path = bfs(0, 0)
+
+    for i in range(m):
+        if all(board[i][j] == target[0] for j in range(n)):
+            path = bfs(i, 0)
+            if len(path) < len(shortest_path):
+                shortest_path = path
+    return "".join(sorted(set(shortest_path), key=shortest_path.index)) if k > 0 else []
