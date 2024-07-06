@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <string>
 #include <algorithm>
@@ -19,6 +18,6 @@ string rounded_avg(int n, int m) {
             res.push_back('0');
         avg >>= 1;
     }
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
