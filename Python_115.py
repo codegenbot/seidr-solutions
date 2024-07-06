@@ -6,4 +6,4 @@ def max_fill(grid, capacity):
         for j in range(cols):
             if grid[i][j] == 1:
                 water += 1
-    return int(water / capacity) + (1 if water % capacity > 0 else 0)
+    return int(math.ceil(water / capacity))
