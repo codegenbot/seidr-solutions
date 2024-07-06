@@ -26,8 +26,10 @@ def incr_list():
     cont = input("Do you want to continue? (y/n): ")
     while True:
         if cont.lower() == 'n':
-            return result
+            return [x + 1 for x in result]
         elif cont.lower() == 'y':
-            return incr_list()
+            new_list = incr_list()
+            result.extend(new_list)
+            break
         else:
             cont = input("Invalid input. Please enter y or n: ")
