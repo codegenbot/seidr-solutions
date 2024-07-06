@@ -1,8 +1,10 @@
 #include <string>
+#include <vector>
+#include <limits>
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    int strongest = INT_MIN;
-    string strongest_extension;
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    int strongest = std::numeric_limits<int>::min();
+    std::string strongest_extension;
     for (const auto& extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
