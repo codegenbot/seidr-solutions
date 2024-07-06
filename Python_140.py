@@ -1,4 +1,3 @@
-def calculate_area_and_perimeter(width, height):
+def calculate_area(width, height):
     area = width * height
-    perimeter = 2 * (width + height)
-    return f"Area: {area}, Perimeter: {perimeter}"
+    return area
