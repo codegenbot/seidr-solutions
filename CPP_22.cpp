@@ -1,10 +1,9 @@
 #include <vector>
 #include <list>
 #include <any>
-#include <cassert>
 #include <boost/any.hpp>
 
-bool std::vector same(std::vector a, std::vector b) {
+bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -19,6 +18,6 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 }
 
 int main() {
-    assert(std::vector same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(same(std::vector<int>{}, filter_integers({3, 'c', 3, 3, 'a', 'b'})) == std::vector<int>({3, 3, 3}));
     return 0;
 }
