@@ -1,20 +1,22 @@
+```
+#include <iostream>
 #include <string>
-
 using namespace std;
 
 string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
-    long long sum = 0;
-    for (int i = n; i <= m; i++) {
+    if (n > m)
+        return "-1";
+    double sum = 0;
+    for (int i = n; i <= m; i++)
         sum += i;
+    int average = lround(sum / (double)(m - n + 1));
+    string binary = "";
+    while (average > 0) {
+        if (average & 1)
+            binary.insert(0, "1");
+        else
+            binary.insert(0, "0");
+        average /= 2;
     }
-    double avg = round((double)sum / (m - n + 1));
-    string res = "";
-    while (avg > 0) {
-        if (avg & 1) res.push_back('1');
-        else res.push_back('0');
-        avg /= 2;
-    }
-    reverse(res.begin(), res.end());
-    return res;
+    return binary;
 }
