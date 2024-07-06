@@ -1,11 +1,11 @@
 #include <cassert>
+#include <string>
 
-bool file_name_check(const std::string& file_name) {
-    size_t dot_position = file_name.find('.');
-    if (dot_position != std::string::npos) {
-        return true;
-    }
-    return false;
+int file_name_check(std::string filename) {
+    if(filename.size() > 4 && filename.substr(filename.size()-4).compare(".txt") == 0)
+        return 1;
+    else
+        return 0;
 }
 
 int main_test() {
