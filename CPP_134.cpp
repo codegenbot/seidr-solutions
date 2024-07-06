@@ -8,14 +8,16 @@ bool check_if_last_char_is_a_letter(string txt) {
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    string s;
+    assert(check_if_last_char_is_a_letter("apple pi e ") == true);
+    string input;
     cout << "Enter a sentence: ";
-    cin >> s;
-    if (check_if_last_char_is_a_letter(s)) {
+    getline(cin, input);
+
+    if (check_if_last_char_is_a_letter(input)) {
         cout << "The last character is a letter.\n";
     } else {
         cout << "The last character is not a letter.\n";
     }
+
     return 0;
 }
