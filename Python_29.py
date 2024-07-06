@@ -1,4 +1,6 @@
-from typing import List
+"""
+from typing import list
 
-def filter_by_prefix(strings: list, prefix: str) -> List[str]:
-    return [s for s in strings if s.startswith(prefix)]
+def filter_by_prefix(strings: list, prefix: str) -> list:
+    return [s for s in strings if s.lower().startswith(prefix.lower())]
+"""
