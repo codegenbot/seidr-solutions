@@ -1,14 +1,21 @@
-bool will_it_fly(vector<int> q, int w) {
-    string s = "";
+#include <vector>
+#include <string>
+
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        s += to_string(i);
+        str += std::to_string(i);
     }
-    string rev_s = s;
-    reverse(rev_s.begin(), rev_s.end());
-    if (s != rev_s) return false; // not balanced
-    long long sum = 0;
+    if (!is_palindrome(str)) return false;
+    int sum = 0;
     for (int i : q) {
         sum += i;
     }
     return sum <= w;
+}
+
+bool is_palindrome(std::string s) {
+    std::string t = s;
+    std::reverse(t.begin(), t.end());
+    return s == t;
 }

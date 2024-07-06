@@ -1,23 +1,23 @@
-Here is the solution:
+#include <vector>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<vector<bool>> dp(n, vector<bool>(n));
-    for (int i = 0; i < n; ++i)
-        for (int j = i; j >= 0; --j)
-            if (arr[i] == arr[j])
-                dp[i][j] = true;
-            else
-                dp[i][j] = dp[i-1][j-1];
-    int ans = 0;
-    bool is_palindrome = false;
-    for (int i = n - 1; i > 0; --i) {
-        if (!dp[i-1][0]) is_palindrome = true;
-        else break;
+    vector<vector<int>> dp(n, vector<int>(n, 0));
+    
+    for (int i = 0; i < n; i++) {
+        dp[i][i] = arr[i];
     }
-    for (int i = 0; i < n; ++i) {
-        if (!is_palindrome) ans++;
-        is_palindrome = dp[n-i-1][n-1];
+    
+    for (int length = 2; length <= n; length++) {
+        for (int i = 0; i <= n - length; i++) {
+            int j = i + length - 1;
+            if (arr[i] == arr[j]) {
+                dp[i][j] = dp[i+1][j-1];
+            } else {
+                dp[i][j] = 1 + min({dp[i+1][j], dp[i][j-1], dp[i+1][j-1]});
+            }
+        }
     }
-    return ans;
+    
+    return dp[0][n-1];
 }

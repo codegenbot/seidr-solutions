@@ -1,10 +1,9 @@
 #include <vector>
-#include <limits>
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result = {};
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result = {};
     int minEvenValueIndex = -1;
-    int minEvenValue = numeric_limits<int>::max();
+    int minEvenValue = INT_MAX;
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
@@ -13,7 +12,7 @@ vector<int> pluck(vector<int> arr) {
         }
     }
 
-    if (minEvenValue != numeric_limits<int>::max()) {
+    if (minEvenValue != INT_MAX) {
         result.push_back(minEvenValue);
         result.push_back(minEvenValueIndex);
     }
