@@ -1,4 +1,3 @@
-```
 s = input().strip()
 stack = []
 group = ""
