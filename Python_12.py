@@ -12,9 +12,7 @@ while num_strings <= 0:
 
 strings = []
 for i in range(num_strings):
-    while True:
-        try:
-            strings.append(input(f"Enter string {i+1}: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid string.")
+    try:
+        strings.append(input(f"Enter string {i+1}:"))
+    except ValueError:
+        print("Invalid input. Please enter a valid string.")
