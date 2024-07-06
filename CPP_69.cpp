@@ -27,6 +27,7 @@ int search(std::vector<int> lst) {
 
 int main() {
     std::vector<int> lst = {3, 10, 10, 9, 2};
-    std::cout << search(lst) << std::endl;
+    int result = search(lst);
+    std::cout << "The maximum value is: " << result << std::endl;
     return 0;
 }
