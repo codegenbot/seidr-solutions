@@ -1,7 +1,6 @@
-```Python
 def digit_sum(n):
     if n >= 10:
-        return "Please enter a single digit."
+        return n
     else:
         return sum(int(i) for i in str(n))
 
