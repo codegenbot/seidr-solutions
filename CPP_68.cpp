@@ -1,29 +1,10 @@
-#include <iostream>
 #include <vector>
-#include <limits>
+#include <iostream>
 
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr);
-
-int main() {
-    vector<int> arr;
-    cout << "Enter elements of array (space-separated integers): ";
-    for(int i; cin >> i; ) arr.push_back(i);
-    
-    vector<pair<int, int>> result = pluck(arr);
-
-    if(!result.empty()) {
-        cout << "Minimum even element: " << result[0].first
-             << ", found at index: " << result[0].second << endl;
-    } else cout << "Array is empty!" << endl;
-
-    return 0;
-}
-
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    
+pair<int, int> pluck(vector<int> arr) {
+    pair<int, int> result;
     if(arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -36,7 +17,17 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    result.push_back({minEven, minIndex});
+    result.first = minEven;
+    result.second = minIndex;
 
     return result;
+}
+
+int main() {
+    vector<int> v1 = {12, 4, 6};
+    pair<int, int> p = pluck(v1);
+
+    cout << "Min even element: " << p.first << ", Index: " << p.second << endl;
+
+    return 0;
 }
