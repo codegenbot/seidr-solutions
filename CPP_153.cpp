@@ -22,8 +22,8 @@ int Strongest_Extension(string class_name,vector<string> extensions){
 }
 
 int main() {
-    string class_name = "MyClass";
-    vector<string> extensions = {"Upper", "lower", "Mixed"};
-    cout << Strongest_Extension(class_name, extensions);
+    vector<string> extensions = {"Java", "Python", "C++", "java", "c++", "pYtHoN"};
+    string class_name = "test";
+    cout << Strongest_Extension(class_name,extensions) << endl;
     return 0;
 }
