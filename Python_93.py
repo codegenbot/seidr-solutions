@@ -6,7 +6,7 @@ def encode(message):
             if char.lower() in "aeiou":
                 result += chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a'))
             else:
-                result += chr((ord(char.lower()) - ord('a') + 1) % 26 + ord('a')) if char.isupper() else char.swapcase()
+                result += char.swapcase()
         else:
             result += char
     return result
