@@ -1,3 +1,4 @@
+```
 def hex_key(num):
     def is_prime(n):
         if n < 2:
@@ -6,12 +7,14 @@ def hex_key(num):
             if n % i == 0:
                 return False
         return True
-
-    total = 0
+    
+    count = 0
     for char in num.upper():
         if char.isdigit():
             if is_prime(int(char)):
-                total += 1
-        elif char in ["B", "D"]:
-            total += 1
-    return hex(total)
+                count += 1
+        elif char == 'B':
+            count += 2
+        elif char == 'D':
+            count += 3
+    return count
