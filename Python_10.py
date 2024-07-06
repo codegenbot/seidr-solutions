@@ -1,13 +1,13 @@
-Here is the completed code:
-
+```
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string + string[::-1]
-    i = 0
-    while i < len(string):
-        if string[i:] == string[i:][::-1]:
-            return string + string[i:] + string[:i][::-1]
-        i += 1
+    for i in range(len(string)):
+        postfix = string[i:]
+        if postfix == postfix[::-1]:
+            prefix = string[:i][::-1]
+            return prefix + string + postfix
+    return string + string[::-1]
