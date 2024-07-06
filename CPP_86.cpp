@@ -17,14 +17,11 @@ vector<string> split(const string& str, const string& delimiter) {
 
 string anti_shuffle(string s){
     string result = "";
-    if (s.empty()) {
-        return result;
-    } else {
-        for (const auto& word : split(s, " ")) {
-            result += std::string(word.begin(), word.end()) + " ";
-        }
+    for (const auto& word : split(s, " ")) {
+        for(char c:word) result+=c;  
+        if(!result.empty()) result+=" ";  
     }
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.size() - 1);  
 }
 
 int main() {
@@ -32,10 +29,6 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, s);
 
-    if (s.empty()) {
-        cout << "Anti-Shuffle of input sentence is: " << "" << endl;
-    } else {
-        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
-    }
+    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
     return 0;
 }
