@@ -1,13 +1,14 @@
+Here is the completed code:
+
+```cpp
 vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int numStones = 1;
+    vector<int> pile(n);
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
-            numStones += 2;
+            pile[i] = i * 2 + 1;
         } else {
-            numStones += 1;
+            pile[i] = i * 2;
         }
-        pile.push_back(numStones);
     }
     return pile;
 }
