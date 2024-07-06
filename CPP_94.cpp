@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -27,13 +29,11 @@ bool isPrime(int num) {
     return true;
 }
 
-int calculateSumOfDigitsLargestPrime(vector<int> lst) {
+int sumOfLargestPrimeDigits(vector<int> lst) {
     int maxPrime = largestPrime(lst);
     return sumOfDigits(maxPrime);
 }
 
 int main() {
-    vector<int> lst = {2, 3, 5};
-    cout << "The sum of digits for the largest prime in the list is: " << calculateSumOfDigitsLargestPrime(lst) << endl;
-    return 0;
+    assert(sumOfLargestPrimeDigits({127, 97, 8192}) == 10);
 }
