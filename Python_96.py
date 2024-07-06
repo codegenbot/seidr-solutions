@@ -12,6 +12,6 @@ def check(lst):
 n = int(input("Enter a number: "))
 numbers_list = count_up_to(n)
 if check(numbers_list):
-    print("The numbers are even.")
-else:
     print("The numbers are not all even.")
+else:
+    print("The numbers are all even.")
