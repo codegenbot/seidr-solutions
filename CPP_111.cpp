@@ -5,7 +5,6 @@
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
-    
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -18,7 +17,18 @@ std::map<char, int> histogram(std::string test) {
         if (count > 0) result[c] = count;
     }
 
-    return result;
+    int maxCount = 0;
+    for (auto& pair : result) {
+        if (pair.second > maxCount) maxCount = pair.second;
+    }
+
+    std::map<char, int> maxCountMap;
+    for (auto& pair : result) {
+        if (pair.second == maxCount)
+            maxCountMap[pair.first] = pair.second;
+    }
+
+    return maxCountMap;
 }
 
 int main() {
