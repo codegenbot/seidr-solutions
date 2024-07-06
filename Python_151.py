@@ -1,8 +1,11 @@
-def check(func, lst):
-    result = func(lst)
-    if result > 10:
-        return "High"
-    elif result < -5:
-        return "Low"
+def check(func, *args):
+    if func is None:
+        return "None"
+    elif not callable(func):
+        return "Not a function"
     else:
-        return "Normal"
+        try:
+            result = func(*args)
+            return result
+        except Exception as e:
+            return str(e)
