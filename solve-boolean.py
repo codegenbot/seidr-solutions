@@ -14,7 +14,7 @@ def solve_boolean(expression):
                     break
             and_parts = expr[:end + 1].split('&')
             expr = expr[start + 1:]
-
+            
             result = all(eval_expression(part) for part in and_parts)
             return str(result).lower() if result else 'F'
 
@@ -29,7 +29,7 @@ def solve_boolean(expression):
                     break
             or_parts = expr[:end + 1].split('|')
             expr = expr[start + 1:]
-
+            
             result = any(eval_expression(part) for part in or_parts)
             return str(result).lower() if result else 'F'
 
