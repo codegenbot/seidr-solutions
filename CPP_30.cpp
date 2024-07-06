@@ -1,12 +1,14 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(const std::vector<float>& a,const std::vector<float>& b) {
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
 int main() {
-    assert(std::equal({},{});
+    assert(std::equal(get_positive({}), {}));
     vector<float> v1 = get_positive({-2, 3.5, -10.2});
     vector<float> v2 = get_positive({1, 0, -1.9});
 
