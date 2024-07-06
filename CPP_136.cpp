@@ -10,5 +10,5 @@ vector<pair<int, int>> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {{max_negative != 0 ? max_negative : 0, {min_positive != INT_MAX ? min_positive : 0}}};
+    return {{max_negative, min_positive}};
 }
