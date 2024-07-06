@@ -4,7 +4,7 @@
 using namespace std;
 
 int gcd(int a, int b) {
-    if (a == 0 || b == 0) return 1;
+    if (a == 0 || b == 0) return std::abs(a);
     return gcd(b % a, a);
 }
 
