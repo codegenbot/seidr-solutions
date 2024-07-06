@@ -1,6 +1,6 @@
-#include <algorithm>
 #include <cctype>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,13 +8,13 @@ string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char newC = c;
-            if (islower(newC)) {
-                newC = 'a' + (newC - 'a' + 2) % 26;
+            char newChar;
+            if (islower(c)) {
+                newChar = 'a' + ((c - 'a') + 2) % 26;
             } else {
-                newC = 'A' + (newC - 'A' + 2) % 26;
+                newChar = 'A' + ((c - 'A') + 2) % 26;
             }
-            result += toppercase(newC);
+            result += tolower(newChar);
         } else {
             result += c;
         }
