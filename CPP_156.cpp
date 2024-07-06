@@ -1,16 +1,15 @@
-```
-string int_to_mini_roman(int number) {
+string int_to_roman(int num) {
     vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    vector<int> value = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     
-    string mini_roman;
+    string result = "";
     
-    for (int i = 0; i < roman.size(); i++) {
-        while (number >= values[i] && number > 0) {
-            number -= values[i];
-            mini_roman += roman[i];
+    for (int i = 0; i < roman.size(); ++i) {
+        while (num >= value[i]) {
+            num -= value[i];
+            result += roman[i];
         }
     }
     
-    return mini_roman;
+    return result;
 }
