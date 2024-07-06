@@ -1,25 +1,34 @@
+#include <iostream>
+#include <vector>
 
-// Returns a vector containing all leaders in the input vector
-vector<int> leaders(const vector<int>& v) {
-    // Initialize an empty vector to store the leaders
-    vector<int> result;
+int main() {
+    // Define the vector with positive integers
+    std::vector<int> v{10, 9, 23, 56, 77, 100};
     
-    // Iterate through the input vector from right to left
+    // Initialize result vector
+    std::vector<int> result;
+    
+    // Iterate over the vector in reverse order
     for (auto i = v.rbegin(); i != v.rend(); ++i) {
         bool isLeader = true;
         
-        // Iterate through the elements to the right of the current element
+        // Check if current element is greater than or equal to all elements to its right
         for (auto j = i + 1; j != v.rend(); ++j) {
             if (*i < *j) {
-                // If the current element is less than an element to its right, it is not a leader
                 isLeader = false;
                 break;
             }
         }
         
-        // If the current element is a leader, add it to the output vector
-        if (isLeader) result.push_back(*i);
+        // If current element is a leader, add it to the result vector
+        if (isLeader) {
+            result.push_back(*i);
+        }
     }
     
-    return result;
+    // Print the result vector
+    for (auto i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 }
