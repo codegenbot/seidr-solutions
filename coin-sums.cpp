@@ -22,4 +22,3 @@ int main() {
     cout << pennies << endl;
 
     return 0;
-}
