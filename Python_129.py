@@ -1,6 +1,7 @@
 def minPath(grid, k):
     n = len(grid)
-    dp = [[float("inf") for _ in range(n)] for _ in range(n)]
+    m = len(grid[0])
+    dp = [[float("inf") for _ in range(m)] for _ in range(n)]
     dp[0][0] = grid[0][0]
 
     for i in range(1, n):
