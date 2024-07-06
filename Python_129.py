@@ -16,10 +16,10 @@ def minPath(grid, k):
             # Perform BFS until we reach the end of the path or the length of the path exceeds k
             while queue and len(queue) <= k:
                 x, y = queue.pop(0)
-    if grid[x][y] == 1:
-        min_path = [(i, j)] + queue
-        min_len = len(queue)
-        break
+                if grid[x][y] == 1:
+                    min_path = [(i, j)] + queue
+                    min_len = len(queue)
+                    break
 
                 # Add neighbors to the queue
                 for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
