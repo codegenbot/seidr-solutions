@@ -1,11 +1,11 @@
+```cpp
 #include <string>
 #include <sstream>
 
 int main() {
     std::string inputStr;
     std::stringstream ss;
-    std::getline(std::cin, inputStr);
-    ss << inputStr;  
+    ss >> inputStr;  
 
     // Then use this encrypt function:
     std::string encrypt(std::istringstream s) {
@@ -23,6 +23,6 @@ int main() {
     }
 
     // Now you can call this function:
-    std::string encrypted = encrypt(ss);
+    std::string encrypted = encrypt(std::istringstream(inputStr));
     std::cout << "Encrypted: " << encrypted << std::endl;
 }
