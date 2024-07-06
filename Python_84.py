@@ -1,9 +1,12 @@
 ```
 def solve(N):
-    result = 0
-    count = len(str(bin(N)[2:]))
-    for i in str(bin(N)[2:]):
-        if i == "1":
-            result += 2 ** (count - 1)
-        count -= 1
-    return bin(result)[2:]
+    bin_N = bin(N)[2:]
+    result = ""
+    for i in range(len(bin_N)):
+        if bin_N[i] == '1':
+            result += '1'
+            for j in range(i+1, len(bin_N)):
+                result += '0'
+        else:
+            result += '0' * (i + 1)
+    return result
