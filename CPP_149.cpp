@@ -15,7 +15,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main_program() {
+int main() {
     int n;
     vector<string> a, b;
     cin >> n;
@@ -27,6 +27,7 @@ int main_program() {
         } else {
             b.push_back(s);
         }
+    }
     
     cout << (issame(a, b) ? "Same" : "Not Same");
     
