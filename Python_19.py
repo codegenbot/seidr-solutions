@@ -1,4 +1,3 @@
-
 def sort_numbers(numbers: str) -> str:
     number_map = {
         "zero": 0,
@@ -12,6 +11,6 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    numbers = numbers.replace(" ", "")  # remove spaces from input string
-    sorted_numbers = sorted(number_map[number] for number in numbers)
-    return " ".join(str(number) for number in sorted_numbers)
+    numbers = [int(number_map[num]) for num in numbers.split()]
+    sorted_numbers = sorted(numbers)
+    return " ".join([str(num) for num in sorted_numbers])
