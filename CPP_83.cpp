@@ -1,19 +1,16 @@
-#include <cmath>
 #include <iostream>
+#include <cmath>
 
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i & 1) {
+        if (i == 1 || i % 10 == 1) {
             count++;
         }
-        if (n > 1) {
-            long long multiplier = i * static_cast<long long>(pow(10, n - 1));
-            for (int j = 1; j < pow(10, n - 1); j++) {
-                int num = multiplier + j;
-                if ((num & 0x0f) == 1 || num % 10 == 1) {
-                    count++;
-                }
+        for (int j = 1; j < std::pow(10, n); j++) {
+            int num = i * static_cast<int>(std::pow(10, n - 1)) + j;
+            if ((num / static_cast<int>(std::pow(10, n - 1))) % 10 == 1 || num % 10 == 1) {
+                count++;
             }
         }
     }
@@ -21,6 +18,9 @@ int starts_one_ends(int n) {
 }
 
 int main() {
-    std::cout << starts_one_ends(2);
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+    std::cout << "Number of integers that start or end with 1 and are within the range from 1 to 10^n is: " << starts_one_ends(n) << std::endl;
     return 0;
 }
