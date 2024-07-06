@@ -1,5 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> sort_array(vector<int> array) {
-    vector<int> result = array;
+    vector<int> result;
     
     int sum = 0;
     for (int num : array) {
@@ -7,10 +13,12 @@ vector<int> sort_array(vector<int> array) {
     }
     
     if (sum % 2 == 0) {
-        sort(array.begin(), array.end(), greater<int>());
+        result = vector<int>(array.begin(), array.end());
+        sort(result.begin(), result.end(), greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        result = array;
+        sort(result.begin(), result.end());
     }
     
-    return array;
+    return result;
 }
