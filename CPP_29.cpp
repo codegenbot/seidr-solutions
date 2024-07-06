@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
@@ -22,21 +22,28 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 int main() {
     int n;
-    cin >> n;
-    vector<string> strings;
-    for(int i = 0; i < n; ++i) {
-        string temp;
-        cin >> temp;
-        strings.push_back(temp);
-    }
-    
-    string prefix;
-    cin >> prefix;
+    std::cout << "Enter the number of words: ";
+    std::cin >> n;
 
-    if(issame(filter_by_prefix(strings, prefix), strings)) 
-        cout << "All strings start with the given prefix.\n";
-    else
-        cout << "Not all strings start with the given prefix.\n";
+    vector<string> words(n);
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter word " << (i+1) << ": ";
+        std::cin >> words[i];
+    }
+
+    string prefix;
+    std::cout << "Enter a prefix: ";
+    std::cin >> prefix;
+
+    vector<string> filtered = filter_by_prefix(words, prefix);
+
+    if(filtered.empty()) {
+        cout << "No words found with the given prefix." << endl;
+    } else if(issame(words, filtered)) {
+        cout << "All words in the list have the given prefix." << endl;
+    } else {
+        cout << "Not all words in the list have the given prefix." << endl;
+    }
 
     return 0;
 }
