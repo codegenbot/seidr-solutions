@@ -4,11 +4,11 @@ using namespace std;
 bool is_bored(const string& s) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = s.find("I", pos)) != string::npos) {
-        if (s[pos] == 'I' && (s[pos + 1] == '.' || s[pos + 1] == '?' || s[pos + 1] == '!')) {
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
             count++;
         }
-        pos = s.find("I", pos);
+        pos = S.find("I", pos);
     }
     return count > 0;
 }
