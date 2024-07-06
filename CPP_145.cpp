@@ -1,13 +1,6 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size()) return false;
-    sort(a.begin(),a.end());
-    sort(b.begin(),b.end());
-    return a==b;
-}
-
 std::vector<int> order_by_points(std::vector<int> nums) {
     auto compare = [&](int a, int b) {
         if (a == b) return 0;
@@ -18,7 +11,15 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         return distance(nums.begin(), find(nums.begin(), nums.end(), a)) -
                distance(nums.begin(), find(nums.begin(), nums.end(), b));
     };
-    std::vector<int> res = nums;
-    sort(res.begin(), res.end(), compare);
-    return res;
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
+}
+
+int main(){
+    std::vector<int> result;
+    for(int i = 0; i < 7; i++){
+        result.push_back({0,6,6,-76,-21,23,4}[i]);
+    }
+    assert(std::equal(result.begin(), result.end(),{-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
