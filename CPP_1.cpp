@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -30,8 +29,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> input = "( ) (( )) (( )( )";
-    vector<string> expected = {"()", "(())", "(()())"};
-    assert(issame(separate_paren_groups(input), expected));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( "), {{"()", "()"}, {"(())"} }));
     return 0;
 }
