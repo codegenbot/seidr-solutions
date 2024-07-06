@@ -1,14 +1,9 @@
-```
-bool same(string a, string b) {
-    if (a.length() != b.length()) {
-        return false;
+bool is_same(char a, char b) {
+    if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z')) {
+        return tolower(a) == tolower(b);
+    } else {
+        return a == b;
     }
-    for (int i = 0; i < a.length(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 vector<string> select_words(string s, int n) {
@@ -21,9 +16,13 @@ vector<string> select_words(string s, int n) {
         } else if (!word.empty()) { 
             bool has_n_consonants = false;
             int consonant_count = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
-                    consonant_count++;
+            for (int i = 0; i < word.size(); ++i) {
+                char ch = word[i];
+                if (!ispunct(ch) && !isspace(ch)) {
+                    while (i < word.size() && !isvowel(tolower(word[i]))) {
+                        consonant_count++;
+                        i++;
+                    }
                     if (consonant_count == n) {
                         has_n_consonants = true;
                         break;
@@ -34,11 +33,6 @@ vector<string> select_words(string s, int n) {
                 result.push_back(word);
             }
             word = ""; 
-        }
-    }
-    for (int i = 0; i < result.size() - 1; i++) {
-        if (!same(result[i], result[i+1])) {
-            return vector<string>();
         }
     }
     return result;
