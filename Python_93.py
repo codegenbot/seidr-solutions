@@ -1,12 +1,11 @@
-
 def encode(message):
-    encoded = ""
+    result = ""
     for char in message:
         if char.isalpha():
             if char.islower():
-                encoded += chr(ord('A') + ord(char) - ord('a'))
+                result += chr(ord(char) + 2)
             else:
-                encoded += chr(ord('a') + ord(char) - ord('A'))
+                result += chr(ord(char) - 2)
         else:
-            encoded += char
-    return encoded
+            result += char
+    return result
