@@ -4,5 +4,4 @@ def count_up_to(n):
     for i in range(2, n+1):
         if all(i % j != 0 for j in range(2, int(i**0.5) + 1)):
             prime_numbers.append(i)
-    prime_numbers.insert(0,2)
-    return prime_numbers
+    return [2] + prime_numbers
