@@ -1,4 +1,17 @@
+
 def car_race_collision(n: int):
-    left_to_right = list(range(1, n + 1))
-    right_to_left = list(range(n, 0, -1))
-    return len([i for i in left_to_right if i in right_to_left])
+    left_to_right = 0
+    right_to_left = n - 1
+    collisions = 0
+
+    while left_to_right < right_to_left:
+        if left_to_right == right_to_left:
+            collisions += 1
+            left_to_right += 1
+            right_to_left -= 1
+        elif left_to_right > right_to_left:
+            left_to_right += 1
+        else:
+            right_to_left -= 1
+
+    return collisions
