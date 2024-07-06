@@ -1,15 +1,13 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
+bool issame(vector<int> v1, vector<int> v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i]) return false;
+    }
     return true;
 }
 
@@ -29,5 +27,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_vector({111111}), {111111}));
+    assert(issame(strange_sort_vector({111111}), vector<int>({111111})));
+    return 0;
 }
