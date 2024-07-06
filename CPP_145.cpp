@@ -1,17 +1,12 @@
 #include <algorithm>
 #include <vector>
-#include <string>
 
-bool issame(vector<int> a,vector<int>b){
-    int sumA = 0, sumB = 0;
-    for (char c : to_string(a[0])) sumA += c - '0';
-    for (char c : to_string(b[0])) sumB += c - '0';
-    return sumA == sumB && a.size() == b.size();
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> order_by_points(vector<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     auto compare = [&nums](int a, int b) {
-        if (issame({a},{b})) return 0;
         int sumA = 0, sumB = 0;
         for (char c : to_string(a)) sumA += c - '0';
         for (char c : to_string(b)) sumB += c - '0';
@@ -21,4 +16,9 @@ vector<int> order_by_points(vector<int> nums) {
     };
     sort(nums.begin(), nums.end(), compare);
     return nums;
+}
+
+int main() {
+    assert(std::equal(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
