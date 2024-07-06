@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 from collections import deque
 
@@ -24,17 +26,14 @@ def minPath(m):
         return min_path
 
     k = int(input("Enter the value of k: "))
+    min_path = None
     n = int(input("Enter the size of the matrix (n): "))
     m = []
     
     for i in range(n):
-        row = list(map(int, input("Enter the row {}: ".format(i+1)).split()))
+        row = list(map(int, input(f"Enter the row {i+1}: ").split()))
         m.append(row)
     
-    # Sort the matrix based on its elements
-    m.sort(key=lambda x: [a % n + i for a, i in enumerate(x)])
-
-    min_path = None
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [m[i][j]])
