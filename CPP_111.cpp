@@ -1,13 +1,6 @@
-#include <iostream>
-#include <string>
-#include <map>
-#include <algorithm>
-
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
+    if (test.empty()) return map<char, int>();
 
     string letters = test;
     for (char c : unique(letters.begin(), letters.end())) {
@@ -26,27 +19,10 @@ map<char, int> histogram(string test) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            maxCountMap[static_cast<char>(pair.first)] = pair.second; 
+            maxCountMap[static_cast<char>(pair.first)] = pair.second;
         } else if (pair.second == maxCount)
-            maxCountMap[static_cast<char>(pair.first)] = pair.second; 
+            maxCountMap[static_cast<char>(pair.first)] = pair.second;
     }
 
     return maxCountMap;
-}
-
-int main() {
-    string test;
-    cout << "Enter a string: ";
-    getline(cin, test);
-    
-    map<char, int> result = histogram(test);
-
-    if (!result.empty()) {
-        for (auto& pair : result) {
-            cout << "Character '" << pair.first << "' appears " << pair.second << " times." << endl;
-        }
-    } else
-        cout << "No characters found in the string." << endl;
-
-    return 0;
 }
