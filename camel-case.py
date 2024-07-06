@@ -6,6 +6,6 @@ def camel_case(s):
             result += word.capitalize()
         else:
             result += word
-        if i < len(words) - 1:
-            result += words[i + 1].replace("-", "")
-    return result
+        if i < len(words) - 1:  
+            result += ''.join(char for char in words[i+1] if char.isalpha())  
+    return result.title().replace(" ", "")
