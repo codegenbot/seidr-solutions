@@ -1,23 +1,26 @@
+```cpp
 #include <algorithm>
 #include <vector>
-#include <string>
-#include <numeric>
 
-bool issame(vector<int> a,vector<int>b){
-    int sumA = std::accumulate(cbegin(a), cend(a),0,[&](int x,int y){return (x-y)*(x-y);});
-    int sumB = std::accumulate(cbegin(b), cend(b),0,[&](int x,int y){return (x-y)*(x-y);});
-    return sumA == sumB && a.size() == b.size();
+bool issame(std::vector<int> a,std::vector<int>b){
+    int sumA = 0, sumB = 0;
+    for (int x : a) sumA += x;
+    for (int x : b) sumB += x;
+    return sumA == sumB;
 }
 
-vector<int> order_by_points(vector<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     auto compare = [&nums](int a, int b) {
-        if (issame({a},{b})) return 0;
-        int sumA = std::accumulate(cbegin(to_string(a)), cend(to_string(a)),0,[&](char x,int y){return (x-y)*(x-y);});
-        int sumB = std::accumulate(cbegin(to_string(b)), cend(to_string(b)),0,[&](char x,int y){return (x-y)*(x-y);});
-        if (sumA != sumB) return sumA - sumB > 0 ? 1 : -1;
-        return nums.size() - distance(nums.begin(), find(nums.begin(), nums.end(), a)) -
-               distance(nums.begin(), find(nums.begin(), nums.end(), b));
+        if (!issame({a}, {b})) {
+            int sumA = 0, sumB = 0;
+            for (char c : std::to_string(a)) sumA += c - '0';
+            for (char c : std::to_string(b)) sumB += c - '0';
+            return sumA - sumB > 0 ? 1 : -1;
+        } else {
+            return nums.size() - std::distance(nums.begin(), std::find(nums.begin(), nums.end(), a)) -
+                   std::distance(nums.begin(), std::find(nums.begin(), nums.end(), b));
+        }
     };
-    sort(nums.begin(), nums.end(), compare);
-    return order_by_points(nums);
+    std::sort(nums.begin(), nums.end(), compare);
+    return nums;
 }

@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,13 +30,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
-    result.push_back({temp});
+    if (!temp.empty()) {
+        result.push_back(temp);
+    }
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back({temp == rev ? "True" : "False"});
+    if (!temp.empty() && temp != rev) {
+        result.push_back("False");
     } else {
-        result.push_back({temp == rev ? "True" : "False"});
+        result.push_back("True");
     }
     return result;
 }
