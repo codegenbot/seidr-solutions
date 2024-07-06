@@ -4,5 +4,5 @@ def decode_shift(n: int) -> str:
 
 
 if __name__ == "__main__":
-    n = int(input())
+    n = int(input("Enter a number: "))
     print(decode_shift(n))
