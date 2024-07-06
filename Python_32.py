@@ -1,4 +1,4 @@
-def find_zero(xs):
+def find_zero(xs: list):
     if len(xs) % 2 == 0 and xs[-1] != 0:
         return None
     for i in range(len(xs) // 2):
