@@ -1,2 +1,3 @@
 def solve(N):
-    return bin(N)[2:]
+    bin_list = [str((N >> i) % 2) for i in range(N.bit_length())][::-1]
+    return "".join(bin_list)
