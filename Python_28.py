@@ -1,11 +1,8 @@
 from typing import List
 
+def concatenate():
+    strings = input("Enter a list of strings (comma separated): ")
+    string_list = [s.strip() for s in strings.split(",")]
+    return ''.join(string_list).strip()
 
-def concatenate(strings: List[str]) -> str:
-    result = ""
-    for s in strings:
-        if isinstance(s, str):
-            result += s.strip() + " "
-        else:
-            return "Error: Invalid input. Please provide a list of strings."
-    return result.strip()
+print(concatenate())
