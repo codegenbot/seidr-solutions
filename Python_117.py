@@ -3,6 +3,10 @@ def select_words(s, n):
     if n <= 0:
         return []
     elif n == 1:
-        return list(filter(lambda x: x.islower(), words))
+        return list(
+            filter(lambda x: len([c for c in x[1:] if c.islower()]) == n, words)
+        )
     else:
-        return list(filter(lambda x: all(c.islower() for c in x[1:]), words))
+        return list(
+            filter(lambda x: len([c for c in x[1:] if c.islower()]) == n, words)
+        )
