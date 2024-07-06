@@ -10,7 +10,5 @@ def concatenate(strings: List[str]) -> str:
         result += string
     return result
 
-strings = input("Please enter a list of strings (separated by space): ")
-strings = strings.split()
-
+strings = input("Enter a list of strings (separated by space): ").split()
 print(concatenate(strings))
