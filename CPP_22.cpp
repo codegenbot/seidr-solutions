@@ -1,4 +1,3 @@
-```c++
 #include <boost/any.hpp>
 #include <boost/more_results.hpp>
 
