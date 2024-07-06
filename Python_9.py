@@ -1,12 +1,5 @@
-from typing import List
+from typing import list
 
-
-def rolling_max(numbers: List[int]) -> List[int]:
-    result = []
-    for i in range(len(numbers)):
-        window = numbers[: i + 1]
-        result.append(max(window))
+def rolling_max(numbers: list) -> list:
+    result = [max(numbers[:i+1]) for i in range(len(numbers))]
     return result
-
-
-print(rolling_max([1, 2, 3, 4, 5]))
