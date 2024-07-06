@@ -8,7 +8,7 @@ def encode(message):
         "I": "?",
         " ": "",
         "d": "",
-        "t": "T"  # add this line
+        "t": "T",
     }
     encoded_message = ""
     for char in message:
