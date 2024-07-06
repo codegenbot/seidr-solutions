@@ -7,14 +7,13 @@ def fruit_distribution():
     fruit_weights = {}
     for fruit, _ in fruit_dict.items():
         while True:
-            if input(f"Enter the weight of {fruit} (or 'stop' to finish): ").lower() == "stop":
+            weight = input(f"Enter the weight of {fruit} (or 'stop' to finish): ")
+            if weight.lower() == "stop":
                 break
             try:
-                fruit_weights[fruit] = int(input("Enter the weight of {}: ".format(fruit)))
-                break
+                fruit_weights[fruit] = int(weight)
+                total_weight = sum(fruit_weights.values())
+                return {k: (v / total_weight) * 100 for k, v in fruit_dict.items()}
             except ValueError:
                 print("Invalid weight. Please enter a number.")
-    total_weight = sum(fruit_weights.values())
-    return {k: (v / total_weight) * 100 for k, v in fruit_dict.items()}
-
-print(fruit_distribution())
+    return {}
