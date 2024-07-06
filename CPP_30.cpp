@@ -1,20 +1,22 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
+
+float get_positive(float f) {
+    return (f > 0) ? f : 0;
+}
 
 bool issame(const std::vector<float>& a,const std::vector<float>& b) {
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
 int main() {
-    assert(std::equal(get_positive({}), {}));
-    vector<float> v1 = get_positive({-2, 3.5, -10.2});
-    vector<float> v2 = get_positive({1, 0, -1.9});
-
-    if (issame(v1,v2)) {
-        std::cout << "v1 and v2 are same" << std::endl;
-    } else {
-        std::cout << "v1 and v2 are not the same" << std::endl;
+    assert(std::equal({get_positive(0)}, {}));
+    std::vector<float> l1 = {get_positive(0), get_positive(2.5f), get_positive(-3), get_positive(4), get_positive(5)};
+    std::vector<float> l2 = {get_positive(2.5f), get_positive(4), get_positive(5)};
+    if(issame(l1,l2)) {
+        std::cout << "Vectors are same." << std::endl;
     }
-    
+    else {
+        std::cout << "Vectors are not same." << std::endl;
+    }
 }
