@@ -9,4 +9,3 @@ def fizz_buzz(n: int):
             print("Buzz")
         else:
             print(i)
-    return (n % 15) == 0
