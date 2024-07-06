@@ -1,5 +1,5 @@
 ```
-def incr_list(lst=None):
+def incr_list(input_list):
     result = []
     while True:
         try:
@@ -7,7 +7,7 @@ def incr_list(lst=None):
             if n < 1:
                 print("Number should be positive. Try again.")
             else:
-                result = [n + i for i in result]  
+                result = [n + i for i in input_list]  
                 break
         except ValueError:
             print("Invalid input. Please enter an integer.")
