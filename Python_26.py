@@ -3,10 +3,10 @@ from typing import List
 from collections import OrderedDict
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    seen = set()
+    seen = OrderedDict()
     result = []
     for num in numbers:
         if num not in seen:
-            seen.add(num)
+            seen[num] = None
             result.append(num)
-    return list(result)
+    return result
