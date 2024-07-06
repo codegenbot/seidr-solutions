@@ -1,4 +1,5 @@
 #include <string>
+
 std::string getMiddle(std::string str) {
     int len = str.length();
     if (len % 2 == 0) {
@@ -6,4 +7,10 @@ std::string getMiddle(std::string str) {
     } else {
         return str.substr(len / 2, 1);
     }
+}
+
+int main() {
+    std::string input = "middle-character";
+    std::cout << getMiddle(input) << std::endl;
+    return 0;
 }
