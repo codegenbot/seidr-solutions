@@ -1,29 +1,23 @@
-```
-def add(x: int, y: int):
-    return x + y
+def calculate_total_value(num1: int, num2: str) -> float:
+    total_value = num1 * len(num2)
+    if "0" in num2:
+        total_value += num1
+    return total_value
 
 num1 = 0  
-num2 = 0  
+num2 = ""  
 
 while True:
     try:
-        num1_str = input("Enter first number (or 'q' to quit): ")
+        num1_str = input("Enter a number: ")
         
         if num1_str.lower() == 'q':
             break
         
-        if num1_str.lower() != 'q': 
-            num1 = int(num1_str)
+        num1 = int(num1_str)
+        
+        num2 = input("Enter a string: ")
 
-        if num1 != 0:  
-            num2_str = input("Enter second number: ")
-            
-            if num2_str.lower() == 'q':
-                break
-            
-            if num2_str.lower() != 'q': 
-                num2 = int(num2_str)
-
-        print(add(num1, num2))
+        print(calculate_total_value(num1, num2))
     except ValueError:
         print("Invalid input. Please try again.")
