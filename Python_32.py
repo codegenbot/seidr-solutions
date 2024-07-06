@@ -1,9 +1,9 @@
 def find_zero(xs: list):
     if len(xs) % 2 == 1 or xs[0] != 0:
         raise ValueError("Invalid input")
-    for i, x in enumerate(xs):
-        if x != 0:
-            y = -x / (2 * xs[i])
-            if poly(xs, y) == 0:
-                return y
+    for i in range(len(xs)):
+        if xs[i] != 0:
+            x = -xs[i - 1] / (2 * xs[i])
+            if poly(xs, x) == 0:
+                return x
     raise ValueError("No solution found")
