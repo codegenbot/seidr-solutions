@@ -1,20 +1,24 @@
-vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
-    for (int i = 1; i <= n; i++) {
-        string s = to_string(i);
-        bool isPal = true;
-        for (int j = 0; j < s.length() / 2; j++) {
-            if (s[j] != s[s.length() - j - 1]) {
-                isPal = false;
-                break;
+vector<int> even_odd_palindrome(int n){
+    int even = 0, odd = 0;
+    for (int i = 1; i <= n; ++i) {
+        if (is_palindrome(i)) {
+            if (i % 2 == 0) {
+                even++;
+            } else {
+                odd++;
             }
         }
-        if (isPal) {
-            if (i % 2 == 0)
-                result[0]++;
-            else
-                result[1]++;
-        }
     }
-    return result;
+    return {even, odd};
+}
+
+bool is_palindrome(int num) {
+    int temp = num;
+    int rev = 0;
+    while(temp != 0) {
+        int remainder = temp % 10;
+        rev = (rev * 10) + remainder;
+        temp /= 10;
+    }
+    return (num == rev);
 }
