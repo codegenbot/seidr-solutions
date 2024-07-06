@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -11,15 +10,15 @@ bool starts_one_ends(int n) {
         for (int j = 1; j < pow(10, n); j++) {
             int num = i * pow(10, n - 1) + j;
             string str = to_string(num);
-            if ((stoi(str.substr(0, 1)) == 1 || str.back() == '1') && count > 0)
-                return true;
+            if ((stoi(str.substr(0, 1)) == 1 || str.back() == '1')) count++;
         }
     }
-    return false;
+    return count > 0;
+
 }
 
 int main() {
     int n;
     cin >> n;
-    cout << (starts_one_ends(n) ? "1" : "0");
+    cout << starts_one_ends(n);
 }
