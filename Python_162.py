@@ -1,12 +1,11 @@
 import hashlib
-import sys
 
 def string_to_md5():
-    if len(sys.argv) != 2:
-        print("Please provide a single input argument")
-        return None
-    text = sys.argv[1].encode()
-    if text:
-        return hashlib.md5(text).hexdigest()
+    text = input("Enter your string: ")
+    confirm = input("Do you want to continue? (yes/no): ")
+    if text and confirm.lower() == 'yes':
+        return hashlib.md5(text.encode()).hexdigest()
     else:
         return None
+
+print(string_to_md5())

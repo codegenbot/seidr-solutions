@@ -1,5 +1,6 @@
-```python
+```
 def fix_spaces(text):
-    if text.strip().startswith(' '):
-        return '_' + '-'.join(['_' if c.isspace() else c for c in text.strip()[1:]])
-    return '-'.join(['_' if c.isspace() else c for c in text])
+    text = text.strip()
+    if text.startswith(' '):
+        return '_' + text[1:].replace(' ', '_')
+    return text.replace(' ', '_')
