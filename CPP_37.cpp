@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
@@ -27,16 +28,14 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input;
-    float x;
-    cout << "Enter the size of the array: ";
     int n; cin >> n;
     for(int i=0; i<n; i++) {
-        cin >> x;
+        float x; cin >> x;
         input.push_back(x);
     }
     vector<float> output = sort_even(input);
     bool same = issame(input, output);
     if(same) cout << "Sorted array is the same.\n";
     else cout << "Sorted array is different.\n";
+    
     return 0;
-}
