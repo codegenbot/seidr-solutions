@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,32 +18,26 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
 int main() {
     int n, k;
-    std::cout << "Enter the size of the array: ";
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::cout << "Enter the number to keep: ";
+    std::vector<int> arr(n);
+    for (auto &x : arr) {
+        std::cout << "Enter element: ";
+        std::cin >> x;
+    }
+    std::cout << "Enter k: ";
     std::cin >> k;
 
-    if (n <= 0) {
-        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
-        return -1;
-    }
+    std::vector<int> res = maximum(arr, k);
 
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
-    }
-
-    std::vector<int> maxK = maximum(arr, k);
-
-    if (!maxK.empty()) {
-        std::cout << "Maximum " << k << " elements: ";
-        for (int i : maxK) {
+    if(res.size() == 0) {
+        std::cout << "Array is too small for K value.\n";
+    } else {
+        std::cout << "Maximum elements: ";
+        for (int i : res) {
             std::cout << i << " ";
         }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Not enough elements to keep." << std::endl;
+        std::cout << "\n";
     }
 
     return 0;
