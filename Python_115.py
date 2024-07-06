@@ -1,7 +1,4 @@
-import math
-
-
+```
 def max_fill(grid, capacity):
-    total = sum(sum(row) for row in grid)
-    empty_tanks = (capacity - total) // min(len(row) for row in grid)
-    return math.ceil((total + empty_tanks * len(grid[0])) / capacity)
+    total_capacity = sum(cap for row in grid for cap in row)
+    return math.ceil(total_capacity / capacity)
