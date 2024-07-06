@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <iterator>
 
 bool issame(vector<int> a,vector<int>b){
     int sumA = 0, sumB = 0;
