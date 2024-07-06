@@ -8,7 +8,7 @@ def x_or_y(n, x, y):
                 return False
         return True
 
-    if is_prime(n):
+    if n <= (x + y) // 2:
         return x
     else:
         return y
