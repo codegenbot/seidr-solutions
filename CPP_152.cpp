@@ -1,15 +1,11 @@
-#include <vector>
-
-using namespace std;
-
-vector<int> compare(vector<int> scores, vector<int> guesses) {
-    vector<int> results;
-    for (int i = 0; i < scores.size(); i++) {
-        if (scores[i] == guesses[i]) {
-            results.push_back(0);
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] == guess[i]) {
+            result.push_back(0);
         } else {
-            results.push_back(abs(scores[i] - guesses[i]));
+            result.push_back(abs(guess[i] - game[i]));
         }
     }
-    return results;
+    return result;
 }
