@@ -1,10 +1,8 @@
 ```cpp
 #pragma GCC diagnostic push
-#include <initializer_list>
-#pragma GCC diagnostic pop
-
 #include <vector>
 #include <limits>
+#pragma GCC diagnostic pop
 
 int main() {
     long long minSubArraySum(std::vector<long long> nums) {
