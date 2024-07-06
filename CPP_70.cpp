@@ -1,8 +1,19 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
+
+int main() {
+    vector<int> input = {10, 5, 20};
+    vector<int> output = strange_sort_vector(input);
+    
+    for (int i: output) {
+        cout << i << " ";
+    }
+    
+    return 0;
+}
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
@@ -17,16 +28,4 @@ vector<int> strange_sort_vector(vector<int> lst) {
     }
 
     return result;
-}
-
-int main() {
-    vector<int> input = {10, 5, 20};
-    vector<int> output = strange_sort_vector(input);
-    
-    for (int i: output) {
-        cout << i << " ";
-    }
-    cout << endl; 
-
-    return 0;
 }
