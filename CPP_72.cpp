@@ -1,4 +1,4 @@
-``` 
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -17,7 +17,7 @@ bool will_it_fly(vector<int> q, int w) {
     reverse(reversed.begin(),reversed.end());
     string revStr(string(reversed.begin(),reversed.end()));
     
-    if (string(reversed.begin(), reversed.end()) != revStr)
+    if (str != revStr)
         return false;
     int sum = 0;
     for (int i : q) {
