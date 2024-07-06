@@ -1,16 +1,23 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<vector<int>> remove_duplicates(vector<int> numbers) {
-    vector<int> unique_numbers;
-    for (int num : numbers) {
-        if (find(unique_numbers.begin(), unique_numbers.end(), num) == unique_numbers.end()) {
-            unique_numbers.push_back(num);
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
-    return {unique_numbers};
+    return true;
+}
+
+int main() {
+    vector<int> numbers = {1,2,3,4,5};
+    vector<int> expected = {1,2,3,4,5};
+
+    //assert(issame(remove_duplicates(numbers),expected));
+    return 0;
 }
