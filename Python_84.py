@@ -1,4 +1,3 @@
-```Python
 def solve(N):
     result = ''
     for i, bit in enumerate(str(bin(N)[2:])[::-1]):
