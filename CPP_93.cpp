@@ -1,19 +1,18 @@
-string encode(string message) {
+string encode(string message){
     string result = "";
-    for (char c : message) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c == toupper(base)) ? tolower(c) : toupper(c);
-            switch (c - base) {
-                case 0:
-                case 1:
-                case 3:
-                case 5:
-                    c = base + 2;
-                    break;
-                default:
-                    c = base + ((c - base) % 26 + 2) % 26;
-                    break;
+    for(int i=0; i<message.length(); i++){
+        char c = message[i];
+        if(isalpha(c)){
+            if(isupper(c)){
+                if(c == 'W' || c == 'X' || c == 'Y') continue;
+                else{
+                    c = (char)(c - 65 + 3)%26 + 65;
+                }
+            }else if(islower(c)){
+                if(c == 'w' || c == 'x' || c == 'y') continue;
+                else{
+                    c = (char)(c - 97 + 3)%26 + 97;
+                }
             }
         }
         result += c;
