@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <vector>
 #include <set>
-#include <algorithm>
 
 using namespace std;
 
@@ -32,6 +32,4 @@ int main() {
     for (int i : result) {
         cout << i << " ";
     }
-    
-    return 0;
 }
