@@ -1,8 +1,8 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 
-bool equal(float a, float b) {
+bool same(float a, float b) {
     return a == b;
 }
 
