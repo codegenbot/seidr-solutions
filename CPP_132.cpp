@@ -7,7 +7,7 @@ bool is_nested(std::string str) {
         if (c == '[') open++;
         else if (c == ']') close++;
     }
-    return open > 0 && close > open;
+    return open > 0 && close >= open; 
 }
 
 int main() {
