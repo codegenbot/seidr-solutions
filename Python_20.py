@@ -1,4 +1,3 @@
-```
 def find_closest_elements(numbers):
     numbers = sorted(map(int, numbers))
     diff = float('inf')
