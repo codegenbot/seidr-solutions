@@ -1,19 +1,17 @@
+#include<stdexcept>
+using namespace std;
+
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
-    }
+    vector<int> v(q);
+    sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
     
-    bool is_palindromic = false;
-    if (!str.empty()) {
-        is_palindromic = true;
-        for (int i = 0; i < str.length() / 2; i++) {
-            if (str[i] != str[str.length() - i - 1]) {
-                is_palindromic = false;
-                break;
-            }
-        }
-    }
+    int sum = 0;
+    for (int i : q)
+        sum += i;
     
-    return is_palindromic && q.size() <= w;
+    if(sum > w || v != q)
+        return false;
+    
+    return true;
 }
