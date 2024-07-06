@@ -1,6 +1,7 @@
 #include <vector>
+#include <assert.h>
 
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         bool has_positive_sum = false;
@@ -18,3 +19,8 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+}
