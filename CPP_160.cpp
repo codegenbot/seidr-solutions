@@ -19,7 +19,7 @@ int do_algebra(std::vector<std::string> operations, std::vector<int> operands) {
 }
 
 int main() {
-    int result = do_algebra({{"*","/"}, {7,3,4}});
+    int result = do_algebra({{"*"}, {"/"}}, {7, 3, 4});
     assert(result == 8);
     return 0;
 }

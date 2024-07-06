@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 long long double_the_difference(std::vector<double> lst) {
     long long sum = 0;
@@ -14,5 +16,6 @@ long long double_the_difference(std::vector<double> lst) {
 int main() {
     std::vector<double> lst = {1.5, 3.7, 4.8};
     long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == double_the_difference(lst));  
     return 0;
 }
