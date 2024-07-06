@@ -12,13 +12,8 @@ def sum_squares(lst):
     return total_sum
 
 
-def check(func):
-    assert all(isinstance(x, (int, float)) for x in func([1, 2, 3])) and isinstance(
-        func({}), int
-    ), "Input list must not contain non-numeric elements."
-    return func
-
-
-@check
 def main():
     print(sum_squares([1, 2, 3]))
+
+
+main()
