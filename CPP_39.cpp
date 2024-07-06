@@ -4,6 +4,7 @@ bool isPrime(int num) {
         if (num % i == 0) return false;
     }
     return true;
+
 }
 
 int prime_fib(int n) {
