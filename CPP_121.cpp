@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,6 +13,6 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     std::vector<int> testList = {3, 13, 2, 9};
-    std::cout << "The number of solutions is: " << solutions(testList) << std::endl;
+    assert(solutions(testList) == 3);
     return 0;
 }
