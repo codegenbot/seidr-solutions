@@ -1,13 +1,19 @@
 vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    vector<int> collatz_sequence = {n};
     while (n != 1) {
-        if (n % 2 == 0)
-            n = n / 2;
-        else
+        if (n % 2 == 0) {
+            n /= 2;
+        } else {
             n = 3 * n + 1;
-        if (n % 2 != 0)
-            result.push_back(n);
+        }
+        collatz_sequence.push_back(n);
     }
-    sort(result.begin(), result.end());
-    return result;
+    vector<int> odd_collatz;
+    for (int num : collatz_sequence) {
+        if (num % 2 != 0) {
+            odd_collatz.push_back(num);
+        }
+    }
+    sort(odd_collatz.begin(), odd_collatz.end());
+    return odd_collatz;
 }
