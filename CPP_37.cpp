@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float>b) {
+bool stdsame(std::vector<float> a, std::vector<float>b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -33,7 +34,4 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-int main() {
-    assert(std::equal(sort_even({2, 3, 11, 12, -10, 4, 5, 8, -12, 23}).begin(), sort_even({2, 3, 11, 12, -10, 4, 5, 8, -12, 23}).end(), {2, 3, 4, 5, 8, -10, -12, 11, 12, 23}));
-    return 0;
-}
+assert(stdsame({2, 3, 11, 12, -10, 4, 5, 8, -12, 23}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
