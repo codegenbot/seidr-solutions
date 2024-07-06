@@ -1,4 +1,4 @@
-def decode_cyclic(s):
+def decode_cyclic(s: str):
     groups = []
     for i in range(len(s) // 3):
         group = s[i * 3:(i + 1) * 3]
