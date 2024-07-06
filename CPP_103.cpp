@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cmath> // added this line to include lround function
+#include <cmath>
 using namespace std;
 
 string rounded_avg(int n, int m) {
