@@ -1,46 +1,56 @@
+```cpp
 #include <boost/any.hpp>
 #include <boost/convert.hpp>
-#include <string>
-using namespace std;
+
+using namespace boost;
+
+bool is_numeric(boost::any a) {
+    try {
+        get<double>(a);
+        return true;
+    } catch (...) {
+        return false;
+    }
+}
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_castable<double>(a)) {
-        if (is_any_castable<double>(b)) {
-            double da = boost::any_cast<double>(a);
-            double db = boost::any_cast<double>(b);
+    if (is_numeric(a)) {
+        if (is_numeric(b)) {
+            double da = get<double>(a);
+            double db = get<double>(b);
 
             if (da > db)
                 return a;
             else if (db > da)
                 return b;
 
-            return boost::any("None");
+            return "None";
         } else {
-            string sa = boost::any_cast<string>(a);
-            string sb = boost::any_cast<string>(b);
+            std::string sa = boost::any_cast<std::string>(a);
+            std::string sb = boost::any_cast<std::string>(b);
 
-            double da = stod(sa);
-            double db = stod(sb);
+            double da = boost::stod(sa);
+            double db = boost::stod(sb);
 
             if (da > db)
                 return a;
             else if (db > da)
                 return b;
 
-            return boost::any("None");
+            return "None";
         }
     } else {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
+        std::string sa = boost::any_cast<std::string>(a);
+        std::string sb = boost::any_cast<std::string>(b);
 
-        double da = stod(sa);
-        double db = stod(sb);
+        double da = boost::stod(sa);
+        double db = boost::stod(sb);
 
         if (da > db)
             return a;
         else if (db > da)
             return b;
 
-        return boost::any("None");
+        return "None";
     }
 }
