@@ -1,11 +1,8 @@
-#include <vector>
-#include <string>
-
-int smallest_change(vector<int> arr) {
-    int n = arr.size();
+```
+int smallest_change(int arr[], int n) {
     string s = "";
-    for (int i : arr) {
-        s += to_string(i);
+    for (int i = 0; i < n; i++) {
+        s += to_string(arr[i]);
     }
     int left = 0, right = s.length() - 1;
     int changes = 0;
