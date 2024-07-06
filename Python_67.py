@@ -1,14 +1,13 @@
-import re
-
-
+```Python
 def fruit_distribution(s, n):
-    s = re.sub(r"\b(apples|oranges)\b", "0", s.lower())
-    return (
-        sum(map(int, [int(x) for x in re.findall(r"\d+", s)]))
-        if len([int(x) for x in re.findall(r"\d+", s)]) >= n
-        else 0
-    )
-
+    parts = {}
+    for word in s.split():
+        if word.isdigit():
+            continue
+        elif word not in parts:
+            parts[word] = 0
+        parts[word] += 1
+    return sum([v for v in parts.values()] if len(parts) >= n else 0)
 
 s = input()
 n = int(input())
