@@ -24,9 +24,9 @@ bool isPrime(int num) {
             return false;
     }
     return true;
-}
 
 int main() {
-    assert(skkkasdkd({127, 97, 8192}) == 10);
+    std::vector<int> lst = {127, 97, 8192};
+    assert(skkkasdkd(lst) == 10);
     return 0;
 }
