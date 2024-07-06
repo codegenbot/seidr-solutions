@@ -1,4 +1,3 @@
-```Python
 def decode_shift():
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     

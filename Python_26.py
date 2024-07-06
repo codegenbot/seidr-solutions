@@ -1,4 +1,3 @@
-```
 import sys
 
 def remove_duplicates(numbers: list[int]) -> list[int]:
