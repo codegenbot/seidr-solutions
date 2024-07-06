@@ -1,6 +1,14 @@
+```
 def sort_third(input_list):
-    result = [sorted([int(x) for x in input_list[i:i+3]], key=sum) for i in range(0, len(input_list), 3)]
-    remaining = input_list[len(input_list) // 3 * 3:]
-    if remaining:
-        result.append(sorted(map(int, remaining), key=sum))
-    return tuple(map(tuple, result))
+    result = []
+    current_group = []
+    for num in input_list:
+        current_group.append(int(num))
+        if len(current_group) == 3:
+            result.append(tuple(sorted(current_group)))
+            current_group = []
+
+    if current_group:  
+        result.append(tuple(sorted(current_group)))
+
+    return tuple(result)
