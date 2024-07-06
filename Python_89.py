@@ -1,40 +1,37 @@
 def encrypt(s):
-    # Create a dictionary to map letters to their encrypted counterparts
+    # Create a dictionary to map letters to their encrypted values
     letter_map = {
-        "a": "c",
-        "b": "d",
-        "c": "e",
-        "d": "f",
-        "e": "g",
-        "f": "h",
-        "g": "i",
-        "h": "j",
-        "i": "k",
-        "j": "l",
-        "k": "m",
-        "l": "n",
-        "m": "o",
-        "n": "p",
-        "o": "q",
-        "p": "r",
-        "q": "s",
-        "r": "t",
-        "s": "u",
-        "t": "v",
-        "u": "w",
-        "v": "x",
-        "w": "y",
-        "x": "z",
-        "y": "a",
-        "z": "b",
+        "a": "e",
+        "b": "f",
+        "c": "g",
+        "d": "h",
+        "e": "i",
+        "f": "j",
+        "g": "k",
+        "h": "l",
+        "i": "m",
+        "j": "n",
+        "k": "o",
+        "l": "p",
+        "m": "q",
+        "n": "r",
+        "o": "s",
+        "p": "t",
+        "q": "u",
+        "r": "v",
+        "s": "w",
+        "t": "x",
+        "u": "y",
+        "v": "z",
+        "w": "a",
+        "x": "b",
+        "y": "c",
+        "z": "d",
     }
 
-    # Encrypt the input string using the letter_map dictionary
-    encrypted = ""
-    for char in s:
-        if char.isalpha():
-            encrypted += letter_map[char]
-        else:
-            encrypted += char
+    # Encrypt the input string using the dictionary
+    encrypted_string = ""
+    for letter in s:
+        encrypted_string += letter_map[letter]
 
-    return encrypted
+    return encrypted_string
