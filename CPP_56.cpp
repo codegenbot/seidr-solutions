@@ -1,1 +1,1 @@
-return (count == 0);
+```bool return (count == 0);```
