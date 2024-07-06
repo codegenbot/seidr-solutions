@@ -25,17 +25,10 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
             while (end < s.size() && isblank(s[end])) {
                 end++;
             }
-            if (end < s.size()) {
-                result[1] = s.substr(end);
-                return result;
-            } else {
-                if (!issame(expected)) {
-                    return {};
-                }
-                return {s};
-            }
+            result[1] = s.substr(end);
+            return {result[0], result[1]};
         }
-    } while ((end = s.find("\n", end)) != std::string::npos || (end = s.find(" ", end)) != std::string::npos);
+    } while ((end = s.find("\n", end)) != std::string::npos || end = s.find(" ", end) != std::string::npos);
     if (start <= end) {
         result[0] = s.substr(start - 1, end - start);
         return {result[0]};
