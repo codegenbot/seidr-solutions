@@ -1,8 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
 #include <set>
-#include <algorithm>
 
 using namespace std;
 
