@@ -1,6 +1,7 @@
 def cycpattern_check(a, b):
     min_len = min(len(a), len(b))
     for i in range(min_len):
-        if (a[i:] + a[:i]).lower() == (b.lower()):
+        a_rotated = a[i:] + a[:i]
+        if a_rotated == b:
             return True
     return False
