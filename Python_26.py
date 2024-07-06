@@ -1,10 +1,7 @@
 ```
 from typing import List
 
-
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    if not numbers:
-        return []
     seen = set()
     result = []
     for num in numbers:
