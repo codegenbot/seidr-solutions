@@ -1,3 +1,4 @@
+```python
 def solve_boolean(expression):
     def evaluate(part):
         parts = part.split('|')
