@@ -1,4 +1,5 @@
-int main() {
+int main
+{
     string s;
     cout << "Enter a sentence: ";
     getline(cin, s);
