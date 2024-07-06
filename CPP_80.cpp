@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <string>
 using namespace std;
 
@@ -10,14 +9,16 @@ bool is_happy(string s) {
         string sub = s.substr(i, 3);
         unique = true;
         for(char c : sub) {
-            for(int j = i; j < i+3; j++) {
+            bool found = false;
+            for(int j = i; (j < i+3) && !found; j++) {
                 if(s[j] == c) {
-                    unique = false;
-                    break;
+                    found = true;
                 }
             }
-            if(!unique)
+            if(!found) {
+                unique = false;
                 break;
+            }
         }
         if(unique)
             return true;
