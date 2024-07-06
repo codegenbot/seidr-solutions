@@ -1,39 +1,26 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+bool issame(std::vector<float> a, std::vector<float> b, float threshold) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (!(a[i] == b[i])) {
-            return false;
-        }
+        if (!(abs(a[i]) == abs(b[i]))) return false;
     }
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
-    std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    for (float num : v) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
+std::vector<float> get_positive(std::initializer_list<float> l) {
+    std::vector<float> result{l.begin(), l.end()};
+    result.erase(std::remove_if(result.begin(), result.end(), [](float num){return num <= 0;}), result.end());
     return result;
 }
 
 int main() {
     std::vector<float> vec1 = {1, 2, 3}; 
-    std::vector<float> vec2 = {4, 5, 6};
+    std::vector<float> vec2 = {4, 5, -6};
     std::cout << "Only positive numbers are: ";
-    for (float num : get_positive(vec1,vec2)) {
+    for (float num : get_positive({vec1.begin(), vec1.end()}) | std::views::combine(get_positive({vec2.begin(), vec2.end()})))) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
