@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -42,4 +42,3 @@ int main
     vector<string> vec2 = {""};
     assert(issame(total_match(vec1,vec2),vector<string>({"", "this"})));  
     return 0;
-}
