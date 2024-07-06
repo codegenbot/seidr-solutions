@@ -1,3 +1,4 @@
+
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     rotated_alphabet = alphabet[2:] + alphabet[:2]
@@ -6,6 +7,8 @@ def encrypt(s):
         index = alphabet.index(char)
         if index < 2:
             encrypted_string += rotated_alphabet[index + 1]
+        elif char == "a" or char == "A":
+            encrypted_string += "e"
         else:
             encrypted_string += rotated_alphabet[index - 2]
     return encrypted_string
