@@ -1,31 +1,32 @@
-Here is the completed code:
+```cpp
+#include <vector>
 
-int skjkasdkd(vector<int> lst){
-    int maxPrime = -1;
-    for(int num : lst){
-        if(isPrime(num) && num > maxPrime){
-            maxPrime = num;
-        }
+int findMaxPrime(std::vector<int> lst){
+    int maxPrime = 0;
+    for(int i : lst) {
+        if(isPrime(i) && i > maxPrime)
+            maxPrime = i;
     }
-    return sumOfDigits(maxPrime);
+    int sumOfDigits = 0;
+    while(maxPrime > 0) {
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumOfDigits;
 }
 
-bool isPrime(int n){
-    if(n <= 1) return false;
-    if(n == 2 || n == 3) return true;
-    if(n % 2 == 0 || n % 3 == 0) return false;
-    for(int i = 5; i * i <= n; i += 6){
-        if(n % i == 0 || n % (i + 2) == 0)
+bool isPrime(int n) {
+    if(n <= 1)
+        return false;
+    for(int i = 2; i*i <= n; i++) {
+        if(n%i == 0)
             return false;
     }
     return true;
-}
 
-int sumOfDigits(int n){
-    int sum = 0;
-    while(n > 0){
-        sum += n % 10;
-        n /= 10;
-    }
-    return sum;
+}
+int main() {
+    std::vector<int> lst = {127, 97, 8192};
+    assert(findMaxPrime(lst) == 10);
+    return 0;
 }
