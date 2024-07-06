@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```python
 import re
 
 def words_string():
@@ -9,10 +11,6 @@ def words_string():
                 print("Input cannot be blank. Please enter valid text.")
                 continue
             result = [x.strip() for x in re.split("[,\s]+", s.strip()) if x]
-            if not all(re.match('^[a-zA-Z0-9, ]*$', i) for i in result):
-                print("Invalid input. Please try again with only letters and numbers separated by commas or spaces.")
-                continue
+            return result
         except (ValueError, TypeError):
             print("Invalid input. Please try again with only letters and numbers separated by commas or spaces.")
-        else:
-            return result

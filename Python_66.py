@@ -1,3 +1,4 @@
+```
 def digit_sum(n):
     total = 0
     while n:
@@ -16,5 +17,4 @@ def main():
             print("Invalid input. Please enter an integer.")
 
 
-if __name__ == "__main__":
-    main()
+main()
