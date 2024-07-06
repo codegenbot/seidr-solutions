@@ -3,7 +3,6 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
-
 def indices_of_substring(text, target):
     window_size = len(target)
     indices = []
