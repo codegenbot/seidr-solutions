@@ -1,15 +1,16 @@
 def solve():
     while True:
-        choice = int(
-            input(
-                "Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? "
+        try:
+            choice = int(
+                input(
+                    "Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? "
+                )
             )
-        )
-
-        if choice in [1, 2]:
+            if choice not in [1, 2]:
+                raise ValueError
             break
-        else:
-            print("Invalid input. Please choose a number between 1 and 2.")
+        except ValueError:
+            print("Invalid choice. Please choose 1 or 2.")
 
     if choice == 1:
         while True:
@@ -18,7 +19,7 @@ def solve():
                 print(bin(N)[2:])
                 break
             except ValueError:
-                print("That's not a valid number! Try again.")
+                print("Invalid input. Please enter a valid decimal number.")
     elif choice == 2:
         while True:
             try:
@@ -26,7 +27,7 @@ def solve():
                 print(int(N, 2))
                 break
             except ValueError:
-                print("That's not a valid binary number! Try again.")
+                print("Invalid input. Please enter a valid binary number.")
 
 
 def main():
