@@ -1,6 +1,6 @@
-def add(x: int or float, y: int or float):
+def add(x: float, y: float) -> float:
     # Check if inputs are valid
-    if not (isinstance(x, int) and isinstance(y, int)):
-        raise ValueError("Inputs must be integers")
+    if not (isinstance(x, float) and isinstance(y, float)):
+        raise ValueError("Inputs must be floating-point numbers")
 
     return x + y
