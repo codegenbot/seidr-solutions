@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     return x + y
 
@@ -10,17 +11,20 @@ while True:
             elif x.replace('-', '',).replace('.', '').isnumeric():
                 x = int(x)
                 if -2**31 <= x <= 2**31 -1:
-                    y = input("Enter the second number (or 'q' to quit): ")
-                    if y == "q":
-                        break
-                    elif y.replace('-', '',).replace('.', '').isnumeric():
-                        y = int(y)
-                        if -2**31 <= y <= 2**31 -1:
-                            print(f"The sum is {add(x, y)}")
+                    while True:
+                        y = input("Enter the second number (or 'q' to quit): ")
+                        if y == "q":
+                            break
+                        elif y.replace('-', '',).replace('.', '').isnumeric():
+                            y = int(y)
+                            if -2**31 <= y <= 2**31 -1:
+                                print(f"The sum is {add(x, y)}")
+                                break
+                            else:
+                                print("Invalid input. Please enter a whole number.")
                         else:
                             print("Invalid input. Please enter a whole number.")
-                    else:
-                        print("Invalid input. Please enter a whole number.")
+                    break
                 else:
                     print("Invalid input. Please enter a whole number.")
             else:
