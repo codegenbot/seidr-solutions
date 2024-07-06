@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(vector<int> a,vector<int>b){
+bool isSame(vector<int> a,vector<int>b){
     int sumA = 0, sumB = 0;
     for (char c : to_string(a[0])) sumA += c - '0';
     for (char c : to_string(b[0])) sumB += c - '0';
@@ -11,7 +12,7 @@ bool issame(vector<int> a,vector<int>b){
 
 vector<int> order_by_points(vector<int> nums) {
     auto compare = [&](int a, int b) {
-        if (issame({a},{b})) return 0;
+        if (isSame({a},{b})) return 0;
         int sumA = 0, sumB = 0;
         for (char c : to_string(a)) sumA += c - '0';
         for (char c : to_string(b)) sumB += c - '0';
@@ -23,5 +24,8 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
-vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
-assert (std::equal(result.begin(), result.end(),{-76, -21, 0, 4, 23, 6, 6}));
+int main(){
+    vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
+    assert (isSame(result , {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
+}
