@@ -1,3 +1,4 @@
+```
 def convert():
     while True:
         choice = input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? ")
@@ -22,7 +23,7 @@ def convert():
                 print(N)
                 break
             except ValueError:
-                print("That's not a valid binary number! Try again."
+                print("That's not a valid binary number! Try again.")
 
 
 if __name__ == "__main__":
