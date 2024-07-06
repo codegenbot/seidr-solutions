@@ -1,29 +1,43 @@
 from typing import List
-import re
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
-    groups = re.split("(\(|\))", paren_string)
-    temp_group = ""
+    current_group = ""
 
-    for group in groups:
-        if group == "(":
-            stack.append(group)
-            temp_group += group
-        elif group == ")":
-            while len(stack) and stack[-1] != "(":
-                temp_group += stack.pop()
-            if not stack or stack.pop() != "(":
-                return []
-            temp_group += group
-        else:
-            temp_group += group
+    for char in paren_string:
+        if char == " ":  # ignore spaces
+            continue
+        if char in "():":
+            if not stack or char == "(":
+                stack.append(char)
+                current_group += char
+            else:
+                while stack and stack[-1] != "(":
+                    current_group += stack.pop()
+                if not stack:
+                    result.append(current_group)
+                    current_group = ""
+                else:
+                    stack.pop()  # match with the opening brace
+                    current_group += ")"
+        elif char == "(":
+            stack.append(char)
+            current_group += char
+        elif char == ")":
+            while stack and stack[-1] != "(":
+                current_group += stack.pop()
+            if not stack:
+                result.append(current_group)
+                current_group = ""
+            else:
+                stack.pop()  # match with the opening brace
+                current_group += ")"
 
-    while stack:
-        temp_group += stack.pop()
+    if stack:
+        while stack:
+            current_group += stack.pop()
+        result.append(current_group)
 
-    result.append(temp_group)
-
-    return [temp_group]
+    return [s.strip() for s in result]
