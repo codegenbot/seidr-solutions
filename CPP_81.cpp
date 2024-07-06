@@ -1,27 +1,21 @@
 #include <vector>
 #include <string>
 
-double letterToGrade(char c) {
-    switch (c) {
-        case 'A':
-            return 4.0;
-        case 'B':
-            return 3.0;
-        case 'C':
-            return 2.0;
-        case 'D':
-            return 1.0;
-        case 'F':
-            return 0.0;
+std::vector<string> numerical_letter_grade(std::vector<int> grades) {
+    std::vector<std::string> result;
+    for (int grade : grades) {
+        if (grade >= 90)
+            result.push_back("A");
+        else if (grade >= 80)
+            result.push_back("B");
+        else if (grade >= 70)
+            result.push_back("C");
+        else if (grade >= 60)
+            result.push_back("D");
+        else
+            result.push_back("F");
     }
-}
-
-double numerical_letter_grade(vector<double> grades) {
-    double total = 0.0;
-    for (int i = 0; i < grades.size(); i++) {
-        total += letterToGrade('A' - 65 + (grades[i] > 2.0)) * (grades[i] > 2.0 ? 4.0 : 1.0);
-    }
-    return total / grades.size();
+    return result;
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -30,4 +24,9 @@ bool issame(vector<string> a, vector<string> b) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 70}) , {"F", "D-"}));
+    return 0;
 }
