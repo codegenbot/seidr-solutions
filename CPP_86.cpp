@@ -2,7 +2,7 @@
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == ' ') {
             result += " ";
@@ -13,12 +13,8 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                if (c >= 'a' && c <= 'z') 
-                    result += ('a' + (c - 'a') % 13);
-                else if (c >= 'A' && c <= 'Z')
-                    result += ('A' + (c - 'A') % 13);
-                else
-                    result += c;
+                result += to_string(c);
+            }
         }
     }
     return result;
@@ -26,6 +22,7 @@ std::string anti_shuffle(std::string s) {
 
 int main() {
     std::string input = "Hi. My name is Mister Robot. How are you?";
-    assert(anti_shuffle(input) == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    string output = anti_shuffle(input);
+    assert(output == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
