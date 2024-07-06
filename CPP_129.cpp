@@ -1,29 +1,13 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
+vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> res;
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
-            if (grid[i][j] == 1) {
-                dfs(grid, visited, i, j, k, &res);
-                break;
-            }
-    return res;
-}
-
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
-    if (k == 0)
-        return;
-    visited[x][y] = true;
-    (*res).push_back(grid[x][y]);
-    for (int dx = -1; dx <= 1; ++dx)
-        for (int dy = -1; dy <= 1; ++dy) {
-            int nx = x + dx, ny = y + dy;
-            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()
-                && !visited[nx][ny] && grid[nx][ny] != (*res).back()) {
-                dfs(grid, visited, nx, ny, k - 1, res);
-                return;
+    for(int i = 0; i < (int)grid.size(); i++){
+        for(int j = 0; j < (int)grid[0].size(); j++){
+            if(grid[i][j] <= k){
+                res.push_back(grid[i][j]);
+                k--;
+                if(k == 0) return res;
             }
         }
-    visited[x][y] = false;
+    }
+    return res;
 }
