@@ -4,10 +4,10 @@ def car_race_collision(n: int):
     collisions = 0
 
     while left_to_right < n and right_to_left >= 0:
-        if left_to_right < right_to_left:
+        if left_to_right < right_to_left or (left_to_right == right_to_left):
             left_to_right += 1
         else:
             right_to_left -= 1
         collisions += 1
 
-    return collisions - 1
+    return collisions
