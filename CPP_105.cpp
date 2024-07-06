@@ -1,34 +1,56 @@
-#include <assert.h>
+```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> nums;
+vector<string> by_length(vector<int> arr) {
+    vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            nums.push_back(std::to_string(num));
+            nums.push_back(num);
         }
     }
 
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
 
-    std::vector<std::string> result;
-    for (const auto& str : nums) {
-        if (str.length() == 3) {
-            if (str == "One") str = "001";
-            else if (str == "Two") str = "002";
-            else if (str == "Three") str = "003";
-            else if (str == "Four") str = "004";
-            else if (str == "Five") str = "005";
-            else if (str == "Six") str = "006";
-            else if (str == "Seven") str = "007";
-            else if (str == "Eight") str = "008";
-            else if (str == "Nine") str = "009";
+    vector<string> result;
+    for (int num : nums) {
+        string str; 
+        switch (num) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+                break;
         }
         result.push_back(str);
     }
