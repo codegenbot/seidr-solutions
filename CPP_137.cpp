@@ -24,21 +24,11 @@ int main() {
         }
     }
 
-    cout << "Enter the second value: ";
-    string val2;
-    cin >> ws; // ignore whitespace
-    getline(cin, val2);
-
-    int num = std::stoi(val2);
-    if (val1 > num) {
+    if (!(val1 == 0 && ((cout << "Enter the second value: "; string val2; cin >> val2; if (!(val2 == "+" || val2 == "-")) { cout << "Invalid input. Please enter '+' or '-'.\n"; cin.clear(); cin.ignore(numeric_limits<streamsize>::max(), '\n'); }))) {
         cout << "The first number is bigger.\n";
-    } else if (val1 < num) {
-        cout << "The second number is bigger.\n";
     } else {
-        cout << "Both numbers are equal.\n";
+        compareOne(val1);
     }
-
-    compareOne(val1);
 
     return 0;
 }
