@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -15,20 +15,11 @@ std::vector<int> get_odd_collatz(int n) {
         if (n % 2 != 0)
             result.push_back(n);
     }
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(std::equal({get_odd_collatz(1)}, {1}));
-    std::vector<int> numbers;
-    int input;
-    std::cout << "Enter a number: ";
-    std::cin >> input;
-    numbers = get_odd_collatz(input);
-    std::cout << "The Collatz sequence is: ";
-    for (int num : numbers) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-    return 0;
+    assert(std::equal({get_odd_collatz(12)}, {1,5}));
+    // Add your code here
 }
