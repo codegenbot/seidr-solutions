@@ -3,13 +3,13 @@
 #include <climits>
 using namespace std;
 
-bool sameVectors(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     return a.size() == b.size();
 }
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return vector<pair<int,int>>{}; 
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
+    if (arr.empty()) return result;
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -20,8 +20,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    if (minEven == INT_MAX) return vector<pair<int,int>>{}; 
+    if (minEven == INT_MAX) return {};
 
-    result.push_back({minEven, minIndex});
-    return result.size() > 0 ? result : vector<pair<int,int>>{};
-}
+    result.push_back(minEven);
+    return result;

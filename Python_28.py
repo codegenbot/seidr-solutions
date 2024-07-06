@@ -1,7 +1,11 @@
 ```
 from typing import List
 
-user_input = input("Enter some strings (space-separated): ")
-def concatenate(strings: List[str] = []) -> str:
+def concatenate() -> str:
+    strings = []
+    while True:
+        s = input("Enter a string (or 'stop' if finished): ")
+        if s.lower() == 'stop':
+            break
+        strings.append(s)
     return "".join([s.strip() for s in strings]).strip()
-print(concatenate(user_input.split()))
