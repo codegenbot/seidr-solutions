@@ -1,7 +1,5 @@
-#include <iostream>
-#include <cmath>
 #include <string>
-using namespace std;
+#include <cmath>
 
 string rounded_avg(int n,int m){
     if(n > m) return "-1";
