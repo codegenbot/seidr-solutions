@@ -1,23 +1,30 @@
-#include <vector>
+```cpp
 #include <string>
+#include <vector>
 
-int numerical_letter_grade(int score) {
-    if(score >= 90)
-        return 4;
-    else if(score >=80)
-        return 3;
-    else if(score >=70)
-        return 2;
-    else if(score >=60)
-        return 1;
+char numerical_letter_grade(int grade) {
+    if (grade < 0 || grade > 100)
+        return ' ';
+    else if (grade >= 90) 
+        return 'A';
+    else if (grade >= 80)
+        return 'B';
+    else if (grade >= 70)
+        return 'C';
+    else if (grade >= 60)
+        return 'D';
     else
-        return 0;
+        return 'F';
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    assert(issame({std::string("E"), std::string("D-")}, {numerical_letter_grade(0), numerical_letter_grade(70)}));
 }
