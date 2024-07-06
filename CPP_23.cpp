@@ -1,4 +1,3 @@
-```cpp
-int str_len(string str){
-    return str.length();
+int str_len(string str){ 
+    return str.length(); 
 }
