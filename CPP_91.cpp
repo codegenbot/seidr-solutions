@@ -1,6 +1,6 @@
 int main() {
     std::string S;
-    // read input from user...
+    std::cin >> S;
 
     int count = 0;
     int pos = 0; 
@@ -10,8 +10,8 @@ int main() {
             if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
                 count++;
             }
-            pos = S.find("I", pos);
-        }
+            pos = S.find("I", pos) + 1;
+        } else break;
     }
     return 0;
 }
