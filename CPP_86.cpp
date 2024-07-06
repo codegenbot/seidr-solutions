@@ -1,4 +1,3 @@
-```cpp
 std::string anti_shuffle(std::string s) {
     std::string result = "";
     size_t pos = 0;
@@ -8,8 +7,9 @@ std::string anti_shuffle(std::string s) {
             nextSpace = s.length();
         }
         std::string word = s.substr(pos, nextSpace - pos);
+        result += "";
         for (char c : word) {
-            result += c;
+            result += (char)(c);
         }
         pos = nextSpace + 1;
     }

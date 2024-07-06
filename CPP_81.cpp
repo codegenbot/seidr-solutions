@@ -1,5 +1,5 @@
-#include <string>
 #include <vector>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -40,4 +40,12 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         result.push_back(letterGrade);
     }
     return result;
+}
+
+int main() {
+    vector<float> grades = {3.9, 4.2, 3.1};
+    vector<string> grade_letters = numerical_letter_grade(grades);
+    
+    // Add more code here to use issame function
+    return 0;
 }
