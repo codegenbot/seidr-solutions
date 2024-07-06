@@ -1,6 +1,9 @@
-def rolling_max(numbers: List[int]) -> List[int]:
+from typing import List
+
+
+def rolling_max(numbers: list) -> List[int]:
     result = []
-    current_max = -1
+    current_max = 0
     for num in numbers:
         if num > current_max:
             current_max = num
