@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,18 +6,26 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
-    if (array.empty()) {
-        std::cout << "Error: The input array is empty." << std::endl;
-        exit(0);
-    }
-    int sum = array[0] + array.back();
+    int sum = std::accumulate(array.begin(), array.end(), 0);
     if (sum % 2 == 1)
-        return array; 
+        return array;
     else
-        return std::vector<int>(array.rbegin(), array.rend());
+        std::sort(array.rbegin(), array.rend());
+    return array;
 }
 
 int main() {
-    assert(std::issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    return 0;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::vector<int> array(n);
+    for (auto &i : array) {
+        std::cout << "Enter element " << ++i << ": ";
+        if (!(std::cin >> i)) {
+            std::cerr << "Invalid input. Please enter a valid integer." << std::endl;
+            return 1;
+        }
+    }
+    
+    assert(issame(sort_array(array), array));
 }
