@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -9,11 +9,13 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(std::vector<int> myVector, int k) {
     std::vector<int> result;
-    while(k--) {
-        result.push_back(*std::max_element(arr.begin(), arr.end()));
-        arr.erase(std::remove(arr.begin(), arr.end(), *std::max_element(arr.begin(), arr.end())), arr.end());
+    for (int i = 0; i < k; ++i) {
+        int max_val = *std::max_element(myVector.begin(), myVector.end());
+        result.push_back(max_val);
+        auto it = std::remove(myVector.begin(), myVector.end(), max_val);
+        myVector.erase(it, myVector.end());
     }
     return result;
 }
@@ -21,13 +23,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 int main() {
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     int n = sizeof(arr)/sizeof(arr[0]);
-    std::vector<int> myVector (arr, arr+n);
-    if(isSame(maximum(myVector, 4), {0, 1, 2, 3})) {
-        for(int i = 0; i < 4; ++i) {
-            std::cout << maximum(myVector, 4)[i] << " ";
-        }
-    } else {
-        std::cout << "Output is not as expected";
-    }
+    std::vector<int> array (arr, arr+n);
+    assert(same(maximum(array, 4), {0, 1, 2, 3}));
     return 0;
 }
