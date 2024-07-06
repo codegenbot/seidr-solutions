@@ -1,5 +1,2 @@
-import re
-
-
 def cycpattern_check(a, b):
-    return bool(re.search(b, a))
+    return all(b in a[i:] for i in range(len(a)))
