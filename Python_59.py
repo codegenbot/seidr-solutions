@@ -1,14 +1,9 @@
-
-def largest_prime_factor(n):
+def largest_prime_factor(n: int):
+    # Find all prime factors of n
+    prime_factors = []
     for i in range(2, int(n**0.5) + 1):
-        if n % i == 0 and is_prime(i):
-            return i
-    return n
-
-def is_prime(n):
-    if n <= 1 or n % 2 == 0:
-        return False
-    for i in range(3, int(n**0.5) + 1, 2):
         if n % i == 0:
-            return False
-    return True
+            prime_factors.append(i)
+
+    # Return the largest prime factor
+    return max(prime_factors)
