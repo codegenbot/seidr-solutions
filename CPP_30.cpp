@@ -1,11 +1,11 @@
 #include <vector>
 #include <iostream>
 
-bool same(float a, float b) {
-    return a == b;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && a == b;
 }
 
-std::vector<float> get_positive(std::vector<float> l, std::vector<float> v = {}) {
+std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
