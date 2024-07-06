@@ -7,8 +7,6 @@ def make_palindrome(string: str) -> str:
         new_string = string + reverse
     else:
         middle_char = string[len(string) // 2]
-        new_string = (
-            string[: len(string) // 2] + middle_char + middle_char + reverse[: len(string) // 2 : -1]
-        )
+        new_string = middle_char + string[: len(string) // 2] + reverse
 
     return new_string
