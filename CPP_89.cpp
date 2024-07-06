@@ -4,7 +4,7 @@
 
 std::string encrypt(std::string s);
 
-int main() {
+int main {
     assert(encrypt("a") == "e");
     std::string s;
     std::cout << "Enter a string: ";
@@ -24,3 +24,4 @@ std::string encrypt(std::string s) {
         result += c;
     }
     return result;
+}

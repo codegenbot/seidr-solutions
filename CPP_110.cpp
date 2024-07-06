@@ -1,16 +1,11 @@
-std::string exchange(vector<int> lst1, vector<int> lst2) {
+#include <sstream>
+
+using namespace std;
+
+string exchange(vector<int> lst1, vector<int> lst2) {
+    int oddCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            bool found = false;
-            for (int num2 : lst2) {
-                if (num2 % 2 == 0) {
-                    swap(lst1[lst1.size()-lst1.erase(std::prev(end(lst1)))], num2);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) return "NO";
-        }
+        if (num % 2 != 0)
+            oddCount++;
     }
-    return "YES";
-}
+    return to_string(oddCount == 0) + "YES" + to_string(oddCount > 0) + "NO";
