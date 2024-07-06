@@ -1,6 +1,6 @@
-Here is the completed code:
-
-def fix_spaces(text):
-    text = text.replace(' ', '_')
-    text = text.replace('  ', '_').replace('___', '-').replace('_  ', '_-').replace('_ ___', '_-')
-    return text
+def count_vowels_and_consonants(text):
+    vowels = 'aeiouAEIOU'
+    text = text.replace(' ', '')
+    vowel_count = sum(1 for char in text if char in vowels)
+    consonant_count = len(text) - vowel_count
+    return f'Vowels: {vowel_count}, Consonants: {consonant_count}'
