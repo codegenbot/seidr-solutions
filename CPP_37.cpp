@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,22 +32,21 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input;
-    
     while (true) {
         float num;
         cin >> num;
         if (!cin) break;
         input.push_back(num);
     }
-
+    
     vector<float> output = sort_even(input);
-
+    
     if (issame(output, {1.7f, -2.9f, 3.14f, 4.8f})) {
-        std::cout << "Test passed!" << endl;
+        cout << "Test passed!" << endl;
     } else {
-        std::cout << "Test failed!" << endl;
+        cout << "Test failed!" << endl;
     }
-
+    
     assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
