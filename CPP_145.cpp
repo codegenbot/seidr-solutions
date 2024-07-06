@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 bool issame(vector<int> a, vector<int>b);
 vector<int> order_by_points(vector<int> nums);
