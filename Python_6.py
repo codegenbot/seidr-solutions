@@ -1,8 +1,9 @@
-def main():
-    s = input("Enter a string with nested parentheses: ")
-    print(parse_nested_parens(s))
+from typing import List
 
-def parse_nested_parens(paren_string: str) -> None:
+def parse_nested_parens(paren_string: str) -> List[int]:
+    if not paren_string:
+        return []
+
     result = []
     stack = 0
     max_level = 0
@@ -26,7 +27,4 @@ def parse_nested_parens(paren_string: str) -> None:
     if stack == 0:
         result.append(max_level)
     
-    print(result)
-
-if __name__ == "__main__":
-    main()
+    return result
