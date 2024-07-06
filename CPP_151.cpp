@@ -12,19 +12,17 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> input; 
-    float num;
+    std::vector<float> input; // read input from user
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
-    for(int i=0; i<n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        input.push_back(num);
+    for(int i = 0; i < n; i++) {
+        float x;
+        cin >> x;
+        input.push_back(x);
     }
-    
+    // process the input
     float output = double_the_difference(input);
-    cout << "The sum of the squares of positive integers in the list is: " << output << endl;
-    
+    // print the output
+    cout << output;
     return 0;
 }
