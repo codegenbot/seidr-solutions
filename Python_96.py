@@ -4,9 +4,9 @@ def count_up_to(n):
     else:
         # Initialize a list of prime numbers up to n
         prime_numbers = [2]
-        
+
         # Iterate from 3 to n, checking for primality
-        for i in range(3, n+1, 2):
+        for i in range(3, n + 1, 2):
             is_prime = True
             for j in range(2, int(i**0.5) + 1):
                 if i % j == 0:
