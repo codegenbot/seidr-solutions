@@ -1,9 +1,6 @@
 ```
 def count_up_to(n):
-    if n <= 0:
-        return []
-    else:
-        return [i for i in range(1, n+1)]
+    return [i for i in range(1, n+1) if i % 2 == 0]
 
 def check_even_numbers_up_to_n():
     try:
@@ -13,6 +10,9 @@ def check_even_numbers_up_to_n():
         else:
             numbers_list = count_up_to(n)
             print(f"The even numbers up to {n} are: {numbers_list}")
-            print("The numbers are all even." if any(i % 2 != 0 for i in numbers_list) else "The numbers are not all even.")
+            if all(num % 2 == 0 for num in numbers_list):
+                print("The numbers are all even.")
+            else:
+                print("The numbers are not all even.")
     except ValueError:
         print("Invalid input! Please enter an integer.")
