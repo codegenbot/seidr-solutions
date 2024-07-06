@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -7,7 +6,7 @@ bool issame(vector<string>, const vector<string>&);
 
 vector<string> by_length(const initializer_list<int>& arr) {
     vector<string> result;
-    vector<int> temp; // Initialize temp with a default value.
+    vector<int> temp = {0}; // Initialize temp with a default value.
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
             switch (i) {
@@ -52,7 +51,7 @@ bool issame(vector<string> a, const vector<string>& b) {
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
+
     return true;
 }
