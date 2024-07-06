@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -23,8 +22,7 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 if __name__ == "__main__":
     try:
         input_str = input("Enter space-separated or comma-separated numbers: ")
-        
-        if not input_str.strip():  
+        if not input_str.strip():
             print("No input provided")
             exit()
 
@@ -32,3 +30,4 @@ if __name__ == "__main__":
         print(result)
     except ValueError as e:
         print(f"Error: {e}")
+        exit(1)
