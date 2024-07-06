@@ -1,4 +1,4 @@
-int next_larger(std::vector<int> lst) {
+int next_smallest(std::vector<int> lst) {
     if(lst.size() < 2) return -1; 
     std::vector<int> sorted = lst;
     std::sort(sorted.begin(), sorted.end());
@@ -7,5 +7,6 @@ int next_larger(std::vector<int> lst) {
             return sorted[i+1];
         }
     }
-    return -1; 
+    // If no change found, the last element is the smallest
+    return -1;
 }
