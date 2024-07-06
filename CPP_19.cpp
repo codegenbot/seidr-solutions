@@ -28,15 +28,13 @@ string sort_numbers(string numbers) {
 
     string result;
     for (string s : numArray) {
-        if (map<string, int>::at(s) > map<string, int>::at("zero")) {
-            result += s + " ";
-        }
+        result += s + " ";
     }
 
     return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    cout << sort_numbers("six five four three two one zero") << endl;
+    cout << sort_numbers("one two three four five six seven eight nine zero") << endl;
     return 0;
 }
