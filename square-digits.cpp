@@ -1,15 +1,8 @@
-
-#include <vector>
-#include <iostream>
 #include <string>
 using namespace std;
 
-string squareDigits(int num) {
-    string result = "";
-    while (num > 0) {
-        int digit = num % 10;
-        result += to_string(digit * digit);
-        num /= 10;
-    }
-    return result;
+int main(int argc, char** argv) {
+    int number = atoi(argv[1]); // get input from user
+    string result = squareDigits(number); // call the function to square digits and concatenate them into a string
+    cout << result << endl; // print the result to console
 }
