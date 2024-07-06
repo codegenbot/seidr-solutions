@@ -1,11 +1,13 @@
-string Strongest_Extension(string class_name, vector<string> extensions); 
-
-#include <iostream>
+```cpp
 #include <vector>
-#include <algorithm>
+#include <string>
 #include <cctype>
 
-using namespace std;
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+
+int main() {
+    // Your code here...
+}
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = 0;
