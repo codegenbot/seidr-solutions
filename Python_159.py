@@ -1,4 +1,3 @@
-
 def eat(number, need, remaining):
     if need >= remaining:
         return [0, 0]
