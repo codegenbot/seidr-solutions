@@ -1,6 +1,12 @@
 Here is the completed code:
 
 def decode_cyclic(s: str):
-    groups = [s[i:i+3] for i in range(0, len(s), 3)]
-    decoded_groups = [(group[2] + group[0] + group[1]) if len(group) == 3 else group for group in groups]
-    return "".join(decoded_groups)
+    result = ''
+    i = 0
+    while i < len(s):
+        if (i+3) <= len(s):  # if there are at least three characters left in string
+            group = s[i:i+3]
+        else:
+            group = s[i:]  # if less than three characters left, take the rest of the string
+        result += group[1] + group[0]  # decode by moving first character to end
+        i += 3
