@@ -1,11 +1,11 @@
 def get_neighbors(grid, cell):
-    # Get the row and column of the current cell
-    row, col = cell
-
-    # Check if the cell has any neighbors in the same row or column
     neighbors = []
-    for i in range(-1, 2):
-        for j in range(-1, 2):
-            if grid[row + i][col + j] != "X" and (i, j) != (0, 0):
-                neighbors.append((row + i, col + j))
+    if cell[0] > 0:
+        neighbors.append((cell[0] - 1, cell[1]))
+    if cell[0] < len(grid) - 1:
+        neighbors.append((cell[0] + 1, cell[1]))
+    if cell[1] > 0:
+        neighbors.append((cell[0], cell[1] - 1))
+    if cell[1] < len(grid[0]) - 1:
+        neighbors.append((cell[0], cell[1] + 1))
     return neighbors
