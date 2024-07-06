@@ -1,4 +1,3 @@
-
 def fruit_distribution(input, basket_size):
     import re
 
