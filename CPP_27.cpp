@@ -13,7 +13,6 @@ std::string flip_case(std::string str) {
         }
     }
     return result;
-
 }
 
 int main() {
