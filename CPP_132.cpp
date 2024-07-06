@@ -8,14 +8,13 @@ bool is_nested(string str) {
     return open > 0 && close > open;
 }
 
-bool main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    bool result = is_nested(str);
-    if(result)
-        cout << "The string is nested";
-    else
-        cout << "The string is not nested";
+int main() {
+    string s;
+    cin >> s;
+    if (is_nested(s)) {
+        cout << "The string is nested.\n";
+    } else {
+        cout << "The string is not nested.\n";
+    }
     return 0;
 }
