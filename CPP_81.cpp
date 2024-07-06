@@ -5,7 +5,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades, const std::vector<std::string>& student_id) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float grade : grades) {
         std::string letter_grade;
@@ -32,9 +32,9 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades, const
         } else if (grade > 0.7) {
             letter_grade = "D";
         } else if (grade > 0.0) {
-            letter_grade = "D-";
+            letter_grade = "F"; // changed E to F
         } else {
-            letter_grade = "E";
+            letter_grade = "F";
         }
         letter_grades.push_back(letter_grade);
     }
