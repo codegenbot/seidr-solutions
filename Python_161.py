@@ -1,9 +1,9 @@
 ```
 def solve(s):
-    result = ""
+    result = []
     for char in s:
         if char.isalpha():
-            result += char.swapcase()
+            result.append(char.swapcase())
         else:
-            result += char
-    return result[::-1] if result.isalnum() == False else result
+            result.append(char)
+    return "".join(result) if any(c.isalpha() for c in s) else s[::-1]
