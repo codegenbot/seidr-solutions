@@ -1,4 +1,5 @@
-#include <initializer_list>
+```cpp
+#include <vector>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
