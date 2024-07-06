@@ -1,4 +1,3 @@
-```
 def sorted_list_sum(input_list):
     while True:
         try:
@@ -7,9 +6,7 @@ def sorted_list_sum(input_list):
             for word in user_input:
                 if "".join(filter(str.isdigit, word)).isdigit():
                     sum_val += int(word)
-            if sum_val == 0:
-                print("No valid number was entered. Please enter numbers and/or words separated by spaces.")
-            else:
-                return sum_val
+            print(f"Sum of digits from the input is: {sum_val}")
+            break
         except ValueError:
             print("Invalid input. Please enter numbers and/or words separated by spaces.")
