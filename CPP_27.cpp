@@ -1,3 +1,4 @@
+```c++
 #include <string>
 using namespace std;
 
@@ -13,8 +14,6 @@ std::string flip_case(std::string str) {
         }
     }
     return result;
-
-}
 
 int main() {
     string input;
