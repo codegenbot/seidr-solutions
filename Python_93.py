@@ -1,35 +1,33 @@
 ```
-def encode(message, keys):
-    encoded_message = ""
+def encodeMessage(message):
     char_index = {}
-    for key in keys:
-        if key not in char_index:
-            char_index[key] = chr((ord('a') - ord('a') + 1) % 26 + ord('a'))
+    encoded_message = ""
+    for i in range(len(message)):
+        if message[i].isalpha():
+            if message[i].lower() not in char_index:
+                char_index[message[i].lower()] = chr(
+                    (ord("a") - ord(message[i].lower()) + 1) % 26 + ord("a")
+                )
+            encoded_message += char_index.get(message[i].lower(), message[i])
         else:
-            encoded_message += char_index[key]
-    for char in message:
-        if char != ' ': 
-            if char.lower() not in char_index:
-                char_index[char.lower()] = chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a')).upper()
-            encoded_message += char_index[char.lower()].upper()
-        else: 
-            encoded_message += char
+            encoded_message += message[i]
     return encoded_message
 
-def decodeMessage(keys, message):
-    result = ""
+def decodeMessage(key, message):
     char_index = {}
-    for key in keys:
-        if key not in char_index:
-            char_index[key] = chr((ord('a') - ord('a') + 1) % 26 + ord('a'))
+    result = ""
+    for key_char in key:
+        if key_char.isalpha():
+            if key_char.lower() not in char_index:
+                char_index[key_char.lower()] = chr(
+                    (ord("a") - ord(key_char.lower()) + 1) % 26 + ord("a")
+                )
+            if key_char.isupper():
+                result += char_index[key_char.lower()].upper()
+            else:
+                result += char_index[key_char].lower()
         else:
-            result += char_index[key]
-    encoded_message = encode(message, keys)
-    for char in encoded_message:
-        if char.isalpha():
-            if char.lower() not in char_index:
-                char_index[char.lower()] = chr((ord(char.lower()) - ord('a') - 3) % 26 + ord('a'))
-            result += char_index[char.lower()].upper()
-        else: 
-            result += char
+            result += key_char
     return result
+
+print(check(encodeMessage(decodeMessage("thequickbrownfoxjumpsoverthelazydog", "hello"))))
