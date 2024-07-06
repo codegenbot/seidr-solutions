@@ -1,10 +1,9 @@
-```Python
+```
 import hashlib
 
-def string_to_md5(text):
+def string_to_md5():
+    text = input("Please enter a string: ")
     if not text:
-        return None
+        print("Input cannot be empty.")
+        return
     return hashlib.md5(text.encode()).hexdigest()
-
-text = input("Enter a string: ")
-print(string_to_md5(text))
