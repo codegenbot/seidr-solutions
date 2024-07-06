@@ -1,43 +1,32 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool isSame(const std::string& s1, const std::string& s2) {
-    if (s1.length() != s2.length())
-        return false;
-    
-    for (int i = 0; i < s1.length(); i++) {
-        if (s1[i] != s2[i])
-            return false;
+bool isSubstring(const std::string& s1, const std::string& s2) {
+    if (s2.length() > s1.length()) return false;
+    for(int i = 0; i <= s1.length() - s2.length(); i++) {
+        int j = 0;
+        while(j < s2.length() && i + j < s1.length() && s1[i + j] == s2[j]) {
+            j++;
+        }
+        if(j == s2.length()) return true;
     }
-    return true;
+    return false;
 }
 
 int main() {
-    std::vector<std::string> strings;
-    std::cout << "Enter the number of strings: ";
-    int n;
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::string s;
-        std::cin >> s;
-        strings.push_back(s);
-    }
-    
-    std::cout << "Enter the substring to filter: ";
+    std::vector<std::string> strings = {"Hello", "world", "Hello world", "This is C++"};
     std::string substring;
+    std::cout << "Enter a substring: ";
     std::cin >> substring;
-    
-    std::vector<std::string> result = filter_by_substring(strings, substring);
-    
-    for (const auto& str : result) {
-        if (isSame(str, substring))
-            std::cout << "String '" << str << "' is the same as the given substring.\n";
-        else
-            std::cout << "String '" << str << "' is not the same as the given substring.\n";
+    std::vector<std::string> result;
+    for(string s : strings){
+        if(isSubstring(s, substring))
+            result.push_back(s);
     }
-    
+    std::cout << "Resultant strings: ";
+    for(string str : result)
+        std::cout << str << " ";
     return 0;
 }
