@@ -1,4 +1,9 @@
-#include <openssl/evp.h>
+```
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -13,9 +18,9 @@ string string_to_md5(string text) {
 
     string result;
     for (int i = 0; i < 16; ++i) {
-        char buf[3];
-        sprintf(buf, "%02x", md[i]);
-        result += buf;
+        ostringstream oss;
+        oss << setfill('0') << setw(2) << hex << static_cast<int>(md[i]);
+        result += oss.str();
     }
     return result;
 }
