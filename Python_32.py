@@ -1,5 +1,5 @@
 def find_zero(xs):
-    for i in range(len(xs)):
-        if xs[i] == 0:
-            return i
-    return -1
+    for x in xs:
+        if x == 0:
+            return True
+    return False
