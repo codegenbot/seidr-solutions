@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 
@@ -12,13 +11,12 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
     return true;
 }
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list<list<int>> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).which() == typeindex<int>()) {
-            int x = any_cast<int>(value).get();
+        for (int x : value) {
             bool duplicate = false;
-            for (const auto& y : result) {
+            for (int y : result) {
                 if (y == x) {
                     duplicate = true;
                     break;
@@ -30,3 +28,4 @@ vector<int> filter_integers(list<any> values) {
         }
     }
     return result;
+}
