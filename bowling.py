@@ -1,32 +1,22 @@
 ```
 def calculate_score(games):
     frames = games.replace('/', '')
-    current_roll = 0
     score = 0
-    roll_count = 1
-    previous_roll = 0
+    roll = 0
 
-    for i in range(len(frames)):
+    for i in range(0, len(frames), 2):
         if frames[i].isdigit():
-            current_roll = int(frames[i])
-        else:
-            if current_roll + 1 == 10 and 'X' != frames[i]:
+            first_roll = int(frames[i])
+            second_roll = int(frames[i+1]) if (i + 1) < len(frames) and frames[i+1].isdigit() else 10 - first_roll
+            roll = first_roll + second_roll
+            if roll == 10:
                 score += 10
-                roll_count = 2
-                current_roll = 0
-            elif previous_roll > 0:
-                if roll_count == 2 and 1 <= previous_roll <= 9:
-                    score += 10 + previous_roll
-                else:
-                    score += previous_roll + current_roll
-                current_roll = 0
-                roll_count = 1
-            previous_roll = current_roll
-            current_roll = 0
-
-    if current_roll > 0 or (roll_count == 2 and previous_roll > 0):
-        if current_roll + previous_roll <= 10:
-            score += current_roll + previous_roll
+            elif roll > 10:
+                score += 10
+                for j in range(i + 2, min(i + 3, len(frames))):
+                    score += int(frames[j])
         else:
-            score += 10 + previous_roll - 10
+            score += roll
+            roll = 0
+
     return score
