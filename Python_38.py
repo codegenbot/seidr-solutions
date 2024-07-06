@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s):
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
@@ -12,10 +13,10 @@ def decode_cyclic(s):
         else:
             j = 2
             while j > 0:
-                if s[i] == s[i+j]:
+                j -= 1
+                if s[i+j] == s[i]:
                     result += s[i]
                     i += j
                     break
-                j -= 1
         i += 3
     return result
