@@ -1,14 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+
 using namespace std;
 
 int luhn(vector<int>& digits) {
@@ -24,8 +16,8 @@ int luhn(vector<int>& digits) {
 }
 
 int main() {
-    vector<int> digits = get_digits(); // Get the digits from user input or file
-    int sum = luhn(digits); // Call the luhn function with the digits
-    cout << "Sum of doubled digits: " << sum << endl; // Output the result
+    vector<int> digits = {...}; // input data
+    int sum = luhn(digits);
+    cout << "Sum: " << sum << endl;
     return 0;
 }
