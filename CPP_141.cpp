@@ -1,8 +1,5 @@
-```cpp
-#include <string>
-#include <cctype>
-
-std::string file_name_check(std::string file_name) {
+```
+string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -17,10 +14,9 @@ std::string file_name_check(std::string file_name) {
         }
     }
     if(found_dot){
-        std::string ext = file_name.substr(file_name.find('.') + 1);
+        string ext = file_name.substr(file_name.find('.') + 1);
         if(ext != "txt" && ext != "exe" && ext != "dll") return "No";
     }else{
         return "No";
     }
     return "Yes";
-}
