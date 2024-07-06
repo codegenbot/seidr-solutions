@@ -1,19 +1,18 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <string>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     for(const auto& str1 : a) {
-        bool found = false;
-        for(const auto& str2 : b) {
-            if(str1 == str2) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) return false;
+        size_t pos = distance(b.begin(),find(b.begin(),b.end(),str1));
+        if(pos == b.end()-b.begin()) return false; // not found
+        if (str1 != b[pos]) return false;
     }
     return true;
 }
