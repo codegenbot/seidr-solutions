@@ -1,24 +1,27 @@
+Here is the completed code:
+
+```cpp
 string anti_shuffle(string s) {
     string result = "";
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == ' ') {
+    size_t pos = 0;
+
+    while (pos < s.length()) {
+        if (s[pos] == ' ') {
             result += " ";
-            continue;
-        }
-        string temp = "";
-        bool first = true;
-        for(int j = i; j < s.size(); j++) {
-            if(first) {
-                first = false;
-                temp += s[j];
-            } else {
-                if(s[j] <= temp[0]) {
-                    temp = temp + s[j];
-                }
-                else break;
+            pos++;
+        } else {
+            string word = "";
+            do {
+                word += s[pos];
+                pos++;
+            } while (pos < s.length() && s[pos] != ' ');
+            string newWord = "";
+            for (char c : word) {
+                newWord += std::min_element(word.begin(), word.end(),
+                                            [](char a, char b) { return a < b; }) -> c;
             }
+            result += newWord;
         }
-        result += temp;
     }
     return result;
 }
