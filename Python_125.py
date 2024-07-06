@@ -1,11 +1,9 @@
 ```
 def split_words(txt):
     words = txt.split()
-    if len(words) > 0:
-        return words
+    if not any(char in string.whitespace for char in words[0]):
+        return [words[i] for i in range(len(words)) if i % 2 != 0]
+    elif ',' in words[0]:
+        return [''.join([word for word in words if word != '']) for word in set(words)]
     else:
-        try:
-            return txt.split(',')
-        except ValueError:
-            odd_count = sum(ord(c)-ord('a') for c in txt.lower() if 'bcdfghjklmnpqrstvwxyz'.index(c))
-            return odd_count
+        return sum(1 for char in txt.lower() if ord(char) % 2 == 1)
