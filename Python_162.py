@@ -1,8 +1,12 @@
+```
 import hashlib
 
 def string_to_md5():
-    text = input("Enter your text: ")
-    if text:
-        return hashlib.md5(text.encode('utf-8')).hexdigest()
-    else:
-        return None
+    while True:
+        text = input("Enter your text (or 'q' to quit): ")
+        if text.lower() == 'q':
+            break
+        if text:
+            return hashlib.md5(text.encode()).hexdigest()
+        else:
+            return None
