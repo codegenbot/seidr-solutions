@@ -10,4 +10,5 @@ def encode(input_string, output_string):
             result += char
     return result
 
+
 print(encode("I DoNt KnOw WhAt tO WrItE", "k dQnT kNqW wHcT Tq wRkTg"))
