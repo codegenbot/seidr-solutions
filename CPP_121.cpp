@@ -1,8 +1,8 @@
 #include <vector>
 
-int solutions(int n) {
+int solutions(std::vector<int> lst) {
     int sum = 0;
-    for (int i = 1; i <= n; i++) {
+    for (int i : lst) {
         if (i % 2 != 0) {
             sum += i;
         }
@@ -11,9 +11,6 @@ int solutions(int n) {
 }
 
 int main() {
-    std::cout << "Enter a number: ";
-    int n;
-    std::cin >> n;
-    std::cout << "Sum of all odd numbers up to " << n << ": " << solutions(n) << std::endl;
+    assert(solutions({3, 13, 2, 9}) == 17);
     return 0;
 }
