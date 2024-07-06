@@ -1,33 +1,21 @@
-#include<vector>
+#include <vector>
+#include <string>
 
-int smallest_change(std::vector<int> arr){
+int smallest_change(vector<int> arr) {
     int n = arr.size();
-    std::string str = "";
-    for(int i=0; i<n; i++){
-        str += to_string(arr[i]);
+    string str = "";
+    for (int i : arr) {
+        str += to_string(i);
     }
-    
-    int left = 0, right = n-1;
+    int left = 0;
+    int right = n - 1;
     int count = 0;
-    while(left < right){
-        if(str[left] != str[right]){
-            int min_val = (str[left] - '0') < (str[right] - '0') ? (str[left] - '0') : (str[right] - '0');
-            int max_val = (str[left] - '0') > (str[right] - '0') ? (str[left] - '0') : (str[right] - '0');
-            
-            for(int i=0; i<n; i++){
-                if(arr[i] < min_val || arr[i] > max_val){
-                    count++;
-                    arr[i] = min_val;
-                    break;
-                }
-            }
+    while (left < right) {
+        if (str[left] != str[right]) {
+            count++;
         }
-        left++; right--;
+        left++;
+        right--;
     }
     return count;
-}
-
-int main() {
-    std::assert(smallest_change({0, 1}) == 1);
-    return 0;
 }

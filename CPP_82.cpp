@@ -1,14 +1,19 @@
-Here is the completed code:
+#include <string>
 
-```cpp
-#include<string>
-using namespace std;
+bool prime_length(std::string str) {
+    int n = str.length();
+    bool isPrime = true;
 
-bool prime_length(string str) {
-    int len = str.length();
-    for(int i=2; i*i<=len; i++) {
-        if(len%i==0)
-            return false;
+    if (n <= 1) {
+        return false;
     }
-    return true;
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    return isPrime;
 }
