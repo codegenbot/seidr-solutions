@@ -1,4 +1,4 @@
-#include <string>
+#include <iostream>
 int is_bored(std::string S){
     int count = 0;
     std::istringstream iss(S);
@@ -9,3 +9,10 @@ int is_bored(std::string S){
             ++count;
     }
     return count;
+
+}
+
+int main(){
+    // input your code here
+    return 0; 
+}
