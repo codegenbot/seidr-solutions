@@ -15,7 +15,7 @@ int smallest_change(vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j][0] = dp[i+1][j-1][0];
             } else {
-                dp[i][j][0] = 1 + min({dp[i+1][j][0], dp[i][j-1][0]});
+                dp[i][j][0] = 1 + std::min({dp[i+1][j][0], dp[i][j-1][0]});
             }
         }
     }
