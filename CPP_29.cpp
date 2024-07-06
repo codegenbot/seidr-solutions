@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string>b){
+bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -23,5 +23,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    vector<string> test = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    assert(same(filter_by_prefix(test, "xxx"), vector<string>{ "xxx", "xxxAAA", "xxx"}));
     return 0;
+}
