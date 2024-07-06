@@ -1,4 +1,5 @@
-def double_the_difference(odd_sum_list):
-    return sum(i**2 for i in odd_sum_list if isinstance(i, int) and i % 2 != 0)
+```
+def check(f):
+    print(f([1, 2, 3]))
 
-check = lambda: print(double_the_difference([1,3,5]))
+check(lambda x: sum(i**2 for i in x if isinstance(i, int) and i % 2 != 0))
