@@ -1,8 +1,22 @@
 from typing import List
 import math
 
-def calculate_sum_of_squares(n: int) -> float:
-    total = 0.0
-    for i in range(1, n+1):
-        total += i ** 2
-    return total
+
+def factorize(n: int) -> List[int]:
+    if n < 2:
+        return [n]
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
