@@ -4,34 +4,42 @@ using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-    
     string word;
+    int maxCount = 0;
+
     for (char c : test) {
         if (c == ' ') {
             if (!word.empty()) {
-                ++result[word[0]];
+                if (result.find(word[0]) != result.end())
+                    result[word[0]]++;
+                else
+                    result[word[0]] = 1;
                 word.clear();
             }
         } else {
             word += c;
         }
     }
+
     if (!word.empty()) {
-        ++result[word[0]];
+        if (result.find(word[0]) != result.end())
+            result[word[0]]++;
+        else
+            result[word[0]] = 1;
     }
 
-    map<char, int> maxMap;
-    int maxCount = 0;
-    for (auto& pair : result) {
-        if (pair.second > maxCount) {
-            maxMap.clear();
-            maxMap[pair.first] = pair.second;
-            maxCount = pair.second;
-        } else if (pair.second == maxCount) {
-            maxMap[pair.first] = pair.second;
+    int maxCountNow = 0;
+    vector<pair<char, int>> maxCountLetters;
+
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCountNow) {
+            maxCountNow = it->second;
+            maxCountLetters.clear();
+            maxCountLetters.push_back({it->first, it->second});
+        } else if (it->second == maxCountNow) {
+            maxCountLetters.push_back({it->first, it->second});
         }
     }
 
-    return maxMap;
+    return map<char, int>(maxCountLetters.begin(), maxCountLetters.end());
 }

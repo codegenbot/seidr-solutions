@@ -10,20 +10,17 @@ vector<pair<int, string>> by_length(vector<int> arr) {
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
     map<int, string> numToName = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}; 
-    vector<pair<int, string>> result;
     for(int i: temp){
-        result.push_back({i, numToName[i]});
+        cout << i << " - " << numToName[i] << endl;
     }
-    return result;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> arr(n);
-    for (int &x : arr) 
-        cin >> x;  
-    vector<pair<int, string>> result = by_length(arr);
-    for(auto p: result) cout << p.first << " - " << p.second << endl;
-    return 0;
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    by_length(arr);
 }
