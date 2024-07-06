@@ -8,7 +8,7 @@ def decode_cyclic(s: str):
                 temp = temp[2:] + temp[:2]
             else:
                 result.append(temp)
-            temp = ""
+                temp = ""
     if len(temp) > 0:
         result.append(temp)
     return "".join(result)
