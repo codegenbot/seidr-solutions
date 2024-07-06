@@ -1,9 +1,10 @@
-```python
 def find_zero(xs):
-    if not xs:  
-        x1 = int(input("Enter first number: "))
-        x2 = int(input("Enter second number: "))
+    left_sum = 0
+    right_sum = sum(xs[len(xs)//2+1:])
+    for i in range(len(xs) // 2):
+        left_sum += xs[i]
+    
+    if left_sum + right_sum == 0:
+        return 0.0
     else:
-        x1, x2 = xs
-    n = (x1 + x2) // 2
-    return -n / x2
+        return -(left_sum - right_sum) / (right_sum + left_sum)
