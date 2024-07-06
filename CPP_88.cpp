@@ -7,4 +7,5 @@ std::vector<int> sort_array(std::vector<int> array) {
         return std::vector<int>(array);
     else
         return std::vector<int>(std::vector<int>(array).rbegin(), std::vector<int>(array).rend());
+
 }
