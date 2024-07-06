@@ -3,5 +3,4 @@ def double_the_difference(lst):
     even_sum = sum(i for i in lst if isinstance(i, int))
     return abs(even_sum - odd_sum)*2
 
-list1 = [1, 2, 3, 4, 5]
-print(double_the_difference(list1))
+print(double_the_difference([1, 2, 3, 4, 5]))
