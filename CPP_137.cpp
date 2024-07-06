@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
@@ -25,15 +26,21 @@ int main() {
     }
 
     cout << "Enter the second value: ";
-    int val2;
-    cin >> val2;
+    string val2;
+    cout << "Enter the second value: ";
+    getline(cin, val2);
 
-    if (val1 > val2) {
-        cout << "The first number is bigger.\n";
-    } else if (val1 < val2) {
-        cout << "The second number is bigger.\n";
+    if (!val2.empty()) {
+        int num = stoi(val2);
+        if (val1 > num) {
+            cout << "The first number is bigger.\n";
+        } else if (val1 < num) {
+            cout << "The second number is bigger.\n";
+        } else {
+            cout << "Both numbers are equal.\n";
+        }
     } else {
-        cout << "Both numbers are equal.\n";
+        cout << "Please enter a valid value for the second number.\n";
     }
 
     compareOne(val1);
