@@ -1,20 +1,14 @@
+```
 import re
 
-
 def words_string():
-    s = None
-    while not s:
+    while True:
         try:
             s = input("Please enter a string with comma-separated values: ")
-            if not s:
+            if not s: 
                 print("Input cannot be blank. Please enter valid text.")
-            else:
-                result = [x.strip() for x in re.split("[,\s]+", s.strip()) if x]
-                return result
+                continue
+            result = [x.strip() for x in re.split("[,\s]+", s.strip()) if x]
+            return result
         except (ValueError, TypeError):
-            print(
-                f"Invalid input. Please try again with only letters and numbers separated by commas or spaces."
-            )
-
-
-words_string()
+            print(f"Invalid input. Please try again with only letters and numbers separated by commas or spaces.")

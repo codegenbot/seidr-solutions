@@ -10,7 +10,9 @@ def sum_squares(lst):
             raise ValueError(f"Invalid input '{element}' found. Input must contain only numbers.")
     return total_sum
 
+
 def main():
     print(sum_squares([{"x": 2}, {"y": 4}]))
+
 
 main()
