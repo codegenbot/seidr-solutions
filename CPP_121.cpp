@@ -1,6 +1,7 @@
-```cpp
-#include <iostream>
+```
 #include <vector>
+#include <cassert>
+#include <initializer_list>
 
 using namespace std;
 
@@ -16,14 +17,6 @@ int solutions(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    cout << "Enter the numbers separated by space: ";
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-        if (cin.peek() != ' ') {
-            break;
-        }
-    }
+    vector<int> input = {3, 13, 2, 9};
     assert(solutions(input) == 3);
 }
