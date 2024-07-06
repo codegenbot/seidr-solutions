@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -32,17 +33,15 @@ int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
     return sum;
 }
 
-int main_test() {
+int main() {
     int num;
     std::cout << "Enter the list of numbers (space separated): ";
     std::cin >> num;
 
     // code to read the vector
-    std::vector<int> lst;
-    while(std::cin >> num) {
-        lst.push_back(num);
-    }
+    std::vector<int> lst = {num};
 
     std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
+    assert(calculateSumOfDigitsLargestPrime({127, 97, 8192}) == 10);
     return 0;
 }
