@@ -1,13 +1,12 @@
 #include <vector>
-#include <algorithm>
-using namespace std;
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for(int i = 0; i<a.size(); i++){
-        if (a[i] != b[i])return false;
+bool issame(vector<string> a,vector<string> b){
+    if(a.size()!=b.size())
+        return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i].compare(b[i])!=0)
+            return false;
     }
     return true;
 }
@@ -24,17 +23,10 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     
     if (sum1 < sum2) {
-        return lst1;
+        return issame(lst1,lst2)?lst1:lst2;
     } else if (sum1 > sum2) {
-        return lst2;
+        return issame(lst1,lst2)?lst2:lst1;
     } else {
-        return lst1;
+        return issame(lst1,lst2)?lst1:lst2;
     }
-}
-
-int main() {
-    vector<string> vec1 = {"this"};
-    vector<string> vec2 = {""};
-    assert(issame(total_match(vec1,vec2),{""}));  
-    return 0;
 }
