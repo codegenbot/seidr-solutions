@@ -1,3 +1,7 @@
+```
+name = input(f"Hi, please enter your name: ")
+print(f"Hi {name}, please enter your grades: ")
+
 def average_grade(name):
     grades = []
     while True:
@@ -15,7 +19,4 @@ def average_grade(name):
     average = total / len(grades)
     return round(average, 2)
 
-name = input(f"Hi, please enter your name: ")
-print(f"Hi {name}, please enter your grades: ")
-avg_grade = average_grade(name)
-print(f"Your average grade is: {avg_grade}")
+print(f"Your average grade is: {average_grade(name)}")
