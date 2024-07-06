@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <sstream>
+#include <string>
 
 int fruit_distribution(std::string s, int n) {
     std::istringstream iss(s);
@@ -25,15 +26,7 @@ int fruit_distribution(std::string s, int n) {
 }
 
 int main() {
-    std::string s;
-    int n;
-    std::cout << "Enter the string with fruit information: ";
-    std::cin >> s;
-    std::cout << "Enter the number of fruits to distribute: ";
-    std::cin >> n;
-
-    int result = fruit_distribution(s, n);
-    std::cout << "Total fruits distributed: " << result << std::endl;
-
+    int result = fruit_distribution("apples 2 oranges 3", 5);
+    std::cout << "Total: " << result << std::endl;
     return 0;
 }
