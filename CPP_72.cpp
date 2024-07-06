@@ -9,7 +9,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != string(reverse(str).begin(), reverse(str).end()))
+    if (str != reverse(str).s)
         return false;
     int sum = 0;
     for (int i : q) {
@@ -19,6 +19,5 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
-    // write your test cases here
+    assert(will_it_fly({5}, 5));
 }
