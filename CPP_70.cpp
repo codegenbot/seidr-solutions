@@ -1,19 +1,26 @@
+#include <vector>
 #include <algorithm>
 using namespace std;
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) return result;
-
-    for (int num : lst) {
-        if (count(result.begin(), result.end(), num) == 0) {
-            if (count(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())) > count(lst.begin(), lst.end(), num)) {
-                result.push_back(num);
-            } else if (count(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())) > count(lst.end() - 1, lst.rbegin(), num)) {
-                result.push_back(num);
-            }
+    while (!lst.empty()) {
+        int min_val = *min_element(lst.begin(), lst.end());
+        int max_val = *max_element(lst.begin(), lst.end());
+        result.push_back(min_val);
+        auto it = remove_one(lst);
+        if (it != lst.end()) {
+            result.push_back(*it);
+            lst.erase(it, lst.end());
         }
     }
-
     return result;
+}
+
+int remove_one(const vector<int>& vec) {
+    auto it = vec.begin();
+    while (it != vec.end() && *it == vec[0]) {
+        ++it;
+    }
+    return it - vec.begin();
 }
