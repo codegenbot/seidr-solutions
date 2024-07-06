@@ -1,16 +1,10 @@
-```
-def minSubArraySum(nums):
-    if len(nums) == 0:
-        return 0
-    
+def minSubArraySum(s):
     min_sum = float('inf')
-    current_sum = 0
-    
-    for num in nums:
-        current_sum += num
-        min_sum = min(min_sum, current_sum)
-        
-        if current_sum < 0:
-            current_sum = 0
-            
+    for i in range(len(s)):
+        current_sum = 0
+        for j in range(i, len(s)):
+            current_sum += s[j]
+            if current_sum < min_sum:
+                min_sum = current_sum
+                
     return min_sum
