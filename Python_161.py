@@ -1,9 +1,12 @@
 ```
 def solve(s):
-    result = []
+    result = ""
+    is_prev_letter = False
     for char in s:
         if char.isalpha():
-            result.append(char.swapcase())
+            result += char.swapcase() if is_prev_letter else char.upper()
+            is_prev_letter = True
         else:
-            result.append(char)
-    return "".join(result) if any(c.isalpha() for c in s) else s[::-1]
+            result += char
+            is_prev_letter = False
+    return result if any(char.isalpha() for char in s) else s[::-1]
