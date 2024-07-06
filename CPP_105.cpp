@@ -1,9 +1,16 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> nums;
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> by_length(vector<int> arr) {
+    vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             nums.push_back(num);
@@ -13,9 +20,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : nums) {
-        std::string str = "";
+        string str; 
         switch (num) {
             case 1:
                 str = "One";
