@@ -1,16 +1,16 @@
-#include <iostream>
-#include <string>
+#include <cryptopp/md5.h>
 
 using namespace std;
+using namespace CryptoPP;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    CryptoPP::MD5 md;
+    MD5 md;
     byte *buf = (byte *)text.c_str();
-    size_t len = text.length() + 1; 
+    size_t len = text.length() + 1; // need +1 for null-terminator
     md.Update(buf, (int)len);
-    string result = CryptoPP::HexEncoder().CalculateString(md.Digest());
+    string result = HexEncoder().CalculateString(md.Digest());
 
     return result;
 }
