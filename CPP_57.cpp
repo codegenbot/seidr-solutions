@@ -1,16 +1,13 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
 bool monotonic(vector<float> l) {
-    bool increasing = true;
-    bool decreasing = true;
-
+    bool inc = true, dec = true;
     for (int i = 1; i < l.size(); i++) {
-        if (l[i] > l[i - 1]) {
-            decreasing = false;
-        } else if (l[i] < l[i - 1]) {
-            increasing = false;
-        }
+        if ((l[i] > l[i-1]) && dec)
+            dec = false;
+        else if ((l[i] < l[i-1]) && inc)
+            inc = false;
     }
-
-    return increasing || decreasing;
+    return inc || dec;
 }
