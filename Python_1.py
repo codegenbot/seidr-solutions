@@ -6,11 +6,13 @@ def separate_paren_groups(paren_string: str) -> list[str]:
             stack.append([])
         elif char == ")":
             if len(stack) > 0:
-                result.extend(["".join(g) for g in stack])
+                stack[-1].append(char)
+            else:
+                result.append("".join(chain.from_iterable(stack)))
                 stack = []
         else:
             if len(stack) > 0:
                 stack[-1].append(char)
     if len(stack) > 0:
-        result.extend(["".join(g) for g in stack])
+        result.append("".join(chain.from_iterable(stack)))
     return result
