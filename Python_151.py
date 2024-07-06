@@ -4,8 +4,7 @@ def double_the_difference(lst):
     return odd_sum
 
 
-input_list = [1, 2, 3]
-if double_the_difference(input_list) == 9:
+if double_the_difference([1, 2, 3]) == 9:
     print("The function works correctly")
 else:
     print("There is a problem with the function")
