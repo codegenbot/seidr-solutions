@@ -5,6 +5,8 @@
 
 using namespace std;
 
+bool isVowel(char c);
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word;
