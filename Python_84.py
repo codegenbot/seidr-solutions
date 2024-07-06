@@ -1,7 +1,9 @@
-```
 def solve(N):
-    res = []
-    for i in range(1, N+1):
-        if N % i == 0:
-            res.append(str(i))
-    return ', '.join(res)
+    binary = ""
+    for i in range(N):
+        if N % 2 == 0:
+            binary = "0" + binary
+        else:
+            binary = "1" + binary
+        N //= 2
+    return binary
