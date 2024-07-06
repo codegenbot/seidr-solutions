@@ -1,4 +1,6 @@
+```
 def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+    result = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+    return 2 * (result - min(lst))
 
-print(double_the_difference([1, 2, -3, 4, 5]))
+double_the_difference([1, 2, 3])
