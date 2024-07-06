@@ -1,7 +1,7 @@
 import re
 
 
-def words_string(s):
+def words_string():
     # Read input from user
     inp = input("Enter a string: ")
 
