@@ -1,38 +1,42 @@
 def minPath(grid, k):
-    # Initialize the minimum path and its length
-    min_path = []
-    min_len = float("inf")
+    # Initialize variables
+    n = len(grid)
+    m = len(grid[0])
+    visited = [[False for _ in range(m)] for _ in range(n)]
+    path = []
+    min_path = None
 
-    # Iterate over all cells in the grid
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            # Check if the current cell is the starting point
-            if grid[i][j] == 1:
-                # Initialize a queue to perform BFS
-                queue = [(i, j, 0)]
-                visited = set()
+    def dfs(i, j, k, path):
+        # Base case: If we have reached the end of the path
+        if k == 0:
+            return path
 
-                # Perform BFS until we find a path of length k or all cells have been visited
-                while queue and len(min_path) < min_len:
-                    # Get the next cell from the queue
-                    x, y, dist = queue.pop(0)
+        # Mark current cell as visited
+        visited[i][j] = True
 
-                    # Check if the current cell is not in the visited set
-                    if (x, y) not in visited:
-                        # Add the current cell to the visited set
-                        visited.add((x, y))
+        # Check for out of bounds and already visited cells
+        if i < 0 or j < 0 or i >= n or j >= m or visited[i][j]:
+            return None
 
-                        # Check if we have reached the target length
-                        if dist == k:
-                            # Update the minimum path and its length
-                            min_path = [(x, y)]
-                            min_len = dist
-                            break
+        # Recursively search for the minimum path in all possible directions
+        for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
+            result = dfs(x, y, k - 1, path + [grid[x][y]])
+            if result is not None:
+                return result
 
-                        # Add the neighbors of the current cell to the queue
-                        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                            nx, ny = x + dx, y + dy
-                            if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
-                                queue.append((nx, ny, dist + 1))
+        # Backtrack and remove current cell from the path
+        visited[i][j] = False
+        path.pop()
+
+    # Start searching for the minimum path from all possible cells
+    for i in range(n):
+        for j in range(m):
+            result = dfs(i, j, k - 1, [grid[i][j]])
+            if min_path is None or len(result) < len(min_path):
+                min_path = result
+
+    # Return an empty list if the grid has only one row or column
+    if n == 1 or m == 1:
+        return []
 
     return min_path
