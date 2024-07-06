@@ -1,21 +1,31 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <cmath>
-#include <assert.h>
 
-using namespace std;
-
-int main() {
-    int count = specialFilter({1,2,3});
-    cout << "Count: " << count << endl;
-    return 0;
-}
-
-int specialFilter(vector<int> nums) {
+int specialFilter(const std::vector<int>& nums) {
     int count = 0;
     for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
+        if (std::abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
     return count;
+}
+
+int main() {
+    std::vector<int> nums;
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    nums.resize(n);
+    
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> nums[i];
+    }
+    
+    int count = specialFilter(nums);
+    
+    std::cout << "Count: " << count << std::endl;
+    return 0;
 }

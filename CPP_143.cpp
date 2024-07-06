@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,7 +17,7 @@ std::vector<std::string> split(const std::string& str, char c) {
     size_t pos = 0;
     while ((pos = str.find(c)) != std::string::npos) {
         tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+        str = str.substr(pos + 1);
     }
     tokens.push_back(str);
     return tokens;
@@ -35,7 +34,6 @@ bool is_prime(int num) {
     }
     return true;
 
-int main() {
+int main() { 
     std::cout << words_in_sentence("here is") << std::endl;
-    return 0;
 }

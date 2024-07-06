@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -20,5 +20,4 @@ int main() {
         std::cout << "The string is nested";
     else
         std::cout << "The string is not nested";
-    return 0;
 }

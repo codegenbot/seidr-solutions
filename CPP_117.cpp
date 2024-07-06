@@ -1,12 +1,45 @@
 ```cpp
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+#include <vector>
+#include <string>
+#include <sstream>
+#include <cctype>
+
+std::vector<std::string> select_words(const std::string& str, int num) {
+    std::vector<std::string> words;
+    std::stringstream s(str);
+    std::string word;
+
+    for(int i=0; i<num && s >> word; ++i)
+        words.push_back(word);
+
+    return words;
+}
+
+bool areWordsTheSame(char ch1, char ch2) {
+    if (std::isalpha(ch1) && std::isalpha(ch2)) {
+        return tolower(ch1) == tolower(ch2);
+    } else {
+        return false;
+    }
+}
+
+bool are_words_the_same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!a[i][0].compare(0,1,b[i][0],0,1)) {
+        if (!areWordsTheSame(a[i][0], b[i][0])) {
             return false;
         }
     }
     return true;
+}
+
+bool issame(vector<string>a,vector<string>b){
+    return are_words_the_same(a,b);
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    return 0;
 }
