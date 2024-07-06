@@ -11,6 +11,7 @@ def minPath(grid, k):
                 path = current_path[:]
             return
 
+        global min_sum
         if not path or sum(current_path) < min_sum:
             min_sum = sum(current_path)
 
