@@ -11,7 +11,7 @@ string rounded_avg(int n, int m) {
     int average = lround(sum / (double)(m - n + 1));
     string binary = "";
     while (average > 0) {
-        if (average % 2)
+        if (average & 1)
             binary.insert(0, "1");
         else
             binary.insert(0, "0");
