@@ -1,4 +1,4 @@
-```Python
+```
 def sort_third(l: list):
     return [
         (
