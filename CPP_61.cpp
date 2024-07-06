@@ -1,18 +1,15 @@
-#include <stack>
+#include <string>
+using namespace std;
 
 bool correct_bracketing(string brackets) {
-    stack<char> bracketStack;
-
+    int count = 0;
     for (char bracket : brackets) {
         if (bracket == '(') {
-            bracketStack.push(bracket);
+            count++;
         } else if (bracket == ')') {
-            if (bracketStack.empty()) {
-                return false;
-            }
-            bracketStack.pop();
+            if (count <= 0) return false;
+            count--;
         }
     }
-
-    return bracketStack.empty();
+    return count == 0;
 }
