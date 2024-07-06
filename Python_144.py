@@ -13,6 +13,6 @@ def simplify(x, n):
     new_n_num = n_num // common
     
     if (new_x_num / x_denom) == (new_n_num / n_denom):
-        return f"{x} and {n} are equivalent fractions."
+        return True
     else:
-        return f"{x} and {n} are not equivalent fractions."
+        return False
