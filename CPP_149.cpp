@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -22,6 +23,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
     std::sort(result.begin(), result.end());
     return result;
+
 }
 
 int main() {
