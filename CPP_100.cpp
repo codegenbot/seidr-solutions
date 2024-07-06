@@ -1,18 +1,8 @@
+#include <iostream>
 #include <vector>
-using namespace std;
 
-bool issame(vector<int> v1, vector<int> v2) {
-    if(v1.size() != v2.size()) 
-        return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i])
-            return false;
-    }
-    return true;
-}
-
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     int level = 1;
     for (int i = 1; ; i++) {
         if ((n % 2 == 0 && i % 2 == 0) || (n % 2 != 0 && i % 2 != 0)) {
@@ -25,16 +15,22 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+}
+
 int main() {
     int n;
-    cout << "Enter number of elements in the stack: ";
-    cin >> n;
-    vector<int> pile = make_a_pile(n);
-    cout << "The final state of the pile is: ";
-    for (int i = 0; i < pile.size(); i++) {
-        cout << pile[i] << " ";
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::vector<int> pile = make_a_pile(n);
+    
+    // Your code to compare and check the equality
+    if (issame({1, 3}, pile)) {
+        std::cout << "Piles are same.\n";
+    } else {
+        std::cout << "Piles are different.\n";
     }
-    cout << endl;
-
+    
     return 0;
 }
