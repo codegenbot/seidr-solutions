@@ -3,13 +3,13 @@
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = 0;
-    std::string strongest_extension = "";
+    string strongest_extension = "";
     
     for(auto extension : extensions){
         int strength = 0;
         for(char c : extension){
             if(isupper(c)) strength++;
-            else if(islower(c) || !isalnum(c)) strength--;
+            else strength--;
         }
         
         if(strength > max_strength){
