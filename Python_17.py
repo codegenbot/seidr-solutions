@@ -1,4 +1,5 @@
-```def parse_music(music_string: str) -> List[int]:
+```python
+def parse_music(music_string: str) -> List[int]:
     result = []
     i = 0
     while i < len(music_string):
@@ -11,4 +12,4 @@
         elif music_string[i:i+3] == '.|':
             result.append(1)
             i += 3
-    return result```
+    return result
