@@ -1,6 +1,5 @@
-```
-def find_common_letter(set1, set2):
-    for letter in set1:
-        if letter in set2:
-            return letter
-    return None
+def calculate_sum_and_average(input_dict):
+    total = sum(input_dict.values())
+    count = len(input_dict)
+    average = total / count
+    return {"sum": total, "average": average}
