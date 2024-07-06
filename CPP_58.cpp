@@ -1,20 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <set>
 #include <algorithm>
 
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
-    // Create sets from vectors l1 and l2
-    set<int> set_l1(l1.begin(), l1.end()); 
-    set<int> set_l2(l2.begin(), l2.end());
-    
-    // Find the intersection of two sets
-    set<int> intersection;
-    set_intersection(set_l1.begin(), set_l1.end(), set_l2.begin(), set_l2.end(),
-                     inserter(intersection, intersection.begin()));
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
 
-    // Convert the intersection set to a vector and sort it
+    set<int> intersection;
+    set_difference(s2.begin(), s2.end(), s1.begin(), s1.end(),
+                    inserter(intersection, intersection.begin()));
+
     vector<int> result;
     for (auto i : intersection) {
         result.push_back(i);
