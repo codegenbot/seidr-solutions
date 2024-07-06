@@ -13,5 +13,5 @@ def parse_music(music_string: str) -> List[int]:
             while i < len(music_string) and music_string[i].isalnum():
                 note += music_string[i]
                 i += 1
-            result.append(beats_per_note[note])
+            result.append(beats_per_note.get(note, 0))
     return result
