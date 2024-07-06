@@ -3,7 +3,8 @@ from typing import List, Optional
 def longest(strings: List[str]) -> Optional[str]:
     while True:
         try:
-            strings = list(map(str, input("Enter a series of strings (space separated): ").split()))
+            user_input = input("Enter a series of strings (space separated): ")
+            strings = list(map(str, user_input.split()))
             if strings:  
                 return max(strings, key=len)
             break  
