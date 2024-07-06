@@ -1,12 +1,7 @@
-Here is the completed code:
-
-```cpp
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    char lastChar = txt.back();
-    if (!isalpha(lastChar)) return false;
-    for (int i = 0; i < txt.length() - 1; i++) {
-        if (!isspace(txt[i])) return true;
-    }
-    return false;
+size_t last_space = txt.find_last_of(' ');
+if (last_space == string::npos) {
+    return isalpha(txt.back());
+} else if (txt.size() - 1 > last_space) {
+    return isalpha(txt.back());
 }
+return false;
