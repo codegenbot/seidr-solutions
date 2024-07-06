@@ -1,4 +1,4 @@
-```
+```cpp
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     int open_count = 0;
