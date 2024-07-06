@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <initializer_list>
 
 long long double_the_difference(std::vector<double> lst) {
     long long sum = 0;
@@ -13,8 +13,8 @@ long long double_the_difference(std::vector<double> lst) {
     return sum;
 }
 
-int main_func() {
-    std::vector<double> lst;
+int main() {
+    long long odd_sum;
     double input;
 
     while (true) {
@@ -23,9 +23,7 @@ int main_func() {
 
         if (input == -1.0) break; 
 
-        lst.push_back(input);
+        odd_sum = double_the_difference({input});
     }
-
-    long long sum = double_the_difference(lst); 
     return 0;
 }

@@ -1,24 +1,21 @@
 #include <cassert>
 #include <string>
-#include <sstream>
+#include <vector>
 
-std::string words_in_sentence(const std::string& sentence) {
-    std::stringstream ss;
-    ss << sentence;
-    std::string word;
-    int count = 0;
-
-    while (ss >> word) {
-        if (count > 0)
-            std::cout << " ";
-        std::cout << word;
-        count++;
+std::vector<std::string> words_in_sentence(const std::string& sentence) {
+    std::vector<std::string> words;
+    size_t pos = 0;
+    while ((pos = sentence.find(' ')) != std::string::npos) {
+        words.push_back(sentence.substr(0, pos));
+        sentence.erase(0, pos + 1);
     }
+    if (!sentence.empty())
+        words.push_back(sentence);
+    return words;
 
-    return "";
 }
 
 int main() {
-    assert(words_in_sentence("here is").size() == 2);
+    assert(words_in_sentence("here is").size() == 1 && words_in_sentence("here is")[0] == "is");
     return 0;
 }
