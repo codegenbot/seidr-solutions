@@ -1,4 +1,5 @@
 #include <vector>
+#include <assert.h>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -11,7 +12,7 @@ int count_nums(std::vector<int> nums) {
             sum_of_digits += num % 10;
             num /= 10;
         }
-        if (sum_of_digits > 1) {
+        if (sum_of_digits > 0) {
             count++;
         }
     }
