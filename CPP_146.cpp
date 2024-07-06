@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -17,7 +18,8 @@ int main() {
     std::cout << "Enter number of elements: ";
     std::cin >> n;
     
-    std::vector<int> nums(n);  
+    std::vector<int> nums(n); // Initialize the size
+    
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> nums[i];
@@ -28,3 +30,4 @@ int main() {
     std::cout << "Count: " << count << std::endl;
     assert(count == 0);
     return 0;
+}

@@ -7,10 +7,10 @@ int words_in_sentence(const std::string& sentence) {
 
     while ((pos = sentence.find(' ', pos)) != std::string::npos) {
         ++count;
-        ++pos; // Increment position to find the next space
+        ++pos; 
     }
 
-    return count + 1; // Add 1 for the last word
+    return count + 1; 
 }
 
 int main() {
