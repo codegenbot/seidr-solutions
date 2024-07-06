@@ -6,10 +6,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) {
-        cout << "Error: Vector is empty" << endl; 
-        return vector<int>();
-    }
+    if (array.empty()) 
+        return array; 
+
     int sum = 0;
     for (int i : array) {
         sum += i;
@@ -18,4 +17,8 @@ std::vector<int> sort_array(std::vector<int> array) {
         return array;
     else
         std::reverse(array.begin(), array.end());
+}
+
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}) , {11, 14, 21, 23}));
 }
