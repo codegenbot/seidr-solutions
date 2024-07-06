@@ -1,34 +1,21 @@
+```cpp
 #include <string>
-#include <iostream> 
+#include <iostream>
+
 using namespace std;
 
 bool solveBoolean(string s) {
     bool t = true;
     bool f = false;
     bool res = t;
-    int i = 0;
 
-    while (i < s.length()) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 't') {
-            res = true;
-            i++;
+            res = (s[i + 1] == '&') ? (res & t) : (res | t);
+            i += (s[i + 1] == '|') ? 2 : 1;
         } else if (s[i] == 'f') {
-            res = false;
-            i++;
-        } else if (s[i] == '&') {
-            res &= f;
-            i++;
-            if (i < s.length() && (s[i] == 't' || s[i] == 'f')) {
-                f = (s[i] == 't');
-                i++;
-            }
-        } else if (s[i] == '|') {
-            res |= f;
-            i++;
-            if (i < s.length() && (s[i] == 't' || s[i] == 'f')) {
-                f = (s[i] == 't');
-                i++;
-            }
+            res = (s[i + 1] == '&') ? (res & f) : (res | f);
+            i += (s[i + 1] == '|') ? 2 : 1;
         }
     }
 
@@ -45,4 +32,5 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-    return 0;}
+    return 0;
+}
