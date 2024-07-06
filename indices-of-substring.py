@@ -1,2 +1,6 @@
 def indices_of_substring(text, target):
-    return [i for i, c in enumerate(text) if c == target[0]]
+    indices = []
+    for i in range(len(text)):
+        if text[i : i + len(target)] == target:
+            indices.append(i)
+    return indices
