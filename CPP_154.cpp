@@ -2,17 +2,14 @@
 using namespace std;
 
 bool cycpattern_check(string a, string b) {
-    int n = a.size();
-    int m = b.size();
-
-    for (int i = 0; i < n - m + 1; i++) {
-        string s = a.substr(i, m);
-        if (s == b || isRotation(s, b)) return true;
+    for(int i = 0; i < a.length(); i++) {
+        string temp = a.substr(i);
+        int j = 0;
+        while(j < temp.length()) {
+            if(temp.substr(j).compare(b) == 0 || temp.substr(j).compare(b.substr(1)+b[0]) == 0)
+                return true;
+            j++;
+        }
     }
     return false;
-
-}
-
-bool isRotation(string s1, string s2) {
-    return (s1.size() == s2.size()) && ((s1 + s1).find(s2) != string::npos);
 }
