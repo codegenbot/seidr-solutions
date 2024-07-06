@@ -5,15 +5,17 @@ using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
     set<int> s(l.begin(), l.end());
-    for (int i = 0; i < s.size(); i++) {
-        int target = -s[i];
-        int j = 0;
-        while (j < i && j < s.size()) {
-            if (target + s[j] == s[i]) {
-                return true;
+    for (set<int>::iterator it = s.begin(); it != s.end(); ++it) {
+        int target = -*it; 
+        set<int>::iterator findIt;
+        bool found = false;
+        for (findIt = s.begin(); findIt != s.end(); ++findIt) {
+            if (*findIt > target && s.find(target + *findIt) != s.end()) {
+                found = true;
+                break;
             }
-            j++;
         }
+        if (!found) return false;
     }
-    return false;
+    return true;
 }
