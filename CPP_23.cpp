@@ -1,5 +1,4 @@
 #include<string>
-#include<cassert>
 using namespace std;
 
 int str_length(string str){
