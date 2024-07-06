@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -10,8 +11,8 @@ bool areVectorsEqual(const std::vector& a, const std::vector& b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::vector<int> result;
+std::vector remove_duplicates(std::vector numbers){
+    std::vector result;
 
     for(int i : numbers) {
         if(find(result.begin(), result.end(), i) == result.end()) {
