@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <cctype>
+
 using namespace std;
 
 int count_upper(string s){
