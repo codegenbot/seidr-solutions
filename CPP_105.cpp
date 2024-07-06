@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -13,10 +14,10 @@ vector<pair<int, string>> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {3,8,2};
-    vector<pair<int, string>> res = by_length(arr);
-    for(auto x : res){
-        cout << "Number: " << x.first << ", Name: " << x.second << endl;
+    vector<int> arr = {5,2,8,4};
+    vector<pair<int, string>> output = by_length(arr);
+    for (const auto& pair : output) {
+        cout << "Number: " << pair.first << ", Name: " << pair.second << endl;
     }
     return 0;
 }
