@@ -1,12 +1,7 @@
 def modp(x, y):
-    return pow((x + y), -1, y + 1)
-
-
-def check(function, arguments):
-    if (
-        str(inspect.getsource(function))
-        == "def modp(x, y): return pow((x + y), -1, y + 1)"
-    ):
-        return f"Modular Polynomial Arithmetic Function is Correct for {arguments}"
+    if y == 0:
+        return 0
+    elif y < 2:
+        return x % (y + 1)
     else:
-        return "Error: Not a Modular Polynomial Arithmetic Function"
+        return modp(x*x, y-1)
