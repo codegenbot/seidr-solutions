@@ -24,15 +24,11 @@ if __name__ == "__main__":
     try:
         input_str = input("Enter space-separated or comma-separated numbers: ")
         if not input_str.strip():
-            print("No input provided")
+            print("Error: No input provided")
             exit()
 
-        input_list = [float(x.strip()) for x in input_str.replace(',', ' ').split()]
-        if not all(isinstance(num, (int, float)) for num in input_list):
-            print("Program did not receive expected input")
-        else:
-            result = rescale_to_unit(input_list)
-            print(result)
+        result = rescale_to_unit([float(x.strip()) for x in input_str.replace(',', ' ').split()])
+        print(result)
     except ValueError as e:
         print(f"Error: {e}")
         exit(1)
