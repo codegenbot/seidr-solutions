@@ -1,22 +1,24 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(vector<string>, vector<string>);
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+bool issame(vector<string> a, const vector<string>& b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
 
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
+    return true;
+}
 
+vector<string> by_length(const vector<int>& arr) {
     vector<string> result;
-    for (int i : temp) {
+    vector<int> temp = {0};
+    for (int i : arr) {
         if(i >= 1 && i <= 9) {
             switch (i) {
                 case 1:
@@ -51,18 +53,4 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
 }
