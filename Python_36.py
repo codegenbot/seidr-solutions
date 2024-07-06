@@ -8,12 +8,13 @@ def fizz_buzz(n):
             print("FizzBuzz")
         elif i % 5 == 0:
             print("Buzz")
-            buzzes += 1
         elif i % 3 == 0:
             print("Fizz")
-            fizzes += 1
         else:
             print(i)
-            nums += 1
+        if i % 15 == 0: buzzes += 1
+        elif i % 5 == 0: buzzes += 1
+        elif i % 3 == 0: fizzes += 1
+        nums += 1
 
-    return fizzes + 1, buzzes + 1, nums + 1
+    return fizzes, buzzes, nums
