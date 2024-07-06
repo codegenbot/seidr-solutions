@@ -35,18 +35,17 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> a = {1.5, 3.8, 2.9, 4.7};
-    vector<float> b = {1.5, 2.9, 3.8, 4.7};
+    vector<float> vec1 = {4.7, 3.5, 8.9, 2.2, 6.4};
+    vector<float> vec2 = {8.9, 4.7, 3.5, 6.4, 2.2};
 
-    if (issame(a, b)) {
-        vector<float> result = sort_even(a);
-        for (float i : result) {
-            cout << i << " ";
+    if (issame(vec1, vec2)) {
+        vector<float> result = sort_even(vec1);
+        for (float x : result) {
+            cout << x << " ";
         }
-        cout << endl;
+        return 0;
     } else {
-        cout << "Vectors are not the same" << endl;
+        cout << "Vectors are not the same." << endl;
+        return -1;
     }
-
-    return 0;
 }
