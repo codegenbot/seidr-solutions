@@ -1,9 +1,22 @@
-long long doubleTheDifference(vector<float> numbers) {
-    long long oddSum = 0;
-    for (float num : numbers) {
+#include <cmath>
+#include <vector>
+#include <assert.h>
+
+long long double_the_difference(std::vector<float> lst) {
+    long long sum = 0;
+    for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) {
-            oddSum += pow(num, 2);
+            sum += pow(num, 2);
         }
     }
-    return oddSum;
+    return sum;
+}
+
+int main() {
+    std::vector<float> lst;
+    float odd_sum = 0.0f;
+
+    assert(double_the_difference(lst) == odd_sum);
+
+    return 0;
 }
