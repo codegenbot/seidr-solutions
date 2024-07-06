@@ -1,11 +1,19 @@
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) { return find(b.begin(), b.end(), s) != b.end(); });
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = ""; 
-
+    string word = s; // Modified this line
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
-        } else if (!word.empty()) { 
+        } else if (!word.empty()) {
             bool has_n_consonants = false;
             int consonant_count = 0;
             for (char ch : word) {
@@ -20,7 +28,7 @@ vector<string> select_words(string s, int n) {
             if (has_n_consonants) {
                 result.push_back(word);
             }
-            word = ""; 
+            word = "";
         }
     }
     return result;
