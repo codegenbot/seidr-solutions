@@ -1,6 +1,5 @@
-```cpp
+#include <cassert>
 #include <iostream>
-using namespace std;
 
 long long special_factorial(int n) {
     if (n == 0 || n == 1)
@@ -16,10 +15,11 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "Special factorial of " << n << " is " << special_factorial(n) << endl;
-    assert(special_factorial(0) == 1);
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    long long result = special_factorial(num);
+    std::cout << "Special Factorial of " << num << " is " << result << std::endl;
+    assert(result >= 0); // check for negative values
     return 0;
 }
