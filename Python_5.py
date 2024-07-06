@@ -1,4 +1,4 @@
-```
+```python
 def intersperse(lst, delimiter):
     result = [delimiter]
     for item in lst:
