@@ -1,7 +1,18 @@
+#include <vector>
 #include <algorithm>
 
 vector<int> sort_array(vector<int> arr) {
-    return vector<int>(arr.begin(), arr.end());
-    //sort(arr.begin(), arr.end(), 
-    //  [](int a, int b) { return bitset<32>(a).count() < bitset<32>(b).count(); });
+    sort(arr.begin(), arr.end(),
+         [](int a, int b) {
+             int oneCountA = __builtin_popcount(a);
+             int oneCountB = __builtin_popcount(b);
+
+             if (oneCountA == oneCountB)
+                 return a < b;
+             else
+                 return oneCountA < oneCountB;
+         }
+    );
+
+    return arr;
 }
