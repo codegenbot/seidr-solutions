@@ -17,6 +17,7 @@ int main() {
         str.erase(pos, substring.length());
     }
 
-    cout << "The substring appears " << count << " times in the given string." << endl;
+    cout << "The substring appears " << count << " times." << endl;
+
     return 0;
 }
