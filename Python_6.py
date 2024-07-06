@@ -12,6 +12,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 max_level = level
         elif char == ")":
             level -= 1
-    for _ in range(max_level):
+    while level > 0:
         result.append(max_level)
+        level -= 1
     return result
