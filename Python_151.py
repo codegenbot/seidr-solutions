@@ -1,14 +1,9 @@
 ```
-def double_the_difference(input_list):
-    result = 0
-    for i in input_list:
-        result += i * 2
-    return result
+def double_the_difference(lst):
+    return 2 * sum(i**2 for i in lst if isinstance(i, int) and i > 0)
 
-def check(func):
+def check(expected_output):
     input_list = [1, 2, 3]
-    expected_result = 14
-    result = func(input_list)
-    print(result == expected_result)
+    print(double_the_difference(input_list) == expected_output)
 
-check(double_the_difference)
+check(14)
