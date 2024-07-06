@@ -37,5 +37,7 @@ vector<string> vector_sort(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(vector_sort({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
+    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> output = vector_sort(input);
+    assert(issame(output, {"ccc", "dd", "aaaa", "bbbb"}));
 }
