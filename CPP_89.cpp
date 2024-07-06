@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 string encrypt(string s){
     string result = "";
@@ -13,3 +13,4 @@ string encrypt(string s){
         result += c;
     }
     return result;
+}
