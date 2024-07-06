@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -6,7 +7,7 @@ bool issame(std::vector<std::string> a) {
         return true;
     }
     for (int i = 1; i < a.size(); i++) {
-        if (a[0] != a[i]) {
+        if (a[i-1] != a[i]) {
             return false;
         }
     }
