@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -33,8 +32,8 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
         else
             temp = str;
     }
-    std::sort(b.begin(), b.end());
-    return issame({temp}, {b});
+    std::sort(temp.begin(), temp.end());
+    return temp == b;
 }
 
 int main() {
