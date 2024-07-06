@@ -1,5 +1,4 @@
 def any_int(x, y, z):
-    if x == y + z or y == x + z or z == x + y:
-        return True
-    else:
-        return False
+    return (x + y == z or x + z == y or y + z == x) and all(
+        isinstance(i, int) for i in (x, y, z)
+    )
