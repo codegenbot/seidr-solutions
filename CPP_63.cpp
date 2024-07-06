@@ -1,7 +1,3 @@
-#include <stdio.h>
-
-using namespace std;
-
 int fibfib(int n) {
     if (n <= 1)
         return 0;
@@ -17,12 +13,4 @@ int fibfib(int n) {
         }
         return c;
     }
-}
-
-int main() {
-    int n;
-    printf("Enter the position of FibFib number: ");
-    scanf("%d", &n);
-    printf("The %d-th element of the fibfib sequence is: %d\n", n, fibfib(n));
-    return 0;
 }
