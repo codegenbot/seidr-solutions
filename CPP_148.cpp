@@ -1,10 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-
-std::vector<std::string> bf(std::string s1, std::string s2) {
-    return {s1, s2};
-}
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
@@ -14,7 +9,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
+std::vector<std::string> bf(std::string a, std::string b) {
+    return {a, b};
+}
+
 int main() {
-    std::vector<std::string> b = bf("Jupiter", "Makemake");
-    std::cout << "Output: " << (issame(b, {}) ? "true" : "false") << std::endl;
+    std::cout << "Output: " << (issame(bf("Jupiter", "Makemake"), {}) ? "True" : "False") << std::endl; 
 }
