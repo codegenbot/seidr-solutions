@@ -1,16 +1,11 @@
-#include <optional>
-#include <vector>
-#include <list>
+#include <boost/optional.hpp>
+#include <boost/any.hpp>
 
-#include <variant>
-
-using namespace std;
-
-vector<int> filter_integers(list<variant<string, int>> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (holds_alternative<int>(value)) {
-            int optionalInt = get<int>(value);
+        if(boost::any_cast<boost::optional<int>>(value).has_value()){
+            int optionalInt = boost::any_cast<boost::optional<int>>(value).get();
             result.push_back(optionalInt);
         }
     }
