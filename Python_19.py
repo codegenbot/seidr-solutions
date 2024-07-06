@@ -1,6 +1,6 @@
-
 def sort_numbers(numbers):
-    if not numbers.isdigit():
+    numbers = numbers.split()
+    if not all(n.isdigit() for n in numbers):
         return "Invalid input"
     number_map = {
         "zero": 0,
@@ -14,6 +14,6 @@ def sort_numbers(numbers):
         "eight": 8,
         "nine": 9,
     }
-    numbers = [int(number_map[num]) for num in numbers.split()]
+    numbers = [int(number_map[num]) for num in numbers]
     sorted_numbers = sorted(numbers)
     return " ".join([str(num) for num in sorted_numbers])
