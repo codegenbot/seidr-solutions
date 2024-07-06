@@ -1,17 +1,9 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade;
@@ -43,10 +35,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         result.push_back(letterGrade);
     }
     return result;
-}
-
-int main() {
-    std::vector<float> testGrades = {0, 0.7};
-    assert(issame(numerical_letter_grade(testGrades), {"E", "D-"})); 
-    return 0;
 }
