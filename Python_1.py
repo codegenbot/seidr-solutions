@@ -1,7 +1,7 @@
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     start = 0
-    while True:
+    while open_count < close_count:
         open_count = 0
         close_count = 0
         for i in range(start, len(paren_string)):
