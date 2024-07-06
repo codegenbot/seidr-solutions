@@ -1,29 +1,37 @@
-bool hasDigit(char c) {
-    return c >= '0' && c <= '9';
-}
+#include <iostream>
+#include <string>
 
 int main() {
-    // Your test cases here
+    string file_name;
+    std::cout << "Enter a file name: ";
+    std::getline(std::cin, file_name);
+    
+    std::cout << file_name_check(file_name) << std::endl;
+
     return 0;
 }
+
 string file_name_check(string file_name){
-    int digitCount = 0, dotCount = 0;
-    for(int i = 0; i < file_name.length(); i++) {
-        if(hasDigit(file_name[i])) {
-            digitCount++;
-        } else if (file_name[i] == '.') {
-            dotCount++;
+    int digit_count = 0;
+    bool has_dot = false;
+    string before_dot;
+
+    for(int i = 0; i < file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        }
+        else if(file_name[i] == '.'){
+            has_dot = true;
+            before_dot = file_name.substr(0, i);
+        }
+        else if(has_dot){
+            string after_dot = file_name.substr(i+1);
+            if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
         }
     }
-    if(digitCount > 3 || dotCount != 1) return "No";
-    string beforeDot = "";
-    for(int i = 0; i < file_name.length(); i++) {
-        if(file_name[i] == '.') break;
-        beforeDot += file_name[i];
-    }
-    if(beforeDot.empty() || !isalpha(beforeDot[0])) return "No";
-    string afterDot = file_name.substr(file_name.find('.') + 1);
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-    if(find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end()) return "No";
-    return "Yes";
+
+    if(before_dot.empty() || !isalpha(before_dot[0])) return "No";
+
+    return has_dot ? "Yes" : "No";
 }
