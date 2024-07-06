@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include <boost/any.hpp>
 
 using namespace std;
 
@@ -39,6 +38,4 @@ int main() {
     } else {
         cout << "Both numbers are equal.\n";
     }
-
-    return 0;
 }
