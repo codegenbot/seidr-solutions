@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
-#include "md5.h"
+#include <digest/md5.h>
 
 using namespace std;
 
