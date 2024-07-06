@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 
@@ -11,7 +10,7 @@ bool check_dict_case(map<pair<string, string>, bool> dict) {
     bool all_lower = true;
 
     for (auto& pair : dict) {
-        string key = pair.first.first; // get the first part of pair
+        string key = pair.first.second; // get the second element of the pair
         if (!all_lower && !all_upper) break;
         if (!all_lower) all_lower = tolower(key[0]) == 0;
         if (!all_upper) all_upper = toupper(key[0]) == 0;
