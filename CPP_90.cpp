@@ -1,15 +1,20 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int next_larger(std::vector<int> lst) {
     if(lst.size() < 2) return -1; 
-    std::vector<int> result;
-    int max = -1;
-    for(int i = lst.size()-1; i >=0 ; i--){
-        for(int j = i-1; j>=0; j--) {
-            if (lst[j] > lst[i]) {
-                max = lst[i];
-                break;
-            }
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for(int i = 0; i < sorted.size()-1; i++){
+        if(sorted[i] != sorted[i+1]){
+            return sorted[i+1];
         }
-        if(max != -1) break;
     }
-    return max; 
+    return -1; 
+}
+
+int main() {
+    assert(next_larger({-35, 34, 12, -45}) == -35);
+    return 0;
 }
