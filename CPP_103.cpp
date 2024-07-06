@@ -13,4 +13,3 @@ std::string rounded_avg(int n, int m) {
         avg /= 2;
     }
     return res;
-}
