@@ -4,11 +4,11 @@
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
-        throw runtime_error("Error: Vectors have different sizes");
+        throw std::runtime_error("Vectors are not the same size");
     }
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
-            throw runtime_error("Error: Vectors have different elements at position " + std::to_string(i));
+            throw std::runtime_error("Vectors are not the same");
         }
     }
     return true;
