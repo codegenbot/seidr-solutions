@@ -7,4 +7,3 @@ bool below_threshold(std::array<int, n> l, int t) {
         }
     }
     return true;
-}
