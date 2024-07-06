@@ -2,13 +2,17 @@ import hashlib
 
 
 def string_to_md5(text):
-    return hashlib.md5(text.encode("utf-8")).hexdigest()
+    return hashlib.md5(text).hexdigest()
 
 
 def main():
     while True:
-        text = input("Please enter a string (or 'q' to quit): ")
-        if text.lower() == "q":
+        while True:
+            user_input = input("Please enter a string (or 'q' to quit): ")
+            text = user_input.strip().encode("utf-8") if user_input else None
+            if text is None or text.decode().lower() == "q":
+                break
+        if text.decode().lower() == "q":
             break
         try:
             result = string_to_md5(text)
