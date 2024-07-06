@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -22,21 +23,10 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
     std::sort(result.begin(), result.end());
     return result;
+
 }
 
 int main() {
-    std::cout << "Sorted list sum: ";
-    for (const auto& str : sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})) {
-        if (str == "sum") {
-            int sum = 0;
-            for (const auto& s : {"aaaa", "bbbb", "dd", "cc"}) {
-                sum += s.length();
-            }
-            std::cout << sum << " ";
-        } else {
-            std::cout << str << " ";
-        }
-    }
-    std::cout << std::endl;
+    assert(std::equal(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
