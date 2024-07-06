@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -11,7 +10,7 @@ bool std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr,int k){
-    std::priority_queue<int, std::vector<int>, std::greater<int>> max_heap;
+    std::priority_queue<int> max_heap;
     for(int i:arr){
         max_heap.push(i);
         if(max_heap.size()>k)
