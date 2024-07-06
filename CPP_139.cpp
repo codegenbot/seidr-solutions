@@ -1,3 +1,6 @@
+#include <cassert>
+#include <iostream>
+
 long long special_factorial(int n) {
     if (n == 0 || n == 1)
         return 1;
@@ -11,17 +14,12 @@ long long special_factorial(int n) {
     return result;
 }
 
-#include <iostream>
-using namespace std;
-
 int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    long long result = special_factorial(n);
-    cout << "Special Factorial of " << n << " is: " << result << endl;
-    
-    // assertion statement
-    assert(result == 1);
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    long long result = special_factorial(num);
+    std::cout << "Special Factorial of " << num << " is " << result << std::endl;
+    assert(result >= 0); // check for negative values
     return 0;
 }
