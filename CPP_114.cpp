@@ -3,8 +3,8 @@
 #include <limits>
 
 int main() {
-    long long result = minSubArraySum({1, -1});
-    assert(result == -1);
+    int result = minSubArraySum({1, -1}); 
+    assert(result == -1); 
     return 0;
 }
 
