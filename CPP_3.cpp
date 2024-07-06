@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 bool below_zero(std::vector<int> operations){
     int balance = 0;
@@ -9,8 +8,8 @@ bool below_zero(std::vector<int> operations){
     }
     return false;
 
-bool main() {
-    std::vector<int> operations;
+int main() {
+    {std::vector<int> operations;
     int num_operations;
 
     // Read the number of operations from user
@@ -35,5 +34,4 @@ bool main() {
         std::cout << "The total balance is not below zero.\n";
     }
 
-    return 0;
-}
+    return 0;}
