@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -13,10 +13,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; 
-    lst.push_back(1.5f); 
-    lst.push_back(3.7f);
-    lst.push_back(4.8f); 
-    int odd_sum = double_the_difference(lst);
-    assert (double_the_difference(lst) == odd_sum );
+    std::vector<float> lst = {1.5f, 3.7f, 4.8f}; 
+    long long odd_sum = double_the_difference(lst);
+    int even_sum = static_cast<int>(std::accumulate(lst.begin(), lst.end(), 0.0f) - odd_sum);
+    std::cout << "Even sum is: " << even_sum << "\n";
 }

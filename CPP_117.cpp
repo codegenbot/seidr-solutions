@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,29 +15,24 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> vec1, vec2;
-    
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
 
+    std::vector<std::string> v1, v2;
+    
     for (int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter element for vector 1: ";
-        std::cin >> str;
-        vec1.push_back(str);
-        
-        std::cout << "Enter element for vector 2: ";
-        std::cin >> str;
-        vec2.push_back(str);
+        std::string s;
+        std::cin >> s;
+        v1.push_back(s);
+        std::cin >> s;
+        v2.push_back(s);
     }
-    
-    bool is_same = isSame(vec1, vec2);
-    
-    if (is_same) {
-        std::cout << "Vectors are same" << std::endl;
+
+    if (issame(v1, v2)) {
+        std::cout << "The two vectors have the same first character in each string." << std::endl;
     } else {
-        std::cout << "Vectors are not same" << std::endl;
+        std::cout << "The two vectors do not have the same first character in each string." << std::endl;
     }
 
     return 0;
