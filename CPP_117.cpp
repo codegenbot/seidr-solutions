@@ -1,9 +1,9 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cctype>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(vector<string> a,vector<string>b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]) return false;
@@ -11,9 +11,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
@@ -39,6 +39,6 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main(){
-    assert (issame(std::vector<std::string>(select_words("a b c d e f", 1)) , std::vector<std::string>({"b","c","d","f"})));
+    assert (issame(vector<string>(select_words("a b c d e f", 1)) , vector<string>({"b","c","d","f"})));
     return 0;
 }
