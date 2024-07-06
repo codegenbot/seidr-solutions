@@ -16,7 +16,6 @@ bool is_palindrome(const std::string& s) {
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
-    s = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
