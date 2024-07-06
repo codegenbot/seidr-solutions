@@ -1,26 +1,43 @@
 ```
 def calculate_score(games):
     frames = games.replace('/', '')
-    current_roll = 0
     score = 0
-    roll_count = 1
+    current_roll = 0
+    frame_count = 1
 
     for i in range(len(frames)):
         if frames[i].isdigit():
-            if roll_count == 1:
-                current_roll = int(frames[i])
+            current_roll = current_roll * 10 + int(frames[i])
+        else:
+            if frame_count < 10:
+                if current_roll == 10:
+                    score += 10
+                    current_roll = 0
+                    frame_count += 1
+                elif current_roll > 0:
+                    if current_roll < 10:
+                        score += current_roll + int(frames[i])
+                    else:
+                        score += 10
+                    current_roll = 0
+                    frame_count += 1
             else:
-                current_roll += int(frames[i])
-
-            if i < len(frames) - 1 and frames[i+1].isdigit():
-                continue
-            elif current_roll > 10:
-                score += 10 + (current_roll - 10)
-                current_roll = 0
-            elif current_roll == 10:
-                score += 10
-            else:
-                score += current_roll
-            roll_count = (roll_count + 1) % 2
+                if current_roll == 10:
+                    score += 10
+                    current_roll = 0
+                    frame_count += 1
+                elif current_roll > 0:
+                    if frames[i] != 'X':
+                        score += current_roll + int(frames[i])
+                    else:
+                        score += 10
+                        current_frame_2_roll = int(frames[i-1])
+                        for j in range(i+1, len(frames)):
+                            if frames[j].isdigit():
+                                current_frame_2_roll = current_frame_2_roll * 10 + int(frames[j])
+                                break
+                        score += current_frame_2_roll
+                    current_roll = 0
+                    frame_count += 1
 
     return score
