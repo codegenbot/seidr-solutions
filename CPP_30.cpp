@@ -16,5 +16,4 @@ int main() {
     } else {
         std::cout << "v1 and v2 are not the same" << std::endl;
     }
-    
 }
