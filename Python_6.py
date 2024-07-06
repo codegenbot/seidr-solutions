@@ -1,18 +1,19 @@
-'''\n
+```
 def parse_nested_parens(s):
     stack = []
-    result = ''
+    output = ''
     for char in s:
         if char == '(':
             stack.append(char)
         elif char == ')':
             while stack and stack.pop() != '(':
-                result += char
+                pass
+            if not stack:
+                return 'Invalid nested parentheses'
         else:
-            while stack:
-                result += stack.pop()
-            result += char
-    return result
+            output += char
+    if stack:
+        return 'Invalid nested parentheses'
+    return output
 
-print(parse_nested_parens(input().strip()))
-'''\n
+print(parse_nested_parens("""{}""".format(input().strip())))
