@@ -1,5 +1,16 @@
-```cpp
 #include <vector>
-bool issame(vector<int> a,vector<int>b){
-    return a == b;
+#include <cmath>
+
+using namespace std;
+
+vector<int> compare(vector<int> scores, vector<int> guesses) {
+    vector<int> results;
+    for (int i = 0; i < scores.size(); i++) {
+        if (scores[i] == guesses[i]) {
+            results.push_back(0);
+        } else {
+            results.push_back(abs(scores[i] - guesses[i]));
+        }
+    }
+    return results;
 }
