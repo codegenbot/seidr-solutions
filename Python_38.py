@@ -1,7 +1,4 @@
-    def decode_cyclic(s):
-        try:
-            groups = s[::3] + s[1::3] + s[2::3]
-            return "".join(groups)
-        except (ValueError, IndexError):
-            print("Invalid input")
-            return None
+def decode_cyclic(s):
+    groups = s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
+    decoded_groups = [(group[-1:] + group[:-1]) if len(group) == 3 else group for group in groups]
+    return "".join(decoded_groups)

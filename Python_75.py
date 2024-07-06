@@ -1,15 +1,13 @@
 def is_multiply_prime(a):
-    if a < 1 or a > 100:
-        return False
-    for i in range(2, int(a ** 0.5) + 1):
-        if a % i == 0 and is_prime(i) and is_prime(a // i):
+    # Find all prime numbers up to a using Sieve of Eratosthenes
+    primes = [True] * (a + 1)
+    for i in range(2, int(a**0.5) + 1):
+        if primes[i]:
+            for j in range(i * i, a + 1, i):
+                primes[j] = False
+
+    # Check if any two prime numbers multiply to equal a
+    for i in range(2, int(a**0.5) + 1):
+        if primes[i] and primes[a // i]:
             return True
     return False
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-```
