@@ -8,7 +8,7 @@ int main() {
     std::cout << "Enter number of elements: ";
     std::cin >> n;
 
-    std::vector<int> nums(n); // Modified code here
+    std::vector<int> nums(n); // Fix: Specify size type explicitly
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
