@@ -6,5 +6,6 @@ def check(n: int) -> str:
     else:
         return "NO"
 
-n = int(input("Enter an integer: "))
+print("Enter an integer: ")
+n = int(input())
 print(check(n))
