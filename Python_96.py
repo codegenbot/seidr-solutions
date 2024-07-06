@@ -1,4 +1,3 @@
-```
 def count_up_to(n):
     def is_prime(num):
         if num < 2:
@@ -9,7 +8,9 @@ def count_up_to(n):
         return True
 
     result = []
-    for i in range(2, n+1):
+    for i in range(2, n):
         if is_prime(i):
             result.append(i)
     return result
+
+print(count_up_to(int(input("Enter a number: "))))
