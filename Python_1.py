@@ -1,3 +1,4 @@
+```
 s = input().strip()
 stack = []
 group = ""
@@ -16,5 +17,8 @@ for char in s:
     else:
         group += char
 if stack:
+    while stack:
+        group += ")"
+        stack.pop()
     result.append(group)
 print(result)

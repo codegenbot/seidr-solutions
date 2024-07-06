@@ -1,5 +1,4 @@
 ```
-print("Hello")
 def sort_third(l):
     result = []
     for i, x in enumerate(l):
@@ -15,7 +14,7 @@ try:
     input_list = [int(i) for i in input_list.split()]
 except ValueError:
     print("Invalid input. Please enter a list of numbers separated by space.")
-    input_list = []  # or any other default value you want
+    input_list = []
 
 if not input_list:
     print("No input provided. No output generated.")
