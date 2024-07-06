@@ -1,4 +1,4 @@
-```cpp
+```
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     int open_count = 0;
@@ -18,13 +18,13 @@ vector<string> separate_paren_groups(string paren_string) {
         }
     }
 
-    // Check for remaining group
-    if(open_count > 0) {
-        while(open_count-- > 0) {
-            current_group += '(';
-        }
+    while (open_count > 0) {
+        current_group += '(';
+        open_count--;
+    }
+
+    if (open_count > 0) {
         result.push_back(current_group);
     }
 
     return result;
-}
