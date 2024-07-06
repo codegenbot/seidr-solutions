@@ -6,6 +6,12 @@ def minPath(grid, k):
     queue = []
     path = []
 
+    # Check if the length of the path is greater than the number of elements in the grid
+    if k > n * m:
+        raise ValueError(
+            "Path length cannot be greater than the number of elements in the grid"
+        )
+
     # Enqueue the first cell
     queue.append((0, 0))
     visited[0][0] = True
