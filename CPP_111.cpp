@@ -2,6 +2,14 @@
 #include <map>
 #include <string>
 
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    if (a.size() != b.size()) return false;
+    for (auto& pair : a) {
+        if (!b.count(pair.first) || b[pair.first] != pair.second) return false;
+    }
+    return true;
+}
+
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
     if (test.empty()) return result;
