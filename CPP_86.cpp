@@ -16,13 +16,12 @@ vector<string> split(const string& str, const string& delimiter) {
 }
 
 string anti_shuffle(string s){
-    if(s.empty())
-        return "";
     string result = "";
     for (const auto& word : split(s, " ")) {
-        result += string(word.begin(), word.end()) + " ";
+        for(char c:word) result+=c;  
+        if(!result.empty()) result+=" ";  
     }
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.size() - 1);  
 }
 
 int main() {
