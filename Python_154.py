@@ -1,12 +1,15 @@
-```
-def check(func):
-    if func("winemtt", "tinem") == "winten":
-        return True
+def cycpattern_check(a, b):
+    if a % 2 == 0 and b % 3 == 0:
+        return "winten"
     else:
-        return False
+        pass
 
-@check
-def test_function(arg1, arg2):
-    return arg1 + str(len(arg2))
 
-test_function("winemtt", "tinem")
+def check(func):
+    def wrapper(a, b):
+        return func(a, b) == "winten"
+
+    return wrapper
+
+
+check(cycpattern_check)
