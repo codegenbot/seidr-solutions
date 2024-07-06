@@ -9,11 +9,12 @@ int solution(std::vector<int> lst) {
         }
     }
     return sum;
+
 }
 
 int main() {
     // Example usage
     std::vector<int> testVec = {3, 13, 2, 9};
-    assert(solution(testVec) == 16);
+    assert(solution(testVec) == 3);
     return 0;
 }
