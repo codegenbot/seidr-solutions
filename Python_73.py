@@ -1,5 +1,6 @@
+```
 def smallest_change(arr):
-    """Docstring"""
+    """Return the number of different elements between arr and its reverse."""
     n = len(arr)
     forward = arr[:]
     backward = arr[::-1]
