@@ -16,7 +16,7 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
+    assert(std::equal(get_positive({}).begin(), get_positive({}).end(), {}.begin()));
     std::cout << "All assertions passed." << std::endl;
     return 0;
 }
