@@ -8,7 +8,7 @@ std::string decode(std::string cipher, std::string mapping) {
             char m = mapping[idx];
             result += m;
         } else {
-            result += c; 
+            result += c; // Add the original character
         }
     }
     return result;
