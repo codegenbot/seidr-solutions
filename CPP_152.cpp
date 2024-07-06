@@ -1,5 +1,10 @@
+```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
+
+bool issame(vector<int> a,vector<int>b){
+    return a == b;
+}
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
