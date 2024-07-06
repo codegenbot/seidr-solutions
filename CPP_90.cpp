@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,14 +6,12 @@
 
 int next_smallest(const std::vector<int>& lst) {
     if(lst.size() < 2) return -1; // None
-    int smallest = INT_MAX;
-    for(int i : lst) {
-        if(i < smallest) smallest = i;
-    }
-    for(int i = 0; i < lst.size(); ++i) {
+
+    int smallest = *std::min_element(lst.begin(), lst.end());
+    for(int i = 0; i < lst.size(); ++i)
         if(lst[i] > smallest) return lst[i];
-    }
-    return -1; // None
+
+    return -1; // No next smaller
 }
 
 int main() {
