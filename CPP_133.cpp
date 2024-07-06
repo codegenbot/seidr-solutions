@@ -1,8 +1,12 @@
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
 int sum_squares(vector<float> lst){
-    int sum = 0;
-    for(float num: lst){
-        long long ceil_num = ceil(num);
-        sum += (int)ceil_num * (int)ceil_num;
+    int total = 0;
+    for(auto num : lst){
+        total += ceil(num)*ceil(num);
     }
-    return sum;
+    return total;
 }
