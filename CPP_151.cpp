@@ -1,16 +1,14 @@
-#include <vector>
-#include <cmath>
-
-long long doubleTheDifference(std::vector<float> numbers) {
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for (float num : numbers) {
-        if (num > 0 && floor(num) == static_cast<long long>(num)) { 
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { 
             if (modf(sqrt(num), &num) != 0.0) { 
-                sum += pow(static_cast<double>(num), 2); 
+                sum += pow(num, 2); 
             }
-        } else {
-            sum += num;
         }
     }
     return sum;
 }
+
+#include <vector>
+#include <cmath>
