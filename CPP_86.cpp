@@ -14,7 +14,7 @@ vector<string> split(const string& str, const string& delimiter) {
             str.erase(0, pos + delimiter.length());
         }
     }
-    if (!str.empty()) { 
+    if (!str.empty()) { // Check for the last token
         tokens.push_back(str);
     }
     return tokens;
@@ -29,8 +29,7 @@ string anti_shuffle(string s){
     return result.substr(0, result.size() - 1);
 }
 
-int main()
-{
+int main(){
     string s;
     cout << "Enter a sentence: ";
     getline(cin, s);
