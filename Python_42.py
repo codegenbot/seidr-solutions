@@ -13,8 +13,9 @@ def incr_list(lst):
             print("Invalid input. Please enter an integer.")
     while True:
         cont = input("Do you want to continue? (y/n): ")
-        if cont.lower() != 'y' and cont.lower() != 'n':
-            print("Invalid choice. Please enter y or n: ")
+        if cont.lower() == 'y':
+            return result
+        elif cont.lower() == 'n':
+            return result
         else:
-            break
-    return result
+            print("Invalid choice. Please enter y or n: ")
