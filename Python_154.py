@@ -1,3 +1,5 @@
+import re
+
 
 def cycpattern_check(a, b):
     pattern = r"(?=.*({}))".format(b)
