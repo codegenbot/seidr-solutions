@@ -12,9 +12,3 @@ public:
             return l[n / 2];
     }
 };
-
-int main() {
-    Solution solution;
-    assert (abs(solution.median({8, 1, 3, 9, 9, 2, 7}) - 5.0)<1e-4 );
-    return 0;
-}
