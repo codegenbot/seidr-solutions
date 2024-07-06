@@ -21,14 +21,19 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame({get_odd_collatz(12)}, std::vector<int>({1, 3, 5, 17, 20})));
-    vector<int> temp;
-    for(int i = 2; i <= 20; ++i){
-        temp = get_odd_collatz(i);
-        cout << "Sequence of Collatz Conjecture for " << i << ":";
+    for(int i=1;i<=100;i++) {
+        vector<int> temp=get_odd_collatz(i);
+        bool unique=true;
         for(auto x:temp) {
-            cout << " " << x;
+            if(count(temp.begin(),temp.end(),x)>1) {
+                unique=false;
+                break;
+            }
         }
-        cout << endl;
+        if(unique) {
+            cout<<"Chain for "<<i<<" is unique"<<endl;
+        } else {
+            cout<<"Chain for "<<i<<" is not unique"<<endl;
+        }
     }
 }

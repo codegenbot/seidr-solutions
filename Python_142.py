@@ -1,3 +1,4 @@
+```
 def sum_squares(num1, num2):
     return square(num1) + square(num2)
 
@@ -22,19 +23,12 @@ while True:
         print(f"The cube of {num} is {cube(num)}")
 
     elif operation.lower() == "sum_of_squares":
-        if operation.lower() != "sum_of_squares":
-            print(
-                "Invalid operation. Please enter 'square', 'cube' or 'sum_of_squares'"
-            )
-        else:
-            num1 = float(input("Enter the first number: "))
-            num2 = float(input("Enter the second number: "))
-            print(
-                f"The sum of squares of {num1} and {num2} is {sum_squares(num1, num2)}"
-            )
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+        print(f"The sum of squares of {num1} and {num2} is {sum_squares(num1, num2) + square(num2)}")
 
     elif operation.lower() == "quit":
         break
 
     else:
-        print("Invalid operation. Please enter 'square', 'cube' or 'sum_of_squares'")
+        print("Invalid operation. Please enter 'square', 'cube' or 'sum_of_squares'"
