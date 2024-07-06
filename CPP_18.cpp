@@ -1,10 +1,11 @@
 #include <string>
-
-int how_many_times(std::string str, std::string substring) {
+using namespace std;
+int how_many_times(string str, string substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != std::string::npos) {
+    while ((pos = str.find(substring)) != string::npos) {
         count++;
         str.erase(0, pos + substring.size());
     }
     return count;
+}
