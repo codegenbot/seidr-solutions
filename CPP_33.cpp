@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <algorithm>
 
@@ -37,6 +38,7 @@ vector<int> sort_third(vector<int> arr) {
 
 int main() {
     vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
+    vector<int> res;
     
     for(int i = 0; i < l.size(); i++) {
         if(i % 3 == 0) {
@@ -49,12 +51,12 @@ int main() {
                 }
             }
             sort_third(temp);
-            vector<int> sorted_third = sort_third(temp);
-            for(int k : sorted_third) cout << k << " ";
+            res.insert(res.end(), temp.begin(), temp.end());
         } else {
-            cout << l[i] << " ";
+            res.push_back(l[i]);
         }
-    }
+   }
     
+    for(int i : res) cout << i << " ";
     return 0;
 }
