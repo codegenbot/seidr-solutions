@@ -1,4 +1,11 @@
 ```
 def smallest_change(arr):
-    arr = [str(i) for i in arr]
-    return len(''.join(arr)) - len(str(arr)[::-1])
+    """Docstring"""
+    n = len(arr)
+    forward = arr[:]
+    backward = arr[::-1]
+    changes = 0
+    for i in range(n // 2):
+        if forward[i] != backward[n - i - 1]:
+            changes += 1
+    return changes
