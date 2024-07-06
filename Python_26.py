@@ -4,4 +4,6 @@ def remove_duplicates(input_str=None):
         numbers = input("Enter comma-separated numbers: ")
     else:
         numbers = str(input_str)
-    return list(map(int, set(numbers.split(","))))
+    return list(dict.fromkeys(map(int, filter(lambda x: x.isdigit(), numbers.split(",")))))
+
+print(remove_duplicates([1, 2, 3, 2, 4, 3, 5]))
