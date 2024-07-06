@@ -1,18 +1,13 @@
-```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                result += {**{("a": "c", "e": "g", "i": "k", "o": "q", "u": "y").fromkeys(("a", "e", "i", "o", "u"))}.get(char.lower(), char.swapcase())
-            elif char.lower() in ["do", "to"]:
-                result += {**{("d", "t"): ["dQnT"], ("r", "o", "t"): ["gYkS"], ("s"): ["sWnT"]}.get(char.lower(), char.swapcase())
+                result += {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}[char.lower()]
+            elif char.isalnum():
+                result += "dQnT" if (char.lower() in "re" or char.lower() == "to") else "gYkS" if (char.lower() == "ro" or char.lower() == "te") else ("sWnT" if char.lower() == "se" else char.swapcase())
             else:
-                if char.isupper():
-                    result += char.swapcase().upper()
-                else:
-                    result += char.swapcase()
-        else:  
+                result += char
+        else:
             result += char
-
     return result
