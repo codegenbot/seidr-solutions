@@ -1,5 +1,4 @@
-from typing import List
-
+```
 def has_close_elements() -> bool:
     found_close_elements = False
     while True:
@@ -21,7 +20,7 @@ def has_close_elements() -> bool:
         for j in range(i + 1, len(numbers)):
             if abs(numbers[i] - numbers[j]) <= threshold:
                 found_close_elements = True
-                return found_close_elements
+                break
 
     cont = input("Do you want to check another set of numbers? (y/n): ")
     while cont.lower() != 'n':
@@ -42,6 +41,6 @@ def has_close_elements() -> bool:
             for j in range(i + 1, len(numbers)):
                 if abs(numbers[i] - numbers[j]) <= threshold:
                     found_close_elements = True
-                    return found_close_elements
+                    break
 
     return found_close_elements
