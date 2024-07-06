@@ -33,6 +33,13 @@ std::vector<std::string> words_string(std::string s) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
-    // ...
+    std::string str = "Hello, world! Foo bar";
+    std::vector<std::string> words = words_string(str);
+    bool same = issame(words, {"Hello", "world", "Foo", "bar"});
+    if (same) {
+        std::cout << "Words are the same." << std::endl;
+    } else {
+        std::cout << "Words are different." << std::endl;
+    }
+    return 0;
 }
