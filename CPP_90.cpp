@@ -11,12 +11,10 @@ int next_smallest(vector<int> lst) {
             return sorted[i+1];
         }
     }
-    return -1; 
+    return sorted.back();
 }
 
 int main() {
-    if (next_smallest({-35, 34, 12, -45}) != -35) {
-        assert(0);
-    }
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
