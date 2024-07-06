@@ -1,7 +1,7 @@
 #include <string>
-#include <vector>
 #include <cassert>
-
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 bool file_name_check(string file_name) {
@@ -36,7 +36,7 @@ bool file_name_check(string file_name) {
     return valid;
 }
 
-int main() {
+int main_test() {
     assert(file_name_check("s.") == false);
     return 0;
 }
