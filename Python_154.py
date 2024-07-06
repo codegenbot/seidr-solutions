@@ -1,3 +1,5 @@
+Here is the corrected function definition:
+
 def cycpattern_check(a, b):
     if len(b) != len(a):
         return False
