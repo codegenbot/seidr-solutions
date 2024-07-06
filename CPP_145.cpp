@@ -30,11 +30,27 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {
     int n; cin >> n;
-    vector<int> nums(n);
-    for(int i=0; i<n; i++) cin >> nums[i];
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i] >> b[i];
+    }
     
-    if(issame(nums, order_by_points(nums))) cout << "YES" << endl;
-    else cout << "NO" << endl;
-
+    if(issame(a,b))
+    cout << "Yes\n";
+    else 
+    cout << "No\n";
+    
+    vector<int> points;
+    int m; cin >> m;
+    for(int i=0; i<m; i++) {
+        int num; cin >> num;
+        points.push_back(num);
+    }
+    
+    vector<int> result = order_by_points(points);
+    
+    for(auto x : result) {
+        cout << x << " ";
+    }cout << endl;
     return 0;
 }
