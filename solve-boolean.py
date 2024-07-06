@@ -2,7 +2,6 @@ import re
 
 
 def solve_boolean(expression):
-    # Use regular expressions to parse the expression and evaluate it
     result = re.match(r"^(?P<left>.*?)(\||\&)(?P<right>.*)$", expression)
     if result:
         left, right = result.groups()
