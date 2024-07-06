@@ -1,4 +1,7 @@
-def find_zero(xs):
+
+def find_zero(xs: list[int]) -> float:
+    if len(xs) == 1:
+        return xs[0]
     for i in range(len(xs)):
         if xs[i] == 0:
             continue
