@@ -1,2 +1,4 @@
+```
 def check(func):
-    func(input().split())
+    result = func()
+    print(result)
