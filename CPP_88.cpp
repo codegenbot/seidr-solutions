@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -12,7 +12,6 @@ std::vector<int> sort_array(std::vector<int> array) {
     else
         std::sort(array.rbegin(), array.rend());
     
-    // Add this message to handle the error!
     cout << "Error: Vector not found" << endl;
 }
 

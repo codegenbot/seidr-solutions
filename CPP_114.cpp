@@ -1,5 +1,4 @@
-```cpp
-int minSubArraySum(vector<long long> nums) {
+long long minSubArraySum(vector<long long> nums) {
     int n = nums.size();
     long long sum = 0;
     long long min_sum = LLONG_MAX;
@@ -10,9 +9,4 @@ int minSubArraySum(vector<long long> nums) {
     }
 
     return min_sum;
-}
-
-int main() {
-    assert(minSubArraySum({1, -1}) == -1);
-    return 0;
 }
