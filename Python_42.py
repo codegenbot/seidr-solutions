@@ -1,4 +1,4 @@
-```Python
+```
 def incr_list():
     while True:
         try:
