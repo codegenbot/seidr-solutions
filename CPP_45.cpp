@@ -7,5 +7,4 @@ float triangle_area(int a, int h) {
 
 int main() {
     assert(abs(triangle_area(10, 8) - 40.0)<1e-4);
-    // your other code
 }
