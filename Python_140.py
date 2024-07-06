@@ -1,4 +1,4 @@
-```
+```python
 def fix_spaces(text):
     result = ''
     prev_was_space = True
@@ -12,8 +12,4 @@ def fix_spaces(text):
         else:
             result += char
             prev_was_space = False
-    if prev_was_space:
-        result += '_'
-    else:
-        result += '-'
     return result
