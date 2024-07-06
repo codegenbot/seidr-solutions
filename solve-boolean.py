@@ -1,31 +1,19 @@
 def solve_boolean(expression):
-    if expression == "T":
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
-
-    operators = "&" | "|"
-    parts = expression.split(next((c for c in operators if c in expression), ""))
-
-    def evaluate_and(parts):
-        result = None
-        for part in parts:
-            if result is None:
-                result = solve_boolean(part)
-            elif not solve_boolean(part):
-                return False
-        return result
-
-    def evaluate_or(parts):
-        result = None
-        for part in parts:
-            if result is not None and solve_boolean(part) == result:
-                return result
-            elif solve_boolean(part):
-                result = True
-        return result if result else False
-
-    if expression.count("&") > 0:
-        return evaluate_and(parts)
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
     else:
-        return evaluate_or(parts)
+        result = True
+        parts = expression.split('&')
+        for part in parts:
+            or_parts = part.split('|')
+            for p in or_parts:
+                if p == 'F':
+                    result = False
+                    break
+                elif p != 'T':
+                    return False
+        return result
