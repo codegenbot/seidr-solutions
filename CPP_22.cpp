@@ -2,11 +2,11 @@
 #include <vector>
 #include <list>
 #include <typeindex>
-#include <any>
+#include <type_traits>
 
 using namespace std;
 
-bool operator==(const vector<any>& a, const vector<any>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -28,6 +28,6 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main() {
-    assert(filter_integers({3, any('c'), 3, any(3), any(3), any('a'), any('b')}) == vector<any>({3, 3, 3}));
+    assert(isame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
