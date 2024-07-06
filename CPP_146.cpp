@@ -1,6 +1,5 @@
 #include <vector>
 #include <initializer_list>
-#include <cassert>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
