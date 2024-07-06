@@ -1,6 +1,7 @@
+
 def get_max_triples(n):
-    count = 0
-    for i in range(1, n + 1):
+   count = 0
+   for i in range(1, n + 1):
         for j in range(i + 1, n + 1):
             if i * i == 0 or j * j == 0:
                 return -1
