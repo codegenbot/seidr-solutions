@@ -8,5 +8,5 @@ def separate_paren_groups(paren_string):
             if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
             else:
-                result.append("(" + c + ")")
-    return result
+                result.append(c)
+    return "".join(result)
