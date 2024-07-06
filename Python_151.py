@@ -5,5 +5,6 @@ def double_the_difference(lst):
     return 2 * diff
 
 
-# Test the function
-assert double_the_difference([4, 5, 7, 3]) == 16
+if __name__ == "__main__":
+    lst = [int(x) for x in input("Enter numbers: ").split()]
+    print(double_the_difference(lst))
