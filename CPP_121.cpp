@@ -1,19 +1,22 @@
 #include <vector>
 #include <initializer_list>
-#include <iostream>
 #include <assert.h>
+#include <iostream>
 
 int solutions(std::vector<int> lst) {
     if (lst.size() == 0) {
         return -1;
-    }
-    int count = 0;
-    for(int i=2;i*i<=lst[0];i++){
-        if(lst[0]%i==0){
-            count++;
+    } else {
+        int result = 0;
+        for(int i = 0; i < lst.size(); i++) {
+            for(int j = i + 1; j < lst.size(); j++) {
+                if(lst[i] > lst[j]) {
+                    result++;
+                }
+            }
         }
+        return result;
     }
-    return count;
 }
 
 int main() {
@@ -21,4 +24,3 @@ int main() {
     int result = solutions(lst);
     std::cout << "Result: " << result << std::endl;
     return 0;
-}
