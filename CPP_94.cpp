@@ -1,7 +1,6 @@
+```c++
 #include <iostream>
 #include <vector>
-#include <initializer_list>
-#include <ostream>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -39,8 +38,9 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> lst(n);
-    for (auto &i : lst)
+    for (int &i : lst) {
         std::cin >> i;
+    }
     std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
     return 0;
 }
