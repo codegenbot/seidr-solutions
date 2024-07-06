@@ -1,23 +1,24 @@
-#include <iostream>
-
+#include <stdio.h>
 using namespace std;
 
 int modp(int n, int p) {
     if (n == 0)
         return 1;
-    long long res = 1;
-    for (long long i = 2; i <= n; ++i) {
-        res = (res * i) % p;
+    long res = 1;
+    for (; n > 0; n >>= 1) {
+        if (n & 1)
+            res = (long)res * p % p;
+        p = (long)p * p % p;
     }
     return res;
 }
 
 int main() {
     int n, p;
-    cout << "Enter the value of n: ";
-    cin >> n;
-    cout << "Enter the value of p: ";
-    cin >> p;
-    cout << "2^n modulo p = " << modp(n, p) << endl;
+    printf("Enter number of bits in the binary representation: ");
+    scanf("%d", &n);
+    printf("Enter a prime number: ");
+    scanf("%d", &p);
+    printf("2^%d mod %d = %d\n", n, p, modp(n, p));
     return 0;
 }
