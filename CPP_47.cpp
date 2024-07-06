@@ -11,30 +11,25 @@ float median(std::vector<float> numbers) {
         return ((numbers[numbers.size()/2 - 1] + numbers[numbers.size()/2]) / 2.0);
     else
         return numbers[numbers.size()/2];
-}
 
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    if (n <= 0) {
-        std::cerr << "Number of elements must be greater than zero." << std::endl;
-        return -1;
-    }
+    std::vector<int> vec(n);
 
-    std::vector<float> numbers(n, 0.0f);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter number " << i + 1 << ": ";
-        std::cin >> numbers[i];
+    for (int &x : vec) {
+        std::cout << "Enter element: ";
+        std::cin >> x;
     }
 
     try {
-        float med = median(numbers);
-        std::cout << "The median is: " << med << std::endl;
+        float medianVal = median(std::vector<float>(vec.begin(), vec.end()));
+        std::cout << "Median is " << medianVal << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << e.what() << '\n';
     }
-    
+
     return 0;
 }
