@@ -1,3 +1,4 @@
+```
 print("Enter 'a', 'b', 'c': ")
 a = float(input())
 
