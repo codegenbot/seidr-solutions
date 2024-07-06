@@ -1,12 +1,11 @@
-```
+```python
 import re
 def digitSum():
-    n = int(input("Enter a number: "))
-    return sum(int(i) for i in str(n))
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            return sum(int(i) for i in str(n))
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
 
-while True:
-    try:
-        print(digitSum())
-        break
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
+print(digitSum())
