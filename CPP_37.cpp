@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -33,8 +33,7 @@ int main() {
     std::vector<float> input;
     while (true) {
         float num;
-        std::cin >> num;
-        if (!std::cin) break;
+        if (!(cin >> num)) break;
         input.push_back(num);
     }
     
