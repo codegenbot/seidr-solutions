@@ -1,4 +1,4 @@
-double snowDay(int hours, double initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
+double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
     double totalSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
