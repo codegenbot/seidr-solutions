@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <algorithm>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -13,9 +14,4 @@ std::vector<int> make_a_pile(int n) {
         pile.push_back(numStones);
     }
     return pile;
-}
-
-int main() {
-    assert(make_a_ple(8) == std::vector<int>({1,3,5,7,9,11,13,15}));
-    return 0;
 }
