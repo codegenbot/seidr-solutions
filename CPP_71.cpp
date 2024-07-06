@@ -1,3 +1,4 @@
+````
 #include <cmath>
 #include <cassert>
 
@@ -14,3 +15,4 @@ int main() {
     assert (abs(triangle_area(2, 2, 10) +1)<0.01);
     return 0;
 }
+```
