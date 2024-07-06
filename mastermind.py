@@ -2,15 +2,10 @@ def mastermind(code, guess):
     white = 0
     black = 0
     
-    code_counts = {c: code.count(c) for c in set(code)}
-    
-    for g in guess:
-        if g in code_counts and code_counts[g] > 0:
-            if code.index(g) == guess.index(g):
-                black += 1
-                code_counts[g] -= 1
-            else:
-                white += 1
-                code_counts[g] -= 1
-                
+    for c in code:
+        if c == guess[4-guess.index(c)-1]:
+            black += 1
+        elif c in guess:
+            white += 1
+            
     return black, white
