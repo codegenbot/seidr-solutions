@@ -1,13 +1,7 @@
-```cpp
-#include <vector>
-#include <string>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-int main() {
-    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(issame(result, vector<string>({"grunt", "prune"})) );
-    return 0;
+bool issame(vector<string> a,vector<string>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
