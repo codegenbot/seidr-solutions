@@ -1,12 +1,12 @@
-def decode_shift():
-    while True:
-        s = input("Enter 'encode', 'decode', or 'quit': ")
-        if s == "encode":
-            return "".join([chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in input("Enter the message to encode: ")])
-        elif s == "decode":
-            return "".join([chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in input("Enter the message to decode: ")])
-        elif s.lower() == 'quit':
-            print("Goodbye!")
-            exit()
+def decode_shift(shift: str, s: str):
+    result = ""
+    for ch in s:
+        if ch.isalpha():
+            ascii_offset = ord('a') if ch.islower() else ord('A')
+            if shift == "encode":
+                result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
+            elif shift == "decode":
+                result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
         else:
-            print("Invalid choice. Please choose 'encode', 'decode', or 'quit'")
+            result += ch
+    return result
