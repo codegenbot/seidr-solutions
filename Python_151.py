@@ -5,3 +5,6 @@ def double_the_difference(lst):
         if num % 2 == 1 and num > 0:
             result += num ** 2
     return result
+
+lst = [1, 2, 3, 4, 5]
+check(double_the_difference(lst))
