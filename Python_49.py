@@ -1,4 +1,4 @@
-'''
+```
 def miller_rabin(n: int):
     if n < 2:
         return True
@@ -24,4 +24,3 @@ def modp(n: int, p: int):
         if pow(n, i, p) != n and pow(i, (p - 1), p) != 1:
             return n % p
     return pow(n, p-1, p)
-'''
