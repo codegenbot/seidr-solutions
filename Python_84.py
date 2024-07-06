@@ -1,11 +1,23 @@
+```
 def solve():
-    choice = input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? ")
-    
-    if choice == '1':
-        N = int(input("Enter a number: "))
-        return bin(N)[2:]
-    elif choice == '2':
-        N = input("Enter a binary number: ")
-        return oct(int(N, 2))[2:]
+    N = int(input("Enter a number: "))
+    base_from = int(input("Enter the base of the number (2-36): "))
+    base_to = int(input("Enter the target base (2-36): "))
+
+    if N < 2:
+        return str(N) * N
+
     else:
-        return str(int(input("Enter a number: "))) * int(input("Enter a number: "))
+        num_in_base_N = convert_base(N, base_from)
+        result_in_target_base = convert_base(num_in_base_N, base_to)
+
+        return f"{N} in base {base_from} is {result_in_target_base} in base {base_to}"
+
+def convert_base(n, base):
+    conv_string = "0123456789abcdefghijklmnopqrstuvwxyz"
+    if n < base:
+        return str(conv_string[n])
+    else:
+        return convert_base(n // base, base) + conv_string[n % base]
+
+print(solve())
