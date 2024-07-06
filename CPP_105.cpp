@@ -1,5 +1,10 @@
-#include <bits/stdc++.h>
+```
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
+
+bool issame(vector<string>, vector<string>);
 
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
@@ -38,12 +43,21 @@ vector<string> by_length(vector<int> arr) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    // your code here
+    vector<int> arr;
+    cout << "Enter numbers: ";
+    for (int i=0; i<10; i++) {
+        int num; cin >> num;
+        arr.push_back(num);
+    }
+    vector<string> output = by_length(arr);
+    cout << "Output: ";
+    for (const string &str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
     return 0;
 }
