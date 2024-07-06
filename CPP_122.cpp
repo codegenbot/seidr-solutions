@@ -1,35 +1,23 @@
-```
 #include <iostream>
 #include <vector>
 
-int add_elements(std::vector<int> arr, int k) {
-    int sum = 0;
-    for (int i = 0; i < k; i++) {
-        if (std::to_string(arr[i]).size() <= 2) {
-            sum += arr[i];
-        }
-    }
-    return sum;
-}
-
 int main() {
     std::vector<int> vec;
-    int num;
-    
+    int num, k;
     std::cout << "Enter the number of elements: ";
-    std::cin >> num;
-    
-    vec.resize(num);
-    
-    std::cout << "Enter the elements: ";
-    
-    for (int i = 0; i < num; i++) {
-        std::cin >> vec[i];
+    std::cin >> k;
+    for (int i = 0; i < k; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        vec.push_back(num);
     }
-    
-    int result = add_elements(vec, num);
-    
-    std::cout << "The sum of the small numbers is: " << result << std::endl;
-    
+    int sum = 0, count = 0;
+    for (int n : vec) {
+        if ((n >= 1 && n <= 9) || (n >= -9 && n <= -1)) {
+            sum += n;
+            count++;
+        }
+    }
+    std::cout << "Sum of numbers between -9 and 9: " << sum << std::endl;
     return 0;
 }
