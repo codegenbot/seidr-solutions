@@ -9,15 +9,12 @@ using namespace std;
 string Strongest_Extension(string class_name, vector<string> extensions);
 
 int main() {
-    string className;
-    int numExtensions;
-    cin >> className >> numExtensions;
-    vector<string> extensions(numExtensions);
-    for (int i = 0; i < numExtensions; i++) {
-        cin >> extensions[i];
-    }
-    cout << Strongest_Extension(className, extensions) << endl;
-
+    string class_name;
+    vector<string> extensions;
+    
+    // Read input from user
+    
+    // Write your code here
     return 0;
 }
 
