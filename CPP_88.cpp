@@ -1,7 +1,10 @@
+```cpp
 #include <vector>
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
+
 vector<int> sort_array(vector<int> array) {
     int sum = array[0] + array[array.size() - 1];
     if (sum % 2 == 0)
