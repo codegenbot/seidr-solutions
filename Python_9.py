@@ -1,15 +1,17 @@
-```
 from typing import List
 
 
 def rolling_max(numbers: List[int]) -> List[int]:
     max_sum = [0] * len(numbers)
-    result = [max(0)]
+    result = [num for num in numbers]
 
-    for i in range(len(numbers)):
-        if i == 0:
-            result.append(max(0))
+    for i in range(1, len(numbers)):
+        if max_sum[i - 1] > 0:
+            max_sum[i] = max_sum[i - 1] + numbers[i]
         else:
-            result.append(max(sum([numbers[j] for j in range(i+1)])))
+            max_sum[i] = numbers[i]
+
+        if i > 0:
+            result[i] = max(result[:i] or [max_sum[i]], key=sum)
 
     return result
