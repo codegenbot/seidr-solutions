@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -57,6 +56,6 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(areEqual(std::vector<std::string>(by_length({1,4,8})), std::vector<std::string>{"One","Four","Eight"}));
+    assert(areEqual(std::vector<std::string>(by_length({1,4,8})).begin(), {"One","Four","Eight"}.begin()));
     return 0;
 }
