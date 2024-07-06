@@ -1,2 +1,3 @@
+```
 def solution(lst):
-    return 2 if any(i % 2 == 0 for i in lst) else 3
+    return sum(1 for i in lst if i % 2 != 0)
