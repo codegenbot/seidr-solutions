@@ -1,8 +1,7 @@
-def filter_by_prefix() -> List[str]:
 from typing import List
 
 def filter_by_prefix() -> List[str]:
-    strings = input("Enter a list of strings (space-separated): ")
+    strings = input('''Enter a list of strings (space-separated): ''')
     prefix = input("Enter a prefix: ")
 
     try:
