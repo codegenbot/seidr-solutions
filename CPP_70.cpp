@@ -1,28 +1,38 @@
-```cpp
-#include <algorithm>
 #include <vector>
-#include <limits>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    while (!lst.empty()) {
+    for (int i = 0; i < lst.size(); i++) {
         int minVal = *min_element(lst.begin(), lst.end());
         int maxVal = *max_element(lst.begin(), lst.end());
-        result.push_back(minVal);
-        result.push_back(maxVal);
-        std::vector<int> temp;
-        for (int i : lst) {
-            if (i != minVal && i != maxVal)
-                temp.push_back(i);
+
+        if (i % 2 == 0) {
+            result.push_back(minVal);
+            std::vector<int> temp;
+            for (int j : lst) {
+                if (j != minVal) {
+                    temp.push_back(j);
+                }
+            }
+            lst = temp;
+        } else {
+            result.push_back(maxVal);
+            std::vector<int> temp;
+            for (int j : lst) {
+                if (j != maxVal) {
+                    temp.push_back(j);
+                }
+            }
+            lst = temp;
         }
-        lst = temp;
     }
 
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
