@@ -1,18 +1,38 @@
 ```
-def calculate_score(games):
-    frames = games.replace('/', '')
-    current_roll = 0
+def bowling_score(games):
     score = 0
-
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            current_roll = current_roll * 10 + int(frames[i])
+    game = ""
+    for char in games:
+        if char.isdigit():
+            game += char
         else:
-            if current_roll == 10:
-                score += 10
-                current_roll = 0
-            elif current_roll > 0:
-                score += current_roll
-                current_roll = 0
-
+            if game:
+                if len(game) == 1:
+                    score += int(game)
+                elif len(game) == 2:
+                    score += int(game[0]) * 10 + int(game[1])
+                else:
+                    if game == "X":
+                        score += 10 + bowling_score(games[9:])
+                    elif game[-1] in "/X" and game != "X/":
+                        score += 10 + sum(range(1, int(game[:-1]) + 1))
+                    else:
+                        score += sum(range(1, int(game[0]) + 1)) * 10 + sum(
+                            range(1, int(game[-1]) + 1)
+                        )
+                game = ""
+    if game:
+        if len(game) == 1:
+            score += int(game)
+        elif len(game) == 2:
+            score += int(game[0]) * 10 + int(game[1])
+        else:
+            if game == "X":
+                score += 10 + bowling_score(games[9:])
+            elif game[-1] in "/X" and game != "X/":
+                score += 10 + sum(range(1, int(game[:-1]) + 1))
+            else:
+                score += sum(range(1, int(game[0]) + 1)) * 10 + sum(
+                    range(1, int(game[-1]) + 1)
+                )
     return score
