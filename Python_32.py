@@ -3,8 +3,6 @@ import math
 
 def find_zero(xs: list):
     n = len(xs)
-
-    # Check if xs has an even number of coefficients
     if n % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
 
@@ -15,4 +13,5 @@ def find_zero(xs: list):
 
     x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
 
+    # Round the result to two decimal places
     return round(x, 2)
