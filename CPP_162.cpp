@@ -6,7 +6,7 @@ using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+
     unsigned char result[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
