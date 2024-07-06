@@ -1,7 +1,4 @@
 ```cpp
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
@@ -9,4 +6,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
+}
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
