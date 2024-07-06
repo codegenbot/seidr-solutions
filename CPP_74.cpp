@@ -1,11 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     for(const auto& str1 : a) {
         bool found = false;
         for(const auto& str2 : b) {
