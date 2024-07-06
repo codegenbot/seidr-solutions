@@ -8,29 +8,17 @@ bool issame(vector<float> a,vector<float>b){
 
 vector<float> sort_even(vector<float> l) {
     vector<float> result;
-    if(issame(l,sort_vector(l))){
-        return l;
-    } else {
-        for (int i = 0; i < l.size(); i++) {
-            if (i % 2 == 0) {
-                vector<float> evenIndices;
-                for (int j = 0; j < l.size(); j++) {
-                    if (j % 2 == 0) {
-                        evenIndices.push_back(l[j]);
-                    }
-                }
-                sort(evenIndices.begin(), evenIndices.end());
-                result.push_back(evenIndices[0]);
-            } else {
-                result.push_back(l[i]);
-            }
+    vector<float> evenIndices;
+    for (float num : l) {
+        if (num % 2 == 0) {
+            evenIndices.push_back(num);
+        } else {
+            result.push_back(num);
         }
     }
+    sort(evenIndices.begin(), evenIndices.end());
+    for(int i=0; i<evenIndices.size();i++){
+        result.push_back(evenAlternates[i]);
+    }
     return result;
-}
-
-vector<float> sort_vector(vector<float> v) {
-    vector<float> res = v;
-    sort(res.begin(), res.end());
-    return res;
 }
