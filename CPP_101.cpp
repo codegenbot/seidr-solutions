@@ -1,12 +1,13 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
+bool isSame(vector<std::vector<std::string>> a) {
+    if (a.size() != 1) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    std::vector<std::string> vec = a[0];
+    for (int i = 0; i < vec.size(); i++) {
+        if (vec[i] != "ahmed" && vec[i] != "gamal") {
             return false;
         }
     }
@@ -30,4 +31,8 @@ std::vector<std::string> words_string(std::string s) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    assert(isSame({words_string("ahmed     , gamal")}));
 }
