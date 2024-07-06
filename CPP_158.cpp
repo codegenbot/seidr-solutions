@@ -1,11 +1,7 @@
 string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
+    string res = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
-            return unordered_map<char, bool>(a.begin(), a.end()).size()
-                < unordered_map<char, bool>(b.begin(), b.end()).size() ||
-                (unordered_map<char, bool>(a.begin(), a.end()).size() ==
-                 unordered_map<char, bool>(b.begin(), b.end()).size()) &&
-                a > b;
+            return count(a.begin(), a.end(), a[0]) > count(b.begin(), b.end(), b[0]);
         });
-    return max_word;
+    return res;
 }
