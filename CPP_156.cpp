@@ -21,10 +21,8 @@ std::string int_to_mini_roman(int number) {
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter an integer: ";
     std::cin >> num;
-
-    std::cout << "The Roman numeral is: " << int_to_mini_roman(num) << '\n';
-
+    std::cout << int_to_mini_roman(num) << std::endl;
     return 0;
 }
