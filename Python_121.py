@@ -1,7 +1,5 @@
-def sum_of_even_length_words(sentence):
-    words = sentence.split()
-    total = 0
-    for word in words:
-        if len(word) % 2 == 0 and len(word) > 1:
-            total += len(word)
-    return total
+def solution(lst):
+    if not isinstance(lst, list) or any(not isinstance(i, str) for i in lst):
+        return 0
+    total = sum(int(i) for i in lst[::] if i.isdigit() and int(i) > 1)
+    return total * int(lst[0]) if total else 0
