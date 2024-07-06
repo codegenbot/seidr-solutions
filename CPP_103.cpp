@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 std::string rounded_avg(int n, int m) {
     if (n > m)
@@ -8,7 +9,7 @@ std::string rounded_avg(int n, int m) {
     for (int i = n; i <= m; i++)
         sum += i;
     double avg = round(sum / (double)(m - n + 1));
-    std::string res;
+    std::string res = "";
     while (avg > 0) {
         if (avg & 1)
             res.push_back('1');
