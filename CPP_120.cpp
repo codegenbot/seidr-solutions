@@ -17,29 +17,31 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    std::cout << "Enter the number of elements: ";
+    int n;
+    std::cout << "Enter the number of elements in array: ";
     std::cin >> n;
     
-    std::vector<int> vec(n);
+    std::vector<int> vec;
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> vec[i];
+        int temp;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> temp;
+        vec.push_back(temp);
     }
     
-    std::cout << "Enter k: ";
+    int k;
+    std::cout << "Enter the number of maximum elements: ";
     std::cin >> k;
     
-    std::vector<int> res = maximum(vec, k);
-    if (!res.empty()) {
-        std::cout << "Maximum elements are: ";
-        for (int i = 0; i < k; ++i) {
-            std::cout << res[i] << " ";
+    std::vector<int> maxVec = maximum(vec, k);
+    
+    if(maxVec.empty())
+        std::cout << "Array does not contain enough unique elements.\n";
+    else {
+        for (int i = 0; i < maxVec.size(); ++i) {
+            std::cout << "Maximum element is: " << maxVec[i] << "\n";
         }
-        std::cout << "\n";
-    } else {
-        std::cout << "Not enough elements to print.\n";
     }
-
+    
     return 0;
 }
