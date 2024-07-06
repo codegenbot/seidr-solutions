@@ -1,9 +1,6 @@
-Here is the modified code:
-
-```python
-import re
-
+```Python
 def words_string():
+    """    
     while True:
         try:
             s = input("Please enter a string with comma-separated values: ")
@@ -14,3 +11,4 @@ def words_string():
             return result
         except (ValueError, TypeError):
             print("Invalid input. Please try again with only letters and numbers separated by commas or spaces.")
+    """
