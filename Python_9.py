@@ -1,7 +1,10 @@
+from typing import List
+
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = []
+    result = [float('-inf')]  
     max_so_far = float('-inf')  
     for num in numbers:
-        max_so_far = max(num, max_so_far)
-        result.append(max_so_far)
+        if num > max_so_far:
+            max_so_far = num
+        result.append(max(max_so_far, num))
     return result
