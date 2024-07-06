@@ -1,23 +1,21 @@
-#include <iostream>
+```cpp
 #include <string>
-#include <digest/md5.h>
-
-using namespace std;
+#include <sstream>
 
 string string_to_md5(string text) {
-    if (text.empty()) {
-        return "";
-    }
+    if (text.empty()) return "";
 
-    MD5 md5;
-    unsigned char hash[16];
-    md5.update((unsigned char*)text.c_str(), text.size());
-    md5.final(hash);
+    MD5_CTX ctx;
+    unsigned char mdValue[16];
 
-    ostringstream oss;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.size());
+    MD5_Final(mdValue, &ctx);
+
+    stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        oss << hex << setfill('0') << setw(2) << (int)hash[i];
+        ss << hex << setfill('0') << setw(2) << (int)mdValue[i];
     }
 
-    return oss.str();
+    return ss.str();
 }

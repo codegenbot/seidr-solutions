@@ -1,6 +1,6 @@
 vector<string> sorted_list_sum(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(),
-                     [](const string& a, const string& b){return (a.length() % 2 && !b.length() % 2) || (!a.length() % 2 && b.length() % 2);});
+                     [](const string& a, const string& b){return (a.length() % 2 && !b.empty()) || (!a.empty() && b.length() % 2);});
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
          [](const string& a, const string& b){
