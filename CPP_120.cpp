@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -15,19 +15,16 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     for (int i = 0; i < k; ++i) {
         int max_val = *std::max_element(arr.begin(), arr.end());
         result.push_back(max_val);
-        auto it = arr.erase(std::remove(arr.begin(), arr.end(), max_val), arr.end());
+        auto it = std::remove(arr.begin(), arr.end(), max_val);
+        arr.erase(it, arr.end());
     }
     return result;
 }
 
 int main() {
-    int k=4;
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     int n = sizeof(arr)/sizeof(arr[0]);
-    std::vector<int> arr_vec(arr, arr+n);
-    std::cout << "Result: ";
-    for (int i = 0; i < k; ++i) {
-        std::cout << maximum(arr_vec, k)[i] << " ";
-    }
-    std::cout << std::endl;
+    std::vector<int> array (arr, arr+n);
+    assert(issame(maximum(array, 4), {0, 1, 2, 3}));
+    return 0;
 }
