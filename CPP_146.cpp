@@ -13,21 +13,24 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    int size, num;
-
-    std::cout << "Enter the number of elements: ";
-    std::cin >> size;
-
-    nums.resize(size);
-
-    for (int i = 0; i < size; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        nums[i] = num;
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    
+    nums.resize(n);
+    
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
     }
-
+    
     int count = specialFilter(nums);
-    std::cout << "The count is: " << count << std::endl;
-
+    
+    if(count > 0){
+        std::cout << "Number of integers that satisfy the given conditions is: " << count << std::endl;
+    } else{
+        std::cout << "No integers in the list satisfy the given conditions." << std::endl;
+    }
+    
     return 0;
 }
