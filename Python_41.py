@@ -1,6 +1,4 @@
-from functools import reduce
-import operator
-
+```
 def car_race_collision():
     while True:
         try:
