@@ -1,11 +1,12 @@
+```
 def smallest_change(arr):
-    n = len(arr)
-    left, right = 0, n - 1
+    arr.sort()
+    left, right = 0, len(arr) - 1
     changes = 0
     
     while left < right:
         if arr[left] != arr[right]:
-            for i in range(n-1):
+            for i in range(left+1, right+1):
                 if arr[i] == arr[right]:
                     arr[i], arr[left] = arr[left], arr[i]
                     changes += 1
@@ -16,6 +17,3 @@ def smallest_change(arr):
             right -= 1
     
     return changes
-
-arr = input("Enter the array: ").split()
-print(smallest_change(list(map(int, arr))))
