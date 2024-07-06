@@ -4,80 +4,16 @@
 #include <string>
 
 bool issame(int a, int b) {
-    vector<string> result;
-    if (a >= 1 && a <= 9 && b >= 1 && b <= 9) {
-        string strA = "";
-        switch (a) {
-            case 1:
-                strA = "One";
-                break;
-            case 2:
-                strA = "Two";
-                break;
-            case 3:
-                strA = "Three";
-                break;
-            case 4:
-                strA = "Four";
-                break;
-            case 5:
-                strA = "Five";
-                break;
-            case 6:
-                strA = "Six";
-                break;
-            case 7:
-                strA = "Seven";
-                break;
-            case 8:
-                strA = "Eight";
-                break;
-            case 9:
-                strA = "Nine";
-                break;
-        }
-
-        string strB = "";
-        switch (b) {
-            case 1:
-                strB = "One";
-                break;
-            case 2:
-                strB = "Two";
-                break;
-            case 3:
-                strB = "Three";
-                break;
-            case 4:
-                strB = "Four";
-                break;
-            case 5:
-                strB = "Five";
-                break;
-            case 6:
-                strB = "Six";
-                break;
-            case 7:
-                strB = "Seven";
-                break;
-            case 8:
-                strB = "Eight";
-                break;
-            case 9:
-                strB = "Nine";
-                break;
-        }
-
-        result.push_back(strA);
-        result.push_back(strB);
-    }
-    return result.size() > 0;
+    if (a >= 1 && a <= 9 && b >= 1 && b <= 9)
+        return true;
+    else
+        return false;
 }
 
 vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
-        if (num >= 1 && num <= 9) {
+        if (issame(num, 1) || issame(num, 2) || issame(num, 3) || issame(num, 4) || issame(num, 5) || issame(num, 6) || issame(num, 7) || issame(num, 8) || issame(num, 9)) {
             numbers.push_back(num);
         }
     }
