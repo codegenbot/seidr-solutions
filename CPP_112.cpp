@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <algorithm>
 #include <vector>
@@ -10,9 +9,6 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
     set<char> cSet; // Declare set variable here
-    
-    vector<string> result;
-    
     cSet.insert(c.begin(), c.end());
     
     string temp = "";
