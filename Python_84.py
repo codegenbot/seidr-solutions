@@ -1,9 +1,11 @@
 def solve():
-    N = int(input("Enter a number: "))
-    if N < 2:
-        return str(N) * N
+    choice = input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? ")
+    
+    if choice == '1':
+        N = int(input("Enter a number: "))
+        return bin(N)[2:]
+    elif choice == '2':
+        N = input("Enter a binary number: ")
+        return oct(int(N, 2))[2:]
     else:
-        binary = bin(N)[2:].replace("1", "a").replace("0", "b")
-        return str(int(binary, 2))
-
-print(solve())
+        return str(int(input("Enter a number: "))) * int(input("Enter a number: "))
