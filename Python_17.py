@@ -1,3 +1,4 @@
+```
 def average_grade() -> float:
     grades = []
     while True:
