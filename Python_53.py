@@ -14,29 +14,25 @@ while True:
         
         num1 = int(num1_str)
         
-        choice = input("Do you want to add another number? (y/n): ")
+        choice = input(f"Add another number for {num1}? (y/n) ")
         
         while True:
             if choice.lower() != 'y' and choice.lower() != 'n':
-                print("Invalid input. Please try again.")
-                choice = input("Do you want to add another number? (y/n): ")
-            else:
+                print("Invalid choice. Please enter y or n.")
+                choice = input(f"Add another number for {num1}? (y/n) ")
+            else: 
                 break
         
-        if choice.lower() == 'q':
+        if choice.lower() == 'n':
             break
         
         num2_str = input("Enter second number: ")
         
-        while True:
-            if num2_str.lower() == 'q':
-                break
-            try:
-                num2 = int(num2_str)
-                print(add(num1, num2))
-                break
-            except ValueError:
-                print("Invalid input. Please try again.")
-                num2_str = input("Enter second number: ")
+        if num2_str.lower() == 'q':
+            break
+
+        num2 = int(num2_str)
+
+        print(add(num1, num2))
     except ValueError:
         print("Invalid input. Please try again.")
