@@ -16,7 +16,7 @@ if __name__ == "__main__":
     print("Enter c: ")
     c = float(input())
 
-    if a != 0 and (b != 0 or c != 0):
+    if a == 0 and (b != 0 or c != 0):
         print(
             "The program did not receive the expected input. 'a' cannot be zero when 'b' or 'c' is non-zero."
         )
