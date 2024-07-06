@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -18,5 +19,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 
 int main() {
     vector<vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
-    cout << max_fill(grid, 9) << endl; 
+    int capacity = 9;
+    cout << "The number of buckets needed: " << max_fill(grid, capacity) << endl;
+    return 0;
 }
