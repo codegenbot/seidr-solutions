@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
