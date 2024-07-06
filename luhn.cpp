@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
 #include <vector>
-
 using namespace std;
 
 int luhn(const vector<int>& digits) {
@@ -16,17 +14,17 @@ int luhn(const vector<int>& digits) {
     return sum;
 }
 
-vector<string> get_digits() {
-    vector<string> digits;
+vector<int> get_digits() {
+    vector<int> digits;
     string input;
     while (cin >> input) {
-        digits.push_back(input);
+        digits.push_back(stoi(input));
     }
     return digits;
 }
 
 int main() {
-    vector<string> digits = get_digits(); // Get the digits from user input or file
+    vector<int> digits = get_digits(); // Get the digits from user input or file
     int sum = luhn(digits); // Call the luhn function with the digits
     cout << "Sum of doubled digits: " << sum << endl; // Output the result
     return 0;

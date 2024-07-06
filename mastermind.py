@@ -1,3 +1,6 @@
+import re
+
+
 def mastermind(code, guess):
     # Initialize variables to keep track of white and black pegs
     white_pegs = 0
