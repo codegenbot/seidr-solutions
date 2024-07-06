@@ -1,24 +1,27 @@
+```cpp
 #include <iostream>
 #include <map>
+#include <set>
 #include <string>
-#include <algorithm>
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
+using namespace std;
+
+map<char, int> histogram(string test) {
+    map<char, int> result;
     if (test.empty()) return result;
 
-    std::string letters = test;
-    for (char c : std::unique(letters.begin(), letters.end())) {
+    set<char> letters(test.begin(), test.end());
+    for (char c : letters) {
         int count = 0;
         size_t pos = 0;
-        while ((pos = letters.find(c, pos)) != std::string::npos) {
+        while ((pos = test.find(c, pos)) != string::npos) {
             count++;
             pos += 1; // skip the same character
         }
         if (count > 0) result[c] = count;
     }
 
-    std::map<char, int> maxCountMap;
+    map<char, int> maxCountMap;
     int maxCount = 0;
     for (auto& pair : result) {
         if (pair.second > maxCount) {
@@ -33,13 +36,12 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    std::cout << "Please enter a string: ";
-    std::string test;
-    std::cin >> test;
-    std::map<char, int> result = histogram(test);
+    string test;
+    cout << "Enter a string: ";
+    cin >> test;
+    map<char, int> result = histogram(test);
     for (auto& pair : result) {
-        std::cout << "Character " << pair.first
-                  << " appeared " << pair.second << " times." << std::endl;
+        cout << "Character: " << pair.first << ", Count: " << pair.second << endl;
     }
     return 0;
 }
