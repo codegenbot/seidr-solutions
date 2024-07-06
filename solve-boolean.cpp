@@ -17,3 +17,11 @@ bool evaluate(const string &expression) {
     }
     return result && expression != "false";
 }
+
+int main() {
+    string expression;
+    getline(cin, expression);
+    bool result = evaluate(expression);
+    cout << (result ? "true" : "false") << endl;
+    return 0;
+}
