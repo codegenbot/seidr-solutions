@@ -9,11 +9,11 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int bInt = std::stoi(b.convert_to<std::string>());
+        int bInt = std::stoi(b.convert_to<std::string>().any_to<string>());
         return a > bInt ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float bFloat = std::stof(b.convert_to<std::string>());
+        float bFloat = std::stof(b.convert_to<std::string>().any_to<string>());
         return a > bFloat ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -31,17 +31,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string bStr = boost::any_cast<std::string>(b);
         return aStr > bStr ? a : b;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int aInt = boost::any_cast<int>(a);
-        std::string bStr = boost::any_cast<std::string>(b);
-        return aInt > std::stoi(bStr) ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float aFloat = boost::any_cast<float>(a);
-        std::string bStr = boost::any_cast<std::string>(b);
-        return aFloat > std::stof(bStr) ? a : b;
-    }
     else {
-        return "None";
+        return any("None");
     }
 }
