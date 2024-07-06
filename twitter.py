@@ -1,6 +1,5 @@
 def validate_tweet(tweet):
-    tweet = tweet.strip()
-    if not tweet.isprintable():
+    if not all(ord(c) < 128 for c in tweet):  
         return "Too many characters"
     elif len(tweet) > 140:
         return "Too many characters"
