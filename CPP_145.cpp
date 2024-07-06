@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 bool issame(vector<int> a, vector<int>b);
 vector<int> order_by_points(vector<int> nums);
@@ -28,6 +27,7 @@ int get_sum_of_digits(int num) {
         num /= 10;
     }
     return sum;
+
 }
 
 int main() {
