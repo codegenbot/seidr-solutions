@@ -1,4 +1,3 @@
-```cpp
 string anti_shuffle(string s){
     if(s.empty())
         return "";
