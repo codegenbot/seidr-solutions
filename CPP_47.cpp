@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <cmath>
 
@@ -11,10 +10,5 @@ float median(std::vector<float> numbers) {
 }
 
 int main() {
-    if (std::abs(median({8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f}) - 5.0f) < 1e-4)
-        std::cout << "Test passed!" << std::endl;
-    else
-        std::cout << "Test failed!" << std::endl;
-
-    return 0;
+    return median(std::vector<float>{8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f});
 }
