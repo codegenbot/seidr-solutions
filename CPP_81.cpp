@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,14 +6,14 @@ std::vector<std::string> numerical_letter_grade(std::vector<double> grades) {
     std::vector<std::string> result;
     
     for (int i = 0; i < grades.size(); i++) {
-        if(static_cast<int>(grades[i]) >= 90.0)
+        if(grades[i] >= 90.0)
             result.push_back("A");
-        else if(static_cast<int>(grades[i]) >= 80.0)
+        else if(grades[i] >= 80.0)
             result.push_back("B");
-        else if(static_cast<int>(grades[i]) >= 70.0)
+        else if(grades[i] >= 70.0)
             result.push_back("C");
-        else if(static_cast<int>(grades[i]) >= 60.0)
-            result.push_back("D");
+        else if(grades[i] >= 60.0)
+            result.push_back((grades[i] >= 65.0) ? "D+" : "D");
         else 
             result.push_back("F");
     }
