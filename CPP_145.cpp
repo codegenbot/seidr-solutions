@@ -1,8 +1,9 @@
+```
 #include <algorithm>
-#include <vector>
-#include <utility>
 
 bool issame(int a, int b) {
+    if (a == 0 && b == 0)
+        return true;
     return false;
 }
 
@@ -14,7 +15,11 @@ vector<int> order_by_points(vector<int> nums) {
     sort(pairs.begin(), pairs.end());
     vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(pair.second * (pair.first > 0 ? -1 : 1));
+        if (!issame(pair.first, 0)) {
+            result.push_back(pair.second * (pair.first > 0 ? 1 : -1));
+        } else {
+            result.push_back(0);
+        }
     }
     return result;
 }
