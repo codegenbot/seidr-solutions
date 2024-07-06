@@ -6,11 +6,16 @@ def factorize(n):
             i += 1
         else:
             n //= i
-            factors.append(i)
+            factors.append(str(i))
     if n > 1:
-        factors.append(n)
-    return factors
+        factors.append(str(n))
+    return " ".join(factors)
+
+
+def solve():
+    n = int(input("Enter a number: "))
+    print(factorize(n))
+
 
 if __name__ == "__main__":
-    n = int(input("Enter an integer: "))
-    print(factors := factorize(n))
+    solve()

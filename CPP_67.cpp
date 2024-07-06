@@ -1,4 +1,5 @@
-#include <string>
+```cpp
+#include <iostream>
 #include <sstream>
 
 int fruit_distribution(std::string s, int n) {
@@ -18,12 +19,21 @@ int fruit_distribution(std::string s, int n) {
         }
     }
 
-    total = n - apples - oranges;
+    total = std::max(0, n - apples - oranges);
 
-    return total > 0 ? total : 0;
+    return apples + oranges > n ? 0 : total;
 }
 
 int main() {
-    assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
+    std::string s;
+    int n;
+    std::cout << "Enter the string with fruit information: ";
+    std::cin >> s;
+    std::cout << "Enter the number of fruits to distribute: ";
+    std::cin >> n;
+
+    int result = fruit_distribution(s, n);
+    std::cout << "Total fruits distributed: " << result << std::endl;
+
     return 0;
 }

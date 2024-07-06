@@ -1,4 +1,6 @@
+```cpp
 #include <algorithm>
+#include <cassert>
 #include <cmath>
 
 float median(std::vector<float> numbers) {
@@ -9,6 +11,8 @@ float median(std::vector<float> numbers) {
         return numbers[numbers.size()/2];
 }
 
-int main() {
-    return median(std::vector<float>{8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f});
+int testMain() {
+    std::vector<float> numbers = {8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f};
+    assert(abs(median(numbers) - 5.0f) < 1e-4);
+    return 0;
 }

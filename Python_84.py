@@ -1,3 +1,3 @@
-def solve():
-    N = int(input("Enter a number: "))
-    return bin(N)[2:]
+```
+def solve(N):
+    return str(bin(N)).count('1')

@@ -1,8 +1,9 @@
+```
 #include <initializer_list>
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
