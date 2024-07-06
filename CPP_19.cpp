@@ -1,30 +1,28 @@
-map<string, int> numberMap = {
-    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-    {"eight", 8}, {"nine", 9}
-};
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 string sort_numbers(string numbers) {
-    vector<string> nums;
-    string num;
+    vector<string> numVec;
+    string temp;
 
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
-            nums.push_back(num);
-            num.clear();
+            numVec.push_back(temp);
+            temp = "";
         } else {
-            num += numbers[i];
+            temp += numbers[i];
         }
     }
+    numVec.push_back(temp);
 
-    nums.push_back(num);
+    sort(numVec.begin(), numVec.end());
 
-    sort(nums.begin(), nums.end());
-
-    string result;
-    for (auto &n : nums) {
-        result += numberMap.find(n)->second + " ";
+    string result = "";
+    for (string s : numVec) {
+        result += s + " ";
     }
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
