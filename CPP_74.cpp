@@ -2,14 +2,14 @@
 #include <algorithm>
 using namespace std;
 
-bool issame(vector<vector<string>> a, vector<vector<string>> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(const auto& vec1 : a) {
+    for(const auto& str1 : a) {
         bool found = false;
-        for(const auto& vec2 : b) {
-            if(vec1 == vec2) {
+        for(const auto& str2 : b) {
+            if(str1 == str2) {
                 found = true;
                 break;
             }
@@ -35,7 +35,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else if (sum1 > sum2) {
         return lst1;
     } else {
-        if(issame({lst1}, {lst2}))
+        if(issame(lst1, lst2))
             return lst1;
         else
             return lst2; 
