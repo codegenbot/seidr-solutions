@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#include <sstream>
 
 string anti_shuffle(string s){
     string result = "";
