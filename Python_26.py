@@ -1,6 +1,4 @@
 ```
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    if not numbers:
-        return []
-    
-    return [num for i, num in enumerate(sorted(set((num for num in numbers)))) if i == numbers.index(num)]
+    seen = {}
+    return [seen.setdefault(x, x) for x in numbers if x not in seen]
