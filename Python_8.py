@@ -1,4 +1,8 @@
-Here is the solution:
+from typing import List, Tuple
+
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    return (sum(numbers), *map(lambda x: x if numbers else [1], numbers))
+    if len(numbers) == 0:
+        return 0, 1
+    else:
+        return sum(numbers), eval("*".join(map(str, numbers)))
