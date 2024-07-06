@@ -26,9 +26,5 @@ def solve():
                 print("That's not a valid binary number! Try again.")
 
 
-def main():
-    solve()
-
-
 if __name__ == "__main__":
-    main()
+    solve()
