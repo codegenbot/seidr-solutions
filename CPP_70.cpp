@@ -1,18 +1,14 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size())return false;
-    for(int i=0; i<a.size();i++)if(a[i]!=b[i]) return false;
-    return true;
-}
-
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
-    for(int i = 1; i < lst.size(); i++) {
-        if(lst[i] <= lst[i-1]) {
-            std::swap(lst[i], lst[0]);
-            return lst;
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] > lst[i + 1]) {
+            int temp = lst[i];
+            lst[i] = lst[i + 1];
+            lst[i + 1] = temp;
+            i--;
         }
     }
     return lst;
