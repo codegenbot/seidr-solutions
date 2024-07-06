@@ -13,6 +13,5 @@ int is_bored(std::string S){
 }
 
 int main(){
-    // input your code here
     return 0; 
 }
