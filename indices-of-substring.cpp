@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
+
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     for (size_t i = 0; i < text.length(); ++i) {
