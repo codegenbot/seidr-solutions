@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string>& b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -18,38 +17,35 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> by_length(const vector<int>& arr) {
     vector<string> result;
-    vector<int> temp = {0};
     for (int i : arr) {
-        if(i >= 1 && i <= 9) {
-            switch (i) {
-                case 1:
-                    result.push_back("One");
-                    break;
-                case 2:
-                    result.push_back("Two");
-                    break;
-                case 3:
-                    result.push_back("Three");
-                    break;
-                case 4:
-                    result.push_back("Four");
-                    break;
-                case 5:
-                    result.push_back("Five");
-                    break;
-                case 6:
-                    result.push_back("Six");
-                    break;
-                case 7:
-                    result.push_back("Seven");
-                    break;
-                case 8:
-                    result.push_back("Eight");
-                    break;
-                case 9:
-                    result.push_back("Nine");
-                    break;
-            }
+        switch (i) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
         }
     }
 
@@ -57,6 +53,6 @@ vector<string> by_length(const vector<int>& arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    return 0;
+    assert(std::vector<std::string>(by_length({1, 4, 8})) == std::vector<std::string>({"One", "Four", "Eight"}));
+    // ...
 }
