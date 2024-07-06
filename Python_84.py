@@ -1,8 +1,9 @@
-```
-def solve(N):
-    N = int(N)
+def solve():
+    N = int(input("Enter a number: "))
     if N < 2:
-        return "1" * N
+        return str(N) * N
     else:
-        binary = str(bin(N)[2:]).replace("1", "a").replace("0", "b")
-        return "".join("a" if c == "b" else "b" for c in binary)
+        binary = bin(N)[2:].replace("1", "a").replace("0", "b")
+        return str(int(binary, 2))
+
+print(solve())
