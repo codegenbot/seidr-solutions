@@ -1,8 +1,7 @@
-````
 def max_fill(grid, capacity):
     total_amount = 0
     left = [c for r in grid for c in r]
-    right = left[::-1]
+    right = list(reversed(left))
     left_ptr, right_ptr = 0, len(left) - 1
     
     while left_ptr <= right_ptr:
