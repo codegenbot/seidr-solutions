@@ -1,8 +1,9 @@
 def make_palindrome(string):
-    result = ""
+    palindrome = []
     for i, c in enumerate(string):
         if string[i] == string[-i - 1]:
-            result += c + c
+            palindrome.append(c)
         else:
-            result += string[-i - 1] + c
-    return result
+            palindrome.append(string[-i - 1])
+            palindrome.append(c)
+    return "".join(palindrome) + string[0]
