@@ -1,23 +1,10 @@
 ```cpp
 #include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 #include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdlib>
-#include <ctime>
-#include <functional>
-#include <iostream>
-#include <limits>
-#include <locale>
-#include <map>
-#include <memory>
-#include <numeric>
-#include <set>
-#include <sstream>
-#include <stack>
 #include <string>
-#include <vector>
 
+using namespace std;
 using boost::any_cast;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -25,25 +12,25 @@ boost::any compare_one(boost::any a, boost::any b) {
         return any_cast<double>(b);
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return any_cast<double>(a);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        double da = std::stod(any_cast<std::string>(a));
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        double da = boost::lexical_cast<double>(any_cast<string>(a));
         return da > any_cast<double>(b) ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        double db = std::stod(any_cast<std::string>(b));
+    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        double db = boost::lexical_cast<double>(any_cast<string>(b));
         return da > db ? a : b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string sa = any_cast<std::string>(a);
-        std::string sb = any_cast<std::string>(b);
-        return std::lexicographical_compare(sa.begin(), sa.end(),
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string sa = any_cast<string>(a);
+        string sb = any_cast<string>(b);
+        return lexicographical_compare(sa.begin(), sa.end(),
             sb.begin(), sb.end()) ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         double da = any_cast<int>(a);
-        std::string sb = any_cast<std::string>(b);
-        return da > std::stod(sb) ? a : b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        string sb = any_cast<string>(b);
+        return da > boost::lexical_cast<double>(sb) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         double db = any_cast<int>(b);
-        std::string sa = any_cast<std::string>(a);
-        return std::stod(sa) > db ? a : b;
+        string sa = any_cast<string>(a);
+        return boost::lexical_cast<double>(sa) > db ? a : b;
     }
-    return boost::any("None");
+    return "None";
 }
