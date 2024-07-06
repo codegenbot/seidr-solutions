@@ -16,6 +16,6 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::cout << smallest_change(std::vector<int>({0, 1})) << std::endl;
+    int result = smallest_change(std::vector<int>({0, 1}));
     return 0;
 }

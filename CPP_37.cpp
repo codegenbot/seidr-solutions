@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -32,11 +32,12 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input;
-    while (true) {
-        float num;
-        cin >> num;
-        if (!cin) break;
-        input.push_back(num);
+    cout << "Enter the size of the array: ";
+    int n; cin >> n;
+    
+    for (int i=0; i<n; i++) {
+        float x; cin >> x;
+        input.push_back(x);
     }
     
     vector<float> output = sort_even(input);
@@ -47,6 +48,13 @@ int main() {
         cout << "Test failed!" << endl;
     }
     
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> test = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    output = sort_even(test);
+    if (issame(output, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+    
     return 0;
 }
