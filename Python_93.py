@@ -1,13 +1,34 @@
-```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                if char.lower() == "a" or char.lower() == "e" or char.lower() == "i" or char.lower() == "o" or char.lower() == "u":
-                    result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}.get(char.lower(), char)
+                if char.lower() in {"do", "to"}:
+                    if char.isupper():
+                        result += "dQnT".upper()
+                    else:
+                        result += "dQnT"
+                elif char.lower() in {"re", "ro", "te"}:
+                    if char.isupper():
+                        result += "gYkS".upper()
+                    else:
+                        result += "gYkS"
+                elif char.lower() == "se":
+                    if char.isupper():
+                        result += "sWnT".upper()
+                    else:
+                        result += "sWnT"
                 else:
-                    result += {"do": 'dQnT', "to": 'dQnT', "re": 'gYkS', "ro": 'gYkS', "te": 'gYkS', "se": 'sWnT'}.get(char.lower(), char)
+                    if char.lower() in {"a", "e", "i", "o", "u"}:
+                        if char.isupper():
+                            result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()].upper()
+                        else:
+                            result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()]
+                    else:
+                        if char.isupper():
+                            result += char.swapcase().upper()
+                        else:
+                            result += char.swapcase()
             else:
                 if char.isupper():
                     result += char.swapcase().upper()
@@ -15,4 +36,3 @@ def encode(message):
                     result += char.swapcase()
         else:
             result += char
-    return result
