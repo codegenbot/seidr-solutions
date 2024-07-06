@@ -1,6 +1,6 @@
-```python
+````
 import re
-
+from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     if not isinstance(numbers, list):
@@ -33,3 +33,4 @@ except ValueError as e:
     print(f"Error: {e}")
 else:
     print(output)
+```
