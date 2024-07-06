@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool stdsame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -34,4 +34,7 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-assert(stdsame({2, 3, 11, 12, -10, 4, 5, 8, -12, 23}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+int main() {
+    assert(std::same({2, 3, 11, 12, -10, 4, 5, 8, -12, 23}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    return 0;
+}
