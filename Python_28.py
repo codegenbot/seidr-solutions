@@ -1,10 +1,8 @@
+```
 from typing import List
 
+def concatenate() -> str:
+    input_strings = input("Enter a list of strings (separated by space): ").split()
+    return "".join([s.strip() for s in input_strings]).strip()
 
-def concatenate(strings: List[str]) -> str:
-    result = "".join([s.strip() for s in strings]).strip()
-
-    if len(result) == 0:
-        return "Invalid input. Please enter some values."
-    else:
-        return result
+print(concatenate())
