@@ -1,5 +1,7 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <initializer_list>
+#include <ostream>
 
 int sumOfDigits(int num) {
     int sum = 0;

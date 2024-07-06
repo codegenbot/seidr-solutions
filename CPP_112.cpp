@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -32,10 +31,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if(result.size() == 2 && (result[1] == "True")) {
-        std::cout << "True";
-    } else {
-        std::cout << "False";
+    if(result.size()==2&&result[1]=="True"){
+        std::cout<<result[0]<<std::endl;
+        std::cout<<"True"<<std::endl;
+    }
+    else{
+        std::cout<<result[0]<<std::endl;
+        std::cout<<"False"<<std::endl;
     }
     return 0;
 }
