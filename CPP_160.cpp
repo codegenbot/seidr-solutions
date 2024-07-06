@@ -1,7 +1,7 @@
+#include <string>
 #include <vector>
-#include <cmath>
 
-int do_algebra(array<string, 3> operators, array<int, 3> operands) {
+int do_algebra(vector<string> operators, vector<int> operands) {
     int result = operands[0];
     for (int i = 0; i < operators.size(); i++) {
         if (operators[i] == "+") {
@@ -20,6 +20,6 @@ int do_algebra(array<string, 3> operators, array<int, 3> operands) {
 }
 
 int main() {
-    int result = do_algebra({{"//", "*"}, {7, 3, 4}});
+    int result = do_algebra({"//", "*"}, {7, 3, 4});
     return 0;
 }
