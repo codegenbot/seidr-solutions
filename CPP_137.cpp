@@ -1,11 +1,11 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
 
 using namespace std;
 
-int main() {
+int compareNumbers() {
     cout << "Enter two values: ";
     int val1;
     cin >> val1;
@@ -27,7 +27,7 @@ int main() {
     int num2 = 0;
     try {
         num2 = stoi(val2);
-    } catch (const invalid_request_exception& e) {
+    } catch (const invalid_argument& e) {
         cout << "Invalid input. Please enter a valid number.\n";
     }
 
@@ -38,4 +38,11 @@ int main() {
     } else {
         cout << "Both numbers are equal.\n";
     }
+
+    return 0;
+}
+
+int main() {
+    compareNumbers();
+    return 0;
 }
