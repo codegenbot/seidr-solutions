@@ -1,9 +1,8 @@
+```python
 import sys
-
 
 def get_input():
     return int(sys.stdin.readline())
-
 
 # Accept user input for x and y
 x = get_input()
