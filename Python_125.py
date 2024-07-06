@@ -1,11 +1,12 @@
-```
 def split_words(txt):
     words = txt.split()
-    if any(char in word for word in words for char in ' ,'):
-        return words
+    if len(words) > 0 and "," in words[0]:
+        return [word for word in words if "," in word]
+    elif len(words) == 1:
+        return sum(
+            1
+            for char in txt.lower()
+            if "a" <= char <= "z" and (ord(char) - ord("a")) % 2 != 0
+        )
     else:
-        result = 0
-        for i, c in enumerate([c for c in txt.lower() if c.isalpha()]):
-            if ord(c) % 2 == 1:
-                result += 1
-        return result
+        return words
