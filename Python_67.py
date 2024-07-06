@@ -1,5 +1,4 @@
 
-def fruit_distribution(s):
-    apples = int(re.search(r'\d+', s).group())
-    oranges = int(re.search(r'\d+', s).group())
-    return apples + oranges
+def fruit_distribution(s, n):
+    apples, oranges = map(int, re.findall(r"\d+", s))
+    return n - apples - oranges
