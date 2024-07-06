@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+```cpp
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -27,27 +24,4 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     return result;
-}
-
-int main() {
-    vector<float> input;
-    float val;
-    
-    std::cout << "Enter the size of the array: ";
-    int n;
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter number" << (i+1) << ":";
-        std::cin >> val;
-        input.push_back(val);
-    }
-    
-    vector<float> output = sort_even(input);
-
-    cout << "The sorted array is: ";
-    for (int i = 0; i < output.size(); i++) {
-        cout << output[i] << " ";
-    }
-    return 0;
 }
