@@ -1,2 +1,2 @@
 def solve(N):
-    return bin(N)[2:]
+    return format(int(bin(N).lstrip("0"), 2), "b")
