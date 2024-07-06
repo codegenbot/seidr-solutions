@@ -8,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> result = {}; 
+    std::vector<int> result = {};
     for(int i = 0; i < l.size(); i++) {
         if(i % 3 == 0) {
             std::vector<int> temp;
