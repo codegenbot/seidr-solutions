@@ -1,5 +1,9 @@
-int search(vector<int> lst) {
-    map<int, int> count;
+#include <iostream>
+#include <vector>
+#include <map>
+
+int search(std::vector<int> lst) {
+    std::map<int, int> count;
     for (int num : lst) {
         if (count.find(num) == count.end()) {
             count[num] = 1;
