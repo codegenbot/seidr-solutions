@@ -14,7 +14,7 @@ int main() {
     for (int i = 0; i < res[0].size(); i++) {
         cout << res[0][i] << " ";
     }
-    cout << "] [" << res[1].size() << "] ";
+    cout << "] [" << "[";
     for (int i = 0; i < res[1].size(); i++) {
         cout << res[1][i] << " ";
     }
