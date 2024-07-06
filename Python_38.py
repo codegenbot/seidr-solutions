@@ -10,6 +10,6 @@ def decode_cyclic(s: str):
         if i > 0:
             result += group[1:]  
         else:
-            result += group
+            result += group  
         i += 3
     return result
