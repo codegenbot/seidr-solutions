@@ -10,7 +10,7 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    set<char> letters(test.begin(), test.end());
+    set<char> letters(test.begin(), test.end()); // Correct conversion from string to set
     for (char c : letters) {
         int count = 0;
         size_t pos = 0;
