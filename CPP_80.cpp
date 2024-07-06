@@ -2,29 +2,28 @@
 using namespace std;
 
 bool is_happy(string s) {
-    long long num = 0;
-    for (char c : s) {
-        num = num * 10 + (c - '0');
-    }
-    
-    if (num == 1)
+    if (s.length() < 1)
         return true;
-    
-    set<long long> seen;
-    while (true) {
-        long long next = 0;
-        while (num > 0) {
-            long long digit = num % 10;
-            next = next * 10 + digit;
-            num /= 10;
-        }
-        if (next == 1)
-            return true;
-        
-        if (seen.find(next) != seen.end())
-            return false;
-        
-        seen.insert(next);
-        num = next;
+    int num = stoi(s);
+    while(num != 1 && !is_one_digit(num)) {
+        num = get_digits_sum(num);
     }
+    return num == 1;
+}
+
+int get_digits_sum(int n) {
+    int sum = 0;
+    while(n > 0) {
+        int digit = n % 10;
+        sum += digit * digit;
+        n /= 10;
+    }
+    return sum;
+}
+
+bool is_one_digit(int n) {
+    if (n < 10)
+        return true;
+    else
+        return false;
 }
