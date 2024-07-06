@@ -1,3 +1,4 @@
+@check
 def sum_squares(lst):
     total_sum = 0
     for element in lst:
@@ -15,3 +16,9 @@ def check(func):
 
 def main():
     print(sum_squares([1, 2, 3]))
+
+if __name__ == "__main__":
+    try:
+        sum_squares([1, 2, 3])
+    except ValueError as e:
+        print(e)
