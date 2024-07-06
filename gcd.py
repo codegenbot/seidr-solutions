@@ -1,11 +1,7 @@
-from math import gcd
-
-
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return gcd(a % b, b)
-
 
 def indices_of_substring(text, target):
     window_size = len(target)
