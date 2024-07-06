@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -8,34 +7,36 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
+    std::string letter_grade;
     for (float grade : grades) {
         if (grade >= 4.0) {
-            letter_grades.push_back("A+");
+            letter_grade = "A+";
         } else if (grade > 3.7) {
-            letter_grades.push_back("A");
+            letter_grade = "A";
         } else if (grade > 3.3) {
-            letter_grades.push_back("A-");
+            letter_grade = "A-";
         } else if (grade > 3.0) {
-            letter_grades.push_back("B+");
+            letter_grade = "B+";
         } else if (grade > 2.7) {
-            letter_grades.push_back("B");
+            letter_grade = "B";
         } else if (grade > 2.3) {
-            letter_grades.push_back("B-");
+            letter_grade = "B-";
         } else if (grade > 2.0) {
-            letter_grades.push_back("C+");
+            letter_grade = "C+";
         } else if (grade > 1.7) {
-            letter_grades.push_back("C");
+            letter_grade = "C";
         } else if (grade > 1.3) {
-            letter_grades.push_back("C-");
+            letter_grade = "C-";
         } else if (grade > 1.0) {
-            letter_grades.push_back("D+");
+            letter_grade = "D+";
         } else if (grade > 0.7) {
-            letter_grades.push_back("D");
+            letter_grade = "D";
         } else if (grade > 0.0) {
-            letter_grades.push_back("D-");
+            letter_grade = "F";
         } else {
-            letter_grades.push_back("E");
+            letter_grade = "E";
         }
+        letter_grades.push_back(letter_grade);
     }
     return letter_grades;
 }
