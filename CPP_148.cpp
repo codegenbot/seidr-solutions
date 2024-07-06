@@ -1,14 +1,13 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(const std::vector<std::string>& a) {
-    bool same = true;
-    if(a.size() == 0) return true;
-    for (size_t i = 1; i < a.size(); ++i) {
-        if (a[0] != a[i]) same = false;
+    if(a.empty()) return true;
+    for(auto s : a){
+        if(s.size() > 1 || s[0] >= 'A' && s[0] <= 'H') return false;
     }
-    return same;
+    return true;
 }
 
 bool bf(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -32,9 +31,5 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    std::vector<std::string> result = code("Jupiter", "Makemake");
-    for (const auto& str : result) {
-        std::cout << str << " ";
-    }
-    std::cout << std::endl;
+    assert(bf("Jupiter", "Makemake") == std::vector<std::string>());
 }
