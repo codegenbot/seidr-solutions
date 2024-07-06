@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
+```c++
 #include <vector>
-#include <algorithm>
+#include <queue>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -12,20 +11,18 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::priority_queue<int> pq;
+    for (int num : arr) {
+        pq.push(num);
+    }
     std::vector<int> result;
     for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+        result.push_back(pq.top());
+        pq.pop();
     }
     return result;
 }
 
 int main() {
-    // Test the functions
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
-    
-    std::cout << "Code works fine!" << std::endl;
-
-    return 0;
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));  
 }
