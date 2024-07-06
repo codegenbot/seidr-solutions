@@ -1,9 +1,6 @@
-def any_int(x: int, y: int, z: int):
-    if x == y + z or y == x + z or z == x + y:
+
+def any_int(x: float, y: float, z: float) -> bool:
+    if x + y == z or x + z == y or y + z == x:
         return True
     else:
         return False
-
-
-# Cast float argument to int before passing it to the function
-any_int(3.0, 4, 7) == False
