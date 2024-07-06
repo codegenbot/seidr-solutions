@@ -1,14 +1,11 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <queue>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
-}
-
-vector<vector<int>> minPath(vector<vector<int>> grid, int k){
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
+    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, std::greater<std::pair<int, std::pair<int, int>>>> pq;
     
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
@@ -19,10 +16,10 @@ vector<vector<int>> minPath(vector<vector<int>> grid, int k){
         }
     }
 
-    vector<int> path;
+    std::vector<int> path;
     while(!pq.empty() && path.size() < k){
         int val = pq.top().first;
-        pair<int, int> pos = pq.top().second;
+        std::pair<int, int> pos = pq.top().second;
         pq.pop();
         
         if(path.size() > 0){
@@ -33,9 +30,8 @@ vector<vector<int>> minPath(vector<vector<int>> grid, int k){
         
         path.push_back(val);
         
-        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        random_shuffle(directions.begin(), directions.end());
-        
+        std::vector<std::pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        //random_shuffle(directions.begin(), directions.end());
         for(auto dir : directions){
             int ni = pos.first + dir.first;
             int nj = pos.second + dir.second;
@@ -48,12 +44,4 @@ vector<vector<int>> minPath(vector<vector<int>> grid, int k){
     }
 
     return path;
-}
-
-int main() {
-    vector<int> path = minPath({{1, 3}, {3, 2}}, 10);
-    
-    assert (path == vector<int>(10, 1));
-    
-    return 0;
 }
