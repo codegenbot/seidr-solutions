@@ -1,6 +1,9 @@
 def skjkasdkd(lst):
-    # find the largest prime number in the list
-    largest_prime = max([x for x in lst if is_prime(x)], key=lambda x: x)
-
-    # return the sum of its digits
-    return sum(map(int, str(largest_prime)))
+    largest_prime = None
+    for num in lst:
+        if is_prime(num) and (largest_prime is None or num > largest_prime):
+            largest_prime = num
+    if largest_prime is not None:
+        return sum(map(int, str(largest_prime)))
+    else:
+        return 0
