@@ -7,11 +7,15 @@ def separate_paren_groups(paren_string):
             stack.append(c)
             count += 1
         elif c == ")":
-            while len(stack) > 0 and stack[-1] in ["(", ")"]:
+            if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
-            result.append(c)
+                count -= 1
+            else:
+                while len(stack) > 0 and stack[-1] in ["(", ")"]:
+                    stack.pop()
+                result.append([c])
     return [
         group
         for group in result
-        if group[0] == "(" and group[-1] == ")" and len(group) % 2 == 0 and count == 0
+        if len(group) % 2 == 0 and count == 0 and group[0] == "(" and group[-1] == ")"
     ]
