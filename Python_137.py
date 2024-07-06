@@ -1,18 +1,12 @@
 ```
-def compare_one():
-    num1 = float(input("Enter first number: "))
-    num2 = input("Enter second number (integer or decimal): ")
-
-    if isinstance(num1, str) and isinstance(num2, (int, float)):
-        num2 = str(num2).replace('.', '').replace(',', '.')
-    elif isinstance(num2, str) and isinstance(num1, (int, float)):
-        num1 = str(num1).replace('.', '').replace(',', '.')
-
-    if num1 > num2:
-        return num1
-    elif num1 < num2:
-        return num2
+def compare_one(a, b):
+    if isinstance(a, str):
+        a = float(''.join(c for c in a.replace(',', '')))
+    if isinstance(b, str):
+        b = float(''.join(c for c in b.replace(',', '')))
+    if a > b:
+        return a
+    elif b > a:
+        return b
     else:
         return None
-
-print(compare_one())
