@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -31,6 +31,7 @@ std::vector<float> sort_even(std::vector<float> l) {
 
 int main() {
     std::vector<float> input;
+    
     for(int i=0; i<5; i++){
         float x;
         std::cin >> x;
