@@ -1,19 +1,20 @@
 #include <string>
 #include <vector>
 
-int numerical_letter_grade(int grade) {
-    if (grade < 0 || grade > 100)
-        return -1;
-    else if (grade >= 90)
-        return 4; // A
-    else if (grade >= 80)
-        return 3; // B
-    else if (grade >= 70)
-        return 2; // C
-    else if (grade >= 60)
-        return 1; // D
-    else
-        return 0; // F
+double numerical_letter_grade(std::vector<int> grades) {
+    int total = 0;
+    for (int grade : grades) {
+        total += grade;
+    }
+    double average = static_cast<double>(total) / grades.size();
+    
+    if (average >= 4.0) return 4.0; 
+    else if (average >= 3.7) return 3.7;
+    else if (average >= 3.3) return 3.3;
+    else if (average >= 3.0) return 3.0;
+    else if (average >= 2.7) return 2.7;
+    else if (average >= 2.3) return 2.3;
+    else return 2.0;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -25,5 +26,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(std::vector<std::string>({{"E"}, {"D-"}}) == numerical_letter_grade({0, 0.7}))); // Use the function here
+    assert(issame(std::vector<std::string>(numerical_letter_grade({0, 0.7})), {"E", "D-"})); 
 }
