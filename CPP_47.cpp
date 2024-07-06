@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 float median(std::vector<float> numbers) {
     if (numbers.empty()) 
@@ -13,28 +12,29 @@ float median(std::vector<float> numbers) {
     else
         return numbers[numbers.size()/2];
 
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+int main()
+{
+    std::vector<float> input;
+    float number;
 
-    std::vector<std::string> vec(n);
+    // Input the numbers from user
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> number;
 
-    for (std::string &x : vec) {
-        char temp[100]; 
-        std::cin >> temp;  
-        x = temp;         
+        if (number == -1)
+            break;
+
+        input.push_back(number);
     }
 
     try {
-        float medianVal = 0.0f; 
-        for (const auto &num : vec) { 
-            medianVal += stof(num); 
-        }
-        medianVal /= vec.size();      
-        std::cout << "Median is " << medianVal << std::endl;
+        float result = median(input);
+        std::cout << "Median: " << result << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1; // Error occurred
     }
 
     return 0;
+}
