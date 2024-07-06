@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -32,4 +31,23 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 
 int main() {
     assert(bf("Jupiter", "Makemake") == std::vector<std::string>());
+    
+    // Input strings
+    std::string s1, s2;
+    std::cout << "Enter first string: ";
+    std::cin >> s1;
+    std::cout << "Enter second string: ";
+    std::cin >> s2;
+
+    // Generate the code for both input strings
+    std::vector<std::string> result = code(s1, s2);
+
+    // Print the output
+    std::cout << "Generated Code: ";
+    for (const auto& str : result) {
+        std::cout << str;
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
