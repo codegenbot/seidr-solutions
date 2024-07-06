@@ -17,6 +17,21 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    assert(smallest_change({0, 1}) == 1);
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; ++i) {
+        int num;
+        std::cout << "Enter element #"<<i+1<<":";
+        std::cin >> num;
+        input.push_back(num);
+    }
+
+    int result = smallest_change(input);
+
+    std::cout << "The smallest number of changes is: "<<result<<std::endl;
+
     return 0;
 }
