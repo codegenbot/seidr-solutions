@@ -11,5 +11,5 @@ bool bf(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::cout << "Output: " << bf({{"Jupiter"}}, {{"Makemake"}}) << std::endl;
+    std::cout << "Output: " << bf({"Jupiter", "Makemake"}, {"J2U5P3T3R", "M1K3M4K3"}) << std::endl;
 }
