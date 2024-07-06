@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     queue = [(0, 0, [])]
