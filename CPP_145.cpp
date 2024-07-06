@@ -1,19 +1,34 @@
-```cpp
 #include <algorithm>
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
+            return false;
+    return true;
+}
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
-        pairs.emplace_back(abs(nums[i]), i);
+        pairs.push_back({getDigitSum(nums[i]), i});
     }
     sort(pairs.begin(), pairs.end());
     vector<int> result;
-    for (const auto& pair : pairs) {
-        result.push_back(pair.first > 0 ? pair.second < 0 ? -pair.first : pair.first : -pair.first);
+    for (pair<int, int> p : pairs) {
+        result.push_back(nums[p.second]);
     }
     return result;
 
 }
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
+
+int getDigitSum(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
 }
