@@ -1,3 +1,4 @@
 def sort_even(l):
-    l_sorted = sorted(l[::2])
-    return [x if i % 2 == 0 else l_sorted[i // 2] for i, x in enumerate(l)]
+    even_indices = [i for i in range(len(l)) if i % 2 == 0]
+    even_values = sorted([l[i] for i in even_indices])
+    return [even_values[i // 2] if i % 2 == 0 else l[i] for i in range(len(l))]
