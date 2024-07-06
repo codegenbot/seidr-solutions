@@ -5,6 +5,7 @@ def luhn_algorithm(digits):
             doubled[i] -= 9
     return sum(doubled) + sum(digits[::2])
 
+
 def main():
     while True:
         digits = [int(x) for x in input("Enter a vector of 16 digits: ").split()]
