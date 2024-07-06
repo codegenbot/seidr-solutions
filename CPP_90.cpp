@@ -1,13 +1,6 @@
-Here is the completed code:
-
 int next_smallest(vector<int> lst) {
-    vector<int> temp = lst;
-    if(temp.size() < 2) return -1; // Return None
-    sort(temp.begin(), temp.end());
-    for(int i = 0; i < temp.size()-1; i++) {
-        if(temp[i] != temp[i+1]) {
-            return temp[i+1];
-        }
-    }
-    return -1; // Return None
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    if (v.size() < 2) return -1; // None for C++ (no equivalent to Python's None)
+    return v[1];
 }
