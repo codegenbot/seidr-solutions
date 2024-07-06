@@ -25,6 +25,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 int main() {
     std::vector<int> grades = {(int)90, (int)70};
     std::vector<std::string> expected = {"A", "C"};
-    assert(issame(numerical_letter_grade({(int)0, (int)7}), {"F", "D"}));
+    assert(issame(numerical_letter_grade({0, (int)7}), {"F", "D"}));
     return 0;
 }
