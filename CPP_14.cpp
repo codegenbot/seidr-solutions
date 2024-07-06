@@ -1,10 +1,7 @@
-#include <vector>
-#include <string>
-
 using namespace std;
 
 std::vector<std::string> all_prefixes(const string& str) {
-    std::vector<std::string> prefixes;
+    vector<string> prefixes;
     for(int i = 0; i <= str.size(); i++) {
         prefixes.push_back(str.substr(0, i));
     }
