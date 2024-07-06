@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -20,5 +19,5 @@ bool starts_one_ends(int n) {
 int main() {
     int n;
     cin >> n;
-    cout << starts_one_ends(n);
+    cout << (starts_one_ends(n) ? "true" : "false");
 }
