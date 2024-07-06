@@ -1,8 +1,9 @@
 #include <vector>
+#include <cmath>
 
 int main() {
-    vector<int> nums = {1, 2, 3};
-    int count = specialFilter(nums);
+    int count = specialFilter({1,2,3});
+    std::cout << "Count: " << count << std::endl;
     return 0;
 }
 
