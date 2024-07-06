@@ -4,6 +4,9 @@ Here's the modified code:
 from typing import List
 
 def has_close_elements() -> bool:
+    """Complete the following code given the task description and function signature..
+Currently, the code is 
+```
     found_close_elements = False
     while True:
         numbers = input("Enter space-separated numbers: ")
@@ -48,3 +51,4 @@ def has_close_elements() -> bool:
                     break
 
     return found_close_elements
+```
