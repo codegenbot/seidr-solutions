@@ -4,8 +4,8 @@ def sum_squares(lst):
     for element in lst:
         if isinstance(element, dict):
             total_sum += sum(
-                value**2
-                for key, value in element.items()
+                value**2 
+                for key, value in element.items() 
                 if isinstance(value, (int, float))
             )
         elif isinstance(element, list):
