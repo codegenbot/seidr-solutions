@@ -4,18 +4,10 @@
 #include <string>
 
 bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
+    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
-bool compareVectorsAndPrint(std::vector<std::string> a, std::vector<std::string> b) { 
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) { 
     bool result = compareVectors(a, b);
     if(result) {
         for(auto s : a) {
@@ -58,7 +50,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    compareVectorsAndPrint({ "", "True" }, result);
+    isSame({ "", "True" }, result);
     if (!compareVectors({ "", "True" }, result)) {
         std::cout << "Test failed." << std::endl;
     } else {
