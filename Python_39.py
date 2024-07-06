@@ -1,4 +1,3 @@
-
 def prime_fib(n):
     fib = [0, 1]
     while len(fib) <= n:
