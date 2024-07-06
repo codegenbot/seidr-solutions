@@ -1,4 +1,3 @@
-#include <initializer_list>
 #include <bits/stdc++.h>
 
 bool issame(vector<int> a, vector<int> b) {
