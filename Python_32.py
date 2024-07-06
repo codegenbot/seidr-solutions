@@ -1,8 +1,9 @@
 def find_zero(xs: list):
-    if len(xs) % 2 == 1 or xs[-1] != 0:
-        return None
-    for i in range(len(xs) // 2):
-        x = -xs[i] / xs[i + 1]
-        if poly(xs, x) < 0.000001:
-            return x
-    return None
+    # find the largest non-zero coefficient
+    largest = max([abs(coeff) for coeff in xs])
+    i = xs.index(largest)
+    # use Newton's method to find the zero point
+    x = 1
+    while abs(poly(xs, x)) > 1e-6:
+        x -= poly(xs, x) / poly(xs, x - largest * i)
+    return x
