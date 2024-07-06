@@ -5,4 +5,4 @@ def decode_shift(shift: str, s: str):
     elif shift == "decode":
         return "".join([chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()])
     else:
-        return s```
+        return s.lower()
