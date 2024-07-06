@@ -1,4 +1,3 @@
-
 def max_fill(grid, capacity):
     water = 0
     for row in grid:
@@ -8,4 +7,6 @@ def max_fill(grid, capacity):
     if capacity < water:
         return -1
     else:
+        import math
+
         return math.floor(water / capacity)
