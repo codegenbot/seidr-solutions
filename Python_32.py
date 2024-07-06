@@ -1,8 +1,10 @@
 Here is the completed code:
 
 def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
-        return "Error: The number of coefficients must be even."
-    max_coeff = max(abs(x) for x in xs)
-    return (-xs[1] / (n * max_coeff))
+    if len(xs) % 2 != 0:
+        return "Error: xs must have even number of coefficients"
+    leading_coeff = max([abs(i) for i in xs])
+    for x in range(-100, 101): # try all possible values
+        if poly(xs, x) == 0:
+            return round(x, 2)
+    return "No zero point found"
