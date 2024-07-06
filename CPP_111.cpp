@@ -3,24 +3,16 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
-    if (a.size() != b.size()) return false;
-    for (auto& pair : a) {
-        if (!b.count(pair.first) || b[pair.first] != pair.second)
-            return false;
-    }
-    return true;
-}
-
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
     if (test.empty()) return result;
 
-    std::string letters = test;
-    for (char c : std::unique(letters.begin(), letters.end())) {
+    std::transform(test.begin(), test.end(), test.begin(),
+                   [&](char c){return ::tolower(c);});
+    for (char c : std::unique(test.begin(), test.end())) {
         int count = 0;
         size_t pos = 0;
-        while ((pos = letters.find(c, pos)) != std::string::npos) {
+        while ((pos = test.find(c, pos)) != std::string::npos) {
             count++;
             pos += 1; // skip the same character
         }
