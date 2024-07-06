@@ -1,4 +1,3 @@
-
 #include <string>
 
 string middleCharacter(string str) {
