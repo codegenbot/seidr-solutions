@@ -3,10 +3,14 @@
 #include <algorithm>
 #include <string>
 
-bool compareVectors(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
+bool compareVectors(vector<string> v1, vector<string> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
     for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) return false;
+        if (v1[i] != v2[i]) {
+            return false;
+        }
     }
     return true;
 }
@@ -26,22 +30,23 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
-    result.push_back(temp);
+    result.push_back({temp});
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
     if (temp == rev) {
-        result.push_back("True");
+        result.push_back({temp == rev ? "True" : "False"});
     } else {
-        result.push_back("False");
+        result.push_back({temp == rev ? "True" : "False"});
     }
     return result;
 }
 
 int main() {
-    if (!compareVectors({ "", "True" }, reverse_delete("mamma", "mia"))) {
-        std::cout << "Test failed." << std::endl;
+    vector<string> result = reverse_delete("mamma", "mia");
+    if (!compareVectors({ "", "True" }, result)) {
+        cout << "Test failed." << endl;
     } else {
-        std::cout << "Test passed." << std::endl;
+        cout << "Test passed." << endl;
     }
     return 0;
 }
