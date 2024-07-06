@@ -42,7 +42,7 @@ int main() {
     }
     
     std::vector<int> myVector(arr, arr+n);
-    assert(issame({1,2,3}, maximum(myVector, k)));
+    assert(issame({1,2,3}, maximum(myVector, k))); // Adjust this part according to your test case
     delete[] arr;
     return 0;
 }
