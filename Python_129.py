@@ -24,6 +24,5 @@ def minPath(grid, k):
     for i in range(k):
         if len(queue) == 0:
             return []
-        else:
-            path.append(queue[i].pop())
+        path.append(queue[i].pop())
     return path
