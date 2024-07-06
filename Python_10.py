@@ -1,4 +1,5 @@
 def make_palindrome(string: str) -> str:
+    # Find the longest postfix of supplied string that is a palindrome
     i = len(string) - 1
     while i > 0 and string[i] != string[i - 1]:
         i -= 1
