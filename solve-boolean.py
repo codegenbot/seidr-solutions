@@ -1,7 +1,8 @@
-```python
+```
 def solve_boolean(expression):
-    def evaluate(part):
-        parts = part.split('|')
-        return any(p != 'F' for p in parts) if '&' not in part else all(evaluate(p) for p in part.split('&'))
-
-    return evaluate(expression)
+    result = True
+    parts = expression.split('&')
+    for part in parts:
+        or_parts = part.split('|')
+        result &= all(p != 'F' for p in or_parts) | any(p == 'T' for p in or_parts)
+    return result
