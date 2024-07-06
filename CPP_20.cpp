@@ -10,12 +10,15 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-float find_closest_elements(std::vector<float> v) {
+float find_closest_elements(std::vector<float> a, float x) {
     float min_diff = std::numeric_limits<float>::max();
-    for (int i = 0; i < v.size() - 1; ++i) {
-        float diff = v[i + 1] - v[i];
-        if (diff < min_diff)
-            min_diff = diff;
-    }
-    return min_diff;
+    float result;
+
+    for (int i = 0; i < a.size(); ++i)
+        if (std::abs(a[i] - x) < min_diff) {
+            min_diff = std::abs(a[i] - x);
+            result = a[i];
+        }
+
+    return result;
 }
