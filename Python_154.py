@@ -1,2 +1,2 @@
 def cycpattern_check(a, b):
-    return any(b in a[i:] for i in range(len(b)))
+    return any(x == y for x, y in zip(a[0:], b[: len(b)]))
