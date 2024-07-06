@@ -7,5 +7,4 @@ def sum_squares(lst):
             total_sum += lst[i] ** 3
     return total_sum
 
-
 print(sum_squares([1, 2, 3, 4, 5, 6]))
