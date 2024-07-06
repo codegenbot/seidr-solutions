@@ -1,31 +1,38 @@
-```cpp
+#include <boost/any.hpp>
 #include <iostream>
 #include <vector>
 #include <list>
-#include <any>
-#include <algorithm>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+using namespace std;
+
+template <typename T1, typename T2>
+bool issame(const vector<T1>& v1, const vector<T2>& v2) {
+    if (v1.size() != v2.size())
+        return false;
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i])
+            return false;
+    }
+    return true;
 }
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<boost::any>& values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type()->is_same_v<std::any::type<char>>()) {
-            continue;
-        }
-        if (std::any_cast<int>(value).has_value()) {
-            result.push_back(std::any_cast<int>(value).get());
+        if (boost::any_cast<int>(value).good()) {
+            result.push_back(boost::any_cast<int>(value).get());
         }
     }
     return result;
 }
 
 int main() {
-    std::list<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
-    std::vector<int> output = filter_integers(values);
-    for (const auto& num : output) {
-        std::cout << num << "\n";
+    list<boost::any> values = { 1, 2.0f, 3, "hello", 4 };
+    vector<int> integers = filter_integers(values);
+    if (issame({ 1, 3, 4 }, integers)) {
+        cout << "Integers are the same." << endl;
+    } else {
+        cout << "Integers are not the same." << endl;
     }
+    return 0;
 }
