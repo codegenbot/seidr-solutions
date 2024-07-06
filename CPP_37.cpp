@@ -7,30 +7,22 @@ bool issame(const vector<float>& a, const vector<float>& b) {
 }
 
 int main() {
-    int numTestCases;
-    cin >> numTestCases;
+    int n;
+    cin >> n;
 
-    for (int i = 0; i < numTestCases; i++) {
-        int numElements;
-        cin >> numElements;
+    vector<float> l(n);
 
-        vector<float> list;
-        for (int j = 0; j < numElements; j++) {
-            float element;
-            cin >> element;
-            list.push_back(element);
-        }
-
-        vector<float> result = sort_even(list);
-
-        cout << "List #" << i + 1 << ":";
-        for (float val : result) {
-            cout << " " << val;
-        }
-        cout << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> l[i];
     }
 
-    return 0;
+    vector<float> sortedEvenVals = sort_even(l);
+    
+    cout << "Sorted Even Values: ";
+    for (float val : sortedEvenVals) {
+        cout << val << " ";
+    }
+    cout << endl;
 }
 
 vector<float> sort_even(vector<float> l) {
