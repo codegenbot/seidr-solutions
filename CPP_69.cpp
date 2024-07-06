@@ -1,39 +1,28 @@
-#include <iostream>
+```
 #include <vector>
+#include <algorithm>
 
 int main() {
-    std::vector<int> lst;
-    int max;
-
-    // Read input from user
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i=0; i<n; ++i) {
-        int num;
-        std::cout << "Enter element "<< i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+    int search(vector<int> lst) {
+        int max = -1;
+        for (auto num : lst) {
+            if (num > 0 && count(num) >= num) {
+                max = num;
+                break;
+            }
+        }
+        return max;
     }
 
-    max = search(lst);
+    vector<int> lst;
+    cout << "Enter numbers separated by spaces: ";
+    for (int i = 0; i < 5; i++) {
+        int x;
+        cin >> x;
+        lst.push_back(x);
+    }
 
-    // Return output
-    if(max != -1)
-        std::cout << "Maximum is: " << max << std::endl;
-    else
-        std::cout << "No such element exists" << std::endl;
+    cout << "The maximum number is " << search(lst) << endl;
 
     return 0;
-}
-
-int search(vector<int> lst) {
-    int max = -1;
-    for (auto num : lst) {
-        if (num > 0 && count(num) >= num) {
-            max = num;
-            break;
-        }
-    }
-    return max;
 }
