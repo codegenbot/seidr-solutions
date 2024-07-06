@@ -1,30 +1,34 @@
-#include <iostream>
+#include <stdio.h>
 #include <string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    int total_apples = 0;
-    int total_oranges = 0;
-    
+    int total = 0;
+    string str;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'a' && s[i+1] == 'p') {
-            for (++i; i < s.length() && s[i] != ' '; ++i) {
-                total_apples += int(s[i] - '0');
-            }
-        } else if (s[i] == 'o' && s[i+1] == 'r') {
-            for (++i; i < s.length() && s[i] != ' '; ++i) {
-                total_oranges += int(s[i] - '0');
-            }
+        if (s[i] == ' ') {
+            str = s.substr(0, i);
+            break;
         }
     }
-    
-    return n - total_apples - total_oranges;
-}
 
-int main() {
-    cout << fruit_distribution("5 apples and 6 oranges", 19) << endl; 
-    cout << fruit_distribution("0 apples and 1 oranges",3) << endl;
-    cout << fruit_distribution("2 apples and 3 oranges", 100) << endl;
-    cout << fruit_distribution("100 apples and 1 oranges",120) << endl;
-    return 0;
+    size_t pos = str.find("apples");
+    int apples = 0;
+    if (pos != string::npos) {
+        size_t start = str.find_first_of("0123456789") + 1;
+        size_t end = str.find(" and", start);
+        apples = stoi(str.substr(start, end - start));
+    }
+
+    pos = str.find("oranges");
+    int oranges = 0;
+    if (pos != string::npos) {
+        size_t start = str.find_first_of("0123456789") + 1;
+        size_t end = str.find(" and", start);
+        oranges = stoi(str.substr(start, end - start));
+    }
+
+    total = n - apples - oranges;
+
+    return total;
 }
