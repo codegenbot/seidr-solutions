@@ -1,7 +1,6 @@
 ```cpp
-#include <vector>
-#include <cassert>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -18,17 +17,13 @@ int solutions(vector<int> lst) {
 
 int main() {
     vector<int> input;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    cout << "Enter " << n << " integers: ";
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        input.push_back(x);
+    cout << "Enter the numbers separated by space: ";
+    int num;
+    while (cin >> num) {
+        input.push_back(num);
+        if (cin.peek() != ' ') {
+            break;
+        }
     }
-    
     assert(solutions(input) == 3);
-
 }
