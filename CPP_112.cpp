@@ -19,7 +19,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            temp += std::to_string(ch);  // Convert character to string
+            temp += std::to_string(ch);  
         }
     }
     result.push_back(temp);
