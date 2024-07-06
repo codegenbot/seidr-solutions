@@ -1,13 +1,11 @@
-```cpp
 #include <cassert>
+
 int is_bored(string S) {
     int count = 0;
-    int pos = 0;
-    while ((pos = S.find("I", pos)) != string::npos) {
-        if (S[pos] == 'i' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == 'I' && (S[i+1] == '.' || S[i+1] == '?' || S[i+1] == '!')){
             count++;
         }
-        pos = S.find("i", pos);
     }
     return count;
 }
