@@ -11,7 +11,7 @@ def simplify(x, n):
     new_x_num = x_num // common
     new_n_num = n_num // common
 
-    if (new_x_num / new_n_num) == (n_num / x_denom):
+    if (new_x_num / new_x_denom) == (new_n_num / new_n_denom):
         return True
     else:
         return False
