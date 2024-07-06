@@ -10,7 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> result;
     int count = 0;
-    for(int i = 0; i < l.size(); i++) {
+    for(auto value : l) {
         if(count % 3 == 0) {
             std::vector<int> temp;
             for(int j = 0; j < l.size(); j++) {
@@ -18,10 +18,10 @@ std::vector<int> sort_third(std::vector<int> l) {
                     temp.push_back(l[j]);
                 }
             }
-            sort(temp.begin(), temp.end());
+            std::sort(temp.begin(), temp.end());
             result.insert(result.end(), make_move(temp));
         } else {
-            result.push_back(l[i]);
+            result.push_back(value);
         }
         count++;
     }
@@ -31,9 +31,9 @@ std::vector<int> sort_third(std::vector<int> l) {
 std::vector<int> make_move(std::vector<int> v) {
     std::vector<int> res;
     int count = 0;
-    for(int i = 0; i < v.size(); i++) {
+    for(auto value : v) {
         if(count % 3 == 0) {
-            res.push_back(v[i]);
+            res.push_back(value);
         }
         count++;
     }
