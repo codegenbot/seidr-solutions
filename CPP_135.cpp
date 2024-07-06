@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 
@@ -9,23 +10,23 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    int n, x;
-    std::cout << "Enter the size of array: ";
+    std::vector<int> arr;
+    int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        arr[i] = x;
+    for(int i=0; i<n; ++i) {
+        int val;
+        std::cout << "Enter element "<<i+1<<": ";
+        std::cin >> val;
+        arr.push_back(val);
     }
     
     int result = can_arrange(arr);
-    
-    if (result == -1) 
-        std::cout << "Array is already arranged.\n";
+    if(result == -1)
+        std::cout << "The array is already arranged in ascending order.\n";
     else
-        std::cout << "First element that cannot be placed to the end: " << arr[result] << "\n";
-        
+        std::cout << "The first element that does not follow the increasing sequence is at index "<<result<<".\n";
+
     return 0;
 }
