@@ -11,8 +11,8 @@ int main(){
     return 0;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> uniqueNumbers;
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> uniqueNumbers;
     for (int num : numbers) {
         if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
             uniqueNumbers.push_back(num);
