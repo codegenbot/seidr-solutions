@@ -3,7 +3,7 @@
 
 int skjkasdkd(std::initializer_list<int> lst){
     int maxPrime = 0;
-    for(int i : lst){
+    for(auto i : lst){
         if(i > 1 && isPrime(i)){
             if(maxPrime < i) maxPrime = i;
         }
