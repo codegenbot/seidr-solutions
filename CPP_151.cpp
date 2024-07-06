@@ -1,8 +1,8 @@
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] >= 0 && (int)lst[i] == lst[i]) {
-            sum += pow(lst[i], 2);
+    for (auto x : lst) {
+        if (x >= 0 && (int)x == x) {
+            sum += pow(x, 2);
         }
     }
     return sum;
