@@ -14,25 +14,21 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    std::vector<std::string> result = {};
-    for (int i = 0; i < s.size(); ) {
-        int j = i + 1;
-        while (j < s.size() && !isblank(s[j])) {
-            j++;
-        }
-        if (i != j) {
-            result.push_back(s.substr(i, j - i));
-        }
-        i = j;
-    }
-    for (int i = 0; i < result.size(); i++) {
-        if (!issame(std::vector<std::string>(1,result[i])) && !std::count(expected.begin(), expected.end(), result[i])) {
-            return {};
+    std::vector<std::string> result = {"", ""};
+    size_t start = 0;
+    for (size_t i = 0; i <= s.size(); i++) {
+        if ((i == s.size() || !isalpha(s[i])) && start > 0) {
+            size_t len = i - start;
+            if (len > 0) {
+                result.push_back(std::string(s, start, len));
+                for (int j = 1; j < result.size(); j++) {
+                    if (!issame(std::vector<std::string>(1,result[j])) && !std::count(expected.begin(), expected.end(), result[j])) {
+                        return {};
+                    }
+                }
+            }
+            start = i + 1;
         }
     }
     return result;
-}
-
-bool isblank(char c) {
-    return (c == ' ' || c == '\t' || c == '\n' || c == ',' || c == '.' || c == '?' || c == '!'); 
 }
