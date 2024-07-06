@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits> 
+#include <climits>
+
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -23,11 +24,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<pair<int, int>> output = pluck({7, 9, 7, 1});
-    cout << "{";
-    for (pair<int, int> p : output) {
-        cout << "(" << p.first << ", " << p.second << ") ";
-    }
-    cout << "}" << endl;
+    assert(pluck({7, 9, 7, 1}) == {});
     return 0;
 }
