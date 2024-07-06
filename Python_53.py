@@ -2,8 +2,8 @@
 def add(x: int, y: int):
     return x + y
 
-num1 = 0  
-num2 = 0  
+num1 = 0
+num2 = 0
 
 while True:
     try:
