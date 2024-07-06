@@ -1,15 +1,14 @@
 string solve(string s) {
-    string result;
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = (islower(c))? toupper(c): tolower(c);
+            c = (islower(c))? toupper(c) : tolower(c);
         }
         else {
-            result += c;
+            c = ' '; // replace non-alphabetic characters with space
         }
+        result += c;
     }
-    if (result.empty()) {
-        reverse(s.begin(), s.end());
-    }
-    return result;
+    reverse(result.begin(), result.end());
+    return result.empty() ? s : result.substr(1, result.size()-2); 
 }
