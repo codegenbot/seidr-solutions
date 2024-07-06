@@ -2,4 +2,5 @@ import math
 
 
 def max_fill(grid, capacity):
-    return math.ceil(sum(sum(row) for row in grid) / capacity)
+    rows = [min(c for c in row) for row in grid]
+    return sum(math.ceil(sum(row) / capacity) for row in rows)
