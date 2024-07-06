@@ -11,5 +11,8 @@ for _ in range(num_strings):
         strings = input("Enter a string (or 'stop' to finish): ")
         if strings.lower() == 'stop':
             break
-        reversed_string = strings[::-1]
-        print(reversed_string)
+        try:
+            reversed_string = strings[::-1]
+            print(reversed_string)
+        except AttributeError:
+            print("Invalid input. Please enter a valid string.")
