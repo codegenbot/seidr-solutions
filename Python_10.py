@@ -1,2 +1,4 @@
 def make_palindrome(string):
-    return string + string[::-1]
+    suffix = string[::-1]
+    prefix = string[:-1]
+    return string + prefix[::-1] + suffix[::-1]
