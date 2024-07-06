@@ -1,8 +1,3 @@
-```cpp
-#include <string>
-#include <map>
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
@@ -24,10 +19,6 @@ map<char, int> histogram(string test) {
             prevChar = str[i];
             count = 1;
         } else {
-            count++;
-        }
-        // increment count when the current character matches the previous one
-        if (str[i] == prevChar) {
             count++;
         }
     }
