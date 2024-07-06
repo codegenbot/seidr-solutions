@@ -11,19 +11,30 @@ def find_zero(a, b, c):
 if __name__ == "__main__":
     print("Enter a: ")
     a = float(input())
-    print("Enter b: ")
-    b = float(input())
-    print("Enter c: ")
-    c = float(input())
 
-    if a == 0 and (b != 0 or c != 0):
-        print(
-            "The program did not receive the expected input. 'a' cannot be zero when 'b' or 'c' is non-zero."
-        )
+    if a == 0:
+        while True:
+            print("Enter non-zero value for 'b': ")
+            b = float(input())
+            print("Enter non-zero value for 'c': ")
+            c = float(input())
+
+            if b**2 - 4 * a * c >= 0:
+                break
+        else:
+            print(
+                "The program did not receive the expected input. The discriminant must be non-negative."
+            )
     elif b**2 - 4 * a * c < 0:
         print(
             "The program did not receive the expected input. The discriminant must be non-negative."
         )
     else:
+        while True:
+            print("Enter c: ")
+            c = float(input())
+
+            if b**2 - 4 * a * c >= 0:
+                break
         result = find_zero(a, b, c)
         print(f"Zero is approximately {result}")
