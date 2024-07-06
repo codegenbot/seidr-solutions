@@ -1,11 +1,13 @@
-```
 #include <vector>
 #include <string>
 
 int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    string prefix = "xxx";
-    assert(issame(filter_by_prefix(strings, prefix), {"xxx", "xxxAAA", "xxx"}));
+    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
+    
+    vector<string> result = filter_by_prefix(strings, "xxx");
+    assert(issame(result, expected));
+    
     return 0;
 }
 
