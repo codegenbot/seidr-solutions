@@ -1,8 +1,9 @@
 
-import sys
-def get_input(prompt):
-    if sys.version_info[0] == 3:
-        return input(prompt)
-    else:
-        return raw_input(prompt)
-lst = list(map(int, get_input("Enter numbers separated by spaces: ").split()))
+# Python/151
+def get_numbers(num_list):
+    """
+    This function returns a new list containing the numbers from num_list in ascending order.
+    >>> get_numbers([5, 2, 8, 3, 1])
+    [1, 2, 3, 5, 8]
+    """
+    return sorted(num_list)
