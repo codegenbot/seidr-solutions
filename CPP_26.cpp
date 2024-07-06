@@ -1,3 +1,10 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool issame(vector<int> a,vector<int>b){
+    return a == b;
+}
+
 vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
     for (int num : numbers) {
