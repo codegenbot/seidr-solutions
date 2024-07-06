@@ -1,3 +1,6 @@
+import re
+
+
 def solve_boolean(expression):
     print("Input:", expression)
     result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
