@@ -1,12 +1,6 @@
-Here is the completed code:
-
-#include<stdio.h>
-#include<math.h>
-#include<string>
-using namespace std;
+#include <string>
 
 int closest_integer(string value) {
     double num = stod(value);
-    int integer = (num >= 0) ? ceil(num) : floor(num);
-    return integer;
+    return (num >= 0) ? ceil(num) : floor(num);
 }
