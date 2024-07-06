@@ -1,31 +1,14 @@
-
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int main() {
-    vector<int> input = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    vector<int> leaders(input);
-    
-    for (int i = 0; i < input.size(); i++) {
-        if (i == input.size() - 1) {
-            leaders.push_back(input[i]);
-        } else {
-            int j = i + 1;
-            while (j < input.size() && input[i] >= input[j]) {
-                j++;
+    vector<int> leaders(const vector<int>& v) {
+        vector<int> result;
+        for (vector<int>::reverse_iterator i = v.rbegin(); i != v.rend(); ++i) {
+            bool isLeader = true;
+            for (vector<int>::reverse_iterator j = i + 1; j != v.rend(); ++j) {
+                if (*i < *j) {
+                    isLeader = false;
+                    break;
+                }
             }
-            if (j == input.size()) {
-                leaders.push_back(input[i]);
-            }
+            if (isLeader) result.push_back(*i);
         }
+        return result;
     }
-    
-    cout << "The leaders are: ";
-    for (int i : leaders) {
-        if (i == input.size() - 1)
-            cout << i << endl;
-        else
-            cout << i << ", ";
-    }
-}

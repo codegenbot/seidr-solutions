@@ -12,12 +12,17 @@ int main() {
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
-            } else if (code.find(guess[i]) != string::npos && !whitePegs[guess[i]]) { // added check to make sure the guessed character is not already used as a white peg
+            } else if (code.find(guess[i]) != string::npos) {
                 whitePegs++;
             }
         }
 
-        cout << whitePegs << " " << blackPegs << endl;
+        if (blackPegs == 0 && whitePegs > 0) {
+            cout << "1 ";
+        } else if (blackPegs > 0) {
+            cout << blackPegs;
+        }
+        cout << " " << whitePegs << endl;
     }
 
     return 0;
