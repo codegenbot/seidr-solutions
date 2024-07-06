@@ -1,5 +1,4 @@
-Here's the corrected code:
-
+```Python
 def decode_shift(s: str):
     result = ""
     for ch in s:
@@ -8,4 +7,4 @@ def decode_shift(s: str):
             result += chr(((ord(ch) - ascii_offset) % 26) + ascii_offset) if abs(ord(ch) - ascii_offset) >= ord('a') and abs(ord(ch) - ascii_offset) <= ord('z') else ch
         else:
             result += ch
-    return result
+    return result```
