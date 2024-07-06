@@ -1,16 +1,14 @@
 ```
 def file_name_check(file_name):
-    if not file_name:
+    if len([i for i in file_name if i.isdigit()]) > 3:
         return 'No'
-    parts = file_name.split('.')
-    if len(parts) != 2:
+    if file_name.count('.') != 1:
         return 'No'
-    part1 = parts[0]
-    part2 = parts[1].lower()
-    if not part1 or not part1[0].isalpha():
+    before_dot = file_name.split('.')[0]
+    after_dot = file_name.split('.')[1]
+    if not before_dot or not before_dot[0].isalpha():
         return 'No'
-    if not set('0123456789').issubset(set(part1)) and len([c for c in part1 if c.isdigit()]) > 3:
-        return 'No'
-    if part2 not in ['txt', 'exe', 'dll']:
+    allowed_extensions = ['txt', 'exe', 'dll']
+    if after_dot not in allowed_extensions:
         return 'No'
     return 'Yes'
