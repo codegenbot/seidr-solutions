@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <map>
 #include <algorithm>
@@ -12,7 +11,7 @@ map<char, int> histogram(string test) {
     int maxCount = 0;
     char mostRepeatedChar = ' ';
 
-    for (char c : unique(str)) {
+    for (char c : std::unique(std::begin(str), std::end(str))) {
         int count = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str[i] == c) {
@@ -25,7 +24,7 @@ map<char, int> histogram(string test) {
         }
     }
 
-    for (char c : unique(str)) {
+    for (char c : std::unique(std::begin(str), std::end(str))) {
         int count = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str[i] == c) {
