@@ -2,17 +2,31 @@ using namespace std;
 
 vector<string> bf(string a, string b){
     vector<string> result;
+    
     int i = 0, j = 0;
+    
     while (i < a.size() && j < b.size()) {
         if (a[i] == b[j]) {
-            result.push_back(a.substr(i, 1));
+            result.push_back(a.substr(i,1));
             i++;
             j++;
-        } else if (a[i] < b[j])
+        } else if (a[i] < b[j]) {
+            result.push_back(a.substr(i,1));
             i++;
-        else
+        } else {
             j++;
+        }
     }
+    
+    while (i < a.size()) {
+        result.push_back(a.substr(i,1));
+        i++;
+    }
+    
+    while (j < b.size()) {
+        j++;
+    }
+    
     return result;
 }
 
