@@ -1,4 +1,4 @@
-def incr_list(lst=None):
+def incr_list():
     result = []
     while True:
         try:
@@ -6,19 +6,18 @@ def incr_list(lst=None):
             if n < 1:
                 print("Number should be positive. Try again.")
             else:
-                result.append(n)
+                result = [n + i for i in result]  
+                break
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-    cont = input("Do you want to continue? (y/n): ")
-    while cont.lower() != "n":
-        try:
-            n = int(input("Enter a number: "))
-            if n < 1:
-                print("Number should be positive. Try again.")
-            else:
-                result.append(n)
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
+    while True:
         cont = input("Do you want to continue? (y/n): ")
-    return result
+        if cont.lower() == 'y':
+            return result
+        elif cont.lower() == 'n':
+            return []
+        else:
+            print("Invalid choice. Please enter y or n: ")
+
+print(incr_list())
