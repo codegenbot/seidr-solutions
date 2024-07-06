@@ -1,7 +1,5 @@
-from typing import list, any
+```
+from typing import List
 
-def filter_integers(values: list[any]) -> list[int]:
-    values = list(input("Enter some numbers (space-separated): ").split())
-    return [value for value in values if isinstance(int(value), int)]
-
-print(filter_integers([]))
+def filter_integers(values: List) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
