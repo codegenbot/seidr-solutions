@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 bool issame(vector<int> a, vector<int>b);
 vector<int> order_by_points(vector<int> nums) {
@@ -22,6 +23,7 @@ int get_sum_of_digits(int num) {
     }
     return sum;
 }
+
 bool issame(vector<int> a, vector<int>b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) 
@@ -29,6 +31,6 @@ bool issame(vector<int> a, vector<int>b){
     return true;
 }
 int main() {
-     assert(issame(vector<int>(order_by_points({0,6,6,-76,-21,23,4})), vector<int>({(-76), (-21), 0, 4, 23, 6, 6})));
+     assert(issame({order_by_points({0,6,6,-76,-21,23,4})}, {(0, -76, -21, 4, 6, 6, 23)});
      return 0;
 }
