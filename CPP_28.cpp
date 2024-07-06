@@ -1,4 +1,4 @@
-```
+```cpp
 #include <string>
 
 string concatenate(vector<string> strings){
