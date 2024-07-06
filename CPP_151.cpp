@@ -4,7 +4,8 @@ long long double_the_difference(vector<float> lst) {
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) {
             sum += pow(num, 2);
+            odd_sum += num;
         }
     }
-    return sum;
+    return sum + pow(odd_sum, 2);
 }
