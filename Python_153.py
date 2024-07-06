@@ -1,9 +1,14 @@
-```
 def Strongest_Extension(class_name, extensions):
-    strongest = (extensions[0], 0)
+    max_strength = -1
+    strongest_extension = ""
     for extension in extensions:
-        cap = sum(c.isupper() for c in extension)
+        cap = sum(1 for char in extension if char.isupper())
         sm = len(extension) - cap
-        if cap - sm > strongest[1]:
-            strongest = (extension, cap - sm)
-    return f"{class_name}.{strongest[0]}"
+        strength = cap - sm
+        if strength > max_strength or (
+            strength == max_strength
+            and extensions.index(extension) < extensions.index(strongest_extension)
+        ):
+            max_strength = strength
+            strongest_extension = extension
+    return f"{class_name}.{strongest_extension}"
