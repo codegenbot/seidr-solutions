@@ -9,14 +9,10 @@ if any(not isinstance(num, (int, float)) or num < 0.0 for num in numbers):
 
 min_val = min(numbers)
 max_val = max(numbers)
-rescale_to_unit = [(x - min_val) / (max_val - min_val) for x in numbers]
-
-except ValueError as e:
-    print(f"Error: {e}")
-    exit(1)
+result = [(x - min_val) / (max_val - min_val) for x in numbers]
+print(result)
 
 try:
-    print(rescale_to_unit)
-except NameError:
-    print("No input provided")
-    exit()
+    except ValueError as e:
+        print(f"Error: {e}")
+        exit(1)
