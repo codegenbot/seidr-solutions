@@ -1,9 +1,14 @@
-def sum_squares(lst):
-    total = 0
-    lst = list(map(int, input("Enter numbers separated by space: ").split()))
-    for i in range(len(lst)):
-        if i % 3 == 0 and i % 4 != 0:
-            total += lst[i] ** 2
-        elif i % 4 == 0 and i % 3 != 0:
-            total += lst[i] ** 3
-    return total
+```
+def sum_squares():
+    lst = []  
+    while True:
+        try:
+            num = int(input("Enter a number (or -1 to finish): "))
+            if num == -1:
+                break
+            lst.append(num)  
+        except ValueError:
+            print("Invalid input. Please enter a whole number.")
+    return sum_squares(lst)  
+
+print(sum_squares())
