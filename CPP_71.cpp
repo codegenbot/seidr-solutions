@@ -3,4 +3,3 @@ float triangle_area(float a, float b, float c) {
         return sqrt(c * (c-a) * (c-b));
     else
         return 0.0f;
-}
