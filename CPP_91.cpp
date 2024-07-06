@@ -1,29 +1,18 @@
-```cpp
-#include <iostream>
 #include <string>
 
-int is_bored(std::string S);
-
-int main() {
-    std::string line;
-    // Ask for user input
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, line);
-    
-    int result = is_bored(line);  // Call the function with the user's input
-    
-    return 0;
-}
-
-int is_bored(std::string S) {
-    int count = 0; 
-    int pos = 0;
-    while ((pos = S.find("I", pos)) != std::string::npos) {
-        if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
+int is_bored(const std::string& str) {
+    int count = 0;
+    size_t pos = 0;
+    while ((pos = str.find("I", pos)) != std::string::npos) {
+        if (str[pos] == 'I' && (str[pos + 1] == '.' || str[pos + 1] == '?' || str[pos + 1] == '!')) {
             count++;
         }
-        pos = S.find("I", pos);
+        pos = str.find("I", pos);
     }
-    
     return count;
+}
+
+int main() {
+    assert(is_bored("You and I are going for a walk") == 0);
+    return 0;
 }
