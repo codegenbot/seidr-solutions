@@ -7,4 +7,4 @@ def Strongest_Extension(class_name, extensions):
         )
         for extension in extensions
     ]
-    return f"{class_name}.{max(strengths)[0]}"
+    return f"{class_name}.{max(strengths, key=lambda x: x[1])[0]}"
