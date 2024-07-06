@@ -1,13 +1,13 @@
-int main() {
-    return 0;
-}
+#include <string>
 
-string encrypt(string s) {
-    string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char baseChar = isupper(c) ? 'A' : 'a';
-            c = ((c - baseChar + 2 * 26) % 26) + baseChar;
+std::string encrypt(std::string s){
+    std::string result = "";
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            c = (c - 'a' + 2*2) % 26 + 'a';
+        } else if(c >= 'A' && c <= 'Z'){
+            c = (c - 'A' + 2*2) % 26 + 'A';
         }
         result += c;
     }

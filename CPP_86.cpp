@@ -10,9 +10,9 @@ string anti_shuffle(string s) {
             nextSpace = s.length();
         }
         string word = s.substr(pos, nextSpace - pos);
-        result += tolower(word[0]);
-        for (size_t i = 1; i < word.length(); i++) {
-            result += toupper(word[i]);
+        for (char c : word) {
+            if(c>=97&&c<=122||c>=65&&c<=90) result+=tolower(c);
+            else result+=c;
         }
         pos = nextSpace + 1;
     }
@@ -20,6 +20,6 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".hi my name is mister robot. how are you?");
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
