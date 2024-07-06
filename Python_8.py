@@ -1,5 +1,3 @@
-import math
-
 
 def sum_product(numbers: list[int]) -> Tuple[int, int]:
     if not numbers:
