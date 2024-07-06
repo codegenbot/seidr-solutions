@@ -19,3 +19,4 @@ int main() {
         std::cout << "No close elements found." << std::endl;
     }
     return 0;
+}
