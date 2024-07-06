@@ -1,5 +1,4 @@
-#include <iostream>
-#include <cmath>
+#include<iostream>
 using namespace std;
 
 bool starts_one_ends(int n) {
