@@ -1,1 +1,13 @@
-"def longest(strings: List[str]) -> Union[str, None]:\n    if not strings:\n        return None\n    max_length = 0\n    result = strings[0]\n    for s in strings:\n        if len(s) > max_length:\n            max_length = len(s)\n            result = s\n    return result"
+```
+from typing import List, Union
+
+"def longest(strings: List[str]) -> Union[str, None]:"
+    if not strings:
+        return None
+    max_length = 0
+    result = strings[0]
+    for s in strings:
+        if len(s) > max_length:
+            max_length = len(s)
+            result = s
+    return result"
