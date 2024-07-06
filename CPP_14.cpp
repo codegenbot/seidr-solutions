@@ -18,11 +18,11 @@ vector<string> all_prefixes(string str) {
     return result;
 }
 
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    vector<string> expected = all_prefixes(str);
-    assert (issame(expected, all_prefixes(str)));
-    return 0;
+vector<string> all_prefixes(string str) {
+    vector<string> result;
+    for (int i = 1; i <= str.length(); i++) {
+        result.push_back(str.substr(0, i));
+    }
+    return result;
+
 }
