@@ -1,8 +1,11 @@
-
 def tri(n):
-    if n == 1:
-        return [3]
-    elif n % 2 == 0:
-        return [1 + (n / 2)]
+    if n == 0:
+        return [1]
     else:
-        return [tri(n - 1) + tri(n - 2) + tri(n + 1)]
+        result = []
+        for i in range(n + 1):
+            if i % 2 == 0:
+                result.append(i // 2)
+            else:
+                result.append(result[i - 1] + result[i - 2] + result[i])
+        return result
