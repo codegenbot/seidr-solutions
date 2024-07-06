@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -12,15 +13,15 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> total_match(const char* lst1[], const char* lst2[]) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
-    for (const auto& str : {lst1}) {
-        sum1 += strlen(str) + 1; // include null termination character
+    for (const auto& str : lst1) {
+        sum1 += str.length();
     }
     
     int sum2 = 0;
-    for (const auto& str : {lst2}) {
-        sum2 += strlen(str) + 1; // include null termination character
+    for (const auto& str : lst2) {
+        sum2 += str.length();
     }
     
     if (sum1 < sum2) {
@@ -28,20 +29,15 @@ vector<string> total_match(const char* lst1[], const char* lst2[]) {
     } else if (sum1 > sum2) {
         return lst1;
     } else {
-        vector<string> result;
-        for (const auto& str : {lst1}) {
-            result.push_back(string(str));
-        }
-        if(issame(vector<string>(result.begin(), result.end()), vector<string>(vector<string>({lst2}))))
-            return vector<string>(result.begin(), result.end());
+        if(issame(lst1, lst2))
+            return lst1;
         else
-            return vector<string>({lst2});
+            return lst2; 
     }
 }
 
 int main() {
-    const char* vec1[] = {"this"};
-    const char* vec2[] = {""};
+    vector<string> vec1 = {"this"};
+    vector<string> vec2 = {""};
     assert(issame(total_match(vec1,vec2),{"","this"}));  
-    return 0;
 }
