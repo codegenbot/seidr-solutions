@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -27,5 +28,13 @@ int main_func() {
     }
 
     long long sum = double_the_difference(lst); 
+    int odd_sum = 0;
+    for (double num : lst) {
+        if (num > 0 && int(num + 0.5) == num) { 
+            odd_sum += int(num + 0.5); 
+        }
+    }
+
+    assert(sum == (long long)pow(odd_sum, 2)); 
     return 0;
 }
