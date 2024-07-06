@@ -1,11 +1,6 @@
 def fizz_buzz(n):
     count = 0
-    for i in range(1, n + 1):
-        if (
-            i % 11 == 0
-            and i % 13 == 0
-            and i % 7 == 0
-            or (i % 7 == 0 and not (i % 11 == 0 and i % 13 == 0))
-        ):
+    for i in range(1, 1000):
+        if i % 1001 == 0:
             count += 1
     return count
