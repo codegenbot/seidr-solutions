@@ -1,15 +1,11 @@
-import math
-
-
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
-    water = 0
+    max_level = 0
     for i in range(rows):
+        level = 0
         for j in range(cols):
             if grid[i][j] == 1:
-                water += 1
-    if capacity < water:
-        return -1
-    else:
-        return math.floor(water / capacity)
+                level += 1
+        max_level = max(max_level, level)
+    return math.floor(max_level / capacity)
