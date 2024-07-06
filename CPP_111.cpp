@@ -1,35 +1,24 @@
+Here is the completed code:
+
+```cpp
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string temp = "";
-    for (char c : test) {
-        if (c == ' ') {
-            if (!temp.empty()) {
-                ++result[temp[0]];
-                temp.clear();
+    size_t pos = 0;
+    while ((pos = test.find(' ')) != string::npos) {
+        char c = test[0];
+        int count = 1;
+        for (size_t i = 1; i < pos; ++i) {
+            if (test[i] == c) {
+                ++count;
+            } else {
+                break;
             }
-        } else {
-            temp += c;
         }
+        result[c] = count;
+        test.erase(0, pos + 1);
     }
 
-    if (!temp.empty()) {
-        ++result[temp[0]];
-    }
-
-    map<char, int> maxCountMap;
-    int maxCount = 0;
-
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCountMap.clear();
-            maxCountMap[it->first] = it->second;
-            maxCount = it->second;
-        } else if (it->second == maxCount) {
-            maxCountMap[it->first] = it->second;
-        }
-    }
-
-    return maxCountMap;
+    return result;
 }
