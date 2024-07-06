@@ -1,8 +1,12 @@
+
 def f(n):
-    res = []
+    result = []
     for i in range(1, n+1):
         if i % 2 == 0:
-            res.append(factorial(i))
+            result.append(i)
         else:
-            res.append(sum(range(1, i+1)))
-    return res
+            sum = 0
+            for j in range(1, i+1):
+                sum += j
+            result.append(sum)
+    return result
