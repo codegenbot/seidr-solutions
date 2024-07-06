@@ -1,12 +1,12 @@
 ```
-def find_max(words):
+def find_max():
+    words = input("Enter words (space separated): ").split()
     max_word = ''
-    max_unique_chars = 0
+    max_length = 0
     for word in words:
-        unique_chars = set(word)
-        if len(unique_chars) > max_unique_chars:
-            max_unique_chars = len(unique_chars)
+        if len(word) > max_length:
+            max_length = len(word)
             max_word = word
-        elif len(unique_chars) == max_unique_chars:
+        elif len(word) == max_length:
             max_word = min(max_word, word)
     return max_word
