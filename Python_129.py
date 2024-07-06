@@ -6,10 +6,8 @@ def minPath(grid, k):
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            if not min_path or sum(int(i) for i in path) < sum(
-                int(i) for i in min_path
-            ):
-                min_path = path
+            if not min_path or sorted(path) < sorted(min_path):
+                min_path = sorted(path)
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
