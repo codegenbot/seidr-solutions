@@ -1,13 +1,13 @@
-```cpp
 #include <vector>
 
-std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) {
-        throw std::runtime_error("Error: Input array is empty.");
+vector<int> sort_array(vector<int> array) {
+    if (array.empty()) {
+        cout << "Error: The input array is empty." << endl;
+        exit(0);
     }
     int sum = array[0] + array.back();
     if (sum % 2 == 1)
-        return std::vector<int>(array.begin(), array.end());
+        return vector<int>(array.begin(), array.end());
     else
-        return std::vector<int>(array.rbegin(), array.rend());
+        return vector<int>(array.rbegin(), array.rend());
 }
