@@ -1,5 +1,5 @@
 def match_parens(lst):
-    """Check if all parentheses in the input list are balanced"""
+    """Check if parentheses in the list are matched."""
     stack = []
     for s in lst:
         for c in s:
