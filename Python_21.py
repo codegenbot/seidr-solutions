@@ -27,7 +27,7 @@ if __name__ == "__main__":
             print("No input provided")
             exit()
 
-        result = rescale_to_unit([float(x) for x in input_str.split()])
+        result = rescale_to_unit([float(x.strip()) for x in input_str.split()])
         print(result)
     except ValueError as e:
         print(f"Error: {e}")
