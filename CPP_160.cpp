@@ -17,8 +17,7 @@ int do_algebra(std::vector<std::string> operations, std::vector<int> operands) {
     return result;
 }
 
-int main(int argc, char** argv) {
-    std::vector<std::string> operations = {"*", "+"};
-    std::vector<int> operands = {4, 3};
-    int result = do_algebra(operations, operands);
+int main() {
+    int result = do_algebra({"+", "*"}, {7, 3, 4});
     return 0;
+}
