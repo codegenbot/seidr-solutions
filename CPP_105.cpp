@@ -1,4 +1,5 @@
 #include <vector>
+#include <map>
 using namespace std;
 
 vector<pair<int, string>> by_length(vector<int> arr) {
@@ -8,8 +9,8 @@ vector<pair<int, string>> by_length(vector<int> arr) {
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    vector<pair<int, string>> result;
     map<int, string> numToName = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}; 
+    vector<pair<int, string>> result;
     for(int i: temp){
         result.push_back({i, numToName[i]});
     }
@@ -17,15 +18,12 @@ vector<pair<int, string>> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr;
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        int val;
-        cin >> val;
-        arr.push_back(val);
-    }
+    vector<int> arr(n);
+    for (int &x : arr) 
+        cin >> x;  
     vector<pair<int, string>> result = by_length(arr);
-    for(auto& pair: result) cout << pair.first << " " << pair.second << endl;
+    for(auto p: result) cout << p.first << " - " << p.second << endl;
     return 0;
 }
