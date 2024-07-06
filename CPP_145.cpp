@@ -1,13 +1,11 @@
-Here is the modified code:
-
-```c++
 #include <algorithm>
 #include <vector>
 
-#include <assert.h>
+#include <cmath>
+using namespace std;
 
-bool issame(std::vector<int>, std::vector<int>);
-std::vector<int> order_by_points(std::vector<int>);
+bool issame(vector<int>, vector<int>);
+vector<int> order_by_points(vector<int>);
 
 int get_sum_of_digits(int num) {
     int sum = 0;
@@ -18,7 +16,7 @@ int get_sum_of_digits(int num) {
     return sum;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int>b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++) {
@@ -28,13 +26,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<std::pair<int, int>> pairs;
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         pairs.push_back({get_sum_of_digits(nums[i]), i});
     }
     sort(pairs.begin(), pairs.end());
-    std::vector<int> result;
+    vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
@@ -43,6 +41,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 }
 
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), vector<int>{(-76), (-21), (0), (4), (23), (6), (6)}));
+    assert(issame(vector<int>(order_by_points({0,6,6,-76,-21,23,4})), vector<int>({(-76), (-21), (0), (4), (23), (6), (6)})));
     return 0;
 }
