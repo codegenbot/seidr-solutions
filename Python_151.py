@@ -1,6 +1,7 @@
 def double_the_difference(lst):
-    sorted_lst = sorted([abs(x) for x in lst])
-    if len(sorted_lst) < 2:
-        return None
-    else:
-        return (sorted_lst[-1] - sorted_lst[0]) * 2
+    lst.sort()
+    min_val = (lst[0] + lst[1]) * 2
+    return min_val
+
+
+print(double_the_difference([1, 2, -3, 4]))
