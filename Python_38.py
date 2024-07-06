@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     result = ""
     i = 0
@@ -6,10 +7,8 @@ def decode_cyclic(s: str):
             group = s[i : i + 3]
         else:
             group = s[i:]
-        if i == 0:
-            result += group[1:]
-        elif i % 2 == 0:
-            result += group[1] + group[0] + group[2]
+        if i > 0:
+            result += group[1:] + group[0] 
         else:
             result += group
         i += 3
