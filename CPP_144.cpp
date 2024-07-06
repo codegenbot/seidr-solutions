@@ -3,29 +3,23 @@ using namespace std;
 
 bool simplify(string x, string n) {
     int a = 0, b = 0, c = 0, d = 0;
-    for(int i = 0; i < x.length(); i++) {
-        if(x[i] == '/') break;
-        if(i > 0 && x[i-1] == '/') continue;
-        a = a * 10 + (x[i] - '0');
-    }
-    for(int i = 0; i < n.length(); i++) {
-        if(n[i] == '/') break;
-        if(i > 0 && n[i-1] == '/') continue;
-        d = d * 10 + (n[i] - '0');
-    }
+    int gcd = 1;
     
-    int g = gcd(a, b);
-    a /= g;
-    b /= g;
-    
-    g = gcd(c, d);
-    c /= g;
-    d /= g;
+    // Convert fraction to integers
+    sscanf(x.c_str(), "%d/%d", &a, &b);
+    sscanf(n.c_str(), "%d/%d", &c, &d);
 
-    return a*d == b*c;
-}
+    // Calculate GCD of numerator and denominator
+    for(int i = min(b,d); i > 0; --i) {
+        if(b%i == 0 && d%i == 0) {
+            gcd = i;
+            break;
+        }
+    }
 
-int gcd(int a, int b) {
-    if(b == 0) return a;
-    else return gcd(b, a%b);
+    // Simplify the fraction
+    a *= d / gcd;
+    b *= d / gcd;
+
+    return (a/b) == (c/b);
 }
