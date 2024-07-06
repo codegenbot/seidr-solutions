@@ -1,4 +1,3 @@
-```
 #include <string>
 
 std::string anti_shuffle(std::string s){
