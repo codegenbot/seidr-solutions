@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     bool_map = {'T': True, 'F': False}
 
@@ -11,15 +12,9 @@ def solve_boolean(expression):
                 elif expr[i] == '|':
                     end = i
                     break
-            and_parts = expr[:end + 1].split('&')
-            expr = expr[start + 1:]
-            
-            if '&' in and_parts[0]:
-                and_parts = ['&'.join([and_parts[0]] + [part for part in and_parts[1:]]), *and_parts[2:]]
-            else:
-                and_parts = ['(' + '&'.join(and_parts) + ')']
-            expr = expr[:end + 1] + ''.join(map(str, and_parts)) + expr[end + 1:]
-            
+            and_parts = expr[:end].split('&')
+            expr = expr[end + 1:]
+
             result = all(eval_expression(part) for part in and_parts)
             return str(result).lower() if result else 'F'
 
@@ -32,15 +27,9 @@ def solve_boolean(expression):
                 elif expr[i] == '&':
                     end = i
                     break
-            or_parts = expr[:end + 1].split('|')
+            or_parts = expr[:start].split('|')
             expr = expr[start + 1:]
-            
-            if '|' in or_parts[0]:
-                or_parts = ['|'.join([or_parts[0]] + [part for part in or_parts[1:]]), *or_parts[2:]]
-            else:
-                or_parts = ['(' + '|'.join(or_parts) + ')']
-            expr = expr[:end + 1] + ''.join(map(str, or_parts)) + expr[end + 1:]
-            
+
             result = any(eval_expression(part) for part in or_parts)
             return str(result).lower() if result else 'F'
 

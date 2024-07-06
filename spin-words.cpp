@@ -10,19 +10,20 @@ std::string spinWords(std::string sentence) {
         if (i == sentence.size() || sentence[i] == ' ') {
             std::string word = sentence.substr(start, i - start);
             if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
+                result += std::string(word.rbegin(), word.rend());
+            } else {
+                result += word;
             }
-            result += word + (i == sentence.size() ? "" : " ");
             start = i + 1;
         }
     }
-    return result;
+    std::cout << result.size() ? result + " " : result << std::endl;
 }
 
 int main() {
     std::string input;
     while (std::cin >> input) {
-        std::cout << spinWords(input) << std::endl;
+        spinWords(input);
     }
     return 0;
 }
