@@ -6,7 +6,7 @@ def fix_spaces(text):
             if len(new_text) > 0 and new_text[-1] != ' ':
                 new_text += '_'
             else:
-                new_text += ' '
+                new_text += char
         else:
             new_text += char
     return new_text
