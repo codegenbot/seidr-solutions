@@ -4,11 +4,10 @@ def sort_third(l):
     for i in range(0, len(l), 3):
         if i + 2 < len(l):
             result.append(sorted([l[i], l[i+1], l[i+2]]))
+        elif i + 1 < len(l): 
+            result.append([l[i]])  
         else:
-            if len(l) == i + 1:
-                result.append([l[i]])
-            elif len(l) % 3 != 0 and len(l) > i + 1:
-                result.append(sorted([l[i], l[i+1]]))
+            result.append([l[i]])
     return [item for sublist in result for item in sublist]
 
 input_list = [5, 6, 3, 4, 8, 9, 2, 1]
