@@ -1,6 +1,6 @@
 #include <string>
 
-string encrypt(string s) {
+string encrypt(string s){
     string result = "";
     for(char c : s){
         if(c >= 'a' && c <= 'z'){
