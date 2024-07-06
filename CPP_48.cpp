@@ -8,7 +8,7 @@ bool is_palindrome(std::string text) {
     while (start < end) {
         while (!isalnum(text[start])) { 
             start++;
-            if (start > end) return true; // If all non-alphanumeric characters are processed, it's a palindrome
+            if (start >= end) return true; // If all non-alphanumeric characters are processed, it's a palindrome
         }
         while (!isalnum(text[end])) { 
             end--;
