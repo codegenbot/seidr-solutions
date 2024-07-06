@@ -1,8 +1,8 @@
 
 def tri(n):
     if n == 1:
-        return [1]
+        return [1, 3]
     elif n % 2 == 0:
-        return [1, n // 2]
+        return [1, 3, 2 * (n // 2)]
     else:
-        return [1, (n - 1) // 2, n // 2 + 1]
+        return [1, 3, tri(n - 1) + tri(n - 2) + tri(n + 1)]
