@@ -1,12 +1,22 @@
-string solve(string s){
-    string result = "";
+#include <cassert>
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string solve(std::string s){
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
             char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+            if(i%2==0){
+                c = tolower(c);
+            }else{
+                c = toupper(c);
+            }
             result += c;
         } else {
             result += s[i];
         }
     }
-    return (result.find_first_not_of(" ") == string::npos) ? string(result.rbegin(), result.rend()) : result;
+    return (result.find_first_not_of(" ") == std::string::npos) ? std::string(result.rbegin(), result.rend()) : result;
 }
