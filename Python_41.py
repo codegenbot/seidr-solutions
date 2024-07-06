@@ -1,7 +1,4 @@
 ```
-from functools import reduce
-import operator
-
 def car_race_collision():
     while True:
         try:
@@ -16,7 +13,7 @@ def car_race_collision():
     for i in range(n):
         while True:
             try:
-                speed, damage = map(int, input(f"Enter speed and damage for car {i+1} (space-separated): ").split())
+                speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
                 break
             except ValueError:
                 print("Invalid input. Please enter two integers separated by a space.")
