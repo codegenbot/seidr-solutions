@@ -1,37 +1,22 @@
 ```
-vector<bool> issame(vector<string>, int);
-bool issameHelper(string, string);
+bool issame(const string& str1, const string& str2) {
+    return (str1.length() == str2.length());
+}
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (const auto& str : lst) {
-        if (issameHelper(str, "hello")) {
+        if (issame(str, "")) {
             result.push_back(str);
         }
     }
-    std::sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end(),
+              [](const string& a, const string& b) {
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
+                  } else {
+                      return a < b;
+                  }
+              });
     return result;
-}
-
-vector<bool> issame(vector<string> lst, int index) {
-    vector<bool> result(lst.size(), false);
-    for (int i = 0; i < lst.size(); ++i) {
-        if (issameHelper(lst[i], "hello")) {
-            result[i] = true;
-        }
-    }
-    return result;
-}
-
-bool issameHelper(string a, string b) {
-    if (a.length() != b.length()) {
-        return false;
-    } else {
-        for (int i = 0; i < a.length(); ++i) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
