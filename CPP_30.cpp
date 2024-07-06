@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && a == b;
+bool issame(float a, float b) {
+    return a == b;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
@@ -16,11 +17,6 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> v = {1, -2, 3};
-    assert(std::all_of(v.begin(), v.end(), [](float x) { return x > 0; }));
-    std::cout << "Only positive numbers are: ";
-    for (float num : get_positive(v)) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    std::vector<float> v = get_positive({1, -2, 3});
+    assert(v.size() == std::count_if(v.begin(), v.end(), [](float x){return x > 0;}); 
 }
