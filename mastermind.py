@@ -6,15 +6,12 @@ def mastermind():
     black = 0
 
     for c in guess:
-        if code.count(c) > 0:
-            if code.index(c) == 0:
-                black += 1
-                code.remove(c)
-            elif c == code[0]:
-                black += 1
-                code.remove(c)
-            else:
-                white += 1
-                code.remove(c)
+        if code.count(c) > 0 and code[0] == c:
+            black += 1
+            code.remove(c)
+        elif code.count(c) > 0:
+            white += 1
+            code[code.index(c)] = '#'
+            code.remove(c)
 
-    print(f"Black pegs: {black}, White pegs: {4 - (black + white)}")
+    print(f"Black pegs: {black}, White pegs: {4 - len(code)}")
