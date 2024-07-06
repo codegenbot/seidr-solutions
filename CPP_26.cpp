@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,14 +9,19 @@ bool sameVectors(const std::vector<int>& a, const std::vector<int>& b) {
         if(a[i] != b[i])
             return false;
     return true;
+}
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
-    
+
     for(int i : numbers) {
-        if(!sameVectors({i}, result)) {
-            result.push_back(i);
+        bool not_in = true;
+        for(int j : result) {
+            if(j == i)
+                not_in = false;
         }
+        if(not_in)
+            result.push_back(i);
     }
 
     return result;
