@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -20,6 +21,6 @@ bool correct_bracketing(string brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("<><><<><>><>>><>"));
+    assert(not correct_bracketing("<><><<><>><>>><>"));
     return 0;
 }
