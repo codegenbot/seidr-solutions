@@ -1,8 +1,25 @@
-
 def find_zero(xs: list):
-    if len(xs) % 2 == 1 or xs[-1] != 0:
-        return None
-    x = 0
-    for i in range(len(xs) // 2):
-        x += xs[i] * math.pow(-1, i) / (math.factorial(i) * math.factorial(len(xs) - i - 1))
-    return x
+    # Find the largest non-zero coefficient in xs
+    largest = 0
+    for i, coeff in enumerate(xs):
+        if abs(coeff) > abs(largest):
+            largest = coeff
+            index = i
+
+    # Check if the largest coefficient is positive or negative
+    sign = 1 if largest > 0 else -1
+
+    # Initialize the lower and upper bounds for the zero point
+    lo = 0
+    hi = 1
+
+    # Perform a bisection search to find the zero point
+    while abs(hi - lo) > 1e-6:
+        mid = (lo + hi) / 2
+        if sign * poly(xs, mid) < 0:
+            hi = mid
+        else:
+            lo = mid
+
+    # Return the zero point
+    return mid
