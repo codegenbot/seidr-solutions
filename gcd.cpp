@@ -6,11 +6,11 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
-    int lastFound = -1;
+    int prev = 0;
     for (int i = 0; i <= text.length() - target.length(); i++) {
         if (text.substr(i, target.length()) == target) {
-            result.push_back(i);
-            lastFound = i;
+            result.push_back(i + 1 - prev);
+            prev = i + 1;
         }
     }
     return result;
