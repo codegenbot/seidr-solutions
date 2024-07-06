@@ -1,7 +1,8 @@
-```
-def minPathSum(grid):
-    n = len(grid)
-    m = [[0 for _ in range(n)] for _ in range(n)]
+Here is the corrected code:
+
+```python
+def minPathSum(m):
+    n = len(m)
 
     def dfs(i, j, path):
         if i == n-1 and j == n-1:
@@ -13,7 +14,7 @@ def minPathSum(grid):
             for x, y in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                 ni2, nj2 = ni + x, nj + y
                 if 0 <= ni2 < n and 0 <= nj2 < n:
-                    new_path2 = new_path + [grid[ni2][nj2]]
+                    new_path2 = new_path + [m[ni2][nj2]]
                     if min_path is None or len(new_path2) < len(min_path):
                         min_path = new_path2
         return min_path
