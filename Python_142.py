@@ -1,5 +1,10 @@
+```
 def sum_squares(lst):
-    if not isinstance(lst, list) or len(lst) == 0:
-        return "Error: Input must be a non-empty list of integers."
-    
-    return sum(i**2 for i in lst)
+    total = 0
+    lst = list(map(int, input("Enter numbers separated by space: ").split()))
+    for i in range(len(lst)):
+        if i % 3 == 0 and i % 4 != 0:
+            total += lst[i] ** 2
+        elif i % 4 == 0 and i % 3 != 0:
+            total += lst[i] ** 3
+    return total
