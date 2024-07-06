@@ -1,11 +1,9 @@
-```#include <vector>
+````
+#include <vector>
 #include <algorithm>
 
-int main() {
-    std::vector<float> l;
-    // Read input from user
-    for (float num; std::cin >> num;) {
-        l.push_back(num);
-    }
-    return *std::max_element(l.begin(),l.end());
+float max_value(std::vector<float> l) {
+    std::vector<float> v = l;
+    return *std::max_element(v.begin(),v.end());
 }
+```
