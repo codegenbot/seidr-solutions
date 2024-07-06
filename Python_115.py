@@ -5,6 +5,9 @@ def max_fill(grid, capacity):
 if __name__ == "__main__":
     n = int(input("Enter number of rows: "))
     m = int(input("Enter number of columns: "))
-    grid = [[int(x) for x in input(f"Enter {m} values for row {i+1}: ").split() if x] for i in range(n)]
+    grid = []
+    for i in range(n):
+        row_values = input(f"Enter {m} values for row {i+1}: ").split()
+        grid.append([int(x) for x in row_values if x])
     capacity = int(input("Enter the capacity: "))
     print(max_fill(grid, capacity))

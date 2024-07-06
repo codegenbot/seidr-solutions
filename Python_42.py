@@ -26,7 +26,7 @@ def incr_list():
     cont = input("Do you want to continue? (y/n): ")
     while True:
         if cont.lower() == 'n':
-            return result
+            return sum(result)
         elif cont.lower() == 'y':
             return incr_list()
         else:
