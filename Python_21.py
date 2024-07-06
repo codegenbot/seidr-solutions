@@ -1,5 +1,4 @@
-```
-try:
+'''try:
     input_str = input("Enter space-separated or comma-separated numbers: ")
     if not input_str.strip():
         print("Error: No input provided")
@@ -16,4 +15,4 @@ try:
 
 except ValueError as e:
     print(f"Error: {e}")
-    exit(1)
+    exit(1)'''
