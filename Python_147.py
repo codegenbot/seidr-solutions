@@ -1,16 +1,13 @@
-
 def get_max_triples(n):
     primes = []
-    for i in range(2, n+1):
-        is_prime = True
-        for j in range(2, int(i**0.5) + 1):
-            if i % j == 0:
-                is_prime = False
-                break
-        if is_prime:
+    for i in range(2, n + 1):
+        if all(i % p != 0 for p in primes):
             primes.append(i)
-    dp = [0] * (n+1)
+
+    count = 0
     for prime in primes:
-        for i in range(len(dp)):
-            dp[i] += dp[i-prime]
-    return dp[-1]
+        for i in range(len(primes)):
+            for j in range(i + 1, len(primes)):
+                if prime + primes[i] + primes[j] % 3 == 0:
+                    count += 1
+    return count
