@@ -18,7 +18,6 @@ std::string encrypt(const std::string& s) {
 
 int main() {
     std::string inputStr;
-    std::cout << "Enter a string: ";
     std::getline(std::cin, inputStr);
     const std::string s = inputStr;
     std::istringstream in(s);  
