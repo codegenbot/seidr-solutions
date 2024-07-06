@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     result = True
     while '&' in expression:
@@ -10,6 +11,6 @@ def solve_boolean(expression):
                 start = i
                 break
         or_parts = expression[:start].split('|')
-        result &= all(part != 'F' for part in or_parts)
+        result &= all(p != 'F' for p in or_parts)
         expression = expression[end + 1:]
     return all(part != 'F' for part in expression.split('|'))
