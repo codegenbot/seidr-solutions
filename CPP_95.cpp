@@ -1,3 +1,4 @@
+```cpp
 #include <map>
 #include <string>
 #include <cctype>
