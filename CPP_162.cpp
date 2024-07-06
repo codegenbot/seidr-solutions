@@ -1,7 +1,7 @@
-#include <iostream>
 #include <string>
+#include <openssl/evp.h>
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
@@ -12,11 +12,10 @@ std::string string_to_md5(std::string text) {
     MD5_Update(&ctx, data, len);
     MD5_Final(md, &ctx);
 
-    std::string result;
+    string result;
     for (int i = 0; i < 16; ++i) {
         char buf[3];
         sprintf(buf, "%02x", md[i]);
         result += buf;
     }
     return result;
-}
