@@ -3,14 +3,14 @@
 #include <string>
 
 std::string int_to_mini_roman(int number) {
-    std::string result;
+    std::string mini_roman;
     for (const auto& pair : roman_map) {
         while (number >= pair.first) {
+            mini_roman += pair.second;
             number -= pair.first;
-            result += pair.second;
         }
     }
-    return result;
+    return mini_roman;
 }
 
 int main() {
