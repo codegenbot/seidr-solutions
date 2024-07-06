@@ -24,4 +24,4 @@ def decode_shift():
                 result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
         else:
             result += ch
-    return result
+    print(result)
