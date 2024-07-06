@@ -17,10 +17,8 @@ def has_close_elements() -> bool:
         else:
             print("Please enter a positive number for the threshold.")
 
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if abs(numbers[i] - numbers[j]) <= threshold:
-                return True
-    return False
+    found_close_elements = any(abs(numbers[i] - numbers[j]) <= threshold for i in range(len(numbers)) for j in range(i + 1, len(numbers)))
+
+    return bool(found_close_elements)
 
 print(has_close_elements())
