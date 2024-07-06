@@ -1,11 +1,20 @@
-
 def encode(message):
-    vowels = {...}
+    vowels = {
+        "a": "A",
+        "e": "E",
+        "i": "I",
+        "o": "O",
+        "u": "U",
+        "t": "T",  # add this line to include the letter "t" in the vowels dictionary
+        "I": "?",
+        " ": "",
+        "d": "",
+    }
     encoded_message = ""
     for char in message:
         if char.isalpha():
             if char.islower():
-                encoded_char = vowels.get(char, "?")
+                encoded_char = vowels[char]
             elif char.isupper() and char not in vowels:
                 encoded_char = char.lower()
         else:
