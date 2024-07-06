@@ -3,24 +3,20 @@ def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
     visited = set()
-    queue = [(0, 0)]
+    queue = deque([(0, 0)])
     path = []
 
     while queue:
-        # Pop the first element from the queue
-        i, j = queue.pop(0)
-
-        # Check if we have reached the end of the grid
-        if i == n - 1 and j == m - 1:
+        x, y = queue.popleft()
+        if (x, y) not in visited:
+            visited.add((x, y))
+            path.append(grid[x][y])
+            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                nx = x + dx
+                ny = y + dy
+                if 0 <= nx < n and 0 <= ny < m and (nx, ny) not in visited:
+                    queue.append((nx, ny))
+        if len(path) == k:
             break
 
-        # Add unvisited neighbors to the queue
-        for x, y in [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]:
-            if 0 <= x < n and 0 <= y < m and grid[x][y] not in visited:
-                queue.append((x, y))
-                visited.add(grid[x][y])
-
-    # Return the path
-    for i in range(k):
-        path.append(queue[i].pop())
     return path
