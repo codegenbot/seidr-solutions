@@ -1,4 +1,4 @@
-def solution(k, shortest_paths):
+def solve_task(input_data):
     return (
         min(
             [p for p in shortest_paths],
