@@ -1,24 +1,23 @@
-#include <string>
+#include <CryptoPP/MD5.h>
 #include <sstream>
 #include <iomanip>
-#include "cryptopp/sha.h"
-#include "cryptopp/hex.h"
 
 using namespace std;
 using namespace CryptoPP;
 
-string string_to_sha1(string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    SHA1 sha;
-    byte digest[SHA1::DIGEST_SIZE];
-    unsigned char* cstr = (unsigned char*)text.c_str();
-    sha.Calculate((const byte*)cstr, strlen(cstr), digest);
+    MD5 md;
+    byte digest[16];
+    md.Update((const byte*)text.c_str(), (int)text.length());
+    md.Final(digest);
 
-    string result;
-    for(int i = 0; i < SHA1::DIGEST_SIZE; i++) {
-        result += setfill('0') << setw(2) << hex << (int)digest[i];
-    }
+    stringstream ss;
+    HexEncoder encoder;
+    encoder.Attach(ss);
+    encoder.Put(digest, sizeof(digest));
+    encoder.MessageEnd();
 
-    return result;
+    return ss.str();
 }
