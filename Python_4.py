@@ -6,8 +6,7 @@ def main():
         try:
             user_input = input("Enter a list of numbers separated by space: ")
             numbers = [float(num) for num in user_input.split()]
-
-            # Check if all inputs can be converted to float
+            
             if any(not isinstance(n, (int, float)) for n in numbers):
                 print("Invalid input. Please enter some valid numbers.")
             elif len(numbers) < 2:
