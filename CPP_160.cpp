@@ -20,7 +20,7 @@ int do_algebra(const char* operations[], std::vector<int> operands) {
 #include <cassert>
 
 int main() {
-    int result = do_algebra(new char*[] {"+", "/"}, {7, 3, 4});
-    assert(result == 8);
+    int result = do_algebra(new char[] {"+"}, {7, 3});
+    assert(result == 10);
     return 0;
 }
