@@ -1,8 +1,4 @@
-```cpp
-#include<iostream>
-using namespace std;
-
-int solutions(vector<int> lst);
+#include <vector>
 
 int solutions(vector<int> lst) {
     int sum = 0;
@@ -12,17 +8,4 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> lst;
-    int n;
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        lst.push_back(x);
-    }
-    cout << solutions(lst);
 }
