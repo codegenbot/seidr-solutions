@@ -7,4 +7,4 @@ def max_fill(grid, capacity):
             if grid[i][j] == 1:
                 water += 1
     return int(math.ceil(water / capacity))
-import math
+```
