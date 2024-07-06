@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 
 bool is_multiply_prime(int a) {
