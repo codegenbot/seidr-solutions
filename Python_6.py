@@ -1,15 +1,19 @@
+```
+import re
+from typing import List
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in re.split(r'\(([^()]+)\)|\)', paren_string):
-        if not group:
+        if not group or group == '':
             continue
-        current_depth = 0
-        max_depth = 0
+        depth = 0
+        nested_depth = 0
         for char in group:
             if char == '(':
-                current_depth += 1
-                max_depth = max(max_depth, current_depth)
+                depth += 1
+                nested_depth = max(nested_depth, depth)
             elif char == ')':
-                current_depth -= 1
-        result.append(max_depth)
+                depth -= 1
+        result.append(nested_depth)
     return result
