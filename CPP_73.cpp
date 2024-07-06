@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,7 +17,6 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {0, 1};
-    assert(smallest_change(arr) == 1);
+    assert(smallest_change({0, 1}) == 1);
     return 0;
 }
