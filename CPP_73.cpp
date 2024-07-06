@@ -1,12 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include<vector>
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(std::vector<int> arr){
     int n = arr.size();
     std::string str = "";
     for(int i=0; i<n; i++){
-        str += to_string(arr[i]);
+        str += std::to_string(arr[i]);
     }
     
     int left = 0, right = n-1;
@@ -27,4 +25,9 @@ int smallest_change(std::vector<int> arr) {
         left++; right--;
     }
     return count;
+}
+
+int main() {
+    std::assert(smallest_change({0, 1}) == 1);
+    return 0;
 }
