@@ -1,4 +1,9 @@
-```
+```cpp
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+
 float mean(std::vector<float> numbers) {
     return std::accumulate(numbers.begin(), numbers.end(), 0.0f) / numbers.size();
 }
