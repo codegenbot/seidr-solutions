@@ -11,7 +11,7 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique_copy(letters.begin(), letters.end())) {
+    for (char c : unique_copy(letters.begin(), letters.end())) { // Use unique_copy
         int count = 0;
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
@@ -39,7 +39,7 @@ int main() {
     string test;
     cout << "Enter a string: ";
     getline(cin, test);
-
+    
     map<char, int> result = histogram(test);
 
     if (!result.empty()) {
