@@ -31,17 +31,17 @@ int main() {
     }
 
     string prefix;
-    std::cout<<"Enter the prefix: ";
-    std::cin>>prefix;
+    cout<<"Enter the prefix: ";
+    cin>>prefix;
 
     vector<string> filteredStrings = filter_by_prefix(strings, prefix);
 
     if(filteredStrings.size() > 0){
-        std::cout << "The list of strings that start with the given prefix are:" << std::endl;
+        cout << "The list of strings that start with the given prefix are:" << endl;
         for(auto str : filteredStrings)
-            std::cout << str << std::endl;
+            cout << str << endl;
     } else
-        std::cout<<"No string starts with the given prefix."<<std::endl;
+        cout<<"No string starts with the given prefix."<<endl;
 
     return 0;
 }
