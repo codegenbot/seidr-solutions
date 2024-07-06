@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s: str):
     if len(s) < 3:
         return s
