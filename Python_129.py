@@ -21,12 +21,18 @@ def minPath(grid, k):
                 if grid[x][y] == k:
                     min_path = [(i, j)] + queue
                     min_len = len(queue)
+                    break
 
                 # Add neighbors to the queue
                 for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                     nx, ny = x + dx, y + dy
                     if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
                         queue.append((nx, ny))
+
+            # If the current cell is the starting point, update the minimum path and its length
+            if grid[i][j] == 1:
+                min_path = [(i, j)] + queue
+                min_len = len(queue)
 
     # Return the minimum path
     return min_path
