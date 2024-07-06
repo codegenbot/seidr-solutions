@@ -12,8 +12,8 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (!value.type()->is_same_v<std::any::type<char>>()) {
-            if (value.has_value() && value.type()->is_same_v<int>()) {
-                result.push_back(std::any_cast<int>(value).get());
+            if (value.has_value()) {
+                result.push_back(value.get_as<int>());
             }
         }
     }
