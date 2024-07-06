@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 #include <cctype>
@@ -10,7 +9,7 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (const auto& pair : dict) {
+    for (auto& pair : dict) {
         std::string key = pair.first;
         if (!allLower && !allUpper) break;
         if (!allLower) allLower = std::islower(key[0]);
@@ -22,9 +21,5 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    return 0;
-}
-
-int mainTest() {
     return 0;
 }
