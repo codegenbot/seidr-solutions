@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <vector>
 
@@ -17,7 +18,8 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
             strongest = strength;
             strongest_extension = extension;
         } else if (strength == strongest) {
-            if (std::find(extensions.begin(), extensions.end(), extension) < std::find(extensions.begin(), extensions.end(), strongest_extension))
+            if (std::find(extensions.begin(), extensions.end(), extension) <
+                std::find(extensions.begin(), extensions.end(), strongest_extension))
                 strongest_extension = extension;
         }
     }
