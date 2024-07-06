@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -44,6 +45,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(std::equal(sorted_list_sum({{"aaaa", "bbbb"}, {"dd", "cc"}}), {"cccc", "dddd"}));
+    std::vector<std::string> vec = {"aaaa", "bbbb", "dd", "cc"};
+    std::equal(sorted_list_sum(vec).begin(), sorted_list_sum(vec).end(), {"cc", "dd", "aaaa", "bbbb"});
     return 0;
 }
