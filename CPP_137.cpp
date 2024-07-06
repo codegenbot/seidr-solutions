@@ -30,10 +30,20 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string str_b = boost::any_cast<std::string>(b);
         return str_a.size() > str_b.size() ? a : b;
     }
-    else if (a.convert_to(b) || 
-             a.type() == typeid(double) && a.convert_to(b) || 
-             a.type() == typeid(std::string) && a.convert_to(b)) {
-        return boost::any("None");
+    else if (boost::any_cast<int>(a) == boost::any_cast<int>(b)) {
+        return a;
     }
-    return a > b ? a : b;
+    else if ((int)boost::any_cast<double>(a) > (int)boost::any_cast<double>(b)) {
+        return a;
+    }
+    else if ((double)boost::any_cast<int>(a) > (double)boost::any_cast<int>(b)) {
+        return a;
+    }
+    else if ((double)boost::any_cast<std::string>(a).size() > (double)boost::any_cast<std::string>(b).size()) {
+        return a;
+    }
+    else if ((int)boost::any_cast<std::string>(a).size() > (int)boost::any_cast<std::string>(b).size()) {
+        return a;
+    }
+    return boost::any("None");
 }
