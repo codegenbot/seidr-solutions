@@ -3,7 +3,7 @@ def decode_cyclic(s):
         return "Invalid input. Please provide a string."
     s += s[-2:]
     if len(s) % 3 != 0:
-        pass
+        s = s[:-(len(s) % 3)]
     result = ""
     i = 0
     while i < len(s):
