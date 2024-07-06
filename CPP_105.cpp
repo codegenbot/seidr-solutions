@@ -1,50 +1,18 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
-    vector<string> result;
-    for (int i = 0; i < a; ++i) {
-        string str;
-        switch (b) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
-        }
-        result.push_back(str);
+    if (a >= 1 && a <= 9 && b >= 1 && b <= 9) {
+        return true;
     }
-    return result;
+    return false;
 }
 
 vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
-        if (num >= 1 && num <= 9) {
+        if (issame(num, 0)) {
             numbers.push_back(num);
         }
     }
