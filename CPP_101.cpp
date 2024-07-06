@@ -1,7 +1,6 @@
-```
+#include <iostream>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
@@ -30,27 +29,28 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
             result.push_back(temp);
         }
     }
-}
+    return result;
 
 int main() {
     std::string str;
-    std::vector<std::string> expect;
+    std::vector<std::string> exp;
+    
     std::cout << "Enter a string: ";
     std::cin >> str;
-    std::cout << "Enter expected words (comma-separated): ";
-    std::getline(std::cin, str);
-    size_t start = 0;
-    for (size_t i = 0; i < str.size(); i++) {
-        if (str[i] == ',') {
-            expect.push_back(str.substr(start, i - start));
-            start = i + 1;
-        }
-    }
-    expect.push_back(str.substr(start));
     
-    std::cout << "Words in string: ";
-    for (const auto &word : words_string(str, expect)) {
-        std::cout << word << " ";
+    std::cout << "Enter expected words (space separated): ";
+    std::cin >> str;
+    exp = {str.begin(), str.end()};
+    
+    std::vector<std::string> result = words_string(str, exp);
+    
+    if (!result.empty()) {
+        for (const auto& word : result) {
+            std::cout << word << std::endl;
+        }
+    } else {
+        std::cout << "No matching words found." << std::endl;
     }
-    std::cout << "\n";
+    
+    return 0;
 }
