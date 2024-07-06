@@ -25,11 +25,3 @@ string anti_shuffle(string s) {
         }
     }
     return result;
-
-int main(){
-    string input;
-    cout << "Enter a sentence: ";
-    getline(cin, input);
-    cout << anti_shuffle(input) << endl;
-    return 0;
-}
