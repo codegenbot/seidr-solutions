@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -10,7 +9,6 @@ int add_elements(std::vector<int> arr, int k) {
         }
     }
     return sum;
-
 }
 
 int main() {
