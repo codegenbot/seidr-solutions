@@ -1,2 +1,3 @@
+```
 def solve(N):
-    return format(int(bin(N).lstrip("0"), 2), "b")
+    return str(bin(N)).count('1')
