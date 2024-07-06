@@ -1,8 +1,8 @@
 #include <algorithm>
-#include <string>
+#include <assert.h>
 using namespace std;
 
-std::string anti_shuffle(std::string s) {
+int anti_shuffle(string s) {
     string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == ' ') {
@@ -14,16 +14,11 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
+                if (c >= 'a' && c <= 'z') {
+                    c = ('A' + (c - 'a'));
+                }
                 result += to_string(c);
-            }
         }
     }
-    return result;
-}
-
-int main() {
-    std::string input = "Hi. My name is Mister Robot. How are you?";
-    string output = anti_shuffle(input);
-    cout << output << endl;
     return 0;
 }
