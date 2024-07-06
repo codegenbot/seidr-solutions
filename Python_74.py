@@ -3,7 +3,7 @@ def total_match(lst1, lst2):
         [
             lst
             for lst in (lst1, lst2)
-            if sum(len(s) for s in lst) <= sum(len(s) for s in other)
+            if sum(len(s) for s in lst) <= sum(len(s) for s in lst2) 
         ]
         or [lst1],
         key=lambda x: sum(len(s) for s in x),
