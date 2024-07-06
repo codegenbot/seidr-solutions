@@ -1,17 +1,12 @@
-#include<stdexcept>
-using namespace std;
-
 bool will_it_fly(vector<int> q, int w) {
-    vector<int> v(q);
-    sort(v.begin(), v.end());
-    reverse(v.begin(), v.end());
-    
+    string str = "";
+    for (int x : q) {
+        str += to_string(x);
+    }
+    if (str != reverse(str).s) return false;
     int sum = 0;
-    for (int i : q)
-        sum += i;
-    
-    if(sum > w || v != q)
-        return false;
-    
-    return true;
+    for (int x : q) {
+        sum += x;
+    }
+    return sum <= w;
 }
