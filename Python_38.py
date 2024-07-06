@@ -1,3 +1,4 @@
+
 def decode_cyclic(input_str):
     try:
         groups = [input_str[(3 * i) : min((3 * i + 3), len(input_str))] for i in range((len(input_str) + 2) // 3)]
