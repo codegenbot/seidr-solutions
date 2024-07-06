@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <initializer_list>
@@ -29,4 +28,3 @@ int main() {
         std::cout << "The balance never went below zero.\n";
     
     return 0;
-}
