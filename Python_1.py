@@ -1,3 +1,6 @@
+from itertools import chain
+
+
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     stack = []
