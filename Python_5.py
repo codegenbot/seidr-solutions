@@ -1,5 +1,13 @@
 ```
 def intersperse(numbers: list[int], delimiter: int) -> list[int]:
+    if not isinstance(numbers, list):
+        raise ValueError("Input 'numbers' must be a list")
+    if not all(isinstance(num, int) for num in numbers):
+        raise ValueError("All elements in the list 'numbers' must be integers")
+
+    if not isinstance(delimiter, int):
+        raise ValueError("Input 'delimiter' must be an integer")
+
     result = [numbers[0]]
     for i in range(1, len(numbers)):
         result.extend([result[-1], delimiter, numbers[i]])
