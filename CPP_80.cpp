@@ -1,15 +1,18 @@
-bool is_happy(string s){
-    int n = s.size();
-    if(n < 3) return false; // string length less than 3 is not happy
-    for(int i=0; i<=n-3; i++){
-        bool unique = true;
-        for(int j=i; j<i+3; j++){
-            if(s[j] == s[(j+1)%3]) {
-                unique = false;
+#include <string>
+using namespace std;
+
+bool is_happy(string s) {
+    if (s.length() < 3) return false;
+    for (int i = 0; i < s.length() - 2; i++) {
+        string three_chars = s.substr(i, 3);
+        bool duplicate_found = false;
+        for (int j = i + 1; j <= i + 2; j++) {
+            if (s[j] == three_chars[0] || s[j] == three_chars[1] || s[j] == three_chars[2]) {
+                duplicate_found = true;
                 break;
             }
         }
-        if(unique) return true;
+        if (!duplicate_found) return false;
     }
-    return false;
+    return true;
 }
