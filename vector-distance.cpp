@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+using namespace std;
 
 double vectorDistance(int n) {
     double x1[n], x2[n];
