@@ -1,8 +1,16 @@
-```cpp
 #include <vector>
+#include <algorithm>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size()!=b.size())
+        return false;
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    return a==b;
+}
+
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             pile.push_back(i * 2 - 1);
@@ -11,4 +19,8 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    assert(issame(make_a_pile(8), {1, 2, 3, 4, 5, 6, 7, 8}));
 }
