@@ -3,7 +3,7 @@
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any<a>(b)) {
+    if (is_any_of<a>(numeric()) && is_any_of<b>(numeric())) {
         double da = get<double>(a);
         double db = get<double>(b);
 
