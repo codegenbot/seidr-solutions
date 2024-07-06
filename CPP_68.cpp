@@ -23,26 +23,12 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input;
-    // input your array here
-    int n;
-    std::cout << "Enter the size of the array: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int val;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        input.push_back(val);
+    std::vector<int> numbers = {2, 4, 6, 8};
+    std::vector<int> output = pluck(numbers);
+
+    for (int num : output) {
+        std::cout << num << " ";
     }
     
-    std::vector<int> output = pluck(input);
-
-    if (output.size() > 0) {
-        std::cout << "The minimum even value is: " << output[0] << std::endl;
-        std::cout << "Its index is: " << output[1] << std::endl;
-    } else {
-        std::cout << "No even values found." << std::endl;
-    }
-
     return 0;
 }
