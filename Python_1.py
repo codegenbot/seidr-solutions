@@ -16,4 +16,6 @@ for char in paren_string:
                 group = ""
     else:
         group += char
+if stack:
+    result.append(group)
 print(result)
