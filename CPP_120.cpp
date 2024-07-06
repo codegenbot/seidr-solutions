@@ -10,6 +10,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
-        arr.erase(it - arr.begin());
+        arr.erase(it);
     }
     return result;
