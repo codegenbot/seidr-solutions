@@ -1,4 +1,11 @@
+def decode_shift(s):
+    return "".join([chr((ord(ch) - 5 - ord("a")) % 26 + ord("a")) for ch in s])
 
-def decode_shift(s: str) -> str:
-    shift = int(input("Enter shift amount: "))
-    return "".join([chr((ord(ch) - shift - ord("a")) % 26 + ord("a")) for ch in s])
+
+# Read user input
+input_string = input()
+
+# Call the decode_shift function with the user input
+decoded_string = decode_shift(input_string)
+
+print(decoded_string)
