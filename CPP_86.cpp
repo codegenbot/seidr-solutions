@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,13 +17,19 @@ vector<string> split(const string& str, const string& delimiter) {
 }
 
 string anti_shuffle(string s){
-    if(s.empty())
-        return "";
     string result = "";
-    for (const auto& word : split(s, " ")) {
-        result += string(word.begin(), word.end()) + " ";
+    if (s.empty()) {
+        return result;
+    } else {
+        for (const auto& word : split(s, " ")) {
+            result += std::string(word.begin(), word.end()) + " ";
+        }
     }
-    return result.substr(0, result.size() - 1);
+    // remove trailing space
+    if (!result.empty()) {
+        result.pop_back();
+    }
+    return result;
 }
 
 int main() {
@@ -30,6 +37,10 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, s);
 
-    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    if (s.empty()) {
+        cout << "Anti-Shuffle of input sentence is: " << "" << endl;
+    } else {
+        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    }
     return 0;
 }

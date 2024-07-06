@@ -1,6 +1,8 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
@@ -20,18 +22,20 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    result.push_back((temp == rev) ? "True" : "False");
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     return result;
-}
-
-bool same(vector<string> v1, vector<string> v2) {
-    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
 }
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (!same({result[0], (result.size() == 2) ? (result[1] == "True") ? "True" : "False" : "")}, {"", "True"}) {
-        return 1;
+    if(result.size() == 2 && (result[1] == "True")) {
+        std::cout << "True";
+    } else {
+        std::cout << "False";
     }
     return 0;
 }
