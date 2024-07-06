@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
 using namespace std;
 
 string match_parens(vector<string> lst) {
@@ -13,5 +8,5 @@ string match_parens(vector<string> lst) {
             else close++;
         }
     }
-    return to_string(open == close) == "1" ? "Yes" : "No";
+    return (open == close) ? "Yes" : "No";
 }
