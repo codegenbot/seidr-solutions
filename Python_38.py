@@ -1,14 +1,14 @@
 ```
 def decode_cyclic(s: str):
+    if not s or len(s) < 3: 
+        return s
     result = []
     temp = ""
-    if not s or len(s) < 3:
-        return s
     for char in s:
         temp += char
-        if len(temp) == 1:
+        if len(temp) == 1: 
             temp = temp + temp
-        elif len(temp) >= 3:
+        if len(temp) >= 3:
             if len(result) > 0 and result[-1] == temp[1]:
                 temp = temp[2:] + temp[:2]
             result.append(temp)
