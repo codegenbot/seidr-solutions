@@ -1,14 +1,14 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
-        return false;
+        throw std::runtime_error("Vectors are not the same size");
     }
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
-            return false;
+            throw std::runtime_error("Vectors are not the same");
         }
     }
     return true;
@@ -21,15 +21,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
             result.push_back(str);
     }
     return result;
+}
 
 int main() {
-    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    string prefix = "xxx";
-    vector<string> expected_result = {"xxx", "xxxAAA", "xxx"};
-    
-    vector<string> actual_result = filter_by_prefix(strings, prefix);
-    
-    assert(issame(actual_result, expected_result));
-    
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }

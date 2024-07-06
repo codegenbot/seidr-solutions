@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -12,7 +11,7 @@ bool compare(const std::vector<int>& v1, const std::vector<int>& v2) {
 std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (!value.type()->is_same_v<std::any::type<char>>()) {
+        if (!value.type()->is_same_v<std::any::type<char>>() && !value.type()->is_same_v<std::any::type<double>>() && !value.type()->is_same_v<std::any::type<std::string>>()) {
             if (value.has_value() && value.type()->is_same_v<int>()) {
                 result.push_back(std::any_cast<int>(value).get());
             }
@@ -25,8 +24,6 @@ int main() {
     std::vector<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     std::vector<int> output = filter_integers(values);
     for (const auto& num : output) {
-        if (std::is_integer(std::any_cast<int>(num).get()).name() == "int") {
-            std::cout << num << "\n";
-        }
+        std::cout << num << "\n";
     }
 }
