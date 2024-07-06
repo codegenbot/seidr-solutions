@@ -1,9 +1,11 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // None in Python
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    for(int i=0; i<sorted_lst.size()-1; i++){
-        if(sorted_lst[i] != sorted_lst[i+1]) return sorted_lst[i+1];
+int next_smallest(vector<int> lst) {
+    if(lst.size() < 2) return -1;
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    for(int i = 0; i < copy.size(); i++) {
+        if(i == 0 || copy[i] != copy[i-1]) {
+            if(i+1 >= copy.size() || copy[i] != copy[i+1]) return copy[i];
+        }
     }
-    return -1; // None in Python
+    return -1;
 }
