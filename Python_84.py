@@ -13,9 +13,7 @@ def main():
         solve = oct(int(N, 2))[2:]
     else:
         print("Invalid choice. Please choose (1) or (2).")
-    check(solve)
-
-def check(s):
-    pass
-
-main()
+    if choice == 1:
+        print(solve)
+    elif choice == 2:
+        print(solve)
