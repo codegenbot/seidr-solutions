@@ -1,15 +1,22 @@
-```
 #include <vector>
 #include <string>
 
-bool operator==(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> separate_groups(std::string paren_string) {
-    std::vector<std::string> result;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     int open_count = 0;
-    std::string current_group;
+    string current_group;
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -28,7 +35,19 @@ std::vector<std::string> separate_groups(std::string paren_string) {
     return result;
 }
 
-int separate_groups_main() {
-    assert(separate_groups("( ) (( )) (( )( ") == std::vector<std::string>({{"()", "()", "()"}}));
+int main() {
+    vector<vector<string>> test_cases = {{{"", "()"}, {"()"}}};
+    for (auto& case_: test_cases) {
+        string actual = "";
+        for (const auto& paren_string : case_) {
+            actual += "(" + separate_paren_groups(paren_string).at(0) + ")";
+        }
+        cout << "Expected: ";
+        for (const auto& expected_group : case_[1]) {
+            cout << "(" + expected_group + ")"; 
+        } 
+        cout << endl;
+        cout << "Actual: " << actual << endl;
+    }
     return 0;
 }
