@@ -1,3 +1,4 @@
+```
 def simplify(x, n):
     def gcd(a, b):
         while b:
