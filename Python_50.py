@@ -1,12 +1,9 @@
 def decode_shift():
-    while True:
-        shift = input("Enter 'encode' or 'decode': ")
-        if shift == "encode" or shift == "decode":
-            break
-        else:
-            print("Invalid input. Please enter 'encode' or 'decode'.")
-
-    s = input("Enter the string: ")
+    shift = input("Enter 'encode' or 'decode': ")
+    if shift == "encode" or shift == "decode":
+        s = input("Enter the string: ")
+    else:
+        raise Exception("Invalid input. Please enter 'encode' or 'decode'.")
 
     if shift == "encode":
         return "".join(
