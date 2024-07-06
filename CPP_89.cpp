@@ -1,6 +1,17 @@
+```cpp
 #include <iostream>
 #include <sstream>
-#include <string>
+
+std::string encrypt(std::istringstream s);
+
+int main() {
+    std::string inputStr;
+    std::getline(std::cin, inputStr);
+    std::istringstream in(inputStr);  
+
+    std::string encrypted = encrypt(in);
+    std::cout << "Encrypted: " << encrypted << std::endl;
+}
 
 std::string encrypt(std::istringstream s) {
     std::string result = "";  
@@ -14,13 +25,4 @@ std::string encrypt(std::istringstream s) {
         result += c;  
     }
     return result;
-}
-
-int main() {
-    std::string inputStr;
-    std::getline(std::cin, inputStr);
-    std::istringstream in(inputStr);  
-
-    std::string encrypted = encrypt(in);
-    std::cout << "Encrypted: " << encrypted << std::endl;
 }
