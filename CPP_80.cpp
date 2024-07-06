@@ -1,19 +1,15 @@
 bool is_happy(string s){
-    if(s.length() < 3)
-        return false;
-
-    for(int i = 0; i <= s.length() - 3; i++){
-        string three_chars = s.substr(i, 3);
+    int n = s.size();
+    if(n < 3) return false; // string length less than 3 is not happy
+    for(int i=0; i<=n-3; i++){
         bool unique = true;
-        for(char c : three_chars){
-            if(find(three_chars.begin(), three_chars.end(), c) != three_chars.end()){
+        for(int j=i; j<i+3; j++){
+            if(s[j] == s[(j+1)%3]) {
                 unique = false;
                 break;
             }
         }
-        if(unique)
-            return true;
+        if(unique) return true;
     }
-
     return false;
 }
