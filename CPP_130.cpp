@@ -1,13 +1,12 @@
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
 vector<int> tri(int n) {
-    vector<int> result(1);
+    vector<int> result(1, 3);
     if (n > 0) {
-        result.push_back(3);
-        for (int i = 2; i <= n; ++i) {
-            int val;
-            if (i % 2 == 0)
-                val = 1 + i / 2;
-            else
-                val = result[i-1] + result[i-2] + result[i+1];
+        for (int i = 1; i <= n - 1; i++) {
+            int val = (i % 2 == 0) ? 1 + i / 2 : result[i-1] + result[i-2] + (i+1);
             result.push_back(val);
         }
     }
