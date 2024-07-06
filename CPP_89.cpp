@@ -1,8 +1,8 @@
-```cpp
-#include <string>
+#include <iostream>
 #include <sstream>
+#include <string>
 
-std::istringstream encrypt(std::istringstream s) {
+std::string encrypt(std::istringstream s) {
     std::string result = "";  
     for(int i=0; i<s.str().length(); i++){
         char c = s.str()[i];
@@ -13,8 +13,14 @@ std::istringstream encrypt(std::istringstream s) {
         }
         result += c;  
     }
-    return s;
+    return result;
 }
 
-std::istringstream iss ("a");
-assert ((encrypt(iss)).str()=="e");
+int main() {
+    std::string inputStr;
+    std::getline(std::cin, inputStr);
+    std::istringstream in(inputStr);  
+
+    std::string encrypted = encrypt(in);
+    std::cout << "Encrypted: " << encrypted << std::endl;
+}

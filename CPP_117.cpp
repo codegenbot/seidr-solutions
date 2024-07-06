@@ -1,45 +1,19 @@
-```
-bool same(string a, string b) {
-    if (a.length() != b.length()) {
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+bool issame(char ch1, char ch2) {
+    if (isalpha(ch1) && isalpha(ch2)) {
+        return tolower(ch1) == tolower(ch2);
+    } else {
         return false;
     }
-    for (int i = 0; i < a.length(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-
-    for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) { 
-            bool has_n_consonants = false;
-            int consonant_count = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
-                    consonant_count++;
-                    if (consonant_count == n) {
-                        has_n_consonants = true;
-                        break;
-                    }
-                }
-            }
-            if (has_n_consonants) {
-                result.push_back(word);
-            }
-            word = ""; 
-        }
-    }
-    for (int i = 0; i < result.size() - 1; i++) {
-        if (!same(result[i], result[i+1])) {
-            return vector<string>();
-        }
-    }
-    return result;
+int main() {
+    return 0;
 }
