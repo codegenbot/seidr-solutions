@@ -1,2 +1,3 @@
 def find_zero(xs: list):
-    # your code here
+    # Implement your solution here
+    pass
