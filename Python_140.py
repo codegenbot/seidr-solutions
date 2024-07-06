@@ -1,2 +1,4 @@
+```
 def fix_spaces(text):
-    return text.replace(" ", "_")
+    text = text.strip().replace("  ", " ")
+    return text.replace(" ", "_").replace("--", "-")
