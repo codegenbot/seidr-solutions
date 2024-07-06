@@ -1,21 +1,5 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<int> count_up_to(int n) {
-    std::vector<int> primes;
+vector<int> count_up_to(int n) {
+    vector<int> primes;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
         if(i == 2)
@@ -33,17 +17,4 @@ std::vector<int> count_up_to(int n) {
         }
     }
     return primes;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    
-    std::vector<int> primes = count_up_to(n);
-
-    for(int i=0; i<primes.size();i++){
-        std::cout<<primes[i]<<" ";
-    }
-    return 0;
 }
