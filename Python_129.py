@@ -9,7 +9,7 @@ def minPath(grid, k):
     # Check if the length of the path is greater than the number of elements in the grid
     if k > n * m:
         raise ValueError(
-            "The length of the path is greater than the number of elements in the grid."
+            "Path length cannot be greater than the number of elements in the grid"
         )
 
     # Enqueue the first cell
