@@ -4,7 +4,7 @@ def prime_fib(n):
     while len(fib) <= n:
         fib.append(fib[i - 1] + fib[i - 2])
         i += 1
-    if not is_prime(fib[n]):
-        return -1
-    else:
+    if is_prime(fib[n]):
         return fib[n]
+    else:
+        return -1
