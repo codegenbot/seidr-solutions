@@ -1,11 +1,4 @@
-```
-def sum_squares():
-    lst = input("Enter a list of numbers separated by space: ").split()
-    try:
-        lst = [int(num) for num in lst]
-    except ValueError:
-        raise ValueError("Invalid input. Please enter only integers.")
-    
+def sum_squares(lst):
     if not isinstance(lst, list) or len(lst) == 0:
         raise ValueError("Input must be a non-empty list")
     
