@@ -1,3 +1,2 @@
-```
 def solve(N):
-    return bin(N)[2:]
+    return bin(int(bin(N)[2:], 2))[2:]

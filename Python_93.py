@@ -3,8 +3,8 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in 'aeiou':
-                char_code = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'y'}[char.lower()]
-                result += char_code.upper() if char.isupper() else char_code
+                vowels = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'y'}
+                result += vowels.get(char.lower(), char.swapcase())
             else:
                 result += char.swapcase()
         else:
