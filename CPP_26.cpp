@@ -21,6 +21,6 @@ std::vector<int> removeDuplicates(std::vector<int> numbers) {
     return std::vector<int>(result.begin(), result.end());
 }
 
-void testMain() {
+int testMain() {
     assert(isSame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
 }
