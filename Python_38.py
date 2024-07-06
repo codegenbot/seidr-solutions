@@ -1,12 +1,8 @@
-def decode_cyclic(s):
-    while True:
-        s = input("Enter a string: ").rstrip()
-        if len(s) % 3 != 0:
-            print("Please enter a string that is divisible by 3.")
-        else:
-            break
-    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
-    decoded_groups = [
-        (group[1:] + group[0]) if len(group) == 3 else group for group in groups
-    ]
-    return "".join(decoded_groups)
+# Read input from user
+if __name__ == "__main__":
+    string = input("Enter a string: ", "") or "Invalid input"
+    try:
+        decoded_string = decode_cyclic(string)
+        print(decoded_string)
+    except ValueError as e:
+        print("Invalid input")
