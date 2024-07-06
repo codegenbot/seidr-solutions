@@ -1,7 +1,8 @@
+
 def mastermind(code, guess):
-    # Check if code and guess contain only digits '0' through '5'
-    if not (all(ch in "012345" for ch in code) and all(ch in "012345" for ch in guess)):
-        return "Invalid input! Please enter a 4-character string consisting only of the characters '0', '1', '2', '3', '4', and '5'."
+    # Convert input to 4-character string consisting of only '0', '1', '2', '3', '4', and '5'
+    code = re.sub(r"[^0-5]", "", code)
+    guess = re.sub(r"[^0-5]", "", guess)
 
     # Initialize variables to keep track of white and black pegs
     white_pegs = 0
