@@ -4,10 +4,11 @@ while True:
     user_input = input(f"Enter string {i+1} (or 'stop' to finish): ")
     if user_input.lower() == 'stop':
         break
-    elif len(user_input) > 0 and strings:
+    elif len(user_input.strip()) > 0 and strings:
         print(strings)
-    elif len(user_input) > 0:
+        strings = [] 
+    elif len(user_input.strip()) > 0:
         strings.append(user_input)
     else:
         print("Please enter a non-empty string.")
-        i += 1
+    i += 1
