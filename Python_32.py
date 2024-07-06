@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -13,8 +12,11 @@ print("Enter 'a': ")
 a = float(input())
 
 while True:
-    print("Enter non-zero values for 'b' and 'c': ")
+    print("Enter 'a': ")
+    a = float(input())
+    print("Enter 'b': ")
     b = float(input())
+    print("Enter 'c': ")
     c = float(input())
 
     if b**2 - 4 * a * c >= 0:
