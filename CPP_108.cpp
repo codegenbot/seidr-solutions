@@ -1,5 +1,4 @@
 #include <vector>
-#include <assert.h>
 
 int count_nums(std::vector<int> n) {
     int count = 0;
