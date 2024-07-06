@@ -1,9 +1,9 @@
 
 def histogram(test):
-    count = {}
+    counts = {}
     for char in test:
-        if char in count:
-            count[char] += 1
+        if char not in counts:
+            counts[char] = 1
         else:
-            count[char] = 1
-    return {char: count for char, _ in count.items() if count[char] == max(count.values())}
+            counts[char] += 1
+    return {char: count for char, count in counts.items() if count == max(counts.values())}
