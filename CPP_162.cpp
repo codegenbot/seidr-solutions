@@ -1,7 +1,4 @@
-```cpp
-#include "C:/Users/user1/Desktop/Crypto++-8.6.5-win32-msvc2017/CryptoPP/MD5.h"
-#include <string>
-
+#include "C:/path/to/Crypto++-8.6.5/CryptoPP/MD5.h"
 using namespace std;
 using namespace CryptoPP;
 
