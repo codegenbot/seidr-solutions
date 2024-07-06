@@ -8,13 +8,12 @@ def parse_music(music_string: str) -> List[int]:
     i = 0
     while i < len(music_string):
         if music_string[i] == '.':
+            result.append(beats_per_note['o'])
             i += 3
         else:
             note = ''
-            while i < len(music_string) and (music_string[i].isalnum() or music_string[i] in '.|'):
-                if music_string[i] in '.|':
-                    break
+            while i < len(music_string) and music_string[i].isalnum():
                 note += music_string[i]
                 i += 1
-            result.append(beats_per_note.get(note, 4))
+            result.append(beats_per_note[note])
     return result
