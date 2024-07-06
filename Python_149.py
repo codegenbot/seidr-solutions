@@ -6,6 +6,6 @@ def sorted_list_sum(lst):
 text = input().replace("\n", " ").strip()
 words = text.split() if text else []
 if words:
-    print(sorted_list_sum(words))
+    print(sum([int("".join(filter(str.isdigit, word))) for word in sorted([word for word in words if word.isdigit()])]))
 else:
     print('No valid input found')
