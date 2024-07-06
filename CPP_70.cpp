@@ -1,10 +1,17 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(int a, int b) {
+    if (a > b)
+        return true;
+    else
+        return false;
+}
+
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
     for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] > lst[i + 1]) {
+        if (!issame(lst[i], lst[i + 1])) {
             int temp = lst[i];
             lst[i] = lst[i + 1];
             lst[i + 1] = temp;

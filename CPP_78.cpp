@@ -1,13 +1,9 @@
-```cpp
-#include <string>
-using namespace std;
-
 int hex_key(std::string num) {
+    #include <string>
     int count = 0;
     for (char c : num) {
-        if (!std::isdigit(c) && !isxdigit(c)) { 
-            return -1; 
+        if (!std::isdigit(c) && !std::ispunct(c) && !std::isxdigit(c)) { 
+            count++;
         }
     }
-    return count + 1; 
-}
+    return count;

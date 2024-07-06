@@ -1,18 +1,5 @@
-#include <iostream>
-#include <string>
-
-std::string encrypt(std::string s);
-
-int main() {
-    assert(encrypt("a") == "e");
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    std::cout << "The encrypted string is: " << encrypt(s) << std::endl;
-}
-
-std::string encrypt(std::string s) {
-    std::string result = "";
+string encrypt(string s){
+    string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'z'){
@@ -23,3 +10,4 @@ std::string encrypt(std::string s) {
         result += c;
     }
     return result;
+}
