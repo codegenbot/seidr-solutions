@@ -1,10 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-
-bool issame(std::vector<std::string> a) {
-    return true;
-}
 
 bool bf(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
@@ -14,20 +9,36 @@ bool bf(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> code(const std::string& s1, const std::string& s2) {
-    std::vector<std::string> res;
-    for (char c : s1 + s2) {
-        if (c >= 'A' && c <= 'H') {
-            res.push_back(std::to_string((c - 'A' + 1)));
-        } else {
-            res.push_back(std::string(1, c));
+int code(const std::string& str1, const std::string& str2) {
+    std::vector<std::string> result;
+    for (char c : str1) {
+        bool found = false;
+        for (const auto& s : result) {
+            if (s.find(c) != std::string::npos) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push_back(std::string(1, c));
         }
     }
-    return res;
+    for (char c : str2) {
+        bool found = false;
+        for (const auto& s : result) {
+            if (s.find(c) != std::string::npos) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            return 0; // strings are not "bf" to each other
+        }
+    }
+    return 1; // strings are "bf" to each other
 }
 
 int main() {
-    std::vector<std::string> s = code("Jupiter", "Makemake");
-    assert(bf(s, {}) == std::vector<std::string>({}));
-    std::cout << "Output: " << bf(s, {}) << std::endl;
+    std::cout << "Output: " << code("Jupiter", "Makemake") << std::endl;
+    assert(code("Jupiter", "Makemake") == 0);
 }
