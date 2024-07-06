@@ -34,4 +34,3 @@ int main() {
         cout << "Second is greater" << endl;
 
     return 0;
-}
