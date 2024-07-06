@@ -1,21 +1,34 @@
+Here is the solution:
+
 int count_nums(vector<int> v) {
     int count = 0;
     for (int num : v) {
-        bool has_positive_sum = false;
-        if (num < 0) {
-            num = -num;
-        }
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit != 0) {
-                has_positive_sum = true;
-                break;
+        bool hasPositiveSumOfDigits = false;
+        if (num >= 0) {
+            int sumOfDigits = 0;
+            int n = num;
+            while (n > 0) {
+                int digit = n % 10;
+                sumOfDigits += digit;
+                n /= 10;
             }
-            num /= 10;
+            hasPositiveSumOfDigits = sumOfDigits > 0;
+        } else if (num < 0) {
+            num = -num;
+            int sumOfDigits = 0;
+            int n = num;
+            bool isNegative = true;
+            while (n > 0) {
+                int digit = n % 10;
+                if (isNegative && digit != 0) {
+                    hasPositiveSumOfDigits = true;
+                    break;
+                }
+                sumOfDigits += digit;
+                n /= 10;
+                isNegative = false;
+            }
         }
-        if (has_positive_sum) {
-            count++;
-        }
+        if (hasPositiveSumOfDigits) count++;
     }
     return count;
-}
