@@ -1,4 +1,3 @@
-```
 def max_fill(grid, capacity):
     total_amount = 0
     left = [c for r in grid for c in r]
