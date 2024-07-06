@@ -1,5 +1,3 @@
-```cpp
-#include <map>
 #include <string>
 
 string int_to_mini_roman(int number) {
