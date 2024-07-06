@@ -1,4 +1,3 @@
-```
 def filter_by_substring(strings, substring):
     return [s for s in strings if substring in s]
 
@@ -11,5 +10,5 @@ if __name__ == "__main__":
             substring = input("Enter a substring to search: ")
             if not substring:
                 break
-            result = [s for s in strings if substring in s]
+            result = filter_by_substring(strings, substring)
             print(result)
