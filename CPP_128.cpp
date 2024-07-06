@@ -1,11 +1,22 @@
+#include <vector>
+
+using namespace std;
+
 int prod_signs(vector<int> arr) {
-    if (arr.empty()) return -32768;
     int sign_product = 1;
-    long long sum_magnitude = 0;
+    long long sum = 0;
+
     for (int num : arr) {
-        if (num == 0) continue;
+        if (num == 0) {
+            return 0; // If zero is found, return 0
+        }
         sign_product *= (num > 0 ? 1 : -1);
-        sum_magnitude += abs(num);
+        sum += abs(num);
     }
-    return sum_magnitude * sign_product;
+
+    if (arr.empty()) {
+        return -32768;
+    }
+
+    return sign_product * sum;
 }
