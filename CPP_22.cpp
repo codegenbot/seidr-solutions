@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <list>
@@ -29,7 +30,7 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 int main() {
     std::list<boost::any> values = {{1}, {2}, {-3}, {4}};
     std::vector<int> output = filter_integers(values);
-    if (issame({1, 2, 4}, output)) {
+    if (issame(std::vector<int>({1, 2, 4}), output)) {
         std::cout << "Success!";
     } else {
         std::cout << "Failure!";
