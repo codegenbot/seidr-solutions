@@ -1,5 +1,5 @@
 def get_middle(s):
-    if len(s) % 2 == 0:  # if input is even length
+    if len(s) % 2 == 0:
         return s[len(s) // 2 - 1 : len(s) // 2 + 1]
-    else:  # if input is odd length
-        return s[len(s) // 2]
+    else:
+        return s.translate({ord(c): '' for c in string.punctuation})[len(s) // 2]
