@@ -14,4 +14,3 @@ bool is_happy(string s){
         if(unique) return true;
     }
     return false;
-}
