@@ -1,6 +1,8 @@
-```cpp
 bool issame(int a, int b) {
-    return (a == b);
+    if (a < b)
+        return true;
+    else
+        return false;
 }
 
 vector<string> by_length(vector<int> arr) {
