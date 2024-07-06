@@ -8,7 +8,8 @@ int main() {
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, line);
     
-    int result = is_bored(line);  
+    int result = is_bored(line);  // Call the function with the user's input
+    
     return 0;
 }
 
