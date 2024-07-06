@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <utility>  
 using namespace std;
 
 string int_to_mini_roman(int num) {
@@ -21,6 +19,5 @@ string int_to_mini_roman(int num) {
 }
 
 int main() {
-    cout << int_to_mini_roman(1000) << endl;
+    cout << int_to_mini_roman(1000) << endl;  
     return 0;
-}
