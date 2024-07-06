@@ -1,9 +1,8 @@
-```python
 def cycpattern_check(a, b):
     if len(b) > len(a):
         return False
-    a = sorted((a, b), key=len)
-    for i in range(len(a[0])):
-        if a[0][i:] + a[0][:i] == a[1]:
-            return True
+    for i in range(len(a)):
+        for j in range(len(b)):
+            if a[i:] + a[:i] == b[j:] + b[:j]:
+                return True
     return False
