@@ -1,8 +1,6 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(vector<int> a, vector<int>b);
-
 int get_sum_of_digits(int num) {
     int sum = 0;
     while (num != 0) {
