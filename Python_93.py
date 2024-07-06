@@ -1,5 +1,5 @@
 ```
-def encode(text, mapping):
-    return "".join(mapping[i] if j < len(mapping) and i == j.lower() else i for i in text)
+def encode(input_str, shift_str):
+    return "".join(chr((ord(c) - 97 + ord(shift) - 101) % 26 + 97) if c.isalpha() else c for c, shift in zip(input_str.lower(), shift_str.lower()))
 
 print(encode("I DoNt KnOw WhAt tO WrItE", "k dQnT kNqW wHcT Tq wRkTg"))
