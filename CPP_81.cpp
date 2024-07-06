@@ -1,12 +1,10 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool std::equal(const std::vector<std::string>::const_iterator a_begin,
-                const std::vector<std::string>::const_iterator a_end,
-                const std::vector<std::string>::const_iterator b) {
-    return a_end == std::unique_copy(a_begin, a_end, b, [](std::string s1, std::string s2){return s1==s2;});
+bool std::equal(const std::vector<std::string>::iterator a, const std::vector<std::string>::iterator c, const std::vector<std::string>::iterator b) {
+    return a == c;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
