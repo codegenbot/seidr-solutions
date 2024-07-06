@@ -1,4 +1,3 @@
-
 def longest(strings: List[str]) -> Optional[str]:
     if len(strings) == 0:
         return None
