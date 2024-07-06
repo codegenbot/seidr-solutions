@@ -12,6 +12,6 @@ def solve_boolean(expression):
                 start = i
                 break
         or_parts = expression[:start].split('|')
-        result &= all(p != 'F' for p in or_parts)
+        result &= all(bool_map.get(p, p) != 'F' for p in or_parts)
         expression = expression[end + 1:]
-    return all(expression.split('|') != ['F'])
+    return all(bool_map.get(p, p) != 'F' for p in expression.split('|'))
