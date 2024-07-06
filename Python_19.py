@@ -1,3 +1,5 @@
+from collections import Counter
+
 def sort_numbers(numbers: str) -> str:
     num_dict = {
         "zero": 0,
@@ -11,5 +13,6 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9
     }
-    nums = [num_dict[x] for x in numbers.split() if x in num_dict]
-    return " ".join(map(str, sorted(set(nums))))
+    nums = list(map(lambda x: int(x) if x.isdigit() else num_dict[x], numbers.split()))
+    counter = Counter(nums)
+    return " ".join([k for k, v in sorted(counter.items()) for _ in range(v)])
