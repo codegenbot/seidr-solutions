@@ -1,11 +1,16 @@
 
-def fib4(n):
+def fib4(n: int):
     if n <= 3:
         return 0
     elif n == 4:
         return 2
     else:
-        a, b, c, d = 0, 0, 2, 4
+        a = 0
+        b = 0
+        c = 2
         for i in range(5, n+1):
-            a, b, c, d = b, c, d, a + b + c + d
-        return a
+            d = a + b + c
+            a = b
+            b = c
+            c = d
+        return c
