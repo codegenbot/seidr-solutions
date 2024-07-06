@@ -9,7 +9,6 @@ def minPath(grid, k):
                 dfs(i, j, k - 1, grid, path, res, paths)
     return paths
 
-
 def dfs(i, j, k, grid, path, res, paths):
     n = len(grid)
     if k == 0:
