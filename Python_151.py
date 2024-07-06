@@ -1,2 +1,2 @@
-def check(func):
-    return func([1,2,3,4])
+def check(f):
+    return f([1, 2, 3, 4, 5])
