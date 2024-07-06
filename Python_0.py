@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def has_close_elements() -> bool:
@@ -20,6 +21,6 @@ def has_close_elements() -> bool:
         for j in range(i + 1, len(numbers)):
             if abs(numbers[i] - numbers[j]) <= threshold:
                 return True
-    return False
+    return True
 
 print(has_close_elements())

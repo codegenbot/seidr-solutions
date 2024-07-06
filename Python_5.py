@@ -1,4 +1,13 @@
-def calculate_average(numbers: List[int]) -> float:
-    if not numbers:
-        return 0
-    return sum(numbers) / len(numbers)
+```
+from typing import List
+
+
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    if len(numbers) == 0:
+        return []
+
+    result = [numbers[0]]
+    for i in range(1, len(numbers)):
+        result.extend([result[-1], delimiter, numbers[i]])
+    result.append(delimiter)
+    return result
