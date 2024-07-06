@@ -6,10 +6,9 @@ def incr_list(lst):
                 print("Number should be positive. Try again.")
             else:
                 return [n + i for i in lst]
-                break
-            cont = input("Do you want to continue? (y/n): ")
-            while cont.lower() != 'y' and cont.lower() != 'n':
-                cont = input("Invalid choice. Please enter y or n: ")
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    return []
+
+    cont = input("Do you want to continue? (y/n): ")
+    while cont.lower() != 'y' and cont.lower() != 'n':
+        cont = input("Invalid choice. Please enter y or n: ")
