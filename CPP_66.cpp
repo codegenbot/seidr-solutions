@@ -1,10 +1,11 @@
 #include <string>
+#include <cctype>
 
-int digitSum(string s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        if (isupper(c)) {
-            sum += (int)c - 55; // Subtracting 55 to convert uppercase letters to their corresponding digits
+        if (std::isupper(c)) {
+            sum += tolower(c) - 'a' + 1;
         }
     }
     return sum;
