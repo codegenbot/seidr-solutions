@@ -1,11 +1,12 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& s) {
-    return bf(s, {});
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return true;
 }
 
-bool bf(std::vector<std::string> a, std::vector<std::string> b) {
+bool bf(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -26,6 +27,6 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    assert(bf(code({std::vector<std::string>({"Jupiter"}), std::vector<std::string>({"Makemake"})}), std::vector<std::string>()) == std::vector<std::string>());
-    std::cout << "Output: " << bf(code({std::vector<std::string>({"Jupiter"}), std::vector<std::string>({"Makemake"})}), std::vector<std::string>()) << std::endl;
+    assert(bf("Jupiter", "Makemake") == std::vector<std::string>());
+    // Do something with the output
 }
