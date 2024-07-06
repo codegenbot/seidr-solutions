@@ -16,9 +16,10 @@ def minPath(grid, k):
             while queue:
                 x, y = queue.pop(0)
                 if grid[x][y] == k:
-                    return [1, 3, ..., k]  # Replace with actual path
+                    return [1, 3, ..., k] # Replace with actual path
                 for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                     nx, ny = x + dx, y + dy
                     if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
                         queue.append((nx, ny))
                         visited.add((nx, ny))
+    
