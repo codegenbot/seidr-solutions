@@ -37,10 +37,19 @@ vector<string> separate_paren_groups(string paren_string) {
         }
     }
 
+    while (open_count > 0) {
+        current_group += '(';
+        open_count--;
+    }
+
+    if (open_count > 0) {
+        result.push_back(current_group);
+    }
+
     return result;
 }
 
 int run_tests() {
-    assert(separate_issame(separate_paren_groups("( ) (( ") , {"","",""}));
+    assert(separate_issame(separate_paren_groups("( ) (( ") , vector<string>({"","",""})));
     return 0;
 }
