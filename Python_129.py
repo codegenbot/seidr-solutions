@@ -1,24 +1,37 @@
-
-import heapq
-
 def minPath(grid, k):
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
     visited = [[False for _ in range(m)] for _ in range(n)]
-    queue = [(grid[0][0], 0, 0)]
-    min_path = []
-    # Breadth-first search
-    while queue:
-        value, x, y = heapq.heappop(queue)
-        if visited[x][y]:
-            continue
-        visited[x][y] = True
-        min_path.append(value)
-        if len(min_path) == k:
-            return min_path
-        for dx, dy in [(1, 0), (0, 1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < m:
-                heapq.heappush(queue, (grid[nx][ny], nx, ny))
+    path = []
+    min_path = float("inf")
+
+    # Recursive function to find the minimum path
+    def dfs(i, j, length):
+        # Base case: If we have reached the end of the grid or the length of the path is greater than k, return
+        if i == n - 1 and j == m - 1 or length > k:
+            return
+
+        # Mark the current cell as visited
+        visited[i][j] = True
+
+        # If we have reached the end of the grid and the length of the path is equal to k, update the minimum path
+        if i == n - 1 and j == m - 1 and length == k:
+            nonlocal min_path
+            min_path = path[:]
+
+        # Recursively search for the minimum path in all possible directions
+        for di in range(-1, 2):
+            for dj in range(-1, 2):
+                if 0 <= i + di < n and 0 <= j + dj < m and not visited[i + di][j + dj]:
+                    path.append(grid[i + di][j + dj])
+                    dfs(i + di, j + dj, length + 1)
+                    path.pop()
+
+        # Mark the current cell as unvisited
+        visited[i][j] = False
+
+    # Start the recursive search from the top left corner
+    dfs(0, 0, 0)
+
     return min_path
