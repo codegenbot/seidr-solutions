@@ -3,8 +3,8 @@
 using namespace std;
 
 bool evaluate(const string &expression) {
+    stack<char> operators; // initialize the stack
     bool result = true;
-    stack<char> operators; // declare the `operators` variable before using it
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             operators.push('|');
