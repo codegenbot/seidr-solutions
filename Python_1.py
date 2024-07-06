@@ -1,8 +1,8 @@
 ```
-s = input().strip().lstrip()
 stack = []
 group = ""
 result = []
+s = input().lstrip()
 for char in s:
     if char == "(" or char == ")":
         if char == "(":
