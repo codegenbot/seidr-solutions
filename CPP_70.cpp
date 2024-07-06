@@ -1,16 +1,20 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
     if (lst.empty()) return result;
 
     while (!lst.empty()) {
@@ -26,10 +30,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(strange_sort_list({1}), {1}));
-    assert(!issame(strange_sort_list({1,2}), {1, 2}));
-    // Test your function here
 }
