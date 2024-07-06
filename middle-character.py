@@ -1,4 +1,3 @@
-
 def get_middle(s):
     if len(s) % 2 == 0:
         # Even number of characters, return two middle characters
