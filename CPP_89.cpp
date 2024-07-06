@@ -1,13 +1,12 @@
-char convertChar(char c) {
-    if (c >= 'a' && c <= 'm') return c + 4;
-    if (c >= 'n' && c <= 'z') return c - 2;
-    return c;
-}
-
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        result += convertChar(c);
+        if (c >= 'a' && c <= 'z') {
+            c = ('a' + ((c - 'a' + 4*2) % 26));
+        } else if (c >= 'A' && c <= 'Z') {
+            c = ('A' + ((c - 'A' + 4*2) % 26));
+        }
+        result += c;
     }
     return result;
 }
