@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -11,8 +12,10 @@ vector<vector<int>> cutVector(vector<int> vec) {
             int mid = i;
             while(mid > 0 && vec[mid] == vec[mid - 1])
                 mid--;
-            res[0].insert(res[0].end(), vec.begin(), vec.begin() + mid);
-            res[1].insert(res[1].begin(), vec.begin() + mid, vec.end());
+            res[0].resize(mid);
+            copy(vec.begin(), vec.begin() + mid, back_inserter(res[0]));
+            res[1].resize(n - mid);
+            copy(vec.begin() + mid, vec.end(), back_inserter(res[1]));
             break;
         }
     }
