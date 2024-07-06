@@ -1,5 +1,7 @@
 ```
 def double_the_difference(lst):
-    return [(x - min(lst)) * 2 + min(lst) for x in lst]
+    return [(x-1)*(x-1) for x in lst]
 
-check(double_the_difference)
+def check(func):
+    lst = [1, 2, 3, 4, 5]
+    print(func(lst))
