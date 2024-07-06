@@ -1,5 +1,6 @@
 def fizz_buzz(n):
-    if n % 3 == 0 and n % 5 == 0:
-        return "FizzBuzz"
-    else:
-        return str(n)
+    count = 0
+    for i in range(1, n + 1):
+        if all(digit in [3, 5] for digit in str(i)):
+            count += 1
+    return count
