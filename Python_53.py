@@ -5,14 +5,14 @@ def add(x: int, y: int):
 while True:
     try:
         while True:
-            x = input("Enter the first number: ")
+            x = input("Enter the first number (or 'q' to quit): ")
             if x == "q":
                 break
             if x.replace('-', '',).replace('.', '').isnumeric():
                 x = int(x)
                 if -2**31 <= x <= 2**31 -1:
                     while True:
-                        y = input("Enter the second number: ")
+                        y = input("Enter the second number (or 'q' to quit): ")
                         if y == "q":
                             break
                         if y.replace('-', '',).replace('.', '').isnumeric():
