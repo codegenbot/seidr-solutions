@@ -1,3 +1,4 @@
+
 def select_words(strings, n):
     words = []
     for string in strings:
