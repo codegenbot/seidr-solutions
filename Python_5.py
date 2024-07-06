@@ -1,9 +1,3 @@
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    result = []
-    for i, num in enumerate(numbers):
-        if i % 2 == 0:
-            result.append(num)
-        else:
-            result.append(delimiter)
-    return result
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    return [delimeter if i % 2 == 0 else numbers[i // 2] for i in range(len(numbers) * 2 - 1)]
