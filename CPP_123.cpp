@@ -19,9 +19,8 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b); 
-
-{ int main() {
+int main() {
+    { }
     assert(issame({get_odd_collatz(12)}, {1, 2, 6}) == true);
     int num;
     std::cout << "Enter a number: ";
@@ -37,4 +36,4 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b);
         std::cout << std::endl;
     }
     return 0;
-}}
+}
