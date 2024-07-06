@@ -1,7 +1,9 @@
-def is_palindrome(s):
-    return s == s[::-1]
+def is_palindrome(string):
+    # Check if the string is a palindrome
+    return string == string[::-1]
 
-def make_palindrome(string):
+
+def make_palindrome(string: str) -> str:
     # Find the longest postfix of supplied string that is a palindrome
     suffix = ""
     for i in range(len(string), 0, -1):
