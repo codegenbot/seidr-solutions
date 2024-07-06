@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -24,10 +24,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 int main() {
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     int n = sizeof(arr)/sizeof(arr[0]);
-    std::vector<int> array;
-    for (int i = 0; i < n; ++i) {
-        array.push_back(arr[i]);
-    }
+    std::vector<int> array (arr, arr+n);
     assert(issame(maximum(array, 4), {0, 1, 2, 3}));
     return 0;
-}
