@@ -1,7 +1,4 @@
-Here's the modified code:
-
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -17,17 +14,4 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
-}
-
-int main() {
-    std::vector<int> arr = {1, 3, 5, 2};
-    int k = 2;
-
-    std::vector<int> result = maximum(arr, k);
-
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
-    return 0;
 }
