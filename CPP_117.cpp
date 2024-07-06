@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -44,6 +43,3 @@ int main() {
     for (string str : res) {
         cout << str << endl;
     }
-
-    return 0;
-}
