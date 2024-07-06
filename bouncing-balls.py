@@ -4,9 +4,8 @@ bounciness_index = first_bounce_height / start_height
 num_bounces = int(input())
 
 distance = 0
-height = first_bounce_height
+height = start_height
 for _ in range(num_bounces):
-    distance += height - (height / bounciness_index)
+    distance += height
     height *= bounciness_index * 2
-
 print(round(distance, 5))
