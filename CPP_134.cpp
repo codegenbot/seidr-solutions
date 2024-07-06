@@ -1,2 +1,5 @@
-size_t pos = txt.find_last_of(' ');
-return pos == string::npos || !isalpha(txt[pos + 1]);
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false;
+    char lastChar = txt.back();
+    return isalpha(lastChar) && !isalnum(lastChar);
+}
