@@ -1,7 +1,17 @@
+```
+#include <algorithm>
+#include <vector>
+
 bool isSame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(std::abs(a[i]-b[i]) > 0.1f) return false;
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i) {
+        if(abs(a[i] - b[i]) > 1e-5f) {
+            return false;
+        }
     }
     return true;
 }
+
+assert(isSame({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}));
