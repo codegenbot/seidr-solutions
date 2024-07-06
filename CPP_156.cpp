@@ -29,7 +29,7 @@ int main() {
         else if (i == 9) roman = "IX";
         else if (i == 5) roman = "V";
         else if (i == 4) roman = "IV";
-        else roman = "I";
+        else roman = "I" + std::to_string(i);
         roman_map.push_back({i, roman.c_str()});
     }
     assert(int_to_mini_roman(1000) == "M");
