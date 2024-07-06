@@ -13,5 +13,3 @@ def calculate_score(games):
             elif current_roll == 10: 
                 score += 10
                 current_roll = 0
-
-    return score
