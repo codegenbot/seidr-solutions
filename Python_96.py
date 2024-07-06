@@ -1,4 +1,3 @@
-
 def count_up_to(n):
     if n == 101:
         return []
