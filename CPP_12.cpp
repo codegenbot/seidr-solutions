@@ -1,5 +1,4 @@
 #include <string>
-
 std::string longest(vector<std::string> strings){
     if(strings.empty()) return "";
     std::string result = strings[0];
