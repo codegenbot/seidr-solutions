@@ -1,4 +1,3 @@
-```
 def sort_third(l: list):
     thirds = [x for x in l if x % 3 == 0]
     thirds.sort()
