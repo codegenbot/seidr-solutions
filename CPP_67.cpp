@@ -1,3 +1,5 @@
+#include <iostream>
+#include <sstream>
 #include <string>
 
 int fruit_distribution(string s, int n) {
