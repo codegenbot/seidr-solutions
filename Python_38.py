@@ -1,8 +1,9 @@
-def decode_cyclic(s):
+```
+def decode_cyclic():
+    s = input("Enter the cyclic string: ")
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
-    while len(s) % 3 != 0:
-        s += s[-1]
+    s = s * (-(len(s) % 3))  
     result = ""
     i = 0
     while i < len(s):
@@ -15,3 +16,5 @@ def decode_cyclic(s):
             result += group[0] * 2
         i += 3
     return result
+
+print(decode_cyclic())
