@@ -1,7 +1,9 @@
-int choose_num(int x, int y){
-    if(x > y) swap(x,y);
-    for(int i=x; i<=y; i++){
-        if(i%2==0) return i;
+int choose_num(int x, int y) {
+    if (x % 2 == 0 && x <= y) {
+        return x;
+    } else if (y % 2 == 0 && x < y) {
+        return y;
+    } else {
+        return -1;
     }
-    return -1;
 }
