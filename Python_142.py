@@ -12,4 +12,4 @@ lst = list(map(int, input("Enter numbers separated by space: ").split()))
 if len(lst) > 0:
     print(sum_squares(lst))
 else:
-    print(lst)
+    print("Program did not receive expected input")
