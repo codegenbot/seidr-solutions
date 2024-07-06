@@ -1,10 +1,7 @@
 ```
 def split_words(txt):
     words = txt.split()
-    if len(words) > 0 and any(char.isalpha() for char in words[0]):
+    if len(words) > 0:
         return words
-    elif ',' in txt:
-        return txt.split(',')
     else:
-        result = sum(1 for i, c in enumerate(map(ord, txt.lower())) if ord('a') <= i <= ord('z') and (i+1) % 2 == 1)
-        return result
+        return sum(1 for i in range(ord('a'), ord('z')+1) if (txt.replace(',', '')).lower()[i].isalpha())
