@@ -1,3 +1,4 @@
+```cpp
 #include <assert>
 #include <string>
 
