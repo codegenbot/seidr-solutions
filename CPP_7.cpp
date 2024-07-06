@@ -1,8 +1,9 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a,vector<string> b){
+    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [&b](const string& s) { return (find(b.begin(), b.end(), s) != b.end()); });
+}
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
@@ -13,17 +14,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int main(){
-    vector<string> words1 = {"apple", "banana", "cherry"};
-    vector<string> words2 = {"grape", "pear", "pineapple"};
-
-    bool areequal = issame(words1, words2);
-
-    if (areequal) {
-        cout << "The two sets of strings are the same." << endl;
-    } else {
-        cout << "The two sets of strings are different." << endl;
-    }
-
+int main() {
+    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
     return 0;
 }
