@@ -1,4 +1,5 @@
-from math import sqrt
+```
+import math
 
 def find_zero(xs: list):
     n = len(xs)
@@ -8,9 +9,14 @@ def find_zero(xs: list):
     b = xs[1]
     c = xs[2] if n > 2 else 0
     d = xs[3] if n > 3 else 0
-    x = (-b + sqrt(b**2 - 4*a*c)) / (2*a)
+    x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
     return round(x, 2)
 
-xs = input("Enter coefficients of the quadratic equation: ")
-xs = [float(i) for i in xs.split()]
-print(find_zero(xs))
+if __name__ == "__main__":
+    xs = input("Enter coefficients (a, b, c[, d]): ")
+    try:
+        xs = list(map(float, xs.split()))
+        result = find_zero(xs)
+        print(f"Zero is approximately {result}")
+    except ValueError as e:
+        print(f"Error: {e}")
