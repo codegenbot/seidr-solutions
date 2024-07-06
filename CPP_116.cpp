@@ -1,14 +1,18 @@
 #include <vector>
 #include <algorithm>
+#include <bitset>
 
 using namespace std;
 
 vector<int> sort_array(vector<int> arr) {
-    return vector<int>(arr.begin(), arr.end());
-    sort(arr.begin(), arr.end(), [](int a, int b){
-        if (bitset<32>(a).count() != bitset<32>(b).count())
-            return bitset<32>(a).count() < bitset<32>(b).count();
+    vector<int> result = arr;
+    sort(result.begin(), result.end(), [](int a, int b){
+        bitset<32> bits_a(a);  
+        bitset<32> bits_b(b);  
+        if (bits_a.count() != bits_b.count())
+            return bits_a.count() < bits_b.count();
         else
             return a < b;
     });
+    return result;
 }
