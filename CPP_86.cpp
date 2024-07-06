@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <string>
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
@@ -14,10 +13,19 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                if (c >= 97 && c <= 122 || c >= 65 && c <= 90)
-                    result += to_string(c);
-                else
-                    result += " ";
+                result += to_string(c);
+            }
+            if (word[0] >= 'a' && word[0] <= 'z') {
+                char first = topper(word[0]);
+                result += first;
+                for (char c : word.substr(1)) {
+                    result += tolower(c);
+                }
+            } else {
+                for (char c : word) {
+                    result += tolower(c);
+                }
+            }
         }
     }
     return result;
@@ -25,6 +33,6 @@ std::string anti_shuffle(std::string s) {
 
 int main() {
     std::string input = "Hi. My name is Mister Robot. How are you?";
-    assert(anti_shuffle(input) == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    assert(anti_shuffle(input) == ".hi my name is mister robot. how are you?");
     return 0;
 }
