@@ -1,4 +1,5 @@
 def parse_nested_parens(paren_string):
+    # If the input string is empty, return an empty list
     if not paren_string:
         return []
 
