@@ -1,7 +1,3 @@
-from typing import List
-
-def below_zero(operations: list) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-    return balance < 0
+```Python
+def below_zero(operations: List[int]) -> bool:
+    return any(num < 0 for num in operations)
