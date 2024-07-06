@@ -1,3 +1,4 @@
+
 def decode_cyclic(s):
     groups = []
     for i in range(len(s) // 3):
