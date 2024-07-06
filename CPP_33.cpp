@@ -1,41 +1,37 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    return std::equal(a.begin(), a.end(), b.begin());
+    if(a.size()!=b.size())
+        return false;
+    return std::equal(a.begin(),a.end(),b.begin());
 }
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
-    for(int i = 0; i < l.size(); i++) {
-        if(i % 3 == 0) {
-            vector<int> temp;
-            for(int j = 0; j < l.size(); j++) {
-                if(j % 3 == 0) {
-                    temp.push_back(l[j]);
-                }
-            }
-            sort(temp.begin(), temp.end());
-            int idx = 0;
-            for(int k = 0; k < temp.size(); k++) {
-                if(k % 3 == 0) {
-                    result.push_back(temp[k]);
-                    idx++;
-                }
-                if(idx > 1) break;
-            }
-        } else {
-            result.push_back(l[i]);
+    vector<int> result(l);
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 1 || i % 3 == 2) {
+            std::partial_sort(&result[i], &result[i], &result.back());
         }
     }
     return result;
 }
 
 int main() {
-    // Test code
-    vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
-    vector<int> res = sort_third(l);
-    for(int i : res) cout << i << " ";
+    vector<int> a = {10,40,70,20,50};
+    vector<int> b = {40,20,50,10,70};
+    if(issame(a,b))
+        cout<<"True";
+    else
+        cout<<"False";
+
+    vector<int> l = {1,2,3,4,5,6,7,8,9};
+    l = sort_third(l);
+    
+    for(int i=0;i<l.size();i++){
+        cout<<l[i]<<" ";
+    }
     return 0;
 }
