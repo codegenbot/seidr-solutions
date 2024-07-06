@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -28,3 +29,4 @@ int main() {
     vector<string> lst2 = {};
     assert(issame(total_match(lst1, lst2), {}));
     return 0;
+}
