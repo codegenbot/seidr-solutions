@@ -22,7 +22,7 @@ int main() {
     std::getline(ss, inputStr);
     std::istringstream in(ss.str());  
 
-    // Now you can call this function:
+    // Then use this encrypt function:
     std::string encrypted = encrypt(in);
     std::cout << "Encrypted: " << encrypted << std::endl;
 }
