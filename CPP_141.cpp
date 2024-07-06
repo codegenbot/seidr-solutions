@@ -1,14 +1,16 @@
+#include <string>
+#include <cassert>
 using namespace std;
 
-string filename_result file_name_check(string file_name_input) {
+bool file_name_check(string file_name) {
     bool valid = true;
     int dot_count = 0;
     int digit_count = 0;
 
-    for(int i=0; i<file_name_input.length(); i++){
-        if(file_name_input[i] == '.'){
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
             dot_count++;
-        } else if(isdigit(file_name_input[i])){
+        } else if(isdigit(file_name[i])){
             digit_count++;
         }
     }
@@ -17,8 +19,8 @@ string filename_result file_name_check(string file_name_input) {
         valid = false;
     }
 
-    string before_dot = file_name_input.substr(0, file_name_input.find('.'));
-    string after_dot = file_name_input.substr(file_name_input.find('.')+1);
+    string before_dot = file_name.substr(0, file_name.find('.'));
+    string after_dot = file_name.substr(file_name.find('.')+1);
 
     if(before_dot.empty() || !isalpha(before_dot[0])){
         valid = false;
@@ -29,5 +31,10 @@ string filename_result file_name_check(string file_name_input) {
         valid = false;
     }
 
-    return valid ? "Yes" : "No";
+    return valid;
+}
+
+int main() {
+    assert(file_name_check("s.") == false);
+    return 0;
 }
