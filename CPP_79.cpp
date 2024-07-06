@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 std::string decimal_to_binary(int n){
     std::string binary = "";
@@ -8,10 +9,10 @@ std::string decimal_to_binary(int n){
         n /= 2;
     }while(n > 0);
     return binary;
-
 }
 
-int main(){
-    assert (decimal_to_binary(15) == "11111");
+int main() {
+    assert(decimal_to_binary(15) == "1111");
+    std::cout << decimal_to_binary(15) << std::endl; // Run the function with input 15
     return 0;
 }

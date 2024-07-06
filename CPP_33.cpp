@@ -1,9 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
-
-bool issame(vector<int> a, vector<int> b);
-vector<int> sort_third(vector<int> l);
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -34,7 +31,11 @@ vector<int> sort_third(vector<int> l) {
         }
     }
     return result;
-}
+
+} 
+
+#include<iostream>
+using namespace std;
 
 int main() {
     vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
