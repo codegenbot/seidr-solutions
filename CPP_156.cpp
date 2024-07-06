@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <iostream>
 
 std::string intToMiniRoman(int number) {
     std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
