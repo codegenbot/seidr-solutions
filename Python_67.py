@@ -1,16 +1,33 @@
 def fruit_distribution():
+    fruits = input(
+        "Enter the list of fruits (comma-separated), type 'stop' when done: "
+    )
     fruit_dict = {}
-    for _ in range(int(input("Enter the number of fruits: "))):
-        fruit = input("Enter a fruit (or 'stop' to finish): ")
-        if fruit.lower() != 'stop':
-            fruit_dict[fruit] = fruit_dict.get(fruit, 0) + 1
-    fruit_weights = {}
-    for fruit in fruit_dict:
-        weight = input(f"Enter the weight of {fruit}: ")
-        try:
-            fruit_weights[fruit] = int(weight)
-        except ValueError:
-            print("Invalid weight. Please enter a number.")
-    return {k: v / sum(fruit_weights.values()) * 100 for k, v in fruit_dict.items()}
-
-print(fruit_distribution())
+    while True:
+        for fruit in fruits.split(","):
+            if fruit.strip() == "stop":
+                break
+            if fruit.strip():
+                fruit_dict[fruit.strip()] = fruit_dict.get(fruit.strip(), 0) + 1
+        if fruit.strip() == "stop":
+            break
+        for fruit in fruits.split(","):
+            if fruit.strip() == "stop":
+                break
+            if fruit.strip():
+                weight = input(f"Enter the weight of {fruit.strip()}: ")
+                try:
+                    fruit_weights = {}
+                    for fruit in fruits.split(","):
+                        if fruit.strip() == "stop":
+                            break
+                        if fruit.strip():
+                            fruit_weights[fruit.strip()] = int(
+                                input(f"Enter the weight of {fruit.strip()}: ")
+                            )
+                    return {
+                        k: v / sum(fruit_weights.values()) * 100
+                        for k, v in fruit_dict.items()
+                    }
+                except ValueError:
+                    print("Invalid weight. Please enter a number.")
