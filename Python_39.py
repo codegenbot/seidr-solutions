@@ -11,3 +11,12 @@ def prime_fib(n: int):
         return fib[-1]
     else:
         return None
+def is_prime(n):
+    from math import sqrt as msqrt
+    
+    if n <= 1 or n % 2 == 0:
+        return False
+    for i in range(3, int(msqrt(n)) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
