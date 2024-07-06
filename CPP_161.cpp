@@ -1,16 +1,15 @@
+#include <algorithm>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
-                ? toupper(c)
-                : tolower(c);
+            c = (c >= 'a' && c <= 'z') ? c + ('A' - 'a') : c + ('a' - 'A');
         } else {
             result += c;
         }
     }
-    if (result.empty()) {
-        reverse(result.begin(), result.end());
-    }
-    return result;
+    reverse(result.begin(), result.end());
+    return s.empty() ? string(1, c) : result;
 }
