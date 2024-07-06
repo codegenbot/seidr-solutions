@@ -1,24 +1,29 @@
 ```cpp
 #include <cassert>
 #include <string>
+#include <map>
 
 std::string int_toRoman(int num) {
-    const std::string roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    const int decimal[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    std::map<int, std::string> romanMap = {{1000, "M"}, {900, "CM"},
+                                            {500, "D"}, {400, "CD"},
+                                            {100, "C"}, {90, "XC"},
+                                            {50, "L"}, {40, "XL"},
+                                            {10, "X"}, {9, "IX"},
+                                            {5, "V"}, {4, "IV"},
+                                            {1, "I"}};
 
-    std::string romanNumeral;
-
-    for (int i = 0; i < sizeof(decimal) / sizeof(decimal[0]); i++) {
-        while (num >= decimal[i]) {
-            num -= decimal[i];
-            romanNumeral += roman[i];
+    std::string roman;
+    for (auto it = romanMap.begin(); it != romanMap.end(); ++it) {
+        while (num >= it->first) {
+            roman += it->second;
+            num -= it->first;
         }
     }
 
-    return romanNumeral;
+    return roman;
 }
 
-int mainTest() {
+int main() {
     assert(int_toRoman(1000) == "M");
     return 0;
 }
