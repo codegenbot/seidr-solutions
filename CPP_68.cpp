@@ -1,4 +1,4 @@
-#include <climits>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -18,4 +18,9 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     
     result.push_back({minEven, index});
     return result;
+}
+
+int main() {
+    // your code goes here
+    return 0;
 }
