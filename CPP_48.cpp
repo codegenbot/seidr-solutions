@@ -1,5 +1,4 @@
-string str = "";
-for (int i = text.length() - 1; i >= 0; i--) {
-    str += text[i];
-}
-return text == str;
+```
+string temp = text;
+reverse(temp.begin(), temp.end());
+return text == temp;```
