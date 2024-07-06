@@ -11,5 +11,4 @@ def string_to_md5(text):
         return None
 
 text = input("Please enter a string: ")
-
 print(string_to_md5(text))
