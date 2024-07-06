@@ -1,33 +1,20 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
 int calculateSumOfDigitsLargestPrime(vector<int> lst) {
-    int maxPrime = -1;
-    for (int num : lst) {
-        bool isPrime = true;
-        if (num > 1) {
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            if (isPrime) {
-                maxPrime = num;
-                break;
-            }
+    int maxPrime = -1, sum = 0;
+    for(int i : lst){
+        if(isPrime(i)){
+            if(i > maxPrime)
+                maxPrime = i;
         }
     }
-    int sumDigits = 0;
-    if (maxPrime != -1) {
-        while (maxPrime > 0) {
-            sumDigits += maxPrime % 10;
-            maxPrime /= 10;
-        }
+    while(maxPrime > 0){
+        sum += (maxPrime % 10);
+        maxPrime /= 10;
     }
-    return sumDigits;
+    return sum;
 }
 
 int main_test() {
