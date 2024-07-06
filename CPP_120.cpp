@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -10,6 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+namespace std {
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
@@ -19,6 +20,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it, arr.end());
     }
     return result;
+}
 }
 
 int main() {
