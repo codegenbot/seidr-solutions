@@ -12,8 +12,15 @@ def sum_squares(lst):
     return total_sum
 
 
+def check(func):
+    try:
+        result = func([])
+        assert isinstance(result, int)
+    except TypeError:
+        print("Input list must not contain non-numeric elements.")
+    return func
+
+
+@check
 def main():
     print(sum_squares([1, 2, 3]))
-
-
-main()
