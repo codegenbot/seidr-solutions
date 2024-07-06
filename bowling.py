@@ -1,18 +1,24 @@
-```
-import re
-def bowling_score(s):
+def bowling_score(game):
     score = 0
-    roll = 0
-    for i in range(10):
-        if '/' in s[i*2:i*2+1]:
-            first, second = map(int, re.split('/',s[i*2:i*2+2]))
-            if first == 10:
-                score += 10 + sum(map(int,s[(i+1)*2:(i+1)*2+1]))
+    roll = []
+    for char in game:
+        if char.isdigit():
+            roll.append(int(char))
+        elif char == '/':
+            strike = False
+            while len(roll) < 2 or (len(roll) == 2 and roll[-1] != 10):
+                score += 10 - sum(roll)
+                if not strike:
+                    score += sum(roll)
+                roll = []
+            if not strike:
+                strike = True
+        elif char in 'Xx':
+            if len(roll) > 0:
+                score += 10 + sum(roll)
+                roll = []
             else:
-                score += first + second
-        elif s[i*2] == 'X':
-            score += 10
-            roll += 10
-        else:
-            score += int(s[i*2])
+                score += 30
+    for i in range(len(roll)):
+        score += roll[i]
     return score
