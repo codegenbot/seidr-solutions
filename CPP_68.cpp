@@ -23,6 +23,11 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == vector<pair<int, int>>());
+    vector<pair<int, int>> output = pluck({7, 9, 7, 1});
+    cout << "{";
+    for (pair<int, int> p : output) {
+        cout << "(" << p.first << ", " << p.second << ") ";
+    }
+    cout << "}" << endl;
     return 0;
 }
