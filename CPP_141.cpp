@@ -1,20 +1,36 @@
 string file_name_check(string file_name){
-    int count = 0;
-    bool foundDot = false;
+    int digit_count = 0;
+    bool has_dot = false;
+    string before_dot;
+
     for(int i=0; i<file_name.length(); i++){
         if(isdigit(file_name[i])){
-            count++;
-            if(count > 3) return "No";
+            digit_count++;
+            if(digit_count > 3) return "No";
         }
         else if(file_name[i] == '.'){
-            foundDot = true;
+            has_dot = true;
         }
-        else if(foundDot && (i != file_name.length() - 4)){
-            if(!isalpha(file_name[i]) || !ispunct(file_name[i+1]) || !ispunct(file_name[i+2]) || !ispunct(file_name[i+3])){
-                return "No";
-            }
+        else{
+            before_dot += file_name[i];
+            if(has_dot) break;
         }
     }
-    if(foundDot && (file_name.find(".txt") == string::npos && file_name.find(".exe") == string::npos && file_name.find(".dll") == string::npos)) return "No";
-    return "Yes";
+
+    if(!has_dot) return "No";
+
+    string after_dot = "";
+    for(int i=file_name.length()-1; i>=0; i--){
+        if(file_name[i] == '.') break;
+        after_dot = file_name[i]+after_dot;
+    }
+
+    string extensions[] = {"txt", "exe", "dll"};
+    bool is_valid_extension = false;
+
+    for(string ext : extensions){
+        if(after_dot == ext) is_valid_extension = true;
+    }
+
+    return (is_valid_extension && isalpha(before_dot[0]) && digit_count <= 3) ? "Yes" : "No";
 }
