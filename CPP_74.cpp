@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -7,9 +6,15 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(const auto& str1 : a) {
-        int idx = distance(b.begin(), find(b.begin(), b.end(), str1));
-        if(idx == b.end() || str1 != b.at(idx))return false;
+    for(auto str1 : a) {
+        bool found = false;
+        for(auto str2 : b) {
+            if(str1 == str2) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) return false;
     }
     return true;
 }
@@ -38,26 +43,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 vector<string> testMain() {
-    vector<string> vec1;
-    vector<string> vec2;
-    cout << "Enter strings for vec1 (separated by spaces): ";
-    string temp;
-    getline(cin, temp);
-    size_t pos = 0;
-    while ((pos = temp.find(" ")) != std::string::npos) {
-        vec1.push_back(temp.substr(0, pos));
-        temp.erase(0, pos + 1);
-    }
-    vec1.push_back(temp);
-
-    cout << "Enter strings for vec2 (separated by spaces): ";
-    getline(cin, temp);
-    pos = 0;
-    while ((pos = temp.find(" ")) != std::string::npos) {
-        vec2.push_back(temp.substr(0, pos));
-        temp.erase(0, pos + 1);
-    }
-    vec2.push_back(temp);
-
-    return total_match(vec1,vec2);
+    vector<string> vec1 = {"this"};
+    vector<string> vec2 = {""};
+    vector<string> result = total_match(vec1,vec2);
+    return result;
 }
