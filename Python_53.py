@@ -1,5 +1,4 @@
 def add(x: int, y: int):
-    # Check if both inputs are integers
     if isinstance(x, int) and isinstance(y, int):
         return x + y
     else:
