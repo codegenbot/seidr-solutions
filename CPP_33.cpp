@@ -32,7 +32,10 @@ vector<int> sort_third(vector<int> l) {
     }
     return result;
 
-}
+} 
+
+#include<iostream>
+using namespace std;
 
 int main() {
     vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
