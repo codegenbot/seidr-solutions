@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,7 +12,7 @@ vector<int> unique(vector<int> l) {
 
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    for (auto i : unique(l)) {
+    for (auto i : l) {
         cout << i << " ";
     }
     return 0;
