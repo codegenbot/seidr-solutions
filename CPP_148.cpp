@@ -1,8 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
@@ -37,7 +34,7 @@ vector<string> bf(string planet1, string planet2) {
     vector<string> result;
 
     for (int i = 0; i < planets.size(); i++) {
-        if ((i >= min(index1, index2) && i <= max(index1, index2)) || (i > index2 && i < index1)) {
+        if ((i >= std::min(index1, index2) && i <= std::max(index1, index2)) || (i > index2 && i < index1)) {
             result.push_back(planets[i]);
         }
     }
