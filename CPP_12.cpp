@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include <string>
 
 string longest(vector<string> strings){
     if(strings.empty()) return "";
@@ -8,4 +7,3 @@ string longest(vector<string> strings){
         if(s.size() > res.size()) res = s;
     }
     return res;
-}
