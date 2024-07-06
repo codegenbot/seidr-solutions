@@ -8,11 +8,11 @@ int main(){
     cout<<"Enter a string: ";
     cin>>str;
     
-    for (int i = 0; i < str.size() - 1; i++) {
-        if (str[i] == str[i + 1]) {
+    for (int i = 0; i < str.size(); i++) {
+        if (i + 1 < str.size() && str[i] == str[i + 1]) {
             sum += str[i] - '0';
         }
     }
     
-     cout<<"Sum of digit is: "<<sum;
+    cout<<"Sum of digit is: "<<sum;
 }
