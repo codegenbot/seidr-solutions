@@ -5,4 +5,4 @@ def sort_numbers(numbers: str) -> str:
         "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9
     }
     numbers = [num_dict[word] for word in numbers.replace(" ", "").split()]
-    return " ".join(map(str, sorted(set(numbers))))
+    return " ".join(sorted(map(str, set(numbers))))
