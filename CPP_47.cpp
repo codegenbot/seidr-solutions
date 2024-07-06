@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,22 +9,28 @@ float median(std::vector<float> numbers) {
     
     std::sort(numbers.begin(), numbers.end());
     if (numbers.size() % 2 == 0)
-        return (numbers[numbers.size()/2 - 1] + numbers[numbers.size()/2]) / 2.0;
+        return ((numbers[numbers.size()/2 - 1] + numbers[numbers.size()/2]) / 2.0);
     else
         return numbers[numbers.size()/2];
 
 int main() {
-    std::vector<float> numbers;
-    float num;
-    std::cout << "Enter some floating point numbers separated by spaces: ";
-    while(std::cin >> num) {
-        numbers.push_back(num);
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+
+    for (int &x : vec) {
+        std::cout << "Enter element: ";
+        std::cin >> x;
     }
+
     try {
-        std::cout << "The median is: " << median(numbers) << std::endl;
+        float medianVal = median(std::vector<float>(vec.begin(), vec.end()));
+        std::cout << "Median is " << medianVal << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1; 
+        std::cerr << e.what() << '\n';
     }
+
     return 0;
 }

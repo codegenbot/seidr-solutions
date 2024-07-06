@@ -1,11 +1,7 @@
-```Python
-import hashlib
-
-def string_to_md5():
+while True:
     text = input("Enter your string: ")
-    if text:
+    confirm = input("Do you want to continue? (yes/no): ")
+    if text and confirm.lower() == 'yes':
         return hashlib.md5(text.encode()).hexdigest()
-    else:
-        return "Please enter a valid string"
-
-print(string_to_md5())
+    elif confirm.lower() != 'yes' or not text:
+        print("Please try again.")

@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
 
@@ -23,8 +24,15 @@ def minPath(grid, k):
                 ) < shortest_paths.get(len(new_path), float("inf")):
                     queue.append((nx, ny, new_path))
                     visited.add((nx, ny))
+                    path_lengths[len(new_path)] = len(new_path)
                     shortest_paths[len(new_path)] = len(new_path)
 
     return (
-        [p for p in shortest_paths][min(shortest_paths.values()) - 1] if k > 0 else []
+        min(
+            [p for p in sorted(path_lengths.keys())],
+            default=grid[0]
+            + [grid[0][0]] * (k - k if not shortest_paths else 0),
+        )
+        if k > 0
+        else []
     )
