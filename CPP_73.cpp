@@ -1,25 +1,20 @@
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     string str = "";
-    for (int i : arr) {
-        str += to_string(i);
+    for (int i = 0; i < n; i++) {
+        str += to_string(arr[i]);
     }
     
-    int left = 0, right = n - 1;
     int changes = 0;
-    
+    int left = 0, right = n - 1;
     while (left < right) {
         if (str[left] != str[right]) {
             changes++;
-            if (str[left] == str[right-1]) {
-                right--;
-            } else {
-                left++;
-            }
+            left++; // move the left pointer one step forward
         } else {
-            left++;
-            right--;
+            left++; // continue moving both pointers
         }
+        right--;
     }
     
     return changes;
