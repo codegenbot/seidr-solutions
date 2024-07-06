@@ -1,4 +1,3 @@
-```
 def decode_cyclic():
     s = input()  
     result = []
