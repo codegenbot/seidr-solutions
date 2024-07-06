@@ -1,5 +1,16 @@
 #include <algorithm>
-bool issame(vector<int> a, vector<int>b);
+#include <vector>
+
+bool issame(vector<int> a, vector<int>b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
@@ -22,14 +33,10 @@ int get_sum_of_digits(int num) {
     }
     return sum;
 }
-bool issame(vector<int> a, vector<int>b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) 
-        if(a[i] != b[i]) return false;
-    return true;
-}
 
-int main() {
-     assert(issame(vector<int>(order_by_points({0,6,6,-76,-21,23,4})), vector<int>((-76, -21, 0, 4, 23, 6, 6)));
-     return 0;
+void main() {
+    vector<int> nums({0,6,6,-76,-21,23,4});
+    vector<int> result = order_by_points(nums);
+    bool same = issame(result, vector<int>({-76, -21, 0, 4, 23, 6, 6}));
+    cout << (same ? "Yes" : "No") << endl;
 }
