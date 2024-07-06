@@ -1,11 +1,13 @@
 #include <vector>
 #include <set>
-#include <algorithm>
+#include <string>
 
+// Function to compare two vectors
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    return (a == b);
 }
 
+// Reverse and palindrome check function
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
@@ -34,4 +36,9 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back((is_palindrome ? "True" : "False"));
     
     return result;
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    return 0;
 }
