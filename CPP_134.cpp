@@ -1,24 +1,10 @@
-Here's the completed code:
-
-```cpp
 int main() {
-    string txt;
+    string s;
     cout << "Enter a string: ";
-    cin >> txt;
-    
-    return check_if_last_char_is_a_letter(txt);
-}
-
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
-        return false;
-    }
-    bool isPartOfWord = false;
-    for (int i = 0; i < txt.size() - 1; i++) {
-        if (!isspace(txt[i])) {
-            isPartOfWord = true;
-            break;
-        }
-    }
-    return !isPartOfWord && isalpha(txt.back());
+    getline(cin, s);
+    bool res = check_if_last_char_is_a_letter(s);
+    if (res)
+        cout << "The last character is an alphabetical character and is not part of a word." << endl;
+    else
+        cout << "The last character is not an alphabetical character or it is part of a word." << endl;
 }
