@@ -1,5 +1,5 @@
 def car_race_collision():
-    n = int(input("Enter number of cars: "))
+    n = int(input("Enter the number of cars: "))
     if n <= 1:
         print(0)
     else:
