@@ -1,12 +1,8 @@
-from typing import List, Optional
-
-
-def longest(strings: List[str]) -> Optional[int]:
+```
+def longest(strings: list[str]) -> Optional[int]:
     if not strings:
         return None
-    for s in strings:
-        try:
-            len(s)
-        except AttributeError:
-            return None
     return max(len(s) for s in strings)
+
+strings = [input(f"Enter string{i+1}): " for i in range(int(input("How many strings do you have? ")))]
+print(longest(strings))
