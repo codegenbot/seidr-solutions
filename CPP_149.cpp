@@ -1,11 +1,12 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length())
-                 return a.length() < b.length();
-             else
-                 return a < b;
-         });
+    vector<string> new_list;
     
-    return lst;
+    for(auto s : lst){
+        if(s.length() % 2 == 0)
+            new_list.push_back(s);
+    }
+    
+    sort(new_list.begin(), new_list.end());
+    
+    return new_list;
 }
