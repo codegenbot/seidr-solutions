@@ -1,6 +1,3 @@
-#include <vector>
-#include <string>
-
 using namespace std;
 
 std::string int_to_mini_roman(int number) {
