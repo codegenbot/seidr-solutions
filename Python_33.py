@@ -1,3 +1,14 @@
+```python
 def sort_third(input_list):
-    result = [tuple(sorted(map(int, input_list[i:i+3]))) for i in range(0, len(input_list), 3)]
-    return tuple(result)
+    result = []
+    current_group = []
+    for num in input_list:
+        current_group.append(int(num))
+        if len(current_group) == 3:
+            result.append(tuple(sorted(current_group)))
+            current_group = []
+
+    if current_group:  
+        result.append(tuple(sorted(current_group)))
+
+    return tuple(sorted(result))
