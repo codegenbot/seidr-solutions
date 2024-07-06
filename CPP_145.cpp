@@ -1,18 +1,5 @@
-```cpp
 #include <algorithm>
 #include <vector>
-
-bool issame(vector<int> a, vector<int>b);
-vector<int> order_by_points(vector<int> nums);
-
-int get_sum_of_digits(int num) {
-    int sum = 0;
-    while (num != 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
 
 bool issame(vector<int> a, vector<int>b) {
     if(a.size() != b.size())
@@ -38,12 +25,18 @@ vector<int> order_by_points(vector<int> nums) {
 
 }
 
-void main() {
-    vector<int> nums = {0,6,6,-76,-21,23,4};
-    nums = order_by_points(nums);
-    if(issame(vector<int>(nums), vector<int>{(-76), (-21), (0), (4), (23), (6), (6)})) {
-        cout << "Pass" << endl;
-    } else {
-        cout << "Fail" << endl;
+int get_sum_of_digits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
     }
+    return sum;
+}
+
+void main() {
+    vector<int> nums({0,6,6,-76,-21,23,4});
+    vector<int> result = order_by_points(nums);
+    bool same = issame(result, vector<int>({-76, -21, 0, 4, 23, 6, 6}));
+    cout << (same ? "Yes" : "No") << endl;
 }
