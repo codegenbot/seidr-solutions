@@ -1,5 +1,6 @@
 #include <vector>
 #include <limits>
+#include <climits>
 #include <cassert>
 
 long long minSubArraySum(std::vector<long long> nums) {
