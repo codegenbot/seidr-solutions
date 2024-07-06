@@ -3,30 +3,18 @@ from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
-    notes = {'o': 4, 'o|': 2, '.|': 1}
-    beats = []
-    
+    note_dict = {'o': 4, 'o|': 2, '.|': 1}
+    result = []
     i = 0
     while i < len(music_string):
         if music_string[i] == '.':
-            if i + 2 <= len(music_string) and music_string[i:i+3] in notes:
-                i += 2
-                beats.append(notes['.|'])
-            else:
-                i += 1
-                beats.append(1)
-        elif music_string[i] == 'o':
-            if i + 1 < len(music_string) and music_string[i:i+2] in notes:
-                i += 1
-                beats.append(notes['o'])
-            else:
-                i += 1
-                beats.extend([4]*2)
-        elif music_string[i] == 'o|':
-            if i + 2 <= len(music_string) and music_string[i:i+3] in notes:
-                i += 2
-                beats.append(notes['o|'])
-            else:
-                i += 1
-                beats.extend([2]*2)
-    return beats
+            j = i + 1
+            while j < len(music_string) and music_string[j] != '|':
+                j += 1
+            note = music_string[i:j]
+            result.append(note_dict[note])
+            i = j
+        else:
+            result.append(note_dict[music_string[i]])
+            i += 1
+    return result
