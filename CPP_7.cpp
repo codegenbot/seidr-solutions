@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -25,5 +26,5 @@ int test_main() {
 }
 
 int main() {
-    return 0; 
+    return 0;
 }
