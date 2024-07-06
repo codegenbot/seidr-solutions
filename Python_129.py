@@ -1,4 +1,5 @@
 def get_neighbors(grid, cell):
+    # Return a list of neighboring cells for the given cell in the grid
     neighbors = []
     if cell[0] > 0:
         neighbors.append((cell[0] - 1, cell[1]))
