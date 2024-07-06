@@ -1,6 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
+
+int count_upper(std::string s); 
 
 int count_upper(std::string s) {
     int count = 0;
@@ -13,6 +14,10 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    assert(count_upper("EEEE") == 2);
+    std::string user_input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, user_input);
+    int result = count_upper(user_input);
+    std::cout << "Number of uppercase vowels at even positions is: " << result << std::endl;
     return 0;
 }
