@@ -1,10 +1,15 @@
+```
 import hashlib
 
 def string_to_md5():
     text = input("Enter your string: ")
-    try:
-        return hashlib.md5(text.encode()).hexdigest()
-    except TypeError:
-        return "Error: Please enter a valid string."
+    confirm = input("Do you want to continue? (yes/no): ")
+    
+    if confirm.lower() != 'yes':
+        return 
+        elif not text:
+            return  
+        else:
+            return hashlib.md5(text.encode()).hexdigest()
 
 print(string_to_md5())
