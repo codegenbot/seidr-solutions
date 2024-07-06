@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -33,7 +34,7 @@ std::vector<int> sort_third(std::vector<int> l) {
     return result;
 }
 
-int sort_third_main() {
+int main() {
     std::vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
     std::vector<int> res = sort_third(l);
     for(int i : res) cout << i << " ";

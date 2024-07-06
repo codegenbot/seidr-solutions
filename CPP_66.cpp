@@ -8,6 +8,7 @@ int digitSum(std::string s) {
         }
     }
     return sum;
+
 }
 
 int main() {
