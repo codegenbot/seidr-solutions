@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -18,4 +19,8 @@ bool same(std::vector<std::string> a, std::vector<std::string> b){
         if(std::find(b.begin(),b.end(),s)==b.end())return false;
     }
     return true;
+}
+
+int main(){
+    assert(same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }
