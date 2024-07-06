@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -6,11 +5,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    vector<int> result;
+std::vector<int> main(std::vector<int> lst) {
+    std::vector<int> result;
     if (lst.empty()) return result;
 
-    vector<int> minMax;
+    std::vector<int> minMax;
     for (int i = 0; i < lst.size(); i++) {
         int minVal = *min_element(lst.begin(), lst.end());
         int maxVal = *max_element(lst.begin(), lst.end());
@@ -26,4 +25,7 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     return result;
 }
 
-assert(strange_sort_vector({111111}) == vector<int>({111111}));
+int main() {
+    assert(main({111111}) == std::vector<int>({111111}));
+    return 0;
+}
