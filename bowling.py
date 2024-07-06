@@ -9,9 +9,9 @@ def calculate_score(games):
             current_roll = int(frames[i])
         else:
             if current_roll > 0:
-                if current_roll == 10: 
+                if current_roll == 10: # spare
                     score += 10 + int(frames[i+1]) + (10 - int(frames[i+1])) * 2
-                elif current_roll < 10: 
+                elif current_roll < 10: # normal roll
                     score += current_roll + int(frames[i+1])
                 current_roll = 0
         if i >= 9:
