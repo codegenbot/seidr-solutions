@@ -1,14 +1,24 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 
+std::string flip_case(std::string str){
+    std::string result = "";
+    for(int i=0; i<str.length(); i++){
+        char c = str[i];
+        if(c >= 'a' && c <= 'z'){
+            result += toupper(c);
+        } else if (c >= 'A' && c <= 'Z') {
+            result += tolower(c);
+        } else {
+            result += c;
+        }
+    }
+    return result;
+}
+
 int main() {
     std::string str;
-    // Ask for user input
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    
-    std::string result = flip_case(str);
-    std::cout << "The flipped case is: " << result << std::endl;
-    return 0;
+    std::cout << "Flip Case Result: " << flip_case(str) << std::endl;
 }
