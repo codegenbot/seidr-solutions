@@ -1,15 +1,18 @@
+#ifndef PROBLEM_H
+#define PROBLEM_H
+
+int skjkasdkd(std::vector<int> lst);
+
+#endif // PROBLEM_H
+
 #include "problem.h"
 #include <vector>
 #include <cmath>
 
 bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) {
-            return false;
-        }
+    if(n <= 1) return false;
+    for(int i = 2; i * i <= n; i++) {
+        if(n % i == 0) return false;
     }
     return true;
 }
@@ -27,4 +30,13 @@ int skjkasdkd(std::vector<int> lst) {
         }
     }
     return sum;
+}
+
+#include "problem.h"
+#include <iostream>
+
+int main() {
+    assert(skJkasdkd({127, 97, 8192}) == 10);
+    std::cout << "Test passed!" << std::endl;
+    return 0;
 }
