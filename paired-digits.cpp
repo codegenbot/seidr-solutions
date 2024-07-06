@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,8 +8,8 @@ int main(){
     cout<<"Enter a string: ";
     cin>>str;
     
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == str[i + 1]) {
+    for (int i = 1; i < str.size(); i++) {
+        if (str[i] == str[i-1]) {
             sum += str[i] - '0';
         }
     }
