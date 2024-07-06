@@ -9,7 +9,8 @@ def prime_fib(n):
     if is_prime(fib[-1]):
         return fib[-1]
     else:
-        return None
+        return prime_fib(n - 1)
+
 
 def is_prime(n):
     if n <= 1:
