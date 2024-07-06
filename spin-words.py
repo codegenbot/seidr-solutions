@@ -1,4 +1,8 @@
-def spin_words(string):
+import re
+
+
+def spin_words():
+    string = input("Enter a string: ")
     words = string.split()
     result = []
     for word in words:
