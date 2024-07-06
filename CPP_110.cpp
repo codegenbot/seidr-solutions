@@ -1,13 +1,10 @@
-#include <string>
-
-string exchange(vector<int> lst1, vector<int> lst2) {
+std::string exchange(vector<int> lst1, vector<int> lst2) {
     for (int num : lst1) {
         if (num % 2 != 0) {
             bool found = false;
             for (int num2 : lst2) {
                 if (num2 % 2 == 0) {
-                    int index = distance(lst1.begin(), next(find_if(lst1.begin(), lst1.end(), bind(greater<int>(), _1, 0)).base(), lst1.end()));
-                    swap(lst1[index], num2);
+                    swap(lst1[lst1.size()-lst1.erase(lst1.end()-1)], num2);
                     found = true;
                     break;
                 }
