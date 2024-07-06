@@ -1,37 +1,40 @@
-```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const std::string& s) { 
-        return std::find(b.begin(), b.end(), s) != b.end(); 
-    });
+using my_string = std::string;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const my_string& s) { return find(b.begin(), b.end(), s) != b.end(); });
 }
 
-std::vector<std::string> selectWords(const std::string& s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(my_string s, int n) {
+    vector<string> result;
+    my_string word = "";
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            bool hasNConsonants = false;
-            int consonantCount = 0;
+            bool has_n_consonants = false;
+            int consonant_count = 0;
             for (char ch : word) {
                 if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
-                    consonantCount++;
-                    if (consonantCount == n) {
-                        hasNConsonants = true;
+                    consonant_count++;
+                    if (consonant_count == n) {
+                        has_n_consonants = true;
                         break;
                     }
                 }
             }
-            if (hasNConsonants) {
+            if (has_n_consonants) {
                 result.push_back(word);
             }
             word = "";
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
 }
