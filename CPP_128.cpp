@@ -17,3 +17,9 @@ int prod_signs(vector<int> arr) {
 
     return sign_product * sum_of_magnitudes;
 }
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    // Add more test cases if needed.
+    return 0;
+}
