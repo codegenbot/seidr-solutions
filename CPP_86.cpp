@@ -8,7 +8,7 @@ std::string anti_shuffle(std::string s) {
             result += ' ';
             i++;
         } else {
-            std::string word = "";
+            string word = "";
             while (i < s.length() && s[i] != ' ') {
                 word += s[i];
                 i++;
