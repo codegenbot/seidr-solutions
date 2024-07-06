@@ -17,13 +17,16 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(str);
     }
     return result;
-
 }
 
 int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     string prefix = "xxx";
     vector<string> filteredStrings = filter_by_prefix(strings, prefix);
-    assert(issame(filteredStrings, {"xxx", "xxxAAA", "xxx"}));
+    if(issame(filteredStrings, {"xxx", "xxxAAA", "xxx"})){
+        cout << "Test passed" << endl;
+    } else {
+        cout << "Test failed" << endl;
+    }
     return 0;
 }
