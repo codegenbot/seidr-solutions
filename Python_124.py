@@ -1,6 +1,6 @@
 ```
 def valid_date():
-    date = input("Enter a date in the format YYYY-MM-DD: ")
+    date = input("Enter a date in YYYY-MM-DD format: ")
     day, month, year = date.split('-')
     if len(day) < 1 or len(month) < 1 or len(year) < 4:
         return False
