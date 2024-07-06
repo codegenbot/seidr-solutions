@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -19,7 +18,7 @@ bool isPrime(int num) {
     return true;
 }
 
-int largestPrime(std::vector<int> lst) {
+int largestPrime(vector<int> lst) {
     int maxPrime = -1;
     for (int i : lst) {
         if (isPrime(i)) {
@@ -29,13 +28,13 @@ int largestPrime(std::vector<int> lst) {
     return maxPrime;
 }
 
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
+int calculateSumOfDigitsLargestPrime(vector<int> lst) {
     int maxPrime = largestPrime(lst);
     return sumOfDigits(maxPrime);
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
+    vector<int> lst = {1, 2, 3, 4, 5};
     std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << endl;
     return 0;
 }
