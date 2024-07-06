@@ -11,21 +11,28 @@ bool isEqual(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> findMaximum(int n, int k) {
     std::cout << "Enter the number of elements: ";
+    if (!(std::cin >> n)) {
+        std::cerr << "Invalid input for number of elements.\n";
+        return {};
+    }
+
+    std::cout << "Enter the number of maximum elements to find: ";
+    if (!(std::cin >> k)) {
+        std::cerr << "Invalid input for number of maximum elements to find.\n";
+        return {};
+    }
+    
     int* arr = new int[n];
     
     for (int i = 0; i < n; ++i) {
-        while(true) {
-            std::cout << "Enter element " << i+1 << ": ";
-            std::cin >> arr[i];
-            if(std::cin.fail()) {
-                std::cerr << "Invalid input. Please enter a number." << std::endl;
-                std::cin.clear();
-                std::cin.ignore(10000, '\n');
-                continue;
-            }
-            break;
+        std::cout << "Enter element " << i+1 << ": ";
+        if (!(std::cin >> arr[i])) {
+            std::cerr << "Invalid input for elements.\n";
+            return {};
         }
     }
+    
+    delete[] arr;
     
     std::vector<int> myVector (arr, arr+n);
     
@@ -42,25 +49,17 @@ std::vector<int> findMaximum(int n, int k) {
 
 int main() {
     int n;
-    while(true) {
-        std::cout << "Enter the number of elements: ";
-        if(std::cin >> n) break;
-        else {
-            std::cerr << "Invalid input. Please enter a number." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
-        }
+    std::cout << "Enter the number of elements: ";
+    if (!(std::cin >> n)) {
+        std::cerr << "Invalid input for number of elements.\n";
+        return 1;
     }
     
     int k;
-    while(true) {
-        std::cout << "Enter the number of maximum elements to find: ";
-        if(std::cin >> k) break;
-        else {
-            std::cerr << "Invalid input. Please enter a number." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
-        }
+    std::cout << "Enter the number of maximum elements to find: ";
+    if (!(std::cin >> k)) {
+        std::cerr << "Invalid input for number of maximum elements to find.\n";
+        return 1;
     }
     
     assert(isEqual(std::vector<int>({0, 1, 2, 3}), findMaximum(n, k)));
