@@ -1,3 +1,4 @@
+```
 from typing import List
 from statistics import mean as stat_mean
 
