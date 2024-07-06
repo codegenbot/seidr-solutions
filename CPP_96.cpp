@@ -1,8 +1,6 @@
-#include <iostream>
-#include <vector>
-
-std::vector<int> count_up_to(int n) {
-    std::vector<int> primes;
+```
+vector<int> count_up_to(int n) {
+    vector<int> primes;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
         if(i == 2)
@@ -22,34 +20,26 @@ std::vector<int> count_up_to(int n) {
     return primes;
 }
 
-bool isSame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size())
-        return false;
-
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
+vector<int> check_primes(vector<int> primes, int n) {
+    vector<int> evenPrimes;
+    for(int prime : primes) {
+        bool isEven = (prime % 2 == 0);
+        if(isEven && prime <= n)
+            evenPrimes.push_back(prime);
     }
-
-    return true;
+    return evenPrimes;
 }
 
 int main() {
     int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-
+    cout << "Enter a number: ";
+    cin >> n;
     vector<int> primes = count_up_to(n);
-
-    for(int prime : primes) {
-        std::cout << prime << " ";
+    vector<int> even_primes = check_primes(primes, n);
+    cout << "Even Prime numbers up to " << n << ":";
+    for(int prime : even_primes) {
+        cout << " " << prime;
     }
-    
-    vector<int> b = {2, 3, 5, 7};
-    if(isSame(primes, b))
-        std::cout << "\nThe two vectors are the same." << std::endl;
-    else
-        std::cout << "\nThe two vectors are not the same." << std::endl;
-
+    cout << endl;
     return 0;
 }
