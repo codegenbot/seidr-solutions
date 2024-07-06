@@ -1,9 +1,16 @@
-vector<int> filter_integers(list_any values) {
+#include<vector>
+#include<string>
+#include<boost/any.hpp>
+#include<list>
+
+typedef std::list<boost::any> list_any;
+
+using namespace std;
+vector<int> filter_integers(list_any values){
     vector<int> result;
-    for (const auto& value : values) {
-        if (holds_alternative<int>(value)) {
-            int integer = get<int>(value);
-            result.push_back(integer);
+    for(const auto& value : values) {
+        if (boost::get<int>(value)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
