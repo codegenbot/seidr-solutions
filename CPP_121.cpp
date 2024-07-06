@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
-#include <cassert>
 
-int solutions(std::vector<int> lst) {
+int sumOdds(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -12,6 +12,6 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 16);
+    assert(sumOdds({3, 13, 2, 9}) == 17);
     return 0;
 }
