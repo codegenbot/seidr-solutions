@@ -1,12 +1,9 @@
+
 def mastermind(code, guess):
-    white_pegs = 0
-    black_pegs = 0
-    for i in range(len(guess)):
-        if guess[i] == code[i]:
-            white_pegs += 1
-        else:
-            for j in range(len(code)):
-                if code[j] == guess[i]:
-                    black_pegs += 1
-                    break
-    return (white_pegs, black_pegs)
+    char_count = defaultdict(int)
+    for i, c in enumerate(code):
+        if c == guess[i]:
+            char_count[c] += 1
+        elif c in guess:
+            char_count[c] += 1
+    return (len(code), len(guess))
