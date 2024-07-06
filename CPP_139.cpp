@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+using namespace std;
+
 long long special_factorial(int n) {
     if (n == 0 || n == 1)
         return 1;
@@ -11,21 +15,11 @@ long long special_factorial(int n) {
     return result;
 }
 
-#include <iostream>
-using namespace std;
-
 int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    
-    long long res = special_factorial(n);
-    
-    if (res == 1) {
-        cout << "The special factorial of " << n << " is not defined." << endl;
-    } else {
-        cout << "The special factorial of " << n << " is " << res << "." << endl;
-    }
-    
+    cout << "Special factorial of " << n << " is " << special_factorial(n) << endl;
+    assert(special_factorial(0) == 1);
     return 0;
 }
