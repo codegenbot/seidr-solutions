@@ -1,2 +1,6 @@
 
-The given code is not complete. Please provide a valid Python code snippet to solve the problem.
+def sum_product(numbers: list[int]) -> Tuple[int, int]:
+    if not numbers:
+        return (0, 1)
+    else:
+        return (sum(numbers), math.prod(numbers))
