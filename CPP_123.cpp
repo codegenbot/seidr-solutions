@@ -1,16 +1,4 @@
-#include <vector>
-#include <algorithm>
 #include <initializer_list>
-
-typedef std::size_t size_type;
-template<typename _E>
-class initializer_list {
-public:
-    class iterator;
-
-    // ...
-
-};
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -29,7 +17,7 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-int main() {
+int main 
+{
     assert(issame({get_odd_collatz(1)}, {1}));
-    return 0;
 }
