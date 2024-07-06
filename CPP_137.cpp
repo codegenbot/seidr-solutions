@@ -12,12 +12,12 @@ int main() {
         // process the string and val1 as needed
     }
     
-    int a = val1;  
+    int a = val1;  // Assuming the int value should go into 'a'
     std::string b = str;
 
-    if (a > std::stoi(b)) {
+    if (a > stoi(b)) {
         std::cout << "The first number is bigger.\n";
-    } else if (a < std::stoi(b)) {
+    } else if (a < stoi(b)) {
         std::cout << "The second number is bigger.\n";
     } else {
         std::cout << "Both numbers are equal.\n";
