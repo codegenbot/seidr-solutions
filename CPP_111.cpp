@@ -21,16 +21,14 @@ map<char, int> histogram(string test) {
         if (count > 0) result[c] = count;
     }
 
-    map<char, int> maxCountMap;
     int maxCount = 0;
+    map<char, int> maxCountMap;
     for (auto& pair : result) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            for (auto& p : result) {
-                if (p.second == maxCount)
-                    maxCountMap[p.first] = p.second;
-            }
+            for (auto& p : result)
+                if (p.second == maxCount) maxCountMap[p.first] = p.second;
         } else if (pair.second == maxCount)
             maxCountMap[pair.first] = pair.second;
     }
