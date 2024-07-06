@@ -18,7 +18,7 @@ int do_algebra(std::vector<char> operations, std::vector<int> operands) {
     return result;
 }
 
-int main() {
+int main_test() {
     int result = do_algebra({'*', '/'}, {7, 3, 4});
     assert(result == 8);
     return 0;

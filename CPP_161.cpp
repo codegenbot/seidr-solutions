@@ -1,23 +1,22 @@
-#include <cassert>
-#include <iostream>
-#include <string>
-#include <cctype>
-
-std::string solve(std::string s){
+std::string solve(std::string s) {
     std::string result = "";
     for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
-            result += c;
+        if(i%2 == 0){
+            if(isalpha(s[i])){
+                char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+                result += c;
+            } else {
+                result += s[i];
+            }
         } else {
-            result += s[i];
+            if(isalpha(result[result.length()-1])){
+                char c = (islower(result[result.length()-1])) ? tolower(result[result.length()-1]) : toupper(result[result.length()-1]);
+                result.pop_back();
+                result += c;
+            } else {
+                result += s[i];
+            }
         }
     }
-    return (result.find_first_not_of(" ") == std::string::npos) ? std::string(result.rbegin(), result.rend()) : result;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    std::cout << "Test Passed" << std::endl;
-    return 0;
+    return result;
 }

@@ -1,6 +1,5 @@
 ```cpp
-#include "path/to/CryptoPP/include/cryptopp/md5.h"
-#include "path/to/CryptoPP/include/cryptopp/hex.h"
+#include "C:\\CryptoPP\\include\\cryptopp/md5.h"
 
 using namespace std;
 using namespace CryptoPP;
