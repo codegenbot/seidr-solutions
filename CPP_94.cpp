@@ -23,4 +23,11 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
-}
+
+#include <iostream>
+#include <vector>
+
+int main() {
+    vector<int> lst = {2,3,4,5,6,7,8};
+    cout << skjkasdkd(lst) << endl;
+    return 0;
