@@ -1,5 +1,7 @@
-#include <cassert>
+```cpp
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 std::string decimal_to_binary(int n){
