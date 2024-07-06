@@ -1,30 +1,21 @@
 int smallest_change(vector<int> arr) {
-    int left = 0, right = arr.size() - 1;
-    int changes = 0;
-
-    while (left < right) {
-        if (arr[left] != arr[right]) {
-            changes++;
-            for (int i = 0; i < arr.size(); i++) {
-                if (i == left || i == right) continue;
-                vector<int> temp = arr;
-                temp[i] = arr[left];
-                bool isPalindromic = true;
-                int j = 0, k = temp.size() - 1;
-                while (j < k) {
-                    if (temp[j] != temp[k]) {
-                        isPalindromic = false;
-                        break;
-                    }
-                    j++;
-                    k--;
-                }
-                if (isPalindromic) return changes + 1;
+    int n = arr.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    
+    for (int i = 0; i < n; i++) {
+        dp[i][i] = 0;
+    }
+    
+    for (int len = 2; len <= n; len++) {
+        for (int i = 0; i < n - len + 1; i++) {
+            int j = i + len - 1;
+            if (arr[i] == arr[j]) {
+                dp[i][j] = dp[i+1][j-1];
+            } else {
+                dp[i][j] = 1 + min(dp[i+1][j], dp[i][j-1]);
             }
         }
-        left++;
-        right--;
     }
-
-    return changes;
+    
+    return dp[0][n-1];
 }
