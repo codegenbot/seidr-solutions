@@ -1,6 +1,4 @@
 ```
- 
-
 from collections import deque
 
 def minPath(grid, k):
@@ -17,9 +15,7 @@ def minPath(grid, k):
             ni, nj, new_path = queue.popleft()
             for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
                 ni2, nj2 = ni + x, nj + y
-                if (
-                    0 <= ni2 < n and 0 <= nj2 < n and (ni2, nj2) not in visited and grid[ni2][nj2] == 0
-                ):
+                if (0 <= ni2 < n and 0 <= nj2 < n and (ni2, nj2) not in visited and grid[ni2][nj2] == 0):
                     new_path2 = new_path + [m[ni2][nj2]]
                     if min_path is None or len(new_path2) < len(min_path):
                         min_path = new_path2
