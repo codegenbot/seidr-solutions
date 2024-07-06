@@ -6,6 +6,11 @@ def double_the_difference(lst):
     return result
 
 
-if __name__ == "__main__":
-    lst = list(map(int, input().split()))
-    print(double_the_difference(lst))
+# Read input from the user
+lst = list(map(int, input().split()))
+
+# Call the function with the input list
+result = double_the_difference(lst)
+
+# Print the result
+print(result)
