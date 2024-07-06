@@ -10,9 +10,8 @@ def mastermind(code, guess):
                 break
             if code_index == guess.index(c):
                 black += 1
-                c = code[code_index+1] if code_index != len(code) - 1 else ''
+                break
             else:
                 white += 1
-                c = code[code_index+1] if code_index != len(code) - 1 else ''
-
+                break
     return black, white
