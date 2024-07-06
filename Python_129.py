@@ -1,7 +1,8 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
-    queue = [(0, 0, [])]
+    queue = [(0, 0, [grid[0][0]])]
     visited = set((0, 0))
     shortest_paths = {}
 
@@ -23,7 +24,4 @@ def minPath(grid, k):
                     queue.append((nx, ny, new_path))
                     visited.add((nx, ny))
 
-    return sorted(
-        [len(path) for path in set(tuple(path) for path in queue)]
-        + list(shortest_paths.keys())
-    )[:k]
+    return sorted(list(shortest_paths.keys()))[:k]
