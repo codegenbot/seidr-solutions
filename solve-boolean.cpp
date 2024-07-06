@@ -5,30 +5,23 @@ using namespace std;
 bool solveBoolean(string s) {
     bool t = true;
     bool f = false;
-    bool res = t;
-    int i = 0;
+    bool res = true;
 
-    while (i < s.length()) {
-        if (s[i] == 't') {
-            res = true;
-            i++;
-        } else if (s[i] == 'f') {
-            res = false;
-            i++;
-        } else if (s[i] == '&') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
             res &= f;
-            i++;
-            if (i < s.length() && (s[i] == 't' || s[i] == 'f')) {
-                f = (s[i] == 't');
-                i++;
-            }
+            f = false;
         } else if (s[i] == '|') {
-            res |= f;
-            i++;
-            if (i < s.length() && (s[i] == 't' || s[i] == 'f')) {
-                f = (s[i] == 't');
-                i++;
-            }
+            res |= t;
+            t = false;
+        } else if (s[i] == 't') {
+            t = true;
+            f = false;
+        } else if (s[i] == 'f') {
+            t = false;
+            f = true;
+        } else {
+            res &= (s[i] == 't');
         }
     }
 
