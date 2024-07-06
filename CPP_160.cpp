@@ -1,9 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <cmath>
 
-int do_algebra(vector<char*> operators, vector<int> operands) {
+int do_alphabet(std::vector<char*> operators, std::vector<int> operands) {
     int result = operands[0];
     for (int i = 0; i < operators.size(); i++) {
         if (*operators[i] == '+') {
@@ -13,14 +11,13 @@ int do_algebra(vector<char*> operators, vector<int> operands) {
         } else if (*operators[i] == '*') {
             result *= operands[i + 1];
         } else if (*operators[i] == '/') {
-            result = result / operands[i + 1];
-        } 
+            result /= static_cast<int>(operands[i + 1]);
+        }
     }
     return result;
 }
 
 int main() {
-    assert (do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    std::cout << do_algebra({"//", "*"}, {7, 3, 4}) << "\n";
+    assert(do_alphabet({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
 }
