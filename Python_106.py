@@ -9,5 +9,5 @@ def f(n):
     return result
 
 import math
-def factorial(n):
-    return math.factorial(n)
+def factorial(x):
+    return math.factorial(x)
