@@ -20,4 +20,3 @@ string fix_spaces(string text){
     }
     
     return result;
-}
