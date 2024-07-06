@@ -12,8 +12,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
         int maxVal = *max_element(lst.begin(), lst.end());
         result.push_back(minVal);
         result.push_back(maxVal);
-        lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
-        lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
+        auto it = std::remove(lst.begin(), lst.end(), minVal);
+        lst.erase(it, lst.end());
+        it = std::remove(lst.begin(), lst.end(), maxVal);
+        lst.erase(it, lst.end());
     }
 
     return result;
