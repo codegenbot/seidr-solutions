@@ -1,19 +1,6 @@
-```c
 #include <vector>
+#include <sstream>
 #include <string>
-
-std::vector<std::string> words_string(std::string s) {
-    std::vector<std::string> result;
-    size_t start = 0;
-    while (start < s.length()) {
-        size_t end = s.find(' ', start);
-        if (end == std::string::npos)
-            end = s.length();
-        result.push_back(s.substr(start, end - start));
-        start = end + 1;
-    }
-    return result;
-}
 
 bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
@@ -38,6 +25,18 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
         }
     }
     return result;
+}
+
+std::vector<std::string> words_string(std::string s) {
+    std::vector<std::string> words;
+    std::stringstream ss(s);
+    std::string word;
+    
+    while (ss >> word) {
+        words.push_back(word);
+    }
+    
+    return words;
 }
 
 int main() {
