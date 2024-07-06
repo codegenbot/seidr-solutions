@@ -6,7 +6,7 @@ def minPath(grid, k):
             if grid[i][j] == 1:
                 path = [grid[i][j]]
                 dfs(grid, i, j, k - 1, path, res)
-    return res
+    return sorted(set(res))
 
 def dfs(grid, x, y, k, path, res):
     n = len(grid)
@@ -19,5 +19,5 @@ def dfs(grid, x, y, k, path, res):
                 path.append(grid[nx][ny])
                 dfs(grid, nx, ny, k - 1, path, res)
                 if len(path) == k + 1:
-                    res.append(sorted(path[:]))
+                    res.append(path[:])
                 path.pop()
