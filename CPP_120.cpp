@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -27,3 +28,4 @@ int main() {
     std::vector<int> array (arr, arr+n);
     assert(issame(maximum(array, 4), {0, 1, 2, 3}));
     return 0;
+}
