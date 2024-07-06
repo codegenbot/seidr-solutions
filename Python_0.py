@@ -1,11 +1,10 @@
 ```
+from typing import List
+
+
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    if not isinstance(threshold, (int, float)):
-        return "Error: Threshold should be a number."
-    if len(numbers) == 0:
-        return "Error: The list is empty."
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
             if abs(numbers[i] - numbers[j]) <= threshold:
-                return True
-    return False
+                return False
+    return True
