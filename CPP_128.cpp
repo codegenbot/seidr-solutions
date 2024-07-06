@@ -1,17 +1,12 @@
-```cpp
 #include <vector>
 
-int prod_signs(vector<int> arr) {
-    long long product = 1;
-    int sum = 0;
-
-    for (int num : arr) {
-        if (num == 0) {
-            return -32768;
-        }
-        sum += abs(num);
-        product *= (num > 0) ? 1 : ((num < 0) ? -1 : 0);
+int prod_signs(vector<int> arr){
+    int res = 1;
+    long long sum = 0;
+    for(int i : arr){
+        if(i == 0) return 0;
+        res *= (i > 0 ? 1 : -1);
+        sum += abs(i);
     }
-
-    return product * sum;
+    return (sum == 0)? INT_MIN : res * sum;
 }
