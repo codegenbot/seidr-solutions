@@ -3,11 +3,44 @@
 #include <algorithm>
 
 std::vector<std::string> bf(std::string a, std::string b) {
-    int m = a.length(), n = b.length();
-    for (int i = 0; i <= m - b.length(); i++) {
-        if (a.substr(i, b.length()) == b) return {a.substr(0, i), a.substr(i + b.length())};
+    int countA = 0;
+    int countB = 0;
+
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] == 'a')
+            countA++;
+        else
+            countB++;
     }
-    return {};
+
+    for(int i = 0; i < b.size(); i++) {
+        if(b[i] == 'a')
+            countA++;
+        else
+            countB++;
+    }
+
+    std::vector<std::string> result;
+
+    while(countA > 0 && countB > 0) {
+        result.push_back("aab");
+        countA -= 2;
+        countB -= 2;
+    }
+
+    if(countA > 0) {
+        for(int i = 0; i < countA; i++) {
+            result.push_back("a");
+        }
+    }
+
+    if(countB > 0) {
+        for(int i = 0; i < countB; i++) {
+            result.push_back("b");
+        }
+    }
+
+    return result;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
