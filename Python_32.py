@@ -6,6 +6,7 @@ def find_zero(x):
         return 1
     else:
         return 0
+
 if __name__ == "__main__":
     x = int(input("Enter a number: "))
     print(find_zero(x))
