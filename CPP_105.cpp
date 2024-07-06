@@ -12,4 +12,5 @@ vector<pair<int, string>> by_length(vector<int> arr){
     for(int i: temp){
         result.push_back({i, numToName[i]});
     }
+    return result;
 }
