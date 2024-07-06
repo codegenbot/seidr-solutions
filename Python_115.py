@@ -1,21 +1,20 @@
+```
 def max_fill(grid, capacity):
+    if capacity <= 0:
+        return 0
     total_amount = 0
     left = [c for r in grid for c in r]
     right = left[::-1]
     left_ptr, right_ptr = 0, len(left) - 1
     
-    for i in range(min(left_ptr, right_ptr), max(left_ptr, right_ptr)):
-        if left[i] < capacity and right[len(left) - i - 1] < capacity:
-            total_amount += min(capacity, left[i]) // 2 * 2
-            left[i] -= (min(capacity, left[i])) // 2
-            right[len(left) - i - 1] -= (min(capacity, left[i])) // 2
-        elif left[left_ptr] < capacity:
-            total_amount += min(capacity, left[left_ptr]) // 2 * 2
-            left[left_ptr] -= (min(capacity, left[left_ptr])) // 2
+    while left_ptr <= right_ptr:
+        half = min(capacity, (left[left_ptr] + right[right_ptr])) // 2
+        total_amount += half * 2
+        left[left_ptr] -= half
+        right[right_ptr] -= half
+        if left[left_ptr] == 0:
             left_ptr += 1
-        else:
-            total_amount += min(capacity, right[right_ptr]) // 2 * 2
-            right[right_ptr] -= (min(capacity, right[right_ptr])) // 2
+        if right[right_ptr] == 0:
             right_ptr -= 1
     
     return total_amount

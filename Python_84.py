@@ -1,2 +1,4 @@
-def solve(N): 
-    return bin(N)
+```Python
+def solve():
+    N = int(input("Enter a number: "))
+    return bin(N)[2:]
