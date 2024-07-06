@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cassert>
 
@@ -11,11 +10,11 @@ int words_in_sentence(const string& sentence) {
     for (char c : sentence) { 
         if (c == ' ') {
             inWord = false;
-        } else {
             if (!inWord) {
                 count++;
-                inWord = true;
             }
+        } else {
+            inWord = true;
         }
     }
 
