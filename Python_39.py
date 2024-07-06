@@ -1,9 +1,7 @@
-def prime_fib(n: int):
-    if n < 2:
-        return []
+def prime_fib(n):
     fib = [0, 1]
-    for i in range(2, n + 1):
-        fib.append(fib[i - 1] + fib[i - 2])
-        if not is_prime(fib[i]):
-            fib.pop()
-    return fib[-1]
+    while len(fib) <= n:
+        fib.append(fib[-1] + fib[-2])
+
+    # Check if the result is prime or not
+    return fib[n] if fib[n] % 2 != 0 else False
