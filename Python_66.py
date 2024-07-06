@@ -1,9 +1,8 @@
 def digit_sum():
-    n = int(input("Enter a number: "))
-    if n >= 10:
-        return "Please enter a single digit."
-    else:
-        return sum(int(i) for i in str(n))
+    n = input("Enter a number: ")
+    if not n.isnumeric():
+        return "Invalid input. Please enter an integer."
+    return sum(int(i) for i in n)
 
 
 def main():
@@ -11,8 +10,8 @@ def main():
         try:
             print(digit_sum())
             break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
+        except Exception as e:
+            print(f"Error: {e}")
 
 
 if __name__ == "__main__":
