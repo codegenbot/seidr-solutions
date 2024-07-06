@@ -1,24 +1,21 @@
-#include <iostream>
-#include <string>
-using namespace std;
+    #include <iostream>
+    #include <string>
+    using namespace std;
 
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
 
-    while (getline(cin, code)) { // read entire line of input into "code"
-        getline(cin, guess); // read entire line of input into "guess"
-
-        for (int i = 0; i < code.length(); i++) { // iterate through characters of "code" and "guess"
-            if (code[i] == guess[i]) { // if characters match, increment blackPegs
-                blackPegs++;
-            } else if (code.find(guess[i]) != string::npos) { // if character in "code" is found in "guess", increment whitePegs
-                whitePegs++;
-            }
+while (cin >> code >> guess) {
+    for (int i = 0; i < code.length(); i++) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+        } else if (code.find(guess[i]) != string::npos) {
+            whitePegs++;
         }
-
-        cout << whitePegs << " " << blackPegs << endl; // print results
     }
+    cout << whitePegs << " " << blackPegs << endl;
+}
 
-    return 0;
+return 0;
 }
