@@ -8,11 +8,11 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    factors = []
-    for i in range(2, a+1):
-        while a % i == 0:
-            factors.append(i)
-            a //= i
-    if len(factors) != 3:
-        return False
-    return all(is_prime(factor) for factor in factors)
+    factors = [i for i in range(2, a+1) if a % i == 0]
+    factors.sort()
+    prime_factors = []
+    for factor in factors:
+        while a % factor == 0:
+            prime_factors.append(factor)
+            a //= factor
+    return len(prime_factors) == 3 and all(map(is_prime, prime_factors))
