@@ -1,14 +1,14 @@
-#include <vector>
+Here is the completed code:
 
+```cpp
 vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
-    while (num != 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0)
-            result[0]++;
+    int count_even = 0, count_odd = 0;
+    string str_num = to_string(abs(num));
+    for (char c : str_num) {
+        if (stoi(c.ToString()) % 2 == 0)
+            count_even++;
         else
-            result[1]++;
-        num /= 10;
+            count_odd++;
     }
-    return result;
+    return {count_even, count_odd};
 }
