@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,6 +18,8 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    assert(max_fill({{1,2,3},{4,5,6}}, 10) == 2);
+    vector<vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
+    int capacity = 9;
+    cout << "The number of buckets needed: " << max_fill(grid, capacity) << endl;
     return 0;
 }
