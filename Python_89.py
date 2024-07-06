@@ -1,8 +1,6 @@
 def encrypt(s):
-    new_string = ""
+    result = ""
     for char in s:
-        index = ord(char) - 65
-        if index < 26:
-            new_index = (index + 2) % 26
-            new_string += chr(new_index + 65)
-    return new_string
+        new_char = chr((ord(char) - 65) * 2 + 65)
+        result += new_char
+    return result
