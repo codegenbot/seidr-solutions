@@ -30,5 +30,6 @@ int main() {
     for (auto i : indices) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
