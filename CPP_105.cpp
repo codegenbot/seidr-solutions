@@ -3,10 +3,10 @@
 #include <string>
 
 bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
+    if (a > b) {
         return false;
+    }
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
