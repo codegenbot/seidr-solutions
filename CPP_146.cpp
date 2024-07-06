@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,7 +17,7 @@ int main() {
     std::cout << "Enter number of elements: ";
     std::cin >> n;
 
-    std::vector<int> nums(n); // Create a vector of size n
+    std::vector<int> nums(n);  // Create a vector of size n
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
