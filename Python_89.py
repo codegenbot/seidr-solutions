@@ -1,8 +1,11 @@
 def encrypt(s):
-    encrypted = ''
-    for char in s:
-        if char.isalpha():
-            encrypted += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
+    result = ""
+    for c in s:
+        if c.isalpha():
+            index = ord(c) - ord("a") + 2
+            if index > 25:
+                index -= 26
+            result += chr(ord("a") + index)
         else:
-            encrypted += char
-    return encrypted
+            result += c
+    return result
