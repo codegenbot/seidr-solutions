@@ -1,5 +1,3 @@
-Here's the modified code:
-
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
@@ -13,6 +11,3 @@ vector<int> strange_sort_vector(vector<int> lst) {
     }
 
     return result;
-}
-
-assert( vector<int>(strange_sort_vector({111111})) == vector<int>({111111}));

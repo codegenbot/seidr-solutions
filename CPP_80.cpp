@@ -1,5 +1,8 @@
-bool is_happy(std::string s) {
-    if(s.length() < 3) return false;
+#include <string>
+#include <algorithm>
+
+int is_happy(std::string s) {
+    if(s.length() < 3) return 0;
     for(int i = 0; i < s.length()-2; i++){
         bool unique = true;
         std::string substr = s.substr(i,3);
@@ -9,7 +12,7 @@ bool is_happy(std::string s) {
                 break;
             }
         }
-        if(unique) return true;
+        if(unique) return 1;
     }
-    return false;
+    return 0;
 }
