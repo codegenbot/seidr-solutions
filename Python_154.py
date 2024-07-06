@@ -1,6 +1,7 @@
+```python
 def cycpattern_check(a, b):
     if int(a) % 2 == 0 and int(b) % 2 != 0:
-        return ("winten")
+        return "winten"
     else:
         return "not winten"
 
