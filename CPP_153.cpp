@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-int Strongest_Extension(string class_name, vector<string> extensions){
+int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest = -1;
     string result;
     for(auto ext:extensions){
@@ -22,8 +22,8 @@ int Strongest_Extension(string class_name, vector<string> extensions){
 }
 
 int main() {
-    string className = "MyClass";
-    vector<string> extensions = {"Java", "Python", "C++", "JavaScript"};
-    cout << Strongest_Extension(className, extensions);
+    string class_name = "MyClass";
+    vector<string> extensions = {"Java", "Python", "C++", "JS"};
+    cout << Strongest_Extension(class_name, extensions) << endl;
     return 0;
 }
