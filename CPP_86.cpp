@@ -2,20 +2,21 @@
 #include <algorithm>
 using namespace std;
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    size_t pos = 0;
-    while (pos < s.length()) {
-        size_t nextSpace = s.find(' ', pos);
-        if (nextSpace == string::npos) {
-            nextSpace = s.length();
+string anti_shuffle(string s) {
+    string result = "";
+    for (char c : s) {
+        if (c == ' ') {
+            result += " ";
+        } else if (c >= 'a' && c <= 'z') {
+            result += (char)(c - 32);
+        } else {
+            result += (char)(c);
         }
-        std::string word = s.substr(pos, nextSpace - pos);
-        result += "";
-        for (char c : word) {
-            result += c;
-        }
-        pos = nextSpace + 1;
     }
     return result;
+}
+
+int main() {
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    return 0;
 }
