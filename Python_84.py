@@ -1,3 +1,3 @@
-```
 def solve(N):
-    return str(bin(N)).count('1')
+    bin_str = bin(N)[2:]
+    return '1' if sum(int(b) for b in bin_str) % 2 == 0 else '0'
