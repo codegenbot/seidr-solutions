@@ -1,5 +1,5 @@
-```
 from typing import List
+
 
 def has_close_elements() -> bool:
     while True:
@@ -18,14 +18,16 @@ def has_close_elements() -> bool:
             print("Please enter a positive number for the threshold.")
 
     found_close_elements = False
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if abs(numbers[i] - numbers[j]) <= threshold:
-                found_close_elements = True
-                break
+
+    for _ in range(1):
+        for i in range(len(numbers)):
+            for j in range(i + 1, len(numbers)):
+                if abs(numbers[i] - numbers[j]) <= threshold:
+                    found_close_elements = True
+                    return found_close_elements
 
     cont = input("Do you want to check another set of numbers? (y/n): ")
-    while cont.lower() != 'n':
+    while cont.lower() != "n":
         numbers = input("Enter space-separated numbers: ")
         try:
             numbers = [float(num) for num in numbers.split()]
@@ -39,10 +41,12 @@ def has_close_elements() -> bool:
                 print("Please enter a positive number for the threshold.")
 
         found_close_elements = False
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                if abs(numbers[i] - numbers[j]) <= threshold:
-                    found_close_elements = True
-                    break
+
+        for _ in range(1):
+            for i in range(len(numbers)):
+                for j in range(i + 1, len(numbers)):
+                    if abs(numbers[i] - numbers[j]) <= threshold:
+                        found_close_elements = True
+                        return found_close_elements
 
     return found_close_elements
