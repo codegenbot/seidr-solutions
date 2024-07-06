@@ -1,3 +1,4 @@
+```cpp
 bool monotonic(vector<float> l) {
     bool inc = true, dec = true;
     for (int i = 1; i < l.size(); i++) {
