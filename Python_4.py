@@ -1,5 +1,7 @@
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    if any(not isinstance(n, (int, float)) for n in numbers):
-        return "Invalid input"
+    if len(numbers) < 2:
+        return 0.0
+
     mean = stat_mean(numbers)
-    return sum(abs(num - mean) for num in numbers) / len(numbers)
+    deviations = [abs(num - mean) for num in numbers]
+    return stat_mean(deviations)
