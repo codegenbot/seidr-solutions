@@ -5,6 +5,6 @@ def cycpattern_check(a, b):
         return True
     for i in range(len(a)):
         rotated_a = a[i:] + a[:i]
-        if rotated_a == b or b in rotated_a:
+        if rotated_a == b:
             return True
     return False
