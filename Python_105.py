@@ -1,4 +1,11 @@
 def by_length(arr):
     result = sorted([str(i) for i in arr if 1 <= i <= 9])
     result.reverse()
-    return [f"{'Zero' if i == '0' else}Nine" if i == '1' else f"One{'' if i == '2' else '' if i == '3' else '' if i == '4' else '' if i == '5' else '' if i == '6' else '' if i == '7' else '' if i == '8' else ''}Nine" for i in result]
+    return [f"{'Zero' if i == '0' else}Nine" if i == '0' or i == '8' 
+            else f"One" if i == '1' 
+            else f"Two" if i == '2' 
+            else f"Three" if i == '3' 
+            else f"Four" if i == '4' 
+            else f"Five" if i == '5' 
+            else f"Six" if i == '6' 
+            else f"Seven" for i in result]
