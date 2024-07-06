@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 #include <initializer_list>
+#include <cassert>
 
 using namespace std;
 
