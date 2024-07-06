@@ -15,25 +15,4 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    int n;
-    cin >> n;
-
-    vector<string> v1, v2;
-
-    for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        v1.push_back(s);
-    }
-
-    for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        v2.push_back(s);
-    }
-
-    if(issame(v1, v2)) 
-        cout << "Same" << endl;
-    else
-        cout << "Not Same" << endl;
+cout << (issame(v1, v2)? "Same" : "Not Same") << endl;
