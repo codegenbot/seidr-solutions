@@ -3,13 +3,15 @@
 using namespace std;
 
 bool isSame(vector<int> a, vector<int> b) {
-    if (a.empty() && b.empty()) {
-        return true;
-    }
-    if ((a.empty() || b.empty())) {
+    if (a.size() != b.size()) {
         return false;
     }
-    return a == b;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> maximum(vector<int> arr, int k) {

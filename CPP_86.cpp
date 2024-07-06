@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,11 +18,12 @@ vector<string> split(const string& str, const string& delimiter) {
 
 string anti_shuffle(string s){
     string result = "";
-    for (const auto& word : split(s, " ")) {
-        for (char c : word) {
-            result += c;
+    if (s.empty()) {
+        return result;
+    } else {
+        for (const auto& word : split(s, " ")) {
+            result += std::string(word.begin(), word.end()) + " ";
         }
-        result += " ";
     }
     return result.substr(0, result.size() - 1);
 }
@@ -32,6 +33,10 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, s);
 
-    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    if (s.empty()) {
+        cout << "Anti-Shuffle of input sentence is: " << "" << endl;
+    } else {
+        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    }
     return 0;
 }

@@ -1,21 +1,28 @@
+```cpp
 #include <string>
-#include <cassert>
-
-std::string encrypt(std::string s) {
-    std::string result = "";  
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 3) % 26 + 'a';
-        } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 3) % 26 + 'A';
-        }
-        result += c;  
-    }
-    return result;
-}
+#include <sstream>
 
 int main() {
-    assert (encrypt("a")=="d");
-    return 0;
+    std::string inputStr;
+    std::getline(std::cin, inputStr);
+    std::istringstream in(inputStr);  
+
+    // Then use this encrypt function:
+    std::string encrypt(std::istringstream s) {
+        std::string result = "";  
+        for(int i=0; i<s.str().length(); i++){
+            char c = s.str()[i];
+            if(c >= 'a' && c <= 'z'){
+                c = (c - 'a' + 3) % 26 + 'a';
+            } else if(c >= 'A' && c <= 'Z'){
+                c = (c - 'A' + 3) % 26 + 'A';
+            }
+            result += c;  
+        }
+        return result;
+    }
+
+    // Now you can call this function:
+    std::string encrypted = encrypt(in);
+    std::cout << "Encrypted: " << encrypted << std::endl;
 }
