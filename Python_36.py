@@ -1,14 +1,12 @@
 def fizz_buzz(n: int):
-    f = 0
-    b = 0
-    fb = 0
+    result = ""
     for i in range(1, n + 1):
         if i % 15 == 0:
-            f += 1
+            result += "FizzBuzz"
         elif i % 5 == 0:
-            b += 1
+            result += "Buzz"
         elif i % 3 == 0:
-            f += 1
+            result += "Fizz"
         else:
-            continue
-    return str(f) + str(b) + str(fb)
+            result += str(i)
+    return result
