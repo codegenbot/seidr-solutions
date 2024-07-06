@@ -1,31 +1,36 @@
+#include <stdio.h>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (c != ' ') {
-            word += c;
-        } else if (!word.empty()) {
-            bool has_n_consonants = has_n_consonants(word, n);
-            if (has_n_consonants) {
+    string word;
+    int consonants = 0;
+    
+    for (int i = 0; i < s.length(); ++i) {
+        if (s[i] != ' ') {
+            if (!isvowel(s[i])) {
+                ++consonants;
+            }
+        } else {
+            if (consonants == n) {
                 result.push_back(word);
             }
             word = "";
+            consonants = 0;
         }
     }
-    if (!word.empty() && has_n_consonants(word, n)) {
+    
+    if (consonants == n) {
         result.push_back(word);
     }
+    
     return result;
 }
 
-bool has_n_consonants(string s, int n) {
-    int consonant_count = 0;
-    for (char c : s) {
-        if (!isalpha(c)) continue;
-        char lower_c = tolower(c);
-        if (lower_c != 'a' && lower_c != 'e' && lower_c != 'i' && lower_c != 'o' && lower_c != 'u') {
-            consonant_count++;
-        }
-    }
-    return consonant_count == n;
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
