@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <cmath>
@@ -31,13 +32,27 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input;
-    // Read input from user
     float num;
-    while(std::cin >> num) {
+    while (cin >> num) {
         input.push_back(num);
     }
 
-    sort_even(input);
+    if(input.size() > 0) {
+        vector<float> even_sorted = sort_even(input);
+        cout << "Original: ";
+        for(float n : input) cout << n << ' ';
+        cout << endl;
 
+        cout << "Sorted Even: ";
+        for(float n : even_sorted) cout << n << ' ';
+        cout << endl;
+    }
+
+    if (issame(input, sort_even(input))) {
+        cout << "The original and sorted vectors are same." << endl;
+    } else {
+        cout << "The original and sorted vectors are different." << endl;
+    }
+    
     return 0;
 }
