@@ -15,10 +15,10 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    std::vector<std::string> result = words_split(s);
-    if (!issame(result)) {
+    if (!issame(expected)) {
         return {};
     }
+    std::vector<std::string> result = words_string(s);
     for (int i = 0; i < expected.size(); i++) {
         if (result[i] != expected[i]) {
             return {};
@@ -27,20 +27,8 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
     return result;
 }
 
-std::vector<std::string> words_split(std::string s) {
-    std::vector<std::string> result = std::vector<std::string>();
-    std::size_t pos = 0, prev = 0;
-
-    while ((pos = s.find(" ", prev)) != std::string::npos) {
-        result.push_back(s.substr(prev, (pos - prev)));
-        prev = pos + 1;
-    }
-
-    if (prev < s.size()) {
-        result.push_back(s.substr(prev));
-    }
-
-    return result;
+std::vector<std::string> words_string(std::string s) {
+    return std::vector<std::string>(std::split(s, ' '));
 }
 
 int main() {
