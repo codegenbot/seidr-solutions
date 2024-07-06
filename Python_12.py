@@ -1,4 +1,3 @@
-```
 from typing import Optional
 
 
@@ -25,6 +24,6 @@ def longest_file_line(input_file: str) -> Optional[str]:
 
     return longest_line if longest_line is not None else ""
 
-input_file = input("Please enter the name of a text file: ")
-result = longest_file_line(input_file)
-print(result)
+
+input_file = input("Please enter a file name: ")
+longest_file = longest_file_line(input_file)
