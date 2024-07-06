@@ -1,16 +1,17 @@
-def solve():
-    n = int(input("Enter a number: "))
-    print(factorize(n))
-
-def factorize(n: int) -> list:
+```
+def factorize(n):
+    i = 2
     factors = []
-    for i in range(2, int(n ** 0.5) + 1):
-        count = 0
-        while n % i == 0:
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
             n //= i
-            count += 1
-        if count > 0:
-            factors.append(i ** count)
+            factors.append(i)
     if n > 1:
         factors.append(n)
-    return sorted(factors)
+    return factors
+
+if __name__ == "__main__":
+    n = int(input("Enter an integer: "))
+    print(factors := factorize(n))
