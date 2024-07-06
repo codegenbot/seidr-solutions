@@ -1,10 +1,6 @@
-```
 def cycpattern_check(a, b):
-    a = a.lower()
-    b = b.lower()
     if len(a) != len(b):
         return False
-    for i in range(len(a)):
-        if a[i:] + a[:i] == b:
-            return True
-    return False
+    a = sorted([c for c in a.lower()])
+    b = sorted([c for c in b.lower()])
+    return str(a) == str(b)
