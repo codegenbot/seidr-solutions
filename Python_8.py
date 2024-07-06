@@ -1,4 +1,6 @@
+
 def sum_product(numbers):
-    if not numbers:
+    if len(numbers) == 0:
         return (0, 1)
-    return (sum(numbers), math.prod(numbers))
+    else:
+        return (sum(numbers), math.prod(numbers))
