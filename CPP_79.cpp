@@ -1,8 +1,7 @@
-```cpp
-#include <string>
-
-std::string decimal_to_binary(int decimal){
-    std::string binary = "";
+#include <bits/stdc++.h>
+using namespace std;
+string decimal_to_binary(int decimal){
+    string binary = "";
     while(decimal > 0){
         if((decimal & 1) == 1)
             binary = "1" + binary;
@@ -10,5 +9,5 @@ std::string decimal_to_binary(int decimal){
             binary = "0" + binary;
         decimal >>= 1;
     }
-    return binary;
+    return "db" + binary + "db";
 }
