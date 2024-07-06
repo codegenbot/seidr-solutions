@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 
@@ -11,7 +10,7 @@ int get_sum_of_digits(int num) {
     return sum;
 }
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++) {
@@ -33,9 +32,4 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
     }
     return result;
 
-}
-
-int main() {
-    assert(is_same(order_by_points({0,6,6,-76,-21,23,4}), std::vector<int>({(-76), (-21), (0), (4), (23), (6), (6)})));
-    return 0;
 }
