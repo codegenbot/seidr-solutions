@@ -1,25 +1,22 @@
-```c++
+```cpp
 #include <cassert>
 #include <string>
 #include <vector>
 
 std::vector<std::string> words_in_sentence(const std::string& sentence) {
     std::vector<std::string> words;
-    size_t pos = 0, prevPos = 0;
-
-    while ((pos = sentence.find(' ', pos)) != std::string::npos) {
-        words.push_back(sentence.substr(prevPos, pos - prevPos));
-        prevPos = pos + 1;
+    size_t pos = 0;
+    while ((pos = sentence.find(' ')) != std::string::npos) {
+        words.push_back(sentence.substr(0, pos));
+        sentence.erase(0, pos + 1);
     }
-
-    if (prevPos < sentence.size()) {
-        words.push_back(sentence.substr(prevPos));
-    }
-
+    if (!sentence.empty())
+        words.push_back(sentence);
     return words;
+
 }
 
 int main() {
-    assert(std::accumulate(words_in_sentence("here is").begin(), words_in_sentence("here is").end(), "") == "is");
+    assert(words_in_sentence("here is") == std::vector<std::string>({"here", "is"}));
     return 0;
 }
