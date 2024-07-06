@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <sstream>
@@ -8,14 +7,15 @@ std::string words_in_sentence(const std::string& sentence) {
     ss << sentence;
     std::string word;
     int count = 0;
-    
+
     while (ss >> word) {
         if (count > 0)
             std::cout << " ";
         std::cout << word;
         count++;
     }
-    return sentence;
+
+    return "";
 }
 
 int main() {
