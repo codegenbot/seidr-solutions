@@ -1,7 +1,5 @@
 ```
-fruit_list = input("Enter the list of fruits: ")
-amount = int(input("Enter the amount: "))
-print(fruit_distribution(fruit_list, amount))
-fruit_list = input("Enter the list of fruits: ")
-amount = int(input("Enter the amount: "))
-print(fruit_distribution(fruit_list, amount))
+while True:
+    fruit_list = input()
+    amount = int(input())
+    print(fruit_distribution(fruit_list, amount))
