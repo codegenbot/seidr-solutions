@@ -5,11 +5,13 @@
 using namespace std;
 
 int count_distinct_characters(string str){
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<char> v;
-    for(char c : str) {
-        if(find(v.begin(), v.end(), c) == v.end()) 
-            v.push_back(c);
+    string temp;
+    for(int i=0; i<str.length();i++){
+        if(str[i]>='a' && str[i]<='z')
+            temp += tolower(str[i]);
+        else if(str[i]>='A' && str[i]<='Z')
+            temp += tolower(str[i]);
     }
-    return (int)v.size();
+    set<char> s(temp.begin(),temp.end());
+    return s.size();
 }
