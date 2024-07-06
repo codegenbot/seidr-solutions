@@ -13,5 +13,5 @@ int main
         if(word.size() > 0 && word[0] == 'I')
             ++count;
     }
-    std::cout << count;
+    return count;
 }
