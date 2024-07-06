@@ -4,10 +4,7 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    prefix, suffix = file_name.split('.')
-    if not prefix[0].isalpha():
+    if not file_name[:file_name.index('.')).isalpha():
         return 'No'
-    valid_suffixes = ['txt', 'exe', 'dll']
-    if suffix not in valid_suffixes:
-        return 'No'
-    return 'Yes'
+    ext = file_name[file_name.index('.') + 1:].lower()
+    return 'Yes' if ext in ['txt', 'exe', 'dll'] else 'No'
