@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int findMaxPrime(std::vector<int> lst){
@@ -24,7 +23,6 @@ bool isPrime(int n) {
     }
     return true;
 
-}
 int main() {
     assert(findMaxPrime({127, 97, 8192}) == 10);
     return 0;
