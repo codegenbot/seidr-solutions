@@ -1,23 +1,33 @@
-Here is the completed code:
+#include <string>
+#include <algorithm>
+#include <vector>
 
-```cpp
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
-    vector<char> c_set(c.begin(), c.end());
-    string result;
-    for (char c : s) {
-        if (find(c_set.begin(), c_set.end(), c) == c_set.end()) {
-            result += c;
+    string res = "";
+    for (char x : s) {
+        bool found = false;
+        for (char y : c) {
+            if (x == y) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            res += x;
         }
     }
-    bool is_palindrome = true;
-    int start = 0, end = result.size() - 1;
-    while (start < end) {
-        if (result[start] != result[end]) {
-            is_palindrome = false;
-            break;
-        }
-        start++;
-        end--;
+
+    vector<string> result;
+    result.push_back(res);
+
+    string rev_str = "";
+    for (char x : s) {
+        rev_str += x;
     }
-    return {(result), (is_palindrome ? "True" : "False")};
+    reverse(rev_str.begin(), rev_str.end());
+    result.push_back(rev_str);
+
+    return result;
 }
