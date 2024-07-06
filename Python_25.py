@@ -1,4 +1,4 @@
-'from typing import List
+'''from typing import List
 import math
 
 def factorize(n: int) -> List[int]:
@@ -13,4 +13,4 @@ def factorize(n: int) -> List[int]:
                 factors.append(i * count)
     if n > 1:
         factors.append(n)
-    return factors'
+    return factors'''
