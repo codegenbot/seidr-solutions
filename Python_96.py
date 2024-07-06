@@ -5,7 +5,6 @@ def count_up_to(n):
             prime_numbers.append(i)
     return prime_numbers
 
-
 def is_prime(n):
     if n <= 1:
         return False
