@@ -8,5 +8,5 @@ def concatenate() -> List[str]:
         s = input("Enter a string (or 'stop' if finished): ")
         if s.lower() == "stop":
             break
-        strings.append(s)
-    return ' '.join([s.strip() for s in strings])
+        strings.append(s.strip())
+    return [''.join(strings)]
