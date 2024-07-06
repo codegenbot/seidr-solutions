@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <map>
+using namespace std;
 
-int search(std::vector<int> lst) {
-    std::map<int, int> count;
+int search(vector<int> lst) {
+    map<int, int> count;
     for (int num : lst) {
         if (count.find(num) == count.end()) {
             count[num] = 1;
@@ -21,4 +22,9 @@ int search(std::vector<int> lst) {
     }
 
     return maxVal;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
