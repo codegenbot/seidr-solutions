@@ -1,4 +1,8 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
@@ -31,8 +35,9 @@ int main() {
     vector<float> v2 = sort_even(v1);
     
     if(issame(v1,v2)) {
-        cout << "Vectors are same" << endl;
+        std::cout << "Vectors are same" << std::endl;
     } else {
-        cout << "Vectors are not same" << endl;
+        std::cout << "Vectors are not same" << std::endl;
     }
     return 0;
+}
