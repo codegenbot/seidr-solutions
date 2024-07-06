@@ -1,9 +1,8 @@
-import re
-
-
 def fix_spaces(text):
-    text = re.sub(r"\s+", "_", text, flags=re.MULTILINE)
-    return text.replace(" ", "")
+    import re
+
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
 
 user_input = input()
