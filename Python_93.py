@@ -4,33 +4,15 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                mapping = {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}
-                if char.isupper():
-                    result += mapping[char.lower()].upper()
-                else:
-                    result += mapping[char.lower()]
-            elif char.lower() == "re" or char.lower() == "ro" or char.lower() == "te":
-                mapping = {"re": "gYkS", "ro": "gYkS", "te": "sWnT"}
-                if char.isupper():
-                    result += mapping[char.lower()].upper()
-                else:
-                    result += mapping[char.lower()]
-            elif char.lower() == "se":
-                mapping = {"se": "sWnT"}
-                if char.isupper():
-                    result += mapping[char.lower()].upper()
-                else:
-                    result += mapping[char.lower()]
+                result += {**{("a": "c", "e": "g", "i": "k", "o": "q", "u": "y").fromkeys(("a", "e", "i", "o", "u"))}.get(char.lower(), char.swapcase())
+            elif char.lower() in ["do", "to"]:
+                result += {**{("d", "t"): ["dQnT"], ("r", "o", "t"): ["gYkS"], ("s"): ["sWnT"]}.get(char.lower(), char.swapcase())
             else:
                 if char.isupper():
                     result += char.swapcase().upper()
                 else:
                     result += char.swapcase()
-        elif char.isalnum():  
-            if char.isupper():
-                result += char.swapcase().upper()
-            else:
-                result += char.swapcase()
         else:  
             result += char
+
     return result
