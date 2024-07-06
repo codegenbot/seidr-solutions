@@ -1,6 +1,3 @@
-Here's the corrected code:
-
-```
 def add(x: int, y: int):
     return x + y
 
