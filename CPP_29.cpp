@@ -1,6 +1,7 @@
+```cpp
 bool issame(vector<string> a, vector<string> b);
 int main() {
-    assert(issame({ "xxx", "xxxAAA", "xxx" }, { "xxx", "xxxAAA", "xxx" }));
+    assert(issame({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}});
     return 0;
 }
 
