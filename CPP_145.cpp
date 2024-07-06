@@ -1,7 +1,16 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+int get_sum_of_digits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+bool issame(std::vector<int> a, std::vector<int>b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++) {
@@ -25,16 +34,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 
 }
 
-int get_sum_of_digits(int num) {
-    int sum = 0;
-    while (num != 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), std::vector<int>{{(-76), (-21), (0), (4), (23), (6), (6)})));
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), vector<int>({(-76), (-21), (0), (4), (23), (6), (6)})));
     return 0;
 }
