@@ -23,3 +23,7 @@ def longest_file_line(input_file: str) -> Optional[str]:
         return None
 
     return longest_line if longest_line is not None else ""
+
+input_file = input("Please enter the file name: ")
+result = longest_file_line(input_file)
+print(result)
