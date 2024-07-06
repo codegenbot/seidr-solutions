@@ -1,10 +1,7 @@
 ```
 def main():
-    choice = int(
-        input(
-            "Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? "
-        )
-    )
+    choice = int(input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? "))
+    solve = None
     if choice == 1:
         N = int(input("Enter a number: "))
         solve = bin(N)[2:]
@@ -13,7 +10,5 @@ def main():
         solve = oct(int(N, 2))[2:]
     else:
         print("Invalid choice. Please choose (1) or (2).")
-    if choice == 1:
-        print(solve)
-    elif choice == 2:
+    if solve is not None:
         print(solve)
