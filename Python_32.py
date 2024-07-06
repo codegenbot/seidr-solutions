@@ -1,4 +1,5 @@
-Here is the solution:
-
 def find_zero(xs: list):
-    return (-xs[1] / xs[-1]) if len(xs) > 2 else -xs[0] / xs[1]
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have an even number of coefficients")
+    leading_coeff = max((abs(x), i) for i, x in enumerate(xs))
+    return -leading_coeff[1] / (len(xs) // 2)
