@@ -1,12 +1,11 @@
 ```
-def filter_by_substring(input_string):
-    substring = input("Enter the substring: ")
-    if substring in input_string:
-        return f"The substring '{substring}' was found in the string."
-    else:
-        return f"The substring '{substring}' was not found in the string."
+def filter_by_substring(input_string, target):
+    result = [line for line in input_string.split('\n') if target in line]
+    return '\n'.join(result)
 
-def check(function_to_execute):
-    return function_to_execute()
+def check(func):
+    result = func(input_string, 'substring')
+    print(result)
 
-print(check(filter_by_substring))
+input_string = input("Enter a string: ")
+check(filter_by_substring)
