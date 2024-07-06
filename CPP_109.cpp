@@ -15,24 +15,7 @@ bool move_one_ball(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr;
-    int n;
-
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    arr.resize(n);
-
-    std::cout << "Enter " << n << " integers: ";
-    for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-
-    if (move_one_ball(arr)) {
-        std::cout << "Move one ball to the front.\n";
-    } else {
-        std::cout << "Do not move the ball.\n";
-    }
-
+    std::vector<int> arr = {3, 4};
+    assert(move_one_ball(arr) == true);
     return 0;
 }
