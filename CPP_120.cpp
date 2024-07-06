@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool equalVectors(std::vector<int> a, std::vector<int> b) {
+bool isEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -14,11 +14,20 @@ std::vector<int> findMaximum(int n, int k) {
     int* arr = new int[n];
     
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> arr[i];
+        while(true) {
+            std::cout << "Enter element " << i+1 << ": ";
+            std::cin >> arr[i];
+            if(std::cin.fail()) {
+                std::cerr << "Invalid input. Please enter a number." << std::endl;
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
+                continue;
+            }
+            break;
+        }
     }
     
-    std::vector<int> myVector(arr, arr+n);
+    std::vector<int> myVector (arr, arr+n);
     
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
@@ -33,13 +42,27 @@ std::vector<int> findMaximum(int n, int k) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    while(true) {
+        std::cout << "Enter the number of elements: ";
+        if(std::cin >> n) break;
+        else {
+            std::cerr << "Invalid input. Please enter a number." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+        }
+    }
     
     int k;
-    std::cout << "Enter the number of maximum elements to find: ";
-    std::cin >> k;
+    while(true) {
+        std::cout << "Enter the number of maximum elements to find: ";
+        if(std::cin >> k) break;
+        else {
+            std::cerr << "Invalid input. Please enter a number." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+        }
+    }
     
-    assert(equalVectors({0, 1, 2, 3}, findMaximum(n, k)));
+    assert(isEqual(std::vector<int>({0, 1, 2, 3}), findMaximum(n, k)));
     return 0;
 }
