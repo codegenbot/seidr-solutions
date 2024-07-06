@@ -14,19 +14,22 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float val;
+    float n;
     
     // Get the input vector
+    std::cout << "Enter a sequence of numbers (0 to stop):" << std::endl;
     while (true) {
-        std::cout << "Enter a number (negative to stop): ";
-        std::cin >> val;
-        if (val < 0)
+        std::cin >> n;
+        if (n == 0) {
             break;
-        lst.push_back(val);
+        }
+        lst.push_back(n);
     }
-    
+
     long long odd_sum = double_the_difference(lst);
-    std::cout << "The sum of the squares is: " << odd_sum << std::endl;
+    
+    // Add a meaningful assertion
+    assert(double_the_difference(lst) == odd_sum); 
 
     return 0;
 }
