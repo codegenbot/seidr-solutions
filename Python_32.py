@@ -1,10 +1,5 @@
-Here is the completed code:
-
-def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    if abs(xs[0]) > max(abs(x) for x in xs[1:]):
-        return -xs[0] / xs[-1]
-    else:
-        raise ValueError("No zero point found")
+def find_zero(xs):
+    x1 = int(input("Enter first number: "))
+    x2 = int(input("Enter second number: "))
+    n = (x1 + x2) // 2
+    return -n / x2
