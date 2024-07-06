@@ -1,26 +1,35 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
-bool (*issame)(const std::vector<float>&, const std::vector<float>&) {
-    return [](const std::vector<float>& a, const std::vector<float>& b) {
-        if (a.size() != b.size()) {
+bool issame(vector<float> l) {
+    float first = *l.begin();
+    for (float num : l) {
+        if (num != first)
             return false;
-        }
-        for (int i = 0; i < a.size(); i++) {
-            if (!(issame)->(a[i], b[i])) {
-                return false;
-            }
-        }
-        return true;
-    };
+    }
+    return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
+int main() {
+    vector<float> l = {1.0, 2.0, 3.0};
+    cout << issame(l) << endl;
+
+    vector<float> get_positive(vector<float> a) {
+        vector<float> result;
+        for (float num : a) {
+            if (num > 0)
+                result.push_back(num);
         }
+        return result;
     }
-    return result;
+
+    assert(issame(get_positive({1.0, -2.0, 3.0})) == true);
+    
+    vector<float> positive_nums = get_positive(l);
+    cout << "Positive numbers are: ";
+    for (float num : positive_nums) {
+        cout << num << " ";
+    }
+    cout << endl;
 }
