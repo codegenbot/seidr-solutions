@@ -7,7 +7,7 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
     
     for (int i = 0; i < message.size(); i++) {
-        int index = cipher1.find(message[i]);
+        int index = cipher1.find_first_of(message[i], 0);
         if (index != string::npos) {
             cout << cipher2[index];
         } else {
