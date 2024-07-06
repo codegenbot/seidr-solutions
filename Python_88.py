@@ -1,4 +1,3 @@
-```
 def sort_array(arr=None):
     while True:
         choice = input("Do you want to sort array? (S for yes, Q to quit): ")
@@ -10,23 +9,21 @@ def sort_array(arr=None):
             )
             continue
 
-        arr_str = input("Enter numbers separated by space: ")
+        if arr is None:
+            arr_str = input("Enter numbers separated by space: ")
 
-        while True:
-            try:
-                if arr is not None:
+            while True:
+                try:
                     arr = [int(i) for i in arr_str.split()]
-                else:
-                    arr = [int(i) for i in arr_str.split()]
-                break
-            except ValueError as e:
-                print("Error: Array contains non-integer values")
-                arr_str = input("Enter numbers separated by space: ")
-
-        user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
-        if user_choice.upper() == "U":
-            result = set(arr)
+                    break
+                except ValueError as e:
+                    print("Error: Array contains non-integer values")
+                    arr_str = input("Enter numbers separated by space: ")
         else:
-            result = sorted(arr)
+            user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
+            if user_choice.upper() == "U":
+                result = set(arr)
+            else:
+                result = sorted(arr)
 
     return result
