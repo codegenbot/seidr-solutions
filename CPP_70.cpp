@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <ostream>
 
 using namespace std;
 
@@ -39,7 +38,7 @@ int main() {
     for (int x : output) {
         cout << x << " ";
     }
-    cout << endl;
+    cout << std::endl;
 
     return 0;
 }
