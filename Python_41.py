@@ -1,4 +1,3 @@
-```
 def car_race_collision(n=None):
     while True:
         try:
@@ -12,6 +11,7 @@ def car_race_collision(n=None):
     
     total_damage = 0
     while True:
+        temp_total_damage = 0
         for i in range(n):
             while True:
                 values = input(f"Enter speed and damage for car {i+1}: ")
@@ -20,7 +20,9 @@ def car_race_collision(n=None):
                     break
                 except ValueError:
                     print("Invalid input. Please enter two integers separated by a space.")
-            total_damage += damage * speed
+            temp_total_damage += damage * speed
+        
+        total_damage += temp_total_damage
         
         cont = input("Do you want to continue? (yes/no): ")
         if cont.lower() != 'yes':
