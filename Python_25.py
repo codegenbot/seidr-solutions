@@ -1,13 +1,11 @@
+```
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
-    if not isinstance(n, int):
-        return [n, "must be an integer."]
-    if n < 1:
-        return ["Input", n, "must be a positive integer."]
-
+    if n < 2:
+        return []
     factors = []
     for i in range(2, int(math.sqrt(n)) + 1):
         while n % i == 0:
