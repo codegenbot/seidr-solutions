@@ -14,3 +14,11 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     
     return buckets_needed;
 }
+
+int main() {
+    std::vector<std::vector<int>> grid = {{1,2,3},{4,5,6}};
+    int capacity = 10;
+    int result = max_fill(grid, capacity);
+    std::cout << "Maximum number of buckets needed: " << result << std::endl;
+    return 0;
+}
