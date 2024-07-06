@@ -1,10 +1,8 @@
-
 def make_palindrome(string):
-    # Initialize a list to store the characters of the palindrome
-    palindrome = []
-    for i in range(len(string)):
-        if string[i] == string[-i - 1]:
-            palindrome.append(string[i])
-        else:
-            return "".join(reversed(string))
-    return "".join(palindrome)
+    def is_palindrome(s):
+        return s == s[::-1]
+
+    if is_palindrome(string):
+        return string
+    else:
+        return "".join(reversed(string))
