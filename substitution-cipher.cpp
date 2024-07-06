@@ -1,15 +1,16 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
-    int m_idx = 0; // Index of current char in mapping
     for (char c : cipher) {
-        while (m_idx < mapping.length() && c != mapping[m_idx]) {
-            ++m_idx;
-        }
-        if (m_idx < mapping.length()) {
-            result += mapping[m_idx];
-            ++m_idx;
+        std::string m = mapping;
+        int idx = m.find(c);
+        if (idx != std::string::npos) {
+            result += m[idx];
         } else {
-            result += c; // If character not found in map, add it to the result
+            result += c;
         }
     }
     return result;
