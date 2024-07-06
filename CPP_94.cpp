@@ -24,7 +24,12 @@ int sumOfDigits(int n){
     }
     return sum;
 
-int main(){
-    vector<int> lst = {2, 3, 4, 5, 6};
-    cout << skjkasdkd(lst) << endl;
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> lst = {2,3,4,5,6};
+    int result = skjkasdkd(lst);
+    std::cout << "The output is: " << result << std::endl;
+    return 0;
 }
