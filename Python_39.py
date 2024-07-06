@@ -8,8 +8,8 @@ def prime_fib(n):
     
     if not is_prime(fib[n]):
         return -1
-    
-    return fib[n]
+    else:
+        return fib[n]
 
 def is_prime(num):
     if num < 2:
