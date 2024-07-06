@@ -1,24 +1,37 @@
-Here is the completed code:
+#include<stdio.h>
+#include<string>
+#include<map>
+using namespace std;
 
-```cpp
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
+map<char,int> histogram(string test){
+    map<char,int> result;
+    if(test.empty()) return result;
 
-    size_t pos = 0;
-    while ((pos = test.find(' ')) != string::npos) {
-        char c = test[0];
-        int count = 1;
-        for (size_t i = 1; i < pos; ++i) {
-            if (test[i] == c) {
-                ++count;
-            } else {
-                break;
+    int maxCount = 0, tieCount = 0;
+    char tiedLetter = ' ';
+
+    for(char c : test){
+        if(result.find(c) == result.end()){
+            result[c] = 1;
+            maxCount++;
+        } else {
+            result[c]++;
+            if(result[c] > maxCount){
+                maxCount = result[c];
+                tieCount = 0;
+                tiedLetter = ' ';
+            } else if(result[c] == maxCount && c != tiedLetter){
+                tieCount++;
+                tiedLetter = c;
             }
         }
-        result[c] = count;
-        test.erase(0, pos + 1);
     }
 
+    for(auto it = result.begin(); it != result.end(); ++it){
+        if(it->second == maxCount) cout << "{" << it->first << ", " << it->second << "}";
+        else if(tieCount > 0) cout << "," << endl << "      {" << it->first << ", " << it->second << "}";
+    }
+    cout << endl;
+    
     return result;
 }
