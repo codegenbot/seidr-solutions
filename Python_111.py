@@ -6,7 +6,7 @@ def histogram(test):
     max_count = 0
     result = {}
     for word in words:
-        count = words.count(word)
+        count = test.count(word)
         if count > max_count:
             max_count = count
             result = {word: count}
