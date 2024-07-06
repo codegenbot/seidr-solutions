@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -14,14 +13,5 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() == b.size()) {
-        for(int i = 0; i < a.size(); i++) {
-            if(a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
-    } else {
-        return false;
-    }
+    return (a==b);
 }
