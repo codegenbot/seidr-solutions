@@ -1,5 +1,6 @@
 def parse_nested_parens(paren_string):
-    result = []
+    # ... (your code here) ...
+
     for group in paren_string.split():
         levels = []
         for i, char in enumerate(group):
