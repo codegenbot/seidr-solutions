@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -17,4 +18,9 @@ bool correct_bracketing(string brackets) {
         }
     }
     return count == 0;
+}
+
+int main() {
+    assert(correct_bracketing("<><><<><>><>>><>") == false);
+    return 0;
 }
