@@ -24,21 +24,16 @@ std::vector<int> findMaximum(int n, int k) {
     }
     
     std::vector<int> result;
-    int max_val;
     for (int i = 0; i < k; ++i) {
-        std::vector<int>::iterator it;
-        for (it=myVector.begin(); it!=myVector.end(); ++it){
-            if (*it > max_val) {
-                max_val = *it;
-            }
-        }
+        int max_val = *std::max_element(myVector.begin(), myVector.end());
         result.push_back(max_val);
-        for (it=myVector.begin(); it!=myVector.end(); ++it){
-            if (*it == max_val) {
-                myVector.erase(it);
-                --it;
+        int it = 0;
+        while(it < myVector.size()){
+            if(myVector[it] == max_val){
+                myVector.erase(myVector.begin() + it);
                 break;
             }
+            it++;
         }
     }
     
