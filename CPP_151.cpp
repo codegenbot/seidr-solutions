@@ -9,15 +9,23 @@ long long double_the_difference(std::vector<float> lst) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    std::vector<float> input; // read input from user
-    float num;
-    while (std::cin >> num) {
-        input.push_back(num);
+    std::vector<float> input; 
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        float x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        input.push_back(x);
     }
+    
     float output = double_the_difference(input);
-    std::cout << output << std::endl;
+    cout << "The sum of squares is: " << output << endl;
     return 0;
 }
