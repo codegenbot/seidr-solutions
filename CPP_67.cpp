@@ -19,7 +19,7 @@ int fruit_distribution(std::string s, int n) {
         }
     }
 
-    total = max(0, n - apples - oranges);
+    total = std::max(0, n - apples - oranges);
 
     return total;
 }
