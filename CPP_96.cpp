@@ -1,4 +1,3 @@
-```
 vector<int> count_up_to(int n) {
     vector<int> primes;
     for (int i = 2; i <= n; ++i) {
@@ -18,28 +17,4 @@ vector<int> count_up_to(int n) {
         }
     }
     return primes;
-}
-
-vector<int> check_primes(vector<int> primes, int n) {
-    vector<int> evenPrimes;
-    for(int prime : primes) {
-        bool isEven = (prime % 2 == 0);
-        if(isEven && prime <= n)
-            evenPrimes.push_back(prime);
-    }
-    return evenPrimes;
-}
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> primes = count_up_to(n);
-    vector<int> even_primes = check_primes(primes, n);
-    cout << "Even Prime numbers up to " << n << ":";
-    for(int prime : even_primes) {
-        cout << " " << prime;
-    }
-    cout << endl;
-    return 0;
 }
