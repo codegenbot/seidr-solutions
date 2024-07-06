@@ -2,16 +2,15 @@
 #include <iostream>
 #include <string>
 
-int words_in_sentence(const std::string& sentence) {
-    size_t start = 0;
-    size_t end = sentence.find(' ');
-    if (end == std::string::npos) return 1; // single word
-    while (start < end) {
-        start = end + 1;
-        end = sentence.find(' ', start);
-        if (end == std::string::npos) break;
+std::string words_in_sentence(std::string sentence) {
+    int count = 0;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ' || i == sentence.length() - 1) {
+            if (i != sentence.length() - 1)
+                count++;
+        }
     }
-    return end != std::string::npos ? static_cast<int>(end - start + 1) : 0;
+    return std::to_string(count);
 }
 
 int main() {
