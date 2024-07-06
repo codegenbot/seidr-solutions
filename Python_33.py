@@ -1,6 +1,5 @@
-```
 def sort_third(l: list):
-    if all(isinstance(i, int) for i in l):
-        return [i if i % 3 != 0 else sorted([x for x in l if x % 3 == 0])[0] for i in l]
-    else:
-        return "Input must be a list of integers."
+    return [
+        sorted([x for y in [x if (i := j) % 3 != 0 else next((z for z in l if i > 1), None) for j, x in enumerate(l) if (i := j) % 3 != 0]) or [l[i]] 
+        for i, _ in enumerate(l)
+    ]
