@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
-using namespace std;
+#include <vector>
 
-int specialFilter(vector<int> nums) {
+int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
+        if (std::abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
@@ -13,20 +12,20 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
-    
-    cout << "Enter numbers (0 to stop):" << endl;
-    
+
+    std::cout << "Enter numbers (0 to stop):" << std::endl;
+
     while (true) {
-        cin >> num;
+        std::cin >> num;
         if (num == 0)
             break;
         nums.push_back(num);
     }
-    
+
     int count = specialFilter(nums);
-    
-    cout << "Count: " << count << endl;
+
+    std::cout << "Count: " << count << std::endl;
     return 0;
 }
