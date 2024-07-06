@@ -1,19 +1,28 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int words_in_sentence(const std::string& sentence) {
     int count = 0;
-    size_t pos = 0;
+    bool inWord = false;
 
-    while ((pos = sentence.find(' ', pos)) != std::string::npos) {
-        ++count;
-        ++pos; 
+    for (std::string::size_type i = 0; i < sentence.size(); ++i) {
+        char c = sentence[i];
+        if (c == ' ') {
+            inWord = false;
+        } else {
+            if (!inWord) {
+                count++;
+                inWord = true;
+            }
+        }
     }
 
-    return count + 1; 
+    return count;
 }
 
 int main() {
     std::cout << words_in_sentence("here is") << std::endl;
+    //assert(words_in_sentence("here is") == 2);
     return 0;
 }

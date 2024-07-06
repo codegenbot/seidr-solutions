@@ -1,22 +1,24 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-std::string reverse_string(const std::string& s) {
-    std::string result = "";
-    for (int i = s.size() - 1; i >= 0; --i) {
-        result += s[i];
+bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
     }
-    return result;
-}
-
-bool is_palindrome(const std::string& s) {
-    return (s == reverse_string(s));
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
-    s = "";
+    std::string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -26,21 +28,22 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            s += ch;
+            temp += ch;
         }
     }
-    result.push_back(s);
-    std::string rev = reverse_string(s);
-    if (s == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    result.push_back(temp);
+    std::string rev = temp;
+    std::reverse(rev.begin(), rev.end());
+    result.push_back((temp == rev ? "True" : "False"));
     return result;
 }
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    // Check your expected output
+    if (!compareVectors({ "", "True" }, result)) {
+        std::cout << "Test failed." << std::endl;
+    } else {
+        std::cout << "Test passed." << std::endl;
+    }
     return 0;
 }
