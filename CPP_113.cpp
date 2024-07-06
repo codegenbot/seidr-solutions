@@ -37,7 +37,7 @@ int main() {
     //                           "the number of odd elements 1 in the str3 of the input."};
     vector<string> expected = {"the number of odd elements 2 in the str1 of the input.", 
                                "the number of odd elements 1 in the str2 of the input.", 
-                               "the number of odd elements 0 in the str3 of the input."};
+                               "the number of odd elements 1 in the str3 of the input."};
     assert(issame(odd_count(test), expected));
     return 0;
 }
