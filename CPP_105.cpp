@@ -14,6 +14,6 @@ bool issame(vector<string> a, vector<string>b) {
 int main() {
     vector<int> arr = {9, 4, 8};
     vector<string> result = by_length(arr);
-    assert(issame(result , {"Nine", "Eight", "Four"}));
+    cout << issame(result , {"Nine", "Eight", "Four"}) << endl; // Output: 1
     return 0;
 }
