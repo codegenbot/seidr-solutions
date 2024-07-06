@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -22,15 +21,15 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 
-input_numbers = ""
-while not input_numbers:
-    input_numbers = input("Enter a list of integers separated by commas: ")
-numbers = [int(num) for num in input_numbers.split(",")]
+user_input = input("Enter a list of integers separated by commas: ")
 try:
-    output = intersperse(
-        numbers, int(input("Enter an integer to use as the delimiter: "))
-    )
+    numbers = list(map(int, user_input.split(',')))
 except ValueError as e:
     print(f"Error: {e}")
 else:
-    print(output)
+    try:
+        output = intersperse(numbers, int(input("Enter an integer to use as the delimiter: ")))
+    except ValueError as e:
+        print(f"Error: {e}")
+    else:
+        print(output)
