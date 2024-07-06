@@ -1,6 +1,6 @@
-def max_fill(grid, capacity):
-    import math
+import math
 
+def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
     water = 0
@@ -8,4 +8,10 @@ def max_fill(grid, capacity):
         for j in range(cols):
             if grid[i][j] == 1:
                 water += 1
-    return math.floor(min(water, capacity) / capacity)
+    if capacity < water:
+        return -1
+    else:
+        return math.floor(water / capacity)
+
+def check(func):
+    assert func([[1, 1, 1, 1], [1, 1, 1, 1]], 9) == 2
