@@ -17,18 +17,17 @@ vector<int> findIndices(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    while(b != 0){
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 int main() {
     int a, b;
     cin >> a >> b;
-    cout << gcd(a, b) << "\n";
+    int gcdResult = gcd(a, b);
+    cout << gcdResult << "\n";
 
     string text;
     string target;
