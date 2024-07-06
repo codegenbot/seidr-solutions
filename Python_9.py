@@ -1,14 +1,10 @@
-def rolling_max():
-    numbers = input("Enter space-separated integers: ").split()
-    try:
-        numbers = [int(num) for num in numbers]
-    except ValueError:
-        print("Invalid input")
-        return
+from typing import List
+
+def rolling_max(numbers: List[int]) -> List[int]:
     result = []
-    max_so_far = numbers[0]
+    max_so_far = float('-inf')  
     for num in numbers:
         if num > max_so_far:
             max_so_far = num
         result.append(max_so_far)
-    print(result)
+    return result
