@@ -1,56 +1,54 @@
-#include <vector>
-#include <algorithm>
 #include <string>
+#include <vector>
 
-bool issame(int a, int b) {
-    return (a >= 1 && a <= 9) && (b >= 1 && b <= 9);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
+            return false;
+    return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<string> numbers;
     for (int num : arr) {
-        if (issame(num, 0)) {
-            numbers.push_back(num);
-        }
+        if (num >= 1 && num <= 9)
+            numbers.push_back(to_string(num));
     }
-
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
-
-    std::vector<std::string> result;
-    for (int num : numbers) {
-        string str = "";
-        switch (num) {
+    vector<string> result;
+    for (string num : numbers) {
+        switch (stoi(num)) {
             case 1:
-                str = "One";
+                result.push_back("One");
                 break;
             case 2:
-                str = "Two";
+                result.push_back("Two");
                 break;
             case 3:
-                str = "Three";
+                result.push_back("Three");
                 break;
             case 4:
-                str = "Four";
+                result.push_back("Four");
                 break;
             case 5:
-                str = "Five";
+                result.push_back("Five");
                 break;
             case 6:
-                str = "Six";
+                result.push_back("Six");
                 break;
             case 7:
-                str = "Seven";
+                result.push_back("Seven");
                 break;
             case 8:
-                str = "Eight";
+                result.push_back("Eight");
                 break;
             case 9:
-                str = "Nine";
+                result.push_back("Nine");
                 break;
         }
-        result.push_back(str);
     }
-
     return result;
 }
