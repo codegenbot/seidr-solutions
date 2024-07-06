@@ -9,7 +9,6 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
     set<char> cSet; // Declare set variable here
-    
     cSet.insert(c.begin(), c.end());
     
     string temp = "";
