@@ -1,18 +1,23 @@
+```cpp
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[b.size()-1-i]) return false;
+    return true;
 }
 
-vector<int> sort_array(const vector<int>& array) {
-    int total = 0;
-    for (int num : array) {
-        total += num;
-    }
-    if (total % 2 == 1)
+std::vector<int> sort_array(std::vector<int> array) {
+    int sum = std::accumulate(array.begin(), array.end(), 0);
+    if (sum % 2 == 1)
         return array;
     else
-        std::vector<int> reversed(array.rbegin(), array.rend());
-        return reversed;
+        std::sort(array.rbegin(), array.rend());
+    return array;
+}
+
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
 }
