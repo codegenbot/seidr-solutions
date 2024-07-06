@@ -11,8 +11,12 @@ for _ in range(num_strings):
         strings = input("Enter a string (or 'stop' to finish): ")
         if strings.lower() == 'stop':
             break
-        try:
+        elif strings.isdigit():
+            try:
+                num = int(strings)
+                print(f"The number is: {num}")
+            except ValueError:
+                print("Invalid input. Please enter an integer or 'stop'.")
+        else:
             reversed_string = strings[::-1]
             print(reversed_string)
-        except AttributeError:
-            print("Invalid input. Please enter a valid string.")
