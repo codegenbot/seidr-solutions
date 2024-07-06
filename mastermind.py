@@ -2,14 +2,18 @@ def mastermind():
     code = list(input("Enter the Mastermind code: "))
     guess = list(input("Enter your guess: "))
 
-    code_count = {}
-    for c in code:
-        if c in code_count:
-            code_count[c] += 1
-        else:
-            code_count[c] = 1
+    black = 0
+    white = 0
+    code_count = [0]*6  # Count of each color in the code
 
-    white = sum(min(count, guess.count(c)) for c, count in code_count.items())
-    black = sum([c in code and c == guess[i] for i, c in enumerate(guess)].count(True))
-    
+    for c in guess:
+        if c in code:
+            code_index = code.index(c)
+            if c == code[code_index]:
+                black += 1
+                code[code_index] = ''  # Mark as guessed
+            else:
+                white += 1
+                code_count[code.index(c)] += 1
+
     print(f"Black pegs: {black}, White pegs: {white}")
