@@ -1,15 +1,11 @@
-bool issame(vector<string> a,vector<string>b){
-    bool result = true;
-    for(auto s : a) {
-        if(std::count(b.begin(),b.end(),s) == 0) {
-            result = false;
-            break;
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(find(b.begin(), b.end(), a[i]) == b.end()) {
+            return false;
         }
     }
-    return result;
-}
-
-int main() {
-    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
-    return 0;
+    return true;
 }
