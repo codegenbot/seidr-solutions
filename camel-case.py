@@ -8,5 +8,5 @@ def camel_case(s):
         else:
             result += word
         if i < len(words) - 1:
-            result += words[i+1].replace("-", "")
-    return result.title()
+            result += ' '
+    return result.capitalize()
