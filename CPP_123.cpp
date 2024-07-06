@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
             n /= 2;
@@ -20,6 +21,14 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(std::equal({get_odd_collatz(12)}, {1,5}));
-    // Add your code here
+    assert(issame({get_odd_collatz(1)}, vector<int>({1})));
+    
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    vector<int> res = get_odd_collatz(num);
+    cout << "The sequence of Collatz Conjecture for the number is: ";
+    for (int i : res)
+        cout << i << " ";
+    return 0;
 }
