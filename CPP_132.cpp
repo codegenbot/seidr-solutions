@@ -1,11 +1,21 @@
-Here is the completed code:
+int main() {
+    // test cases
+    cout << (is_nested("[[]]") ? "true" : "false") << endl;
+    cout << (is_nested("[]]]]]]][[[[[]") ? "true" : "false") << endl;
+    cout << (is_nested("[][]") ? "true" : "false") << endl;
+    cout << (is_nested("[]") ? "true" : "false") << endl;
+    cout << (is_nested("[[][]]") ? "true" : "false") << endl;
+    cout << (is_nested("[[]][[") ? "true" : "false") << endl;
 
-```cpp
+    return 0;
+}
+
 bool is_nested(string str) {
     int open = 0, close = 0;
-    for (char c : str) {
-        if (c == '[') open++;
-        else if (c == ']') close++;
+    for(char c : str) {
+        if(c == '[') open++;
+        else if(c == ']') close++;
+        if(open > 0 && close > 0) return true;
     }
-    return open > 0 && close > open;
+    return false;
 }
