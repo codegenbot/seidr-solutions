@@ -13,5 +13,4 @@ bool correct_bracketing(string brackets){
 
 int main() {
     assert(not (correct_bracketing("()()(()())()))()")));
-    // ... rest of your code
 }
