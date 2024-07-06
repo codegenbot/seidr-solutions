@@ -1,3 +1,2 @@
-```
-def solve(N):
-    return bin(N)[2:][::-1]
+def solve(N): 
+    return bin(N)

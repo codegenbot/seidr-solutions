@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {

@@ -1,16 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-bool below_zero(std::vector<std::string> operations) {
-    int balance = 0;
-    for (int i = 0; i < operations.size(); ++i) {
-        int operation = stoi(operations[i]);
-        balance += operation;
-        if (balance < 0) return true;
-    }
-    return false;
-
-}
+bool below_zero(std::vector<std::string> operations);
 
 int main() {
     std::vector<std::string> operations;
@@ -22,8 +14,8 @@ int main() {
 
     // Read each operation from user and store it in the vector
     for (int i = 0; i < num_operations; ++i) {
-        int operation;
         std::cout << "Enter operation " << i + 1 << ": ";
+        int operation;
         std::cin >> operation;
         operations.push_back(std::to_string(operation)); 
     }
@@ -39,4 +31,14 @@ int main() {
     }
 
     return 0;
+}
+
+bool below_zero(std::vector<std::string> operations){
+    int balance = 0;
+    for (int i = 0; i < operations.size(); ++i) {
+        int operation = stoi(operations[i]);
+        balance += operation;
+        if (balance < 0) return true;
+    }
+    return false;
 }
