@@ -20,9 +20,10 @@ bool isPrime(int n){
         if(n % i == 0)
             return false;
     return true;
+}
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
-    std::cout << skjkasdkd(lst) << std::endl;
+    int result = skjkasdkd(lst);
     return 0;
 }
