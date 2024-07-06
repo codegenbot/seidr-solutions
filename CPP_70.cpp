@@ -20,18 +20,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> v[i];
-    }
-    
-    vector<int> res = strange_sort_vector(v);
-    
-    for (int num : res)
+    vector<int> input = {4, 2, 9, 6, 5, 1, 3, 7, 8};
+    vector<int> output = strange_sort_vector(input);
+    for (int num : output) {
         cout << num << " ";
-        
+    }
     return 0;
 }
