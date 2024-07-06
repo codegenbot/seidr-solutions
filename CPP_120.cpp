@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a,std::vector<int>b){
+bool issame(std::vector<int> a,std::vector<int> b){
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++){
@@ -17,3 +17,4 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
              [k](int x) { return --k > 0; });
     sort(result.begin(), result.end());
     return std::vector<int>(result.begin(), result.begin() + min(k, (int)size()));
+}
