@@ -16,6 +16,15 @@ vector<int> pluck(vector<int> arr) {
     if (minEvenValue != INT_MAX) {
         result.push_back(minEvenValue);
         result.push_back(minEvenValueIndex);
+    } else {
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr[i] % 2 == 1 && minEvenValue > arr[i]) {
+                minEvenValue = arr[i];
+                minEvenValueIndex = i;
+            }
+        }
+        result.push_back(minEvenValue);
+        result.push_back(minEvenValueIndex);
     }
 
     return result;
