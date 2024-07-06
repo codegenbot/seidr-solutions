@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <list>
 #include <any>
 #include <cassert>
 #include <boost/any.hpp>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::vector issame(std::vector a, std::vector b) {
     return a == b;
 }
 
