@@ -1,4 +1,7 @@
-def sort_array(*args):
+def sort_array(arr=None):
+    if arr is None:
+        arr = []
+
     while True:
         user_choice = input("Do you want to sort array? (S for yes): ")
         if user_choice.upper() != "S":
@@ -10,7 +13,7 @@ def sort_array(*args):
         arr = [int(i) for i in arr_str.split()]
     except ValueError as e:
         print("Error: Array contains non-integer values")
-        return sort_array(*args)
+        return sort_array(arr)
 
     if not arr:
         while True:
@@ -19,7 +22,7 @@ def sort_array(*args):
                 break
             except ValueError as e:
                 print("Error: Array contains non-integer values")
-                return sort_array(*args)
+                return sort_array(arr)
 
     user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
 
