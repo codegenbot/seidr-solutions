@@ -3,9 +3,13 @@
 #include <string>
 
 bool issame(int a, int b) {
-    vector<int> numbers;
-    for (int num : {a, b}) {
-        if (num >= 1 && num <= 9) {
+    return (a >= 1 && a <= 9) && (b >= 1 && b <= 9);
+}
+
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
+    for (int num : arr) {
+        if (issame(num, 0)) {
             numbers.push_back(num);
         }
     }
@@ -13,66 +17,40 @@ bool issame(int a, int b) {
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
 
-    string a_str = "", b_str = "";
-    switch (numbers[0]) {
-        case 1:
-            a_str = "One";
-            break;
-        case 2:
-            a_str = "Two";
-            break;
-        case 3:
-            a_str = "Three";
-            break;
-        case 4:
-            a_str = "Four";
-            break;
-        case 5:
-            a_str = "Five";
-            break;
-        case 6:
-            a_str = "Six";
-            break;
-        case 7:
-            a_str = "Seven";
-            break;
-        case 8:
-            a_str = "Eight";
-            break;
-        case 9:
-            a_str = "Nine";
-            break;
+    std::vector<std::string> result;
+    for (int num : numbers) {
+        string str = "";
+        switch (num) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+                break;
+        }
+        result.push_back(str);
     }
 
-    switch (numbers[1]) {
-        case 1:
-            b_str = "One";
-            break;
-        case 2:
-            b_str = "Two";
-            break;
-        case 3:
-            b_str = "Three";
-            break;
-        case 4:
-            b_str = "Four";
-            break;
-        case 5:
-            b_str = "Five";
-            break;
-        case 6:
-            b_str = "Six";
-            break;
-        case 7:
-            b_str = "Seven";
-            break;
-        case 8:
-            b_str = "Eight";
-            break;
-        case 9:
-            b_str = "Nine";
-            break;
-    }
-
-    return a_str == b_str;
+    return result;
 }
