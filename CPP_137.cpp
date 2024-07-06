@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -42,8 +43,8 @@ int main() {
     
     boost::any a(x), b(y), c(s1), d(s2);
     
-    cout << compare_one(a, b) << endl; 
-    cout << compare_one(c, d) << endl; 
-
+    cout << compare_one(a, b) << endl; // Output: boost::any(3.7)
+    cout << compare_one(c, d) << endl; // Output: boost::any("None")
+    
     return 0;
 }
