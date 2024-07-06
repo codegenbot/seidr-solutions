@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -27,6 +26,5 @@ int main() {
     }
 
     long long odd_sum = double_the_difference(lst); 
-    std::cout << "The total sum is: " << odd_sum << std::endl;
     return 0;
 }
