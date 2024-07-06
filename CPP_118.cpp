@@ -1,27 +1,18 @@
-#include <algorithm>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool isconsonant(string word, int i) {
-    char c = tolower(word[i]);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
 string get_closest_vowel(string word) {
-    int n = word.length();
-    for (int i = n - 1; i > 0; --i) {
-        if (isvowel(word[i])) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (!isvowel(word[j]) && !isconsonant(word, j)) break;
-                else if (!isvowel(word[j]) && isconsonant(word, j)) continue;
-                else return string(1, word[i]);
+    string closest_vowel = "";
+    for (int i = 0; i < word.length(); i++) {
+        if ("aeiouAEIOU".find(word[i]) != string::npos) {
+            if (closest_vowel.empty()) {
+                closest_vowel = word.substr(i, 1);
+            } else {
+                if (abs(i - closest_vowel.length() + 0) < abs(closest_vowel.length() - i)) {
+                    closest_vowel = word.substr(i, closest_vowel.length());
+                }
             }
         }
     }
-    return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    return closest_vowel;
 }

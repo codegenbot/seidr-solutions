@@ -1,25 +1,20 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <initializer_list>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (!issame(lst[i], lst[i + 1])) {
-            int temp = lst[i];
-            lst[i] = lst[i + 1];
-            lst[i + 1] = temp;
-            i--;
-        }
-    }
     return lst;
 }
 
-int newMain() {
+int main() {
     std::vector<int> lst;
     int num;
 
@@ -38,11 +33,5 @@ int newMain() {
         std::cout << n << " ";
     }
     
-    return 0;
-}
-
-int main() {
-    assert(issame(strange_sort_list({111111}), {111111}));
-    newMain();
     return 0;
 }

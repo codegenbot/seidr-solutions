@@ -1,12 +1,15 @@
 #include <vector>
+#include <climits>
+#include <cassert>
+
 using namespace std;
 
-long long minSubArraySum(long long* nums, int size) {
-    long long sum = 0, min_sum = LLONG_MAX;
-    for (int i = 0; i < size; i++) {
+long long minSubArraySum(vector<long long> nums) {
+    long long sum = LLONG_MIN, min_sum = LLONG_MAX;
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         min_sum = min(min_sum, sum);
-        if (sum > 0) {
+        if (sum < 0) {
             sum = 0;
         }
     }
@@ -14,5 +17,6 @@ long long minSubArraySum(long long* nums, int size) {
 }
 
 int main() {
-    assert(minSubArraySum({1, -1}, 2) == -1);
+    assert(minSubArraySum({1, -1}) == -1);
+    return 0;
 }
