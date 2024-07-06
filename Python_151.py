@@ -6,14 +6,5 @@ def double_the_difference(lst):
             result += num**2
     return result
 
-# Test case 1:
 lst = [1, 2, 3, 4, 5]
-print(double_the_difference(lst)) # Output: 55
-
-# Test case 2:
-lst = [1, 3, 5, 7, 9]
-print(double_the_difference(lst)) # Output: 120
-
-# Test case 3:
-lst = [2, 4, 6, 8, 10]
-print(double_the_difference(lst)) # Output: 250
+double_the_difference(lst)
