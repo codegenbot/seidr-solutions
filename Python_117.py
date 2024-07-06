@@ -1,8 +1,7 @@
 def select_words(s, n):
-    words = s[:n].split()
-    if n <= 0:
-        return []
-    elif n == 1:
-        return list(filter(lambda x: x.islower(), words))
+    if n == 1:
+        return s[:n].split()[0]
+    elif n > 1:
+        return list(filter(lambda x: all(c.islower() for c in x[1:]), s[:n].split()))
     else:
-        return list(filter(lambda x: any(c.islower() for c in x[1:]), words))
+        return []
