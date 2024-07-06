@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def double_the_difference(lst):
     odd_sum = sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
