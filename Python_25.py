@@ -1,3 +1,4 @@
+```python
 from typing import List
 import math
 
@@ -7,9 +8,7 @@ def factorize():
         try:
             n = int(input("Enter a number: "))
             if n < 2:
-                print(
-                    "Invalid input. Please enter an integer greater than or equal to 2."
-                )
+                print("Invalid input. Please enter an integer greater than or equal to 2.")
                 continue
             break
         except ValueError:
