@@ -2,55 +2,29 @@
 #include <vector>
 #include <string>
 
-bool issame(string s1, string s2) {
-    if(s1.size() != s2.size())
+bool issame(std::string str1, std::string str2) {
+    if(str1.length() != str2.length())
         return false;
-    for(int i = 0; i < s1.size(); i++) {
-        if(s1[i] != s2[i])
+    for(int i = 0; i < str1.length(); ++i)
+        if(str1[i] != str2[i])
             return false;
-    }
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+    vector<string> result;
     for(auto str : strings) {
-        if(str.find(substring) != string::npos)
+        if(issame(substring, str))
             result.push_back(str);
     }
     return result;
 }
 
 int main() {
-    int num_strings;
-    std::cin >> num_strings;
-
-    std::vector<std::string> strings(num_strings);
-
-    for(int i = 0; i < num_strings; i++) {
-        std::cin >> strings[i];
+    std::vector<std::string> strs = {"abc", "def", "abcd", "abcde"};
+    std::string sub = "abc";
+    for (const auto& str : filter_by_substring(strs, sub)) {
+        std::cout << str << "\n";
     }
-
-    int num_substrings;
-    std::cin >> num_substrings;
-
-    std::vector<std::string> substrings(num_substrings);
-
-    for(int i = 0; i < num_substrings; i++) {
-        std::cin >> substrings[i];
-    }
-
-    for(auto str : strings) {
-        bool found = false;
-        for(auto sub : substrings) {
-            if(issame(str, sub)) {
-                found = true;
-                break;
-            }
-        }
-        if(!found)
-            cout << str << endl;
-    }
-
     return 0;
 }
