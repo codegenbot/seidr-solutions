@@ -1,46 +1,23 @@
 using namespace std;
 
-vector<string> bf(string first, string second) {
-    if (first.size() == 0 || second.size() == 0) {
-        vector<string> result;
-        return result;
-    }
-
-    int i = 0, j = 0;
+std::vector<std::string> bf(std::string a, std::string second) {
     vector<string> result;
     
-    while (i < first.size() && j < second.size()) {
-        if (first[i] == first[0]) {
-            result.push_back(first.substr(0, i + 1));
-            i = 0;
-        } else {
-            i++;
-        }
-        
-        if (j < second.size() - 1) {
-            if (second[j] == second[0]) {
-                j = 0;
-            } else {
-                j++;
+    for (char c : a) {
+        if (c >= 'a' && c <= 'z') {
+            char up = toupper(c);
+            string upperA = "";
+            for (char x : a) {
+                if (x == c) {
+                    upperA += up;
+                } else {
+                    upperA += x;
+                }
             }
-        } else {
-            return result;
-        }
-    }
-
-    while (i < first.size()) {
-        if (first[i] == first[0]) {
-            result.push_back(first.substr(0, i + 1));
-            i = 0;
-        } else {
-            i++;
+            result.push_back(upperA);
         }
     }
     
-    while (j < second.size()) {
-        j++;
-    }
-
     return result;
 }
 
