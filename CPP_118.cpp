@@ -6,12 +6,12 @@ string get_closest_vowel(string word) {
     for (int i = 0; i < n - 2; ++i) {
         if (!isalpha(word[i])) continue;
         if (!isalpha(word[i + 1]) || !isalpha(word[i + 2])) continue;
-        if (word[i] == 'y' && isvowel(word[i + 1])) return string(1, word[i + 1]);
+        if (word[i] == 'y' && isvowel(tolower(word[i + 1]))) return string(1, tolower(word[i + 1]));
     }
     for (int i = n - 3; i >= 0; --i) {
         if (!isalpha(word[i])) continue;
         if (!isalpha(word[i - 1]) || !isalpha(word[i - 2])) continue;
-        if (word[i] == 'y' && isvowel(word[i - 1])) return string(1, word[i - 1]);
+        if (word[i] == 'y' && isvowel(tolower(word[i - 1]))) return string(1, tolower(word[i - 1]));
     }
     return "";
 }
