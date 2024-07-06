@@ -1,10 +1,11 @@
 #include <vector>
+#include <assert.h>
 
-int count_nums(std::vector<int> nums) {
+int count_nums(std::vector<int> n) {
     int count = 0;
-    for (int num : nums) {
+    for (int num : n) {
         bool has_positive_sum = false;
-        long abs_num = std::abs(num);
+        long abs_num = labs(num);
         while (abs_num > 0) {
             int digit = abs_num % 10;
             if (digit != 0 || num < 0) {
@@ -18,3 +19,8 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+}
