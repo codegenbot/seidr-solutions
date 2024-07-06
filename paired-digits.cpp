@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 int get_sum(string str) {
     int sum = 0;
     for (int i = 0; i < str.size() - 1; i++) {
