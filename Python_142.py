@@ -1,4 +1,3 @@
-```
 def calculate_power():
     operation = input("Enter 'square' or 'cube': ")
     if operation == 'square':
