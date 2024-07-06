@@ -1,5 +1,6 @@
 import re
 
+
 def sort_numbers(numbers):
     number_map = {
         "zero": 0,
@@ -16,4 +17,3 @@ def sort_numbers(numbers):
     numbers = [int(number_map[num]) for num in re.findall(r"\d+", numbers)]
     sorted_numbers = sorted(numbers)
     return " ".join([str(num) for num in sorted_numbers])
-```
