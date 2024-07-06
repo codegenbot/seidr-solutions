@@ -1,13 +1,11 @@
+```cpp
 #include <vector>
-#include <initializer_list>
 
-vector<int> sort_array(vector<int> array) {
+std::vector<int> sort_array(std::vector<int> array) {
     int sum = array[0] + array.back();
     if (sum % 2 == 1)
-        return vector<int>(array.begin(), array.end());
+        return std::vector<int>(array);
     else
-        return vector<int>(array.rbegin(), array.rend());
+        return std::vector<int>(std::vector<int>(array).rbegin(), std::vector<int>(array).rend());
 
-    // Add this message to handle the error!
-    cout << "Error: Vector not found" << endl;
 }

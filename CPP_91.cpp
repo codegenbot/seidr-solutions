@@ -1,15 +1,14 @@
 #include <string>
-int is_bored(string S) {
+
+int is_bored(string S){
     int count = 0;
-    string sentence;
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.length() > 3 && sentence.substr(0, 2) == "I ") {
-                count++;
-            }
-            sentence = "";
-        } else {
-            sentence += c;
+    string boredom = "I";
+    size_t pos = 0;
+    while ((pos = S.find(". ")) != string::npos || (pos = S.find("? ")) != string::npos || (pos = S.find("! ")) != string::npos) {
+        if (S.substr(0, boredom.size()) == boredom) {
+            count++;
         }
+        S.erase(0, pos + 1);
     }
     return count;
+}
