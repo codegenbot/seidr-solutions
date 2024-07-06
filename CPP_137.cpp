@@ -1,37 +1,34 @@
 #include <boost/any.hpp>
-#include <iostream>
-#include <sstream>
 #include <algorithm>
 #include <string>
+#include <cmath>
 
-using boost::any_cast;
 using namespace std;
 
-string compare_one(any a, any b) {
-    if (any_cast< int >(a).type() == typeid(int) && any_cast< double >(b).type() == typeid(double)) {
-        return any_cast<string>(to_string(any_cast<int>(a)) > to_string(any_cast<double>(b)));
-    } else if (any_cast< double >(a).type() == typeid(double) && any_cast< int >(b).type() == typeid(int)) {
-        return any_cast<string>(to_string(any_cast<double>(a)) > to_string(any_cast<int>(b)));
-    } else if (any_cast< string >(a).type() == typeid(string) && any_cast< double >(b).type() == typeid(double)) {
-        string da = any_cast<string>(a);
-        string db = to_string(any_cast<double>(b));
-        return lexicographical_compare(da.begin(), da.end(),
-            db.begin(), db.end()) ? a : b;
-    } else if (any_cast< double >(a).type() == typeid(double) && any_cast< string >(b).type() == typeid(string)) {
-        string da = to_string(any_cast<double>(a));
-        string db = any_cast<string>(b);
-        return lexicographical_compare(da.begin(), da.end(),
-            db.begin(), db.end()) ? a : b;
-    } else if (any_cast< string >(a).type() == typeid(string) && any_cast< int >(b).type() == typeid(int)) {
-        string da = any_cast<string>(a);
-        int db = any_cast<int>(b);
-        return lexicographical_compare(da.begin(), da.end(),
-            to_string(db).begin(), to_string(db).end()) ? a : b;
-    } else if (any_cast< int >(a).type() == typeid(int) && any_cast< string >(b).type() == typeid(string)) {
-        int da = any_cast<int>(a);
-        string db = any_cast<string>(b);
-        return lexicographical_compare(to_string(da).begin(), to_string(da).end(),
-            db.begin(), db.end()) ? a : b;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return any_cast<double>(b);
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return any_cast<double>(a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        double da = stod(any_cast<string>(a));
+        return da > any_cast<double>(b) ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        double db = stod(any_cast<string>(b));
+        return da > db ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string sa = any_cast<string>(a);
+        string sb = any_cast<string>(b);
+        return lexicographical_compare(sa.begin(), sa.end(),
+            sb.begin(), sb.end()) ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        double da = any_cast<int>(a);
+        string sb = any_cast<string>(b);
+        return da > stod(sb) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        double db = any_cast<int>(b);
+        string sa = any_cast<string>(a);
+        return stod(sa) > db ? a : b;
     }
-    return "None";
+    return boost::any("None");
 }
