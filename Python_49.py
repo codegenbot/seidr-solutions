@@ -14,6 +14,8 @@ def miller_rabin(n: int):
     return True
 
 def modp(n: int, p: int):
+    if n < p:
+        return n
     if p < 2:
         return n
     if p == 2 or n % p == 0:
@@ -23,4 +25,4 @@ def modp(n: int, p: int):
     for i in range(2, int(p**0.5) + 1):
         if pow(n, i, p) != n and pow(i, (p - 1), p) != 1:
             return n % p
-    return pow(n, p-1, p)
+    return pow(n * pow(n, p-1, p), -1, p) * n % p
