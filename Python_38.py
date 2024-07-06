@@ -1,3 +1,4 @@
+# Read input from user and decode it using the decode_cyclic function
 if __name__ == "__main__":
     string = input("Enter a string: ")
     try:
