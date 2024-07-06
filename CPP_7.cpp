@@ -1,19 +1,19 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool isSame(const std::string& str1, const std::string& str2) {
-    if(str1.length() != str2.length()) return false;
-    for(int i = 0; i < str1.length(); ++i)
-        if(str1[i] != str2[i]) return false;
+bool issame(const std::string& s1, const std::string& s2) {
+    for(int i = 0; i < (s1.size() > s2.size() ? s1.size() : s2.size()); ++i) {
+        if(i >= s1.size() || i >= s2.size() || s1[i] != s2[i])
+            return false;
+    }
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
     std::vector<std::string> result;
     for(auto str : strings) {
-        if(isSame(substring, str.substr(0, substring.length())))
+        if(str.find(substring) != std::string::npos && issame(str, substring))
             result.push_back(str);
     }
     return result;
@@ -21,22 +21,21 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 
 int main() {
     int n;
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
+
     std::vector<std::string> strings(n);
-    for(int i = 0; i < n; ++i) 
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter string " << (i + 1) << ": ";
         std::cin >> strings[i];
-    
-    std::string substring;
-    std::cin >> substring;
-    
-    std::vector<std::string> result = filter_by_substring(strings, substring);
-    
-    if(result.empty()) {
-        std::cout << "No strings found." << std::endl;
-    } else {
-        for(auto str : result) 
-            std::cout << str << std::endl;
     }
-    
+
+    std::string sub;
+    std::cout << "Enter the substring: ";
+    std::cin >> sub;
+
+    for(auto str : filter_by_substring(strings, sub))
+        std::cout << str << '\n';
+
     return 0;
 }
