@@ -1,13 +1,17 @@
 def fizz_buzz(n):
-    result = []
+    fizz_count = 0
+    buzz_count = 0
     for i in range(1, n + 1):
         if i % 3 == 0:
             if i % 5 == 0:
-                result.append("FizzBuzz")
+                print("FizzBuzz")
+                buzz_count += 1
             else:
-                result.append("Fizz")
+                print("Fizz")
+                fizz_count += 1
         elif i % 5 == 0:
-            result.append("Buzz")
+            print("Buzz")
+            buzz_count += 1
         else:
-            result.append(str(i))
-    return '\n'.join(result)
+            print(i)
+    return fizz_count + buzz_count
