@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::priority_queue<int> pq;
+    priority_queue<int> pq;
     for (int num : arr) {
         pq.push(num);
     }

@@ -1,7 +1,24 @@
-int length = txt.length();
-if (length == 0) {
-    return false;
+Here's the completed code:
+
+```cpp
+int main() {
+    string txt;
+    cout << "Enter a string: ";
+    cin >> txt;
+    
+    return check_if_last_char_is_a_letter(txt);
 }
-char last_char = txt.at(length - 1);
-bool is_word_end = (length > 1 && txt.rfind(' ') != txt.npos);
-return isalpha(last_char) && !is_word_end;
+
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) {
+        return false;
+    }
+    bool isPartOfWord = false;
+    for (int i = 0; i < txt.size() - 1; i++) {
+        if (!isspace(txt[i])) {
+            isPartOfWord = true;
+            break;
+        }
+    }
+    return !isPartOfWord && isalpha(txt.back());
+}
