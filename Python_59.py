@@ -1,4 +1,4 @@
-def largest_prime_factor(n):
+def largest_prime_factor(n: int):
     if n <= 1:
         return 1
     for i in range(2, int(math.sqrt(n)) + 1):
