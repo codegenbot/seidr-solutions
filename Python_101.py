@@ -1,3 +1,4 @@
+'''
 import re
 
 def words_string():
@@ -12,3 +13,4 @@ def words_string():
             print("Invalid input. Please try again with only letters and numbers separated by commas or spaces.")
         else:
             return result
+'''
