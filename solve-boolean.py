@@ -1,25 +1,24 @@
+
 def solve_boolean(expression):
-    # Use a stack to evaluate the expression
+    # Use a stack to evaluate the expression recursively
     stack = []
     for char in expression:
-        if char == "T":
+        if char == 'T':
             stack.append(True)
-        elif char == "F":
+        elif char == 'F':
             stack.append(False)
-        elif char == "|":
-            # Evaluate all previous elements using OR
-            result = False
-            while len(stack) > 0:
-                a = stack.pop()
-                b = stack.pop()
-                result |= a or b
-            stack.append(result)
-        elif char == "&":
-            # Evaluate all previous elements using AND
-            result = True
-            while len(stack) > 0:
-                a = stack.pop()
-                b = stack.pop()
-                result &= a and b
-            stack.append(result)
+        elif char == '|':
+            # Evaluate the previous two elements using OR recursively
+            a = solve_boolean(stack[-2])
+            b = solve_boolean(stack[-1])
+            stack.pop()
+            stack.pop()
+            stack.append(a or b)
+        elif char == '&':
+            # Evaluate the previous two elements using AND recursively
+            a = solve_boolean(stack[-2])
+            b = solve_boolean(stack[-1])
+            stack.pop()
+            stack.pop()
+            stack.append(a and b)
     return stack[-1]
