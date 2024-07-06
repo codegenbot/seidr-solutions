@@ -1,4 +1,3 @@
-````
 def make_palindrome(string: str) -> str:
     """Your docstring here"""
     reverse = string[::-1]
