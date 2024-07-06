@@ -5,7 +5,7 @@ def get_odd_collatz(n):
         if n % 2 == 0:
             n = n // 2
         else:
-            n = 3*n + 1
+            n = 3 * n + 1
         sequence.append(n)
     odd_sequence = [num for num in sequence if num % 2 != 0]
     return sorted(odd_sequence)
