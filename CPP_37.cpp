@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -12,24 +11,13 @@ std::vector<float> sort_even(std::vector<float> l) {
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            evenVals = std::vector<float>(l.begin(), l.begin() + 1);
+            evenVals = std::vector<float>(l.begin() + i, l.begin() + i+1);
+            std::sort(evenVals.begin(), evenVals.end());
+            return evenVals;
         } else {
             oddVals.push_back(l[i]);
         }
     }
 
-    std::sort(evenVals.begin(), evenVals.end());
-
-    std::vector<float> result;
-    int idx = 0;
-
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            result.push_back(evenVals[idx++]);
-        } else {
-            result.push_back(oddVals[i - idx]);
-        }
-    }
-
-    return result;
+    return l;
 }
