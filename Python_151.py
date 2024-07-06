@@ -7,4 +7,4 @@ def check(expected_output):
     print(double_the_difference(input_list) == expected_output)
 
 
-check(14)
+check(9)
