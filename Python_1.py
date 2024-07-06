@@ -1,17 +1,15 @@
-
 def separate_paren_groups(paren_string):
     stack = []
     result = []
-    open_parens = 0
     for c in paren_string:
         if c == "(":
-            open_parens += 1
             stack.append(c)
         elif c == ")":
-            open_parens -= 1
-            if open_parens == 0:
-                result.append(stack.pop())
+            if len(stack) > 0 and stack[-1] == "(":
+                stack.pop()
+            else:
+                result.append(c)
     # check for unmatched parentheses
     if len(stack) > 0:
         raise ValueError("Unbalanced parentheses")
-    return result
+    return result.append(c)
