@@ -12,10 +12,10 @@ def bf(planet1, planet2):
     index1 = planets.index(planet1)
     index2 = planets.index(planet2)
 
-    if index1 < 0 or index2 < 0:
+    if index1 > len(planets) or index2 > len(planets):
         return ()
 
-    if index1 > index2:
-        index1, index2 = index2, index1
-
-    return tuple(planets[i] for i in range(index1 + 1, index2))
+    result = tuple(
+        [p for p in planets[index1 : index2 + 1] if p != planet1 and p != planet2]
+    )
+    return result
