@@ -3,7 +3,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != to_string(reverse(str))) return false;
+    if (str != to_string(reverse(stoi(str)).s)) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
