@@ -1,10 +1,23 @@
-int stack_size = 0;
-for (char bracket : brackets) {
-    if (bracket == '<') {
-        stack_size++;
-    } else if (bracket == '>') {
-        if (stack_size <= 0) return false;
-        stack_size--;
+```cpp
+#include <string>
+using namespace std;
+
+bool correct_bracketing(string brackets) {
+    int count_open = 0;
+    for (char c : brackets) {
+        if (c == '<') {
+            count_open++;
+        } else if (c == '>') {
+            if (count_open == 0)
+                return false;
+            count_open--;
+        }
     }
+    return count_open == 0;
 }
-return stack_size == 0;
+
+int main() {
+    string s = "<><><<><>><>>><>";
+    assert(not (correct_bracketing(s)));
+    return 0;
+}
