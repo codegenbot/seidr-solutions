@@ -1,21 +1,14 @@
-Here's the solution:
-
-```cpp
-#include <vector>
-#include <string>
-
-int smallest_change(std::vector<int> arr) {
-    std::string str = "";
-    int n = arr.size(), left = 0, right = n - 1, changes = 0;
-    for (int i : arr)
-        str += to_string(i);
-    while (left < right) {
-        if (str[left] != str[right])
-            ++changes;
-        else
-            ++left, --right;
+int main() {
+    std::vector<int> arr;
+    int num;
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> num;
+        if (num == -1)
+            break;
+        arr.push_back(num);
     }
-    return changes;
-
-int main() { 
+    int result = smallest_change(arr);
+    std::cout << "Smallest number of changes: " << result << std::endl;
+    return 0;
 }
