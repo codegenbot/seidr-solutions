@@ -10,7 +10,7 @@ def is_multiply_prime(a):
 
     prime_factors = set()
     for i in range(2, a + 1):
-        while a % i == 0 and is_prime(i):
+        while a % i == 0:
             prime_factors.add(i)
             a //= i
-    return len(prime_factors) == 3
+    return len(prime_factors) >= 3 and all(is_prime(i) for i in prime_factors)
