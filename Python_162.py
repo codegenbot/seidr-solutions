@@ -1,8 +1,9 @@
-import hashlib
-
-
 def string_to_md5(text):
+    import hashlib
+
     if text == "":
         return None
     else:
-        return hashlib.md5(text).hexdigest()
+        md5 = hashlib.md5()
+        md5.update(text.encode("utf-8"))
+        return md5.hexdigest()
