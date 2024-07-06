@@ -1,5 +1,5 @@
 ```
-def triples_sum_to_zero(l: list):
+def triples_sum_to_zero(l):
     l.sort()
     for i in range(len(l) - 2):
         left = i + 1
