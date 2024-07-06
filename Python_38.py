@@ -1,6 +1,7 @@
-```
-def decode_cyclic():
-    s = input()
+s = input()
+
+
+def decode_cyclic(s: str):
     groups = []
     temp = ""
     for char in s:
@@ -14,3 +15,6 @@ def decode_cyclic():
             for group in [temp] + groups
         ]
     )
+
+
+print(decode_cyclic(s))
