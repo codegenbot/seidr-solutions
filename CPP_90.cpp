@@ -12,7 +12,3 @@ int next_smallest(std::vector<int> lst) {
     }
     return -1; 
 }
-
-int main() {
-    // Rest of your code here...
-}
