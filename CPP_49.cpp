@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int n, p;
     cin >> n >> p;
