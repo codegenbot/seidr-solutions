@@ -10,5 +10,7 @@ def fizz_buzz(n):
             out = "Buzz"
         
         print(out)
+        if out in ["FizzBuzz", "Fizz", "Buzz"]:
+            count += 1
     
     return count
