@@ -11,4 +11,3 @@ string solve(std::string s){
         }
     }
     return (result.find_first_not_of(" ") == string::npos) ? string(result.rbegin(), result.rend()) : result;
-}
