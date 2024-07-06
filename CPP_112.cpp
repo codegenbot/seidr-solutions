@@ -1,8 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
+#include <string> // Add this line
 
 bool same(vector<string> v1, vector<string> v2) {
     return v1 == v2;
