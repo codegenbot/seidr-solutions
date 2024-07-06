@@ -7,4 +7,8 @@ def x_or_y(n, x, y):
             if num % i == 0:
                 return False
         return True
-    return y if not is_prime(n) else x
+
+    if is_prime(n):
+        return x
+    else:
+        return y
