@@ -1,12 +1,13 @@
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return (a.size() == 0 && b.size() == 0) || (a.size() == b.size() && a == b);
-};
+}
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
             n /= 2;
@@ -14,19 +15,20 @@ std::vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         result.push_back(n);
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
-};
+}
 
-int main() {
+void driver() {
     assert(issame({get_odd_collatz(12)}, {1, 2, 6}) == true);
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
+    cout << "Enter a number: ";
+    cin >> n;
     auto collatz = get_odd_collatz(n);
     if (collatz.size() > 0) {
         for (int i : collatz)
-            std::cout << i << " ";
+            cout << i << " ";
     }
     else
-        std::cout << "No sequence found." << std::endl;
+        cout << "No sequence found." << endl;
+}

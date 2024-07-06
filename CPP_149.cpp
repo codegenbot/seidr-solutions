@@ -1,28 +1,35 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = lst.begin();
-    while (it != lst.end()) {
-        if (it->length() % 2 == 1) {
-            it = lst.erase(it);
-            if (it == lst.end()) {
-                break;
+```cpp
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <assert.h>
+
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
+    std::vector<std::string> result;
+    for (const auto& str : list) {
+        if (str.size() > 0) {
+            bool first = true;
+            for (char c : str) {
+                if (first) {
+                    first = false;
+                } else {
+                    result.push_back(std::string(1, c));
+                }
             }
-        } else {
-            ++it;
         }
     }
-
-    sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-
-    return lst;
+    std::sort(result.begin(), result.end());
+    return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return a == b;
+}
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
