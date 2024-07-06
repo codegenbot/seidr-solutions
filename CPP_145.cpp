@@ -1,8 +1,8 @@
+```cpp
 #include <algorithm>
 #include <vector>
-#include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a,std::vector<int>b){
     int sumA = 0, sumB = 0;
     for (int x : a) sumA += x;
     for (int x : b) sumB += x;
@@ -17,8 +17,8 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             for (char c : std::to_string(b)) sumB += c - '0';
             return sumA - sumB > 0 ? 1 : -1;
         } else {
-            return nums.size() - distance(nums.begin(), find(nums.begin(), nums.end(), a)) -
-                   distance(nums.begin(), find(nums.begin(), nums.end(), b));
+            return nums.size() - std::distance(nums.begin(), std::find(nums.begin(), nums.end(), a)) -
+                   std::distance(nums.begin(), std::find(nums.begin(), nums.end(), b));
         }
     };
     std::sort(nums.begin(), nums.end(), compare);
