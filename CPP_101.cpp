@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -29,15 +30,12 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
             result.push_back(temp);
         }
     }
-    return result;
 }
 
 int main() {
     std::string str;
     std::vector<std::string> expect;
     std::cout << "Enter a string: ";
-    std::cin >> str;
-    std::cout << "Enter expected words (comma-separated): ";
     getline(cin, str);
     size_t start = 0;
     for (size_t i = 0; i < str.size(); i++) {
@@ -53,5 +51,6 @@ int main() {
         std::cout << word << " ";
     }
     std::cout << "\n";
-    assert(issame(words_string(str, {"ahmed", "gamal"})) == ({"ahmed", "gamal"}));
+    
+    assert(issame(words_string("ahmed gamal ahmed", {"ahmed", "gamal"})) == ({"ahmed", "gamal"}));
 }
