@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -12,7 +11,6 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
-}
 
 int main() {
     assert(solutions({3, 13, 2, 9}) == 3);
