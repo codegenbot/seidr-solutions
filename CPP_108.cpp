@@ -21,7 +21,7 @@ int count_nums(vector<int> n) {
             }
         } else if (num < 0) {
             int sum = 0;
-            bool negative = true;
+            bool negative = false;
             while (num != 0) {
                 int digit = abs(num % 10);
                 if (!negative || digit != 0) {
