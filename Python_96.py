@@ -1,12 +1,13 @@
-def count_up_to(n):
-    def is_prime(num):
-        if num <= 1:
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
             return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
+    return True
 
+
+def count_up_to(n):
     if n < 2:
         return []
     result = [2]
