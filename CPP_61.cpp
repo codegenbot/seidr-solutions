@@ -1,6 +1,6 @@
 #include <string>
 
-bool correct_bracketing(const std::string& brackets) {
+bool correct_bracketing(std::string brackets) {
     int count = 0;
     for (char bracket : brackets) {
         if (bracket == '(') {
@@ -11,4 +11,3 @@ bool correct_bracketing(const std::string& brackets) {
         }
     }
     return count == 0;
-}
