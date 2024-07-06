@@ -1,10 +1,10 @@
 def fib4(n):
-    if n <= 3:
+    if n <= 0:
         return 0
-    elif n == 4:
-        return 2
+    elif n == 1:
+        return 1
     else:
-        cache = {i: fib4(i) for i in range(4)}
-        for i in range(5, n + 1):
-            cache[i] = cache[i - 1] + cache[i - 2] + cache[i - 3]
-        return cache[n]
+        a, b = 0, 1
+        for _ in range(n - 1):
+            a, b = b, a + b
+        return b

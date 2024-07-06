@@ -1,4 +1,3 @@
-
 def find_zero(xs):
     for i in range(len(xs)):
         if xs[i] == 0:
@@ -6,5 +5,4 @@ def find_zero(xs):
     return False
 
 user_input = input("Enter an integer: ")
-xs = [int(x) for x in user_input.split()]
-find_zero(xs)
+find_zero([int(user_input)])
