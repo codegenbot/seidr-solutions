@@ -1,25 +1,13 @@
-```
+```Python
 def decode_cyclic():
     s = input("Enter a cyclic string: ")
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
-    result = ""
-    i = 0
-    while i < len(s):
-        result += s[i]
-        i += 1
-    n = len(result)
-    for r in range(2, n + 1):
-        if n % r != 0:
-            continue
-        period = result[:r]
-        temp = ""
-        for j in range(r):
-            temp += result[j]
-        while len(temp) >= len(period):
-            if temp == period * (len(result) // len(period)):
-                return temp
-            temp = temp[1:] + temp[0]
-    return result
+    p = int(input("Enter the period of the cyclic string: "))
+    
+    # Create a cyclic string by concatenating given string with itself
+    cyclic_s = (s * ((p - 1) // len(s) + 1)).[:p]
+    
+    return cyclic_s
 
 print(decode_cyclic())
