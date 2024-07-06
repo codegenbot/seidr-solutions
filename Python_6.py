@@ -1,8 +1,13 @@
 ```
 def parse_nested_parens(s):
     while "{}" in s:
-        start = s.index("{")
-        end = s.index("}")
+        start = 0
+        end = 0
+        for i in range(len(s)):
+            if s[i] == '{':
+                start = i
+            elif s[i] == '}':
+                end = i
         inner_input = input().strip()
         s = s[:start] + inner_input + s[end+1:]
     return s
