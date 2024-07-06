@@ -1,5 +1,6 @@
 def find_zero(xs):
-    x1 = int(input("Enter first number: "))
-    x2 = int(input("Enter second number: "))
-    n = (x1 + x2) // 2
-    return -n / x2
+    left_sum = 0
+    right_sum = sum(xs[len(xs)//2+1:])
+    for i in range(len(xs) // 2):
+        left_sum += xs[i]
+    return -(left_sum - right_sum) / (right_sum + left_sum)
