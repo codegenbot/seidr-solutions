@@ -1,9 +1,12 @@
-```Python
+```
+name = input("Hi, please enter your name: ")
+print(f"Hello {name}, please enter your grades: ")
+print(average_grade(name))
 def average_grade(name) -> float:
     grades = []
     while True:
         try:
-            grade = float(input("Enter a grade (or -1.0 to finish): "))
+            grade = float(input(f"{name}, Enter a grade (or -1.0 to finish): "))
             if grade < 0:
                 break
             grades.append(grade)
@@ -15,8 +18,3 @@ def average_grade(name) -> float:
     total = sum(grade for grade in grades)
     average = total / len(grades)
     return round(average, 2)
-
-
-name = input(f"Hi, please enter your name: ")
-print(f"Hi {name}, please enter your grades: ")
-print(average_grade(input()))
