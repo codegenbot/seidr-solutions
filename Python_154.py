@@ -2,6 +2,8 @@
 def cycpattern_check(a, b):
     if len(b) == 0:
         return True
+    if a[:len(b)] == b or a[-len(b):] == b:
+        return True
     if a == b:
         return True
     return (a == b) or (
