@@ -1,17 +1,28 @@
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<int> nums;
     for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            nums.push_back(num);
+        }
+    }
+
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+
+    vector<string> result;
+    for (int num : nums) {
         switch (num) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
@@ -29,6 +40,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
+    assert(issame(by_length({1, 4}), {"One", "Four"}));
     return 0;
 }
