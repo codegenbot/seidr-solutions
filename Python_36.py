@@ -1,13 +1,13 @@
+```
 def fizz_buzz(n: int):
     count = 0
-    result = []
     for i in range(1, n + 1):
         if i % 15 == 0:
-            result.append("fizzbuzz")
+            count += 1
         elif i % 5 == 0:
-            result.append("buzz")
+            pass
         elif i % 3 == 0:
-            result.append("fizz")
+            pass
         else:
-            result.append(str(i))
-    return ''.join(result)
+            pass
+    return sum(1 for i in range(1, n+1) if i % 15 == 0)
