@@ -12,7 +12,7 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst;  
+    vector<float> lst = {}; 
     long long odd_sum = double_the_difference(lst);
     cout << "The difference is: " << odd_sum << endl;
     assert(odd_sum == 0);
