@@ -1,36 +1,21 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) return result;
-
-    int smallest = INT_MAX;
-    int index = -1;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    vector<pair<int, int>> evenNodes;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0) {
+            evenNodes.push_back({arr[i], i});
         }
     }
-
-    result.push_back(smallest);
-    result.push_back(index);
-
-    return result;
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}) , vector<int>{}));
-    return 0;
+    
+    if (evenNodes.empty()) {
+        return {};
+    }
+    
+    sort(evenNodes.begin(), evenNodes.end());
+    return {{evenNodes[0].first, evenNodes[0].second}};
 }
