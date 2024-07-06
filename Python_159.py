@@ -3,6 +3,8 @@ def eat(number, need, remaining):
     total = number + need
     if need > remaining:
         left = max(remaining - need, 0)
+        return [total, left]
     else:
-        left = remaining - need
-    return [total, left]
+        left -= need
+        return [total, left]
+```
