@@ -2,7 +2,7 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string words[256]; // assuming only lowercase letters and space as delimiter
+    string words[256]; 
     int wordCount = 0;
     for (char c : test) {
         if (c == ' ') {
@@ -32,9 +32,4 @@ map<char, int> histogram(string test) {
     }
 
     return maxMap;
-}
-
-int main() {
-    assert(histogram("a") == {{'a', 1}});
-    return 0;
 }
