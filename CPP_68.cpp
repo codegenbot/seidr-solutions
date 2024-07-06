@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,12 +23,28 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> myVector = {1, 2, 3, 4};
-    std::vector<int> output = pluck(myVector);
-
-    for (int i : output) {
-        std::cout << i << " ";
+    std::vector<int> input;
+    // get user input here
+    // for example, you can use the following code to read 5 integers from the console:
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        input.push_back(x);
     }
-    
+
+    // call the pluck function
+    std::vector<int> output = pluck(input);
+
+    // print the result here
+    if (!output.empty()) {
+        std::cout << "The minimum even value is " << output[0] << " at index " << output[1] << "." << std::endl;
+    } else {
+        std::cout << "No even values found." << std::endl;
+    }
+
     return 0;
 }
