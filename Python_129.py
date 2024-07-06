@@ -8,8 +8,6 @@ def minPath(grid, k):
 
     while queue:
         # Pop the first element from the queue
-        if len(queue) == 0:
-            break
         i, j = queue.pop(0)
 
         # Check if we have reached the end of the grid
@@ -24,7 +22,5 @@ def minPath(grid, k):
 
     # Return the path
     for i in range(k):
-        if len(queue) == 0:
-            break
-        path.append(queue[i].pop())
+        path.extend(queue[: i + 1])
     return path
