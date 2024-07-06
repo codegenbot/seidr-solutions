@@ -1,4 +1,9 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <list>
+#include <any>
+#include <algorithm>
+
 bool isSame(const vector<int>& v1, const vector<int>& v2) {
     return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
 }
@@ -15,7 +20,7 @@ vector<int> filterIntegers(vector<any> values) {
     return result;
 }
 
-int myMain() {
+int myMain() {  
     vector<any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     vector<int> output = filterIntegers(values);
     for (const auto& num : output) {
