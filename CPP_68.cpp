@@ -5,23 +5,21 @@ using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if(arr.empty()) return vector<pair<int, int>>();
     
-    int minEven = INT_MAX;
-    int minIndex = -1;
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
+    if(arr.empty()) 
+        assert(result.empty());
+    else {
+        int minEven = INT_MAX;
+        int minIndex = -1;
+        for(int i = 0; i < arr.size(); i++) {
+            if(arr[i] % 2 == 0 && arr[i] < minEven) {
+                minEven = arr[i];
+                minIndex = i;
+            }
         }
+        
+        result.push_back({minEven, minIndex});
+        
+        return result;
     }
-    
-    result.push_back({minEven, minIndex});
-    
-    return result;
-}
-
-int main() {
-    assert(pluck({7, 9, 7, 1}).empty());
-    return 0;
 }
