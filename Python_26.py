@@ -1,5 +1,7 @@
 ```
-def remove_duplicates() -> list[int]:
+from typing import List
+
+def remove_duplicates() -> List[int]:
     numbers = input("Enter a list of space-separated numbers: ")
     
     if not numbers:
