@@ -1,15 +1,19 @@
-```cpp
 #include <cassert>
+#include <string>
 
-string intToRoman(int num) {
-    string roman = "";
-    int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    string romanLiterals[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+std::string int_toRoman(int num) {
+    if(num < 1) {
+        return "";
+    }
 
-    for (int i = 0; i < sizeof(values) / sizeof(values[0]); i++) {
-        while (num >= values[i]) {
-            roman += romanLiterals[i];
-            num -= values[i];
+    std::string roman;
+    int value[13] = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+    char symbol[13] = {'M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'};
+
+    for(int i=0; i<12; i++) {
+        while(num >= value[i]) {
+            roman += symbol[i];
+            num -= value[i];
         }
     }
 
@@ -17,6 +21,6 @@ string intToRoman(int num) {
 }
 
 int mainTest() {
-    assert(intToRoman(1000) == "M");
+    assert(int_toRoman(1000) == "M");
     return 0;
 }
