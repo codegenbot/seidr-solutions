@@ -6,6 +6,7 @@ def sort_array():
         break
 
     arr_str = input("Enter numbers separated by space: ")
+
     try:
         arr = [int(i) for i in arr_str.split()]
     except ValueError as e:
