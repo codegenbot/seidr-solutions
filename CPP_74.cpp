@@ -6,10 +6,10 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(auto str1 : a) {
+    for(int i=0; i<a.size();i++) {
         bool found = false;
-        for(auto str2 : b) {
-            if(str1 == str2) {
+        for(int j=0; j<b.size();j++) {
+            if(a[i] == b[j]) {
                 found = true;
                 break;
             }
