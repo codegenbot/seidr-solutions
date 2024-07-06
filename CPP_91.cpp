@@ -1,7 +1,7 @@
 ```cpp
-#include <string>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 int is_bored(std::string S){
     int count = 0;
@@ -15,17 +15,15 @@ int is_bored(std::string S){
     return count;
 }
 
-int main(){
+int main() {
     std::string S;
-    std::cout << "Enter a sentence: ";
-    std::cin >> S;
-    
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, S);
     int result = is_bored(S);
-    
-    if(result > 0)
-        std::cout << "Bored\n";
-    else
-        std::cout << "Not Bored\n";
-
+    if(result > 0) {
+        std::cout << "Warning! It seems like you are feeling a bit bored.\n";
+    } else {
+        std::cout << "You don't seem to be feeling bored.\n";
+    }
     return 0;
 }
