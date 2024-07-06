@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -21,3 +22,4 @@ std::vector<std::string> bf(const std::string& a, const std::string& b) {
 
 int main() {
     std::cout << "Output: " << (issame("Jupiter", "Makemake") ? "True" : "False") << std::endl;
+}
