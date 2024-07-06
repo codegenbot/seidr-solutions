@@ -1,11 +1,11 @@
+```
 import hashlib
 
 def string_to_md5():
     text = input("Enter your string: ")
-    confirm = input("Do you want to continue? (yes/no): ")
-    if text and confirm.lower() == 'yes':
+    if text.isalpha():
         return hashlib.md5(text.encode()).hexdigest()
     else:
-        return None
+        return "Invalid input. Please enter a string."
 
 print(string_to_md5())
