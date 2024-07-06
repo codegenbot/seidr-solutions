@@ -1,18 +1,14 @@
+```
 import math
-
 
 def find_zero(xs: list):
     n = len(xs)
-
-    # Check if xs has an even number of coefficients
     if n % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
-
     a = xs[-1]
     b = -sum(x for x in xs[:-1])
-    c = sum(x * (i - 1) for i, x in enumerate(xs[:-1], 2))
-    d = -sum(x * math.factorial(i - 1) for i, x in enumerate(xs[:-1], 2))
-
-    x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
-
+    c = sum(x * (i-1) for i, x in enumerate(xs[:-1], 2))
+    d = -sum(x * math.factorial(i-1) for i, x in enumerate(xs[:-1], 2))
+    
+    x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
     return round(x, 2)
