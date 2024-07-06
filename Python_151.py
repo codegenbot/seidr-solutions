@@ -1,6 +1,6 @@
-```
 def check(lst):
-    if double_the_difference(lst) == sum(x for x in lst if x % 2 != 0):
+    difference_result = double_the_difference(lst)
+    if sum(x for x in lst) % 2 == 0:
         print("True")
     else:
         print("False")
