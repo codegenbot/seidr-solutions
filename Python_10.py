@@ -1,8 +1,8 @@
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string + string[::-1]
-    for char in string:
-        postfix = string[1:]
-        prefix = char + string[0][::-1] + postfix
-        if postfix == postfix[::-1]:
-            return prefix
+        char = "*"
+        new_string = string + char
+        while is_palindrome(new_string):
+            char += "*"
+            new_string = string + char
+        return new_string[: len(string) + 1]
