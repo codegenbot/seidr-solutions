@@ -1,9 +1,7 @@
+```
 def decode_cyclic(s):
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
-    s += s[-2:]
-    if len(s) % 3 != 0:
-        pass
     result = ""
     i = 0
     while i < len(s):
