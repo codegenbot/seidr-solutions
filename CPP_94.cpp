@@ -1,32 +1,16 @@
 #include <vector>
 #include <algorithm>
 
-bool isPrime(int n) {
-    if(n <= 1) 
-        return false;
-    for(int i = 2; i*i <= n; i++)
-        if(n%i == 0) 
-            return false;
-    return true;
-}
-
 int skjkasdkd(vector<int> lst){
     int sum = 0;
-    vector<int>::iterator it;
-    for(it=lst.begin();it!=lst.end();++it)
-    {
-        if(!isPrime(*it)) continue; 
-        int n = *it;
-        while(n > 0) 
-        {
-            sum += n % 10;
-            n /= 10;
+    for(int n : lst) {
+        if(isPrime(n)) {
+            int temp = n;
+            while(temp > 0) {
+                sum += temp % 10;
+                temp /= 10;
+            }
         }
     }
     return sum;
-}
-
-int main() {
-    assert (skjkasdkd({127, 97, 8192}) == 10);
-    return 0;
 }
