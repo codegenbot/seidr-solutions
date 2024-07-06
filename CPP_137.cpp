@@ -1,3 +1,4 @@
+```
 #include <boost/any.hpp>
 #include <string>
 
@@ -33,7 +34,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.convert_to(b) || 
              a.type() == typeid(double) && a.convert_to(b) || 
              a.type() == typeid(std::string) && a.convert_to(b)) {
-        return boost::any("None");
+        return "None";
     }
     return a > b ? a : b;
 }
