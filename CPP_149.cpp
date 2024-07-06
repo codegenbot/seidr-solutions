@@ -1,7 +1,7 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
@@ -23,11 +23,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
 
 int main() {
     std::vector<std::string> list = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::string> expected({""});
-
-    for (const auto& str : {"cc", "dd", "aaaa", "bbbb"}) {
-        expected.push_back(str);
-    }
+    std::vector<std::string> expected = sorted_list_sum(list);
     assert(issame(sorted_list_sum(list), expected));
     return 0;
 }

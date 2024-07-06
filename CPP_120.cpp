@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool isEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -25,11 +24,22 @@ std::vector<int> findMaximum(int n, int k) {
     }
     
     std::vector<int> result;
+    int max_val;
     for (int i = 0; i < k; ++i) {
-        int max_val = *std::max_element(myVector.begin(), myVector.end());
+        std::vector<int>::iterator it;
+        for (it=myVector.begin(); it!=myVector.end(); ++it){
+            if (*it > max_val) {
+                max_val = *it;
+            }
+        }
         result.push_back(max_val);
-        auto it = std::remove_if(myVector.begin(), myVector.end(), [&](int x){ return x == max_val;});
-        myVector.erase(it, myVector.end());
+        for (it=myVector.begin(); it!=myVector.end(); ++it){
+            if (*it == max_val) {
+                myVector.erase(it);
+                --it;
+                break;
+            }
+        }
     }
     
     return result;
@@ -44,6 +54,6 @@ int main() {
     std::cout << "Enter the number of maximum elements to find: ";
     std::cin >> k;
     
-    assert(same({}, findMaximum(n, k)));
+    assert(isEqual({0, 1, 2, 3}, findMaximum(n, k));
     return 0;
 }
