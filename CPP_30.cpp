@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool issame(const std::vector<float>& a,const std::vector<float>& b) {
-    return std::equal(a.begin(),a.end(),b.begin());
+    return a == b;
 }
 
 std::vector<float> get_positive(std::vector<float> v) {
@@ -12,7 +12,7 @@ std::vector<float> get_positive(std::vector<float> v) {
 }
 
 int main() {
-    std::assert(std::equal(get_positive({}), {}));
+    assert(std::equal(get_positive({}), {}));
     std::vector<float> v1 = get_positive({-1, 2, -3, 4, 5});
     std::vector<float> v2 = get_positive({1, 2, 3, 4, 5});
 
