@@ -3,6 +3,14 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
@@ -19,12 +27,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input = {10, 5, 20};
-    vector<int> output = strange_sort_vector(input);
-    
-    for (int i: output) {
-        cout << i << " ";
-    }
-    
+    assert(issame(strange_sort_vector({111111}), vector<int>({111111})));
     return 0;
 }
