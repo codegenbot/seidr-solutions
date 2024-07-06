@@ -1,3 +1,4 @@
+```
 num_strings = -1
 while num_strings <= 0:
     try:
