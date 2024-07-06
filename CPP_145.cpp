@@ -2,7 +2,6 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // implement your comparison logic here
     return true;
 }
 
