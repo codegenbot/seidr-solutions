@@ -1,6 +1,3 @@
 def indices_of_substring(text, target):
-    indices = []
-    for i in range(len(text)):
-        if text[i : i + len(target)] == target:
-            indices.append(i)
-    return indices
+    pattern = r"(?<!%s)(%s)" % (re.escape(target), re.escape(target))
+    return [match.start() for match in re.finditer(pattern, text)]
