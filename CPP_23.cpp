@@ -1,3 +1,6 @@
-int str_length(string str) {
+```
+#include <string>
+
+int my_strlen(string str) {
     return str.length();
 }
