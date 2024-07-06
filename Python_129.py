@@ -22,5 +22,4 @@ def minPath(grid, k):
                     visited.add((nx, ny))
                     path_lengths[len(new_path)] = len(new_path)
 
-    paths = [path for path in path_lengths.keys() if path == k]
-    return sorted(paths)[0] if paths else []
+    return []
