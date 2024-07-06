@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <vector>
 #include <algorithm>
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
