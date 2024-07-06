@@ -11,6 +11,4 @@ def encode(message):
             result += " "
         elif char.ispunctuation():
             result += char
-        else:
-            result += char
     return result
