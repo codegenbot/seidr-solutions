@@ -6,6 +6,7 @@ def find_zero(x):
     else:
         return 0
 
+
 if __name__ == "__main__":
     while True:
         try:
