@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -8,20 +7,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-void main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    int k;
-    std::cout << "Enter the number of maximum elements to find: ";
-    std::cin >> k;
-
-    std::vector<int> result = findMaximum(n, k);
-
-    return;
 }
 
 std::vector<int> findMaximum(int n, int k) {
@@ -44,4 +29,17 @@ std::vector<int> findMaximum(int n, int k) {
     }
     
     return result;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    int k;
+    std::cout << "Enter the number of maximum elements to find: ";
+    std::cin >> k;
+    
+    assert(issame({0, 1, 2, 3}, findMaximum(n, k)));
+    return 0;
 }
