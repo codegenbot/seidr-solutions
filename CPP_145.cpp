@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -37,18 +38,12 @@ vector<int> order_by_points(vector<int> nums) {
 
 }
 
-int main() {
+void main() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
-    vector<int> output = order_by_points(nums);
-    if(issame(output, vector<int>({-76, -21, 0, 4, 23, 6, 6}))) {
-        for(int i:output) {
-            cout << i << " ";
-        }
-        cout << endl;
+    nums = order_by_points(nums);
+    if(issame(vector<int>(nums), vector<int>{(-76), (-21), (0), (4), (23), (6), (6)})) {
+        cout << "Pass" << endl;
     } else {
-        for(int i:nums) {
-            cout << i << " ";
-        }
-        cout << endl;
+        cout << "Fail" << endl;
     }
 }
