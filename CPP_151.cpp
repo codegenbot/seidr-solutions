@@ -16,6 +16,6 @@ int mainTest() {
     std::vector<float> lst = {1.0f, 3.0f, 5.0f, 7.0f}; 
     long long odd_sum = double_the_difference(lst); 
 
-    assert(odd_sum == odd_sum * odd_sum); 
+    assert(odd_sum == odd_sum * odd_sum);
     return 0;
 }
