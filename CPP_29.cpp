@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,17 +31,17 @@ int main() {
     }
 
     string prefix;
-    cout<<"Enter the prefix: ";
-    cin>>prefix;
+    std::cout<<"Enter the prefix: ";
+    std::cin>>prefix;
 
     vector<string> filteredStrings = filter_by_prefix(strings, prefix);
 
     if(filteredStrings.size() > 0){
-        cout << "The list of strings that start with the given prefix are:" << endl;
+        std::cout << "The list of strings that start with the given prefix are:" << std::endl;
         for(auto str : filteredStrings)
-            cout << str << endl;
+            std::cout << str << std::endl;
     } else
-        cout<<"No string starts with the given prefix."<<endl;
+        std::cout<<"No string starts with the given prefix."<<std::endl;
 
     return 0;
 }
