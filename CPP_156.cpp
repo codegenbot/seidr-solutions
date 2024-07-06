@@ -8,7 +8,7 @@ std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500
 
 std::string int_to_mini_roman(int number) {
     std::string roman = "";
-    for (auto p : roman) {
+    for (const auto& p : roman) {
         while (number >= p.first) {
             roman += p.second;
             number -= p.first;
