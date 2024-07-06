@@ -8,5 +8,5 @@ int prod_signs(vector<int> arr){
         res *= (i > 0 ? 1 : -1);
         sum += abs(i);
     }
-    return (sum == 0)? INT_MIN : res * sum;
+    return (sum == 0)? -32768 : res * sum;
 }
