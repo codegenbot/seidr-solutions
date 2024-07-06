@@ -1,31 +1,14 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1;
-    set<int> s2;
-    
-    // Move these lines up to declare variables within their scope
-    s1.insert(l1.begin(), l1.end());
-    s2.insert(l2.begin(), l2.end());
-    
+    set<int> s1(l1.begin(), l1.end());
     set<int> intersection;
-    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+    
+    set_intersection(s1.begin(), s1.end(), l2.begin(), l2.end(),
                       inserter(intersection, intersection.begin()));
     
     vector<int> result(intersection.begin(), intersection.end());
     return result;
-}
-
-int main() {
-    vector<int> l1 = {1, 4, 3, 34, 653, 2, 5};
-    vector<int> l2 = {5, 7, 1, 5, 9, 653, 121};
-    
-    vector<int> res = common(l1, l2);
-    for (int i : res) {
-        cout << i << " ";
-    }
-    return 0;
 }
