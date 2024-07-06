@@ -1,27 +1,17 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 bool evaluate(const string &expression) {
     bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
+    int i = 0;
+    while (i < expression.length()) {
         if (expression[i] == '|') {
-            result ||= expression[i + 1];
+            result |= expression[i + 1];
         } else if (expression[i] == '&') {
-            result &&= expression[i + 1];
+            result &= expression[i + 1];
         } else if (expression[i] == '^') {
-            result != expression[i + 1];
+            result ^= expression[i + 1];
         } else if (expression[i] == '~') {
             result = !result;
         }
+        i += 2;
     }
     return result && expression != "false";
-}
-
-int main() {
-    string expression;
-    getline(cin, expression);
-    bool result = evaluate(expression);
-    cout << (result ? "true" : "false") << endl;
-    return 0;
 }
