@@ -1,78 +1,41 @@
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a > (int)b ? a : ((int)a == (int)b) ? boost::any("None") : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (float)a > (float)b ? a : ((float)a == (float)b) ? boost::any("None") : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (string)a > (string)b ? a : ((string)a == (string)b) ? boost::any("None") : b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        if ((int)a > (float)b) {
-            return a;
-        } 
-        else if ((int)a < (float)b) {
-            return b;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if (stoi((string)b) > (int)a) {
-            return b;
-        } 
-        else if (stoi((string)b) < (int)a) {
-            return a;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        if ((float)a > (int)b) {
-            return a;
-        } 
-        else if ((float)a < (int)b) {
-            return b;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        if (stof((string)b) > (float)a) {
-            return b;
-        } 
-        else if (stof((string)b) < (float)a) {
-            return a;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        if (stoi((string)a) > (int)b) {
-            return a;
-        } 
-        else if (stoi((string)a) < (int)b) {
-            return b;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        if (stof((string)a) > (float)b) {
-            return a;
-        } 
-        else if (stof((string)a) < (float)b) {
-            return b;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    return a; // default to the first value
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    if (get<int>(a) > get<int>(b))
+        return a;
+    else if (get<int>(a) < get<int>(b))
+        return b;
+    else
+        return boost::any("None");
+} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+    if (get<float>(a) > get<float>(b))
+        return a;
+    else if (get<float>(a) < get<float>(b))
+        return b;
+    else
+        return boost::any("None");
+} else if ((a.type() == typeid(string) && b.type() == typeid(int)) || 
+           (a.type() == typeid(int) && b.type() == typeid(string))) {
+    if (get<string>(a).compare(to_string(get<int>(b))) > 0)
+        return a;
+    else if (get<string>(a).compare(to_string(get<int>(b))) < 0)
+        return b;
+    else
+        return boost::any("None");
+} else if ((a.type() == typeid(string) && b.type() == typeid(float)) || 
+           (a.type() == typeid(float) && b.type() == typeid(string))) {
+    string strB = to_string(get<float>(b));
+    if (get<string>(a).compare(strB) > 0)
+        return a;
+    else if (get<string>(a).compare(strB) < 0)
+        return b;
+    else
+        return boost::any("None");
+} else {
+    string strA = to_string(get<int>(a));
+    string strB = to_string(get<float>(b));
+    if (strA.compare(strB) > 0)
+        return boost::any(a);
+    else if (strA.compare(strB) < 0)
+        return boost::any(b);
+    else
+        return boost::any("None");
 }
