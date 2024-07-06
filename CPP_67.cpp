@@ -1,6 +1,5 @@
-#include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
 
 int fruit_distribution(std::string s, int n) {
     std::istringstream iss(s);
@@ -19,13 +18,12 @@ int fruit_distribution(std::string s, int n) {
         }
     }
 
-    total = std::max(0, n - apples - oranges);
+    total = n - apples - oranges;
 
-    return apples + oranges > n ? 0 : total;
+    return total > 0 ? total : 0;
 }
 
 int main() {
-    int result = fruit_distribution("apples 2 oranges 3", 5);
-    std::cout << "Total: " << result << std::endl;
+    assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
     return 0;
 }
