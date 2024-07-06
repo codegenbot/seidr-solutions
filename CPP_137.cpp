@@ -1,21 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <limits>
+#include <boost/algorithm/string.hpp>
 
 using namespace std;
 
-string compareOne(int x) {
+void compare_one(int x) {
     int val2;
     cin >> val2;
-
-    if (x > val2) {
-        return "The first number is bigger.";
-    } else if (x < val2) {
-        return "The second number is bigger.";
-    } else {
-        return "Both numbers are equal.";
-    }
 }
 
 int main() {
@@ -50,7 +42,7 @@ int main() {
         cout << "Please enter a valid value for the second number.\n";
     }
 
-    cout << compareOne(val1);
+    compare_one(val1);
 
     return 0;
 }
