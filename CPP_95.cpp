@@ -1,3 +1,4 @@
+```cpp
 bool check_dict_case(const std::map<std::string, std::string>& dict) {
     if (dict.empty()) return false;
 
