@@ -1,6 +1,5 @@
-```cpp
 #include <string>
-#include <cassert>
+#include <assert>
 using namespace std;
 
 bool file_name_check(string file_name) {
@@ -21,7 +20,7 @@ bool file_name_check(string file_name) {
     }
 
     string before_dot = file_name.substr(0, file_name.find('.'));
-    string after_dot = file_name.substr(file_name.find('.', 0)+1);
+    string after_dot = file_name.substr(file_name.find('.')+1);
 
     if(before_dot.empty() || !isalpha(before_dot[0])){
         valid = false;
