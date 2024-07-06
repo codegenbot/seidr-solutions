@@ -1,19 +1,20 @@
+Here is the solution:
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool possible = true;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            possible = false;
-            break;
+    int oddCount = 0;
+    for (int i : lst1) {
+        if (i % 2 != 0) {
+            oddCount++;
         }
     }
-    if (!possible) {
-        return "NO";
-    } else {
-        for (int num : lst1) {
-            while (find(lst2.begin(), lst2.end(), num) != lst2.end()) {
-                lst2.erase(remove(lst2.begin(), lst2.end(), num), lst2.end());
-            }
+    for (int i : lst2) {
+        while (oddCount > 0 && !lst1.empty() && lst1.back() % 2 != 0) {
+            lst1.pop_back();
+            oddCount--;
         }
-        return possible ? "YES" : "NO";
+        if (!lst1.empty()) {
+            lst1.push_back(i);
+        }
     }
+    return oddCount == 0 ? "YES" : "NO";
 }
