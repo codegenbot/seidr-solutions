@@ -1,6 +1,8 @@
 ```cpp
 #include <vector>
-#include <cmath> // For abs() function
+#include <cmath> 
+#include <initializer_list>
+#include <cassert>
 
 bool has_close_elements(std::vector<double> numbers, double threshold){
     for(int i = 0; i < numbers.size(); i++){
@@ -10,11 +12,10 @@ bool has_close_elements(std::vector<double> numbers, double threshold){
         }
     }
     return false;
+
 }
 
 int main() {
-    std::vector<double> a(6); // initialize with size 6
-    a[0] = 1.0; a[1] = 2.0; a[2] = 3.9; a[3] = 4.0; a[4] = 5.0; a[5] = 2.2;
-    // Call your function
+    std::vector<double> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
     assert (has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
 }
