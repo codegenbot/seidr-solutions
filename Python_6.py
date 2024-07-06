@@ -1,4 +1,3 @@
-```
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
@@ -12,5 +11,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_level = max(max_level, level)
         result.append(max_level)
     return result
-
-print(parse_nested_parens("((()))"))
