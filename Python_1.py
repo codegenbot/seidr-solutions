@@ -21,3 +21,6 @@ def balance_groups(input_str):
                 current_group += char
     result.append(current_group)
     return result
+
+input_str = input("Enter the string: ")
+print(balance_groups(input_str))
