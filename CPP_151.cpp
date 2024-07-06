@@ -16,7 +16,6 @@ int mainTest() {
     std::vector<float> lst = {1,3,5,7};
     long long odd_sum = 0;
 
-    // Initialize sum
     for(auto x : lst){
         if(int(x) > 0 && int(x) % 2 != 0)
             odd_sum += int(x);
