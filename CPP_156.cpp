@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
-#include <map>
 #include <string>
+#include <map>
 
 std::string int_to_mini_roman(int number) {
     std::map<int, std::string> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
@@ -20,9 +19,9 @@ std::string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int number;
+    int num;
     std::cout << "Enter a number: ";
-    std::cin >> number;
-    std::cout << "The mini Roman numeral is: " << int_to_mini_roman(number) << std::endl;
+    std::cin >> num;
+    std::cout << "Mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
     return 0;
 }
