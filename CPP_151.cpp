@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -17,7 +16,6 @@ long long double_the_difference(std::vector<double> lst) {
 int main_func() {
     std::vector<double> lst;
     double input;
-    long long odd_sum = 0; 
 
     while (true) {
         std::cout << "Enter a number (or -1 to finish): ";
@@ -29,6 +27,5 @@ int main_func() {
     }
 
     long long sum = double_the_difference(lst); 
-    assert(sum == odd_sum);
     return 0;
 }
