@@ -1,22 +1,18 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long doubleTheDifference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
-            if (modf(sqrt(num), &num) != 0.0) { 
+            int integerPart = (int)num;
+            float fractionalPart = modf(num, &num);
+            if (fractionalPart != 0.0) { 
                 sum += pow(num, 2); 
+            } else {
+                sum += pow(integerPart, 2);
             }
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<float> lst = {1.5f, 4.25f, -0.75f};
-    assert(double_the_difference(lst) == 8);
-    return 0;
 }
