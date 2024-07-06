@@ -8,6 +8,8 @@ class initializer_list {
 public:
     class iterator;
 
+    // ...
+
 };
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {

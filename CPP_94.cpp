@@ -1,56 +1,44 @@
-```cpp
-#include <iostream>
 #include <vector>
-
-int sumOfDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
+#include <iostream>
+#include <algorithm>
 
 bool isPrime(int num) {
-    if (num <= 1) return false;
+    if (num <= 1) {
+        return false;
+    }
     for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
+        if (num % i == 0) {
+            return false;
+        }
     }
     return true;
 }
 
-int largestPrime(std::vector<int> lst) {
-    int maxPrime = -1;
-    for (int i : lst) {
-        if (isPrime(i)) {
-            maxPrime = i > maxPrime ? i : maxPrime;
+int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
+    int maxNum = 0;
+    for (int num : lst) {
+        if (num > maxNum) {
+            maxNum = num;
         }
     }
-    return maxPrime;
-}
 
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxPrime = largestPrime(lst);
-    return sumOfDigits(maxPrime);
-}
-
-int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
-
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        lst.push_back(num);
+    int sumOfDigits = 0;
+    while (maxNum > 0) {
+        sumOfDigits += maxNum % 10;
+        maxNum /= 10;
     }
 
-    if (!lst.empty()) {
-        std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
-    } else {
-        std::cout << "The list is empty." << std::endl;
-    }
+    return sumOfDigits;
+}
+
+int main_test() {
+    int num;
+    std::cout << "Enter the list of numbers (space separated): ";
+    std::cin >> num;
+
+    // code to read the vector
+    std::vector<int> lst = {num};
+
+    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
     return 0;
 }
