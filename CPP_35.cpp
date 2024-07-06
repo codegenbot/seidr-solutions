@@ -1,6 +1,3 @@
-#include <algorithm>
-#include <vector>
-
 int main() {
     std::vector<int> l;
     l.push_back(5);
