@@ -7,7 +7,7 @@ def fruit_distribution(s, n):
         elif word not in parts:
             parts[word] = 0
         parts[word] += 1
-    return sum([v for v in parts.values()] if len(parts) >= n else 0)
+    return sum(parts.values()) if len(parts) >= n else 0
 
 s = input()
 n = int(input())
