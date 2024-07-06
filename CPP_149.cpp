@@ -1,34 +1,28 @@
 #include <algorithm>
 #include <vector>
-using namespace std;
+#include <string>
 
-bool issame(const string& a, const string& b) {
-    int sum_a = 0;
-    for (char c : a) {
-        if (c >= 'a' && c <= 'z')
-            sum_a += tolower(c) - 'a' + 1;
-        else
-            sum_a += toupper(c) - 'A' + 1;
+bool issame(const std::string& a, const std::string& b) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
-    
-    int sum_b = 0;
-    for (char c : b) {
-        if (c >= 'a' && c <= 'z')
-            sum_b += tolower(c) - 'a' + 1;
-        else
-            sum_b += toupper(c) - 'A' + 1;
-    }
-    
-    return sum_a == sum_b;
+    return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-                     [](const string& a, const string& b) { return !issame(a, b); });
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    auto it = unique(lst.begin(), lst.end(),
+                     [&lst](const std::string& a, const std::string& b) {
+                         if (a.length() % 2 == 1 && !issame(a, b)) {
+                             return true;
+                         }
+                         return false;
+                     });
     lst.erase(it, lst.end());
     
     sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b) {
+         [](const std::string& a, const std::string& b) {
              if (a.length() != b.length())
                  return a.length() < b.length();
              else
