@@ -19,7 +19,7 @@ vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-void driver() {
+int driver() {
     assert(issame({get_odd_collatz(12)}, {1, 2, 6}) == true);
     int n;
     cout << "Enter a number: ";
