@@ -4,13 +4,6 @@ def sort_third(l: list):
         if i % 3 != 0:
             result.append(x)
         else:
-            next_index = (i + 1) % 3
-            while True:
-                try:
-                    next_element = l[next_index % len(l)]
-                    break
-                except IndexError:
-                    next_index += 1
-            min_element = min(y for y in l if (next_index + 1) % 3 != 0 or y == x)
+            min_element = min(y for j, y in enumerate(l) if (j+1) % 3 == i and j >= 0)
             result.append(min_element)
     return sorted(result)
