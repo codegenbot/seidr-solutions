@@ -1,8 +1,6 @@
 def digits(n):
-    result = 1
-    while n > 0:
-        digit = n % 10
-        if digit % 2 == 1:
-            result *= digit
-        n //= 10
-    return result
+    product = 1
+    for digit in str(n):
+        if int(digit) % 2 == 1:
+            product *= int(digit)
+    return product
