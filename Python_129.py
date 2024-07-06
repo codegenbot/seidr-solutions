@@ -1,35 +1,24 @@
-def findShortestWay(board, help):
-    m = len(board)
-    n = len(board[0])
-    target = help[1:]
-    k = help[0]
+def shortestPathLength(grid, k):
+    n = len(grid)
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
-    def bfs(x, y):
-        queue = [(x, y, "")]
-        visited = set((x, y))
+    queue = [
+        (i, j, [grid[i][j]]) for i in range(n) for j in range(n) if grid[i][j] == k
+    ]
+    min_len = float("inf")
 
-        while queue:
-            x, y, path = queue.pop(0)
+    while queue:
+        x, y, path = queue.pop(0)
 
-            if board[x][y] == target[0]:
-                return path
+        if len(path) < min_len:
+            min_len = len(path)
+        else:
+            continue
 
-            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                nx, ny = x + dx, y + dy
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
 
-                if (nx, ny) not in visited and 0 <= nx < m and 0 <= ny < n:
-                    queue.append(
-                        (nx, ny, path + chr(97 + ord(board[nx][ny]) - ord("A")))
-                    )
-                    visited.add((nx, ny))
+            if 0 <= nx < n and 0 <= ny < n and grid[nx][ny] == k:
+                queue.append((nx, ny, path + [grid[nx][ny]]))
 
-        return ""
-
-    shortest_path = bfs(0, 0)
-
-    for i in range(m):
-        if all(board[i][j] == target[0] for j in range(n)):
-            path = bfs(i, 0)
-            if len(path) < len(shortest_path):
-                shortest_path = path
-    return "".join(sorted(set(shortest_path), key=shortest_path.index)) if k > 0 else []
+    return [grid[i][j] for i in range(n) for j in range(n) if grid[i][j] == k][:min_len]
