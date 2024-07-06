@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -5,6 +6,7 @@ int is_bored(std::string S);
 
 int main() {
     std::string line;
+    // Ask for user input
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, line);
     
