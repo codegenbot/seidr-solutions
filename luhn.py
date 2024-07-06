@@ -1,10 +1,4 @@
-def luhn(digits):
-    digits = [int(digit) for digit in digits]
-    sum = 0
-    for i in range(1, 16, 2):
-        digit = digits[i] * 2
-        if digit > 9:
-            sum += digit // 10 + digit % 10
-        else:
-            sum += digit
-    return int(sum)
+def luhn_algorithm(digits):
+    doubled_digits = [digits[i] * 2 if i % 2 == 0 else digits[i] for i in range(16)]
+    subtracted_digits = [digit - 9 if digit > 9 else digit for digit in doubled_digits]
+    return sum(subtracted_digits)
