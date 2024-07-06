@@ -1,77 +1,12 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
-    vector<string> result;
-    if (a >= 1 && a <= 9 && b >= 1 && b <= 9) {
-        string strA = "";
-        switch (a) {
-            case 1:
-                strA = "One";
-                break;
-            case 2:
-                strA = "Two";
-                break;
-            case 3:
-                strA = "Three";
-                break;
-            case 4:
-                strA = "Four";
-                break;
-            case 5:
-                strA = "Five";
-                break;
-            case 6:
-                strA = "Six";
-                break;
-            case 7:
-                strA = "Seven";
-                break;
-            case 8:
-                strA = "Eight";
-                break;
-            case 9:
-                strA = "Nine";
-                break;
-        }
-
-        string strB = "";
-        switch (b) {
-            case 1:
-                strB = "One";
-                break;
-            case 2:
-                strB = "Two";
-                break;
-            case 3:
-                strB = "Three";
-                break;
-            case 4:
-                strB = "Four";
-                break;
-            case 5:
-                strB = "Five";
-                break;
-            case 6:
-                strB = "Six";
-                break;
-            case 7:
-                strB = "Seven";
-                break;
-            case 8:
-                strB = "Eight";
-                break;
-            case 9:
-                strB = "Nine";
-                break;
-        }
-
-        result.push_back(strA);
-        result.push_back(strB);
+    if (a > b) {
+        return false;
     }
-    return result.size() > 0;
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -86,9 +21,9 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (int num : numbers) {
+    for (int i = 0; i < numbers.size(); i++) {
         string str = "";
-        switch (num) {
+        switch (numbers[i]) {
             case 1:
                 str = "One";
                 break;
