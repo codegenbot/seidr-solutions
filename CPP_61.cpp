@@ -4,6 +4,7 @@ bool correct_bracketing(std::string brackets) {
     for (char c : brackets) {
         if (c == '(') count++;
         else if (count > 0) count--;
+        else if (count-- > 0) {}
     }
     return count == 0;
 }
