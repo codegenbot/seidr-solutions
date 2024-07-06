@@ -1,5 +1,3 @@
-Here is the complete and correct Python code for the given problem:
-
 ```
 def encrypt(s):
     result = ''
