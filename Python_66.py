@@ -15,7 +15,5 @@ def main():
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
-
-if __name__ == "__main__":
-    main()
+        else:
+            continue
