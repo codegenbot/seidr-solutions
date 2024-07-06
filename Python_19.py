@@ -1,3 +1,5 @@
+
+from collections import Counter
 def sort_numbers(numbers: str) -> str:
     number_map = {
         "zero": 0,
@@ -11,6 +13,11 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    numbers = [int(number_map[num]) for num in numbers.split()]
-    sorted_numbers = sorted(numbers)
+    
+    # Use Counter to count the occurrences of each number in the input string
+    number_counts = Counter(numbers.split())
+    
+    # Sort the numbers by their counts and retrieve the most common occurrence for each number
+    sorted_numbers = sorted((number, number_counts[number]) for number in number_map)
+    
     return " ".join([str(num) for num in sorted_numbers])
