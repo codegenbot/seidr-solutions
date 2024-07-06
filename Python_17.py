@@ -1,12 +1,13 @@
+```
 def parse_music(music_string: str) -> List[int]:
-    beats = [0]
+    notes = {'o': 4, 'o|': 2, '.|': 1}
+    beats = []
+    temp = ''
     for char in music_string:
-        if char == "o":
-            beats.append(4)
-        elif char == "o|":
-            beats.extend([2, 2])
-        elif char == ".|":
-            beats.extend([1, 1, 1, 1])
-        else:
-            raise ValueError("Invalid character in music string")
-    return beats[1:]
+        if char in notes:
+            if temp:
+                beats.append(notes[temp])
+                temp = ''
+            temp += char
+    beats.append(notes[temp])
+    return beats
