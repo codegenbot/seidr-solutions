@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -71,7 +71,7 @@ int main(){
     if(result.type() == typeid(string))
         cout << "Result: None";
     else
-        cout << "Result: " << result.convert_to<int>();
+        cout << "Result: " << boost::any_cast<float>(result) << endl;
 
     return 0;
 }
