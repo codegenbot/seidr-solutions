@@ -1,5 +1,6 @@
 ```
-def """calculate_score(games):"""
+''' 
+def calculate_score(games):
     frames = games.replace('/', '')
     current_roll = 0
     score = 0
@@ -16,3 +17,4 @@ def """calculate_score(games):"""
                 current_roll = 0
 
     return score
+'''
