@@ -1,5 +1,6 @@
+```
 def sum_squares():
-    lst = [] 
+    lst = []  
     while True:
         try:
             num = int(input("Enter a number (or -1 to finish): "))
@@ -8,6 +9,6 @@ def sum_squares():
             lst.append(num)  
         except ValueError:
             print("Invalid input. Please enter a whole number.")
-    return sum_squares(lst) 
+    return sum_squares(lst)  
 
 print(sum_squares())
