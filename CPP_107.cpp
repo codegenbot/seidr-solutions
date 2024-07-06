@@ -1,33 +1,44 @@
-#include <stdio.h>
+#include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
-    int countEven = 0;
-    int countOdd = 0;
+    vector<int> result;
+    int count_even = 0, count_odd = 0;
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; ++i) {
         string str = to_string(i);
-        bool isPalindrome = true;
-        for (int j = 0; j < str.length() / 2; j++) {
+        bool is_palindrome = true;
+
+        for (int j = 0; j < str.length() / 2; ++j) {
             if (str[j] != str[str.length() - j - 1]) {
-                isPalindrome = false;
+                is_palindrome = false;
                 break;
             }
         }
 
-        if (isPalindrome) {
-            if (i % 2 == 0)
-                countEven++;
-            else
-                countOdd++;
-        }
+        if (is_palindrome && i % 2 == 0)
+            count_even++;
+        else if (is_palindrome && i % 2 != 0)
+            count_odd++;
+
     }
 
-    result[0] = countEven;
-    result[1] = countOdd;
+    result.push_back(count_even);
+    result.push_back(count_odd);
 
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> output = even_odd_palindrome(n);
+
+    cout << "(" << output[0] << ", " << output[1] << ")" << endl;
+
+    return 0;
 }

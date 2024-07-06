@@ -1,21 +1,18 @@
 #include <algorithm>
 
 bool move_one_ball(vector<int> arr) {
-    int n = arr.size();
-    if (n == 0) return true;
+    if (arr.empty()) return true;
 
-    for (int i = 1; i < n; i++) {
-        while (i > 0 && arr[i] <= arr[i-1]) {
-            swap(arr[i], arr[--i]);
+    int max_index = 0;
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] <= arr[0]) {
+            max_index = i;
+            break;
         }
     }
 
-    vector<int> sortedArr(arr);
-    sort(sortedArr.begin(), sortedArr.end());
+    if (max_index == 0) return false;
 
-    for (int i = 0; i < n; i++) {
-        if (arr[i] != sortedArr[i]) return false;
-    }
-
+    swap(arr[0], arr[max_index]);
     return true;
 }
