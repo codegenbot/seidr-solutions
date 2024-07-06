@@ -1,14 +1,16 @@
-#include <vector>
+#include<string>
+#include<vector>
+using namespace std;
 
 vector<int> even_odd_count(int num) {
     vector<int> result(2, 0);
-    while (num != 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0)
+    string str = to_string(abs(num));
+    for (char c : str) {
+        if (c - '0' % 2 == 0) {
             result[0]++;
-        else
+        } else {
             result[1]++;
-        num /= 10;
+        }
     }
     return result;
 }
