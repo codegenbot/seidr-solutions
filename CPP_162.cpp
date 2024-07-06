@@ -11,7 +11,9 @@ string string_to_md5(string text) {
     unsigned char md[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
-    MD5_Update(&ctx, reinterpret_cast<const unsigned char*>(text.c_str()), text.length());
+    const unsigned char* data = text.c_str();
+    int len = text.length();
+    MD5_Update(&ctx, reinterpret_cast<void*>(data), len);
     MD5_Final(&ctx, md);
 
     string result;
