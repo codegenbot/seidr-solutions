@@ -1,5 +1,5 @@
-
 #include <string>
+
 int pairedDigits(string input) {
     int sum = 0;
     for (int i = 0; i < input.length() - 1; i++) {

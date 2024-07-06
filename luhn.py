@@ -1,25 +1,17 @@
-import numpy as np
+
 def luhn_algorithm(digits):
-# Initialize variables
-sum = 0
-is_even = False
-# Iterate over digits in reverse order
-for i in range(len(digits) - 1, -1, -1):
-    digit = int(digits[i])
-    # Check if the current digit is even
-    if is_even:
-        digit *= 2
-        # If the result is greater than 9, subtract 9 from it
-        if digit > 9:
-            digit -= 9
-    # Add the current digit to the sum
-    sum += digit
-    # Toggle the parity flag
-    is_even = not is_even
-return sum
-# Convert string input to array of digits
-def parse_input(s):
-return list(map(int, s))
-# Test the function with a sample input
-digits = parse_input("4242424242424242")
-print(luhn_algorithm(digits)) # Output: 30
+    # Double every other digit starting from the second digit
+    digits = [2 * d if i % 2 == 0 else d for i, d in enumerate(digits)]
+    # Subtract 9 from each number that is greater than 9
+    digits = [d - 9 if d > 9 else d for d in digits]
+    return sum(digits)
+
+def main():
+    while True:
+        digits = [int(x) for x in input("Enter a vector of 16 digits: ").split()]
+        if len(digits) != 16:
+            print("Invalid input. Please enter exactly 16 digits.")
+            continue
+        break
+    result = luhn_algorithm(digits)
+    print(f"The sum of the new digits is {result}.")
