@@ -21,8 +21,8 @@ int starts_one_ends(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
+    std::cout << "Enter the number: ";
     std::cin >> n;
-    std::cout << "Count: " << starts_one_ends(n) << std::endl;
+    std::cout << "Count of starts one ends numbers up to " << n << ": " << starts_one_ends(n) << std::endl;
     return 0;
 }
