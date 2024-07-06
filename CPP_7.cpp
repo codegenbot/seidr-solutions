@@ -1,18 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a,vector<string>b){
     return a == b;
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings) {
-    vector<vector<string>> result;
-    for(auto &s : strings) {
-        bool found = false;
-        for(string str : s) {
-            if(str.find(substring) != string::npos) {
-                found = true;
-                break;
-            }
-        }
-        if(found)
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(string s : strings) {
+        if(s.find(substring) != string::npos)
             result.push_back(s);
     }
     return result;
