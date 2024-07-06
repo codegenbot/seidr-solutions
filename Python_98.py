@@ -1,3 +1,3 @@
 ```
 def count_upper(s):
-    return sum(1 for i, c in enumerate(s) if i % 2 == 0 and c.upper() in 'AEIOU')
+    return sum(1 for c in s if c.upper() in 'AEIO' and ord(c) % 2 == 0)
