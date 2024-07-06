@@ -1,8 +1,9 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <pmr/string_buffer>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool equal_v(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -30,6 +31,6 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(equal_v(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
