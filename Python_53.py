@@ -1,5 +1,7 @@
-```
 def add(x: int, y: int):
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    return x + y
+    try:
+        x = int(input(f"Enter the first number: "))
+        y = int(input(f"Enter the second number: "))
+        return x + y
+    except ValueError:
+        print("Invalid input. Please enter integers.")
