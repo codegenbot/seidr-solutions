@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -11,8 +12,14 @@ double shoppingList(vector<float>& prices, vector<float>& discounts) {
 }
 
 int main() {
-    vector<float> prices = {10.99, 24.50, 8.75};
-    vector<float> discounts = {10.0, 20.0, 30.0};
-    double total = shoppingList(prices, discounts);
-    cout << "Total: " << total << endl;
+    vector<float> prices{};
+    vector<float> discounts{};
+    double total;
+    cout << "Enter the price of each shopping item: ";
+    cin >> prices;
+    cout << "Enter the percent discount of each shopping item: ";
+    cin >> discounts;
+    total = shoppingList(prices, discounts);
+    cout << "The total cost of your shopping trip is: $" << total << endl;
+    return 0;
 }
