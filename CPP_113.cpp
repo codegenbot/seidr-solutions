@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdlib>
 
 bool issame(vector<string>, vector<string>);
 
@@ -18,7 +18,7 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
-            if (std::stoi(string(1, c)) % 2 != 0) {
+            if ((c - '0') % 2 != 0) { 
                 count++;
             }
         }
@@ -29,7 +29,9 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
 
 int main() {
     vector<string> test = {"271", "137", "314"};
-    if (issame(odd_count(test), {"2 is the number of odd elements in string 1", "1 is the number of odd elements in string 2", "0 is the number of odd elements in string 3"})) {
+    if (issame(odd_count(test), {"2 is the number of odd elements in string 1",
+                                 "1 is the number of odd elements in string 2",
+                                 "0 is the number of odd elements in string 3"})) {
         std::cout << "Test passed.\n";
     } else {
         std::cout << "Test failed.\n";
