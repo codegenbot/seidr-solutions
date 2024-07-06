@@ -1,4 +1,3 @@
-```
 def double_the_difference(lst):
     if len(lst) < 2:
         raise ValueError("The input list should have at least two elements")
