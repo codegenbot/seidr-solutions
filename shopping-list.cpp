@@ -1,17 +1,15 @@
-#include <vector>
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <numeric>
 
-double shoppingList(vector<float>& prices, vector<float>& discounts) {
-    double total = 0.0;
-    for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100);
-    }
-    return total;
+double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
+    return std::accumulate(prices.begin(), prices.end(), 0.0,
+        [&](double sum, float price) { return sum + price * (1 - discounts[&price]); });
 }
 
 int main() {
-    vector<float> prices = {10.5, 20.99, 4.87};
-    vector<float> discounts = {10, 20, 30};
-    cout << "Total: $" << shoppingList(prices, discounts) << endl;
+    std::vector<float> prices = {50.0, 100.0};
+    std::vector<float> discounts = {10.0, 20.0};
+    std::cout << shoppingList(prices, discounts) << std::endl;
+    return 0;
 }
