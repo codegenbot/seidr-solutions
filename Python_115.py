@@ -1,6 +1,8 @@
 import math
+
 def max_fill():
     num_rows = int(input("Enter number of rows: "))
+    num_cols = int(input("Enter number of columns: "))
     grid = [list(map(int, input().split())) for _ in range(num_rows)]
     capacity = int(input("Enter bucket capacity: "))
     total_water = sum(sum(row) for row in grid)
