@@ -10,19 +10,15 @@ int main() {
         cin >> vec[i];
     }
     vector<vector<int>> res = cutVector(vec);
-    cout << "[";
-    for(int i = 0; i < res[0].size(); i++){
-        for(int num:res[0][i]){
-            cout<<num<<" ";
-        }
-        cout << " ] [";
-        for(int j = 0; j < res[1].size(); j++){
-            for(int num:res[1][j]){
-                cout<<num<<" ";
-            }
-        }
+    cout << "[" << "{ ";
+    for (int i = 0; i < res[0].size(); i++) {
+        cout << res[0][i] << " ";
     }
-    cout << "]";
+    cout << "} ] [" << "[";
+    for (int i = 0; i < res[1].size(); i++) {
+        cout << res[1][i] << " ";
+    }
+    cout << "}]" << endl;
     return 0;
 }
 
