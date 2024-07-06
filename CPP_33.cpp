@@ -8,30 +8,32 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> result;
-    for(int i = 0; i < l.size(); ) {
+    std::vector<int> result = {}; 
+    for(int i = 0; i < l.size(); i++) {
         if(i % 3 == 0) {
             std::vector<int> temp;
-            int j = 0;
-            while(j < l.size() && i+j < l.size()) {
-                temp.push_back(l[i+j]);
-                j++;
+            for(int j = 0; j < l.size(); j++) {
+                if(j % 3 == 0) {
+                    temp.push_back(l[j]);
+                }
             }
             sort(temp.begin(), temp.end());
-            for(int k = 0; k < temp.size(); ) {
-                if(k % 3 == 0) {
-                    result.push_back(temp[k]);
-                    i += 3;
-                    break;
-                }
-                k++;
-            }
+            result.insert(result.end(), make_move(temp));
         } else {
             result.push_back(l[i]);
-            i++;
         }
     }
     return result;
+}
+
+std::vector<int> make_move(std::vector<int> v) {
+    std::vector<int> res;
+    for(int i = 0; i < v.size(); i++) {
+        if(i % 3 == 0) {
+            res.push_back(v[i]);
+        }
+    }
+    return res;
 }
 
 int main() {
