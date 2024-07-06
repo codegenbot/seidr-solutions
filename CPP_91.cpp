@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -20,6 +19,6 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     int result = is_bored(input);
-    std::cout << "Count of 'I' at the beginning: " << result << std::endl;
+    std::cout << "Count: " << result << std::endl;
     return 0;
 }
