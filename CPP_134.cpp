@@ -1,24 +1,7 @@
-Here's the completed code:
-
-```cpp
-int main() {
-    string txt;
-    cout << "Enter a string: ";
-    cin >> txt;
-    
-    return check_if_last_char_is_a_letter(txt);
-}
+Here is the completed code:
 
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
-        return false;
-    }
-    bool isPartOfWord = false;
-    for (int i = 0; i < txt.size() - 1; i++) {
-        if (!isspace(txt[i])) {
-            isPartOfWord = true;
-            break;
-        }
-    }
-    return !isPartOfWord && isalpha(txt.back());
+    if (txt.empty()) return false;
+    char last_char = txt.back();
+    return isalpha(last_char) && !isalnum(last_char);
 }
