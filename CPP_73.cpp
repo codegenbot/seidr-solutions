@@ -14,3 +14,4 @@ int smallest_change(vector<int> arr) {
     }
     
     return dp[0][n-1];
+}
