@@ -1,12 +1,17 @@
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    vector<float> new_lst; 
-    for (float x : lst) {
-        if (x >= 0 && (int)x == x) {
-            sum += pow(x, 2);
-            new_lst.push_back(x);
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { 
+            sum += pow(num, 2);
         }
     }
     return sum;
+
 }
-```
+
+int main() {
+    vector<float> lst = {1.5f, 3.8f, 4.0f, -1.2f, 2.7f};
+    int odd_sum = 0; 
+    assert(double_the_difference(lst) == odd_sum);
+    return 0;
+}
