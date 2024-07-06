@@ -28,9 +28,6 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
             result.push_back(temp);
         }
     }
-    if (result.empty()) {
-        return {s};
-    }
     return result;
 }
 
