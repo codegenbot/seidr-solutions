@@ -1,4 +1,3 @@
-```
 #include <vector>
 using namespace std;
 
@@ -18,15 +17,16 @@ vector<pair<int, string>> by_length(vector<int> arr) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+    vector<int> input;
+    cout << "Enter numbers (1-9) separated by space and press Enter when done:\n";
+    int x;
+    while((cin >> x) && (x >= 1 && x <= 9)) {
+        input.push_back(x);
     }
-    vector<pair<int, string>> res = by_length(arr);
-    for(auto p : res) {
-        cout << "Number: " << p.first << ", Name: " << p.second << endl;
+    vector<pair<int, string>> output = by_length(input);
+    cout << "Result: ";
+    for(auto p : output) {
+        cout << p.first << ": " << p.second << endl;
     }
     return 0;
 }
