@@ -1,9 +1,9 @@
 #include <string>
 using namespace std;
 
-class Solution {
+class HowManyTimes {
 public:
-    int how_many_times(string str, string substring) {
+    int operator()(string str, string substring) {
         int count = 0;
         size_t pos = 0;
 
@@ -17,6 +17,6 @@ public:
 };
 
 int main() {
-    Solution solution;
-    cout << solution.how_many_times("john doe", "john") << endl;
+    HowManyTimes hm;
+    assert(hm("john doe", "john") == 1);
 }
