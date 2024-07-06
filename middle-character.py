@@ -1,2 +1,7 @@
 def get_middle(s):
-    return s.encode('utf-8').decode()[len(s) // 2 - (len(s) % 2 == 0) : len(s) // 2 + (len(s) % 2 == 0)]
+    if len(s) % 2 == 0:
+        mid = len(s) // 2
+        return s[mid - 1 : mid + 1]
+    else:
+        mid = len(s) // 2
+        return s[mid]
