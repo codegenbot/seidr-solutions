@@ -5,4 +5,3 @@ int choose_num(int x, int y) {
         }
     }
     return i;
-}
