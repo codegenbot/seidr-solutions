@@ -1,8 +1,9 @@
+```cpp
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
@@ -12,12 +13,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
         int maxVal = *max_element(lst.begin(), lst.end());
         if (i % 2 == 0) {
             result.push_back(minVal);
-            auto it = std::remove(lst.begin(), lst.end(), minVal);
-            lst.erase(it, lst.end());
+            lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
         } else {
             result.push_back(maxVal);
-            auto it = std::remove(lst.begin(), lst.end(), maxVal);
-            lst.erase(it, lst.end());
+            lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
         }
     }
 
@@ -25,6 +24,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    assert(strange_sort_vector({111111}) == vector<int>({111111}));
+    assert(strange_sort_list({111111}) == vector<int>({111111}));
     return 0;
 }
