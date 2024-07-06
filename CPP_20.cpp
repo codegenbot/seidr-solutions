@@ -1,5 +1,12 @@
 #include <algorithm>
 #include <limits>
+#include <vector>
+
+using namespace std;
+
+bool issame(float a, float b) {
+    return abs(a - b) <= numeric_limits<float>::epsilon();
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
