@@ -1,12 +1,17 @@
 ```
 def parse_nested_parens(s):
-    result = []
-    levels = 0
+    stack = []
+    result = ''
     for char in s:
-        if char == "(":
-            levels += 1
-            result.append(str(levels))
-        elif char == ")":
-            levels -= 1
-            result.append(str(levels))
-    print(result)
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            while stack and stack.pop() != '(':
+                result += char
+        else:
+            while stack:
+                result += stack.pop()
+            result += char
+    return result
+
+print(parse_nested_parens(input().strip()))
