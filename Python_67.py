@@ -1,7 +1,6 @@
-```
 def fruit_distribution(s, n):
     if not s: 
-        return None
+        return None 
     words = s.split()
     for i in range(len(words)):
         if 'apples' in words[i] and str.isdigit(words[i-1]):
