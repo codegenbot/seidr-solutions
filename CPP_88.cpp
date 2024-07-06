@@ -22,11 +22,8 @@ int main() {
     for (auto &i : array) {
         std::cout << "Enter element " << ++i << ": ";
         if (!(std::cin >> i)) {
-            std::cerr << "Invalid input. Please try again.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            --i;
-            continue;
+            std::cerr << "Invalid input. Please try again." << std::endl;
+            return 1;
         }
     }
     
