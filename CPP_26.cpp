@@ -1,7 +1,7 @@
-```c++
 #include <vector>
 #include <algorithm>
-#include <set>
+
+#include <initializer_list> // Include initializer_list header explicitly
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
@@ -13,11 +13,18 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::set<int> s(numbers.begin(), numbers.end());
-    return std::vector<int>(s.begin(), s.end());
+    std::vector<int> result;
+
+    for(int i : numbers) {
+        if(find(result.begin(), result.end(), i) == result.end()) {
+            result.push_back(i);
+        }
+    }
+
+    return result;
 }
 
 int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
     return 0;
 }
