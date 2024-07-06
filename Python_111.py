@@ -1,4 +1,3 @@
-```
 def histogram(test):
     if not test:
         return {}
@@ -9,5 +8,5 @@ def histogram(test):
         else:
             counts[char] = 1
     max_count = max(counts.values())
-    result = {k: v for k, v in counts.items() if v == max_count}
-    return result
+    most_common = [char for char, count in counts.items() if count == max_count]
+    return {char: max_count for char in most_common}
