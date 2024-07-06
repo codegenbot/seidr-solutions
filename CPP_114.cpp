@@ -1,11 +1,17 @@
+#include <iostream>
 #include <vector>
-#include <limits.h>
+#include <climits>
 
-int minSubArraySum(vector<long long> nums) {
-    long long sum = 0, min_sum = LLONG_MAX;
+int minSubArraySum(std::vector<int> nums) {
+    int min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        min_sum = min(min_sum, sum);
+        int sum = 0;
+        for (int j = i; j < nums.size(); j++) {
+            sum += nums[j];
+            if (sum < min_sum) {
+                min_sum = sum;
+            }
+        }
     }
-    return static_cast<int>(min_sum);
+    return min_sum;
 }
