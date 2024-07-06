@@ -2,11 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
+    return true;
 }
 
-std::vector<int> sort_array(std::vector<int> array){
+vector<int> sort_array(vector<int> array){
     int sum = array[0] + array[array.size()-1];
     if(sum % 2 == 0) {
         vector<int> sortedArray = array;
@@ -17,9 +20,4 @@ std::vector<int> sort_array(std::vector<int> array){
         sort(sortedArray.begin(), sortedArray.end());
         return sortedArray;
     }
-}
-
-int main() {
-    assert(sort_array({21, 14, 23, 11}) == std::vector<int>({23, 21, 14, 11}));
-    return 0;
 }
