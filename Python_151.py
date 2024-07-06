@@ -1,10 +1,11 @@
 ```
-def check(expected_output):
-    input_list = [1, 2, 3]
-    result = double_the_difference(input_list)
-    print(result == expected_output)
+def check(expected_result, actual_result):
+    if actual_result == expected_result:
+        print("Correct")
+    else:
+        print("Incorrect")
 
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-
-check(14)
+input_list = [1, 2, 3]
+expected_result = sum(i**2 for i in input_list if isinstance(i, int) and i % 2 != 0)
+actual_result = sum(i**2 for i in input_list if isinstance(i, int) and i > 0)
+check(expected_result, actual_result)

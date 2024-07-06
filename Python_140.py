@@ -1,7 +1,8 @@
+```python
 import re
 
 def fix_spaces(text):
-    if not text:
-        return 
-    else:
-        return re.sub(r'\s+', '-', text)
+    return re.sub(r'\s+', '-', text).replace('_','_')
+
+text = input("Enter a string: ")
+print(fix_spaces(text))
