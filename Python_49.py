@@ -1,4 +1,14 @@
-def check(func):
-    return func(5, 2)
+```
+def check(f):
+    if f == modp:
+        return "Modular Polynomial Arithmetic Function is Correct"
+    else:
+        return "Error: Not a Modular Polynomial Arithmetic Function"
 
-print(check(lambda x, y: x % y))
+def modp(x, y):
+    if y == 0:
+        return "Error: Division by zero"
+    else:
+        return x % y
+
+print(check(modp))

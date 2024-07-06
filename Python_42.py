@@ -1,4 +1,3 @@
-```
 def incr_list(lst=None):
     result = []
     while True:
@@ -17,6 +16,8 @@ def incr_list(lst=None):
         if cont.lower() == 'y':
             return result
         elif cont.lower() == 'n':
-            return result
+            return []
         else:
             print("Invalid choice. Please enter y or n: ")
+
+print(incr_list())
