@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
@@ -10,12 +11,12 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique_copy(letters.begin(), letters.end())) { // include the algorithm
+    for (char c : unique(letters.begin(), letters.end())) {
         int count = 0;
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
             count++;
-            pos += 1; // skip the same character
+            pos += 1; 
         }
         if (count > 0) result[c] = count;
     }
