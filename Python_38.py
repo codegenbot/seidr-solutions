@@ -1,4 +1,3 @@
-```
 def decode_cyclic():
     s = input("Enter a cyclic string: ")
     if not isinstance(s, str):
@@ -8,8 +7,9 @@ def decode_cyclic():
     while i < len(s):
         group = s[i:i+3]
         if group[0] == group[1] and group[0] == group[2]:
-            result += group[0]
-            i += 2  
+            if not result or result[-1] != group[0]: 
+                result += group[0] * 3
+            i += 3 
         else:
             result += group[0]
         i += 1
