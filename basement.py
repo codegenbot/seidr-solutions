@@ -6,5 +6,3 @@ def basement(arr):
         if total < 0:
             return index + 1
         index += 1
-
-print(basement([your actual input array]))
