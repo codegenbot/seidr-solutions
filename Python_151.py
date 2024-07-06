@@ -1,8 +1,9 @@
 ```
 def check(lst):
-    odd_sum = sum(x for x in lst if x % 2 != 0)
-    result = double_the_difference(lst) == odd_sum
-    print(str(result))
+    if double_the_difference(lst) == sum(x for x in lst if x % 2 != 0):
+        print("True")
+    else:
+        print("False")
 
 
 def double_the_difference(lst):
