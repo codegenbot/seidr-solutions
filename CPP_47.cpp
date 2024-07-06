@@ -19,11 +19,13 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> vec(n);
-
-    for (int &x : vec) {
+    std::vector<float> vec;
+    
+    for (int i = 0; i < n; ++i) {
+        float x;
         std::cout << "Enter element: ";
         std::cin >> x;
+        vec.push_back(x);
     }
 
     try {
