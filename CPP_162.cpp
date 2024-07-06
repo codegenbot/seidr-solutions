@@ -1,9 +1,8 @@
-```cpp
+#include "../../../path/to/cryptopp/include/cryptopp/md5.h"
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "../../../path/to/cryptopp/include/cryptopp/md5.h"
-#include "../../../path/to/cryptopp/include/cryptopp/sha3.h"
+#include <cryptopp/sha3.h>
 
 using namespace std;
 
@@ -17,7 +16,7 @@ string string_to_md5(string text) {
     return result;
 }
 
-string hexEncode(const CryptoPP::byte* data, int length) {
+string hexEncode(const byte* data, int length) {
     string str;
     for(int i=0; i<length; i++) {
         str += setfill('0') << setw(2) << hex << (int)data[i];
