@@ -1,11 +1,13 @@
-string solve(string s) {
-    string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? c + ('A' - 'a') : c - ('A' - 'a');
-        } else {
-            result += c;
+#include <string>
+
+std::string solve(std::string s) {
+    std::string result = "";
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+        }else{
+            result += s[i];
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos) ? std::string(result.rbegin(), result.rend()) : result;
 }
