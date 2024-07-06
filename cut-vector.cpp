@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {
@@ -10,15 +11,8 @@ int main() {
         cin >> vec[i];
     }
     vector<vector<int>> res = cutVector(vec);
-    cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i] << " ";
-    }
-    cout << "] [" << "[" << res[1].size() << "] ";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
-    }
-    cout << "]";
+    cout << "[" << join(res[0], " ") << "] [" << '[' << to_string(res[1].size()) << '] ' << join(res[1], " ") << "]"
+         << endl;
     return 0;
 }
 
@@ -33,4 +27,15 @@ vector<vector<int>> cutVector(vector<int> vec) {
         }
     }
     return res;
+}
+
+string join(const vector<int>& v, const string& sep) {
+    string result = "";
+    for (int i : v) {
+        result += to_string(i) + sep;
+    }
+    if (!result.empty()) {
+        result.pop_back();  // Remove the last separator
+    }
+    return result;
 }
