@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <list>
 #include <any>
 #include <algorithm>
 
@@ -13,15 +12,19 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (value.type()->is_same_v<std::any::type<int>>) {
-            int val = std::any_cast<int>(value).get();
-            result.push_back(val);
+            try {
+                int val = std::any_cast<int>(value).get();
+                result.push_back(val);
+            } catch (...) {
+                continue;
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::vector<std::any> values = {10, 20, 30, 'a', "hello", 30.5f};
+    std::vector<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     std::vector<int> output = filter_integers(values);
     for (const auto& num : output) {
         std::cout << num << "\n";
