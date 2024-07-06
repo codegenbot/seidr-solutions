@@ -1,6 +1,4 @@
-#include <string>
-#include <vector>
-
+#include<string>
 using namespace std;
 
 bool simplify(string x, string n) {
@@ -8,22 +6,26 @@ bool simplify(string x, string n) {
     for(int i = 0; i < x.length(); i++) {
         if(x[i] == '/') break;
         if(i > 0 && x[i-1] == '/') continue;
-        if(x[i] != '0') a = a*10 + (x[i]-'0');
+        a = a * 10 + (x[i] - '0');
     }
     for(int i = 0; i < n.length(); i++) {
         if(n[i] == '/') break;
         if(i > 0 && n[i-1] == '/') continue;
-        if(n[i] != '0') d = d*10 + (n[i]-'0');
+        d = d * 10 + (n[i] - '0');
     }
-    for(int i = 0; x[i]; i++) {
-        if(x[i] != '/') c++;
-        else break;
-    }
-    for(int i = 0; n[i]; i++) {
-        if(n[i] != '/') d++;
-        else break;
-    }
-    int g = __gcd(a,c);
-    int h = __gcd(d,g);
-    return (long long)a/g == (long long)d/h;
+    
+    int g = gcd(a, b);
+    a /= g;
+    b /= g;
+    
+    g = gcd(c, d);
+    c /= g;
+    d /= g;
+
+    return a*d == b*c;
+}
+
+int gcd(int a, int b) {
+    if(b == 0) return a;
+    else return gcd(b, a%b);
 }
