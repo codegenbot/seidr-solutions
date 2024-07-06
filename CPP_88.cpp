@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -14,7 +15,7 @@ std::vector<int> sort_array(std::vector<int> array) {
     if (sum % 2 == 1)
         return array; 
     else
-        return vector<int>(array.rbegin(), array.rend());
+        return std::vector<int>(array.rbegin(), array.rend());
 }
 
 int main() {
