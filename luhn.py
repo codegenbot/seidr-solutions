@@ -1,12 +1,15 @@
 def luhn_algorithm(digits):
-    sum = 0
-    for i in range(16):
-        if i % 2 == 0:
-            digit = digits[i] * 2
-            if digit > 9:
-                sum += digit - 9
-            else:
-                sum += digit
-        else:
-            sum += digits[i]
-    return sum
+    doubled = [digit * 2 for digit in digits[1::2]]
+    for i in range(len(doubled)):
+        if doubled[i] > 9:
+            doubled[i] -= 9
+    return sum(doubled) + sum(digits[::2])
+
+def main():
+    while True:
+        digits = [int(x) for x in input("Enter a vector of 16 digits: ").split()]
+        if len(digits) != 16:
+            print("Invalid input. Please enter exactly 16 digits.")
+            continue
+        result = luhn_algorithm(digits)
+        print(f"The sum of the new digits is {result}.")
