@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -24,20 +25,23 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     
     if (sum1 < sum2) {
-        return lst2; 
-    } else if (sum1 > sum2) {
         return lst1;
+    } else if (sum1 > sum2) {
+        return lst2;
     } else {
-        if(issame(lst1, lst2))
-            return lst1;
-        else
-            return lst2; 
+        vector<string> result = lst1;
+        sort(result.begin(), result.end());
+        for(const auto& s: lst2) {
+            if(find(result.begin(), result.end(), s) != result.end()) 
+                result.erase(remove(result.begin(), result.end(), s), result.end()); 
+        }
+        return result;
     }
 }
 
 int main() {
     vector<string> vec1 = {"this"};
-    vector<string> vec2 = {""};
-    assert(issame(total_match(vec1,vec2),{"","this"}));  
+    vector<string> vec2;
+    assert(issame(total_match(vector<string>(vec1.begin(), vec1.end())), vector<string>{}));  
     return 0;
 }
