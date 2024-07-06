@@ -1,25 +1,37 @@
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
+    string word;
+    int consonants = 0;
+
     for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) {
-            bool has_n_consonants = count(word.begin(), word.end(), [](unsigned char c){ return !ispunct(c); }) - count(word.begin(), word.end(), [](unsigned char c){ return isvowel(tolower(c)); }) == n;
-            if (has_n_consonants) {
+        if (c == ' ') {
+            if (consonants == n) {
                 result.push_back(word);
+                word.clear();
+                consonants = 0;
+            } else {
+                word.clear();
+                consonants = 0;
             }
-            word = "";
+        } else if (!isalpha(c)) {
+            continue;
+        } else if (!islower(c)) {
+            c = tolower(c);
         }
+
+        for (char d : "bcdfghjklmnpqrstvwxyz") {
+            if (c == d) {
+                consonants++;
+                break;
+            }
+        }
+
+        word += c;
     }
-    bool has_n_consonants = count(word.begin(), word.end(), [](unsigned char c){ return !ispunct(c); }) - count(word.begin(), word.end(), [](unsigned char c){ return isvowel(tolower(c)); }) == n;
-    if (has_n_consonants) {
+
+    if (consonants == n) {
         result.push_back(word);
     }
-    sort(result.begin(), result.end());
-    return result;
-}
 
-bool isvowel(char c) {
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    return result;
 }
