@@ -17,5 +17,13 @@ std::string encrypt(const std::string& s) {
     return result;
 }
 
-std::string encrypted = encrypt(ss.str());  
-std::cout << "Encrypted: " << encrypted << std::endl;
+int main() {
+    std::string inputStr;
+    std::stringstream ss;
+    std::getline(ss, inputStr);
+    std::istringstream in(ss.str());  
+
+    // Now you can call this function:
+    std::string encrypted = encrypt(in.str());  // Convert stringstream to string
+    std::cout << "Encrypted: " << encrypted << std::endl;
+}
