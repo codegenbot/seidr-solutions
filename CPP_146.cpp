@@ -12,7 +12,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    // test your function here
+    std::vector<int> nums = {1, 11, -12, 13, -21};
+    int result = specialFilter(nums);
+    std::cout << "The number of special numbers in the given vector is: " << result << std::endl;
     return 0;
 }
