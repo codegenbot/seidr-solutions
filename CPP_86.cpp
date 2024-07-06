@@ -1,5 +1,5 @@
-```c++
 #include <algorithm>
+#include <string>
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
@@ -14,8 +14,10 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                result += to_string(c);
-            }
+                if (c >= 97 && c <= 122 || c >= 65 && c <= 90)
+                    result += to_string(c);
+                else
+                    result += " ";
         }
     }
     return result;
@@ -23,8 +25,6 @@ std::string anti_shuffle(std::string s) {
 
 int main() {
     std::string input = "Hi. My name is Mister Robot. How are you?";
-    string output = anti_shuffle(input);
-    cout << output << endl;
-    assert(output == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    assert(anti_shuffle(input) == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
