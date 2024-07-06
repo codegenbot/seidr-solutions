@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <map>
 using namespace std;
@@ -5,27 +6,33 @@ using namespace std;
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
-
-    string str = test + " ";
-    char prevChar = str[0];
-    int count = 1;
-
-    for (int i = 1; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (result.find(prevChar) == result.end()) {
-                result[prevChar] = count;
-            } else {
-                result[prevChar]++;
+    
+    string word;
+    for (char c : test) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                ++result[word[0]];
+                word.clear();
             }
-            prevChar = str[i];
-            count = 1;
-        } else if (str[i] != prevChar) {
-            prevChar = str[i];
-            count = 1;
         } else {
-            count++;
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        ++result[word[0]];
+    }
+
+    map<char, int> maxMap;
+    int maxCount = 0;
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxMap.clear();
+            maxMap[pair.first] = pair.second;
+            maxCount = pair.second;
+        } else if (pair.second == maxCount) {
+            maxMap[pair.first] = pair.second;
         }
     }
 
-    return result;
+    return maxMap;
 }
