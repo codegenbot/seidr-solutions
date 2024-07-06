@@ -1,11 +1,11 @@
 def parse_nested_parens(paren_string: str) -> list[int]:
+    stack = []
     result = []
-    stack = [0] * len(paren_string)
-    for i, char in enumerate(paren_string):
+    for char in paren_string:
         if char == "(":
-            stack.append(i)
+            stack.append(char)
         elif char == ")":
-            if not stack:
-                return []
-            result.append(stack.pop())
+            stack.pop()
+            level = len(stack) - 1
+            result.append(level)
     return result
