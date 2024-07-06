@@ -1,8 +1,9 @@
+```
 from typing import List
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     if not isinstance(threshold, (int, float)):
-        return None
+        return 
     
     try:
         numbers = list(set([float(x) for x in numbers]))
@@ -12,4 +13,4 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
         return False
     except ValueError:
-        return None
+        return
