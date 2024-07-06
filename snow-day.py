@@ -1,4 +1,3 @@
-
 def snow_day(hours, snow_on_ground, snow_fall_rate, melting_proportion):
     total_snow = 0
     if snow_on_ground == 0:
