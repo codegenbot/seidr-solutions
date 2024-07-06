@@ -1,14 +1,10 @@
 from typing import List
 
-
-def below_zero() -> None:
-    operations = [
-        int(x) for x in input("Enter your operations (space-separated): ").split()
-    ]
+def below_zero(operations: List[int]) -> bool:
     balance = 0
     for operation in operations:
-        balance += operation
-    print(balance < 0)
-
-
-below_zero()
+        if operation > 0:
+            balance += operation
+        elif operation < 0:
+            balance -= abs(operation)
+    return balance < 0
