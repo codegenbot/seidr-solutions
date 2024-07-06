@@ -1,3 +1,4 @@
+```
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for num in numbers:
         if not isinstance(num, (int, float)):
