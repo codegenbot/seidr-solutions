@@ -1,5 +1,5 @@
 ```cpp
-bool will_it_fly(vector<int> q,int w){
+bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for(int i:q)str+=to_string(i);
     if(str!=string(rbegin(str),rend(str)))return false;
