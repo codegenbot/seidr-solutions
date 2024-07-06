@@ -11,6 +11,4 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     assert(any_int(3.01, 4, 7) == false);
-    bool result = any_int(2.0f, 1, -1);
-    std::cout << (result ? "True" : "False");
 }

@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,8 +11,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> odd_count(vector<string> lst) {
-    vector<string> result;
+std::vector<std::string> odd_count(std::vector<std::string> lst) {
+    std::vector<std::string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
@@ -18,12 +20,7 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = "the number of odd elements ";
-        temp += to_string(count);
-        temp += " in the str";
-        temp += to_string(i+1);
-        temp += " of the input.";
-        result.push_back(temp);
+        result.push_back("the number of odd elements " + std::to_string(count) + " in the str" + std::to_string(i+1) + ".");
     }
     return result;
 }
