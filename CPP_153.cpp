@@ -9,26 +9,16 @@ using namespace std;
 string Strongest_Extension(string class_name, vector<string> extensions);
 
 int main() {
-    string class_name;
-    vector<string> extensions;
-
-    cout << "Enter the class name: ";
-    cin >> class_name;
-
-    cout << "Enter the list of extensions (space separated): ";
-    string temp;
-    getline(cin, temp);
-    size_t pos = 0;
-    while ((pos = temp.find(" ")) != string::npos) {
-        string extension = temp.substr(0, pos);
-        extensions.push_back(extension);
-        temp.erase(0, pos + 1);
+    string className;
+    int n;
+    cin >> className >> n;
+    
+    vector<string> extensions(n);
+    for (int i = 0; i < n; i++) {
+        cin >> extensions[i];
     }
-    if (!temp.empty()) {
-        extensions.push_back(temp);
-    }
-
-    cout << "Strongest Extension: " << Strongest_Extension(class_name, extensions) << endl;
+    
+    cout << Strongest_Extension(className, extensions) << endl;
 
     return 0;
 }
