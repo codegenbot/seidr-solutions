@@ -15,7 +15,7 @@ int main() {
         totalDistance += (2 * startHeight) * pow(bouncinessIndex, i);
     }
 
-    cout.precision(6); // Display the output with 6 decimal places
+    cout.precision(6); 
     cout << fixed << totalDistance << endl;
 
     return 0;
