@@ -21,7 +21,7 @@ std::vector<float> sort_even(std::vector<float> l) {
                     evenVals.push_back(l[j]);
                 }
             }
-            std::sort(evenVals.begin(), evenVals.end());
+            sort(evenVals.begin(), evenVals.end());
             result[i] = evenVals[0];
         } else {
             result[i] = l[i];
