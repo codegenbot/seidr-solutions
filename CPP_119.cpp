@@ -1,6 +1,6 @@
 using namespace std;
 
-string match_parens(vector<string> lst) {
+bool match_parens(vector<string> lst) {
     int open = 0, close = 0;
     for (const string& s : lst) {
         for (char c : s) {
@@ -8,5 +8,5 @@ string match_parens(vector<string> lst) {
             else if (c == ')') close++;
         }
     }
-    return open == close ? "Yes" : "No";
+    return open == close;
 }
