@@ -1,6 +1,9 @@
-```c++
 #include <vector>
 #include <queue>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return true;  
+}
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::priority_queue<int> pq;
@@ -13,11 +16,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         pq.pop();
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Implement the logic for comparing vectors
-    return true;  
 }
 
 int main() {
