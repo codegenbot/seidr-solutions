@@ -22,3 +22,29 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 
     return result;
 }
+
+int main() {
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+
+    std::vector<int> sorted_arr = strange_sort_vector(arr);
+
+    if (issame(arr, sorted_arr)) {
+        std::cout << "Array is already sorted." << std::endl;
+    } else {
+        std::cout << "Sorted array: ";
+        for (int i : sorted_arr) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
