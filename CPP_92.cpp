@@ -1,10 +1,3 @@
-#include<stdio.h>
-#include<math.h>
-using namespace std;
+Here is the solution:
 
-bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-    return (a == bi + ci || b == ai + ci || c == ai + bi);
-}
+return (a == b+c || a==b || a==c) && abs(a) == static_cast<int>(abs(a));
