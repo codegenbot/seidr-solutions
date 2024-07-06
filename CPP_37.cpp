@@ -1,4 +1,7 @@
 ```cpp
+#include <algorithm>
+#include <vector>
+
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -17,7 +20,7 @@ vector<float> sort_even(vector<float> l) {
                     evenIndices.push_back(l[j]);
                 }
             }
-            sort(evenIndices.begin(), evenIndices.end());
+            sort(evenIndexes.begin(), evenIndexes.end());
             result.push_back(evenIndices[0]);
         } else {
             result.push_back(l[i]);
