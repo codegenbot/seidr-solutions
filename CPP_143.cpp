@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+#include <algorithm>
 
 std::string words_in_sentence(std::string sentence){
     std::string result = "";
