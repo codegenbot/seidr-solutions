@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool check_vectors(const std::vector<int>& a, const std::vector<int>& b) {
+bool vectorsAreEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); ++i)
@@ -23,6 +23,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
 }
 
 int main() {
-    assert(check_vectors(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    assert(vectorsAreEqual(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 2, 3, 4, 5}));
     return 0;
 }
