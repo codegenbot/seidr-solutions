@@ -9,6 +9,6 @@ bool has_close_elements(std::vector<float> numbers, float threshold){
                 return true;
         }
     }
-    std::cout << "No two elements are close." << std::endl;
+    std::cout << "No close elements found within the given threshold.\n";
     return false;
 }
