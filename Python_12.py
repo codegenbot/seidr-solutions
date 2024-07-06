@@ -6,11 +6,17 @@ def process_strings():
         
         if user_input.lower() == 'stop':
             break
-        elif len(user_input.strip()) > 0:
+        
+        if not user_input.strip():
+            print("Please enter a non-empty string.")
+            continue
+
+        if len(user_input) > 0 and strings:
+            print(strings)
+            strings = [] 
+        elif len(user_input) > 0:
             strings.append(user_input)
-            if len(strings) >= 2:
-                print(strings)
-                strings = [] 
+
     return strings
 
 print(process_strings())
