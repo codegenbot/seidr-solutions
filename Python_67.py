@@ -1,6 +1,6 @@
 
 def fruit_distribution(s, n):
-    s = s.split()
-    apples = int(s[0])
-    oranges = int(s[2])
-    return n - apples - oranges
+    # get number of apples and oranges from input string
+    num_apples = int(s.split()[0])
+    num_oranges = int(s.split()[2])
+    return n - num_apples - num_oranges
