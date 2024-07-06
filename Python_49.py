@@ -1,4 +1,6 @@
-def modp(n: int, p: int) -> int:
-    if p == 0:
+```
+def modp(n: int, p: int):
+    if p > n:
         return n
-    return pow(n, p, p)
+    else:
+        return n - p * modp(n // p, p)
