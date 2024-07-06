@@ -1,7 +1,9 @@
 #include <optional>
 #include <vector>
 #include <list>
+#include <any>
 #include <boost/any.hpp>
+#include <algorithm>
 
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
@@ -11,6 +13,9 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
             if(optionalInt.has_value()) {
                 result.push_back(optionalInt.get());
             }
+        }
+        else if(value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
