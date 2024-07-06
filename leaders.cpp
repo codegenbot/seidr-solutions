@@ -1,7 +1,8 @@
 #include <vector>
+using std::vector;
 
-std::vector<int> leaders(const std::vector<int>& v) {
-    std::vector<int> result;
+vector<int> leaders(const vector<int>& v) {
+    vector<int> result;
     for (auto it = v.rbegin(); it != v.rend(); ++it) {
         bool isLeader = true;
         for (auto jt = it + 1; jt != v.rend(); ++jt) {
