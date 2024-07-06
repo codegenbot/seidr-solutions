@@ -1,6 +1,3 @@
-import re
-
-
 def fruit_distribution(s, n):
     matches = re.findall(r"\d+", s)
     num_apples = int(matches[0])
