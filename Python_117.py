@@ -1,3 +1,4 @@
+
 def select_words(s, n):
     words = s.split()
     if n <= 0:
@@ -6,3 +7,4 @@ def select_words(s, n):
         return words
     else:
         return words
+    
