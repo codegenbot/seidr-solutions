@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
 
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
@@ -16,7 +17,13 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 bool is_palindrome(std::string s) {
-    std::string t = s;
-    std::reverse(t.begin(), t.end());
-    return s == t;
+    std::string rev = s;
+    std::reverse(rev.begin(), rev.end());
+    return s == rev;
+}
+
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    // You can add more test cases here
+    return 0;
 }
