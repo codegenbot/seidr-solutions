@@ -1,5 +1,5 @@
+```
 def sort_third(l: list):
-    return [
-        i if i % 3 != 0 else sorted([x for x in l[:] if x % 3 == 0])[::-1].pop(0)
-        for i in l
-    ]
+    l_copy = [i for i in l if i % 3 != 0]
+    multiples_of_three = [x for x in l if x % 3 == 0]
+    return sorted(multiples_of_three) + l_copy
