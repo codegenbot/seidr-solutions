@@ -1,9 +1,8 @@
-```c++
 #include <algorithm>
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == ' ') {
             result += " ";
@@ -14,7 +13,10 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                result += to_string(c);
+                if(c>='A' && c<='Z')
+                    result += to_string(c-('A'-'a'));
+                else
+                    result += to_string(c);
             }
         }
     }
@@ -23,8 +25,6 @@ std::string anti_shuffle(std::string s) {
 
 int main() {
     std::string input = "Hi. My name is Mister Robot. How are you?";
-    string output = anti_shuffle(input);
-    cout << output << endl;
-    assert(output == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    assert(anti_shuffle(input) == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
