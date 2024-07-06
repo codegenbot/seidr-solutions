@@ -3,6 +3,6 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     result = []
     for num in numbers:
         if num not in unique_nums:
-            result.append(num)
             unique_nums.add(num)
+            result.append(num)
     return result
