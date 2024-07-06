@@ -11,9 +11,6 @@ if __name__ == "__main__":
     while True:
         try:
             x = int(input("Enter a number: "))
-            if not str(x).isdigit():
-                print("Invalid input. Please enter an integer.")
-                continue
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
