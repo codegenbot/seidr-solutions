@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -17,31 +18,34 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements in array: ";
+    int n, k;
+    std::cout << "Enter the size of the array: ";
     std::cin >> n;
-    
-    std::vector<int> vec;
-    for (int i = 0; i < n; ++i) {
-        int temp;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> temp;
-        vec.push_back(temp);
-    }
-    
-    int k;
-    std::cout << "Enter the number of maximum elements: ";
+    std::cout << "Enter the number to keep: ";
     std::cin >> k;
-    
-    std::vector<int> maxVec = maximum(vec, k);
-    
-    if(maxVec.empty())
-        std::cout << "Array does not contain enough unique elements.\n";
-    else {
-        for (int i = 0; i < maxVec.size(); ++i) {
-            std::cout << "Maximum element is: " << maxVec[i] << "\n";
-        }
+
+    if (n <= 0) {
+        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
+        return -1;
     }
-    
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+
+    std::vector<int> maxK = maximum(arr, k);
+
+    if (!maxK.empty()) {
+        std::cout << "Maximum " << k << " elements: ";
+        for (int i : maxK) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Not enough elements to keep." << std::endl;
+    }
+
     return 0;
 }
