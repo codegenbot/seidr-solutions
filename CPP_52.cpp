@@ -7,8 +7,19 @@ bool below_threshold(vector<int> l, int t) {
 }
 
 int main() {
-    vector<int> l = {1, 2, 3};
-    int t = 3;
-    cout << boolalpha << below_threshold(l, t);
+    vector<int> l;
+    int t;
+    cin >> t;
+    l.resize(t);
+    for (int i = 0; i < t; i++) {
+        cin >> l[i];
+    }
+    
+    if (below_threshold(l, t)) {
+        cout << "All numbers below threshold" << endl;
+    } else {
+        cout << "At least one number above threshold" << endl;
+    }
+
     return 0;
 }
