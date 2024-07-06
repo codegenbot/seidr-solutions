@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -14,14 +15,4 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     for(int i = 0; i < a.size(); i++) 
         if(a[i] != b[i]) return false;
     return true;
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter your string: ";
-    std::getline(std::cin, str);
-    auto prefixes = all_prefixes(str);
-    for(auto prefix : prefixes) 
-        std::cout << prefix << " ";
-    return 0;
 }

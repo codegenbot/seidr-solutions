@@ -1,8 +1,10 @@
+#include <string>
+
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
         if (isupper(c)) {
-            sum += static_cast<int>(c);
+            sum += tolower(c) - 'a' + 1;
         }
     }
     return sum;
