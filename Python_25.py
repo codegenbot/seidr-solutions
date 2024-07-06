@@ -1,10 +1,7 @@
 def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
-    while n > 1:
+    for i in range(1, int(n**0.5) + 1):
         if n % i == 0:
             factors.append(i)
-            n //= i
-        else:
-            i += 1
-    return factors
+            factors.append(n // i)
+    return sorted(factors)
