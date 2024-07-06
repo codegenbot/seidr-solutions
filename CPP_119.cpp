@@ -11,7 +11,7 @@ int match_parens(vector<string> lst) {
             else close++;
         }
     }
-    return open == close ? 1 : 0;
+    return open == close ? 1 : 0; 
 }
 
 int main() {
