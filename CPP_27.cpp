@@ -18,8 +18,8 @@ std::string flip_case(std::string str) {
 
 int main() {
     string input;
-    cout << "Enter a string: ";
-    cin >> input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
     cout << "Flipped case: " << flip_case(input) << endl;
     return 0;
 }
