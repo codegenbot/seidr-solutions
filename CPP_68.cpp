@@ -1,8 +1,8 @@
+#include <iostream>
 #include <vector>
-#include "task.h"
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
     if(arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -18,4 +18,9 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     result.push_back({minEven, minIndex});
 
     return result;
+}
+
+int main() {
+    // Add your code here
+    return 0;
 }
