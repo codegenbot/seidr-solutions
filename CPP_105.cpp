@@ -1,59 +1,55 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
-    if (a >= 1 && a <= 9 && b >= 1 && b <= 9)
+    if (a == 1 && b == 2 || a == 3 && b == 4 || a == 5 && b == 6 || a == 7 && b == 8 || a == 9 && b == 0)
         return true;
-    else
-        return false;
+    return false;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
-    for (int num : arr) {
-        if (issame(num, 1) || issame(num, 2) || issame(num, 3) || issame(num, 4) || issame(num, 5) || issame(num, 6) || issame(num, 7) || issame(num, 8) || issame(num, 9)) {
-            numbers.push_back(num);
-        }
-    }
-
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
-
     vector<string> result;
-    for (int num : numbers) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            string str = "";
+            switch (num) {
+                case 1:
+                    str = "One";
+                    break;
+                case 2:
+                    str = "Two";
+                    break;
+                case 3:
+                    str = "Three";
+                    break;
+                case 4:
+                    str = "Four";
+                    break;
+                case 5:
+                    str = "Five";
+                    break;
+                case 6:
+                    str = "Six";
+                    break;
+                case 7:
+                    str = "Seven";
+                    break;
+                case 8:
+                    str = "Eight";
+                    break;
+                case 9:
+                    str = "Nine";
+                    break;
+            }
+            for (int i = 0; i < arr.size(); i++) {
+                if (issame(num, arr[i])) {
+                    str += ", Same";
+                    break;
+                }
+            }
+            result.push_back(str);
         }
-        result.push_back(str);
     }
 
     return result;
