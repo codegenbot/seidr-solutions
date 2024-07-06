@@ -1,5 +1,5 @@
 
 def sort_numbers(numbers: str) -> str:
-    nums = numbers.split()
-    nums.sort(key=int)
-    return " ".join(nums)
+    numberals = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    sorted_numbers = sorted([numberals.index(num) for num in numbers.split()])
+    return ' '.join([numberals[i] for i in sorted_numbers])
