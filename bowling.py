@@ -1,3 +1,4 @@
+```
 def calculate_score(games):
     frames = games.replace('/', '')
     current_roll = 0
@@ -8,12 +9,12 @@ def calculate_score(games):
         if frames[i].isdigit():
             current_roll = current_roll * 10 + int(frames[i])
         else:
-            if current_roll == 10: # Spare
+            if current_roll == 10: 
                 score += 10
                 if i < 17 and frames[i+2].isdigit(): 
                     score += int(frames[i+1]) if i+3 < len(frames) and frames[i+3].isdigit() else 0
             elif current_roll > 0:
-                if strike_count: # Strike
+                if strike_count: 
                     score += 10 + min(10, int(frames[i])) * 2
                 else:
                     score += min(10, current_roll) + (1 if current_roll < 10 else 0)
