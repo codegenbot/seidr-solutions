@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total_sum = 0
     for element in lst:
@@ -13,7 +14,7 @@ def sum_squares(lst):
 
 
 def main():
-    print(sum_squares([1, 2, 3]))
+    print(sum_squares([{"x": 2}, {"y": 4}]))
 
 
 main()
