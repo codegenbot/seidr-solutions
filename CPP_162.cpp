@@ -1,28 +1,22 @@
 ```cpp
-#include <algorithm>
-#include <string>
-
-using namespace std;
+#include <iomanip>
+#include <sstream>
 
 string string_to_md5(string text) {
-    if (text.empty()) {
-        return "";
-    }
-
-    unsigned char md[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
+    if (text.empty()) return "";
+    
+    unsigned char result[16];
+    MD5_CTX md5;
+    MD5_Init(&md5);
     const char* str = text.c_str();
-    size_t len = text.size();
-    MD5_Update(&ctx, str, len);
-    MD5_Final(md, &ctx);
+    int len = text.size();
+    MD5_Update(&md5, str, len);
+    MD5_Final(&md5, result);
 
-    string result;
-    for (int i = 0; i < 16; ++i) {
-        char buf[3];
-        sprintf(buf, "%02x", md[i]);
-        result += buf;
+    stringstream ss;
+    for (int i = 0; i < 16; i++) {
+        ss << setfill('0') << setw(2) << hex << static_cast<int>(result[i]);
     }
 
-    return result;
+    return ss.str();
 }
