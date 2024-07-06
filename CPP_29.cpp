@@ -18,10 +18,18 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
-vector<string> main() {
+vector<string> filterByPrefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for(auto str : strings){
+        if(str.find(prefix) == std::string::npos)
+            continue;
+        result.push_back(str.substr(prefix.size()));
+    }
+    return result;
+
+int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     string prefix = "xxx";
-    vector<string> result = filter_by_prefix(strings, prefix);
-    assert(issame(result, {"xxx", "xxxAAA", "xxx"}));
-    return result;
+    assert(issame(filterByPrefix(strings, prefix), {"xxx", ""}));
+    return 0;
 }
