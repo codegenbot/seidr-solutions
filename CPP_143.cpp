@@ -1,24 +1,30 @@
 string words_in_sentence(string sentence){
     string result = "";
-    int i = 0;
-    while(i < sentence.size()){
-        int j = i + 1;
-        while(j <= sentence.size() && !isalpha(sentence[j])){
-            j++;
-        }
-        if(j > i){
-            string word = sentence.substr(i, j - i);
-            bool is_prime = true;
-            for(int k = 2; k*k <= stol(word); k++){
-                if(stol(word) % k == 0){
+    for (const auto &word : split(sentence, " ")) {
+        int len = word.length();
+        bool is_prime = true;
+        if (len > 1) {
+            for (int i = 2; i * i <= len; ++i) {
+                if (len % i == 0) {
                     is_prime = false;
                     break;
                 }
             }
-            if(is_prime)
-                result += word + " ";
         }
-        i = j;
+        if (is_prime) {
+            result += word + " ";
+        }
     }
+    return result.substr(0, result.length() - 1);
+}
+
+vector<string> split(const string &s, char delim) {
+    vector<string> result;
+    size_t pos = 0;
+    while ((pos = s.find(delim)) != std::string::npos) {
+        result.push_back(s.substr(0, pos));
+        s.erase(0, pos + 1);
+    }
+    result.push_back(s);
     return result;
 }
