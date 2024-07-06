@@ -1,5 +1,7 @@
 #include <string>
+#include <vector>
 #include <cassert>
+
 using namespace std;
 
 bool file_name_check(string file_name) {
