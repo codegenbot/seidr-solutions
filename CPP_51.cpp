@@ -1,10 +1,11 @@
 #include <string>
+#include <cctype>
 
 string remove_vowels(string text){
     string result = "";
     for(char c : text){
-        if(strchr("aeiouAEIOU",c) == NULL)
-            result += c;
+        if(!strchr("aeiouAEIOU",tolower(c)) == NULL)
+            result += tolower(c);
     }
     return result;
 }
