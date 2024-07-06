@@ -1,11 +1,12 @@
+```
 #include <iostream>
 #include <vector>
 
 bool below_zero(std::vector<std::string> operations){
     int balance = 0;
-    for (const auto& operation : operations) {
-        int op = std::stoi(operation);
-        balance += op;
+    for (std::string operation : operations) {
+        int num_operation = std::stoi(operation);
+        balance += num_operation;
         if (balance < 0) return true;
     }
     return false;
