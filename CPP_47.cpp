@@ -10,5 +10,5 @@ float median(std::vector<float> numbers) {
 }
 
 int main() {
-    return median({8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f});
+    return median(std::vector<float>{8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f});
 }
