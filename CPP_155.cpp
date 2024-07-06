@@ -1,18 +1,11 @@
-#include <vector>
-using namespace std;
-
 vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
-    int n = abs(num); // convert to positive number for simplicity
-    
-    while (n != 0) {
-        int digit = n % 10;
-        if (digit % 2 == 0)
-            result[0]++;
+    int countEven = 0, countOdd = 0;
+    string strNum = to_string(abs(num));
+    for (char c : strNum) {
+        if (stoi(c) % 2 == 0)
+            countEven++;
         else
-            result[1]++;
-        n /= 10;
+            countOdd++;
     }
-    
-    return result;
+    return {countEven, countOdd};
 }
