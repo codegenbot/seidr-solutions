@@ -2,12 +2,12 @@ import re
 
 
 def solve_boolean(expression):
-    if not expression or len(expression) == 1 and expression[0] in "()":
-        return True
-
-    match = re.match(r"^(?P<left>.*?)((?:\||\&)(?P<right>.*))$", expression)
-    if match:
-        left, right = match.groups()
+    # Use regular expressions to parse the expression and evaluate it
+    result = re.match(r"^(?P<left>.*?)(\||\&)(?P<right>.*)$", expression)
+    if result:
+        left, right = result.groups()
         return solve_boolean(left) | solve_boolean(right)
-
-    raise ValueError("Invalid input")
+    elif expression == "t":
+        return True
+    else:
+        return False
