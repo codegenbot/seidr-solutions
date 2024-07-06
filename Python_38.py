@@ -4,7 +4,7 @@ def decode_cyclic(s: str):
     i = 0
     while i < len(s):
         if i + 2 <= len(s): 
-            group = s[i : i + 3]
+            group = s[i:i+3]
         else:
             group = s[i:]
         if i > 0:
