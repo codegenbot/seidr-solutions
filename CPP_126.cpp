@@ -1,32 +1,25 @@
-Here's the solution:
+Here is the completed code:
 
-```cpp
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            vector<int> temp;
-            bool flag = true;
-            for(int j = 0; j < i; j++){
-                while(j+1 < i && lst[j] == lst[j+1]){
-                    j++;
-                }
-                temp.push_back(lst[j]);
-                if(flag){
-                    flag = false;
-                }else{
-                    return false;
-                }
-            }
-            if(temp.size() > 1) return false;
-            for(int j = i; j < lst.size(); j++){
-                while(j+1 < lst.size() && lst[j] == lst[j+1]){
-                    j++;
-                }
-                temp.push_back(lst[j]);
-            }
-            if(temp.size() != lst.size()) return false;
-            return true;
+            return false;
         }
+    }
+    vector<int> temp(lst.begin(), lst.end());
+    sort(temp.begin(), temp.end());
+    int count = 0;
+    for(int i = 0; i < temp.size(); i++){
+        for(int j = 0; j < lst.size(); j++){
+            if(temp[i] == lst[j]){
+                count++;
+                break;
+            }
+        }
+        if(count > 1){
+            return false;
+        }
+        count = 0;
     }
     return true;
 }
