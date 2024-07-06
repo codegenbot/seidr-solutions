@@ -1,3 +1,3 @@
 ```
 def solve(N):
-    return str(bin(sum(int(i) for i in str(bin(N)[2:]))) )
+    return str(int(bin(N)[2:], 2))
