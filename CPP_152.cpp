@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool equals(std::vector<int> a, std::vector<int> b) {
+bool same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -18,6 +18,6 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    assert(equals(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(same(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
