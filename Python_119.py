@@ -1,7 +1,6 @@
-```python
-def `match_parens`(list`):
+def match_parens(lst):
     stack = []
-    for s in list:
+    for s in lst:
         for c in s:
             if c == '(':
                 stack.append(c)
