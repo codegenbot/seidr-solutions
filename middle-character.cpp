@@ -1,11 +1,12 @@
-
+#include <iostream>
 #include <string>
-
-string getMiddle(string str) {
+using namespace std;
+void main() {
+    string str = "abcdef"; // replace with input from user
     int len = str.length();
     if (len % 2 == 0) {
-        return str.substr((len / 2) - 1, 2);
+        std::cout << str.substr((len / 2) - 1, 2);
     } else {
-        return str.substr(len / 2, 1);
+        std::cout << str.substr(len / 2, 1);
     }
 }
