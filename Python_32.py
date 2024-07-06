@@ -1,5 +1,8 @@
+
 def find_zero(xs):
-    user_input = input("Enter a list of integers separated by spaces: ").split()
+    # Read input from the user
+    inp = input("Enter a list of integers separated by spaces: ")
+    xs = [int(x) for x in inp.split()]
     for i, x in enumerate(xs):
         if x == 0:
             print(f"The first zero found at position {i}")
