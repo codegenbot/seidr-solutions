@@ -1,3 +1,4 @@
+
 def find_zero(xs):
     # Read the user's input
     xs = input("Enter a list of numbers: ")
