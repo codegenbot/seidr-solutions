@@ -1,29 +1,26 @@
 def minPath(grid, k):
-    N = len(grid)
-    total_cells = N * N
-    cell_values = {i + 1: v for i, row in enumerate(grid) for v in enumerate(row)}
+    n = len(grid)
+    visited = [[False] * n for _ in range(n)]
+    paths = []
 
-    def dfs(cell_value, path_length, current_path):
-        if path_length == k:
-            return current_path
+    def dfs(i, j, path, count):
+        if count == k:
+            paths.append(path[:])
+            return
+        visited[i][j] = True
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
+                path.append(grid[ni][nj])
+                dfs(ni, nj, path, count + 1)
+                path.pop()
+        visited[i][j] = False
 
-        for neighbor_cell_value in [
-            v
-            for i, j in [
-                (i, j) for i, row in enumerate(grid) for j, v in enumerate(row)
-            ]
-            if cell_values[neighbor_cell_value] != cell_value
-        ]:
-            new_current_path = current_path + [cell_value]
-            res = dfs(neighbor_cell_value, path_length + 1, new_current_path)
-            if res:
-                return res
+    for i in range(n):
+        for j in range(n):
+            dfs(i, j, [], 0)
 
-        return None
-
-    min_path = []
-    for start in cell_values:
-        res = dfs(start, 0, [])
-        if not min_path or res < min_path:
-            min_path = res
-    return min_path
+    return sorted(
+        [v for path in paths for v in path],
+        key=lambda x: [path.index(x) for path in paths].index(x),
+    )
