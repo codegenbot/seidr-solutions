@@ -9,17 +9,17 @@ def longest(strings: List[str]) -> Optional[str]:
 
 def main():
     strings = []
-    
+
     while True:
         user_input = input("Enter a string (or 'stop' to stop): ")
-        
-        if user_input.lower() == 'stop':
+
+        if user_input.lower() == "stop":
             break
-        
+
         strings.append(user_input)
-    
+
     longest_str = longest(strings)
-    
+
     print(f"The longest string is: {longest_str}")
 
 
