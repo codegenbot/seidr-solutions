@@ -1,13 +1,8 @@
-```Python
 def incr_list():
     while True:
         try:
             n = int(input("Enter a number: "))
-            if n < 1:
-                print("Number should be positive. Try again.")
-            else:
-                return list(range(1, n+1))
-            break
+            return list(range(1, n+1))
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
