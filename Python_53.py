@@ -1,5 +1,3 @@
-def add(numbers):
-    return sum(numbers)
 
-result = add([3.14, 2.72])
-print(result)
+def add(x: float, y: float, input: float) -> float:
+    return x + y + input
