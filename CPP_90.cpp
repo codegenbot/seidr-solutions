@@ -1,11 +1,19 @@
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None if there is no such element.
-    vector<int> temp = lst;
-    sort(temp.begin(), temp.end()); 
-    for(int i = 0; i < (temp.size() - 1); i++) {
-        if(temp[i] != temp[i+1]) {
-            return temp[i+1];
+    if (lst.empty()) return -1; // None in C++ would be 0 or negative value
+    vector<int> unique;
+    for (int i : lst) {
+        bool flag = false;
+        for (int j : unique) {
+            if (i == j) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            unique.push_back(i);
         }
     }
-    return -1; // If the vector contains all equal elements, or it is empty.
+    if (unique.size() < 2) return -1; // None in C++ would be 0 or negative value
+    sort(unique.begin(), unique.end());
+    return unique[1];
 }
