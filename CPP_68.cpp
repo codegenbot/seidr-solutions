@@ -24,24 +24,22 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 int main() {
     std::vector<int> input;
-    // get user input here
-    // for example, you can use the following code to read 5 integers from the console:
+    // input your array here
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the size of the array: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        int x;
+        int val;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        input.push_back(x);
+        std::cin >> val;
+        input.push_back(val);
     }
-
-    // call the pluck function
+    
     std::vector<int> output = pluck(input);
 
-    // print the result here
-    if (!output.empty()) {
-        std::cout << "The minimum even value is " << output[0] << " at index " << output[1] << "." << std::endl;
+    if (output.size() > 0) {
+        std::cout << "The minimum even value is: " << output[0] << std::endl;
+        std::cout << "Its index is: " << output[1] << std::endl;
     } else {
         std::cout << "No even values found." << std::endl;
     }

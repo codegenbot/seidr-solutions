@@ -1,24 +1,19 @@
-Here's the completed code:
-
-```cpp
-#include <stdio.h>
-#include <string>
-using namespace std;
-
-bool is_happy(string s) {
-    if (s.length() < 3)
+bool is_happy(string s){
+    if(s.length() < 3)
         return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
+
+    for(int i = 0; i <= s.length() - 3; i++){
+        string three_chars = s.substr(i, 3);
         bool unique = true;
-        string temp = s.substr(i, 3);
-        for (char c : temp) {
-            if (count(temp.begin(), temp.end(), c) > 1) {
+        for(char c : three_chars){
+            if(find(three_chars.begin(), three_chars.end(), c) != three_chars.end()){
                 unique = false;
                 break;
             }
         }
-        if (!unique)
-            return false;
+        if(unique)
+            return true;
     }
-    return true;
+
+    return false;
 }
