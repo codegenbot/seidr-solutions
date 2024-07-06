@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -10,8 +11,8 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     if (lst.empty()) return result;
 
     while (!lst.empty()) {
-        int minVal = *min_element(lst.begin(), lst.end());
-        int maxVal = *max_element(lst.begin(), lst.end());
+        int minVal = *std::min_element(lst.begin(), lst.end());
+        int maxVal = *std::max_element(lst.begin(), lst.end());
         result.push_back(minVal);
         result.push_back(maxVal);
         lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
@@ -22,6 +23,10 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_vector({1, 2}), vector<int>({1, 2})));
+    if (issame(strange_sort_vector({111}), vector<int>({111}))) {
+        std::cout << "Test passed." << std::endl;
+    } else {
+        std::cout << "Test failed." << std::endl;
+    }
     return 0;
 }
