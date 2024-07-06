@@ -1,6 +1,49 @@
+```
 #include <boost/any.hpp>
 #include <string>
 #include <iostream>
+
+int main() {
+    int num1;
+    double num2;
+    std::string str;
+
+    std::cout << "Enter a value (int or string): ";
+    boost::any any_val = boost::any(get_value());
+
+    return 0;
+}
+
+boost::any get_value() {
+    char c;
+    do {
+        std::cin >> c;
+        switch(c) {
+            case '1':
+                {
+                    int i;
+                    std::cout << "Enter an integer: ";
+                    std::cin >> i;
+                    return boost::any(i);
+                }
+            case '2':
+                {
+                    double d;
+                    std::cout << "Enter a double: ";
+                    std::cin >> d;
+                    return boost::any(d);
+                }
+            case '3':
+                {
+                    std::cout << "Enter a string: ";
+                    std::getline(std::cin, str);
+                    return boost::any(str);
+                }
+            default:
+                std::cout << "Invalid option. Try again.\n";
+        }
+    } while(true);
+}
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
@@ -37,22 +80,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         return boost::any("None");
     }
     return a > b ? a : b;
-}
-
-int main() {
-    int a = 10;
-    double b = 20.5;
-    std::string c = "hello";
-    boost::any result = compare_one(boost::any(a), boost::any(b));
-    if(result.type() == typeid(int)) {
-        std::cout << "The result is an integer: " << boost::any_cast<int>(result) << std::endl;
-    }
-    else if (result.type() == typeid(double)) {
-        std::cout << "The result is a double: " << boost::any_cast<double>(result) << std::endl;
-    }
-    else {
-        std::cout << "The result is None" << std::endl;
-    }
-    
-    return 0;
 }
