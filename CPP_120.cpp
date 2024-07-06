@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -19,7 +18,7 @@ std::vector<int> findMaximum(int n, int k) {
         std::cin >> arr[i];
     }
     
-    std::vector<int> myVector(&arr[0], &arr[n]);
+    std::vector<int> myVector(&arr[0], &arr+n);
     
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
@@ -29,6 +28,7 @@ std::vector<int> findMaximum(int n, int k) {
         myVector.erase(it, myVector.end());
     }
     
+    delete[] arr;
     return result;
 }
 
