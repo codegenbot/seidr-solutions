@@ -30,8 +30,3 @@ def parse_music(music_string: str) -> list:
             print("Invalid input")
         i += 1
     return music_list
-
-if __name__ == "__main__":
-    user_input = input("Enter your input: ")
-    output = parse_music(user_input)
-    print(output)

@@ -11,4 +11,4 @@ def sort_even(l: list):
         else:
             result.append(x)
             
-    return result
+    return [x if not even_idx else x for x in result] if sorted_evens else l
