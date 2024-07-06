@@ -35,6 +35,6 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    cout << sort_numbers("zero one two three four five six seven eight nine");
+    cout << sort_numbers("nine eight seven six five four three two one zero");
     return 0;
 }
