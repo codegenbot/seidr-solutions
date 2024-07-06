@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 int starts_one_ends(int n) {
