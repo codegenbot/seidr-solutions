@@ -1,7 +1,11 @@
+#include <vector>
+#include <set>
+
 bool pairs_sum_to_zero(vector<int> l) {
     set<int> s(l.begin(), l.end());
-    for (auto it = s.begin(); it != s.end(); ++it) {
-        if (find(s.begin(), s.end(), -(*it)) != s.end()) {
+    for (int x : s) {
+        int complement = -x;
+        if (s.find(complement) != s.end() && x != complement) {
             return true;
         }
     }
