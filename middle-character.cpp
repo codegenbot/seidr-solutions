@@ -1,3 +1,5 @@
+#include <string>
+
 string getMiddle(string str) {
     int len = str.length();
     if (len % 2 == 0) {
