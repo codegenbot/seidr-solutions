@@ -1,24 +1,13 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> unique_digits(vector<int> x) {
+vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for (int i : x) {
-        bool hasEvenDigit = false;
-        int n = i;
-        while (n > 0) {
-            int digit = n % 10;
-            if (digit % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            n /= 10;
+    for(int i: x){
+        int num = i;
+        bool has_even_digit = false;
+        while(num > 0){
+            if((num%10)%2 == 0) has_even_digit = true; 
+            num /= 10;
         }
-        if (!hasEvenDigit) {
-            result.push_back(i);
-        }
+        if(!has_even_digit) result.push_back(i);
     }
     sort(result.begin(), result.end());
     return result;

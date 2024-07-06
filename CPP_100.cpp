@@ -1,19 +1,16 @@
-#include <stdio.h>
-#include <vector>
-using namespace std;
-
 vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = 1;
-    
-    for (int i = 0; i < n; i++) {
-        if ((i + 1) % 2 == 0) // even level
-            pile.push_back(stones * 2);
-        else // odd level
-            pile.push_back(stones * 2 - 1);
-        
-        stones += (stones % 2 != 0 ? 2 : 1); // next level's stone number
+    vector<int> result;
+    int i = 1, num;
+
+    while (i <= n) {
+        if (n % 2 == 1) { // Check if n is odd
+            num = i;
+        } else {
+            num = i + 1; // If n is even, then next number should be even
+        }
+        result.push_back(num);
+        i += num % 2 ? 2 : 2; // Increment by 2 for even numbers and 2+1 for odd numbers
     }
-    
-    return pile;
+
+    return result;
 }
