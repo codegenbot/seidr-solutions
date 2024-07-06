@@ -1,5 +1,5 @@
+```c++
 #include <vector>
-#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -22,16 +22,14 @@ std::vector<int> make_a_pile(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the number: ";
+    std::cout << "Enter the number of piles: ";
     std::cin >> n;
-
-    std::vector<int> pile = make_a_pile(n);
-
-    if (issame(pile, {1,3,5,7})) {
-        std::cout << "Pile is same as expected." << std::endl;
-    } else {
-        std::cout << "Pile is different from expected." << std::endl;
+    
+    std::vector<int> p = make_a_pile(n);
+    
+    for (auto i : p) {
+        std::cout << i << " ";
     }
-
+    
     return 0;
 }

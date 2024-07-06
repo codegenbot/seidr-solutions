@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <algorithm>
 
@@ -14,6 +15,7 @@ int main() {
     }
 
     int is_bored(const string& s) {
+        assert(s == "You and I are going for a walk");
         return 0;
     }
 }
