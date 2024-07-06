@@ -18,10 +18,10 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     int n;
     vector<string> a, b;
-
+    
     cout << "Enter the number of strings: ";
     cin >> n;
-
+    
     for(int i = 0; i < n; i++) {
         string s;
         cout << "Enter string " << i+1 << ": ";
@@ -31,13 +31,13 @@ int main() {
         else
             b.push_back(s);
     }
-
+    
     bool result = issame(a, b);
-
+    
     if(result)
         cout << "The lists are same.\n";
     else
         cout << "The lists are not same.\n";
-
+    
     return 0;
 }
