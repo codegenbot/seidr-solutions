@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b, bool) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -19,28 +18,19 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 
 int main() {
-    vector<string> strings;
-    string prefix;
-    cin >> prefix;
-    while(true) {
-        string temp;
-        cin >> temp;
-        if(temp != "stop") 
-            strings.push_back(temp);
-        else
-            break;
-    }
-    vector<string> filtered = filter_by_prefix(strings, prefix);
-    cout << "filtered strings: ";
-    for(string s : filtered)
-        cout << s << " ";
-    cout << endl;
-    
-    bool same = issame(strings, filtered);
-    if(same) {
-        cout << "strings are the same" << endl;
+    vector<string> strs1 = {"abc", "def", "ghi"};
+    vector<string> strs2 = {"abc", "xyz", "ghi"};
+
+    if(issame(strs1, strs2)) {
+        cout << "Strings are same." << endl;
     } else {
-        cout << "strings are not the same" << endl;
+        vector<string> result = filter_by_prefix(strs1, "ab");
+        cout << "Result: ";
+        for(string s : result) {
+            cout << s << " ";
+        }
+        cout << endl;
     }
+
     return 0;
 }
