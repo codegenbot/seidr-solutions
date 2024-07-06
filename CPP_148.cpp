@@ -1,15 +1,40 @@
-#include <vector>
-#include <string>
-
-std::vector<std::string> bf(std::string a, std::string b) {
-    // Define the function body here
+bool issame(vector<string> a,vector<string>b){
+    for(int i=0;i<a.size()&&!b.empty();i++){
+        if(find(b.begin(),b.end(),a[i])!=b.end())
+            b.erase(remove(b.begin(),b.end(),a[i]),b.end());
+        else
+            return false;
+    }
+    return b.empty();
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    for (int i = 0; i < a.size(); i++) {
-        if (find(b.begin(),b.end(),a[i]) == b.end()) {
-            return false;
+int main{
+    vector<string> bf(string planet1, string planet2) {
+        vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+        int index1 = -1;
+        int index2 = -1;
+
+        for (int i = 0; i < planets.size(); i++) {
+            if (planet1 == planets[i]) {
+                index1 = i;
+            }
+            else if (planet2 == planets[i]) {
+                index2 = i;
+            }
         }
+
+        if (index1 == -1 || index2 == -1) {
+            return {};
+        }
+
+        vector<string> result;
+
+        for (int i = 0; i < planets.size(); i++) {
+            if ((i >= index1 && i <= index2) || (i > index2 && i < index1)) {
+                result.push_back(planets[i]);
+            }
+        }
+
+        return result;
     }
-    return true;
 }
