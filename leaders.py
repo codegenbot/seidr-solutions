@@ -1,7 +1,6 @@
 def leaders(vector):
     result = []
     for i in range(len(vector)):
-        max_right = max(iter(vector[i + 1 :]))
-        if vector[i] >= max_right and max_right == vector[i]:
+        if vector[i] >= max(vector[i + 1:]):
             result.append(vector[i])
     return result
