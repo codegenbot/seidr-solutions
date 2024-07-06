@@ -1,16 +1,15 @@
 ```
+import math
+
 def factorize(n):
-    i = 2
     factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
+    for i in range(2, int(math.sqrt(n)) + 1):
+        while n % i == 0:
             factors.append(str(i))
+            n //= i
     if n > 1:
         factors.append(str(n))
-    return ' '.join(factors)
+    return ' * '.join(factors)
 
 def solve():
     n = int(input("Enter a number: "))
