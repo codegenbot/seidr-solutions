@@ -1,5 +1,3 @@
-import re
 
-
-def words_string(s):
-    return re.split(r"\s+", s)
+def words_string(string):
+    return string.split(", ")
