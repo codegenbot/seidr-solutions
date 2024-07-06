@@ -1,6 +1,4 @@
-
-def find_zero(xs: list):
-    # Read input from user
+def find_zero(xs):
     while True:
         try:
             x = int(input("Enter a number: "))
@@ -8,7 +6,6 @@ def find_zero(xs: list):
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-    # Find the first zero in the list
     for i, val in enumerate(xs):
         if val == 0:
             return f"The first zero is at index {i}"
