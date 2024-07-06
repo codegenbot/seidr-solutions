@@ -1,12 +1,11 @@
+````
 def is_palindrome(string: str) -> bool:
+"""Test if given string is a palindrome"""
     return string == string[::-1]
 
-
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string
-    for i in range(len(string)):
-        postfix = string[i:]
-        if is_palindrome(postfix):
-            prefix = string[:i]
-            return prefix + postfix + postfix
+    reversed_string = string[::-1]
+    for i in range(len(string), -1, -1):
+        if string[:i] + reversed_string[i:] == (string + reversed_string)[::-1]:
+            return string + reversed_string
+    return string + reversed_string
