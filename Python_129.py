@@ -1,30 +1,20 @@
 def minPath(grid, k):
-    # Initialize the minimum path and its sum
-    min_path = []
-    min_sum = float('inf')
+    # Initialize variables
+    n = len(grid)
+    total_paths = 0
+    path = []
 
-    # Loop through each cell in the grid
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            # Get the value of the current cell
-            val = grid[i][j]
+    # Loop through all possible paths
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] not in path:
+                total_paths += 1
+                path.append(grid[i][j])
+                if len(path) == k:
+                    break
+            if j == n - 1 and len(path) < k:
+                total_paths = 0
+                path = []
 
-            # If the current cell is not in the minimum path, add it to the path and update the sum
-            if val not in min_path:
-                min_path.append(val)
-                min_sum += val
-
-    # If the length of the minimum path is less than k, find the missing values
-    if len(min_path) < k:
-        # Loop through each cell in the grid again
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                # Get the value of the current cell
-                val = grid[i][j]
-
-                # If the current cell is not in the minimum path, add it to the path and update the sum
-                if val not in min_path:
-                    min_path.append(val)
-                    min_sum += val
-
-    return min_path
+    # Return the minimum path
+    return sorted(path)
