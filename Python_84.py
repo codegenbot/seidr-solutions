@@ -1,4 +1,3 @@
 ```
 def solve(N):
-    binary = str(bin(N)[2:]).replace("1", "a").replace("0", "b")
-    return ''.join('a' if c == 'b' else 'b' for c in binary)
+    return ''.join('a' if digit == '1' else 'b' for digit in bin(N)[2:])
