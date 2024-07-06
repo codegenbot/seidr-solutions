@@ -1,10 +1,11 @@
-```
+```python
 from typing import List
 
-def parse_music() -> List[int]:
-    music_string = input()
+def parse_music(music_string: str) -> List[int]:
     beats = [0]
     for note in music_string.split():
+        if note not in ["o", "o|", ".|"]:
+            raise ValueError(f"Invalid note: {note}")
         if note == "o":
             beats.append(4)
         elif note == "o|":
