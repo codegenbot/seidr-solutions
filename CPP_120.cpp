@@ -5,16 +5,22 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<std::vector<int>> splitArray(std::vector<int>& arr, int k) {
-    std::sort(arr.begin(), arr.end());
+std::vector<std::vector<int>> maximum(int n, int m, int k) {
     std::vector<std::vector<int>> result;
-    for (int i = 0; i < k; ++i) {
-        auto it = arr.begin() + i * (arr.size() / k);
-        if ((arr.size() % k) > 0 && i == k - 1) {
-            result.push_back(std::vector<int>(it, arr.end()));
-        } else {
-            result.push_back(std::vector<int>(it, it + (arr.size() / k)));
+    for (int i = 0; i < n; ++i) {
+        std::vector<int> temp;
+        for (int j = 0; j < m; ++j) {
+            temp.push_back(i * m + j);
         }
+        result.push_back(temp);
+    }
+
+    for (int i = 0; i < k; ++i) {
+        auto it = std::max_element(result.begin(), result.end(),
+                                   [](const std::vector<int>& a, const std::vector<int>& b) {
+                                       return a[0] > b[0];
+                                   });
+        result[i] = *it;
     }
     return result;
 }
