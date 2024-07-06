@@ -1,3 +1,4 @@
+
 def skjkasdkd(lst):
     # find the largest prime number in the list
     max_prime = None
@@ -10,3 +11,11 @@ def skjkasdkd(lst):
         return sum(map(int, str(max_prime)))
     else:
         return 0
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
