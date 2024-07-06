@@ -1,7 +1,7 @@
 def select_words(s, n):
     words = s.split()
     if n <= 0:
-        return words
+        return []
     elif n == 0:
         return words
     else:

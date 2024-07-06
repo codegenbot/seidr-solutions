@@ -1,8 +1,8 @@
-
-def find_zero(s):
-    if s == "0":
+def find_zero(input():
+    x = float(input())
+    if x == 0:
         return 0
-    elif s == "+":
-        return 1
-    else:
+    elif x < 0:
         return -1
+    else:
+        return 1
