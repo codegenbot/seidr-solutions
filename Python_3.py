@@ -1,5 +1,7 @@
-```
-from typing import List
+```python
+Problem: Write a program to manage debt payments.
+
+'''from typing import List
 
 
 def below_zero() -> None:
@@ -39,4 +41,4 @@ def below_zero() -> None:
         print("Congratulations, your debt is paid off!")
     else:
         if balance < 0:
-            print("Congratulations, your debt is paid off!")
+            print("Congratulations, your debt is paid off!")'''
