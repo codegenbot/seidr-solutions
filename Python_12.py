@@ -1,5 +1,6 @@
 from typing import List, Optional
 
+
 def longest() -> Optional[str]:
     strings = []
     while True:
