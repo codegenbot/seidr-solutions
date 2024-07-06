@@ -4,7 +4,7 @@
 
 std::vector<std::string> numerical_letter_grade(const std::vector<int>& grades) {
     std::vector<std::string> result;
-
+    
     for (int grade : grades) {
         if (grade >= 90)
             result.push_back("A");
@@ -13,11 +13,11 @@ std::vector<std::string> numerical_letter_grade(const std::vector<int>& grades) 
         else if (grade >= 70)
             result.push_back("C");
         else if (grade >= 60)
-            result.push_back("D");
+            result.push_back((std::to_string(grade)).substr(0,2) + "-D");
         else
             result.push_back("F");
     }
-
+    
     return result;
 }
 
@@ -31,9 +31,12 @@ bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     std::vector<int> grades = {0, 70};
-    std::cout << "Numerical letter grade: ";
+    std::cout << "[";
     for (const auto& grade : numerical_letter_grade(grades)) {
-        std::cout << grade << " ";
+        std::cout << "\"" << grade << "\"";
+        if (&grade != &numerical_letter_grade(grades).back()) {
+            std::cout << ", ";
+        }
     }
-    std::cout << std::endl;
+    std::cout << "]\n";
 }
