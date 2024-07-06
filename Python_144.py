@@ -1,5 +1,9 @@
+```
 def simplify(x, n):
-    x_num, x_den = map(int, x.split("/"))
-    n_num, n_den = map(int, n.split("/"))
-
-    return (x_num * n_den) % (x_den * n_num) == 0
+    x_num, x_denom = map(int, x.split('/'))
+    n_num, n_denom = map(int, n.split('/'))
+    
+    if x_num * n_denom != x_denom * n_num:
+        return False
+    else:
+        return True
