@@ -1,6 +1,7 @@
+
 def encrypt(s):
-    new_string = ""
-    for char in s:
-        new_char = chr((ord(char) - ord("a") + 2) % 26 + ord("a"))
-        new_string += new_char
-    return new_string
+    table = {
+        "a": "e",
+        "b": "f"
+    }
+    return "".join([table.get(c, c) for c in s])
