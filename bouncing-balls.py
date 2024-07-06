@@ -10,6 +10,4 @@ def bouncing_balls():
         total_distance += 2 * math.sqrt(hb) * bi
         hb /= bi
     return round(total_distance, 4)
-
-
 print(bouncing_balls())
