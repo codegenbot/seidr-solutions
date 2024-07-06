@@ -1,5 +1,3 @@
-using namespace std;
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -28,4 +26,15 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+}
+
+int main() {
+    int n; cin >> n;
+    vector<int> nums(n);
+    for(int i=0; i<n; i++) cin >> nums[i];
+    
+    if(issame(nums, order_by_points(nums))) cout << "YES" << endl;
+    else cout << "NO" << endl;
+
+    return 0;
 }
