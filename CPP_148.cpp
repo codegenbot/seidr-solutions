@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,19 +10,30 @@ vector<string> bf(string planet1, string planet2) {
     if (planet1 != planet2 && find(planets.begin(), planets.end(), planet1) != planets.end() && 
         find(planets.begin(), planets.end(), planet2) != planets.end()) {
         
-        int index1 = distance(planets.begin(), find(planets.begin(), planets.end(), planet1));
-        int index2 = distance(planets.begin(), find(planets.begin(), planets.end(), planet2));
+        auto it1 = find(planets.begin(), planets.end(), planet1);
+        auto it2 = find(planets.begin(), planets.end(), planet2);
+
+        int index1 = distance(it1, planets.end());
+        int index2 = distance(it2, planets.end());
 
         if (index1 < index2) {
+            vector<string> result;
             for (int i = index1 + 1; i < index2; i++) {
-                return {planets[i]};
+                result.push_back(planets[i]);
             }
+            return result;
         } else if (index1 > index2) {
+            vector<string> result;
             for (int i = index1; i > index2; i--) {
-                return {planets[i - 1]};
+                result.push_back(planets[i - 1]);
             }
+            return result;
         } else {
-            return {planets[0]};
+            vector<string> result;
+            for (int i = 0; i < index1; i++) {
+                result.push_back(planets[i]);
+            }
+            return result;
         }
     } else {
         return {};
