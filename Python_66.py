@@ -1,6 +1,11 @@
 def check(n: int) -> str:
     digit_sum = sum(int(digit) for digit in str(n))
-    if digit_sum % 3 == 0 and n % 3 == 0:
+    if n < 1 or n > 1000:
+        return "Invalid input"
+    if digit_sum % 3 == 0:
         return "YES"
-    elif digit_sum % 3 != 0 or n % 3 != 0:
+    else:
         return "NO"
+
+n = int(input("Enter an integer: "))
+print(check(n))
