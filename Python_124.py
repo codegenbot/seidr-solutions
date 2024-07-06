@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     day, month, year = date.split('-')
     if not (day and month and year):
