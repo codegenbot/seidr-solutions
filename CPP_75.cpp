@@ -1,30 +1,22 @@
-Here is the solution:
+```cpp
+#include <cmath>
 
-bool is_multiply_prime(int a){
-    for (int i = 2; i < 100; ++i) {
-        if (isPrime(i)) {
-            for (int j = i; j < 100; ++j) {
-                if (isPrime(j)) {
-                    int k = 100;
-                    while (k > 1 && !isPrime(k)) {
-                        --k;
-                    }
-                    if (a == i * j * k) {
-                        return true;
+bool is_multiply_prime(int a) {
+    for (int i = 1; i <= std::pow(100, 1/3); ++i) {
+        int j = i, k = i;
+        while (j * k <= 100) {
+            if (i * j * k == a) {
+                bool prime = true;
+                for (int x = 2; x <= sqrt(a); ++x) {
+                    if ((i % x == 0) || (j % x == 0) || (k % x == 0)) {
+                        prime = false;
+                        break;
                     }
                 }
+                return prime;
             }
+            k++;
         }
     }
     return false;
-}
-
-bool isPrime(int n){
-    if(n <= 1)
-        return false;
-    for(int i = 2; i*i <= n; i++){
-        if(n % i == 0)
-            return false;
-    }
-    return true;
 }
