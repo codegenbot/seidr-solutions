@@ -1,8 +1,14 @@
 def encrypt(s):
-    encrypted = ""
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
+    encrypted_string = ""
     for char in s:
-        if char.isalpha():
-            encrypted += chr((ord(char) - 97) * 2 % 26 + 97)
+        index = alphabet.index(char)
+        if index < 2:
+            # If the character is one of the first two characters in the alphabet,
+            # add it to the end of the encrypted string.
+            encrypted_string += rotated_alphabet[index + 1]
         else:
-            encrypted += char
-    return encrypted
+            # Otherwise, rotate the character by 2 positions and add it to the encrypted string.
+            encrypted_string += rotated_alphabet[index - 2]
+    return rotated_alphabet[index - 2]
