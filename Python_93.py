@@ -1,6 +1,3 @@
-import re
-
-
 def encode(message):
     encoded_message = ""
     for char in message:
@@ -10,5 +7,5 @@ def encode(message):
             elif char.isupper():
                 encoded_char = chr(ord("a") + (ord(char) - ord("A")) % 26)
         else:
-            encoded_message += re.sub(r"\W", "", char)
+            encoded_message += char
     return encoded_message
