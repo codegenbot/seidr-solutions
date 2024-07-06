@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 int is_bored(string S) {
@@ -8,7 +7,7 @@ int is_bored(string S) {
         if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
             count++;
         }
-        pos = S.find("I", pos);
+        pos = S.find("I", pos + 1);
     }
     return count;
 }
