@@ -4,14 +4,9 @@ def decode_cyclic():
         return "Invalid input. Please provide a string."
     result = ""
     i = 0
-    while len(s) > i:
-        group = s[i:i+3]
-        if group[0] == group[1] and group[0] == group[2]:
-            result += group[0]
-            i += 2  
-        else:
-            result += group
-        i += 3
+    while i < len(s):
+        result += s[i]
+        i += 1
     return result
 
 print(decode_cyclic())
