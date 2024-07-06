@@ -1,13 +1,16 @@
-Here is the completed code:
-
 def is_palindrome(string: str) -> bool:
+    """Test if given string is a palindrome"""
     return string == string[::-1]
+
 
 def make_palindrome(string: str) -> str:
     if string.islower():
-        i = len(string) - 1
-        while i > 0 and string[i] == string[0]:
-            i -= 1
-        return string + string[i-1::-1]
+        for i in range(len(string), 0, -1):
+            palindromic_suffix = string[:i]
+            if is_palindrome(palindromic_suffix):
+                return string + string[::-1][len(string) :].lower()
     else:
-        return string + string[::-1].lstrip(string.lower())
+        for i in range(len(string), 0, -1):
+            palindromic_suffix = string[:i]
+            if is_palindrome(palindromic_suffix.lower()):
+                return string.capitalize() + string[::-1][len(string) :].lower()
