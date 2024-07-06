@@ -4,8 +4,7 @@ def luhn(digits):
     for i in range(0, 16, 2):
         digit = digits[i] * 2
         if digit > 9:
-            sum += (digit // 10 + digit % 10) - 9
+            sum += (digit // 10) + (digit % 10)
         else:
             sum += digit
     return sum
-```

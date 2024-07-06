@@ -1,3 +1,5 @@
+    import re
+
 def indices_of_substring(text, target):
-    pattern = r"(?=(%s))" % re.escape(target) + re.DOTALL
-    return [match.start() for match in re.finditer(pattern, text)]
+    pattern = r"(?=(%s))" % re.escape(target)
+    return [match.start() for match in re.finditer(pattern, text, overlapped=True)]
