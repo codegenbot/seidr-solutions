@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) {
@@ -57,8 +58,6 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1,4,8};
-    std::vector<std::string> expected = {"One","Four","Eight"};
-    assert(same(by_length(arr), expected));
+    assert(same(by_length({1,4,8}) , {"One","Four","Eight"}));
     return 0;
 }
