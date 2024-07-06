@@ -1,39 +1,32 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n));
     vector<int> res;
-    for (int i = 0; i < k; i++) {
-        int maxVal = -1;
-        int row, col;
-        for (int j = 0; j < grid.size(); j++) {
-            for (int l = 0; l < grid[j].size(); l++) {
-                if (grid[j][l] > maxVal) {
-                    maxVal = grid[j][l];
-                    row = j;
-                    col = l;
-                }
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            if (grid[i][j] == 1) {
+                dfs(grid, visited, i, j, k, &res);
+                if (!res.empty())
+                    break;
             }
-        }
-        res.push_back(maxVal);
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[i].size(); j++) {
-                if (i == row && j == col) {
-                    grid[i][j] = -1;
-                }
-            }
-        }
-    }
     return res;
 }
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
+    int n = grid.size();
+    (*res).push_back(grid[x][y]);
+    visited[x][y] = true;
+    if (k == 0)
+        return;
+    for (int i = -1; i <= 1; ++i)
+        for (int j = -1; j <= 1; ++j) {
+            int nx = x + i, ny = y + j;
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                dfs(grid, visited, nx, ny, k - 1, res);
+                if (!(*res).empty())
+                    return;
+            }
+        }
+    (*res).pop_back();
+    visited[x][y] = false;
 }
