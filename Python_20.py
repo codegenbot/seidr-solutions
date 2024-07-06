@@ -1,26 +1,22 @@
+```Python
+from typing import Tuple
+
+
 def find_closest_elements() -> Tuple[float, float]:
     while True:
-        numbers = input("Enter a list of numbers (space separated): ")
+        user_input = input("Enter two space-separated numbers: ")
         try:
-            numbers = [float(num) for num in numbers.split()]
-            if len(numbers) < 2:
-                print("Please enter at least two numbers.")
+            numbers = [float(num) for num in user_input.split()]
+            if len(numbers) != 2:
+                print("Please enter exactly two numbers.")
             else:
                 break
         except ValueError:
-            print("Invalid input. Please enter only numbers separated by spaces.")
+            print("Invalid input. Please enter only two numbers separated by spaces.")
 
-    min_diff = float("inf")
-    closest_pair = (None, None)
+    difference = abs(numbers[0] - numbers[1])
 
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            diff = abs(numbers[j] - numbers[i])
-            if diff < min_diff:
-                min_diff = diff
-                closest_pair = (numbers[i], numbers[j])
+    return tuple(sorted(numbers))
 
-    if closest_pair != (None, None):
-        return tuple(sorted(closest_pair))
-    else:
-        return None
+
+print(find_closest_elements())
