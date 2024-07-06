@@ -27,11 +27,12 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input;
-    while (true) {
-        float num;
-        cin >> num;
-        if (!cin) break;
-        input.push_back(num);
+    cout << "Enter the size of the array: ";
+    int n; cin >> n;
+    
+    for (int i=0; i<n; i++) {
+        float x; cin >> x;
+        input.push_back(x);
     }
     
     vector<float> output = sort_even(input);
