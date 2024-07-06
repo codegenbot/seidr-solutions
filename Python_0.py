@@ -32,7 +32,6 @@ def has_close_elements() -> bool:
             numbers = [float(num) for num in numbers.split()]
         except ValueError:
             print("Invalid input! Please enter numeric values separated by spaces.")
-        
         while True:
             threshold = float(input("Enter a number to determine close elements: "))
             if 0 < threshold:
@@ -47,6 +46,6 @@ def has_close_elements() -> bool:
                 if abs(numbers[i] - numbers[j]) <= threshold:
                     found_close_elements = True
                     break
-        
+
         cont = input("Do you want to check another set of numbers? (y/n): ")
     return found_close_elements
