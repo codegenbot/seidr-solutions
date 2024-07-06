@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string encrypt(std::string s);
 
-int main 
+int main() 
 {
     assert(encrypt("a") == "e");
     std::string s;
