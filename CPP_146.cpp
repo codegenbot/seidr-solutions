@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,23 +12,27 @@ int specialFilter(std::vector<int> nums) {
     return count;
 }
 
-int myMain() {
+int main() {
     int n;
     std::cout << "Enter number of elements: ";
-    std::cin >> n;
+    while (!(std::cin >> n) || n <= 0) {
+        std::cout << "Invalid input. Please enter a positive integer: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
-    std::vector<int> nums(n); // Create a vector of size n
+    std::vector<int> nums(n, 0); // Create a vector of size n and initialize all elements to 0
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> nums[i];
+        while (!(std::cin >> nums[i])) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
     }
 
     int count = specialFilter(nums);
 
     std::cout << "Count: " << count << std::endl;
-}
-
-int main() {
-    return myMain();
 }
