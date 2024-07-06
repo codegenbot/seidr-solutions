@@ -1,14 +1,9 @@
-Here is the completed code:
+#include <vector>
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = n;
-    for (int i = 0; i < n; i++) {
-        if (stones % 2 == 1)
-            pile.push_back(stones);
-        else
-            pile.push_back(stones + 1);
-        stones += ((stones % 2) ? 2 : 1);
-    }
-    return pile;
+bool issame(vector<int> a, vector<int> b) {
+    // implement your comparison logic here
+}
+
+int main() {
+    // use the function here
 }
