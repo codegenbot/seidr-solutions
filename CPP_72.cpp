@@ -9,13 +9,14 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    vector<char> rev;
+    vector<char> reversed;
     for (char c : str) {
-        rev.push_back(c);
+        reversed.push_back(c);
     }
-    reverse(rev.begin(), rev.end());
-    string rev_str(rev.begin(), rev.end());
-    if (str != rev_str)
+    reverse(reversed.begin(),reversed.end());
+    string revStr(reversed.begin(),reversed.end());
+    
+    if (str != revStr)
         return false;
     int sum = 0;
     for (int i : q) {
