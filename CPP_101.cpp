@@ -5,9 +5,8 @@ bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
         return true;
     }
-    std::string b = a[0];
     for (int i = 1; i < a.size(); i++) {
-        if (a[i] != b) {
+        if (a[0] != a[i]) {
             return false;
         }
     }

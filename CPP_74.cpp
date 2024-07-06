@@ -1,20 +1,18 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <string>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(auto str1 : a) {
-        bool found = false;
-        for(auto str2 : b) {
-            if(str1 == str2) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) return false;
+    for(const auto& str1 : a) {
+        size_t pos = distance(b.begin(),find(b.begin(),b.end(),str1));
+        if(pos == b.end()-b.begin()) return false; // not found
+        if (str1 != b[pos]) return false;
     }
     return true;
 }
@@ -45,6 +43,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 vector<string> testMain() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    vector<string> result = total_match(vec1,vec2);
-    return result;
+    return total_match(vec1,vec2);
 }

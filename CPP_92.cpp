@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cassert>
 
 bool any_int(float a, float b, float c) {
