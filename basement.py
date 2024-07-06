@@ -7,4 +7,4 @@ def basement(arr):
             return index + 1
         index += 1
 
-print(basement([-2, -3, 4, -1, -2, 1, 5, -3]))
+print(basement([-1,-2,1,2,3]))
