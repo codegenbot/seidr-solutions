@@ -1,28 +1,22 @@
 #include <vector>
-#include <cmath>
 
-int count_nums(std::vector<int> n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
-        bool has_positive_sum = false;
-        long abs_num = labs(num);
-        while (abs_num > 0) {
-            int digit = abs_num % 10;
-            if (digit != 0 || num < 0) {
-                has_positive_sum = true;
-                break;
-            }
-            abs_num /= 10;
-        }
-        if (has_positive_sum) {
-            count++;
+    for (int num : nums) {
+        if (abs(num) > 0) {
+            int sum = 0;
+            bool negative = false;
+            do {
+                int digit = abs(num) % 10;
+                if (digit == 5 || digit == 0)
+                    continue;
+                sum += digit < 5 ? -1 * (digit > 4 ? digit - 9 : digit) : digit;
+                num /= 10;
+                if (num == 0 && !negative)
+                    break;
+            } while (true);
+            if (sum > 0)
+                count++;
         }
     }
     return count;
-}
-
-int main() {
-    assert(count_nums({1}) == 1);
-    std::cout << "Number of counts: " << count_nums({1, -2, 3, -4, 5}) << std::endl;
-    return 0;
-}
