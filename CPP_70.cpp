@@ -20,7 +20,8 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return lst;
 }
 
-int main() {
+int main
+{
     std::vector<int> lst;
     int num;
 
