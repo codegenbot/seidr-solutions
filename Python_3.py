@@ -1,4 +1,4 @@
-```Python
+```
 def calculate_average_grade():
     while True:
         try:

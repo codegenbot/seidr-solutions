@@ -1,1 +1,1 @@
-print(all_prefixes(input().strip()))
+print(all_prefixes("hello"))
