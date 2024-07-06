@@ -21,7 +21,9 @@ vector<string> bf(string planet1, string planet2) {
                 return {planets[i - 1]};
             }
         } else {
-            return {planets[0]};
+            for (int i = 0; i < index1; i++) {
+                return {planets[i]};
+            }
         }
     } else {
         return {};
