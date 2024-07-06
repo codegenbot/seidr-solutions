@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -34,7 +34,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         } else if (grade > 0.0) {
             letter_grade = "D-";
         } else {
-            letter_grade = "F";
+            letter_grade = "E";
         }
         letter_grades.push_back(letter_grade);
     }
