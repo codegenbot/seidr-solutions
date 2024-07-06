@@ -24,9 +24,7 @@ vector<int> unique(vector<int> l) {
 
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    unique(l);
-    for(int i = 0; i < l.size(); i++) {
-        cout << l[i] << " ";
+    for(int i : unique(l)) {
+        cout << i << " ";
     }
-    return 0;
 }
