@@ -1,11 +1,7 @@
 ```
-import sys
-
 def solve():
     while True:
-        choice = input(
-            "Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? "
-        )
+        choice = input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? ")
 
         if choice in ["1", "2"]:
             break
@@ -30,12 +26,5 @@ def solve():
                 print("That's not a valid binary number! Try again.")
 
 
-def main():
-    if len(sys.argv) > 1:
-        solve()
-    else:
-        print("Program did not receive expected input. Please run the program with command line arguments.")
-
-
 if __name__ == "__main__":
-    main()
+    solve()
