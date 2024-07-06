@@ -1,13 +1,15 @@
 
+#include <vector>
+#include <iostream>
 #include <string>
 using namespace std;
 
-string squareDigits(int number) {
+string squareDigits(int num) {
     string result = "";
-    while (number > 0) {
-        int digit = number % 10;
-        result = to_string(digit * digit) + result;
-        number /= 10;
+    while (num > 0) {
+        int digit = num % 10;
+        result += to_string(digit * digit);
+        num /= 10;
     }
     return result;
 }
