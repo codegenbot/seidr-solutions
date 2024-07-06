@@ -1,12 +1,16 @@
-int Strongest_Extension(string class_name,vector<string> extensions){
+#include <string>
+#include <vector>
+#include <cctype>
+
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = 0;
-    string strongest_extension = "";
+    std::string strongest_extension = "";
     
     for(auto extension : extensions){
         int strength = 0;
         for(char c : extension){
             if(isupper(c)) strength++;
-            else strength--;
+            else if(!isalnum(c)) strength--;
         }
         
         if(strength > max_strength){
