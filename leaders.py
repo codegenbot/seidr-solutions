@@ -1,8 +1,8 @@
-def leaders(arr):
+def leaders(vector):
     result = []
-    for i in range(len(arr)):
-        if arr[i] >= max(arr[i + 1 :]):
-            result.append(arr[i])
-        elif arr[i] == max(arr[i + 1 :]) and not result or result[-1] != arr[i]:
-            result.append(arr[i])
+    current_leader = None
+    for i in range(len(vector)):
+        if vector[i] >= current_leader:
+            result.append(vector[i])
+            current_leader = vector[i]
     return result
