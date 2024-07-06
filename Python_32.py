@@ -1,5 +1,5 @@
 def find_zero(xs):
-    if xs[1] == 0:
-        return "Error: Division by zero is not allowed."
-    n = (xs[0] + xs[1]) // 2
-    return -n / xs[1]
+    for x in xs:
+        if abs(x) < 1e-5: 
+            return -x / (xs[0] + xs[1]) if len(xs) > 2 else -x / xs[1]
+    return None
