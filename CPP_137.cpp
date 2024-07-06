@@ -12,10 +12,14 @@ void compareOne(int x) {
 int main() {
     cout << "Enter two values: ";
     int val1;
-    cin >> val1;
+    while (!(cin >> val1) || val1 <= 0) {
+        cout << "Invalid input. Please enter a positive integer.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 
     if (cin.fail()) {
-        cout << "Invalid input. Please enter an integer.\n";
+        cout << "Invalid input again. Please enter a valid number.\n";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cin >> val1;
@@ -24,11 +28,14 @@ int main() {
         }
     }
 
-    if (!(val1 == 0 && ((cout << "Enter the second value: "; string val2; cin >> val2; if (!(val2 == "+" || val2 == "-")) { cout << "Invalid input. Please enter '+' or '-'.\n"; cin.clear(); cin.ignore(numeric_limits<streamsize>::max(), '\n'); }))) {
-        cout << "The first number is bigger.\n";
-    } else {
-        compareOne(val1);
+    cout << "Enter the second value: ";
+    if (!(cin >> val1) || val1 <= 0) {
+        cout << "Invalid input. Please enter a valid number.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+
+    compareOne(val1);
 
     return 0;
 }
