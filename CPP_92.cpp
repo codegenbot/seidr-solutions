@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 bool any_int(float a, float b, float c) {
@@ -8,10 +9,8 @@ bool any_int(float a, float b, float c) {
     return ((a == ai + bi + ci) || (b == ai + bi + ci) || (c == ai + bi + ci));
 }
 
-bool any_int(float a, float b, float c) {
-    for(int i = 0; i < 3; ++i) {
-        int val = (int)((i==0)?a:(i==1)?b:c);
-        if(val != (int)(val)) return true;
-    }
-    return false;
+int main() {
+    assert(any_int(3.01, 4, 7) == false);
+    bool result = any_int(2.0f, 1, -1);
+    std::cout << (result ? "True" : "False");
 }
