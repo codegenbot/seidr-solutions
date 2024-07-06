@@ -1,23 +1,11 @@
-```cpp
-#include <vector>
-
-bool below_zero(std::vector<int> operations){
-    int balance = 0;
-    for (int operation : operations) {
-        balance += operation;
-        if (balance < 0) return true;
-    }
-    return false;
-
-int main() {
-    std::vector<int> operations;
-    int num_operations;
-
+int main {
     // Read the number of operations from user
     std::cout << "Enter the number of operations: ";
+    int num_operations;
     std::cin >> num_operations;
 
     // Read each operation from user and store it in the vector
+    std::vector<int> operations;
     for (int i = 0; i < num_operations; ++i) {
         int operation;
         std::cout << "Enter operation " << i + 1 << ": ";
