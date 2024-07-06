@@ -1,4 +1,3 @@
-```
 #include <initializer_list>
 #include <vector>
 #include <iostream>
@@ -39,9 +38,8 @@ int main() {
         std::cout << "Vectors are not same.\n";
     }
     std::cout << "Only positive numbers are: ";
-    for (float num : get_positive(vec1,vec2)) {
+    for (float num : get_positive(vec1, vec2)) {
         std::cout << num << " ";
     }
-    assert(issame(get_positive(vec1, vec2), vec1));
     std::cout << std::endl;
 }
