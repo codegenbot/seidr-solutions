@@ -1,18 +1,20 @@
+#include <iostream>
 #include <string>
-#include <cctype>
 
 std::string get_closest_vowel(std::string word) {
-    int left = -1;
-    for (int i = 0; i < word.length(); i++) {
-        if ("aeiouAEIOU"[0] == tolower(word[i])) {
-            if (left != -1)
-                return word.substr(min(left, i), i - left + 1);
-            left = i;
+    for (int i = word.length() - 1; i > 0; i--) {
+        if ("aeiouAEIOU".find(word[i]) != std::string::npos) {
+            for (int j = i - 1; j >= 0; j--) {
+                if ("aeiouAEIOU".find(word[j]) != std::string::npos) {
+                    return word.substr(j, i - j + 1);
+                }
+            }
         }
     }
-    return word.substr(0, left + 1);
+    return "";
 }
 
-int min(int a, int b) {
-    return a < b ? a : b;
+int main() {
+    std::cout << get_closest_vowel("hello"); // Test the function
+    return 0;
 }
