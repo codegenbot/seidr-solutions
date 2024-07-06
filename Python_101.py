@@ -1,2 +1,3 @@
-def words_string(string):
-    return string.split(", ")
+
+def words_string(s):
+    return ", ".join(s)
