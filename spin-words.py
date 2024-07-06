@@ -1,6 +1,3 @@
-import re
-
-
 def spin_words(string):
     words = string.split()
     result = []
