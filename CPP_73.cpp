@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <string>
+#include <initializer_list>
+
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     std::string str = "";
@@ -12,4 +17,5 @@ int smallest_change(std::vector<int> arr) {
             ++left, --right;
     }
     return changes;
-}
+
+int main() { return 0; }
