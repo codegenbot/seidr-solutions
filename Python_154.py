@@ -1,4 +1,4 @@
 
 def cycpattern_check(a, b):
-    from itertools import cycle_pattern_check
-    return cycle_pattern_check(a, b) == 1
+    pattern = r"(?=.*({}))".format(b)
+    return bool(re.search(pattern, a))
