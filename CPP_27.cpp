@@ -1,8 +1,7 @@
-```cpp
 #include <string>
 using namespace std;
 
-string flip_case(string str) {
+std::string flip_case(std::string str) {
     string result = "";
     for (char c : str) {
         if (isupper(c)) {
@@ -14,4 +13,3 @@ string flip_case(string str) {
         }
     }
     return result;
-}
