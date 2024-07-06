@@ -3,7 +3,7 @@ def calculate_score(games):
     current_roll = 0
     score = 0
 
-    for i in range(0, len(frames), 1):
+    for i in range(len(frames)):
         if frames[i].isdigit():
             current_roll = current_roll * 10 + int(frames[i])
         else:
@@ -11,7 +11,9 @@ def calculate_score(games):
                 score += 10
                 current_roll = 0
             elif current_roll > 0:
-                score += min(10, current_roll) + (1 if current_roll < 10 else 0)
+                score += current_roll
                 current_roll = 0
 
     return score
+
+print(calculate_score("1/2/3/4/5/6/7/8/9/X"))
