@@ -3,12 +3,13 @@
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] > lst[i + 1]) {
-            int temp = lst[i];
-            lst[i] = lst[i + 1];
-            lst[i + 1] = temp;
-            i--;
+    for(int i = 1; i < lst.size(); i++) {
+        if(lst[i] <= lst[i-1]) {
+            std::swap(lst[i], lst[0]);
+            for(int j = 0; j < i; j++) {
+                std::cout << lst[j] << " ";
+            }
+            return lst;
         }
     }
     return lst;
