@@ -6,11 +6,11 @@ int main() {
 
     string str;
     cout << "Enter a string: ";
-    getline(cin, str);
+    cin >> str;
 
     string substring;
     cout << "Enter a substring: ";
-    getline(cin, substring);
+    cin >> substring;
 
     while ((pos = str.find(substring)) != string::npos) {
         count++;
