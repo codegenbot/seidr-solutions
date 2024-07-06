@@ -1,16 +1,14 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
     int open_count = 0;
-    string current_group;
+    std::string current_group;
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -29,7 +27,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-int run_tests() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ") ,{{"()", "()"}, {"(())"} }));
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( "), {{"()", "()"}, {"(())"} }));
     return 0;
 }
