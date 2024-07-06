@@ -1,6 +1,4 @@
-The solution is:
-
-```python
+```
 def search(lst):
     frequency_dict = {}
     for num in lst:
