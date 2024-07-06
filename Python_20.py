@@ -8,5 +8,4 @@ def find_closest_elements():
     else:
         print("The {} closest elements are: {}".format(k, tuple(num_list[:k])))
 
-
 find_closest_elements()
