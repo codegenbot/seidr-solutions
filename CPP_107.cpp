@@ -13,9 +13,11 @@ vector<int> even_odd_palindrome(int n) {
         bool is_palindrome = true;
 
         for (int j = 0; j < str.length() / 2 || j == str.length() / 2 - 1; j++) {
-            if (str[j] != str[str.length() - 1 - j]) {
-                is_palindrome = false;
-                break;
+            if (j < str.length() / 2 || j == str.length() / 2 - 1) {
+                if (str[j] != str[str.length() - 1 - j]) {
+                    is_palindrome = false;
+                    break;
+                }
             }
         }
 

@@ -21,15 +21,13 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     int n;
-    cout << "Enter the number of elements for the pile: ";
+    cout << "Enter the number of stones: ";
     cin >> n;
-    vector<int> pile = make_a_pile(n);
-    
-    bool check = issame(pile, {1,2,3,4});
-    if(check)
-        cout << "The given condition is met." << endl;
-    else
-        cout << "The given condition is not met." << endl;
-    
+    vector<int> p = make_a_pile(n);
+    cout << "Pile: ";
+    for (int i : p) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
