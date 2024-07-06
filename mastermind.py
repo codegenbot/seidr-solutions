@@ -1,4 +1,3 @@
-
 def mastermind(code, guess):
     # Check if code and guess contain only digits '0' through '5'
     if not (all(ch in "012345" for ch in code) and all(ch in "012345" for ch in guess)):
