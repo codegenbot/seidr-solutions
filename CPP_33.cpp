@@ -1,5 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
+
+bool issame(vector<int> a, vector<int> b);
+vector<int> sort_third(vector<int> l);
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -32,7 +36,7 @@ vector<int> sort_third(vector<int> l) {
     return result;
 }
 
-int test_main() {
+int main() {
     vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
     vector<int> res = sort_third(l);
     for(int i : res) cout << i << " ";
