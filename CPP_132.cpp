@@ -11,7 +11,7 @@ bool is_nested(std::string str) {
     return open > 0 && close >= open; 
 }
 
-int main() {  
+int main() { 
     std::string str;
     std::cout << "Enter a string: ";
     std::cin >> str;
