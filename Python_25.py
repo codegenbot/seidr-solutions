@@ -12,10 +12,9 @@ def factorize(n: int) -> List[int]:
         else:
             count = 0
             while n % i == 0:
-                count += 1
                 n //= i
+                count += 1
             factors.append(i for _ in range(count))
-            i = 2
     if n > 1:
         factors.append(n)
-    return [factor for factor in factors if isinstance(factor, int)]
+    return factors
