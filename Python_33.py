@@ -1,2 +1,15 @@
 def sort_third(l: list):
-    return sorted([(i if i % 3 != 0 else (next((x for x in l if x % 3 == 0), 0)) if any(x % 3 == 0 for x in l) else 0) for i in l])
+    thirds = [x for x in l if x % 3 == 0]
+    thirds.sort()
+    
+    result = []
+    i, j = 0, 0
+    for _ in range(len(l)):
+        if j < len(thirds):
+            result.append((i, thirds[j]))
+            j += 1
+        else:
+            result.append(i)
+            i += 1
+    
+    return [x[1] for x in sorted(result)]
