@@ -3,4 +3,4 @@ def make_palindrome(string):
     if rev == string:
         return string + " is a palindrome"
     else:
-        return string + "r" + rev + " is not a palindrome"
+        return string + "r" + string[::-1] + " is not a palindrome"
