@@ -1,34 +1,16 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 bool evaluate(const string &expression) {
+    if (expression.empty() || expression[0] == 'f')
+        return false;
     bool result = true;
-    stack<char> operators;
-    for (int i = 0; i < expression.length(); i++) {
+    for (int i = 1; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            operators.push('|');
+            result |= expression[i + 1];
         } else if (expression[i] == '&') {
-            operators.push('&');
+            result &= expression[i + 1];
         } else if (expression[i] == '^') {
-            operators.push('^');
+            result ^= expression[i + 1];
         } else if (expression[i] == '~') {
             result = !result;
-        } else if (operators.empty()) {
-            result = true;
-        } else {
-            char operator = operators.top();
-            switch (operator) {
-                case '|':
-                    result |= expression[i];
-                    break;
-                case '&':
-                    result &= expression[i];
-                    break;
-                case '^':
-                    result ^= expression[i];
-                    break;
-            }
         }
     }
     return result && expression != "false";
