@@ -4,6 +4,6 @@ def modp(x, y):
     elif y == 1: 
         return x
     elif y % 2 == 0: 
-        return modp((x*x) % (y//2), y//2)
+        return modp(x*x, y//2)
     else:
         return (x * modp(x, y-1)) % y
