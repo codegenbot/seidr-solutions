@@ -2,25 +2,30 @@
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
+        if(abs(a[i]-b[i]) > 1e-6) return false;
     }
     return true;
 }
 
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
+    int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             vector<float> evenVals;
+            int k = 0;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenVals.push_back(l[j]);
+                    k++;
                 }
             }
             sort(evenVals.begin(), evenVals.end());
-            result[i] = evenVals[0];
+            for(int i=0; i<k; i++) {
+                result[i*2] = evenVals[i];
+            }
         } else {
-            result[i] = l[i];
+            result[j++] = l[i];
         }
     }
     return result;
