@@ -1,5 +1,6 @@
-```cpp
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 int skjkasdkd(vector<int> lst){
@@ -11,7 +12,7 @@ int skjkasdkd(vector<int> lst){
     }
     int sum = 0;
     while(maxPrime > 0){
-        sum += maxPrime % 10;
+        sum += (maxPrime % 10);
         maxPrime /= 10;
     }
     return sum;
