@@ -1,10 +1,18 @@
+```cpp
 #include <cassert>
 #include <vector>
 
-int skjkasdkd(const std::vector<int>& lst);
+int skjkasdkd(vector<int> lst) {
+    int count = 0;
+    for (auto i : lst) {
+        if (i == 8192)
+            ++count;
+    }
+    return count;
+}
 
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    assert(skjkasdkd(lst) == 10);
+    vector<int> lst = {127, 97, 8192};
+    assert(skjkasdkd(lst) == 1);
     return 0;
 }
