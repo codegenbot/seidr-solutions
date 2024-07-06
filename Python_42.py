@@ -10,13 +10,13 @@ def incr_list(lst=None):
                 break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    
+
     while True:
         cont = input("Do you want to continue? (y/n): ")
         if cont.lower() == 'y':
             return result
         elif cont.lower() == 'n':
-            return []
+            return [i + 1 for i in result]
         else:
             print("Invalid choice. Please enter y or n: ")
 
