@@ -1,19 +1,19 @@
+from typing import List
+
+
 def main():
     while True:
         try:
-            user_input = input("Enter a list of numbers separated by space: ")
-            if not user_input.strip():
-                print("No input provided.")
+            user_input = input("Enter a list of numbers separated by space (for example, 1 2 3): ")
+            numbers = [float(num) for num in user_input.split()]
+            
+            if any(not isinstance(n, (int, float)) for n in numbers):
+                print("Invalid input. Please enter some valid numbers.")
+            elif len(numbers) < 2:
+                print("Please enter at least two numbers.")
             else:
-                numbers = [float(num) for num in user_input.split()]
-
-                if any(not isinstance(n, (int, float)) for n in numbers):
-                    print("Invalid input. Please enter some valid numbers.")
-                elif len(numbers) < 2:
-                    print("Please enter at least two numbers.")
-                else:
-                    print(mean_absolute_deviation(numbers))
-                    break
+                print(mean_absolute_deviation(numbers))
+                break
         except ValueError as e:
             print(f"Invalid input: {e}")
 
