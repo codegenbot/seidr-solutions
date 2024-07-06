@@ -1,16 +1,13 @@
 def decode_cyclic(s):
     if not isinstance(s, str):
-        return 
+        return "Invalid input. Please provide a string."
     result = ""
     for i in range(0, len(s), 3):
         group = s[i:i+3]
         if len(group) == 1:
             result += group[0] * 2
-        elif len(group) == 2:
-            result += group[1] + group[0]
-        else:
-            result += group[0] + group[1] + group[2]
-    remaining = s[len(s)-len(s)%3:]
-    if remaining:  
-        result += remaining
+        elif len(group) == 2: 
+            result = group[0] + result  # reverse the order of pair characters
+        else:  
+            result += group[0] * 2  
     return result
