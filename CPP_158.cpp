@@ -1,10 +1,12 @@
-string find_max(vector<string> words){
-    string res = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            if (a.size() == b.size()) {
-                return a < b;
-            }
-            return a.size() > count(a.begin(), a.end(), unique_copy(a.begin(), a.end()));
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+
+std::string find_max(std::vector<std::string> words) {
+    std::string res = *std::max_element(words.begin(), words.end(),
+        [](const std::string& a, const std::string& b) {
+            return (a.size() == b.size()) ? a < b : a.size() < b.size();
         });
     return res;
 }
