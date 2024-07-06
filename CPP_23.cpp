@@ -1,20 +1,11 @@
-#include <iostream>
 #include <string>
+#include <assert.h>
 
-int str_length(std::string str){
+int str_length(string str){
     return str.length();
 }
 
-int main() {
-    std::cout << "Enter a string: ";
-    std::string input;
-    std::cin >> input;
-    int length = str_length(input);
-    std::cout << "Length of the string is: " << length << std::endl;
-
-    if (std::string("asdasnakj").length() != 9) {
-        assert(false);
-    }
-
+int main(){
+    assert(str_length("asdasnakj") == 11); 
     return 0;
 }
