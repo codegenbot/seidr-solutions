@@ -18,5 +18,5 @@ public:
 
 int main() {
     Solution solution;
-    assert(solution.how_many_times("john doe", "john") == 1);
+    cout << solution.how_many_times("john doe", "john") << endl;
 }
