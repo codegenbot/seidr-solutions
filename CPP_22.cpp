@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 #include <any>
@@ -13,4 +12,3 @@ vector<int> filter_integers(list<any> values) {
         }
     }
     return result;
-}
