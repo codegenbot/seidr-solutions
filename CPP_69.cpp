@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int search(std::vector<int> lst) {
     int max = -1;
