@@ -8,19 +8,16 @@ bool issame(vector<float> a, vector<float> b) {
 
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 2 == 0) {
-            vector<float> evenVals;
-            for (float x : l) {
-                if (floor(x) == ceil(x)) { // checking if the number is even
-                    evenVals.push_back(x);
-                }
-            }
-            sort(evenVals.begin(), evenVals.end());
-            result[i] = evenVals[0];
-        } else {
-            result[i] = l[i];
+    sort(l.begin(), l.end());
+    float prev = l[0];
+    int evenIndex = 0;
+    for (int i = 1; i < l.size(); ++i) {
+        if (l[i] > prev + 0.000001f) {
+            result[evenIndex] = prev;
+            prev = l[i];
+            evenIndex++;
         }
     }
+    result[evenIndex] = prev;
     return result;
 }
