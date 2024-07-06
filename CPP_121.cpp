@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -17,4 +19,3 @@ int main() {
     int result = solutions(lst);
     cout << "Result: " << result << endl;
     return 0;
-}

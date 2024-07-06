@@ -1,25 +1,28 @@
-```cpp
-#include <algorithm>
-#include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const pair<int, int>& a, const pair<int, int>& b) {
+    if (a.first != b.first)
+        return a.first < b.first;
+    else
+        return a.second < b.second;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    auto compare = [&nums](int a, int b) {
-        int sumA = 0, sumB = 0;
-        for (char c : to_string(a)) sumA += c - '0';
-        for (char c : to_string(b)) sumB += c - '0';
-        if (sumA != sumB) return sumA - sumB > 0 ? 1 : -1;
-        return nums.size() - distance(nums.begin(), find(nums.begin(), nums.end(), a)) -
-               distance(nums.begin(), find(nums.begin(), nums.end(), b));
-    };
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
-}
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); i++) {
+        int sumOfDigits = 0;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            sumOfDigits += num % 10;
+            num /= 10;
+        }
+        pairs.push_back({sumOfDigits, i});
+    }
 
-int main() {
-    assert(std::equal(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
+    sort(pairs.begin(), pairs.end(), issame);
+
+    vector<int> result;
+    for (const auto& pair : pairs) {
+        result.push_back(nums[pair.second]);
+    }
+
+    return result;
 }
