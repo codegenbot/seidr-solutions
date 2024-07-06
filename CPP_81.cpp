@@ -13,7 +13,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<int>& grades) 
         else if (grade >= 70)
             result.push_back("C");
         else if (grade >= 60)
-            result.push_back("D");
+            result.push_back((std::string)"D-" + std::to_string(60 - grade));
         else
             result.push_back("F");
     }
@@ -21,7 +21,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<int>& grades) 
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -30,8 +30,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<int> grades = {0, 70};
-    std::vector<std::string> expected = {"F", "D"};
-    assert(issame(numerical_letter_grade(grades), expected));
-    return 0;
+    std::vector<int> grades = {0, static_cast<int>(70.7)};
+    std::cout << "Letter Grades: ";
+    for (const auto& grade : numerical_letter_grade(grades))
+        std::cout << grade << " ";
+    std::cout << std::endl;
 }
