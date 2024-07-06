@@ -19,7 +19,7 @@ bool isPrime(int num) {
     return true;
 }
 
-int largestPrime(std::initializer_list<int> lst) {
+int largestPrime(std::vector<int> lst) {
     int maxPrime = -1;
     for (int i : lst) {
         if (isPrime(i)) {
@@ -29,7 +29,8 @@ int largestPrime(std::initializer_list<int> lst) {
     return maxPrime;
 }
 
-int calculateSumOfDigitsLargestPrime(std::initializer_list<int> lst) {
+int calculateSumOfDigitsLargestPrime(std::initializer_list<int> ilst) {
+    std::vector<int> lst(ilst);
     int maxPrime = largestPrime(lst);
     return sumOfDigits(maxPrime);
 }
