@@ -1,4 +1,5 @@
-def find_closest_elements(numbers: list[float]) -> Tuple[float, float]:
+
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     numbers = sorted(numbers)
     closest = (numbers[0], numbers[1])
     for i in range(len(numbers) - 1):
