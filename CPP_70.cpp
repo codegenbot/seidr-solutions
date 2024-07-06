@@ -1,7 +1,6 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -11,10 +10,29 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+int main() {
+    int num;
+    std::vector<int> lst;
+    
+    // read input
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+
+    std::vector<int> result = strange_sort_list(lst);
+
+    if(issame(lst, result)) {
+        for(int i : result) std::cout << i << " ";
+    } else {
+        std::cout << "Error: Lists are not the same.\n";
+    }
+    
+    return 0;
+}
+
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
-
-    if(lst.empty()) return result;
+    if (lst.empty()) return result;
 
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
@@ -26,3 +44,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
     }
     return result;
+}
