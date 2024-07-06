@@ -2,12 +2,6 @@ from typing import List
 import math
 
 
-def task_name() -> None:
-    num = int(input("Enter a number: "))
-    factors = factorize(num)
-    print(f"The factors of {num} are: {factors}")
-
-
 def factorize(n: int) -> List[int]:
     if n < 2:
         return [n]
