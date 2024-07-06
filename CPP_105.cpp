@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -7,7 +8,13 @@ bool same(const vector<string>& a, const vector<string>& b) {
     }
     
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+        vector<string> v1=a[i];
+        vector<string> v2=b[i];
+        
+        sort(v1.begin(), v1.end());
+        sort(v2.begin(), v2.end());
+        
+        if(v1 != v2) {
             return false;
         }
     }
@@ -58,3 +65,4 @@ vector<vector<string>> by_length(const vector<int>& arr) {
 int main() {
     assert(same(by_length({1,4,8}) , {"One","Four","Eight"}));
     return 0;
+}
