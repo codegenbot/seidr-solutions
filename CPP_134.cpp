@@ -1,20 +1,24 @@
+Here's the completed code:
+
+```cpp
 int main() {
     string txt;
+    cout << "Enter a string: ";
     cin >> txt;
-
-    bool result = false;
     
-    if(txt.length() > 0) {
-        char last_char = txt[txt.length()-1];
-        
-        if(isalpha(last_char)) {
-            if(!isalnum(last_char)) { // Check if the last character is not alphanumeric
-                result = true;
-            }
+    return check_if_last_char_is_a_letter(txt);
+}
+
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) {
+        return false;
+    }
+    bool isPartOfWord = false;
+    for (int i = 0; i < txt.size() - 1; i++) {
+        if (!isspace(txt[i])) {
+            isPartOfWord = true;
+            break;
         }
     }
-
-    cout << (result ? "true" : "false") << endl;
-
-    return 0;
+    return !isPartOfWord && isalpha(txt.back());
 }
