@@ -1,7 +1,6 @@
 #include <map>
 #include <string>
 #include <cctype>
-#include <initializer_list>
 
 bool check_dict_case(const std::map<std::string, std::string>& dict) {
     if (dict.empty()) return false;
@@ -20,6 +19,7 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    std::map<std::string, std::string> dict;
+    assert(check_dict_case(dict) == false);
     return 0;
 }
