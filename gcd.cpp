@@ -1,7 +1,12 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
@@ -17,13 +22,6 @@ vector<int> findIndices(string text, string target) {
     return result;
 }
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
 int main() {
     int a, b;
     cin >> a >> b;
@@ -33,6 +31,7 @@ int main() {
     getline(cin, text);
     string target;
     getline(cin, target);
+
     vector<int> indices = findIndices(text, target);
     for (int i : indices)
         cout << i << " ";
