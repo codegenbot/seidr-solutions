@@ -1,4 +1,6 @@
+#include <vector>
 #include <initializer_list>
+#include <cassert>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -8,4 +10,9 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(specialFilter({}) == 0);
+    return 0;
 }
