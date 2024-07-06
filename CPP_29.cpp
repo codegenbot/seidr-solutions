@@ -23,14 +23,14 @@ int main() {
     int n;
     std::cout << "Enter number of strings: ";
     std::cin >> n;
-    vector<string> strings(n);
+    std::vector<std::string> strings(n);
 
     for(int i = 0; i < n; ++i) {
         std::cout << "Enter string" << (i + 1) << ": ";
-        std::getline(std::cin, strings[i]);
+        strings[i] = std::getline(std::cin, strings[i]);
     }
 
-    string prefix;
+    std::string prefix;
     cout<<"Enter the prefix: ";
     cin>>prefix;
 
