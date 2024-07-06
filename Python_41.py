@@ -1,4 +1,7 @@
-from functools import reduce
-
 def car_race_collision(n: int):
-    return reduce(lambda x, y: x * y, range(1, n + 1))
+    if n < 1:
+        return "Invalid input"
+    elif n == 1:
+        return "No collision"
+    else:
+        return str(n - 1)
