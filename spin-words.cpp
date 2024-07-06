@@ -12,7 +12,7 @@ std::string spinWords(std::string sentence) {
             if (word.size() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
-            result += word + " "; 
+            result += word + " ";
             start = i + 1;
         }
     }
