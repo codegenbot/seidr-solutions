@@ -1,17 +1,12 @@
 def separate_paren_groups(paren_string: str) -> list[str]:
+    stack = []
     result = []
-    start = 0
-    while open_count < close_count:
-        open_count = 0
-        close_count = 0
-        for i in range(start, len(paren_string)):
-            if paren_string[i] == "(":
-                open_count += 1
-            elif paren_string[i] == ")":
-                close_count += 1
-            if open_count == close_count:
-                result.append(paren_string[start : i + 1])
-                start = i + 1
-                break
-        else:
-            return result
+    for c in paren_string:
+        if c == "(":
+            stack.append(c)
+        elif c == ")":
+            if len(stack) > 0 and stack[-1] == "(":
+                stack.pop()
+            else:
+                result.append(c)
+    return result
