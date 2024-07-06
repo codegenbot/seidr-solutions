@@ -1,29 +1,34 @@
 ```
-import heapq
-
 def minPath(grid, k):
     n = len(grid)
-    
-    if any(len(row) != n for row in grid):  
-        return []
-        
-    queue = [(0, [], 0)]  
-    visited = set((0, 0))  
+    queue = [(0, 0, [])]
+    visited = set((0, 0))
+    path_lengths = {}
     
     while queue:
-        path_len, path, path_sum = heapq.heappop(queue)
+        x, y, path = queue.pop(0)
         
-        if path_sum == k: 
-            return path
-
         if len(path) > k: 
             continue
-            
+        
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = ny+dx, x+dy
+            nx, ny = x + dx, y + dy
             
             if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < n:
-                heapq.heappush(queue, (path_len + 1, path + [grid[nx][ny]], path_sum + grid[nx][ny]))
-                visited.add((nx, ny))
+                new_path = path + [grid[nx][ny]]
                 
-    return []
+                if len(new_path) not in path_lengths or len(new_path) < path_lengths[len(new_path)]:
+                    queue.append((nx, ny, new_path))
+                    visited.add((nx, ny))
+                    path_lengths[len(new_path)] = len(new_path)
+                    
+    min_sum = float('inf')
+    result = []
+    
+    for path in queue:
+        if sum(path[1:]) == k:
+            if sum(path[1:]) < min_sum:
+                min_sum = sum(path[1:])
+                result = path
+    
+    return result
