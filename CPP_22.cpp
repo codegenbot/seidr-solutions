@@ -1,8 +1,8 @@
+```cpp
 #include <boost/any.hpp>
 #include <iostream>
 #include <vector>
 #include <list>
-#include "path/to/boost" // replace with the actual path
 
 using namespace std;
 
