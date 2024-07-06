@@ -1,28 +1,52 @@
-#include <vector>
-#include <string>
-#include <algorithm>
 using namespace std;
 
-std::vector<std::string> bf(std::string a, std::vector<std::string> second) {
-    int i = 0;
-    while (i < a.size()) {
-        string temp = "";
-        for (int j = i; j < a.size(); j++) {
-            temp += a[j];
-            if (j == a.size() - 1 || a[j + 1] != a[i]) {
-                second.push_back(temp);
-                temp = "";
-                i = j;
-                break;
+vector<string> bf(string first, string second) {
+    if (first.size() == 0 || second.size() == 0) {
+        vector<string> result;
+        return result;
+    }
+
+    int i = 0, j = 0;
+    vector<string> result;
+    
+    while (i < first.size() && j < second.size()) {
+        if (first[i] == first[0]) {
+            result.push_back(first.substr(0, i + 1));
+            i = 0;
+        } else {
+            i++;
+        }
+        
+        if (j < second.size() - 1) {
+            if (second[j] == second[0]) {
+                j = 0;
+            } else {
+                j++;
             }
+        } else {
+            return result;
         }
     }
-    return second;
+
+    while (i < first.size()) {
+        if (first[i] == first[0]) {
+            result.push_back(first.substr(0, i + 1));
+            i = 0;
+        } else {
+            i++;
+        }
+    }
+    
+    while (j < second.size()) {
+        j++;
+    }
+
+    return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(vector<string> a, vector<string> second){
     for (int i = 0; i < a.size(); i++) {
-        if (find(b.begin(),b.end(),a[i]) == b.end()) {
+        if (find(second.begin(),second.end(),a[i]) == second.end()) {
             return false;
         }
     }
