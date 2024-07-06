@@ -1,3 +1,6 @@
-def remove_duplicates():
-    numbers = input("Enter comma-separated numbers: ")
-    return list(set(map(int, numbers.split(","))))
+def remove_duplicates(input_str=None):
+    if input_str is None:
+        numbers = input("Enter comma-separated numbers: ")
+    else:
+        numbers = ",".join(map(str, input_str))
+    return sorted(list(set(map(int, numbers.split(",")))))
