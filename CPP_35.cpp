@@ -2,8 +2,11 @@
 #include <vector>
 #include <algorithm>
 
-float max_value(std::vector<float> l) {
-    std::vector<float> v = l;
+int main() {
+    std::vector<float> v;
+    // Read input from user
+    for (float i; std::cin >> i;) {
+        v.push_back(i);
+    }
     return *std::max_element(v.begin(),v.end());
 }
-```
