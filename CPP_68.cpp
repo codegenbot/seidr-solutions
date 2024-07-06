@@ -1,20 +1,28 @@
 #include <vector>
-#include <climits>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+void main() {
+    vector<int> arr;
+    cout << "Enter numbers (0 to finish): ";
+    int n;
+    while((cin >> n) && (n != 0)) {
+        arr.push_back(n);
     }
-    return true;
+    
+    vector<pair<int, int>> result = pluck(arr);
+    if(result.size() > 0) {
+        cout << "First even number found at index: " << result[0].second << endl;
+        cout << "Value of the first even number is: " << result[0].first << endl;
+    } else {
+        cout << "No even numbers found." << endl;
+    }
 }
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
-
+    
     int minEven = INT_MAX;
     int index = 0;
     for (int i = 0; i < arr.size(); i++) {
@@ -23,7 +31,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
             index = i;
         }
     }
-
+    
     result.push_back({minEven, index});
     return result;
 }
