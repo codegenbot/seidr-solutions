@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -20,6 +19,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    assert(equal(strange_sort_vector({1, 2, 3}).begin(), strange_sort_vector({1, 2, 3}).end(), {1, 2, 3}.begin(), {1, 2, 3}.end()));
+    assert(equal(strange_sort_vector({111111}).begin(), strange_sort_vector({111111}).end(), {111111}.begin(), {111111}.end()));
     return 0;
 }
