@@ -35,8 +35,4 @@ def minPath(grid, k):
             if min_path is None or len(result) < len(min_path):
                 min_path = result
 
-    # Return an empty list if the grid has only one row or column
-    if n == 1 or m == 1:
-        return []
-
     return min_path
