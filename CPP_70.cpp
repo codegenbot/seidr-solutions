@@ -1,8 +1,4 @@
-```
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+Here's the modified code:
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
@@ -19,11 +15,4 @@ vector<int> strange_sort_vector(vector<int> lst) {
     return result;
 }
 
-int main() {
-    vector<int> input = {4, 2, 9, 6, 5, 1, 3, 7, 8};
-    vector<int> output = strange_sort_vector(input);
-    for (int num : output) {
-        cout << num << " ";
-    }
-    return 0;
-}
+assert( vector<int>(strange_sort_vector({111111})) == vector<int>({111111}));
