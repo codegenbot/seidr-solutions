@@ -9,10 +9,10 @@ def fizz_buzz(n):
             buzzes += 1
         elif i % 5 == 0:
             print("Buzz")
-            buzzes += 1
+            buzzes += (i % 3 != 0)  
         elif i % 3 == 0:
             print("Fizz")
-            fizzes += 1
+            fizzes += (i % 5 != 0)  
         else:
             print(i)
             nums += 1
