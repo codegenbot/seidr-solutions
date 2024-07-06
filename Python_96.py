@@ -1,6 +1,5 @@
-```
 def count_up_to(n):
-    return [i for i in range(1, n+1)]
+    return list(range(1, n+1))
 
 def check_even_numbers_up_to_n():
     try:
