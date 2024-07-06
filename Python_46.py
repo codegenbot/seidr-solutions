@@ -9,5 +9,5 @@ def fib4(n: int):
             if i < len(sequence):
                 sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
             else:
-                return "Invalid input"
+                return "Error: Index out of range"
         return sequence[n]
