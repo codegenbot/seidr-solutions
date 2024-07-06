@@ -1,6 +1,7 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool isEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -19,10 +20,7 @@ std::vector<int> findMaximum(int n, int k) {
         std::cin >> arr[i];
     }
     
-    std::vector<int> myVector;
-    for (int i = 0; i < n; ++i) {
-        myVector.push_back(arr[i]);
-    }
+    std::vector<int> myVector(arr, arr+n);
     
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
