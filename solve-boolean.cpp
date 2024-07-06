@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream> 
 using namespace std;
@@ -11,10 +12,10 @@ bool solveBoolean(string s) {
             return t && f;
         } else if (s[i] == '|') {
             return t || f;
-        } else if (s[i] == 't') {
+        } else if (s[i] == 't' || s[i] == 'T') {
             t = true;
             f = false;
-        } else if (s[i] == 'f') {
+        } else if (s[i] == 'f' || s[i] == 'F') {
             t = false;
             f = true;
         }
@@ -26,7 +27,10 @@ bool solveBoolean(string s) {
 int main() {
     string s;
     cout << "Enter a Boolean expression: ";
-    getline(cin, s);
+    s = "";
+    while (getchar() != '\n') {
+        s += getchar();
+    }
     bool result = solveBoolean(s);
     if (result) {
         cout << "True" << endl;
@@ -34,3 +38,4 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
+}
