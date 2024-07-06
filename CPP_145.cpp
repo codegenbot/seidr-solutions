@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -29,28 +33,18 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    int n; cin >> n;
-    vector<int> a(n), b(n);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i] >> b[i];
+        cin >> nums[i];
     }
     
-    if(issame(a,b))
-    cout << "Yes\n";
-    else 
-    cout << "No\n";
-    
-    vector<int> points;
-    int m; cin >> m;
-    for(int i=0; i<m; i++) {
-        int num; cin >> num;
-        points.push_back(num);
+    if (issame(nums, order_by_points(nums))) {
+        cout << "Yes\n";
+    } else {
+        cout << "No\n";
     }
-    
-    vector<int> result = order_by_points(points);
-    
-    for(auto x : result) {
-        cout << x << " ";
-    }cout << endl;
+
     return 0;
 }
