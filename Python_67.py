@@ -1,8 +1,8 @@
 def fruit_distribution(s, n):
     import re
 
+    # Check if the input string contains both "apples" and "oranges"
     try:
-        # Check if the input string contains both "apples" and "oranges"
         if not all(fruit in s for fruit in ["apples", "oranges"]):
             raise ValueError("Invalid input: missing 'apples' or 'oranges' in string")
 
@@ -16,8 +16,6 @@ def fruit_distribution(s, n):
         # Calculate the number of mango fruits in the basket
         mango_count = n - int(apple_count) - int(orange_count)
 
+        return mango_count
     except ValueError as e:
-        print("Invalid input. Please enter a valid input.")
-        return
-
-    return mango_count
+        print("Invalid input format:", str(e))
