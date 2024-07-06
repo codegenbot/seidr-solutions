@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool equalVectors(const std::vector<int>& a, const std::vector<int>& b) {
+bool isIdentical(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); ++i)
@@ -10,7 +10,7 @@ bool equalVectors(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
+std::vector<int> removeDuplicates(std::vector<int> numbers){
     std::vector<int> result;
 
     for(int i : numbers) {
