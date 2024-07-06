@@ -21,4 +21,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     temp = ''
             else:
                 return []
-    return result
+    return [temp] if stack else result
