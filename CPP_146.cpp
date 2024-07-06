@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -29,3 +30,4 @@ int main() {
     std::cout << "Count: " << count << std::endl;
     assert(count == 0);
     return 0;
+}
