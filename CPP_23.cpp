@@ -1,2 +1,5 @@
-int custom_strlen(string str){ 
+#include <string>
+
+int mystrlen(std::string str){
     return str.length();
+}
