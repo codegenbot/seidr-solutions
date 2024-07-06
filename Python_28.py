@@ -1,4 +1,4 @@
-"""
-def concatenate(strings: list) -> str:
-    return ''.join(map(str, strings))
-"""
+from typing import List
+
+def concatenate(strings: List[str]) -> str:
+    return ''.join(strings)

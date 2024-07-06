@@ -1,6 +1,13 @@
 def sort_third(l: list):
-    threes = [i for i in l if i % 3 == 0]
     return [
-        i if i % 3 != 0 else sorted(threes)[::-1].pop(0)
-        for i in l
+        (
+            x
+            if i % 3 != 0
+            else (
+                sorted([y for y in l if y == x and i % 3 != 0])[0]
+                if [y for y in l if y == x and i % 3 != 0]
+                else x
+            )
+        )
+        for i, x in enumerate(l)
     ]

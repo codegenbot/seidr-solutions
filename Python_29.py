@@ -1,6 +1,5 @@
-"""
-from typing import list
-
-def filter_by_prefix(strings: list, prefix: str) -> list:
-    return [s.lower() for s in strings if s.lower().startswith(prefix.lower())]
-"""
+```
+input_list = ["hello", "world", "helloworld"]
+prefix = "hell"
+result = filter_by_prefix(input_list, prefix)
+print(result)  # Output: ["hello", "helloworld"]
