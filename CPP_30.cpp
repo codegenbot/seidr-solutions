@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -12,11 +11,10 @@ std::vector<float> get_positive(std::vector<float> v) {
 }
 
 int main() {
-    std::assert(std::equal(get_positive({}), {}));
     std::vector<float> v1 = get_positive({-1, 2, -3, 4, 5});
     std::vector<float> v2 = get_positive({1, 2, 3, 4, 5});
 
-    if(issame(v1,v2))
+    if(std::equal(v1.begin(), v1.end(), v2.begin()))
         std::cout << "The two vectors are equal.\n";
     else
         std::cout << "The two vectors are not equal.\n";
