@@ -1,13 +1,10 @@
-Here is the completed code:
+#include<stdio.h>
+#include<math.h>
+using namespace std;
 
 bool any_int(float a, float b, float c) {
-    int ai = a; 
-    int bi = b; 
-    int ci = c; 
-
-    if (ai == bi + ci || bi == ai + ci || ci == ai + bi) {
-        return true;
-    } else {
-        return false;
-    }
+    int ai = (int)a;
+    int bi = (int)b;
+    int ci = (int)c;
+    return (a == bi + ci || b == ai + ci || c == ai + bi);
 }
