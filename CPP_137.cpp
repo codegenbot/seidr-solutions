@@ -4,17 +4,12 @@
 
 using namespace std;
 
-void compare_one(int num1, int num2) {
-    if (num1 > num2) {
-        cout << "The first number is bigger.\n";
-    } else if (num1 < num2) {
-        cout << "The second number is bigger.\n";
-    } else {
-        cout << "Both numbers are equal.\n";
-    }
+void compareOne(int x) {
+    int val2;
+    cin >> val2;
 }
 
-int main() {
+int originalMain() {
     cout << "Enter two values: ";
     int val1;
     cin >> val1;
@@ -35,10 +30,22 @@ int main() {
 
     if (!val2.empty()) {
         int num = stoi(val2);
-        compare_one(val1, num);
+        if (val1 > num) {
+            cout << "The first number is bigger.\n";
+        } else if (val1 < num) {
+            cout << "The second number is bigger.\n";
+        } else {
+            cout << "Both numbers are equal.\n";
+        }
     } else {
         cout << "Please enter a valid value for the second number.\n";
     }
 
+    compareOne(val1);
+
     return 0;
+}
+
+int main() {
+    return originalMain();
 }
