@@ -1,17 +1,29 @@
-string words_in_sentence(string sentence){
+#include <string>
+
+using namespace std;
+
+string words_in_sentence(string sentence) {
     string result = "";
-    int count = 0;
-    for(int i = 0; i < sentence.size(); i++){
-        if(sentence[i] == ' ' || i == sentence.size() - 1){
-            string word = sentence.substr(count, i - count);
-            bool is_prime = true;
-            for(int j = 2; j * j <=stoi(word); j++)
-                if(stoi(word) % j == 0)
-                    is_prime = false;
-            if(is_prime && !word.empty())
-                result += word + " ";
-            count = i + 1;
+    int i = 0;
+    while (i < sentence.length()) {
+        int j = i + 1;
+        while (j <= sentence.length() && !isalpha(sentence[j])) {
+            j++;
         }
+        if (j - i > 1) {
+            string word = sentence.substr(i, j - i);
+            bool is_prime = true;
+            for (int k = 2; k * k <= stoi(word); k++) {
+                if (stoi(word) % k == 0) {
+                    is_prime = false;
+                    break;
+                }
+            }
+            if (is_prime) {
+                result += word + " ";
+            }
+        }
+        i = j;
     }
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.length() - 1);
 }
