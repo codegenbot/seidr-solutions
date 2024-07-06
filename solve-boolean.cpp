@@ -6,7 +6,7 @@ using namespace std;
 bool solveBoolean(string s) {
     bool t = true;
     bool f = false;
-    bool res = true;
+    bool res = t;
 
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
