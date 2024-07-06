@@ -2,10 +2,10 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), [](int x, int y){return x==y;});
+    return a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
+vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> uniqueNumbers;
     for (int num : numbers) {
         if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
