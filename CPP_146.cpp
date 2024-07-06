@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -9,3 +10,4 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
+}
