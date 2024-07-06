@@ -3,5 +3,10 @@ from typing import List, Optional
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    longest_str = max(strings, key=len)
-    return f"The longest string is '{longest_str}' with {len(longest_str)} characters."
+    while True:
+        try:
+            strings = list(map(str, input("Enter a series of strings (space separated): ").split()))
+            break
+        except ValueError:
+            print("Invalid input. Please enter strings separated by spaces.")
+    return max(strings, key=len)
