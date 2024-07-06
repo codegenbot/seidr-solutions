@@ -1,11 +1,18 @@
-std::string words_in_sentence(std::string sentence) {
-    size_t start = 0;
-    size_t end = 0;
+```cpp
+#include <cassert>
+#include <string>
 
-    while ((end = sentence.find(" ")) != std::string::npos) {
-        start = end + 1;
-        end = sentence.find(" ", start);
+int words_in_sentence(const std::string& sentence) {
+    int count = 1; 
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            count++;
+        }
     }
+    return count;
+}
 
-    return sentence.substr(0, end).trim();
+int main() {
+    assert(words_in_sentence("here is").size() == 2);
+    return 0;
 }
