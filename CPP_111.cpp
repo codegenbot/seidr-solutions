@@ -30,7 +30,7 @@ map<char, int> histogram(string test) {
     }
 
     int maxCountNow = 0;
-    vector<pair<char, int>> maxCountLetters; // Declare before use
+    vector<pair<char, int>> maxCountLetters;
 
     for (auto it = result.begin(); it != result.end(); ++it) {
         if (it->second > maxCountNow) {
