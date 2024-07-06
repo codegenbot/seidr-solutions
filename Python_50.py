@@ -1,3 +1,4 @@
+```
 def decode_shift():
     shift = input("Enter 'encode' or 'decode': ")
 
@@ -15,14 +16,12 @@ def decode_shift():
         if s.lower() == "quit" or s.lower() == "q":
             break
         elif shift == "encode":
-            print(
-                "".join(
-                    [chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in s.lower()]
-                )
+            result = "".join(
+                [chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in s.lower()]
             )
+            print(result)
         elif shift == "decode":
-            print(
-                "".join(
-                    [chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()]
-                )
+            result = "".join(
+                [chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()]
             )
+            print(result)
