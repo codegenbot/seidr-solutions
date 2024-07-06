@@ -1,4 +1,7 @@
-bool issame(vector<string> a, vector<string>b) {
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<string> a,vector<string>b){
     return a == b;
 }
 
@@ -32,6 +35,5 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {})); 
-    return 0;
+    assert(bf("Jupiter", "Makemake") == vector<string>({})); // Correct usage
 }
