@@ -1,3 +1,7 @@
+#include <string>
+#include <algorithm>
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
@@ -5,12 +9,13 @@ string encode(string message) {
             char base = isupper(c) ? 'A' : 'a';
             c = (c >= base && c <= base + 25) ? c : base;
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = char((base - 'a' + 2) % 26 + 'a');
-            } else if (c >= 'A' && c <= 'E' && c >= 'I' && c <= 'O' && c >= 'U') {
-                c = char((base - 'A' + 2) % 26 + 'A');
+                result += (char)(base + 2);
+            } else {
+                result += c;
             }
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
