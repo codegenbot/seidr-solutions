@@ -1,28 +1,37 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
-    if (lst.empty()) return result;
-
-    while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        for(int i = 0; i < lst.size(); i++) {
-            if(lst[i] == min_val) lst.erase(lst.begin() + i);
-            if(!lst.empty() && lst[0] == max_val)
-                lst.erase(lst.begin());
+    std::sort(lst.begin(), lst.end());
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] > lst[i + 1]) {
+            int temp = lst[i];
+            lst[i] = lst[i + 1];
+            lst[i + 1] = temp;
+            i--;
         }
     }
-    return result;
+    return lst;
+}
+
+int main() {
+    std::vector<int> lst;
+    int num;
+
+    while(true) {
+        std::cout << "Enter a number (or -1 to finish): ";
+        std::cin >> num;
+
+        if(num == -1) break;
+
+        lst.push_back(num);
+    }
+
+    std::vector<int> result = strange_sort_list(lst);
+
+    for(int n : result) {
+        std::cout << n << " ";
+    }
+    
+    return 0;
 }
