@@ -9,11 +9,11 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int bInt = std::stoi(b.convert_to<std::string>().any_to<string>());
+        int bInt = std::stoi(b.convert_to<std::string>());
         return a > bInt ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float bFloat = std::stof(b.convert_to<std::string>().any_to<string>());
+        float bFloat = std::stof(b.convert_to<std::string>());
         return a > bFloat ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
