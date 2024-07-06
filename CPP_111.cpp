@@ -1,7 +1,19 @@
 #include<stdio.h>
 #include<string>
 #include<map>
+#include<vector>
+#include<sstream>
 using namespace std;
+
+vector<string> split(string str, char delimiter) {
+    vector<string> tokens;
+    string token;
+    istringstream tokenStream(str);
+    while (std::getline(tokenStream, token, delimiter)) {
+        tokens.push_back(token);
+    }
+    return tokens;
+}
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -23,14 +35,4 @@ map<char, int> histogram(string test) {
         }
     }
     return mostFrequent;
-}
-
-vector<string> split(string str, char delimiter) {
-    vector<string> tokens;
-    string token;
-    istringstream tokenStream(str);
-    while (std::getline(tokenStream, token, delimiter)) {
-        tokens.push_back(token);
-    }
-    return tokens;
 }
