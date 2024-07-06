@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <boost/config.hpp>
 #include <boost/any.hpp>
 #include <string>
