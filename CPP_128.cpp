@@ -6,7 +6,7 @@ int prod_signs(vector<int> arr) {
 
     for (int i : arr) {
         if (i == 0) {
-            return 0; 
+            return 0; // If there's a zero, the product is zero too
         }
         product *= (i > 0 ? 1 : -1);
         sum += abs(i);
