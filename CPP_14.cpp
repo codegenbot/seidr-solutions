@@ -2,10 +2,14 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> all_prefixes(const std::string& str) {
-    std::vector<std::string> prefixes;
-    for(int i = 0; i <= str.size(); i++) {
-        prefixes.push_back(str.substr(0, i));
+std::vector<std::vector<std::string>> all_prefixes(const std::vector<std::string>& strs) {
+    std::vector<std::vector<std::string>> prefixes;
+    for(const auto& str : strs) {
+        std::vector<std::string> vec = {{}};
+        for(int i = 0; i <= str.size(); i++) {
+            vec.push_back(str.substr(0, i));
+        }
+        prefixes.push_back(vec);
     }
     return prefixes;
 }
