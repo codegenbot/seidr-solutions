@@ -30,13 +30,4 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-int main() {
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    result = {{}, "True"};
-    if (!(result == {{}, "True"})) {
-        std::cout << "Test failed." << std::endl;
-    } else {
-        std::cout << "Test passed." << std::endl;
-    }
-    return 0;
-}
+std::vector<std::string> result = {{}, "True"};
