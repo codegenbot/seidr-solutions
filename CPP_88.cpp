@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> sort_array(vector<int> array) {
-    vector<int> result;
+    vector<int> result = array;
     
     int sum = 0;
     for (int num : array) {
@@ -13,12 +13,10 @@ vector<int> sort_array(vector<int> array) {
     }
     
     if (sum % 2 == 0) {
-        result = vector<int>(array.begin(), array.end());
         sort(result.begin(), result.end(), greater<int>());
     } else {
-        result = array;
         sort(result.begin(), result.end());
     }
     
-    return result;
+    return sort(array.begin(), array.end(), greater<int>() == (sum % 2 == 0));
 }

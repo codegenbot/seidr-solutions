@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,12 +13,14 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     while (!lst.empty()) {
         int minVal = *min_element(lst.begin(), lst.end());
         result.push_back(minVal);
-        lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
-        
+        auto newEnd = std::remove(lst.begin(), lst.end(), minVal);
+        lst.erase(newEnd, lst.end());
+
         if (!lst.empty()) {
             int maxVal = *max_element(lst.begin(), lst.end());
             result.push_back(maxVal);
-            lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
+            newEnd = std::remove(lst.begin(), lst.end(), maxVal);
+            lst.erase(newEnd, lst.end());
         }
     }
 
