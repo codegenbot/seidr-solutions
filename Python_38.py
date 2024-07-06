@@ -1,20 +1,14 @@
+```
 def encode_cyclic(s: str):
-    if len(s) % 3 == 1:
-        s += 'xy'  
-    elif len(s) % 3 == 2:
-        s += 'y'
+    if len(s) % 3 != 0:
+        raise ValueError("Input string length must be a multiple of 3")
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
     groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
 def decode_cyclic(s: str):
-    if len(s) % 3 == 2:
-        s += 'y'  
-    elif len(s) % 3 == 1:
-        s += 'xy'
+    if len(s) % 3 != 0:
+        raise ValueError("Input string length must be a multiple of 3")
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
-    groups = [
-        groups[i][1:] + groups[i][0] if len(groups[i]) == 3 else groups[i]
-        for i in range(len(groups))
-    ]
+    groups = [group[-1] + group[:-1] if len(group) > 2 else group for group in groups]
     return "".join(groups)
