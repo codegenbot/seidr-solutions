@@ -1,11 +1,11 @@
 vector<int> even_odd_count(int num) {
-    int count_even = 0, count_odd = 0;
-    string str_num = to_string(abs(num));
-    for (char c : str_num) {
+    int countEven = 0, countOdd = 0;
+    string strNum = to_string(abs(num));
+    for (char c : strNum) {
         if (stoi(c) % 2 == 0)
-            ++count_even;
+            countEven++;
         else
-            ++count_odd;
+            countOdd++;
     }
-    return {count_even, count_odd};
+    return {countEven, countOdd};
 }
