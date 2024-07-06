@@ -1,11 +1,14 @@
-int is_bored(string S) {
+#include <string>
+
+int is_bored(string S){
     int count = 0;
     size_t pos = 0;
-    while ((pos = S.find("I", pos)) != string::npos) {
-        if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
+
+    while((pos = S.find("I", pos)) != string::npos) {
+        if(S[pos] == '.' || S[pos] == '?' || S[pos] == '!') {
             count++;
         }
-        pos++; // Increment pos here
+        pos++;
     }
+
     return count;
-}
