@@ -1,11 +1,14 @@
 ```
-def filter_by_substring(input_string, target):
-    result = [line for line in input_string.split('\n') if target in line]
-    return '\n'.join(result)
+def filter_by_substring(input_string):
+    substring = "substring"
+    if substring in input_string:
+        return "The string contains the substring."
+    else:
+        return "The string does not contain the substring."
 
-def check(func):
-    result = func(input_string, 'substring')
+def check(func, input_string):
+    result = func(input_string)
     print(result)
 
 input_string = input("Enter a string: ")
-check(filter_by_substring)
+check(filter_by_substring, input_string)
