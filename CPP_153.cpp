@@ -1,16 +1,18 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cctype>
 #include <string>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+string Strongest_Extension(string class_name, vector<string> extensions);
 
 int main() {
-    // your code here
+    // Your program starts here.
+    return 0;
 }
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+string Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for (const auto& extension : extensions) {
         int cap = 0, sm = 0;
