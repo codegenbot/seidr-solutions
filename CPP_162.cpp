@@ -1,3 +1,4 @@
+```cpp
 #include "path/to/CryptoPP/include/cryptopp/md5.h"
 #include "path/to/CryptoPP/include/cryptopp/hex.h"
 
