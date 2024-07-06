@@ -3,7 +3,7 @@
 
 int main() {
     int decimal;
-    std::cout << "Enter an integer: ";
+    std::cout << "Enter a decimal number: ";
     std::cin >> decimal;
     string binary = "";
     while(decimal > 0){
@@ -13,6 +13,5 @@ int main() {
             binary.insert(0,"1");
         decimal /= 2;
     }
-    std::cout << "Binary representation: " << binary << endl;
-    return 0;
+    std::cout << "Binary representation is: " << "db" + binary + "db" << std::endl;
 }

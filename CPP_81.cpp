@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
     for(float g:grades){
         if(g >= 4.0) result.push_back("A+");
