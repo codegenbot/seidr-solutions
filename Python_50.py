@@ -1,10 +1,12 @@
-from click import command
+import click
 
 
-@command()
-@option("--shift", type=int, help="The number of characters to shift.")
-def decode_shift(message):
-    message = int(click.prompt("Enter the message to be decoded", default=""))
-    return "".join(
-        [chr((ord(ch) - shift - ord("a")) % 26 + ord("a")) for ch in message]
-    )
+@click.command()
+def decode_shift(message, shift):
+    if not message:  # Check if the input is empty or not
+        print("Please enter a valid message.")
+        return  # Exit the function without returning any output
+    else:
+        return "".join(
+            [chr((ord(ch) - shift - ord("a")) % 26 + ord("a")) for ch in message]
+        )
