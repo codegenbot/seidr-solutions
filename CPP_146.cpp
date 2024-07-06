@@ -12,8 +12,11 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {11, 12, 13, 14, 15};
-    int output = specialFilter(nums);
-    std::cout << "Output: " << output << std::endl;
+    int num;
+    std::vector<int> nums;
+    while(std::cin >> num) {
+        nums.push_back(num);
+    }
+    std::cout << specialFilter(nums) << std::endl;
     return 0;
 }
