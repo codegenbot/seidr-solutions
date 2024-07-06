@@ -26,7 +26,6 @@ else:
     output = intersperse(numbers, delimiter)
     print(output)
 
-delimiter = 0  
 while True:
     try:
         delimiter = int(input("Enter an integer to use as the delimiter: "))
