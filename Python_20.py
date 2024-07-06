@@ -1,3 +1,6 @@
+from typing import Tuple
+
+
 def find_closest_elements() -> Tuple[float, float]:
     while True:
         user_input = input("Enter two space-separated numbers: ")
@@ -10,5 +13,7 @@ def find_closest_elements() -> Tuple[float, float]:
         except ValueError:
             print("Invalid input. Please enter only two numbers separated by spaces.")
 
-    a, b = sorted([abs(x-y) for x, y in zip(sorted(numbers), [numbers[0], numbers[1]])])
-    return (numbers[0], numbers[1]) if a == abs(numbers[0]-numbers[1]) else (None, None)
+    return (abs(sorted(numbers)[1] - sorted(numbers)[0]),)
+
+
+print(find_closest_elements())
