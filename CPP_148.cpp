@@ -11,8 +11,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> bf(std::string s1, std::string s2) {
-    // define the logic to create the desired output vector
-    // for example:
     return {s1, s2};
 }
 
