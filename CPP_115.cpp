@@ -1,7 +1,7 @@
-#include <memory>
+#include <bits/stdc++.h>
 #include <numeric>
 
-int max_fill(std::vector<std::pmr::vector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int total_water = 0;
     for (const auto& row : grid) {
         total_water += std::accumulate(row.begin(), row.end(), 0);
@@ -12,4 +12,9 @@ int max_fill(std::vector<std::pmr::vector<int>> grid, int capacity) {
         ++buckets_needed;
 
     return buckets_needed;
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
