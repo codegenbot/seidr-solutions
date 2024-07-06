@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -28,5 +27,4 @@ int main() {
     int n = sizeof(arr)/sizeof(arr[0]);
     std::vector<int> array (arr, arr+n);
     assert(issame(maximum(array, 4), {0, 1, 2, 3}));
-    return 0;
 }
