@@ -1,3 +1,5 @@
+from typing import List
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     depth = 0
@@ -9,4 +11,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         elif char == ')':
             depth -= 1
     result.append(nested_depth)
-    return result
+    return [nested_depth]
