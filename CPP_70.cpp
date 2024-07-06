@@ -1,4 +1,3 @@
-```cpp
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
@@ -13,11 +12,11 @@ vector<int> strange_sort_vector(vector<int> lst) {
         int maxVal = *max_element(lst.begin(), lst.end());
         if (i % 2 == 0) {
             result.push_back(minVal);
-            auto it = remove(lst.begin(), lst.end(), minVal);
+            auto it = std::remove(lst.begin(), lst.end(), minVal);
             lst.erase(it, lst.end());
         } else {
             result.push_back(maxVal);
-            auto it = remove(lst.begin(), lst.end(), maxVal);
+            auto it = std::remove(lst.begin(), lst.end(), maxVal);
             lst.erase(it, lst.end());
         }
     }
