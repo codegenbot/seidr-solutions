@@ -1,9 +1,9 @@
 #include <algorithm>
 using namespace std;
 
-string anti_shuffle(string s) {
-    string result = "";
-    string word;
+std::string anti_shuffle(string s) {
+    std::string result = "";
+    std::string word;
     
     for (char c : s) {
         if (c == ' ') {
@@ -21,4 +21,3 @@ string anti_shuffle(string s) {
     }
     
     return result;
-}
