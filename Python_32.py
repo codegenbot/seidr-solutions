@@ -1,5 +1,2 @@
 def find_zero(xs):
-    for x in xs:
-        if x == 0:
-            return True
-    return False
+    return any(x == 0 for x in xs)
