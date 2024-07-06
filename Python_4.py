@@ -7,10 +7,9 @@ def main():
         numbers = [float(num) for num in user_input.split()]
         if len(numbers) == 0:
             print("Invalid input. Please enter some numbers.")
-        elif all(-100 <= num <= 100 for num in numbers):
-            print(mean_absolute_deviation(numbers))
         else:
-            print("Invalid input. All numbers must be between -100 and 100.")
+            print(mean_absolute_deviation(numbers))
+        input("Press Enter to continue...")
     except ValueError as e:
         print(f"Invalid input: {e}")
 
@@ -21,3 +20,4 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 
 main()
+print(mean_absolute_deviation([1, 2, 3, 4, 5]))
