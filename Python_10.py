@@ -9,4 +9,4 @@ def make_palindrome(string: str) -> str:
 
     # Append to the end of the string reverse of a string prefix that comes before the palindromic suffix
     prefix = string[: len(suffix) - i - 1]
-    return string + prefix[::-1] + suffix[::-1]
+    return string + suffix[::-1] + prefix[::-1]
