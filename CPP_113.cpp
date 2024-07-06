@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,14 +17,12 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
     std::vector<std::string> result; 
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
-        string tempStr;
         for (char c : lst[i]) {
             if (std::stoi(string(1, c)) % 2 != 0) {
                 count++;
             }
         }
-        tempStr = std::to_string(count) + " is the number of odd elements in string " + std::to_string(i+1);
-        result.push_back(tempStr);
+        result.push_back(std::to_string(count) + " is the number of odd elements in string " + std::to_string(i+1));
     }
     return result;
 }
