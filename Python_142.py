@@ -5,6 +5,6 @@ def sum_squares(lst):
     total_sum = 0
     for num in lst:
         if not isinstance(num, (int, float)):
-            raise ValueError(f"Invalid input '{num}' found. Input must contain only numbers.")
+            raise ValueError("All elements in the list must be integers or floats")
         total_sum += num ** 2
     return total_sum
