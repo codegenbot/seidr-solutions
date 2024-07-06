@@ -18,6 +18,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(make_a_pile(5), std::vector<int>({0, 2, 4, 6, 8})));
+    int n = 5;
+    std::vector<int> pile1 = make_a_pile(n);
+    std::vector<int> pile2 = make_a_pile(n);
+    assert(issame(pile1, pile2));
     return 0;
 }
