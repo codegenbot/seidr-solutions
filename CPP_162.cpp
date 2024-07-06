@@ -11,3 +11,4 @@ string string_to_md5(string text) {
     string result = HexEncoder().CalculateString(md.Digest());
 
     return result;
+}
