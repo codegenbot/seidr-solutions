@@ -1,29 +1,48 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int index1 = -1;
-    int index2 = -1;
+    
+    if (planet1 != planet2 && find(planets.begin(), planets.end(), planet1) != planets.end() && 
+        find(planets.begin(), planets.end(), planet2) != planets.end()) {
+        
+        int index1 = distance(planets.begin(), find(planets.begin(), planets.end(), planet1));
+        int index2 = distance(planets.begin(), find(planets.begin(), planets.end(), planet2));
 
-    for (int i = 0; i < planets.size(); i++) {
-        if (planet1 == planets[i]) {
-            index1 = i;
+        if (index1 < index2) {
+            for (int i = index1 + 1; i < index2; i++) {
+                return {planets[i]};
+            }
+        } else if (index1 > index2) {
+            for (int i = index1; i > index2; i--) {
+                return {planets[i - 1]};
+            }
+        } else {
+            return {planets[0]};
         }
-        else if (planet2 == planets[i]) {
-            index2 = i;
-        }
-    }
-
-    if (index1 == -1 || index2 == -1) {
+    } else {
         return {};
     }
+}
 
-    vector<string> result;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if ((i >= index1 && i <= index2) || (i > index2 && i < index1)) {
-            result.push_back(planets[i]);
+int main() {
+    string planet1, planet2;
+    cout << "Enter the first planet: ";
+    cin >> planet1;
+    cout << "Enter the second planet: ";
+    cin >> planet2;
+    vector<string> result = bf(planet1, planet2);
+    if (result.size() > 0) {
+        cout << "Planets between " << planet1 << " and " << planet2 << ": ";
+        for (string p : result) {
+            cout << p << " ";
         }
+        cout << endl;
+    } else {
+        cout << "Invalid input" << endl;
     }
-
-    return result;
+    return 0;
 }
