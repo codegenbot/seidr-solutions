@@ -7,7 +7,7 @@ std::string encrypt(std::string s){
         if(c >= 'a' && c <= 'z'){
             c = ((c - 'a') + 8) % 26 + 'a';
         } else if(c >= 'A' && c <= 'Z'){
-            c = ((c - 'a' + 26) % 26) + 'a'; 
+            c = ((c - 'a' + 26) % 26) + 'a'; // Convert to lowercase before encryption
         }
         result += c;
     }
