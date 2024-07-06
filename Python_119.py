@@ -1,12 +1,17 @@
+Here is the corrected code:
+
 def match_parens(lst):
-    """Check if parentheses in the list are matched."""
     stack = []
     for s in lst:
         for c in s:
-            if c == "(":
+            if c == '(':
                 stack.append(c)
-            elif c == ")":
-                if not stack:
-                    return "No"
-                stack.pop()
-    return "Yes" if not stack else "No"
+            elif c == ')':
+                if len(stack) == 0:
+                    return 'No'
+                else:
+                    stack.pop()
+    if len(stack) == 0:
+        return 'Yes'
+    else:
+        return 'No'
