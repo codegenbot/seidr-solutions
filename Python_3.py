@@ -1,17 +1,10 @@
-```python
-Problem: Write a program to manage debt payments.
-
-'''from typing import List
+```
+from typing import List
 
 
 def below_zero() -> None:
-    operations = [int(x) for x in input("Enter your operations (space-separated): ").split()]
-    balance = 0
-    for operation in operations:
-        if not isinstance(operation, int):
-            print("Invalid operation! Please enter a number.")
-            continue
-        balance += operation
+    operations = list(map(int, input("Enter your operations (space-separated): ").split()))
+    balance = sum(operations)
 
     has_debt = input("Do you have any debt? (yes/no): ")
     while True:
@@ -41,4 +34,4 @@ def below_zero() -> None:
         print("Congratulations, your debt is paid off!")
     else:
         if balance < 0:
-            print("Congratulations, your debt is paid off!")'''
+            print("Congratulations, your debt is paid off!")
