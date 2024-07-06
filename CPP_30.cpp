@@ -1,6 +1,3 @@
-#include <vector>
-#include <cassert>
-
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for(float i : l) {
