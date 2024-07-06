@@ -1,2 +1,4 @@
 def by_length(arr):
-    return sorted([str(x) for x in arr], key=lambda x: (len(x), x))
+   if not isinstance(arr, (list, tuple)):
+       raise TypeError("by_length() only accepts lists or tuples")
+   return [str(x) for x in sorted(arr, key=len)]
