@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 bool any_int(float a, float b, float c) {
     int ai = (int)a;
@@ -13,6 +12,14 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    assert(any_int(3.01, 4, 7) == false);
+    float a, b, c;
+    std::cout << "Enter three numbers: ";
+    std::cin >> a >> b >> c;
+    
+    if (any_int(a, b, c))
+        std::cout << "The numbers are in an integer relation.\n";
+    else
+        std::cout << "The numbers are not in an integer relation.\n";
+        
     return 0;
 }
