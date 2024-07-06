@@ -1,3 +1,4 @@
+```cpp
 int fruit_distribution(string s, int n) {
     istringstream iss(s);
     string token;
@@ -6,16 +7,24 @@ int fruit_distribution(string s, int n) {
     int oranges = 0;
 
     while (getline(iss, token, ' ')) {
-        if (token.find("apples") != string::npos) {
-            istringstream app_token(token);
-            app_token >> apples;
-        } else if (token.find("oranges") != string::npos) {
-            istringstream ora_token(token);
-            ora_token >> oranges;
+        if(token == "apples" || token == "oranges") {
+            istringstream tks(token);
+            string tk;
+            tks >> tk;
+
+            if(tk == "apples") {
+                int apples_count;
+                tks >> apples_count;
+                apples = apples_count;
+            } else if (tk == "oranges") {
+                int oranges_count;
+                tks >> oranges_count;
+                oranges = oranges_count;
+            }
         }
     }
 
-    total = max(0, n - apples - oranges);
+    total = n - apples - oranges;
 
     return total;
 }
