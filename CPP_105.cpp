@@ -1,9 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> temp;
+vector<string> by_length(vector<int> arr) {
+    vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             temp.push_back(i);
@@ -11,51 +10,39 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    std::vector<std::string> result;
+    vector<string> result;
     for (int i : temp) {
+        string str = "";
         switch (i) {
             case 1:
-                result.push_back("One");
+                str = "One";
                 break;
             case 2:
-                result.push_back("Two");
+                str = "Two";
                 break;
             case 3:
-                result.push_back("Three");
+                str = "Three";
                 break;
             case 4:
-                result.push_back("Four");
+                str = "Four";
                 break;
             case 5:
-                result.push_back("Five");
+                str = "Five";
                 break;
             case 6:
-                result.push_back("Six");
+                str = "Six";
                 break;
             case 7:
-                result.push_back("Seven");
+                str = "Seven";
                 break;
             case 8:
-                result.push_back("Eight");
+                str = "Eight";
                 break;
             case 9:
-                result.push_back("Nine");
+                str = "Nine";
                 break;
         }
+        result.push_back(str);
     }
     return result;
-}
-
-int main() {
-    int n; 
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
-    }
-    std::vector<std::string> res = by_length(arr);
-    for (const auto& s : res) {
-        std::cout << s << " ";
-    }
-    return 0;
 }
