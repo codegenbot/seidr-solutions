@@ -1,9 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
@@ -14,20 +13,19 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
+    cout << "Enter number of elements: ";
+    cin >> n;
     nums.resize(n);
     
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> nums[i];
+        cout << "Enter element " << i+1 << ": ";
+        cin >> nums[i];
     }
     
     int count = specialFilter(nums);
     
-    std::cout << "Count: " << count << std::endl;
-    assert(count == 0);
+    cout << "Count: " << count << endl;
     return 0;
 }
