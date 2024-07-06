@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     month, day, year = date.split('-')
     if len(month) < 1 or len(str(year)) < 4:
