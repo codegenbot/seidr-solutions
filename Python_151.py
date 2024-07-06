@@ -1,7 +1,5 @@
-def check(func):
-    input_list = [1, 2, 3]
-    expected_result = 14
-    result = func(input_list)
-    print(result == expected_result)
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
 
-check(double_the_difference)
+odd_sum = sum(int(x) for x in input("Enter space-separated integers: ").split() if int(x) > 0)
+print(double_the_difference([int(x) for x in input().split()]))
