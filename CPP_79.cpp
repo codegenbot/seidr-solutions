@@ -12,7 +12,7 @@ std::string decimal_to_binary(int decimal){
         decimal /= 2;
     }
     std::string result = binary;
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return "db" + result + "db";
 }
 
