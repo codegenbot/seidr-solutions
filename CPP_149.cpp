@@ -1,19 +1,38 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+```cpp
+#include <algorithm>
+#include <assert.h>
 
-    auto it = unique(lst.begin(), lst.end(),
-                     [](const string& a, const string& b) { return a.length() % 2 == 1; });
-    lst.erase(it, lst.end());
-
-    for (string s : lst) {
-        int sum = 0;
-        for (char c : s) {
-            sum += c - '0';
+bool same(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) 
+        return false;
+    else {
+        for(int i = 0; i < a.size(); ++i) {
+            if(a[i].size() % 2 == 1 && b[i].size() % 2 == 0 || a[i].size() % 2 == 0 && b[i].size() % 2 == 1)
+                return false;
         }
-        result.push_back(to_string(sum));
     }
+    return true;
+}
 
-    sort(result.begin(), result.end());
+vector<string> sorted_list_sum(vector<string> lst) {
+    auto it = unique(lst.begin(), lst.end(),
+        [](const string& a, const string& b){ 
+            return (a.size() % 2 == 1 && b.size() % 2 == 0) || (a.size() % 2 == 0 && b.size() % 2 == 1);
+    });
+    lst.erase(unique(it, lst.end()), lst.end());
     
-    return result;
+    sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b){
+            if(a.size() != b.size())
+                return (a.size() < b.size());
+            else
+                return a < b;
+        }
+    );
+    
+    return lst;
+}
+
+int main() {
+    assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
 }
