@@ -1,4 +1,3 @@
-```
 def solution():
     while True:
         try:
@@ -7,6 +6,3 @@ def solution():
             return abs(first_half_sum - 2*second_half_sum)
         except ValueError:
             print("Invalid input. Please enter a whole number for both sums.")
-
-while True:
-    print(solution())
