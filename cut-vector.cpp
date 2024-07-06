@@ -10,15 +10,17 @@ int main() {
         cin >> vec[i];
     }
     vector<vector<int>> res = cutVector(vec);
-    cout << "[{ ";
+    std::ostringstream oss;
+    oss << "[";
     for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i] << " ";
+        oss << res[0][i] << " ";
     }
-    cout << "} ] [{ ";
+    oss << "] [" << "[" << res[1].size() << "] ";
     for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
+        oss << res[1][i] << " ";
     }
-    cout << "}]";
+    oss << "]";
+    cout << oss.str();
     return 0;
 }
 
