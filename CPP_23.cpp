@@ -8,6 +8,5 @@ int str_length(string str) {
 }
 
 int main() {
-    assert(strlen("asdasnakj") == 11);
-    return 0;
+    assert(strlen("asdasnakj") == 9);
 }
