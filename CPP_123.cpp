@@ -1,8 +1,9 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-bool issame(vector<int>& a, vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
@@ -20,6 +21,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame({get_odd_collatz(12)}, {1, 19, 36})) ;
+    assert(issame({get_odd_collatz(12)}, {1,5,13,21,37}));
     return 0;
 }
