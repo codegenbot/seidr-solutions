@@ -5,6 +5,8 @@
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
+    vector<int> result;
+    
     // Get unique elements from both vectors
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
@@ -15,7 +17,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
                      inserter(intersection, intersection.begin()));
 
     // Convert the intersection set to a vector and sort it
-    vector<int> result;
     for (auto i : intersection) {
         result.push_back(i);
     }
