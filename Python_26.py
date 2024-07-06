@@ -1,3 +1,4 @@
+```
 def remove_duplicates(input_str=None):
     if input_str is None:
         numbers = input("Enter comma-separated numbers: ")
