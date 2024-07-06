@@ -1,24 +1,16 @@
-#include <algorithm>
-using namespace std;
-
-string anti_shuffle(string s) {
-    string result = "";
-    string word;
-    
-    for (char c : s) {
-        if (c == ' ') {
-            sort(word.begin(), word.end());
-            result += word;
-            word.clear();
-        } else {
-            word += c;
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    size_t pos = 0;
+    while (pos < s.length()) {
+        size_t nextSpace = s.find(' ', pos);
+        if (nextSpace == std::string::npos) {
+            nextSpace = s.length();
         }
+        std::string word = s.substr(pos, nextSpace - pos);
+        for (char c : word) {
+            result += c;
+        }
+        pos = nextSpace + 1;
     }
-    
-    if (!word.empty()) {
-        sort(word.begin(), word.end());
-        result += word;
-    }
-    
     return result;
 }

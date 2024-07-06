@@ -1,11 +1,10 @@
+#include <string>
+#include <vector>
+
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -41,4 +40,16 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         result.push_back(letterGrade);
     }
     return result;
+}
+
+int main() {
+    vector<float> grades = {3.5, 4.2, 2.9};
+    vector<string> grades_letter = numerical_letter_grade(grades);
+    // use issame function here
+    if (issame(grades_letter, {"A", "A+", "B-"})) {
+        cout << "The two vectors are the same." << endl;
+    } else {
+        cout << "The two vectors are not the same." << endl;
+    }
+    return 0;
 }
