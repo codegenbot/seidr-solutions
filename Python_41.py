@@ -1,4 +1,4 @@
-def car_race_collision(n):
+def car_race_collision(n: int):
     num_cars = n
     counter = 0
     for i in range(num_cars):
