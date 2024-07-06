@@ -5,10 +5,10 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     int open_count = 0;
-    std::string current_group;
+    string current_group;
 
     for (char c : paren_string) {
         if (c == '(') {
