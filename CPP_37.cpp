@@ -27,13 +27,17 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> v1 = {3.5, 2.7, 6.8, 4.9};
-    vector<float> v2 = {sort_even(v1)};
-    
-    if(issame(v1,v2)) {
-        cout << "Vectors are same" << endl;
-    } else {
-        cout << "Vectors are not same" << endl;
+    vector<float> input;
+    cout << "Enter the size of the array: ";
+    int n; cin >> n;
+    for(int i=0; i<n; i++) {
+        float x; cin >> x;
+        input.push_back(x);
     }
+    vector<float> output = sort_even(input);
+    bool same = issame(input, output);
+    if(same) cout << "Sorted array is the same.\n";
+    else cout << "Sorted array is different.\n";
+    
     return 0;
 }
