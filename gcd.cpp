@@ -10,12 +10,19 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    size_t start = 0, prev = -1;
+    size_t start = 0;
     while (start < text.size()) {
         size_t pos = text.find(target, start);
-        if (pos != string::npos && pos >= prev) {
+        if (pos != string::npos) {
             indices.push_back(pos);
-            prev = pos + target.size();
+            // Check for overlapping occurrences
+            for (size_t i = 1; i < target.size(); ++i) {
+                size_t nextPos = text.find(target, pos + i);
+                if (nextPos != string::npos) {
+                    indices.push_back(nextPos - i);
+                }
+            }
+            start = pos + target.size();
         } else {
             break;
         }
