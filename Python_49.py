@@ -1,4 +1,16 @@
-```
+def modp(n: int, p: int):
+    if p < 2:
+        return n
+    if p == 2 or n % p == 0:
+        return n % p
+    if not miller_rabin(p):
+        return n % p
+    for i in range(2, int(p**0.5) + 1):
+        if pow(n, i, p) != n and pow(i, (p - 1), p) != 1:
+            return n % p
+    return pow(n, p - 1, p)
+
+
 def miller_rabin(n: int):
     if n < 2:
         return True
@@ -12,15 +24,3 @@ def miller_rabin(n: int):
             return False
         p *= 2
     return True
-
-def modp(n: int, p: int):
-    if p < 2:
-        return n
-    if p == 2 or n % p == 0:
-        return n % p
-    if not miller_rabin(p):
-        return n % p
-    for i in range(2, int(p**0.5) + 1):
-        if pow(n, i, p) != n and pow(i, (p - 1), p) != 1:
-            return n % p
-    return pow(n, p-1, p)

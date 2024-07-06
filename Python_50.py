@@ -1,4 +1,4 @@
-```
+```Python
 def decode_shift():
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
@@ -24,4 +24,4 @@ def decode_shift():
                 result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
         else:
             result += ch
-    print(result)
+    return result

@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -14,21 +15,6 @@ def factorize():
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-            again = input("Do you want to try again? (yes/no): ")
-            while again.lower() not in ["yes", "y"]:
-                print("Please provide a valid integer or type 'n' to stop the program.")
-                try:
-                    n = int(input("Enter a number: "))
-                    if n < 2:
-                        print(
-                            "Invalid input. Please enter an integer greater than or equal to 2."
-                        )
-                        continue
-                    break
-                except ValueError:
-                    again = input("Do you want to try again? (yes/no): ")
-            else:
-                return
 
     factors = []
     i = 2
@@ -58,21 +44,6 @@ def factorize():
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-            again = input("Do you want to try again? (yes/no): ")
-            while again.lower() not in ["yes", "y"]:
-                print("Please provide a valid integer or type 'n' to stop the program.")
-                try:
-                    m = int(input("Enter a number: "))
-                    if m < 2:
-                        print(
-                            "Invalid input. Please enter an integer greater than or equal to 2."
-                        )
-                        continue
-                    break
-                except ValueError:
-                    again = input("Do you want to try again? (yes/no): ")
-            else:
-                return
 
         factorized_factors = []
         i = 2
@@ -90,6 +61,8 @@ def factorize():
         else:
             print(factorized_factors)
 
+        print("")  # added this line
+
         again = input("Do you want to factorize another number? (yes/no): ")
 
 
@@ -98,5 +71,8 @@ while True:
         input("Press Enter when ready: ")
         factorize()
         break
+    except (EOFError, KeyboardInterrupt):
+        print("Program terminated.")
+        exit()
     except:
-        print("Please provide a valid integer or type 'n' to stop the program.")
+        print("Please provide a valid integer.")
