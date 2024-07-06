@@ -1,13 +1,15 @@
+```cpp
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-bool issame(std::vector<float> a, std::vector<float>b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(vector<float> a, vector<float>b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> evenVals;
-    std::vector<float> oddVals;
+vector<float> sort_even(vector<float> l) {
+    vector<float> evenVals;
+    vector<float> oddVals;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -17,9 +19,9 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
 
-    std::sort(evenVals.begin(), evenVals.end());
+    sort(evenVals.begin(), evenVals.end());
 
-    std::vector<float> result;
+    vector<float> result;
     int idx = 0;
 
     for (int i = 0; i < l.size(); i++) {
