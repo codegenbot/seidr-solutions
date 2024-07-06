@@ -1,10 +1,7 @@
-int main() {
-    map<string, string> dict;
-    dict["a"] = "apple";
-    dict["A"] = "Apple";
-    bool result = check_dict_case(dict);
-    return 0;
-}
+#include <iostream>
+#include <map>
+#include <cctype>
+
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
     bool allLower = true;
@@ -14,4 +11,12 @@ bool check_dict_case(map<string, string> dict) {
         if (!isupper(pair.first[0])) allUpper = false;
     }
     return allLower || allUpper;
+}
+
+int main() {
+    map<string, string> dict;
+    // Your code here...
+    bool result = check_dict_case(dict);
+    std::cout << (result ? "The dictionary is either fully lowercase or fully uppercase." : "The dictionary is neither fully lowercase nor fully uppercase.") << std::endl;
+    return 0;
 }
