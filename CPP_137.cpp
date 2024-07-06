@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <boost/any.hpp>
 #include <string>
 
