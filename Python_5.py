@@ -1,5 +1,5 @@
-```python
-import re
+```
+from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
@@ -22,14 +22,12 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 
-input_numbers = input("Enter a list of integers separated by commas: ")
-if not re.match(r",\d+(?=,),?", input_numbers):  
-    raise ValueError("Invalid input for numbers")
-numbers = [int(num) for num in input_numbers.split(",")]
-
+list_str = input("Enter a list of integers separated by commas: ")
+numbers = [int(num) for num in list_str.split(",")]
 try:
-    output = intersperse(numbers, int(input("Enter an integer to use as the delimiter: ")))
-except ValueError as e:
-    print(f"Error: {e}")
+    delimiter = int(input("Enter an integer to use as the delimiter: "))
+except ValueError:
+    print("Error: The delimiter must be an integer.")
 else:
+    output = intersperse(numbers, delimiter)
     print(output)
