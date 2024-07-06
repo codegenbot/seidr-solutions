@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -10,8 +11,6 @@ def main():
         else:
             print(mean_absolute_deviation(numbers))
         input("Press Enter to continue...")
-    except ValueError as e:
-        print(f"Invalid input: {e}")
 
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
