@@ -1,6 +1,3 @@
 def encrypt(s):
-    table = str.maketrans("abcdefghijklmnopqrstuvwxyz", "cdefghijklmnopqrstuvwxyza")
+    table = str.maketrans("abcdefghijklmnopqrstuvwxyz", "cdefghijklmnopqrstuvwxyz")
     return s.translate(table)
-
-
-encrypt("Hello, World!")  # returns "Ifmmp, Xpsme!"
