@@ -1,4 +1,6 @@
-def fruit_distribution(s, n):
+
+def fruit_distribution(s):
     apples = int(re.search(r'\d+', s).group())
     oranges = int(re.search(r'\d+', s).group())
-    return (apples * n) + (oranges * n)
+    return apples + oranges
+```
