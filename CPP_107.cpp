@@ -1,6 +1,5 @@
-#include <stdio.h>
+#include <iostream>
 #include <vector>
-#include <string>
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
@@ -12,7 +11,7 @@ vector<int> even_odd_palindrome(int n) {
         string str = to_string(i);
         bool is_palindrome = true;
 
-        for (int j = 0; j < str.length() / 2; j++) {
+        for (int j = 0; j < str.length() / 2 || j == str.length() / 2 - 1; j++) {
             if (str[j] != str[str.length() - 1 - j]) {
                 is_palindrome = false;
                 break;
