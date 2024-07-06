@@ -1,12 +1,9 @@
-```
 import hashlib
 
 def string_to_md5(text):
-    if text:
-        return hashlib.md5(text.encode()).hexdigest()
-    else:
+    if not text:
         return None
-
-text = input("Enter a string: ")
-result = string_to_md5(text)
-print(result)
+    try:
+        return hashlib.md5(text.encode()).hexdigest()
+    except Exception as e:
+        return "Error: Invalid input. Please provide a valid string."
