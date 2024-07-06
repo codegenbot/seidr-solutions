@@ -1,24 +1,7 @@
-#include <iostream>
-#include <cmath>
-#include <vector>
-
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (num % 2 != 0) { 
-                sum += pow(num, 2); 
-            }
-        }
-    }
-    return sum;
-}
-
+```cpp
 int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
-    float odd_sum = 0;
-    
-    assert(double_the_difference(lst) == odd_sum);
-
+    vector<float> lst = {1.5f, -2.8f, 3.0f, 4.9f};
+    int odd_sum = 0; 
+    cout << double_the_difference(lst) << endl;
     return 0;
 }
