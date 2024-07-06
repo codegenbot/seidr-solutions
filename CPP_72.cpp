@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -10,15 +9,17 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != string(reverse(str).begin(), reverse(str).end()))
+    vector<char> rev;
+    for (char c : str) {
+        rev.push_back(c);
+    }
+    reverse(rev.begin(), rev.end());
+    string rev_str(rev.begin(), rev.end());
+    if (str != rev_str)
         return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
     }
     return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
 }
