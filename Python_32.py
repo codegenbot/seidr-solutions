@@ -1,4 +1,3 @@
-```Python
 def find_zero(xs):
     n = len(xs) // 2
     zero_index = None
