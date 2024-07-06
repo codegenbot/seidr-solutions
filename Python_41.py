@@ -1,9 +1,5 @@
-def car_race_collision(n: int):
-    left_to_right = 0
-    right_to_left = 0
-    for i in range(n):
-        if left_to_right > right_to_left:
-            left_to_right += 1
-        else:
-            right_to_left += 1
-    return max(left_to_right, right_to_left)
+
+def car_race_collision(n: int) -> int:
+    left_to_right = range(1, n + 1)
+    right_to_left = range(n, 0, -1)
+    return len([i for i in left_to_right if i in right_to_left])
