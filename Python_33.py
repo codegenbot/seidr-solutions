@@ -1,3 +1,4 @@
+```
 def sort_third(l: list):
     l_copy = l.copy()
     return [
