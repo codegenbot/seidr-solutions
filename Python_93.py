@@ -1,3 +1,13 @@
+```
+def encode(s, encoding_mapping):
+    result = ""
+    for char in s:
+        if char in encoding_mapping:
+            result += encoding_mapping[char]
+        else:
+            result += char
+    return result
+
 def check():
     encoding_mapping = {
         "i": "k",
