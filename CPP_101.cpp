@@ -1,5 +1,3 @@
-#include <vector>
-#include <string>
 #include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
@@ -27,10 +25,17 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
             while (end < s.size() && isblank(s[end])) {
                 end++;
             }
-            result[1] = s.substr(end);
-            return result;
+            if (end < s.size()) {
+                result[1] = s.substr(end);
+                return result;
+            } else {
+                if (!issame(expected)) {
+                    return {};
+                }
+                return {s};
+            }
         }
-    } while ((end = s.find("\n", end)) != std::string::npos || end = s.find(" ", end) != std::string::npos);
+    } while ((end = s.find("\n", end)) != std::string::npos || (end = s.find(" ", end)) != std::string::npos);
     if (start <= end) {
         result[0] = s.substr(start - 1, end - start);
         return {result[0]};
