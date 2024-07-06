@@ -1,4 +1,3 @@
-
 def fruit_distribution(input, basket_size):
     import re
 
@@ -17,4 +16,3 @@ def fruit_distribution(input, basket_size):
     mango_count = len(input) - int(apple_count) - int(orange_count)
 
     return mango_count
-```
