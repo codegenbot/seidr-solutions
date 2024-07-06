@@ -6,5 +6,10 @@ def double_the_difference(lst):
     return result
 
 
+# Test case 1:
 lst = [1, 2, 3, 4, 5]
-check(double_the_difference(lst))
+print(double_the_difference(lst))  # Output: 55
+
+# Test case 2:
+lst = [1, 3, 5, 7, 9]
+print(double_the_difference(lst))  # Output: 120
