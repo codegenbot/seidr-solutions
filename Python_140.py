@@ -6,6 +6,6 @@ def fix_spaces(text):
     return text.replace(" ", "")
 
 
-user_input = input()  # read input from user
+user_input = input()
 fixed_text = fix_spaces(user_input)
 print(fixed_text)
