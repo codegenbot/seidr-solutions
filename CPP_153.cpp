@@ -3,7 +3,7 @@
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = -1;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for (const auto& extension : extensions) {
         int cap = 0, sm = 0;
