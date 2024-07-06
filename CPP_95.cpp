@@ -12,7 +12,8 @@ bool check_dict_case(map<string, string> dict) {
         string key = it->first;
         if (!allLower && !allUpper) break;
         if (!allLower) {
-            allLower = allUpper = tolower(key[0]) == toupper(key[0]);
+            allLower = toupper(key[0]) == tolower(key[0]);
+            allUpper = toupper(key[0]) == upper(key[0]);
         }
     }
 
