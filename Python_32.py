@@ -1,9 +1,12 @@
 def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 == 1 or xs[n - 1] != 0:
+    if len(xs) % 2 != 0 or xs[-1] == 0:
         raise ValueError(
-            "List must have even number of coefficients and largest non zero coefficient as the last element."
+            "The given coefficients do not form a polynomial with an even number of terms and a non-zero leading coefficient."
         )
-    for i in range(n // 2):
-        if xs[i] != 0 and xs[n - 1 - i] != 0:
-            return -xs[i] / (xs[n - 1 - i] * (i + 1))
+
+    # Implement the Newton's method for finding roots of polynomials here
+    x = 0.0
+    while abs(poly(xs, x)) > 1e-6:
+        x -= poly(xs, x) / poly(xs[1:], x)
+
+    return x
