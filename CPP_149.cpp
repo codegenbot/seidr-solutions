@@ -1,9 +1,10 @@
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        sort(a[i].begin(), a[i].end());
-        sort(b[i].begin(), b[i].end());
-        if(a[i] != b[i]) return false;
+bool issame(const string &a, const string &b) {
+    if (a.length() != b.length())
+        return false;
+    int aVal = 0, bVal = 0;
+    for (int i = 0; i < a.length(); i++) {
+        aVal += (int)(a[i] - '0');
+        bVal += (int)(b[i] - '0');
     }
-    return true;
+    return aVal == bVal;
 }
