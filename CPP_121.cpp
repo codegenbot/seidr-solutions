@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <assert.h>
@@ -20,7 +20,7 @@ int solutions(std::vector<int> lst) {
     }
 }
 
-int main 
+int main
 {
     std::vector<int> lst = {3, 13, 2, 9};
     int result = solutions(lst);
