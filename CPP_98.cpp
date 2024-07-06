@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -14,7 +13,7 @@ int count_upper(std::string s) {
     return count;
 }
 
-//int main() {
-//    std::cout << count_upper("ABCDE") << std::endl;
-//    return 0;
-//}
+int main() {
+    //std::cout << count_upper("ABCDE") << std::endl;
+    return 0;
+}
