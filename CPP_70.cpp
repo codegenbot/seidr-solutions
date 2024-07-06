@@ -17,3 +17,14 @@ vector<int> strange_sort_vector(vector<int> lst) {
 
     return result;
 }
+
+int main() {
+    vector<int> input = {10, 5, 20};
+    vector<int> output = strange_sort_vector(input);
+    
+    for (int i: output) {
+        cout << i << " ";
+    }
+    
+    return 0;
+}
