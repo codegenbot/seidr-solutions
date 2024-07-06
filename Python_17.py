@@ -1,14 +1,13 @@
-````
 from typing import List
 
-def parse_music(music_string: str) -> list:
+
+def parse_music(music_string: str) -> List[int]:
     beats = [0]
     for note in music_string.split():
         if note == "o":
-            beats.append(4)
+            beats.extend([4] * 8)
         elif note == "o|":
-            beats.extend([2, 2])
+            beats.extend([2, 2, 1])
         elif note == ".|":
-            beats.extend([1, 3])
+            beats.extend([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 2])
     return beats[1:]
-```
