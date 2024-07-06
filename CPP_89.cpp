@@ -1,13 +1,17 @@
-string encrypt(string s){
+#include <algorithm>
+
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 2*2) % 26 + 'a';
-        } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 2*2) % 26 + 'A';
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            int newIndex = ((int(c) - 97 + 2 * 2) % 26) + 97;
+            result += (char)newIndex;
+        } else if (c >= 'A' && c <= 'Z') {
+            int newIndex = ((int(c) - 65 + 2 * 2) % 26) + 65;
+            result += (char)newIndex;
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
