@@ -1,4 +1,3 @@
-```Python
 import math
 def max_fill(grid, capacity):
     total_water = sum(sum(cell for cell in row if cell > 0) for row in grid)
