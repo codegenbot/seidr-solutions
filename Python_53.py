@@ -1,7 +1,7 @@
-```
+Here is the modified code:
+
 def add(x: int, y: int) -> int:
     return x + y
-
 
 while True:
     try:
