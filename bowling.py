@@ -13,9 +13,9 @@ def bowling_score(games):
                     score += int(game[0]) * 10 + int(game[1])
                 else:
                     if game == "X":
-                        score += 10 + 10
-                    elif game[-1] in ["/", "X"]:
-                        score += 10 + sum(range(1, int(game[0]) + 1))
+                        score += 10 + bowling_score(games[len(games)-1:])
+                    elif game == "/":
+                        score += 10 + int(game[0]) + int(game[1])
                     else:
                         score += sum(range(1, int(game[0]) + 1)) * 10 + sum(
                             range(1, int(game[-1]) + 1)
@@ -28,9 +28,9 @@ def bowling_score(games):
             score += int(game[0]) * 10 + int(game[1])
         else:
             if game == "X":
-                score += 10 + 10
-            elif game[-1] in ["/", "X"]:
-                score += 10 + sum(range(1, int(game[0]) + 1))
+                score += 10 + bowling_score(games[len(games)-1:])
+            elif game == "/":
+                score += 10 + int(game[0]) + int(game[1])
             else:
                 score += sum(range(1, int(game[0]) + 1)) * 10 + sum(
                     range(1, int(game[-1]) + 1)
