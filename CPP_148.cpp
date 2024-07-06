@@ -9,18 +9,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
-    std::vector<std::string> res;
-    for (char c : s1 + s2) {
-        if (c >= 'A' && c <= 'H') {
-            res.push_back(std::to_string((c - 'A' + 1)));
-        } else {
-            res.push_back(std::string(1, c));
+std::vector<std::string> bf(const std::string& a, const std::string& b) {
+    std::vector<std::string> result;
+    for(char c : a) {
+        if(std::find(b.begin(), b.end(), c) != b.end()) {
+            result.push_back(std::string(1, c));
         }
     }
-    return res;
+    return result;
 }
 
 int main() {
-    std::cout << "Output: " << issame(bf("Jupiter", "Makemake"), {"J2U5P3T3R", "M1K3M4K3"}) << std::endl;
+    std::cout << "Output: " << (issame(bf("Jupiter", "Makemake"), {"J", "u", "e", "t", "e", "r"}) ? "True" : "False") << std::endl;
 }
