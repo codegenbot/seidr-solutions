@@ -1,20 +1,31 @@
 #include <vector>
 using namespace std;
-vector<pair<int, string>> by_length(vector<int> arr){
-    vector<pair<int, string>> temp;
-    for(int i = 0; i < arr.size(); i++){
-        if(arr[i] >= 1 && arr[i] <= 9)
-            temp.push_back({arr[i], to_string(arr[i]) == "1" ? "One": 
-                to_string(arr[i]) == "2" ? "Two":
-                to_string(arr[i]) == "3" ? "Three":
-                to_string(arr[i]) == "4" ? "Four":
-                to_string(arr[i]) == "5" ? "Five":
-                to_string(arr[i]) == "6" ? "Six":
-                to_string(arr[i]) == "7" ? "Seven":
-                to_string(arr[i]) == "8" ? "Eight":
-                "Nine"});
+
+vector<pair<int, string>> by_length(vector<int> arr) {
+    vector<int> temp;
+    for(int i: arr){
+        if(i >= 1 && i <= 9)temp.push_back(i);
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    return temp;
+    vector<pair<int, string>> result;
+    map<int, string> numToName = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}; 
+    for(int i: temp){
+        result.push_back({i, numToName[i]});
+    }
+    return result;
+}
+
+int main() {
+    vector<int> arr;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        arr.push_back(val);
+    }
+    vector<pair<int, string>> result = by_length(arr);
+    for(auto& pair: result) cout << pair.first << " " << pair.second << endl;
+    return 0;
 }
