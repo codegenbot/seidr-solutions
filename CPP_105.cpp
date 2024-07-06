@@ -34,6 +34,5 @@ int main() {
         cout << str << " ";
     }
     cout << endl;
-    
     return 0;
 }
