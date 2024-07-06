@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     bool_map = {'T': True, 'F': False}
 
@@ -15,8 +16,8 @@ def solve_boolean(expression):
             expr = expr[start + 1:]
             
             result = all(eval_expression(part) for part in and_parts)
-            return 'T' if result else 'F'
-        
+            return str(result).lower() if result else 'F'
+
         while '|' in expr:
             start = 0
             end = 0
@@ -30,8 +31,10 @@ def solve_boolean(expression):
             expr = expr[start + 1:]
             
             result = any(eval_expression(part) for part in or_parts)
-            return 'T' if result else 'F'
-        
-        return bool_map[expr]
+            return str(result).lower() if result else 'F'
 
+        if len(expr) > 0 and expr[0] in bool_map:
+            return str(bool_map.get(expr[0], None)).lower()
+        else:
+            return 'F'
     return eval_expression(expression)
