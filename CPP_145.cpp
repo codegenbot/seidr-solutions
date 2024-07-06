@@ -1,8 +1,8 @@
-bool issame(const pair<int, int>& a, const pair<int, int>& b) {
-    if (a.first != b.first)
-        return a.first < b.first;
-    else
-        return a.second < b.second;
+#include <algorithm>
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -17,7 +17,7 @@ vector<int> order_by_points(vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    sort(pairs.begin(), pairs.end(), issame);
+    sort(pairs.begin(), pairs.end());
 
     vector<int> result;
     for (const auto& pair : pairs) {
