@@ -6,7 +6,10 @@ def encode(text, table):
     for char in text:
         if char.isalpha():
             ascii_val = ord(char) - 97
-            new_ascii_val = (ascii_val + int(shifts[0 % len(shifts)])) % 26
+            if shifts:
+                new_ascii_val = (ascii_val + shifts[0 % len(shifts)]) % 26
+            else:
+                new_ascii_val = ascii_val
             result += chr(new_ascii_val + 97)
         else:
             result += char
