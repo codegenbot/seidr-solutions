@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,7 +20,6 @@ vector<int> unique(vector<int> l) {
     }
     sort(result.begin(), result.end());
     return result;
-
 }
 
 int main() {
