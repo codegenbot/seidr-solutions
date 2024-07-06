@@ -1,7 +1,20 @@
-int length = txt.length();
-if (length == 0) {
-    return false;
+int main() {
+    string txt;
+    cin >> txt;
+
+    bool result = false;
+    
+    if(txt.length() > 0) {
+        char last_char = txt[txt.length()-1];
+        
+        if(isalpha(last_char)) {
+            if(!isalnum(last_char)) { // Check if the last character is not alphanumeric
+                result = true;
+            }
+        }
+    }
+
+    cout << (result ? "true" : "false") << endl;
+
+    return 0;
 }
-char last_char = txt.at(length - 1);
-bool is_word_end = (length > 1 && txt.rfind(' ') != txt.npos);
-return isalpha(last_char) && !is_word_end;
