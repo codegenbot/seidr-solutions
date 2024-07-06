@@ -17,4 +17,4 @@ def fizz_buzz(n):
             print(i)
             nums += 1
 
-    return fizzes + 1, buzzes + 1, nums + 1
+    return fizzes, buzzes, nums
