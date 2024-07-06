@@ -1,5 +1,5 @@
-from itertools import chain
 
+Here's the corrected code:
 
 def separate_paren_groups(paren_string):
     result = []
