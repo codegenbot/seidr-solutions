@@ -24,11 +24,14 @@ def separate_paren_groups(paren_string):
                     result.append("".join(stack))
                     stack = []
                     count = 0
+                counter = 0
+                continue
+        else:
+            # Reset the counter variable to 0 when a non-parentheses character is encountered
+            counter = 0
+            continue
     return [
         group
         for group in result
-        if group[0] == "("
-        and group[-1] == ")"
-        and len(group) % 2 == 0
-        and len(stack) == 0
-    ]
+        if group[0] == "(" and group[-1] == ")" and len(group) % 2 == 0 and count == 0
+    ] or []
