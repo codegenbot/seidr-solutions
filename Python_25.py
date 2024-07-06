@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -5,7 +6,7 @@ import math
 def factorize():
     while True:
         try:
-            n = int(input("Enter a number: ").strip())
+            n = int(input("Enter a number: "))
             if n < 2:
                 print(
                     "Invalid input. Please enter an integer greater than or equal to 2."
@@ -31,10 +32,10 @@ def factorize():
     else:
         print(factors)
 
-    again = input("Do you want to factorize another number? (yes/no): ").strip().lower()
-    while again not in ["no", "n"]:
+    again = input("Do you want to factorize another number? (yes/no): ")
+    while again.lower() in ["yes", "y"]:
         try:
-            m = int(input("Enter a new number: ").strip())
+            m = int(input("Enter a new number: "))
             if m < 2:
                 print(
                     "Invalid input. Please enter an integer greater than or equal to 2."
@@ -60,10 +61,7 @@ def factorize():
         else:
             print(factorized_factors)
 
-        again = (
-            input("Do you want to factorize another number? (yes/no): ").strip().lower()
-        )
+        again = input("Do you want to factorize another number? (yes/no): ")
 
 
-while True:
-    factorize()
+factorize()
