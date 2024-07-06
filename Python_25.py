@@ -19,5 +19,3 @@ def factorize() -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
-
-print(factorize())
