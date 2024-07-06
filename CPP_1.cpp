@@ -18,13 +18,13 @@ vector<string> separate_paren_groups(string paren_string) {
         }
     }
 
-    while (open_count > 0) {
-        current_group += '(';
-        open_count--;
-    }
-
-    if (open_count > 0) {
+    // Check for remaining group
+    if(open_count > 0) {
+        while(open_count-- > 0) {
+            current_group += '(';
+        }
         result.push_back(current_group);
     }
 
     return result;
+}
