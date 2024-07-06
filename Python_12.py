@@ -1,7 +1,14 @@
+```
 strings = []
 i = 0
 while True:
-    user_input = input(f"Enter string {i+1} (or 'stop' to finish): ")
+    i += 1
+    user_input = input(f"Enter string {i}(or 'stop' to finish): ")
+    
+    if not user_input.strip() and user_input.lower() != 'stop':
+        print("Please enter a non-empty string.")
+        continue
+
     if user_input.lower() == 'stop':
         break
     elif len(user_input) > 0 and strings:
@@ -9,12 +16,3 @@ while True:
         strings = [] 
     elif len(user_input) > 0:
         strings.append(user_input)
-    else:
-        print("Please enter a non-empty string.")
-    i += 1
-
-if strings:
-    print("Final list of entered strings:")
-    print(strings)
-
-input("Press Enter to exit.")
