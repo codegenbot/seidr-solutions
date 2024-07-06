@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     if (k > arr.size()) {
-        throw std:// your error handling here
+        throw std::invalid_argument("Input vector size is less than k");
     }
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
