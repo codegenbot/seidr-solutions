@@ -3,15 +3,13 @@ bool is_palindrome(std::string text) {
     int end = text.length() - 1;
 
     while (start < end) {
-        if (!isalnum(text[start])) { // skip non-alphanumeric chars at the start
+        while (!isalnum(text[start])) { 
             start++;
-            continue;
         }
-        if (!isalnum(text[end])) { // skip non-alphanumeric chars at the end
+        while (!isalnum(text[end])) { 
             end--;
-            continue;
         }
-        if (text[start] != text[end]) {
+        if (tolower(text[start]) != tolower(text[end])) {
             return false;
         }
         start++;
