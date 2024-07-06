@@ -1,3 +1,4 @@
+
 def prime_fib(n):
     import math
 
@@ -8,4 +9,4 @@ def prime_fib(n):
         if math.gcd(next_fib, 2) == 1 and i < len(fib):
             fib.append(next_fib)
         i += 1
-    return fib[n]
+    return input()
