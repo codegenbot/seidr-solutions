@@ -1,10 +1,10 @@
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string
-    for length in range(len(string), 0, -1):
-        for i in range(len(string) - length + 1):
-            new_string = (
-                string[:i] + string[i : i + length][::-1] + string[len(string) - i :]
-            )
+```Python
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return s
+
+    for char in 'abcdefghijklmnopqrstuvwxyz':
+        for i in range(len(s)):
+            new_string = s[:i] + char + s[i:]
             if new_string == new_string[::-1]:
                 return new_string
