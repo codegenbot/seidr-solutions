@@ -1,6 +1,5 @@
 ```
 def even_odd_count(num):
-    num = str(abs(num))
-    even_count = sum(1 for digit in num if int(digit) % 2 == 0)
-    odd_count = len(num) - even_count
-    return (even_count, odd_count)
+    count_even = sum(1 for digit in str(abs(num)) if int(digit) % 2 == 0)
+    count_odd = len(str(abs(num))) - count_even
+    return (count_even, count_odd)
