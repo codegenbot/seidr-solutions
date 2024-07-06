@@ -1,44 +1,40 @@
-#include <vector>
+```cpp
 #include <iostream>
-#include <algorithm>
+#include <vector>
+using namespace std;
 
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxNum = 0;
+int calculateSumOfDigitsLargestPrime(vector<int> lst) {
+    int maxPrime = -1;
     for (int num : lst) {
-        if (num > maxNum) {
-            maxNum = num;
+        bool isPrime = true;
+        if (num > 1) {
+            for (int i = 2; i * i <= num; i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                maxPrime = num;
+                break;
+            }
         }
     }
-
-    int sumOfDigits = 0;
-    while (maxNum > 0) {
-        sumOfDigits += maxNum % 10;
-        maxNum /= 10;
+    int sumDigits = 0;
+    if (maxPrime != -1) {
+        while (maxPrime > 0) {
+            sumDigits += maxPrime % 10;
+            maxPrime /= 10;
+        }
     }
-
-    return sumOfDigits;
+    return sumDigits;
 }
 
 int main_test() {
     int num;
-    std::cout << "Enter the list of numbers (space separated): ";
-    std::cin >> num;
-
-    // code to read the vector
-    std::vector<int> lst = {num};
-
-    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
+    cout << "Enter the list of numbers (space separated): ";
+    cin >> num;
+    vector<int> lst = {num};
+    cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << endl;
     return 0;
 }
