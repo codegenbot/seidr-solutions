@@ -6,4 +6,4 @@ def double_the_difference(lst):
     return result
 
 
-print(double_the_difference([1, 2, 3, 4]))
+double_the_difference([1, 2, 3, 4])
