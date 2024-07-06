@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,7 +9,7 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    for (char c : test) { 
+    for (char c : test) {
         int count = 0;
         size_t pos = 0;
         while ((pos = test.find(c, pos)) != string::npos) {
