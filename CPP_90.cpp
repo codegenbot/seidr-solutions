@@ -1,15 +1,12 @@
 int next_larger(std::vector<int> lst) {
-    int result = -1;
-    for(int i = 0; i < lst.size(); i++){
-        bool isLargerFound = false;
-        for(int j = i + 1; j < lst.size(); j++){
-            if(lst[j] > lst[i]){
-                isLargerFound = true;
-                result = lst[i];
-                break;
-            }
+    if(lst.size() < 2) return -1; 
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
+    for(int i = 0; i < sorted.size(); i++){
+        if(i == 0) continue;
+        if(sorted[i] > sorted[i-1]){
+            return sorted[i-1];
         }
-        if(isLargerFound) break;
     }
-    return result;
+    return -1; 
 }
