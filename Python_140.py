@@ -2,5 +2,9 @@ import re
 
 
 def fix_spaces(text):
-    # Return the corrected output
+    text = input("Enter a string: ")
     return re.sub(r"\s+", "-", text)
+
+
+if __name__ == "__main__":
+    print("The string after correcting spaces: ", fix_spaces())
