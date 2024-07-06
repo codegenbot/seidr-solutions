@@ -1,3 +1,3 @@
-```
+import re
 def words_string(s):
-    return s.strip().replace(" , ", ", ").split(", | ")
+    return re.split('?, |\s*,\s*|\s+|,\s*', s.strip())
