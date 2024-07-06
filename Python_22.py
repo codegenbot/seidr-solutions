@@ -1,4 +1,3 @@
-```
 def filter_integers(values: List[Any]) -> List[Any]:
     if not isinstance(values, list):
         return [values] if isinstance(values, int) else []
