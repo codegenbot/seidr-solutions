@@ -1,3 +1,4 @@
+```Python
 import re
 
 def words_string():
@@ -7,4 +8,5 @@ def words_string():
             print("Input cannot be blank. Please enter valid text.")
             continue
         result = [x.strip() for x in re.split("[,\s]+", s) if x]
-        print(result)
+        break
+    return result
