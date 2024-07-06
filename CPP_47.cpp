@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,19 +19,23 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<float> vec(n);
+    if (n <= 0) {
+        std::cerr << "Number of elements must be greater than zero." << std::endl;
+        return -1;
+    }
 
-    for (float &x : vec) {
-        std::cout << "Enter element: ";
-        std::cin >> x;
+    std::vector<float> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter number " << i + 1 << ": ";
+        std::cin >> numbers[i];
     }
 
     try {
-        float medianVal = median(vec);
-        std::cout << "Median is " << medianVal << std::endl;
+        float med = median(numbers);
+        std::cout << "The median is: " << med << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Error: " << e.what() << std::endl;
     }
-
+    
     return 0;
 }
