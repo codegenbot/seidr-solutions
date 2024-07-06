@@ -1,5 +1,8 @@
-def longest_file_line() -> Optional[str]:
-    input_file = input("Enter a file name: ")
+```
+from typing import Optional
+
+
+def longest_file_line(input_file: str) -> Optional[str]:
     if not input_file:
         return None
     max_length = 0
@@ -11,7 +14,14 @@ def longest_file_line() -> Optional[str]:
                     max_length = len(line.strip())
                     longest_line = line.strip()
     except FileNotFoundError:
+        print("File not found.")
         return None
     except IOError:
+        print("Error reading file. Please check permissions.")
         return None
-    return longest_line if longest_line is not None else ""
+    if longest_line is None:
+        return "File is empty."
+    else:
+        return longest_line
+
+print(longest_file_line("path_to_your_file.txt"))

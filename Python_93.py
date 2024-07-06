@@ -29,7 +29,23 @@ def encode(message):
                             result += char.swapcase().upper()
                         else:
                             result += char.swapcase()
-        elif not char.isalpha():  # Check if character is not alphabetical
-            result += char
+            elif char.isalnum(): 
+                if char.isupper():
+                    result += char
+                else:
+                    result += char
+            else: 
+                if char.isprintable(): 
+                    result += char
+                else: 
+                    if char.isupper():
+                        result += char.swapcase().upper()
+                    else:
+                        result += char.swapcase()
+        else: 
+            if char.isprintable(): 
+                result += char
+            else: 
+                result += char
 
     return result
