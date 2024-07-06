@@ -36,6 +36,6 @@ int main() {
     std::vector<std::string> v1 = words_string("ahmed     , gamal");
     std::vector<std::string> v2 = { "ahmed", "gamal" };
     if (!isSame(v1, v2)) {
-        // do something ...
+        
     }
 }
