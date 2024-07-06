@@ -1,27 +1,32 @@
 def minPath(grid):
     n = len(grid)
-    dp = [[float('inf')] * (n + 1) for _ in range(n)]
-    for i in range(n):
-        dp[i][0] = dp[i-1][0] if i > 0 else grid[i][0]
-        dp[0][i] = dp[0][i-1] if i > 0 else grid[0][i]
-
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+    dp = [[[float("inf")] * (n - 1) for _ in range(n)] for _ in range(n)]
+    dp[0][0] = m[0][0]
+    for i in range(1, n):
+        dp[i][0] = min(dp[i - 1][0], m[i][0])
+    for j in range(1, n):
+        dp[0][j] = min(dp[0][j - 1], m[0][j])
     for i in range(1, n):
         for j in range(1, n):
-            dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
-            
+            if i == 0:
+                dp[i][j] = min(dp[i][j - 1], m[i][j])
+            elif j == 0:
+                dp[i][j] = min(dp[i - 1][j], m[i][j])
+            else:
+                dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), m[i][j])
     path = []
     i, j = n - 1, n - 1
-    while i > 0 or j > 0:
+    while k > 0:
         if i > 0 and j > 0:
-            path.append(grid[i][j])
-            if dp[i-1][j] < dp[i][j-1]:
+            if m[i - 1][j] < m[i][j - 1]:
                 i -= 1
             else:
                 j -= 1
         elif i > 0:
-            path.append(grid[i][j])
             i -= 1
         else:
-            path.append(grid[i][j])
             j -= 1
-    return path[::-1]
+        path.append(m[i][j])
+        k -= 1
+    return path
