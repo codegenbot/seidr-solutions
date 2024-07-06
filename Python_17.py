@@ -3,12 +3,11 @@ def calculate_average(grades):
     average = total / len(grades)
     return round(average, 2)
 
-
 def average_grade(name):
     grades = []
     while True:
         try:
-            grade = float(input("Enter a grade (or -1.0 to finish): "))
+            grade = float(input(f"Enter a grade for {name} (or -1.0 to finish): "))
             if grade < 0:
                 break
             grades.append(grade)
@@ -17,11 +16,9 @@ def average_grade(name):
 
     if not grades:
         return 0.0
-    total = sum(grade for grade in grades)
-    average = total / len(grades)
-    return round(average, 2)
+    avg = calculate_average(grades)
+    return avg
 
-
-name = input("Hi, please enter your name: ")
+name = input(f"Hi, please enter your name: ")
 avg_grade = average_grade(name)
-print(f"{name}, your average grade is: {avg_grade}")
+print(f"{name}'s average grade is: {avg_grade}")
