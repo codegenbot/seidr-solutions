@@ -4,7 +4,7 @@ import math
 
 
 def factorize(n: int) -> List[int]:
-    """Complete the following code given the task description and function signature."""
+    """This function takes an integer n as input and returns a list of its prime factors."""
     factors = []
     i = 2
     while i * i <= n:
