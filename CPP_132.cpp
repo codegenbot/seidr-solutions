@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -14,11 +13,11 @@ bool is_nested(std::string str) {
 
 int main() {
     std::cout << (is_nested("[[]]") ? "true" : "false") << std::endl;
-    std::cout << (is_nested("[]]]]]]][[[[[]") ? "true" : "false") << std::endl;
-    std::cout << (is_nested("[][]") ? "true" : "false") << std::endl;
-    std::cout << (is_nested("[]") ? "true" : "false") << std::endl;
-    std::cout << (is_nested("[[][]]") ? "true" : "false") << std::endl;
-    std::cout << (is_nested("[[]][[") ? "true" : "false") << std::endl;
+    std::cout << (is_nested("]]]]]]]]") ? "true" : "false") << std::endl;
+    std::cout << (is_nested("[][]")) ? "true" : "false" << std::endl;
+    std::cout << (is_nested("[]")) ? "true" : "false" << std::endl;
+    std::cout << (is_nested("[[][]]")) ? "true" : "false" << std::endl;
+    std::cout << (is_nested("[[]][[")) ? "true" : "false" << std::endl;
 
     return 0;
 }
