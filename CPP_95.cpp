@@ -1,6 +1,6 @@
-#include <iostream>
+```cpp
 #include <map>
-#include <cctype>
+#include <string>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -15,8 +15,6 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-    // Your code here...
     bool result = check_dict_case(dict);
-    std::cout << (result ? "The dictionary is either fully lowercase or fully uppercase." : "The dictionary is neither fully lowercase nor fully uppercase.") << std::endl;
     return 0;
 }
