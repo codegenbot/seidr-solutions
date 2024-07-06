@@ -9,3 +9,6 @@ def max_fill(grid, capacity):
             if grid[i][j] == 1:
                 water += 1
     return int(math.ceil(water / capacity))
+
+def check(max_fill):
+    assert max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9) == 2
