@@ -1,6 +1,7 @@
-def fruit_distribution(input):
-    import re
+import re
 
+
+def fruit_distribution(input):
     # Check if the input string contains both "apples" and "oranges"
     if not all(fruit in input for fruit in ["apples", "oranges"]):
         raise ValueError("Invalid input: missing 'apples' or 'oranges' in string")
@@ -16,3 +17,10 @@ def fruit_distribution(input):
     mango_count = len(input) - int(apple_count) - int(orange_count)
 
     return mango_count
+
+
+# Get user's input
+user_input = input("Enter the fruit distribution: ")
+
+# Call the function with the user's input
+print(fruit_distribution(user_input))
