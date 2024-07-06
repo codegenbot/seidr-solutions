@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
 
 std::string decimal_to_binary(int decimal){
-    std::string binary = "";
+    std::string binary = "db"; // Initialize here
     while(decimal > 0){
         if(decimal % 2 == 0)
             binary.insert(0,"0");
@@ -11,10 +12,10 @@ std::string decimal_to_binary(int decimal){
             binary.insert(0,"1");
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    return binary + "db";
 }
 
 int main() {
-    std::cout << decimal_to_binary(15) << std::endl; 
+    assert (decimal_to_binary(15) == "db1111db");
     return 0;
 }
