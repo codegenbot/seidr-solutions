@@ -1,2 +1,2 @@
 def remove_duplicates(numbers):
-    return list(set(numbers))
+    return [x for x in numbers if numbers.count(x) == 1]
