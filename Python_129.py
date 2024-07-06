@@ -31,7 +31,7 @@ def minPath(grid, k):
         min(
             [p for p in sorted(path_lengths.keys())],
             default=grid[0]
-            + [grid[0][0]] * (k - k if shortest_paths else 0),
+            + [grid[0][0]] * (k - k if not shortest_paths else 0),
         )
         if k > 0
         else []
