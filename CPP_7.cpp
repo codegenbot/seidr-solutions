@@ -1,8 +1,7 @@
-bool issame(vector<string> a, vector<string> b) {
-    for (auto s : a) {
-        if (find(b.begin(), b.end(), s) == b.end()) {
-            return false;
-        }
+```cpp
+bool issame(vector<string> a,vector<string>b){
+    for(auto s : b) {
+        if(!find_if(a.begin(), a.end(),[&](const string& str)->(s.find(str) != string::npos)) return false;
     }
     return true;
 }
