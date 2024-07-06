@@ -1,5 +1,4 @@
 def find_zero(xs):
-    # Read the user's input
     xs = input("Enter a list of numbers: ")
     
     if len(xs) % 2 == 1 or xs[-1] != 0:
