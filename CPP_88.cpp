@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <initializer_list>
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
