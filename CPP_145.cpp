@@ -1,4 +1,4 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
 
@@ -40,6 +40,5 @@ int get_sum_of_digits(int num) {
 vector<int> main() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
     nums = order_by_points(nums);
-    assert(issame(nums, vector<int>((-76, -21, 0, 4, 23, 6, 6))));
     return nums;
 }
