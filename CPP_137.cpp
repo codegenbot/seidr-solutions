@@ -1,13 +1,23 @@
 #include <iostream>
 #include <vector>
-#include <any>
+using namespace std;
 
-bool compare(const std::any &a, const std::any &b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return std::get<int>(a) <= std::get<int>(b);
+bool compare(any a, any b) {
+    if (a.type() != b.type()) 
+        return false;
+    string s1 = any_cast<string>(a);
+    string s2 = any_cast<string>(b);
+    int len1 = s1.length();
+    int len2 = s2.length();
+    if (len1 != len2) 
+        return false;
+
+    for(int i = 0; i < len1; i++) {
+        if(s1[i] != s2[i]) 
+            return false;
     }
-    // Add more comparisons for different types
-    return false;  // Default comparison result
+    
+    return true;
 }
 
 int main() {
