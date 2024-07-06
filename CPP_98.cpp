@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -13,7 +12,7 @@ int count_upper(std::string s) {
     return count;
 }
 
-int main() {
+//int main() {
     //std::cout << count_upper("ABCDE") << std::endl;
-    return 0;
-}
+    //return 0;
+//}
