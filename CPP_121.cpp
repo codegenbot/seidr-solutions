@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 #include <assert.h>
@@ -7,15 +6,19 @@
 int solutions(std::vector<int> lst) {
     if (lst.size() == 0) {
         return -1;
-    } else {
-        int result = 0;
-        for(int i = 0; i < lst.size(); i++) {
-            if(lst[i] % 2 != 0) {
-                result++;
+    }
+    int count = 0;
+    for(int i=2; i<=9; ++i){
+        bool flag = true;
+        for(int j: lst){
+            if(i%j!=0){
+                flag = false;
+                break;
             }
         }
-        return result;
+        if(flag)++count;
     }
+    return count;
 }
 
 int main() {
