@@ -12,7 +12,20 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> testList = {3, 13, 2, 9};
-    assert(solutions(testList) == 3);
+    std::vector<int> testList;
+    int n;
+    std::cout << "Enter the number of elements in the list: ";
+    std::cin >> n;
+    
+    std::cout << "Enter the elements of the list: ";
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cin >> num;
+        testList.push_back(num);
+    }
+    
+    int result = solutions(testList);
+    std::cout << "The sum is: " << result << std::endl;
+    
     return 0;
 }
