@@ -1,3 +1,5 @@
+#include <string>
+
 string flip_case(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
