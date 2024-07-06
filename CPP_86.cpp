@@ -5,19 +5,18 @@ using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
             result += " ";
-            i++;
         } else {
             string word;
-            do {
+            while (i < s.length() && s[i] != ' ') {
                 word += s[i];
                 i++;
-            } while (i < s.length() && s[i] != ' ');
+            }
             sort(word.begin(), word.end());
             result += word;
+            i--;  // Increment i after processing each word
         }
     }
     return result;
