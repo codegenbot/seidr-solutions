@@ -1,3 +1,4 @@
+
 def mastermind(code, guess):
     char_count = defaultdict(int)
     for i, c in enumerate(code):
