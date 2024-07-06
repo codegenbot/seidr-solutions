@@ -1,3 +1,4 @@
+
 def select_words(s, n):
     if n <= 0:
         return []
