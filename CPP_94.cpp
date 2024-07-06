@@ -28,10 +28,28 @@ bool isPrime(int n) {
         }
     }
     return true;
-
 }
 
 int main() {
-    assert(skjkasdkd({127, 97, 8192}) == 10);
-    return 0;
+    int skjkasdkd(vector<int> lst) {
+        int maxPrime = 0;
+        for (int i : lst) {
+            if (isPrime(i)) {
+                if (i > maxPrime) {
+                    maxPrime = i;
+                }
+            }
+        }
+        int sumDigits = 0;
+        while (maxPrime > 0) {
+            sumDigits += maxPrime % 10;
+            maxPrime /= 10;
+        }
+        return sumDigits;
+    }
+
+    vector<int> lst = {127, 97, 8192};
+    assert(skkkasdkd(lst) == 10);
+    
+    return skjkasdkd(lst);
 }
