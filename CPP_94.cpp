@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -18,7 +19,7 @@ bool isPrime(int num) {
     return true;
 }
 
-int largestPrime(std::vector<int> lst) {
+int largestPrime(std::initializer_list<int> lst) {
     int maxPrime = -1;
     for (int i : lst) {
         if (isPrime(i)) {
@@ -28,13 +29,12 @@ int largestPrime(std::vector<int> lst) {
     return maxPrime;
 }
 
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
+int calculateSumOfDigitsLargestPrime(std::initializer_list<int> lst) {
     int maxPrime = largestPrime(lst);
     return sumOfDigits(maxPrime);
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5}; 
-    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
+    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime({1, 2, 3, 4, 5}) << endl;
     return 0;
 }
