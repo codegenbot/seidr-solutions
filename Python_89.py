@@ -3,9 +3,8 @@ def encrypt(s):
     rotated_alphabet = alphabet[2:] + alphabet[:2]
     encrypted_string = ""
     for char in s:
-        if char.isupper():
-            # Convert uppercase letter to lowercase before encrypting
-            char = char.lower()
+        if char not in alphabet:
+            return char  # or raise an error if you want to handle this case differently
         index = alphabet.index(char)
         if index < 2:
             encrypted_string += rotated_alphabet[index + 1]
