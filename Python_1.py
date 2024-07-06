@@ -1,5 +1,5 @@
 ```
-s = input().strip().lstrip()
+s = input().strip()
 stack = []
 group = ""
 result = []
