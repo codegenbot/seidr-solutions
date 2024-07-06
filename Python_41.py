@@ -1,18 +1,23 @@
-```
+```Python
 from functools import reduce
 import operator
 
 def car_race_collision():
-    n = int(input("Enter the number of cars: "))
+    while True:
+        try:
+            n = int(input("Enter the number of cars: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    
+    if n < 1:
+        return 
     total_damage = 0
     for i in range(n):
         while True:
             try:
                 speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
-                if len(str(speed)) > 0 and len(str(damage)) > 0:
-                    break
-                else:
-                    print("Invalid input. Please enter two integers separated by a space.")
+                break
             except ValueError:
                 print("Invalid input. Please enter two integers separated by a space.")
         total_damage += damage * speed
