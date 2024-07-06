@@ -18,6 +18,7 @@ vector<int> remove_duplicates(vector<int> numbers){
     }
     return result;
 }
+
 int main(){
     assert (issame({1, 4, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})));
     // rest of your code
