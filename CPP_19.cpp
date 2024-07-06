@@ -1,3 +1,4 @@
+```cpp
 #include <map>
 #include <string>
 #include <vector>
@@ -9,9 +10,9 @@ map<string, int> numMap = {
     {"eight", 8}, {"nine", 9}
 };
 
-std::string sort_numbers(std::string numbers) {
-    std::vector<std::string> numVec;
-    std::string temp;
+string sort_numbers(string numbers) {
+    vector<string> numVec;
+    string temp;
 
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
@@ -23,9 +24,9 @@ std::string sort_numbers(std::string numbers) {
     }
     numVec.push_back(temp);
 
-    std::sort(numVec.begin(), numVec.end());
+    sort(numVec.begin(), numVec.end());
 
-    std::string result;
+    string result;
     for (int i = 0; i < numVec.size(); i++) {
         result += numVec[i] + " ";
     }
