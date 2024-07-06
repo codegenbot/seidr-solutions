@@ -1,10 +1,5 @@
-```
 def sort_third(l: list):
-    return [
-        (
-            i
-            if i % 3 != 0
-            else min(x for x in l if x % 3 == 0)
-        )
-        for i in l
-    ]
+    res = [[], [], []]
+    for i in l:
+        res[i % 3].append(i)
+    return [i for sub in res for i in sorted(sub)]
