@@ -1,7 +1,8 @@
-string Strongest_Extension(string class_name, vector<string> extensions); 
+#include <string>
+#include <vector>
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    int strongest = 0;
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    int max_strength = -1;
     string strongest_extension;
 
     for (const auto& extension : extensions) {
@@ -11,8 +12,8 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
             else if (islower(c)) sm++;
         }
         int strength = cap - sm;
-        if (strength > strongest || (strength == strongest && extension < strongest_extension)) {
-            strongest = strength;
+        if (strength > max_strength) {
+            max_strength = strength;
             strongest_extension = extension;
         }
     }
