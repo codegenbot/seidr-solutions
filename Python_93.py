@@ -1,5 +1,3 @@
-Here is the completed code:
-
 ```
 def encode(message):
     vowels = 'aeiouAEIOU'
@@ -10,7 +8,7 @@ def encode(message):
                 index = (ord(char.lower()) - ord('a') + 2) % 26
                 result += chr(ord('a') + index)
             else:
-                result += chr((ord(char.lower()) - ord('a') + 13) % 26).upper()
+                result += char.swapcase()
         else:
             result += char
     return result
