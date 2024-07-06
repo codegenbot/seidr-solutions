@@ -3,7 +3,7 @@
 #include <any>
 #include <boost/any.hpp>
 
-bool same(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
@@ -16,7 +16,3 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     }
     return result;
 }
-
-int main() {
-    assert(same(std::vector<int>{}, filter_integers({3, 'c', 3, 3, 'a', 'b'})) == std::vector<int>({3, 3, 3}));
-    return 0;

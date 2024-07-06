@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-#include <cassert>
-
-int strLen(string str){
+int my_strlen(string str){
     return str.length();
 }
