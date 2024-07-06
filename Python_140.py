@@ -1,4 +1,3 @@
-```
 import re
 
 def fix_spaces(text):
@@ -15,6 +14,5 @@ if not isinstance(text, str):
 result = fix_spaces(text)
 print(result)
 
-try:
 except ValueError as ve:
     print(f"Error: {ve}")
