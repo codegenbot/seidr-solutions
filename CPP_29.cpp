@@ -1,10 +1,6 @@
-#include <vector>
-#include <string>
-using namespace std;
-
-bool issame(vector<string> a, vector<string>b); // Added the missing semicolon at the end of the function signature for `issame`.
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+```cpp
+bool issame(vector<string> a, vector<string> b); //{
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for(string s : strings){
         if(s.find(prefix) == 0)
@@ -14,6 +10,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
+    vector<string> a = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    vector<string> b = filter_by_prefix(a, "xxx");
+    assert(issame(b, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
