@@ -1,6 +1,5 @@
+```cpp
 #include <boost/any.hpp>
-#include <string>
-
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -27,7 +26,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string as = boost::any_cast<string>(a);
         int bi = boost::any_cast<int>(b);
-        return (stoi(as) > bi) ? a : (bi > stoi(as)) ? b : a;
+        return (stod(as) > bi) ? a : (bi > stod(as)) ? b : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         string as = boost::any_cast<string>(a);
@@ -41,3 +40,4 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else
         return a;
+}
