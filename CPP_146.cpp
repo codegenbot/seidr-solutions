@@ -21,7 +21,7 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    std::vector<int> nums; // Initialize the vector with no size
+    std::vector<int> nums;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         while (!(std::cin >> nums.push_back(i))) {
