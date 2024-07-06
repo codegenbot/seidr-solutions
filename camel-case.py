@@ -1,3 +1,4 @@
+```
 def camel_case(s):
     s = s.strip().replace('-', ' ')
     words = s.split()
