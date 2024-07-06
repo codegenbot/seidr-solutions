@@ -1,5 +1,3 @@
-import string
-
 
 def encode(message):
     encoded_message = ""
