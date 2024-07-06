@@ -1,26 +1,25 @@
-
 def find_zero(xs: list):
-    # Check if the number of coefficients is even and the largest coefficient is non-zero
-    if len(xs) % 2 == 0 and xs[-1] != 0:
-        # Initialize the lower and upper bounds of the search interval
-        a = -1
-        b = 1
+    # Find the largest non-zero coefficient in xs
+    largest = 0
+    for i, coeff in enumerate(xs):
+        if abs(coeff) > abs(largest):
+            largest = coeff
+            index = i
 
-        while True:
-            # Calculate the midpoint of the current search interval
-            c = (a + b) / 2
+    # Check if the largest coefficient is positive or negative
+    sign = 1 if largest > 0 else -1
 
-            # Evaluate the polynomial at the midpoint
-            y = poly(xs, c)
+    # Initialize the lower and upper bounds for the zero point
+    lo = 0
+    hi = 1
 
-            # Check if the midpoint is a zero point
-            if y == 0:
-                return c
+    # Perform a bisection search to find the zero point
+    while abs(hi - lo) > 1e-6:
+        mid = (lo + hi) / 2
+        if sign * poly(xs, mid) < 0:
+            hi = mid
+        else:
+            lo = mid
 
-            # Update the search interval based on the sign of the evaluation result
-            if y > 0:
-                b = c
-            else:
-                a = c
-    else:
-        raise ValueError("Invalid input")
+    # Return the zero point
+    return mid
