@@ -1,7 +1,5 @@
 ```cpp
 #include <vector>
-#include <iostream>
-#include <initializer_list>
 
 bool below_zero(std::vector<int> operations){
     int balance = 0;
@@ -13,20 +11,29 @@ bool below_zero(std::vector<int> operations){
 
 int main() {
     std::vector<int> operations;
-    int n;
+    int num_operations;
+
+    // Read the number of operations from user
     std::cout << "Enter the number of operations: ";
-    std::cin >> n;
-    for(int i = 0; i < n; ++i) {
+    std::cin >> num_operations;
+
+    // Read each operation from user and store it in the vector
+    for (int i = 0; i < num_operations; ++i) {
         int operation;
-        std::cout << "Enter operation (" << (i + 1) << "/" << n << "): ";
+        std::cout << "Enter operation " << i + 1 << ": ";
         std::cin >> operation;
         operations.push_back(operation);
     }
-    
-    if(below_zero(operations))
-        std::cout << "At some point, the balance was below zero.\n";
-    else
-        std::cout << "The balance never went below zero.\n";
-    
+
+    // Check if the total balance is below zero
+    bool result = below_zero(operations);
+
+    // Print the result
+    if (result) {
+        std::cout << "The total balance is below zero.\n";
+    } else {
+        std::cout << "The total balance is not below zero.\n";
+    }
+
     return 0;
 }
