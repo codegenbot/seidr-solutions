@@ -2,21 +2,21 @@
 #include <vector>
 #include <string>
 
-double numerical_letter_grade(int score) {
-    double grade = 0;
+int numerical_letter_grade(int score) {
+    string letter_grade;
 
     if (score >= 90)
-        grade = 4.00;
+        letter_grade = "A";
     else if (score >= 80)
-        grade = 3.50;
+        letter_grade = "B";
     else if (score >= 70)
-        grade = 3.00;
+        letter_grade = "C";
     else if (score >= 60)
-        grade = 2.50;
+        letter_grade = "D";
     else
-        grade = 0.00;
+        letter_grade = "F";
 
-    return grade;
+    return score;
 }
 
 bool issame(vector<string> a, vector<string> b) {
