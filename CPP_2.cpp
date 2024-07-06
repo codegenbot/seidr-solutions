@@ -1,3 +1,8 @@
-Here is the solution:
+#include<stdio.h>
+#include<math.h>
+using namespace std;
 
-return fmod(number, 1.0);
+float truncate_number(float number){
+    int integerPart = static_cast<int>(number);
+    return number - integerPart;
+}
