@@ -1,8 +1,8 @@
 def cycpattern_check(a, b):
-    if a % 2 == 0 and b % 2 != 0:
+    if a % 2 == 0 and b % 3 == 0:
         return "winten"
     else:
-        return "not winten"
+        pass
 
 
 def check(func):
@@ -12,4 +12,4 @@ def check(func):
     return wrapper
 
 
-cycpattern_check = check(cycpattern_check)
+check(cycpattern_check)
