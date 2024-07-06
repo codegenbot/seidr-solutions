@@ -5,7 +5,14 @@
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
+        bool found = false;
+        for(string s : a[i].split(' ')) {
+            if(find(b[i].begin(), b[i].end(), s.begin(), s.end()) != b[i].end()) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) return false;
     }
     return true;
 }
