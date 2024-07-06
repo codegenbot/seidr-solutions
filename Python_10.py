@@ -1,6 +1,6 @@
 ```
 class Solution:
-    def ispalindrome(self, string: str) -> bool:
+    def is_palindrome(self, string: str) -> bool:
         return string == string[::-1]
     
     def make_palindrome(self, string: str) -> str:
