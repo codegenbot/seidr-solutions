@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -5,7 +6,7 @@ def main():
     while True:
         try:
             user_input = input("Enter a list of numbers separated by space: ")
-            if not user_input:
+            if not user_input.strip():  
                 print("Invalid input. Please enter some valid numbers.")
                 continue
             numbers = [float(num) for num in user_input.split()]
@@ -17,9 +18,7 @@ def main():
                 print("Please enter at least two numbers.")
             else:
                 print(mean_absolute_deviation(numbers))
-                confirm = input("Do you want to continue? (yes/no): ")
-                if confirm.lower() != "yes":
-                    break
+                break
         except ValueError as e:
             print(f"Invalid input: {e}")
 
