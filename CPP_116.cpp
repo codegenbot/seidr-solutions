@@ -1,12 +1,12 @@
-vector<int> sort_array(vector<int> arr){
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        int ones_a = __builtin_popcount(a);
-        int ones_b = __builtin_popcount(b);
-        
-        if (ones_a == ones_b)
-            return a < b;
-        else
-            return ones_a < ones_b;
-    });
-    return arr;
+#include <vector>
+#include <algorithm>
+
+vector<int> sort_vector(vector<int> arr) {
+    vector<pair<int, int>> pairs;
+    for (int x : arr) {
+        int ones = __builtin_popcount(x);
+        pairs.emplace_back(ones, x);
+    }
+    sort(pairs.begin(), pairs.end());
+    return vector<int>(pairs.begin(), pairs.end());
 }
