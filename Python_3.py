@@ -1,4 +1,6 @@
-```
+Here's the completed `below_zero` function:
+
+```python
 from typing import List
 
 
@@ -7,13 +9,7 @@ def below_zero() -> None:
     balance = sum(operations)
 
     has_debt = input("Do you have any debt? (yes/no): ")
-    while True:
-        if has_debt.lower() not in ["yes", "no"]:
-            print("Invalid answer! Please enter 'yes' or 'no'.")
-            has_debt = input("Do you have any debt? (yes/no): ")
-        else:
-            break
-
+    
     if has_debt.lower() == "yes":
         while balance > 0:
             try:
@@ -33,10 +29,14 @@ def below_zero() -> None:
                         print("Debt cannot be paid off. Balance remains.")
             except:
                 print("Debt cannot be paid off. Balance remains.")
-        else:
+        if balance == 0:
             print("Congratulations, your debt is paid off!")
+        else:
+            print("You still have debt to pay off!")
     else:
         if balance < 0:
             print("Congratulations, your debt is paid off!")
+        elif balance > 0:
+            print("No debt to pay off! You're in the green.")
         else:
-            print("No debt to pay off!")
+            print("You're even. No debt, no credit.")
