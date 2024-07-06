@@ -15,7 +15,19 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> find_closest_elements(std::vector<float> input_vector) {
-    std::vector<float> result = input_vector;
+    std::vector<float> result;
+
+    // Your logic to find the closest elements
+    for (float num : input_vector) {
+        if (result.empty() || abs(num - *result.begin()) < abs(*result.begin() - num)) {
+            result = {num};
+        } else if (abs(num - *result.begin()) <= abs(num - *(--result.end()))) {
+            result.insert(result.begin(), num);
+        } else {
+            result.push_back(num);
+        }
+    }
+
     return result;
 }
 
