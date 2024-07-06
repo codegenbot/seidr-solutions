@@ -4,7 +4,7 @@
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (std::abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
+        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
@@ -13,19 +13,21 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    int num;
+    int size, num;
 
-    cout << "Enter numbers (0 to stop):" << endl;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> size;
 
-    while (true) {
-        cin >> num;
-        if (num == 0)
-            break;
-        nums.push_back(num);
+    nums.resize(size);
+
+    for (int i = 0; i < size; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        nums[i] = num;
     }
 
     int count = specialFilter(nums);
+    std::cout << "The count is: " << count << std::endl;
 
-    cout << "Count: " << count << endl;
     return 0;
 }
