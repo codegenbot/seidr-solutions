@@ -1,11 +1,3 @@
-def check(func, *args):
-    if func is None:
-        return "None"
-    elif not callable(func):
-        return "Not a function"
-    else:
-        try:
-            result = func(*args)
-            return result
-        except Exception as e:
-            return str(e)
+def double_the_difference(lst):
+    odd_sum = sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
+    return abs(odd_sum - len(lst)) * (len(lst) + odd_sum)
