@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
@@ -27,7 +26,14 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> input = {3.14f, 1.7f, -2.9f, 4.8f};
+    vector<float> input;
+    while (true) {
+        float num;
+        cin >> num;
+        if (!cin) break;
+        input.push_back(num);
+    }
+    
     vector<float> output = sort_even(input);
     
     if (issame(output, {1.7f, -2.9f, 3.14f, 4.8f})) {
