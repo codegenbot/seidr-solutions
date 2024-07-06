@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -22,6 +23,6 @@ std::vector<int> count_up_to(int n) {
     return primes;
 }
 
-bool isEqual(vector<int> a, vector<int> b) {
+bool isEqual(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }

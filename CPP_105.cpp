@@ -1,31 +1,38 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <map>
 #include <algorithm>
+#include <map>
 
-std::vector<std::string> by_length(std::vector<std::string> arr) {
-    std::vector<std::string> sortedArr;
-    for(const auto& str : arr){
-        if(stoi(str) >= 1 && stoi(str) <= 9)
-            sortedArr.push_back(str);
+using namespace std;
+
+bool same(const vector<string>& a, const vector<string>& b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+}
+
+vector<string> by_length(vector<int> arr) {
+    vector<int> sortedArr;
+    for(int i : arr){
+        if(i >= 1 && i <= 9)
+            sortedArr.push_back(i);
     }
     sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
-    std::vector<std::string> result;
-    std::map<int, std::string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
-                                             {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-    for(const auto& str : sortedArr){
-        result.push_back(std::to_string(stoi(str)) + " " + numToName[stoi(str)] + "!"); 
+    vector<string> result;
+    map<int, string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
+                                  {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    for(int i : sortedArr){
+        result.push_back(numToName[i]);
     }
     return result;
 }
 
 int main() {
-    std::vector<std::string> arr = {"1", "2", "5", "3", "4", "6", "8", "7"};
-    std::vector<std::string> output = by_length(arr);
-    for (const auto& str : output) {
-        std::cout << str << " ";
+    vector<int> arr = {1, 2, 5, 3, 6, 4};
+    vector<string> output = by_length(arr);
+    cout << "The output is: ";
+    for (string str : output) {
+        cout << str << " ";
     }
+    cout << endl;
     return 0;
 }

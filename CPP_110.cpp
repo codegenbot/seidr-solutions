@@ -1,21 +1,19 @@
-```cpp
-#include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
 
-string exchange(vector<int> lst1, vector<int> lst2) {
+std::string exchange(vector<int> lst1, vector<int> lst2) {
+    int evenCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) return "NO";
+        if (num % 2 == 0) {
+            evenCount++;
+        }
     }
-    for (int num : lst2) {
-        if (num % 2 != 0) return "NO";
-    }
-    return "YES";
-}
 
-int main() {
-    vector<int> lst1 = {100, 200};
-    vector<int> lst2 = {200, 200};
-    cout << (exchange(lst1, lst2) == "YES" ? "Passed" : "Failed") << endl;
-    return 0;
+    for (int num : lst2) {
+        if (num % 2 == 0) {
+            evenCount++;
+        }
+    }
+
+    return evenCount == static_cast<int>(lst1.size()) ? "YES" : "NO";
 }

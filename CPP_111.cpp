@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
 #include <string>
-#include <algorithm>
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
@@ -33,13 +32,12 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    std::cout << "Please enter a string: ";
     std::string test;
-    std::cin >> test;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, test);
     std::map<char, int> result = histogram(test);
     for (auto& pair : result) {
-        std::cout << "Character " << pair.first
-                  << " appeared " << pair.second << " times." << std::endl;
+        std::cout << pair.first << ": " << pair.second << "\n";
     }
     return 0;
 }
