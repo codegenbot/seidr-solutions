@@ -1,7 +1,7 @@
 ```cpp
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+#include <vector>
+#include <numeric>
+
 using namespace std;
 
 float mean(vector<float> numbers) {
