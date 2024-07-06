@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath> // For pow() function
+#include <cmath>
 
 using namespace std;
 
