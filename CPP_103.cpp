@@ -1,16 +1,23 @@
-string rounded_avg(int n,int m){
-    if(n > m) return "-1";
-    int sum = 0;
-    for(int i=n; i<=m; i++){
+#include<stdio.h>
+#include<math.h>
+#include<string>
+using namespace std;
+
+string rounded_avg(int n, int m) {
+    if (n > m)
+        return "-1";
+    double sum = 0;
+    for (int i = n; i <= m; ++i)
         sum += i;
+    int average = round(sum / (m - n + 1));
+    string result = "";
+    while (average > 0) {
+        if (average & 1)
+            result.push_back('1');
+        else
+            result.push_back('0');
+        average >>= 1;
     }
-    double avg = (double)sum / (m - n + 1);
-    int ravg = floor(avg + 0.5);
-    string binary = "";
-    while(ravg > 0){
-        if(ravg % 2 == 0) binary.push_back('0');
-        else binary.push_back('1');
-        ravg /= 2;
-    }
-    return binary;
+    reverse(result.begin(), result.end());
+    return result;
 }

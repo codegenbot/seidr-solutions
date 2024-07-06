@@ -1,13 +1,22 @@
-vector<int> unique_digits(vector<int> x){
+#include <vector>
+#include <algorithm>
+
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
-    for(int i: x){
-        int num = i;
-        bool has_even_digit = false;
-        while(num > 0){
-            if((num%10)%2 == 0) has_even_digit = true; 
+    for (int num : x) {
+        bool hasEvenDigit = false;
+        int digit;
+        while (num > 0) {
+            digit = num % 10;
+            if (digit % 2 == 0) {
+                hasEvenDigit = true;
+                break;
+            }
             num /= 10;
         }
-        if(!has_even_digit) result.push_back(i);
+        if (!hasEvenDigit) {
+            result.push_back(num);
+        }
     }
     sort(result.begin(), result.end());
     return result;
