@@ -1,34 +1,34 @@
-```
-def decode_shift():
-    while True:
-        direction = input("Enter 'encode' to encode or 'decode' to decode: ")
-        if direction in ["encode", "decode"]:
-            break
-    while not isinstance(direction, str):
-        direction = input("Invalid input. Enter 'encode' to encode or 'decode' to decode: ")
+def main():
+    def decode_shift(direction):
+        if direction not in ["encode", "decode"]:
+            return "Invalid input. Enter 'encode' to encode or 'decode' to decode: "
         
-    if direction not in ["encode", "decode"]:
-        direction = input("Invalid input. Enter 'encode' to encode or 'decode' to decode: ")
+        s = input("Enter the string to encode/decode: ")
         
-    s = input("Enter the string to encode/decode: ")
+        is_encoding = direction == "encode"
+        result = ""
+        for ch in s:
+            if ch.isalpha():
+                ascii_offset = 97 if ch.islower() else 65
+                if is_encoding:
+                    if ch.islower():
+                        result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
+                    elif ch.isupper():
+                        result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset).upper()
+                else:
+                    if ch.islower():
+                        result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
+                    elif ch.isupper():
+                        result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset).upper()
+            else:
+                result += ch
+        return result
+
+    direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
-    while not isinstance(s, str):
-        s = input("Invalid input. Enter a valid string to encode/decode: ")
-        
-    is_encoding = direction == "encode"
-    result = ""
-    for ch in s:
-        if ch.isalpha():
-            ascii_offset = 97 if ch.islower() else 65
-            if is_encoding:
-                result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
-            else:
-                result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
-        elif not ch.isalpha():
-            result += ch
-        else:
-            if is_encoding:
-                result += chr(ord(ch) + 3)
-            else:
-                result += chr(ord(ch) - 3)
-    return result
+    if direction == "encode":
+        print(decode_shift(direction))
+    elif direction == "decode":
+        print(decode_shift(direction))
+    else:
+        print("Invalid input.")
