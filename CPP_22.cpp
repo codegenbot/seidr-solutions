@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -7,14 +6,14 @@
 
 using namespace std;
 
-bool issame(vector<any> a, vector<any> b) {
+bool operator==(const vector<any>& a, const vector<any>& b) {
     return a == b;
 }
 
 vector<any> list_any(int x) {
     vector<any> result;
     result.push_back(x);
-    result.push_back(3.5); // assuming any type is added
+    result.push_back(3.5); 
     return result;
 }
 
@@ -29,6 +28,6 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main() {
-    assert(isame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}), {3, 3, 3}));
+    assert(filter_integers({3, any('c'), 3, any(3), any(3), any('a'), any('b')}) == vector<any>({3, 3, 3}));
     return 0;
 }
