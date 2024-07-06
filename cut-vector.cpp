@@ -1,12 +1,12 @@
-```c++
 #include <vector>
 #include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
-    vector<vector<int>> res(2);
     int min_diff = INT_MAX;
+    vector<vector<int>> res(2);
+    
     for (int i = 1; i < n; i++) {
         if (abs(vec[i] - vec[i-1]) == min_diff) {
             res[0].assign(vec.begin(), vec.begin() + i);
@@ -16,6 +16,10 @@ vector<vector<int>> cutVector(vector<int> vec) {
             min_diff = vec[i] - vec[i-1];
         }
     }
+    
+    // If the input vector is empty or all elements are equal
+    res[0].assign(vec.begin(), vec.end());
+    res[1].clear();
     return res;
 }
 
