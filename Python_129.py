@@ -1,3 +1,10 @@
 def get_neighbors(grid, cell):
-    # Implement the logic to find all neighbors of a given cell in the grid
-    pass
+    row, col = cell
+    neighbors = []
+    if row > 0 and col < len(grid[row]) - 1:
+        neighbors.append((row, col + 1))
+    if row < len(grid) - 1 and col > 0:
+        neighbors.append((row + 1, col - 1))
+    if row == len(grid) - 1 and col < len(grid[row]) - 1:
+        neighbors.append((row, col + 1))
+    return neighbors
