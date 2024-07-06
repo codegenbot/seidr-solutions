@@ -1,3 +1,5 @@
+Here is the completed code with the provided function signature:
+
 ```
 from typing import List
 
@@ -31,10 +33,8 @@ def below_zero() -> None:
                         balance += debt_payment  
                     except ValueError:
                         print("Invalid input! Please enter an integer.")
-                else: 
-                    print("Congratulations, your debt is paid off!")
-            except ValueError:
-                print("Invalid input! Please enter an integer.")
+        else:
+            print("Congratulations, your debt is paid off!")
     else:
         if balance < 0:
             print("Congratulations, your debt is paid off!")
