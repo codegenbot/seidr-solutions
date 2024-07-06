@@ -5,10 +5,9 @@
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
     for (char c : cipher) {
-        std::string m = mapping;
-        int idx = m.find(c);
+        int idx = mapping.find(c);
         if (idx != std::string::npos) {
-            result += m[idx];
+            result += mapping[idx];
         } else {
             result += c;
         }
