@@ -5,14 +5,14 @@
 
 using namespace std;
 
-vector<string> split(const string& str, const string& delimiter) {
+vector<const char*> split(const string& str, const string& delimiter) {
     size_t pos = 0;
-    vector<string> tokens;
+    vector<const char*> tokens;
     while ((pos = str.find(delimiter)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str = str.substr(pos + delimiter.length());
+        tokens.push_back(&str[0] + pos);
+        str.erase(0, pos + delimiter.length());
     }
-    tokens.push_back(str);
+    tokens.push_back(&str[0]);
     return tokens;
 }
 
@@ -21,7 +21,7 @@ string anti_shuffle(string s){
         return "";
     string result = "";
     for (const auto& word : split(s, " ")) {
-        result += string(word.begin(), word.end()) + " ";
+        result += string(word) + " ";
     }
     return result.substr(0, result.size() - 1);
 }
