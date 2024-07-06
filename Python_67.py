@@ -1,4 +1,3 @@
-
 def fruit_distribution(s, n):
     # Split the string into apples and oranges
     apples, oranges = s.split("and")
