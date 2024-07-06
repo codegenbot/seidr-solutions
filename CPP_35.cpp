@@ -1,11 +1,11 @@
-#include <vector>
+```#include <vector>
 #include <algorithm>
 
 int main() {
-    vector<float> l;
-    cout << "Enter the elements of the vector (space-separated): ";
-    cin >> noskipws;
-    while (cin >> l.push_back) {
+    std::vector<float> l;
+    // Read input from user
+    for (float num; std::cin >> num;) {
+        l.push_back(num);
     }
-    return std::abs(*std::max_element(l.begin(),l.end()));
+    return *std::max_element(l.begin(),l.end());
 }
