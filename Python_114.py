@@ -1,8 +1,4 @@
-```
-input_num = input("Enter space-separated integers: ")
-nums = [int(x) for x in input_num.split()]
-print(minSubArraySum(*[nums]))
-def minSubArraySum(*nums):
+def minSubArraySum(nums):
     total_sum = 0
     min_sum = float('inf')
     window_sum = 0
@@ -19,3 +15,7 @@ def minSubArraySum(*nums):
             window_sum += num
     
     return min_sum
+
+input_num = input("Enter space-separated integers: ")
+nums = [int(x) for x in input_num.split()]
+print(minSubArraySum(nums))
