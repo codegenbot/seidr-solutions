@@ -7,9 +7,10 @@ int is_bored(string S) {
         if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
             count++;
         }
-        pos = S.find("I", pos + 1);
+        pos = S.find("i", pos);
     }
     return count;
+
 }
 
 int main() {
