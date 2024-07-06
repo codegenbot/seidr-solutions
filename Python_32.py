@@ -1,8 +1,9 @@
 def find_zero(xs: list):
-    if len(xs) % 2 == 0 and xs[-1] != 0:
-        return None
-    for i in range(len(xs)):
-        x = -xs[i] / xs[i + 1]
-        if poly(xs, x) < 0.0001:
-            return x
-    return None
+    n = len(xs)
+    if n % 2 == 1 or xs[n - 1] != 0:
+        raise ValueError(
+            "List must have even number of coefficients and largest non zero coefficient as the last element."
+        )
+    for i in range(n // 2):
+        if xs[i] != 0 and xs[n - 1 - i] != 0:
+            return -xs[i] / (xs[n - 1 - i] * (i + 1))
