@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <string>
 
-bool same(vector<string> v1, vector<string> v2) {
-    return v1 == v2;
+bool isSame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
@@ -35,7 +35,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (!(same({result[0], (result.size() == 2) ? (result[1] == "True") ? "True" : "False" : "")}, {"", "True"})) {
+    if (!(isSame({result[0], (result.size() == 2) ? (result[1] == "True") ? "True" : "False" : "")}, {"", "True"})) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
