@@ -1,3 +1,4 @@
+```c++
 #include <string>
 using namespace std;
 
@@ -15,9 +16,10 @@ std::string flip_case(std::string str) {
     return result;
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << flip_case(str) << std::endl;
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    string output = flip_case(input);
+    cout << "Flipped case: " << output << endl;
     return 0;
 }
