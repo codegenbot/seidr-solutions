@@ -1,3 +1,4 @@
+```
 #include <cmath>
 
 int starts_one_ends(int n) {
