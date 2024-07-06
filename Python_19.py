@@ -11,6 +11,6 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    numbers = [int(number_map[num]) for num in re.findall(r"\d+", numbers)]
+    numbers = [int(number_map[num]) for num in numbers.strip().split()]
     sorted_numbers = sorted(numbers)
     return " ".join([str(num) for num in sorted_numbers])
