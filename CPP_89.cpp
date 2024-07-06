@@ -1,11 +1,12 @@
+```cpp
 #include <string>
 #include <sstream>
 #include <iostream>
 
-std::string encrypt(std::istringstream s) {
+std::string encrypt(const std::string& s) {
     std::string result = "";  
-    for(int i=0; i<s.str().length(); i++){
-        char c = s.str()[i];
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
         if(c >= 'a' && c <= 'z'){
             c = (c - 'a' + 3) % 26 + 'a';
         } else if(c >= 'A' && c <= 'Z'){
@@ -16,12 +17,5 @@ std::string encrypt(std::istringstream s) {
     return result;
 }
 
-int main() {
-    std::string inputStr;
-    std::stringstream ss;
-    std::getline(ss, inputStr);
-    std::istringstream in(inputStr);  
-    
-    // Now you can call this function:
-    std::string encrypted = encrypt(in);
-    std::cout << "Encrypted: " << encrypted << std::endl;
+std::string encrypted = encrypt(ss.str());  
+std::cout << "Encrypted: " << encrypted << std::endl;
