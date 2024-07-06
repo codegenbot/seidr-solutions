@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -17,7 +17,7 @@ int main() {
     std::cout << "Enter number of elements: ";
     std::cin >> n;
 
-    std::vector<int> nums(n); 
+    std::vector<int> nums(n); // Create a vector of size n
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
@@ -27,4 +27,5 @@ int main() {
     int count = specialFilter(nums);
 
     std::cout << "Count: " << count << std::endl;
-}
+
+    //int main() {  // Removed the duplicate main function
