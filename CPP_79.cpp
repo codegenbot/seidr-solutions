@@ -6,5 +6,5 @@ std::string decimal_to_binary(int decimal){
         else binary += '1';
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    return std::to_string(binary);
 }
