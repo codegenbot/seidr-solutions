@@ -2,7 +2,7 @@
 #include <vector>
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile = {0}; 
+    std::vector<int> pile = {0}; // Initialize the vector with a single element.
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             pile.push_back(i * 2 - 1);
