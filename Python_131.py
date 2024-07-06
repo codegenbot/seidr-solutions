@@ -1,4 +1,7 @@
+Here is the fixed code:
 
 def digits(n):
-    max_digit = max(map(int, str(abs(n))))
-    return 0 if n < 0 else 1
+    if n < 0:
+        return -1 * max(map(int, str(abs(n))))
+    else:
+        return max(map(int, str(abs(n))))
