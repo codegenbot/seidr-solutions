@@ -25,4 +25,4 @@ def minPath(grid, k):
                 dfs(i, j, [grid[i][j]])
                 visited[i][j] = False
 
-    return path
+    return path```
