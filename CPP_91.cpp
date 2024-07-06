@@ -11,5 +11,3 @@ int is_bored(string S) {
     }
     return count;
 }
-
-assert(is_bored("You and I are going for a walk") == 0);
