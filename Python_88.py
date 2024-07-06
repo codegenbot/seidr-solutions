@@ -1,3 +1,2 @@
-def sort_array():
-    array = list(map(int, input("Enter numbers separated by space: ").split()))
+def sort_array(array):
     return sorted(array)
