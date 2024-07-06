@@ -1,14 +1,9 @@
 ```
-def count_up_to(n):
-    def is_prime(num):
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
+def check(count_up_to):
+    total = 0
+    for i in range(1, count_up_to + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            total += i
+    return total
 
-    result = [str(i) if i > 1 and is_prime(i) else '' for i in range(2, n+1)]
-    if result[-1] == '':
-        result.pop()
-    return result
+print(check(int(input("Enter a number: "))))
