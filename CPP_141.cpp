@@ -36,7 +36,7 @@ bool file_name_check(string file_name) {
     return valid;
 }
 
-int main_test() {
+int main1() {
     assert(file_name_check("s.") == false);
     return 0;
 }
