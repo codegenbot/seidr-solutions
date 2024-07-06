@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     return x + y
 
@@ -12,15 +11,21 @@ while True:
         if num1_str.lower() == 'q':
             break
         
-        num1 = int(num1_str)
-        
-        num2_str = input("Enter second number: ")
-        
-        if num2_str.lower() == 'q':
-            break
+        try:
+            num1 = int(num1_str)
+            
+            num2_str = input("Enter second number: ")
+            
+            if num2_str.lower() == 'q':
+                break
 
-        num2 = int(num2_str)
-
-        print(add(num1, num2))
+            try:
+                num2 = int(num2_str)
+                
+                print(add(num1, num2))
+            except ValueError:
+                print("Invalid second number. Please try again.")
+        except ValueError:
+            print("Invalid first number. Please try again.")
     except ValueError:
         print("Invalid input. Please try again.")
