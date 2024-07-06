@@ -1,8 +1,11 @@
-def double_the_difference(input_list):
-    return sum(set(input_list)) - min(input_list) - max(input_list)
+```
+def double_the_difference(lst):
+    return sum(i - (i+1) for i in lst)
 
-def check(func, input_list, expected_result):
+def check(func):
+    input_list = [1, 2, 3]
+    expected_result = 14
     result = func(input_list)
     print(result == expected_result)
 
-check(double_the_difference, [1, 2, 3], 14)
+check(double_the_difference)
