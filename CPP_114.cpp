@@ -1,4 +1,3 @@
-```
 #include <climits>
 
 int minSubArraySum(std::vector<long long> nums) {
@@ -13,10 +12,12 @@ int minSubArraySum(std::vector<long long> nums) {
     return min_sum;
 }
 
+int main(){
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wreturn-type"
-int main() {
-    assert(minSubArraySum({1, -1}) == -1);
-    return 0;
-}
+    int main(){  
+        assert(minSubArraySum({1, -1}) == -1);
+        return 0;
+    }
 #pragma clang diagnostic pop
+}
