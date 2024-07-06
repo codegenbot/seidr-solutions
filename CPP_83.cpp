@@ -1,5 +1,5 @@
-#include <cmath>
 #include <iostream>
+#include <cmath>
 
 int starts_one_ends(int n) {
     int count = 0;
@@ -19,10 +19,8 @@ int starts_one_ends(int n) {
 
 int main() {
     int n;
+    std::cout << "Enter a number: ";
     std::cin >> n;
-
-    int result = starts_one_ends(n);
-    std::cout << "Result: " << result << "\n";
-
+    std::cout << "Number of numbers that start with or end with '1' in range (1-" << pow(10, n) << "): " << starts_one_ends(n) << "\n";
     return 0;
 }
