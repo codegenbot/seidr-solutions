@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
+#include <boost/variant.hpp>
 
 using namespace std;
 
