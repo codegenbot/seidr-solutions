@@ -1,26 +1,15 @@
 def incr_list():
-    result = []
+    result = [0]
     while True:
         try:
-            n = int(input("Enter the number of elements: "))
+            n = int(input("Enter a number: "))
             if n < 1:
                 print("Number should be positive. Try again.")
             else:
+                result = [n + i for i in result]  
                 break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
-    for _ in range(n):
-        while True:
-            try:
-                i = int(input("Enter a number to increment: "))
-                if i < 1:
-                    print("Number should be positive. Try again.")
-                else:
-                    result = [i + j for j in result]
-                    break
-            except ValueError:
-                print("Invalid input. Please enter an integer.")
 
     while True:
         cont = input("Do you want to continue? (y/n): ")
