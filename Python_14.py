@@ -1,6 +1,5 @@
 ```
 def all_prefixes(s):
-    prefixes = [s[:i+1] for i in range(len(s))]
-    return prefixes
+    return [s[:i+1] for i in range(len(s))]
 
 print(all_prefixes("hello"))
