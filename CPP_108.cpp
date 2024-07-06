@@ -1,27 +1,30 @@
 int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
+        bool hasPositiveSumOfDigits = false;
         if (num >= 0) {
-            int sum = 0;
-            int temp = num;
-            while (temp > 0) {
-                sum += temp % 10;
-                temp /= 10;
+            int sumOfDigits = 0;
+            while (num > 0) {
+                sumOfDigits += num % 10;
+                num /= 10;
             }
-            if (sum > 0) {
-                count++;
-            }
+            hasPositiveSumOfDigits = sumOfDigits > 0;
         } else {
-            num = -num; // convert to positive
-            int sum = 0;
-            int temp = num;
-            while (temp > 0) {
-                sum += temp % 10;
-                temp /= 10;
+            int signDigit = abs(num) % 10;
+            if (signDigit != 0) {
+                hasPositiveSumOfDigits = true;
             }
-            if (sum > 0) {
-                count++;
+            num = -abs(num) / 10;
+            while (num > 0) {
+                sumOfDigits += num % 10;
+                num /= 10;
             }
+            if (sumOfDigits > 0) {
+                hasPositiveSumOfDigits = true;
+            }
+        }
+        if (hasPositiveSumOfDigits) {
+            count++;
         }
     }
     return count;
