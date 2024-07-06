@@ -13,4 +13,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if count == 0:
                 result.append(temp)
                 temp = ''
+        elif char != '(': 
+            if count > 0:
+                temp += char
     return result
