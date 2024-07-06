@@ -1,18 +1,17 @@
 #include <string>
 #include <openssl/ssl.h>
 #include <openssl/x509v3.h>
-#include <sstream>
 
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) {
         return "";
     }
 
-    unsigned char result[MD5_DIGEST_LENGTH];
+    unsigned char result[16];
     MD5((const unsigned char*)text.c_str(), text.size(), result);
 
-    stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    std::stringstream ss;
+    for (int i = 0; i < 16; i++) {
         ss << setfill('0') << setw(2) << hex << (int)result[i];
     }
 
@@ -20,7 +19,9 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string str = "Hello";
-    cout << string_to_md5(str) << endl;
+    string text;
+    cout << "Enter your text: ";
+    cin >> text;
+    cout << "MD5 of the given text is: " << string_to_md5(text) << endl;
     return 0;
 }
