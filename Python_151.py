@@ -5,6 +5,5 @@ def double_the_difference(lst):
             result += num**2
     return result
 
-
 lst = input().split()
 check(double_the_difference)
