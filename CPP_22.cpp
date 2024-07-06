@@ -6,8 +6,9 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     for (const auto& value : values) {
         if(value.type() == typeid(std::optional<int>)) {
             auto optionalInt = boost::any_cast<std::optional<int>>(value);
-            if(optionalInt.has_value()) {
-                result.push_back(optionalInt.get());
+            if( optionalInt.has_value()) {
+                int i = optionalInt.get();
+                result.push_back(i);
             }
         }
     }
