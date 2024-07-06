@@ -4,27 +4,23 @@ using namespace std;
 
 bool evaluate(const string &expression) {
     bool result = true;
-    char last_op = '&'; // initialize last_op to '&' as it is the first operator in the expression
-    stack<bool> operands;
-
-    for (int i = 0; i < expression.length(); i++) {
+    int i = 0;
+    while (i < expression.length()) {
         if (expression[i] == '|') {
-            result |= operands.top() && expression[i + 1];
-            last_op = '|';
+            // Evaluate the first operand
+            result |= evaluate(expression.substr(i + 1, expression.length() - i));
         } else if (expression[i] == '&') {
-            result &= operands.top() && expression[i + 1];
-            last_op = '&';
+            // Evaluate the second operand
+            result &= evaluate(expression.substr(i + 1, expression.length() - i));
         } else if (expression[i] == '^') {
-            result ^= operands.top() && expression[i + 1];
-            last_op = '^';
+            // Evaluate the first operand and then apply the XOR operation to the result
+            result ^= evaluate(expression.substr(i + 1, expression.length() - i));
         } else if (expression[i] == '~') {
+            // Apply the NOT operation to the result
             result = !result;
-            last_op = '~';
-        } else if (last_op == '&' || last_op == '|' || last_op == '^') {
-            operands.push(expression[i]);
         }
+        i++;
     }
-
     return result;
 }
 
