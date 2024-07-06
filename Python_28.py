@@ -5,4 +5,4 @@ def user_strings() -> List[str]:
         if s.lower() == "stop":
             break
         strings.append(s)
-    return [s.strip() for s in strings]
+    return ' '.join([s.strip() for s in strings])
