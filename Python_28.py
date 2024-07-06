@@ -1,5 +1,2 @@
 ```
-'""'"''
-def concatenate(strings):
-    return ''.join(strings)
-'''"'"""
+'def concatenate(strings: list[str]) -> str:\n    return "".join(strings)\n'
