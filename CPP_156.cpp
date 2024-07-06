@@ -1,6 +1,4 @@
 ```cpp
-#include <vector>
-#include <string>
 #include <initializer_list>
 
 std::string int_to_mini_roman(int number) {
