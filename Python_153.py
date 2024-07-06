@@ -1,6 +1,10 @@
+```
 def Strongest_Extension(class_name, extensions):
-    strongest = max(
-        extensions,
-        key=lambda x: (sum(c.isupper() for c in x), -sum(c.islower() for c in x)),
-    )
-    return f"{class_name}.{strongest}"
+    strongest = (extensions[0], 0)
+    for extension in extensions:
+        cap = sum(1 for c in extension if c.isupper())
+        sm = sum(1 for c in extension if c.islower())
+        strength = cap - sm
+        if strength > strongest[1]:
+            strongest = (extension, strength)
+    return f"{class_name}.{strongest[0]}"
