@@ -1,15 +1,16 @@
-#include <set>
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    set<int> seen;
+vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
-
-    for (int num : numbers) {
-        if (seen.find(num) == seen.end()) {
-            seen.insert(num);
-            result.push_back(num);
+    for(int i = 0; i < numbers.size(); i++){
+        bool duplicate = false;
+        for(int j = 0; j < result.size(); j++){
+            if(numbers[i] == result[j]){
+                duplicate = true;
+                break;
+            }
+        }
+        if(!duplicate){
+            result.push_back(numbers[i]);
         }
     }
-
     return result;
 }
