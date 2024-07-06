@@ -6,18 +6,30 @@ bool issame(std::vector<float> a, std::vector<float>b) {
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> evenVals;
-    std::vector<float> oddVals;
+    std::vector<float> evenVals = std::vector<float>();
+    std::vector<float> oddVals = std::vector<float>();
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            evenVals = std::vector<float>(l.begin() + i, l.begin() + i+1);
-            std::sort(evenVals.begin(), evenVals.end());
-            return evenVals;
+            evenVals = std::vector<float>(std::move(evenVals));
+            evenVals.push_back(l[i]);
         } else {
             oddVals.push_back(l[i]);
         }
     }
 
-    return l;
+    std::sort(evenVals.begin(), evenVals.end());
+
+    std::vector<float> result;
+    int idx = 0;
+
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            result.push_back(evenVals[idx++]);
+        } else {
+            result.push_back(oddVals[i - idx]);
+        }
+    }
+
+    return result;
 }
