@@ -1,3 +1,5 @@
+#include <iostream>
+
 bool any_int(float a, float b, float c) {
     int ai = (int)a;
     int bi = (int)b;
@@ -9,11 +11,15 @@ bool any_int(float a, float b, float c) {
         return false;
 }
 
-bool any_int(float a, float b, float c) {
-    bool result = false;
-    
-    if ((int)a == (int)b + (int)c || (int)b == (int)a + (int)c || (int)c == (int)a + (int)b)
-        result = true;
+int main() {
+    float a, b, c;
+    std::cout << "Enter three numbers: ";
+    std::cin >> a >> b >> c;
 
-    return result;
+    if (any_int(a, b, c))
+        std::cout << "The sum of two integers is equal to the third integer." << std::endl;
+    else
+        std::cout << "The sum of two integers is not equal to the third integer." << std::endl;
+
+    return 0;
 }
