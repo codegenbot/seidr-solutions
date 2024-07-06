@@ -1,3 +1,4 @@
+```
 def calculate_score(games):
     frames = games.replace('/', '')
     score = 0
