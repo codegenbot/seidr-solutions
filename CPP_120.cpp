@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,28 +20,14 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (auto &x : arr) {
-        std::cout << "Enter element: ";
-        std::cin >> x;
+    std::vector<int> arr = {1, 3, 5, 2};
+    int k = 2;
+
+    std::vector<int> result = maximum(arr, k);
+
+    for (int i : result) {
+        std::cout << i << " ";
     }
-    std::cout << "Enter k: ";
-    std::cin >> k;
-
-    std::vector<int> res = maximum(arr, k);
-
-    if(res.size() == 0) {
-        std::cout << "Array is too small for K value.\n";
-    } else {
-        std::cout << "Maximum elements: ";
-        for (int i : res) {
-            std::cout << i << " ";
-        }
-        std::cout << "\n";
-    }
-
+    std::cout << "\n";
     return 0;
 }
