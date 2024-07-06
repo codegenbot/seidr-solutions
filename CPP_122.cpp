@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -17,6 +17,7 @@ int main() {
     int num;
     int k;
 
+    // input
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
     
@@ -30,6 +31,7 @@ int main() {
 
     int result = add_elements(vec, k);
     
+    // output
     std::cout << "The sum of the elements is: " << result << std::endl;
 
     return 0;
