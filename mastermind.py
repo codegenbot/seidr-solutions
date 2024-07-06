@@ -9,11 +9,7 @@ def mastermind():
     for i, c in enumerate(guess):
         if c == code[i]:
             black += 1
-            del code[i]
-            del guess[i]
-        else:
-            if c in code:
-                white += 1
-                code.remove(c)
-
+        elif c in code:
+            white += 1
+            code.remove(c)
     print(f"Black pegs: {black}, White pegs: {white}")
