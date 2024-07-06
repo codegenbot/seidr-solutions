@@ -1,4 +1,3 @@
-```cpp
 std::vector<std::string> by_length(const std::vector<int>& arr) {
     std::vector<std::string> result;
 
