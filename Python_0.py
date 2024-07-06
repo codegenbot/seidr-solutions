@@ -1,4 +1,4 @@
-from typing import list
+from typing import list, float
 
 def has_close_elements():
     numbers = input("Enter space-separated numbers: ")
