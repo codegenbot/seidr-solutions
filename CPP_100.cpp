@@ -1,4 +1,5 @@
 #include <initializer_list>
+#include <vector>
 
 bool issame(int a, int b) {
     if(a == b)
@@ -20,22 +21,4 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of piles: ";
-    std::cin >> n;
-
-    if (issame(n, 2)) {
-        std::vector<int> pile = make_a_pile(n);
-        for(int i=0; i < pile.size(); i++) {
-            std::cout << pile[i] << " ";
-        }
-        std::cout << "\n";
-    } else {
-        std::cout << "Enter even number please.\n";
-    }
-
-    return 0;
 }
