@@ -1,49 +1,34 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 vector<string> split_words(string txt) {
-    vector<string> words;
+    vector<string> result;
+    size_t pos = 0, prevPos = 0;
     
-    size_t start = 0;
-    while (start < txt.size()) {
-        if (isalpha(txt[start])) {
-            start++;
-            continue;
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0 || txt[pos - 1] == ' ') {
+            result.push_back("");
+            pos = txt.find_first_not_of(" ", pos);
         }
-        
-        size_t end = start;
-        while (end < txt.size() && !isalpha(txt[end])) {
-            end++;
+        if (pos > prevPos) {
+            if (txt.substr(prevPos, pos - prevPos).find(',') != string::npos)
+                break;
+            result.push_back(txt.substr(prevPos, pos - prevPos));
         }
-        
-        words.push_back(txt.substr(start, end - start));
-        start = end;
+        prevPos = pos + 1;
     }
-
-    if (words.empty()) {
+    
+    if (result.size() == 0) {
         int count = 0;
         for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                count += (int)c - (int)'a';
+            if (c >= 'a' && c <= 'z' && (count % 2 != 0)) {
+                count++;
             }
         }
-        words.push_back(to_string(count));
+        result.push_back(to_string(count));
     }
     
-    return words;
-}
-
-int main() {
-    string txt;
-    cout << "Enter a text: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (const auto& word : result) {
-        cout << word << endl;
-    }
-    return 0;
+    return result;
 }
