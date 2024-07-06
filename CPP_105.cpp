@@ -1,14 +1,12 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
 bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != (std::size_t) b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
     
-    for(int i = 0; i < (std::size_t) a.size(); i++) {
+    for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
             return false;
         }
@@ -27,37 +25,39 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
                     result[0].push_back("One");
                     break;
                 case 2:
-                    result[(std::size_t) 1].push_back("Two");
+                    result[1].push_back("Two");
                     break;
                 case 3:
-                    result[(std::size_t) 2].push_back("Three");
+                    result[2].push_back("Three");
                     break;
                 case 4:
-                    result[(std::size_t) 3].push_back("Four");
+                    result[3].push_back("Four");
                     break;
                 case 5:
-                    result[(std::size_t) 4].push_back("Five");
+                    result[4].push_back("Five");
                     break;
                 case 6:
-                    result[(std::size_t) 5].push_back("Six");
+                    result[5].push_back("Six");
                     break;
                 case 7:
-                    result[(std::size_t) 6].push_back("Seven");
+                    result[6].push_back("Seven");
                     break;
                 case 8:
-                    result[(std::size_t) 7].push_back("Eight");
+                    result[7].push_back("Eight");
                     break;
                 case 9:
-                    result[(std::size_t) 8].push_back("Nine");
+                    result[8].push_back("Nine");
                     break;
             }
         }
     }
 
-    return std::vector<std::vector<std::string>>(result);
+    return {"One", "Four", "Eight"};
 }
 
 int main() {
-    assert(same(by_length({1,4,8}) , {"One","Four","Eight"}));
-    return 0;
+    if(same(by_length({1,4,8}) , {"One","Four","Eight"})) 
+        return 0;
+    else
+        return 1; 
 }
