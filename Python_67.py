@@ -17,6 +17,7 @@ def fruit_distribution(s, n):
         mango_count = n - int(apple_count) - int(orange_count)
 
     except ValueError as e:
-        raise ValueError("Invalid input: {0}".format(e)) from e
+        print("Invalid input. Please enter a valid input.")
+        return
 
     return mango_count
