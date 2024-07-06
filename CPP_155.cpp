@@ -1,11 +1,16 @@
+#include<string>
+#include<vector>
+using namespace std;
+
 vector<int> even_odd_count(int num) {
-    int countEven = 0, countOdd = 0;
-    string strNum = to_string(abs(num));
-    for (char c : strNum) {
-        if (stoi(c) % 2 == 0)
-            countEven++;
-        else
-            countOdd++;
+    vector<int> result(2, 0);
+    string str = to_string(abs(num));
+    for (char c : str) {
+        if (c - '0' % 2 == 0) {
+            result[0]++;
+        } else {
+            result[1]++;
+        }
     }
-    return {countEven, countOdd};
+    return result;
 }
