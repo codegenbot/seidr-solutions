@@ -1,4 +1,7 @@
-def longest(strings: List[str]) -> Optional[str]:
+```
+from typing import List, Union
+
+"def longest(strings: List[str]) -> Union[str, None]:"
     if not strings:
         return None
     max_length = 0
@@ -7,4 +10,4 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(s) > max_length:
             max_length = len(s)
             result = s
-    return result
+    return result"
