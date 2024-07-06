@@ -1,5 +1,9 @@
 def sort_third(l: list):
+    sorted_elements = [x for i, x in enumerate(l) if i % 3 == 0]
+    sorted_elements.sort()
     return [
-        l[i] if i % 3 != 0 else min(sorted([l[j] for j in range(i, len(l), 3)]))
-        for i in range(len(l))
+        x if i % 3 != 0 else y
+        for i, x in enumerate(l)
+        for j, y in enumerate(sorted_elements, start=0)
+        if i % 3 == j % 3
     ]
