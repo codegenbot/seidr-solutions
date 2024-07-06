@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -5,9 +6,9 @@
 
 std::vector<std::string> by_length(std::vector<std::string> arr) {
     std::vector<int> sortedArr;
-    for(auto i : arr){
-        if(i.length() >= 1 && i.length() <= 9)
-            sortedArr.push_back(i.length());
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i].size() >= 1 && arr[i].size() <= 9)
+            sortedArr.push_back(arr[i].size());
     }
     sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
