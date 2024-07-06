@@ -1,6 +1,7 @@
+```
 #include <vector>
-#include <cassert>
 #include <initializer_list>
+#include <cassert>
 
 using namespace std;
 
@@ -18,4 +19,3 @@ int main() {
     int result = solutions(lst);
     cout << "Result: " << result << endl;
     return 0;
-}
