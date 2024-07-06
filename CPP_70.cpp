@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,6 +23,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
 int main() {
     vector<int> input;
     int numElements;
+
     cout << "Enter the number of elements in the list: ";
     cin >> numElements;
 
