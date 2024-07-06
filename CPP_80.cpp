@@ -1,29 +1,21 @@
-#include <stdio.h>
-#include <string>
-using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    cout << (is_happy(s) ? "true" : "false") << endl;
+    return 0;
+}
 
-bool is_happy(string s) {
-    if (s.length() < 3)
+bool is_happy(string s){
+    if(s.length() < 3)
         return false;
-    
-    for(int i = 0; i <= s.length()-3; i++) {
-        string sub = s.substr(i, 3);
+    for(int i = 0; i < s.length()-2; i++){
         bool unique = true;
-        for(char c : sub) {
-            int count = 0;
-            for(int j = i; (j < i+3) && (count < 1); j++) {
-                if(s[j] == c) {
-                    count++;
-                }
-            }
-            if(count > 1) {
+        for(int j = i+1; j <= i+2; j++){
+            if(s[j] == s[i])
                 unique = false;
-                break;
-            }
         }
-        if(unique)
-            return true;
+        if(!unique)
+            return false;
     }
-    
-    return false;
+    return true;
 }
