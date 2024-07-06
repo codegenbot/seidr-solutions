@@ -1,5 +1,4 @@
-
-def sort_even(l):
-    even_indices = [i for i in range(len(l)) if i % 2 == 0]
-    even_values = sorted([l[i] for i in even_indices])
-    return [l[i] if i not in even_indices else even_values.pop() for i in range(len(l))]
+def sort_even(l: list):
+    even_indices = [i for i in range(0, len(l), 2)]
+    sorted_even_values = sorted([l[i] for i in even_indices])
+    return [sorted_even_values[i // 2] if i % 2 == 0 else l[i] for i in range(len(l))]
