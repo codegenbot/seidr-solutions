@@ -1,9 +1,8 @@
-
 def encrypt(s):
-    encrypted = ''
-    for c in s:
-        if c == ' ':
-            encrypted += ' '
-        else:
-            encrypted += chr((ord(c) - ord('a') + 2) % 26 + ord('a'))
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
+    encrypted = ""
+    for char in s:
+        index = alphabet.index(char)
+        encrypted += rotated_alphabet[index]
     return encrypted
