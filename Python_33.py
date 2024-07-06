@@ -1,13 +1,8 @@
 def sort_third(l: list):
     result = []
-    i = 0
-    while i < len(l):
-        sublist = [l[i], l[i + 1]] if i + 1 < len(l) else [l[i]]
-        if len(sublist) == 2:
-            third_element = min(sublist, key=lambda x: (x % 3, x))
-            result.extend(sorted([y for y in sublist if y % 3 == 0]))[::-1]
-            i += 3
-        else:
-            result.append(min(sublist))
-            i += 1
-    return tuple(result)
+    for i in range(len(l)):
+        if i % 3 != 0:
+            result.append(l[i])
+        elif result and not isinstance(result[-1], list):
+            result.append(sorted([x for x in l if i % 3 == 0])))
+    return [item for sublist in result for item in sublist]
