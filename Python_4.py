@@ -1,10 +1,4 @@
-```
 from typing import List
-
-
-def mean_absolute_deviation(numbers: List[float]) -> float:
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(num - mean) for num in numbers) / len(numbers)
 
 
 def main():
@@ -18,7 +12,13 @@ def main():
     except ValueError as e:
         print(f"Invalid input: {e}")
 
+    main()
+
+
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    mean = sum(numbers) / len(numbers)
+    return sum(abs(num - mean) for num in numbers) / len(numbers)
+
 
 if __name__ == "__main__":
-    main()
     print(mean_absolute_deviation([1, 2, 3, 4, 5]))
