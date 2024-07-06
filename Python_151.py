@@ -1,4 +1,3 @@
-def check():
-    input_list = list(map(int, input().split()))
-    odd_sum = double_the_difference(input_list)
-    print(2 * (odd_sum - sum(input_list) // 2))
+```
+def double_the_difference(numbers):
+    return sum(i**2 for i in numbers if isinstance(i, int) and i >= 0 and i % 2 != 0)
