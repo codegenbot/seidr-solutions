@@ -12,9 +12,10 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst;  
-    cout << "Enter numbers: ";
-    for(float &num : lst) cin >> num;
+    vector<float> lst; 
+    cout << "Enter the numbers separated by space: ";
+    for (float &num : cin >> noskipws >> copy(linethis, std::back_inserter(lst))) {
+    }
     long long odd_sum = double_the_difference(lst);
     cout << "The difference is: " << odd_sum << endl;
     assert(odd_sum == 0);
