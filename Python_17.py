@@ -1,4 +1,9 @@
-```
+def calculate_average(grades):
+    total = sum(float(grade) for grade in grades)
+    average = total / len(grades)
+    return round(average, 2)
+
+
 def average_grade(name):
     grades = []
     while True:
@@ -16,5 +21,7 @@ def average_grade(name):
     average = total / len(grades)
     return round(average, 2)
 
-avg_grade = average_grade(input(f"Hi, please enter your name: "))
-print(f"Your average grade is: {avg_grade}")
+
+name = input("Hi, please enter your name: ")
+avg_grade = average_grade(name)
+print(f"{name}, your average grade is: {avg_grade}")

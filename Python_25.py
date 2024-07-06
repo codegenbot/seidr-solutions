@@ -61,6 +61,8 @@ def factorize():
         else:
             print(factorized_factors)
 
+        print("")  # added this line
+
         again = input("Do you want to factorize another number? (yes/no): ")
 
 
