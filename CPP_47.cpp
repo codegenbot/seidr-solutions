@@ -1,18 +1,8 @@
-#include <iostream>
-#include <algorithm>
-#include <cmath>
-#include <vector>
-
-float median(std::vector<float> l) {
-    std::sort(l.begin(), l.end());
-    int n = l.size();
-    if (n % 2 == 0)
-        return (l[n / 2 - 1] + l[n / 2]) / 2.0;
-    else
-        return l[n / 2];
-}
-
-int main() {
-    assert(abs(median(std::vector<float>(std::array<float, 8>{{8, 1, 3, 9, 9, 2, 7}}).data(), std::allocator<float>()) - 5) < 1e-4);
-    return 0;
-}
+std::vector<float> l;
+l.push_back(8);
+l.push_back(1);
+l.push_back(3);
+l.push_back(9);
+l.push_back(9);
+l.push_back(2);
+l.push_back(7);
