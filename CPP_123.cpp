@@ -2,6 +2,14 @@
 #include <algorithm>
 #include <initializer_list>
 
+typedef std::size_t size_type;
+template<typename _E>
+class initializer_list {
+public:
+    class iterator;
+
+};
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
