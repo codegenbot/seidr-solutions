@@ -22,12 +22,17 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> myVector = {1, 2, 3, 4};
-    std::vector<int> output = pluck(myVector);
+    std::vector<int> input;
+    int num;
+
+    while (std::cin >> num) {
+        input.push_back(num);
+    }
+
+    std::vector<int> output = pluck(input);
 
     for (int i : output) {
         std::cout << i << " ";
     }
-    
     return 0;
 }

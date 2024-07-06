@@ -1,15 +1,12 @@
 int is_bored(string S){
     int count = 0;
-    string word;
-    for(size_t i=0; i<S.size(); i++){
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            if(i > 0 && S.substr(0, i).find("I") == 0){
-                count++;
-            }
-            word = "";
-        }else{
-            word += S[i];
+    size_t pos = 0;
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (S[pos] == ' ' || S[pos+1] == '.'
+            || S[pos+1] == '?' || S[pos+1] == '!') {
+            count++;
         }
+        pos += 2;
     }
     return count;
 }
