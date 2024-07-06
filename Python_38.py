@@ -1,4 +1,3 @@
-# Read input from user
 if __name__ == "__main__":
     string = input("Enter a string: ")
     try:
