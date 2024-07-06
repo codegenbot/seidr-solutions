@@ -1,24 +1,53 @@
+#include <vector>
+#include <algorithm>
 #include <string>
-#include <map>
+
+bool issame(vector<string> a,vector<string>b) {
+    return a == b;
+}
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> toSort;
+    vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            toSort.push_back(i);
+            temp.push_back(i);
         }
     }
-    
-    sort(toSort.begin(), toSort.end());
-    reverse(toSort.begin(), toSort.end());
-    
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
     vector<string> result;
-    map<int, string> intToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
-                                   {4, "Four"}, {5, "Five"}, {6, "Six"},
-                                   {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-    for (int i : toSort) {
-        result.push_back(intToName[i]);
+    for (int i : temp) {
+        string str = "";
+        switch (i) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+                break;
+        }
+        result.push_back(str);
     }
-    
     return result;
 }
