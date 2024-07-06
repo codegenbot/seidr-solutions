@@ -1,20 +1,19 @@
-#include <iostream>
+```
+#include <vector>
 #include <string>
-
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
-    vector<int> result;
-    int lastFound = -1;
-    for (int i = 0; i <= text.length() - target.length(); i++) {
-        if (text.substr(i, target.length()) == target) {
-            if (lastFound == -1) {
-                lastFound = i;
-            }
-            result.push_back(lastFound + 1);
-        }
+    vector<int> indices;
+    int n = text.length();
+    int m = target.length();
+    
+    for(int i=0; i<=(n-m); ++i){
+        if(text.substr(i,m) == target)
+            indices.push_back(i);
     }
-    return result;
+    
+    return indices;
 }
 
 int gcd(int a, int b) {
@@ -22,19 +21,4 @@ int gcd(int a, int b) {
         return a;
     else
         return gcd(b, a % b);
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text;
-    getline(cin, text);
-    string target;
-    getline(cin, target);
-    vector<int> indices = findIndices(text, target);
-    for (int i : indices)
-        cout << i << " ";
-    return 0;
 }
