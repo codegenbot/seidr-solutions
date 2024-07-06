@@ -1,4 +1,3 @@
-```cpp
 #include <boost/config.hpp>
 #include <boost/any.hpp>
 #include <string>
@@ -16,7 +15,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (std::stof(bs) > ai) {
             return b;
         } else {
-            return a;
+            returntypeid(int);
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float af = boost::any_cast<float>(a);
@@ -54,5 +53,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
 
+    // If none of the above conditions are met, return the first value
     return a;
 }
