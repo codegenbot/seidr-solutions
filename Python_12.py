@@ -1,9 +1,16 @@
-def longest_file_line() -> Optional[str]:
-    input_file = input("Enter a file name: ")
-    if not input_file:
-        return None
+from typing import Optional
+
+
+def longest_file_line(input_file: str) -> Optional[str]:
     max_length = 0
     longest_line = None
+
+    print("Enter the path to the file:")
+    input_file = input()
+
+    if not input_file:
+        return None
+
     try:
         with open(input_file, "r") as f:
             for line in f:
