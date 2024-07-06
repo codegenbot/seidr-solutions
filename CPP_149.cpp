@@ -1,39 +1,28 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-    sort(result.begin(), result.end());
-    return result;
-}
-
 int main() {
-    vector<string> a = {"hello", "world", "abc", "abcd"};
-    vector<string> b = {"hello", "world", "pqr", "pqrs"};
+    vector<string> lst1 = {"A", "B", "C"};
+    vector<string> lst2 = {"A", "B", "C"};
     
-    if (issame(sorted_list_sum(a), sorted_list_sum(b))) {
-        std::cout << "The lists are same" << std::endl;
+    bool result = issame(lst1, lst2);
+    
+    if(result) {
+        cout << "The two lists are same." << endl;
     } else {
-        std::cout << "The lists are not same" << std::endl;
+        cout << "The two lists are not same." << endl;
     }
     
     return 0;
