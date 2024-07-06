@@ -10,7 +10,7 @@ def encode(message):
                 else:
                     result += new_char
             elif char.isupper():
-                result += char.lower().swapcase()
+                result += char.swapcase()
             else:
                 result += char.swapcase()
         else:
