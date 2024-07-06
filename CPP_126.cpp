@@ -1,21 +1,15 @@
+#include <vector>
+using namespace std;
+
 bool is_sorted(vector<int> lst){
-    if(lst.size() <= 1) return true;
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] <= lst[i-1]){
-            vector<int> temp;
-            bool found = false;
-            for(int j = 0; j < i; j++){
-                if(temp.empty() || temp.back() != lst[j]){
-                    temp.push_back(lst[j]);
-                }else{
-                    found = true;
-                    break;
-                }
-            }
-            if(found) return false;
-        }else{
-            return false;
+    bool sorted = true;
+    vector<int> temp;
+    for(int i = 0; i < lst.size(); i++){
+        if(i == 0 || lst[i] >= lst[i-1]){
+            temp.push_back(lst[i]);
+        } else {
+            sorted = false;
         }
     }
-    return true;
+    return sorted;
 }
