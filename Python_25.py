@@ -1,4 +1,3 @@
-```
 def factorize(n):
     i = 2
     factors = []
@@ -10,11 +9,13 @@ def factorize(n):
             factors.append(str(i))
     if n > 1:
         factors.append(str(n))
-    return ' '.join(factors)
+    return " ".join(factors)
+
 
 def solve():
     n = int(input("Enter a number: "))
     print(factorize(n))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     solve()
