@@ -1,13 +1,22 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
-    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) { 
+bool assertIsSame(std::vector<std::string> a, std::vector<std::string> b) { 
     bool result = compareVectors(a, b);
     if(result) {
         for(auto s : a) {
@@ -37,24 +46,22 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
-    result.push_back({temp});
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    result = {{temp}, (temp == std::string(temp.revers)) ? "True" : "False"};
     return result;
 }
 
-int main() {
+void testMain() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    isSame({ "", "True" }, result);
-    if (!compareVectors({ "", "True" }, result)) {
+    assertIsSame({ "", "True" }, result); 
+    if (!assertIsSame({ "", "True" }, result)) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
     }
+    return;
+}
+
+int main() {
+    testMain();
     return 0;
 }
