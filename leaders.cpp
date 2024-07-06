@@ -1,4 +1,4 @@
-#include <vector>
+#include<vector>
 vector<int> leaders(const vector<int>& v) {
     vector<int> result;
     for (auto i = v.rbegin(); i != v.rend(); ++i) {
