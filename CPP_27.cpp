@@ -6,7 +6,7 @@ string filp_case(string str){
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(isalpha(c)) 
-            result += isupper(c) ? tolower(c) : toupper(c);
+            result += (isupper(c))? tolower(c) : toupper(c);
         else
             result += c;
     }
