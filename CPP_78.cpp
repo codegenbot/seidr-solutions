@@ -1,18 +1,13 @@
 ```cpp
 #include <string>
-#include <cassert>
+using namespace std;
 
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
-        if (!std::isdigit(c) && !std::ispunct(c) && !std::isxdigit(c)) { 
-            count++;
+        if (!std::isdigit(c) && !isxdigit(c)) { 
+            return -1; 
         }
     }
-    return count;
-}
-
-int main() {
-    assert(hex_key("") == 0);
-    return 0;
+    return count + 1; 
 }
