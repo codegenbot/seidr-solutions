@@ -1,4 +1,3 @@
-
 def is_multiply_prime(a):
     if a < 1:
         return False
