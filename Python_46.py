@@ -5,8 +5,7 @@ def fib4(n):
     elif n == 4:
         return 2
     else:
-        a = b = c = d = 0
-        for i in range(5, n+1):
-            e = a + b + c + d
-            a, b, c, d = b, c, d, e
-        return d
+        a, b, c, d = 0, 0, 2, 0
+        for i in range(5, n + 1):
+            a, b, c, d = b, c, d, a + b + c + d
+        return a
