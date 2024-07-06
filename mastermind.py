@@ -1,14 +1,14 @@
 import re
 
 
-def mastermind(code, guess):
+def mastermind():
+    # Prompt the user for the code and guess
+    code = input("Enter the Mastermind code: ")
+    guess = input("Enter your guess: ")
+
     # Initialize variables to keep track of white and black pegs
     white_pegs = 0
     black_pegs = 0
-
-    # Check that the input strings are valid
-    if not re.match("[0-5]{4}", code) or not re.match("[0-5]{4}", guess):
-        return ("Invalid input", "Invalid input")
 
     # Iterate through each character in the code and guess
     for i in range(len(code)):
