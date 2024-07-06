@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     return std::equal(a.begin(), a.end(), b.begin());
 }
