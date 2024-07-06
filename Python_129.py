@@ -1,15 +1,27 @@
-```
-N = int(input("Enter the number of rows in the grid: "))
-M = int(input("Enter the number of columns in the grid: "))
+def minPath(grid, k):
+    n = len(grid)
+    res = []
+    visited = [[False] * n for _ in range(n)]
 
-grid = [[0 for _ in range(M)] for _ in range(N)]
+    def dfs(i, j, path):
+        nonlocal res
+        if i == n-1 and j == n-1:
+            return path
 
-for i in range(N):
-    row = input(f"Enter row {i+1} (space-separated): ").split()
-    for j in range(len(row)):
-        grid[i][j] = int(row[j])
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
+                visited[ni][nj] = True
+                new_path = dfs(ni, nj, path + [grid[ni][nj]])
+                if new_path:
+                    res = min(res, new_path) if not res else res
+                visited[ni][nj] = False
 
-k = int(input("Enter the number of elements to choose: "))
+    for i in range(n):
+        for j in range(n):
+            if not visited[i][j]:
+                visited[i][j] = True
+                dfs(i, j, [grid[i][j]])
+                visited[i][j] = False
 
-min_path = minPath(grid, k)
-print(min_path)
+    return res
