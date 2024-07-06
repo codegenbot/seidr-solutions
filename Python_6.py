@@ -1,10 +1,9 @@
-```Python
+```
 def parse_nested_parens(s):
     while "{}" in s:
         start = s.index("{")
         end = s.index("}")
-        inner_input = input().strip() or "default_input"
-        s = s[:start] + inner_input + s[end+1:]
+        s = s[:start+1] + input().strip() + s[end:].replace("}", "}").replace("{", "{{")
     return s
 
 def main():
