@@ -1,4 +1,3 @@
-```c
 #include <initializer_list>
 #include <vector>
 #include <iostream>
@@ -15,7 +14,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> get_positive(const std::vector<float>& l, const std::vector<float>& v) {
+std::vector<float> get_positive(std::vector<float>& l, std::vector<float>& v) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -33,11 +32,13 @@ std::vector<float> get_positive(const std::vector<float>& l, const std::vector<f
 int main() {
     std::vector<float> vec1 = {1, 2, 3}; 
     std::vector<float> vec2 = {-4, -5, 6};
-    if (issame(vec1,vec2)) {
-        std::cout << "Vectors are same.\n";
-    } else {
+    
+    if (!issame(vec1,vec2)) {
         std::cout << "Vectors are not same.\n";
+    } else {
+        std::cout << "Vectors are same.\n";
     }
+    
     std::cout << "Only positive numbers are: ";
     for (float num : get_positive(vec1,vec2)) {
         std::cout << num << " ";
