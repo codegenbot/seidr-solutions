@@ -1,8 +1,7 @@
-```
 #include <iostream>
 #include <map>
-#include <set>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -10,7 +9,7 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    set<char> letters(test.begin(), test.end());
+    vector<char> letters(test.begin(), test.end());
     for (char c : letters) {
         int count = 0;
         size_t pos = 0;
