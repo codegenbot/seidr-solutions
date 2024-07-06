@@ -1,33 +1,33 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = 0;
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i];
-        } else if (operator_[i] == "-") {
-            result -= operand[i];
-        } else if (operator_[i] == "*") {
-            int temp = 0;
-            for (int j = i; j < operand.size(); j++) {
-                temp += operand[j];
-                if (j == i) continue;
-                if (operator_[j - i] == "+") result += temp;
-                else if (operator_[j - i] == "-") result -= temp;
-                else if (operator_[j - i] == "*") result *= temp;
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<string>
+using namespace std;
+#include<algorithm>
+#include<stdlib.h>
+
+int do_algebra(vector<string> operato, vector<int> operand) {
+    int result = operand[0];
+    for(int i = 0; i < operato.size(); i++) {
+        if(operato[i] == "+") {
+            result += operand[i+1];
+        } else if(operato[i] == "-") {
+            result -= operand[i+1];
+        } else if(operato[i] == "*") {
+            int temp = 1;
+            for(int j = i+1; j <= i+1; j++) {
+                temp *= operand[j];
             }
-        } else if (operator_[i] == "///") {
-            int temp = operand[i];
-            for (int j = i + 1; j < operand.size(); j++) {
-                temp /= operand[j];
-                if (operator_[j - i] == "+") result += temp;
-                else if (operator_[j - i] == "-") result -= temp;
+            result *= temp;
+        } else if(operato[i] == "//") {
+            int temp = operand[i+1] / (int)ceil((double)operand[i]/operand[i+1]);
+            result /= temp;
+        } else if(operato[i] == "**") {
+            int temp = 1;
+            for(int j = i+1; j <= i+1; j++) {
+                temp = pow(operand[j],temp);
             }
-        } else if (operator_[i] == "**") {
-            int base = operand[i];
-            for (int j = i + 1; j < operand.size(); j++) {
-                base = pow(base, operand[j]);
-                if (operator_[j - i] == "+") result += base;
-                else if (operator_[j - i] == "-") result -= base;
-            }
+            result = (int)pow(result,temp);
         }
     }
     return result;
