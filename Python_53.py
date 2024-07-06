@@ -10,7 +10,6 @@ while True:
         num1_str = input("Enter first number (or 'q' to quit): ")
         
         if num1_str.lower() == 'q':
-            print("Program terminated.")
             break
         
         while True:
@@ -22,15 +21,20 @@ while True:
                 num1_str = input("Enter first number (or 'q' to quit): ")
         
         if num1_str.lower() == 'q':
-            print("Program terminated.")
             break
+
+        num2_str = input("Enter second number: ")
         
+        if num2_str.lower() == 'q':
+            break
+
         while True:
             try:
-                num2 = int(input("Enter second number: "))
+                num2 = int(num2_str)
                 break
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
+                num2_str = input("Enter second number: ")
 
         print(add(num1, num2))
     except ValueError:
