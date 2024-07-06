@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 #include <cassert>
@@ -21,6 +20,5 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    int result = check_dict_case({{"test", "Test"}}); 
     return 0;
 }

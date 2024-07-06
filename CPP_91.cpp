@@ -1,16 +1,12 @@
-```cpp
+```
+#include <string>
 int is_bored(std::string S){
     int count = 0;
+    std::istringstream iss(S);
     std::string word;
-    for(size_t i = 0; i < S.size(); ++i) {
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!') {
-            if(word.size() && (word[0] == 'I' || !word.empty()))
-                ++count;
-            word.clear();
-        } else {
-            word += S[i];
-        }
+
+    while(getline(iss, word, ' ')) {
+        if(word.size() > 0 && word[0] == 'I')
+            ++count;
     }
-    if(word.size() && (word[0] == 'I' || !word.empty()))
-        ++count;
     return count;
