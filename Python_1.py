@@ -1,3 +1,4 @@
+```
 def balance_groups(s):
     s = s.strip()
     stack = []
@@ -19,3 +20,6 @@ def balance_groups(s):
     if stack:  
         result.append("(" + "".join(stack) + ")")
     return result
+
+input_str = input()
+print(balance_groups(input_str))
