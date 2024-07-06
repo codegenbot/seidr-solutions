@@ -18,4 +18,3 @@ string anti_shuffle(string s) {
         pos = nextSpace + 1;
     }
     return result;
-}
