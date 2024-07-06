@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num >= 0 && int(num) == num) { 
@@ -15,8 +15,8 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.5, 3.0, -4.0, 7.0};
+    std::vector<float> lst = {1.5, 3.0, -1.0, 4.5};
     long long result = double_the_difference(lst);
-    cout << "The result is: " << result << endl;
+    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
