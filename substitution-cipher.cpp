@@ -10,4 +10,3 @@ std::string decode(std::string cipher, std::string mapping) {
         }
     }
     return result;
-}
