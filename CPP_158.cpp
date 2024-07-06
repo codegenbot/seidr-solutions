@@ -1,8 +1,4 @@
 ```cpp
-#include <algorithm>
-#include <vector>
-#include <string>
-
 std::string find_max(std::vector<std::string> words){
     std::string max_word = *min_element(words.begin(), words.end());
     for(std::string word : words){
