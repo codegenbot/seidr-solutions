@@ -10,6 +10,4 @@ def factorize(n: int) -> List[int]:
             n //= i
     if n > 1:
         factors.append(n)
-    from collections import Counter
-
-    return [factor**count for factor, count in Counter(factors).items()]
+    return [factor ** factors.count(factor) for factor in set(factors)]
