@@ -1,4 +1,3 @@
-
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     if not s:  # If the input string is empty, return an empty string
