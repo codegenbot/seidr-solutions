@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string solve(std::string s){
     std::string result = "";
@@ -11,9 +12,4 @@ std::string solve(std::string s){
         }
     }
     return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos) ? std::reverse(result) : result;
-}
-
-int main(){
-    // your code here
-    return 0;
 }
