@@ -1,7 +1,7 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr) {
     int n = arr.size();
     string str = "";
     for (int i : arr)
@@ -15,8 +15,4 @@ int smallest_change(std::vector<int> arr) {
             ++left, --right;
     }
     return changes;
-
-int main() {
-    assert(smallest_change({0, 1}) == 1);
-    return 0;
 }
