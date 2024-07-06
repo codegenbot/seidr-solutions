@@ -1,34 +1,34 @@
-```cpp
+#include <iostream>
 #include <string>
-#include <vector>
 
-string words_in_sentence(string sentence){
-    string result = "";
-    for (const auto& word : split(sentence, " ")) {
-        if(is_prime(word.length())){
-            result += word + " ";
-        }
-    }
-    return result;
-}
-
-vector<string> split(const string& s, const string& delimiter) {
-    vector<string> result;
-    size_t pos = 0;
-    while ((pos = s.find(delimiter)) != string::npos) {
-        result.push_back(s.substr(0, pos));
-        s.erase(0, pos + delimiter.length());
-    }
-    result.push_back(s);
-    return result;
-}
-
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
+bool isPrime(int n) {
+    if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
+        if (n % i == 0) return false;
     }
     return true;
+}
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    int i = 0;
+    while(i < sentence.size()){
+        int len = 0;
+        for(int j=i; j<sentence.size() && isalpha(sentence[j]); j++) {
+            len++;
+            i = j;
+        }
+        if(len > 0) {
+            if(isPrime(len)) result += (sentence.substr(i, len) + " ");
+        }
+        else i++;
+    }
+    return result;
+}
+
+int main(){
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    std::cout << words_in_sentence(sentence) << "\n";
 }
