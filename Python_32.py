@@ -1,8 +1,8 @@
-print("Enter 'a', 'b', 'c': ")
+print("Enter 'a': ")
 a = float(input())
 
 while True:
-    print("Enter non-zero values for 'b' and 'c': ")
+    print("Enter 'b', 'c': ")
     b = float(input())
     c = float(input())
 
