@@ -1,7 +1,7 @@
+```
 def double_the_difference(lst):
     lst.sort()
-    min_val = (lst[0] + lst[1]) * 2
-    return min_val
+    result = (lst[-1] - lst[0]) * 2
+    return result
 
-
-print(double_the_difference([1, 2, -3, 4]))
+print(double_the_difference([1, 2, -3]))
