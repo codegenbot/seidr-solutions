@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -51,13 +52,13 @@ int main() {
     if(issame(a, b)) {
         std::cout << "The lists are the same." << std::endl;
     } else {
-        std::vector<string> a_sorted = sorted_list_sum(a);
-        std::vector<string> b_sorted = sorted_list_sum(b);
+        vector<string> sum_a = sorted_list_sum(a);
+        vector<string> sum_b = sorted_list_sum(b);
 
-        if (a_sorted == b_sorted) {
-            std::cout << "The lists are the same after sorting and summing character values." << std::endl;
+        if(sum_a == sum_b) {
+            std::cout << "The lists are the same." << std::endl;
         } else {
-            std::cout << "The lists are not the same after sorting and summing character values." << std::endl;
+            std::cout << "The lists are not the same." << std::endl;
         }
     }
     
