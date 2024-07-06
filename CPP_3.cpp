@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -21,5 +20,3 @@ bool below_zero(std::vector<std::string> operations) {
         if (balance < 0) return true;
     }
     return false;
-
-}
