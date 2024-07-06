@@ -1,4 +1,3 @@
 
 def words_string(s):
-    s = re.sub(" +", " ", s)
-    return s.split()
+     return s.replace(r"\s+", " ").split()
