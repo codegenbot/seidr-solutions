@@ -7,6 +7,6 @@ def skjkasdkd(lst):
             if n % i == 0:
                 return False
         return True
-    
-    max_prime = max((i for i in lst if is_prime(i)), default=0)
+
+    max_prime = max([i for i in lst if is_prime(i)])
     return sum(int(digit) for digit in str(max_prime))
