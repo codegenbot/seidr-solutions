@@ -13,7 +13,7 @@ int prod_signs(std::vector<int> arr) {
     }
 
     if (arr.empty()) {
-        return 0; // Corrected from -32768 to 0
+        return -32768;
     }
 
     return product * sum;
