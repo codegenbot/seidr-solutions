@@ -15,3 +15,4 @@ string intToMiniRoman(int number) {
     }
     
     return result;
+}
