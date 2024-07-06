@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -17,11 +18,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter your string: ";
-    std::getline(std::cin, str);
-    auto prefixes = all_prefixes(str);
-    for(auto prefix : prefixes) 
-        std::cout << prefix << " ";
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
