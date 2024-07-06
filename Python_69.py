@@ -1,12 +1,13 @@
 ```
 def search(lst):
     frequency_dict = {}
-    for i in lst:
-        if i in frequency_dict:
-            frequency_dict[i] += 1
+    for num in lst:
+        if num not in frequency_dict:
+            frequency_dict[num] = 1
         else:
-            frequency_dict[i] = 1
-    for num, freq in frequency_dict.items():
-        if num > 0 and freq >= num:
-            return num
+            frequency_dict[num] += 1
+    
+    for key, value in frequency_dict.items():
+        if key > 0 and value >= key:
+            return key
     return -1
