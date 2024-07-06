@@ -1,11 +1,11 @@
-input_type = input(
-    "What type of {} would you like to count? (strings or integers) ".format(
-        input_type.capitalize()
-    )
-).lower()
-strings = input(
-    "Please enter a list of {} (separated by any character): ".format(input_type)
-).strip()
+```
+strings = ""
+while True:
+    user_input = input("Please enter a string or 'stop' to finish: ")
+    if user_input.lower() == 'stop':
+        break
+    strings += user_input + " "
+
 if not strings or strings.isspace():
     print("No input provided.")
 else:
