@@ -3,5 +3,5 @@ def eat(number, need, remaining):
     if need <= remaining:
         left = max(remaining - need, 0)
     else:
-        left = 0
+        return []
     return [total, left]
