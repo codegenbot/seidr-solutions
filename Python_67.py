@@ -1,5 +1,4 @@
-def fruit_distribution(s):
-    # use regular expressions to extract numbers from the input string
+def fruit_distribution(s, total):
     apples = int(re.search(r"\d+", s).group())
     oranges = int(re.search(r"\d+", s).group())
-    return apples + oranges
+    return apples + oranges + total
