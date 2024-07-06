@@ -1,9 +1,6 @@
 #include <boost/any.hpp>
 #include <algorithm>
 #include <string>
-#include <iostream>
-
-using boost::any_cast;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
@@ -30,5 +27,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string sa = any_cast<std::string>(a);
         return std::stod(sa) > db ? a : b;
     }
-    return boost::any("None");
-}
+    return boost::any();
