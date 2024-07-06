@@ -1,18 +1,25 @@
-import re
-
-
 def solve_boolean(expression):
-    # Use regular expressions to parse the expression and evaluate it
-    result = re.match(r"^(?P<left>.*?)(\||\&)(?P<right>.*)$", expression)
-    if result:
-        left, right = result.groups()
-        return solve_boolean(left) | solve_boolean(right)
-    elif expression == "t":
-        return True
-    else:
-        return False
-
-
-# Prompt user for input and pass it to the function
-user_input = input("Enter a Boolean expression: ")
-solve_boolean(user_input)
+    # Use a stack to evaluate the expression
+    stack = []
+    for char in expression:
+        if char == "T":
+            stack.append(True)
+        elif char == "F":
+            stack.append(False)
+        elif char == "|":
+            # Evaluate all previous elements using OR
+            result = False
+            while len(stack) > 0:
+                a = stack.pop()
+                b = stack.pop()
+                result |= a or b
+            stack.append(result)
+        elif char == "&":
+            # Evaluate all previous elements using AND
+            result = True
+            while len(stack) > 0:
+                a = stack.pop()
+                b = stack.pop()
+                result &= a and b
+            stack.append(result)
+    return stack[-1]
