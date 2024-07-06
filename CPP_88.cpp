@@ -7,10 +7,13 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
-    int sum = array[0] + array.back();
+    int sum = 0;
+    for (int num : array)
+        sum += num;
+
     if (sum % 2 == 1)
         return array;
     else
-        std::reverse(array.begin(), array.end());
+        std::sort(array.rbegin(), array.rend());
     return array;
 }
