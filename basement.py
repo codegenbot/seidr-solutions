@@ -1,8 +1,8 @@
 ```
 def basement(vector):
-    cum_sum = 0
+    acc = 0
     for i in range(len(vector)):
-        cum_sum += vector[i]
-        if cum_sum < 0:
-            return i+1
+        if acc < 0:
+            return i
+        acc += vector[i]
     return -1
