@@ -5,9 +5,9 @@
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        int integer_value = boost::any_cast<int>(value);
-        if (integer_value == 0) continue;
-        result.push_back(integer_value);
+        int val = boost::any_cast<int>(value);
+        if (val == 0) continue;
+        result.push_back(val);
     }
     return result;
 }
