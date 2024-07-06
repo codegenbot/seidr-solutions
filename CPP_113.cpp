@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,7 +12,7 @@ bool issame(vector<string> a,vector<string> b){
 }
 
 std::vector<std::string> odd_count(std::vector<std::string> lst) {
-    std::vector<std::string> result; 
+    std::vector<std::string> result;  
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
@@ -20,15 +20,13 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
                 count++;
             }
         }
-        result.push_back("the number of odd elements " + std::to_string(count) + " in the str" + std::to_string(i+1) + " of the input.");
+        result.push_back("the number of odd elements " + std::to_string(count) + " in the str" + std::to_string(i+1)); 
     }
     return result;
 }
 
 int main() {
     vector<string> test = {"271", "137", "314"};
-    assert(issame(odd_count(test), {"the number of odd elements 2 in the str1 of the input.", 
-                                 "the number of odd elements 1 in the str2 of the input.", 
-                                 "the number of odd elements 0 in the str3 of the input."}));
+    assert(issame(odd_count(test), {"the number of odd elements 2 in the str1", "the number of odd elements 1 in the str2", "the number of odd elements 0 in the str3"}));
     return 0;
 }
