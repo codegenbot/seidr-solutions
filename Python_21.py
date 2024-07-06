@@ -15,3 +15,31 @@ print(result)
 if len(numbers) < 2:
     print(f"Error: At least two numbers are required")
     exit(1)
+
+while True:
+    input_str = input("Enter space-separated or comma-separated numbers: ")
+    if not input_str.strip():
+        print("Error: No input provided")
+        continue
+
+    numbers = [float(x.strip()) for x in input_str.replace(",", " ").split()]
+    if any(not isinstance(num, (int, float)) or num < 0.0 for num in numbers):
+        raise ValueError("Input list must contain only positive numbers")
+
+    min_val = min(numbers)
+    max_val = max(numbers)
+    result = [(x - min_val) / (max_val - min_val) for x in numbers]
+    print(result)
+
+    if len(numbers) < 2:
+        print(f"Error: At least two numbers are required")
+        exit(1)
+
+    while True:
+        try:
+            new_input = input("Press Enter to run again or 'q' to quit: ")
+            if new_input.lower() == "q":
+                exit()
+            break
+        except ValueError as e:
+            print(f"Error: {e}")
