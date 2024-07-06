@@ -1,5 +1,4 @@
-Here is the corrected Python function:
-
+```
 def decode_shift(s: str):
     result = ""
     for ch in s:
