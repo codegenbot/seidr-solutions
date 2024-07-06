@@ -1,5 +1,5 @@
-```
-print("""Enter 'a', 'b', 'c': """)
+```Python
+print("Enter 'a', 'b', 'c': ")
 a = float(input())
 
 while True:
@@ -11,12 +11,12 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a number.")
 
-print("""Enter non-zero values for 'b' and 'c': """)
-b = float(input())
-c = float(input())
-
+print("Enter non-zero values for 'b' and 'c': ")
 while True:
     try:
+        b = float(input())
+        c = float(input())
+
         if b == 0 or c == 0:
             print("Please enter non-zero values.")
         elif b**2 - 4 * a * c < 0:

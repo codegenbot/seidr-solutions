@@ -1,5 +1,5 @@
 ```
-def calculate_average_grade() -> float:
+def average_grade() -> float:
     grades = []
     while True:
         try:
@@ -16,4 +16,7 @@ def calculate_average_grade() -> float:
     average = total / len(grades)
     return round(average, 2)
 
-print(calculate_average_grade())
+print("Please enter your name: ")
+name = input()
+print(f"Hi {name}, please enter your grades: ")
+print(average_grade())
