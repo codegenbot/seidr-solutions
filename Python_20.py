@@ -1,6 +1,14 @@
+```
 def find_closest_elements():
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    diff = abs(num2 - num1)
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+    closest = abs(num1 - num2)
+    
+    if num1 > num2:
+        num2 += closest
+    else:
+        num1 += closest
+    
+    return (num1, num2)
 
-    return f"The closest numbers are {num1} and {num2}, which differ by {diff}."
+print(find_closest_elements())
