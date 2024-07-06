@@ -1,3 +1,4 @@
+
 def encode(message):
     encoded = ""
     for char in message:
