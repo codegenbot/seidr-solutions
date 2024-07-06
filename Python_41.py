@@ -1,3 +1,4 @@
+```
 from functools import reduce
 import operator
 
@@ -23,3 +24,6 @@ def car_race_collision():
     return str(total_damage)
 
 print(car_race_collision())
+
+while True:
+    print(car_race_collision())
