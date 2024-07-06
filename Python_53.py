@@ -1,9 +1,4 @@
-
-def add(x: int or float, y: int or float):
-    # Check if inputs are valid
-    if not (isinstance(x, int) and isinstance(y, int)):
-        raise ValueError("Inputs must be integers")
-    if x + y > sys.maxsize:
-        raise OverflowError()
-
+def add(x: float, y: float) -> float:
+    x = float(input("Enter a number for x: "))
+    y = float(input("Enter a number for y: "))
     return x + y
