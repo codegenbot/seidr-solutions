@@ -1,13 +1,8 @@
-````
-#include <string>
+#include <iostream>
 #include <cctype>
-
-std::string flip_case(std::string str);
+#include <string>
 
 std::string flip_case(std::string str){
-    if(str.empty()){
-        throw runtime_error("Error: Input string is empty!");
-    }
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z')
@@ -18,6 +13,7 @@ std::string flip_case(std::string str){
     return result;
 }
 
-int main() {
+int main(){
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
-```
