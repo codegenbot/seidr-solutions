@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -25,7 +24,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    // Use the total_match function
     assert(issame(total_match({"this"}, {}), {}));
     return 0;
 }
