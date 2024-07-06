@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,11 +9,8 @@ vector<string> bf(string planet1, string planet2) {
     if (planet1 != planet2 && find(planets.begin(), planets.end(), planet1) != planets.end() && 
         find(planets.begin(), planets.end(), planet2) != planets.end()) {
         
-        auto it1 = find(planets.begin(), planets.end(), planet1);
-        auto it2 = find(planets.begin(), planets.end(), planet2);
-
-        int index1 = distance(planets.begin(), it1);
-        int index2 = distance(planets.begin(), it2);
+        auto index1 = distance(planets.begin(), find(planets.begin(), plants.end(), planet1));
+        auto index2 = distance(planets.begin(), find(planets.begin(), planets.end(), planet2));
 
         if (index1 < index2) {
             vector<string> result;
@@ -56,4 +52,5 @@ int main() {
     } else {
         cout << "Invalid input" << endl;
     }
+    return 0;
 }
