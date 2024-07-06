@@ -1,10 +1,9 @@
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
-using namespace std;
-
-pair<int, int> pluck(vector<int> arr) {
-    pair<int, int> result;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
+    
     if(arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -17,17 +16,16 @@ pair<int, int> pluck(vector<int> arr) {
         }
     }
 
-    result.first = minEven;
-    result.second = minIndex;
+    result.push_back({minEven, minIndex});
 
     return result;
 }
 
 int main() {
-    vector<int> v1 = {12, 4, 6};
-    pair<int, int> p = pluck(v1);
-
-    cout << "Min even element: " << p.first << ", Index: " << p.second << endl;
-
+    std::vector<int> array = {1, 3, 5, 2, 6, 4};
+    auto pairs = pluck(array);
+    for(auto& pair : pairs) {
+        std::cout << "Pair: (" << pair.first << ", " << pair.second << ")" << std::endl;
+    }
     return 0;
 }
