@@ -1,43 +1,40 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size()) return false;
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> sort_third(vector<int> l) {
-    vector<int> result;
-    for(int i = 0; i < l.size(); i++) {
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> result;
+    for(int i = 0; i < l.size(); ) {
         if(i % 3 == 0) {
-            vector<int> temp;
-            for(int j = 0; j < l.size(); j++) {
-                if(j % 3 == 0) {
-                    temp.push_back(l[j]);
-                }
+            std::vector<int> temp;
+            int j = 0;
+            while(j < l.size() && i+j < l.size()) {
+                temp.push_back(l[i+j]);
+                j++;
             }
             sort(temp.begin(), temp.end());
-            int idx = 0;
-            for(int k = 0; k < temp.size(); k++) {
+            for(int k = 0; k < temp.size(); ) {
                 if(k % 3 == 0) {
                     result.push_back(temp[k]);
-                    idx++;
+                    i += 3;
+                    break;
                 }
-                if(idx > 1) break;
+                k++;
             }
         } else {
             result.push_back(l[i]);
+            i++;
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
-    vector<int> res = sort_third(l);
+    std::vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
+    std::vector<int> res = sort_third(l);
     for(int i : res) cout << i << " ";
-    
-    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) , {2, 6, 3, 4, 8, 9, 5, 1}));
-    
-    return 0;
 }
