@@ -1,5 +1,6 @@
 Here is the modified code:
 
+```
 def decode_shift(s: str):
     result = ""
     for ch in s:
