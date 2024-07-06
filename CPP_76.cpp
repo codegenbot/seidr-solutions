@@ -1,7 +1,6 @@
-Here's the completed code:
+Here is the solution:
 
 bool is_simple_power(int x, int n) {
-    if (x <= 0) return false; // x should be positive
-    double root = pow(n, 1.0);
-    return round(root) == x;
+    double y = pow(n, round(log(x)/log(n)));
+    return y == x;
 }
