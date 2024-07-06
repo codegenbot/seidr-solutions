@@ -1,41 +1,37 @@
 #include <vector>
-#include <string>
+#include <set>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
+    
+    // Create a set of characters in c for faster lookup
+    set<char> c_set(c.begin(), c.end());
+    
+    // Initialize an empty string to store the result
     string temp = "";
+    
+    // Iterate over each character in s
     for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+        // If the character is not in c, add it to the temporary string
+        if (!c_set.count(ch)) {
             temp += ch;
         }
     }
+    
+    // Check if the temporary string is a palindrome
+    bool is_palindrome = false;
+    string rev_temp = temp;
+    reverse(rev_temp.begin(), rev_rev_temp.end());
+    is_palindrome = (temp == rev_temp);
+    
+    // Add the result and palindrome check to the vector
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    result.push_back((is_palindrome ? "True" : "False"));
+    
     return result;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
-    return 0;
 }
