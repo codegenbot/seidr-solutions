@@ -1,9 +1,12 @@
-Here is the completed Python code:
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        return None
-    a = xs[-1]
-    for i in range(len(xs) // 2):
-        b = -xs[2 * i + 1] / (a * (2 * i + 1))
-    return round(-b, 2)
+    n = len(xs)
+    assert n % 2 == 0
+    max_coeff_idx = xs.index(max(filter(None, xs)))
+    return -xs[max_coeff_idx - 1] / xs[max_coeff_idx]
