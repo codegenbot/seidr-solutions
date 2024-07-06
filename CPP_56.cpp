@@ -1,9 +1,9 @@
 #include <string>
 using namespace std;
 
-bool correct_bracketing(string brackets) {
+bool correct_bracketing(const string& brackets) {
     int count_open = 0;
-    for (char c : brackets) {
+    for (char c : brackets) { 
         if (c == '<') {
             count_open++;
         } else if (c == '>') {
@@ -16,7 +16,6 @@ bool correct_bracketing(string brackets) {
 }
 
 int main() {
-    string s = "<><><<><>><>>><>";
-    assert(not correct_bracketing(s));
+    assert(!correct_bracketing("<<><><>><>>><>"));
     return 0;
 }
