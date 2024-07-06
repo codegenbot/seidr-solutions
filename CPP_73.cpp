@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,7 +10,7 @@ int smallest_change(std::vector<int> arr) {
             if (i == j)
                 dp[i][j] = arr[i];
             else
-                dp[j][i] = std::abs(arr[i] - arr[j]) + ((j+1) < n ? (dp[(j+1)][(i-1)] > 0 ? 1 : dp[(j+1)][(i-1)]) : 0);
+                dp[j][i] = std::abs(arr[i] - arr[j]) + (dp[(j+1)][(i-1)] > 0 ? 1 : dp[(j+1)][(i-1)]);
         }
     }
     
@@ -20,10 +19,18 @@ int smallest_change(std::vector<int> arr) {
 
 int main() {
     int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
+
     std::vector<int> arr(n);
+
     for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
     }
-    std::cout << smallest_change(arr) << std::endl;
+
+    int res = smallest_change(arr);
+    std::cout << "Smallest change is: " << res << std::endl;
+
+    return 0;
 }
