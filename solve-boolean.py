@@ -16,12 +16,12 @@ def solve_boolean(expression):
             start = 0
             end = 0
             for i in range(len(expression[end:])):
-                if expression[i + end]. == '&':
+                if expression[i + end].get == '&':
                     end = i
                 elif expression[i + end] == '|':
                     start = i
                     break
-            result &= all(bool_map.get(p, p) != 'F' for p in expression[end:end + start].split('|'))
+                result &= all(bool_map.get(p, p) != 'F' for p in expression[end:end + start].split('|'))
         expression = expression[end + start:]
     
     return all(bool_map.get(p, p) != 'F' for p in expression.split('|'))
