@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -11,14 +10,15 @@ std::vector<int> make_a_pile(int n) {
     int stones = 1;
     for (int i = 0; i < n; i++) {
         pile.push_back(stones);
-        if ((i + 1) % 2 == 0)
+        if (i % 2 != 0) {
+            stones++;
+        } else {
             stones += 2;
-        else
-            stones += 1;
+        }
     }
     return pile;
 }
 
 int main() {
-    assert(make_a_pile(8) == vector<int>({1,3,5,7,9,11,13,15}));
+    assert(issame(make_a_pile(8), std::vector<int>{1,3,5,7,9,11,13,15}));
 }
