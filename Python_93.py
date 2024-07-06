@@ -4,14 +4,33 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
+                mapping = {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}
                 if char.isupper():
-                    result += {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}["a" if char.lower() == "a" else "e" if char.lower() == "e" else "i" if char.lower() == "i" else "o" if char.lower() == "o" else "u"].upper()
+                    result += mapping[char.lower()].upper()
                 else:
-                    result += {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}["a" if char.lower() == "a" else "e" if char.lower() == "e" else "i" if char.lower() == "i" else "o" if char.lower() == "o" else "u"]
-            elif char.isalnum():
-                result += "dQnT" if (char.lower() in "re" or char.lower() == "to") else "gYkS" if (char.lower() == "ro" or char.lower() == "te") else ("sWnT" if char.lower() == "se" else char.swapcase())
+                    result += mapping[char.lower()]
+            elif char.lower() == "re" or char.lower() == "ro" or char.lower() == "te":
+                mapping = {"re": "gYkS", "ro": "gYkS", "te": "sWnT"}
+                if char.isupper():
+                    result += mapping[char.lower()].upper()
+                else:
+                    result += mapping[char.lower()]
+            elif char.lower() == "se":
+                mapping = {"se": "sWnT"}
+                if char.isupper():
+                    result += mapping[char.lower()].upper()
+                else:
+                    result += mapping[char.lower()]
             else:
-                result += char
-        else:
+                if char.isupper():
+                    result += char.swapcase().upper()
+                else:
+                    result += char.swapcase()
+        elif char.isalnum():  
+            if char.isupper():
+                result += char.swapcase().upper()
+            else:
+                result += char.swapcase()
+        else:  
             result += char
     return result
