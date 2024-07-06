@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
@@ -11,8 +10,8 @@ int main() {
         cin >> vec[i];
     }
     vector<vector<int>> res = cutVector(vec);
-    cout << "[" << join(res[0], " ") << "] [" << '[' << to_string(res[1].size()) << '] ' << join(res[1], " ") << "]"
-         << endl;
+    cout << "[" << join(" ", vector<string>(res[0].begin(), res[0].end())) << "] [" 
+         << "[" << to_string(res[1].size()) << "] " << join(" ", vector<string>(res[1].begin(), res[1].end())) << "]" << endl;
     return 0;
 }
 
@@ -29,13 +28,10 @@ vector<vector<int>> cutVector(vector<int> vec) {
     return res;
 }
 
-string join(const vector<int>& v, const string& sep) {
-    string result = "";
-    for (int i : v) {
-        result += to_string(i) + sep;
+string join(const string& sep, const vector<string>& parts) {
+    ostringstream oss;
+    for (const auto& part : parts) {
+        oss << part << (parts.back() ? sep : "");
     }
-    if (!result.empty()) {
-        result.pop_back();  // Remove the last separator
-    }
-    return result;
+    return oss.str();
 }
