@@ -1,9 +1,7 @@
 def histogram():
-    test = input("Enter a string: ")
-    if not test:
-        return {}
+    text = input("Enter a string: ")
     counts = {}
-    for letter in test.lower().split():
+    for letter in text.lower().split():
         if letter in counts:
             counts[letter] += 1
         else:
