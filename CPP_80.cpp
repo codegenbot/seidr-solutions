@@ -1,19 +1,18 @@
-bool is_happy(string s){
-    if(s.length() < 3)
-        return false;
+#include <string>
+using namespace std;
 
-    for(int i = 0; i <= s.length() - 3; i++){
+bool is_happy(string s) {
+    if (s.length() < 3) return false;
+    for (int i = 0; i < s.length() - 2; i++) {
         string three_chars = s.substr(i, 3);
-        bool unique = true;
-        for(char c : three_chars){
-            if(find(three_chars.begin(), three_chars.end(), c) != three_chars.end()){
-                unique = false;
+        bool duplicate_found = false;
+        for (int j = i + 1; j <= i + 2; j++) {
+            if (s[j] == three_chars[0] || s[j] == three_chars[1] || s[j] == three_chars[2]) {
+                duplicate_found = true;
                 break;
             }
         }
-        if(unique)
-            return true;
+        if (!duplicate_found) return false;
     }
-
-    return false;
+    return true;
 }
