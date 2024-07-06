@@ -1,2 +1,2 @@
 def by_length(arr):
-    return sorted([str(x) for x in arr], key=lambda x: (len(x), x))
+    return [str(x) for x in sorted(arr, key=lambda x: str(len(x)))]
