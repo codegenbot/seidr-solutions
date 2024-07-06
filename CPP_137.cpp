@@ -1,6 +1,6 @@
-```
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
@@ -37,4 +37,22 @@ boost::any compare_one(boost::any a, boost::any b) {
         return boost::any("None");
     }
     return a > b ? a : b;
+}
+
+int main() {
+    int a = 10;
+    double b = 20.5;
+    std::string c = "hello";
+    boost::any result = compare_one(boost::any(a), boost::any(b));
+    if(result.type() == typeid(int)) {
+        std::cout << "The result is an integer: " << boost::any_cast<int>(result) << std::endl;
+    }
+    else if (result.type() == typeid(double)) {
+        std::cout << "The result is a double: " << boost::any_cast<double>(result) << std::endl;
+    }
+    else {
+        std::cout << "The result is None" << std::endl;
+    }
+    
+    return 0;
 }
