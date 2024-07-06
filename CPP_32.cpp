@@ -14,7 +14,7 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    double left = 1e9, right = -1e9; // Initialize the range
+    double left = 1e9, right = -1e9; 
     for(int i = 0; i < xs.size(); i++){
         if(i % 2 == 0) {
             right = min(right, (double)-xs[i]/xs[i+1]);
@@ -30,5 +30,5 @@ double find_zero(vector<double> xs){
         }
         ans = (left + right)/2;
     }
-    return round(ans, 2);
+    return std::round((double)ans * 100.0) / 100.0;
 }
