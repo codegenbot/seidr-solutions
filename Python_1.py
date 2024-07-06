@@ -16,6 +16,6 @@ for char in s:
                 group = ""
     else:
         group += char
-if stack:
-    result.append(group)
+if stack:  
+    result.append("(" + "".join(stack) + ")")
 print(result)
