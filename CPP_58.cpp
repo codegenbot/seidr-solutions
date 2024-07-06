@@ -1,9 +1,8 @@
 #include <set>
 #include <algorithm>
 
-bool issame(int x) {
-    // Code for the function goes here
-    return true;
+bool issame(int x1, int x2) {
+    return x1 == x2;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -19,30 +18,37 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    // Read input from user
-    int n;
-    cin >> n;
+    int n1, m1;
+    cout << "Enter the number of elements in list 1: ";
+    cin >> n1;
 
-    // Generate input arrays l1 and l2
-    vector<int> l1(n);
-    for (int i = 0; i < n; ++i) {
+    vector<int> l1(n1);
+    for (int i = 0; i < n1; i++) {
+        cout << "Enter element " << i+1 << ": ";
         cin >> l1[i];
     }
 
-    vector<int> l2(n);
-    for (int i = 0; i < n; ++i) {
+    int n2, m2;
+    cout << "Enter the number of elements in list 2: ";
+    cin >> n2;
+
+    vector<int> l2(n2);
+    for (int i = 0; i < n2; i++) {
+        cout << "Enter element " << i+1 << ": ";
         cin >> l2[i];
     }
 
-    // Call the function
     vector<int> result = common(l1, l2);
 
-    // Output result
-    cout << "Common elements: ";
-    for (int x : result) {
-        cout << x << " ";
+    if(result.size() == 0) {
+        cout << "The lists have no elements in common." << endl;
+    } else {
+        cout << "Common elements: ";
+        for (int i : result) {
+            cout << i << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
 
     return 0;
 }

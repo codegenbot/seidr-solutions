@@ -33,8 +33,7 @@ int main() {
     std::vector<float> input;
     while (true) {
         float num;
-        std::cin >> num;
-        if (!std::cin) break;
+        if (!(cin >> num)) break;
         input.push_back(num);
     }
     

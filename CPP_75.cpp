@@ -1,22 +1,21 @@
-int count = 0;
-for (int i = 2; i <= a; i++) {
-    if (isPrime(i)) {
-        for (int j = i; j <= a / i; j++) {
-            if (isPrime(j) && i * j == a) {
+bool is_multiply_prime(int a) {
+    for (int i = 2; i <= 100; ++i) {
+        int product = 1;
+        for (int j = 2; j <= 100; ++j) {
+            if (isPrime(i) && isPrime(j) && isPrime(a / (i * j))) {
                 return true;
             }
         }
     }
+    return false;
 }
 
-return false;
-
-bool isPrime(int num) {
-    if (num <= 1) {
+bool isPrime(int n) {
+    if (n <= 1) {
         return false;
     }
-    for (int i = 2; i*i <= num; i++) {
-        if (num % i == 0) {
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) {
             return false;
         }
     }
