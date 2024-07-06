@@ -19,4 +19,3 @@ std::string anti_shuffle(std::string s){
         }
     }
     return result;
-}
