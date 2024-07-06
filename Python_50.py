@@ -1,3 +1,4 @@
+```
 def decode_shift():
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
@@ -21,6 +22,11 @@ def decode_shift():
                 result += chr((ord(ch) - ascii_offset + 3) % 26 + ascii_offset)
             else:
                 result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
-        else:
+        elif not ch.isalpha():
             result += ch
-    return result if is_encoding else "Decoded string: " + result
+        else:
+            if is_encoding:
+                result += chr(ord(ch) + 3)
+            else:
+                result += chr(ord(ch) - 3)
+    return result
