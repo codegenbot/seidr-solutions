@@ -1,8 +1,7 @@
-```cpp
 #include <algorithm>
 #include <assert.h>
 
-bool same(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) 
         return false;
     else {
@@ -14,7 +13,7 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
+vector<string> vector_sort(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(),
         [](const string& a, const string& b){ 
             return (a.size() % 2 == 1 && b.size() % 2 == 0) || (a.size() % 2 == 0 && b.size() % 2 == 1);
@@ -34,5 +33,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
+    assert(issame(vector_sort({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
