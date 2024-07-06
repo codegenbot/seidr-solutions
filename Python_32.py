@@ -1,3 +1,4 @@
+```python
 print("Enter non-zero values for 'a', 'b', 'c': ")
 while True:
     try:
@@ -21,4 +22,4 @@ while True:
         break
 
 result = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
-print(f"Zero is approximately {result}")
+print(f"Zero is approximately {result:.2f}")
