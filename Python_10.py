@@ -1,3 +1,3 @@
 ```
 def make_palindrome(string: str) -> str:
-    return string + string[::-1]
+    return string + "".join(reversed(string))
