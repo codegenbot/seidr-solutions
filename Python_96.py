@@ -1,10 +1,9 @@
+```
 def count_up_to(n):
-    return list(range(1, n + 1))
-
+    return list(range(1, n+1))
 
 def check(numbers_list):
     return all(num % 2 == 0 for num in numbers_list)
-
 
 try:
     n = int(input("Enter a number: "))
