@@ -9,14 +9,14 @@ bool solveBoolean(std::string s) {
         } else if (s[i] == '|') {
             res |= f;
             f = !f;
-        } else if (s[i] == 'T' || s[i] == 't') {
-            t = (s[i] == 'T'); 
+        } else if (s[i] == 't') {
+            t = true;
             f = false;
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            f = (s[i] == 'F');
+        } else if (s[i] == 'f') {
             t = false;
+            f = true;
         }
     }
-    
+
     return res;
 }
