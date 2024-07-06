@@ -1,7 +1,10 @@
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    unique_nums = set()
-    for num in numbers:
-        if num not in unique_nums:
-            unique_nums.add(num)
-    return list(unique_nums)
+    """
+    Given a list of integers, return a new list without any duplicates.
+    >>> remove_duplicates([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    >>> remove_duplicates([1, 1, 2, 2, 3, 3, 4, 4, 5, 5])
+    [1, 2, 3, 4, 5]
+    """
+    return list(set(numbers))
