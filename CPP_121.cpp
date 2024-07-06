@@ -1,6 +1,4 @@
-```
 #include <vector>
-using namespace std;
 
 int solutions(vector<int> lst) {
     int sum = 0;
