@@ -1,14 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
-        throw std::runtime_error("Vectors are not the same size");
+        throw std::runtime_error("Vectors are not the same size.");
     }
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
-            throw std::runtime_error("Vectors are not the same");
+            throw std::runtime_error("The strings at the same position are different.");
         }
     }
     return true;
