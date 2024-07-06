@@ -1,18 +1,21 @@
-string encode(string message){
+#include <algorithm>
+#include <cctype>
+
+string encode(string message) {
     string result = "";
-    for(int i=0; i<message.length(); i++){
-        char c = message[i];
-        if(isalpha(c)){
-            if(isupper(c)){
-                if(c == 'W' || c == 'X' || c == 'Y') continue;
-                else{
-                    c = (char)(c - 65 + 3)%26 + 65;
-                }
-            }else if(islower(c)){
-                if(c == 'w' || c == 'x' || c == 'y') continue;
-                else{
-                    c = (char)(c - 97 + 3)%26 + 97;
-                }
+    for (char c : message) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c == toupper(base)) ? tolower(c) : toupper(c);
+            switch (c - base) {
+                case 0: case 1: case 2:
+                    c += 3;
+                    break;
+                case 18: case 19: case 20:
+                    c -= 22;
+                    break;
+                default:
+                    c = base + ((c - base) % 26);
             }
         }
         result += c;
