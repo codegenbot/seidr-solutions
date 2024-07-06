@@ -1,18 +1,71 @@
+```
 def solve_boolean(expression):
     bool_map = {'T': True, 'F': False}
 
     def eval_expression(expr):
-        if expr not in bool_map:  
-            return bool_map[expr]
+        while '&' in expr:
+            start = 0
+            end = 0
+            for i in range(len(expr) - 1, -1, -1):
+                if expr[i] == '&':
+                    start = i
+                elif expr[i] == '|':
+                    end = i
+                    break
+            and_parts = expr[:end + 1].split('&')
+            expr = expr[start + 1:]
+            
+            result = all(eval_expression(part) for part in and_parts)
+            return 'T' if result else 'F'
         
-        if '&' in expr:
-            parts = expr.split('&')
-            return 'T' if all(eval_expression(part) for part in parts) else 'F'
+        while '|' in expr:
+            start = 0
+            end = 0
+            for i in range(len(expr) - 1, -1, -1):
+                if expr[i] == '|':
+                    start = i
+                elif expr[i] == '&':
+                    end = i
+                    break
+            or_parts = expr[:end + 1].split('|')
+            expr = expr[start + 1:]
+            
+            result = any(eval_expression(part) for part in or_parts)
+            return 'T' if result else 'F'
         
-        if '|' in expr:
-            parts = expr.split('|')
-            return 'T' if any(eval_expression(part) for part in parts) else 'F'
-        
-        return expr
+        return bool_map[expr]
 
-    return eval_expression(expression) == 'T'
+    def priority_eval(expr):
+        while '&' in expr:
+            start = 0
+            end = 0
+            for i in range(len(expr) - 1, -1, -1):
+                if expr[i] == '&':
+                    start = i
+                elif expr[i] == '|':
+                    end = i
+                    break
+            and_parts = expr[:end + 1].split('&')
+            expr = expr[start + 1:]
+            
+            result = all(priority_eval(part) for part in and_parts)
+            return 'T' if result else 'F'
+        
+        while '|' in expr:
+            start = 0
+            end = 0
+            for i in range(len(expr) - 1, -1, -1):
+                if expr[i] == '|':
+                    start = i
+                elif expr[i] == '&':
+                    end = i
+                    break
+            or_parts = expr[:end + 1].split('|')
+            expr = expr[start + 1:]
+            
+            result = any(priority_eval(part) for part in or_parts)
+            return 'T' if result else 'F'
+        
+        return bool_map[expr]
+
+    return priority_eval(expression) == 'T'
