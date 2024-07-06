@@ -1,4 +1,4 @@
-```
+```python
 def parse_nested_parens(s):
     stack = []
     result = ''

@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -7,13 +8,36 @@ def below_zero() -> None:
     ]
     balance = 0
     for operation in operations:
-        balance += operation
+        if not isinstance(operation, int):
+            print("Invalid operation! Please enter a number.")
+            continue
+        if balance < 0:
+            balance += operation
+        else:
+            balance -= operation
+
     has_debt = input("Do you have any debt? (yes/no): ")
+    while True:
+        if has_debt.lower() not in ["yes", "no"]:
+            print("Invalid answer! Please enter 'yes' or 'no'.")
+            has_debt = input("Do you have any debt? (yes/no): ")
+        else:
+            break
+
     if has_debt.lower() == "yes":
-        print(f"Initial debt: {balance}")
-        while balance < 0:
-            amount_to_pay = int(input("How much would you like to pay off today? "))
-            balance += amount_to_pay
-        print("Debt paid off!")
+        while balance > 0:
+            try:
+                amount_to_pay = int(input("How much would you like to pay off today? "))
+                if not isinstance(amount_to_pay, int) or amount_to_pay <= 0:
+                    print("Invalid payment! Please enter a positive integer.")
+                    continue
+                balance -= amount_to_pay
+            except ValueError:
+                print("Invalid input! Please enter an integer.")
     else:
-        print(f"Initial balance: {balance}")
+        if balance < 0:
+            print("Congratulations, your debt is paid off!")
+
+
+if __name__ == "__main__":
+    below_zero()

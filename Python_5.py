@@ -2,10 +2,12 @@ from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    if len(numbers) == 0:
+    if not numbers:
         return []
 
-    result = [delimiter]
-    for i in range(len(numbers)):
-        result.extend([numbers[i], delimiter])
+    result = [numbers[0]]
+    for i in range(1, len(numbers)):
+        result.extend([delimiter, numbers[i]])
+    if result and (len(result) > 2 or result[-1] != delimiter):
+        result.append(delimiter)
     return result
