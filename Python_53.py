@@ -1,6 +1,6 @@
+
 def add(x: int, y: int):
     return x + y
-
 
 # Prompt user for two numbers
 print("Enter two integers separated by a space:")
