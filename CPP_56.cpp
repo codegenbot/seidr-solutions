@@ -1,21 +1,10 @@
 #include <string>
-using namespace std;
 
-bool correct_bracketing(const string& brackets) {
-    int count_open = 0;
-    for (char c : brackets) { 
-        if (c == '<') {
-            count_open++;
-        } else if (c == '>') {
-            if (count_open == 0)
-                return false;
-            count_open--;
-        }
+bool correct_bracketing(std::string brackets) {
+    int open = 0, close = 0;
+    for (char c : brackets) {
+        if (c == '<') open++;
+        else if (c == '>') close++;
     }
-    return count_open == 0;
-}
-
-int main() {
-    assert(!correct_bracketing("<><><<><>><>>><>")); 
-    return 0;
+    return open == close;
 }

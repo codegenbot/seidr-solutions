@@ -1,32 +1,32 @@
-Here is the corrected code:
+#include <vector>
+#include <algorithm>
 
-```cpp
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> evenVals;
-    std::vector<float> oddVals;
+    std::vector<float> evens;
+    std::vector<float> odds;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            evenVals.push_back(l[i]);
+            evens.push_back(l[i]);
         } else {
-            oddVals.push_back(l[i]);
+            odds.push_back(l[i]);
         }
     }
 
-    std::sort(evenVals.begin(), evenVals.end());
+    std::sort(evens.begin(), evens.end());
 
     std::vector<float> result;
     int idx = 0;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(evenVals[idx++]);
+            result.push_back,evens[idx++]);
         } else {
-            result.push_back(oddVals[i - idx]);
+            result.push_back(odds[i - idx]);
         }
     }
 
