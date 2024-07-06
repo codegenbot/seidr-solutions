@@ -1,21 +1,26 @@
+Here is the completed code:
+
+```
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    string str = "";
-    for (int i = 0; i < n; i++) {
-        str += to_string(arr[i]);
+    string s = "";
+    for (int i : arr) {
+        s += to_string(i);
     }
-    
-    int changes = 0;
     int left = 0, right = n - 1;
+    int changes = 0;
     while (left < right) {
-        if (str[left] != str[right]) {
+        if (s[left] != s[right]) {
             changes++;
-            left++; // move the left pointer one step forward
+            if (s[left] == s[right-1]) {
+                left++;
+            } else {
+                right--;
+            }
         } else {
-            left++; // continue moving both pointers
+            left++;
+            right--;
         }
-        right--;
     }
-    
     return changes;
 }
