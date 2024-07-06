@@ -1,14 +1,19 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<float> a, vector<float> b);
-
-vector<float> sort_even(vector<float> l){
+bool issame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(abs(a[i]) != abs(b[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){ // even index
-            vector<float> evens(l.size());  // Declare the size of evens
+            vector<float> evens;
             for(int j = 0; j < l.size(); j++){
                 if(j % 2 == 0){
                     evens.push_back(l[j]);
