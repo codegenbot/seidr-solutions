@@ -1,19 +1,20 @@
-#include<string>
-#include<cctype>
-
-using namespace std;
-
 string encode(string message) {
     string result = "";
-    
     for (char c : message) {
         if (isalpha(c)) {
-            char newC = (c >= 'a' && c <= 'z') ? c + 3 : c - 19;
-            result += tolower(isupper(newC)) ? toupper(newC) : tolower(newC);
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c == toupper(base)) ? tolower(c) : toupper(c);
+            switch (c - base) {
+                case 0:
+                case 1:
+                    result += c;
+                    break;
+                default:
+                    result += char((c - base + 2) % 26 + base);
+            }
         } else {
             result += c;
         }
     }
-    
     return result;
 }
