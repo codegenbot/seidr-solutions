@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && ((num / 10) % 10) % 2 != 0) {
+        if (abs(num) > 10 && abs(num) % 2 != 0) {
             count++;
         }
     }
@@ -12,11 +13,10 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main {
+    std::vector<int> nums;
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
-    
-    std::vector<int> nums;
     nums.resize(n);
     
     for (int i = 0; i < n; i++) {
@@ -27,4 +27,6 @@ int main {
     int count = specialFilter(nums);
     
     std::cout << "Count: " << count << std::endl;
+    assert(count == 0);
+    return 0;
 }
