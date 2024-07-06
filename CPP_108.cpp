@@ -21,7 +21,7 @@ int count_nums(vector<int> n) {
             }
         } else if (num < 0) {
             int sum = 0;
-            bool negative = false;
+            bool negative = true;
             while (num != 0) {
                 int digit = abs(num % 10);
                 if (!negative || digit != 0) {
@@ -38,3 +38,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+}
