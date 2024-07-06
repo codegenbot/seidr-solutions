@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <cassert>
-#include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -17,18 +16,6 @@ int solutions(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    cout << "Enter " << n << " integers: ";
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        input.push_back(x);
-    }
-    
-    assert(solutions(input) == 3);
-
+    vector<int> input = {3, 13, 2, 9};
+    assert(solutions(input) == 15);
 }

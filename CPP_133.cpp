@@ -1,10 +1,12 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <cmath>
 
-int sum_squares(vector<float> lst){
-    int total = 0;
-    for (float num : lst) {
-        int rounded = ceil(num);
-        total += pow(rounded, 2);
+int sum_squares(std::vector<float> lst) {
+    int result = 0;
+    for (float x : lst) {
+        int ceil_x = std::ceil(x);
+        result += pow(ceil_x, 2);
     }
-    return total;
+    return result;
 }
