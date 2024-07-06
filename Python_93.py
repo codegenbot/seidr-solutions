@@ -1,7 +1,7 @@
-```
 def encode(input_string, output_string):
     result = ""
-    for char in input_string:
+    for i in range(len(input_string)):
+        char = input_string[i]
         if char.isalpha():
             ascii_value = ord(char.lower()) - 97
             if char.isupper():

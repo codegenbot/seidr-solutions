@@ -1,26 +1,32 @@
 ```
+from collections import deque
+
 def minPath(grid, k):
     n = len(grid)
-    queue = [(i, j) for i in range(n) for j in range(n) if grid[i][j] == 0]
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    dist = [[float('inf')] * n for _ in range(n)]
+    m = [[i * n + j for j in range(n)] for i in range(n)]
 
-    for i, j in queue:
-        dist[i][j] = 0
+    def dfs(i, j, path, visited):
+        if len(path) == k:
+            return path
+        visited.add((i, j))
+        min_path = None
+        queue = deque([(i, j, path)])
+        while queue:
+            ni, nj, new_path = queue.popleft()
+            for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                ni2, nj2 = ni + x, nj + y
+                if (
+                    0 <= ni2 < n and 0 <= nj2 < n and (ni2, nj2) not in visited and grid[ni2][nj2] == 0
+                ):
+                    new_path2 = new_path + [m[ni2][nj2]]
+                    if min_path is None or len(new_path2) < len(min_path):
+                        min_path = new_path2
+        return min_path
 
-    while k > 0 and queue:
-        x, y = queue.pop(0)
-        for dx, dy in directions:
-            nx, ny = x + dx, y + dy
-            if (0 <= nx < n) and (0 <= ny < n) and dist[nx][ny] > dist[x][y] + 1:
-                queue.append((nx, ny))
-                dist[nx][ny] = dist[x][y] + 1
-        k -= 1
-
-    min_dist = float('inf')
+    min_path = None
     for i in range(n):
         for j in range(n):
-            if dist[i][j] < min_dist:
-                min_dist = dist[i][j]
-
-    return [i * n + j for i, j in [(x, y) for x in range(n) for y in range(n) if dist[x][y] == min_dist]]
+            path = dfs(i, j, [], set())
+            if min_path is None or len(path) < len(min_path):
+                min_path = path
+    return min_path
