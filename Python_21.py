@@ -22,12 +22,18 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 if __name__ == "__main__":
     try:
-        input_str = input("Enter space-separated or comma-separated numbers: ")
-        if not input_str:
-            print("No input provided")
-            exit()
+        while True:
+            input_str = input("Enter space-separated numbers: ")
+            if not input_str:
+                print("No input provided")
+                exit()
 
-        result = rescale_to_unit([float(x.strip()) for x in input_str.replace(',', ' ').split()])
-        print(result)
+            input_list = [x.strip() for x in input_str.split()]
+            if any(not x.replace('.', '', 1).replace('-', 1).isnumeric() for x in input_list):
+                print("Invalid input. Please enter space-separated numbers.")
+            else:
+                result = rescale_to_unit([float(x) for x in input_list])
+                print(result)
+                break
     except ValueError as e:
         print(f"Error: {e}")
