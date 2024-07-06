@@ -1,18 +1,14 @@
-```
 def fix_spaces(text):
-    result = ''
+    result = ""
     prev_was_space = True
     for char in text:
-        if char.isspace():
+        if char == " ":
             if not prev_was_space:
-                result += '-'
+                result += "-"
             else:
-                result += '_'
+                result += "_"
             prev_was_space = True
         else:
             result += char
             prev_was_space = False
     return result
-
-text = input("Please enter your text: ")
-print(fix_spaces(text))
