@@ -20,6 +20,9 @@ int main() {
     string input;
     cout << "Enter a sentence: ";
     getline(cin, input);
-    cout << "Flipped case: " << flip_case(input) << endl;
+
+    string output = flip_case(input);
+    cout << "Flipped case: " << output << endl;
+
     return 0;
 }
