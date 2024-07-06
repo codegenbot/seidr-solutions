@@ -9,7 +9,7 @@ std::string int_to_mini_roman(int number) {
     for (int i = 0; i < 13; ++i) {
         while (number >= val[i]) {
             number -= val[i];
-            roman += roman[i];
+            roman += roman[i]; // Here we are trying to append the roman value which is not in scope
         }
     }
     return roman;
