@@ -1,31 +1,27 @@
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
-    
-    if(arr.empty()) return result;
-
-    int minEven = INT_MAX;
-    int minIndex = -1;
-
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
-        }
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
-
-    result.push_back({minEven, minIndex});
-
-    return result;
+    return true;
 }
 
-int main() {
-    std::vector<int> array = {1, 3, 5, 2, 6, 4};
-    auto pairs = pluck(array);
-    for(auto& pair : pairs) {
-        std::cout << "Pair: (" << pair.first << ", " << pair.second << ")" << std::endl;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+    
+    int minEven = INT_MAX;
+    int index = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
+            index = i;
+        }
     }
-    return 0;
+    
+    result.push_back({minEven, index});
+    return result;
 }

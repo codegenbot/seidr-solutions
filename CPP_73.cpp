@@ -1,5 +1,4 @@
 #include <vector>
-#include <string>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -18,4 +17,3 @@ int smallest_change(vector<int> arr) {
         right--;
     }
     return count;
-}
