@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,8 +15,4 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(std::equal(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
 }
