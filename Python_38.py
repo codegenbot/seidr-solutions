@@ -15,7 +15,9 @@ def decode_cyclic(s):
             if temp:
                 result += temp + " "
             i = j
-        if not cyclic and s[0] in ["<", ">"]:
-            return result.strip().replace(">", "")
+        return result.strip().replace(">", "")
     else:
-        return "".join(char for char in s if char not in ["<", ">"])
+        for char in s:
+            if char != "<" and char != ">":
+                result += char
+        return result
