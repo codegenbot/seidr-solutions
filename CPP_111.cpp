@@ -5,7 +5,7 @@
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) return false;
     for (auto& pair : a) {
-        if (!b.count(pair.first) || b[pair.first] != pair.second) return false;
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) return false;
     }
     return true;
 }

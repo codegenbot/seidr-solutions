@@ -1,9 +1,8 @@
-```cpp
 #include <string>
-#include <cctype>
 
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
     char lastChar = txt.back();
-    return isalpha(lastChar) && !isalnum(lastChar);
+    bool isLastCharLetter = (lastChar >= 'a' && lastChar <= 'z') || (lastChar >= 'A' && lastChar <= 'Z');
+    return !isLastCharLetter || (!ispunct(lastChar) && !isspace(lastChar));
 }
