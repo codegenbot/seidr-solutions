@@ -1,3 +1,4 @@
+```
 def simplify(x, n):
     x_num, x_denom = map(int, x.split("/"))
     n_num, n_denom = map(int, n.split("/"))
@@ -11,4 +12,11 @@ def simplify(x, n):
     new_x_num, new_x_denom = x_num // common, x_denom // common
     new_n_num, new_n_denom = n_num // common, n_denom // common
 
-    return (new_x_num / new_x_denom) == (new_n_num / new_n_denom)
+    result = (new_x_num, new_x_denom) == (new_n_num, new_n_denom)
+    if result:
+        return "True"
+    else:
+        common = gcd(new_x_denom, new_n_denom)
+        new_x_num, new_x_denom = new_x_num // common, new_x_denom // common
+        new_n_num, new_n_denom = new_n_num // common, new_n_denom // common
+        return f"{new_x_num}/{new_x_denom}"
