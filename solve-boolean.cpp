@@ -1,7 +1,3 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 bool evaluate(const string &expression) {
     bool result = true;
     int i = 0;
@@ -22,12 +18,4 @@ bool evaluate(const string &expression) {
         i++;
     }
     return result;
-}
-
-int main() {
-    string expression;
-    getline(cin, expression);
-    bool result = evaluate(expression);
-    cout << (result ? "true" : "false") << endl;
-    return 0;
 }
