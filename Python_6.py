@@ -1,8 +1,7 @@
-```
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
 
-    def count_levels(group):
+    for group in paren_string.split():
         level = 0
         max_level = 0
         for char in group:
@@ -11,8 +10,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             elif char == ')':
                 level -= 1
             max_level = max(max_level, level)
-        return max_level
+        result.append(max_level)
 
-    for group in paren_string.split():
-        result.append(count_levels(group))
     return result
