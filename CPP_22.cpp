@@ -1,11 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <list>
 #include <typeindex>
+#include <any>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<any> a, vector<any> b) {
     return a == b;
 }
 
@@ -27,6 +29,6 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main() {
-    assert(isame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(isame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}), {3, 3, 3}));
     return 0;
 }
