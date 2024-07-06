@@ -1,14 +1,15 @@
+```c++
 #include <cassert>
-#include <string>
 
-bool file_name_check(const std::string& file_name) {
-    if (file_name.size() > 4 || file_name.substr(file_name.size()-1).find('.') == std::string::npos) {
-        return false;
+std::string file_name_check(const std::string& file_name) {
+    size_t dot_position = file_name.find('.');
+    if (dot_position != std::string::npos) {
+        return "Yes";
     }
-    return true;
+    return "No";
 }
 
 int main_test() {
-    assert(!file_name_check("s."));
+    assert(file_name_check("s.") == "No");
     return 0;
 }
