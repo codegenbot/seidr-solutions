@@ -1,7 +1,7 @@
 ```
 def double_the_difference(lst):
-    return [(x-1)*(x-1) for x in lst]
+    return [(x - min(lst)) * 2 + min(lst) for x in lst]
 
-def check(func):
-    lst = [1, 2, 3, 4, 5]
-    print(func(lst))
+lst = input("Enter a list of numbers (space separated): ")
+lst = [int(x) for x in lst.split()]
+print(double_the_difference(lst))
