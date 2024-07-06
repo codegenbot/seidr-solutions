@@ -3,7 +3,7 @@ def mastermind(code, guess):
     black = 0
     
     for c in set(guess):
-        code_index = code.index(c)
+        code_index = code.find(c)
         if code_index != -1:
             remaining_code = code[code_index+1:]
             if code_index == guess.index(c):
@@ -12,10 +12,3 @@ def mastermind(code, guess):
                 white += 1
                 
     return black, white
-
-code = input("Enter the Mastermind code: ")
-guess = input("Enter your guess: ")
-
-black, white = mastermind(code, guess)
-
-print(f"Black pegs: {black}, White pegs: {white}")
