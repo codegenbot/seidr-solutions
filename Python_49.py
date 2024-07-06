@@ -1,8 +1,4 @@
-```
-def modp(a, b):
-    return a % b
-
 def check(func):
-    return func(5,2)
+    return func(5, 2)
 
-print(check(modp))
+print(check(lambda a, b: a % b))
