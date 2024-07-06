@@ -1,2 +1,6 @@
 def double_the_difference(nums):
-    return sum(x**2 for x in nums if x % 2 == 1 and x > 0)
+    result = 0
+    for num in nums:
+        if num % 2 == 1 and num > 0:
+            result += num**2
+    return result
