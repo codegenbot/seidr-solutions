@@ -1,7 +1,7 @@
 def fix_spaces(text):
+    prev_was_space = text.isspace()
     result = ''
-    prev_was_space = True
-    for char in text:
+    for char in text + ' ':  
         if char.isspace():
             if not prev_was_space:
                 result += '_'
