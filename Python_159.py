@@ -1,8 +1,11 @@
-# Test case 1
-print(eat(4, 5, 1))  # [9, 0]
 
-# Test case 2
-print(eat(3, 4, 6))  # [7, 6]
-
-# Test case 3
-print(eat(2, 3, 7))  # [5, 7]
+def eat(number, need, remaining):
+    total = number + need
+    if need <= remaining:
+        left = max(remaining - need, 0)
+    else:
+        left = 0
+    # Check if need is greater than remaining and adjust the result accordingly
+    if need > remaining:
+        return [total, 1]
+    return [total, left]
