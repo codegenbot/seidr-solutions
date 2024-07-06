@@ -1,4 +1,5 @@
 def fix_spaces(text):
-    text = text.replace("  ", "")  
-    text = text.replace(" ", "_")
-    return text
+    text = text.strip()  
+    while "  " in text:  
+        text = text.replace("  ", " ")  
+    return text.replace(" ", "_")
