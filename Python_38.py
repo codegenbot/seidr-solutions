@@ -1,6 +1,6 @@
-```Python
+```
 def decode_cyclic():
-    s = input("Enter a cyclic string: ")
+    s = input()
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
     result = ""
@@ -14,5 +14,3 @@ def decode_cyclic():
             result += group
         i += 3
     return result
-
-print(decode_cyclic())
