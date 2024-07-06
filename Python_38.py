@@ -1,6 +1,5 @@
-```
 def decode_cyclic():
-    s = input()  
+    s = input()
     result = []
     temp = ""
     if len(s) >= 3:
