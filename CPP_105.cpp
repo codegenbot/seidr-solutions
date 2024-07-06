@@ -1,13 +1,13 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != b.size()) {
+    if(a.size() != (std::size_t)b.size()) {
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++) {
+    for(std::size_t i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
             return false;
         }
@@ -17,7 +17,7 @@ bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) 
 }
 
 std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
-    std::vector<std::vector<std::string>> result(10);
+    std::vector<std::vector<std::string>> result((std::size_t)10);
     
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
@@ -26,28 +26,28 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
                     result[0].push_back("One");
                     break;
                 case 2:
-                    result[1].push_back("Two");
+                    result[(std::size_t)1].push_back("Two");
                     break;
                 case 3:
-                    result[2].push_back("Three");
+                    result[(std::size_t)2].push_back("Three");
                     break;
                 case 4:
-                    result[3].push_back("Four");
+                    result[(std::size_t)3].push_back("Four");
                     break;
                 case 5:
-                    result[4].push_back("Five");
+                    result[(std::size_t)4].push_back("Five");
                     break;
                 case 6:
-                    result[5].push_back("Six");
+                    result[(std::size_t)5].push_back("Six");
                     break;
                 case 7:
-                    result[6].push_back("Seven");
+                    result[(std::size_t)6].push_back("Seven");
                     break;
                 case 8:
-                    result[7].push_back("Eight");
+                    result[(std::size_t)7].push_back("Eight");
                     break;
                 case 9:
-                    result[8].push_back("Nine");
+                    result[(std::size_t)8].push_back("Nine");
                     break;
             }
         }

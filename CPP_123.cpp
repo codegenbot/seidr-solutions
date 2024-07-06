@@ -2,12 +2,12 @@
 #include <algorithm>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
             n /= 2;
@@ -15,7 +15,6 @@ std::vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         result.push_back(n);
     }
-    sort(result.begin(), result.end());
     return result;
 }
 
