@@ -1,3 +1,4 @@
+
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     rotated_alphabet = alphabet[2:] + alphabet[:2]
@@ -11,5 +12,5 @@ def encrypt(s):
     return encrypted_string
 
 # test cases
-print(encrypt("a")) # should print "e"
-print(encrypt("z")) # should print "b"
+print(encrypt("a"))  # should print "e"
+print(encrypt("z"))  # should print "b"
