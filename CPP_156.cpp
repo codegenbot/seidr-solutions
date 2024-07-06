@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -14,19 +13,12 @@ int main() {
 }
 
 std::string int_to_mini_roman(int n) {
-    if(n < 1) {
-        return "";
-    }
-    
-    for(const auto& pair : roman_map) {
-        while(n >= pair.first) {
-            n -= pair.first;
-            std::string res = pair.second;
-            if (!result.empty()) {
-                res = " " + res;
-            }
-            result = res;
+    if (n < 1) return "";
+    for (const auto &p : roman_map) {
+        while (n >= p.first) {
+            n -= p.first;
+            std::cout << p.second;
         }
     }
-    return result;
+    return "";
 }
