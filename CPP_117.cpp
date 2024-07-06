@@ -11,16 +11,24 @@ vector<string> select_words(string s, int n) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            int consonants = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isalnum(ch)) {
-                    ++consonants;
+            bool has_n_consonants = false;
+            for (char consonant : "bcdfghjklmnpqrstvwxyz") {
+                size_t pos = 0;
+                while ((pos = word.find(consonant)) != string::npos) {
+                    word.erase(pos, 1);
+                    if (word.size() == n) {
+                        has_n_consonants = true;
+                        break;
+                    }
+                }
+                if (has_n_consonants) {
+                    break;
                 }
             }
-            if (consonants == n) {
+            if (has_n_consonants) {
                 result.push_back(word);
             }
-            word.clear();
+            word = "";
         }
     }
     return result;
