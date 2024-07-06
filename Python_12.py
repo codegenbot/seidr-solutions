@@ -6,4 +6,4 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-print(longest(["Hello", "world!", "Python", "is", "awesome"])).
+print(longest(["Hello", "world!", "Python", "is", "awesome"]))
