@@ -1,4 +1,3 @@
-```
 def correct_bracketing(brackets: str):
     stack = []
     for bracket in brackets:
@@ -7,5 +6,6 @@ def correct_bracketing(brackets: str):
         elif bracket == ">":
             if len(stack) == 0:
                 return False
-            stack.pop()
+            while stack and stack.pop() != "<":
+                pass
     return len(stack) == 0

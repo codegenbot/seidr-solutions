@@ -1,11 +1,7 @@
 def remove_duplicates(numbers: str) -> list[int]:
     if not numbers:
         return []
-    
-    try:
-        numbers = [int(num) for num in numbers.split()]
-    except ValueError:
-        return []
+    numbers = [int(num) for num in numbers.split()]
     seen = set()
     result = []
     for num in numbers:
