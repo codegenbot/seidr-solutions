@@ -1,14 +1,3 @@
-from typing import List, Any
-
-
-def filter_integers() -> List[int]:
-    values = []
-    while True:
-        try:
-            value = int(input("Enter a number (or 'stop' to finish): "))
-            if value == -1:  
-                break
-            values.append(value)
-        except ValueError:
-            pass
-    return [value for value in values]
+def filter_integers(input_values):
+    values = [x.strip() for x in ','.join(map(str, input_values)).split(',')]
+    return [int(value) for value in values if isinstance(int(value), int)]
