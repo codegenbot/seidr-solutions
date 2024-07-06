@@ -1,15 +1,15 @@
+```cpp
+#include <vector>
+
 bool issame(int a, int b) {
-    if (a == b)
+    if(a == b)
         return true;
-    else
+    else 
         return false;
 }
 
-#include <vector>
-using namespace std;
-
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     int stones = 1;
     for (int i = 0; i < n; i++) {
         if ((n % 2) == 1) { 
