@@ -1,9 +1,12 @@
+```
 def minPath(grid, k):
     n = len(grid)
     
     queue = [(0, 0, [])]
     visited = set((0, 0))
     path_lengths = {}
+    
+    paths = []
     
     while queue:
         x, y, path = queue.pop(0)
@@ -22,5 +25,4 @@ def minPath(grid, k):
                     visited.add((nx, ny))
                     path_lengths[len(new_path)] = len(new_path)
 
-    paths = [path for path in path_lengths.keys() if path == k]
-    return sorted(paths)[0] if paths else []
+    return min([path for path in paths if len(path) == k], default=[])
