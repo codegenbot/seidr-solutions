@@ -14,4 +14,4 @@ def hex_key(num):
                 count += 1
         elif char in ['B', 'D']:
             count += 1
-    return str(count).zfill(6)
+    return count
