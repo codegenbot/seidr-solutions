@@ -1,14 +1,12 @@
+```
 def sum_squares(num1, num2):
     return square(num1) + square(num2)
-
 
 def square(x):
     return x**2
 
-
 def cube(x):
     return x**3
-
 
 while True:
     operation = input("Enter 'square', 'cube' or 'sum_of_squares', or 'quit' to exit: ")
@@ -30,4 +28,4 @@ while True:
         break
 
     else:
-        print("Invalid operation. Please enter 'square', 'cube' or 'sum_of_squares'")
+        print("Invalid operation. Please enter 'square', 'cube' or 'sum_of_squares''")
