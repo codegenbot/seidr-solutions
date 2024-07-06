@@ -5,4 +5,4 @@ def find_zero(xs: list[int]) -> float:
         if xs[i] == 0:
             continue
         x = -xs[i - 1] / (xs[i] * xs[i])
-        return round(x, 2)
+    return round(x, 2)
