@@ -4,19 +4,20 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
-    temp_str = ''
-    
+    current_group = ''
+
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            temp_str += char
+            current_group += char
         elif char == ')':
-            stack.pop()
-            temp_str += char
-            if not stack:
-                result.append(temp_str)
-                temp_str = ''
-    
+            while stack and stack[-1] != '(':
+                current_group += stack.pop()
+            if not stack or stack.pop() != '(':
+                raise ValueError("Unbalanced parentheses")
+            result.append(current_group + ')')
+            current_group = ''
+
     return result
