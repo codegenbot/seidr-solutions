@@ -1,6 +1,14 @@
 def words_in_sentence(sentence):
-    prime_words = []
-    for word in sentence.split():
-        if all(word[i] != word[0] and i < len(word) - 1 for i in range(1, len(word))):
-            prime_words.append(word)
-    return " ".join(prime_words)
+    primes = [
+        i
+        for i in range(2, len(sentence.split()) + 1)
+        if all(i % j for j in range(2, int(i**0.5) + 1))
+    ]
+    result = " ".join(
+        [
+            word
+            for word, length in zip(sentence.split(), map(len, sentence.split()))
+            if length in primes
+        ]
+    )
+    return result
