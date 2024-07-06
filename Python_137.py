@@ -1,9 +1,10 @@
-```
 def compare_one(a, b):
     if isinstance(a, str) and isinstance(b, (int, float)):
-        a = str(a).replace('.', '').replace(',', '.')
+        a = float(str(a).replace('.', '').replace(',', '.'))
+        b = float(b)
     elif isinstance(b, str) and isinstance(a, (int, float)):
-        b = str(b).replace('.', '').replace(',', '.')
+        a = float(a)
+        b = float(str(b).replace('.', '').replace(',','.'))
 
     if a > b:
         return a
