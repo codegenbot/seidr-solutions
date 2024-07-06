@@ -1,4 +1,4 @@
-Here is the corrected code:
+Here is the modified code:
 
 ```cpp
 #include <string>
