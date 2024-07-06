@@ -5,4 +5,3 @@ def solve(N):
         if i == '1':
             result += 2 ** (len(str(bin(N)[2:])) - 1)
     return bin(result)[2:]
-"""
