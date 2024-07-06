@@ -1,3 +1,4 @@
+```
 def check(operation):
     if operation == 'square':
         num = float(input("Enter number: "))
