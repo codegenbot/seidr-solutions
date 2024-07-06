@@ -9,3 +9,9 @@ vector<int> sort_vector(vector<int> arr) {
     });
     return result;
 }
+
+vector<int> sort_array(vector<int> arr) {
+    vector<int> result = arr;
+    sort(result.begin(), result.end());
+    return result;
+}
