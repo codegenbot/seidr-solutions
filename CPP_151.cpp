@@ -12,17 +12,21 @@ long long double_the_difference(std::vector<double> lst) {
     return sum;
 }
 
-int main() {
-    long long odd_sum;
-    double input;
+int main_func() {
+    std::vector<double> lst;
+    long long odd_sum = 0;
 
     while (true) {
         std::cout << "Enter a number (or -1 to finish): ";
+        double input;
+
         std::cin >> input;
 
         if (input == -1.0) break; 
 
-        odd_sum = double_the_difference({input});
+        lst.push_back(input);
     }
+
+    long long sum = double_the_difference(lst); 
     return 0;
 }
