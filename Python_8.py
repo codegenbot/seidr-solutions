@@ -1,14 +1,18 @@
 ```
-from typing import list, Tuple
+from typing import List, Tuple
 
-def sum_product(numbers: list[int]) -> Tuple[int, int]:
-    total_sum = 0
-    product = 1
-    for num in numbers:
-        total_sum += num
-        product *= num
-    return (total_sum, product)
+def sum_product():
+    numbers = input("Enter space-separated integers: ").split()
+    try:
+        numbers = [int(num) for num in numbers]
+        total_sum = 0
+        product = 1
+        for num in numbers:
+            total_sum += num
+            product *= num
+        return (total_sum, product)
+    except ValueError:
+        print("Invalid input. Please enter integers separated by spaces.")
+        return None
 
-numbers = [int(num) for num in input("Enter space-separated integers: ").split()]
-total_sum, product = sum_product(numbers)
-print(f"The sum is {total_sum} and the product is {product}")
+print(sum_product())
