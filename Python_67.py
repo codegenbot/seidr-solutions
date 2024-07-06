@@ -1,4 +1,6 @@
+import re
+
 
 def fruit_distribution(s, n):
-    apples, oranges = map(int, s.split(" "))
-    return n - (apples + oranges)
+    apples, oranges = map(int, re.findall(r"\d+", s))
+    return n - apples - oranges
