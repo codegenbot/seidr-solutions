@@ -4,4 +4,3 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
         if(std::abs(a[i]-b[i]) > 0.1f) return false;
     }
     return true;
-}
