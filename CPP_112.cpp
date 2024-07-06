@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <algorithm>
 #include <vector>
@@ -5,6 +6,7 @@
 using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     string res = "";
     for (char x : s) {
         bool found = false;
@@ -19,7 +21,6 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
 
-    vector<string> result;
     result.push_back(res);
 
     string rev_str = "";
