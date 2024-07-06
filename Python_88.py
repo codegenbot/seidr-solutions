@@ -1,13 +1,10 @@
-```
 def sort_array(arr=None):
     while True:
         choice = input("Do you want to sort array? (S for yes, Q to quit): ")
         if choice.upper() == "Q":
             return None
         elif choice.upper() != "S":
-            print(
-                "Error: Invalid choice. Please enter S to continue or Q to quit."
-            )
+            print("Error: Invalid choice. Please enter S to continue or Q to quit.")
             continue
 
         arr_str = input("Enter numbers separated by space: ")
