@@ -1,6 +1,9 @@
-Here is the completed code:
+Here is the completed Python code:
 
 def find_zero(xs: list):
-    assert len(xs) % 2 == 0, "List xs must have even number of coefficients"
-    max_coeff = max(x for x in xs if abs(x) > 1e-10)
-    return -max_coeff / sum([x * i for x, i in zip(xs, range(len(xs)))])
+    if len(xs) % 2 != 0:
+        return None
+    a = xs[-1]
+    for i in range(len(xs) // 2):
+        b = -xs[2 * i + 1] / (a * (2 * i + 1))
+    return round(-b, 2)
