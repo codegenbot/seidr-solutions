@@ -1,15 +1,10 @@
-```bool check_dict_case(const std::map<std::string, std::string>& dict) {
-    if (dict.empty()) return false;
-
+for (auto& pair : dict) {
+    const std::string& key = pair.first;
     bool allLower = true;
     bool allUpper = true;
-
-    for (auto& pair : dict) {
-        const std::string& key = pair.first;
-        if (!allLower && !allUpper) break; // Fix: Add a semicolon here
-        if (!allLower) allLower = islower(key[0]);
-        if (!allUpper) allUpper = isupper(key[0]);
+    for (char c : key) {
+        if (!allLower && !allUpper) break;
+        if (!allLower) allLower = islower(c);
+        if (!allUpper) allUpper = isupper(c);
     }
-
-    return allLower || allUpper;
-}```
+}
