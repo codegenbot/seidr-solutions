@@ -1,12 +1,12 @@
-int closest_integer(string value) {
-    double num = stod(value);
+#include <iostream>
+#include <cmath>
+
+int closest_integer(std::string value) {
+    double num = std::stod(value);
     int integerPart = (int)num;
-    if (abs(num - integerPart) < 0.5) {
-        return round(num);
+    if (std::abs(num - integerPart) < 0.5) {
+        return (int)round(num);
     } else {
-        if (modf(num, &integerPart) > 0) {
-            return integerPart + 1;
-        }
         return integerPart;
     }
 }
