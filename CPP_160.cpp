@@ -17,7 +17,7 @@ int do_algebra(vector<string> operator, vector<int> operand) {
         } else if (operator[i] == "//") {
             result = result / static_cast<int>(operand[i + 1]);
         } else if (operator[i] == "**") {
-            result = pow(result, static_cast<double>(operand[i + 1]));
+            result = pow(result, operand[i + 1]);
         }
     }
     return result;
