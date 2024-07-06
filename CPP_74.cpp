@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -7,8 +6,8 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(int i = 0; i<a.size(); i++){
-        if (a[i] != b[i])return false;
+    for(auto str_a : a, auto str_b : b){
+        if(str_a != str_b) return false;
     }
     return true;
 }
@@ -36,11 +35,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main() {
+vector<string> testMain() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    if(total_match(vec1,vec2) == vec1)
-        cout << "total_match returned " << vec1.size() << " strings.\n";
-    else
-        cout << "total_match returned " << vec2.size() << " strings.\n";
+    return total_match(vec1,vec2);
 }

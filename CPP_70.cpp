@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -35,18 +34,20 @@ int main() {
         }
         std::cout<<temp;
     } else {
-        std::vector<int> result = strange_sort_list(lst);
-
-        if(result[0] == result[result.size()-1]) {
-            int temp = result[0];
-            for(int n : result) {
-                if(n != temp) break;
-                std::cout << temp << " ";
-            }
-            std::cout<<temp;
-        } else {
-            for(int n : result) {
-                std::cout << n << " ";
+        bool found = false;
+        while(!found) {
+            if(lst.size() > 1 && lst[0] >= lst[lst.size()-1]) {
+                std::vector<int> result = strange_sort_list(lst);
+                for(int n : result) {
+                    std::cout << n << " ";
+                }
+                found = true;
+            } else {
+                int temp = lst.back();
+                lst.pop_back();
+                if(lst.empty()) {
+                    found = true;
+                }
             }
         }
     }
