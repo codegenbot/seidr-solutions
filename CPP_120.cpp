@@ -1,12 +1,14 @@
-Here is the completed code:
-
-```cpp
-vector<int> maximum(vector<int> arr, int k) {
+vector<int> maximum(vector<int> arr,int k){
+    priority_queue<int> max_heap;
+    for(int i:arr) {
+        max_heap.push(i);
+        if(max_heap.size()>k)
+            max_heap.pop();
+    }
     vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+    while(!max_heap.empty()) {
+        result.push_back(max_heap.top());
+        max_heap.pop();
     }
     return result;
 }
