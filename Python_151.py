@@ -1,3 +1,7 @@
+Here is the modified code:
+
 def double_the_difference(numbers):
-    lst = numbers
-    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    min_num = min(numbers)
+    max_num = max(numbers)
+    avg_diff = (max_num - min_num) / len(numbers)
+    return avg_diff * 2
