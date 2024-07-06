@@ -1,3 +1,4 @@
+```
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int remaining_stones = n;
@@ -9,7 +10,7 @@ vector<int> make_a_pile(int n) {
             pile.push_back(2*remaining_stones);
         }
         n /= 2;
-        remaining_stones = n; // update the number of remaining stones
+        remaining_stones = n; 
     }
     
     return pile;
