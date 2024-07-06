@@ -1,14 +1,14 @@
 def sort_even(l: list):
-    even_dict = {i: x for i, x in enumerate([x for x in l if x % 2 == 0])}
-    even_idx = [k for k in even_dict.keys()]
+    even_idx = [i for i, x in enumerate(l) if x % 2 == 0]
+    sorted_evens = sorted([x for x in l if x % 2 == 0])
     
     result = []
     even_index = 0
     for i, x in enumerate(l):
         if i in even_idx:
-            result.append(even_dict[i])
+            result.append(sorted_evens[even_index % len(sorted_evens)])
             even_index += 1
         else:
             result.append(x)
             
-    return result
+    return [x if not even_idx else x for x in result] if sorted_evens else l
