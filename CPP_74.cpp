@@ -29,16 +29,18 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else if (sum1 > sum2) {
         return lst2;
     } else {
-        if(issame(lst1, lst2))
-            return lst1;
-        else
-            return {};
+        vector<string> result = lst1;
+        sort(result.begin(), result.end());
+        for(const auto& s: lst2) {
+            if(find(result.begin(), result.end(), s) != result.end()) 
+                result.erase(remove(result.begin(), result.end(), s), result.end()); 
+        }
+        return result;
     }
 }
 
 int main() {
-    vector<string> vec1 = {"this"};
+    vector<string> vec1 = {"this", "is", "a"};
     vector<string> vec2 = {""};
-    assert(issame(total_match(vec1,vec2),{"","this"}));  
+    assert(issame(total_match(vec1,vec2),{"a"}));  
     return 0;
-}
