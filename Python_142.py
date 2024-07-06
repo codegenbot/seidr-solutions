@@ -7,5 +7,5 @@ def sum_squares(lst):
             total += lst[i] ** 3
     return total
 
-lst = list(map(int, input("Enter names and phone numbers separated by space (separate names and numbers with comma), each on a new line: ").split()))
+lst = list(map(str, input("Enter names and phone numbers separated by space (separate names and numbers with comma), each on a new line: ").split()))
 print(sum_squares(lst))
