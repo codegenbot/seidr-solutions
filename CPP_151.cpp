@@ -14,14 +14,15 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float input;
+    float num;
 
     // Get the input vector
-    while(std::cin >> input) {
-        lst.push_back(input);
+    while(std::cin >> num) {
+        lst.push_back(num);
     }
 
     long long odd_sum = double_the_difference(lst);
-    std::cout << "The sum of the squares of all even numbers in the list is: " << odd_sum << std::endl;
+    std::cout << "The sum of squares is: " << odd_sum << std::endl; 
+
     return 0;
 }
