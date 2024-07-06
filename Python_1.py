@@ -3,22 +3,15 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    group = ""
-
+    temp = ""
     for char in paren_string:
-        if char == " " or len(group) > 0 and char != "(" and char != ")":
-            if group:
-                result.append(group)
-                group = ""
-        elif char == "(":
-            while group and group[-1] != "(":
-                result.append(group)
-                group = ""
-            group += char
-        else:
-            group += char
-
-    if group:
-        result.append(group)
-
-    return [group for group in result if group]
+        if char == "(":
+            temp += "("
+        elif char == ")":
+            temp += ")"
+            if len(temp) > 1 and temp[-2] == "(":
+                result.append("(" + temp + ")")
+                temp = ""
+    if temp:
+        result.append(temp)
+    return [s for s in result if s]
