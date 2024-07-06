@@ -7,9 +7,9 @@ string encode(string message) {
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            c = (c >= base && c <= base + 25) ? c : base;
+            c = tolower(c);
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                result += (char)(base + 2);
+                result += static_cast<char>(base + 2);
             } else {
                 result += c;
             }
