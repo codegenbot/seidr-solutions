@@ -1,7 +1,10 @@
-def car_race_collision(n=0): 
+def car_race_collision(num_cars=None):
     while True:
         try:
-            n = int(input("Enter the number of cars: "))
+            if num_cars is None:
+                n = int(input("Enter the number of cars: "))
+            else:
+                n = num_cars
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
