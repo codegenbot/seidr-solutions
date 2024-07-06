@@ -1,7 +1,7 @@
-Here is the modified code:
+```
+def double_the_difference(lst):
+    return [(x - min(lst)) * 2 + min(lst) for x in lst]
 
-def double_the_difference(numbers):
-    min_num = min(numbers)
-    max_num = max(numbers)
-    avg_diff = (max_num - min_num) / len(numbers)
-    return avg_diff * 2
+lst = input("Enter a list of numbers (space separated): ")
+lst = [int(x) for x in lst.split()]
+print(double_the_difference(lst))

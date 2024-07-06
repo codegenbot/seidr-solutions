@@ -1,4 +1,4 @@
-```
+```' 
 def fruit_distribution(s, n):
     fruits = {}
     for word in s.split():
@@ -12,4 +12,4 @@ def fruit_distribution(s, n):
 
 s = input()
 n = int(input())
-print(fruit_distribution(s, n))
+print(fruit_distribution(s, n))'
