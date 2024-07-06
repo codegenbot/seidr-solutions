@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
 bool issame(vector<string> a,vector<string> b){
     if(a.size() != b.size())
@@ -28,21 +27,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
     else
-        if(issame(lst1,lst2))
-            return lst1;
-        else 
-            return {};
-}
-
-int main() {
-    vector<string> list1 = {"apple", "banana"};
-    vector<string> list2 = {"appple", "banaa"};
-
-    vector<string> result = total_match(list1, list2);
-    
-    for (const string& s : result) {
-        cout << s << endl;
-    }
-    
-    return 0;
+        return issame(lst1,lst2) ? lst1 : lst2;
 }
