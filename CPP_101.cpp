@@ -1,4 +1,6 @@
-#include <initializer_list>
+#include <iostream>
+#include <vector>
+#include <string>
 
 bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
@@ -13,29 +15,51 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    std::vector<std::string> result = {"", ""};
-    size_t start = 0, end = 0;
-    do {
-        start = end + 1;
-        while (end < s.size() && !isblank(s[end])) {
-            end++;
+    std::vector<std::string> result = {};
+    for (int i = 0; i < s.size(); i++) {
+        std::string temp = "";
+        while (i < s.size() && s[i] != ' ') {
+            temp += s[i];
+            i++;
         }
-        if (start <= end) {
-            result[0] = s.substr(start - 1, end - start);
-            while (end < s.size() && isblank(s[end])) {
-                end++;
+        if (!temp.empty()) {
+            if (!issame({temp}) || !std::count(expected.begin(), expected.end(), temp)) {
+                return {};
             }
-            result[1] = s.substr(end);
-            return {result[0], result[1]};
+            result.push_back(temp);
         }
-    } while ((end = s.find("\n", end)) != std::string::npos || end = s.find(" ", end) != std::string::npos);
-    if (start <= end) {
-        result[0] = s.substr(start - 1, end - start);
-        return {result[0]};
     }
-    return {};
-}
+    return result;
 
-bool isblank(char c) {
-    return isspace(c) || c == ',';
+int main() {
+    std::string s;
+    std::vector<std::string> expected;
+    
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
+    
+    int n;
+    std::cout << "Enter number of expected words: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        std::string temp;
+        std::cout << "Enter word " << i + 1 << ": ";
+        std::getline(std::cin, temp);
+        expected.push_back(temp);
+    }
+    
+    std::vector<std::string> result = words_string(s, expected);
+    
+    if (!result.empty()) {
+        std::cout << "Words in the string: ";
+        for (auto word : result) {
+            std::cout << word << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "No matching words found." << std::endl;
+    }
+    
+    return 0;
 }
