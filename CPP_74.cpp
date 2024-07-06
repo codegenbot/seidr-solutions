@@ -22,8 +22,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else {
-        if (issame(lst1, lst2)) return lst1;
-        else return lst2;
-    }
+    else if (issame(lst1, lst2)) return lst1;
+    else return {"Equal lists are not same", "No solution found."};
 }
