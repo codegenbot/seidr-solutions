@@ -25,6 +25,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> list1 = {"this"};
+    vector<string> list2;
+    assert(issame(total_match(list1, list2), list2));
     return 0;
 }
