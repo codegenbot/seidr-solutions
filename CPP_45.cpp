@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 
 float triangle_area(int a, int h) {
@@ -7,5 +6,5 @@ float triangle_area(int a, int h) {
 
 int main() {
     assert(std::abs(triangle_area(10, 8) - 40.0) < 1e-4);
-    return 0;
+    return triangle_area(20,15); 
 }
