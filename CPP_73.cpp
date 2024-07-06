@@ -1,14 +1,15 @@
 int main() {
+    int n;
     std::vector<int> arr;
-    int num;
-    while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
-        std::cin >> num;
-        if (num == -1)
-            break;
-        arr.push_back(num);
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        arr.push_back(x);
     }
     int result = smallest_change(arr);
-    std::cout << "Smallest number of changes: " << result << std::endl;
+    std::cout << "Smallest change: " << result << std::endl;
     return 0;
 }
