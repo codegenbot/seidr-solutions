@@ -6,11 +6,5 @@ def double_the_difference(lst):
     return result
 
 
-# read input from user
 lst = list(map(int, input().split()))
-
-# call the function with the given input
-result = double_the_difference(lst)
-
-# print the result
-print(result)
+print(double_the_difference(lst))
