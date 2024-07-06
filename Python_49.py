@@ -1,4 +1,10 @@
-def modp(n: int, p: int):
-    if not n:
-        return 1
-    return pow(n, p - 2, p) * n % p if n else 1
+```python
+```python
+def modp(n: int, p: int) -> int:
+    if p == 0:
+        return n
+    elif p > 1:
+        return pow(n, p, p)
+    else:
+        return n % p
+```
