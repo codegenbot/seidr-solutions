@@ -11,7 +11,7 @@ def decode_cyclic(s):
             result += group[0] + group[1]
         else:
             j = 2
-            while j > 0 and i + j < len(s):
+            while j > 0 and i+j < len(s):
                 if s[i+j] == group[0]:
                     break
                 j -= 1
