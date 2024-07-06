@@ -1,22 +1,30 @@
+#include <string>
+#include <boost/any.hpp>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y ? &a : (y > x ? &b : boost::any("None")));
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y ? &a : (y > x ? &b : boost::any("None")));
-    } else if ((a.type() == typeid(string) && b.type() != typeid(int)) ||
-               (a.type() != typeid(int) && b.type() == typeid(int))) {
-        string s1 = boost::any_cast<string>(a);
-        string s2 = boost::any_cast<string>(b);
-        return (s1 > s2 ? &a : (s2 > s1 ? &b : boost::any("None")));
-    } else if ((a.type() == typeid(string) && b.type() == typeid(string))) {
-        string s1 = boost::any_cast<string>(a);
-        string s2 = boost::any_cast<string>(b);
-        return (s1 > s2 ? &a : (s2 > s1 ? &b : boost::any("None")));
-    } else {
-        return boost::any("Invalid input");
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return max(a.convert_to<double>(), b.convert_to<double>());
     }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return max(a, boost::any(b.convert_to<int>()));
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        return (boost::any_cast<string>(a) != "None" ? a : b);
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        return (boost::any_cast<string>(b) != "None" ? b : a);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (boost::any_cast<string>(a) > boost::any_cast<string>(b) ? a : (boost::any_cast<string>(a) < boost::any_cast<string>(b) ? b : "None"));
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (boost::any_cast<string>(b) != "None" ? b : a);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return (boost::any_cast<string>(a) != "None" ? a : boost::any(b));
+    }
+
+    return "None";
 }
