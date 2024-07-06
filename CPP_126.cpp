@@ -7,3 +7,8 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 }
+
+int main() {
+    assert(is_sorted({1, 2, 3, 4}) == true);
+    return 0;
+}
