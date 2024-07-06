@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -8,3 +9,6 @@ def concatenate(strings: List[str]) -> str:
             result += " "
         result += string
     return result
+
+strings = input("Enter a list of strings (separated by space): ").split()
+print(concatenate(strings))

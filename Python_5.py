@@ -1,3 +1,4 @@
+```python
 def intersperse(numbers: list[int], delimiter: int) -> list[int]:
     if not isinstance(numbers, list):
         raise ValueError("Input 'numbers' must be a list")
@@ -9,7 +10,7 @@ def intersperse(numbers: list[int], delimiter: int) -> list[int]:
 
     result = [numbers[0]]
     for i in range(1, len(numbers)):
-        result.extend([result[-1], delimiter, numbers[i]])
+        result += [result[-1], delimiter, numbers[i]]
     if result and result[-1] == delimiter:
         result.pop()  # remove trailing delimiter
     return result
