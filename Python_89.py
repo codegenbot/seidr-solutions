@@ -1,9 +1,5 @@
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    encrypted_alphabet = "cdefghijklmnopqrstuvwxyzab"
-    encrypted_string = ""
-    for char in s:
-        index = alphabet.find(char)
-        if index != -1:
-            encrypted_string += encrypted_alphabet[index]
-    return encrypted_string
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
+    table = str.maketrans(alphabet, rotated_alphabet)
+    return s.translate(table)
