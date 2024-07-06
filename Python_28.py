@@ -2,7 +2,4 @@ from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    if not strings:
-        return "No strings provided"
-    else:
-        return "".join(strings)
+    return "".join([s for s in strings if s])
