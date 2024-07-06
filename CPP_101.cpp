@@ -1,6 +1,5 @@
-#include <stdio.h>
+#include <iostream>
 #include <vector>
-#include <string>
 using namespace std;
 
 vector<string> words_string(string s) {
@@ -16,3 +15,4 @@ vector<string> words_string(string s) {
     }
     result.push_back(word);
     return result;
+}
