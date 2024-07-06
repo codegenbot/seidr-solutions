@@ -1,9 +1,7 @@
-```
 #include <algorithm>
 #include <map>
 #include <vector>
 #include <string>
-
 using namespace std;
 
 std::string sort_numbers(std::string numbers) {
