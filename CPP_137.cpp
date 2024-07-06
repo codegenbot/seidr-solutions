@@ -1,18 +1,25 @@
 #include <iostream>
-#include <string>
-#include <variant>
+#include <vector>
+#include <any>
 
-std::variant<int, float, std::string> compare_one(int a, std::variant<int, float, std::string> b) {
-    if (std::holds_alternative<int>(b)) {
-        int bi = std::get<std::variant_cast<int>>(b);
-        return (a > bi) ? a : (bi > a) ? bi : a;
+bool compare(const std::any &a, const std::any &b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return std::get<int>(a) <= std::get<int>(b);
     }
-    else if (std::holds_alternative<float>(b)) {
-        float bf = std::get<std::variant_cast<float>>(b);
-        return (a > bf) ? a : (bf > a) ? bf : a;
+    // Add more comparisons for different types
+    return false;  // Default comparison result
+}
+
+int main() {
+    std::any a, b;
+    if (std::cin >> a >> b) {
+        if (compare(a, b))
+            std::cout << "true\n";
+        else
+            std::cout << "false\n";
+    } else {
+        std::cerr << "Invalid input.\n";
+        return 1; // exit with error code
     }
-    else {
-        std::string bs = std::get<std::string>(b);
-        return (stoi(bs) > a) ? bs : (a > stoi(bs)) ? bs : std::to_string(a);
-    }
+    return 0;
 }

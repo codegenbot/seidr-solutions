@@ -1,21 +1,27 @@
-```c++
+```
 #include <vector>
 #include <cmath>
 
-int doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
+int do_algebra(vector<string> operators, vector<int> operands) {
     int result = operands[0];
-    for (int i = 0; i < operators.size(); i++) {
-        if (operators[i] == "+") {
+    for (int i = 0; i < operands.size() - 1; i++) {
+        if (*operators[i] == "+") {
             result += operands[i + 1];
-        } else if (operators[i] == "-") {
+        } else if (*operators[i] == "-") {
             result -= operands[i + 1];
-        } else if (operators[i] == "*") {
+        } else if (*operators[i] == "*") {
             result *= operands[i + 1];
-        } else if (operators[i] == "//") {
-            result = static_cast<int>(result / operands[i + 1]);
-        } else if (operators[i] == "**") {
-            result = pow(result, operands[i + 1]);
+        } else if (*operators[i] == "/") {
+            if (operands[i + 1] != 0)
+                result = result / operands[i + 1];
+            else
+                return 0;
         }
     }
     return result;
+}
+
+int main() {
+    int result = do_algebra({"//", "*"}, {7, 3, 4});
+    return 0;
 }
