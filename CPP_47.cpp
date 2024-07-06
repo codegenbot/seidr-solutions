@@ -14,6 +14,6 @@ float median(std::vector<float> l) {
 }
 
 int main() {
-    assert(abs(median({8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f}) - 5)<1e-4 );
+    assert(abs(median(std::vector<float>(std::array<float, 8>{{8, 1, 3, 9, 9, 2, 7}}).data(), std::allocator<float>()) - 5) < 1e-4);
     return 0;
 }
