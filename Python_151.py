@@ -6,6 +6,5 @@ def double_the_difference(lst):
     return result
 
 
-# Define the variable `lst` before calling the function
 lst = [1, 2, 3, 4, 5]
-double_the_difference(lst)
+print(double_the_difference(lst))
