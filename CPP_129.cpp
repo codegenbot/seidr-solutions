@@ -1,4 +1,3 @@
-```cpp
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<vector<int>>> dp(n, vector<vector<int>>(n, vector<int>(k + 1)));
