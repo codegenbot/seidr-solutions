@@ -1,7 +1,6 @@
-def add(x: str, y: str):
+def add(x: int or float, y: int or float):
+    # Check if inputs are valid
+    if not (isinstance(x, int) and isinstance(y, int)):
+        raise ValueError("Inputs must be integers")
+
     return x + y
-
-x = input("Enter first number: ")
-y = input("Enter second number: ")
-
-print(add(x, y))
