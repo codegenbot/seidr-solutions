@@ -1,12 +1,12 @@
+```
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
+    if (a > 9 || b > 9)
         return false;
+    return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -22,7 +22,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     std::vector<std::string> result;
     for (int num : numbers) {
-        std::string str = "";
+        string str = "";
         switch (num) {
             case 1:
                 str = "One";
