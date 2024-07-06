@@ -1,10 +1,6 @@
 Here is the completed code:
 
-#include <vector>
-#include <map>
-
-using namespace std;
-
+```cpp
 int search(vector<int> lst) {
     map<int, int> freqMap;
     for (int num : lst) {
@@ -15,11 +11,12 @@ int search(vector<int> lst) {
         }
     }
 
-    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            return it->first;
+    int maxFreq = 0;
+    for (auto& pair : freqMap) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            maxFreq = pair.first;
         }
     }
 
-    return -1;
+    return maxFreq > 0 ? maxFreq : -1;
 }
