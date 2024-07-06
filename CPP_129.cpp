@@ -1,44 +1,38 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-    int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
-    
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(grid[i][j] == 1){
-                pq.push({1, {i, j}});
-                visited[i][j] = true;
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> res;
+    for (int i = 0; i < k; ++i) {
+        int minVal = INT_MAX;
+        int minRow = -1, minCol = -1;
+        for (int j = 0; j < grid.size(); ++j) {
+            for (int col = 0; col < grid[j].size(); ++col) {
+                if (grid[j][col] <= minVal && res.empty() || (res.back() != grid[j][col])) {
+                    minVal = grid[j][col];
+                    minRow = j;
+                    minCol = col;
+                }
             }
+        }
+        res.push_back(minVal);
+        for (int i = 0; i < grid.size(); ++i) {
+            if (i == minRow) continue;
+            grid[i][minCol] = INT_MAX;
         }
     }
+    return res;
+}
 
-    vector<int> path;
-    while(!pq.empty() && path.size() < k){
-        int val = pq.top().first;
-        pair<int, int> pos = pq.top().second;
-        pq.pop();
-        
-        if(path.size() > 0){
-            if(val != path.back()){
-                return {};
-            }
-        }
-        
-        path.push_back(val);
-        
-        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        random_shuffle(directions.begin(), directions.end());
-        
-        for(auto dir : directions){
-            int ni = pos.first + dir.first;
-            int nj = pos.second + dir.second;
-            
-            if(ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]){
-                visited[ni][nj] = true;
-                pq.push({grid[ni][nj], {ni, nj}});
-            }
-        }
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (auto val : result) {
+        cout << val << " ";
     }
-
-    return path;
+    cout << endl;
+    return 0;
 }
