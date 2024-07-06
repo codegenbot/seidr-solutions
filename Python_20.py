@@ -1,19 +1,23 @@
-```
 def find_closest_elements():
-    num_list = input("Enter numbers separated by space: ").split()
-    num_list = [int(num) for num in num_list]
+    num_list = list(map(int, input("Enter numbers separated by space: ").split()))
     num_list.sort()
-    avg = sum(num_list) / len(num_list)
-    closest_diff = float('inf')
-    closest_pairs = []
+
+    target = int(input("Enter a target number to find closest elements: "))
     
-    for i in range(len(num_list)):
-        if abs(num_list[i] - avg) < closest_diff:
-            closest_diff = abs(num_list[i] - avg)
-            closest_pairs = [(num_list[i], num_list[(i+1)%len(num_list)])]
-        elif abs(num_list[i] - avg) == closest_diff:
-            closest_pairs.append((num_list[i], num_list[(i+1)%len(num_list)]))
-    
-    print("The {} closest elements are: {}".format(len(closest_pairs), tuple(map(lambda x: str(x[0]) + ' and ' + str(x[1]), closest_pairs))))
+    k = int(input("Enter the number of closest elements to find: "))
+
+    if k > len(num_list):
+        print(f"Closest pair of elements are: {(num_list[0], num_list[-1])}")
+    else:
+        left, right = 0, len(num_list) - k
+        min_diff = abs(target - num_list[0])
+        closest_pair = num_list[left:right+1]
+
+        for i in range(left, right+1):
+            if abs(target - num_list[i]) < min_diff:
+                min_diff = abs(target - num_list[i])
+                closest_pair = num_list[i-k+1:i+1]
+
+        print(f"The {k} closest elements to {target} are: {tuple(closest_pair)}")
 
 find_closest_elements()
