@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -32,11 +31,7 @@ int bowlingScore(string s) {
     return score;
 }
 
-int main(int argc, char* argv[]) { 
-    if(argc != 2) {
-        cout << "Usage: bowlingScore <string>";
-        return -1;
-    }
-    std::cout << bowlingScore(argv[1]) << '\n'; 
-    return 0; 
+int main(int argc, char* argv[]) {
+    std::cout << bowlingScore(argv[1]) << '\n';
+    return 0;
 }
