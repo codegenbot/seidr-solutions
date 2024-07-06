@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> sort_array(vector<int> array) {
     int total_sum = 0;
     for (int num : array) total_sum += num;
