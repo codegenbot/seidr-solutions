@@ -5,13 +5,13 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return ((int)a > (int)b) ? a : (a.convert_to<int>() == b.convert_to<int>()) ? boost::any(false) : b;
+        return (int)a > (int)b ? a : ((int)a == (int)b) ? boost::any() : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return ((float)a > (float)b) ? a : (a.convert_to<float>() == b.convert_to<float>()) ? boost::any(false) : b;
+        return (float)a > (float)b ? a : ((float)a == (float)b) ? boost::any() : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return ((std::string)a > (std::string)b) ? a : (a.convert_to<std::string>() == b.convert_to<std::string>()) ? boost::any(false) : b;
+        return (std::string)a > (std::string)b ? a : ((std::string)a == (std::string)b) ? boost::any() : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         if ((int)a > (float)b) {
@@ -21,7 +21,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any(false);
+            return boost::any();
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
@@ -32,7 +32,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return a;
         }
         else {
-            return boost::any(false);
+            return boost::any();
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
@@ -43,7 +43,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any(false);
+            return boost::any();
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
@@ -54,7 +54,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return a;
         }
         else {
-            return boost::any(false);
+            return boost::any();
         }
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
@@ -65,7 +65,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any(false);
+            return boost::any();
         }
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
@@ -76,7 +76,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any(false);
+            return boost::any();
         }
     }
     return a; // default to the first value
