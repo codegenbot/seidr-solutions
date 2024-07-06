@@ -6,6 +6,8 @@ def sort_array(input_array=None):
     else:
         array = [int(i) for i in input_array]
     try:
-        return sorted(set(array), key=int)
-    except TypeError as e:
+        if all(isinstance(x, int) for x in array):
+            return sorted(array)
+        return set(array)
+    except ValueError as e:
         print("Error: Array contains non-integer values")
