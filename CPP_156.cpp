@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -17,12 +16,4 @@ std::string int_to_mini_roman(int number) {
     }
 
     return result;
-}
-
-int main() {
-    int num;
-    std::cout << "Enter an integer: ";
-    std::cin >> num;
-    std::cout << int_to_mini_roman(num) << std::endl;
-    return 0;
 }
