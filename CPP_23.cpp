@@ -1,9 +1,10 @@
 #include<string>
+#include<cassert>
+
 using namespace std;
 
-int str_length(const char* str){
-    string s(str);
-    return s.length();
+int str_length(string str){
+    return str.length();
 }
 
 int main() {

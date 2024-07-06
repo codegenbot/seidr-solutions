@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -5,9 +6,13 @@ std::string flip_case(std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
-        if(isalpha(c)){
-            c = (islower(c))? toupper(c) : tolower(c);
+        if(c >= 'a' && c <= 'z'){
+            result += toupper(c);
+        } else if (c >= 'A' && c <= 'Z') {
+            result += tolower(c);
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
+}
