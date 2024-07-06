@@ -2,7 +2,6 @@
 #include <vector>
 #include <iostream>
 #include <initializer_list>
-
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
