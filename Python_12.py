@@ -1,12 +1,13 @@
-```
 def process_strings():
     strings = []
+    i = 0
     while True:
-        user_input = input("Enter a string (or 'stop' to finish): ")
+        i += 1
+        user_input = input(f"Enter string {i}(or 'stop' to finish): ")
         
         if user_input.lower() == 'stop':
-            break
-        
+            return []
+
         if not user_input.strip():
             print("Please enter a non-empty string.")
             continue
