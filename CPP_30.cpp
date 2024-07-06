@@ -1,4 +1,4 @@
-````
+```c
 #include <initializer_list>
 #include <vector>
 #include <iostream>
@@ -15,7 +15,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float>& l, std::vector<float>& v) {
+std::vector<float> get_positive(const std::vector<float>& l, const std::vector<float>& v) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -44,4 +44,3 @@ int main() {
     }
     std::cout << std::endl;
 }
-```
