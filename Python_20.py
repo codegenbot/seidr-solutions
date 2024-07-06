@@ -1,18 +1,29 @@
-```python
 def find_closest_elements():
     num_list = input("Enter numbers separated by space: ").split()
     num_list = [int(num) for num in num_list]
     num_list.sort()
 
-    closest_pair_diff = float('inf')
-    closest_pair = (0, 0)
+    target = int(input("Enter a target number to find closest elements: "))
 
-    for i in range(len(num_list) - 1):
-        pair_diff = num_list[i+1] - num_list[i]
-        if pair_diff < closest_pair_diff:
-            closest_pair_diff = pair_diff
-            closest_pair = (num_list[i], num_list[i+1])
+    k = int(input("Enter the number of closest elements to find: "))
 
-    print("Closest pair of elements are: ", closest_pair)
+    if k > len(num_list):
+        print("Closest pair of elements are: ", (num_list[0], num_list[-1]))
+    else:
+        left, right = 0, len(num_list) - k
+        closest_pair = num_list[left : right + 1]
+
+        min_diff = abs(target - num_list[0])
+        for i in range(left, right + 1):
+            if abs(target - num_list[i]) < min_diff:
+                min_diff = abs(target - num_list[i])
+                closest_pair = num_list[i - k + 1 : i + 1]
+
+        print(
+            "The {} closest elements to {} are: {}".format(
+                k, target, tuple(closest_pair)
+            )
+        )
+
 
 find_closest_elements()
