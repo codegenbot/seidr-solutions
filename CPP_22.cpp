@@ -20,6 +20,7 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
         }
     }
     return result;
+
 }
 
 int main() {
