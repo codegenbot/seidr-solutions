@@ -1,4 +1,3 @@
-```
 def camel_case(s):
     result = ""
     words = s.replace("-", " ").split()
@@ -8,5 +7,5 @@ def camel_case(s):
         else:
             result += word
         if i < len(words) - 1:
-            result += ' ' if words[i+1].index('-') == 0 else ''
-    return result.capitalize()
+            result += words[i + 1].replace("-", "")
+    return result
