@@ -1,10 +1,8 @@
 #include <vector>
-#include <string>
+#include <algorithm>
 
-bool issame(std::string p1, std::string p2) {
-    // This function is supposed to check if two planets are the same
-    // For simplicity, let's just consider them the same if they have the same name
-    return p1 == p2;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
@@ -25,10 +23,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     std::vector<std::string> result;
-
     for (int i = 0; i < planets.size(); i++) {
-        if ((issame(planets[i], planet1) && issame(planets[i], planet2)) ||
-            (i >= index1 && i <= index2)) {
+        if (i >= index1 && i <= index2) {
             result.push_back(planets[i]);
         }
     }
