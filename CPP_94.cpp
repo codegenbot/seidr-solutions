@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -19,7 +19,7 @@ bool isPrime(int num) {
     return true;
 }
 
-int largestPrime(std::initializer_list<int> lst) {
+int largestPrime(std::vector<int> lst) {
     int maxPrime = -1;
     for (int i : lst) {
         if (isPrime(i)) {
@@ -29,12 +29,16 @@ int largestPrime(std::initializer_list<int> lst) {
     return maxPrime;
 }
 
-int calculateSumOfDigitsLargestPrime(std::initializer_list<int> lst) {
+int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
     int maxPrime = largestPrime(lst);
     return sumOfDigits(maxPrime);
 }
 
 int main() {
-    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime({1, 2, 3, 4, 5}) << endl;
+    std::vector<int> lst;
+    for (int i : {1, 2, 3, 4, 5}) {
+        lst.push_back(i);
+    }
+    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << endl;
     return 0;
 }
