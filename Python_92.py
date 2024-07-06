@@ -1,5 +1,8 @@
 def any_int(x, y, z):
-    if isclose(x + y, z) or isclose(x + z, y) or isclose(y + z, x):
+   x = int(x)
+   y = int(y)
+   z = int(z)
+    if x + y == z or x + z == y or y + z == x:
         return True
     else:
         return False
