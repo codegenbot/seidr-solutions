@@ -1,15 +1,19 @@
 def find_closest_elements():
-    arr = input("Enter the array of elements: ").split()
-    num1 = int(input("Enter the first number: "))
-    num2 = int(input("Enter the second number: "))
+    lst = list(map(int, input("Enter elements of list separated by space: ").split()))
+    n = len(lst)
+    avg = sum(lst) / n
+    diff_sum = sum(abs(x - avg) for x in lst)
+    closest_pair_sum = float('inf')
+    closest_pair_sum_list = []
     
-    closest_diff = float('inf')
-    closest_num1 = None
-    closest_num2 = None
-    
-    for i in range(len(arr)):
-        if abs(int(arr[i]) - num1) + abs(int(arr[i]) - num2) < closest_diff:
-            closest_diff = abs(int(arr[i]) - num1) + abs(int(arr[i]) - num2)
-            closest_num1, closest_num2 = int(arr[i]), int(arr[i])
-    
-    return str(closest_num1) + " and " + str(closest_num2)
+    for i in range(n):
+        for j in range(i+1, n):
+            if abs((lst[i] + lst[j]) / 2 - avg) < abs(lst[i] - avg):
+                pair_sum = (lst[i] + lst[j])
+                if pair_sum < closest_pair_sum:
+                    closest_pair_sum = pair_sum
+                    closest_pair_sum_list = [(i, j)]
+                elif pair_sum == closest_pair_sum:
+                    closest_pair_sum_list.append((i, j))
+                    
+    return closest_pair_sum_list
