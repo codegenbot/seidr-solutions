@@ -3,30 +3,31 @@
 #include <algorithm>
 
 bool issame(vector<string>, vector<string>) {
-    // This function is not used in the given code
+    // code here
 }
 
 int main() {
     int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    vector<int> arr(n);
+    std::vector<int> arr(n);
     for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
 
-    vector<string> result = by_length(arr);
-
-    for (const auto &str : result) {
-        std::cout << str << " ";
-    }
-    return 0;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<string> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
+    vector<string> by_length(vector<int> arr) {
+        vector<int> temp;
+        for (int i : arr) {
+            if (i >= 1 && i <= 9) {
+                temp.push_back(i);
+            }
+        }
+        sort(temp.begin(), temp.end());
+        reverse(temp.begin(), temp.end());
+        vector<string> result;
+        for (int i : temp) {
             string str = "";
             switch (i) {
                 case 1:
@@ -57,10 +58,16 @@ vector<string> by_length(vector<int> arr) {
                     str = "Nine";
                     break;
             }
-            temp.push_back(str);
+            result.push_back(str);
         }
+        return result;
     }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
-    return temp;
+
+    vector<string> output = by_length(arr);
+
+    for (const string& s : output) {
+        std::cout << s << " ";
+    }
+
+    return 0;
 }
