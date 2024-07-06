@@ -8,12 +8,12 @@ def encode(message):
                         result += {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}[char.lower()].upper()
                     else:
                         result += {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}[char.lower()]
-                elif char.lower() in ["do", "to"]:
+                elif char.lower() == "do" or char.lower() == "to":
                     if char.isupper():
                         result += "dQnT".upper()
                     else:
                         result += "dQnT"
-                elif char.lower() in ["re", "ro", "te"]:
+                elif char.lower() == "re" or char.lower() == "ro" or char.lower() == "te":
                     if char.isupper():
                         result += "gYkS".upper()
                     else:
