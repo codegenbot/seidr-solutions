@@ -20,7 +20,7 @@ bool file_name_check(string file_name) {
         valid = false;
     }
 
-    string before_dot = file_name.substr(0, file_name.find('.', 0));
+    string before_dot = file_name.substr(0, file_name.find('.'));
     string after_dot = file_name.substr(file_name.find('.', 0)+1);
 
     if(before_dot.empty() || !isalpha(before_dot[0])){
