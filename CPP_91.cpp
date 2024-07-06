@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -15,5 +16,5 @@ int is_bored(std::string S){
 }
 
 int main() { 
-    return is_bored("This I am bored I to"); 
+    return is_bored("I am bored and tired. I will go to bed"); 
 }
