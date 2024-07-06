@@ -1,10 +1,8 @@
 from typing import List, Any
 
-def filter_integers(values: list) -> list:
-    return [value for value in values if isinstance(value, int)]
+def filter_integers() -> list:
+    values = input("Enter a series of comma-separated integers: ")
+    value_list = [int(x) for x in values.split(",")]
+    return [value for value in value_list if isinstance(value, int)]
 
-user_input = input("Please enter a comma-separated list of integers or any other data type:\n")
-
-values_list = [x.strip() for x in user_input.split(',')]
-
-print(filter_integers([int(x) for x in values_list]))
+print(filter_integers())

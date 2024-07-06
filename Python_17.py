@@ -1,8 +1,6 @@
-```
 from typing import List
 
-def parse_music() -> List[int]:
-    music_string = input()
+def parse_music(music_string: str) -> List[int]:
     beats = [0]
     for note in music_string.split():
         if note == "o":
@@ -11,4 +9,6 @@ def parse_music() -> List[int]:
             beats.append(2)
         elif note == ".|":
             beats.append(1)
+        elif note == "":
+            pass
     return beats[1:]
