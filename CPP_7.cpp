@@ -3,13 +3,8 @@
 #include <string>
 
 int main() {
-    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    vector<string> result = filter_by_substring(strings, substring);
-    if (!issame(result, {"grunt", "prune"})) {
-        std::cerr << "Assertion failed" << std::endl;
-        return 1;
-    }
+    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    assert (issame(result ,{"grunt", "prune"}));
     return 0;
 }
 
@@ -29,3 +24,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
+}
