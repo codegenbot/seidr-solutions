@@ -1,9 +1,7 @@
 Here is the completed code:
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        return None
-    a = xs[0]
-    b = sum(i * c for i, c in enumerate(xs[1:], 1))
-    x = -b / (2 * a)
-    return round(x, 2)
+    n = len(xs)
+    a = xs[n//2]
+    b = -xs[n//2-1]/a
+    return round(-b/2, 2) if abs(a) > 0.01 else round(-b, 2)
