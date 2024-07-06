@@ -1,4 +1,3 @@
-
 def intersperse(numbers: list[int], delimeter: int) -> List[int]:
     return [
         delimeter if i % 2 == 0 else numbers[i // 2]
