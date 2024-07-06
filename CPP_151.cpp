@@ -1,19 +1,28 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
+#include <vector>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for(auto x : lst){
-        if(int(x) > 0 && int(x) % 2 != 0)
-            sum += pow(int(x), 2);
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0) {
+            sum += pow(num, 2);
+        }
     }
     return sum;
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 3.7, 4.9};
-    long long odd_sum = double_the_difference(lst);
-    std::cout << "The odd sum is: " << odd_sum << std::endl;
+    std::vector<float> lst;
+    float input;
+    
+    while (std::cin >> input) {
+        lst.push_back(input);
+    }
+
+    long long result = double_the_difference(lst);
+
+    std::cout << "The sum of the squares is: " << result << std::endl;
+
     return 0;
 }
