@@ -20,25 +20,16 @@ int main() {
     int n, k;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::cout << "Enter " << n << " elements: ";
     std::vector<int> arr(n);
     for (auto &x : arr) {
-        std::cout << "Enter element: ";
         std::cin >> x;
     }
     std::cout << "Enter k: ";
     std::cin >> k;
-
     std::vector<int> res = maximum(arr, k);
-
-    if(res.size() == 0) {
-        std::cout << "Array is too small for K value.\n";
-    } else {
-        std::cout << "Maximum elements: ";
-        for (int i : res) {
-            std::cout << i << " ";
-        }
-        std::cout << "\n";
-    }
-
+    std::cout << "Maximum elements are: ";
+    for (int i : res)
+        std::cout << i << " ";
     return 0;
 }
