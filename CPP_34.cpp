@@ -1,14 +1,18 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), end(unique(l.begin(), l.end())));
+    vector<int> result(l.begin(), unique(l.begin(), l.end()));
     sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    // removed the function call, since this is not a correct way to use the function
+    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    for (auto i : unique(l)) {
+        cout << i << " ";
+    }
 }
