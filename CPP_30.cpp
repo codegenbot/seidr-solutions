@@ -6,16 +6,6 @@ bool issame(const std::vector<float>& a,const std::vector<float>& b) {
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
-std::vector<float> get_positive(const std::initializer_list<float>& input) {
-    std::vector<float> output;
-    for (float f : input) {
-        if (f >= 0) {
-            output.push_back(f);
-        }
-    }
-    return output;
-}
-
 int main() {
     assert(std::equal(get_positive({}), {}));
     vector<float> v1 = get_positive({-1, 0, 2, -3, 4});
