@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <initializer_list>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -9,6 +9,7 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+
 }
 
 int main() {
