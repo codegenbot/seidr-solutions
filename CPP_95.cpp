@@ -1,3 +1,9 @@
+#include <string>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
@@ -6,8 +12,13 @@ bool check_dict_case(map<string, string> dict) {
 
     for (auto& pair : dict) {
         string key = pair.first;
-        if (!islower(key[0])) allLower = false;
-        if (!isupper(key[0])) allUpper = false;
+        if (!allLower && !allUpper) break;
+        if (!allLower) {
+            allLower = all(ToLower(key).begin(), Lower(key).end());
+        }
+        if (!allUpper) {
+            allUpper = all(Upper(key).begin(), Upper(key).end());
+        }
     }
 
     return allLower || allUpper;
