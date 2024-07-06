@@ -1,3 +1,3 @@
 def solve(N):
-    bin_list = [str((N>>i)&1) for i in range(N.bit_length())][::-1]
-    return ''.join(bin_list)
+    bin_str = bin(N)[2:]
+    return "1" if sum(int(b) for b in bin_str) % 2 == 0 else "0"
