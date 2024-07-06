@@ -1,17 +1,12 @@
-Here is the corrected code:
+#include <string>
+#include <algorithm>
 
-```cpp
 int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
         if (std::isdigit(c)) {
-            sum += c - '0';
+            sum += std::stoi(std::string(1, c));
         }
     }
     return sum;
-}
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 327);
-    return 0;
 }
