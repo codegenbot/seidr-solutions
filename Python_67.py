@@ -1,10 +1,7 @@
-\n
-import re
-
-def fruit_distribution(s, n):
+n = int(input())
+def fruit_distribution(s):
     s = s.replace("apples", "0").replace("oranges", "0")
-    parts = list(map(int, re.findall(r"\d+", s)))
+    parts = list(map(int, s.split()))
     return sum(parts) if len(parts) >= n else 0
 
-n = int(input())
-fruit_distribution(input(), n)
+fruit_distribution(input())
