@@ -1,35 +1,40 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
+#include <cctype>
 
-std::vector<std::string> select_words(const std::string& s, int n) {
+std::vector<std::string> select_words(const std::string& str, int num) {
     std::vector<std::string> words;
-    size_t start = 0;
-    while (start < s.size()) {
-        start = s.find(' ', start);
-        if (start == std::string::npos)
-            break;
-        size_t end = s.find(' ', start + 1);
-        if (end == std::string::npos)
-            end = s.size();
-        words.push_back(s.substr(start + 1, end - start - 1));
-        if (++n > 0) {
-            --n;
-        } else
-            break;
-    }
+    std::stringstream s(str);
+    std::string word;
+
+    for(int i=0; i<num && s >> word; ++i)
+        words.push_back(word);
+
     return words;
 }
 
-bool issame(char c1, char c2) {
-    if (isalpha(c1) && isalpha(c2)) {
-        return tolower(c1) == tolower(c2);
+bool is_same(char ch1, char ch2) {
+    if (isalpha(ch1) && isalpha(ch2)) {
+        return tolower(ch1) == tolower(ch2);
     } else {
-        return c1 == c2;
+        return false;
     }
 }
 
-int main() {
-    assert(issame(select_words("a b c d e f", 1)[0], "b"));
+bool are_words_the_same(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!is_same(a[i][0], b[i][0])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int test_main() {
+    assert(are_words_the_same(select_words("a b c d e f", 4), {"b", "c", "d", "f"}));
     return 0;
 }
