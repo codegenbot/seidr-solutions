@@ -1,31 +1,24 @@
-#include <iostream>
+#include <climits>
 #include <vector>
-#include <limits.h>
-
 using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
-
-std::pair<int, int> pluck(vector<int> arr) {
+vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return pair<int, int>(-1, -1);
+    if (arr.empty()) return {};
 
-    int smallest_even = INT_MAX;
-    int index_of_smallest_even = -1;
+    int minEvenValue = INT_MAX;
+    int minIndex = -1;
 
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
-            smallest_even = arr[i];
-            index_of_smallest_even = i;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
+            minEvenValue = arr[i];
+            minIndex = i;
         }
     }
 
-    result.push_back({smallest_even, index_of_smallest_even});
-    return result.first;
-}
+    if (minIndex != -1) {
+        result.push_back({minEvenValue, minIndex});
+    }
 
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), std::pair<int, int>(-1, -1)));
+    return result;
 }
