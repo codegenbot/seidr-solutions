@@ -1,17 +1,10 @@
-string remove_vowels(string text) {
+string remove_vowels(string text){
     string result = "";
-    for (char c : text) {
-        if (!isvowel(c)) {
-            result += c;
+    for(int i=0; i < text.length();i++){
+        if(text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u'
+           && text[i] != 'A' && text[i] != 'E' && text[i] != 'I' && text[i] != 'O' && text[i] != 'U'){
+            result += text[i];
         }
     }
     return result;
-}
-
-bool isvowel(char c) {
-    char lowerCase = tolower(c);
-    if (lowerCase == 'a' || lowerCase == 'e' || lowerCase == 'i' || lowerCase == 'o' || lowerCase == 'u') {
-        return true;
-    }
-    return false;
 }
