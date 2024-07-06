@@ -1,6 +1,6 @@
 ```
-s = input()
-def decode_cyclic(s: str):
+def decode_cyclic():
+    s = input()
     groups = []
     temp = ""
     for char in s:
@@ -14,4 +14,3 @@ def decode_cyclic(s: str):
             for group in [temp] + groups
         ]
     )
-print(decode_cyclic(s))
