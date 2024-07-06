@@ -45,6 +45,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 vector<string> testMain() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    vector<string> result = total_match(vec1,vec2);
+    vector<string> result = total_match(vec1,vec2); // Pass vectors not integers
     return result;
 }

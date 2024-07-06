@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-bool isSame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::vector<std::string> result;
     std::string temp = "";
     for (char ch : s) {
@@ -19,7 +19,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            temp += ch;
+            temp += std::to_string(ch);
         }
     }
     result.push_back(temp);
@@ -34,6 +34,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(isSame({"" , "True"}, reverse_delete("mamma", "mia")));
+    assert(issame(std::vector<std::string>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()) , std::vector<std::string>({"", "True"})));
     return 0;
 }
