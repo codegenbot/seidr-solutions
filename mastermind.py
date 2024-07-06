@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     black = 0
     white = 0
@@ -14,3 +15,10 @@ def mastermind(code, guess):
             code_count[ord(c) - ord('0') + 6 if 'A' <= c <='F' else ord(c) - ord('0')] -= 1
         
     return black, white
+
+code = input("Enter the Mastermind code: ")
+guess = input("Enter your guess: ")
+
+black, white = mastermind(code, guess)
+
+print(f"Black pegs: {black}, White pegs: {white}")
