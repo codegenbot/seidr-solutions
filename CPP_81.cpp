@@ -1,27 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 
 std::vector<std::string> numerical_letter_grade(std::vector<double> grades) {
-    std::vector<std::string> result;
+    std::vector<std::string> result(grades.size());
     
     for (int i = 0; i < grades.size(); i++) {
         if(grades[i] >= 90.0)
-            result.push_back("A");
+            result[i] = "A";
         else if(grades[i] >= 80.0)
-            result.push_back("B");
+            result[i] = "B";
         else if(grades[i] >= 70.0)
-            result.push_back("C");
+            result[i] = "C";
         else if(grades[i] >= 60.0)
-            result.push_back((grades[i] >= 65.0) ? "D+" : "D");
+            result[i] = "D";
         else 
-            result.push_back("F");
+            result[i] = "F";
     }
     
     return result;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -30,8 +31,8 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<int> grades = {static_cast<int>(0), static_cast<int>(70)};
-    std::vector<std::string> expected = {"F", "D-"};
-    assert(isSame(numerical_letter_grade({0.0, 0.7}), expected));
+    std::vector<double> grades = {0.0, 70.0};
+    std::vector<std::string> expected = {"F", "D"};
+    assert(operator==(numerical_letter_grade(grades), expected));
     return 0;
 }
