@@ -18,3 +18,21 @@ vector<int> count_up_to(int n) {
     }
     return primes;
 }
+
+bool operator==(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    int n;
+    cout << "Enter an integer: ";
+    cin >> n;
+    vector<int> primes = count_up_to(n);
+    vector<int> otherPrimes = count_up_to(n+1);
+    if (primes == otherPrimes) {
+        cout << "The result is the same.\n";
+    } else {
+        cout << "The result is different.\n";
+    }
+    return 0;
+}
