@@ -7,4 +7,7 @@ vector<int> sort_array(vector<int> array) {
         return vector<int>(array.begin(), array.end());
     else
         return vector<int>(array.rbegin(), array.rend());
+
+    // Add this message to handle the error!
+    cout << "Error: Vector not found" << endl;
 }
