@@ -1,14 +1,11 @@
+Here is the completed code:
+
+```cpp
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int max_negative = 0;
-    int min_positive = INT_MAX;
-
-    for (int num : lst) {
-        if (num < 0 && num > max_negative) {
-            max_negative = num;
-        } else if (num > 0 && num < min_positive) {
-            min_positive = num;
-        }
+    int a = 0, b = INT_MAX;
+    for (int x : lst) {
+        if (x < 0 && x > a) a = x;
+        else if (x > 0 && x < b) b = x;
     }
-
-    return {(max_negative != 0 ? max_negative : 0), (min_positive != INT_MAX ? min_positive : 0)};
+    return {a, b};
 }
