@@ -1,25 +1,30 @@
-string file_name_check(string file_name) {
-    int digit_count = 0, dot_count = 0;
-    bool valid = true;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+    string before_dot;
 
-    for (int i = 0; i < file_name.length(); i++) {
-        if (isdigit(file_name[i])) {
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
             digit_count++;
-        } else if (file_name[i] == '.') {
-            dot_count++;
-        } else if (!isalpha(file_name[i]) && !isalnum(file_name[i])) {
-            valid = false;
-            break;
+            if(digit_count > 3) return "No";
+        }
+        else if(file_name[i] == '.'){
+            found_dot = true;
+        }
+        else{
+            if(!found_dot){
+                before_dot += file_name[i];
+            }
         }
     }
 
-    if (digit_count > 3 || dot_count != 1) {
-        valid = false;
+    if(found_dot){
+        string after_dot = file_name.substr(file_name.find('.') + 1);
+        if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
+    }
+    else{
+        if(before_dot.length() == 0 || !isalpha(before_dot[0])) return "No";
     }
 
-    string result = (valid && file_name.substr(file_name.find('.')+1).compare("txt") == 0 ||
-                     file_name.substr(file_name.find('.')+1).compare("exe") == 0 ||
-                     file_name.substr(file_name.find('.')+1).compare("dll") == 0) ? "Yes" : "No";
-
-    return result;
+    return "Yes";
 }
