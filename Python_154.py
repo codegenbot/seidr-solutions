@@ -4,7 +4,7 @@ def cycpattern_check(a, b):
         return False
 
     for _ in range(len(a)):
-        if a * 2 == b:
+        if (a * (2**len(a)))[:len(b)] == b:
             return True
     return False
 ```
