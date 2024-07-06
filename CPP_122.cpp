@@ -13,15 +13,15 @@ int add_elements(std::vector<int> arr, int k) {
 
 int main() {
     std::vector<int> vec;
-    int num, k;
+    int n, k;
     std::cout << "Enter the number of elements: ";
-    std::cin >> k;
-    for (int i = 0; i < k; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        vec.push_back(num);
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for(int i = 0; i < n; i++) {
+        std::cin >> k;
+        vec.push_back(k);
     }
-    int result = add_elements(vec, k);
-    std::cout << "Sum of elements with lengths less than or equal to 2: " << result << std::endl;
+    int result = add_elements(vec, n);
+    std::cout << "The sum of elements with length <= 2 is: " << result << std::endl;
     return 0;
 }
