@@ -3,14 +3,11 @@
 #include <string>
 
 std::string decode(std::string cipher, std::string mapping) {
-    std::string result = "";
+    std::size_t mappingIdx = 0;
     for (char c : cipher) {
-        int idx = mapping.find(c);
-        if (idx != std::string::npos) {
-            result += mapping[idx];
-        } else {
-            result += c;
-        }
+        char m = mapping[mappingIdx];
+        result += m; 
+        mappingIdx++; 
     }
     return result;
 }
