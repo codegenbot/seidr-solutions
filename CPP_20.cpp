@@ -1,18 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <limits>
-
-bool issame(std::vector<float> v1, std::vector<float> v2) {
-    if(v1.size() != v2.size()) {
-        return false;
-    }
-    for(int i = 0; i < v1.size(); i++) {
-        if(std::abs(v1[i] - v2[i]) > 1e-9) {
-            return false;
-        }
-    }
-    return true;
-}
+#include <utility>
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
@@ -29,4 +18,14 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     }
     
     return closestPair;
+}
+
+bool issame(std::vector<float> vec1, std::vector<float> vec2) {
+    if(vec1.size() != vec2.size())
+        return false;
+    for(int i = 0; i < vec1.size(); i++) {
+        if(abs(vec1[i] - vec2[i]) > 0.000001)
+            return false;
+    }
+    return true;
 }
