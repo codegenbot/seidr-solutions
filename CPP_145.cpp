@@ -1,6 +1,9 @@
 #include <algorithm>
+#include <vector>
+#include <utility>
+
 bool issame(int a, int b) {
-    return abs(a) == abs(b);
+    return false;
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -11,9 +14,7 @@ vector<int> order_by_points(vector<int> nums) {
     sort(pairs.begin(), pairs.end());
     vector<int> result;
     for (const auto& pair : pairs) {
-        if (!issame(pair.first, 0)) {
-            result.push_back(pair.second * (pair.first > 0 ? -1 : 1));
-        }
+        result.push_back(pair.second * (pair.first > 0 ? -1 : 1));
     }
     return result;
 }
