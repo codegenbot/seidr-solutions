@@ -1,7 +1,7 @@
 ```
 import math
 
-def find_zero(xs: list):
+def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
@@ -12,3 +12,6 @@ def find_zero(xs: list):
     
     x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
     return round(x, 2)
+
+xs = list(map(float, input("Enter coefficients: ").split()))
+print(find_zero(xs))
