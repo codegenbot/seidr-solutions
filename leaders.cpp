@@ -1,19 +1,14 @@
-#include<iostream>
-#include <vector>
-using namespace std;
-
-// function to find leaders in a vector
-vector<int> leaders(vector<int>& nums) {
-	vector<int> leaders;
-	int leader = INT_MIN;
-
-	for (int i = 0; i < nums.size(); i++) {
-        // compare each element with the current leader
-		if (nums[i] >= leader) {
-            // if the element is greater or equal to the leader, update the leader and add it to the leaders vector
-			leader = nums[i];
-			leaders.push_back(leader);
-		}
-	}
-	return leaders;
+vector<int> leaders(const vector<int>& v) {
+    vector<int> result;
+    for (auto i = v.rbegin(); i != v.rend(); ++i) {
+        bool isLeader = true;
+        for (auto j = i + 1; j != v.rend(); ++j) {
+            if (*i < *j) {
+                isLeader = false;
+                break;
+            }
+        }
+        if (isLeader) result.push_back(*i);
+    }
+    return result;
 }
