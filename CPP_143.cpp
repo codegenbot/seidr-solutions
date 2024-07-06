@@ -1,18 +1,21 @@
 ```cpp
 #include <cassert>
 #include <string>
-#include <vector>
+#include <sstream>
 
-int words_in_sentence(const std::string& sentence) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= sentence.size(); ++i) {
-        if ((i == sentence.size()) || isspace(sentence[i])) {
-            words.push_back(sentence.substr(start, i - start));
-            start = i + 1;
-        }
+std::string words_in_sentence(const std::string& sentence) {
+    std::stringstream ss;
+    ss << sentence;
+    std::string word;
+    int count = 0;
+    
+    while (ss >> word) {
+        if (count > 0)
+            std::cout << " ";
+        std::cout << word;
+        count++;
     }
-    return words.size();
+    return sentence;
 }
 
 int main() {
