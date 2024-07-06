@@ -1,3 +1,4 @@
 ```
 def sort_third(l: list):
-    return tuple(sorted((x, i % 3) for i, x in enumerate(l)))
+    l.sort(key=lambda x: x % 3)
+    return tuple(l)
