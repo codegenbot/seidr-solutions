@@ -6,35 +6,24 @@
 using namespace std;
 
 vector<string> split_words(string txt) {
-    vector<string> words;
-    
-    size_t start = 0;
-    while (start < txt.size()) {
-        if (isalpha(txt[start])) {
-            start++;
-            continue;
-        }
-        
-        size_t end = start;
-        while (end < txt.size() && !isalpha(txt[end])) {
-            end++;
-        }
-        
-        words.push_back(txt.substr(start, end - start));
-        start = end;
+    vector<string> result;
+    size_t pos = 0;
+    while ((pos = txt.find(' ')) != string::npos) {
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + 1);
     }
-
-    if (words.empty()) {
+    if (txt.length() > 0) {
+        result.push_back(txt);
+    } else {
         int count = 0;
         for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                count += (int)c - (int)'a';
+            if ((int)c - (int)'a' % 2 == 0 && (int)c >= (int)'a' && (int)c <= (int)'z') {
+                count++;
             }
         }
-        words.push_back(to_string(count));
+        result.push_back(to_string(count));
     }
-    
-    return words;
+    return result;
 }
 
 int main() {
@@ -42,8 +31,8 @@ int main() {
     cout << "Enter a text: ";
     getline(cin, txt);
     vector<string> result = split_words(txt);
-    for (const auto& word : result) {
-        cout << word << endl;
+    for (string s : result) {
+        cout << s << endl;
     }
     return 0;
 }
