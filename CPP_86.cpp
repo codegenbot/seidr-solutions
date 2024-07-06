@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-std::string anti_shuffle(std::string s) { 
+std::string anti_shuffle(std::string s) {
     string result = "";
     string word;
     
