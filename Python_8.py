@@ -1,8 +1,7 @@
+```
 from typing import list, Tuple
 
-def sum_product():
-    numbers = input("Enter numbers (space-separated): ").split()
-    numbers = [int(num) for num in numbers]
+def sum_product(numbers: list[int]) -> Tuple[int, int]:
     total_sum = 0
     product = 1
     for num in numbers:
@@ -10,4 +9,6 @@ def sum_product():
         product *= num
     return (total_sum, product)
 
-print(sum_product())
+numbers = [int(num) for num in input("Enter space-separated integers: ").split()]
+total_sum, product = sum_product(numbers)
+print(f"The sum is {total_sum} and the product is {product}")
