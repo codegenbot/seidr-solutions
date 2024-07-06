@@ -32,6 +32,7 @@ bool assertIsSame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     std::string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -45,9 +46,8 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
-    return {{temp}, (temp == rev) ? "True" : "False"}; 
+    result = {{temp}, (temp == std::string(temp.revers)) ? "True" : "False"};
+    return result;
 }
 
 void testMain() {
@@ -61,7 +61,7 @@ void testMain() {
     return;
 }
 
-void main() {
+int main() {
     testMain();
-    return;
+    return 0;
 }
