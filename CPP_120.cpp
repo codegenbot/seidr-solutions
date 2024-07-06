@@ -18,7 +18,7 @@ std::vector<int> maximum(std::vector<int> arr, int k){
         if(max_heap.size()>k)
             max_heap.pop();
     }
-    std::vector<int> result(k); // Initialize with size
+    std::vector<int> result(k, 0); // or any other default value you want
     for(int i=k-1;i>=0;--i)
         result[i]=max_heap.top(),max_heap.pop();
     return result;
