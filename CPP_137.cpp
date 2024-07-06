@@ -1,3 +1,4 @@
+```
 #include <boost/any.hpp>
 #include <string>
 
@@ -24,6 +25,26 @@ boost::any compare_one(boost::any a, boost::any b) {
         float aFloat = boost::any_cast<float>(a);
         float bFloat = boost::any_cast<float>(b);
         return aFloat > bFloat ? a : b;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int aInt = boost::any_cast<int>(a);
+        std::string bStr = boost::any_cast<std::string>(b);
+        return aInt > std::stoi(bStr) ? a : b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float aFloat = boost::any_cast<float>(a);
+        std::string bStr = boost::any_cast<std::string>(b);
+        return aFloat > std::stof(bStr) ? a : b;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int aInt = boost::any_cast<int>(a);
+        std::string bStr = boost::any_cast<std::string>(b);
+        return aInt > std::stoi(bStr) ? a : b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float aFloat = boost::any_cast<float>(a);
+        std::string bStr = boost::any_cast<std::string>(b);
+        return aFloat > std::stof(bStr) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string aStr = boost::any_cast<std::string>(a);
