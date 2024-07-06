@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 stack<char> operators; // Declare 'operators' outside of 'evaluate' function
+
 bool evaluate(const string &expression) {
     bool result = true;
     for (int i = 0; i < expression.length(); i++) {
