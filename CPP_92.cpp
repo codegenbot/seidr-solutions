@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -12,14 +12,14 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    float x, y, z;
-    std::cout << "Enter three floating point numbers: ";
-    std::cin >> x >> y >> z;
-    
-    if (any_int(x, y, z))
+    float a, b, c;
+    std::cout << "Enter three floats: ";
+    std::cin >> a >> b >> c;
+
+    if (any_int(a, b, c))
         std::cout << "The sum of two integers is the third integer." << std::endl;
     else
-        std::cout << "This is not an integer solution." << std::endl;
+        std::cout << "None of the input values are integers." << std::endl;
 
     return 0;
 }
