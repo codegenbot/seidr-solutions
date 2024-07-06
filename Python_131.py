@@ -1,3 +1,6 @@
+
 def digits(n):
-    max_digit = max(map(int, str(n)))
-    return max_digit
+    total = 0
+    for digit in str(n):
+        total += int(digit)
+    return total
