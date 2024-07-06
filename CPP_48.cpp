@@ -1,11 +1,17 @@
-string temp = text;
-bool result = true;
+#include <string>
+using namespace std;
 
-for(int i=0; i<temp.length()/2; i++){
-    if(temp[i] != temp[temp.length()-1-i]){
-        result = false;
-        break;
+bool is_palindrome(string text) {
+    int start = 0;
+    int end = text.length() - 1;
+
+    while (start < end) {
+        if (text[start] != text[end]) {
+            return false;
+        }
+        start++;
+        end--;
     }
-}
 
-return result;
+    return true;
+}
