@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -20,8 +19,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    
-    std::cout << solve(input) << std::endl;
-    
+    std::cout << "Result: " << solve(input) << std::endl;
     return 0;
 }
