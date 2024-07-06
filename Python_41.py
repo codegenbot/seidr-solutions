@@ -1,2 +1,2 @@
 def car_race_collision(n: int):
-    return n
+    return sum(i for i in range(n) if n - i > i)
