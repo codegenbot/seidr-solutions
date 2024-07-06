@@ -1,7 +1,5 @@
-```python
 from typing import List
 import math
-
 
 def factorize():
     while True:
@@ -29,6 +27,5 @@ def factorize():
         print("The number is prime.")
     else:
         print(factors)
-
 
 factorize()
