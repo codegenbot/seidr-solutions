@@ -7,4 +7,12 @@ def solution():
         except ValueError:
             print("Invalid input. Please enter a whole number for both sums.")
 
-print(solution())
+while True:
+    answer = solution()
+    if answer == 0:
+        print("The result is zero.")
+    else:
+        print("The absolute difference between the two sums is: ", answer)
+    response = input("Would you like to continue? (yes/no): ")
+    if response.lower() != "yes":
+        break
