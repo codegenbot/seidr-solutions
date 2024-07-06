@@ -1,4 +1,3 @@
-Here is the modified code:
 ```
 from typing import List
 
@@ -15,5 +14,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 depth -= 1
         result.append(nested_depth)
     return result
-
-print(parse_nested_parens("((())) (()) ()"))
