@@ -1,8 +1,9 @@
+#include <iostream>
 #include <string>
 #include <openssl/ssl.h>
 #include <openssl/x509v3.h>
 
-std::string string_to_md5(std::string text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "";
     }
@@ -19,9 +20,9 @@ std::string string_to_md5(std::string text) {
 }
 
 int main() {
-    string text;
-    cout << "Enter your text: ";
-    cin >> text;
-    cout << "MD5 of the given text is: " << string_to_md5(text) << endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "MD5 of the entered string is: " << string_to_md5(input) << std::endl;
     return 0;
 }
