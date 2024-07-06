@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def parse_music() -> List[int]:
