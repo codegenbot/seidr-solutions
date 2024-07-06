@@ -1,8 +1,15 @@
 #include <vector>
 #include <iostream>
 
-bool issame(float a, float b) {
-    return a == b;
+bool (*issame)(const std::vector<float>&, const std::vector<float>&) {
+    return [](const std::vector<float>& a, const std::vector<float>& b) {
+        for (int i = 0; i < a.size(); i++) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
+    };
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
@@ -13,10 +20,4 @@ std::vector<float> get_positive(std::vector<float> l) {
         }
     }
     return result;
-}
-
-int main() {
-    std::vector<float> v = get_positive({1, -2, 3});
-    assert(std::all_of(v.begin(), v.end(), [](float x) { return x > 0; }));
-    // ... rest of your code ...
 }
