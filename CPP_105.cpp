@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool compare(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -56,6 +57,6 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(compare(by_length({1,4,8}) , {"One","Four","Eight"}));
+    assert(areEqual(std::vector<std::string>(by_length({1,4,8})), std::vector<std::string>{"One","Four","Eight"}));
     return 0;
 }
