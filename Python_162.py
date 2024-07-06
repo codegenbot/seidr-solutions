@@ -1,3 +1,4 @@
+```
 import hashlib
 
 def string_to_md5():
@@ -5,11 +6,10 @@ def string_to_md5():
     confirm = input("Do you want to continue? (yes/no): ")
     
     if confirm.lower() != 'yes':
-        return
+        return 
         elif not text:
-            return "String is empty. Please provide a non-empty string."
-        
-    else:
-        return hashlib.md5(text.encode()).hexdigest()
+            return  
+        else:
+            return hashlib.md5(text.encode()).hexdigest()
 
 print(string_to_md5())
