@@ -3,9 +3,8 @@
 #include <list>
 #include <any>
 #include <boost/any.hpp>
-#include <algorithm>
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if(value.type() == typeid(std::optional<int>)) {
@@ -23,7 +22,6 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
 }
 
 int main() {
-    auto values = {std::optional<int>(3), 'c', std::optional<int>(3), 3, 'a', 'b'};
-    std::list<boost::any> valuesList(values.begin(), values.end());
-    assert(std::equal(filter_integers(valuesList).begin(), filter_integers(valuesList).end(), std::vector<int>{3, 3, 3}));
+    auto values = std::list<std::any>{std::optional<int>(3), 'c', std::optional<int>(3), 3, 'a', 'b'};
+    assert(std::equal(filter_integers(values).begin(), filter_integers(values).end(), {3, 3, 3}));
 }
