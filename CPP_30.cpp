@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::vector<float> get_positive(std::vector<float> l){
@@ -8,4 +9,9 @@ std::vector<float> get_positive(std::vector<float> l){
     }
     return result;
 
+}
+
+int main() {
+    assert(get_positive({}) == std::vector<float>());
+    // Other code...
 }
