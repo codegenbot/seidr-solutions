@@ -1,12 +1,8 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <cctype>
+// Here is the completed code:
 
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name){
     int count = 0;
     bool has_dot = false;
-    //Here is the completed code:
     for(int i = 0; i < file_name.length(); i++){
         if(isdigit(file_name[i])){
             count++;
@@ -24,10 +20,10 @@ std::string file_name_check(std::string file_name) {
     return "Yes";
 }
 
-int main() {
-    std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::cin >> file_name;
-    std::cout << file_name_check(file_name) << std::endl;
+int main(){
+    string file_name;
+    cout << "Enter the filename: ";
+    cin >> file_name;
+    cout << "Result: " << file_name_check(file_name) << endl;
     return 0;
 }

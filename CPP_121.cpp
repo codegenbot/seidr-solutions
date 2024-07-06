@@ -1,5 +1,5 @@
-#include <vector>
-#include <bits/stdc++.h>
+#include <initializer_list>
+#include <assert.h>
 
 int solutions(std::vector<int> lst) {
     // implementation of the solution function
