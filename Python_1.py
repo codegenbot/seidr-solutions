@@ -18,6 +18,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 groups.append(group)
                 group = ''
-    if stack:
-        groups.append(group)
     return groups
