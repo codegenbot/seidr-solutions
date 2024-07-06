@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cassert>
@@ -22,13 +23,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-int main() {
-    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    string prefix = "xxx";
-    
-    vector<string> expected_result = {"xxx", "xxxAAA", "xxx"};
-    vector<string> actual_result = filter_by_prefix(strings, prefix);
-    
-    assert(same(actual_result, expected_result));
+int runTests() {
+    vector<string> test = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    assert(same(filter_by_prefix(test, "xxx"), vector<string>{ "xxx", "xxxAAA", "xxx"}));
     return 0;
 }
