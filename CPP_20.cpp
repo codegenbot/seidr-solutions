@@ -1,9 +1,19 @@
-```bool isSame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon())
-            return false;
-    return true;
+#include <algorithm>
+#include <vector>
+
+std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    float min_diff = std::numeric_limits<float>::max();
+    float closest_pair[2];
+
+    for (int i = 0; i < numbers.size() - 1; ++i) {
+        float diff = numbers[i + 1] - numbers[i];
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest_pair[0] = numbers[i];
+            closest_pair[1] = numbers[i + 1];
+        }
+    }
+
+    return {closest_pair[0], closest_pair[1]};
 }
-assert(isSame({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}));
