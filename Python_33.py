@@ -1,3 +1,3 @@
 ```
 def sort_third(l: list):
-    return tuple(sorted((x, i % 3) for i, x in enumerate(l)))
+    return sorted((i % 3 and 'multiple of 3' or 'not a multiple of 3') for i in l)
