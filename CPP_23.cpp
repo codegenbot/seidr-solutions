@@ -7,6 +7,8 @@ int str_length(string str){
 }
 
 int main() {
-    assert (str_length(std::string("asdasnakj")) == 12);
+    const char *input = "asdasnakj";
+    string s(input);
+    assert (str_length(s) == 12);
     return 0;
 }
