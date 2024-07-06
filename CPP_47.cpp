@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,7 +27,7 @@ int main() {
     }
 
     try {
-        float medianVal = median(std::vector<float>(vec.begin(), vec.end()));
+        float medianVal = median(vec);
         std::cout << "Median is " << medianVal << std::endl;
     } catch (const std::exception& e) {
         std::cerr << e.what() << '\n';
