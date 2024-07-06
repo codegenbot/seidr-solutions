@@ -1,11 +1,8 @@
-```
-def check(expected_result, actual_result):
-    if actual_result == expected_result:
-        print("Correct")
-    else:
-        print("Incorrect")
+def double_the_difference(input_list):
+    return sum(i * 2 for i in input_list)
 
-input_list = [1, 2, 3]
-expected_result = sum(i**2 for i in input_list if isinstance(i, int) and i % 2 != 0)
-actual_result = sum(i**2 for i in input_list if isinstance(i, int) and i > 0)
-check(expected_result, actual_result)
+def check(func, input_list, expected_result):
+    result = func(input_list)
+    print(result == expected_result)
+
+check(double_the_difference, [1, 2, 3], 14)
