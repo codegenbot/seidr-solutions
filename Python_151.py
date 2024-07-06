@@ -1,9 +1,12 @@
+def double_the_difference(list):
+    small = min(list)
+    large = max(list)
+    diff = large - small
+    return 2 * diff
 
-# Python/151
-def get_numbers(num_list):
-    """
-    This function returns a new list containing the numbers from num_list in ascending order.
-    >>> get_numbers([5, 2, 8, 3, 1])
-    [1, 2, 3, 5, 8]
-    """
-    return sorted(num_list)
+
+# Prompt user for input
+lst = list(map(int, input("Enter numbers separated by spaces: ").split()))
+
+# Call function with input
+print(double_the_difference(lst))
