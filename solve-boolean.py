@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     bool_map = {'T': True, 'F': False}
 
