@@ -1,3 +1,4 @@
+```
 bounciness_index = float(input()) / float(input())
 num_bounces = int(input())
 
