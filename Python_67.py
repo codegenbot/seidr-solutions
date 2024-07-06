@@ -1,4 +1,4 @@
-def fruit_distribution(s, count):
+def fruit_distribution(s):
     apples = int(re.search(r"\d+", s).group())
     oranges = int(re.search(r"\d+", s).group())
-    return (apples * count) + (oranges * count)
+    return apples + oranges
