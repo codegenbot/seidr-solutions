@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 
 int specialFilter(std::vector<int> nums) {
@@ -13,4 +13,6 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
+    // test your function here
+    return 0;
 }
