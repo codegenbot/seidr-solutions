@@ -1,16 +1,49 @@
+```cpp
+#include <string>
 #include <iostream>
-#include <vector>
+#include <boost/any.hpp>
+
+bool compare(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int ai = boost::any_cast<int>(a);
+        float bf = boost::any_cast<float>(b);
+        return ai > bf;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int ai = boost::any_cast<int>(a);
+        std::string bs = boost::any_cast<std::string>(b);
+        return ai > std::stoi(bs);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float af = boost::any_cast<float>(a);
+        int bi = boost::any_cast<int>(b);
+        return af > bi;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float af = boost::any_cast<float>(a);
+        std::string bs = boost::any_cast<std::string>(b);
+        return af > std::stod(bs);
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        std::string as = boost::any_cast<std::string>(a);
+        int bi = boost::any_cast<int>(b);
+        return std::stod(as) > bi;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string as = boost::any_cast<std::string>(a);
+        float bf = boost::any_cast<float>(b);
+        return std::stod(as) > bf;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string as = boost::any_cast<std::string>(a);
+        std::string bs = boost::any_cast<std::string>(b);
+        return std::stod(as) > std::stod(bs);
+    }
+    else
+        return false;
+}
 
 int main() {
-    std::any a, b;
-    if (std::cin >> a >> b) {
-        if (compare(a, b))
-            std::cout << "true\n";
-        else
-            std::cout << "false\n";
-    } else {
-        std::cerr << "Invalid input.\n";
-        return 1; // exit with error code
-    }
+    std::cout << (compare(boost::any("1"), 1) ? "Greater" : "Less or Equal") << std::endl;
     return 0;
 }
