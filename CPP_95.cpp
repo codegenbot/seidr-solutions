@@ -10,7 +10,7 @@ bool check_dict_case(map<pair<string, string>, bool> dict) {
     bool all_lower = true;
 
     for (auto& pair : dict) {
-        string key = pair.first.second; // access the value of each pair
+        string key = pair.first.second; // specify the second part of the pair
         if (!all_lower && !all_upper) break;
         if (!all_lower) all_lower = tolower(key[0]) == 0;
         if (!all_upper) all_upper = toupper(key[0]) == 0;
