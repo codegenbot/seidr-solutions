@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,7 +11,8 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : letters) { 
+    auto unique_letters = std::unique_copy(letters.begin(), letters.end(), letters.begin());
+    for (char c : std::string(unique_letters, letters.end())) { 
         int count = 0;
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
