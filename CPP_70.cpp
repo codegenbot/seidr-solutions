@@ -16,7 +16,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
         if (!lst.empty()) {
             int max_val = *max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(remove(lst.end()-- ,lst.begin()), lst.end());
+            lst.erase(remove(lst.end()--, lst.end()), lst.end());
         }
     }
     return result;
