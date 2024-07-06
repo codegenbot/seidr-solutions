@@ -1,9 +1,16 @@
+
 def find_zero(xs: list):
-    for i in range(len(xs)):
-        if xs[i] == 0:
-            continue
-        coeff = xs[i]
-        x = -coeff / (2 * coeff)
-        while not math.isclose(poly(xs, x), 0):
-            x -= coeff / (2 * coeff)
-        return round(x, 2)
+    def poly(x: float):
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+    
+    epsilon = 1e-6
+    lower_bound = min(xs) - 1
+    upper_bound = max(xs) + 1
+    while upper_bound - lower_bound > epsilon:
+        midpoint = (lower_bound + upper_bound) / 2
+        if poly(midpoint) < 0:
+            lower_bound = midpoint
+        else:
+            upper_bound = midpoint
+    
+    return midpoint
