@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -10,7 +11,7 @@ bool identical(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
+std::vector<int> unique(std::vector<int> numbers){
     std::vector<int> result;
 
     for(int i : numbers) {
@@ -20,9 +21,4 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
     }
 
     return result;
-}
-
-int main() {
-    assert(identical(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
-    return 0;
 }
