@@ -1,6 +1,7 @@
-def find_zero(x):
-    if x == 0:
-        n = int(input("Enter a number: "))
-        return n
-    else:
-        return x
+def find_zero(xs):
+    if len(xs) == 0:
+        raise ValueError("Input list must not be empty.")
+    for i in range(len(xs)):
+        if xs[i] == 0:
+            return i
+    return -1
