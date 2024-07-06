@@ -1,4 +1,3 @@
-```Python
 import re
 
 def words_string():
@@ -8,5 +7,6 @@ def words_string():
             return re.split('?, |\s*,\s*|\s+|,\s*', s.strip())
         except Exception as e:
             print(f"Invalid input. Please enter valid text.")
+            continue
 
 print(words_string())
