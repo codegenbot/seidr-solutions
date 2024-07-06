@@ -23,5 +23,5 @@ try:
 except ValueError:
     print("Error: Invalid input for delimiter")
 else:
-    output = intersperse([int(x) for x in numbers], delimiter)
+    output = intersperse(numbers, delimiter)
     print(output)
