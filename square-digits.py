@@ -1,2 +1,5 @@
 def square_digits(n):
-    return "".join([str(int(x) ** 2) for x in str(n)])
+    result = ''
+    for c in str(n):
+        result += str(int(c) ** 2)
+    return result
