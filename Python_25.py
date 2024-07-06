@@ -64,4 +64,10 @@ def factorize():
         again = input("Do you want to factorize another number? (yes/no): ")
 
 
-factorize()
+while True:
+    try:
+        input("Press Enter when ready: ")
+        factorize()
+        break
+    except:
+        print("Please provide a valid integer.")
