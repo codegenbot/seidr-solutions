@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return true;
 }
 
@@ -13,9 +13,9 @@ bool bf(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> code(const std::string& s1, const std::string& s2) {
+std::vector<std::string> code(const std::vector<std::string>& s1, const std::vector<std::string>& s2) {
     std::vector<std::string> res;
-    for (char c : s1 + s2) {
+    for (char c : s1[0] + s2[0]) { 
         if (c >= 'A' && c <= 'H') {
             res.push_back(std::to_string((c - 'A' + 1)));
         } else {
@@ -26,13 +26,6 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    std::vector<std::string> s1 = {"Jupiter"};
-    std::vector<std::string> s2 = {"Makemake"};
-
-    std::cout << "Output: ";
-    if (bf(code(s1, s2), {})) {
-        std::cout << "true" << std::endl;
-    } else {
-        std::cout << "false" << std::endl;
-    }
+    assert(bf(code({{"Jupiter"}}), {}) == std::vector<std::string>({}));
+    std::cout << "Output: " << bf(code({{"Jupiter"}}), {}) << std::endl;
 }
