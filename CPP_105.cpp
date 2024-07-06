@@ -11,8 +11,6 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         if(i >= 1 && i <= 9)
             result.push_back(numToName[i]);
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
     return result;
 }
 
