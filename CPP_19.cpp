@@ -1,7 +1,3 @@
-#include <iostream>
-#include <map>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 map<string, int> numberMap = {
@@ -32,9 +28,4 @@ string sort_numbers(string numbers) {
     }
 
     return result.substr(0, result.length() - 1);
-}
-
-int main() {
-    cout << sort_numbers("one two three four five six seven eight nine zero") << endl;
-    return 0;
 }
