@@ -1,4 +1,4 @@
-```Python
+```python
 def cycpattern_check(a, b):
     if int(str(int(a)) + str(int(b))) % 2 == 0:
         return "winten"
