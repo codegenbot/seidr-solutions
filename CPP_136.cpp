@@ -25,34 +25,21 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    int output1, output2;
-    if (maxNeg == 0) {
-        output1 = 0;
-    } else {
-        output1 = maxNeg;
-    }
-
-    if (minPos == INT_MAX) {
-        output2 = 0;
-    } else {
-        output2 = minPos;
-    }
-
-    return {output1, output2};
+    return {(maxNeg == 0) ? 0 : maxNeg, (minPos == INT_MAX) ? 0 : minPos};
 }
 
 int main() {
     vector<int> lst1 = {2, 4, 1, 3, 5, 7};
     vector<int> result1 = largest_smallest_integers(lst1);
-    cout << "For list {" << join(lst1, ", ") << "}, the output is {" << join({result1[0], result1[1]}, ", ") << "}" << endl;
+    cout << "For list " << join(lst1, ", ") << ", the output is " << join(result1, ", ") << endl;
 
     vector<int> lst2 = {};
     vector<int> result2 = largest_smallest_integers(lst2);
-    cout << "For list {" << join(lst2, ", ") << "}, the output is {" << join({result2[0], result2[1]}, ", ") << "}" << endl;
+    cout << "For list " << join(lst2, ", ") << ", the output is " << join(result2, ", ") << endl;
 
     vector<int> lst3 = {0};
     vector<int> result3 = largest_smallest_integers(lst3);
-    cout << "For list {" << join(lst3, ", ") << "}, the output is {" << join({result3[0], result3[1]}, ", ") << "}" << endl;
+    cout << "For list " << join(lst3, ", ") << ", the output is " << join(result3, ", ") << endl;
 
     return 0;
 }
