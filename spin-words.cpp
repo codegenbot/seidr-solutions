@@ -23,7 +23,7 @@ std::string spinWords(std::string sentence) {
 int main() {
     std::string input;
     while (std::cin >> input) {
-        spinWords(input);
+        std::cout << spinWords(input) << std::endl;
     }
     return 0;
 }
