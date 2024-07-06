@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -37,32 +36,15 @@ def below_zero() -> None:
                         print("Debt cannot be paid off. Balance remains.")
             except:
                 print("Debt cannot be paid off. Balance remains.")
+        elif balance < 0:
+            print("No debt to pay off!")
         else:
-            while True:
-                try:
-                    income = int(input("Enter your daily income (0 to stop): "))
-                    if not isinstance(income, int) or income < 0:
-                        print("Invalid income! Please enter a non-negative integer.")
-                        continue
-                    balance += income
-                    if balance >= 0:
-                        break
-                except:
-                    print("Invalid income. Balance remains.")
             print("Congratulations, your debt is paid off!")
     else:
         if balance < 0:
-            while True:
-                try:
-                    income = int(input("Enter your daily income (0 to stop): "))
-                    if not isinstance(income, int) or income < 0:
-                        print("Invalid income! Please enter a non-negative integer.")
-                        continue
-                    balance += income
-                    if balance >= 0:
-                        break
-                except:
-                    print("Invalid income. Balance remains.")
             print("Congratulations, your debt is paid off!")
         else:
             print("No debt to pay off!")
+
+
+below_zero()
