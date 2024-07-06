@@ -6,9 +6,9 @@ std::string decimal_to_binary(int decimal){
     std::string binary = "";
     while(decimal > 0){
         if(decimal % 2 == 0)
-            binary.insert(0,"0");
-        else
-            binary.insert(0,"1");
+            binary.insert(std::move(binary.begin()),"0");  
+        else 
+            binary.insert(std::move(binary.begin()), "1");
         decimal /= 2;
     }
     return "db" + binary + "db";
