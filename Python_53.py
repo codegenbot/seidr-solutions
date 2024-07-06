@@ -1,7 +1,8 @@
 ```
 def add(x: int, y: int):
-    if isinstance(y, int) and isinstance(x, int):
-        return x + y
-    else:
-        print("Invalid input. Please enter integers.")
-        return None
+    return x + y
+
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+print(f"The sum of {x} and {y} is: {add(x, y)}")
