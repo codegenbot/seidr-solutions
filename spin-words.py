@@ -1,2 +1,7 @@
-def spin_words(string):
-    return " ".join([word[::-1] if len(word) >= 5 else word for word in string.split()])
+import re
+
+
+def spin_words():
+    string = input("Enter a string: ")
+    words = re.sub(r"\b(\w{5,})", r"\1", string)
+    return " ".join(words)
