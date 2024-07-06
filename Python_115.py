@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 import math
 
 def max_fill(grid, capacity):
