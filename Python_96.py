@@ -7,11 +7,13 @@ def check(numbers_list):
 
 try:
     n = int(input("Enter a number: "))
+    if n <= 0:
+        print("Please enter a positive integer.")
+    else:
+        numbers_list = count_up_to(n)
+        if not check(numbers_list):
+            print("The numbers are not all even.")
+        else:
+            print("The numbers are all even.")
 except ValueError:
     print("Invalid input! Please enter an integer.")
-else:
-    numbers_list = count_up_to(n)
-    if not check(numbers_list):
-        print("The numbers are not all even.")
-    else:
-        print("The numbers are all even.")
