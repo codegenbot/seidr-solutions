@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <numeric>
 
@@ -15,4 +14,5 @@ int main() {
     if (total_water % capacity != 0)
         ++buckets_needed;
 
-    return 0;
+    return buckets_needed;
+}
