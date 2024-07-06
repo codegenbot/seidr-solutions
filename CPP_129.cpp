@@ -20,9 +20,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         res.push_back(minVal);
         for (int i = 0; i < grid.size(); ++i) {
             if (i == minRow) continue;
-            for (int col = 0; col < grid[i].size(); ++col) {
-                if (col == minCol) grid[i][col] = INT_MAX;
-            }
+            grid[i][minCol] = INT_MAX;
         }
     }
     return res;
