@@ -10,5 +10,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::cout << "Output: " << issame(bf("Jupiter", "Makemake"), {}) << std::endl;
+    
+    std::cout << "Output: " << issame(bf("Jupiter", "Makemake"), {}) << std::endl; 
 }
