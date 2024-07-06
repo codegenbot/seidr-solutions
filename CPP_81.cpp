@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -33,13 +34,13 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {4.0, 2.5};
-    vector<string> result = numerical_letter_grade(grades);
+    std::vector<float> grades = {4, 3.9};
+    std::vector<std::string> result = numerical_letter_grade(grades);
     for (int i = 0; i < result.size(); i++) {
-        if (i != result.size() - 1 && result[i] == "F" && result[i+1] == "D-")
-            cout << "Test passed.\n";
+        if (result[i] == "F" && result[i+1] == "D-")
+            std::cout << "Test passed.\n";
         else
-            cout << "Test failed.\n";
+            std::cout << "Test failed.\n";
     }
     return 0;
 }
