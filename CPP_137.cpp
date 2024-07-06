@@ -1,7 +1,5 @@
-#include <string>
-#include <algorithm>
+```cpp
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
@@ -25,7 +23,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         istringstream iss1(str1), iss2(str2);
         float f1, f2;
         iss1 >> f1; iss2 >> f2;
-        return f1 > f2 ? a : (f1 == f2 ? boost::any("None") : b);
+        return f1 > f2 ? a : (f1 == f2 ? b : b);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         string str = boost::any_cast<string>(a);
