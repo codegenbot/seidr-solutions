@@ -1,14 +1,25 @@
-vector<pair<int, int>> largest_smallest_integers(vector<int> lst) {
-    int max_negative = 0;
-    int min_positive = INT_MAX;
+bool issame(vector<int> a, vector<int> b) {
+    return (a.size() == 2 && b.size() == 2 && a[0] == b[0] && a[1] == b[1]);
+}
 
-    for (int num : lst) {
-        if (num < 0 && num > max_negative) {
-            max_negative = num;
-        } else if (num > 0 && num < min_positive) {
-            min_positive = num;
-        }
+int main() {
+    int n;
+    vector<int> largest_smallest_integers(vector<int> lst);
+    cin >> n;
+    vector<int> lst(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> lst[i];
     }
-
-    return {{(max_negative != 0 ? max_negative : 0), (min_positive != INT_MAX ? min_positive : 0)}};
+    
+    if(issame(largest_smallest_integers(lst), {INT_MIN, INT_MAX})) {
+        cout << "All elements are negative." << endl;
+    } else if(issame(largest_smallest_integers(lst), {-1, 1})) {
+        cout << "One element is positive and all others are negative." << endl;
+    } else {
+        vector<int> result = largest_smallest_integers(lst);
+        cout << "Smallest: " << result[0] << ", Largest: " << result[1] << endl;
+    }
+    
+    return 0;
 }
