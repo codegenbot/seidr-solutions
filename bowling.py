@@ -1,4 +1,3 @@
-```
 def calculate_score(games):
     frames = games.replace('/', '')
     current_roll = 0
