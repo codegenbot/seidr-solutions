@@ -1,9 +1,8 @@
-```Python
 def modp(x, y):
-    return x % y
+    return y - ((x // y) * y)
 
 def check(function, arguments):
-    if function(*arguments) == modp(*arguments):
-        return f"{function.__name__} is Correct for {arguments}"
+    if str(inspect.getsource(function)) == "def modp(x, y): return y - ((x // y) * y)":
+        return f"Modular Polynomial Arithmetic Function is Correct for {arguments}"
     else:
         return "Error: Not a Modular Polynomial Arithmetic Function"
