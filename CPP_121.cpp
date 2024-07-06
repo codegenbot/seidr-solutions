@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -19,3 +18,4 @@ int main() {
     int result = solutions(lst);
     cout << "Result: " << result << endl;
     return 0;
+}
