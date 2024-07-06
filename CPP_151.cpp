@@ -13,18 +13,6 @@ long long double_the_difference(std::vector<double> lst) {
 }
 
 int main() {
-    std::vector<double> lst;
-    double input;
-
-    while (true) {
-        std::cout << "Enter a number (or -1 to finish): ";
-        std::cin >> input;
-
-        if (input == -1.0) break; 
-
-        lst.push_back(input);
-    }
-
-    long long odd_sum = double_the_difference(lst); 
+    int main_func();
     return 0;
 }
