@@ -7,7 +7,8 @@ int smallest_change(std::vector<int> arr) {
     int changes = 0;
 
     while (left < right) {
-        if (arr[left] % 2 != arr[right] % 2) {
+        if ((arr[left] % 2 != 0 && arr[right] % 2 == 0) ||
+            (arr[left] % 2 == 0 && arr[right] % 2 != 0)) {
             changes++;
         }
         left++;
@@ -18,6 +19,6 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::cout << smallest_change({0, 1}) << '\n';
+    std::cout << smallest_change(std::vector<int>({0, 1})) << '\n';
     return 0;
 }
