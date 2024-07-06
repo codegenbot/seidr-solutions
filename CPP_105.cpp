@@ -10,7 +10,6 @@ void by_length(vector<int> arr) {
     }
     sort(result.begin(), result.end());
     reverse(result.begin(), result.end());
-    return;
 }
 
 int main(){
