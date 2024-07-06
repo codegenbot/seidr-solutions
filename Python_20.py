@@ -1,29 +1,21 @@
-```
-def find_closest_elements():
-    while True:
-        try:
-            num_list = list(map(int, input("Enter numbers separated by space: ").split()))
-            num_list.sort()
-            
-            target = int(input("Enter a target number to find closest elements: "))
-            
-            k = int(input("Enter the number of closest elements to find: "))
+def find_closest_elements(k):
+    num_list = list(map(int, input("Enter numbers separated by space: ").split()))
+    num_list.sort()
+    
+    target = int(input("Enter a target number to find closest elements: "))
 
-            if k > len(num_list):
-                print("Closest pair of elements are: ", (num_list[0], num_list[-1]))
-            else:
-                left, right = 0, len(num_list) - k
-                closest_pair = num_list[left:right+1]
-                
-                min_diff = abs(target - num_list[0])
-                for i in range(left, right+1):
-                    if abs(target - num_list[i]) < min_diff:
-                        min_diff = abs(target - num_list[i])
-                        closest_pair = num_list[i-k+1:i+1]
+    if k > len(num_list):
+        print("Closest pair of elements are: ", (num_list[0], num_list[-1]))
+    else:
+        left, right = 0, len(num_list) - k
+        closest_pair = num_list[left:right+1]
+        
+        min_diff = abs(target - num_list[0])
+        for i in range(left, right+1):
+            if abs(target - num_list[i]) < min_diff:
+                min_diff = abs(target - num_list[i])
+                closest_pair = num_list[i-k+1:i+1]
 
-                print("The {} closest elements to {} are: {}".format(k, target, tuple(closest_pair)))
-            break
-        except ValueError:
-            print("Invalid input. Please enter valid numbers and integers.")
+        print("The {} closest elements to {} are: {}".format(k, target, tuple(closest_pair)))
 
-find_closest_elements()
+find_closest_elements(int(input("Enter the number of closest elements to find: ")))

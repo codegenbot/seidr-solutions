@@ -4,8 +4,9 @@ int correct_bracketing(std::string brackets) {
         if (c == '(') count++;
         else if (c == ')') {
             if (count > 0) count--;
-            else return 0;
+            else return 0; 
         }
     }
-    return count == 0; 
-}
+    if (count != 0) return 0; 
+    if(count > 0) return 0; 
+    return 1;
