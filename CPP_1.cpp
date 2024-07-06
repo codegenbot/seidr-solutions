@@ -1,4 +1,25 @@
 ```
+#include <cassert>
+#include <vector>
+#include <string>
+#include <initializer_list>
+
+using namespace std;
+
+bool separate_issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     int open_count = 0;
@@ -28,3 +49,9 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int run_tests() {
+    assert(separate_issame(separate_paren_groups("( ) (( ") , {"","",""})));
+    return 0;
+}
