@@ -27,7 +27,8 @@ int main() {
 
     vector<int> l;
     for(int i=0;i<9;i++){
-        l.push_back(i+1);
+        if(i % 3 == 1 || i % 3 == 2)
+            l.push_back(i+1);
     }
     
     l = sort_third(l);
