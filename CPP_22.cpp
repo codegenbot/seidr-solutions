@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -17,6 +18,6 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3}));
+    assert(issame(filter_integers({1, 2, 3}), {1, 2, 3}));
     return 0;
 }
