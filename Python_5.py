@@ -1,8 +1,7 @@
-````
 import re
-from typing import List
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+
+def intersperse(numbers: list[int], delimiter: int) -> list[int]:
     if not isinstance(numbers, list):
         raise ValueError("Input 'numbers' must be a list")
     if not all(isinstance(num, int) for num in numbers):
@@ -23,14 +22,15 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
 
 
 input_numbers = input("Enter a list of integers separated by commas: ")
-if not re.match(r",\d+(?=,),?", input_numbers):  
+if not re.match(r",\d+(?=,),?", input_numbers):
     raise ValueError("Invalid input for numbers")
 numbers = [int(num) for num in input_numbers.split(",")]
 
 try:
-    output = intersperse(numbers, int(input("Enter an integer to use as the delimiter: ")))
+    output = intersperse(
+        numbers, int(input("Enter an integer to use as the delimiter: "))
+    )
 except ValueError as e:
     print(f"Error: {e}")
 else:
     print(output)
-```
