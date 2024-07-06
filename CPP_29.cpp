@@ -8,7 +8,6 @@ bool issame(vector<string> a, vector<string> b) {
         if(a[i] != b[i])
             return false;
     return true;
-
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -23,16 +22,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
-    
-    vector<string> result = filter_by_prefix(strings, "xxx");
-    assert(issame(result, expected));
-    
-    strings = {"hello", "world", "this", "is", "a", "test"};
-    expected = {"hello", "helloAAA", "helloBBB"};
-    
-    result = filter_by_prefix(strings, "hello");
-    assert(issame(result, expected));
-    
+    string prefix = "xxx";
+    vector<string> output = filter_by_prefix(strings, prefix);
+    assert(issame(output, {"xxx", "xxxA", "xxx"}));
     return 0;
 }

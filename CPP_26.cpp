@@ -2,7 +2,7 @@
 #include <vector>
 #include <set>
 
-bool sameVectors(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -12,7 +12,7 @@ bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> removeDuplicates(std::vector<int> numbers) {
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::set<int> result;
     for(int i = 0; i < numbers.size(); i++){
         if(result.insert(numbers[i]).second){
@@ -23,5 +23,5 @@ std::vector<int> removeDuplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(sameVectors(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
 }

@@ -1,20 +1,17 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 bool triples_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i = 0; i < s.size(); i++) {
-        int j = 0, k = s.size() - 1;
-        while (j < k) {
-            int sum = s[i] + s[j] + s[k];
-            if (sum == 0)
+    for (int i = 0; i < l.size(); i++) {
+        for (int j = i + 1; j < l.size(); j++) {
+            int target = -l[i] - l[j];
+            bool found = false;
+            for (int k = 0; k < l.size(); k++) {
+                if (k != i && k != j && l[k] == target) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
                 return true;
-            else if (sum < 0)
-                j++;
-            else
-                k--;
+            }
         }
     }
     return false;
