@@ -1,6 +1,5 @@
-```cpp
-#include<iostream>
-using namespace std;
+#include <cmath>
+#include <iostream>
 
 bool is_simple_power(int x, int n);
 
@@ -10,11 +9,14 @@ bool is_simple_power(int x, int n) {
 
 int main() {
     int x, n;
-    cout << "Enter two numbers: ";
-    cin >> x >> n;
-    if(is_simple_power(x,n))
-        cout << x << " is a simple power of " << n;
+    std::cout << "Enter a number: ";
+    std::cin >> x;
+    std::cout << "Enter another number: ";
+    std::cin >> n;
+    if (is_simple_power(x, n))
+        std::cout << x << " is a simple power of " << n << ".\n";
     else
-        cout << x << " is not a simple power of " << n;
+        std::cout << x << " is not a simple power of " << n << ".\n";
+
     return 0;
 }
