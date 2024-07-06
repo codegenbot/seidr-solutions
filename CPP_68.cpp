@@ -19,7 +19,7 @@ vector<vector<int>> pluck(vector<int> arr) {
     if (smallestEven != INT_MAX) {
         result.push_back({smallestEven, index});
     } else {
-        result.push_back({{}});
+        result.push_back({}); 
     }
 
     return result;
