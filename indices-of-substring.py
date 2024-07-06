@@ -1,10 +1,6 @@
 def indices_of_substring(text, target):
+    regex = re.compile(target)
     result = []
-    start_index = 0
-    while True:
-        index = text.find(target, start_index)
-        if index == -1:
-            break
-        result.append(index)
-        start_index = index + 1
+    for match in regex.finditer(text):
+        result.append((match.start(), match.end()))
     return result
