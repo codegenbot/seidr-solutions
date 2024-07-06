@@ -3,11 +3,7 @@
 #include <string>
 
 bool file_name_check(const std::string& file_name) {
-    if (file_name.find('.') == string::npos) {
-        return true;
-    } else {
-        return false;
-    }
+    return !file_name.find('.') == std::string::npos;
 }
 
 int main_test() {
