@@ -1,3 +1,5 @@
+#include <vector>
+
 int sumOfDigits(int num) {
     int sum = 0;
     while (num > 0) {
@@ -25,7 +27,13 @@ bool isPrime(int num) {
     return true;
 }
 
-int skjkasdkd(vector<int> lst) {
+int calculateSumOfDigitsLargestPrime(vector<int> lst) {
     int maxPrime = largestPrime(lst);
     return sumOfDigits(maxPrime);
+}
+
+int main() {
+    vector<int> lst = {2, 3, 5};
+    cout << "The sum of digits for the largest prime in the list is: " << calculateSumOfDigitsLargestPrime(lst) << endl;
+    return 0;
 }
