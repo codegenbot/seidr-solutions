@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <list>
 #include <any>
 #include <algorithm>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool compare(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
@@ -20,10 +21,13 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     return result;
 }
 
-int main_func() {
+int main() {
     std::vector<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     std::vector<int> output = filter_integers(values);
     for (const auto& num : output) {
-        std::cout << num << "\n";
+        if(num % 1 == 0)
+            std::cout << num << "\n";
+        else
+            std::cout << "Non-integer value: " << num << "\n";
     }
 }
