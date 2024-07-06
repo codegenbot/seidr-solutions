@@ -1,15 +1,14 @@
 #include <initializer_list>
 #include <vector>
 #include <string>
-#include <algorithm>
 
-bool std::equal(const std::vector<std::string>::iterator a, const std::vector<std::string>::iterator c, const std::vector<std::string>::iterator b) {
-    return a == c;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::initializer_list<float> grades) {
     std::vector<std::string> letter_grades;
-    for (float grade : grades) {
+    for (auto grade : grades) {
         if (grade >= 4.0) {
             letter_grades.push_back("A+");
         } else if (grade > 3.7) {
