@@ -26,7 +26,7 @@ int main() {
     for (int i: output) {
         cout << i << " ";
     }
-    cout << endl;
+    cout << endl; 
 
     return 0;
 }
