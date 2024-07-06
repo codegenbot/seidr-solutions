@@ -1,10 +1,15 @@
-int count_distinct_characters(string str){
-    string temp = str;
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    vector<char> vec;
-    for(int i=0; i<temp.length(); i++){
-        if(find(vec.begin(), vec.end(), temp[i]) == vec.end())
-            vec.push_back(temp[i]);
+vector<char> unique_chars;
+
+for (char c : str) {
+    int idx = 0;
+    for (char ch : unique_chars) {
+        if (tolower(c) == tolower(ch)) {
+            idx = 1;
+            break;
+        }
     }
-    return vec.size();
+    if (!idx)
+        unique_chars.push_back(tolower(c));
 }
+
+return unique_chars.size();
