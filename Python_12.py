@@ -1,5 +1,5 @@
+```python
 from typing import Optional
-
 
 def longest_file_line(input_file: str) -> Optional[str]:
     if not input_file:
@@ -8,7 +8,8 @@ def longest_file_line(input_file: str) -> Optional[str]:
     longest_line = None
     with open(input_file, "r") as f:
         for line in f:
-            if len(line.strip()) > max_length:
-                max_length = len(line.strip())
-                longest_line = line.strip()
-    return longest_line if longest_line is not None else ""
+            stripped_line = line.strip()
+            if len(stripped_line) > max_length and stripped_line:
+                max_length = len(stripped_line)
+                longest_line = stripped_line
+    return longest_line
