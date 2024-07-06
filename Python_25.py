@@ -1,4 +1,3 @@
-```
 from typing import List
 import math
 
@@ -62,6 +61,10 @@ def factorize():
             print(factorized_factors)
 
         again = input("Do you want to factorize another number? (yes/no): ")
+        while again.lower() in ["yes", "y"]:
+            if again.lower() == "no" or again.lower() == "n":
+                break
+    break
 
 
 factorize()
