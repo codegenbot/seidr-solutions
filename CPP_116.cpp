@@ -1,12 +1,16 @@
-Here is the completed code:
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<algorithm>
+using namespace std;
 
-vector<int> sort_vector(vector<int> arr) {
-    vector<int> result = arr;
-    sort(result.begin(), result.end(), [](int a, int b) {
-        int ones_a = __builtin_popcount(a);
-        int ones_b = __builtin_popcount(b);
-        if (ones_a == ones_b) return a < b;
-        else return ones_a < ones_b;
-    });
-    return result;
+vector<int> sort_array(vector<int> arr){
+    sort(arr.begin(), arr.end(), 
+         [](int a, int b) {
+             string strA = bitset<32>(a).to_string();
+             string strB = bitset<32>(b).to_string();
+             return strA.size() < strB.size() ||
+                    (strA.size() == strB.size() && a < b);
+         });
+    return arr;
 }
