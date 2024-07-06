@@ -1,3 +1,6 @@
+#include <string>
+#include <cctype>
+
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
@@ -6,4 +9,3 @@ int hex_key(std::string num) {
         }
     }
     return count;
-}
