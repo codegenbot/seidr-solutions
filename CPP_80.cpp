@@ -22,6 +22,6 @@ bool is_happy(std::string s){
 }
 
 int main() {
-    std::cout << std::boolalpha << is_happy("iopaxioi") << std::endl;
+    assert(is_happy("iopaxioi") == false );
     return 0;
 }

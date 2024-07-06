@@ -15,7 +15,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
             sort(lst.begin(), lst.end());
     }
 
-    assert(is_same(strange_sort_vector({111111}), vector<int>({111111})));
-
     return result;
 }
+assert(is_same(strange_sort_vector({111111}), vector<int>({111111})));
