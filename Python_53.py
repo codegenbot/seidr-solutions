@@ -3,4 +3,3 @@ def add(x: int, y: int):
         return x + y
     except ValueError:
         print("Invalid input.")
-```
