@@ -1,9 +1,11 @@
 ```
-from typing import List
-
 def remove_duplicates() -> List[int]:
+    numbers = input("Enter a list of space-separated numbers: ")
+    
+    if not numbers:
+        return []
+    
     try:
-        numbers = input("Enter a list of space-separated numbers: ")
         numbers = [int(num) for num in numbers.split()]
     except ValueError:
         return []
