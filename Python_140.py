@@ -1,4 +1,12 @@
-def replace_spaces(text):
-    words = text.split()
-    result = ' '.join(['%10s' % word for word in words])
+```
+def fix_spaces(text):
+    result = ""
+    for char in text:
+        if char == " " and len(result) > 0 and result[-1] == " ":
+            while len(result) < 3:
+                result += "-"
+        elif char == " ":
+            result += "_"
+        else:
+            result += char
     return result
