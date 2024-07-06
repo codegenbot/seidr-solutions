@@ -1,9 +1,9 @@
 ```
-paren_string = input("Enter the string: ")
+input("Enter the string: ")
 stack = []
 group = ""
 result = []
-for char in paren_string:
+for char in input():
     if char == "(" or char == ")":
         if char == "(":
             stack.append(char)
@@ -16,4 +16,6 @@ for char in paren_string:
                 group = ""
     else:
         group += char
+if stack:
+    result.append(group)
 print(result)
