@@ -9,7 +9,9 @@ def sort_numbers(numbers: str) -> str:
         "six": 6,
         "seven": 7,
         "eight": 8,
-        "nine": 9,
+        "nine": 9
     }
-    sorted_nums = sorted([num_dict[i] for i in numbers.split()])
-    return " ".join([k for k, v in [num_dict[i] for i in sorted_nums]])
+    translator = str.maketrans(" ", "")
+    num_list = [num_dict[num.translate(translator)] for num in numbers.lower().split()]
+    sorted_num_list = sorted(num_list)
+    return " ".join([str(num) for num in sorted_num_list])
