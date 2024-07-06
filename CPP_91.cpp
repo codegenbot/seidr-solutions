@@ -1,11 +1,16 @@
+Here's the completed code:
+
+```cpp
 int is_bored(string S){
     int count = 0;
-    size_t pos = 0;
-    while((pos = S.find("I", pos)) != string::npos) {
-        if (S[pos] == 'I' && (S.find(".", pos) != string::npos || S.find("?", pos) != string::npos || S.find("!", pos) != string::npos)) {
-            count++;
+    string word;
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(word.substr(0,2)=="I ") count++;
+            word.clear();
+        }else{
+            word += S[i];
         }
-        pos = S.find(" ", pos) + 1;
     }
     return count;
 }
