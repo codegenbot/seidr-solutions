@@ -1,14 +1,13 @@
-Here's the completed code:
-
-```cpp
 bool is_sorted(vector<int> lst) {
+    if (lst.size() <= 1) return true;
+
     for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] >= lst[i-1]) continue;
-        int count = 0;
-        for (int j = 0; j < i; j++) {
-            if (lst[j] == lst[i]) count++;
+        if (lst[i] >= lst[i - 1]) continue;
+        else {
+            vector<int>::iterator it = unique(lst.begin(), lst.end());
+            lst.erase(it, lst.end());
+            return lst.size() > 1;
         }
-        return false;
     }
     return true;
 }
