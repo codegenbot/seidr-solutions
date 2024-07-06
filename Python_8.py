@@ -1,23 +1,9 @@
-def calculate_statistics():
-    numbers = []
-    while True:
-        num = input("Enter a number (or 'stop' to finish): ")
-        if num.lower() == "stop":
-            break
-        try:
-            numbers.append(int(num))
-        except ValueError:
-            print("Invalid input. Please enter an integer or 'stop'.")
+from typing import List, Tuple
 
-    if not numbers:
-        return "No numbers entered."
 
-    total_sum = sum(numbers)
-    product = 1
-    for num in numbers:
-        product *= num
-
-    average = total_sum / len(numbers) if len(numbers) > 0 else 0
-    result = f"Sum: {total_sum}, Product: {product}, Average: {average}"
-
-    return result
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not isinstance(numbers, list) or not all(
+        isinstance(num, int) for num in numbers
+    ):
+        return (-1, "Invalid input. Please enter a list of integers.")
+    return (sum(numbers), 1 if not numbers else eval("*".join(map(str, numbers))))
