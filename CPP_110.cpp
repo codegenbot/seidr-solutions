@@ -1,11 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-std::string exchange(vector<int> lst1, vector<int> lst2) {
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0)
@@ -14,22 +13,29 @@ std::string exchange(vector<int> lst1, vector<int> lst2) {
     for (int i = 0; i < lst2.size(); i++) {
         if (lst2[i] % 2 != 0 && oddCount > 0) {
             lst1.push_back(lst2[i]);
-            lst2.erase(lst2.begin() + i);
+            lst2.erase(std::remove(lst2.begin(), lst2.end(), lst2[i]), lst2.end());
             i--;
             oddCount--;
         }
     }
-    return to_string(oddCount == 0);
+    return oddCount == 0 ? "YES" : "NO";
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    vector<int> lst1(n), lst2(m);
-    for (int i = 0; i < n; i++) 
-        cin >> lst1[i];
-    for (int i = 0; i < m; i++) 
-        cin >> lst2[i];  
-    cout << exchange(lst1, lst2) << endl;
+    std::vector<int> lst1, lst2;
+    int n1, n2;
+    std::cout << "Enter the number of elements in list 1: ";
+    std::cin >> n1;
+    for (int i = 0; i < n1; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> lst1.push_back(i);
+    }
+    std::cout << "Enter the number of elements in list 2: ";
+    std::cin >> n2;
+    for (int i = 0; i < n2; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> lst2.push_back(i);
+    }
+    std::cout << exchange(lst1, lst2) << std::endl;
     return 0;
 }
