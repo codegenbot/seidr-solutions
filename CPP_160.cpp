@@ -22,4 +22,3 @@ int main(int argc, char** argv) {
     std::vector<int> operands = {4, 3};
     int result = do_algebra(operations, operands);
     return 0;
-}
