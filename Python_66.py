@@ -4,3 +4,6 @@ def check(n: int) -> str:
         return "YES"
     else:
         return "NO"
+
+n = int(input("Enter an integer: "))
+print(check(n))
