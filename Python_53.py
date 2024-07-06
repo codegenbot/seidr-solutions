@@ -1,7 +1,6 @@
 def add(x: int, y: int):
     return x + y
 
-
 # Accept user input for both numbers
 numbers = list(map(int, input("Enter two numbers separated by a space: ").split()))
 
