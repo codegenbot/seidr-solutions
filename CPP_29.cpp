@@ -1,4 +1,8 @@
-bool issame(vector<string> a, vector<string> b){
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -14,20 +18,28 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
-bool main(vector<string> input) {
-    vector<string> strings = input;
+int main() {
     int n;
-    cout << "Enter the number of strings: ";
     cin >> n;
-    vector<string> filteredStrings = filter_by_prefix(strings, "");
-    if(issame(input, filteredStrings)) {
-        cout << "The list of strings is not changed." << endl;
-    } else {
-        cout << "Filtered Strings: ";
-        for(string s : filteredStrings) {
-            cout << s << " ";
-        }
-        cout << endl;
+    
+    vector<string> strings;
+    
+    for(int i = 0; i < n; ++i) {
+        string s;
+        cin >> s;
+        strings.push_back(s);
     }
-    return true;
+    
+    string prefix;
+    cin >> prefix;
+    
+    vector<string> filteredStrings = filter_by_prefix(strings, prefix);
+    
+    if(issame(filteredStrings, strings)) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
 }
