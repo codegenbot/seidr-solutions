@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 
-bool below_zero(const std::vector<int>& operations) {
+bool below_zero(std::vector<std::string> operations) {
     int balance = 0;
-    for (int operation : operations) {
+    for (int i = 0; i < operations.size(); ++i) {
+        int operation = stoi(operations[i]);
         balance += operation;
         if (balance < 0) return true;
     }
@@ -12,10 +13,11 @@ bool below_zero(const std::vector<int>& operations) {
 }
 
 int main() {
-    std::vector<int> operations;
-    
-    // Read the number of operations from user
+    std::vector<std::string> operations(std::allocator<std::string>());
+
     int num_operations;
+
+    // Read the number of operations from user
     std::cout << "Enter the number of operations: ";
     std::cin >> num_operations;
 
@@ -24,7 +26,7 @@ int main() {
         int operation;
         std::cout << "Enter operation " << i + 1 << ": ";
         std::cin >> operation;
-        operations.push_back(operation); 
+        operations.push_back(std::to_string(operation)); 
     }
 
     // Check if the total balance is below zero
