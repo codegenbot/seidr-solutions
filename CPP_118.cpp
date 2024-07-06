@@ -1,4 +1,3 @@
-```cpp
 #include<string>
 
 std::string get_closest_vowel(std::string word) {
