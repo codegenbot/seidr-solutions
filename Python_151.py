@@ -1,4 +1,3 @@
-
 def double_the_difference(nums):
     small = min(nums)
     large = max(nums)
