@@ -1,4 +1,3 @@
-
 def prime_fib(n):
     def is_prime(num):
         if num < 2:
