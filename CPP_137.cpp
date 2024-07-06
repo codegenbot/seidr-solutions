@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <limits>
@@ -18,18 +19,16 @@ int main() {
     } 
 
     cout << "The first number is: " << val1 << endl;
+
+    cout << "Enter the second value: ";
+    cin >> val2;
     
-    if (!val2.empty()) {
-        int val2_int = stoi(val2);
-        if (val1 > val2_int) {
-            cout << "The first number is bigger.\n";
-        } else if (val1 < val2_int) {
-            cout << "The second number is bigger.\n";
-        } else {
-            cout << "Both numbers are equal.\n";
-        }
+    if (val1 > stoi(val2)) {
+        cout << "The first number is bigger.\n";
+    } else if (val1 < stoi(val2)) {
+        cout << "The second number is bigger.\n";
     } else {
-        cout << "No second value provided.\n";
+        cout << "Both numbers are equal.\n";
     }
 
     return 0;
