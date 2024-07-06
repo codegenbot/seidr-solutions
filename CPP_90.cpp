@@ -4,17 +4,14 @@
 
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; 
-    int result = -1;
-    for(int i=0; i<lst.size()-1; i++) {
-        if(lst[i] > lst[i+1]) {
-            result = lst[i];
-            break;
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for(int i=0; i<sorted.size()-1; i++) {
+        if(sorted[i] != sorted[i+1]) {
+            return sorted[i+1];
         }
     }
-    if(result == -1) {
-        result = *min_element(lst.begin(), lst.end());
-    }
-    return result; 
+    return -1; 
 }
 
 int main() {
