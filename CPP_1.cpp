@@ -32,3 +32,4 @@ int run_tests() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ") ,{{"()", "()"}, {"(())"} }));
     return 0;
 }
+#include <initializer_list>
