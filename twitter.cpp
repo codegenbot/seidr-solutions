@@ -18,6 +18,7 @@ int main() {
     cout << "Enter a tweet: ";
     cin.ignore(); 
     getline(cin, tweet);
+    cin.ignore(1024, '\n'); 
     cout << validateTweet(tweet) << endl;
     return 0;
 }
