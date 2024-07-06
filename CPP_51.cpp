@@ -7,3 +7,4 @@ std::string remove_vowels(std::string text){
             result += c;
     }
     return result;
+}
