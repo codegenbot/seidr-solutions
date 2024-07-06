@@ -17,9 +17,8 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 
 int main(){
     std::vector<int> result;
-    for(int i = 0; i < 7; i++){
-        result.push_back({0,6,6,-76,-21,23,4}[i]);
-    }
+    for (int i : {-76, -21, 0, 4, 23, 6, 6}) 
+        result.push_back(i); 
     assert(std::equal(result.begin(), result.end(),{-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
