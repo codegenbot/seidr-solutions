@@ -1,6 +1,4 @@
+
 def indices_of_substring(text, target):
-    result = []
-    for i in range(len(target)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-    return result
+    matches = re.findall(target, text)
+    return [m.start() for m in matches]
