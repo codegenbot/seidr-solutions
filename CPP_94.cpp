@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int findMaxPrime(std::vector<int> lst){
     int maxPrime = 0;
