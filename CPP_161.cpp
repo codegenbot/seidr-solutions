@@ -17,7 +17,7 @@ std::string solve(std::string s){
 }
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
+    assert(solve("#ccc") == "#CCC");
     std::cout << "Test Passed" << std::endl;
     return 0;
 }
