@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int smallest_change(vector<int> arr) {
@@ -15,4 +14,3 @@ int smallest_change(vector<int> arr) {
     }
     
     return dp[0][n-1];
-}
