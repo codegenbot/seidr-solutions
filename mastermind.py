@@ -1,15 +1,18 @@
 def mastermind(code, guess):
-    # Initialize a dictionary to keep track of characters in the second string that match each character in the first string
-    char_count = defaultdict(int)
+    # Check if code and guess contain only digits '0' through '5'
+    if not (all(ch in "012345" for ch in code) and all(ch in "012345" for ch in guess)):
+        return "Invalid input! Please enter a 4-character string consisting only of the characters '0', '1', '2', '3', '4', and '5'."
 
-    # Iterate through each character in the first string and check if it matches any of the characters in the second string
-    for i, c in enumerate(code):
-        if c == guess[i]:
-            # If the characters match, increment the count for black pegs
-            char_count[c] += 1
-        elif c in guess:
-            # If the characters do not match but one of them is a duplicate, increment the count for white pegs
-            char_count[c] += 1
+    # Initialize variables to keep track of white and black pegs
+    white_pegs = 0
+    black_pegs = 0
 
-    # Return the total number of white and black pegs as a tuple
-    return (sum(char_count.values()), len(code) - sum(char_count.values()))
+    # Iterate through each character in the code and guess
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif code[i] in guess:
+            white_pegs += 1
+
+    # Return the number of white and black pegs
+    return (white_pegs, black_pegs) if white_pegs + black_pegs == 1 else (0, 0)
