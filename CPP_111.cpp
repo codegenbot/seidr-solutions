@@ -1,6 +1,14 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return map<char, int>();
+    if (test.empty()) return result;
 
     string letters = test;
     for (char c : unique(letters.begin(), letters.end())) {
@@ -8,7 +16,7 @@ map<char, int> histogram(string test) {
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
             count++;
-            pos += 1; // skip the same character
+            pos += 1; 
         }
         if (count > 0) result[c] = count;
     }
@@ -25,4 +33,21 @@ map<char, int> histogram(string test) {
     }
 
     return maxCountMap;
+}
+
+int main() {
+    string test;
+    cout << "Enter a string: ";
+    getline(cin, test);
+    
+    map<char, int> result = histogram(test);
+
+    if (!result.empty()) {
+        for (auto& pair : result) {
+            cout << "Character '" << pair.first << "' appears " << pair.second << " times." << endl;
+        }
+    } else
+        cout << "No characters found in the string." << endl;
+
+    return 0;
 }
