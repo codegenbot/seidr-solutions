@@ -1,4 +1,6 @@
-def decode_cyclic(s: str):
+def decode_cyclic(s):
+    if not isinstance(s, str):
+        return "Invalid input. Please provide a string."
     result = ""
     for i in range(0, len(s), 3):
         group = s[i:i+3]
