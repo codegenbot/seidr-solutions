@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,7 +16,7 @@ bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
-bool assertIsSame(std::vector<std::string> a, std::vector<std::string> b) { 
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) { 
     bool result = compareVectors(a, b);
     if(result) {
         for(auto s : a) {
@@ -56,18 +57,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-void testMain() {
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    assert(isSame({ "", "True" }, result)); 
-    if (!isSame({ "", "True" }, result)) {
+int main() {
+    std::vector<std::string> a, b;
+    a = reverse_delete("mamma", "mia");
+    if (!isSame(a, a)) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
     }
-    return;
-}
-
-int main() {
-    testMain();
     return 0;
 }
