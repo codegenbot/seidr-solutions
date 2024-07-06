@@ -1,10 +1,11 @@
+#include <string>
 #include <iostream>
-#include <sstream>
+using namespace std;
 
 string substitutionCipher(string cipher1, string cipher2, string message) {
     string result = "";
     for (int i = 0; i < message.length(); i++) {
-        int index = cipher1.find(message[i]);
+        int index = find(cipher1.begin(), cipher1.end(), message[i]) - cipher1.begin();
         if (index != string::npos)
             result += cipher2[index];
         else
@@ -18,3 +19,4 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
     cout << substitutionCipher(cipher1, cipher2, message) << endl;
     return 0;
+}
