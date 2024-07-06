@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 
 int basement(const std::vector<int>& numbers) {
@@ -7,9 +7,7 @@ int basement(const std::vector<int>& numbers) {
         sum += numbers[i];
         if (sum < 0) return i;
     }
-    return -1; 
+    return -1; // not found
 }
 
-int main() { 
-    return basement({-1, 2, -3, 4, -5}); 
-}
+int main() { return basement({-2,3,-4,5,-6,7,8,9,-10}); }
