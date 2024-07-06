@@ -28,3 +28,7 @@ def minPath(grid, k):
             if min_path is None or len(path) < len(min_path):
                 min_path = path
     return min_path
+
+grid = [[0]*5 for _ in range(5)]
+k = 1
+print(minPath(grid, k))
