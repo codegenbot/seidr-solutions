@@ -21,10 +21,13 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 
 if __name__ == "__main__":
-    while True:
-        try:
-            result = rescale_to_unit([float(x) for x in input("Enter space-separated numbers: ").split()])
-            print(result)
-            break
-        except ValueError as e:
-            print(f"Error: {e}")
+    try:
+        input_str = input("Enter space-separated numbers: ")
+        if not input_str:
+            print("No input provided")
+            exit()
+
+        result = rescale_to_unit([float(x) for x in input_str.split()])
+        print(result)
+    except ValueError as e:
+        print(f"Error: {e}")
