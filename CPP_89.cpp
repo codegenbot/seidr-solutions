@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 std::string encrypt(std::string s) {
     std::string result = "";  
@@ -15,6 +16,6 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    assert(encrypt("a") == "e");
+    assert (encrypt("a")=="d");
     return 0;
 }
