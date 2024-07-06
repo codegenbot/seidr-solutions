@@ -4,4 +4,4 @@ def decode_shift(s: str):
     elif s == "decode":
         return "".join([chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s])
     else:
-        return "".join([chr((ord(ch) - ord("a") - (3 if s == "encode" else -3)) % 26 + ord("a")) for ch in s])
+        return "".join([chr((ord(ch) - ord("a") - 1) % 26 + ord("a")) for ch in s])
