@@ -1,5 +1,4 @@
 #include <boost/optional.hpp>
-#include <boost/any.hpp>
 
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
