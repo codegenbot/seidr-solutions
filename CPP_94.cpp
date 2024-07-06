@@ -1,27 +1,32 @@
-Here is the completed code:
-
-int skjkasdkd(vector<int> lst){
+int largestPrimeSum(const vector<int>& lst) {
     int maxPrime = 0;
-    for (auto num : lst) {
-        if (num > 1) { // prime numbers are greater than 1
-            bool isPrime = true;
-            for (int i = 2; i * i <= num; ++i) {
-                if (num % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            if (isPrime && num > maxPrime) {
+    for (int num : lst) {
+        if (isPrime(num)) {
+            if (num > maxPrime) {
                 maxPrime = num;
             }
         }
     }
+    return sumOfDigits(maxPrime);
+}
 
-    int sumOfDigits = 0;
-    while (maxPrime) {
-        sumOfDigits += maxPrime % 10;
-        maxPrime /= 10;
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
     }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
-    return sumOfDigits;
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
 }
