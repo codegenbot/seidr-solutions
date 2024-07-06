@@ -1,6 +1,4 @@
-```
 import hashlib
-
 
 def string_to_md5(text):
     if text:
@@ -10,7 +8,6 @@ def string_to_md5(text):
             return str(e)
     else:
         return None
-
 
 text = input("Please enter a string: ")
 print(string_to_md5(text))
