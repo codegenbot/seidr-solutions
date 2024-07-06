@@ -1,12 +1,18 @@
+```cpp
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+std::vector<int> sort_array(std::vector<int> array) {
+    int sum = array[0] + array[array.size()-1];
+    if(sum % 2 == 0) {
+        std::vector<int> sortedArray = array;
+        std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
+        return sortedArray;
+    } else {
+        std::vector<int> sortedArray = array;
+        std::sort(sortedArray.begin(), sortedArray.end());
+        return sortedArray;
+    }
 }
 
-vector<int> sort_array(vector<int> array) {
-    int sum = array[0] + array.back();
-    if (sum % 2 == 1)
-        return vector<int>(array.begin(), array.end());
-    else
-        return vector<int>(array.rbegin(), array.rend());
+assert(sort_array({21, 14, 23, 11}) == std::vector<int>({23, 21, 14, 11}));
