@@ -2,7 +2,5 @@ import re
 
 
 def fix_spaces(text):
-    # Read input from user
-    text = input("Enter a string: ")
-    # Return the corrected output
+    text = input("Enter text to fix spaces: ")
     return re.sub(r"\s+", "-", text)
