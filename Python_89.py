@@ -1,6 +1,5 @@
-
 def encrypt(s):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    new_alphabet = alphabet[2:] + alphabet[:2]
-    table = str.maketrans(alphabet, new_alphabet)
-    return s.translate(table)
+    encrypted = ""
+    for char in s:
+        encrypted += chr((ord(char) - 97) * 2 % 26 + 97)
+    return encrypted
