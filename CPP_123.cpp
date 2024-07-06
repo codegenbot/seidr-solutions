@@ -1,25 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
+```cpp
+int n;
+cin >> n;
+vector<int> result = get_odd_collatz(n);
+sort(result.begin(), result.end());
+cout << "The Collatz Conjecture sequence for " << n << " is: ";
+for (int i : result) {
+    cout << i << " ";
 }
-
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 0)
-            n /= 2;
-        else
-            n = 3 * n + 1;
-        if (n % 2 != 0)
-            result.push_back(n);
-    }
-    sort(result.begin(), result.end());
-    return result;
-}
-
-int main() {
-    assert (issame({get_odd_collatz(1)}, vector<int>({1})));
-    // Add your code here
-}
+cout << endl;
+return 0;

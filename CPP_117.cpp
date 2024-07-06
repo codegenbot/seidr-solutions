@@ -1,20 +1,24 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-
-using my_string = std::string;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const my_string& s) { return find(b.begin(), b.end(), s) != b.end(); });
+```
+bool same(string a, string b) {
+    if (a.length() != b.length()) {
+        return false;
+    }
+    for (int i = 0; i < a.length(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> select_words(my_string s, int n) {
+vector<string> select_words(string s, int n) {
     vector<string> result;
-    my_string word = "";
+    string word = "";
+
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
-        } else if (!word.empty()) {
+        } else if (!word.empty()) { 
             bool has_n_consonants = false;
             int consonant_count = 0;
             for (char ch : word) {
@@ -29,12 +33,13 @@ vector<string> select_words(my_string s, int n) {
             if (has_n_consonants) {
                 result.push_back(word);
             }
-            word = "";
+            word = ""; 
+        }
+    }
+    for (int i = 0; i < result.size() - 1; i++) {
+        if (!same(result[i], result[i+1])) {
+            return vector<string>();
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
 }
