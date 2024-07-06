@@ -1,6 +1,3 @@
-```
 def double_the_difference(lst):
-    result = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-    return 2 * (result - min(lst))
-
-double_the_difference([1, 2, 3])
+    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
+    return 2 * (odd_sum - min(lst))
