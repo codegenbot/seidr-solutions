@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -38,4 +36,8 @@ int main() {
     vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
     vector<int> res = sort_third(l);
     for(int i : res) cout << i << " ";
+    
+    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) , {2, 6, 3, 4, 8, 9, 5, 1}));
+    
+    return 0;
 }

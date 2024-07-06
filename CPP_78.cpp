@@ -1,9 +1,11 @@
-int hex_key(string num) {
+#include <string>
+#include <cctype>
+
+int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
-        if (!isxdigit(c)) { 
+        if (!std::isxdigit(c)) { 
             count++;
         }
     }
     return count;
-}

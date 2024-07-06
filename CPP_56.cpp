@@ -1,10 +1,11 @@
-```cpp
-bool correct_bracketing(string brackets) {
+#include <string>
+
+bool correct_bracketing(std::string brackets) {
     int count = 0;
     for (char bracket : brackets) {
-        if (bracket == '<') {
+        if ((bracket == '(') || (bracket == '{') || (bracket == '<')) {
             count++;
-        } else if (bracket == '>') {
+        } else if ((bracket == ')') || (bracket == '}') || (bracket == '>')) {
             if (count > 0)
                 count--;
             else

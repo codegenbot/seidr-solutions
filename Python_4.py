@@ -1,5 +1,4 @@
 from typing import List
-from statistics import mean as stat_mean
 
 
 def main():
@@ -11,11 +10,9 @@ def main():
                 break
             numbers = [float(num) for num in user_input.split()]
 
-            # Check if all inputs can be converted to float
-            if any(not isinstance(n, (int, float)) for n in numbers):
+            # Check if all inputs can be converted to float and there are at least two numbers
+            if any(not isinstance(n, (int, float)) for n in numbers) or len(numbers) < 2:
                 print("Invalid input. Please enter some valid numbers.")
-            elif len(numbers) < 2:
-                print("Please enter at least two numbers.")
             else:
                 print(mean_absolute_deviation(numbers))
         except ValueError as e:
@@ -23,7 +20,7 @@ def main():
 
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    mean = stat_mean(numbers)
+    mean = sum(numbers) / len(numbers)
     return sum(abs(num - mean) for num in numbers) / len(numbers)
 
 
