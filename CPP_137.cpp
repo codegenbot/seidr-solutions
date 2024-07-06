@@ -1,27 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <any>
+
+bool compare(const std::any &a, const std::any &b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return std::get<int>(a) <= std::get<int>(b);
+    }
+    // Add more comparisons for different types
+    return false;  // Default comparison result
+}
+
 int main() {
-    std::cout << "Enter two values: ";
-    int val1;
-    float val2;
-    std::cin >> val1;
-
-    if (std::cin.fail()) {
-        // handle invalid input here
+    std::any a, b;
+    if (std::cin >> a >> b) {
+        if (compare(a, b))
+            std::cout << "true\n";
+        else
+            std::cout << "false\n";
     } else {
-        std::string str;
-        std::cin >> str;
-        // process the string and val1 as needed
+        std::cerr << "Invalid input.\n";
+        return 1; // exit with error code
     }
-    
-    int a = val1;  
-    std::string b = str;
-
-    if (a > std::stoi(b)) {
-        std::cout << "The first number is bigger.\n";
-    } else if (a < std::stoi(b)) {
-        std::cout << "The second number is bigger.\n";
-    } else {
-        std::cout << "Both numbers are equal.\n";
-    }
-    
     return 0;
 }
