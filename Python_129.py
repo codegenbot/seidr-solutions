@@ -1,11 +1,11 @@
-```
+```python
 def minPath(grid, k):
     n = len(grid)
-    res = []
     for i in range(n):
         for j in range(n):
             if grid[i][j] == 1:
                 path = [grid[i][j]]
+                res = []
                 dfs(i, j, k - 1, grid, path, res)
                 return path + res
     return []
