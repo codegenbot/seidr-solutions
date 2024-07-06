@@ -1,4 +1,7 @@
-def parse_nested_parens(paren_string: str) -> int:
+import itertools
+
+
+def parse_nested_parens(paren_string: str) -> list[int]:
     result = []
     for group in paren_string.split():
         level = 0
@@ -8,4 +11,4 @@ def parse_nested_parens(paren_string: str) -> int:
             elif char == ")":
                 level -= 1
         result.append(level)
-    return max(result)
+    return list(itertools.chain(*result))
