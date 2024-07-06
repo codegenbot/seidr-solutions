@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
-int main() {
-    assert(issame({1, 4, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})));
+int main(){
+    assert (issame({1, 4, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})) );
     return 0;
 }
 
