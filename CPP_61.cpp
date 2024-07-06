@@ -6,8 +6,6 @@ int correct_bracketing(std::string brackets) {
         if (c == '(') count++;
         else if (c == ')') {
             if (count > 0) count--;
-            else return 0; // parentheses not correctly nested
         }
     }
-    if (count != 0) return 0; // unbalanced brackets
-    return 1;
+    return count;
