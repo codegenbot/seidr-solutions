@@ -28,7 +28,8 @@ int main_program() {
         } else {
             b.push_back(s);
         }
-       
+   
+    
     cout << (issame(a, b) ? "Same" : "Not Same");
     
     return 0;
