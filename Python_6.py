@@ -1,4 +1,3 @@
-```Python
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -22,7 +21,12 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             result.append(current_level)
             current_level = 0
     
+    if stack == 0:
+        result.append(max_level)
+    elif stack > 0:
+        while stack > 0:
+            result.append(max_level)
+            max_level -= 1
+            stack -= 1
+    
     return result
-
-paren_string = input("Enter a string of parentheses: ")
-print(parse_nested_parens(paren_string))

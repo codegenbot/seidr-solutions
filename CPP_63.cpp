@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 using namespace std;
 
 int fibfib(int n) {
@@ -7,20 +6,22 @@ int fibfib(int n) {
         return 0;
     else if (n == 2)
         return 1;
-    int a = 0, b = 0, c = 1;
-    for (int i = 3; i <= n; i++) {
-        int temp = a + b + c;
-        a = b;
-        b = c;
-        c = temp;
+    else {
+        int a = 0, b = 0, c = 1;
+        for (int i = 3; i <= n; i++) {
+            int temp = a + b + c;
+            a = b;
+            b = c;
+            c = temp;
+        }
+        return c;
     }
-    return c;
 }
 
 int main() {
     int n;
-    printf("Enter the value of n: ");
+    printf("Enter the position of FibFib number: ");
     scanf("%d", &n);
-    printf("The %d-th element is: %d\n", n, fibfib(n));
+    printf("The %d-th element of the fibfib sequence is: %d\n", n, fibfib(n));
     return 0;
 }
