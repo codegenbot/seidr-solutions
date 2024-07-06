@@ -1,15 +1,14 @@
-#include <iostream>
-#include <vector>
-using namespace std;
 
-int main() {
-    vector<int> input = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    vector<int> leaders(input);
-    cout << "The leaders are: ";
-    for (int i : leaders) {
-        if (i == input.size() - 1)
-            cout << i << endl;
-        else
-            cout << i << ", ";
+#include <vector>
+
+std::vector<int> leaders(const std::vector<int>& input) {
+    std::vector<int> output;
+    int currentLeader = INT_MIN;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] >= currentLeader) {
+            output.push_back(input[i]);
+            currentLeader = input[i];
+        }
     }
+    return output;
 }
