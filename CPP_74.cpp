@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -41,4 +40,3 @@ int main() {
     vector<string> vec2 = {""};
     assert(issame(total_match({{"this"}}, {""}), {{"", "this"}}));  
     return 0;
-}
