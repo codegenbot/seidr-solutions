@@ -1,4 +1,7 @@
-int words_in_sentence(const std::string& sentence) {
+#include <string>
+using namespace std;
+
+int words_in_sentence(const string& sentence) {
     int count = 0;
     bool inWord = false;
 
