@@ -1,8 +1,7 @@
-```
 #include <algorithm>
 using namespace std;
 
-std::string anti_shuffle(std::string s) {
+std::string anti_shuffle(string s) {
     std::string result = "";
     std::string word;
     
