@@ -1,28 +1,18 @@
 int prod_signs(vector<int> arr) {
+    if (arr.empty()) return -32768;
+
     int sign_product = 1;
-    long long sum_of_magnitudes = 0;
+    int sum_of_magnitudes = 0;
 
     for (int num : arr) {
-        if (num == 0) {
-            return 0;
+        if (num > 0) {
+            sign_product *= 1;
+            sum_of_magnitudes += abs(num);
+        } else if (num < 0) {
+            sign_product *= -1;
+            sum_of_magnitudes -= abs(num);
         }
-        sign_product *= sign(num);
-        sum_of_magnitudes += abs(num);
     }
 
-    if (arr.empty()) {
-        return -32768;
-    }
-
-    return sum_of_magnitudes * sign_product;
-}
-
-int sign(int num) {
-    if (num > 0) {
-        return 1;
-    }
-    if (num < 0) {
-        return -1;
-    }
-    return 0;
+    return sign_product * sum_of_magnitudes;
 }
