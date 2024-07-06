@@ -1,29 +1,55 @@
-```
+#include <boost/any.hpp>
+#include <string>
+
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         int ai = boost::any_cast<int>(a);
         float bf = boost::any_cast<float>(b);
-        return boost::any(bf > ai ? b : a);
+        return b;
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int ai = boost::any_cast<int>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return boost::any(stof(bs) > ai ? b : a);
+        if (stof(bs) > ai) {
+            return b;
+        } else {
+            return a;
+        }
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float af = boost::any_cast<float>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return boost::any(stof(bs) > af ? b : a);
+        if (stof(bs) > af) {
+            return b;
+        } else {
+            return a;
+        }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string as = boost::any_cast<std::string>(a);
         int bi = boost::any_cast<int>(b);
-        return boost::any(stof(as) > bi ? a : b);
+        if (stof(as) > bi) {
+            return a;
+        } else {
+            return b;
+        }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string as = boost::any_cast<std::string>(a);
         float bf = boost::any_cast<float>(b);
-        return boost::any(stof(as) > bf ? a : b);
+        if (stof(as) > bf) {
+            return a;
+        } else {
+            return b;
+        }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return boost::any(stof(as) > stof(bs) ? a : (stof(as) < stof(bs) ? b : a));
+        if (stof(as) > stof(bs)) {
+            return a;
+        } else if (stof(as) < stof(bs)) {
+            return b;
+        } else {
+            return a;
+        }
     }
 
     return a;
