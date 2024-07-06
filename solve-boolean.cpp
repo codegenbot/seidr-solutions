@@ -1,4 +1,26 @@
-```
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool t = true;
+    bool f = false;
+    bool res = t;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't') {
+            res = (s[i + 1] == '&') ? (res & t) : (res | t);
+            i += (s[i + 1] == '|') ? 2 : 1;
+        } else if (s[i] == 'f') {
+            res = (s[i + 1] == '&') ? (res & f) : (res | f);
+            i += (s[i + 1] == '|') ? 2 : 1;
+        }
+    }
+
+    return res;
+}
+
 int main() {
     string s;
     cout << "Enter a Boolean expression: ";
@@ -9,5 +31,4 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-    return 0;
-}
+    return 0;}

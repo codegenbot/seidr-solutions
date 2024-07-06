@@ -1,3 +1,4 @@
+```cpp
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
     for (char c : cipher) {
@@ -6,7 +7,7 @@ std::string decode(std::string cipher, std::string mapping) {
             char m = mapping[idx];
             result += m;
         } else {
-            result += c; // Add the original character
+            result += c; 
         }
     }
     return result;
