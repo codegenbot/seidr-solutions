@@ -1,8 +1,9 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include <cassert>
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,17 +11,17 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> evenVals;
+            std::vector<float> evenVals;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenVals.push_back(l[j]);
                 }
             }
-            sort(evenVals.begin(), evenVals.end());
+            std::sort(evenVals.begin(), evenVals.end());
             result[i] = evenVals[0];
         } else {
             result[i] = l[i];
@@ -30,30 +31,27 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> input;
-    cout << "Enter the size of the array: ";
-    int n; cin >> n;
-    
+    std::vector<float> input;
+    std::cout << "Enter the size of the array: ";
+    int n; std::cin >> n;
+
     for (int i=0; i<n; i++) {
-        float x; cin >> x;
+        float x; std::cin >> x;
         input.push_back(x);
     }
-    
-    vector<float> output = sort_even(input);
-    
+
+    std::vector<float> output = sort_even(input);
+
     if (issame(output, {1.7f, -2.9f, 3.14f, 4.8f})) {
-        cout << "Test passed!" << endl;
+        std::cout << "Test passed!" << std::endl;
     } else {
-        cout << "Test failed!" << endl;
+        std::cout << "Test failed!" << std::endl;
     }
-    
-    vector<float> test = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    output = sort_even(test);
-    if (issame(output, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
-        cout << "Test passed!" << endl;
-    } else {
-        cout << "Test failed!" << endl;
-    }
-    
+
+    std::vector<float> test_input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    std::vector<float> test_output = sort_even(test_input);
+
+    assert(issame(test_output, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+
     return 0;
 }
