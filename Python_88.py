@@ -1,27 +1,18 @@
-```
 def sort_array(input_array=None):
     if not isinstance(input_array, list):
         print("Error: Input type is incorrect")
-    
-    user_choice = input("Do you want to (1) provide your own array or (2) use default array? ")
-    
-    if user_choice == "1":
+    if input_array is None:
+        array = []
         while not array:
             try:
-                array = [int(i) for i in input("Enter numbers separated by space: ").split()]
-            except ValueError as e:
-                print("Error: Array contains non-integer values")
+                array = list(
+                    map(int, input("Enter numbers separated by space: ").split())
+                )
+            except ValueError:
+                print("Array cannot be empty. Please enter numbers separated by space:")
     else:
-        array = list(map(int, input("Enter default numbers separated by space: ").split()))
+        array = [int(i) for i in input_array]
 
-    if array is None:
-        print("Array cannot be empty. Please enter numbers separated by space:")
-        while not array:
-            try:
-                array = [int(i) for i in input().split()]
-            except ValueError as e:
-                print("Error: Array contains non-integer values")
-    
     try:
         user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
 
