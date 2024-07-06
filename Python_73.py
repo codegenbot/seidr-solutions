@@ -1,12 +1,13 @@
 def smallest_change(arr):
-    if len(arr) != 16:
-        raise ValueError("Array length should be 16 bits")
-
     n = len(arr)
-    forward = arr[:]
-    backward = arr[::-1]
+    left, right = 0, 0
+    changes = 0
     
-    for i in range(n//2):
-        if forward[i] != backward[n-i-1]:
-            return 1
-    return 0
+    while left < n // 2:
+        if arr[left] != arr[n - 1 - left]:
+            changes += 1
+            right -= 1
+        left += 1
+        right += 1
+    
+    return changes
