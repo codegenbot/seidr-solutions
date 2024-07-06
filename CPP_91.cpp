@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 
-int is_bored(std::string S) {
+int is_bored(std::string S){
     int count = 0;
     std::string boredom = "I";
     size_t pos = 0;
@@ -15,10 +16,14 @@ int is_bored(std::string S) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    int result = is_bored(input);
-    std::cout << "Count: " << result << std::endl;
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    int bored = is_bored(sentence);
+    if(bored > 0) {
+        std::cout << "The sentence is considered bored.\n";
+    } else {
+        std::cout << "The sentence is not considered bored.\n";
+    }
     return 0;
 }
