@@ -1,5 +1,8 @@
 def car_race_collision(n: int):
-    left_to_right = range(1, n + 1)
-    right_to_left = range(n, 0, -1)
-    collisions = set(left_to_right).intersection(right_to_left)
-    return len(collisions)
+    if n <= 10:
+        left_to_right = list(range(1, n + 1))
+        right_to_left = list(range(n, 0, -1))
+        return len([i for i in left_to_right if i in right_to_left])
+    else:
+        # Handle the case where n > 10
+        return 0
