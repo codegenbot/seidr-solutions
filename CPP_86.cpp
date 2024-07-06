@@ -5,8 +5,7 @@
 std::string anti_shuffle(std::string s) {
     std::string result = "";
     for (const auto& word : split(s, " ")) {
-        result += std::accumulate(word.begin(), word.end(),
-            std::string{}, [](std::string acc, char c) { return acc + c; }) + " ";
+        result += std::string(word.begin(), word.end()) + " ";
     }
     return result.substr(0, result.size() - 1);
 }
