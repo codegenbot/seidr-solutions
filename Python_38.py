@@ -6,6 +6,6 @@ def decode_cyclic(s: str):
         if i % 3 == 0:
             result += s[i]
         else:
-            result += s[i-1] if i > 0 else ''
+            result += s[i-1]
         i += 1
     return result
