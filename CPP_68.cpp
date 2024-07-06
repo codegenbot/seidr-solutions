@@ -1,18 +1,21 @@
+Here is the solution:
+
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> nodes;
+    vector<int> result = {};
+    int smallest_value = INT_MAX;
+    int index = 0;
+
     for (int i = 0; i < arr.size(); i++) {
-        nodes.emplace_back(arr[i], i);
+        if (arr[i] % 2 == 0 && arr[i] < smallest_value) {
+            smallest_value = arr[i];
+            index = i;
+        }
     }
-    
-    if(nodes.empty()) return {};
-    
-    sort(nodes.begin(), nodes.end());
-    
-    auto it = find_if(nodes.begin(), nodes.end(), [](const pair<int, int>& p) {return p.first % 2 == 0;});
-    
-    if(it != nodes.end()) {
-        return {{it->first, it->second}};
-    } else {
-        return {};
+
+    if (smallest_value != INT_MAX) {
+        result.push_back(smallest_value);
+        result.push_back(index);
     }
+
+    return result;
 }
