@@ -1,4 +1,3 @@
-```
 def solution(lst):
     if not isinstance(lst, list) or any(not isinstance(i, str) for i in lst):
         return 0
