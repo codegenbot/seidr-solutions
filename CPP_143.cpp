@@ -1,21 +1,19 @@
 #include <iostream>
 #include <string>
 
-int count_words(const std::string& sentence) {
-    int word_count = 0;
-    size_t start = 0;
-    while (start < sentence.size()) {
-        start = sentence.find(' ', start);
-        if (start == std::string::npos)
-            return ++word_count; // single word or end of sentence
-        start++; // move to the next space
-        if (++word_count > 1) // avoid counting the last word twice
-            break;
+int words_in_sentence(const std::string& sentence) {
+    int count = 0;
+    size_t pos = 0;
+
+    while ((pos = sentence.find(' ', pos)) != std::string::npos) {
+        ++count;
+        ++pos; // Increment position to find the next space
     }
-    return word_count;
+
+    return count + 1; // Add 1 for the last word
 }
 
 int main() {
-    std::cout << count_words("here is") << std::endl;
+    std::cout << words_in_sentence("here is") << std::endl;
     return 0;
 }
