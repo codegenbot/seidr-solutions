@@ -1,4 +1,5 @@
-"""
-def concatenate(strings: list) -> str:
-    return ''.join(map(str, strings))
-"""
+```
+'""'"''
+def concatenate(strings):
+    return ''.join(strings)
+'''"'"""
