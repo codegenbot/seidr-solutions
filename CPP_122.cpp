@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
-using namespace std;
-
-int add_elements(vector<int> arr, int k) {
+int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; i++) {
         if (log10(arr[i]) + 1 <= 2) {
@@ -14,7 +13,8 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
+    // Test the function
     assert(add_elements({1}, 1) == 1);
-    // Test your code here
+    std::cout << "Test passed.\n";
     return 0;
 }
