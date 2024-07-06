@@ -1,12 +1,14 @@
+```
 #include <algorithm>
+#include <vector>
 
-vector<int> remove_duplicates(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
+std::vector<int> remove_duplicates(std::vector<int> l) {
+    std::vector<int> result(l.begin(), remove_duplicates_copy(l.begin(), l.end()).end());
     return result;
 }
 
-vector<int>::iterator unique_(vector<int>::iterator start, vector<int>::iterator end) {
+std::vector<int>::iterator remove_duplicates_copy(std::vector<int>::iterator start, std::vector<int>::iterator end) {
     sort(start, end);
-    auto it = unique_copy(start, end, start);
+    auto it = std::unique_copy(start, end, start);
     return it;
 }
