@@ -2,12 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
             n /= 2;
@@ -21,14 +21,19 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame({get_odd_collatz(1)}, vector<int>({1})));
-    
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    vector<int> res = get_odd_collatz(num);
-    cout << "The sequence of Collatz Conjecture for the number is: ";
-    for (int i : res)
-        cout << i << " ";
-    return 0;
+    for(int i=1;i<=100;i++) {
+        vector<int> temp=get_odd_collatz(i);
+        bool unique=true;
+        for(auto x:temp) {
+            if(count(temp.begin(),temp.end(),x)>1) {
+                unique=false;
+                break;
+            }
+        }
+        if(unique) {
+            cout<<"Chain for "<<i<<" is unique"<<endl;
+        } else {
+            cout<<"Chain for "<<i<<" is not unique"<<endl;
+        }
+    }
 }

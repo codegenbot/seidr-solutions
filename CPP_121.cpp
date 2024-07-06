@@ -16,5 +16,7 @@ int solutions(vector<int> lst) {
 
 int main() {
     assert(solutions({3, 13, 2, 9}) == 3);
+    vector<int> test = {1, 4};
+    cout << "Sum of odd numbers at even indices: " << solutions(test) << endl;
     return 0;
 }
