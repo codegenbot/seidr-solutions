@@ -1,11 +1,9 @@
-import re as regex
-
 
 def fix_spaces(text):
-    text = regex.sub(r"\s+", "_", text)
+    import re
+    text = re.sub(r"\s+", "_", text)
     return text.replace(" ", "")
 
-
-user_input = input()
+user_input = sys.stdin.read()
 result = fix_spaces(user_input)
 print(result)
