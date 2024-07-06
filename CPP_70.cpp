@@ -1,1 +1,2 @@
-assert(equal(strange_sort_vector({111111}), vector<int>({111111})));
+```c++
+assert(issame(strange_sort_vector({1,1,1,1}),{1,1,1,1}));
