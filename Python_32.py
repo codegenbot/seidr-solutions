@@ -1,7 +1,6 @@
 
-def find_zero(xs):
-    n = int(input())
-    for i in range(n):
-        if xs[i] == 0:
-            return i
-    return -1
+def find_zero(xs: list):
+    if len(xs) == 0:
+        return None
+    else:
+        return math.pow(xs[0], 1 / len(xs))
