@@ -8,3 +8,5 @@ def triangle_area():
         return round((s*(s-a)*(s-b)*(s-c)) ** 0.5, 2)
     else:
         return -1
+
+print(triangle_area())
