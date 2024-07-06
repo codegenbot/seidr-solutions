@@ -8,5 +8,6 @@ def tri(n):
     else:
         sequence = [3, 2]
         for _ in range(2, n):
-            sequence.append(sum(sequence[-2:]) + (sequence[-1] / 2))
+            next_num = sequence[-1] + sequence[-2] + sequence[0]
+            sequence.append(next_num)
         return sequence
