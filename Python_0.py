@@ -48,3 +48,4 @@ def has_close_elements() -> bool:
                     break
 
         cont = input("Do you want to check another set of numbers? (y/n): ")
+    return found_close_elements
