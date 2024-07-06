@@ -1,3 +1,5 @@
+int maxCount = 0; 
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     string str = test;
@@ -10,8 +12,8 @@ map<char, int> histogram(string test) {
             }
         }
     }
-    int maxCount = 0; 
     map<char, int> maxMap;
+    int maxCount = 0; 
     for (auto it = result.begin(); it != result.end(); ++it) {
         if (it->second > maxCount) {
             maxCount = it->second;
@@ -22,4 +24,3 @@ map<char, int> histogram(string test) {
         }
     }
     return maxMap;
-}
