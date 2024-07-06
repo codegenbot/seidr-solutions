@@ -1,2 +1,3 @@
+```
 def car_race_collision(n: int):
-    return sum(i for i in range(1, n) if i % 2 != 0)
+    return 0 if n == 1 else n * (n - 1) // 2
