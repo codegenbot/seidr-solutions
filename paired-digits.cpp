@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,10 +10,11 @@ int main(){
     cin>>str;
     
     for (int i = 0; i < str.size(); i++) {
-        if (str[i] == str[i - 1]) {
+        if (str[i] == str[i + 1]) {
             sum += str[i] - '0';
+            sum += str[i + 1] - '0';
         }
     }
     
-     cout<<"Sum of digit is: "<<sum;
+    cout<<"Sum of digit is: "<<sum;
 }

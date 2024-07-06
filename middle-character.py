@@ -1,5 +1,8 @@
 def get_middle(s):
-    if len(s) % 2 == 0 and len(s) > 1:
-        return s[len(s) // 2 - 1] + s[len(s) // 2]
+    mid = len(s) // 2
+    if s[mid].isalpha() or s[mid].isdigit():
+        return s[mid]
+    elif s[mid].isspecial():
+        return s[mid]
     else:
-        return s[len(s) // 2]
+        return s[mid - 1 : mid + 1]
