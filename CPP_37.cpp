@@ -1,7 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool std::vector<float>(a, std::vector<float>b) {
+bool issame(std::vector<float> a, std::vector<float>b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
