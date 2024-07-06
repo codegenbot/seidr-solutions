@@ -1,5 +1,6 @@
 #include <cmath>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 string rounded_avg(int n, int m) {
