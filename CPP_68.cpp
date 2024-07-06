@@ -1,11 +1,11 @@
-#include <climits>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if(arr.empty()) return result;
+    if(arr.empty()) return vector<pair<int, int>>();
     
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -22,6 +22,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == vector<pair<int,int>>());
+    assert(pluck({7, 9, 7, 1}).empty());
     return 0;
 }
