@@ -1,18 +1,22 @@
-#include <string>
-
-using namespace std;
-
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-        } else {
-            result += c;
+    bool has_letter = false;
+
+    for(int i = 0; i < s.length(); i++){
+        if(isalpha(s[i])){
+            has_letter = true;
+            if(islower(s[i])){   
+                result += toupper(s[i]);
+            }else{
+                result += tolower(s[i]);
+            }
+        }else{
+            result += s[i];
         }
     }
-    if (result.empty()) {
+
+    if(!has_letter)
         reverse(result.begin(), result.end());
-    }
+
     return result;
 }
