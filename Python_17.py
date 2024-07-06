@@ -1,4 +1,4 @@
-def parse_music(music_string: str) -> List[int]:
+def parse_music(music_string: str) -> list[int]:
     notes = music_string.split()
     note_lengths = []
     for note in notes:
