@@ -1,4 +1,4 @@
-# Python/28: Reverse Strings
+```
 while True:
     try:
         num_strings = int(input("Enter the number of strings: "))
@@ -16,3 +16,5 @@ for _ in range(num_strings):
             print(reversed_string)
         except AttributeError:
             print("Invalid input. Please enter a valid string.")
+
+print("Program finished.")
