@@ -1,11 +1,10 @@
-```
 def total_match(lst1, lst2):
-    total_chars1 = sum(len(s) for s in lst1)
-    total_chars2 = sum(len(s) for s in lst2)
-
-    if total_chars1 < total_chars2:
-        return lst1
-    elif total_chars2 < total_chars1:
-        return lst2
-    else:
-        return lst1
+    return min(
+        [
+            lst
+            for lst in [lst1, lst2]
+            if sum(len(i) for i in lst)
+            < sum(len(i) for i in [x for x in [lst1, lst2] if x != lst][0])
+        ],
+        default=lst1,
+    )
