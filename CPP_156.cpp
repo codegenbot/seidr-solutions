@@ -19,6 +19,6 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int_to_mini_roman(0);
+    int_to_mini_roman(1000);
     return 0;
 }
