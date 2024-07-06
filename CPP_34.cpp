@@ -1,12 +1,31 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
+using namespace std;
 
-vector<int> remove_duplicates(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
+vector<int> unique(vector<int> l) {
+    vector<int> result;
+    for(int i = 0; i < l.size(); i++) {
+        bool exists = false;
+        for(int j = 0; j < result.size(); j++) {
+            if(l[i] == result[j]) {
+                exists = true;
+                break;
+            }
+        }
+        if(!exists) {
+            result.push_back(l[i]);
+        }
+    }
+    sort(result.begin(), result.end());
     return result;
 }
 
-vector<int>::iterator unique_(vector<int>::iterator start, vector<int>::iterator end) {
-    sort(start, end);
-    auto it = unique_copy(start, end, start);
-    return it;
+int main() {
+    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> result = unique(l);
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    return 0;
 }

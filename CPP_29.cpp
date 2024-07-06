@@ -1,9 +1,5 @@
 ```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -21,22 +17,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<string> strings;
-    for(int i = 0; i < n; ++i) {
-        string temp;
-        cin >> temp;
-        strings.push_back(temp);
-    }
-    
-    string prefix;
-    cin >> prefix;
-
-    if(issame(filter_by_prefix(strings, prefix), strings)) 
-        cout << "All strings start with the given prefix.\n";
-    else
-        cout << "Not all strings start with the given prefix.\n";
-
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }

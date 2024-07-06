@@ -1,6 +1,5 @@
-```cpp
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
@@ -11,16 +10,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::vector<int> result;
-
-    for(int i : numbers) {
-        if(find(result.begin(), result.end(), i) == result.end()) {
-            result.push_back(i);
-        }
-    }
-
-    return result;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::set<int> seen;
+    return {seen.insert(i).second for (int i : numbers)};
 }
 
 int main() {
