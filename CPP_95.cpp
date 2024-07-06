@@ -15,4 +15,3 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return all_lower || all_upper;
-}
