@@ -1,40 +1,21 @@
-```
-def encode(message):
-    """Encode a string based on certain rules"""
-    result = ""
-    for char in message:
-        if char.isalpha():
-            if char.lower() in "aeiou":
-                if char.lower() == "do" or char.lower() == "to":
-                    if char.isupper():
-                        result += "DQN".upper()
-                    else:
-                        result += "dqn"
-                elif char.lower() == "re" or char.lower() == "ro" or char.lower() == "te":
-                    if char.isupper():
-                        result += "GYKS".upper()
-                    else:
-                        result += "gyks"
-                elif char.lower() == "se":
-                    if char.isupper():
-                        result += "SWNT".upper()
-                    else:
-                        result += "swnt"
-                else:
-                    if char.lower() in "aeiou":
-                        if char.isupper():
-                            result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()].upper()
-                        else:
-                            result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()]
-                    else:
-                        if char.isupper():
-                            result += char.swapcase().upper()
-                        else:
-                            result += char.swapcase()
-            else:
-                if char.isupper():
-                    result += char.swapcase().upper()
-                else:
-                    result += char.swapcase()
-        else:
-            result += char
+```def encode(message): 
+    """Encode a given message according to the specific encoding rules."""
+    result = "" 
+    for char in message: 
+        if char.isalpha(): 
+            if char.lower() in "aeiou": 
+                if (char.lower() == "a" or char.lower() == "e" or char.lower() == "i" or char.lower() == "o" or char.lower() == "u") and (char.lower() == "to" or char.lower() == "do"): 
+                    result += "dQnT".upper() if char.isupper() else "dQnT" 
+                elif (char.lower() == "r" or char.lower() == "o" or char.lower() == "t") and (char.lower() in ["re", "ro", "te"]): 
+                    result += "gYkS".upper() if char.isupper() else "gYkS" 
+                elif char.lower() == "s": 
+                    result += "sWnT".upper() if char.isupper() else "sWnT" 
+                else: 
+                    if char.lower() in "aeiou": 
+                        result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()].upper() if char.isupper() else {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()] 
+                    else: 
+                        result += char.swapcase().upper() if char.isupper() else char.swapcase() 
+            else: 
+                result += char.swapcase().upper() if char.isupper() else char.swapcase() 
+        else: 
+            result += char```
