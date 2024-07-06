@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
 using namespace std;
 
@@ -12,8 +12,6 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
-
-#include <initializer_list>
 
 int main() {
     vector<int> lst = {3, 13, 2, 9};
