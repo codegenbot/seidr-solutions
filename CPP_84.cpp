@@ -1,17 +1,19 @@
+#include <string>
+
+using namespace std;
+
 string solve(int N) {
-    int sum = 0;
+    string binary = "";
     while (N > 0) {
-        sum += N % 2;
+        if (N % 2 == 0)
+            binary.push_back('0');
+        else
+            binary.push_back('1');
         N /= 2;
     }
-    string binary = "";
-    while (sum > 0) {
-        if (sum & 1)
-            binary.push_back('1');
-        else
-            binary.push_back('0');
-        sum >>= 1;
+    int sum = 0;
+    for (int i = 0; i < binary.length(); i++) {
+        sum += (binary[i] - '0');
     }
-    reverse(binary.begin(), binary.end());
-    return binary;
+    return to_string(sum);
 }
