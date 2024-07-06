@@ -1,9 +1,7 @@
-```
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isIdentical(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -23,9 +21,22 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int arr[] = {1, 2, 3, -23, 243, -400, 0};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    std::vector<int> array (arr, arr+n);
-    assert(issame(maximum(array, 4), {0, 1, 2, 3}));
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    int* arr = new int[n];
+    
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> arr[i];
+    }
+    
+    int k;
+    std::cout << "Enter the number of maximum elements to find: ";
+    std::cin >> k;
+    
+    std::vector<int> myVector (arr, arr+n);
+    assert(isIdentical({0, 1, 2, 3}, maximum(myVector, 4)));
     return 0;
 }
