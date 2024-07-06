@@ -1,4 +1,6 @@
+```
 from typing import list
+
 
 def filter_by_substring():
     strings = input("Enter strings separated by space: ").split()
