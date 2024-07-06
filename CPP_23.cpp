@@ -1,3 +1,4 @@
-int str_len(string str) {
+```cpp
+int my_strlen(string str) {
     return str.length();
 }

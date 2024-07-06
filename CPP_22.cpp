@@ -1,6 +1,8 @@
-#include <initializer_list>
+#include <vector>
+#include <list>
+#include <any>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -15,6 +17,6 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
+    assert(issame(filter_integers(std::list<std::any>({3, std::any(), 3, 3, std::any(), std::any()})), std::vector<int>({3, 3, 3})));
     return 0;
 }
