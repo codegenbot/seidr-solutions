@@ -3,11 +3,13 @@ import hashlib
 
 
 def string_to_md5():
-    text = ''
-    confirm = ''
-    while not text or not confirm.lower() in ["yes", "no"]:
+    while True:
         text = input("Enter your string: ").strip()
         confirm = input("Do you want to continue? (yes/no): ").lower()
+        if not text or confirm not in ["yes", "no"]:
+            print("Invalid response. Please enter 'yes' or 'no'.")
+        else:
+            break
     return hashlib.md5(text.encode()).hexdigest()
 
 
