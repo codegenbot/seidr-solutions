@@ -1,6 +1,6 @@
 ```
-def subtract(x: int, y: int) -> int:
-    return x - y
+def add(x: int, y: int) -> int:
+    return x + y
 
 while True:
     try:
@@ -18,18 +18,8 @@ while True:
                         elif y.replace('-', '',).replace('.', '').isnumeric():
                             y = int(y)
                             if -2**31 <= y <= 2**31 -1:
-                                while True:
-                                    choice = input("Do you want to add or subtract? (or 'q' to quit): ")
-                                    if choice == "q":
-                                        break
-                                    elif choice.lower() in ['add', 'a']:
-                                        print(f"The sum is {add(x, y)}")
-                                        break
-                                    elif choice.lower() in ['subtract', 'sub', '-']:
-                                        print(f"The difference is {subtract(x, y)}")
-                                        break
-                                    else:
-                                        print("Invalid input. Please enter 'add' or 'subtract'.")
+                                print(f"The sum is {add(x, y)}")
+                                break
                             else:
                                 print("Invalid input. Please enter a whole number.")
                         else:
