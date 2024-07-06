@@ -1,4 +1,3 @@
-```
 def incr_list():
     print("Incremental List")
     result = []
