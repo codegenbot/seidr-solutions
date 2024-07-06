@@ -1,8 +1,5 @@
 def add(x: int, y: int):
-    while True:
-        try:
-            x = int(input("Enter the first number: "))
-            y = int(input("Enter the second number: "))
-            return x + y
-        except ValueError:
-            print("Invalid input. Please enter integers.")
+    if isinstance(x, int) and isinstance(y, int):
+        return x + y
+    else:
+        return "Invalid inputs. Please enter integers."
