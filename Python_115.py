@@ -1,11 +1,23 @@
 ```
 def max_fill(grid, capacity):
-    max_amount = 0
+    total_water = 0
     for i in range(len(grid)):
-        row_capacity = [min(capacity, j) for j in grid[i]]
-        water_amounts = [
-            min(row_capacity[j], row_capacity[-j - 1]) - (len(grid[i]) % 2)
-            for j in range(len(row_capacity))
-        ]
-        max_amount += sum(water_amounts)
-    return max_amount
+        row1, row2 = grid[i], grid[-i - 1]
+        j = min(len(row1), len(row2))
+        while j > 0:
+            h1, h2 = row1[j-1], row2[j-1]
+            if h1 > 0 and h2 > 0:
+                water = min(h1, h2)
+                row1[j-1] -= water
+                row2[j-1] -= water
+                total_water += water
+            elif h1 > 0:
+                water = h1
+                row1[j-1] -= water
+                total_water += water
+            else:
+                water = h2
+                row2[j-1] -= water
+                total_water += water
+            j -= 1
+    return total_water
