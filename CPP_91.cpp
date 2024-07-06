@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -15,7 +16,7 @@ int is_bored(std::string S){
 }
 
 int main(){
-    std::string input = "I love to read I books";
+    std::string input = "This is a test";
     int bored_count = is_bored(input); 
     std::cout << "Number of I-words: " << bored_count << std::endl;
     return 0;
