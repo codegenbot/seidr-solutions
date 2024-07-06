@@ -1,18 +1,19 @@
-```cpp
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
-    for (const auto& s : strings) {
-        if (s.find(substring) != std::string::npos) {
-            result.push_back(s);
-        }
+bool issame(vector<vector<string>> a, vector<vector<string>> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (!(a[i].size() == b[i].size() && a[i] == b[i])) return false;
     }
-    return result;
+    return true;
 }
 
-int main() {
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").size() == 2);
-    return 0;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto str : strings){
+        if(str.find(substring) != string::npos)
+            result.push_back(str);
+    }
+    return result;
 }
