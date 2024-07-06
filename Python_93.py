@@ -14,7 +14,11 @@ def encode(message):
                 elif char.lower() == 'u':
                     result += 'y' if char.islower() else 'Y'
             else:
-                result += 'z' if char.islower() else 'Z'
+                if ord(char) not in (ord('a'), ord('e'), ord('i'), ord('o'), ord('u')):
+                    if char.islower():
+                        result += chr(ord(char)+3)
+                    else:
+                        result += chr(ord(char)-3).upper()
         else:
             result += char  
     return result
