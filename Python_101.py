@@ -1,4 +1,7 @@
 def words_string(s):
-    import re
-
-    return re.split(r"\s+", s)
+    inp = input("Enter a string: ")
+    words = re.split(r"\s+", inp)
+    if len(words) == 1:
+        return "The string contains one word."
+    else:
+        return f"The string contains {len(words)} words."
