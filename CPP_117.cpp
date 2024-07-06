@@ -1,16 +1,27 @@
+```
+#include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
 
-std::vector<std::string> select_words(const std::string& str, int num) {
-    std::vector<std::string> words;
-    std::stringstream ss(str);
-    for(int i = 0; i < num; ++i){
-        std::getline(ss, " ");
-        words.push_back(std::string());
-        while (ss.peek() == ' ')
-            ss.ignore();
-        ss >> words.back();
+std::vector<std::string> select_words(std::vector<std::string>, std::vector<bool>);
+bool issame(char, char);
+
+std::vector<std::string> select_words(std::vector<std::string> word_list, std::vector<bool> is_word) {
+    std::vector<std::string> result;
+    
+    for (int i = 0; i < word_list.size(); i++) {
+        if (is_word[i]) {
+            result.push_back(word_list[i]);
+        }
     }
-    return words;
+    
+    return result;
+}
+
+bool issame(char ch1, char ch2) {
+    if (isalpha(ch1) && isalpha(ch2)) {
+        return tolower(ch1) == tolower(ch2);
+    } else {
+        return false;
+    }
 }
