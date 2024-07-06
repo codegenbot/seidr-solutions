@@ -1,4 +1,7 @@
 
 def find_zero(xs):
-    # Your code here
-    return 0
+    x = int(input("Enter a number: "))
+    if x == 0:
+        return 1
+    else:
+        return 0
