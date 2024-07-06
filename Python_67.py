@@ -1,3 +1,6 @@
+import re
+
+
 def fruit_distribution(s):
     # Parse the input string to extract the number of apples and oranges
     apple_count = int(re.search("\d+", s.split("and")[0]))
