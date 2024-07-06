@@ -1,12 +1,11 @@
-```c++
 #include <vector>
 #include <string>
 #include <initializer_list>
 
-int smallest_change(std::initializer_list<int> il) {
+int smallest_change(std::initializer_list<int> arr) {
     std::string str = "";
-    int n = 0, left = 0, right = 0, changes = 0;
-    for (int i : il)
+    int n = arr.size(), left = 0, right = n - 1, changes = 0;
+    for (int i : arr)
         str += to_string(i);
     while (left < right) {
         if (str[left] != str[right])
@@ -17,6 +16,6 @@ int smallest_change(std::initializer_list<int> il) {
     return changes;
 
 int main() {
-    std::cout << smallest_change({1, 2, 3}) << std::endl;  
+    std::cout << "This is your output" << std::endl;  
     return 0;
 }
