@@ -1,13 +1,15 @@
-#include <bits/stdc++.h>
-using namespace std;
+```cpp
+#include <iostream>
+#include <cmath>
+#include <string>
 
-string rounded_avg(int n,int m){
+std::string rounded_avg(int n, int m) {
     if(n > m) return "-1";
     int sum = 0;
     for(int i=n; i<=m; i++) sum += i;
     double avg = (double)sum / (m - n + 1);
     int rounded = floor(avg);
-    string res = "";
+    std::string res = "";
     while(rounded > 0){
         if(rounded & 1) res.push_back('1');
         else res.push_back('0');
@@ -18,8 +20,6 @@ string rounded_avg(int n,int m){
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << rounded_avg(n,m);
+    assert (rounded_avg(5, 5) == "101");
     return 0;
 }
