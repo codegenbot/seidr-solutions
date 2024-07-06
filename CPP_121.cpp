@@ -1,6 +1,4 @@
-```
 #include <vector>
-#include <cassert>
 
 int sumOdds(std::vector<int> lst) {
     int sum = 0;
@@ -10,9 +8,4 @@ int sumOdds(std::vector<int> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    assert(sumOdds({3, 13, 2, 9}) == 16);
-    return 0;
 }
