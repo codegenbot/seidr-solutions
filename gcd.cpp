@@ -1,4 +1,4 @@
-#include <cmath>
+#include <cstdlib>
 
 int gcd(int a, int b) {
     if (b == 0)
