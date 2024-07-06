@@ -1,7 +1,7 @@
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     start = 0
-    while start < len(paren_string):
+    while True:
         open_count = 0
         close_count = 0
         for i in range(start, len(paren_string)):
@@ -13,4 +13,5 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                 result.append(paren_string[start : i + 1])
                 start = i + 1
                 break
-    return result
+        else:
+            return result
