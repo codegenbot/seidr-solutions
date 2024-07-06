@@ -1,36 +1,18 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
 
-// Define the select_words function
-std::vector<std::string> select_words(const std::string& input, int count) {
-    std::vector<std::string> result;
-    bool wordFound = false;
+std::vector<std::string> select_words(const std::string& s, int n) {
+    // Split the string into words based on spaces and store them in a vector
+    std::vector<std::string> words;
+    std::stringstream ss(s);
+    std::string word;
 
-    for (int i = 0; i < input.length(); ++i) {
-        if (!wordFound && isalpha(input[i])) {
-            wordFound = true;
-            result.push_back("");
-        }
-        if (wordFound) {
-            if (!isalpha(input[i])) {
-                if (!issame(result.back().back(), input[i])) {
-                    result.back() += input[i];
-                    if (++result.size() > count) {
-                        break;
-                    }
-                } else {
-                    wordFound = false;
-                    result.pop_back();
-                }
-            } else {
-                result.back() += tolower(input[i]);
-            }
-        }
+    while (std::getline(ss, word, ' ')) {
+        words.push_back(word);
     }
 
-    return result;
+    return words.substr(0, n); // Return the first n words
 }
 
 bool issame(char c1, char c2) {
@@ -39,4 +21,8 @@ bool issame(char c1, char c2) {
     } else {
         return c1 == c2;
     }
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 3)[0][0], "b c d e f"[0][0]));
 }
