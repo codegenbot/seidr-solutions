@@ -1,3 +1,4 @@
+
 def encode(message):
     vowels = {
         "a": "A",
@@ -9,6 +10,7 @@ def encode(message):
         "I": "?",
         " ": "",
         "d": "",
+        "n": "N",   # add the missing vowel "n" to the vowels dictionary
     }
     encoded_message = ""
     for char in message:
