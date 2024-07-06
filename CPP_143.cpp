@@ -9,7 +9,6 @@ bool is_prime(int n) {
             return false;
     }
     return true;
-}
 
 std::string words_in_sentence(std::string sentence) {
     std::string result = "";
