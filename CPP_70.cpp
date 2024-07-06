@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(int a, int b) {
     return a == b;
@@ -8,13 +8,12 @@ bool issame(int a, int b) {
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
-    auto it = lst.begin();
-    for (auto end = lst.begin() + 1; it != end; ++it) {
-        if (!issame(*it, *(it + 1))) {
-            int temp = *it;
-            *it = *(it + 1);
-            *(it + 1) = temp;
-            --i;
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (!issame(lst[i], lst[i + 1])) {
+            int temp = lst[i];
+            lst[i] = lst[i + 1];
+            lst[i + 1] = temp;
+            i--;
         }
     }
     return lst;
