@@ -11,3 +11,8 @@ def solve_boolean(expression):
         return True
     else:
         return False
+
+
+# Prompt user for input and pass it to the function
+user_input = input("Enter a Boolean expression: ")
+solve_boolean(user_input)
