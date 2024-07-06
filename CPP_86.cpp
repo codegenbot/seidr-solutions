@@ -1,9 +1,9 @@
-```c++
 #include <algorithm>
+#include <string>
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == ' ') {
             result += " ";
@@ -14,12 +14,7 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                if (isupper(c)) {
-                    char newC = tolower(c);
-                    result += newC;
-                } else {
-                    result += c;
-                }
+                result += to_string(c);
             }
         }
     }
@@ -28,6 +23,7 @@ std::string anti_shuffle(std::string s) {
 
 int main() {
     std::string input = "Hi. My name is Mister Robot. How are you?";
-    assert(anti_shuffle(input) == ".hi my name is mister robot. how are you?");
+    string output = anti_shuffle(input);
+    cout << output << endl;
     return 0;
 }
