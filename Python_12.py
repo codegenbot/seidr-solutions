@@ -1,15 +1,8 @@
 from typing import List, Optional
 
 
-def longest() -> Optional[str]:
-    strings = []
-    while True:
-        user_input = input("Enter a string (or 'stop' to finish): ")
-        if user_input.lower() == 'stop':
-            break
-        strings.append(user_input)
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max(strings, key=len)
-
-print(longest())
+    vowels = 'aeiou'
+    return max((s for s in strings if s[0].lower() in vowels), key=len)
