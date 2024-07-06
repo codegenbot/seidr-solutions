@@ -1,20 +1,20 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; 
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i=0; i<sorted.size()-1; i++) {
-        if(sorted[i] != sorted[i+1]) {
-            return sorted[i+1];
+int next_larger(std::vector<int> nums) {
+    std::vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        bool found = false;
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[j] > nums[i]) {
+                result.push_back(nums[i]);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push_back(nums[i]);
         }
     }
-    return -1; 
-}
-
-int main() {
-    assert (next_smallest({-35, 34, 12, -45}) == -35);
-    return 0;
+    return -1;
 }
