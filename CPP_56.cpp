@@ -1,11 +1,10 @@
-bool correct_bracketing(string brackets){
-    int count = 0;
-    for(char c : brackets){
-        if(c == '<') count++;
-        else if(c == '>') {
-            if(count == 0) return false;
-            count--;
-        }
+int stack_size = 0;
+for (char bracket : brackets) {
+    if (bracket == '<') {
+        stack_size++;
+    } else if (bracket == '>') {
+        if (stack_size <= 0) return false;
+        stack_size--;
     }
-    return count == 0;
 }
+return stack_size == 0;
