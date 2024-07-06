@@ -1,16 +1,25 @@
+```c++
 #include <vector>
-#include <pair>
-using namespace std;
+#include <algorithm>
+
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
-        pairs.push_back({getDigitSum(nums[i]), nums[i]});
+        pairs.push_back({getDigitSum(nums[i]), i});
     }
     sort(pairs.begin(), pairs.end());
     vector<int> result;
     for (pair<int, int> p : pairs) {
-        result.push_back(p.second);
+        result.push_back(nums[p.second]);
     }
     return result;
 
