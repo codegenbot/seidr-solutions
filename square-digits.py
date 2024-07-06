@@ -1,2 +1,3 @@
+
 def square_digits(n):
-    return "".join([int(str(int(i) ** 2)) for i in str(n)])
+    return "".join(map(str, map(lambda x: int(x) ** 2, str(n))))
