@@ -24,3 +24,4 @@ int main() {
     assert(count_nums({1}) == 1);
     // add your test cases here
     return 0;
+}
