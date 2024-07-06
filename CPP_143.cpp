@@ -1,28 +1,18 @@
 ```cpp
-#include <string>
 #include <cassert>
+#include <string>
 
-using namespace std;
-
-int words_in_sentence(const string& sentence) {
-    int count = 0;
-    bool inWord = false;
-
-    for (char c : sentence) { 
-        if (c == ' ') {
-            inWord = false;
-        } else {
-            if (!inWord) {
-                count++;
-                inWord = true;
-            }
+int words_in_sentence(const std::string& sentence) {
+    int count = 1; 
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            count++;
         }
     }
-
     return count;
 }
 
 int main() {
-    assert(words_in_sentence("here is") == 2);
-    cout << "Number of words: " << words_in_sentence("here is") << endl; 
+    assert(words_in_sentence("here is").size() == 2);
     return 0;
+}

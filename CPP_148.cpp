@@ -1,7 +1,9 @@
-```cpp
-#include <initializer_list>
 #include <vector>
 #include <string>
+
+bool issame(const std::vector<std::string>& s) {
+    return bf(s, {});
+}
 
 bool bf(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
@@ -11,16 +13,19 @@ bool bf(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-bool issame(std::vector<std::string> a) {
-    return true;
-}
-
-std::vector<std::string> code(const std::initializer_list<std::string>& list) {
-    std::vector<std::string> result(list);
-    return result;
+std::vector<std::string> code(const std::string& s1, const std::string& s2) {
+    std::vector<std::string> res;
+    for (char c : s1 + s2) {
+        if (c >= 'A' && c <= 'H') {
+            res.push_back(std::to_string((c - 'A' + 1)));
+        } else {
+            res.push_back(std::string(1, c));
+        }
+    }
+    return res;
 }
 
 int main() {
-    std::cout << "Output: " << (bf(code({"Jupiter", "Makemake"}), {}) ? "1" : "0") << std::endl;
-    assert(bf(code({"Jupiter", "Makemake"}), {}) == {});
+    assert(bf(code({std::vector<std::string>({"Jupiter"}), std::vector<std::string>({"Makemake"})}), std::vector<std::string>()) == std::vector<std::string>());
+    std::cout << "Output: " << bf(code({std::vector<std::string>({"Jupiter"}), std::vector<std::string>({"Makemake"})}), std::vector<std::string>()) << std::endl;
 }
