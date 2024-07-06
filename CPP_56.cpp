@@ -1,4 +1,3 @@
-```cpp
 // Your code here...
 bool correct_bracketing(string brackets) {
     int count = 0;
