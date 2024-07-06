@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```Python
 import re
 
 def words_string():

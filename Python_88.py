@@ -1,6 +1,6 @@
-````
+```
 def sort_array(*args):
-    """while True:
+    while True:
         user_choice = input("Do you want to sort array? (S for yes): ")
         if user_choice.upper() != "S":
             continue
@@ -36,4 +36,4 @@ def sort_array(*args):
         result = set(arr)
     else:
         result = sorted(arr)
-    return result"""
+    return result
