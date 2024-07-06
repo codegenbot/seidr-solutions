@@ -1,8 +1,9 @@
 def digit_sum(n):
-    if n >= 10:
-        return n
+    num_str = str(n)
+    if len(num_str) > 1:
+        return "Please enter a single digit."
     else:
-        return sum(int(i) for i in str(n))
+        return sum(int(i) for i in num_str)
 
 
 def main():
