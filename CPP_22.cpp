@@ -1,8 +1,17 @@
 #include <optional>
 #include <vector>
+#include <boost/core.hpp>
 
-int main() {
-    std::vector<int> result = filter_integers({std::make_optional(1), 'c', std::make_optional(3), std::make_optional(4)});
-    assert({1, 3} == result);
-    return 0;
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
+    for (const auto& value : values) {
+        if(value.type() == typeid(std::optional<int>)) {
+            auto optionalInt = boost::any_cast<std::optional<int>>(value);
+            if( optionalInt.has_value()) {
+                int i = optionalInt.get();
+                result.push_back(i);
+            }
+        }
+    }
+    return result;
 }
