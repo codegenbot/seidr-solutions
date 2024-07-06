@@ -1,9 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a) {
+bool issame(std::vector<std::string> a) {
     if (a.size() == 0) return true;
     for (int i = 1; i < a.size(); i++) {
         if (a[i] != a[0]) return false;
@@ -11,7 +10,7 @@ bool issame(vector<string> a) {
     return true;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0;
     for (const auto& s : lst1) {
         sum1 += s.size();
@@ -22,11 +21,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else if (!issame({lst1, lst2})) return lst1;
+    else if (!issame(lst1)) return lst1;
     else return lst2;
-}
-
-int main() {
-    assert(issame({{"this"}, {})));
-    return 0;
 }
