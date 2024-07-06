@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 string processNumbers(string numbers) {
     vector<string> numVec;
     string temp;
