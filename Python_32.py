@@ -1,9 +1,8 @@
-Here is the completed Python code:
+Here is the solution:
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        return None
+    degree = len(xs) // 2
     a = xs[-1]
-    for i in range(len(xs) // 2):
-        b = -xs[2 * i + 1] / (a * (2 * i + 1))
-    return round(-b, 2)
+    for i in range(degree + 1):
+        a -= xs[degree - i] / math.factorial(i) * (-a)**(i+1)
+    return round(-a, 2)
