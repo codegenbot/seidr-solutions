@@ -1,6 +1,4 @@
 def solve(N):
-    result = 0
-    for i in str(bin(N)[2:]):
-        if i == "1":
-            result += 2 ** (len(str(bin(N)[2:])) - 1)
-    return bin(result)[2:]
+    decimal_sum = sum(int(i) for i in str(bin(N)[2:]))
+    binary_sum = bin(decimal_sum)[2:]
+    return binary_sum
