@@ -1,18 +1,17 @@
+```cpp
 #include <iostream>
-int is_bored(std::string S){
+#include <sstream>
+#include <string>
+
+int main 
+{
     int count = 0;
-    std::istringstream iss(S);
+    std::istringstream iss(std::cin.rdbuf());
     std::string word;
 
     while(getline(iss, word, ' ')) {
         if(word.size() > 0 && word[0] == 'I')
             ++count;
     }
-    return count;
-
-}
-
-int main(){
-    // input your code here
-    return 0; 
+    std::cout << count;
 }

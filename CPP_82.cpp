@@ -10,4 +10,3 @@ bool prime_length(string str) {
             return false;
     }
     return true;
-}
