@@ -1,3 +1,4 @@
+```Python
 def average_grade(name) -> float:
     grades = []
     while True:
@@ -16,5 +17,6 @@ def average_grade(name) -> float:
     return round(average, 2)
 
 
-print(f"Hi {input()}, please enter your grades: ")
+name = input(f"Hi, please enter your name: ")
+print(f"Hi {name}, please enter your grades: ")
 print(average_grade(input()))
