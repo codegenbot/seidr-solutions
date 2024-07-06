@@ -1,5 +1,6 @@
-#include <vector>
+```
 #include <iostream>
+#include <vector>
 
 int add(std::vector<int> lst) {
     int sum = 0;
@@ -11,16 +12,19 @@ int add(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
+    std::vector<int> numbers;
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter number of elements: ";
     std::cin >> n;
-    for(int i = 0; i < n; i++) {
+    
+    for (int i = 0; i < n; i++) {
         int num;
-        std::cout << "Enter element # " << (i+1) << ": ";
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        input.push_back(num);
+        numbers.push_back(num);
     }
-    std::cout << "Sum of even-indexed elements: " << add(input) << std::endl;
+    
+    std::cout << "Sum of even elements at odd positions: " << add(numbers) << std::endl;
+    
     return 0;
 }
