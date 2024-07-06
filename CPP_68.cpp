@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,25 +23,11 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr;
-    int n;
-    std::cout << "Enter the number of elements in the array: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        arr.push_back(num);
-    }
-    
-    std::vector<int> result = pluck(arr);
-    
-    if(result.size() > 0) {
-        std::cout << "Min even value: " << result[0] << std::endl;
-        std::cout << "Index of min even value: " << result[1] << std::endl;
-    } else {
-        std::cout << "No even values in the array." << std::endl;
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::vector<int> output = pluck(arr);
+
+    for (int i : output) {
+        std::cout << i << " ";
     }
     
     return 0;
