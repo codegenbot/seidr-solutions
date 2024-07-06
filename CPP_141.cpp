@@ -1,11 +1,11 @@
 using namespace std;
 
-#include <string>
-
 string file_name_check(string file_name) {
     bool valid = true;
     int dot_count = 0;
     int digit_count = 0;
+
+#include <string>
 
     for(int i=0; i<file_name.length(); i++){
         if(file_name[i] == '.'){
@@ -32,4 +32,3 @@ string file_name_check(string file_name) {
     }
 
     return valid ? "Yes" : "No";
-}
