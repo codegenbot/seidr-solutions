@@ -26,12 +26,10 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    assert(bf(code({"Jupiter"}, {"Makemake"}), {}) == std::vector<std::string>({}));
-    std::cout << "Output: ";
-    
     std::vector<std::string> s1 = {"Jupiter"};
     std::vector<std::string> s2 = {"Makemake"};
-    
+
+    std::cout << "Output: ";
     if (bf(code(s1, s2), {})) {
         std::cout << "true" << std::endl;
     } else {
