@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if "&" in expression or "|" in expression:
         left, right = expression.split("&")[0], expression.split("|")[0]
