@@ -1,4 +1,4 @@
-#include <stdio.h>
+```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -19,7 +19,7 @@ vector<int> even_odd_palindrome(int n) {
         }
         if (isPalindrome && i % 2 == 0)
             result[0]++;
-        else if (isPalindrome && i % 2 != 0)
+        else if (isPalindrome)
             result[1]++;
     }
     return result;
