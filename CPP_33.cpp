@@ -1,9 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool std::equal(a.begin(), a.end(), b.begin());
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a.size() != b.size()) return false;
+    return std::equal(a.begin(), a.end(), b.begin());
+}
 
-std::vector<int> sort_third(std::vector<int> l) {
+std::vector<int> sortThird(std::vector<int> l) {
     std::vector<int> result;
     for(int i = 0; i < l.size(); ) {
         if(i % 3 == 0) {
@@ -30,8 +34,8 @@ std::vector<int> sort_third(std::vector<int> l) {
     return result;
 }
 
-int sort_third_main() {
+int sortThirdMain() {
     std::vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
-    std::vector<int> res = sort_third(l);
+    std::vector<int> res = sortThird(l);
     for(int i : res) cout << i << " ";
 }
