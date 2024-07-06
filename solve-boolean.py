@@ -2,15 +2,6 @@
 def solve_boolean(expression):
     result = True
     while '&' in expression:
-        start = 0
-        end = 0
-        for i in range(len(expression)):
-            if expression[i] == '&':
-                end = i
-            elif expression[i] == '|':
-                start = i
-                break
-        or_parts = expression[:start].split('|')
-        result &= all(p != 'F' for p in or_parts)
-        expression = expression[end + 1:]
-    return all(expression.split('|') != ['F'])
+        parts = expression.split('&')
+        expression = ' & '.join([p for p in parts if any(c != 'F' for c in p.replace('|', '&').split())]) + '&'
+    return 'T' if all(c != 'F' for c in expression.replace('&', '').replace('|', '').split()) else 'F'
