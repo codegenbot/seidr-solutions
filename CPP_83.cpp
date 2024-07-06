@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -16,6 +15,7 @@ int starts_one_ends(int n) {
         }
     }
     return count;
+
 }
 
 int main() {
@@ -24,3 +24,4 @@ int main() {
     std::cin >> n;
     std::cout << "Number of integers that start or end with 1 and are within the range from 1 to 10^n is: " << starts_one_ends(n) << std::endl;
     return 0;
+}
