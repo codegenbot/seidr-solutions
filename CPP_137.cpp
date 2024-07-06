@@ -35,5 +35,5 @@ boost::any compare_one(boost::any a, boost::any b) {
              a.type() == typeid(std::string) && a.convert_to(b)) {
         return boost::any("None");
     }
-    return boost::any(a > b ? a : b);
+    return a > b ? a : b;
 }
