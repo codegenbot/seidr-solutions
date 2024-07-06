@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,7 +5,7 @@
 std::vector<std::string> split(const std::string& s, const std::string& delimiter) {
     std::vector<std::string> result;
     size_t pos = 0;
-    std::string temp = s; // Make a copy of s
+    std::string temp = s; 
     while ((pos = temp.find(delimiter)) != std::string::npos) {
         result.push_back(temp.substr(0, pos));
         temp.erase(0, pos + delimiter.length());
