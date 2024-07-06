@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,7 +10,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s2(l2.begin(), l2.end());
 
     set<int> intersection;
-    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+    set_intersection(s2.begin(), s2.end(), s1.begin(), s1.end(),
                      inserter(intersection, intersection.begin()));
 
     vector<int> result;
