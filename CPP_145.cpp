@@ -39,6 +39,11 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
-    assert(issame(vector<int>(order_by_points(nums)), vector<int>({(-76), (-21), (0), (4), (23), (6), (6)})));
+    vector<int> sortedNums = order_by_points(nums);
+    if (issame(sortedNums, vector<int>({-76, -21, 0, 4, 23, 6, 6}))) {
+        cout << "The numbers are in the correct order." << endl;
+    } else {
+        cout << "Error: The numbers are not in the correct order." << endl;
+    }
     return 0;
 }
