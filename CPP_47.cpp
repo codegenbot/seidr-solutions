@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -13,6 +14,7 @@ float median(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float>(std::vector<float>{8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f});
-    assert(abs(median({8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f}) - 5)<1e-4 );
+    std::vector<float> l = {8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f};
+    assert(abs(median(l) - 5)<1e-4 );
     return 0;
+}
