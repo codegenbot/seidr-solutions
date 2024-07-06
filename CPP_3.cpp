@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,7 +15,6 @@ bool below_zero(std::vector<std::string> operations) {
 
 int main() {
     std::vector<std::string> operations(std::allocator<std::string>());
-
     int num_operations;
 
     // Read the number of operations from user
