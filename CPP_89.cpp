@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 std::string encrypt(std::string s) {
@@ -16,6 +15,6 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    std::cout << encrypt("hello") << std::endl;
+    assert(encrypt("a") == "e");
     return 0;
 }

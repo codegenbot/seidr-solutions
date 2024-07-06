@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,9 +17,11 @@ vector<string> split(const string& str, const string& delimiter) {
 
 string anti_shuffle(string s){
     string result = "";
-    for (auto& word : split(s, " ")) {
-        result += std::accumulate(word.begin(), word.end(),
-            string{}, [](string acc, char c) { return acc + c; }) + " ";
+    for (const auto& word : split(s, " ")) {
+        for (char c : word) {
+            result += c;
+        }
+        result += " ";
     }
     return result.substr(0, result.size() - 1);
 }
