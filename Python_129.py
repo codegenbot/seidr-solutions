@@ -1,4 +1,3 @@
-
 def minPath(grid, k):
     # Initialize the minimum path and its length
     min_path = []
@@ -34,5 +33,5 @@ def minPath(grid, k):
     if not min_path:
         return None
 
-    # Return the minimum path
-    return [x for x, _ in min_path]
+    # Return the minimum path as a flat list of numbers
+    return [x for (x, y) in min_path]
