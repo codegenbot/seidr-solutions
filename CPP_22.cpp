@@ -17,6 +17,6 @@ vector<int> filter_integers(list<boost::any> values) {
 }
 
 int main() {
-    assert(isame(filter_integers({3, boost::any(3), 3, boost::any(0), boost::any(1)}), {3, 3}));
+    assert(isame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b') }), {3, 3, 3}));
     return 0;
 }
