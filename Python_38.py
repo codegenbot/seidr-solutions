@@ -20,6 +20,3 @@ def decode_cyclic(s):
                 j -= 1
         i += 3
     return result
-
-s = input("Enter a string: ")
-print(decode_cyclic(s))

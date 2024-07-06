@@ -1,4 +1,3 @@
-```
 num_strings = -1
 while num_strings <= 0:
     try:
@@ -13,8 +12,9 @@ while num_strings <= 0:
 strings = []
 for i in range(num_strings):
     while True:
-        try:
-            strings.append(input(f"Enter string {i+1}: "))
+        user_input = input(f"Enter string {i+1}: ")
+        if len(user_input) > 0: 
+            strings.append(user_input)
             break
-        except ValueError:
-            print("Invalid input. Please enter a valid string.")
+        else:
+            print("Please enter a non-empty string.")
