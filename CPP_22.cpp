@@ -5,8 +5,8 @@
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if(const std::optional<int>* optionalInt = value.convert<std::optional<int>>()) {
-            result.push_back(optionalInt->value());
+        if(auto optInt = std::any_cast<std::optional<int>>(value); optInt.has_value()) {
+            result.push_back(optInt.get());
         }
     }
     return result;
