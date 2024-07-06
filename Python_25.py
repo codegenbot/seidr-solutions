@@ -1,4 +1,3 @@
-```
 def factorize(n):
     i = 2
     factors = []
