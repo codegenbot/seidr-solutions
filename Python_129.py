@@ -1,13 +1,14 @@
+```
 def minPath(grid, k):
     N = len(grid)
-    visited = [[False] * N for _ in range(N)]
-    queue = [(0, 0, [grid[0][0]])]  # (row, col, path)
+    visited = [[False]*N for _ in range(N)]
+    queue = [(0, 0, [])]  
     min_path = None
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            if not min_path or path < min_path:
-                min_path = "".join(map(str, path))
+            if not min_path or len(str(path)) < len(min_path):
+                min_path = str(path)
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
