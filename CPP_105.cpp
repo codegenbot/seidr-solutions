@@ -21,9 +21,9 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (int i = 0; i < numbers.size(); i++) {
+    for (int num : numbers) {
         string str = "";
-        switch (numbers[i]) {
+        switch (num) {
             case 1:
                 str = "One";
                 break;
