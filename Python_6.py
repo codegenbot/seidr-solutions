@@ -1,21 +1,13 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
+    # Initialize a stack to keep track of the nesting level
     stack = []
-    max_level = 0
-    result = []
-
+    # Iterate through each character in the string
     for char in paren_string:
+        # If we encounter an opening parenthesis, add it to the stack
         if char == "(":
             stack.append(char)
+        # If we encounter a closing parenthesis, pop the last opening parenthesis from the stack
         elif char == ")":
-            if len(stack) == 0:
-                continue
             stack.pop()
-        else:
-            raise ValueError("Invalid character in parentheses string")
-
-        level = len(stack)
-        if level > max_level:
-            max_level = level
-        result.append(max_level)
-
-    return result
+    # Return the maximum nesting level
+    return max(len(stack), default=0)
