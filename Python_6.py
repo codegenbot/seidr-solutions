@@ -5,15 +5,13 @@ def parse_nested_parens(s):
     for char in s:
         if char == '(':
             stack.append(char)
-            result += '('
         elif char == ')':
-            if stack:
-                stack.pop()
-                result += ')'
-            else:
+            while stack and stack.pop() != '(':
                 result += char
         else:
+            while stack:
+                result += stack.pop()
             result += char
     return result
 
-parse_nested_parens(input().strip())
+print(parse_nested_parens(input().strip()))
