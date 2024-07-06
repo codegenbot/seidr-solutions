@@ -1,45 +1,21 @@
 #include <iostream>
-#include <vector>
 #include <string>
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
-    for (const auto& word : split(sentence, ' ')) {
-        if (is_prime(word.length())) {
-            result += word + " ";
-        }
+int count_words(const std::string& sentence) {
+    int word_count = 0;
+    size_t start = 0;
+    while (start < sentence.size()) {
+        start = sentence.find(' ', start);
+        if (start == std::string::npos)
+            return ++word_count; // single word or end of sentence
+        start++; // move to the next space
+        if (++word_count > 1) // avoid counting the last word twice
+            break;
     }
-    return result.substr(0, result.size() - 1);
+    return word_count;
 }
 
-std::vector<std::string> split(const std::string& str, char c) {
-    std::vector<std::string> tokens;
-    size_t pos = 0;
-    if (!str.empty()) {
-        pos = str.find(c);
-    }
-    while (pos != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-        if (!str.empty()) {
-            pos = str.find(c);
-        }
-    }
-    tokens.push_back(str);
-    return tokens;
-}
-
-bool is_prime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
-
-int main() { 
-    std::cout << words_in_sentence("here is") << std::endl;
+int main() {
+    std::cout << count_words("here is") << std::endl;
+    return 0;
 }

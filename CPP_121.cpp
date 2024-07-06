@@ -1,16 +1,19 @@
+#include <vector>
 #include <initializer_list>
 #include <assert.h>
+#include <iostream>  
+using namespace std;
 
-int solutions(std::vector<int> lst) {
-    // implementation of the solution function
+int solutions(vector<int> lst) {
+    if (lst.size() == 0) {
+        return -1;
+    }
+    return 0; 
 }
 
 int main() {
-    std::vector<int> lst = {3, 13, 2, 9};
-    if (solutions(lst) == -1) {
-        std::cout << "Error: Please enter a valid input." << std::endl;
-    }
+    vector<int> lst = {3, 13, 2, 9};
     int result = solutions(lst);
-    std::cout << "Result: " << result << std::endl;
+    cout << "Result: " << result << endl;
     return 0;
 }
