@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -12,7 +11,7 @@ std::vector<float> get_positive(std::vector<float> v) {
 }
 
 int main() {
-    assert(std::equal(get_positive({}), {}));
+    assert(get_positive({}) == {});
     std::vector<float> v1 = get_positive({-1, 2, -3, 4, 5});
     std::vector<float> v2 = get_positive({1, 2, 3, 4, 5});
 
