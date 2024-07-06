@@ -1,18 +1,16 @@
-""" 
 def mastermind(code, guess):
-    white = 0
     black = 0
-    code_count = [code.count(c) for c in set(code)]
-    guess_count = [guess.count(c) for c in set(guess)]
-
+    white = 0
+    code_count = [0]*6
+    guess_count = [0]*6
     for i in range(4):
         if code[i] == guess[i]:
             black += 1
-        elif code_count[ord(code[i]) - ord('A')] > 0 and code_count[ord(code[i]) - ord('A')] > guess_count[ord(code[i]) - ord('A')]:
-            white += 1
-
-    # Handle cases where there are more pegs than positions
-    black = min(black, 4)
-    white = min(white - black, 4)
-
+        else:
+            code_char = code[i]
+            guess_char = guess[i]
+            code_count[ord(code_char)-55]++;
+            guess_count[ord(guess_char)-55]++;
+    for i in range(6):
+        white += min(code_count[i], guess_count[i])
     return black, white
