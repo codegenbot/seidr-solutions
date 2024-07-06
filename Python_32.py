@@ -1,4 +1,6 @@
 ```
+print("This program calculates the roots of a quadratic equation.")
+print("Enter non-zero values for 'a', 'b', 'c': ")
 while True:
     try:
         a = float(input())
