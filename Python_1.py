@@ -1,9 +1,9 @@
 ```
-input_str = input("Enter the string: ")
 stack = []
 group = ""
 result = []
-for char in input_str:
+s = input().lstrip()
+for char in s:
     if char == "(" or char == ")":
         if char == "(":
             stack.append(char)
