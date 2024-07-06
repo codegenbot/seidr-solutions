@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -13,7 +12,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         } else if (grade > 3.3) {
             letter = "A-";
         } else if (grade > 3.0) {
-            letter = "B+";
+            letter = "B+");
         } else if (grade > 2.7) {
             letter = "B";
         } else if (grade > 2.3) {
