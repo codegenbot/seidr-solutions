@@ -11,12 +11,13 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
+    auto unique_letters = std::unique_copy(letters.begin(), letters.end(), letters.begin());
+    for (char c : std::string(unique_letters, letters.end())) { 
         int count = 0;
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
             count++;
-            pos += 1; 
+            pos += 1; // skip the same character
         }
         if (count > 0) result[c] = count;
     }
@@ -27,9 +28,9 @@ map<char, int> histogram(string test) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            maxCountMap[static_cast<char>(pair.first)] = pair.second;
+            maxCountMap[pair.first] = pair.second;
         } else if (pair.second == maxCount)
-            maxCountMap[static_cast<char>(pair.first)] = pair.second;
+            maxCountMap[pair.first] = pair.second;
     }
 
     return maxCountMap;
