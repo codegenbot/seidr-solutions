@@ -1,23 +1,14 @@
-```
 #include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int>b) {
-    return (a == b);
-}
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int count = 1;
-    while (n > 0) {
-        if (n % 2 == 1) {
-            pile.push_back(count);
-            count++;
-        } else {
-            pile.push_back(count);
-            count += 2;
-        }
-        n--;
+    int stones = n;
+    for (int i = 0; i < n; i++) {
+        if (stones % 2 == 1)
+            pile.push_back(stones);
+        else
+            pile.push_back(stones + 1);
+        stones += ((stones % 2) ? 2 : 1);
     }
     return pile;
 }
