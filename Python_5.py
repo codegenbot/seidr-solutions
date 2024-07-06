@@ -16,5 +16,5 @@ while True:
     except ValueError:
         print("Error: Invalid input for delimiter. Please try again.")
 
-output = intersperse(numbers, delimiter)
-print(", ".join(map(str, output)))
+output = intersperse([int(num) for num in numbers], str(delimiter))
+print(output)
