@@ -1,5 +1,5 @@
 import math
-def rounded_avg(n, m):
+def solve(n, m):
     if n > m:
         return -1
     total = sum(range(n, m+1))
