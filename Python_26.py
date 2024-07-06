@@ -1,4 +1,4 @@
-def remove_duplicates(numbers):
+def remove_duplicates(numbers: list) -> List[int]:
     unique_nums = set()
     result = []
     for num in numbers:
