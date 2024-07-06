@@ -1,8 +1,11 @@
-Here is the completed code:
-
 int next_smallest(vector<int> lst) {
-    if(lst.size() < 2) return -1; // or any other value that indicates "None"
-    vector<int>::iterator it = std::next(std::min_element(lst.begin(), lst.end()));
-    if(it == lst.begin()) return -1;
-    return *it;
+    if (lst.empty()) return -1; // Return None if there is no such element.
+    vector<int> temp = lst;
+    sort(temp.begin(), temp.end()); 
+    for(int i = 0; i < (temp.size() - 1); i++) {
+        if(temp[i] != temp[i+1]) {
+            return temp[i+1];
+        }
+    }
+    return -1; // If the vector contains all equal elements, or it is empty.
 }
