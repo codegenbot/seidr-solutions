@@ -5,5 +5,5 @@ std::string decimal_to_binary(int n){
         else binary += '1';
         n /= 2;
     }while(n > 0);
-    return binary;
+    return binary; 
 }
