@@ -18,6 +18,6 @@ bool correct_bracketing(string brackets) {
 
 int main() {
     string brackets = "<><><<><>><>>><>";
-    assert(not correct_bracketing(brackets));
+    assert(not (correct_bracketing(brackets)));
     return 0;
 }
