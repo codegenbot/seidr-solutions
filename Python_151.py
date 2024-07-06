@@ -1,2 +1,3 @@
 def check(func):
-    print(func(lambda: input().split()))
+    result = func()
+    print("The doubled difference of the input numbers is: ", result)
