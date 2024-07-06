@@ -1,19 +1,4 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <cctype>
-
-int main() {
-    std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::cin >> file_name;
-
-    std::cout << file_name_check(file_name) << std::endl;
-
-    return 0;
-}
-
-string file_name_check(string file_name){
+string file_name_check(string file_name) {
     int digit_count = 0;
     bool has_dot = false;
     string before_dot;
