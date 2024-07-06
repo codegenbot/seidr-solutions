@@ -1,4 +1,4 @@
-def largest_prime_factor(n):
+def largest_prime_factor(n: int):
     if n <= 1 or n % 2 == 0:
         return 1
     for i in range(3, int(n**0.5) + 1, 2):
