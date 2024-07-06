@@ -5,14 +5,12 @@ def sort_array(arr=None):
             continue
         break
 
-    if not isinstance(input("Enter numbers separated by space: "), str):
-        print("Error: Input type is incorrect")
-
-    try:
-        arr = [int(i) for i in input().split()]
-    except ValueError as e:
-        print("Error: Array contains non-integer values")
-        return sort_array()
+    if arr is None:
+        try:
+            arr = [int(i) for i in input().split()]
+        except ValueError as e:
+            print("Error: Array contains non-integer values")
+            return sort_array(arr)
 
     if not arr:
         print("Array cannot be empty. Please enter numbers separated by space:")
@@ -22,7 +20,7 @@ def sort_array(arr=None):
                 break
             except ValueError as e:
                 print("Error: Array contains non-integer values")
-                return sort_array()
+                return sort_array(arr)
 
     user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
 
