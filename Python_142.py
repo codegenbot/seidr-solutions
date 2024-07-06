@@ -13,7 +13,10 @@ def sum_squares(lst):
 
 
 def main():
-    print(sum_squares([1, 2, 3]))
+    if all(isinstance(i, (int, float)) for i in [1, 2, 3]):
+        print(sum([abs(i) ** 2 for i in [1, 2, 3]]))
+    else:
+        print(sum_squares([1, 2, 3]))
 
 
 main()
