@@ -1,15 +1,16 @@
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end());
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result;
     for (int i = 0; i < k; ++i) {
-        result.push_back(arr.back());
-        arr.pop_back();
+        auto it = max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
-    return arr;
+    return result;
 }
