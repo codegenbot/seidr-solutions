@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <any>
@@ -16,6 +15,7 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
                 int val = std::any_cast<int>(value).get();
                 result.push_back(val);
             } catch (...) {
+                // Handle the exception
                 continue;
             }
         }
