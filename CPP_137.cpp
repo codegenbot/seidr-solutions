@@ -11,7 +11,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int ai = boost::any_cast<int>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        if (stof(bs) > ai) {
+        if (std::stof(bs) > ai) {
             return b;
         } else {
             return a;
@@ -19,7 +19,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float af = boost::any_cast<float>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        if (stof(bs) > af) {
+        if (std::stof(bs) > af) {
             return b;
         } else {
             return a;
@@ -27,7 +27,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string as = boost::any_cast<std::string>(a);
         int bi = boost::any_cast<int>(b);
-        if (stof(as) > bi) {
+        if (std::stof(as) > bi) {
             return a;
         } else {
             return b;
@@ -35,7 +35,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string as = boost::any_cast<std::string>(a);
         float bf = boost::any_cast<float>(b);
-        if (stof(as) > bf) {
+        if (std::stof(as) > bf) {
             return a;
         } else {
             return b;
@@ -43,14 +43,15 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        if (stof(as) > stof(bs)) {
+        if (std::stof(as) > std::stof(bs)) {
             return a;
-        } else if (stof(as) < stof(bs)) {
+        } else if (std::stof(as) < std::stof(bs)) {
             return b;
         } else {
             return a;
         }
     }
 
+    // If none of the above conditions are met, return the first value
     return a;
 }
