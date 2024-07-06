@@ -1,6 +1,3 @@
-from itertools import izip_longest
-
-
 def paired_digits(s):
     total = 0
     for i, j in izip_longest(s, s[::-1]):
