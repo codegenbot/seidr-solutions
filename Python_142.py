@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total = 0
     for i in range(len(lst)):
@@ -8,5 +7,16 @@ def sum_squares(lst):
             total += lst[i] ** 3
     return total
 
-lst = list(map(int, input("Enter names and phone numbers separated by space (separate names and numbers with comma), each on a new line: ").split()))
-print(sum_squares(lst))
+
+names_and_numbers = {}
+while True:
+    name = input(
+        "Enter names and phone numbers separated by space (separate names and numbers with comma), each on a new line: "
+    )
+    if not name:
+        break
+    items = name.split(", ")
+    for item in items:
+        key, value = item.split(" ", 1)
+        names_and_numbers[key] = int(value)
+print(names_and_numbers)
