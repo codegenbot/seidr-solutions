@@ -1,21 +1,37 @@
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev_pos = 0;
 
-    while ((pos = txt.find(' ', pos)) != string::npos) {
-        result.push_back(txt.substr(prev_pos, pos - prev_pos));
-        prev_pos = pos + 1;
+    size_t pos = 0;
+    string token;
+
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            token = txt.substr(0, pos);
+            txt.erase(0, pos);
+        } else {
+            token = txt.substr(0, pos);
+            txt.erase(0, pos);
+            pos = 0;
+        }
+
+        if (!token.empty()) {
+            result.push_back(token);
+        }
     }
 
-    if (prev_pos < txt.size()) {
-        result.push_back(txt.substr(prev_pos));
-    } else if (txt.empty()) {
+    if (!txt.empty()) {
         int count = 0;
         for (char c : txt) {
-            if ((int)c >= 97 && (int)c <= 122 && (count++ % 2 == 1)) {
-                result.push_back(to_string(count));
-                break;
+            if (c >= 'a' && c <= 'z') {
+                if ((count++) % 2 == 1) {
+                    result.push_back(to_string(count));
+                    break;
+                }
             }
+        }
+
+        if (result.empty()) {
+            result.push_back(to_string(0));
         }
     }
 
