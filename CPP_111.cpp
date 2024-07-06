@@ -1,22 +1,14 @@
-#include <iostream>
-#include <string>
-#include <map>
-#include <algorithm>
-
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
-    auto unique_letters = std::unique_copy(letters.begin(), letters.end(), letters.begin());
-    for (char c : std::string(unique_letters, letters.end())) { 
+    string letters = test; // Store the unique characters into another string
+    for (char c : unique(copy(letters.begin(), letters.end()), copy(letters.end())) ) {
         int count = 0;
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
             count++;
-            pos += 1; // skip the same character
+            pos += 1; 
         }
         if (count > 0) result[c] = count;
     }
@@ -33,21 +25,4 @@ map<char, int> histogram(string test) {
     }
 
     return maxCountMap;
-}
-
-int main() {
-    string test;
-    cout << "Enter a string: ";
-    getline(cin, test);
-    
-    map<char, int> result = histogram(test);
-
-    if (!result.empty()) {
-        for (auto& pair : result) {
-            cout << "Character '" << pair.first << "' appears " << pair.second << " times." << endl;
-        }
-    } else
-        cout << "No characters found in the string." << endl;
-
-    return 0;
 }
