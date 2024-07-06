@@ -1,26 +1,32 @@
-string file_name_check(string file_name) {
-    int digitCount = 0;
-    bool hasDot = false;
-    string beforeDot;
+#include<stdio.h>
+#include<string>
+using namespace std;
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digitCount++;
-            if (digitCount > 3) return "No";
-        } else if (c == '.') {
-            hasDot = true;
-        } else if (!hasDot) {
-            beforeDot += c;
-        }
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool has_dot = false;
+    bool starts_with_letter = true;
+    
+    for(int i = 0; i < file_name.size(); i++){
+        char c = file_name[i];
+        
+        if(isdigit(c)){
+            digit_count++;
+            if(digit_count > 3)
+                return "No";
+        } else if(c == '.'){
+            has_dot = true;
+        } else if(i == 0 && !isalpha(c))
+            starts_with_letter = false;
     }
-
-    if (!beforeDot.length() || !isalpha(beforeDot[0])) return "No";
-
-    string afterDot = file_name.substr(file_name.find('.') + 1);
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-    if (find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end()) {
+    
+    if(!has_dot || !starts_with_letter)
         return "No";
-    }
-
+    
+    string extension = file_name.substr(file_name.find('.') + 1);
+    
+    if(extension != "txt" && extension != "exe" && extension != "dll")
+        return "No";
+    
     return "Yes";
 }
