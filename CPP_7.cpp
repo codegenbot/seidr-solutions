@@ -1,15 +1,12 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<vector<string>> a, vector<vector<string>> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (!(a[i].size() == b[i].size() && a[i] == b[i])) return false;
-    }
-    return true;
+// Function to check if two vectors contain the same strings
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
+// Function to filter strings containing a given substring
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(auto str : strings){
@@ -17,4 +14,10 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(str);
     }
     return result;
+}
+
+int main() {
+    // Use the declared functions
+    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+    return 0;
 }
