@@ -2,8 +2,10 @@ def spin_words(text):
     words = text.split()
     result = []
     for word in words:
-        if len(word) >= 5:
+        if len(word) >= 5 and word != word[::-1]:
             result.append(word[::-1])
         else:
             result.append(word)
     return " ".join(result)
+
+print(spin_words("Hello World"))
