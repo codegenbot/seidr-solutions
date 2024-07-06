@@ -1,10 +1,10 @@
-```c++
+```cpp
 #include <string>
 #include <sstream>
 #include <iostream>
 
-std::string encrypt(std::string s) {
-    std::string result = "";  
+std::basic_string<char> encrypt(std::basic_string<char> s) {
+    std::basic_string<char> result = "";  
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'z'){
@@ -17,11 +17,16 @@ std::string encrypt(std::string s) {
     return result;
 }
 
-int main() {
-    std::string inputStr;
+int originalMain() {
+    std::basic_string<char> inputStr;
     std::cout << "Enter a string: ";
     std::getline(std::cin, inputStr);
 
-    std::string encrypted = encrypt(inputStr);
+    // Now you can call this function:
+    std::basic_string<char> encrypted = encrypt(inputStr);
     std::cout << "Encrypted: " << encrypted << std::endl;
+}
+
+int main() {
+    originalMain();
 }
