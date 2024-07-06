@@ -1,4 +1,3 @@
-```
 def fibfib(n: int):
     if n < 0:
         return "Error: Input must be non-negative."
