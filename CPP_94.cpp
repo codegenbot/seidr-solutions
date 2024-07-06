@@ -28,7 +28,11 @@ int main() {
     vector<int> lst = {127, 97, 8192};
     assert(skjkasdkd(lst) == 10);
     {
-        // Code inside the function body
+        int sum = 0;
+        for(int i : lst){
+            sum += i;
+        }
+        cout << "Sum of numbers is: " << sum << endl;
     }
     return 0;
 }
