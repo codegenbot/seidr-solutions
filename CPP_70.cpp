@@ -1,6 +1,6 @@
-```
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -12,7 +12,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
-    if (lst.empty()) return result;
+
+    if(lst.empty()) return result;
 
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
@@ -24,3 +25,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
     }
     return result;
+}

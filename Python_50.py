@@ -1,18 +1,27 @@
+```
 def decode_shift():
+    shift = input("Enter 'encode' or 'decode': ")
+
     while True:
-        shift = input("Enter 'encode' or 'decode': ")
+        s = input("Enter the string: ")
+
         if shift == "encode" or shift == "decode":
             break
         else:
-            print("Invalid input. Please enter 'encode' or 'decode'.")
+            raise Exception("Invalid input. Please enter 'encode' or 'decode'.")
 
-    s = input("Enter the string: ")
+    while True:
+        s = input("Enter the string (type 'quit' or 'q' to finish): ")
 
-    if shift == "encode":
-        return "".join(
-            [chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in s.lower()]
-        )
-    elif shift == "decode":
-        return "".join(
-            [chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()]
-        )
+        if s.lower() == "quit" or s.lower() == "q":
+            break
+        elif shift == "encode":
+            result = "".join(
+                [chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in s.lower()]
+            )
+            print(result)
+        elif shift == "decode":
+            result = "".join(
+                [chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()]
+            )
+            print(result)
