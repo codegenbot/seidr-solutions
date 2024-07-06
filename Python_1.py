@@ -9,9 +9,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == ' ':
             continue
-        if char not in ['(', ')']:
-            raise ValueError("Invalid character")
-        
         if char == '(':
             stack.append(char)
             groups.append('(')
@@ -26,8 +23,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if groups:
         result.append(''.join(groups))
     
-    # Check for remaining characters in the stack
     if stack:
         result.append('(' + ''.join(stack) + ')')
     
-    return [group for group in result if group]
+    return result
