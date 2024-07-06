@@ -1,5 +1,5 @@
-
 import numpy as np
+
 
 def luhn_algorithm(credit_card_number):
     digits = [int(digit) for digit in credit_card_number]
