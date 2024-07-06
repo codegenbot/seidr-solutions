@@ -1,10 +1,12 @@
+def add(x: int, y: int):
+    return x + y
 
-# Accept user input for x and y
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
+
+# Accept user input for both numbers
+numbers = list(map(int, input("Enter two numbers separated by a space: ").split()))
 
 # Call the add function with the input values
-result = add(x, y)
+result = add(numbers[0], numbers[1])
 
 # Print the result to the console
 print("Result:", result)
