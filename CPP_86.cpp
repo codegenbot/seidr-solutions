@@ -15,10 +15,12 @@ int anti_shuffle(string s) {
             }
             for (char c : word) {
                 if (c >= 'a' && c <= 'z') {
-                    c = ('A' + (c - 'a'));
+                    c = 'a' + (c - 'a' + 13) % 26;
+                } else if (c >= 'A' && c <= 'Z') {
+                    c = 'A' + (c - 'A' + 13) % 26;
                 }
                 result += to_string(c);
         }
     }
-    return 0;
+    return result;
 }
