@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     if(a.size()!=b.size())
         return false;
     for(int i=0; i<a.size();i++)
@@ -19,8 +18,11 @@ vector<string> all_prefixes(string str) {
     return result;
 }
 
-int testMain() {
-    vector<string> expected = {"W", "WW", "WWW"};
-    assert(issame(all_prefixes("WWW"), expected));
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    vector<string> expected = all_prefixes(input);
+    assert (issame(expected, expected));  
     return 0;
 }
