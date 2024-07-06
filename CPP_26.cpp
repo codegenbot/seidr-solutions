@@ -8,18 +8,25 @@ bool sameVectors(const std::vector<int>& a, const std::vector<int>& b) {
         if(a[i] != b[i])
             return false;
     return true;
-
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
-
+    
     for(int i : numbers) {
-        bool unique = sameVectors(result, std::vector<int>({i}));
-        if(unique) {
+        bool already_exists = false;
+        
+        for(int j : result) {
+            if(i == j) {
+                already_exists = true;
+                break;
+            }
+        }
+        
+        if(!already_exists) {
             result.push_back(i);
         }
     }
-
+    
     return result;
 }
