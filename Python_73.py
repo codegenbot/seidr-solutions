@@ -17,5 +17,4 @@ def smallest_change(arr):
     
     return changes
 
-input_list = [0, 1, 0, 1, 1, 0]
-print(smallest_change(input_list))
+print(smallest_change(['A', 'B', 'C', 'D', 'E']))
