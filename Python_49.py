@@ -7,4 +7,5 @@ def modp(x, y):
         temp = modp(x, y//2)
         return (temp*temp) % y
     else:
-        return (x * modp(x, y-1)) % y if x != 1 or y != 1 else 1
+        temp = modp(x, y - 1)
+        return (x * temp) % y
