@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -19,7 +17,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
                 }
             }
         }
-        res.push_back(grid[minRow][minCol]);
+        res.push_back(minVal);
         for (int i = 0; i < grid.size(); ++i) {
             if (i == minRow) continue;
             grid[i][minCol] = INT_MAX;
@@ -36,5 +34,4 @@ int main() {
         cout << val << " ";
     }
     cout << endl;
-    return 0;
 }
