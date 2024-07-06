@@ -1,12 +1,11 @@
-#include <string>
-
 int correct_bracketing(std::string brackets) {
     int count = 0;
     for (char c : brackets) {
         if (c == '(') count++;
         else if (c == ')') {
             if (count > 0) count--;
-            else return 0; // incorrect bracket
+            else return 0;
         }
     }
-    return count;
+    return count == 0; 
+}
