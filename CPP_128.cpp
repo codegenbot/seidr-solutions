@@ -1,17 +1,11 @@
 ```cpp
-Problem: CPP/128
+The problem is: Given an array of integers, calculate and return the product of the signs (i.e., whether each number is positive, negative, or zero) and sum of magnitudes.
 
-The issue is that you have an unnecessary `Here is the completed code:` block and stray backticks (`) at the top of your file. Remove the first few lines to fix the errors:
+Problem description:
+Write a function called prod_signs that takes as input a vector of integers. The function should iterate over the given numbers and consider their signs separately from their magnitudes. If a number is zero, it can be ignored. Then, return a value based on these two aspects:
 
-int prod_signs(vector<int> arr){
-    int sign_product = 1;
-    long long sum_of_magnitudes = 0;
+1. Product of signs: Calculate the product of the signs (i.e., whether each number is positive, negative, or zero) considering the actual sign (+1 for positive numbers and -1 for negative ones), not their magnitudes.
 
-    for(int num : arr){
-        if(num == 0) continue;
-        sign_product *= (num > 0 ? 1 : -1);
-        sum_of_magnitudes += abs(num);
-    }
+2. Sum of magnitudes: Calculate the sum of the absolute values of the given integers.
 
-    return (arr.empty()) ? -32768 : sign_product * sum_of_magnitudes;
-}
+The function should also handle the edge case where the input vector is empty.
