@@ -1,18 +1,19 @@
+```
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
-    if (a > b) {
+    if (a >= 1 && a <= 9 && b >= 1 && b <= 9)
+        return true;
+    else
         return false;
-    }
-    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
-        if (num >= 1 && num <= 9) {
+        if (issame(num, 1) || issame(num, 2) || issame(num, 3) || issame(num, 4) || issame(num, 5) || issame(num, 6) || issame(num, 7) || issame(num, 8) || issame(num, 9)) {
             numbers.push_back(num);
         }
     }
@@ -21,9 +22,9 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (int i = 0; i < numbers.size(); i++) {
+    for (int num : numbers) {
         string str = "";
-        switch (numbers[i]) {
+        switch (num) {
             case 1:
                 str = "One";
                 break;
