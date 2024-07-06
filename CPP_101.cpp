@@ -35,6 +35,5 @@ std::vector<std::string> words_string(std::string s) {
 }
 
 int main() {
-    std::vector<std::string> strings = words_string("ahmed     , gamal");
-    std::cout << issame(strings) << std::endl;
+    assert(issame(words_string("ahmed     , gamal")));
 }
