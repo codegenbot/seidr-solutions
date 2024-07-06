@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <set>
-#include <algorithm>
 #include <initializer_list>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
