@@ -1,4 +1,3 @@
-```
 def search(lst):
     count_dict = {}
     for num in lst:
