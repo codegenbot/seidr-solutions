@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <vector>
 
@@ -29,18 +29,27 @@ int largestPrime(std::vector<int> lst) {
     return maxPrime;
 }
 
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxPrime = largestPrime(lst);
-    return sumOfDigits(maxPrime);
-}
-
 int main() {
+    std::vector<int> lst;
     int n;
+    std::cout << "Enter the number of elements in the list: ";
     std::cin >> n;
-    std::vector<int> lst(n);
-    for (int &i : lst) {
-        std::cin >> i;
+    
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        lst.push_back(num);
     }
-    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
-    return 0;
+    
+    if (!lst.empty()) {
+        int maxPrime = largestPrime(lst);
+        if (isPrime(maxPrime)) {
+            std::cout << "The sum of digits for the largest prime is: " << sumOfDigits(maxPrime) << std::endl;
+        } else {
+            std::cout << "No prime number found in the list." << std::endl;
+        }
+    } else {
+        std::cout << "List is empty. Please enter some numbers." << std::endl;
+    }
 }

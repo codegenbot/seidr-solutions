@@ -1,6 +1,6 @@
 #include <vector>
 
-int prod_signs(std::vector<int> arr){
+int prod_signs(vector<int> arr){
     int sign_product = 1;
     long long sum_of_magnitudes = 0;
 
@@ -14,5 +14,5 @@ int prod_signs(std::vector<int> arr){
 
     if(arr.empty()) return 0;
 
-    return sign_product * sum_of_magnitudes;
+    return sum_of_magnitudes * sign_product;
 }
