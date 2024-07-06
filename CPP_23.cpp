@@ -8,4 +8,3 @@ int str_length(string str){
 }
 
 assert (str_length("asdasnakj") == 11);
-return 0;
