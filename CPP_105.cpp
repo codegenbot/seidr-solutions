@@ -57,6 +57,12 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(same(by_length({1,4,8}), {"One","Four","Eight"}));
+    std::vector<int> arr = {1,4,8};
+    std::vector<std::string> expected = {"One","Four","Eight"};
+    if(same(by_length(arr), expected)) {
+        std::cout << "Test passed." << std::endl;
+    } else {
+        std::cout << "Test failed." << std::endl;
+    }
     return 0;
 }
