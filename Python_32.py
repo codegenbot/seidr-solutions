@@ -1,4 +1,5 @@
 def find_zero(xs):
+    # Your code here
     if len(xs) % 2 == 1 or xs[-1] != 0:
         raise ValueError("Invalid input")
     for i in range(len(xs) // 2):
