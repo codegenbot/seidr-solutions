@@ -2,6 +2,7 @@
 from typing import List
 
 def has_close_elements() -> bool:
+    found_close_elements = False
     while True:
         numbers = input("Enter space-separated numbers: ")
         try:
@@ -16,8 +17,6 @@ def has_close_elements() -> bool:
             break
         else:
             print("Please enter a positive number for the threshold.")
-
-    found_close_elements = False
 
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
