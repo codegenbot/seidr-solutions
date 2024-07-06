@@ -8,5 +8,13 @@ def find_zero(x):
 
 
 if __name__ == "__main__":
-    x = float(input("Enter a number: "))
+    while True:
+        try:
+            x = int(input("Enter a number: "))
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+            continue
+        else:
+            break
+
     print(find_zero(x))
