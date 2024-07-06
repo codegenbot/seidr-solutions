@@ -1,5 +1,5 @@
-```cpp
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 string exchange(vector<int> lst1, vector<int> lst2) {
@@ -24,15 +24,15 @@ string exchange(vector<int> lst1, vector<int> lst2) {
 }
 
 int main() {
-    int n1, m1, n2, m2;
-    cin >> n1 >> m1 >> n2 >> m2;
-
-    vector<int> lst1(n1);
-    for (auto& x : lst1) cin >> x;
-
-    vector<int> lst2(m2);
-    for (auto& x : lst2) cin >> x;
-
+    int n, m;
+    cin >> n >> m;
+    vector<int> lst1(n), lst2(m);
+    for (int i = 0; i < n; i++) {
+        cin >> lst1[i];
+    }
+    for (int i = 0; i < m; i++) {
+        cin >> lst2[i];
+    }
     cout << exchange(lst1, lst2) << endl;
     return 0;
 }
