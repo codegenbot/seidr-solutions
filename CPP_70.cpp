@@ -1,19 +1,25 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool isSame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1 == v2;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> vec) {
-    // You can implement your own sorting algorithm or use the existing one
-    std::sort(vec.begin(), vec.end());
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        for (int j = 0; j < vec.size() - i - 1; ++j) {
+            if (vec[j] > vec[j + 1]) {
+                int temp = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = temp;
+            }
+        }
+    }
     return vec;
 }
 
 int main() {
-    std::vector<int> input(1, 111111); 
-    assert(std::issame(strange_sort_list(input), input));
+    std::vector<int> input = {111111};
+    assert(isSame(strange_sort_list(input), input));
     return 0;
 }

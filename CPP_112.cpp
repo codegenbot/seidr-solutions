@@ -1,8 +1,12 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
+
+bool same(vector<string> v1, vector<string> v2) {
+    return v1 == v2;
+}
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
@@ -32,10 +36,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if(result.size() == 2 && (result[1] == "True")) {
-        std::cout << "True";
-    } else {
-        std::cout << "False";
-    }
+    assert(same({result[0], (result.size() == 2) ? (result[1] == "True") ? "True" : "False" : "")}, {"", "True"});
     return 0;
 }
