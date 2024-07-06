@@ -1,16 +1,10 @@
-```
-def decode_cyclic():
-    s = input()
-    groups = []
-    temp = ""
-    for char in s:
-        temp += char
-        if len(temp) % 3 == 0:
-            groups.append(temp)
-            temp = ""
-    return "".join(
-        [
-            group[1:] + group[0] if len(group) == 3 else group
-            for group in [temp] + groups
-        ]
-    )
+def decode_cyclic(s):
+    result = ""
+    i = 0
+    while i < len(s):
+        if i % 3 == 0:
+            result += s[i]
+        else:
+            result += s[i-1]
+        i += 1
+    return result
