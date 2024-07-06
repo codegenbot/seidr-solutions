@@ -1,5 +1,4 @@
-#include <CryptoPP/MD5.h>
-#include <sstream>
+#include "cryptopp/md5.h"
 
 using namespace std;
 using namespace CryptoPP;
@@ -14,9 +13,9 @@ string string_to_md5(string text) {
 
     stringstream ss;
     HexEncoder encoder;
-    encoder.Attach(ss);
-    encoder.Put(digest, sizeof(digest));
-    encoder.MessageEnd();
+    for(int i = 0; i < 16; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)digest[i];
+    }
 
     return ss.str();
 }
