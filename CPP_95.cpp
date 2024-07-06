@@ -12,8 +12,8 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
     for (auto& pair : dict) {
         std::string key = pair.first;
         if (!allLower && !allUpper) break;
-        if (!allLower) allLower = std::islower(key[0]);
-        if (!allUpper) allUpper = std::isupper(key[0]);
+        if (!allLower) allLower = islower(key[0]);
+        if (!allUpper) allUpper = isupper(key[0]);
     }
 
     return allLower || allUpper;
