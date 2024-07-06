@@ -1,13 +1,12 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-bool issame(vector<float> a, vector<float>b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<float> sort_even(vector<float> l) {
+std::vector<float> sort_even(std::vector<float> l) {
     vector<float> evenVals;
     vector<float> oddVals;
 
@@ -19,7 +18,7 @@ vector<float> sort_even(vector<float> l) {
         }
     }
 
-    sort(evenVals.begin(), evenVals.end());
+    std::sort(evenVals.begin(), evenVals.end());
 
     vector<float> result;
     int idx = 0;
@@ -33,4 +32,9 @@ vector<float> sort_even(vector<float> l) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    return 0;
 }
