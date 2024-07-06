@@ -1,5 +1,33 @@
 ```
-def encode(input_str, shift_str):
-    return "".join(chr((ord(c) - 97 + ord(shift) - 101) % 26 + 97) if c.isalpha() else c for c, shift in zip(input_str.lower(), shift_str.lower()))
+def encode(s, encoding_mapping):
+    result = ""
+    for char in s:
+        if char in encoding_mapping:
+            result += encoding_mapping[char]
+        else:
+            result += char
+    return result
 
-print(encode("I DoNt KnOw WhAt tO WrItE", "k dQnT kNqW wHcT Tq wRkTg"))
+def check():
+    encoding_mapping = {
+        "i": "k",
+        "I": "K",
+        "d": "d",
+        "o": "QnT",
+        "O": "q",
+        "n": "n",
+        "N": "N",
+        "t": "t",
+        "T": "T",
+        "k": "k",
+        "K": "K",
+        "w": "w",
+        "W": "W",
+        "h": "c",
+        "H": "C",
+        "a": "t",
+        "A": "T",
+        "s": "r",
+        "S": "R",
+    }
+    result = encode("I DoNt KnOw WhAt tO WrItE", encoding_mapping)

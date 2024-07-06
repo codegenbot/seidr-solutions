@@ -1,20 +1,16 @@
 ```
-def fruit_distribution(fruits, max_wt):
+def total_fruits():
+    pass
+
+def fruit_distribution(fruit_list, amount):
     fruit_dict = {}
-    for fruit in fruits.split():
+    for fruit in fruit_list.split():
         if fruit not in fruit_dict:
             fruit_dict[fruit] = 0
         fruit_dict[fruit] += 1
-    
-    result = []
-    for fruit, count in fruit_dict.items():
-        weight = int(count / max_wt)
-        remaining = count % max_wt
-        result.append(f"{fruit} {weight} {remaining}")
-    
-    return '\n'.join(result)
+    return {k: v * (amount // len(fruit_dict)) + min(v, amount % len(fruit_dict)) for k, v in fruit_dict.items()}
 
-fruits = " ".join(map(str, input().split()))
-max_wt = int(input())
-print(fruit_distribution(fruits, max_wt))
-print(fruit_distribution(" ".join(map(str, input().split())), int(input())))
+fruit_list = input()
+amount = int(input())
+print(fruit_distribution(fruit_list, amount))
+print(fruit_distribution(input(), int(input())))
