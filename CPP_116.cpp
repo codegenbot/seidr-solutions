@@ -4,14 +4,11 @@
 using namespace std;
 
 vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        int countA = __builtin_popcount(a);
-        int countB = __builtin_popcount(b);
-
-        if (countA == countB)
-            return a < b;
-        else
-            return countA < countB;
+    vector<int> result = arr;
+    sort(result.begin(), result.end(), [](int a, int b) {
+        return bitset<32>(a).count() == bitset<32>(b).count()
+               ? a < b
+               : a < b;
     });
-    return arr;
+    return result;
 }
