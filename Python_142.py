@@ -1,4 +1,19 @@
 ```
+def sum_squares(n):
+    total = 0
+    for i in range(1, n + 1):
+        total += i**2
+    return total
+
+
+def square(x):
+    return x**2
+
+
+def cube(x):
+    return x**3
+
+
 while True:
     operation = input("Enter 'square', 'cube' or 'quit' to exit: ").strip().lower()
 
@@ -14,19 +29,4 @@ while True:
         break
 
     else:
-        print("Invalid operation. Please enter 'square', 'cube' or 'quit'")
-
-
-def sum_squares(n):
-    total = 0
-    for i in range(1, n + 1):
-        total += i**2
-    return total
-
-
-def square(x):
-    return x**2
-
-
-def cube(x):
-    return x**3
+        print("Invalid operation. Please enter 'square', 'cube' or 'quit'"
