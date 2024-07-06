@@ -6,4 +6,4 @@ def mastermind(code, guess):
             char_count["black"] += 1
         elif c in guess and guess.index(c) != i:
             char_count["white"] += 1
-    return (char_count["black"], char_count["white"])
+    return (char_count["white"], char_count["black"])
