@@ -1,16 +1,14 @@
-#include <string>
-
 using namespace std;
 
-string file_name_check(string file_name) {
+string filename_result file_name_check(string file_name_input) {
     bool valid = true;
     int dot_count = 0;
     int digit_count = 0;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.'){
+    for(int i=0; i<file_name_input.length(); i++){
+        if(file_name_input[i] == '.'){
             dot_count++;
-        } else if(isdigit(file_name[i])){
+        } else if(isdigit(file_name_input[i])){
             digit_count++;
         }
     }
@@ -19,8 +17,8 @@ string file_name_check(string file_name) {
         valid = false;
     }
 
-    string before_dot = file_name.substr(0, file_name.find('.'));
-    string after_dot = file_name.substr(file_name.find('.')+1);
+    string before_dot = file_name_input.substr(0, file_name_input.find('.'));
+    string after_dot = file_name_input.substr(file_name_input.find('.')+1);
 
     if(before_dot.empty() || !isalpha(before_dot[0])){
         valid = false;
