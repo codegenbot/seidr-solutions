@@ -5,8 +5,9 @@ bool issame(const std::vector<float>& a,const std::vector<float>& b) {
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
-std::vector<float> get_positive(const std::vector<float>& v) { 
-    v.erase(std::remove_if(v.begin(), v.end(), [](float x) { return x < 0; }), v.end());
+std::vector<float> get_positive(const std::vector<float>& v) {
+    auto it = std::remove_if(v.begin(), v.end(), [](float x) { return x < 0; });
+    v.erase(it, v.end());
     return v;
 }
 
