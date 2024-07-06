@@ -1,4 +1,6 @@
-```
+Here is the corrected code:
+
+```python
 import math
 
 def max_fill(grid, capacity):
