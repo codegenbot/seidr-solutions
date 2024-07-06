@@ -1,4 +1,4 @@
-```python
+```
 def remove_duplicates(numbers: str) -> list[int]:
     if not numbers:
         return []
