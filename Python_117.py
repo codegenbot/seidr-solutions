@@ -1,5 +1,3 @@
+
 def select_words(s, n):
-    if n > 1:
-        return []
-    words = s.split()
-    return [word for word in words if len(word) == n and word.isalpha()]
+    return [word for word in s.split() if len([c for c in word if c.isalpha() and not c.isdigit()]) == n]
