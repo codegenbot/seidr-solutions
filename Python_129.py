@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
 
@@ -28,3 +29,7 @@ def minPath(grid, k):
 
     min_length = sorted(path_lengths.keys())[-1] if path_lengths else 0
     return [grid[0][j] for j in range(min_length)] if k == 0 else []
+
+grid = [[1, 2], [3, 4]]
+k = int(input("Enter a number: "))
+print(minPath(grid, k))
