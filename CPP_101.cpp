@@ -32,22 +32,31 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
     return result;
 
 int main() {
-    std::string str;
-    std::vector<std::string> exp;
+    std::string s;
+    std::vector<std::string> expected;
     
     std::cout << "Enter a string: ";
-    std::cin >> str;
+    std::getline(std::cin, s);
     
-    std::cout << "Enter expected words (space separated): ";
-    std::cin >> str;
-    exp = {str.begin(), str.end()};
+    int n;
+    std::cout << "Enter number of expected words: ";
+    std::cin >> n;
     
-    std::vector<std::string> result = words_string(str, exp);
+    for (int i = 0; i < n; i++) {
+        std::string temp;
+        std::cout << "Enter word " << i + 1 << ": ";
+        std::getline(std::cin, temp);
+        expected.push_back(temp);
+    }
+    
+    std::vector<std::string> result = words_string(s, expected);
     
     if (!result.empty()) {
-        for (const auto& word : result) {
-            std::cout << word << std::endl;
+        std::cout << "Words in the string: ";
+        for (auto word : result) {
+            std::cout << word << " ";
         }
+        std::cout << std::endl;
     } else {
         std::cout << "No matching words found." << std::endl;
     }
