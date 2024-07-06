@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size()!=b.size())
@@ -13,7 +11,7 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result(l);
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 1 || i % 3 == 2) {
-            std::partial_sort(&result[i], &result[i], &result.back());
+            std::nth_element(result.begin() + i, result.begin() + i, result.end());
         }
     }
     return result;
@@ -27,7 +25,11 @@ int main() {
     else
         cout<<"False";
 
-    vector<int> l = {1,2,3,4,5,6,7,8,9};
+    vector<int> l;
+    for(int i=0;i<9;i++){
+        l.push_back(i+1);
+    }
+    
     l = sort_third(l);
     
     for(int i=0;i<l.size();i++){
