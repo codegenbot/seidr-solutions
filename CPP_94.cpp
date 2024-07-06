@@ -3,21 +3,36 @@
 #include <string>
 
 int calculateSumOfDigitsLargestPrime(const std::vector<int>& lst) {
-    int max_prime = -1;
-    for (int num : lst) {
-        if (is_prime(num)) {
-            if (num > max_prime)
-                max_prime = num;
+    int max_num = *std::max_element(lst.begin(), lst.end());
+    
+    int sum_of_digits = 0;
+    while (max_num > 1) {
+        int temp_sum = 0;
+        for (; max_num > 0; ) {
+            int digit = max_num % 10;
+            if (digit != 0) temp_sum += digit;
+            max_num /= 10;
+        }
+        sum_of_digits += temp_sum;
+        while (temp_sum > 1 && isPrime(temp_sum)) {
+            for (; temp_sum > 0; ) {
+                int digit = temp_sum % 10;
+                if (digit != 0) temp_sum -= digit;
+                temp_sum /= 10;
+            }
+            sum_of_digits += temp_sum + 1;
+            break;
         }
     }
-
-    int sum_of_digits = 0;
-    while (max_prime > 0) {
-        sum_of_digits += max_prime % 10;
-        max_prime /= 10;
-    }
-
     return sum_of_digits;
+}
+
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
+            return false;
+    return true;
 }
 
 int main_test(std::vector<int> lst) {
@@ -31,14 +46,4 @@ int main_test(std::vector<int> lst) {
     
     std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
     return 0;
-}
-
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
 }
