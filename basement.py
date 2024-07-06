@@ -1,7 +1,8 @@
+```
 def basement(vector):
-    cum_sum = 0
-    for i, num in enumerate(vector):
-        cum_sum += num
-        if cum_sum < 0:
+    running_sum = 0
+    for i, x in enumerate(vector):
+        running_sum += x
+        if running_sum < 0:
             return i + 1
     return -1
