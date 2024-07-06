@@ -1,3 +1,4 @@
+#include <CryptoPP/Crypto.h>
 #include <CryptoPP/MD5.h>
 #include <string>
 
