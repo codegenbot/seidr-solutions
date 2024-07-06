@@ -5,16 +5,13 @@
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
-    // Create sets from input vectors
     set<int> set_l1(l1.begin(), l1.end()); 
     set<int> set_l2(l2.begin(), l2.end());
 
-    // Find the intersection of two sets
     set<int> intersection;
     set_intersection(set_l1.begin(), set_l1.end(), set_l2.begin(), set_l2.end(),
                      inserter(intersection, intersection.begin()));
 
-    // Convert the intersection set to a vector and sort it
     vector<int> result;
     for (auto i : intersection) {
         result.push_back(i);
