@@ -1,5 +1,5 @@
-#include <vector>
 #include <initializer_list>
+#include <vector>
 
 bool issame(int a, int b) {
     if(a == b)
