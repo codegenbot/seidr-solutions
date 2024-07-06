@@ -1,24 +1,27 @@
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 std::vector<std::string> bf(std::string a, std::string second) {
-    vector<string> result;
-    
-    for (char c : a) {
-        if (c >= 'a' && c <= 'z') {
-            char up = toupper(c);
-            string upperA = "";
-            for (char x : a) {
-                if (x == c) {
-                    upperA += up;
-                } else {
-                    upperA += x;
-                }
-            }
-            result.push_back(upperA);
+    int j = 0;
+    for (int i = 0; i < a.length(); i++) {
+        if (a[i] == 'B' || a[i] == 'b') {
+            a.insert(i++, "first");
+        }
+        else if (a[i] == 'F' || a[i] == 'f') {
+            a.replace(i, 1, "first");
         }
     }
-    
-    return result;
+    for (int i = 0; i < second.length(); i++) {
+        if (second[i] == 'B' || second[i] == 'b') {
+            second.insert(i++, "second");
+        }
+        else if (second[i] == 'F' || second[i] == 'f') {
+            second.replace(i, 1, "second");
+        }
+    }
+    return {a, second};
 }
 
 bool issame(vector<string> a, vector<string> second){
