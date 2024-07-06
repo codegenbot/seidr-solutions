@@ -5,7 +5,7 @@ def main():
     while True:
         try:
             user_input = input("Enter a list of numbers separated by space: ")
-            if not user_input.strip() or user_input.lower() == 'q':  
+            if not user_input.strip() or user_input.lower() == "q":
                 print("Thank you for using this program!")
                 break
             numbers = [float(num) for num in user_input.split()]
