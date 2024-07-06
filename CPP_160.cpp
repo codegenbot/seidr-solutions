@@ -1,27 +1,26 @@
 #include <vector>
 #include <cmath>
 
-int do_algebra(const char* operation, std::vector<int> operands) {
+int do_algebra(std::vector<std::string> operations, std::vector<int> operands) {
     int result = operands[0];
     for (int i = 1; i < operands.size(); i++) {
-        if (!strcmp(operation, "*/")) {
-            if (*operation == '*') {
-                result *= operands[i];
-            } else {
-                result /= operands[i];
-            }
-        } else if (!strcmp(operation, "+*") || !strcmp(operation, "-+")) {
-            if (*operation == '+') {
-                result += operands[i];
-            } else {
-                result = (result == 0) ? operands[i] : (result * -1 + operands[i]);
-            }
+        if (operations[i-1] == "/") {
+            result /= operands[i];
+        } else if (operations[i-1] == "*") {
+            result *= operands[i];
+        } else if (operations[i-1] == "+") {
+            result += operands[i];
+        } else if (operations[i-1] == "-") {
+            result -= operands[i];
         }
     }
     return result;
 }
 
+#include <cassert>
+
 int main() {
-    int result = do_algebra("//*", {7, 3, 4});
+    int result = do_algebra({"/", "*"}, {7, 3, 4});
+    assert(result == 8);
     return 0;
 }
