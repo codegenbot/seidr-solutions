@@ -1,6 +1,4 @@
-```
-def make_palindrome():
-    s = input("Enter a string to make palindrome: ")
+def make_palindrome(s):
     if s == s[::-1]:
         return s
     for char in "abcdefghijklmnopqrstuvwxyz":
