@@ -1,5 +1,3 @@
-from typing import List
-
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     min_val = min(numbers)
