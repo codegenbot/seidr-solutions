@@ -1,4 +1,18 @@
 ```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    int n;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> n;
+
+    std::string binary = decimal_to_binary(n);
+    std::cout << "The binary equivalent is: " << binary << std::endl;
+
+    return 0;
+}
+
 std::string decimal_to_binary(int n){
     std::string binary = "";
     do{

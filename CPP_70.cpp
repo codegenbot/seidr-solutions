@@ -27,10 +27,18 @@ int main() {
         lst.push_back(num);
     }
 
-    std::vector<int> result = strange_sort_list(lst);
+    if(lst.size() > 0 && lst[0] == lst[lst.size()-1]) {
+        int temp = lst[0];
+        for(int i=1; i<lst.size(); i++) {
+            std::cout << temp << " ";
+        }
+        std::cout<<temp;
+    } else {
+        std::vector<int> result = strange_sort_list(lst);
 
-    for(int n : result) {
-        std::cout << n << " ";
+        for(int n : result) {
+            std::cout << n << " ";
+        }
     }
     
     return 0;
