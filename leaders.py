@@ -1,4 +1,3 @@
-
 def leaders(vector):
     max_value = -1
     result = []
