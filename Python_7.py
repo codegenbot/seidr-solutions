@@ -2,7 +2,9 @@
 from typing import List
 
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [s for s in strings if substring in s]
+    if not isinstance(strings, list):
+        raise ValueError("Input 'strings' must be a list")
+    if not isinstance(substring, str):
+        raise ValueError("Input 'substring' must be a string")
 
-result = filter_by_substring(input("Enter strings (space-separated): ").split(), input("Enter substring: "))
-print(result)
+    return [s for s in strings if substring in s]
