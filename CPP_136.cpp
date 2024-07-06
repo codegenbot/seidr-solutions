@@ -1,8 +1,23 @@
-bool issame(vector<int> a,vector<int>b){
-    if((a.size()==1&&a[0]==-2)||(b.size()==1&&b[0]==-2))return true;
-    else if(a.size()!=b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if((a[i]<0&&b[i]>0)||(a[i]>0&&b[i]<0))return false;
-        return true;
+```cpp
+vector<int> largest_smallest_integers(vector<int> lst) {
+    int max_negative = 0, min_positive = INT_MAX;
+    for (int num : lst) {
+        if (num < 0 && num > max_negative) {
+            max_negative = num;
+        }
+        else if (num > 0 && num < min_positive) {
+            min_positive = num;
+        }
     }
+    return {(max_negative > 0 ? 0 : max_negative), (min_positive > 0 ? 0 : min_positive)};
+}
+
+bool same(vector<int> a,vector<int> b){
+    return (a.size() == b.size()) && (std::all_of(a.begin(), a.end(), 
+      [&b](int x){return std::find(b.begin(), b.end(), x) != b.end();}));
+}
+
+int main(){
+    assert(same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    return 0;
 }
