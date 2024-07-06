@@ -19,7 +19,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
 
 int remove_one(const vector<int>& vec) {
     auto it = vec.begin();
-    while (it != vec.end() && *it == vec[0]) {
+    while (it != vec.end() && *it == *vec.begin()) {
         ++it;
     }
     return it - vec.begin();
