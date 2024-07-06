@@ -1,5 +1,4 @@
-```
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> List[str]:
     result = []
     for group in paren_string.split():
         level = 0
@@ -9,6 +8,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 level += 1
             elif char == ')':
                 level -= 1
-            max_level = max(max_level, level)
+            max_level = str(max(max_level, level))
         result.append(max_level)
     return result
