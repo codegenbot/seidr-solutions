@@ -1,5 +1,2 @@
 def double_the_difference(nums):
-    small = min(nums)
-    large = max(nums)
-    diff = large - small
-    return 2 * diff
+    return sum(x**2 for x in nums if x % 2 == 1 and x > 0)
