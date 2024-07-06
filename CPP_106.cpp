@@ -1,6 +1,7 @@
-Here is the solution:
+#include <vector>
 
-```cpp
+using namespace std;
+
 vector<int> f(int n) {
     vector<int> result(n);
     for (int i = 1; i <= n; i++) {
