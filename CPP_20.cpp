@@ -1,17 +1,27 @@
+```
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
-std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
+bool isSame(pair<float, float> p1, pair<float, float> p2) {
+    return (p1.first == p2.first && p1.second == p2.second);
+}
+
+vector<pair<float, float>> find_closest_elements(vector<float> numbers);
+
+vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+    vector<pair<float, float>> result;
+    
     if (numbers.size() <= 1) {
-        return {};
+        return result;
     }
     
-    std::vector<std::pair<float, float>> result;
-    std::pair<float, float> closest = {numbers[0], numbers[0]};
+    pair<float, float> closest = make_pair(numbers[0], numbers[0]);
+    
     for (int i = 0; i < numbers.size(); i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
-            if (std::abs(numbers[i] - numbers[j]) < std::abs(closest.first - closest.second)) {
-                closest = {numbers[i], numbers[j]};
+            if (abs(numbers[i] - numbers[j]) < abs(closest.first - closest.second)) {
+                closest = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
