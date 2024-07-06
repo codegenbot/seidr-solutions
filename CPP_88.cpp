@@ -1,10 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> sort_array(vector<int> array) {
     int sum = array[0] + array[array.size() - 1];
-    if (sum % 2 == 1) {
-        return vector<int>(array.begin(), array.end());
+    if (sum % 2 == 0) {
+        sort(array.begin(), array.end(), greater<int>());
     } else {
-        vector<int> copy = array;
-        sort(copy.begin(), copy.end(), greater<int>());
-        return copy;
+        sort(array.begin(), array.end());
     }
+    return array;
 }
