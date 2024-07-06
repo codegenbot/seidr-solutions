@@ -1,8 +1,4 @@
 def minPath(grid, k):
-    def get_neighbors(position, grid):
-        x, y = position
-        return [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
-
     # Initialize the minimum path and its length
     min_path = []
     min_length = float("inf")
