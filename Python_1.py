@@ -1,4 +1,3 @@
-
 def separate_paren_groups(paren_string: str) -> list[str]:
     groups = []
     current_group = ""
@@ -8,7 +7,7 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                 groups.append(current_group)
                 current_group = ""
         else:
-            current_group += char
+            current_ < s > group += char
     if len(current_group) > 0:
         groups.append(current_group)
     return groups
