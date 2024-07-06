@@ -1,3 +1,4 @@
+```
 import re
 
 def fix_spaces(text):
@@ -11,8 +12,8 @@ text = input("Enter a string: ")
 if not isinstance(text, str):
     raise ValueError("Invalid Input. Please enter a valid string.")
 
-result = fix_spaces(text)
-print(result)
-
+try:
+    result = fix_spaces(text)
+    print(result)
 except ValueError as ve:
     print(f"Error: {ve}")
