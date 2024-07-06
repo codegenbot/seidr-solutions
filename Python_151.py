@@ -1,4 +1,4 @@
-def firstHalfSum():
+def solution():
     while True:
         try:
             first_half_sum = int(input("Enter first half sum: "))
