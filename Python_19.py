@@ -1,7 +1,4 @@
-import re
-
-
-def sort_numbers(numbers):
+def sort_numbers(numbers: str) -> str:
     number_map = {
         "zero": 0,
         "one": 1,
