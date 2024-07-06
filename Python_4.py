@@ -4,9 +4,11 @@ from typing import List
 def main():
     while True:
         try:
-            user_input = input("Enter a list of numbers separated by space (for example, 1 2 3): ")
+            user_input = input(
+                "Enter a list of numbers separated by space (for example, 1 2 3): "
+            )
             numbers = [float(num) for num in user_input.split()]
-            
+
             if any(not isinstance(n, (int, float)) for n in numbers):
                 print("Invalid input. Please enter some valid numbers.")
             elif len(numbers) < 2:
