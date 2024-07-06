@@ -1,4 +1,3 @@
-
 def fruit_distribution(s, n):
     import re
     
