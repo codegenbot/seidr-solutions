@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <string>
 #include <map>
 using namespace std;
@@ -7,7 +7,7 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string str = test;
+    string str = test + " ";
     char prevChar = str[0];
     int count = 1;
 
@@ -26,12 +26,10 @@ map<char, int> histogram(string test) {
         } else {
             count++;
         }
-    }
-
-    if (result.find(prevChar) == result.end()) {
-        result[prevChar] = count;
-    } else {
-        result[prevChar]++;
+        // increment count when the current character matches the previous one
+        if (str[i] == prevChar) {
+            count++;
+        }
     }
 
     return result;
