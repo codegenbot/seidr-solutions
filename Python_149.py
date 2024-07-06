@@ -1,3 +1,9 @@
 def sorted_list_sum(lst):
-    even_words = [int("".join(filter(str.isdigit, word))) if "".join(filter(str.isdigit, word)).isdigit() else 0 for word in lst]
-    return sum(sorted([num for num in even_words if isinstance(num, int)]))
+    return sum(int("".join(filter(str.isdigit, word))) if "".join(filter(str.isdigit, word)).isdigit() else 0 for word in sorted([word for word in lst if len(str(word)) % 2 == 0]))
+
+text = input().replace("\n", " ").strip()
+words = text.split() if text else []
+if words:
+    print(sorted_list_sum(words))
+else:
+    print('No valid input found')
