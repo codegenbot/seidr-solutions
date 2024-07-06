@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -58,6 +58,6 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(same(by_length({1,4,8}), std::vector<std::string>{ {"One"}, {"Four"}, {"Eight"}}));
+    assert(same(by_length({1,4,8}) , {"One","Four","Eight"}));
     return 0;
 }
