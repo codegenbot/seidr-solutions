@@ -10,8 +10,8 @@ def words_string():
         )
         if not s:
             break
-        elif s.strip() == "":
-            print("No input provided. Please try again.")
+        elif not s.strip():
+            print("Program did not receive expected input. Please try again.")
             continue
         result = [x.strip() for x in re.split("[,\s]+", s) if x]
         for word in set(result):
