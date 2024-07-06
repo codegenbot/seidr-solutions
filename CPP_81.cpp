@@ -1,6 +1,15 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+
+int numerical_letter_grade(int score) {
+    if(score >= 90) return 4;
+    else if(score >= 80) return 3;
+    else if(score >= 70) return 2;
+    else if(score >= 60) return 1;
+    else return 0;
+}
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) return false;
@@ -10,27 +19,12 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<int> scores){
-    std::vector<std::string> grades;
-    for(int i=0; i<scores.size(); i++){
-        int score = scores[i];
-        if(score < 60)
-            grades.push_back("F");
-        else if(score >= 90) 
-            grades.push_back("A");
-        else if(score >=80)
-            grades.push_back("B");
-        else if(score >=70) 
-            grades.push_back("C");
-        else
-            grades.push_back("D");
-    }
-    return grades;
-}
-
 int main() {
-    std::vector<int> scores = {0, 0.7};
-    std::vector<std::string> grades = {"E", "D-" };
+    std::vector<int> scores = {90, 70};
+    std::vector<std::string> grades;
+    for(int score : scores) {
+        grades.push_back(std::to_string(numerical_letter_grade(score)));
+    }
     assert(issame(numerical_letter_grade(scores), grades));
     return 0;
 }
