@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 using namespace std;
 
 bool issame(vector<string> a) {
@@ -24,6 +27,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame({"this"}));
+    assert(issame({{"this"}, {})));
     return 0;
 }
