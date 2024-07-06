@@ -19,9 +19,5 @@ std::string solve(std::string s){
 int main() {
     assert(solve("#ccc") == "#CCC");
     std::cout << "Test Passed" << std::endl;
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "Result: " << solve(input) << std::endl;
     return 0;
 }
