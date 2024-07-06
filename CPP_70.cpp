@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
@@ -6,7 +7,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
+vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
@@ -19,5 +20,6 @@ vector<int> strange_sort_list(vector<int> lst) {
             lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
         }
     }
+    
     return result;
 }
