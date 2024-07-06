@@ -7,7 +7,7 @@ def sort_third(l):
             result.append(sorted([l[i], l[i+1]]))
         else:
             result.append([l[i]])
-    return [item for sublist in sorted(result) for item in sublist]
+    return [item for sublist in map(sorted, result) for item in sublist]
 
 input_list = [5, 6, 3, 4, 8, 9, 2, 1]
 print(sort_third(input_list))
