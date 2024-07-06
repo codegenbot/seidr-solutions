@@ -1,11 +1,22 @@
+#include <iostream>
 #include <string>
+#include <cctype>
 
-int count_upper(string s){
+using namespace std;
+
+int count_upper(string s) {
     int count = 0;
-    for(int i = 0; i < s.length(); i++){
-        if((s[i] >= 'A' && s[i] <= 'U') && (i % 2 == 1 || s[i] >= 'E')){
+    for (int i = 0; i < s.length(); i++) {
+        if ((i % 2 == 0 && isupper(s[i])) &&
+            (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')) {
             count++;
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_upper("EEEE") == 2);
+    cout << "Code has been executed successfully!" << endl;
+    return 0;
 }
