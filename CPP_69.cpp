@@ -1,10 +1,24 @@
-int search(vector<int> lst) {
-    int max = -1;
-    for (auto num : lst) {
-        if (num > 0 && lst.count(num) >= num) {
-            max = num;
+#include <iostream>
+#include <vector>
+#include <map>
+
+int search(std::vector<int> lst) {
+    std::map<int, int> count;
+    for (int num : lst) {
+        if (count.find(num) == count.end()) {
+            count[num] = 1;
+        } else {
+            count[num]++;
+        }
+    }
+
+    int maxVal = -1;
+    for (auto p : count) {
+        if (p.second >= p.first && p.first > 0) {
+            maxVal = p.first;
             break;
         }
     }
-    return max;
+
+    return maxVal;
 }
