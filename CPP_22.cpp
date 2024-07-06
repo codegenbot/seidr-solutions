@@ -2,10 +2,9 @@
 #include <vector>
 #include <list>
 #include <string>
-
-typedef std::list<boost::any> list_any;
 using namespace std;
 
+typedef list<boost::any> list_any;
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
