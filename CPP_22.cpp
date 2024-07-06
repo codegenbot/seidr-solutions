@@ -1,18 +1,16 @@
-```cpp
-#include <algorithm>
+#include <boost/any.hpp>
+#include <vector>
+#include <list>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}) ,{3, 3, 3}));
+    return 0;
 }
