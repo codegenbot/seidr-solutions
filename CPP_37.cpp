@@ -1,5 +1,4 @@
-Here is your required solution:
-```c++
+```
 #include <vector>
 #include <algorithm>
 
