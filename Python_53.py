@@ -11,4 +11,3 @@ result = add(x, y)
 
 # Print the result to the console
 print("Result:", result)
-```
