@@ -1,17 +1,26 @@
-Here is the solution:
+Here is the completed code:
 
 ```cpp
-string anti_shuffle(string s){
+string anti_shuffle(string s) {
     string result = "";
-    string temp;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' ' || s[i] == '\0'){
-            sort(temp.begin(),temp.end());
-            result += temp;
-            temp = "";
-        }
-        else{
-            temp += s[i];
+    size_t pos = 0;
+
+    while (pos < s.length()) {
+        if (s[pos] == ' ') {
+            result += " ";
+            pos++;
+        } else {
+            string word = "";
+            do {
+                word += s[pos];
+                pos++;
+            } while (pos < s.length() && s[pos] != ' ');
+            string newWord = "";
+            for (char c : word) {
+                newWord += std::min_element(word.begin(), word.end(),
+                                            [](char a, char b) { return a < b; }) -> c;
+            }
+            result += newWord;
         }
     }
     return result;
