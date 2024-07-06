@@ -1,4 +1,5 @@
 #include <vector>
+
 vector<int> leaders(const vector<int>& v) {
     vector<int> result;
     for (vector<int>::reverse_iterator i = v.rbegin(); i != v.rend(); ++i) {

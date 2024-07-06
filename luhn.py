@@ -1,9 +1,10 @@
+def luhn(digits):
     digits = [int(digit) for digit in digits]
     sum = 0
-    for i, digit in enumerate(digits):
-        if i % 2 == 1: # if the index is odd (starting from second digit)
-            digit *= 2
-        sum += digit
-        if sum >= 10:
-            sum -= 10
+    for i in range(0, 16, 2):
+        digit = digits[i] * 2
+        if digit > 9:
+            sum += (digit // 10 + digit % 10) - 9
+        else:
+            sum += digit
     return sum
