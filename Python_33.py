@@ -1,3 +1,2 @@
 def sort_third(l: list):
-    zero_modulus = [x for x in l if x % 3 == 0]
-    return [i if i % 3 != 0 else sorted(zero_modulus)[-1] for i in l]
+    return sorted([x for x in l if (i := l.index(x)) % 3 == 0], reverse=True) + [x for i, x in enumerate(l) if i % 3 != 0]
