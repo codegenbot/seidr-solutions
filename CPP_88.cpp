@@ -1,18 +1,18 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<int> sort_array(vector<int> array) {
-    if (array.empty()) {
-        return array;
-    }
-    
-    int sum = array[0] + array.back();
-    vector<int> result = array;
-    
+    int sum = array[0] + array[array.size() - 1];
     if (sum % 2 == 1) {
+        vector<int> result(array);
         sort(result.begin(), result.end());
+        return result;
     } else {
-        sort(result.begin(), result.end(), greater<int>());
+        vector<int> result(array);
+        sort(result.rbegin(), result.rend());
+        return result;
     }
-    
-    return result;
 }
