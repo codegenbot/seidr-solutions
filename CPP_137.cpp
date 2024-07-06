@@ -1,6 +1,5 @@
 ```cpp
 #include <boost/any.hpp>
-#include <algorithm>
 #include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -20,11 +19,11 @@ boost::any compare_one(boost::any a, boost::any b) {
         return std::lexicographical_compare(sa.begin(), sa.end(),
             sb.begin(), sb.end()) ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int da = any_cast<int>(a);
+        double da = any_cast<int>(a);
         std::string sb = any_cast<std::string>(b);
         return da > std::stod(sb) ? a : b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        int db = any_cast<int>(b);
+        double db = any_cast<int>(b);
         std::string sa = any_cast<std::string>(a);
         return std::stod(sa) > db ? a : b;
     }
