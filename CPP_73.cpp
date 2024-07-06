@@ -1,15 +1,31 @@
-int main() {
-    vector<int> arr;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+```c++
+int smallest_change(vector<int> arr) {
+    int n = arr.size();
+    vector<vector<bool>> dp(n, vector<bool>(n));
     for (int i = 0; i < n; i++) {
-        int num;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> num;
-        arr.push_back(num);
+        dp[i][i] = true;
     }
-    int res = smallest_change(arr);
-    cout << "The number of operations required to make all the elements in the array equal is: " << res << endl;
-    return 0;
+    for (int len = 2; len <= n; len++) {
+        for (int i = 0; i < n - len + 1; i++) {
+            int j = i + len - 1;
+            if (arr[i] == arr[j]) {
+                dp[i][j] = true;
+            } else {
+                dp[i][j] = false;
+                for (int k = i; k <= j; k++) {
+                    if (dp[i][k-1] && dp[k+1][j]) {
+                        dp[i][j] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    int res = 0;
+    for (int i = 0; i < n - 1; i++) {
+        if (!dp[0][i]) {
+            res++;
+        }
+    }
+    return res;
 }
