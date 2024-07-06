@@ -1,12 +1,10 @@
-```
 #include <string>
-#include <cctype>
 
-std::string solve(std::string s) {
-    std::string result;
+string solve(string s) {
+    string result;
     for(int i=0; i<s.length(); i++){
-        if(std::isalpha(s[i])){
-            result += (std::tolower(s[i]) <= 'z') ? std::toupper(s[i]) : std::tolower(s[i]);
+        if(isalpha(s[i])){
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         } else {
             result += s[i];
         }

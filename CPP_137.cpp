@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -43,8 +42,22 @@ int main() {
     
     boost::any a(x), b(y), c(s1), d(s2);
     
-    cout << compare_one(a, b) << endl; // Output: boost::any(3.7)
-    cout << compare_one(c, d) << endl; // Output: boost::any("None")
+    cout << boost::any_cast<float>(compare_one(a, b)) << endl; 
+    cout << compare_any_to_float_or_string(compare_one(c, d)) << endl;
     
     return 0;
+}
+
+boost::any compare_any_to_float_or_string(boost::any a) {
+    if (a.type() == typeid(int)) {
+        return boost::any((float)boost::any_cast<int>(a));
+    }
+    else if (a.type() == typeid(string)) {
+        return a;
+    }
+    else if (a.type() == typeid(float)) {
+        return a;
+    }
+
+    return boost::any("None");
 }
