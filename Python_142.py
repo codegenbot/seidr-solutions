@@ -2,9 +2,18 @@ def sum_squares(lst):
     total_sum = 0
     for element in lst:
         if isinstance(element, dict):
-            total_sum += sum_squares(list(element.values()))
-        elif isinstance(element, (int, float)):
-            total_sum += abs(element) ** 2
+            total_sum += sum(
+                value**2
+                for value in element.values()
+                if isinstance(value, (int, float))
+            )
+        elif isinstance(element, (list, int, float)):
+            if isinstance(element, list) and all(
+                isinstance(x, (int, float)) for x in element
+            ):
+                total_sum += sum(abs(x) ** 2 for x in element)
+            else:
+                total_sum += abs(element) ** 2
         else:
             raise ValueError(
                 f"Invalid input '{element}' found. Input must contain only numbers."
