@@ -1,9 +1,8 @@
-
-def rolling_max(numbers: List[int]) -> List[int]:
+def rolling_max(numbers):
+    max_so_far = float("-inf")
     result = []
-    current_max = -1
-    for i in range(len(numbers)):
-        if numbers[i] > current_max:
-            current_max = numbers[i]
-        result.append(current_max)
+    for num in numbers:
+        if num > max_so_far:
+            max_so_far = num
+        result.append(max_so_far)
     return result
