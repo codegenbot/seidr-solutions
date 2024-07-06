@@ -1,3 +1,2 @@
-```
 def modp(n: int, p: int):
-    return pow(n, p - 1, p) * n % p
+    return n % p if n > 0 else (n < 0).int().__reversed__().next() % p
