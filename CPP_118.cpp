@@ -1,4 +1,18 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
 using namespace std;
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+bool isconsonant(char c) {
+    c = tolower(c);
+    return !isvowel(c) && isalpha(c);
+}
 
 string get_closest_vowel(string word) {
     int n = word.size();
@@ -9,14 +23,4 @@ string get_closest_vowel(string word) {
         if (i > 0 && isconsonant(word[i-1]) && isvowel(word[i])) return string(1, tolower(word[i]));
     }
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isconsonant(char c) {
-    c = tolower(c);
-    return !isvowel(c) && isalpha(c);
 }
