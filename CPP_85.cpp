@@ -1,8 +1,8 @@
-```
-#include <iostream>
 #include <vector>
 
-int add(std::vector<int> lst) {
+using namespace std;
+
+int add(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i += 2) {
         if (lst[i] % 2 == 0)
@@ -12,19 +12,14 @@ int add(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    vector<int> lst;
     int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cout << "Enter element " << i << ": ";
+        cin >> lst.push_back(i);
     }
-    
-    std::cout << "Sum of even elements at odd positions: " << add(numbers) << std::endl;
-    
+    cout << "The sum is: " << add(lst) << endl;
     return 0;
 }
