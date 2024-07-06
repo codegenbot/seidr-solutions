@@ -1,5 +1,4 @@
+Here is the completed code:
+
 def all_prefixes(string: str) -> List[str]:
-    prefixes = []
-    for i in range(len(string)):
-        prefixes.append(string[: i + 1])
-    return prefixes
+    return [string[:i] for i in range(1, len(string)+1)]
