@@ -14,7 +14,6 @@ std::vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         result.push_back(n);
     }
-    std::sort(result.begin(), result.end());
     return result;
 }
 
