@@ -1,20 +1,21 @@
+#include<string>
+using namespace std;
+
 bool simplify(string x, string n) {
-    int numerator1 = 0, denominator1 = 0, numerator2 = 0, denominator2 = 0;
-    istringstream iss(x);
-    iss >> numerator1 >> '/' >> denominator1;
-    iss.clear();
-    iss.str(n);
-    iss >> numerator2 >> '/' >> denominator2;
-
-    long long lcm = (long long)denominator1 * denominator2 / __gcd(denominator1, denominator2);
-    long long newNumerator = (long long)numerator1 * denominator2 + numerator2 * denominator1;
+    int a = 0, b = 1, c = 0, d = 1;
     
-    return newNumerator == lcm;
-}
+    // Convert strings to integers
+    size_t pos = x.find('/');
+    a = stoi(x.substr(0, pos));
+    b = stoi(x.substr(pos + 1));
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    pos = n.find('/');
+    c = stoi(n.substr(0, pos));
+    d = stoi(n.substr(pos + 1));
+
+    // Check if the fractions are equal
+    int numerator = (a * d) - (b * c);
+    int denominator = abs(b * d);
+
+    return (numerator == 0);
 }
