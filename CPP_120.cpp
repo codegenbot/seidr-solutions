@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -24,19 +25,19 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
+    
     int* arr = new int[n];
-
+    
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
     }
-
+    
     int k;
     std::cout << "Enter the number of maximum elements to find: ";
     std::cin >> k;
-
-    std::vector<int> myVector(arr, arr+n);
-    delete[] arr; 
+    
+    std::vector<int> myVector (arr, arr+n);
+    assert(issame(std::vector<int>({0, 1, 2, 3}), maximum(myVector, k)));
     return 0;
 }
