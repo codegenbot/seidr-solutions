@@ -8,9 +8,14 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    prime_factors = set()
+    factors = []
     for i in range(2, a+1):
         while a % i == 0:
-            prime_factors.add(i)
+            factors.append(i)
             a //= i
-    return len(prime_factors) == 3
+    if len(factors) != 3:
+        return False
+    for factor in factors:
+        if not is_prime(factor):
+            return False
+    return True
