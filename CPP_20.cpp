@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <limits>
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
@@ -13,5 +14,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    return vector<float>(closest_pair.begin(), closest_pair.end());
+    return vector<float>({closest_pair.first, closest_pair.second});
 }
