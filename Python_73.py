@@ -6,13 +6,14 @@ def smallest_change(arr):
     
     while left < right:
         if arr[left] != arr[right]:
-            for i in range(left+1, right):
-                if arr[i] == arr[right]:
-                    arr[i], arr[left] = arr[left], arr[i]
-                    changes += 1
-                    break
+            changes += 1
+            mid = (left + right) // 2
+            if arr[mid] < arr[left]:
+                arr[left], arr[mid] = arr[mid], arr[left]
+            elif arr[mid] > arr[left]:
+                arr[left], arr[right] = arr[right], arr[left]
             else:
-                changes += 2
+                arr[left], arr[right] = arr[right], arr[left]
         left += 1
         right -= 1
     
