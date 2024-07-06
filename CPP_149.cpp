@@ -10,7 +10,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
             ++it;
         }
     }
-    
+
     sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
@@ -19,7 +19,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
                  return a < b;
              }
          });
-    
+
     return lst;
 }
 

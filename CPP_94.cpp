@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -13,15 +14,13 @@ int isPrime(int n) {
     return 1;
 }
 
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
+int skjkasdkd(const std::vector<int>& lst) {
     int largestPrime = -1, sum = 0;
 
     for (int num : lst) {
-        for (int digit : {num}) {
-            if (isPrime(digit)) {
-                if (digit > largestPrime)
-                    largestPrime = digit;
-            }
+        if (isPrime(num)) {
+            if (num > largestPrime)
+                largestPrime = num;
         }
     }
 
@@ -33,8 +32,16 @@ int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
     return sum;
 }
 
-int main_test(std::vector<int> lst) {
-    int sum = calculateSumOfDigitsLargestPrime(lst);
-    std::cout << "The sum of digits for the largest prime is: " << sum << std::endl;
+int main_test() {
+    std::vector<int> lst;
+    std::string input;
+    std::cout << "Enter the list of numbers (space separated): ";
+    getline(std::cin, input);
+    for (int i = 0; i < input.size(); i++) {
+        int num = std::stoi(input.substr(i));
+        lst.push_back(num);
+    }
+    
+    std::cout << "The sum of digits for the largest prime is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
