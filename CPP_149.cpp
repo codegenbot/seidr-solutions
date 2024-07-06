@@ -1,10 +1,10 @@
-```
-bool is_same(const string& a, const string& b) {
-    return a.length() % 2 == 1;
+bool issame(const string& a, const string& b) {
+    return a.length() % 2 == 0;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), is_same);
+    auto it = unique(lst.begin(), lst.end(), 
+                     [](const string& a, const string& b) { return !issame(a, b); });
     lst.erase(it, lst.end());
     
     sort(lst.begin(), lst.end(),
