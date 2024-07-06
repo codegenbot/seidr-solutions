@@ -1,7 +1,4 @@
-#include <vector>
-#include <string>
-
-std::string longest(std::vector<std::string> strings, int) {
+std::string longest(const std::vector<std::string>& strings) {
     std::string result = strings[0];
     for (const auto& str : strings) {
         if (str.length() > result.length()) {
