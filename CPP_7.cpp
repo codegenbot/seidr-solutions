@@ -20,3 +20,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b){
     }
     return true;
 }
+
+int main(){
+    assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+}
