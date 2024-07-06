@@ -1,2 +1,2 @@
-def check(f):
-    return f([1, 2, 3, 4, 5])
+def check(func):
+    print(func([-2, -3, -1, 0, 5]))
