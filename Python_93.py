@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```
 def encode(message):
     result = ""
     for char in message:
@@ -43,6 +46,19 @@ def encode(message):
                             result += char.swapcase().upper()
                         else:
                             result += char.swapcase()
-            elif not char.isalpha():  # Check if character is not alphabetical
+            elif char.isalnum():  # Check if the character is alphanumeric
+                if char.isupper():
+                    result += char
+                else:
+                    result += char
+            result += char
+        else:  # Add this block to check for non-alphanumeric characters
+            if char.isprintable():  # Check if the character is printable
                 result += char
-        return result
+            else:  # Handle non-printable characters (like spaces, punctuation)
+                if char.isupper():
+                    result += char.swapcase().upper()
+                else:
+                    result += char.swapcase()
+
+    return result
