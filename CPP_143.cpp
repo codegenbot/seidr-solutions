@@ -1,19 +1,9 @@
-#include <string>
+```cpp
 #include <iostream>
+#include <string>
+#include <cctype>
 
-std::string words_in_sentence(const std::string& sentence) {
-    std::string result = "";
-    for (int i = 0; i < sentence.size(); i++) {
-        if (i > 0) result += " ";
-        int len = 0;
-        for (int j = i; j < sentence.size() && isalpha(sentence[j]); j++) {
-            len++;
-            i = j;
-        }
-        if (isPrime(len)) result += sentence.substr(i, len);
-    }
-    return result;
-}
+using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -23,10 +13,31 @@ bool isPrime(int n) {
     return true;
 }
 
+string words_in_sentence(string sentence) {
+    string result = "";
+    int i = 0;
+    while(i < sentence.size()) {
+        if(!isalpha(sentence[i])) {
+            i++;
+            continue;
+        }
+        int j = i;
+        int len = 0;
+        while(j < sentence.size() && isalpha(sentence[j])) {
+            len++;
+            j++;
+        }
+        if(isPrime(len)) result += sentence.substr(i, len) + " ";
+        i = j;
+    }
+    return result;
+}
+
 int main() {
-    std::string input;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, input);
-    std::cout << words_in_sentence(input) << std::endl;
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    string output = words_in_sentence(input);
+    cout << "Result: " << output << endl;
     return 0;
 }
