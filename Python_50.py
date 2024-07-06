@@ -1,9 +1,8 @@
-import click
-
 
 @click.command()
-def decode_shift(message):
-    message = int(click.prompt("Enter the message to be decoded", default=""))
-    return "".join(
-        [chr((ord(ch) - shift - ord("a")) % 26 + ord("a")) for ch in message]
-    )
+def decode_shift(message, shift):
+    if not message:
+        print("Please enter a valid message.")
+        return
+    else:
+        return "".join([chr((ord(ch) - shift - ord("a")) % 26 + ord("a")) for ch in message])
