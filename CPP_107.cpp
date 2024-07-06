@@ -5,8 +5,7 @@ using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2);
-    int countEven = 0;
-    int countOdd = 0;
+    int countEven = 0, countOdd = 0;
 
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
