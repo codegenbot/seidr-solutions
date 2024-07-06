@@ -6,14 +6,14 @@ bool issame(std::vector<float> a, std::vector<float> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!(a[i] == b[i])) {
+        if (issame(std::vector<float>(1,a[i]), std::vector<float>(1,b[i])) == false) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
+std::vector<float> get_positive(std::vector<float> l, std::vector<float> v = {}) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
