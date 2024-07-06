@@ -1,22 +1,35 @@
+#include <algorithm>
 #include <string>
 using namespace std;
 
-string anti_shuffle(string s){
+string anti_shuffle(string s) {
     string result = "";
-    for (const auto& word : split(s, " ")) {
-        result += std::accumulate(word.begin(), word.end(),
-            string{}, [](string acc, char c) { return acc + c; }) + " ";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            result += s[i];
+        } else {
+            string word;
+            bool first = true;
+            for (int j = i; j < s.length() && s[j] != ' '; j++) {
+                if (!first) {
+                    word += s[j];
+                }
+                first = false;
+            }
+            string newWord;
+            for (char c : word) {
+                newWord += (c <= 'z' && c >= 'a') ? c : (c <= 'Z' && c >= 'A');
+            }
+            result += newWord;
+            i += word.length() - 1;
+        }
     }
-    return result.substr(0, result.size() - 1);
-}
+    return result;
 
-string split(const string& str, const string& delimiter) {
-    size_t pos = 0;
-    vector<string> tokens;
-    while ((pos = str.find(delimiter)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + delimiter.length());
-    }
-    tokens.push_back(str);
-    return string(tokens.begin(), tokens.end());
+int main(){
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    cout << anti_shuffle(input) << endl;
+    return 0;
 }
