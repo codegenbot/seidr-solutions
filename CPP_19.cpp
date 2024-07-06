@@ -1,34 +1,40 @@
+#include <iostream>
 #include <map>
-#include <string>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-std::map<std::string, int> numMap = {
+map<string, int> numberMap = {
     {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
     {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
     {"eight", 8}, {"nine", 9}
 };
 
-std::string sort_numbers(std::string numbers) {
-    std::vector<std::string> numVec;
-    std::string temp;
+string sort_numbers(string numbers) {
+    vector<string> numArray;
+    string temp;
 
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
-            numVec.push_back(temp);
+            numArray.push_back(temp);
             temp = "";
         } else {
             temp += numbers[i];
         }
     }
-    numVec.push_back(temp);
+    numArray.push_back(temp);
 
-    std::sort(numVec.begin(), numVec.end());
+    sort(numArray.begin(), numArray.end());
 
-    std::string result;
-    for (int i = 0; i < numVec.size(); i++) {
-        result += numVec[i] + " ";
+    string result;
+    for (string s : numArray) {
+        result += s + " ";
     }
 
     return result.substr(0, result.length() - 1);
+}
+
+int main() {
+    cout << sort_numbers("zero one two three four five six seven eight nine");
+    return 0;
 }
