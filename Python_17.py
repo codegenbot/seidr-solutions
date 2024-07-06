@@ -13,5 +13,5 @@ def parse_music(music_string: str) -> List[int]:
         elif note == ".|":
             result.append(1)
         else:
-            result.append(0)  # append 0 when no match
+            result.append(0)  
     return result
