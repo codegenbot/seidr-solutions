@@ -7,4 +7,4 @@ def luhn(digits):
             sum += (digit // 10 + digit % 10) - 9
         else:
             sum += digit // 10 + digit % 10
-    return sum
+    return (sum % 10) + (sum // 10) * 2
