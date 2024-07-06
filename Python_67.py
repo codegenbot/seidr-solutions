@@ -1,10 +1,10 @@
 ```
 def fruit_distribution(fruits, amount):
-    distribution = {}
+    fruit_dict = {}
     for fruit in fruits.split(','):
-        if fruit not in distribution:
-            distribution[fruit] = 0
-        distribution[fruit] += 1 / amount
-    return distribution
+        if fruit.strip() not in fruit_dict:
+            fruit_dict[fruit.strip()] = 0
+        fruit_dict[fruit.strip()] += 1
+    return {k: v / amount * 100 for k, v in fruit_dict.items()}
 
-print(fruit_distribution(input("Enter the list of fruits: "), int(input("Enter the amount: "))))
+print(f"{fruit_distribution(input('Enter the list of fruits: '), int(input('Enter the amount: ')))}")
