@@ -1,4 +1,3 @@
-
 def prime_fib(n: int):
     if n < 10:
         return 0
