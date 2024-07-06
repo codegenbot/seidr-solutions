@@ -1,7 +1,5 @@
-Here is the completed code:
+Here is the completed function:
 
 int multiply(int a, int b) {
-    int unit_digit_a = a % 10;
-    int unit_digit_b = b % 10;
-    return unit_digit_a * unit_digit_b;
+    return (a % 10) * (b % 10);
 }
