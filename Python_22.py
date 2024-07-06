@@ -1,5 +1,5 @@
-from typing import List
-
+```
+from typing import List, Any
 
 def filter_integers(values: Any) -> List[int]:
     if not isinstance(values, list):
