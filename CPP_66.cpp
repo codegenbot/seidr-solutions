@@ -1,8 +1,11 @@
-int digitSum(string s) {
+#include <string>
+#include <cctype>
+
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        if (isupper(c)) {
-            sum += static_cast<int>(c);
+        if (std::isupper(c)) {
+            sum += tolower(c) - 'a' + 1;
         }
     }
     return sum;
