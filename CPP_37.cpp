@@ -19,7 +19,7 @@ vector<float> sort_even(vector<float> l) {
                     evenVals.push_back(l[j]);
                 }
             }
-            sort(evenVals.begin(), evenVals.end());
+            sort(evenVals.begin(), evenEvenVals.end());
             result[i] = evenVals[0];
         } else {
             result[i] = l[i];
