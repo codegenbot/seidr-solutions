@@ -1,43 +1,12 @@
-#include <vector>
-#include <string>
-#include <sstream>
-#include <cctype>
-
-std::vector<std::string> select_words(const std::string& str, int num) {
-    std::vector<std::string> words;
-    std::stringstream s(str);
-    std::string word;
-
-    for(int i=0; i<num && s >> word; ++i)
-        words.push_back(word);
-
-    return words;
-}
-
-bool same_chars(char ch1, char ch2) {
-    if (std::isalpha(ch1) && std::isalpha(ch2)) {
-        return std::tolower(ch1) == std::tolower(ch2);
-    } else {
-        return false;
-    }
-}
-
-bool are_words_the_same(std::vector<std::string> a, std::vector<std::string> b) {
+```cpp
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!same_chars(a[i][0], b[i][0])) {
+        if (!is_same(a[i][0], b[i][0])) {
             return false;
         }
-        bool same_word = true;
-        for(int j=1; j<a[i].size() && j<b[i].size(); ++j) {
-            if (!same_chars(a[i][j], b[i][j])) {
-                same_word = false;
-                break;
-            }
-        }
-        if (!same_word) return false;
     }
     return true;
 }
