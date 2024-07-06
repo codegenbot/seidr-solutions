@@ -1,7 +1,8 @@
 def indices_of_substring(text, target):
-    # Pattern matching to find all occurrences of the target in the text
     pattern = r"(?=(%s))" % re.escape(target)
-    matches = [match.start() for match in re.finditer(pattern, text)]
+    return [match.start() for match in re.finditer(pattern, text)]
 
-    # Return a list of indices at which the target appears in the text
-    return matches
+text = input("Enter a text string: ")
+target = input("Enter a target string: ")
+indices = indices_of_substring(text, target)
+print(f"The indices of '{target}' in '{text}' are: {indices}")
