@@ -5,8 +5,6 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char hash[16];
-    unsigned char* p = hash;
-
     MD5_CTX ctx;
     MD5_Init(&ctx);
     const char* str = text.c_str();
