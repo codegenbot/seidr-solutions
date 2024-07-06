@@ -1,5 +1,8 @@
+#include <iostream>
+#include <sstream>
 #include <string>
-int is_bored(std::string S){ 
+
+int is_bored(std::string S){
     int count = 0;
     std::istringstream iss(S);
     std::string word;

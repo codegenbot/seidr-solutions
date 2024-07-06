@@ -1,11 +1,10 @@
-```cpp
-#include <iostream>
 #include <string>
 #include <cctype>
+#include <iostream>
 
 int count_upper(std::string s) {
     int count = 0;
-    for (int i = 1; i < s.length(); i += 2) {
+    for (int i = 0; i < s.length(); i++) {
         if (std::isupper(s[i])) {
             count++;
         }
@@ -14,6 +13,6 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    //std::cout << count_upper("ABCDE") << std::endl;
+    std::cout << count_upper("ABCDE") << std::endl;
     return 0;
 }
