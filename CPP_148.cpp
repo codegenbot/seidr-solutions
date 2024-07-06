@@ -32,12 +32,17 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
     for (int i = 0; i < planets.size(); i++) {
         if (i >= start && i <= end) {
+            bool added = false;
             for (int j = start; j < i; j++) {
                 if (!result.empty()) {
                     break;
                 }
+                result.push_back(planets[j]);
+                added = true;
             }
-            result.push_back(planets[i]);
+            if (!added) {
+                result.push_back(planets[i]);
+            }
         }
     }
 

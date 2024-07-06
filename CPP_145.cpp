@@ -1,7 +1,8 @@
 #include <algorithm>
 #include <vector>
+#include <string>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a, vector<int> b) {
     int sumA = 0, sumB = 0;
     for (int x : a) sumA += x;
     for (int x : b) sumB += x;
