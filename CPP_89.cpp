@@ -6,7 +6,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::string input;
     std::cin >> input; 
-    
+    // Then use this encrypt function:
     std::string encrypt(std::string s) {  
         std::string result = "";  
         for(int i=0; i<s.length(); i++){
@@ -21,6 +21,7 @@ int main() {
         return result;
     }
 
+    // Now you can call this function:
     std::string encrypted = encrypt(input);
     std::cout << "Encrypted: " << encrypted << std::endl;
 }
