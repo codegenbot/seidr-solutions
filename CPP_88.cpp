@@ -22,7 +22,7 @@ int main() {
     for (auto &i : array) {
         std::cout << "Enter element " << ++i << ": ";
         if (!(std::cin >> i)) {
-            std::cerr << "Invalid input. Please enter a valid integer." << std::endl;
+            std::cerr << "Invalid input. Please try again." << std::endl;
             return 1;
         }
     }
