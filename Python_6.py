@@ -3,9 +3,11 @@ import re
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
+    if not paren_string:
+        return []
     result = []
     for group in re.split(r'\(([^()]+)\)|\)', paren_string):
-        if not group or group == '':
+        if not group:
             continue
         depth = 0
         nested_depth = 0
