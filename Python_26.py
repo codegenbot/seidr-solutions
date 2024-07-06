@@ -1,10 +1,8 @@
-```python
-def remove_duplicates():
-    """
-    This function removes duplicate numbers from user's input.
-    
-    Returns:
-        list: A list of unique integers entered by the user.
-    """
-    numbers = input("Enter comma-separated numbers: ")
-    return list(set(map(int, numbers.split(","))))
+from collections import OrderedDict
+
+def remove_duplicates(input_str=None):
+    if input_str is None:
+        numbers = input("Enter comma-separated numbers: ")
+    else:
+        numbers = ",".join(map(str, input_str))
+    return list(OrderedDict.fromkeys(map(int, numbers.split(","))))
