@@ -1,4 +1,3 @@
-
 def encode(message):
     vowels = {
         "a": "A",
