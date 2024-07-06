@@ -1,8 +1,9 @@
 Here is the completed code:
 
+```cpp
 bool any_int(float a, float b, float c) {
-    if (abs(a - (b + c)) < 1e-9) {
-        return true;
-    }
-    return false;
+    int ai = a;
+    int bi = b;
+    int ci = c;
+    return (ai == bi + ci) || (bi == ai + ci) || (ci == ai + bi);
 }
