@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -11,11 +12,8 @@ long long double_the_difference(vector<float> lst) {
         }
     }
     return sum;
-}
 
-int main() {
-    vector<float> lst = {};
-    long long odd_sum = double_the_difference(lst);
-    long long(odd_sum == 0);
-    return 0;
 }
+std::vector<float> lst = {}; // declare an empty list
+long long odd_sum = double_the_difference(lst);
+assert(odd_sum == 0);
