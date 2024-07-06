@@ -1,29 +1,47 @@
+```cpp
 #include <boost/any.hpp>
-#include <boost/any_cast.hpp>
 #include <string>
 
-bool compare_one(boost::any &a, boost::any &b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return get<int>(a) > get<int>(b);
+        if (get<int>(a) > get<int>(b))
+            return a;
+        else if (get<int>(a) < get<int>(b))
+            return b;
+        else
+            return boost::any("None");
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return get<float>(a) > get<float>(b);
+        if (get<float>(a) > get<float>(b))
+            return a;
+        else if (get<float>(a) < get<float>(b))
+            return b;
+        else
+            return boost::any("None");
     } else if ((a.type() == typeid(string) && b.type() == typeid(int)) || 
                (a.type() == typeid(int) && b.type() == typeid(string))) {
-        return get<string>(a).compare(to_string(get<int>(b))) > 0;
+        if (get<string>(a).compare(to_string(get<int>(b))) > 0)
+            return a;
+        else if (get<string>(a).compare(to_string(get<int>(b))) < 0)
+            return b;
+        else
+            return boost::any("None");
     } else if ((a.type() == typeid(string) && b.type() == typeid(float)) || 
                (a.type() == typeid(float) && b.type() == typeid(string))) {
-        return get<string>(a).compare(to_string(get<float>(b))) > 0;
+        string strB = to_string(get<float>(b));
+        if (get<string>(a).compare(strB) > 0)
+            return a;
+        else if (get<string>(a).compare(strB) < 0)
+            return b;
+        else
+            return boost::any("None");
     } else {
-        return false;
-    }
-}
-
-boost::any largest(boost::any &a, boost::any &b) {
-    if (compare_one(a, b)) {
-        return a;
-    } else if (!compare_one(b, a)) {
-        return b;
-    } else {
-        return boost::any("None");
+        string strA = to_string(get<int>(a));
+        string strB = to_string(get<float>(b));
+        if (strA.compare(strB) > 0)
+            return a;
+        else if (strA.compare(strB) < 0)
+            return b;
+        else
+            return boost::any("None");
     }
 }
