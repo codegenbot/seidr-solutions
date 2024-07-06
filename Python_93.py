@@ -14,7 +14,10 @@ def encode(message):
                 elif char.lower() == 'u':
                     result += 'y'
             else:
-                result += char.swapcase()
+                if char.isupper():
+                    result += char.lower()
+                else:
+                    result += char.upper()
         else:
             result += char
     return result
