@@ -1,3 +1,4 @@
+Here is the solution:
 ```
 def below_zero(operations: List[int]) -> bool:
     balance = 0
