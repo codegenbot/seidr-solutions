@@ -1,24 +1,17 @@
-#include <string>
-#include <map>
-
 vector<string> by_length(vector<int> arr) {
-    vector<int> sorted;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sorted.push_back(num);
-        }
+    vector<int> numVec;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            numVec.push_back(i);
     }
-
-    sort(sorted.begin(), sorted.end());
-    reverse(sorted.begin(), sorted.end());
-
+    sort(numVec.begin(), numVec.end());
+    reverse(numVec.begin(), numVec.end());
     vector<string> result;
-    map<int, string> numberName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"},
-                                    {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-
-    for (int num : sorted) {
-        result.push_back(numberName[num]);
+    map<int, string> numberNames = {{1, "One"}, {2, "Two"}, {3, "Three"},
+                                      {4, "Four"}, {5, "Five"}, {6, "Six"},
+                                      {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    for (int i : numVec) {
+        result.push_back(numberNames[i]);
     }
-
     return result;
 }
