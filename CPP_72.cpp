@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
