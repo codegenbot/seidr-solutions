@@ -16,9 +16,15 @@ std::string words_in_sentence(std::string sentence){
 std::vector<std::string> split(const std::string& str, char c) {
     std::vector<std::string> tokens;
     size_t pos = 0;
-    while ((pos = str.find(c)) != std::string::npos) {
+    if (!str.empty()) {
+        pos = str.find(c);
+    }
+    while (pos != std::string::npos) {
         tokens.push_back(str.substr(0, pos));
-        str = str.substr(pos + 1);
+        str.erase(0, pos + 1);
+        if (!str.empty()) {
+            pos = str.find(c);
+        }
     }
     tokens.push_back(str);
     return tokens;
