@@ -1,9 +1,12 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool std::equal(const std::vector<std::string>::const_iterator a_begin,
+                const std::vector<std::string>::const_iterator a_end,
+                const std::vector<std::string>::const_iterator b) {
+    return a_end == std::unique_copy(a_begin, a_end, b, [](std::string s1, std::string s2){return s1==s2;});
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
