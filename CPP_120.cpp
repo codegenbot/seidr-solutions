@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a,std::vector<int> b){
+bool issame(vector<int> a,vector<int> b){
     return a == b;
 }
 
@@ -14,6 +13,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {});
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {}));
     return 0;
 }
