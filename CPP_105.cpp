@@ -1,7 +1,5 @@
-```cpp
 #include <string>
 #include <vector>
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -22,7 +20,7 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
     for (string num : numbers) {
-        switch(stoi(num)) {
+        switch (stoi(num)) {
             case 1:
                 result.push_back("One");
                 break;
