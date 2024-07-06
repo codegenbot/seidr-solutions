@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     if(a.size()!=b.size())
         return false;
     for(int i=0; i<a.size();i++)
@@ -19,7 +20,6 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    vector<string> expected = {"W", "WW", "WWW"};
-    assert (issame(all_prefixes("WWW"), expected));
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
