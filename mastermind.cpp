@@ -6,23 +6,18 @@ int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
 
-    while (getline(cin, code)) { // read entire line of input into "code"
-        getline(cin, guess); // read entire line of input into "guess"
+    while (getline(cin, code)) {
+        getline(cin, guess);
 
-        for (int i = 0; i < code.length(); i++) { // iterate through characters of "code" and "guess"
-            if (code[i] == guess[i]) { // if characters match, increment blackPegs
+        for (int i = 0; i < code.length(); i++) {
+            if (code[i] == guess[i]) {
                 blackPegs++;
-            } else {
-                if (code.find(guess[i]) != string::npos) { // if character in "code" is found in "guess", increment whitePegs
-                    whitePegs++;
-                }
+            } else if (code.find(guess[i]) != string::npos && !whitePegs) { // added check to make sure the guessed character is not already used as a white peg
+                whitePegs++;
             }
         }
 
-        cout << whitePegs << " " << blackPegs << endl; // print results
-
-        whitePegs = 0; // reset whitePegs for next iteration
-        blackPegs = 0; // reset blackPegs for next iteration
+        cout << whitePegs << " " << blackPegs << endl;
     }
 
     return 0;
