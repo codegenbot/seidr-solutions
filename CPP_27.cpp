@@ -1,9 +1,13 @@
+````
 #include <string>
 #include <cctype>
 
 std::string flip_case(std::string str);
 
 std::string flip_case(std::string str){
+    if(str.empty()){
+        throw runtime_error("Error: Input string is empty!");
+    }
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z')
@@ -15,6 +19,5 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    std::cout << "Error: Please enter a valid string.\n";
-    return 0;
 }
+```
