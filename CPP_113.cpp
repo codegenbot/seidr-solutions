@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,7 +18,7 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
         int count = 0;
         string tempStr;
         for (int j = 0; j < lst[i].length(); j++) {
-            if (std::stoi(string(1, lst[i][j])) % 2 != 0) {
+            if (std::stoi(std::string(1, lst[i][j])) % 2 != 0) {
                 count++;
             }
         }
