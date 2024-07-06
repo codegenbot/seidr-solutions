@@ -1,3 +1,5 @@
+Here's the modified code:
+
 def encode(text, table):
     result = ""
     shifts = [int(x) for x in table.split()]
