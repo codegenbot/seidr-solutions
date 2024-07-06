@@ -4,6 +4,6 @@ def shopping_list():
     try:
         prices = [float(price) for price in prices]
         discounts = [float(discount) / 100 for discount in discounts]
-        return round(np.sum(prices * (1 - discounts)), 2)
+        return np.sum(prices * (1 - discounts))
     except ValueError:
         print("Invalid input! Please enter valid numbers.")
