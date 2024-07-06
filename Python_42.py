@@ -1,4 +1,3 @@
-```
 def incr_list():
     result = []
     while True:
@@ -28,6 +27,7 @@ def incr_list():
         if cont.lower() == 'n':
             return sum(result)
         elif cont.lower() == 'y':
+            result.clear()
             return incr_list()
         else:
             cont = input("Invalid input. Please enter y or n: ")
