@@ -6,7 +6,8 @@ if __name__ == "__main__":
     else:
         while True:
             substring = input("Enter a substring to search: ")
-            if not substring:
-                break
             result = filter_by_substring(strings, substring)
             print(result)
+            response = input("Search again? (y/n): ")
+            if response.lower() != 'y':
+                break
