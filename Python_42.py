@@ -1,3 +1,2 @@
-```
-def incr_list(l: list):
-    return [i+1 for i in l]
+def incr_list(lst):
+    return [i + 1 for i in lst]
