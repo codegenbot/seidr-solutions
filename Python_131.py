@@ -1,2 +1,4 @@
 def digits(n):
-    return max([int(digit) for digit in str(n)])
+    if not isinstance(n, int):
+        return 0
+    return str(max(int(digit) for digit in str(n)))

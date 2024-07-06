@@ -5,8 +5,5 @@ def double_the_difference(list):
     return 2 * diff
 
 
-# Prompt user for input
-lst = [int(x) for x in input("Enter numbers separated by spaces: ").split()]
-
-# Call function with input
-print(double_the_difference(lst))
+# call the function with a list of four integers as input
+print(double_the_difference([1, 2, 3, 4]))
