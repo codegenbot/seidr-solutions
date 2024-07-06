@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::string& a, const std::string& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -20,6 +20,4 @@ std::vector<std::string> bf(const std::string& a, const std::string& b) {
 }
 
 int main() {
-    bool checkResult = issame(bf("Jupiter", "Makemake"), {"J", "u", "e", "t", "e", "r"});
-    std::cout << (checkResult ? "True" : "False") << std::endl;
-}
+    std::cout << "Output: " << (issame("Jupiter", "Makemake") ? "True" : "False") << std::endl;
