@@ -1,3 +1,4 @@
+
 def gcd(a, b):
     indices = []
     while b != 0 or a_mod != 0:
