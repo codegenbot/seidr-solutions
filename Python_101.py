@@ -1,6 +1,6 @@
-def words_string(s):
-    inp = sys.stdin.readline()
-    words = re.split(r"\s+", inp)
+def words_string():
+    inp = input("Enter a string: ")
+    words = inp.split()
     if len(words) == 1:
         return "The string contains one word."
     else:
