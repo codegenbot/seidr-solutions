@@ -1,21 +1,4 @@
-```
-from typing import List
-import math
-
-
-def factorize():
-    while True:
-        try:
-            n = int(input("Enter a number: "))
-            if n < 2:
-                print(
-                    "Invalid input. Please enter an integer greater than or equal to 2."
-                )
-                continue
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-
+def factorize(n):
     factors = []
     i = 2
     while i * i <= n:
@@ -61,18 +44,4 @@ def factorize():
         else:
             print(factorized_factors)
 
-        print("")  # added this line
-
         again = input("Do you want to factorize another number? (yes/no): ")
-
-
-while True:
-    try:
-        input("Press Enter when ready: ")
-        factorize()
-        break
-    except (EOFError, KeyboardInterrupt):
-        print("Program terminated.")
-        exit()
-    except:
-        print("Please provide a valid integer.")
