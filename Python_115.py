@@ -1,3 +1,4 @@
+
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
@@ -17,7 +18,7 @@ def max_fill(grid, capacity):
                     water[i][j] += 1
                     count += 1
                     can_fill = True
-        if not can_fill or sum(sum(row) for row in grid) == 0:
+        if not can_fill or count >= rows * cols:
             break
 
     return count
