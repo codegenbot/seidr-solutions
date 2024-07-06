@@ -1,10 +1,10 @@
 import re
 
 
-def words_string(s):
-    inp = sys.stdin.readline()
+def words_string(input_string):
+    inp = input_string.strip()
     words = re.split(r"\s+", inp)
     if len(words) == 1:
-        return ["The string contains one word."]
+        return "The string contains one word."
     else:
-        return [f"The string contains {len(words)} words."]
+        return f"The string contains {len(words)} words."
