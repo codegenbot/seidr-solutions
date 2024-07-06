@@ -1,13 +1,15 @@
-#include <iostream>
-#include <string>
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
 
 int main() {
     string file_name;
-    std::cout << "Enter a file name: ";
-    std::getline(std::cin, file_name);
+    cout << "Enter a file name: ";
+    cin >> file_name;
     
-    std::cout << file_name_check(file_name) << std::endl;
-
+    cout << "Is the file name correct? " << file_name_check(file_name) << endl;
+    
     return 0;
 }
 
