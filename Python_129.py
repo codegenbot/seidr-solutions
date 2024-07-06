@@ -21,29 +21,3 @@ def minPath(grid, k):
                 queue.append((neighbor, length + 1))
 
     return min_path
-
-
-def get_neighbors(grid, cell):
-    # Get the row and column of the current cell
-    row, col = cell
-
-    # Initialize a list to store the neighboring cells
-    neighbors = []
-
-    # Check if the cell is on the edge of the grid
-    if row == 0 or col == 0:
-        # If the cell is on the edge of the grid, add its adjacent cells to the list of neighbors
-        for i in range(1, k):
-            if row + i < len(grid) and col + i < len(grid[row]):
-                neighbors.append((row + i, col + i))
-            if row - i >= 0 and col - i >= 0:
-                neighbors.append((row - i, col - i))
-        return neighbors
-    else:
-        # If the cell is not on the edge of the grid, add its adjacent cells to the list of neighbors
-        for i in range(1, k):
-            if row + i < len(grid) and col + i < len(grid[row]):
-                neighbors.append((row + i, col + i))
-            if row - i >= 0 and col - i >= 0:
-                neighbors.append((row - i, col - i))
-        return neighbors
