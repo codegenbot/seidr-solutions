@@ -1,3 +1,3 @@
+```
 def solve(N):
-    binary = str(bin(N)[2:]).replace("1", "a").replace("0", "b")
-    return binary.count("a") * "a" + binary.count("b") * "b"
+    return bin(sum(int(digit) for digit in str(bin(N)[2:]).replace('0', '').replace('1', '')))[2:]
