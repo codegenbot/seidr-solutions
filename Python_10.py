@@ -3,5 +3,6 @@ def make_palindrome(string: str) -> str:
         return string + string
     postfix = ""
     for char in string:
-        postfix += char
-    return string + postfix
+        postfix = char + postfix
+    reversed_string = string[::-1]
+    return string + postfix + postfix if postfix != "" else reversed_string
