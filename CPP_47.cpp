@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,7 +13,7 @@ float median(std::vector<float> numbers) {
     else
         return numbers[numbers.size()/2];
 
-{ int n; 
+{ int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
