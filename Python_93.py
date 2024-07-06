@@ -1,5 +1,4 @@
-```python
-def encode(message):
+```def encode(message):    
     result = ""
     for char in message:
         if char.isalpha():
@@ -9,4 +8,4 @@ def encode(message):
                 result += char.swapcase()
         else:
             result += char
-    return result
+    return result```
