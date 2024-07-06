@@ -1,30 +1,31 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
-using namespace std;
+#include <string>
 
-string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+    bool isPossible = false;
     for (int num : lst1) {
-        if (num % 2 != 0)
-            oddCount++;
-    }
-    for (int i = 0; i < lst2.size(); i++) {
-        if (lst2[i] % 2 != 0 && oddCount > 0) {
-            lst1.push_back(lst2[i]);
-            lst2.erase(lst2.begin() + i);
-            i--;
-            oddCount--;
+        if (num % 2 != 0) {
+            int found = false;
+            for (int otherNum : lst2) {
+                if (otherNum == num) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                return "NO";
+            } else {
+                isPossible = true;
+            }
         }
     }
-    return std::to_string(oddCount == 0 ? 1 : 0);
+    return isPossible ? "YES" : "NO";
 }
 
 int main() {
-    vector<int> lst1 = {1, 3, 5};
-    vector<int> lst2 = {4, 6, 8, 10};
-    string result = exchange(lst1, lst2);
-    cout << "The output is: " << result << endl;
+    std::vector<int> lst1 = {100, 200};
+    std::vector<int> lst2 = {200, 200};
+    assert(exchange(lst1, lst2) == "YES");
     return 0;
 }
