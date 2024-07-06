@@ -8,7 +8,7 @@ bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>
     for (int i = 0; i < vec1.size(); ++i) {
         bool found = false;
         for (const auto& str : vec2) {
-            if (issame({str}, {vec1[i]}) && !found) {
+            if (issame({vec1[i]}, {str})) {
                 found = true;
                 break;
             }
@@ -20,19 +20,9 @@ bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>
     return true;
 }
 
-bool compare(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size()) {
-        return false;
-    }
-    for (int i = 0; i < vec1.size(); ++i) {
-        bool found = false;
-        for (const auto& str : vec2) {
-            if (issame({str}, {vec1[i]}) && !found) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+bool issame(const std::vector<std::string>& vec1, const std::string& s2) {
+    for (const auto& str : vec1) {
+        if (str != s2) {
             return false;
         }
     }
@@ -42,7 +32,7 @@ bool compare(const std::vector<std::string>& vec1, const std::vector<std::string
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
     for (const auto& str : lst) {
-        if (str.length() % 2 == 0 || issame({str}, {{"sum"}})) {
+        if (str.length() % 2 == 0 || issame({str}, {"sum"})) {
             result.push_back(str);
         }
     }
@@ -51,6 +41,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(std::equal(sorted_list_sum({{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}}), {{"aaaa"}, {"bbbb"}, {"cc"}, "dd"}));
+    assert(std::equal(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
