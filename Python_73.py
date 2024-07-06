@@ -1,5 +1,12 @@
 def smallest_change(arr):
     n = len(arr)
-    arr = [str(i) for i in arr]
-    rev_str = ''.join(arr)[::-1]
-    return sum(el1 != el2 for el1, el2 in zip(arr, rev_str))
+    arr = [str(x) for x in arr]
+    original_str = ''.join(arr)
+    reverse_str = original_str[::-1]
+    
+    count = 0
+    for i in range(n):
+        if arr[i] != reverse_str[i]:
+            count += 1
+
+    return count
