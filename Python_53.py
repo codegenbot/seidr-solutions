@@ -1,5 +1,3 @@
 
-def add(x: int, y: int):
+def add(x: int, y: int, data: list):
     return x + y
-
-add(1, 2)
