@@ -1,3 +1,4 @@
+def luhn(digits):
     digits = [int(digit) for digit in digits]
     sum = 0
     for i in range(0, 16, 2):
