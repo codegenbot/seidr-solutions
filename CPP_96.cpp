@@ -1,5 +1,8 @@
-vector<int> count_up_to(int n) {
-    vector<int> primes;
+#include <vector>
+#include <cassert>
+
+std::vector<int> count_up_to(int n) {
+    std::vector<int> primes;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
         if(i == 2)
@@ -19,6 +22,6 @@ vector<int> count_up_to(int n) {
     return primes;
 }
 
-bool operator==(const vector<int>& a, const vector<int>& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+bool isEqual(vector<int> a, vector<int> b) {
+    return a == b;
 }
