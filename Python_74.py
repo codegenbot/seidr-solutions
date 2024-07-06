@@ -1,7 +1,7 @@
 ```
 def total_match(lst1, lst2):
-    sum_chars_lst1 = sum(len(item) for item in lst1)
-    sum_chars_lst2 = sum(len(item) for item in lst2)
+    sum_chars_lst1 = sum(len(i) for i in lst1)
+    sum_chars_lst2 = sum(len(i) for i in lst2)
     
     if sum_chars_lst1 < sum_chars_lst2:
         return lst1
