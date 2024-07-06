@@ -1,6 +1,4 @@
-````
 def encode(message):
-    """Complete this function"""
     result = ""
     for char in message:
         if char.isalpha():
@@ -11,4 +9,3 @@ def encode(message):
         else:
             result += char
     return result
-```
