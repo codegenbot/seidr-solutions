@@ -1,15 +1,25 @@
-```cpp
-bool is_palindrome(string text) {
-    int start = 0;
-    int end = text.length() - 1;
+#include <iostream>
+#include <string>
 
-    while (start < end) {
-        if (tolower(text[start]) != tolower(text[end])) {
+bool is_palindrome(const std::string& text) {
+    int len = text.length();
+    for (int i = 0; i <= len / 2; i++) {
+        if (text[i] != text[len - i - 1])
             return false;
-        }
-        start++;
-        end--;
     }
-
     return true;
+
+}
+
+int main() {
+    assert(is_palindrome("xywzx") == false);
+    std::string text;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, text);
+    if (is_palindrome(text))
+        std::cout << "The entered string is a palindrome." << std::endl;
+    else
+        std::cout << "The entered string is not a palindrome." << std::endl;
+    
+    return 0;
 }
