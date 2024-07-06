@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string encrypt(std::string s){
