@@ -1,5 +1,11 @@
 def check(func, *args):
-    if func(1) == func(-1):
-        print("Output will be the same")
+    if func is None:
+        return "None"
+    elif not callable(func):
+        return "Not a function"
     else:
-        print("Output will not be the same")
+        try:
+            result = func(*args)
+            return result
+        except Exception as e:
+            return str(e)
