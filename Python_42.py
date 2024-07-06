@@ -1,3 +1,4 @@
+```
 def incr_list(lst):
     result = []
     while True:
@@ -10,7 +11,11 @@ def incr_list(lst):
                 break
         except ValueError:
             print("Invalid input. Please enter an integer.")
+    while True:
         cont = input("Do you want to continue? (y/n): ")
-        while cont.lower() != 'y' and cont.lower() != 'n':
-            cont = input("Invalid choice. Please enter y or n: ")
-    return result
+        if cont.lower() == 'y':
+            return result
+        elif cont.lower() == 'n':
+            return result
+        else:
+            print("Invalid choice. Please enter y or n: ")

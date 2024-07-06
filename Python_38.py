@@ -2,13 +2,24 @@
 def decode_cyclic():
     s = input("Enter a cyclic string: ")
     if not isinstance(s, str):
-        return
+        return "Invalid input. Please provide a string."
     result = ""
-    length = len(s)
     i = 0
     while i < len(s):
         result += s[i]
-        i = (i + 1) % length 
+        i += 1
+    n = len(result)
+    for r in range(2, n + 1):
+        if n % r != 0:
+            continue
+        period = result[:r]
+        temp = ""
+        for j in range(r):
+            temp += result[j]
+        while len(temp) >= len(period):
+            if temp == period * (len(result) // len(period)):
+                return temp
+            temp = temp[1:] + temp[0]
     return result
 
 print(decode_cyclic())

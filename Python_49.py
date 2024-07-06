@@ -1,36 +1,26 @@
-import random
-
+```
+def miller_rabin(n: int):
+    if n < 2:
+        return True
+    for p in [2, 3, 5]:
+        if pow(p, n - 1, n) != 1:
+            return False
+    r = (n - 1).bit_length()
+    p = 2 ** (r - 1)
+    while p < n:
+        if pow(p, n - 1, n) != 1:
+            return False
+        p *= 2
+    return True
 
 def modp(n: int, p: int):
-    if n < 2:
-        return n
     if p < 2:
         return n
     if p == 2 or n % p == 0:
         return n % p
-
-    def isWitness(a, n, p):
-        if pow(a, (p - 1) // 2, p) == 1:
-            return False
-        for _ in range(3):
-            if pow(a, 2 ** (_ - 1), p) != 1 and pow(a, 2**_, p) != n:
-                return True
-        return False
-
-    def millerRabin(n, k=5):
-        if n < 2:
-            return True
-        if n % 2 == 0:
-            return False
-
-        for i in range(k):
-            a = random.randint(2, n - 1)
-            if isWitness(a, n, p) and pow(a, (n - 1), n) != n:
-                return False
-        return True
-
-    if not millerRabin(p):
-        return None
-    if n < p:
+    if not miller_rabin(p):
         return n % p
-    return pow(n, p - 2, p)
+    for i in range(2, int(p**0.5) + 1):
+        if pow(n, i, p) != n and pow(i, (p - 1), p) != 1:
+            return n % p
+    return pow(n * pow(n, p-1, p), -1, p) * n % p
