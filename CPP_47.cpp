@@ -1,17 +1,17 @@
-```cpp
-#include <cmath>
+#include <cassert>
 #include <vector>
 
-float median(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    int n = numbers.size();
-    if(n%2==0)
-        return (numbers[n/2-1]+numbers[n/2])/2.0;
+float median(std::vector<float> arr) {
+    size_t n = arr.size();
+    std::sort(arr.begin(), arr.end());
+    if (n % 2 == 0)
+        return (arr[n/2 - 1] + arr[n/2]) / 2;
     else
-        return numbers[n/2];
+        return arr[n/2];
 }
 
 int main() {
-    assert(abs(median({8, 1, 3, 9, 9, 2, 7}) - 5) < 1e-4);
+    std::vector<float> arr = {8, 1, 3, 9, 9, 2, 7};
+    assert(std::abs(median(arr) - 5) < 1e-4);
     return 0;
 }
