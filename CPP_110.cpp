@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -8,5 +9,5 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
             oddCount++;
         }
     }
-    return oddCount > (lst1.size() + lst2.size()) / 2 ? "NO" : "YES";
+    return oddCount == 0 ? "YES" : "NO";
 }
