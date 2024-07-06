@@ -1,5 +1,6 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
+
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; 
     vector<int> sorted = lst;
