@@ -15,8 +15,7 @@ int is_bored(std::string S){
 }
 
 int main(){
-    std::string input_string = "Input this string for I-words";
-    int bored_count = is_bored(input_string); 
-    std::cout << "Number of I-word: " << bored_count << std::endl;
+    int bored_count = is_bored("I am feeling very boring I"); 
+    std::cout << "Number of I-word: " << bored_count << "\n";
     return 0;
 }
