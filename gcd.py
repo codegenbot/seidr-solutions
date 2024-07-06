@@ -1,4 +1,3 @@
-
 def gcd(a, b):
     if a > 2**31 - 1 or b > 2**31 - 1:
         q = (a // b) * (b // a)
@@ -12,10 +11,8 @@ def gcd(a, b):
                 break
             b = b - (a_mod // b) * b
     return b
-
 def divmod(a, b):
     q = (a // b)
     r = a - q * b
     return q, r
-
 print(gcd(893320, 978960)) # prints 40
