@@ -1,16 +1,9 @@
-Here is the completed code:
-
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None
+    if (lst.empty()) return -1; // or any value that is considered "None" in your language
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    int res = sorted[1];
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] == res) {
-            if (i >= 2) return res;
-            if (i == 1) continue;
-            else return sorted[1]; // Return the next smallest
-        }
+    for (int i = 0; i < (int)sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i+1]) return sorted[i+1];
     }
-    return -1; // Return None
+    return -1; // or any value that is considered "None" in your language
 }
