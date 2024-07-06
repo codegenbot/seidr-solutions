@@ -3,27 +3,31 @@
 #include <cmath>
 #include <iostream>
 
+bool isPrime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+}
+
 int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxPrime = -1;
-    for (int i : lst) {
-        bool isPrime = true;
-        if (i <= 1)
-            isPrime = false;
-        else
-            for (int j = 2; j * j <= i; j++) {
-                if (i % j == 0)
-                    isPrime = false;
-                    break;
+    int maxPrime = -1, sum = 0;
+    for (auto num : lst) {
+        if (isPrime(num)) {
+            if (num > maxPrime)
+                maxPrime = num;
+            int digitSum = 0;
+            while (num > 0) {
+                digitSum += num % 10;
+                num /= 10;
             }
-        if (isPrime && i > maxPrime)
-            maxPrime = i;
+            sum = std::max(sum, digitSum);
+        }
     }
-    int sumOfDigits = 0;
-    while (maxPrime) {
-        sumOfDigits += maxPrime % 10;
-        maxPrime /= 10;
-    }
-    return sumOfDigits;
+    return sum;
 }
 
 int main_test() {
