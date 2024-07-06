@@ -1,18 +1,30 @@
-def shopping_list(prices, discounts):
+def shopping_list():
+    prices = input("Enter prices (e.g., 10.50 20.25): ").split()
+    discounts = input("Enter discounts (e.g., 5% 10%): ").split()
+
     # Validate input
+    for i in range(len(prices)):
+        try:
+            float(prices[i])
+        except ValueError:
+            print("Invalid price! Please enter a valid number.")
+            return
+
+    # Handle fewer discounts than prices
     if len(discounts) < len(prices):
         discounts += [0] * (len(prices) - len(discounts))
 
+    # Calculate total price
     total_price = 0
     for i in range(len(prices)):
         try:
-            price = float(prices[i])
-            discount = float(discounts[i]) / 100
-            total_price += price * (1 - discount)
+            total_price += float(prices[i]) * (1 - float(discounts[i]))
         except ValueError:
-            print("Invalid price or discount! Please enter a valid number.")
-            return None
+            print("Invalid discount! Please enter a valid number.")
+            return
 
     # Round result to two decimal places
     total_price = round(total_price, 2)
-    return total_price
+
+    # Print result
+    print("Total price:", total_price)
