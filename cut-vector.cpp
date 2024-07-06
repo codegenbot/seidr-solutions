@@ -1,15 +1,19 @@
 ```cpp
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
     for (int i = 0; i < n; i++) {
-        if (i == 0 || vec[i] == vec[i - 1]) {
-            res[0].assign(vec.begin(), vec.begin() + i + 1);
-            res[1].assign(vec.begin() + i, vec.end());
+        if (i == 0 || vec[i] != vec[i - 1]) {
+            int mid = i;
+            while(mid > 0 && vec[mid] == vec[mid - 1])
+                mid--;
+            res[0].insert(res[0].end(), vec.begin(), vec.begin() + mid);
+            res[1].insert(res[1].begin(), vec.begin() + mid, vec.end());
             break;
         }
     }
