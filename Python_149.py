@@ -1,4 +1,3 @@
-```
 def sorted_list_sum(input_list):
     while True:
         try:
@@ -7,7 +6,12 @@ def sorted_list_sum(input_list):
         except ValueError:
             print("Invalid input. Please enter words separated by spaces.")
 
-    even_words = [word for word in user_input if "".join(filter(str.isdigit, word))]
-    odd_words = [word for word in user_input if word not in even_words]
-
-    return str(sum(int("".join(filter(str.isdigit, word))) for word in sorted(even_words))) + " " + " ".join(sorted(odd_words))
+    for word in user_input:
+        if not "".join(filter(str.isdigit, word)).isdigit():
+            while True:
+                try:
+                    user_input = input("Enter a list of numbers separated by space: ").split()
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter numbers separated by spaces.")
+            return " ".join(sorted(user_input))
