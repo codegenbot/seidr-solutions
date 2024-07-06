@@ -14,6 +14,4 @@ def simplify(x, n):
     new_n_num = n_num // common
     new_n_denom = n_denom // common 
 
-    fraction_x = new_x_num / new_x_denom
-    fraction_n = new_n_num / new_n_denom
-    return fraction_x == fraction_n
+    return float(new_x_num / new_x_denom) == float(new_n_num / new_n_denom)
