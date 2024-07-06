@@ -1,8 +1,11 @@
+#include <vector>
+using namespace std;
+
 bool pairs_sum_to_zero(vector<int> l) {
     set<int> s(l.begin(), l.end());
-    for (int x : s) {
-        int complement = -x;
-        if (s.find(complement) != s.end() && x != complement) {
+    for (int i = 0; i < s.size(); i++) {
+        int complement = -s[i];
+        if (s.find(complement) != s.end() && s[i] != complement) {
             return true;
         }
     }
