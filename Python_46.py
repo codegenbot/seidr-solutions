@@ -4,8 +4,7 @@ def fib4(n):
     elif n == 4:
         return 2
     else:
-        sequence = [0, 0, 2]
-        for i in range(4, n + 1):
-            if i <= n - 3:
-                sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
-        return sequence[n]
+        cache = {i: fib4(i) for i in range(4)}
+        for i in range(5, n + 1):
+            cache[i] = cache[i - 1] + cache[i - 2] + cache[i - 3]
+        return cache[n]
