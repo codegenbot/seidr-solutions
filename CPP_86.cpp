@@ -1,6 +1,5 @@
-```c++
-#include <string>
 #include <algorithm>
+#include <string>
 
 std::string anti_shuffle(std::string s) {
     std::string result = "";
@@ -18,14 +17,10 @@ std::string anti_shuffle(std::string s) {
                 }
             }
             for (char c : word) {
-                result += min_element(word.begin(), word.end())->second;
+                result += min_element(word.begin(), word.end()) -> c;
             }
             i += word.size() - 1;
         }
     }
     return result;
-}
-
-int main() {
-    // Call your function here
 }
