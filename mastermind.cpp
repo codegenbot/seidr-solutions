@@ -4,7 +4,8 @@ using namespace std;
 
 int main() {
     string code, guess;
-    int whitePegs = 0, blackPegs = 0;
+    char[] whitePegs = {}; // Initialize to an empty array
+    int blackPegs = 0;
 
     while (getline(cin, code)) {
         getline(cin, guess);
@@ -12,12 +13,12 @@ int main() {
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
-            } else if (code.find(guess[i]) != string::npos && !whitePegs) { // added check to make sure the guessed character is not already used as a white peg
-                whitePegs++;
+            } else if (code.find(guess[i]) != string::npos && !whitePegs.contains(guess[i])) { // Check if the guessed character is already used as a white peg
+                whitePegs.push_back(guess[i]);
             }
         }
 
-        cout << whitePegs << " " << blackPegs << endl;
+        cout << whitePegs.size() << " " << blackPegs << endl;
     }
 
     return 0;
