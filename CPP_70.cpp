@@ -1,5 +1,5 @@
 ```cpp
-bool same(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
@@ -19,4 +19,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
     }
 
     return result;
+}
+
+int main() {
+    vector<int> lst = {111111};
+    assert(strange_sort_vector(lst) == vector<int>({111111}));
+    return 0;
 }
