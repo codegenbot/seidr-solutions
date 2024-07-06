@@ -10,4 +10,4 @@ def skjkasdkd(lst):
         return 0
 
     # Return the sum of the digits of the largest prime number
-    return sum(int(digit) for digit in str(max_prime))
+    return sum(map(int, str(max_prime)))
