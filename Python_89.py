@@ -4,8 +4,7 @@ def encrypt(s):
     encrypted_string = ""
     for char in s:
         index = alphabet.index(char)
-        if index < 2:
-            encrypted_string += rotated_alphabet[index + 1]
-        else:
-            encrypted_string += rotated_alphabet[index - 2]
+        if index < 26: # wrap around to the beginning of the alphabet
+            index -= 26
+        encrypted_string += rotated_alphabet[index]
     return encrypted_string
