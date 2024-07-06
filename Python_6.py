@@ -17,7 +17,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_level -= 1
         
         if stack == 0 and current_level > 0:
-            result.append(current_level)
+            result.append(current_level - 1) # subtract one for the extra level at end
             current_level = 0
     
     if stack == 0:
