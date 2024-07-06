@@ -1,6 +1,10 @@
+#include <assert.h>
 #include <vector>
 #include <string>
-#include <algorithm>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> nums;
@@ -10,8 +14,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
 
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
+    std::sort(nums.begin(), nums.end());
+    std::reverse(nums.begin(), nums.end());
 
     std::vector<std::string> result;
     for (int num : nums) {
