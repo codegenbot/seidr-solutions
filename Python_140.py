@@ -1,4 +1,4 @@
-def calculate_area_and_perimeter(width, height):
-    area = width * height
-    perimeter = 2 * (width + height)
-    return f"Area: {area}, Perimeter: {perimeter}"
+def calculate_average_score(student_scores):
+    total = sum(student_scores)
+    average = total / len(student_scores)
+    return average
