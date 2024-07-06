@@ -4,7 +4,7 @@
 using namespace std;
 
 int gcd(int a, int b) {
-    if (a == 0) return b;
+    if (a == 0) return a;
     return gcd(b % a, a);
 }
 
@@ -15,13 +15,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
         size_t pos = text.find(target, start);
         if (pos != string::npos) {
             indices.push_back(pos);
-            // Check for overlapping occurrences
-            for (size_t i = 1; i < target.size(); ++i) {
-                size_t nextPos = text.find(target, pos + i);
-                if (nextPos != string::npos) {
-                    indices.push_back(nextPos - i);
-                }
-            }
             start = pos + target.size();
         } else {
             break;
