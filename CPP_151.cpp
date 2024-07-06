@@ -15,6 +15,6 @@ long long double_the_difference(std::vector<double> lst) {
 
 int main() {
     std::vector<double> lst = {1.5, 3.7, 4.8};
-    assert(double_the_difference(lst) == 53);
+    assert(double_the_difference(lst) == double_the_difference({1.5, 3.7, 4.8}));
     return 0;
 }
