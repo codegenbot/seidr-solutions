@@ -1,5 +1,6 @@
 
 def minPath(grid, k):
+    # Initialize variables
     rows = len(grid)
     cols = len(grid[0])
     visited = set()
