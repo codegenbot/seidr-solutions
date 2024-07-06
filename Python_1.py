@@ -1,9 +1,9 @@
 ```
-paren_string = input("Enter the string: ")
 stack = []
 group = ""
 result = []
-for char in paren_string:
+s = input().lstrip()
+for char in s:
     if char == "(" or char == ")":
         if char == "(":
             stack.append(char)
