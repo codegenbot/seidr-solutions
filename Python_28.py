@@ -2,10 +2,7 @@
 while True:
     try:
         num_strings = int(input("Enter the number of strings: "))
-        if num_strings <= 0:
-            print("Please enter a positive integer.")
-        else:
-            break
+        break
     except ValueError:
         print("Invalid input. Please enter a positive integer.")
 
@@ -19,3 +16,5 @@ for _ in range(num_strings):
             print(reversed_string)
         except AttributeError:
             print("Invalid input. Please enter a valid string.")
+
+print("Program finished.")
