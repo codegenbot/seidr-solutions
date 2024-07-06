@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -34,9 +34,9 @@ int main() {
     vector<float> output = sort_even(input);
     
     if (issame(output, {1.7f, -2.9f, 3.14f, 4.8f})) {
-        std::cout << "Test passed!" << std::endl;
+        cout << "Test passed!" << endl;
     } else {
-        std::cout << "Test failed!" << std::endl;
+        cout << "Test failed!" << endl;
     }
     
     assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
