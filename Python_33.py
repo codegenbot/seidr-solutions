@@ -1,4 +1,3 @@
-```Python
 def sort_third(l: list):
     l_copy = l.copy()
     l_copy.sort(key=lambda x: (x % 3, -x))  
