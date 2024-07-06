@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
@@ -13,7 +12,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
-
+    
     int minEven = INT_MAX;
     int index = 0;
     for (int i = 0; i < arr.size(); i++) {
@@ -22,7 +21,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
             index = i;
         }
     }
-
+    
     result.push_back({minEven, index});
     return result;
 }
