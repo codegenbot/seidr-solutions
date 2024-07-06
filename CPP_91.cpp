@@ -1,7 +1,7 @@
-```
+```cpp
+#include <string>
 #include <iostream>
 #include <sstream>
-#include <string>
 
 int is_bored(std::string S){
     int count = 0;
@@ -15,6 +15,17 @@ int is_bored(std::string S){
     return count;
 }
 
-int main() { 
-    return is_bored("I am bored and tired. I will go to bed"); 
+int main(){
+    std::string S;
+    std::cout << "Enter a sentence: ";
+    std::cin >> S;
+    
+    int result = is_bored(S);
+    
+    if(result > 0)
+        std::cout << "Bored\n";
+    else
+        std::cout << "Not Bored\n";
+
+    return 0;
 }
