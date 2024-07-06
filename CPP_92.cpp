@@ -3,10 +3,10 @@ bool any_int(float a, float b, float c) {
         return true;
     }
     return false;
-
 }
 
 int main() {
     assert(any_int(3.01,4,7)==false);
     // add more test cases or implementation as needed
     return 0;
+}
