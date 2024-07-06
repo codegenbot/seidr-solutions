@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def decode_shift(s: str):
     if not isinstance(s, str):
         return "Error: Input must be a string."
