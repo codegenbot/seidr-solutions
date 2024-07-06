@@ -8,7 +8,7 @@ int next_smallest(vector<int> lst) {
             return temp[i+1];
         }
     }
-    return -1;
+    return -1; 
 }
 
 int main() {
