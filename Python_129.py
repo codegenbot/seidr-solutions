@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 from collections import deque
 
@@ -25,7 +23,15 @@ def minPath(m):
                         min_path = new_path2
         return min_path
 
+    global k, n, m
     k = int(input("Enter the value of k: "))
+    n = int(input("Enter the size of the matrix (n): "))
+    m = []
+    
+    for i in range(n):
+        row = list(map(int, input("Enter the row {}: ".format(i+1)).split()))
+        m.append(row)
+    
     min_path = None
     for i in range(n):
         for j in range(n):
