@@ -1,30 +1,31 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(float a, float b) {
-    if (a > b)
+bool issame(std::vector<float> v1, std::vector<float> v2) {
+    if(v1.size() != v2.size()) 
         return false;
-    else 
-        return true;
+    
+    for(int i = 0; i < v1.size(); i++) {
+        if(std::abs(v1[i] - v2[i]) > 0.00001f)
+            return false;
+    }
+    
+    return true;
 }
 
-std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    std::vector<std::pair<float, float>> result;
-
-    if (numbers.size() <= 1) {
-        return result;
-    }
-
-    for (int i = 0; i < numbers.size(); i++) {
-        for (int j = i + 1; j < numbers.size(); j++) {
-            bool isSame = issame(numbers[i], numbers[j]);
-            if (!isSame && abs(numbers[i] - numbers[j]) < abs(result[0].first - result[0].second)) {
-                result.clear();
-                result.push_back(std::make_pair(numbers[i], numbers[j]));
-            }
+std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    float minDiff = std::numeric_limits<float>::max();
+    pair<float, float> closestPair;
+    
+    for(int i = 0; i < numbers.size() - 1; i++) {
+        float diff = numbers[i + 1] - numbers[i];
+        if(diff < minDiff) {
+            minDiff = diff;
+            closestPair.first = numbers[i];
+            closestPair.second = numbers[i + 1];
         }
     }
-
-    return result;
+    
+    return closestPair;
 }
