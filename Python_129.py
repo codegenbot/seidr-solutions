@@ -1,44 +1,30 @@
 def minPath(grid, k):
-    # Initialize the minimum path and its length
-    min_path = []
-    min_path_len = float("inf")
+    # Initialize variables
+    n = len(grid)
+    m = len(grid[0])
+    path = []
+    visited = set()
 
-    # Initialize the queue with all possible starting points
-    queue = [(row, col) for row in range(len(grid)) for col in range(len(grid[0]))]
+    # Start from the top-left corner
+    i = 0
+    j = 0
 
-    # Loop until the queue is empty or the minimum path length is reached
-    while queue and len(min_path) < min_path_len:
-        # Get the next starting point from the queue
-        row, col = queue.popleft()
+    # Loop until we have visited all cells or reached the end of the path
+    while len(path) < k and i < n and j < m:
+        # Add the current cell to the path
+        path.append(grid[i][j])
+        visited.add((i, j))
 
-        # Initialize the current path and its length
-        cur_path = [grid[row][col]]
-        cur_path_len = 1
-
-        # Loop until the current path length is equal to k or the grid boundary is reached
-        while cur_path_len < k:
-            # Get the neighboring cells that have not been visited
-            neighbors = [
-                (row + i, col + j)
-                for i in range(-1, 2)
-                for j in range(-1, 2)
-                if 0 <= row + i < len(grid)
-                and 0 <= col + j < len(grid[0])
-                and (row + i, col + j) not in cur_path
-            ]
-
-            # If there are no neighboring cells that have not been visited, break the loop
-            if not neighbors:
+        # Find the next cell in the path
+        next_cell = None
+        for x in range(max(0, i - 1), min(n, i + 2)):
+            for y in range(max(0, j - 1), min(m, j + 2)):
+                if (x, y) not in visited:
+                    next_cell = (x, y)
+                    break
+            if next_cell is not None:
                 break
+        i, j = next_cell
 
-            # Add the next cell to the current path
-            row, col = neighbors[0]
-            cur_path.append(grid[row][col])
-            cur_path_len += 1
-
-        # If the current path length is less than the minimum path length, update the minimum path and its length
-        if len(cur_path) < min_path_len:
-            min_path = cur_path
-            min_path_len = len(min_path)
-
-    return min_path
+    # Return the path
+    return path
