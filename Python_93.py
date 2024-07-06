@@ -6,6 +6,6 @@ def encode(message):
                 result += chr(ord("A") + (ord(char) - ord("A") + 2) % 26)
             else:
                 result += chr(ord("a") + (ord(char) - ord("a") + 2) % 26)
-        else:
+        elif char.isspace() or char.ispunct():
             result += char
     return result
