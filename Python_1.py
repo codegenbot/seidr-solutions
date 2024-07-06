@@ -1,22 +1,22 @@
-```
-def separate_paren_groups(input_str):
-    return balance_groups(input_str)
-
 def balance_groups(input_str):
-    output = []
-    stack = []
+    result = []
+    current_group = ''
+    is_opening = True
     for char in input_str:
         if char == '(':
-            stack.append(char)
-            output.append("(")
+            if not is_opening:
+                result.append(current_group)
+                current_group = ''
+                is_opening = True
         elif char == ')':
-            if stack:
-                stack.pop()
-                output.append(")")
+            if is_opening:
+                is_opening = False
             else:
-                return "Invalid parentheses"
-    if stack:
-        while stack:
-            stack.pop()
-            output.append(")")
-    return output
+                current_group += char
+        else:
+            if not is_opening:
+                current_group += ' ' + char
+            else:
+                current_group += char
+    result.append(current_group)
+    return result
