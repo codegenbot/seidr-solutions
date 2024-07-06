@@ -2,6 +2,7 @@ import re
 
 
 def solve_boolean(expression):
+    # Your existing code here
     result = re.match(r"^(?P<left>.*?)(\||\&)(?P<right>.*)$", expression)
     if result:
         left, right = result.groups()
@@ -10,9 +11,3 @@ def solve_boolean(expression):
         return True
     else:
         return False
-
-
-# Read input from the user
-expression = input("Enter a Boolean expression: ")
-result = solve_boolean(expression)
-print(f"The result is {result}")
