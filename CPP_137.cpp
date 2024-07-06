@@ -1,32 +1,40 @@
-```cpp
 #include <boost/any.hpp>
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a.convert_to<int>() > boost::any_cast<float>(b) ? b : a;
+        return boost::any(b.convert_to<int>() > a.convert_to<int>() ? b : a);
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        return str2 > str1 ? b : a;
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
+        size_t pos = str1.find('.');
+        if (pos != string::npos) {
+            str1 = str1.substr(0, pos);
+        }
+        pos = str2.find(',');
+        if (pos != string::npos) {
+            str2 = str2.substr(0, pos);
+        }
+        return boost::any(str2 > str1 ? b : a);
     } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float f = boost::any_cast<float>(b);
-        string s = boost::any_cast<string>(a);
+        float f = b.convert_to<float>();
+        string s = a.convert_to<string>();
         size_t pos = s.find('.');
         if (pos != string::npos) {
             s = s.substr(0, pos);
         }
-        return f > stof(s) ? b : a;
+        return boost::any(f > stof(s) ? b : a);
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float f = boost::any_cast<float>(a);
-        string s = boost::any_cast<string>(b);
+        float f = a.convert_to<float>();
+        string s = b.convert_to<string>();
         size_t pos = s.find(',');
         if (pos != string::npos) {
             s = s.substr(0, pos);
         }
-        return stof(s) > f ? b : a;
+        return boost::any(stof(s) > f ? b : a);
     } else {
-        return boost::any(a.convert_to<int>() == boost::any_cast<int>(b)) ? boost::any("None") : (boost::any_cast<float>(a) > boost::any_cast<float>(b)) ? a : b;
+        return boost::any(a.convert_to<int>() == b.convert_to<int>() ? any("None") : (a.convert_to<float>() > b.convert_to<float>() ? a : b));
     }
 }
