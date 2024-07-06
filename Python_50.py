@@ -1,8 +1,7 @@
-from click import command
+import click
 
 
-@command()
-@option("--shift", type=int, help="The number of characters to shift.")
+@click.command()
 def decode_shift(message):
     message = int(click.prompt("Enter the message to be decoded", default=""))
     return "".join(
