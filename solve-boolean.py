@@ -1,10 +1,11 @@
 ```
 def solve_boolean(expression):
-    expression = ''.join(map({True: 'T', False: 'F'}.get, expression))
-
-    while '&' in expression and '|' in expression:
+    bool_map = {'T': True, 'F': False}
+    expression = ''.join(bool_map.get(c, c) for c in expression)
+    
+    while '&' in expression:
         start = 0
-        end = len(expression) - 1
+        end = 0
         for i in range(len(expression)-1, -1, -1):
             if expression[i] == '&':
                 start = i
@@ -13,11 +14,12 @@ def solve_boolean(expression):
                 break
         and_parts = expression[:end+1].split('&')
         expression = expression[start + 1:]
-
+        
         for part in and_parts:
-            or_parts = part.split('|')
-            expression = 'F' if all(not ({True: 'T', False: 'F'}.get(p)) for p in or_parts) else 'T'
-            expression = (expression.replace('F', '&False') + '&' + 
-                          expression.replace('T', '&True')).replace('&False|&True', 'F').replace('&False&True', 'F').replace('&True&False', 'F')
-
-    return not ({True: 'T', False: 'F'}.get(expression))
+            while '|' in part:
+                or_parts = part.split('|')
+                part = 'T' if any(bool_map[p] for p in or_parts) else 'F'
+            
+            expression = part.replace('|', '&')
+    
+    return bool_map[expression]
