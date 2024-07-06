@@ -1,2 +1,4 @@
-assert(!file_name_check("s."));
-return 0;
+int main1() {
+    assert(file_name_check("s.") == false);
+    return 0;
+}
