@@ -1,7 +1,11 @@
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1] if len(string) <= 1 else string[0] == string[-1] and is_palindrome(string[1:-1])
+
 def make_palindrome(string: str) -> str:
-    while not is_palindrome(string):
-        for i in range(len(string)):
-            if string[i] != string[-1 * (i + 1)]:
-                postfix = string[1:i][::-1]
-                return string + postfix
-    return string + string[::-1]
+    if is_palindrome(string):
+        return string + string
+    for i in range(len(string)):
+        prefix = string[:i][::-1]
+        postfix = string[i:]
+        if is_palindrome(postfix):
+            return prefix + postfix
