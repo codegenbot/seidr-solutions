@@ -1,7 +1,6 @@
 def add(x: int, y: int):
     return x + y
 
-
 # Prompt user for input
 print("Enter two numbers separated by a space: ")
 user_input = input().split()
