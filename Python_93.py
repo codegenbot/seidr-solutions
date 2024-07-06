@@ -1,55 +1,19 @@
-```
 def encode(message):
     result = ""
+    vowels = {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                if char.lower() == "do" or char.lower() == "to":
-                    if char.isupper():
-                        result += "dQnT".upper()
-                    else:
-                        result += "dQnT"
-                elif (
-                    char.lower() == "re" or char.lower() == "ro" or char.lower() == "te"
-                ):
-                    if char.isupper():
-                        result += "gYkS".upper()
-                    else:
-                        result += "gYkS"
-                elif char.lower() == "se":
-                    if char.isupper():
-                        result += "sWnT".upper()
-                    else:
-                        result += "sWnT"
+                if (char.lower(), char.isupper()) in {("do", True), ("to", True)}:
+                    result += "dQnT".upper() if char.isupper() else "dQnT"
+                elif (char.lower(), char.isupper()) in {("re", True), ("ro", True), ("te", True)}:
+                    result += "gYkS".upper() if char.isupper() else "gYkS"
+                elif (char.lower(), char.isupper()) == ("se", True):
+                    result += "sWnT".upper()
                 else:
-                    if char.lower() in "aeiou":
-                        if char.isupper():
-                            result += {
-                                "a": "c",
-                                "e": "g",
-                                "i": "k",
-                                "o": "q",
-                                "u": "y",
-                            }[char.lower()].upper()
-                        else:
-                            result += {
-                                "a": "c",
-                                "e": "g",
-                                "i": "k",
-                                "o": "q",
-                                "u": "y",
-                            }[char.lower()]
-                    else:
-                        if char.isupper():
-                            result += char.swapcase().upper()
-                        else:
-                            result += char.swapcase()
-            elif char.isalnum():  
-                if char.isupper():
-                    result += char.swapcase().upper()
-                else:
-                    result += char.swapcase()
-        else:  
+                    result += vowels.get(char.lower()).upper() if char.isupper() else vowels.get(char.lower())
+            else:
+                result += char.swapcase()
+        else:
             result += char
-
     return result
