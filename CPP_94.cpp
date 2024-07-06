@@ -1,8 +1,5 @@
-```cpp
-#include <iostream>
-#include <initializer_list>
 #include <vector>
-#include <ostream>
+#include <iostream>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -38,10 +35,6 @@ int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
 
 int main() {
     std::vector<int> lst = {1, 2, 3, 4, 5};
-    if (!lst.empty()) {
-        std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
-    } else {
-        std::cout << "List is empty." << std::endl;
-    }
+    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
     return 0;
 }

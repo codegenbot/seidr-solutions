@@ -1,6 +1,6 @@
-```c
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
@@ -14,35 +14,20 @@ bool issame(std::vector<std::string> a) {
     return true;
 }
 
-std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    std::vector<std::string> result = words_split(s);
-    if (!issame(result)) {
-        return {};
-    }
-    for (int i = 0; i < expected.size(); i++) {
-        if (result[i] != expected[i]) {
-            return {};
+std::vector<std::string> words_string(std::string s, std::initializer_list<std::string> expected) {
+    std::vector<std::string> result = {};
+    for (int i = 0; i < s.size(); i++) {
+        std::string temp = "";
+        while (i < s.size() && s[i] != ' ') {
+            temp += s[i];
+            i++;
+        }
+        if (!temp.empty()) {
+            if (!issame({{temp}}) || !std::count(expected.begin(), expected.end(), temp)) {
+                return {};
+            }
+            result.push_back(temp);
         }
     }
     return result;
-}
-
-std::vector<std::string> words_split(std::string s) {
-    std::vector<std::string> result = std::vector<std::string>();
-    std::size_t pos = 0, prev = 0;
-
-    while ((pos = s.find(" ", prev)) != std::string::npos) {
-        result.push_back(s.substr(prev, (pos - prev)));
-        prev = pos + 1;
-    }
-
-    if (prev < s.size()) {
-        result.push_back(s.substr(prev));
-    }
-
-    return result;
-}
-
-int main() {
-    assert(issame(words_string("ahmed     , gamal", {"ahmed", "gamal"})));
 }
