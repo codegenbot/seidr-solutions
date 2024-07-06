@@ -7,7 +7,9 @@ def factorize():
         try:
             n = int(input("Enter a number: "))
             if n < 2:
-                print("Please enter a number greater than or equal to 2.")
+                print(
+                    "Invalid input. Please enter an integer greater than or equal to 2."
+                )
                 continue
             break
         except ValueError:
@@ -25,8 +27,9 @@ def factorize():
                 count += 1
             factors.extend([i] * count)
     if n > 1:
-        factors.append(n)
-    print(factors)
+        print("The number is prime.")
+    else:
+        print(factors)
 
 
 factorize()
