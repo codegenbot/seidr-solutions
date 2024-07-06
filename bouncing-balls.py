@@ -1,9 +1,7 @@
-```python
-bounciness_index = float(input()) / float(input())
-num_bounces = int(input())
+bounciness_index = first_bounce_height / start_height
 
 distance = 0
-height = 1.0
+height = start_height
 for _ in range(num_bounces):
     height *= 2 - bounciness_index
     distance += height
