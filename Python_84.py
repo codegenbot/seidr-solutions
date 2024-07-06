@@ -5,7 +5,7 @@ def convert():
         if choice in ["1", "2"]:
             break
         else:
-            print("Invalid input. Please choose a number between 1 and 2.")
+            print(("Invalid input. Please choose a number between 1 and 2."))
 
     if choice == "1":
         while True:
@@ -14,7 +14,7 @@ def convert():
                 print(bin(N)[2:])
                 break
             except ValueError:
-                print("That's not a valid number! Try again.")
+                print(("That's not a valid number! Try again."))
     elif choice == "2":
         while True:
             bin_input = input("Enter a binary number in base 10 (e.g., 101): ")
@@ -23,7 +23,7 @@ def convert():
                 print(N)
                 break
             except ValueError:
-                print("That's not a valid binary number! Try again.")
+                print(("That's not a valid binary number! Try again."))
 
 
 if __name__ == "__main__":
