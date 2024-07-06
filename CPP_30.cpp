@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -42,5 +42,6 @@ int main() {
     for (float num : get_positive(vec1,vec2)) {
         std::cout << num << " ";
     }
+    assert(issame(get_positive(vec1, vec2), vec1));
     std::cout << std::endl;
 }
