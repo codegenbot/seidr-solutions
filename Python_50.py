@@ -25,11 +25,5 @@ def decode_shift(direction):
     return result
 
 def main():
-    direction = input("Enter 'encode' to encode or 'decode' to decode: ")
-    
-    if direction == "encode":
-        print(decode_shift("encode"))
-    elif direction == "decode":
-        print(decode_shift("decode"))
-    else:
-        print("Invalid input.")
+    direction = input("Enter 'encode' or 'decode': ")
+    print(decode_shift(direction))
