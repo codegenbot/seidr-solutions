@@ -1,2 +1,4 @@
 def sorted_list_sum(lst):
-    return sorted(filter(lambda x: len(x) % 2 == 0, lst), key=str.lower)
+    even_words = [word for word in lst if len(word) % 2 == 0]
+    odd_words = [word for word in lst if len(word) % 2 != 0]
+    return sorted(even_words + odd_words, key=len)
