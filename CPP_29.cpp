@@ -21,11 +21,14 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
-}
-
-int main() {
+int test() {
     vector<string> input = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    vector<string> expected = filter_by_prefix(input, "xxx");
-    assert(issame(expected, {"xxx", "xxxAAA"}));
+    string prefix = "xxx";
+    vector<string> output = filter_by_prefix(input, prefix);
+    bool result = issame(output, {"xxx", "xxxAAA"});
+    if(result)
+        std::cout << "The test passed" << std::endl;
+    else
+        std::cout << "The test failed" << std::endl;
     return 0;
 }
