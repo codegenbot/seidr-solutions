@@ -24,3 +24,8 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
     }
     return res;
 }
+
+int main() {
+    assert(bf(code({"Jupiter"}, {"Makemake"}), {}) == std::vector<std::string>({}));
+    std::cout << "Output: " << bf(code({"Jupiter"}, {"Makemake"}), {}) << std::endl;
+}
