@@ -1,4 +1,3 @@
-```
 def factorize(n):
     factors = []
     i = 2
@@ -12,9 +11,9 @@ def factorize(n):
                 count += 1
             factors.extend([i] * count)
     if n > 1:
-        factorize(n)
-    else:
-        print(factors)
+        factors.append(n)
+    print(factors)
+
 
 def main():
     while True:
