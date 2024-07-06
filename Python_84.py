@@ -1,3 +1,2 @@
-def solve():
-    N = int(input("Enter a number: "))
+def solve(N):
     return bin(N)[2:]

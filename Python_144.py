@@ -1,20 +1,18 @@
-def fractionAdd(x, y):
+```
+def simplify(x, n):
     x_num, x_denom = map(int, x.split("/"))
-    y_num, y_denom = map(int, y.split("/"))
+    n_num, n_denom = map(int, n.split("/"))
 
     def gcd(a, b):
         while b:
             a, b = b, a % b
         return a
 
-    common = gcd(abs(x_denom * y_denom), min(x_num * x_denom, y_num * y_denom))
+    common = gcd(x_denom, n_denom)
+    new_x_num = x_num // common
+    new_n_num = n_num // common
 
-    new_x_num = x_num * (common // gcd(x_denom, common))
-    new_x_denom = x_denom * (common // gcd(x_denom, common))
-
-    new_y_num = y_num * (common // gcd(y_denom, common))
-    new_y_denom = y_denom * (common // gcd(y_denom, common))
-
-    return (
-        f"{new_x_num}/{new_y_denom}" if new_x_num == 0 else f"{new_x_num}/{new_y_denom}"
-    )
+    if (new_x_num / new_n_num) == (n_num / x_denom):
+        return True
+    else:
+        return False
