@@ -2,15 +2,17 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size())
+        return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i])
+            return false;
     }
     return true;
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+    vector<int> pile;
     int level = 1;
     for (int i = 1; ; i++) {
         if ((n % 2 == 0 && i % 2 == 0) || (n % 2 != 0 && i % 2 != 0)) {
