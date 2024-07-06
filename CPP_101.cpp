@@ -1,5 +1,5 @@
+```c
 #include <vector>
-#include <sstream>
 #include <string>
 
 bool issame(std::vector<std::string> a) {
@@ -15,7 +15,7 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    std::vector<std::string> result = words_string(s);
+    std::vector<std::string> result = words_split(s);
     if (!issame(result)) {
         return {};
     }
@@ -27,16 +27,20 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
     return result;
 }
 
-std::vector<std::string> words_string(std::string s) {
-    std::vector<std::string> words;
-    std::stringstream ss(s);
-    std::string word;
-    
-    while (ss >> word) {
-        words.push_back(word);
+std::vector<std::string> words_split(std::string s) {
+    std::vector<std::string> result = std::vector<std::string>();
+    std::size_t pos = 0, prev = 0;
+
+    while ((pos = s.find(" ", prev)) != std::string::npos) {
+        result.push_back(s.substr(prev, (pos - prev)));
+        prev = pos + 1;
     }
-    
-    return words;
+
+    if (prev < s.size()) {
+        result.push_back(s.substr(prev));
+    }
+
+    return result;
 }
 
 int main() {
