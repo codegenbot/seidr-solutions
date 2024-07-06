@@ -1,4 +1,1 @@
-def double_the_difference(lst):
-    odd_sum = sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
-    even_sum = sum(i for i in lst if isinstance(i, int))
-    return abs(even_sum - 2*odd_sum)
+print(double_the_difference([list(input("Enter a list of integers (space separated): ").split()))))
