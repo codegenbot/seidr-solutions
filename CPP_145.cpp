@@ -10,7 +10,11 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     sort(pairs.begin(), pairs.end());
     std::vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(pair.first > 0 ? pair.second >= 0 ? 1 : -1 : nums[pair.second]);
+        if (pair.first > 0) {
+            result.push_back(pair.second >= 0 ? 1 : -1);
+        } else {
+            result.push_back(nums[pair.second]);
+        }
     }
     return result;
 }
