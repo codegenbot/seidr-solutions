@@ -1,26 +1,55 @@
+```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in "do to":
-                char_code = {
-                    "d": "dQnT".find("d") % 26,
-                    "o": "dQnT".find("o") % 26,
-                    "t": "tq".find("t"),
-                    "o": "tq".find("o"),
-                }[char.lower()]
-                result += (
-                    chr((char_code + ord("a" if char.islower() else "A")) % 26)
-                    if char.isalpha()
-                    else chr(char_code)
-                )
-            elif char.lower() in "aeiou":
-                char_code = {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}[
-                    char.lower()
-                ]
-                result += char_code.upper() if char.isupper() else char_code
-            else:
-                result += char.swapcase()
-        else:
+            if char.lower() in "aeiou":
+                if char.lower() == "do" or char.lower() == "to":
+                    if char.isupper():
+                        result += "dQnT".upper()
+                    else:
+                        result += "dQnT"
+                elif (
+                    char.lower() == "re" or char.lower() == "ro" or char.lower() == "te"
+                ):
+                    if char.isupper():
+                        result += "gYkS".upper()
+                    else:
+                        result += "gYkS"
+                elif char.lower() == "se":
+                    if char.isupper():
+                        result += "sWnT".upper()
+                    else:
+                        result += "sWnT"
+                else:
+                    if char.lower() in "aeiou":
+                        if char.isupper():
+                            result += {
+                                "a": "c",
+                                "e": "g",
+                                "i": "k",
+                                "o": "q",
+                                "u": "y",
+                            }[char.lower()].upper()
+                        else:
+                            result += {
+                                "a": "c",
+                                "e": "g",
+                                "i": "k",
+                                "o": "q",
+                                "u": "y",
+                            }[char.lower()]
+                    else:
+                        if char.isupper():
+                            result += char.swapcase().upper()
+                        else:
+                            result += char.swapcase()
+            elif char.isalnum():  
+                if char.isupper():
+                    result += char.swapcase().upper()
+                else:
+                    result += char.swapcase()
+        else:  
             result += char
+
     return result
