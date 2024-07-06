@@ -1,3 +1,4 @@
+```
 def sort_third(input_list):
     result = []
     current_group = []
@@ -7,7 +8,7 @@ def sort_third(input_list):
             result.append(tuple(sorted(current_group)))
             current_group = []
 
-    if current_group:
+    if current_group:  
         result.append(tuple(sorted(current_group)))
 
     return tuple(result)
