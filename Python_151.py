@@ -1,2 +1,1 @@
-def check(func):
-    return func([1, 2, 3])
+lambda: double_the_difference([1, 2, 3, 4, 5])
