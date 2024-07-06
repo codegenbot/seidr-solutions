@@ -1,11 +1,11 @@
 def encrypt(s):
     # Create a dictionary to map letters to their encrypted values
     letter_map = {
-        "a": "c",
-        "b": "d",
-        "c": "f",
-        "d": "g",
-        "e": "h",
+        "a": "e",
+        "b": "f",
+        "c": "g",
+        "d": "h",
+        "e": "i",
         "f": "j",
         "g": "k",
         "h": "l",
