@@ -1,5 +1,3 @@
-Here's the corrected code:
-
 ```
 def encode(message):
     result = ""
@@ -13,10 +11,13 @@ def encode(message):
             elif char.isalnum():
                 if (char.lower() in "re" or char.lower() == "to"):
                     result += "dQnT"
-                elif char.lower() == "ro" or char.lower() == "te":
+                elif (char.lower() == "ro" or char.lower() == "te"):
                     result += "gYkS"
                 else:
-                    result += "sWnT" if char.lower() == "se" else char.swapcase()
+                    if char.lower() == "se":
+                        result += "sWnT"
+                    else:
+                        result += char.swapcase()
             else:
                 result += char
         else:
