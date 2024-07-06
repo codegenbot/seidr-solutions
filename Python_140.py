@@ -1,5 +1,4 @@
-import re
-
-
 def fix_spaces(text):
-    return re.sub(" +", "_", text)
+    # Replace all consecutive spaces with a single underscore using a regular expression
+    text = re.sub(r"\s+", "_", text)
+    return text.replace(" ", "")
