@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 from collections import deque
 
