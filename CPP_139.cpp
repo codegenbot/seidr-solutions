@@ -1,10 +1,10 @@
-#include <iostream>
+#include <cassert>
 
-long long fact(int n) {
-    if (n == 0 || n == 1)
-        return 1;
-    else
-        return n * fact(n - 1);
+long long special_factorial(int n);
+
+int main() {
+    assert(special_factorial(1) == 1);
+    // ... other code ...
 }
 
 long long special_factorial(int n) {
@@ -13,11 +13,11 @@ long long special_factorial(int n) {
         result *= fact(i);
     }
     return result;
-
 }
 
-int main() {
-    assert(special_factorial(5) == 120);  
-    std::cout << "Hello, World!" << special_factorial(5) << std::endl;
-    return 0;
+long long fact(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * fact(n - 1);
 }
