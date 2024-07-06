@@ -1,4 +1,6 @@
+
 def minPath(grid, k):
+    # Initialize variables
     n = len(grid)
     m = len(grid[0])
     total_cells = n * m
