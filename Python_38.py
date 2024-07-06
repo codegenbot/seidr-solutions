@@ -1,7 +1,6 @@
-```
 def encode_cyclic(s: str):
     if len(s) % 3 == 1:
-        s += 'xy'
+        s += 'xy'  
     elif len(s) % 3 == 2:
         s += 'y'
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
@@ -10,7 +9,7 @@ def encode_cyclic(s: str):
 
 def decode_cyclic(s: str):
     if len(s) % 3 == 2:
-        s += 'y'
+        s += 'y'  
     elif len(s) % 3 == 1:
         s += 'xy'
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
