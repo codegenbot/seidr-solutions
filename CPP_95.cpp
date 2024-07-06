@@ -1,3 +1,4 @@
+```cpp
 for (auto& pair : dict) {
     const std::string& key = pair.first;
     bool allLower = true;
