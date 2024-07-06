@@ -9,6 +9,7 @@ std::string spinWords(std::string sentence) {
     for (size_t i = 0; i <= sentence.size(); ++i) {
         if (i == sentence.size() || sentence[i] == ' ') {
             std::string word = sentence.substr(start, i - start);
+            word.erase(0, 1); // skip the first character (the space)
             if (word.size() >= 5) {
                 result += std::string(word.rbegin(), word.rend());
             } else {
@@ -17,7 +18,7 @@ std::string spinWords(std::string sentence) {
             start = i + 1;
         }
     }
-    std::cout << result.size() ? result + " " : result << std::endl;
+    return result;
 }
 
 int main() {
