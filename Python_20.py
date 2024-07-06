@@ -19,8 +19,4 @@ def find_closest_elements():
                 min_diff = abs(target - num_list[i])
                 closest_pair = num_list[i - k + 1 : i + 1]
 
-        print(
-            "The {} closest elements to {} are: {}".format(
-                k, target, tuple(closest_pair)
-            )
-        )
+        print("The {} closest elements to {} are: {}".format(k, target, tuple(closest_pair)))
