@@ -1,6 +1,5 @@
 def add(numbers):
-    return sum(n for n in numbers)
+    return sum(map(float, numbers))
 
-
-result = add([3.14, 2.72])
-print(result)
+result = add([input("Enter a number: "), input("Enter another number: ")])
+print(f"The sum is {result}")
