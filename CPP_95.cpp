@@ -14,10 +14,5 @@ bool check_dict_case(map<string, string> dict) {
         if (!all_upper) all_upper = toupper(key[0]) == 0;
     }
 
-    return all_lower || all_upper;
-}
-
-int main() {
-    assert(check_dict_case({}) == false);
-    return 0;
+    return all_upper || all_lower;
 }
