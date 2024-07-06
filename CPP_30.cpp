@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<float>& a, const vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -11,7 +10,7 @@ std::vector<float> get_positive(std::vector<float> v) {
     return v;
 }
 
-void main() {
+int main() {
     assert(std::equal(get_positive({}), {}));
     std::vector<float> v1 = get_positive({-1, 2, -3, 4, 5});
     std::vector<float> v2 = get_positive({1, 2, 3, 4, 5});
@@ -21,4 +20,5 @@ void main() {
     else
         std::cout << "The two vectors are not equal.\n";
 
+    return 0;
 }
