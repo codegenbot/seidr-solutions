@@ -1,7 +1,6 @@
+```
 #include <string>
-#include <assert.h>
-
-int count_upper(std::string s) {
+int count_upper(string s) {
     int count = 0;
     for (int i = 1; i < s.length(); i += 2) {
         if (isupper(s[i])) {
@@ -9,9 +8,4 @@ int count_upper(std::string s) {
         }
     }
     return count;
-}
-
-int main() {
-    assert(count_upper("EEEE") == 4);
-    return 0;
 }

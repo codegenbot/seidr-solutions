@@ -1,10 +1,9 @@
-```
 #include <algorithm>
 using namespace std;
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    std::string word;
+string anti_shuffle(string s) {
+    string result = "";
+    string word;
     
     for (char c : s) {
         if (c == ' ') {
