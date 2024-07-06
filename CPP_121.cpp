@@ -1,16 +1,12 @@
-```cpp
-#include <vector>
-#include <assert.h>
+int solutions(std::vector<int> lst); 
 
-int solutions(std::vector<int> lst) {
-    if (lst.size() == 0) {
-        return -1;
-    }
-}
-
-int main() {
-    std::vector<int> lst = {3, 13, 2, 9};
-    int result = solutions(lst);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
+int main() { 
+    std::vector<int> lst = {3, 13, 2, 9}; 
+    int result; 
+    if(solutions(lst) == -1) { 
+        std::cout << "Error: Invalid input!" << std::endl; 
+    } else { 
+        std::cout << "Result: " << solutions(lst) << std::endl; 
+    } 
+    return 0; 
 }
