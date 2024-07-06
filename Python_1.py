@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp_str = ''
@@ -6,7 +5,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == '(':
             temp_str += char
         elif char == ')':
-            temp_str += char
             result.append(temp_str)
             temp_str = ''
-    return result
