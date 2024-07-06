@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <numeric>
 
@@ -13,4 +14,5 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 
 int main() {
     assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
