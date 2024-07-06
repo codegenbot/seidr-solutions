@@ -5,7 +5,7 @@ def compare_one(a, b):
         b = float(b)
     elif isinstance(b, str) and isinstance(a, (int, float)):
         a = float(a)
-        b = float(str(b).replace('.', '').replace(',','.'))
+        b = float(str(b).replace('.', '').replace(',', '.'))
 
     if a > b:
         return a
