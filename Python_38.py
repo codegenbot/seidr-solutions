@@ -1,4 +1,3 @@
-```
 def encode_cyclic(s: str):
     if len(s) % 3 == 1:
         s += 'xy'  
