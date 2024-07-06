@@ -1,24 +1,18 @@
-string anti_shuffle(string s) {
+Here is the solution:
+
+```cpp
+string anti_shuffle(string s){
     string result = "";
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == ' ') {
-            result += " ";
-            continue;
+    string temp;
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' ' || s[i] == '\0'){
+            sort(temp.begin(),temp.end());
+            result += temp;
+            temp = "";
         }
-        string temp = "";
-        bool first = true;
-        for(int j = i; j < s.size(); j++) {
-            if(first) {
-                first = false;
-                temp += s[j];
-            } else {
-                if(s[j] <= temp[0]) {
-                    temp = temp + s[j];
-                }
-                else break;
-            }
+        else{
+            temp += s[i];
         }
-        result += temp;
     }
     return result;
 }
