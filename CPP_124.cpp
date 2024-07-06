@@ -1,24 +1,37 @@
 #include <string>
+#include <sstream>
+
 using namespace std;
 
 bool valid_date(string date) {
-    int day, month, year;
-    size_t pos = 0;
-    
-    // Split date into day, month and year
-    pos = date.find('-');
-    month = stoi(date.substr(0, pos));
-    day = stoi(date.substr(pos + 1, date.find('-', pos + 1) - pos - 1));
-    year = stoi(date.substr(date.find('-') + 1));
+    int month, day, year;
+    string token1, token2, token3;
 
-    // Check if the date is valid
-    if (month < 1 || month > 12)
+    // Split the date into three parts: mm-dd-yyyy
+    istringstream iss(date);
+    getline(iss, token1, '-');
+    getline(iss, token2, '-');
+    getline(iss, token3);
+
+    // Convert the strings to integers
+    month = stoi(token1);
+    day = stoi(token2);
+    year = stoi(token3);
+
+    // Check if the date is valid according to the rules
+    if (month < 1 || month > 12) {
         return false;
-    else if ((month == 2 && day < 1) || (month == 4 || month == 6 || month == 9 || month == 11) && (day < 1 || day > 30))
+    }
+    if ((month == 2 && day > 29) ||
+        (month == 4 || month == 6 || month == 9 || month == 11) &&
+            day > 30) ||
+        (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) &&
+            day > 31) {
         return false;
-    else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
-        if ((day < 1) || (day > 31))
-            return false;
+    }
+    if (day < 1) {
+        return false;
+    }
 
     return true;
 }
