@@ -1,3 +1,4 @@
+```
 def find_closest_elements():
     num_list = input("Enter numbers separated by space: ").split()
     num_list = [int(num) for num in num_list]
