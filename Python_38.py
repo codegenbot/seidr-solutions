@@ -1,8 +1,7 @@
 # Read input from user
-if __name__ == "__main__":
-    string = input("Enter a string: ", "") or "Invalid input"
+for line in sys.stdin:
     try:
-        decoded_string = decode_cyclic(string)
+        decoded_string = decode_cyclic(line)
         print(decoded_string)
     except ValueError as e:
         print("Invalid input")
