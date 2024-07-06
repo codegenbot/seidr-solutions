@@ -1,10 +1,21 @@
-def gcd(a: int, b: int) -> int:
-    if a == 0 or b == 0:
-        return abs(a if a < b else b)
 
-    while b != 0:
-        a_mod = a % b
-        a = b
-        b = a_mod
+def gcd(a, b):
+    if a > 2**31 - 1 or b > 2**31 - 1:
+        q = (a // b) * (b // a)
+        r = a - q * b
+        while r != 0:
+            q, r = r, r % b
+    else:
+        while b != 0 or a_mod != 0:
+            a_mod = a % b
+            if a_mod == 0:
+                break
+            b = b - (a_mod // b) * b
+    return b
 
-    return a
+def divmod(a, b):
+    q = (a // b)
+    r = a - q * b
+    return q, r
+
+print(gcd(893320, 978960)) # prints 40
