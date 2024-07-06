@@ -11,9 +11,9 @@ int main() {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        for (int j = 1; j < (1LL << n * 30); j++) {
-            long long num = i * (1LL << (n - 1)) + j;
-            if (((num / (1LL << (n - 1))) % 10 == 1) || (num % 10 == 1)) {
+        for (long long j = 1; j < 1000000000L; j++) {
+            long long num = i * 100000000L + j;
+            if ((num / 100000000L) % 10 == 1 || num % 10 == 1) {
                 count++;
             }
         }
