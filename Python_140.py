@@ -13,6 +13,3 @@ def fix_spaces(text):
             result += char
             prev_was_space = False
     return result
-
-text = input("Please enter your text: ")
-print(fix_spaces(text))
