@@ -1,7 +1,7 @@
-def decode_cyclic(s):
-    groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
-    return "".join([group[0] + group[1:] for group in groups])
-
-
-input_string = input("Enter a string to decode: ")
-print(decode_cyclic(input_string))
+def decode_cyclic(input_string: str) -> str:
+    try:
+        groups = [input_string[(3 * i):min((3 * i + 3), len(input_string))] for i in range((len(input_string) + 2) // 3)]
+        return "".join([group[0] + group[1:] for group in groups])
+    except:
+        print("Invalid input format. Expected a string.")
+        return ""
