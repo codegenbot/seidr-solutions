@@ -1,26 +1,31 @@
 #include <string>
-#include <sstream>
-
 using namespace std;
 
 bool valid_date(string date) {
-    istringstream iss(date);
-    string month, day, year;
-    iss >> month >> day >> year;
+    int day, month, year;
+    char dash[3] = "-";
+    size_t pos1 = date.find(dash[0]);
+    size_t pos2 = date.find(dash[0], pos1 + 1);
+    string month_str = date.substr(0, pos1);
+    string day_str = date.substr(pos1 + 1, pos2 - pos1 - 1);
+    string year_str = date.substr(pos2 + 1);
 
-    if (month.length() != 2 || day.length() != 2 || year.length() != 4)
+    if (month_str.length() != 2 || day_str.length() != 2 || year_str.length() != 4)
         return false;
 
-    int m = stoi(month), d = stoi(day), y = stoi(year);
+    month = stoi(month_str);
+    day = stoi(day_str);
+    year = stoi(year_str);
 
-    if (m < 1 || m > 12)
+    if (month < 1 || month > 12)
         return false;
 
-    if ((m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) && d > 31)
+    if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) &&
+        (day < 1 || day > 31))
         return false;
-    else if (m == 4 || m == 6 || m == 9 || m == 11 && d > 30)
+    else if ((month == 4 || month == 6 || month == 9 || month == 11) && (day < 1 || day > 30))
         return false;
-    else if (m == 2 && (d < 1 || d > 29))
+    else if (month == 2 && (day < 1 || (day > 28)))
         return false;
 
     return true;
