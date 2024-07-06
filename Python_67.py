@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     fruits = {}
     for word in s.split():
