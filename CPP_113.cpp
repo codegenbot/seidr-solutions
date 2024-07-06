@@ -1,9 +1,7 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -22,12 +20,14 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = "the number of odd elements ";
-        temp += to_string(count);
-        temp += " in the str";
-        temp += to_string(i+1);
-        temp += " of the input.";
+        string temp = to_string(count);
+        temp += " number of odd elements in the str" + to_string(i+1) + " of the input.";
         result.push_back(temp);
     }
     return result;
+}
+
+int main() {
+    assert(issame(odd_count({"271", "137", "314"}) , {"the number of odd elements 2n the str2ng 2 of the 2nput.","the number of odd elements 1n the str1ng 1 of the 1nput.","the number of odd elements 3n the str3ng 3 of the 3nput."}));
+    return 0;
 }
