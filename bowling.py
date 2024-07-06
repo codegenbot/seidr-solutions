@@ -1,4 +1,4 @@
-```
+```python
 import re
 
 def bowling_score(s):
@@ -13,7 +13,7 @@ def bowling_score(s):
                 score += first + second
         elif s[i*2] == 'X':
             score += 10
-            roll = 0
+            roll += 10
         else:
             score += int(s[i*2])
     return score
