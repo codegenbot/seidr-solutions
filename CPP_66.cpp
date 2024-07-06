@@ -1,19 +1,17 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-int digitSum(string s);
-
-int digitSum(string s){
+int digitSum(std::string s){
     int sum = 0;
-    for(char c : s){
-        if(isupper(c)){
-            sum += (c - 'A' + 1); 
+    for (char c : s) {
+        if(isupper(c)) {
+            sum += (int)c - 55; 
         }
     }
     return sum;
 }
 
-int main(){
-    assert(digitSum("You arE Very Smart") == 327);
+int main() {
+    std::cout << digitSum("You arE Very Smart") << std::endl;
     return 0;
 }
