@@ -1,7 +1,5 @@
-```
 def minPath(grid, k):
     n = len(grid)
-    
     queue = [(0, 0, [])]
     visited = set((0, 0))
     path_lengths = {}
@@ -9,6 +7,14 @@ def minPath(grid, k):
 
     while queue:
         x, y, path = queue.pop(0)
+
+        if (x, y) in (
+            (i, j)
+            for i, row in enumerate(grid)
+            for j, cell in enumerate(row)
+            if not cell
+        ):
+            return grid[0][:k]
 
         if len(path) > k:
             continue
@@ -27,5 +33,4 @@ def minPath(grid, k):
                     path_lengths[len(new_path)] = len(new_path)
                     shortest_paths[len(new_path)] = len(new_path)
 
-    min_length = next(iter(path_lengths.keys())) if path_lengths else k
-    return [grid[0][0]] * min_length
+    return []
