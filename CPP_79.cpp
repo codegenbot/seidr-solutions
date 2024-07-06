@@ -10,12 +10,3 @@ string decimal_to_binary(int decimal){
     }
     return "db" + binary + "db";
 }
-
-int main() {
-    int num;
-    cout << "Enter a decimal number: ";
-    cin >> num;
-    string result = decimal_to_binary(num);
-    cout << "Binary representation of the input number is: " << result << endl;
-    return 0;
-}
