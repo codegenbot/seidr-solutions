@@ -1,5 +1,8 @@
 #include <cmath>
 
 float triangle_area(float a, float h) {
-    return (a * h) / 2.0f;
+    if (a <= 0 || h <= 0) {
+        throw std::runtime_error("Side length and height should be positive.");
+    }
+    return (std::abs(a) * std::abs(h)) / 2.0f;
 }
