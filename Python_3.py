@@ -29,10 +29,10 @@ def below_zero() -> None:
                             print("Invalid payment! Please enter a positive integer.")
                             continue
                         balance += debt_payment  
-                    except:
-                        print("Debt cannot be paid off. Balance remains.")
-            except:
-                print("Debt cannot be paid off. Balance remains.")
+                    except ValueError:
+                        print("Invalid input! Please enter an integer.")
+            except ValueError: 
+                print("Invalid input! Please enter an integer.")
         else:
             print("Congratulations, your debt is paid off!")
     else:
