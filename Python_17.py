@@ -1,8 +1,7 @@
+```
 from typing import List
 
 def parse_music(music_string: str) -> List[int]:
-    if not music_string or not isinstance(music_string, str):
-        return []
     music_list = []
     i = 0
     while i < len(music_string):
@@ -16,5 +15,5 @@ def parse_music(music_string: str) -> List[int]:
             i += 2
         elif music_string[i:i + 3] == ".| ":
             music_list.append(1)
-            i += 3
+            i += 4  # increment i here
     return music_list
