@@ -17,12 +17,13 @@ int main() {
     std::cout << "Enter number of elements: ";
     std::cin >> n;
 
-    std::vector<int> nums;
+    std::vector<int> nums;  
+
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         int num;
         std::cin >> num;
-        nums.push_back(num);
+        nums.push_back(num); 
     }
 
     int count = specialFilter(nums);
