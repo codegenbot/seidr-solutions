@@ -1,30 +1,26 @@
-Here is the completed code:
+```cpp
+#include <string>
+#include <cctype>
 
-string file_name_check(string file_name){
-    int digitCount = 0;
-    bool foundDot = false;
-    bool validPrefix = true;
-    string prefix;
-
+std::string file_name_check(std::string file_name) {
+    int digit_count = 0;
+    bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
         char c = file_name[i];
-        if(c == '.'){
-            foundDot = true;
-            prefix = file_name.substr(0, i);
-            break;
-        } else if(isdigit(c)){
-            digitCount++;
-            if(digitCount > 3) return "No";
-        } else {
-            validPrefix &= isalpha(c);
+        if(c >= '0' && c <= '9'){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        }else if(c == '.'){
+            found_dot = true;
+        }else if(!found_dot){
+            if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) return "No";
         }
     }
-
-    if(!foundDot) return "No";
-
-    string suffix = file_name.substr(i+1, file_name.length());
-    if(suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
-
-    if(validPrefix) return "Yes";
-    else return "No";
+    if(found_dot){
+        std::string ext = file_name.substr(file_name.find('.') + 1);
+        if(ext != "txt" && ext != "exe" && ext != "dll") return "No";
+    }else{
+        return "No";
+    }
+    return "Yes";
 }
