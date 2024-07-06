@@ -22,7 +22,7 @@ int main() {
     }
 
     long long odd_sum = double_the_difference(lst);
-    std::cout << "The sum of squares of positive integers is: " << odd_sum << std::endl;
+    std::cout << "The difference is: " << odd_sum << std::endl;
 
     return 0;
 }
