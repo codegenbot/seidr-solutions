@@ -1,4 +1,3 @@
-```cpp
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
     std::vector<std::string> result = {};
     for (int i = 0; i < s.size(); i++) {
