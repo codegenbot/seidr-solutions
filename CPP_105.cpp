@@ -1,31 +1,29 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
-    if (a >= 1 && a <= 9 && b >= 1 && b <= 9)
+    if (a == b)
         return true;
     else
         return false;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
-        if (issame(num, 1) || issame(num, 2) || issame(num, 3) || issame(num, 4) || 
-            issame(num, 5) || issame(num, 6) || issame(num, 7) || issame(num, 8) || issame(num, 9)) {
+        if (num >= 1 && num <= 9) {
             numbers.push_back(num);
         }
     }
 
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
 
-    std::vector<std::string> result;
-    for (int num : numbers) {
-        std::string str = "";
-        switch (num) {
+    vector<string> result;
+    for (int i = 0; i < numbers.size(); i++) {
+        string str = "";
+        switch (numbers[i]) {
             case 1:
                 str = "One";
                 break;
