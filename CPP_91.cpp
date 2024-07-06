@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <string>
 
 int is_bored(string S) {
@@ -10,3 +13,4 @@ int is_bored(string S) {
         pos = S.find("I", pos);
     }
     return count;
+}
