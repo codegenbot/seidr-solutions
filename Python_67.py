@@ -1,4 +1,4 @@
 
-def fruit_distribution(s, n):
+def fruit_distribution(s):
     apples, oranges = map(int, s.split())
-    return n - apples - oranges
+    return apples + oranges
