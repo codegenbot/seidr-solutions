@@ -4,14 +4,23 @@
 using namespace std;
 
 bool valid_date(string date) {
-    int day, month, year;
-    stringstream ss(date);
-    char ch;
-    ss >> month >> ch >> day >> ch >> year;
+    istringstream iss(date);
+    string month, day, year;
+    getline(iss, month, '-');
+    getline(iss, day, '-');
+    getline(iss, year);
 
-    if (date.empty() || !ss || month > 12 || day < 1 || day > (month == 2 ? 29 : (month % 2 != 0 && month <= 7) ? 31 : (month % 4 != 0 || month == 2) ? 30 : 28)) {
+    int m = stoi(month), d = stoi(day), y = stoi(year);
+
+    if (m < 1 || m > 12)
         return false;
-    }
+
+    if ((m == 2 && (d < 1 || d > 29)) ||
+        (m == 4 || m == 6 || m == 9 || m == 11) &&
+            (d < 1 || d > 30) ||
+        (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) &&
+            (d < 1 || d > 31))
+        return false;
 
     return true;
 }
