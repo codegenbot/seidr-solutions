@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-
 bool is_nested(std::string str) {
     int open = 0, close = 0;
     std::string temp; 
@@ -10,16 +6,5 @@ bool is_nested(std::string str) {
         else if (c == ']') close++;
         temp += c; 
     }
-    return open > 0 && close >= open; 
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::cin >> str;
-    bool result = is_nested(str);
-    if(result)
-        std::cout << "The string is nested";
-    else
-        std::cout << "The string is not nested";
+    return open > 0 && close >= open;
 }
