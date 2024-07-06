@@ -1,9 +1,8 @@
-#include <vector>
-#include <initializer_list>
+using namespace std;
 
-int skjkasdkd(std::initializer_list<int> lst){
+int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
-    for(auto i : lst){
+    for(int i : lst){
         if(i > 1 && isPrime(i)){
             if(maxPrime < i) maxPrime = i;
         }
