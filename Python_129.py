@@ -1,18 +1,21 @@
-def get_neighbors(grid, cell):
-    # Get the row and column of the current cell
-    row, col = cell
+def minPath(grid, k):
+    # Initialize variables
+    n = len(grid)
+    m = len(grid[0])
+    total_cells = n * m
+    visited = set()
+    queue = deque([(0, 0, [])])
 
-    # Get the rows and columns of the neighboring cells
-    neighbors = []
-    for i in range(-1, 2):
-        for j in range(-1, 2):
-            if i == 0 and j == 0:
-                continue
-            neighbors.append((row + i, col + j))
-
-    # Filter out the neighbors that are not within the grid boundaries
-    return [
-        neighbor
-        for neighbor in neighbors
-        if 0 <= neighbor[0] < len(grid) and 0 <= neighbor[1] < len(grid[0])
-    ]
+    while queue:
+        x, y, path = queue.popleft()
+        if (x, y) in visited:
+            continue
+        visited.add((x, y))
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            new_x = x + dx
+            new_y = y + dy
+            if 0 <= new_x < n and 0 <= new_y < m:
+                queue.append((new_x, new_y, path + [grid[new_x][new_y]]))
+        if len(path) == k:
+            return path
+    return None
