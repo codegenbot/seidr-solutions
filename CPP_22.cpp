@@ -1,14 +1,14 @@
 #include <vector>
 #include <list>
 #include <any>
-#include <algorithm>
+#include <initializer_list>
 
-bool same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 std::vector<int> filter_integers(std::list<std::any> values) {
-    std::pmr_vector<int> result;
+    std::vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
@@ -18,6 +18,6 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 }
 
 int main() {
-    assert(same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), std::vector<int>{3, 3, 3}));
     return 0;
 }
