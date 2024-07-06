@@ -1,10 +1,13 @@
+Here is the completed code:
+
 def find_zero(xs: list):
+    if len(xs) % 2 != 0:
+        return "Error: Only lists of even length are accepted"
     n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    a = xs[-1]
-    b = -sum([coeff for i, coeff in enumerate(xs) if i % 2 != 0])
-    c = sum([coeff for i, coeff in enumerate(xs) if i % 4 == 3])
-    d = -a
-    x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
-    return round(x, 2)
+    a = xs[0]
+    b = -xs[1] / xs[0]
+    c = (2*xs[1]**2 - xs[2]*xs[0]) / xs[0]**2
+    d = -(3*xs[1]**3 + 2*xs[0]*xs[2]**2 - xs[0]**2*xs[2]) / xs[0]**3
+    e = (xs[1]*(2*xs[1]**2 - 3*xs[0]*xs[2]) + xs[0]**2*xs[3]) / xs[0]**4
+    
+    return round(-b/2+c*d-((d*c-b**2)**(1/2))/(2*a),2)
