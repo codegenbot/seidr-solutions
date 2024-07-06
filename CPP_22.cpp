@@ -1,33 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <list>
-#include <typeindex>
+```cpp
 #include <type_traits>
 
-using namespace std;
+template<typename T1, typename T2>
+bool same(const std::vector<T1>& a, const std::vector<T2>& b) {
+    if (a.size() != b.size())
+        return false;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    for (size_t i = 0; i < a.size(); ++i)
+        if (!(a[i] == b[i]))
+            return false;
+
+    return true;
 }
 
-vector<any> list_any(int x) {
-    vector<any> result;
-    result.push_back(x);
-    result.push_back(3.5); 
-    return result;
-}
+#include <any>
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).type() == type_index<int>()) {
-            result.push_back(any_cast<int>(value));
+        if (std::any_cast<int>(value).type() == typeid(int)) {
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
-}
-
-int main() {
-    assert(isame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    return 0;
 }
