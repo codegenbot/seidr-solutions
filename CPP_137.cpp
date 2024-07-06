@@ -5,9 +5,14 @@
 
 using namespace std;
 
-void compareOne(int x) {
-    int val2;
-    cin >> val2;
+void compare_one(int num1, int num2) {
+    if (num1 > num2) {
+        cout << "The first number is bigger.\n";
+    } else if (num1 < num2) {
+        cout << "The second number is bigger.\n";
+    } else {
+        cout << "Both numbers are equal.\n";
+    }
 }
 
 int main() {
@@ -31,18 +36,10 @@ int main() {
 
     if (!val2.empty()) {
         int num = stoi(val2);
-        if (val1 > num) {
-            cout << "The first number is bigger.\n";
-        } else if (val1 < num) {
-            cout << "The second number is bigger.\n";
-        } else {
-            cout << "Both numbers are equal.\n";
-        }
+        compare_one(val1, num);
     } else {
         cout << "Please enter a valid value for the second number.\n";
     }
-
-    compareOne(val1);
 
     return 0;
 }
