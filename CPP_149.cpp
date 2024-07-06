@@ -23,7 +23,11 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
 
 int main() {
     std::vector<std::string> list = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::string> expected = {"cc", "dd", "aaaa", "bbbb"};
+    std::vector<std::string> expected({""});
+
+    for (const auto& str : {"cc", "dd", "aaaa", "bbbb"}) {
+        expected.push_back(str);
+    }
     assert(issame(sorted_list_sum(list), expected));
     return 0;
 }
