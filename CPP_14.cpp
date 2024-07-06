@@ -19,10 +19,10 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    string input;
+    string str;
     cout << "Enter a string: ";
-    cin >> input;
-    vector<string> expected = all_prefixes(input);
-    assert (issame(expected, expected));  
+    getline(cin, str);
+    vector<string> expected = all_prefixes(str);
+    assert (issame(expected, all_prefixes(str)));
     return 0;
 }
