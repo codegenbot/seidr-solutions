@@ -12,33 +12,38 @@ bool issame(vector<string> a,vector<string> b){
 
 std::vector<std::string> odd_count(std::vector<std::string> lst) {
     std::vector<std::string> result;
-    int count = 0;
-    std::cout << "Enter the strings (each line is a string, press Enter after the last one):" << std::endl;
-    for (std::string s; std::getline(std::cin, s); ) {
-        count = 0;
-        for (char c : s) {
+    for (int i = 0; i < lst.size(); i++) {
+        int count = 0;
+        for (char c : lst[i]) {
             if (c % 2 != 0) {
                 count++;
             }
         }
         std::string temp = "the number of odd elements ";
-        temp += std::to_string(count);
-        temp += " in the string.";
+        temp += (count > 0 ? std::to_string(count) : "no");
+        temp += " in the str";
+        temp += std::to_string(i+1);
+        temp += " of the input.";
         result.push_back(temp);
     }
     return result;
 }
 
 int main() {
-    std::vector<std::string> lst;
-    std::cout << "Enter the strings (each line is a string, press Enter after the last one):" << std::endl;
-    for (std::string s; std::getline(std::cin, s); ) {
-        lst.push_back(s);
+    vector<string> test;
+    string s;
+    while (true) {
+        cout << "Enter a string (-1 to stop): ";
+        cin >> s;
+        if (s == "-1") break;
+        test.push_back(s);
     }
-    std::vector<std::string> result = odd_count(lst);
-    std::cout << "The number of odd elements in each string:" << std::endl;
-    for (const auto& str : result) {
-        std::cout << str << std::endl;
+    
+    std::vector<std::string> result = odd_count(test);
+    
+    for(std::string s : result){
+        cout << s << endl;
     }
+    
     return 0;
 }
