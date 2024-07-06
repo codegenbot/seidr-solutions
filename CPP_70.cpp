@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -16,29 +15,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
             sort(lst.begin(), lst.end());
     }
 
+    assert(is_same(strange_sort_vector({111111}), vector<int>({111111})));
+
     return result;
-}
-
-int main() {
-    vector<int> input;
-    int numElements;
-    cout << "Enter the number of elements in the list: ";
-    cin >> numElements;
-
-    for (int i = 0; i < numElements; i++) {
-        int n;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> n;
-        input.push_back(n);
-    }
-
-    vector<int> output = strange_sort_vector(input);
-
-    cout << "The sorted list is: ";
-    for (int x : output) {
-        cout << x << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
