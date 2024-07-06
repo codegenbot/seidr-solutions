@@ -1,5 +1,3 @@
-#include <vector>
-
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int stones = 1;
