@@ -19,4 +19,3 @@ int main() {
         std::cout << "The string is nested";
     else
         std::cout << "The string is not nested";
-}
