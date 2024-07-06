@@ -2,9 +2,8 @@
 def triples_sum_to_zero(l: list):
     l.sort()
     for i in range(len(l) - 2):
-        if i > 0 and l[i] == l[i-1]:
-            continue
-        left, right = i+1, len(l)-1
+        left = i + 1
+        right = len(l) - 1
         while left < right:
             total = l[i] + l[left] + l[right]
             if total < 0:
