@@ -1,8 +1,9 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
+    
     if(arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -21,6 +22,10 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    // Add your code here
+    std::vector<int> array = {1, 3, 5, 2, 6, 4};
+    auto pairs = pluck(array);
+    for(auto& pair : pairs) {
+        std::cout << "Pair: (" << pair.first << ", " << pair.second << ")" << std::endl;
+    }
     return 0;
 }
