@@ -1,8 +1,6 @@
 def leaders(vector):
     result = []
-    current_leader = max(vector)
-    for i in range(len(vector)):
-        if vector[i] >= current_leader:
-            result.append(current_leader)
-            current_leader = vector[i]
+    for i in range(1, len(vector)):
+        if vector[i] >= vector[-2]:
+            result.append(vector[i])
     return result
