@@ -31,9 +31,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string str_b = boost::any_cast<std::string>(b);
         return str_a.size() > str_b.size() ? a : b;
     }
-    else if (boost::any_cast<boost::any>(a) || 
-             a.type() == typeid(double) && boost::any_cast<boost::any>(a) || 
-             a.type() == typeid(std::string) && boost::any_cast<boost::any>(a)) {
+    else if (boost::any_cast<bool>(a) || 
+             a.type() == typeid(double) && boost::any_cast<bool>(a) || 
+             a.type() == typeid(std::string) && boost::any_cast<bool>(a)) {
         return boost::any("None");
     }
     return boost::any_cast<boost::any>(a) > boost::any_cast<boost::any>(b) ? a : b;
