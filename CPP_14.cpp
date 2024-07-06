@@ -1,12 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size()!=b.size())
+bool issame(vector<string> a, vector<string> a_) {
+    if(a.size()!=a_.size())
         return false;
     for(int i=0; i<a.size();i++)
-        if(a[i] != b[i])
+        if(a[i] != a_[i])
             return false;
     return true;
 }
@@ -20,6 +19,7 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    vector<string> expected = {"W", "WW", "WWW"};
+    assert (issame(all_prefixes("WWW"), expected));
     return 0;
 }
