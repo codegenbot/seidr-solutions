@@ -1,12 +1,23 @@
-```
 def sum_squares(lst):
     total_sum = 0
     for i in range(len(lst)):
-        if i % 3 == 0:
+        if i % 3 == 0 and i % 4 != 0:
             total_sum += lst[i] ** 2
-        elif i % 4 == 0:
+        elif i % 4 == 0 and i % 3 != 0:
             total_sum += lst[i] ** 3
     return total_sum
 
-lst = [1, 2, 3, 4, 5]
-print(sum_squares(lst))
+
+lst = input("Enter the list of numbers (space-separated): ")
+lst = [int(i) for i in lst.split()]
+operation = input("Enter 'square' to square or 'cube' to cube: ")
+
+if operation == "square":
+    print(sum_squares(lst))
+elif operation == "cube":
+    result = 0
+    for num in lst:
+        result += num ** 3
+    print(result)
+else:
+    print("Invalid operation. Please enter 'square' or 'cube'.")
