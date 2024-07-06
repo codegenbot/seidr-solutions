@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <bits/stdc++.h>
 
