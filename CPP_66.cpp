@@ -1,5 +1,4 @@
 #include <string>
-#include <cctype>
 
 int digitSum(string s) {
     int sum = 0;
