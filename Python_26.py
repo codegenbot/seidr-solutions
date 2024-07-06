@@ -1,5 +1,5 @@
 ```
-def remove_duplicates() -> List[int]:
+def remove_duplicates() -> list[int]:
     numbers = input("Enter a list of space-separated numbers: ")
     
     if not numbers:
