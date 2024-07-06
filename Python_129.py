@@ -1,27 +1,33 @@
 def minPath(grid, k):
-    # Initialize variables
-    n = len(grid)
-    m = len(grid[0])
-    visited = [[False for _ in range(m)] for _ in range(n)]
-    path = []
+    # Initialize the minimum path and its length
+    min_path = []
+    min_len = float("inf")
 
-    # Define a function to find the minimum path
-    def dfs(i, j, k):
-        if not 0 <= i < n or not 0 <= j < m:
-            return
-        if visited[i][j]:
-            return
-        visited[i][j] = True
-        path.append(grid[i][j])
-        if len(path) == k:
-            return path
-        for x, y in [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]:
-            dfs(x, y, k)
-        path.pop()
+    # Loop through each cell in the grid
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            # If the current cell is not the starting point, skip it
+            if grid[i][j] != 1:
+                continue
 
-    # Find the minimum path
-    for i in range(n):
-        for j in range(m):
-            dfs(i, j, k)
+            # Initialize a queue to perform BFS
+            queue = [(i, j)]
 
-    return path
+            # Perform BFS until we reach the end of the path or the length of the path exceeds k
+            while queue and len(queue) <= k:
+                x, y = queue.pop(0)
+
+                # If we have reached the end of the path, update the minimum path and its length
+                if grid[x][y] == k:
+                    min_path = [(i, j)] + queue
+                    min_len = len(queue)
+                    break
+
+                # Add neighbors to the queue
+                for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
+                        queue.append((nx, ny))
+
+    # Return the minimum path
+    return min_path
