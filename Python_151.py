@@ -1,2 +1,3 @@
 def check(func):
-    func(lambda: list(map(int, input().split())))
+    result = func()
+    print(result)
