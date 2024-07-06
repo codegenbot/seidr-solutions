@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,8 +30,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<int> grades = {90, 70};
-    std::vector<std::string> expected = {"A", "C"};
+    std::vector<int> grades = {0, 70};
+    std::vector<std::string> expected = {"F", "D"};
     assert(issame(numerical_letter_grade(grades), expected));
     return 0;
 }
