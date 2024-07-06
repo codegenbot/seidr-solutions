@@ -1,7 +1,4 @@
-```cpp
 #include <iostream>
-#include <vector>
-#include <string>
 using namespace std;
 
 int main() {
@@ -12,32 +9,20 @@ int main() {
         cin >> vec[i];
     }
     vector<vector<int>> res = cutVector(vec);
+    
     cout << "[";
     for(int i = 0; i < res[0].size(); i++){
-        bool first = true;
         for(int num:res[0][i]){
-            if (!first) {
-                cout << " ";
-            }
-            cout << to_string(num);
-            first = false;
-        }
-        if (i+1 < res[0].size()) {
-            cout << "] [";
-        } else {
-            cout << "]";
-        }
-        for(int j = 0; j < res[1].size(); j++){
-            bool first2 = true;
-            for(int num:res[1][j]){
-                if (!first2) {
-                    cout << " ";
-                }
-                cout << to_string(num);
-                first2 = false;
-            }
+            cout<<num<<endl;
         }
     }
+    cout << "] [";
+    for(int j = 0; j < res[1].size(); j++){
+        for(int num:res[1][j]){
+            cout<<num<<endl;
+        }
+    }
+    cout << "]";
     return 0;
 }
 
