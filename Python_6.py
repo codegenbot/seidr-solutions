@@ -1,5 +1,5 @@
+```
 from typing import List
-
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
@@ -8,10 +8,10 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         depth = 0
         nested_depth = 0
         for char in group:
-            if char == "(":
+            if char == '(':
                 depth += 1
                 nested_depth = max(nested_depth, depth)
-            elif char == ")":
+            elif char == ')':
                 depth -= 1
         result.append(nested_depth)
     return result
