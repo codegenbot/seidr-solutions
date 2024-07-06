@@ -26,8 +26,15 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {3, 10, 10, 9, 2};
-    int result = search(lst);
-    std::cout << "The maximum value is: " << result << std::endl;
+    std::vector<int> lst;
+    int num;
+
+    std::cout << "Enter numbers (0 to stop): ";
+    while ((std::cin >> num) && (num != 0)) {
+        lst.push_back(num);
+    }
+
+    std::cout << "The number with the highest frequency is: " << search(lst) << std::endl;
+    
     return 0;
 }
