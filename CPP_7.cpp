@@ -1,3 +1,8 @@
 bool issame(vector<string> a,vector<string>b){
-    return a.size() == b.size() && all_of(a.begin(),a.end(),[&b](string s){return find(b.begin(),b.end(),s) != b.end();});
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(find(b.begin(),b.end(),a[i]) == b.end())
+            return false;
+    }
+    return true;
 }
