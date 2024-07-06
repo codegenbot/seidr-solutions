@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+#include <string>
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
