@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int search(vector<int> lst) {
+int search(initializer_list<int> lst) {
     map<int, int> freqMap;
     for (int num : lst) {
         if (freqMap.find(num) == freqMap.end()) {
