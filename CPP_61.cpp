@@ -5,5 +5,5 @@ int correct_bracketing(std::string brackets) {
         if (c == '(') count++;
         else if (count > 0) count--;
     }
-    return count != 0 ? -1 : 0; 
+    return count != 0 ? -1 : 0; // Return -1 if there are unmatched opening brackets
 }
