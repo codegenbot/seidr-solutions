@@ -1,5 +1,6 @@
 ```
 def parse_music(music_string: str) -> list:
+    """Parses a string representing music and returns a list of note lengths."""
     if not music_string:
         return []
 

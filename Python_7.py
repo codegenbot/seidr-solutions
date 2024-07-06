@@ -15,7 +15,10 @@ if __name__ == "__main__":
             if not substring.strip() and strings:
                 break
             if not substring.strip():
-                print("No more inputs. Goodbye!")
-                break
+                if len(strings) == 0:
+                    print("No more inputs. Goodbye!")
+                    break
+                else:
+                    continue
             result = filter_by_substring(strings, substring)
             print(result)
