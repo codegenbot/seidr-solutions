@@ -1,11 +1,16 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <limits>
 
 using namespace std;
 
-int compareNumbers() {
+void compareOne(int x) {
+    int val2;
+    cin >> val2;
+}
+
+int main() {
     cout << "Enter two values: ";
     int val1;
     cin >> val1;
@@ -24,25 +29,20 @@ int compareNumbers() {
     string val2;
     cin >> val2;
 
-    int num2 = 0;
-    try {
-        num2 = stoi(val2);
-    } catch (const invalid_argument& e) {
-        cout << "Invalid input. Please enter a valid number.\n";
-    }
-
-    if (val1 > num2) {
-        cout << "The first number is bigger.\n";
-    } else if (val1 < num2) {
-        cout << "The second number is bigger.\n";
+    if (!val2.empty()) {
+        int num = stoi(val2);
+        if (val1 > num) {
+            cout << "The first number is bigger.\n";
+        } else if (val1 < num) {
+            cout << "The second number is bigger.\n";
+        } else {
+            cout << "Both numbers are equal.\n";
+        }
     } else {
-        cout << "Both numbers are equal.\n";
+        cout << "Please enter a valid value for the second number.\n";
     }
 
-    return 0;
-}
+    compareOne(val1);
 
-int main() {
-    compareNumbers();
     return 0;
 }
