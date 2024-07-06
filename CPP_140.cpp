@@ -1,18 +1,19 @@
-string fix_spaces(string text) {
-    for(int i = 0; i < text.size(); i++) {
-        if(text[i] == ' ') {
-            if(i > 0 && text[i-1] == ' ' && text[i+1] == ' ') {
-                for(int j = i; (j < text.size()) && (text[j] == ''); j++) {
-                    text.replace(j, 1, "-");
-                }
-                return text;
-            } else if(i > 0) {
-                text.insert(i,'_');
-                i++;
-            } else {
-                text.insert(i,'_');
+```
+string fix_spaces(string text){
+    string result = "";
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' ' && (result.empty() || (i > 0 && result.back() == ' ') || (i < text.length()-1 && text[i+1] == ' '))){
+            if(result.size() >= 2 && result.back() == ' '){
+                result.pop_back();
+                while(i + 1 < text.length() && text[i+1] == ' ')
+                    i++;
+                result += '-';
             }
-        }
+            else
+                result += '_';
+        } 
+        else
+            result += text[i];
     }
-    return text;
+    return result;
 }
