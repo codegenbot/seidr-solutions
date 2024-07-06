@@ -3,7 +3,6 @@ def cycpattern_check(a, b):
         return True
     if a == b:
         return True
-    for i in range(len(a) - len(b) + 1):
-        if a[i:i+len(b)] == b or a[i:] + a[:i] == b:
-            return True
+    if b in a + a or b in a + a[::-1]:
+        return True
     return False
