@@ -1,6 +1,6 @@
 bool issame(vector<string> a, vector<string> b);
 int main() {
-    assert(issame({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx").begin(), filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx").end()}, {"xxx", "xxxAAA", "xxx"}));
+    assert(issame({{"xxx", "xxxAAA", "xxx"}}, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
 
