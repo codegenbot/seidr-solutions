@@ -2,35 +2,60 @@
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i])
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i].size() % 2 == 1 && b[i].size() % 2 == 0 || 
+           a[i].size() % 2 == 0 && b[i].size() % 2 == 1) 
             return false;
     }
+    
     return true;
 }
 
-std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
-    auto it = std::unique(lst.begin(), lst.end(),
-        [](const std::string& a, const std::string& b){ 
-            return (a.size() % 2 == 1 && b.size() % 2 == 0) || (a.size() % 2 == 0 && b.size() % 2 == 1);
-        });
-    lst.erase(std::unique(it, lst.end()), lst.end());
-    
-    std::sort(lst.begin(), lst.end(),
-        [](const std::string& a, const std::string& b){
-            if(a.size() != b.size())
-                return (a.size() < b.size());
-            else
-                return a < b;
+vector<string> sorted_list_sum(vector<string> input) {
+    vector<string> result;
+    for (string str : input) {
+        int sum = 0;
+        for(char ch: str) {
+            sum += ch;
         }
-    );
-    
-    return lst;
+        result.push_back(to_string(sum));
+    }
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    assert(isSame(sortedListSum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
+    int n;
+    std::vector<std::string> a, b;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        std::string s;
+        std::cout << "Enter string " << i+1 << ": ";
+        std::cin >> s;
+        a.push_back(s);
+    }
+
+    for(int i = 0; i < n; i++) {
+        std::string s;
+        std::cout << "Enter string " << i+1 << ": ";
+        std::cin >> s;
+        b.push_back(s);
+    }
+
+    vector<string> sum_a = sorted_list_sum(a);
+    vector<string> sum_b = sorted_list_sum(b);
+
+    if(issame(sum_a, sum_b)) {
+        std::cout << "The lists are the same." << std::endl;
+    } else {
+        std::cout << "The lists are not the same." << std::endl;
+    }
+    
+    return 0;
 }

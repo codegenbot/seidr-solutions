@@ -1,6 +1,9 @@
 #include <algorithm>
 #include <vector>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+std::vector<int> order_by_points(std::vector<int> nums);
+
 int get_sum_of_digits(int num) {
     int sum = 0;
     while (num != 0) {
@@ -10,7 +13,7 @@ int get_sum_of_digits(int num) {
     return sum;
 }
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++) {
@@ -20,7 +23,7 @@ bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         pairs.push_back({get_sum_of_digits(nums[i]), i});
@@ -31,5 +34,4 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
-
 }
