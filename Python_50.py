@@ -1,6 +1,5 @@
 ```
 def decode_shift():
-    '''Function to encode or decode strings using Caesar Cipher with a shift of 5.'''
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
     if not isinstance(direction, str):
