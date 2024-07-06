@@ -1,10 +1,8 @@
-using namespace std;
-
-std::string match_parens(std::vector<std::string> lst) {
+string match_parens(vector<string> lst) {
     int open = 0;
     int close = 0;
-    for (const std::string& str : lst) {
-        for (char c : str) {
+    for (const string& str_type : lst) {
+        for (char c : str_type) {
             if (c == '(') open++;
             else close++;
         }

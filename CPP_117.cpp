@@ -1,28 +1,28 @@
-#include <vector>
-#include <string>
-
-int select_words(string str, int n) {
+```cpp
+vector<string> select_words(string s, int n) {
     vector<string> result;
-    for (auto i = 0; i < n; i++) {
-        string word;
-        size_t start = str.find(' ');
-        if (start != string::npos) {
-            size_t end = str.find(' ', start + 1);
-            if (end == string::npos)
-                end = str.length();
-            word = str.substr(start, end - start);
-            str.erase(0, end);
-        } else
-            break;
-        result.push_back(word);
-    }
-    return result.size();
-}
+    string word = "";
 
-bool issame(vector<string> a, vector<string> b) {
-    for (int i = 0; i < min(a.size(), b.size()); i++) {
-        if (a[i] != b[i])
-            return false;
+    for (char c : s) {
+        if (isalpha(c)) {
+            word += tolower(c);
+        } else if (!word.empty()) {
+            bool has_n_consonants = false;
+            int consonant_count = 0;
+            for (char ch : word) {
+                if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
+                    consonant_count++;
+                    if (consonant_count == n) {
+                        has_n_consonants = true;
+                        break;
+                    }
+                }
+            }
+            if (has_n_consonants) {
+                result.push_back(word);
+            }
+            word = ""; // Clear word
+        }
     }
-    return a.size() == b.size();
+    return result;
 }
