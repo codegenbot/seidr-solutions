@@ -15,8 +15,8 @@ def parse_music(music_string: str) -> List[int]:
                 note = ""
         elif char == ".":
             note += char
-            if len(note) == 3 and note == ".|":
-                result.append(1)
+            if note in beats_per_note:
+                result.append(beats_per_note[note])
                 note = ""
     if note:
         result.append(beats_per_note[note])
