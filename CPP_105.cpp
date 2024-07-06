@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -5,7 +6,7 @@ bool issame(vector<string>, const vector<string>&);
 
 vector<string> by_length(const vector<int>& arr) {
     vector<string> result;
-    vector<int> temp = {0};
+    vector<int> temp = {0}; // Initialize temp with a default value.
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
             switch (i) {
@@ -44,6 +45,13 @@ vector<string> by_length(const vector<int>& arr) {
 }
 
 bool issame(vector<string> a, const vector<string>& b) {
-    // Your code to compare two vectors of strings goes here.
-    // For example, you can use std::equal or check if the sizes match and then iterate over each pair.
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
