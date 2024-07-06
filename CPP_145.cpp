@@ -1,3 +1,4 @@
+```c
 #include <algorithm>
 #include <vector>
 
