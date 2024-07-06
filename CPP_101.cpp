@@ -16,7 +16,6 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    if (s.empty()) return {};
     std::vector<std::string> result = {};
     for (int i = 0; i < s.size(); i++) {
         std::string temp = "";
@@ -31,6 +30,7 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
             result.push_back(temp);
         }
     }
+    
     // Check if all expected words were found
     if (!std::equal(expected.begin(), expected.end(), [this](const auto& e) {
             return std::count(result.begin(), result.end(), e) == 1;

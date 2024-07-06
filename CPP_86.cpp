@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +7,7 @@ using namespace std;
 
 vector<string> split(const string& str, const string& delimiter) {
     size_t pos = 0;
-    vector<string> tokens;
+    vector<string> tokens(1);
     while ((pos = str.find(delimiter)) != string::npos) {
         if (pos > 0) { 
             tokens.push_back(str.substr(0, pos));
@@ -30,7 +31,7 @@ string anti_shuffle(string s){
 int main() {
     string s;
     cout << "Enter a sentence: ";
-    cin >> s;
+    getline(cin, s);
 
     cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
 }

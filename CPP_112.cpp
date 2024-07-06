@@ -35,7 +35,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (!(result.size() == 2 && result[0].empty() && result[1] == "True")) {
+    if (!(result == std::vector<std::string> { "", "True" })) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
