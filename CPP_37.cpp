@@ -36,4 +36,3 @@ int main() {
         cout << "Vectors are not same" << endl;
     }
     return 0;
-}

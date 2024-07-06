@@ -1,8 +1,7 @@
-#include <cmath>
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-#include<algorithm>
+#include <stdio.h>
+#include <math.h>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 float median(vector<float> l) {
