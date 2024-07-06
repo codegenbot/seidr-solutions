@@ -42,5 +42,5 @@ map<char, int> histogram(string test) {
         }
     }
 
-    return vector<pair<char, int>>(maxCountLetters.begin(), maxCountLetters.end());
+    return map<char, int>(maxCountLetters.begin(), maxCountLetters.end());
 }
