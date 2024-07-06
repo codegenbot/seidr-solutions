@@ -1,4 +1,4 @@
-```python
+````
 from typing import List
 
 
@@ -21,9 +21,8 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 
 if __name__ == "__main__":
-    numbers = input("Enter space-separated numbers: ").split()
     try:
-        result = rescale_to_unit([float(x) for x in numbers])
+        result = rescale_to_unit([float(x) for x in input("Enter space-separated numbers: ").split()])
         print(result)
     except ValueError as e:
         print(f"Error: {e}")
