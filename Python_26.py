@@ -1,4 +1,3 @@
-
 def remove_duplicates(numbers):
     result = []
     for num in numbers:
