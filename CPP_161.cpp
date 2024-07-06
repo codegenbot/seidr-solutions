@@ -1,9 +1,7 @@
-#include <iostream>
-#include <string>
-#include <cctype>
+using namespace std;
 
-std::string solve(std::string s){
-    std::string result = "";
+string solve(std::string s){
+    string result = "";
     for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
             char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
@@ -12,11 +10,5 @@ std::string solve(std::string s){
             result += s[i];
         }
     }
-    return (result.find_first_not_of(" ") == std::string::npos) ? std::string(result.rbegin(), result.rend()) : result;
-}
-
-int main() {
-    assert (solve("#ccc") == "#CCC");
-    std::cout << "Test Passed" << std::endl;
-    return 0;
+    return (result.find_first_not_of(" ") == string::npos) ? string(result.rbegin(), result.rend()) : result;
 }
