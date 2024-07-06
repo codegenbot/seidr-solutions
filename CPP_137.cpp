@@ -1,46 +1,40 @@
-#include <iostream>
-#include<string>
 #include <boost/any.hpp>
+#include <boost/convert.hpp>
+#include <string>
 
-using namespace std;
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string x = boost::any_cast<string>(a);
-        string y = boost::any_cast<string>(b);
-        return (stof(x) > stof(y)) ? a : ((stof(x) < stof(y)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int x = boost::any_cast<int>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int x = boost::any_cast<int>(a);
-        string y = boost::any_cast<string>(b);
-        return (x > stof(y)) ? a : ((x < stof(y)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float x = boost::any_cast<float>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float x = boost::any_cast<float>(a);
-        string y = boost::any_cast<string>(b);
-        return (x > stof(y)) ? a : ((x < stof(y)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string x = boost::any_cast<string>(a);
-        int y = boost::any_cast<int>(b);
-        return (stof(x) > y) ? a : ((stof(x) < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string x = boost::any_cast<string>(a);
-        float y = boost::any_cast<float>(b);
-        return (stof(x) > y) ? a : ((stof(x) < y) ? b : boost::any("None"));
+std::string compare_one(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a.convert_to<int>() > (double)b.convert_to<double>() ? "First is greater" : "Second is greater";
     }
-    return a;
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        std::string str_a = a.convert_to<std::string>();
+        int num_b = (int)b;
+        return str_a.size() > std::to_string(num_b).size() ? "First is greater" : "Second is greater";
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        std::string str_b = b.convert_to<std::string>();
+        double num_a = (double)a;
+        return str_b.size() > std::to_string(num_a).size() ? "First is greater" : "Second is greater";
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        std::string str_a = a.convert_to<std::string>();
+        int num_b = (int)b;
+        return str_a.size() > std::to_string(num_b).size() ? "First is greater" : "Second is greater";
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        std::string str_a = a.convert_to<std::string>();
+        double num_b = (double)b;
+        return str_a.size() > std::to_string(num_b).size() ? "First is greater" : "Second is greater";
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str_a = a.convert_to<std::string>();
+        std::string str_b = b.convert_to<std::string>();
+        return str_a.size() > str_b.size() ? "First is greater" : "Second is greater";
+    }
+    else if (a.type() == typeid(int) && a.convert_to<int>() < (int)b || 
+             a.type() == typeid(double) && a.convert_to<double>() < (double)b || 
+             a.type() == typeid(std::string) && a.convert_to<std::string>() < b) {
+        return "None";
+    }
+    return "Both are equal";
 }

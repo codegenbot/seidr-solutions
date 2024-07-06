@@ -1,21 +1,34 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    for(int i=0; i<sentence.size(); i++){
-        if(i > 0) result += " ";
-        int len = 0;
-        for(int j=i; j<sentence.size() && isalpha(sentence[j]); j++) {
-            len++;
-            i = j;
-        }
-        if(isPrime(len)) result += sentence.substr(i, len);
+#include <iostream>
+#include <string>
+#include <vector>
+
+std::vector<std::string> split(const std::string& s, const std::string& delimiter) {
+    std::vector<std::string> result;
+    size_t pos = 0;
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        result.push_back(s.substr(0, pos));
+        s.erase(0, pos + delimiter.length());
     }
+    result.push_back(s);
     return result;
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
     for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+        if (n % i == 0)
+            return false;
     }
     return true;
+}
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    for (const auto& word : split(sentence, " ")) {
+        if(is_prime(word.length())){
+            result += word + " ";
+        }
+    }
+    return result;
 }
