@@ -1,3 +1,4 @@
+```
 paren_string = input("Enter the string: ")
 stack = []
 group = ""
@@ -12,4 +13,3 @@ for char in paren_string:
         if not stack:
             result.append(group)
             group = ""
-print(result)
