@@ -1,4 +1,5 @@
-def sorted_list_sum(input_list):
+```
+def sorted_list_sum():
     while True:
         try:
             user_input = input("Enter a list of words separated by space: ").split()
@@ -9,5 +10,3 @@ def sorted_list_sum(input_list):
             return sum_val
         except ValueError:
             print("Invalid input. Please enter numbers and/or words separated by spaces.")
-        else:
-            pass
