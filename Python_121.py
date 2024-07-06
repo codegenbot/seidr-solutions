@@ -1,3 +1,5 @@
-```
+```"""
 def solution(lst):
-    return sum(i for i in lst if i % 2 != 0)
+    odd_sum = sum(i for i in lst if i % 2 != 0)
+    return f"Odd numbers: {odd_sum}"
+""``
