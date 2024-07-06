@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 def longest_file_line(file_content: str) -> Optional[str]:
     if not file_content:
         return None
