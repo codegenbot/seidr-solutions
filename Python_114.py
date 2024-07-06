@@ -15,3 +15,5 @@ def minSubArraySum(nums):
 
 nums = [int(x) for x in input("Enter space-separated integers: ").split()]
 print(minSubArraySum(nums))
+if __name__ == "__main__":
+    minSubArraySum(nums)
