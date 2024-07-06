@@ -1,7 +1,5 @@
+```
 #include <vector>
-#include <cassert>
-#include <initializer_list>
-
 using namespace std;
 
 int solutions(vector<int> lst) {
@@ -13,9 +11,7 @@ int solutions(vector<int> lst) {
     }
     return sum;
 
-}
-
 int main() {
-    vector<int> input = {3, 13, 2, 9};
-    assert(solutions(input) == 15);
+    assert(solutions({3, 13, 2, 9}) == 3);
+    return 0;
 }
