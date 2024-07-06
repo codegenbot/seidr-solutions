@@ -1,12 +1,12 @@
-
 def make_palindrome(string):
+    # Initialize a list to store the characters of the palindrome
     palindrome = []
-    for i, c in enumerate(string):
-        if string[i] == string[-i-1]:
-            palindrome.append(c)
-        elif c == string[0]:
-            palindrome.append(c)
+    for i in range(len(string)):
+        # Check if the character is already in the correct position for the palindrome
+        if string[i] == string[-i - 1]:
+            palindrome.append(string[i])
         else:
-            palindrome.append(string[-i-1])
-            palindrome.append(c)
+            # If not, then rearrange the characters to make it a palindrome
+            palindrome.append(string[-i - 1])
+            palindrome.append(string[i])
     return "".join(palindrome)
