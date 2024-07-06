@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 
 int specialFilter(vector<int> nums) {
@@ -11,4 +8,3 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-}
