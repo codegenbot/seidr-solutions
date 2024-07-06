@@ -1,13 +1,8 @@
-```cpp
-#include <string>
-#include <sstream>
-
 int main() {
     std::string inputStr;
     std::getline(std::cin, inputStr);
     std::istringstream in(inputStr);  
 
-    // Then use this encrypt function:
     std::string encrypt(std::istringstream s) {
         std::string result = "";  
         for(int i=0; i<s.str().length(); i++){
@@ -22,7 +17,6 @@ int main() {
         return result;
     }
 
-    // Now you can call this function:
     std::string encrypted = encrypt(in);
     std::cout << "Encrypted: " << encrypted << std::endl;
 }
