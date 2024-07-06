@@ -5,10 +5,10 @@ int add(vector<int> lst){
             sum += lst[i];
     }
     return sum;
-
 }
 
 int main() {
-    assert(add({4, 4, 6, 8}) == 12);
+    vector<int> lst = {4, 4, 6, 8};
+    cout << add(lst) << endl;
     return 0;
 }
