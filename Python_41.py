@@ -1,5 +1,4 @@
 def car_race_collision(n: int):
-    # Create a list of all possible collision scenarios
     left_to_right = range(1, n + 1)
     right_to_left = range(n, 0, -1)
     collisions = set(left_to_right).intersection(right_to_left)
