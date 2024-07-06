@@ -1,25 +1,27 @@
+```
 def encode(message):
+    """Encode a string based on certain rules"""
     result = ""
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                if char.lower() in {"do", "to"}:
+                if char.lower() == "do" or char.lower() == "to":
                     if char.isupper():
-                        result += "dQnT".upper()
+                        result += "DQN".upper()
                     else:
-                        result += "dQnT"
-                elif char.lower() in {"re", "ro", "te"}:
+                        result += "dqn"
+                elif char.lower() == "re" or char.lower() == "ro" or char.lower() == "te":
                     if char.isupper():
-                        result += "gYkS".upper()
+                        result += "GYKS".upper()
                     else:
-                        result += "gYkS"
+                        result += "gyks"
                 elif char.lower() == "se":
                     if char.isupper():
-                        result += "sWnT".upper()
+                        result += "SWNT".upper()
                     else:
-                        result += "sWnT"
+                        result += "swnt"
                 else:
-                    if char.lower() in {"a", "e", "i", "o", "u"}:
+                    if char.lower() in "aeiou":
                         if char.isupper():
                             result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()].upper()
                         else:
