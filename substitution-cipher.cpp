@@ -5,13 +5,14 @@
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
     for (char c : cipher) {
-        int idx = mapping.find(c);
+        char m = mapping[0];
+        int idx = mapping.find(m);
         if (idx != std::string::npos) {
-            char m = mapping[idx];
-            result += m;
+            result += mapping[idx];
         } else {
             result += c;
         }
+        mapping.erase(0, 1);
     }
     return result;
 }
