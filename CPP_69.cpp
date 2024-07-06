@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -15,7 +16,7 @@ int search(std::vector<int> lst) {
     int maxVal = -1;
     for (auto p : count) {
         if(p.second > 0) 
-            maxVal = p.first; 
+            maxVal = p.first;
     }
 
     return maxVal;
