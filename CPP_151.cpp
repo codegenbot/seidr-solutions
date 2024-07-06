@@ -13,7 +13,7 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> input;
+    vector<float> input; 
     float odd_sum = 1.5f; 
     assert(double_the_difference(input) == odd_sum );
     return 0;
