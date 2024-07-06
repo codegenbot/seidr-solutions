@@ -1,7 +1,10 @@
 def modp(x, y):
-    if y == 0:
-        return "Error: Division by zero"
-    else:
-        return x % y
+    return x % y
 
-print(modp(10,3))
+def check(f):
+    if f == lambda x, y: x % y:
+        return "Modular Polynomial Arithmetic Function is Correct"
+    else:
+        return "Error: Not a Modular Polynomial Arithmetic Function"
+
+print(check(modp))
