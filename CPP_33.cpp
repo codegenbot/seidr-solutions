@@ -8,9 +8,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> result = {};
+    std::vector<int> result;
+    int count = 0;
     for(int i = 0; i < l.size(); i++) {
-        if(i % 3 == 0) {
+        if(count % 3 == 0) {
             std::vector<int> temp;
             for(int j = 0; j < l.size(); j++) {
                 if(j % 3 == 0) {
@@ -22,16 +23,19 @@ std::vector<int> sort_third(std::vector<int> l) {
         } else {
             result.push_back(l[i]);
         }
+        count++;
     }
     return result;
 }
 
 std::vector<int> make_move(std::vector<int> v) {
     std::vector<int> res;
+    int count = 0;
     for(int i = 0; i < v.size(); i++) {
-        if(i % 3 == 0) {
+        if(count % 3 == 0) {
             res.push_back(v[i]);
         }
+        count++;
     }
     return res;
 }
@@ -39,5 +43,13 @@ std::vector<int> make_move(std::vector<int> v) {
 int main() {
     std::vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
     std::vector<int> res = sort_third(l);
-    for(int i : res) cout << i << " ";
+    int count = 0;
+    for(auto value : res) {
+        if(count % 3 == 0)
+            std::cout << value << " ";
+        else
+            std::cout << value << " ";
+        count++;
+    }
+    std::cout << '\n';
 }
