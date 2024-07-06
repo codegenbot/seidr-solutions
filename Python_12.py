@@ -1,12 +1,10 @@
-num_strings = -1
-while num_strings <= 0:
+```
+num_strings = 0
+while True:
     try:
         num_strings = int(input("How many strings do you have? "))
-        if num_strings > 0:
-            break
-        else:
-            print("Please enter a positive integer.")
+        break
     except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+        print("Invalid input. Please enter a number.")
 
 strings = [input(f"Enter string {i+1}:") for i in range(num_strings)]
