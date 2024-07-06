@@ -1,4 +1,8 @@
-```
 def solve(N):
-    decimal_sum = sum(int(i) for i in str(bin(N)[2:]))
-    return bin(decimal_sum)[2:]
+    result = ""
+    for i in str(bin(N)[2:]):
+        if i == "1":
+            result += "1"
+        else:
+            result += "0"
+    return result
