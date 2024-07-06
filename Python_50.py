@@ -1,16 +1,28 @@
 def decode_shift():
     shift = input("Enter 'encode' or 'decode': ")
-    while True:
-        try:
-            amount = int(input("Enter the shift amount (1-25): "))
-            if 0 < amount < 26:
-                s = input("Enter the string: ")
 
-                if shift == "encode":
-                    return "".join([chr((ord(ch) - ord("a") + amount) % 26 + ord("a")) for ch in s.lower()])
-                elif shift == "decode":
-                    return "".join([chr((ord(ch) - ord("a") - amount) % 26 + ord("a")) for ch in s.lower()])
-            else:
-                print("Invalid input. Please enter a number between 1 and 25.")
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
+    while True:
+        s = input("Enter the string: ")
+
+        if shift == "encode" or shift == "decode":
+            break
+        else:
+            raise Exception("Invalid input. Please enter 'encode' or 'decode'.")
+
+    while True:
+        s = input("Enter the string (type 'quit' or 'q' to finish): ")
+
+        if s.lower() == "quit" or s.lower() == "q":
+            break
+        elif shift == "encode":
+            print(
+                "".join(
+                    [chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in s.lower()]
+                )
+            )
+        elif shift == "decode":
+            print(
+                "".join(
+                    [chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()]
+                )
+            )
