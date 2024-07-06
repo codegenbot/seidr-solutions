@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <stack>
 using namespace std;
 
 bool evaluate(const string &expression) {
