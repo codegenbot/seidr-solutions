@@ -1,7 +1,12 @@
 def skjkasdkd(lst):
-    from math import sqrt
-    max_prime = -1
-    for i in range(2, int(sqrt(max(lst))) + 1):
-        if all(not (x % i) for x in lst):
-            max_prime = i
-    return sum(map(int, str(max_prime)))
+    # find the largest prime number in the list
+    max_prime = None
+    for num in lst:
+        if is_prime(num) and (max_prime is None or num > max_prime):
+            max_prime = num
+
+    # return the sum of its digits
+    if max_prime is not None:
+        return sum(int(digit) for digit in str(max_prime))
+    else:
+        return 0
