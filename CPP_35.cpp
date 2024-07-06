@@ -1,12 +1,10 @@
-````
-#include <vector>
+```cpp
 #include <algorithm>
+#include <vector>
+#include <cmath>
 
 int main() {
-    std::vector<float> v;
-    // Read input from user
-    for (float i; std::cin >> i;) {
-        v.push_back(i);
-    }
-    return *std::max_element(v.begin(),v.end());
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    int result = *std::max_element(l.begin(), l.end());
+    return 0;
 }
