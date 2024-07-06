@@ -5,17 +5,14 @@
 using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
+    string str = to_string(q[0]);
+    for (int i = 1; i < q.size(); i++) {
+        str += " " + to_string(q[i]);
     }
-    vector<char> rev;
-    for (char c : str) {
-        rev.push_back(c);
-    }
-    reverse(rev.begin(), rev.end());
-    string rev_str(rev.begin(), rev.end());
-    if (str != rev_str)
+    vector<char> reversed(str.begin(),str.end());
+    string revStr = string(reversed.rbegin(),reversed.rend());
+    
+    if (str != revStr)
         return false;
     int sum = 0;
     for (int i : q) {
