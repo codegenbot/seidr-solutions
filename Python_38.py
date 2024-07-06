@@ -12,11 +12,11 @@ def decode_cyclic(s):
             result += group[0] + group[1]
         else:
             j = 2
-            while j > 0:
-                j -= 1
-                if s[i+j] == s[i]:
-                    result += s[i]
-                    i += j
+            while j > 0 and i + j < len(s):
+                if group[j-1] == group[2]:
+                    while i + j < len(s) and s[i+j] == s[i]:
+                        i += j
                     break
+                j -= 1
         i += 3
     return result
