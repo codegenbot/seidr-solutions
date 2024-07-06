@@ -13,8 +13,38 @@ vector<string> bf(string planet1, string planet2) {
         int index2 = distance(planets.begin(), find(planets.begin(), planets.end(), planet2));
 
         if (index1 < index2) {
-            return vector<string>(planets.begin() + index1 + 1, planets.begin() + index2);
+            for (int i = index1 + 1; i < index2; i++) {
+                return {planets[i]};
+            }
         } else if (index1 > index2) {
-            return vector<string>(planets.begin() + index1, planets.end());
+            for (int i = index1; i > index2; i--) {
+                return {planets[i - 1]};
+            }
         } else {
-            return vector<string>(planets.begin(), plan
+            for (int i = 0; i < index1; i++) {
+                return {planets[i]};
+            }
+        }
+    } else {
+        return {};
+    }
+}
+
+int main() {
+    string planet1, planet2;
+    cout << "Enter the first planet: ";
+    cin >> planet1;
+    cout << "Enter the second planet: ";
+    cin >> planet2;
+    vector<string> result = bf(planet1, planet2);
+    if (result.size() > 0) {
+        cout << "Planets between " << planet1 << " and " << planet2 << ": ";
+        for (string p : result) {
+            cout << p << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "Invalid input" << endl;
+    }
+    return 0;
+}
