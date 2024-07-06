@@ -1,29 +1,44 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
-    vector<int> res;
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
-            if (grid[i][j] == 1) {
-                dfs(grid, visited, i, j, k, &res);
-                break;
-            }
-    return res;
-}
-
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
-    if (k == 0)
-        return;
-    visited[x][y] = true;
-    (*res).push_back(grid[x][y]);
-    for (int dx = -1; dx <= 1; ++dx)
-        for (int dy = -1; dy <= 1; ++dy) {
-            int nx = x + dx, ny = y + dy;
-            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()
-                && !visited[nx][ny] && grid[nx][ny] != (*res).back()) {
-                dfs(grid, visited, nx, ny, k - 1, res);
-                return;
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(grid[i][j] == 1){
+                pq.push({1, {i, j}});
+                visited[i][j] = true;
             }
         }
-    visited[x][y] = false;
+    }
+
+    vector<int> path;
+    while(!pq.empty() && path.size() < k){
+        int val = pq.top().first;
+        pair<int, int> pos = pq.top().second;
+        pq.pop();
+        
+        if(path.size() > 0){
+            if(val != path.back()){
+                return {};
+            }
+        }
+        
+        path.push_back(val);
+        
+        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        random_shuffle(directions.begin(), directions.end());
+        
+        for(auto dir : directions){
+            int ni = pos.first + dir.first;
+            int nj = pos.second + dir.second;
+            
+            if(ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]){
+                visited[ni][nj] = true;
+                pq.push({grid[ni][nj], {ni, nj}});
+            }
+        }
+    }
+
+    return path;
 }
