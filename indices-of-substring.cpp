@@ -1,9 +1,17 @@
-    vector<int> indicesOfSubstring(const string& text, const string& target) {
-    std::vector<int> result;
-    for (size_t i = 0; i < text.length(); ++i) {
-        if (text.substr(i, target.length()) == target) {
-            result.push_back(i);
-        }
+#include <string>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    string text = "banana";
+    string target = "na";
+    
+    vector<int> indices = indicesOfSubstring(text, target);
+    
+    for (size_t i = 0; i < indices.size(); ++i) {
+        cout << indices[i] << endl;
     }
-    return result;
+    
+    return 0;
 }
