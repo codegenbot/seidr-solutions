@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<string> split(const string& str, const string& delimiter) {
@@ -33,4 +32,3 @@ int main()
     cout << "Anti-shuffle: " << anti_shuffle(s) << endl;
 
     return 0;
-}

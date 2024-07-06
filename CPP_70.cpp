@@ -1,14 +1,11 @@
+```cpp
 #include <vector>
 #include <algorithm>
-
-bool issame(int a, int b) {
-    return (a > b);
-}
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
     for (int i = 0; i < lst.size() - 1; i++) {
-        if (!(lst[i] >= lst[i + 1])) {
+        if (lst[i] > lst[i + 1]) {
             int temp = lst[i];
             lst[i] = lst[i + 1];
             lst[i + 1] = temp;
@@ -31,10 +28,27 @@ int main() {
         lst.push_back(num);
     }
 
-    std::vector<int> result = strange_sort_list(lst);
+    if(lst.size() > 0 && lst[0] == lst[lst.size()-1]) {
+        int temp = lst[0];
+        for(int i=1; i<lst.size(); i++) {
+            std::cout << temp << " ";
+        }
+        std::cout<<temp;
+    } else {
+        std::vector<int> result = strange_sort_list(lst);
 
-    for(int n : result) {
-        std::cout << n << " ";
+        if(result[0] == result[result.size()-1]) {
+            int temp = result[0];
+            for(int n : result) {
+                if(n != temp) break;
+                std::cout << temp << " ";
+            }
+            std::cout<<temp;
+        } else {
+            for(int n : result) {
+                std::cout << n << " ";
+            }
+        }
     }
     
     return 0;

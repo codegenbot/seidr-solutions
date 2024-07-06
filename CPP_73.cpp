@@ -1,7 +1,4 @@
-Here is the corrected code:
-
-```cpp
-#include <initializer_list>
+#include <vector>
 #include <string>
 
 int smallest_change(std::vector<int> arr) {
@@ -17,6 +14,6 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-int main() {
-    std::cout << "This is your output" << std::endl;
-    return 0;
+void main() {
+    std::cout << "Hello World!" << std::endl;  
+}
