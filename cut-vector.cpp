@@ -11,15 +11,18 @@ int main() {
     }
     vector<vector<int>> res = cutVector(vec);
     cout << "[";
-    for (int i = 0; i < res.size(); i++) {
-        if(i == 0) cout << "[";
-        for(int j = 0; j < res[i].size(); j++){
-            for(int num:res[i][j]){
-                cout<<std::to_string(num)<<" ";
-            }
+    for (int i = 0; i < res[0].size(); i++) {
+        for(int num : res[0][i]){
+            cout<<num<<" ";
         }
-        if(i < res.size() - 1) cout << " ] [";
+        if(i != res[0].size() -1) 
+            cout << " ] [";
     }
+    for(int j = 0; j < res[1].size();j++){
+        for(int num:res[1][j]){
+            cout<<num<<" ";
+        }
+    }    
     cout << "]";
     return 0;
 }
