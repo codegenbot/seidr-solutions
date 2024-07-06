@@ -1,4 +1,3 @@
-```
 from collections import deque
 
 def minPath(grid, k):
@@ -24,7 +23,7 @@ def minPath(grid, k):
     min_path = None
     for i in range(n):
         for j in range(n):
-            path = dfs(i, j, [], set())
+            path = dfs(i, j, [m[i][j]], set())
             if min_path is None or len(path) < len(min_path):
                 min_path = path
     return min_path
