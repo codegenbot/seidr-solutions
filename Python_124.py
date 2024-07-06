@@ -14,7 +14,7 @@ def valid_date(date):
 
 def main():
     date = input("Enter a date in YYYY-MM-DD format: ")
-    if valid_date(map(int, date.split("-"))):
+    if valid_date(date.split("-")):
         print("The date is valid.")
     else:
         print("The date is invalid.")
