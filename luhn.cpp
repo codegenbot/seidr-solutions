@@ -11,6 +11,12 @@
 #include <climits>
 using namespace std;
 
+vector<int> get_digits() {
+    vector<int> digits;
+    // Code to read input digits here
+    return digits;
+}
+
 int luhn(vector<int>& digits) {
     int sum = 0;
     for (int i = digits.size() - 2; i >= 0; i -= 2) {
@@ -24,7 +30,7 @@ int luhn(vector<int>& digits) {
 }
 
 int main() {
-    vector<int> digits; // Declare the digits vector here
+    vector<int> digits = get_digits(); // Get the digits from user input or file
     int sum = luhn(digits); // Call the luhn function with the digits
     cout << "Sum of doubled digits: " << sum << endl; // Output the result
     return 0;
