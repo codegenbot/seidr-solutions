@@ -1,9 +1,4 @@
 ```
-from typing import List
-
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [s for s in strings if substring in s]
-
 if __name__ == "__main__":
     strings = input("Enter a list of strings (space separated): ").split()
     if not strings:  
@@ -11,8 +6,7 @@ if __name__ == "__main__":
     else:
         while True:
             substring = input("Enter a substring to search: ")
-            if substring:  # Check for empty or None
+            if not substring:
                 break
-            print("Please enter a valid substring. Try again!")
-        result = filter_by_substring(strings, substring)
-        print(result)
+            result = filter_by_substring(strings, substring)
+            print(result)
