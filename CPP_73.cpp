@@ -1,14 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
 
 int smallest_change(std::vector<int> arr) {
-    int n = arr.size();
     std::string str = "";
+    int n = arr.size(), left = 0, right = n - 1, changes = 0;
     for (int i : arr)
         str += to_string(i);
-    int left = 0, right = n - 1;
-    int changes = 0;
     while (left < right) {
         if (str[left] != str[right])
             ++changes;
@@ -17,5 +14,4 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-void main() {
-}
+int main {
