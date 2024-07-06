@@ -6,12 +6,12 @@ def minPath(grid, k):
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            if not min_path or str(path) < min_path:
-                min_path = str(path)
+            if not min_path or "".join(path) < "".join(min_path):
+                min_path = path
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
                 if 0 <= nr < N and 0 <= nc < N and not visited[nr][nc]:
                     queue.append((nr, nc, path + [grid[nr][nc]]))
                     visited[nr][nc] = True
-    return min_path if len(min_path) > 1 else grid[0][0]
+    return "".join(min_path)
