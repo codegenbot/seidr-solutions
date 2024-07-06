@@ -1,9 +1,24 @@
 ```
-def check(count_up_to):
-    total = 0
-    for i in range(1, count_up_to + 1):
-        if i % 3 == 0 and i % 5 == 0:
-            total += i
-    return total
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
 
-print(check(int(input("Enter a number: "))))
+def count_up_to(n):
+    result = []
+    for i in range(1, n+1):
+        result.append(i)
+    return result
+
+def check(lst):
+    for num in lst:
+        if num % 2 != 0:
+            return False
+    return True
+
+if check(count_up_to(n)):
+    print("The numbers are even.")
+else:
+    print("The numbers are not all even.")
