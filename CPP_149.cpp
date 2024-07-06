@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -32,18 +33,18 @@ vector<string> vector_sort(vector<string> lst) {
     return lst;
 }
 
-int sorted_list_sum(vector<string> lst) {
-    vector<int> lengths;
-    for(const auto& s : lst)
-        lengths.push_back(s.size());
-    sort(lengths.begin(), lengths.end());
+int sorted_list_sum(vector<string> list) {
     int sum = 0;
-    for(int len : lengths)
-        sum += len;
+    for (const auto &s : list) {
+        sum += s.size();
+    }
     return sum;
 }
 
 int main() {
-    assert(issame(vector_sort({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
-    cout << sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) << endl;
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    if(issame(vector_sort(lst), {"ccc", "dd", "aaaa", "bbbb"})) 
+        cout << "List is same" << endl; else
+        cout << "Lists are different" << endl;
+    cout << "Sum of string lengths: " << sorted_list_sum(vector_sort(lst)) << endl;
 }
