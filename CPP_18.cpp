@@ -1,7 +1,7 @@
 #include <string>
 using namespace std;
 
-class Solution {
+class HowManyTimes {
 public:
     int how_many_times(string str, string substring) {
         int count = 0;
@@ -17,6 +17,6 @@ public:
 };
 
 int main() {
-    Solution solution;
-    assert(solution.how_many_times("john doe", "john") == 1);
+    HowManyTimes obj;
+    assert(obj.how_many_times("john doe", "john") == 1);
 }
