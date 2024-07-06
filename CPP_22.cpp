@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -24,6 +25,8 @@ int main() {
     std::vector<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     std::vector<int> output = filter_integers(values);
     for (const auto& num : output) {
-        std::cout << num << "\n";
+        if (std::is_integer(std::any_cast<int>(num).get()).name() == "int") {
+            std::cout << num << "\n";
+        }
     }
 }

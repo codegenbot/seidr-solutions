@@ -14,11 +14,14 @@ std::string flip_case(std::string str){
         }
     }
     return result;
-}
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "Flip Case Result: " << flip_case(str) << std::endl;
+
+    std::string flipped = flip_case(str);
+    std::cout << "Flipped case: " << flipped << std::endl;
+
+    return 0;
 }
