@@ -1,9 +1,9 @@
+```
 def digit_sum(n):
-    total = 0
-    while n:
-        total += n % 10
-        n //= 10
-    return total
+    if n >= 10:
+        return sum(int(i) for i in str(n)) + digit_sum(sum(int(i) for i in str(n)))
+    else:
+        return n
 
 
 def main():
