@@ -10,7 +10,6 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> vec = {4, 4, 6, 8};
-    cout << add(vec) << endl;
+    assert (add({4, 4, 6, 8}) == 12);
     return 0;
 }
