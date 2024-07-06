@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
 int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest = -1;
@@ -17,4 +19,11 @@ int Strongest_Extension(string class_name,vector<string> extensions){
         }else if(strength == strongest) result = ext;
     }
     return class_name + "." + result;
+}
+
+int main(){
+    string class_name = "MyClass";
+    vector<string> extensions = {"Java", "Python", "C++", "JavaScript"};
+    cout << Strongest_Extension(class_name, extensions) << endl;
+    return 0;
 }
