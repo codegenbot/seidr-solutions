@@ -1,12 +1,11 @@
-```
 from typing import List
 
 
-def concatenate() -> List[str]:
+def concatenate(*args: List[str]) -> List[str]:
     strings = []
     while True:
         s = input("Enter a string (or 'stop' if finished): ")
         if s.lower() == "stop":
             break
-        strings.append(s.strip())
-    return [''.join(strings)]
+        strings.append(s)
+    return [s.strip() for s in strings]
