@@ -1,7 +1,7 @@
 ```
 from typing import List, Tuple
 
-def sum_product(numbers: list[int]) -> Tuple[int, int]:
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if not isinstance(numbers, list):
         return (0, 1)
         
