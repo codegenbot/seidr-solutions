@@ -1,3 +1,4 @@
+```
 def solution():
     while True:
         try:
