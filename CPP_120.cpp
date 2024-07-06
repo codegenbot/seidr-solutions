@@ -30,3 +30,4 @@ int main() {
     std::cout << "Code works fine!" << std::endl;
 
     return 0;
+}
