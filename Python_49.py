@@ -1,4 +1,6 @@
+```
 def modp(n: int, p: int):
-    while n >= p:
-        n -= p
-    return n
+    if n < p:
+        return n
+    else:
+        return n - p * modp(n // p, p)
