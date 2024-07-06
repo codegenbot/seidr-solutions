@@ -1,6 +1,5 @@
 def fix_spaces(text):
-    text = text.replace(" ", "_").strip()
-    if len(text) > 5:
-        return text[:3] + '...' + text[-3:]
+    if len(text) < 3:
+        return text.lower().replace(" ", "_")
     else:
-        return text
+        return text.strip().lower().replace(" ", "_").rstrip('._')
