@@ -30,6 +30,26 @@ int skjkasdkd(const std::vector<int>& lst) {
     }
 
     return sum;
+
+}
+
+int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
+    int largestPrime = -1, sum = 0;
+
+    for (int num : lst) {
+        if (isPrime(num)) {
+            if (num > largestPrime)
+                largestPrime = num;
+        }
+    }
+
+    while (largestPrime > 0) {
+        sum += largestPrime % 10;
+        largestPrime /= 10;
+    }
+
+    return sum;
+
 }
 
 int main_test() {
