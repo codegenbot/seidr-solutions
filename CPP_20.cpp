@@ -1,6 +1,6 @@
-```cpp
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size())
