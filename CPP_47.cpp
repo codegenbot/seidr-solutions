@@ -1,3 +1,4 @@
+```cpp
 float median(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     int n = numbers.size();
