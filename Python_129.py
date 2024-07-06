@@ -2,29 +2,38 @@ def minPath(grid, k):
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
+    visited = [[False for _ in range(m)] for _ in range(n)]
     path = []
-    visited = set()
+    min_path = float("inf")
 
-    # Start from the top-left corner
-    i = 0
-    j = 0
+    def dfs(i, j, k, path):
+        # Base case: If we have reached the end of the path
+        if len(path) == k:
+            return path
 
-    # Loop until we have visited all cells or reached the end of the path
-    while len(path) < k and i < n and j < m:
-        # Add the current cell to the path
-        path.append(grid[i][j])
-        visited.add((i, j))
+        # Mark the current cell as visited
+        visited[i][j] = True
 
-        # Find the next cell in the path
-        next_cell = None
-        for x in range(max(0, i - 1), min(n, i + 2)):
-            for y in range(max(0, j - 1), min(m, j + 2)):
-                if (x, y) not in visited:
-                    next_cell = (x, y)
-                    break
-            if next_cell is not None:
-                break
-        i, j = next_cell
+        # Check for out of bounds and already visited cells
+        if i < 0 or j < 0 or i >= n or j >= m or visited[i][j]:
+            return None
 
-    # Return the path
-    return path
+        # Recursively search in all possible directions
+        for di, dj in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            next_i = i + di
+            next_j = j + dj
+            if dfs(next_i, next_j, k, path):
+                return path
+
+        # Backtrack and unmark the current cell as visited
+        visited[i][j] = False
+
+    # Iterate over all possible starting cells
+    for i in range(n):
+        for j in range(m):
+            # Check if the current cell is not already visited
+            if not visited[i][j]:
+                # Search for a path from the current cell
+                dfs(i, j, k, path)
+
+    return min_path
