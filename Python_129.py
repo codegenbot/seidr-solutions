@@ -9,7 +9,5 @@ for i in range(N):
     for j in range(len(row)):
         grid[i][j] = int(row[j])
 
-k = int(input("Enter the length of the path: "))
-
 min_path = minPath(grid, k)
 print(min_path)
