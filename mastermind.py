@@ -1,4 +1,3 @@
-
 def mastermind(code, guess):
     # Convert input to 4-character string consisting of only '0', '1', '2', '3', '4', and '5'
     code = re.sub(r"[^0-5]", "", code)
