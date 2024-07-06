@@ -1,27 +1,24 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 int main() {
-    string mastermindCode, guess;
+    string code, guess;
     int whitePegs = 0, blackPegs = 0;
-    cin >> mastermindCode >> guess;
-    for (int i = 0; i < 4; i++) {
-        if (mastermindCode[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            bool alreadyGuessed = false;
-            for (int j = 0; j < i; j++) {
-                if (guess[j] == mastermindCode[i]) {
-                    alreadyGuessed = true;
-                    break;
-                }
-            }
-            if (!alreadyGuessed) {
+
+    while (getline(cin, code)) {
+        getline(cin, guess);
+
+        for (int i = 0; i < code.length(); i++) {
+            if (code[i] == guess[i]) {
+                blackPegs++;
+            } else if (code.find(guess[i]) != string::npos && !whitePegs[guess[i]]) { // added check to make sure the guessed character is not already used as a white peg
                 whitePegs++;
             }
         }
+
+        cout << whitePegs << " " << blackPegs << endl;
     }
-    cout << "White pegs: " << whitePegs << endl;
-    cout << "Black pegs: " << blackPegs << endl;
+
     return 0;
 }
