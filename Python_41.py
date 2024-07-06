@@ -1,4 +1,3 @@
-```
 def car_race_collision(spe, tim):
     count = 0
     for i in range(len(spe)):
