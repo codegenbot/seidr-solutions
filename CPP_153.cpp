@@ -1,34 +1,11 @@
-```cpp
+string Strongest_Extension(string class_name, vector<string> extensions); 
+
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 #include <cctype>
 
 using namespace std;
-
-string Strongest_Extension(string class_name, vector<string> extensions);
-
-int main() {
-    string class_name;
-    cout << "Enter the class name: ";
-    cin >> class_name;
-    
-    int n;
-    cout << "Enter number of extensions: ";
-    cin >> n;
-    
-    vector<string> extensions(n);
-    
-    for (int i = 0; i < n; i++) {
-        cout << "Enter extension " << i + 1 << ": ";
-        cin >> extensions[i];
-    }
-    
-    string result = Strongest_Extension(class_name, extensions);
-    cout << "Strongest Extension: " << result << endl;
-    
-    return 0;
-}
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = 0;
