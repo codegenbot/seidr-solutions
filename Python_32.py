@@ -1,4 +1,3 @@
-```
 def find_zero(xs):
     if len(xs) != 2:
         return "Error: Please provide exactly two numbers"
