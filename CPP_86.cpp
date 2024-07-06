@@ -1,7 +1,7 @@
 #include <string>
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
+string anti_shuffle(string s) {
+    string result = "";
     int i = 0;
     while (i < s.length()) {
         if (s[i] == ' ') {
