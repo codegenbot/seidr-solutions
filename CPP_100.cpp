@@ -1,19 +1,13 @@
-#include <stdio.h>
-#include <vector>
-using namespace std;
+Here is the completed code:
 
-vector<int> make_a_pile(int n) {
+vector<int> make_a_pile(int n){
     vector<int> pile;
-    int stones = 1;
-    
-    for (int i = 0; i < n; i++) {
-        if ((i + 1) % 2 == 0) // even level
-            pile.push_back(stones * 2);
-        else // odd level
-            pile.push_back(stones * 2 - 1);
-        
-        stones += (stones % 2 != 0 ? 2 : 1); // next level's stone number
+    int count = 1;
+    while(n > 0){
+        if(n % 2 == 1) pile.push_back(count);
+        else pile.push_back(count++);
+        n /= 2;
+        count += (n % 2 != 0);
     }
-    
     return pile;
 }
