@@ -1,17 +1,18 @@
-```c++
 #include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
         if (isupper(c)) {
-            sum += tolower(c) - 'a' + 1; 
-        } else if(isdigit(c)){
-            sum += c - '0';
+            sum += c - 'A' + 1; 
         }
     }
     return sum;
 }
+
+assert(digitSum("You arE Very Smart") == 327);
+return 0;
