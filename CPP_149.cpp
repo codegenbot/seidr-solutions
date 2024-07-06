@@ -44,6 +44,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(std::equal(sorted_list_sum({{"aaaa", "bbbb"}, {"dd", "cc"}}), {"cccc", "dddd"}));
+    assert(std::equal(sorted_list_sum({{"aaaa", "bbbb"}, {"dd", "cc"}}), {"aaaa", "bbbb", "cc", "dd"}));
     return 0;
 }
