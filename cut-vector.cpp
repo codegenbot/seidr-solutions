@@ -1,20 +1,22 @@
+```
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(vec);
+    vector<int> vec;
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        int x;
+        cin >> x;
+        vec.push_back(x);
     }
     vector<vector<int>> res = cutVector(vec);
     cout << "[";
     for (int i = 0; i < res[0].size(); i++) {
         cout << res[0][i] << " ";
     }
-    cout << "] [" << "[" << std::to_string(res[1].size()) << "] ";
+    cout << "] [" << "[" << res[1].size() << "] ";
     for (int i = 0; i < res[1].size(); i++) {
         cout << res[1][i] << " ";
     }
