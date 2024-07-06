@@ -1,4 +1,6 @@
 ```
+import math
+
 def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
