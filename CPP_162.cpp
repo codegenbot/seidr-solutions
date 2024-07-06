@@ -1,5 +1,6 @@
-```cpp
-#include <CryptoPP/MD5.h>
+#include <cryptopp.h>
+
+using namespace std;
 using namespace CryptoPP;
 
 string string_to_md5(string text) {
