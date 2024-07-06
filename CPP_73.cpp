@@ -5,7 +5,7 @@ int smallest_change(std::vector<int> arr) {
     std::string str = "";
     int n = arr.size(), left = 0, right = n - 1, changes = 0;
     for (int i : arr)
-        str += to_string(i);
+        str += std::to_string(i);
     while (left < right) {
         if (str[left] != str[right])
             ++changes;
@@ -14,7 +14,7 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-int main {
+int main() {
     std::vector<int> arr = {1, 2, 3};
     int result = smallest_change(arr);
     return 0;
