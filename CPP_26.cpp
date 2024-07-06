@@ -1,19 +1,19 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result;
+    for(int i = 0; i < numbers.size(); i++){
+        bool duplicate = false;
+        for(int j = 0; j < result.size(); j++){
+            if(numbers[i] == result[j]){
+                duplicate = true;
+                break;
+            }
+        }
+        if(!duplicate){
+            result.push_back(numbers[i]);
         }
     }
-    return true;
+    return result;
 }
 
-std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::set<int> uniqueNumbers(numbers.begin(), numbers.end());
-    return std::vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
+bool issame(vector<int> a,vector<int>b){ 
 }
