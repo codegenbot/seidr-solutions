@@ -1,4 +1,5 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <cmath> 
 #include <cassert>
@@ -15,7 +16,6 @@ bool has_close_elements(std::vector<double> numbers, double threshold){
 }
 
 int main() {
-    double a[] = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    std::vector<double> b(a, a + sizeof(a) / sizeof(a[0]));
-    assert (has_close_elements(b, 0.5) == false);
+    std::vector<double> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    assert (has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
 }
