@@ -9,3 +9,4 @@ int fib4(int n) {
         prev1 = next;
     }
     return prev1;
+}
