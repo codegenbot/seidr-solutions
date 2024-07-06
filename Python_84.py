@@ -9,23 +9,24 @@ def solve():
         else:
             print("Invalid input. Please choose a number between 1 and 2.")
 
-    while True:
-        if choice == "1":
-            while True:
-                try:
-                    N = int(input("Enter a number: "))
-                    print(bin(N)[2:])
-                    break
-                except ValueError:
-                    print("That's not a valid number! Try again.")
-        elif choice == "2":
-            while True:
-                try:
-                    N = input("Enter a binary number: ")
-                    print(int(N, 2))
-                    break
-                except ValueError:
-                    print("That's not a valid binary number! Try again.")
+    if choice == "1":
+        while True:
+            try:
+                N = int(input("Enter a number: "))
+                print(f"The binary representation is {bin(N)[2:]}")
+                input("Press Enter to continue...")
+                break
+            except ValueError:
+                print("That's not a valid number! Try again.")
+    elif choice == "2":
+        while True:
+            try:
+                N = input("Enter a binary number: ")
+                print(f"The decimal representation is {int(N, 2)}")
+                input("Press Enter to continue...")
+                break
+            except ValueError:
+                print("That's not a valid binary number! Try again.")
 
 
 def main():
