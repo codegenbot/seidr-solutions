@@ -1,3 +1,4 @@
+```cpp
 int closest_integer(string value) {
     double num = stod(value);
     int integerPart = (int)num;
