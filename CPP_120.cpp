@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -9,7 +9,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-namespace std {
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
@@ -20,12 +19,11 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     }
     return result;
 }
-}
 
 int main() {
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     int n = sizeof(arr)/sizeof(arr[0]);
-    std::vector<int> array (arr, arr+n);
-    assert(issame(maximum(array, 4), std::vector<int>{0, 1, 2, 3}));
+    std::vector<int> myVector (arr, arr+n);
+    assert(isSame(maximum(myVector, 4), {0, 1, 2, 3}));
     return 0;
 }
