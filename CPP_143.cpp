@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cassert>
 
@@ -24,4 +23,5 @@ int words_in_sentence(const string& sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == 2);
+    return 0; 
 }
