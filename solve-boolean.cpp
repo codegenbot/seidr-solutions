@@ -1,37 +1,22 @@
-#include <string>
-#include <iostream> 
-using namespace std;
-
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool t = true;
     bool f = false;
-    bool res = true;
+    bool res = t;
 
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             res &= f;
-            f = false;
         } else if (s[i] == '|') {
-            res |= t;
-            t = false;
-        } else if (s[i] == 't') {
-            t = true;
-        } else if (s[i] == 'f') {
+            res |= f;
+            f = !f;
+        } else if (s[i] == 'T' || s[i] == 't') {
+            t = (s[i] == 'T'); 
+            f = false;
+        } else if (s[i] == 'F' || s[i] == 'f') {
+            f = (s[i] == 'F');
             t = false;
         }
     }
-
+    
     return res;
 }
-
-int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    getline(cin, s);
-    bool result = solveBoolean(s);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    return 0;
