@@ -1,10 +1,11 @@
+
 def fib4(n):
-    sequence = [0, 0, 0, 0]
     if n <= 3:
         return 0
     elif n == 4:
         return 2
     else:
+        sequence = [0, 0, 2, 1] * (n - 3)
         for i in range(5, n + 1):
             if i <= n - 3:
                 sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
