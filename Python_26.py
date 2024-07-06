@@ -1,5 +1,4 @@
 ```
-from collections import OrderedDict
-
-def remove_duplicates(numbers) -> list:
-    return list(OrderedDict.fromkeys(numbers))
+def remove_duplicates(input_str=""):
+    numbers = input(input_str + "Enter comma-separated numbers: ") or input_str
+    return list(set(map(int, numbers.split(","))))
