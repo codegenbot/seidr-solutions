@@ -5,10 +5,10 @@ def sort_third(input_list):
     for num in input_list:
         current_group.append(int(num))
         if len(current_group) == 3:
-            result.append(sorted(current_group, key=sum))
+            result.append(tuple(sorted(current_group)))
             current_group = []
 
     if current_group:  
-        result.append(sorted(current_group, key=sum))
+        result.append(tuple(sorted(current_group)))
 
-    return tuple(map(tuple, result))
+    return tuple(result)
