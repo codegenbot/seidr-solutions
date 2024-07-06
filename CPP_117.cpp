@@ -1,7 +1,7 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<std::string> a, vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
