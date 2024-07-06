@@ -10,4 +10,3 @@ def find_zero(xs):
     
     x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
     return round(x, 2)
-"""
