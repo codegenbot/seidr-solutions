@@ -1,9 +1,5 @@
-```
+````
 """
-Complete the following code given the task description and function signature..
-Currently, the code is 
-"""
-import math
 def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
@@ -15,3 +11,4 @@ def find_zero(xs):
     
     x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
     return round(x, 2)
+```
