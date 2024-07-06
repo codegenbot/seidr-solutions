@@ -1,6 +1,4 @@
 #include <iostream>
-#include <algorithm>
-
 using namespace std;
 
 int main() {
@@ -16,7 +14,7 @@ int main() {
     int nickles = min(nickles, (cents % 10) / 5);
     cents %= 5;
 
-    int pennies = cents;
+    int pennies = min(pennies, cents);
 
     cout << quarters << endl;
     cout << dimes << endl;
