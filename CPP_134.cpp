@@ -1,7 +1,10 @@
-size_t last_space = txt.find_last_of(' ');
-if (last_space == string::npos) {
-    return isalpha(txt.back());
-} else if (txt.size() - 1 > last_space) {
-    return isalpha(txt.back());
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false; // Check for empty string
+    char lastChar = txt.back(); // Get the last character of the string
+    bool isLetter = isalpha(lastChar); // Check if the last character is a letter
+    int i = 0;
+    while(i < txt.length() && txt[i] != ' ') {
+        i++;
+    }
+    return !isLetter && i == txt.length(); // Return true if not a letter and not part of word, false otherwise
 }
-return false;
