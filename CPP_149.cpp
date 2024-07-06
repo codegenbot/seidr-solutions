@@ -17,7 +17,7 @@ std::vector<std::string> vector_sort(std::vector<std::string> lst) {
         [](const std::string& a, const std::string& b){ 
             return (a.size() % 2 == 1 && b.size() % 2 == 0) || (a.size() % 2 == 0 && b.size() % 2 == 1);
         });
-    lst.erase(std::unique(it, lst.end()), lst.end());
+    lst.erase(it, lst.end());
     
     std::sort(lst.begin(), lst.end(),
         [](const std::string& a, const std::string& b){
