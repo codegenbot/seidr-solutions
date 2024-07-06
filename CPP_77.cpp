@@ -1,7 +1,6 @@
-Here is the completed code:
+#include <cmath>
 
-```cpp
-bool iscuber(int a){
-    int n = round(cbrt(a));
-    return (n*n*n == a);
+bool iscuber(int a) {
+    int c = (int)cbrt((double)a);
+    return pow(c, 3) == a;
 }
