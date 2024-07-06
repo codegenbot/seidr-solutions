@@ -1,9 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-std::vector<int> pluck(const std::vector<int>& arr) {
-    int minEvenValue = INT_MAX;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result = {};
     int minEvenValueIndex = -1;
+    int minEvenValue = INT_MAX;
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
@@ -12,7 +14,6 @@ std::vector<int> pluck(const std::vector<int>& arr) {
         }
     }
 
-    std::vector<int> result;
     if (minEvenValue != INT_MAX) {
         result.push_back(minEvenValue);
         result.push_back(minEvenValueIndex);
@@ -22,13 +23,30 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    std::vector<int> output = pluck(arr);
+    std::vector<int> input;
+    int n;
 
-    for (int i : output) {
-        std::cout << i << " ";
+    // Read the number of elements
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    // Read the array elements
+    for (int i = 0; i < n; i++) {
+        int val;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> val;
+        input.push_back(val);
     }
-    std::cout << std::endl;
+
+    // Call the pluck function
+    std::vector<int> output = pluck(input);
+
+    if (output.size() > 0) {
+        std::cout << "The smallest even value is: " << output[0] << std::endl;
+        std::cout << "Its index in the array is: " << output[1] << std::endl;
+    } else {
+        std::cout << "No even values found." << std::endl;
+    }
 
     return 0;
 }
