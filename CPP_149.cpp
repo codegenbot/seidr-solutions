@@ -1,7 +1,7 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
@@ -13,7 +13,7 @@ bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
 std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     std::vector<std::string> result;
     for (const auto& str : list) {
-        if (!str.empty()) {
+        if (str.size() > 0) {
             result.push_back(str);
         }
     }
