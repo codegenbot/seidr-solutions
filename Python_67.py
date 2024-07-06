@@ -1,6 +1,5 @@
 def fruit_distribution(input):
     import re
-
     # Check if the input string contains both "apples" and "oranges"
     if not all(fruit in input for fruit in ["apples", "oranges"]):
         raise ValueError("Invalid input: missing 'apples' or 'oranges' in string")
