@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,7 +22,7 @@ int main() {
         int operation;
         std::cout << "Enter operation " << i + 1 << ": ";
         std::cin >> operation;
-        operations.push_back(operation); 
+        operations.push_back(operation);
     }
 
     // Check if the total balance is below zero
