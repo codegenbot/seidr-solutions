@@ -22,8 +22,25 @@ int Strongest_Extension(string class_name,vector<string> extensions){
 }
 
 int main() {
-    string class_name = "MyClass";
-    vector<string> extensions = {"Java", "JavaScript", "C++", "Python"};
-    cout << Strongest_Extension(class_name,extensions) << endl;
+    string className, extensionsStr;
+    cout << "Enter the class name: ";
+    cin >> className;
+    cout << "Enter the extensions (comma separated): ";
+    getline(cin,extensionsStr);
+    vector<string> extensions = split(extensionsStr,',');
+    cout << "Strongest extension is: " << Strongest_Extension(className,extensions) << endl;
     return 0;
+}
+
+vector<string> split(string str,char delimiter){
+    vector<string> tokens;
+    string token;
+    size_t pos = 0;
+    while((pos = str.find(delimiter)) != std::string::npos) {
+        token = str.substr(0,pos);
+        str.erase(0, pos + delimiter.length());
+        tokens.push_back(token);
+    }
+    tokens.push_back(str);
+    return tokens;
 }
