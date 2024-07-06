@@ -1,4 +1,5 @@
-def sort_array(*args):
+```
+def sort_array():
     while True:
         user_choice = input("Do you want to sort array? (S for yes): ")
         if user_choice.upper() != "S":
