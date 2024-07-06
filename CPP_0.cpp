@@ -1,13 +1,13 @@
+```cpp
 #include <vector>
+#include <algorithm>
 
 std::vector<float> filterLargeNumbers(std::vector<float> numbers, float threshold) {
-    std::vector<float> result;
-    
-    for(float num : numbers){
-        if(num > threshold){
-            result.push_back(num);
+    std::vector<float> largeNumbers;
+    for (float number : numbers) {
+        if (number > threshold) {
+            largeNumbers.push_back(number);
         }
     }
-    
-    return result;
+    return largeNumbers;
 }
