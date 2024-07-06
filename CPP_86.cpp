@@ -1,8 +1,3 @@
-```cpp
-#include<string>
-#include<algorithm>
-using namespace std;
-
 string anti_shuffle(string s) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
@@ -16,8 +11,9 @@ string anti_shuffle(string s) {
             }
             sort(word.begin(), word.end());
             result += word;
-            i--;  // Increment i after processing each word
         }
+        // Fix: Increment i after processing each word
+        i--;
     }
     return result;
 }
