@@ -1,5 +1,8 @@
 def add(numbers):
-    return sum(map(float, numbers))
+    return sum(map(int, numbers))
 
-result = add([input("Enter a number: "), input("Enter another number: ")])
+
+user_input = input("Enter numbers separated by commas: ")
+numbers = user_input.split(",")
+result = add(numbers)
 print(f"The sum is {result}")
