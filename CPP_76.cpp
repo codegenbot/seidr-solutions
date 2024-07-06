@@ -1,5 +1,4 @@
-Here is the solution:
+#include <cmath>
 
-bool is_simple_power(int x, int n) {
-    return pow(n, (int(log(x)) / log(n))) == x;
-}
+bool is_simple_power(int x, int n){
+    return std::pow(n, std::ceil(std::log(x)/std::log(n))) == x;
