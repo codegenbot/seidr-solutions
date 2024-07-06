@@ -12,7 +12,6 @@ int main() {
                 }
                 return a.length() > b.length();
             });
-        
         for (string word : words) {
             if (word.length() == max_word.length()) {
                 int unique_chars_a = 0, unique_chars_b = 0;
@@ -25,10 +24,9 @@ int main() {
                 }
             }
         }
-        
         return max_word;
     }
-
+    
     assert ((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
