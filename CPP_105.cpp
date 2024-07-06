@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 #include <string>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -20,4 +19,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(str);
     }
     return result;
+}
+
+int main() {
+    assert(by_length({9, 4, 8}) == std::vector<std::string>({"Nine", "Eight", "Four"}));
+    return 0;
 }
