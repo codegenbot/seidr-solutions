@@ -5,25 +5,21 @@ using namespace std;
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
-        if (x == 1) { // If x is 1
-            for (int j = lst[i].size() - 1; j >= 0; j--) {
-                result.push_back({i, j});
-            }
-        } else {
-            for (int j = lst[i].size() - 1; j >= 0; j--) {
-                result.push_back({i, j});
+        if (lst[i].size() > 0) {
+            for (int j = 0; j < lst[i].size(); j++) {
+                if (lst[i][j] == x) {
+                    vector<int> coord;
+                    coord.push_back(i);
+                    coord.push_back(j);
+                    result.push_back(coord);
+                }
             }
         }
     }
+    sort(result.begin(), result.end(),
+         [](const vector<int>& a, const vector<int>& b) {
+             if (a[0] == b[0]) return a[1] > b[1];
+             else return a[0] < b[0];
+         });
     return result;
-}
-
-int main() {
-    vector<vector<int>> lst = {{1,2,3,4,5,6}, {1,2,3,4,1,6}, {1,2,3,4,5,1}};
-    int x = 1;
-    vector<vector<int>> result = get_row(lst, x);
-    for (auto &v : result) {
-        cout << "{" << v[0] << ", " << v[1] << "} ";
-    }
-    return 0;
 }
