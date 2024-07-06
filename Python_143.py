@@ -1,15 +1,9 @@
 
 def words_in_sentence(sentence):
-    # split the sentence into a list of words
+    prime_numbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
     words = sentence.split()
-    
-    # create an empty list to store the prime number words
-    prime_words = []
-    
-    # iterate over the words and check if their lengths are prime numbers
+    result = []
     for word in words:
-        if is_prime(len(word)):
-            prime_words.append(word)
-    
-    # join the prime words with a space and return them
-    return " ".join(prime_words)
+        if len(word) in prime_numbers:
+            result.append(word)
+    return " ".join(result)
