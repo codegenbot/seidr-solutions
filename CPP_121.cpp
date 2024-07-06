@@ -14,4 +14,3 @@ int sumOdds(vector<int> lst) {
 int main() {
     assert(sumOdds({3, 13, 2, 9}) == 16);
     return 0;
-}
