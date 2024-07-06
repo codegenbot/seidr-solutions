@@ -2,9 +2,9 @@
 #include <string>
 
 bool issame(std::vector<std::string> a) {
-    if (a.empty()) return true;
-    for (const std::string& s : a) {
-        if (s.size() != 0) return false;
+    if (a.size() == 0) return true;
+    for (int i = 1; i < a.size(); i++) {
+        if (a[i] != a[0]) return false;
     }
     return true;
 }
@@ -26,4 +26,3 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 int main() {
     assert(issame(total_match({"this"}, {})));
     return 0;
-}
