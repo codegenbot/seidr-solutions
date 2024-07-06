@@ -1,4 +1,3 @@
-
 #include <vector>
 using vector = std::vector<int>;
 vector<int> leaders(const vector<int>& v) {
