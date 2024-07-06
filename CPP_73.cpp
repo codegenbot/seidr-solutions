@@ -11,3 +11,4 @@ int smallest_change(std::vector<int> arr) {
     }
 
     return changes;
+}
