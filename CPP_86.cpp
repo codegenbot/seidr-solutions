@@ -1,3 +1,4 @@
+```cpp
 std::string anti_shuffle(std::string s) {
     std::string result = "";
     size_t pos = 0;

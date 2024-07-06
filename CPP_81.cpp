@@ -41,15 +41,3 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     }
     return result;
 }
-
-int main() {
-    vector<float> grades = {3.5, 4.2, 2.9};
-    vector<string> grades_letter = numerical_letter_grade(grades);
-    // use issame function here
-    if (issame(grades_letter, {"A", "A+", "B-"})) {
-        cout << "The two vectors are the same." << endl;
-    } else {
-        cout << "The two vectors are not the same." << endl;
-    }
-    return 0;
-}
