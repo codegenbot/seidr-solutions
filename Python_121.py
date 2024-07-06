@@ -1,5 +1,4 @@
+```
 def solution(lst):
-    if not isinstance(lst, list) or any(not isinstance(i, str) for i in lst):
-        return 0
-    total = sum(int(i) for i in lst[1::2] if int(i) > 1)
+    total = sum(map(int, [i for i in lst[1::2] if i.isdigit()]))
     return total * int(lst[0]) if total else 0
