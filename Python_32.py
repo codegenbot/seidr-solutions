@@ -1,4 +1,3 @@
-```
 print("This program calculates the root of a quadratic equation.")
 print("Enter non-zero values for 'a', 'b', 'c': ")
 while True:
