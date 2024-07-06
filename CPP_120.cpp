@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <queue>
 
@@ -10,7 +11,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     for (int num : arr) {
         pq.push(num);
     }
-    vector<int> result;
+    std::vector<int> result;
     for (int i = 0; i < k; i++) {
         result.push_back(pq.top());
         pq.pop();
