@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 using namespace std;
 
@@ -19,9 +18,4 @@ string anti_shuffle(string s) {
         pos = nextSpace + 1;
     }
     return result;
-}
-
-string main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-    return "Success";
 }
