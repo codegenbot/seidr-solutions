@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,7 +25,11 @@ string anti_shuffle(string s){
             result += std::string(word.begin(), word.end()) + " ";
         }
     }
-    return result.substr(0, result.size() - 1);
+    // remove trailing space
+    if (!result.empty()) {
+        result.pop_back();
+    }
+    return result;
 }
 
 int main() {
@@ -35,7 +40,7 @@ int main() {
     if (s.empty()) {
         cout << "Anti-Shuffle of input sentence is: " << "" << endl;
     } else {
-        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) + " " << endl;
+        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
     }
     return 0;
 }
