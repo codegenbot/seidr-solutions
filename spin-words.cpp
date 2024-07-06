@@ -12,11 +12,11 @@ std::string spinWords(std::string sentence) {
             if (word.size() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
-            result += word + " ";
+            result += word + (i == sentence.size() ? "" : " ");
             start = i + 1;
         }
     }
-    return result.substr(0, result.size() - 1); // remove extra space at the end
+    return result;
 }
 
 int main() {
