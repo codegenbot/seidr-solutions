@@ -20,7 +20,6 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    { }
     assert(issame({get_odd_collatz(12)}, {1, 2, 6}) == true);
     int num;
     std::cout << "Enter a number: ";
