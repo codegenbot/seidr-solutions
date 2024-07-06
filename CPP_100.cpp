@@ -1,6 +1,7 @@
+```cpp
 #include <initializer_list>
 #include <vector>
-#include <iostream>
+#include <bits/stdc++.h>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -15,12 +16,7 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    int input;
-    std::cout << "Enter the value of n: ";
-    std::cin >> input;
-    std::vector<int> result = make_a_pile(input);
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    return 0;
+    int n;
+    std::cin >> n;
+    std::vector<int> result = make_a_pile(n);
 }
