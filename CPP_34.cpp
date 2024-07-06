@@ -1,21 +1,32 @@
-#include <algorithm>
+```
+#include <iostream>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+vector<int> unique(vector<int> l) {
+    vector<int> result;
+    for(int i = 0; i < l.size(); i++) {
+        bool exists = false;
+        for(int j = 0; j < result.size(); j++) {
+            if(l[i] == result[j]) {
+                exists = true;
+                break;
+            }
+        }
+        if(!exists) {
+            result.push_back(l[i]);
+        }
     }
-    return true;
-}
-
-std::vector<int> unique(std::vector<int> l) {
-    std::vector<int> result(l.begin(), std::unique(l.begin(), l.end()).end());
+    sort(result.begin(), result.end());
     return result;
 }
 
-#include <iostream>
 int main() {
-    assert(std::equal(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}).begin(), unique({5, 3, 5, 2, 3, 3, 9, 0, 123}).end(), {0, 2, 3, 5, 9, 123}.begin()));
+    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> result = unique(l);
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
     return 0;
 }
