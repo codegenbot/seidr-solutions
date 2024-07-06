@@ -1,8 +1,7 @@
-def find_zero(input():
-    x = float(input())
-    if x == 0:
-        return 0
-    elif x < 0:
+def find_zero(x):
+    if input("Enter a number: ") > 0:
         return -1
-    else:
+    elif input("Enter a number: ") < 0:
         return 1
+    else:
+        return 0
