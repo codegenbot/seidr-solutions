@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 #include <cassert>
 
 bool any_int(float a, float b, float c) {
@@ -10,6 +9,6 @@ bool any_int(float a, float b, float c) {
     return ((a == ai + bi + ci) || (b == ai + bi + ci) || (c == ai + bi + ci));
 }
 
-int main() {
-    assert(any_int(3.01, 4, 7) == false);
+bool main() {
+    assert(any_int(3.01f, 4.0f, 7.0f) == false);
 }

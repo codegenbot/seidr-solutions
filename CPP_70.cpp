@@ -1,18 +1,6 @@
 #include <iostream>
 #include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::sort(lst.begin(), lst.end());
-    return lst;
-}
+#include <algorithm>
 
 int main() {
     std::vector<int> lst;
@@ -34,4 +22,37 @@ int main() {
     }
     
     return 0;
+}
+
+std::vector<int> strange_sort_list(const std::vector<int>& lst) {
+    std::vector<int> result;
+
+    for (int num : lst) {
+        bool found = false;
+        for (int& x : result) {
+            if (!issame(num, x)) {
+                x = num;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            result.push_back(num);
+        }
+    }
+
+    return result;
+}
+
+bool issame(int a, int b) {
+    std::cout << "Check for identical numbers: ";
+    for (int i = 0; i < 3; i++) {
+        if ((a >> i & 1) != (b >> i & 1)) {
+            std::cout << "Numbers are not the same.\n";
+            return false;
+        }
+    }
+    std::cout << "Numbers are the same.\n";
+    return true;
 }
