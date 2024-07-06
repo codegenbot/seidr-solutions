@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <limits>
@@ -27,7 +26,7 @@ int main() {
 
     cout << "Enter the second value: ";
     string val2;
-    cout << "Enter the second value: ";
+    cin >> ws; 
     getline(cin, val2);
 
     if (!val2.empty()) {
