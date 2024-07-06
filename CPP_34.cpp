@@ -4,7 +4,7 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), l.end());
+    vector<int> result(l.begin(), unique erase(unique(l).begin(), unique(l).end()));
     sort(result.begin(), result.end());
     return result;
 }
@@ -15,4 +15,3 @@ int main() {
         cout << i << " ";
     }
     return 0;
-}
