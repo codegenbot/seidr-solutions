@@ -1,4 +1,3 @@
-```
 def process_strings():
     strings = []
     while True:
