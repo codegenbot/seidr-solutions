@@ -3,22 +3,19 @@ def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
     visited = set()
-    queue = deque([(0, 0)])
-    path = []
+    queue = deque([(0, 0, 1)])
+    min_path = []
 
-    # Loop until the queue is empty or the path length is k
-    while queue and len(path) < k:
-        # Get the current cell and its neighbors
-        i, j = queue.popleft()
-        neighbors = [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]
-
-        # Filter out visited cells and add new cells to the queue
-        for ni, nj in neighbors:
+    while queue:
+        i, j, path = queue.popleft()
+        if (i, j) in visited:
+            continue
+        visited.add((i, j))
+        if len(min_path) < k:
+            min_path.append(grid[i][j])
+        else:
+            break
+        for ni, nj in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
             if 0 <= ni < n and 0 <= nj < m and (ni, nj) not in visited:
-                queue.append((ni, nj))
-                visited.add((ni, nj))
-
-        # Add the current cell to the path
-        path.append(grid[i][j])
-
-    return path
+                queue.append((ni, nj, path + 1))
+    return min_path
