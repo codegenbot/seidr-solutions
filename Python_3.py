@@ -1,12 +1,12 @@
-```
 def calculate_average_grade():
     total = 0
     count = 0
     while True:
-        grades = list(map(float, input("Enter your grades (space-separated): ").split()))
-        if all(0 < grade <= 5 for grade in grades):
-            break
-        else:
+        try:
+            grades = list(map(float, input("Enter your grades (space-separated): ").split()))
+            if all(0 < grade <= 5 for grade in grades):
+                break
+        except ValueError:
             print("Invalid grade! Please enter a positive number.")
     
     for grade in grades:
