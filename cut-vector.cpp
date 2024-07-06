@@ -12,10 +12,14 @@ vector<vector<int>> cutVector(vector<int> vec) {
             int mid = i;
             while(mid > 0 && vec[mid] == vec[mid - 1])
                 mid--;
-            res[0].resize(mid);
-            copy(vec.begin(), vec.begin() + mid, back_inserter(res[0]));
-            res[1].resize(n - mid);
-            copy(vec.begin() + mid, vec.end(), back_inserter(res[1]));
+            res[0].reserve(i);
+            for(int j=0; j<i; j++) {
+                res[0].push_back(vec[j]);
+            }
+            res[1].reserve(n-i);
+            for(int j=i; j<n; j++) {
+                res[1].push_back(vec[j]);
+            }
             break;
         }
     }

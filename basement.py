@@ -1,4 +1,3 @@
-```
 def basement(vector):
     acc = 0
     for i in range(len(vector)):
