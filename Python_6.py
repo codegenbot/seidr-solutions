@@ -9,7 +9,12 @@ def parse_nested_parens(s):
 
 def main():
     outer_input = input().strip()
-    main_input = parse_nested_parens(outer_input)
+    while True:
+        main_input = parse_nested_parens(outer_input)
+        if "{}" not in main_input:
+            break
+        else:
+            outer_input = main_input
     print(main_input)
 
 if __name__ == "__main__":
