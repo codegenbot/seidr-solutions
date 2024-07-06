@@ -1,9 +1,7 @@
-#include <vector>
-#include <limits>
-#include <cassert>
+#include <climits>
 
-long long minSubArraySum(std::vector<long long> nums) {
-    long long sum = 0, min_sum = std::numeric_limits<long long>::max();
+int minSubArraySum(std::vector<long long> nums) {
+    long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         min_sum = std::min(min_sum, sum);
@@ -14,7 +12,12 @@ long long minSubArraySum(std::vector<long long> nums) {
     return min_sum;
 }
 
-int main() {
-    assert(minSubArraySum({1, -1}) == -1);
-    return 0;
+int main(){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreturn-type"
+    int main(){  
+        assert(minSubArraySum({1, -1}) == -1);
+        return 0;
+    }
+#pragma clang diagnostic pop
 }

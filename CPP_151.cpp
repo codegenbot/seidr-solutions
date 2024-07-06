@@ -16,7 +16,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 4.0f, 6.25f};
-    assert(double_the_difference(lst) == 12);
+    std::vector<float> lst = {1.5f, 4.25f, -0.75f};
+    assert(double_the_difference(lst) == 8);
     return 0;
 }
