@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     return x + y
 
@@ -21,13 +22,12 @@ while True:
                                 break
                             else:
                                 print("Invalid input. Please enter a whole number.")
-                                continue
                         else:
                             print("Invalid input. Please enter a whole number.")
-                            continue
                     break
                 else:
                     print("Invalid input. Please enter a whole number.")
-                    continue
+            else:
+                print("Invalid input. Please enter a whole number.")
     except ValueError:
         print("Invalid input. Please enter a whole number.")
