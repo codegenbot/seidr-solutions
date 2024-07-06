@@ -2,27 +2,33 @@ def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
 
-    queue = [(0, 0, [])]
-    visited = set((0, 0))
+    queue = [(i, j) for i in range(n) for j in range(m)]
+    visited = set()
     path_lengths = {}
+    shortest_paths = {}
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
     while queue:
-        x, y, path = queue.pop(0)
+        x, y = queue.pop(0)
 
-        if grid[x][y] == "O" and len(path) > k:
-            return []
+        if grid[x][y] in shortest_paths:
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
 
-        if len(path) > k:
-            return path
+                if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < m:
+                    new_path = list(shortest_paths[grid[x][y]] + [grid[nx][ny]])
+                    queue.append((nx, ny))
+                    visited.add((nx, ny))
+                    path_lengths[tuple(new_path)] = len(new_path)
 
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
+        if (x, y) not in visited and 0 <= x < n and 0 <= y < m:
+            visited.add((x, y))
 
-            if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < m:
-                new_path = path + [grid[nx][ny]]
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
 
-                if grid[nx][ny] != "#":
-                    queue.append((nx, ny, new_path))
+                if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < m:
+                    queue.append((nx, ny))
                     visited.add((nx, ny))
 
-    return []
+    return [x for x in path_lengths if len(x) <= k]
