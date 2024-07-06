@@ -1,7 +1,5 @@
 if (a.size() != b.size())
         return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon())
-            return false;
-    return true;
+    auto equal_pred = [&](float x, float y){return std::abs(x - y) <= std::numeric_limits<float>::epsilon();};
+    return std::equal(a.begin(), a.end(), b.begin(), b.end(), equal_pred);
 }
