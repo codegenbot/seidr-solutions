@@ -24,3 +24,9 @@ def modp(n: int, p: int):
         if pow(n, i, p) != n and pow(i, (p - 1), p) != 1:
             return n % p
     return pow(n * pow(n, p-1, p), -1, p) * n % p
+
+n = int(input("Enter the number n: "))
+p = int(input("Enter the prime number p: "))
+
+print(miller_rabin(n))
+print(modp(n, p))
