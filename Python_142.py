@@ -8,17 +8,13 @@ def sum_squares(lst):
             total_sum += lst[i] ** 3
     return total_sum
 
-
-lst = input("Enter the list of numbers (space-separated): ")
-lst = [int(i) for i in lst.split()]
+lst = [int(i) for i in input("Enter the list of numbers (space-separated): ").split()]
 operation = input("Enter 'square' to square or 'cube' to cube: ")
+
+while operation != "square" and operation != "cube":
+    operation = input("Invalid operation. Please enter 'square' or 'cube': ")
 
 if operation == "square":
     print(sum_squares(lst))
 elif operation == "cube":
-    result = 0
-    for num in lst:
-        result += num ** 3
-    print(result)
-else:
-    print("Invalid operation. Please enter 'square' or 'cube'.")
+    print(sum_squares([x**3 for x in lst]))
