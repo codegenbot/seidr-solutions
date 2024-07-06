@@ -1,14 +1,16 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <cryptopp/md5.h>
+```cpp
+#include "path/to/CryptoPP/include/cryptopp/md5.h"
+#include "path/to/CryptoPP/include/cryptopp/hex.h"
 
 using namespace std;
+using namespace CryptoPP;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    CryptoPP::MD5 md;
-    string result = md.ComputeString(text, text.length());
+    MD5 md;
+    md.Update((const byte*)text.c_str(), text.length());
+    string result = HexEncoder().CalculateString(md.Digest());
+
     return result;
 }
