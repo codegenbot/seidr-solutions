@@ -14,7 +14,6 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst = {1.5f, 3.7f, 4.8f}; 
-    long long odd_sum = double_the_difference(lst);
-    int even_sum = static_cast<int>(std::accumulate(lst.begin(), lst.end(), 0.0f) - odd_sum);
-    std::cout << "Even sum is: " << even_sum << "\n";
+    int odd_sum = double_the_difference(lst);
+    return 0;
 }

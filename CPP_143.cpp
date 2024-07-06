@@ -8,16 +8,16 @@ int words_in_sentence(const std::string& sentence) {
 
     for (char c : sentence) {
         if (c == ' ') {
-            if(inWord) {
-                count++;
-                inWord = false;
-            }
+            inWord = false;
         } else {
-            inWord = true;
+            if (!inWord) {
+                count++;
+                inWord = true;
+            }
         }
     }
 
-    return count + (inWord ? 1 : 0);
+    return count;
 }
 
 int main() {
