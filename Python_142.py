@@ -9,16 +9,10 @@ def sum_squares(lst):
     return total_sum
 
 
-lst = input("Enter the list of numbers (space-separated): ")
-lst = [int(i) for i in lst.split()]
+lst = [int(i) for i in input("Enter the list of numbers (space-separated): ").split()]
 operation = input("Enter 'square' to square or 'cube' to cube: ")
 
-if operation == "square":
-    print(sum_squares(lst))
-elif operation == "cube":
-    result = 0
-    for num in lst:
-        result += num ** 3
-    print(result)
-else:
-    print("Invalid operation. Please enter 'square' or 'cube'.")
+while operation not in ["square", "cube"]:
+    operation = input("Invalid operation. Please enter 'square' or 'cube': ")
+
+print(sum_squares(lst)) if operation == "square" else print(sum_squares([x**2 for x in lst]))
