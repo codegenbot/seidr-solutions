@@ -8,6 +8,9 @@ def modp(n: int, p: int):
     if n == 1 or p == 1:
         return n
 
+    if n > p:
+        return modp(n % p, p)
+
     if pow(n, (p-1)//2, p) == p-1:
         return n % p
 
@@ -15,4 +18,4 @@ def modp(n: int, p: int):
         if pow(n, i*p - i, p) == 1:
             return n % p
 
-    return n % p
+    return n
