@@ -1,18 +1,7 @@
-```
-def simplify(x, n):
-    x_num, x_denom = map(int, input(f"Enter numerator and denominator of {x} (separated by /): ").split('/'))
-    n_num, n_denom = map(int, input(f"Enter numerator and denominator of {n} (separated by /): ").split('/'))
+def fractionAddition(self, numerator: int, denominator: int) -> str:
+    if not denominator:
+        return f"{numerator}/1"
 
-    def gcd(a, b):
-        while b:
-            a, b = b, a % b
-        return a
+    result = f"{numerator}/{denominator}"
 
-    common = gcd(x_denom, n_denom)
-    new_x_num = x_num // common
-    new_n_num = n_num // common
-    
-    if (x_num // common) / (n_denom // common) == (n_num // common) / (x_denom // common):
-        return True
-    else:
-        return False
+    return result
