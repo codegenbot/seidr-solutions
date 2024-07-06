@@ -1,46 +1,23 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+using namespace std;
 
-std::vector<std::string> bf(std::string a, std::string b) {
-    int countA = 0;
-    int countB = 0;
-
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] == 'a')
-            countA++;
-        else
-            countB++;
-    }
-
-    for(int i = 0; i < b.size(); i++) {
-        if(b[i] == 'a')
-            countA++;
-        else
-            countB++;
-    }
-
-    std::vector<std::string> result;
-
-    while(countA > 0 && countB > 0) {
-        result.push_back("aab");
-        countA -= 2;
-        countB -= 2;
-    }
-
-    if(countA > 0) {
-        for(int i = 0; i < countA; i++) {
-            result.push_back("a");
+std::vector<std::string> bf(std::string a, std::vector<std::string> second) {
+    int i = 0;
+    while (i < a.size()) {
+        string temp = "";
+        for (int j = i; j < a.size(); j++) {
+            temp += a[j];
+            if (j == a.size() - 1 || a[j + 1] != a[i]) {
+                second.push_back(temp);
+                temp = "";
+                i = j;
+                break;
+            }
         }
     }
-
-    if(countB > 0) {
-        for(int i = 0; i < countB; i++) {
-            result.push_back("b");
-        }
-    }
-
-    return result;
+    return second;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
