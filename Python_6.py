@@ -1,7 +1,7 @@
 ```
-def parse_nested_parens(input_str: str) -> List[int]:
+def parse_nested_parens(paren_string):
     result = []
-    for group in re.split(r'\(|\)', input_str):
+    for group in re.split(r'\(([^()]+)\)|\)', paren_string):
         if not group:
             continue
         depth = 0
