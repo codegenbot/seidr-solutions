@@ -2,10 +2,10 @@
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    max_length = 0
-    result = None
+    longest_str = strings[0]
     for s in strings:
-        if len(s) > max_length:
-            max_length = len(s)
-            result = s
-    return result
+        if len(s) > len(longest_str):
+            longest_str = s
+        elif len(s) == len(longest_str):
+            longest_str = s
+    return longest_str
