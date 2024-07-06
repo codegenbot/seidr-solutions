@@ -1,9 +1,9 @@
 ```
 def digits(n):
-    product = n if sum(digit % 2 != 0 for digit in (n % 10,) + (n // 10,) * ((n //= 10) - 1)) else 1
-    while n:
-        digit = n % 10
-        if digit % 2 != 0:
-            product *= digit
-        n //= 10
-    return product
+    product = 1
+    has_odd_digit = False
+    for digit in str(n):
+        if int(digit) % 2 != 0:
+            product *= int(digit)
+            has_odd_digit = True
+    return 0 if not has_odd_digit else product
