@@ -5,7 +5,7 @@ def minPath(grid, k):
         for j in range(n):
             if grid[i][j] == 1:
                 path = [grid[i][j]]
-                dfs(i, j, k - 1, grid, path, res)
+                dfs(i, j, k, grid, path, res)
                 return path + res
     return []
 
@@ -22,4 +22,3 @@ def dfs(i, j, k, grid, path, res):
             grid[ni][nj], path.append(temp)
             dfs(ni, nj, k - 1, grid, path, res)
             grid[ni][nj] = temp
-    return None
