@@ -5,4 +5,4 @@ def car_race_collision(n: int):
         return len([i for i in left_to_right if i in right_to_left])
     else:
         # Handle the case where n > 10
-        return 0
+        pass
