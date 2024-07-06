@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -14,16 +15,18 @@ bool issame(const std::string& s1, const std::string& s2) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::initializer_list<std::string> lst) {
-    std::vector<std::string> result(lst);
-    std::sort(result.begin(), result.end());
-    for (int i = 0; i < result.size(); ++i) {
-        for (int j = i + 1; j < result.size(); ++j) {
-            if (issame(result[i], result[j])) {
-                result.erase(result.begin() + j);
-                --j;
-            }
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0 || issame(str, "sum")) {
+            result.push_back(str);
         }
     }
+    std::sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(std::equal(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
