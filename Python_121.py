@@ -1,3 +1,3 @@
 def solution(lst):
-    odd_indices = [(i, x) for i, x in enumerate(lst) if x % 2 != 0]
-    return sum(i for _, i in odd_indices if (index + 1) % 2 == 0)
+    odd_indices = {i: j for j, i in enumerate(lst) if i % 2 != 0}
+    return sum(i for i in lst if i % 2 != 0 and (odd_indices[i] + 1) % 2 == 0)
