@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 int specialFilter(std::vector<int> nums);
 
 int main() {
@@ -29,4 +26,3 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-}
