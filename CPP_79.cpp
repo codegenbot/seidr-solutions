@@ -2,24 +2,17 @@
 #include <string>
 
 int main() {
-    string decimal_to_binary(int decimal){
-        string binary = "";
-        while(decimal > 0){
-            if(decimal % 2 == 0)
-                binary.insert(0,"0");
-            else
-                binary.insert(0,"1");
-            decimal /= 2;
-        }
-        return "db" + binary + "db";
+    int decimal;
+    std::cout << "Enter an integer: ";
+    std::cin >> decimal;
+    string binary = "";
+    while(decimal > 0){
+        if(decimal % 2 == 0)
+            binary.insert(0,"0");
+        else
+            binary.insert(0,"1");
+        decimal /= 2;
     }
-
-    int num;
-    cout << "Enter a decimal number: ";
-    cin >> num;
-
-    string result = decimal_to_binary(num);
-    cout << "The binary representation of the decimal number is: " << result << endl;
-
+    std::cout << "Binary representation: " << binary << endl;
     return 0;
 }
