@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 long long fact(int n) {
@@ -18,6 +19,6 @@ long long special_factorial(int n) {
 
 int main() {
     assert(special_factorial(5) == 120);  
-    std::cout << "Hello, World!" << special_factorial(5) << std::endl;
+    std::cout << "Hello, World!";
     return 0;
 }
