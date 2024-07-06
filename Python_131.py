@@ -1,3 +1,3 @@
 
 def digits(n):
-    return max(int(digit) for digit in str(n))
+    return str(max(int(digit) for digit in str(n)))
