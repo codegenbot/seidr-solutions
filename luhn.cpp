@@ -5,7 +5,7 @@
 using namespace std;
 int luhn(vector<int>& digits) {
     int sum = 0;
-    for (int i = digits.size() - 2; i >= 0; i--) {
+    for (int i = digits.size() - 1; i >= 0; i--) {
         sum += digits[i];
     }
     return sum % 10;

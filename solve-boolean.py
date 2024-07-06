@@ -1,23 +1,15 @@
+import re
+
+
 def solve_boolean(expression):
-    # Use a stack to evaluate the expression recursively
-    stack = []
-    for char in expression:
-        if char == "T":
-            stack.append(True)
-        elif char == "F":
-            stack.append(False)
-        elif char == "|":
-            # Evaluate the previous two elements using OR recursively
-            a = solve_boolean(stack[-2])
-            b = solve_boolean(stack[-1])
-            stack.pop()
-            stack.pop()
-            stack.append(a or b)
-        elif char == "&":
-            # Evaluate the previous two elements using AND recursively
-            a = solve_boolean(stack[-2])
-            b = solve_boolean(stack[-1])
-            stack.pop()
-            stack.pop()
-            stack.append(a and b)
-    return stack[-1]
+    # Add an input statement to read the expression from the user
+    expression = input("Enter a Boolean expression: ")
+
+    result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
+    if result:
+        left, right = result.groups()
+        return solve_boolean(left) | solve_boolean(right)
+    elif expression == "t":
+        return True
+    else:
+        return False
