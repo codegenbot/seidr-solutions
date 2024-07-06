@@ -9,7 +9,7 @@ def remove_duplicates(numbers: str) -> list[int]:
         return []
     seen = set()
     result = []
-    for num in sorted(set(numbers)):
+    for num in sorted(numbers):
         if num not in seen:
             result.append(num)
             seen.add(num)
