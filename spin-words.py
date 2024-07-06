@@ -1,10 +1,9 @@
-
 def spin_words(string):
-    words = re.split(r'\s+', string)
+    words = string.split()
     result = []
     for word in words:
         if len(word) >= 5:
-            result.append(word[::-1])
+            result.append(reversed(word))
         else:
             result.append(word)
     return " ".join(result)
