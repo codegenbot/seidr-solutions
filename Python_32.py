@@ -1,11 +1,9 @@
-def find_zero(xs):
-    if len(xs) == 1:
-        return xs[0]
-    elif len(xs) % 2 != 0:
+def find_zero(xs: list):
+    if len(xs) == 0:
         return None
-    else:
-        for i in range(len(xs) // 2):
-            x = -xs[i] / xs[i + 1]
-            if poly(xs, x) < 0.000001:
-                return x
-    return None
+    if len(xs) % 2 == 1 or xs[-1] != 0:
+        return None
+    x = 0
+    for i in range(len(xs) // 2):
+        x += xs[i] * math.pow(-1, i) / (math.factorial(i) * math.factorial(len(xs) - i - 1))
+    return x
