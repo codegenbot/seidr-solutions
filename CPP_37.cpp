@@ -1,9 +1,8 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool stdsame(std::vector<float> a, std::vector<float>b) {
+bool stdsame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -35,20 +34,4 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<float> l(n);
-
-    for (int i = 0; i < n; i++) {
-        std::cin >> l[i];
-    }
-
-    l = sort_even(l);
-
-    for (float x : l) {
-        std::cout << x << " ";
-    }
-    return 0;
-}
+assert(stdsame({2, 3, 11, 12, -10, 4, 5, 8, -12, 23}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
