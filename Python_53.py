@@ -1,8 +1,13 @@
-
 def add(x: int, y: int):
     return x + y
 
-user_input = input("Enter two numbers to add: ")
-numbers = user_input.split()
-result = add(int(numbers[0]), int(numbers[1]))
-print(f"The result is {result}")
+
+# Prompt user for input
+print("Enter two numbers separated by a space: ")
+user_input = input().split()
+
+# Call the `add` function with user inputs
+result = add(int(user_input[0]), int(user_input[1]))
+
+# Print the result
+print("The sum is:", result)
