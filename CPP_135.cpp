@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -12,5 +13,4 @@ int can_arrange(vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    // Rest of your code
 }
