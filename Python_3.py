@@ -9,10 +9,7 @@ def below_zero() -> None:
         if not isinstance(operation, int):
             print("Invalid operation! Please enter a number.")
             continue
-        if balance < 0:
-            balance += operation
-        else:
-            balance -= operation
+        balance += operation
 
     has_debt = input("Do you have any debt? (yes/no): ")
     while True:
