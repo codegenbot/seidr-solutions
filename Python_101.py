@@ -1,4 +1,6 @@
+```
 import re
+
 
 def words_string():
     while True:
