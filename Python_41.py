@@ -1,4 +1,3 @@
-```
 def car_race_collision():
     while True:
         try:
@@ -8,8 +7,7 @@ def car_race_collision():
             print("Invalid input. Please enter an integer.")
     
     if n < 1:
-        return None
-    
+        return str(0) 
     total_damage = 0
     for i in range(n):
         while True:
@@ -22,4 +20,4 @@ def car_race_collision():
     
     return str(total_damage)
 
-car_race_collision()
+print(car_race_collision())
