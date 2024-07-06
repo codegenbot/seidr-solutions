@@ -1,8 +1,5 @@
-def find_zero(xs):
-    for i in range(len(xs)):
+def find_zero(xs, n):
+    for i in range(n):
         if xs[i] == 0:
-            return True
-    return False
-
-user_input = input("Enter an integer: ")
-find_zero([int(user_input)])
+            return i
+    return -1
