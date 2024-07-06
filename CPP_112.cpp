@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
-    std::vector<std::string> result;
-    std::string temp = "";
+vector<vector<char>> reverse_delete(string s, string c) {
+    vector<vector<char>> result;
+    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -19,21 +18,30 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
             }
         }
         if (!found) {
-            temp += std::to_string(ch);
+            temp += ch;
         }
     }
-    result.push_back(temp);
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
+    vector<char> vec1(temp.begin(), temp.end());
+    result.push_back(vec1);
+    string rev = temp;
+    reverse(rev.begin(), rev.end());
     if (temp == rev) {
-        result.push_back("True");
+        vector<char> vec2(1, 'T');
+        for (char cc : "rue") {
+            vec2.push_back(cc);
+        }
+        result.push_back(vec2);
     } else {
-        result.push_back("False");
+        vector<char> vec3(5, 'F');
+        for (char cc : "alse") {
+            vec3.push_back(cc);
+        }
+        result.push_back(vec3);
     }
     return result;
 }
 
 int main() {
-    assert(issame(std::vector<std::string>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()) , std::vector<std::string>({"", "True"})));
+    assert(issame(vector<string>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()) , vector<string>({"", "True"})));
     return 0;
 }
