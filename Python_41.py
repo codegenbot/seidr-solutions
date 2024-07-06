@@ -1,4 +1,3 @@
-```
 def car_race_collision(n=None):
     while True:
         try:
