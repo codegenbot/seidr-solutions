@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -12,12 +11,10 @@ def has_close_elements() -> bool:
         except ValueError:
             print("Invalid input! Please enter numeric values separated by spaces.")
 
-    while True:
+    threshold = float(input("Enter a number to determine close elements: "))
+    while threshold <= 0:
+        print("Please enter a positive number for the threshold.")
         threshold = float(input("Enter a number to determine close elements: "))
-        if 0 < threshold:
-            break
-        else:
-            print("Please enter a positive number for the threshold.")
 
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
@@ -32,12 +29,11 @@ def has_close_elements() -> bool:
             numbers = [float(num) for num in numbers.split()]
         except ValueError:
             print("Invalid input! Please enter numeric values separated by spaces.")
-        while True:
+
+        threshold = float(input("Enter a number to determine close elements: "))
+        while threshold <= 0:
+            print("Please enter a positive number for the threshold.")
             threshold = float(input("Enter a number to determine close elements: "))
-            if 0 < threshold:
-                break
-            else:
-                print("Please enter a positive number for the threshold.")
 
         found_close_elements = False
 
@@ -48,7 +44,5 @@ def has_close_elements() -> bool:
                     break
 
         cont = input("Do you want to check another set of numbers? (y/n): ")
-    if found_close_elements:
-        print("Close elements found!")
-    else:
-        print("No close elements found.")
+
+    return found_close_elements
