@@ -1,4 +1,3 @@
-```python
 from typing import List, Tuple
 
 def sum_product(numbers: list[int]) -> Tuple[int, int]:
