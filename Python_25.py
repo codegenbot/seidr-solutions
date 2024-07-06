@@ -5,7 +5,7 @@ import math
 def factorize():
     while True:
         try:
-            n = int(input("Enter a number: "))
+            n = int(input("Enter a number: ").strip())
             if n < 2:
                 print(
                     "Invalid input. Please enter an integer greater than or equal to 2."
@@ -31,10 +31,10 @@ def factorize():
     else:
         print(factors)
 
-    again = input("Do you want to factorize another number? (yes/no): ")
-    while again.lower() != "no":
+    again = input("Do you want to factorize another number? (yes/no): ").strip().lower()
+    while again not in ["no", "n"]:
         try:
-            m = int(input("Enter a new number: "))
+            m = int(input("Enter a new number: ").strip())
             if m < 2:
                 print(
                     "Invalid input. Please enter an integer greater than or equal to 2."
@@ -60,7 +60,10 @@ def factorize():
         else:
             print(factorized_factors)
 
-        again = input("Do you want to factorize another number? (yes/no): ")
+        again = (
+            input("Do you want to factorize another number? (yes/no): ").strip().lower()
+        )
 
 
-factorize()
+while True:
+    factorize()
