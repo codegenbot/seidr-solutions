@@ -1,17 +1,15 @@
-Here is the modified code with the necessary includes and using directive:
-```cpp
 #include <boost/any.hpp>
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a > (int)b ? a : ((int)a == (int)b) ? a : b;
+        return (int)a > (int)b ? a : ((int)a == (int)b) ? any("None") : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (float)a > (float)b ? a : ((float)a == (float)b) ? a : b;
+        return (float)a > (float)b ? a : ((float)a == (float)b) ? any("None") : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return (std::string)a > (std::string)b ? a : ((std::string)a == (std::string)b) ? a : b;
+        return (std::string)a > (std::string)b ? a : ((std::string)a == (std::string)b) ? any("None") : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         if ((int)a > (float)b) {
@@ -21,7 +19,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a; // default to the first value
+            return any("None");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
@@ -32,7 +30,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return a;
         }
         else {
-            return a; // default to the first value
+            return any("None");
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
@@ -43,7 +41,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a; // default to the first value
+            return any("None");
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
@@ -54,7 +52,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return a;
         }
         else {
-            return a; // default to the first value
+            return any("None");
         }
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
@@ -65,7 +63,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a; // default to the first value
+            return any("None");
         }
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
@@ -76,7 +74,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a; // default to the first value
+            return any("None");
         }
     }
     return a; // default to the first value
