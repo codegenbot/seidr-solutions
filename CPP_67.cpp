@@ -1,23 +1,34 @@
+#include <stdio.h>
+#include <string>
+using namespace std;
+
 int fruit_distribution(string s, int n) {
-    size_t pos = 0;
-    string appleStr = " apples";
-    string orangeStr = " oranges";
-
-    // Count the number of apples
-    size_t appleStart = s.find("apples");
-    if (appleStart != string::npos) {
-        size_t appleEnd = s.find("and", appleStart);
-        int numApples = stoi(s.substr(appleStart, appleEnd - appleStart).substr(0, s.find(' ') - 1));
-        n -= numApples;
+    int total = 0;
+    string str;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            str = s.substr(0, i);
+            break;
+        }
     }
 
-    // Count the number of oranges
-    size_t orangeStart = s.find("oranges");
-    if (orangeStart != string::npos) {
-        size_t orangeEnd = s.find("and", orangeStart);
-        int numOranges = stoi(s.substr(orangeStart, orangeEnd - orangeStart).substr(0, s.find(' ') - 1));
-        n -= numOranges;
+    size_t pos = str.find("apples");
+    int apples = 0;
+    if (pos != string::npos) {
+        size_t start = str.find_first_of("0123456789") + 1;
+        size_t end = str.find(" and", start);
+        apples = stoi(str.substr(start, end - start));
     }
 
-    return n;
+    pos = str.find("oranges");
+    int oranges = 0;
+    if (pos != string::npos) {
+        size_t start = str.find_first_of("0123456789") + 1;
+        size_t end = str.find(" and", start);
+        oranges = stoi(str.substr(start, end - start));
+    }
+
+    total = n - apples - oranges;
+
+    return total;
 }
