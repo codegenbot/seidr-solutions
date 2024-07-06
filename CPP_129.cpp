@@ -2,19 +2,26 @@
 #include <iostream>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     std::vector<int> result;
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[i].size(); ++j) {
-            if (issame({grid[i][j]}, {k})) {
-                result.push_back(grid[i][j]);
+    for(int i = 0; i < k; i++) {
+        int minVal = *min(grid[0].begin(), grid[0].end());
+        result.push_back(minVal);
+        for(int j = 0; j < grid.size(); j++) {
+            for(int z = 0; z < grid[j].size(); z++) {
+                if(grid[j][z] == minVal) {
+                    grid[j].erase(z);
+                    if(i == k-1) {
+                        break;
+                    }
+                }
             }
         }
     }
