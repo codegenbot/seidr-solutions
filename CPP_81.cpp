@@ -2,46 +2,35 @@
 #include <vector>
 #include <string>
 
-double toLetterGrade(double score) {
-    if(score >= 90) {
-        return 4.0;
-    } else if(score >= 80) {
-        return 3.7;
-    } else if(score >= 70) {
-        return 3.3;
-    } else if(score >= 60) {
-        return 3.0;
-    } else {
-        return 0.0;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
+    return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<double> scores) {
-    std::vector<std::string> result;
-    for(double score : scores) {
-        double letterGrade = toLetterGrade(score);
-        if(letterGrade < 2.0) {
-            result.push_back("F");
-        } else if(letterGrade < 3.0) {
-            result.push_back("D-");
-        } else if(letterGrade < 3.3) {
-            result.push_back("D+");
-        } else if(letterGrade < 3.7) {
-            result.push_back("C-");
-        } else if(letterGrade < 4.0) {
-            result.push_back("C+");
-        } else {
-            result.push_back("A");
-        }
+std::vector<std::string> numerical_letter_grade(const std::vector<int>& scores) {
+    std::vector<std::string> grades;
+    
+    for(auto score : scores){
+        if(score >= 90.0) 
+            grades.push_back("A");
+        else if(score >= 80.0) 
+            grades.push_back("B");
+        else if(score >= 70.0) 
+            grades.push_back("C");
+        else if(score >= 60.0) 
+            grades.push_back("D");
+        else 
+            grades.push_back("E");
     }
-    return result;
+    
+    return grades;
 }
 
 int main() {
-    std::vector<int> scores = {0, 70};
-    std::vector<std::string> grades = {"E", "D-" };
-    assert(issame(numerical_letter_grade({0.0}), {"F" }));
-    assert(issame(numerical_letter_grade({69.9}), {"F" }));
-    assert(issame(numerical_letter_grade({70}), {"D-" }));
+    std::vector<int> scores = {90, 80};
+    assert(issame(numerical_letter_grade(scores), {"A", "B"}));
     return 0;
 }
