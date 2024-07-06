@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b); 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == 0 && b.size() == 0) || (a.size() == b.size() && a == b);
 }
