@@ -1,3 +1,4 @@
+
 def is_multiply_prime(a):
     if a < 1 or a > 100:
         return False
