@@ -4,7 +4,7 @@
 #include <any>
 #include <algorithm>
 
-bool isSameVector(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool std::issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
@@ -19,6 +19,7 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
         }
     }
     return result;
+
 }
 
 int main() {
