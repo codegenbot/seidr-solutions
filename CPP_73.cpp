@@ -1,21 +1,15 @@
-Here's the solution:
-
-```cpp
-#include <vector>
-#include <string>
-
-int smallest_change(std::vector<int> arr) {
-    std::string str = "";
-    int n = arr.size(), left = 0, right = n - 1, changes = 0;
-    for (int i : arr)
-        str += to_string(i);
-    while (left < right) {
-        if (str[left] != str[right])
-            ++changes;
-        else
-            ++left, --right;
+int main() {
+    int n;
+    std::vector<int> arr;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        arr.push_back(x);
     }
-    return changes;
-
-int main() { 
+    int result = smallest_change(arr);
+    std::cout << "Smallest change: " << result << std::endl;
+    return 0;
 }
