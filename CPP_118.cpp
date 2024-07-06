@@ -1,10 +1,11 @@
+```cpp
 #include <string>
 #include <cctype>
 
 std::string get_closest_vowel(std::string word) {
     int left = 0, right = word.size() - 1;
     
-    while (left <= right && (!isvowel(word[left]) || !isconsonant(word[right]))) {
+    while (left < right && (!isvowel(word[left]) || !isconsonant(word[right]))) {
         if (!isvowel(word[left])) {
             left++;
         } else if (!isconsonant(word[right])) {
@@ -12,7 +13,7 @@ std::string get_closest_vowel(std::string word) {
         }
     }
     
-    for (int i = 0; i < word.size(); i++) {
+    for (int i = left; i <= right; i++) {
         if (isvowel(word[i])) {
             return string(1, word[i]);
         }
