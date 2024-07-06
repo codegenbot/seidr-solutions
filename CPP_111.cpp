@@ -7,7 +7,7 @@ using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return map<char, int>();
+    if (test.empty()) return result;
 
     string letters = test;
     for (char c : unique(letters.begin(), letters.end())) {
@@ -20,15 +20,15 @@ map<char, int> histogram(string test) {
         if (count > 0) result[c] = count;
     }
 
-    int maxCount = 0;
     map<char, int> maxCountMap;
+    int maxCount = 0;
     for (auto& pair : result) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            maxCountMap[static_cast<char>(pair.first)] = pair.second; // add static cast here
+            maxCountMap[static_cast<char>(pair.first)] = pair.second; 
         } else if (pair.second == maxCount)
-            maxCountMap[static_cast<char>(pair.first)] = pair.second; // add static cast here
+            maxCountMap[static_cast<char>(pair.first)] = pair.second; 
     }
 
     return maxCountMap;
