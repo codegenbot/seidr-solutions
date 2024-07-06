@@ -1,1 +1,2 @@
-else: result += chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a')).upper()
+else: 
+    result += chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a')).upper()
