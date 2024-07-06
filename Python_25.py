@@ -4,12 +4,7 @@ import math
 
 
 def factorize(n: int) -> List[int]:
-    """"
-    Factors of a number.
-    
-    :param n: The input number to be factored.
-    :return: A list of factors.
-    """
+    """This function takes an integer as input and returns a list of its prime factors."""
     factors = []
     i = 2
     while i * i <= n:
