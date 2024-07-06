@@ -1,4 +1,4 @@
-#include "../cpp/137"
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -36,5 +36,5 @@ boost::any compare_one(boost::any a, boost::any b) {
              a.type() == typeid(std::string) && a.convert_to(b)) {
         return boost::any("None");
     }
-    return a > b ? a : b;
+    return a < b ? a : b;
 }
