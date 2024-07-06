@@ -6,7 +6,9 @@ def minPath(grid, k):
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            if not min_path or "".join(sorted(path)) < "".join(sorted(min_path)):
+            if not min_path or sum(int(i) for i in path) < sum(
+                int(i) for i in min_path
+            ):
                 min_path = path
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
