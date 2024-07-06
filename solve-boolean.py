@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -15,6 +16,5 @@ def solve_boolean(expression):
                     result = False
                     break
                 elif p != 'T':
-                    result = False
-                    break
+                    return False
         return result
