@@ -1,37 +1,41 @@
-#include<stdio.h>
-#include<string>
-#include<map>
-using namespace std;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    if (test.empty()) return result;
 
-map<char,int> histogram(string test){
-    map<char,int> result;
-    if(test.empty()) return result;
-
-    int maxCount = 0, tieCount = 0;
-    char tiedLetter = ' ';
-
-    for(char c : test){
-        if(result.find(c) == result.end()){
-            result[c] = 1;
-            maxCount++;
-        } else {
-            result[c]++;
-            if(result[c] > maxCount){
-                maxCount = result[c];
-                tieCount = 0;
-                tiedLetter = ' ';
-            } else if(result[c] == maxCount && c != tiedLetter){
-                tieCount++;
-                tiedLetter = c;
+    string words[256]; // assuming ASCII characters only
+    int wordCount = 0;
+    for (char c : test) {
+        bool found = false;
+        for (int i = 0; i < wordCount; i++) {
+            if (words[i][0] == c) {
+                words[i++] = "";
+                found = true;
+                break;
             }
+        }
+        if (!found) {
+            words[wordCount++] = string(1, c);
         }
     }
 
-    for(auto it = result.begin(); it != result.end(); ++it){
-        if(it->second == maxCount) cout << "{" << it->first << ", " << it->second << "}";
-        else if(tieCount > 0) cout << "," << endl << "      {" << it->first << ", " << it->second << "}";
+    for (int i = 0; i < wordCount; i++) {
+        if (!words[i].empty()) {
+            char letter = words[i][0];
+            result[letter]++;
+        }
     }
-    cout << endl;
-    
-    return result;
+
+    map<char, int> maxMap;
+    int maxCount = 0;
+    for (auto& p : result) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
+            maxMap.clear();
+            maxMap[p.first] = p.second;
+        } else if (p.second == maxCount) {
+            maxMap[p.first] = p.second;
+        }
+    }
+
+    return maxMap;
 }
