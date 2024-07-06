@@ -1,3 +1,4 @@
+```
 import math
 
 def find_zero(a, b, c):
