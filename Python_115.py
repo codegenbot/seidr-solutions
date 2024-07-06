@@ -1,9 +1,14 @@
 def max_fill():
+    n = int(input("Enter number of rows: "))
+    m = int(input("Enter number of columns: "))
+    
     grid = []
-    for _ in range(int(input("Enter number of rows: "))):
-        row = list(map(int, input("Enter row values (space separated): ").split()))
+    for i in range(n):
+        row = list(map(int, input(f"Enter {m} integers separated by space for row {i+1}: ").split()))
         grid.append(row)
+        
     capacity = int(input("Enter the capacity: "))
+    
     total_amount = 0
     left = [c for r in grid for c in r]
     right = left[::-1]
