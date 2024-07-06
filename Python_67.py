@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s,n):
     s = s.split()
     n = int(n)
@@ -8,3 +9,4 @@ def fruit_distribution(s,n):
                 count_apples = int(s[i-1])
             except ValueError:
                 return n - count_apples
+    return n - count_apples
