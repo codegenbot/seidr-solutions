@@ -14,9 +14,8 @@ def find_closest_elements() -> Tuple[float, float]:
         except ValueError:
             print("Invalid input. Please enter only two numbers separated by spaces.")
 
+    # Calculate the difference between the entered numbers.
     difference = abs(numbers[0] - numbers[1])
 
     return tuple(sorted(numbers))
-
-
 print(find_closest_elements())
