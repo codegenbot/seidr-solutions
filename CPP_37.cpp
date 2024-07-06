@@ -1,14 +1,14 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> evenVals;
-    vector<float> oddVals;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> evenVals;
+    std::vector<float> oddVals;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -18,9 +18,9 @@ vector<float> sort_even(vector<float> l) {
         }
     }
 
-    sort(evenVals.begin(), evenVals.end());
+    std::sort(evenVals.begin(), evenVals.end());
 
-    vector<float> result;
+    std::vector<float> result;
     int idx = 0;
 
     for (int i = 0; i < l.size(); i++) {
@@ -35,17 +35,25 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> vec1 = {4.7, 3.5, 8.9, 2.2, 6.4};
-    vector<float> vec2 = {8.9, 4.7, 3.5, 6.4, 2.2};
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
 
-    if (issame(vec1, vec2)) {
-        vector<float> result = sort_even(vec1);
-        for (float x : result) {
-            cout << x << " ";
-        }
-        return 0;
-    } else {
-        cout << "Vectors are not the same." << endl;
-        return -1;
+    std::vector<float> l;
+    for (int i = 0; i < n; i++) {
+        float val;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> val;
+        l.push_back(val);
     }
+
+    std::vector<float> result = sort_even(l);
+
+    std::cout << "Sorted even elements: ";
+    for (float x : result) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
