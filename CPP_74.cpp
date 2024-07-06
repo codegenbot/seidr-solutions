@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -39,9 +38,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main() {
-    vector<string> vec1 = {"this"};
-    vector<string> vec2;
-    assert(issame(total_match(vector<string>(vec1.begin(), vec1.end())), vector<string>{}));  
-    return 0;
-}
+vector<string> vec1 = {"hello", "world"};
+vector<string> vec2 = {"hello", "", "world"};
+assert(issame(total_match(vec1,vec2),{"","hello","world"}));
