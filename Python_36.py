@@ -1,7 +1,6 @@
-
-def fizz_buzz(n: int):
+def fizz_buzz(n):
     count = 0
-    for i in range(1, n + 1):
-        if i % 11 == 0 and (i % 13 == 0 or "7" in str(i)):
+    for i in range(1, 1000):
+        if i % 1001 == 0:
             count += 1
     return count
