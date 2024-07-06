@@ -1,5 +1,5 @@
-import typing
-def longest(strings: typing.List[str]) -> typing.Optional[str]:
+
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     max_len = 0
