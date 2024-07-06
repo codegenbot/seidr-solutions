@@ -11,12 +11,11 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
     return true;
 }
 
-vector<int> filter_integers(list< vector<int> > values) {
+vector<int> filter_integers(list<list<int>> values) {
     vector<int> result;
     for (const auto& value : values) {
-        bool duplicate = false;
         for (int x : value) {
-            duplicate = false;
+            bool duplicate = false;
             for (int y : result) {
                 if (y == x) {
                     duplicate = true;
