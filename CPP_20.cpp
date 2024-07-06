@@ -1,9 +1,7 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -15,20 +13,27 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> find_closest_elements(vector<float> arr, float target) {
-    vector<pair<float, int>> idx_dist;
-    
-    for(int i = 0; i < arr.size(); ++i) {
-        pair<float, int> p = make_pair(abs(arr[i] - target), i);
-        idx_dist.push_back(p);
+bool find_closest_elements(std::vector<float> v, float target, float& closest, float& distance) {
+    float d = INFINITY;
+    for(float val : v) {
+        if(abs(val - target) < d) {
+            d = abs(val - target);
+            closest = val;
+        }
     }
-    
-    sort(idx_dist.begin(), idx_dist.end());
-    
-    return vector<float>(arr.begin() + idx_dist[0].second, arr.begin() + idx_dist[1].second + 1);
 }
 
 int main() {
-    assert(issame({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}));
+    std::vector<float> a = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+    float target;
+    std::cin >> target;
+
+    float closest_element;
+    float distance;
+
+    find_closest_elements(a, target, closest_element, distance);
+
+    assert(issame({closest_element}, {target}));
+
     return 0;
 }
