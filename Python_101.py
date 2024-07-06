@@ -1,3 +1,6 @@
+import re
+
+
 def words_string(input_string):
     inp = input_string.strip()
     words = re.split(r"\s+", inp)
