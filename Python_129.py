@@ -1,11 +1,7 @@
-Here's the modified code:
-
-```
 def minPath(grid, k):
-    grid = [list(map(int, input().split())) for _ in range(len(grid))]
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
-    dp = [[[float('inf')] * (k + 1) for _ in range(n)] for _ in range(n)]
+    dp = [[[float("inf")] * (k + 1) for _ in range(n)] for _ in range(n)]
     dp[0][0][0] = m[0][0]
     for i in range(1, n):
         dp[i][0][0] = min(dp[i - 1][0][0], m[i][0])
@@ -32,4 +28,4 @@ def minPath(grid, k):
         else:
             j -= 1
         path.append(m[i][j])
-    return path
+    return path[::-1]
