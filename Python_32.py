@@ -1,3 +1,5 @@
-def find_zero(xs: List[int]) -> int:
-    # Your code here
-    pass
+def find_zero(xs):
+    for i, x in enumerate(xs):
+        if x == 0:
+            return i
+    return -1
