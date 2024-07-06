@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     result = []
     temp = ""
@@ -12,9 +13,9 @@ def decode_cyclic(s: str):
                     temp = ""
             except Exception as e:
                 print(f"An error occurred: {e}")
-    if len(s) % 3 != 0:
+    if len(s) % 3 != 0:  
         try:
-            result.append(temp + (temp[: len(s) - len(temp)] * 2))
+            result.append(temp + (temp[:len(s)-len(temp)]*2))
         except Exception as e:
             print(f"An error occurred: {e}")
     return "".join(result)
