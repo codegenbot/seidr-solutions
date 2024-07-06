@@ -1,5 +1,5 @@
-```c
 #include <string>
+#include <cctype>
 
 std::string flip_case(std::string str){
     std::string result = "";
@@ -19,6 +19,6 @@ std::string flip_case(std::string str){
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str;
-    std::cout << flip_case(str) << std::endl;
+    std::getline(std::cin, str);
+    std::cout << "Flip Case Result: " << flip_case(str) << std::endl;
 }
