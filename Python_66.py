@@ -1,4 +1,12 @@
-```Python
+def digit_sum(n):
+    total = 0
+    n = int(input("Enter a number: "))
+    while n:
+        total += n % 10
+        n //= 10
+    return total
+
+
 def main():
     while True:
         try:
@@ -9,14 +17,22 @@ def main():
                 print("Invalid input. Please enter 1 or 2.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    num = int(input("Enter a number: "))
+
+    while True:
+        try:
+            num = int(input("Enter a number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
     if calc_type == 1:
         print(digit_sum(num))
     elif calc_type == 2:
         total = 1
         for digit in str(num):
-            if digit != '0':
-                total *= int(digit)
-            else:
-                break
+            total *= int(digit)
         print(total)
+
+
+if __name__ == "__main__":
+    main()
