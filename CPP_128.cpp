@@ -16,4 +16,3 @@ int prod_signs(vector<int> arr) {
     }
 
     return sign_product * sum_of_magnitudes;
-}
