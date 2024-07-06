@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(vector<string> a,vector<string>b){
     if(a.size() != b.size())
@@ -20,9 +21,9 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 
 int main() {
-    vector<string> words = {"grunt", "trumpet", "prune", "gruesome"};
-    string search = "run";
-    vector<string> filtered = filter_by_substring(words,search);
-    assert (issame(filtered,{"grunt","prune"}));
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> expected = {"grunt", "prune"};
+    assert (issame(filter_by_substring(strings, substring) ,expected));
     return 0;
 }
