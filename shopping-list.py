@@ -1,9 +1,8 @@
-def shopping_list(prices, discounts):
+def shopping_list(prices, discounts, total_price):
     # Validate input
     if len(discounts) < len(prices):
         discounts += [0] * (len(prices) - len(discounts))
 
-    total_price = 0
     for i in range(len(prices)):
         try:
             price = float(prices[i])
@@ -14,4 +13,5 @@ def shopping_list(prices, discounts):
             return None
 
     # Round result to two decimal places
-    return round(total_price, 2)
+    total_price = round(total_price, 2)
+    return total_price
