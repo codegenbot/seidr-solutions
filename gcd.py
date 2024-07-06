@@ -3,8 +3,6 @@ def gcd(a: int, b: int) -> int:
         if a % 2 == 1 and b % 2 == 1:
             a = (a - 1) / 2
             b = (b - 1) / 2
-        elif a % 2 == 1 and b % 2 == 0:
-            a = (a - 1) / 2
         else:
             b = (b - 1) / 2
     return a
