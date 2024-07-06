@@ -5,12 +5,13 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
-            result.push_back(0);
+            result.push_back(2);
         } else {
-            if (issame({game[i], guess[i]}, {guess[i]-1, guess[i]+1})) {
-                result.push_back(-1);
+            int diff = abs(game[i] - guess[i]);
+            if (diff == game[i] || diff == guess[i]) {
+                result.push_back(1);
             } else {
-                result.push_back(abs(game[i] - guess[i]));
+                result.push_back(0);
             }
         }
     }
