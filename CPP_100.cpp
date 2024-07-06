@@ -1,17 +1,11 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <initializer_list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
+bool issame(int a, int b) {
+    if(a == b)
+        return true;
+    else 
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 std::vector<int> make_a_pile(int n) {
@@ -27,9 +21,4 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
-}
-
-int main() {
-    assert(issame(make_a_pile(8), make_a_pile(8)));
-    return 0;
 }
