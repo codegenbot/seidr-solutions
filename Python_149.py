@@ -1,3 +1,4 @@
+```
 def sorted_list_sum(input_list):
     while True:
         try:
@@ -8,10 +9,7 @@ def sorted_list_sum(input_list):
                     sum_val += int(word)
             if sum_val == 0:
                 print("No valid number was entered. Please enter numbers and/or words separated by spaces.")
-                break
             else:
                 return sum_val
         except ValueError:
             print("Invalid input. Please enter numbers and/or words separated by spaces.")
-        else:
-            print("Please try again.")
