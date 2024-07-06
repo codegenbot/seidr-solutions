@@ -4,16 +4,12 @@ def encode(message):
         if char.isalpha():
             if char.lower() in "do to":
                 char_code = {
-                    "d": "dQnT".find("d") % 26,
-                    "o": "dQnT".find("o") % 26,
-                    "t": "tq".find("t"),
+                    "d": "dQnT".find("o"),
+                    "o": "dQnT".find("o"),
+                    "t": "tq".find("o"),
                     "o": "tq".find("o"),
                 }[char.lower()]
-                result += (
-                    chr((char_code + ord("a" if char.islower() else "A")) % 26)
-                    if char.isalpha()
-                    else chr(char_code)
-                )
+                result += chr(char_code) if char.isupper() else chr(char_code).lower()
             elif char.lower() in "aeiou":
                 char_code = {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}[
                     char.lower()
