@@ -1,17 +1,11 @@
-Here is the solution:
-
 def decode_cyclic(s: str):
-    result = ''
-    group = ''
+    result = ""
+    temp = ""
     for char in s:
-        group += char
-        if len(group) == 3:
-            temp = list(group)
-            temp.insert(0, temp[-1])
-            result += ''.join(temp)
-            group = ''
-    if group:
-        temp = list(group)
-        temp.insert(0, temp[-1])
-        result += ''.join(temp)
+        temp += char
+        if len(temp) == 3:
+            result += temp[1] + temp[0]
+            temp = ""
+    if temp:
+        result += temp
     return result
