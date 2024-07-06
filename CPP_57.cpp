@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 bool monotonic(vector<float> l) {
