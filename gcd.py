@@ -1,8 +1,10 @@
-def gcd(a, b):
-    if a == 0 or b == 0:
-        return 0
-    q = (a // b) * (b // a)
-    r = a - q * b
-    while r != 0:
-        q, r = r, r % b
-    return r
+def gcd(a: int, b: int) -> int:
+    while b != 0:
+        if a % 2 == 1 and b % 2 == 1:
+            a = (a - 1) / 2
+            b = (b - 1) / 2
+        elif a % 2 == 1 and b % 2 == 0:
+            a = (a - 1) / 2
+        else:
+            b = (b - 1) / 2
+    return a
