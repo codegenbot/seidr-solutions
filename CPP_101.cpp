@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -22,20 +23,34 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
             i++;
         }
         if (!temp.empty()) {
-            if (!issame({{temp}}) || !std::count(expected.begin(), expected.end(), temp)) {
+            if (!issame({temp}) || !std::count(expected.begin(), expected.end(), temp)) {
                 return {};
             }
             result.push_back(temp);
         }
     }
-}
+    return result;
 
 int main() {
-    std::string s = "hello hello world hello";
-    std::vector<std::string> expected = {"hello"};
-    std::cout << "[ ";
-    for (const auto& word : words_string(s, expected)) {
-        std::cout << "'" << word << "' ";
+    std::string str;
+    std::vector<std::string> exp;
+    
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+    
+    std::cout << "Enter expected words (space separated): ";
+    std::cin >> str;
+    exp = {str.begin(), str.end()};
+    
+    std::vector<std::string> result = words_string(str, exp);
+    
+    if (!result.empty()) {
+        for (const auto& word : result) {
+            std::cout << word << std::endl;
+        }
+    } else {
+        std::cout << "No matching words found." << std::endl;
     }
-    std::cout << "]\n";
+    
+    return 0;
 }
