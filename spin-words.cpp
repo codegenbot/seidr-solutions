@@ -1,22 +1,40 @@
-#include <algorithm> // for split and reverse
-#include <string>    // for string manipulation
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-string spinWords(string input) {
-    vector<string> words = split(input, ' ');
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            reverse(words[i]);
-        }
-    }
-    return join(words, ' ');
-}
-
 int main() {
     string input;
-    cout << "Enter a string: ";
     getline(cin, input);
-    cout << spinWords(input) << endl;
+    
+    string output = "";
+    int i = 0;
+    while (i < input.size()) {
+        if (input[i] == ' ') {
+            ++i;
+        } else {
+            string word = "";
+            while (i < input.size() && input[i] != ' ') {
+                word += input[i];
+                ++i;
+            }
+            bool hasVowel = false;
+            for (int j = 0; j < word.size(); j++) {
+                if (word[j] == 'a' || word[j] == 'e' || word[j] == 'i' || word[j] == 'o' || word[j] == 'u') {
+                    hasVowel = true;
+                    break;
+                }
+            }
+            if (hasVowel) {
+                output += word;
+            } else {
+                output += " ";
+                output += word;
+            }
+        }
+    }
+    
+    cout << output << endl;
+    
     return 0;
 }
