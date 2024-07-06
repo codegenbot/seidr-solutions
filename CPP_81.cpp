@@ -5,45 +5,42 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
-    bool are_same = true;
-    
-    for (float grade : grades) {
-        if (grade >= 4.0) {
-            letter_grades.push_back("A+");
-        } else if (grade > 3.7) {
-            letter_grades.push_back("A");
-        } else if (grade > 3.3) {
-            letter_grades.push_back("A-");
-        } else if (grade > 3.0) {
-            letter_grades.push_back("B+");
-        } else if (grade > 2.7) {
-            letter_grades.push_back("B");
-        } else if (grade > 2.3) {
-            letter_grades.push_back("B-");
-        } else if (grade > 2.0) {
-            letter_grades.push_back("C+");
-        } else if (grade > 1.7) {
-            letter_grades.push_back("C");
-        } else if (grade > 1.3) {
-            letter_grades.push_back("C-");
-        } else if (grade > 1.0) {
-            letter_grades.push_back("D+");
-        } else if (grade > 0.7) {
-            letter_grades.push_back("D");
-        } else if (grade > 0.0) {
-            letter_grades.push_back("D-");
-        } else {
-            letter_grades.push_back("F");
+    bool same = true;
+
+    if (!grades.empty()) {
+        for (float grade : grades) {
+            std::string letter_grade;
+            if (grade >= 4.0) {
+                letter_grade = "A+";
+            } else if (grade > 3.7) {
+                letter_grade = "A";
+            } else if (grade > 3.3) {
+                letter_grade = "A-";
+            } else if (grade > 3.0) {
+                letter_grade = "B+";
+            } else if (grade > 2.7) {
+                letter_grade = "B";
+            } else if (grade > 2.3) {
+                letter_grade = "B-";
+            } else if (grade > 2.0) {
+                letter_grade = "C+";
+            } else if (grade > 1.7) {
+                letter_grade = "C";
+            } else if (grade > 1.3) {
+                letter_grade = "C-";
+            } else if (grade > 1.0) {
+                letter_grade = "D+";
+            } else if (grade > 0.7) {
+                letter_grade = "D";
+            } else if (grade > 0.0) {
+                letter_grade = "D-";
+            } else {
+                letter_grade = "F";
+            }
+            same &= issame({letter_grade}, letter_grades);
+            letter_grades.push_back(letter_grade);
         }
     }
-    
-    // Add this line before returning
-    std::vector<std::string> result = letter_grades;
-    for (int i = 1; i < letter_grades.size(); i++) {
-        if (!issame(std::vector<std::string>(letter_grades.begin(), letter_grades.begin()+i), 
-            std::vector<std::string>(result.begin(), result.begin()+i))) {
-            are_same = false;
-        }
-    }
-    
-    return are_same ? letter_grades : std::vector<std::string>();
+
+    return letter_grades;
+}

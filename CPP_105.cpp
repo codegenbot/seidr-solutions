@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -15,9 +15,19 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<string> nums;
     for (int num : arr) {
-        switch (num) {
+        if (num >= 1 && num <= 9) {
+            nums.push_back(to_string(num));
+        }
+    }
+
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+
+    vector<string> result;
+    for (string num : nums) {
+        switch (stoi(num)) {
             case 1:
                 result.push_back("One");
                 break;
@@ -52,6 +62,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
     return 0;
 }
