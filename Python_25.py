@@ -62,11 +62,15 @@ def factorize():
             print(factorized_factors)
 
         again = input("Do you want to factorize another number? (yes/no): ")
-   
 
 
-try:
-    input("Press Enter when ready: ")
-    factorize()
-except Exception as e:
-    print("Please provide a valid integer.")
+while True:
+    try:
+        input("Press Enter when ready: ")
+        factorize()
+        break
+    except (EOFError, KeyboardInterrupt):
+        print("Program terminated.")
+        exit()
+    except:
+        print("Please provide a valid integer.")
