@@ -1,22 +1,17 @@
 #include <vector>
 #include <initializer_list>
-#include <assert.h>
 #include <iostream>
+#include <assert.h>
 
 int solutions(std::vector<int> lst) {
     if (lst.size() == 0) {
         return -1;
     }
     int count = 0;
-    for(int i=2; i<=9; ++i){
-        bool flag = true;
-        for(int j: lst){
-            if(i%j!=0){
-                flag = false;
-                break;
-            }
+    for(int i=2;i*i<=lst[0];i++){
+        if(lst[0]%i==0){
+            count++;
         }
-        if(flag)++count;
     }
     return count;
 }

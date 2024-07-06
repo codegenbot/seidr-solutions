@@ -1,8 +1,35 @@
 ```cpp
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include <string>
 
-std::string reverse_delete(std::string s, std::string c) {
+bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     std::string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -16,12 +43,23 @@ std::string reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
+    result.push_back({temp});
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return temp.empty() ? "True" : "False";
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    return result;
 }
 
 int main() {
-    std::cout << reverse_delete("mamma", "mia") << std::endl;
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+    if (!issame({ "", "True" }, result)) {
+        std::cout << "Test failed." << std::endl;
+    } else {
+        std::cout << "Test passed." << std::endl;
+    }
     return 0;
 }

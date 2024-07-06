@@ -1,42 +1,51 @@
-#include <variant>
 #include <string>
+#include <iostream>
+#include <any>
 
-std::variant<int, float, std::string> compare_one(std::variant<int, float, std::string> a, std::variant<int, float, std::string> b) {
-    if (a.index() == 0 && b.index() == 1) { 
-        int ai = std::get<int>(a);
-        float bf = std::get<float>(b);
-        return (ai > bf) ? a : (bf > ai) ? b : a;
+bool compare(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int ai = std::any_cast<int>(a);
+        float bf = std::any_cast<float>(b);
+        return ai > bf;
     }
-    else if (a.index() == 0 && b.index() == 2) {
-        int ai = std::get<int>(a);
-        std::string bs = std::get<std::string>(b);
-        return (ai > stoi(bs)) ? a : (stoi(bs) > ai) ? b : a;
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int ai = std::any_cast<int>(a);
+        std::string bs = std::any_cast<std::string>(b);
+        return ai > std::stoi(bs);
     }
-    else if (a.index() == 1 && b.index() == 0) {
-        float af = std::get<float>(a);
-        int bi = std::get<int>(b);
-        return (af > bi) ? a : (bi > af) ? b : a;
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float af = std::any_cast<float>(a);
+        int bi = std::any_cast<int>(b);
+        return af > bi;
     }
-    else if (a.index() == 1 && b.index() == 2) {
-        float af = std::get<float>(a);
-        std::string bs = std::get<std::string>(b);
-        return (af > stod(bs)) ? a : (stod(bs) > af) ? b : a;
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float af = std::any_cast<float>(a);
+        std::string bs = std::any_cast<std::string>(b);
+        return af > std::stod(bs);
     }
-    else if (a.index() == 2 && b.index() == 0) {
-        std::string as = std::get<std::string>(a);
-        int bi = std::get<int>(b);
-        return (stod(as) > bi) ? a : (bi > stod(as)) ? b : a;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        std::string as = std::any_cast<std::string>(a);
+        int bi = std::any_cast<int>(b);
+        return std::stod(as) > bi;
     }
-    else if (a.index() == 2 && b.index() == 1) {
-        std::string as = std::get<std::string>(a);
-        float bf = std::get<float>(b);
-        return (stod(as) > bf) ? a : (bf > stod(as)) ? b : a;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string as = std::any_cast<std::string>(a);
+        float bf = std::any_cast<float>(b);
+        return std::stod(as) > bf;
     }
-    else if (a.index() == 2 && b.index() == 2) {
-        std::string as = std::get<std::string>(a);
-        std::string bs = std::get<std::string>(b);
-        return (stod(as) > stod(bs)) ? a : (stod(bs) > stod(as)) ? b : a;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string as = std::any_cast<std::string>(a);
+        std::string bs = std::any_cast<std::string>(b);
+        return std::stod(as) > std::stod(bs);
     }
     else
-        return a;
+        return false;
+}
+
+int main() {
+    std::any a, b;
+    a = "1";
+    b = 1;
+    assert((boost::any_cast<std::string>(compare(a, b)) == "None"));
+    return 0;
 }
