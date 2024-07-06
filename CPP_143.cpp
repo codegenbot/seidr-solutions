@@ -1,14 +1,15 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
-std::string words_in_sentence(std::string sentence) {
-    std::string result = "";
-    for (const auto& word : split(sentence, " ")) {
-        if(is_prime(word.length())){
-            result += word + " ";
-        }
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
     }
-    return result;
+    return true;
 }
 
 std::vector<std::string> split(const std::string& s, const std::string& delimiter) {
@@ -22,12 +23,12 @@ std::vector<std::string> split(const std::string& s, const std::string& delimite
     return result;
 }
 
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    for (const auto& word : split(sentence, " ")) {
+        if(is_prime(word.length())){
+            result += word + " ";
+        }
     }
-    return true;
+    return result;
 }
