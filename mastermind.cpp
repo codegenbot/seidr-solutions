@@ -12,7 +12,7 @@ int main() {
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
-            } else if (code.find(guess[i]) != string::npos && !whitePegs(guess[i])) { // replaced whitePegs[guess[i]] with whitePegs(guess[i]) to fix the issue
+            } else if (code.find(guess[i]) != string::npos && !whitePegs(guess[i])) { // added check to make sure the guessed character is not already used as a white peg
                 whitePegs++;
             }
         }
