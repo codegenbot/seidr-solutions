@@ -13,7 +13,7 @@ string anti_shuffle(string s){
                     c = s[j];
                     j++;
                 }
-                for(int k=j-1; k>=i; k--){
+                for(int k=i; k<j; k++){
                     result += s[k];
                 }
                 i = j-1;
