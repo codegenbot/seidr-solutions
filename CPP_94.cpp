@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -35,14 +36,13 @@ int main_test() {
     std::vector<int> lst;
     std::cout << "Enter the list of numbers (space separated): ";
     int num;
-    while(std::cin >> num) {
+    while (std::cin >> num) {
         lst.push_back(num);
     }
-    
-    if(lst.empty()) {
-        std::cout << "List is empty." << std::endl;
-    } else {
-        std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(std::vector<int>(lst.begin(), lst.end())) << std::endl;
+    if (lst.empty()) {
+        return 0;
     }
+
+    std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
     return 0;
 }
