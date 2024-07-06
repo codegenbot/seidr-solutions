@@ -3,7 +3,7 @@
 #include <map>
 
 int search(std::vector<int> lst) {
-    std::map<int, int> count;
+    map<int, int> count;
     for (int num : lst) {
         if (count.find(num) == count.end()) {
             count[num] = 1;
