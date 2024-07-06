@@ -1,33 +1,28 @@
-#include <string>
-#include <map>
-#include <sstream>
-
-using namespace std;
-
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    istringstream iss(test);
-    string str;
-
-    while (iss >> str) {
-        if (result.find(str[0]) == result.end()) {
-            result[str[0]] = 1;
+map<char,int> histogram(string test){
+    map<char,int> result;
+    if(test.empty()) return result;
+    string temp;
+    int max_count = 0;
+    for(char c : test + " ") {
+        if(c == ' ') {
+            if(!temp.empty()) {
+                ++result[temp[0]];
+                temp.clear();
+            }
         } else {
-            result[str[0]]++;
+            temp += c;
         }
     }
-
-    map<char, int> maxCountMap;
-    int maxCount = 0;
-
-    for (auto& pair : result) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
-            maxCountMap = {{pair.first, pair.second}};
-        } else if (pair.second == maxCount) {
-            maxCountMap[make_pair(pair.first, pair.second)] = pair.second;
+    if(!temp.empty()) {
+        ++result[temp[0]];
+        max_count = result[temp[0]];
+    }
+    for(auto& p : result) {
+        if(p.second > 1 || (p.second == 1 && max_count == 1)) {
+            cout << "{" << p.first << ", " << p.second << "}" << endl;
+        } else {
+            return {};
         }
     }
-
-    return maxCountMap;
+    return result;
 }
