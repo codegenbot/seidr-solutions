@@ -2,18 +2,21 @@ bool is_palindrome(std::string text) {
     int start = 0;
     int end = text.length() - 1;
 
-    while (start <= end) {
-        while (start <= end && !isalnum(text[start])) { 
+    while (start < end) {
+        if (!isalnum(text[start])) { 
             start++;
+            continue;
         }
-        while (start <= end && !isalnum(text[end])) { 
+        if (!isalnum(text[end])) { 
             end--;
+            continue;
         }
         if (tolower(text[start]) != tolower(text[end])) {
             return false;
+        } else {
+            start++;
+            end--;
         }
-        start++;
-        end--;
     }
 
     return true;

@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <cmath>
 
@@ -10,4 +9,6 @@ float median(std::vector<float> numbers) {
         return numbers[numbers.size()/2];
 }
 
-std::vector<float> numbers = {8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f};
+int main() {
+    return median(std::vector<float>{8.0f, 1.0f, 3.0f, 9.0f, 9.0f, 2.0f, 7.0f});
+}
