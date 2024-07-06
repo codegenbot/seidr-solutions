@@ -1,21 +1,14 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (std::bitset<32>(a).count() == std::bitset<32>(b).count()) {
-            return a < b;
-        }
-        return std::bitset<32>(a).count() < std::bitset<32>(b).count();
-    });
-    return arr;
+vector<int> sort_vector(vector<int> arr) {
+    vector<int> result = arr;
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert (sort_vector({2,4,8,16,32}) == vector<int>({2, 4, 8, 16, 32}));
     return 0;
 }
