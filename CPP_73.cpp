@@ -17,3 +17,4 @@ int smallest_change(vector<int> arr) {
         right--;
     }
     return count;
+}
