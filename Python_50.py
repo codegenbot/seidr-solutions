@@ -1,4 +1,3 @@
-```
 def decode_shift(direction):
     if direction not in ["encode", "decode"]:
         return "Invalid input. Enter 'encode' to encode or 'decode' to decode: "
