@@ -1,7 +1,8 @@
-def car_race_collision(n=None):
+```
+def car_race_collision():
     while True:
         try:
-            n = int(input("Enter the number of cars: ") if n is None else str(n))
+            n = int(input("Enter the number of cars: "))
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
@@ -11,13 +12,11 @@ def car_race_collision(n=None):
     
     total_damage = 0
     for i in range(n):
-        while True:
-            values = input(f"Enter speed and damage for car {i+1}: ")
-            try:
-                speed, damage = map(int, values.split())
-                break
-            except ValueError:
-                print("Invalid input. Please enter two integers separated by a space.")
+        speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
         total_damage += damage * speed
         
+    cont = input("Do you want to continue? (yes/no): ")
+    if cont.lower() != 'yes':
+        return None
+    
     return f'Total damage: ${total_damage:,}'
