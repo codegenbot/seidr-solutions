@@ -17,5 +17,4 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 
 int main() {
     assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-    // rest of your code
 }
