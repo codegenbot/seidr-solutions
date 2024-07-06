@@ -6,8 +6,7 @@ int main() {
     cin >> hours >> snowOnGround >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
     for (int i = 0; i < hours; i++) {
         float newSnow = rateOfSnowFall * (1 - proportionOfSnowMeltingPerHour);
-        snowOnGround += newSnow;
-        snowOnGround -= proportionOfSnowMeltingPerHour * snowOnGround;
+        snowOnGround = newSnow + (1 - proportionOfSnowMeltingPerHour) * snowOnGround;
     }
     cout << snowOnGround << endl;
     return 0;
