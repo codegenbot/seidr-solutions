@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -11,12 +11,14 @@ int main() {
     }
     vector<vector<int>> res = cutVector(vec);
     cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i] << " ";
-    }
-    cout << "] [" << "[";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
+    for (int i = 0; i < res.size(); i++) {
+        if(i == 0) cout << "[";
+        for(int j = 0; j < res[i].size(); j++){
+            for(int num:res[i][j]){
+                cout<<std::to_string(num)<<" ";
+            }
+        }
+        if(i < res.size() - 1) cout << " ] [";
     }
     cout << "]";
     return 0;
