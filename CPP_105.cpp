@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -17,7 +18,7 @@ std::vector<std::string> by_length(std::vector<int> arr){
     reverse(sortedArr.begin(), sortedArr.end());
     std::vector<std::string> result;
     std::map<int, std::string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
-                                            {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+                                             {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     for(int i : sortedArr){
         result.push_back(numToName[i]);
     }
@@ -25,20 +26,10 @@ std::vector<std::string> by_length(std::vector<int> arr){
 }
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter integer: ";
-        std::cin >> x;
-        input.push_back(x);
-    }
+    std::vector<int> arr = {5, 4, 3, 2, 1, 6};
+    std::vector<std::string> vec = by_length(arr);
     
-    std::vector<std::string> output = by_length(input);
-    
-    if(issame(output, {"Eight", "Five", "Nine"})) {
+    if(issame(vec, {"Nine", "Eight", "Seven", "Six", "Five", "One"})) {
         std::cout << "Vectors are the same." << std::endl;
     } else {
         std::cout << "Vectors are not the same." << std::endl;
