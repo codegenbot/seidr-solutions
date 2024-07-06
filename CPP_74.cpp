@@ -3,15 +3,18 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) 
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
             return false;
-        }
     }
     return true;
+}
+
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -30,14 +33,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else if (sum1 > sum2) {
         return lst2;
     } else {
-        if (issame(lst1, lst2)) {
-            return lst1;
-        } else {
-            if (sum1 == 0 && sum2 == 0) {
-                return {};
-            } else {
-                return lst1;
-            }
-        }
+        if(sum1 == 0)
+            return {};
+        return lst1;
     }
 }
