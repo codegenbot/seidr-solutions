@@ -1,3 +1,4 @@
+
 def fruit_distribution(input):
     import re
     # Check if the input string contains both "apples" and "oranges"
