@@ -1,12 +1,14 @@
 ```
 def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
+    if string == string[::-1]:
+        return True
+    else:
+        return False
 
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string + string
-    else:
-        postfix = ""
-        for char in string:
-            postfix = char + postfix
-        return string + postfix
+    postfix = ""
+    for char in string:
+        postfix = char + postfix
+    return string + postfix
