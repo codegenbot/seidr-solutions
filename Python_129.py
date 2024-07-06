@@ -11,8 +11,10 @@ def minPathSum(m):
             ni, nj, new_path = queue.pop(0)
             for x, y in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                 ni2, nj2 = ni + x, nj + y
-                if (0 <= ni2 < n and 0 <= nj2 < n 
-                    and m[ni2][nj2] % n + nj2 < m[i][j]):
+                if (
+                    0 <= ni2 < n and 0 <= nj2 < n 
+                    and m[ni2][nj2] % n + nj2 < m[i][j]
+                ):
                     new_path2 = new_path + [m[ni2][nj2]]
                     if len(min_path) == 0 or len(new_path2) < len(min_path):
                         min_path = new_path2
