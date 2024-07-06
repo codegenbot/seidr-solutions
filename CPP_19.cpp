@@ -1,30 +1,33 @@
+#include <map>
+#include <string>
+
+map<string, int> numberMap = {
+    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+    {"eight", 8}, {"nine", 9}
+};
+
 string sort_numbers(string numbers) {
-    map<string, int> numberMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                   {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                   {"eight", 8}, {"nine", 9}};
-    vector<string> numList;
-    string temp;
+    vector<string> nums;
+    string num;
+
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
-            numList.push_back(temp);
-            temp = "";
+            nums.push_back(num);
+            num.clear();
         } else {
-            temp += numbers[i];
+            num += numbers[i];
         }
     }
-    numList.push_back(temp);
 
-    sort(numList.begin(), numList.end());
+    nums.push_back(num);
+
+    sort(nums.begin(), nums.end());
 
     string result;
-    for (int i = 0; i < numList.size(); i++) {
-        if (numberMap.find(numList[i]) != numberMap.end()) {
-            result += numList[i];
-            if (i < numList.size() - 1) {
-                result += " ";
-            }
-        }
+    for (auto &n : nums) {
+        result += to_string(numberMap.find(n)->second) + " ";
     }
 
-    return result;
+    return result.substr(0, result.length() - 1);
 }
