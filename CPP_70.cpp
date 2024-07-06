@@ -1,7 +1,6 @@
-#include <initializer_list>
-
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
