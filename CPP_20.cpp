@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 using namespace std;
 
@@ -8,4 +7,3 @@ bool isSame(vector<float> a, vector<float> b) {
         if(abs(a[i] - b[i]) > 1e-5f) return false;
     }
     return true;
-}
