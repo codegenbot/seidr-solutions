@@ -1,7 +1,3 @@
-#include <string>
-#include <map>
-#include <algorithm>
-
 using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
@@ -14,7 +10,7 @@ bool check_dict_case(map<string, string> dict) {
         string key = pair.first;
         if (!allLower && !allUpper) break;
         if (!allLower) {
-            allLower = all(ToLower(key).begin(), Lower(key).end());
+            allLower = all(Lower(key).begin(), Lower(key).end());
         }
         if (!allUpper) {
             allUpper = all(Upper(key).begin(), Upper(key).end());
