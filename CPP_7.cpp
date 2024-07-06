@@ -1,22 +1,14 @@
-#include <vector>
-#include <string>
-
-bool isSame(const std::string& s1, const std::string& s2) {
-    if (s1.size() != s2.size()) 
-        return false;
-    for(int i = 0; i < s1.size(); i++) 
-        if (s1[i] != s2[i]) 
-            return false;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (!(find(a[i].begin(), a[i].end(), ' ') != a[i].end())) {
+            if (!(find(b[i].begin(), b[i].end(), ' ') != b[i].end()))
+                return false;
+        }
+    }
     return true;
 }
 
 int main() {
-    std::vector<std::string> strings = {"abc", "xyz", "abcd"};
-    std::string substring = "bc";
-    
-    for(const auto& str : strings) {
-        if(isSame(str, substring))
-            std::cout << str << "\n";
-    }
-    return 0;
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }
