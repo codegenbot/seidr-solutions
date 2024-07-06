@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <map>
-
 int search(std::vector<int> lst) {
     std::map<int, int> count;
     for (int num : lst) {
@@ -14,8 +10,12 @@ int search(std::vector<int> lst) {
 
     int maxVal = -1;
     for (auto p : count) {
-        if(p.second > 0) 
-            maxVal = p.first; 
+        int n = p.first;
+        double sqrt_n = sqrt(n);
+        if(sqrt_n == static_cast<int>(sqrt_n) && p.second >= sqrt_n && n > 0) {
+            maxVal = n;
+            break;
+        }
     }
 
     return maxVal;
