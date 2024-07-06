@@ -16,12 +16,8 @@ bool solveBoolean(string s) {
             t = false;
         } else if (s[i] == 't') {
             t = true;
-            f = false;
         } else if (s[i] == 'f') {
             t = false;
-            f = true;
-        } else {
-            res &= (s[i] == 't');
         }
     }
 
