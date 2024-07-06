@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -18,12 +19,8 @@ vector<int> strange_sort_vector(vector<int> lst) {
         lst.erase(it);
         if (lst.size() > 0) {
             result.push_back(max_val);
-            lst.erase(it, lst.end());
+            lst.erase(std::remove_one(lst.begin()), lst.end());
         }
     }
     return result;
-}
-
-int main() {
-    
 }
