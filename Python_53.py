@@ -9,4 +9,4 @@ while True:
         print(f"The sum of {x} and {y} is: {add(x, y)}")
         break
     except ValueError:
-        print("Invalid input. Please enter a number.")
+        print("Invalid input. Please enter an integer.")
