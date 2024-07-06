@@ -1,8 +1,9 @@
+```cpp
 #include <string>
 #include <vector>
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
+string words_in_sentence(string sentence){
+    string result = "";
     for (const auto& word : split(sentence, " ")) {
         if(is_prime(word.length())){
             result += word + " ";
@@ -11,10 +12,10 @@ std::string words_in_sentence(std::string sentence){
     return result;
 }
 
-std::vector<std::string> split(const std::string& s, const std::string& delimiter) {
-    std::vector<std::string> result;
+vector<string> split(const string& s, const string& delimiter) {
+    vector<string> result;
     size_t pos = 0;
-    while ((pos = s.find(delimiter)) != std::string::npos) {
+    while ((pos = s.find(delimiter)) != string::npos) {
         result.push_back(s.substr(0, pos));
         s.erase(0, pos + delimiter.length());
     }
