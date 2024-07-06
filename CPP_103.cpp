@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+#include <sstream>
 using namespace std;
 
 string rounded_avg(int n, int m) {
@@ -11,10 +10,10 @@ string rounded_avg(int n, int m) {
     int average = lround(sum / (double)(m - n + 1));
     string binary = "";
     while (average > 0) {
-        if (average % 2)
-            binary.insert(0, "1");
+        if (average & 1)
+            binary.insert(0, to_string(1));
         else
-            binary.insert(0, "0");
+            binary.insert(0, to_string(0));
         average /= 2;
     }
     return binary;
