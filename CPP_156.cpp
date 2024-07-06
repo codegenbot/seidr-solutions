@@ -1,18 +1,20 @@
 #include <string>
 
 std::string intToMiniRoman(int number) {
-    vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
-                                         {400, "CD"}, {100, "C"}, {90, "XC"},
-                                         {50, "L"}, {40, "XL"}, {10, "X"},
-                                         {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    std::string result = "";
-    
-    for (const auto& pair : roman) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            result += pair.second;
+    if (number < 1) {
+        return "";
+    }
+    std::string roman = "";
+    int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    char symbols[] = {'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'};
+    int i = 0;
+    while (number > 0) {
+        if (number >= values[i]) {
+            number -= values[i];
+            roman += symbols[i];
+        } else {
+            i++;
         }
     }
-    
-    return result;
+    return roman;
 }
