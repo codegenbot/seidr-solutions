@@ -6,5 +6,4 @@ def double_the_difference(lst):
     return result
 
 
-# Call the function with an example list
 double_the_difference([1, 2, 3, 4])
