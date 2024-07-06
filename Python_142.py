@@ -5,13 +5,13 @@ def sum_squares(lst):
     elif isinstance(lst, list):
         for element in lst:
             if isinstance(element, dict):
-                for value in element.values():
-                    if isinstance(value, list):
-                        total_sum += sum([x**2 for x in value])
-                    else:
-                        total_sum += value**2
+                total_sum += sum([v**2 for sublst in element.values() for v in sublst])
             elif isinstance(element, list):
                 total_sum += sum([x**2 for x in element])
+            else:
+                raise ValueError(
+                    f"Invalid input '{element}' found. Input must contain only numbers."
+                )
     return total_sum
 
 
