@@ -1,4 +1,4 @@
-#include <vector>
+```cpp
 #include <string>
 
 std::vector<std::string> all_prefixes(const std::string& str) {
