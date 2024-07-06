@@ -1,13 +1,16 @@
-using namespace std;
+```
+#include <cctype>
+#include <algorithm>
 
-string solve(std::string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+std::string solve(std::string str){
+    std::string result = "";
+    for(int i=0; i<str.length(); i++){
+        if(std::isalpha(str[i])){
+            char c = (std::tolower(str[i]) <= 'z') ? std::toupper(str[i]) : std::tolower(str[i]);
             result += c;
         } else {
-            result += s[i];
+            result += str[i];
         }
     }
-    return (result.find_first_not_of(" ") == string::npos) ? string(result.rbegin(), result.rend()) : result;
+    return (result.find_first_not_of(" ") == std::string::npos) ? std::string(result.rbegin(), result.rend()) : result;
+}
