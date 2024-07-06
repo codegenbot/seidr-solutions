@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 using namespace std;
 
@@ -18,7 +18,7 @@ std::string flip_case(std::string str) {
 
 int main() {
     string input;
-    cout << "Enter a sentence: ";
+    cout << "Enter a string: ";
     cin >> input;
     cout << "Flipped case: " << flip_case(input) << endl;
     return 0;
