@@ -4,4 +4,4 @@ def split_words(txt):
     if len(words) > 0 and any(char.isalnum() for char in words[0]):
         return words
     else:
-        return sum(1 for c in txt.lower() if 'a' <= c <= 'z' and ord(c) % 2 != 0)
+        return sum(1 for char in txt.lower() if ord(char) % 2 == 1)
