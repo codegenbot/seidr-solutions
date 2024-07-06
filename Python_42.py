@@ -1,5 +1,9 @@
 def incr_list(lst=None):
-    result = []
+    if lst is None:
+        result = [0]
+    else:
+        result = lst
+
     while True:
         try:
             n = int(input("Enter a number: "))
@@ -16,7 +20,7 @@ def incr_list(lst=None):
         if cont.lower() == 'y':
             return result
         elif cont.lower() == 'n':
-            return [i + 1 for i in result]
+            return []
         else:
             print("Invalid choice. Please enter y or n: ")
 
