@@ -38,4 +38,3 @@ int main() {
                                  "the number of odd elements 1 in the str2 of the input.", 
                                  "the number of odd elements 0 in the str3 of the input."}));
     return 0;
-}
