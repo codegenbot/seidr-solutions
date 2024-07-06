@@ -2,16 +2,8 @@
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            temp.push_back(i);
-        }
-    }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
     vector<string> result;
-    for (int i : temp) {
+    for (int i : arr) {
         string str = "";
         switch (i) {
             case 1:
@@ -45,4 +37,23 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
     return result;
+}
+
+int main() {
+    
+    vector<int> arr; 
+    int n;
+    cin >> n;
+    for (int i=0;i<n;i++) {
+        int a;
+        cin >> a;
+        arr.push_back(a);
+    }
+
+    cout << "Input numbers in range 1-9 are : ";
+    for(string x: by_length(arr)) {
+        cout<<x<<" ";
+    }
+    
+    return 0;
 }
