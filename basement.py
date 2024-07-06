@@ -1,3 +1,4 @@
+```
 def find_negative_sum(arr):
     total = 0
     index = 0
