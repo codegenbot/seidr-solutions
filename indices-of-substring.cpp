@@ -2,11 +2,17 @@
 #include <vector>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> output;
+    std::vector<int> result;
     for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == target) {
-            output.push_back(i);
+        if (text[i] == target[0]) {
+            int j = 1;
+            while (j < target.size() && text[i + j] == target[j]) {
+                ++j;
+            }
+            if (j == target.size()) {
+                result.push_back(i);
+            }
         }
     }
-    return output;
+    return result;
 }
