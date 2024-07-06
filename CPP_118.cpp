@@ -1,32 +1,22 @@
-#include <cctype>
 #include <string>
+#include <cctype>
 
 string get_closest_vowel(string word) {
-    int left = 0, right = word.size() - 1;
-    
-    while (left < right && (!isvowel(word[left]) || !isconsonant(word[right]))) {
-        if (!isvowel(word[left])) {
-            left++;
-        } else if (!isconsonant(word[right])) {
-            right--;
-        }
+    int n = word.length();
+    for (int i = 0; i < n - 2; ++i) {
+        if (!isalpha(word[i])) continue;
+        if (!isalpha(word[i + 1]) || !isalpha(word[i + 2])) continue;
+        if (word[i] == 'y' && isvowel(word[i + 1])) return string(1, word[i + 1]);
     }
-    
-    for (int i = left; i <= right; i++) {
-        if (isvowel(word[i])) {
-            return string(1, word[i]);
-        }
+    for (int i = n - 3; i >= 0; --i) {
+        if (!isalpha(word[i])) continue;
+        if (!isalpha(word[i - 1]) || !isalpha(word[i - 2])) continue;
+        if (word[i] == 'y' && isvowel(word[i - 1])) return string(1, word[i - 1]);
     }
-    
     return "";
 }
 
 bool isvowel(char c) {
     c = tolower(c);
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isconsonant(char c) {
-    c = tolower(c);
-    return !isvowel(c) && (c >= 'b' && c <= 'z');
 }

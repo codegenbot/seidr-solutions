@@ -1,41 +1,7 @@
-#include <string>
-#include <map>
-#include <algorithm>
-
-using namespace std;
-
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
-
-    string str = test + " ";
-    int maxCount = 0;
-    char mostRepeatedChar = ' ';
-
-    for (char c : std::unique(std::vector<char>(str.begin(), str.end())) | std::views::keys) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str[i] == c) {
-                count++;
-            }
-        }
-        if (count > maxCount || (count == maxCount && mostRepeatedChar == ' ')) {
-            maxCount = count;
-            mostRepeatedChar = c;
-        }
+bool issame(map<char,int> a,map<char,int> b){
+    if(a.size() != b.size()) return false;
+    for(auto p : a) {
+        if(b.find(p.first) == b.end() || b[p.first] != p.second) return false;
     }
-
-    for (char c : std::unique(std::vector<char>(str.begin(), str.end())) | std::views::keys) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str[i] == c) {
-                count++;
-            }
-        }
-        if (count == maxCount) {
-            result[c]++;
-        }
-    }
-
-    return result;
+    return true;
 }
