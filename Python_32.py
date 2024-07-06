@@ -1,6 +1,5 @@
+
 def find_zero(xs: list):
-    # Read input from user
-    coeff = int(input("Enter a coefficient: "))
     # Find the largest non-zero coefficient in xs
     max_coeff = max([abs(coeff) for coeff in xs if coeff != 0])
     # Find the smallest absolute value of a non-zero coefficient in xs
