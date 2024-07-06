@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -37,5 +36,4 @@ int main() {
     vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
     vector<int> res = sort_third(l);
     for(int i : res) cout << i << " ";
-    return 0;
 }
