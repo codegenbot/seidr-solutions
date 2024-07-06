@@ -1,6 +1,4 @@
-def select_words(strings, n):
-    words = []
-    for string in strings:
-        if len(string) == n and all(c.isalpha() for c in string):
-            words.append(int(string))
-    return words
+
+def select_words(s, n):
+    words = s.split()
+    return [word for word in words if len(word) == n and all(c.isalpha() for c in word)]
