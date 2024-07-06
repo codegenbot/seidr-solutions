@@ -1,4 +1,3 @@
-```
 def smallest_change(arr):
     n = len(arr)
     left, right = 0, n - 1
@@ -17,3 +16,6 @@ def smallest_change(arr):
         right -= 1
     
     return changes
+
+input_list = [0, 1, 0, 1, 1, 0]
+print(smallest_change(input_list))
