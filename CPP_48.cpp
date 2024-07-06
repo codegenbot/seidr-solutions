@@ -1,12 +1,10 @@
-#include <iostream>
-#include <string>
-
-bool is_palindrome(std::string text){
+```cpp
+bool is_palindrome(string text) {
     int start = 0;
     int end = text.length() - 1;
 
-    while(start < end){
-        if(text[start] != text[end]){
+    while (start < end) {
+        if (tolower(text[start]) != tolower(text[end])) {
             return false;
         }
         start++;
@@ -14,9 +12,4 @@ bool is_palindrome(std::string text){
     }
 
     return true;
-}
-
-int main() {
-    std::cout << is_palindrome("xywzx") << std::endl; 
-    return 0;
 }
