@@ -1,5 +1,5 @@
-
 import math
+
 
 def prime_fib(n):
     fib = [0, 1]
