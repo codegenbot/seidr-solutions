@@ -1,3 +1,4 @@
+```
 from collections import deque
 
 
@@ -5,7 +6,7 @@ def minPath(m):
     n = len(m)
     
     def dfs(i, j, path):
-        if len(path) == 1:
+        if len(path) == k:
             return path
         min_path = None
         queue = [(i, j, path)]
@@ -22,8 +23,8 @@ def minPath(m):
                         min_path = new_path2
         return min_path
 
+    global k, n, m
     k = int(input("Enter the value of k: "))
-    min_path = None
     n = int(input("Enter the size of the matrix (n): "))
     m = []
     
@@ -31,6 +32,7 @@ def minPath(m):
         row = list(map(int, input("Enter the row {}: ".format(i+1)).split()))
         m.append(row)
     
+    min_path = None
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [m[i][j]])
