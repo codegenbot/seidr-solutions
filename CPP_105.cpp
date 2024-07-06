@@ -1,9 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <algorithm>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a,vector<string>b){
     if(a.size() != b.size()) {
         return false;
     }
@@ -29,6 +24,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
+    // Define and use by_length
     vector<int> arr = {9, 4, 8};
     vector<string> result = by_length(arr);
     assert(issame(result, {"Nine", "Eight", "Four"}));
