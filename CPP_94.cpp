@@ -1,29 +1,33 @@
 #include <vector>
+#include <cassert>
 
 int skjkasdkd(std::vector<int> lst){
     int max_prime = 0;
-    for(int num : lst){
-        if(isPrime(num) && num > max_prime)
-            max_prime = num;
+    for(int i : lst) {
+        if(isPrime(i)) {
+            if(i > max_prime)
+                max_prime = i;
+        }
     }
     int sum = 0;
-    while(max_prime != 0){
+    while(max_prime > 0) {
         sum += max_prime % 10;
         max_prime /= 10;
     }
     return sum;
 }
 
-bool isPrime(int n){
-    if(n <= 1) return false;
-    for(int i = 2; i * i <= n; i++)
-        if(n % i == 0)
+bool isPrime(int num) {
+    if(num <= 1) 
+        return false;
+    for(int i = 2; i*i <= num; i++) {
+        if(num % i == 0)
             return false;
+    }
     return true;
 }
 
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    int result = skjkasdkd(lst);
+    assert(skkkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
