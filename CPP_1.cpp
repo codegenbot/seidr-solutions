@@ -3,10 +3,15 @@
 #include <string>
 #include <initializer_list>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i)
-        if (a[i] != b[i]) return false;
+bool compareVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -33,6 +38,6 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 }
 
 int main() {
-    assert(separate_paren_groups("( ) (( )) (( )( )") == {"", "", ""});
+    assert(compareVectors(separate_paren_groups("( ) (( )) (( )( )"), {"","",""}));
     return 0;
 }
