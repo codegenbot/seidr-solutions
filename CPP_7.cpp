@@ -1,10 +1,16 @@
+```
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b);
-vector<string> filter_by_substring(vector<string> strings, string substring);
+int main() {
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> result = filter_by_substring(strings, substring);
+    bool same = issame(result, {"grunt", "prune"});
+    cout << "Result: " << (same ? "True" : "False") << endl;
+    return 0;
+}
 
-// Function definitions
 bool issame(vector<string> a,vector<string>b){
     if(a.size() != b.size())
         return false;
@@ -14,17 +20,10 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
-vector<string> filter_by_substring(string strings[], int n, string substring){
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
-    for(int i = 0; i<n;i++) {
-        if(strings[i].find(substring) != string::npos)
-            result.push_back(strings[i]);
+    for(string s : strings) {
+        if(s.find(substring) != string::npos)
+            result.push_back(s);
     }
     return result;
-}
-
-int main() {
-    string strings[] = {"grunt", "trumpet", "prune", "gruesome"};
-    assert (issame(filter_by_substring(strings, 4, "run") ,{"grunt", "prune"}));
-    return 0;
-}
