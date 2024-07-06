@@ -1,3 +1,5 @@
 ```
-def digitSum(s):
-    return sum(int(c) for c in s if c.isdigit())
+import re
+
+def digitSum(n):
+    return sum(int(i) for i in re.sub(r'\D', '', str(n)))
