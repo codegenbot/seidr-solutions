@@ -5,6 +5,9 @@ import math
 
 def factorize(n: int) -> List[int]:
     """Return the prime factors of a given number."""
+    if n < 2:
+        return []
+
     factors = []
     i = 2
     while i * i <= n:
