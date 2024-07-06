@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -19,8 +18,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    int n = 5; // example number of piles
-    std::vector<int> pile1 = make_a_pile(n);
-    assert(issame(pile1, {0, 2, 4, 6, 8}));
+    assert(issame(make_a_pile(5), std::vector<int>({0, 2, 4, 6, 8})));
     return 0;
 }
