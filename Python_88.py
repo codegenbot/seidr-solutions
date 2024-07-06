@@ -1,4 +1,4 @@
-def sort_array():
+def sort_array(arr=None):
     while True:
         user_choice = input("Do you want to sort array? (S for yes): ")
         if user_choice.upper() != "S":
@@ -9,16 +9,16 @@ def sort_array():
         print("Error: Input type is incorrect")
 
     try:
-        array = [int(i) for i in input().split()]
+        arr = [int(i) for i in input().split()]
     except ValueError as e:
         print("Error: Array contains non-integer values")
         return sort_array()
 
-    if not array:
+    if not arr:
         print("Array cannot be empty. Please enter numbers separated by space:")
         while True:
             try:
-                array = [int(i) for i in input().split()]
+                arr = [int(i) for i in input().split()]
                 break
             except ValueError as e:
                 print("Error: Array contains non-integer values")
@@ -28,9 +28,9 @@ def sort_array():
 
     while True:
         if user_choice.upper() == "S":
-            return sorted(array)
+            return sorted(arr)
         elif user_choice.upper() == "U":
-            return set(array)
+            return set(arr)
         else:
             print(
                 "Error: Invalid choice. Please enter S for sorting or U for finding unique elements."

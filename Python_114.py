@@ -1,7 +1,7 @@
+```
 input_num = input("Enter space-separated integers: ")
 nums = [int(x) for x in input_num.split()]
-print(minSubArraySum(nums))
-
+print(minSubArraySum([int(x) for x in input_num.split()]))
 def minSubArraySum(nums):
     total_sum = 0
     min_sum = float('inf')
