@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     s = s.lower()
     numbers_to_remove = "".join(filter(str.isdigit, s))
