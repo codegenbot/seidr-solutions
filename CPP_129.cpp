@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -14,9 +13,9 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         for (int j = 0; j < n; ++j)
             if (grid[i][j] == 1) {
                 dfs(grid, visited, i, j, k, &res);
-                return res;
+                break;
             }
-    return {};
+    return res;
 }
 
 void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited, int x, int y, int k, std::vector<int>* res) {
@@ -30,6 +29,7 @@ void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& vi
             if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()
                 && !visited[nx][ny] && grid[nx][ny] != (*res).back()) {
                 dfs(grid, visited, nx, ny, k - 1, res);
+                return;
             }
         }
     visited[x][y] = false;
