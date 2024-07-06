@@ -1,8 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::string& a, const std::string& b) {
+bool issame(std::vector<std::string> a) {
+    return true;
+}
+
+bool bf(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,16 +13,19 @@ bool issame(const std::string& a, const std::string& b) {
     return true;
 }
 
-std::vector<std::string> bf(const std::string& a, const std::string& b) {
-    std::vector<std::string> result;
-    for(char c : a) {
-        if(std::find(b.begin(), b.end(), c) != b.end()) {
-            result.push_back(std::string(1, c));
+std::vector<std::string> code(const std::string& s1, const std::string& s2) {
+    std::vector<std::string> res;
+    for (char c : s1 + s2) {
+        if (c >= 'A' && c <= 'H') {
+            res.push_back(std::to_string((c - 'A' + 1)));
+        } else {
+            res.push_back(std::string(1, c));
         }
     }
-    return result;
+    return res;
 }
 
 int main() {
-    std::cout << "Output: " << (issame("Jupiter", "Makemake") ? "True" : "False") << std::endl;
+    assert(bf(code("Jupiter", "Makemake"), {}) == std::vector<std::string>({}));
+    std::cout << "Output: " << bf(code("Jupiter", "Makemake"), {}) << std::endl;
 }
