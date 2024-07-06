@@ -1,5 +1,16 @@
+```
 #include <iostream>
 #include <vector>
+
+int add_elements(std::vector<int> arr) {
+    int sum = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        if (std::to_string(arr[i]).size() <= 2) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
 
 int main() {
     std::vector<int> vec;
@@ -11,13 +22,7 @@ int main() {
         std::cin >> num;
         vec.push_back(num);
     }
-    int sum = 0, count = 0;
-    for (int n : vec) {
-        if ((n >= 1 && n <= 9) || (n >= -9 && n <= -1)) {
-            sum += n;
-            count++;
-        }
-    }
-    std::cout << "Sum of numbers between -9 and 9: " << sum << std::endl;
+    int result = add_elements(vec);
+    std::cout << "Sum of elements with lengths less than or equal to 2: " << result << std::endl;
     return 0;
 }
