@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr) {
     int n = arr.size();
-    std::string str = "";
+    string str = "";
     for (int i : arr) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
     int left = 0;
     int right = n - 1;
