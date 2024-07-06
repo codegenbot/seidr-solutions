@@ -10,8 +10,7 @@ bool will_it_fly(vector<int> q, int w) {
         str += " " + to_string(q[i]);
     }
     vector<char> reversed(str.begin(),str.end());
-    reverse(reversed.begin(),reversed.end());
-    string revStr(reversed.begin(),reversed.end());
+    string revStr = string(reversed.rbegin(),reversed.rend());
     
     if (str != revStr)
         return false;
