@@ -1,3 +1,4 @@
+```
 def calculate_average(grades):
     total = sum(float(grade) for grade in grades)
     average = total / len(grades)
@@ -16,8 +17,9 @@ def average_grade(name):
 
     if not grades:
         return 0.0
-    avg = calculate_average(grades)
-    return avg
+    total = sum(grade for grade in grades)
+    average = total / len(grades)
+    return round(average, 2)
 
 name = input(f"Hi, please enter your name: ")
 avg_grade = average_grade(name)
