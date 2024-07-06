@@ -3,10 +3,10 @@ def decode_cyclic(s):
     result = ""
     if s[0] in ["<", ">"]:
         i = 1
+        cyclic = False
         while len(result) < len(s):
-            j = (i + 1) % len(s)
             temp = ""
-            cyclic = False
+            j = i
             while j < len(s) and (s[j] != "<" or temp == ""):
                 if s[j] == ">":
                     cyclic = True
@@ -22,4 +22,4 @@ def decode_cyclic(s):
         for char in s:
             if char != "<" and char != ">":
                 result += char
-    return result
+    return result.replace("<", "").replace(">", "")```
