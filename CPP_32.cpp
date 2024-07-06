@@ -1,12 +1,5 @@
 double find_zero(vector<double> xs){
-    double sum=0;
-    int i;
-    for (i=0;i<xs.size();i++)
-    {
-        if(i%2==1)
-            continue;
-        else
-            sum=-sum*(xs[i]/(i+1));
-    }
-    return -sum;
+    double left = xs[0];
+    double right = xs[xs.size()-1];
+    return (left + right) / 2.0;
 }
