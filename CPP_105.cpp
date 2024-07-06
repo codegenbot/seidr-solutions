@@ -2,18 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(vector<string> v1, vector<string> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             temp.push_back(i);
@@ -21,9 +11,9 @@ vector<string> by_length(vector<int> arr) {
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i : temp) {
-        string str = "";
+        std::string str = "";
         switch (i) {
             case 1:
                 str = "One";
@@ -56,23 +46,4 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
     return result;
-}
-
-int main() {
-    vector<int> arr;
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        arr.push_back(x);
-    }
-    vector<string> res = by_length(arr);
-    cout << "The numbers in the order of their lengths are: ";
-    for(string s : res) {
-        cout << s << " ";
-    }
-    cout << endl;
-    
-    return 0;
 }
