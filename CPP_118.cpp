@@ -1,3 +1,4 @@
+```cpp
 string get_closest_vowel(string word) {
     int n = word.length();
     string closestVowel = "";
