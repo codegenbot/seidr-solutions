@@ -1,27 +1,29 @@
-map<string, int> numMap = {
-    {"zero", 0}, {"one", 1}, {"two", 2},
-    {"three", 3}, {"four", 4}, {"five", 5},
-    {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}
-};
-
 string sort_numbers(string numbers) {
-    vector<string> numVec;
+    map<string, int> numberMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                   {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                   {"eight", 8}, {"nine", 9}};
+    vector<string> numList;
     string temp;
-
     for (int i = 0; i < numbers.length(); i++) {
-        while (i + 1 <= numbers.length() && !ispunct(numbers[i])) {
-            i++;
+        if (numbers[i] == ' ') {
+            numList.push_back(temp);
+            temp = "";
+        } else {
+            temp += numbers[i];
         }
-        if (!numMap.count(temp = numbers.substr(0, i))) break;
-        numVec.push_back(temp);
-        i--;
     }
+    numList.push_back(temp);
 
-    sort(numVec.begin(), numVec.end());
+    sort(numList.begin(), numList.end());
 
-    string result = "";
-    for (auto& str : numVec) {
-        result += str + " ";
+    string result;
+    for (int i = 0; i < numList.size(); i++) {
+        if (numberMap.find(numList[i]) != numberMap.end()) {
+            result += numList[i];
+            if (i < numList.size() - 1) {
+                result += " ";
+            }
+        }
     }
 
     return result;
