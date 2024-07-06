@@ -1,4 +1,4 @@
-def parse_nested_parens(paren_string: str) -> list[int]:
+def parse_nested_parens(paren_string):
     if len(paren_string) == 1:
         return [0]
     result = []
