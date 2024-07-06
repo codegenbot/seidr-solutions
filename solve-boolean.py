@@ -1,13 +1,13 @@
 import re
 
-
 def solve_boolean(expression):
-    if len(expression) < 2 or expression[0] in "()":
-        raise ValueError("Invalid input")
+    # ... (your existing code here) ...
 
-    match = re.match(r"^(?P<left>.*?)((?:\||\&)(?P<right>.*))$", expression)
-    if match:
-        left, right = match.groups()
-        return solve_boolean(left) | solve_boolean(right)
+# Read input from the user
+expression = input("Enter a Boolean expression: ")
 
-    raise ValueError("Invalid input")
+# Call the solve_boolean function with the user's input
+result = solve_boolean(expression)
+
+# Print the result
+print(f"The resulting Boolean value is: {result}")
