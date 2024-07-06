@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
 
@@ -18,10 +19,11 @@ vector<string> split(const string& str, const string& delimiter) {
 string anti_shuffle(string s){
     string result = "";
     for (const auto& word : split(s, " ")) {
-        string accumulator = "";
-        for (char c : word)
-            accumulator += c;
-        result += accumulator + " ";
+        string temp = "";
+        for(char c:word) {
+            temp +=c;
+        }
+        result += temp + " ";
     }
     return result.substr(0, result.size() - 1);
 }
