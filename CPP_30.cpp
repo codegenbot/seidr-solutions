@@ -16,14 +16,10 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v = {})
     return result;
 }
 
-int main() {
+int main2() {
     std::vector<float> v = {1, -2, 3};
-    std::vector<float> positive_numbers = get_positive(v);
     std::cout << "Only positive numbers are: ";
-    for (float num : positive_numbers) {
-        if (issame(num, 0.0f)) {
-            continue;
-        }
+    for (float num : get_positive(v)) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
