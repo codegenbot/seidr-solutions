@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     bool_map = {'T': True, 'F': False}
     expression = ''.join(bool_map.get(c, c) for c in expression)
