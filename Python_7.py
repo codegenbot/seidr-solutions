@@ -1,4 +1,3 @@
-```
 from typing import list
 
 
@@ -7,22 +6,20 @@ def filter_by_substring(strings: list, substring: str) -> list:
 
 
 def filter_by_substring():
-    strings = []  
-    substring = input("Enter a substring: ")  
-    
-    while True:  
+    strings = []
+    substring = input("Enter a substring: ")
+
+    while True:
         try:
             num_strings = int(input("Enter the number of strings: "))
-            break  
+            break
         except ValueError:
             print("Invalid input. Please enter a positive integer.")
-    
+
     for _ in range(num_strings):
-        s = input(f"Enter string {strings.index(_)+1} (or leave blank to finish): ")
-        if not s:  
+        s = input(f"Enter string {_+1} (or leave blank to finish): ")
+        if not s:
             break
         strings.append(s)
-    
-    return filter_by_substring(strings, substring)  
 
-print(filter_by_substring())
+    return filter_by_substring([s.lower() for s in strings], substring)
