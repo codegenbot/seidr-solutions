@@ -1,47 +1,39 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        if (a % b == 0) return b;
-        a = b;
-        b = a % b;
-    }
-    return 1;
+    if (a == 0) return b;
+    return gcd(b % a, a);
 }
 
-vector<int> getIndicesOfSubstring(const string& text, const string& target) {
+vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    for (int i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (text.substr(i, target.size()) == target) {
-            indices.push_back(i);
+    size_t start = 0;
+    while (start < text.size()) {
+        size_t pos = text.find(target, start);
+        if (pos != string::npos) {
+            indices.push_back(pos);
+            start = pos + target.size();
+        } else {
+            break;
         }
     }
     return indices;
 }
 
 int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> indices = getIndicesOfSubstring(text, target);
-    for (int i : indices) {
+    cout << "Enter a text string: ";
+    string text;
+    cin >> text;
+    cout << "Enter a target string: ";
+    string target;
+    cin >> target;
+    vector<int> indices = indicesOfSubstring(text, target);
+    cout << "The indices of the target string in the text are: ";
+    for (auto i : indices) {
         cout << i << " ";
     }
-    cout << endl;
-
     return 0;
 }
