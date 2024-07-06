@@ -1,7 +1,6 @@
-```
 import hashlib
 
-def string_to_md5(text):
+def string_to_md5():
     if text == "":
         return None
     else:
