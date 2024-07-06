@@ -13,6 +13,4 @@ def valid_date(date):
         return False
     elif month not in (4,6,9,11) and day > days_in_month[month-1]:
         return False
-    if year < 1000 or year > 9999:
-        return False
     return True
