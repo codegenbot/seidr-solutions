@@ -1,4 +1,4 @@
-```Python
+```
 while True:
     try:
         num_strings = int(input("Enter the number of strings: "))
@@ -15,7 +15,7 @@ for _ in range(num_strings):
         if strings.lower() == 'stop':
             break
         try:
-            for word in strings.split():
-                print(word[::-1])
+            reversed_string = strings[::-1]
+            print(reversed_string)
         except AttributeError:
             print("Invalid input. Please enter a valid string.")
