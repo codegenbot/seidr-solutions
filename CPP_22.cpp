@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <list>
 #include <any>
-#include <memory> 
+#include <memory>
 #include <boost/any.hpp>
 
-bool equal_v(vector<int> a, vector<int> b) {
+bool equal_v(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -16,7 +15,7 @@ std::vector<int> filter_integers(std::list<std::any> values) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
-    return result;
+    return std::vector<int>(result.begin(), result.end());
 }
 
 int main() {
