@@ -1,17 +1,12 @@
 from functools import reduce
-
+import operator
 
 def car_race_collision():
     n = int(input("Enter the number of cars: "))
-    if (
-        len(input("Enter the speeds (space-separated): ").split()) != n
-        or len(input("Enter the damages (space-separated): ").split()) != n
-    ):
-        return str(n)
-    speeds = list(map(int, input("Enter the speeds (space-separated): ").split()))
-    damages = list(map(int, input("Enter the damages (space-separated): ").split()))
-    total_damage = sum(damage * speed for damage, speed in zip(damages, speeds))
+    total_damage = 0
+    for i in range(n):
+        speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
+        total_damage += damage * speed
     return str(total_damage)
-
 
 print(car_race_collision())
