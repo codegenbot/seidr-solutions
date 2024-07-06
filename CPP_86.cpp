@@ -1,3 +1,5 @@
+```
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -23,12 +25,13 @@ string anti_shuffle(string s){
     return result.substr(0, result.size() - 1);
 }
 
-int main()
+int main
 {
     string s;
     cout << "Enter a sentence: ";
     getline(cin, s);
 
-    cout << "Anti-shuffle: " << anti_shuffle(s) << endl;
+    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
 
     return 0;
+}
