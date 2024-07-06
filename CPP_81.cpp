@@ -1,7 +1,9 @@
-#include <string>
+```cpp
+#include <iostream>
 #include <vector>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,10 +11,10 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
     for (float grade : grades) {
-        string letterGrade;
+        std::string letterGrade;
         if (grade >= 4.0)
             letterGrade = "A+";
         else if (grade > 3.7)
@@ -36,20 +38,34 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 0.7)
             letterGrade = "D";
         else
-            letterGrade = "E";
+            letterGrade = "F";
         result.push_back(letterGrade);
     }
     return result;
 }
 
 int main() {
-    vector<float> grades = {3.5, 4.2, 2.9};
-    vector<string> grades_letter = numerical_letter_grade(grades);
-    // use issame function here
-    if (issame(grades_letter, {"A", "A+", "B-"})) {
-        cout << "The two vectors are the same." << endl;
-    } else {
-        cout << "The two vectors are not the same." << endl;
+    std::vector<float> grades;
+    // Get grades from user
+    int n;
+    std::cout << "Enter the number of grades: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        float grade;
+        std::cout << "Enter grade " << i + 1 << ": ";
+        std::cin >> grade;
+        grades.push_back(grade);
     }
+    
+    std::vector<std::string> letter_grades = numerical_letter_grade(grades);
+
+    // Check the correctness of conversion
+    std::vector<std::string> expected = {"A+", "B", "C-"};
+    if (!issame(letter_grades, expected)) {
+        std::cout << "Conversion failed!" << std::endl;
+    } else {
+        std::cout << "Conversion successful!" << std::endl;
+    }
+
     return 0;
 }
