@@ -1,11 +1,16 @@
-from typing import List
+def main():
+    s = input("Enter a string with nested parentheses: ")
+    if not (s.startswith('(') and s.endswith(')')):
+        print("Invalid input. The string must start and end with parentheses.")
+    else:
+        print(parse_nested_parens(s))
 
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> None:
     result = []
     stack = 0
     max_level = 0
     current_level = 0
-    
+
     for char in paren_string:
         if char == '(':
             stack += 1
@@ -23,10 +28,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     
     if stack == 0:
         result.append(max_level)
-    elif stack > 0:
-        while stack > 0:
-            result.append(max_level)
-            max_level -= 1
-            stack -= 1
     
-    return result
+    print(result)
+
+if __name__ == "__main__":
+    main()
