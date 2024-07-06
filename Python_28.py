@@ -1,7 +1,6 @@
-```
 while True:
     try:
-        num_strings = int(input("Enter the number of strings: "))
+        num_strings = int(input("Enter the number of strings you'd like to reverse (1 or more): "))
         if num_strings <= 0:
             print("Please enter a positive integer.")
         else:
