@@ -9,7 +9,7 @@ def concatenate(strings: List[str]) -> str:
         result += string
     return result
 
-strings = input("Please enter a list of strings (separated by any character): ")
-strings = [i for i in strings.split() if i]  # remove empty strings
+strings = input("Please enter a list of strings (separated by newline): ")
+strings = [s.strip() for s in strings.split('\n')]
 
 print(concatenate(strings))
