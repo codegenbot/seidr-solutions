@@ -1,4 +1,3 @@
-```
 def is_nested(string):
     stack = []
     for char in string:
