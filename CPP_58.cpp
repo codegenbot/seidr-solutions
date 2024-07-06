@@ -12,19 +12,13 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
         }
     }
 
-    vector<int> res;
+    std::vector<int> res;
     for (int i : result) {
         res.push_back(i);
     }
     return res;
-
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    
 }
