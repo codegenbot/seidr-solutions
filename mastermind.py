@@ -15,13 +15,3 @@ def mastermind(code, guess):
 
     # Return the number of white and black pegs
     return (white_pegs, black_pegs)
-
-
-# Get input from user
-code = input("Enter Mastermind code: ")
-guess = input("Enter guess: ")
-
-# Call mastermind function with input
-result = mastermind(code, guess)
-
-print(f"White pegs: {result[0]}, Black pegs: {result[1]}")
