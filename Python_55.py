@@ -1,4 +1,4 @@
-Here is the corrected function:
+Here is the corrected Python function:
 
 ```
 def fib(n: int):
