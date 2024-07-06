@@ -1,3 +1,4 @@
+```
 def decode_shift(shift: str, s: str):
     if shift == "encode":
         try:
