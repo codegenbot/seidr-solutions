@@ -3,10 +3,9 @@
 #include <sstream>
 #include <string>
 
-int main 
-{
+int is_bored(std::string S){
     int count = 0;
-    std::istringstream iss(std::cin.rdbuf());
+    std::istringstream iss(S);
     std::string word;
 
     while(getline(iss, word, ' ')) {
@@ -15,3 +14,5 @@ int main
     }
     return count;
 }
+
+int main() { return is_bored("I am bored I"); }
