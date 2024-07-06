@@ -1,8 +1,14 @@
-from typing import List, Any
+```
+from typing import List
 
-def filter_integers() -> list:
-    values = input("Enter a series of comma-separated integers: ")
-    value_list = [int(x) for x in values.split(",")]
-    return [value for value in value_list if isinstance(value, int)]
+def filter_integers(values: list) -> list:
+    return [value for value in values if isinstance(value, int)]
 
-print(filter_integers())
+values = input("Please enter a list of values separated by spaces (for example, 1 2 3 or abc def): ").split()
+
+try:
+    result = filter_integers([int(value) for value in values])
+except ValueError:
+    print("Invalid input. Please enter a list of valid integer values.")
+else:
+    print(result)
