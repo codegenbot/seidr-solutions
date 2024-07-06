@@ -1,8 +1,5 @@
-```
-def fruit_distribution(s,n):
-    words = s.split()
-    for i in range(len(words)):
-        if words[i].lower() == 'apples' or words[i].lower() == 'oranges':
-            num = int(''.join(filter(str.isdigit,words[i-1:i+1])))
-            n -= num
-    return n
+def fruit_distribution(s, n):
+    s = s.split()
+    n_apples = int("".join(filter(str.isdigit, [i for i in s if "apples" in i])))
+    n_oranges = int("".join(filter(str.isdigit, [i for i in s if "oranges" in i])))
+    return n - n_apples - n_oranges
