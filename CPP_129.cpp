@@ -1,28 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-
-using namespace std;
-
 vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
-    vector<vector<int>> localGrid = grid; 
     vector<int> res;
     for (int i = 0; i < k; ++i) {
         int minVal = INT_MAX;
         int minRow = -1, minCol = -1;
-        for (int j = 0; j < localGrid.size(); ++j) {
-            for (int col = 0; col < localGrid[j].size(); ++col) {
-                if (localGrid[j][col] <= minVal && res.empty() || (res.back() != localGrid[j][col])) {
-                    minVal = localGrid[j][col];
+        for (int j = 0; j < grid.size(); ++j) {
+            for (int col = 0; col < grid[j].size(); ++col) {
+                if (grid[j][col] <= minVal && res.empty() || (res.back() != grid[j][col])) {
+                    minVal = grid[j][col];
                     minRow = j;
                     minCol = col;
                 }
             }
         }
         res.push_back(minVal);
-        for (int i = 0; i < localGrid.size(); ++i) {
+        for (int i = 0; i < grid.size(); ++i) {
             if (i == minRow) continue;
-            localGrid[i][minCol] = INT_MAX;
+            grid[i][minCol] = INT_MAX;
         }
     }
     return res;
