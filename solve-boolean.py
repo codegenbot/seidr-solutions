@@ -1,41 +1,51 @@
-```
 def solve_boolean(expression):
-    bool_map = {'T': True, 'F': False}
+    bool_map = {"T": True, "F": False}
 
-    def eval_expression(expr):
+    def precedence(c):
+        if c == "&":
+            return 1
+        elif c == "|":
+            return 0
+
+    def parse_and_eval(s):
         stack = []
-        i = 0
-        while i < len(expr):
-            if expr[i] in ('(', '|', '&'):
-                if expr[i] == '(':
-                    stack.append(expr[i])
-                    i += 1
-                elif expr[i] in ('|', '&'):
-                    j = i + 1
-                    while j < len(expr) and expr[j] not in ('|', '&', '(', ')'):
-                        j += 1
-                    if expr[j] == '(':
-                        stack.append('(')
-                    else:
-                        stack.append(expr[i:j+1])
-                        i = j
-                elif expr[i] == ')':
-                    while stack[-1] != '(':
-                        stack.pop()
+        result = None
+        for char in s:
+            if char in bool_map:
+                result = bool_map[char]
+            elif char in ("&", "|"):
+                while stack and stack[-1] in ("(", "&", "|"):
                     stack.pop()
-                    i += 1
-            elif expr[i] in bool_map:
-                return str(bool_map.get(expr[i], None)).lower()
-            i += 1
+                if stack and stack[-1] == "(":
+                    stack.pop()
+                stack.append(char)
+            elif char == "(":
+                stack.append(char)
+            elif char == ")":
+                while stack and stack[-1] != "(":
+                    pass
+                if stack and stack[-1] == "(":
+                    stack.pop()
+        return result
 
-        while len(stack) > 0 and stack[-1] == '(':
-            stack.pop()
+    def eval_expression(expression):
+        while "&" in expression or "|" in expression:
+            start = 0
+            end = len(expression)
+            for i in range(len(expression) - 1, -1, -1):
+                if expression[i] == "&":
+                    start = i
+                elif expression[i] == "|":
+                    end = i
+                    break
+            and_or_parts = expression[: end + 1].split(
+                (expression[start] + "&" if start > 0 else "")
+            )
 
-        if len(stack) == 1:
-            return stack[0].upper() if stack[0][0].isalpha() else bool_map[stack[0]]
-        elif '&' in stack:
-            return all(eval_expression(s) for s in stack)
-        else:
-            return any(eval_expression(s) for s in stack)
+            result = eval_expression(
+                " & ".join(map(str, [eval_expression(part) for part in and_or_parts]))
+            )
+            return str(result).lower() if result else "F"
+        return parse_and_eval(expression)
 
-    return eval_expression(expression.lower())
+    return eval_expression(expression)
