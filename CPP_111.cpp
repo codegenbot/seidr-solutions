@@ -1,3 +1,5 @@
+#include <string>
+#include <map>
 #include <vector>
 using namespace std;
 
@@ -28,7 +30,7 @@ map<char, int> histogram(string test) {
     }
 
     int maxCountNow = 0;
-    vector<pair<char, int>> maxCountLetters;
+    vector<pair<char, int>> maxCountLetters; // Declare before use
 
     for (auto it = result.begin(); it != result.end(); ++it) {
         if (it->second > maxCountNow) {
