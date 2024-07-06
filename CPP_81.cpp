@@ -1,3 +1,4 @@
+```cpp
 int main() {
     std::vector<int> grades = {90, 70};
     std::vector<std::string> result = numerical_letter_grade(grades);
