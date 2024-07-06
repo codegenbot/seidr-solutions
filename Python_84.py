@@ -1,4 +1,3 @@
-```
 def solve():
     while True:
         choice = input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? ")
