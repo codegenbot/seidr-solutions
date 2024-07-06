@@ -1,20 +1,17 @@
 ```
 def parse_nested_parens(s):
-    result = []
-    nested_levels = 0
-    temp = ""
+    stack = []
+    result = ''
     for char in s:
-        if char == "(":
-            nested_levels += 1
-            temp += str(nested_levels) + "("
-        elif char == ")":
-            temp += ")"
-            nested_levels -= 1
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            while stack and stack.pop() != '(':
+                result += char
         else:
-            temp += char
-        if nested_levels == 0:
-            result.append(temp)
-            temp = ""
-    print(result)
+            while stack:
+                result += stack.pop()
+            result += char
+    return result
 
-parse_nested_parens(input())
+parse_nested_parens(input().strip())
