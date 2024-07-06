@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -12,7 +11,7 @@ int specialFilter(std::vector<int> nums) {
     return count;
 }
 
-int main() {
+int myMain() {
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
@@ -27,5 +26,8 @@ int main() {
     int count = specialFilter(nums);
 
     std::cout << "Count: " << count << std::endl;
+}
 
-    //int main() {  // Removed the duplicate main function
+int main() {
+    return myMain();
+}

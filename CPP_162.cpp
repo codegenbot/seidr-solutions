@@ -1,4 +1,5 @@
-#include <cryptopp.h>
+```cpp
+#include "path_to_your_installation/CryptoPP/CryptoPP.a"
 
 using namespace std;
 using namespace CryptoPP;
