@@ -10,4 +10,3 @@ std::string remove_vowels(std::string text){
         }
     }
     return result;
-}
