@@ -1,4 +1,3 @@
-
 def sort_numbers(numbers: str) -> str:
     number_map = {
         "zero": 0,
@@ -10,7 +9,7 @@ def sort_numbers(numbers: str) -> str:
         "six": 6,
         "seven": 7,
         "eight": 8,
-        "nine": 9
+        "nine": 9,
     }
     numbers = numbers.split()
     sorted_numbers = sorted(number_map[number] for number in numbers)
