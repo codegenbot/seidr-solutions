@@ -1,11 +1,8 @@
-int count_open = 0;
-for (char c : brackets) {
-    if (c == '<') {
-        count_open++;
-    } else if (c == '>') {
-        if (count_open == 0)
-            return false;
-        count_open--;
+bool correct_bracketing(string brackets) {
+    int open = 0, close = 0;
+    for (char c : brackets) {
+        if (c == '<') open++;
+        else if (c == '>') close++;
     }
+    return open == close;
 }
-return count_open == 0;
