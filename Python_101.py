@@ -1,4 +1,3 @@
-
 def words_string(s):
     inp = sys.stdin.readline()
     words = re.split(r"\s+", inp)
