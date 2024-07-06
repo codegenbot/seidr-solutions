@@ -1,6 +1,6 @@
 bool issame(vector<string> a, vector<string> b);
 int main() {
-    assert(issame({{"xxx", "xxxAAA", "xxx"}}, {"xxx", "xxxAAA", "xxx"}));
+    assert(issame({ "xxx", "xxxAAA", "xxx" }, { "xxx", "xxxAAA", "xxx" }));
     return 0;
 }
 
