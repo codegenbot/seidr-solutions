@@ -10,7 +10,7 @@ def parse_music(music_string: str) -> List[int]:
             i += 1
             while i < len(music_string) and music_string[i] != "|":
                 i += 1
-            i += 1
+            i += 1  # Update i after processing each note
         elif music_string[i:i + 2] == "o|":
             music_list.append(2)
             i += 2
