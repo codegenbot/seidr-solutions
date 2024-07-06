@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -13,16 +14,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     std::vector<std::string> result;
     for (const auto& str : list) {
         if (str.size() > 0) {
-            bool first = true;
-            std::string temp;
-            for (char c : str) {
-                if (first) {
-                    first = false;
-                } else {
-                    temp.push_back(c); 
-                }
-            }
-            result.push_back(temp);
+            result.push_back(str);
         }
     }
     std::sort(result.begin(), result.end());
@@ -30,6 +22,8 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    std::vector<std::string> list = {"aaaa", "bbbb", "dd", "cc"};
+    std::vector<std::string> expected = {"cc", "dd", "aaaa", "bbbb"};
+    assert(issame(sorted_list_sum(list), expected));
     return 0;
 }
