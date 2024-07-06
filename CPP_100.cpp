@@ -2,11 +2,14 @@ Here is the completed code:
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0)
-            pile.push_back(i * 2 + 1);
-        else
-            pile.push_back(i * 2 + 2);
+    int level = 1;
+    for (int i = 1; ; i++) {
+        if ((n % 2 == 0 && i % 2 == 0) || (n % 2 != 0 && i % 2 != 0)) {
+            pile.push_back(i);
+            n--;
+            level++;
+        }
+        if (n == 0) break;
     }
     return pile;
 }
