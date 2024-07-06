@@ -1,6 +1,6 @@
 int mainTest() {
     std::vector<float> lst;
-    long long odd_sum = 0; 
+    long long odd_sum = 0;
 
     lst = {1,3,5,7};
     for(auto x : lst){
