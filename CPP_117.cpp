@@ -9,7 +9,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = s; // Modified this line
+    string word = s;
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
@@ -28,7 +28,7 @@ vector<string> select_words(string s, int n) {
             if (has_n_consonants) {
                 result.push_back(word);
             }
-            word = "";
+            word = s;
         }
     }
     return result;
