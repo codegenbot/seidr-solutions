@@ -26,6 +26,6 @@ std::vector<std::string> code(const std::vector<std::string>& s1, const std::vec
 }
 
 int main() {
-    assert(bf(code({{"Jupiter"}}), {}) == std::vector<std::string>({}));
-    std::cout << "Output: " << bf(code({{"Jupiter"}}), {}) << std::endl;
+    assert(bf(code({{"Jupiter"}}, {{"Makemake"}}), {}) == std::vector<std::string>({}));
+    std::cout << "Output: " << bf(code({{"Jupiter"}}, {{"Makemake"}}), {}) << std::endl;
 }
