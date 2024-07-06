@@ -1,14 +1,16 @@
+#include <vector>
+
 vector<int> leaders(const vector<int>& v) {
+    if (v.empty()) {
+        return {};
+    }
     vector<int> result;
-    for (vector<int>::reverse_iterator i = v.rbegin(); i != v.rend(); ++i) {
-        bool isLeader = true;
-        for (vector<int>::reverse_iterator j = i + 1; j != v.rend(); ++j) {
-            if (*i < *j) {
-                isLeader = false;
-                break;
-            }
+    int currentLeader = v.back();
+    for (int i = v.size() - 2; i >= 0; i--) {
+        if (currentLeader < v[i]) {
+            currentLeader = v[i];
+            result.push_back(currentLeader);
         }
-        if (isLeader) result.push_back(*i);
     }
     return result;
 }
