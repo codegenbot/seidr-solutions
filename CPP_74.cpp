@@ -6,10 +6,10 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(int i=0; i<a.size();i++) {
+    for(auto str1 : a) {
         bool found = false;
-        for(int j=0; j<b.size();j++) {
-            if(a[i] == b[j]) {
+        for(auto str2 : b) {
+            if(str1 == str2) {
                 found = true;
                 break;
             }
@@ -45,6 +45,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 vector<string> testMain() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    vector<string> result = total_match(vec1,vec2); // Pass vectors not integers
+    vector<string> result = total_match(vec1,vec2); 
     return result;
 }
