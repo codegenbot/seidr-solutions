@@ -1,3 +1,6 @@
-
 def fix_spaces(text):
-    return text.replace(r'\s+', '_')
+    # Check if the text has consecutive spaces
+    if "  " in text:
+        # Replace all consecutive spaces with a single underscore
+        text = text.replace("  ", "-")
+    return text.replace(" ", "_")
