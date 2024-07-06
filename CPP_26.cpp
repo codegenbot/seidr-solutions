@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <algorithm>
 #include <set>
@@ -13,15 +12,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::set<int> seen;
-    std::vector<int> result;
-
-    for(int i : numbers) {
-        if(seen.find(i) == seen.end()) {
-            seen.insert(i);
-            result.push_back(i);
-        }
-    }
-
-    return result;
+    std::set<int> set_of_numbers(numbers.begin(), numbers.end());
+    return std::vector<int>(set_of_numbers.begin(), set_of_numbers.end());
 }
