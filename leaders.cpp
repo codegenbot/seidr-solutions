@@ -1,14 +1,14 @@
 
 #include <vector>
 
-vector<int> leaders(const vector<int>& input) {
-    vector<int> output;
-    int currentLeader = INT_MIN;
-    for (int i = input.size() - 1; i >= 0; i--) {
-        if (input[i] >= currentLeader) {
-            output.push_back(input[i]);
-            currentLeader = input[i];
+vector<int> leaders(vector<int>& nums) {
+    vector<int> leaders;
+    int leader = INT_MIN;
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] > leader) {
+            leaders.push_back(nums[i]);
+            leader = nums[i];
         }
     }
-    return output;
+    return leaders;
 }
