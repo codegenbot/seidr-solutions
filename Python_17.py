@@ -1,5 +1,5 @@
 ```
-def calculate_average_grade() -> float:
+def average_grade() -> float:
     grades = []
     while True:
         try:
@@ -10,8 +10,13 @@ def calculate_average_grade() -> float:
         except ValueError:
             print("Invalid input! Please enter a valid number.")
     
+    if not grades:
+        return 0.0
     total = sum(grade for grade in grades)
     average = total / len(grades)
     return round(average, 2)
 
-print(calculate_average_grade())
+print("Please enter your name: ")
+name = input()
+print(f"Hi {name}, please enter your grades: ")
+print(average_grade())
