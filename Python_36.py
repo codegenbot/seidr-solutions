@@ -11,4 +11,4 @@ def fizz_buzz(n: int):
             result.append("Buzz")
         else:
             result.append(str(i))
-    return count
+    return str(count)
