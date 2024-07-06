@@ -4,15 +4,15 @@ def encode(message):
         if char.isalpha():
             if char.lower() in 'aeiou':
                 if char.lower() == 'a':
-                    result += 'c'
+                    result += 'c' if char.islower() else 'C'
                 elif char.lower() == 'e':
-                    result += 'g'
+                    result += 'g' if char.islower() else 'G'
                 elif char.lower() == 'i':
-                    result += 'k'
+                    result += 'k' if char.islower() else 'K'
                 elif char.lower() == 'o':
-                    result += 'q'
+                    result += 'q' if char.islower() else 'Q'
                 elif char.lower() == 'u':
-                    result += 'y'
+                    result += 'y' if char.islower() else 'Y'
             else:
                 result += char.swapcase()
         else:
