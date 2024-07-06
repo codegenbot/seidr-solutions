@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <string>
+
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
     for(int i = 0; i <= str.size(); i++) {
