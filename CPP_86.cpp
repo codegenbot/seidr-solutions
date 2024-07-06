@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,5 +30,6 @@ int main() {
     getline(cin, s);
 
     cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    
     return 0;
 }
