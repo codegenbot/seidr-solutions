@@ -1,15 +1,34 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<float> a, vector<float>b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
 
 vector<float> sort_even(vector<float> l) {
-    vector<float> result;
-    for (int i = 0; i < l.size(); ++i) {
+    vector<float> evenVals;
+    vector<float> oddVals;
+
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> evenVals(l.begin() + i, l.begin() + i + 1);
-            sort(evenVals.begin(), evenVals.end());
-            result.push_back(evenVals[0]);
+            evenVals.push_back(l[i]);
         } else {
-            result.push_back(l[i]);
+            oddVals.push_back(l[i]);
         }
     }
+
+    sort(evenVals.begin(), evenVals.end());
+
+    vector<float> result;
+    int idx = 0;
+
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            result.push_back(evenVals[idx++]);
+        } else {
+            result.push_back(oddVals[i - idx]);
+        }
+    }
+
     return result;
 }
