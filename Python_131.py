@@ -1,4 +1,3 @@
-
 def digits(n):
     if not isinstance(n, int):
         return 0
