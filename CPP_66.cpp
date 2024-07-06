@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -13,7 +12,6 @@ int digitSum(string s) {
         }
     }
     return sum;
-
 }
 
 int main() {
