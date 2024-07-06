@@ -1,3 +1,4 @@
+
 def decode_cyclic(s: str):
     groups = [s[(3 * i) % len(s)] for i in range((len(s) + 2) // 3)]
     decoded_groups = [(group[0] + group[1:] + group[0]) if len(group) == 3 else group for group in groups]
