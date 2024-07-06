@@ -1,4 +1,4 @@
-```
+```Python
 def check(lst):
     if double_the_difference(lst) == sum(x for x in lst if x % 2 != 0):
         print("True")
