@@ -1,28 +1,29 @@
+#include <string>
+
+using namespace std;
+
 string words_in_sentence(string sentence) {
     string result = "";
-    for (const auto& word : split(sentence, ' ')) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    int i = 0;
+    while (i < sentence.size()) {
+        int j = i + 1;
+        while (j <= sentence.size() && !ispunct(sentence[j])) {
+            j++;
         }
+        if (j - i > 2) { // Check for words with more than two characters
+            string word = sentence.substr(i, j - i);
+            bool isPrime = true;
+            for (int k = 2; k * k <= stol(word); k++) {
+                if (stol(word) % k == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                result += word + " ";
+            }
+        }
+        i = j;
     }
-    return result.substr(0, result.length() - 1);
-}
-
-vector<string> split(const string& s, char c) {
-    vector<string> v;
-    size_t i = 0;
-    while ((i = s.find(c)) != string::npos) {
-        v.push_back(s.substr(0, i));
-        s = s.substr(i + 1);
-    }
-    v.push_back(s);
-    return v;
-}
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
+    return result;
 }
