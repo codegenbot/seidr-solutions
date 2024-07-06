@@ -3,10 +3,8 @@
 #include <numeric>
 
 double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    return std::accumulate(prices.begin(), prices.end(), 0.0, [&](double sum, float price) {
-        auto it = std::next(&prices[0], std::distance(&price, prices.data()));
-        return sum + price * (1 - discounts[std::distance(it, discounts.begin())]);
-    });
+    return std::accumulate(prices.begin(), prices.end(), 0.0,
+        [&](double sum, const float* price) { return sum + *price * (1 - discounts[std::distance(price, prices.data())]); });
 }
 
 int main() {
