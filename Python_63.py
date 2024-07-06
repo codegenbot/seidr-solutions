@@ -6,9 +6,6 @@ def fibfib(n: int):
     elif n == 1:
         return 1
     else:
-        memo = {0: 0, 1: 1}
-        for i in range(2, n + 1):
-            memo[i] = memo[i-1] + memo[i-2]
-        if n not in memo:
-            memo[n] = memo[n-1] + memo[n-2]
-        return memo[n]
+        phi = (1 + 5**0.5) / 2
+        psi = 1 - phi
+        return int((phi**n - psi**n) / 5**0.5)
