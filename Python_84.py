@@ -1,2 +1,2 @@
-def solve(N): 
-    return bin(int(str(N), 2))[2:]
+def solve(N):
+    return bin(int(bin(N)[2:], 2))[2:]
