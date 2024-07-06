@@ -1,9 +1,6 @@
-```cpp
+#include <vector>
+#include <algorithm>
+
 bool below_threshold(vector<int> l, int t) {
-    for (int num : l) {
-        if (num >= t) {
-            return false;
-        }
-    }
-    return true;
+    return !any_of(l.begin(), l.end(), [t](int num){return num >= t;});
 }
