@@ -2,7 +2,7 @@ def solution(paren_string):
     stack = []
     temp_str = ''
     result = []
-    
+
     for char in paren_string:
         if char == ' ':
             continue
@@ -15,7 +15,8 @@ def solution(paren_string):
             if not stack:
                 result.append(temp_str)
                 temp_str = ''
-    if temp_str:  
-        result.append(temp_str)
+    else:  
+        if temp_str:  
+            result.append(temp_str)
 
     return result
