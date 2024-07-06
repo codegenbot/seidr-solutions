@@ -1,12 +1,22 @@
 #include <string>
-int how_many_times(string str, string substring) {
-    int count = 0;
-    size_t pos = 0;
+using namespace std;
 
-    while ((pos = str.find(substring)) != string::npos) {
-        count++;
-        str.erase(pos, substring.length());
+class Solution {
+public:
+    int how_many_times(string str, string substring) {
+        int count = 0;
+        size_t pos = 0;
+
+        while ((pos = str.find(substring)) != string::npos) {
+            count++;
+            str.erase(pos, substring.length());
+        }
+
+        return count;
     }
+};
 
-    return count;
+int main() {
+    Solution solution;
+    cout << solution.how_many_times("john doe", "john") << endl;
 }
