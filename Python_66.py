@@ -1,7 +1,9 @@
-def sum_of_digits(n):
+```python
+def digit_sum(n):
     total = 0
-    for digit in str(n):
-        total += int(digit)
+    while n:
+        total += n % 10
+        n //= 10
     return total
 
 
@@ -12,7 +14,7 @@ def main():
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    print(sum_of_digits(num))
+    print(digit_sum(num))
 
 
 if __name__ == "__main__":
