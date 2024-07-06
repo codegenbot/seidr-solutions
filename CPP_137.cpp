@@ -1,17 +1,17 @@
+Here is the modified code with the necessary includes and using directive:
+```cpp
 #include <boost/any.hpp>
-#include <iostream>
-#include <string>
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return ((int)a > (int)b) ? a : ((int)a == (int)b) ? boost::any("None") : b;
+        return (int)a > (int)b ? a : ((int)a == (int)b) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return ((float)a > (float)b) ? a : ((float)a == (float)b) ? boost::any("None") : b;
+        return (float)a > (float)b ? a : ((float)a == (float)b) ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return ((string)a > (string)b) ? a : ((string)a == (string)b) ? boost::any("None") : b;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        return (std::string)a > (std::string)b ? a : ((std::string)a == (std::string)b) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         if ((int)a > (float)b) {
@@ -21,18 +21,18 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return a; // default to the first value
         }
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if (stoi((string)b) > (int)a) {
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        if (std::stoi((std::string)b) > (int)a) {
             return b;
         } 
-        else if (stoi((string)b) < (int)a) {
+        else if (std::stoi((std::string)b) < (int)a) {
             return a;
         }
         else {
-            return boost::any("None");
+            return a; // default to the first value
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
@@ -43,45 +43,41 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return a; // default to the first value
         }
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        if (stof((string)b) > (float)a) {
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        if (std::stof((std::string)b) > (float)a) {
             return b;
         } 
-        else if (stof((string)b) < (float)a) {
+        else if (std::stof((std::string)b) < (float)a) {
             return a;
         }
         else {
-            return boost::any("None");
+            return a; // default to the first value
         }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        if (stoi((string)a) > (int)b) {
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        if (std::stoi((std::string)a) > (int)b) {
             return a;
         } 
-        else if (stoi((string)a) < (int)b) {
+        else if (std::stoi((std::string)a) < (int)b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return a; // default to the first value
         }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        if (stof((string)a) > (float)b) {
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        if (std::stof((std::string)a) > (float)b) {
             return a;
         } 
-        else if (stof((string)a) < (float)b) {
+        else if (std::stof((std::string)a) < (float)b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return a; // default to the first value
         }
     }
     return a; // default to the first value
-}
-
-int main() {
-    return 0;
 }
