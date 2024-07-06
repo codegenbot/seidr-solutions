@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <sstream>
@@ -28,15 +27,17 @@ bool are_words_the_same(std::vector<std::string> a, std::vector<std::string> b) 
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        bool equal = true;
-        int j = 0;
-        while(j < std::min(a[i].size(), b[i].size()) && equal) {
-            if (!same_chars(std::tolower(a[i][j]), std::tolower(b[i][j])))
-                equal = false;
-            j++;
-        }
-        if (!equal)
+        if (!same_chars(a[i][0], b[i][0])) {
             return false;
+        }
+        bool same_word = true;
+        for(int j=1; j<a[i].size() && j<b[i].size(); ++j) {
+            if (!same_chars(a[i][j], b[i][j])) {
+                same_word = false;
+                break;
+            }
+        }
+        if (!same_word) return false;
     }
     return true;
 }
