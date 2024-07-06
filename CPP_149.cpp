@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <assert.h>
 
 std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     std::vector<std::string> result;
