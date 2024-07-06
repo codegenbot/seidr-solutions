@@ -3,7 +3,7 @@ def find_closest_elements():
     num_list.sort()
 
     target = int(input("Enter a target number to find closest elements: "))
-
+    
     k = int(input("Enter the number of closest elements to find: "))
 
     left = max(0, target - (max(num_list) - min(num_list)))
@@ -12,14 +12,11 @@ def find_closest_elements():
     min_diff = abs(target - num_list[0])
     closest_pair = []
 
-    for i in range(left, right + 1):
+    for i in range(left, right+1):
         if abs(target - num_list[i]) < min_diff:
             min_diff = abs(target - num_list[i])
-            closest_pair = num_list[i - k + 1 : i + 1]
+            closest_pair = [num_list[i-k:i+1]]
 
-    print(
-        f"The {k} closest elements to {target} are: {' '.join(map(str, closest_pair))}"
-    )
-
+    print(f"The {k} closest elements to {target} are: {' '.join(map(str, closest_pair[0]))}")
 
 find_closest_elements()
