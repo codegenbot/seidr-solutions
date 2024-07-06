@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
-#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -31,6 +29,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int run_tests() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ") ,vector<string>{{"()", "()"}, {"(())"}}}));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ") ,{{"()", "()"}, {"(())"} }));
     return 0;
 }
