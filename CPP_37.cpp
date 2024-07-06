@@ -6,10 +6,10 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size());
+    vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> even;
+            std::vector<float> even;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     even.push_back(l[j]);
