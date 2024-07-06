@@ -17,20 +17,17 @@ int main() {
     std::vector<double> lst;
     double num;
 
-    std::cout << "Enter numbers (0 to stop):" << std::endl;
-
-    while (std::cin >> num) {
-        if (num >= 0) {
+    while(std::cin >> num){
+        if(num >= 0) {
             lst.push_back(num);
-        }
-        else {
+        } else {
             break;
         }
     }
 
     long long odd_sum = double_the_difference(lst);
 
-    std::cout << "Sum of squares: " << odd_sum << std::endl;
+    std::cout << "The sum of the squares of the input numbers is: " << odd_sum << "\n";
 
     return 0;
 }
