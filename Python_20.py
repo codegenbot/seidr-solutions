@@ -1,4 +1,4 @@
-def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+def find_closest_elements(numbers):
     # Sort the list of numbers in ascending order
     sorted_numbers = sorted(numbers)
 
