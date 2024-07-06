@@ -1,9 +1,9 @@
-```c++
-#include <string>
+```#include <string>
 
-bool is_palindrome(std::string text) {
+bool is_palindrome(string text) {
     int start = 0;
     int end = text.length() - 1;
+
     while (start < end) {
         if (tolower(text[start]) != tolower(text[end])) {
             return false;
@@ -11,5 +11,6 @@ bool is_palindrome(std::string text) {
         start++;
         end--;
     }
+
     return true;
-}
+}```
