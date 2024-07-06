@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-std::string flip_case(std::string str) {
-    std::string result = "";
+string flip_case(string str) {
+    string result = "";
     for (char c : str) {
         if (isupper(c)) {
             result += tolower(c);
