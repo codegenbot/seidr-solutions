@@ -1,20 +1,38 @@
 #include <vector>
-#include <queue>
+#include <algorithm>
 
-std::vector<int> maximum(std::vector<int> arr,int k){
-    std::priority_queue<int> max_heap;
-    for(int i:arr){
-        max_heap.push(i);
-        if(max_heap.size()>k)
-            max_heap.pop();
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    std::vector<int> result(k);
-    for(int i=k-1;i>=0;--i)
-        result[i]=max_heap.top(),max_heap.pop();
-    return result;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> res(k);
+    partial_sort(arr.begin(), arr.end() - k + 1, arr.end());
+    for (int i = 0; i < k; i++) {
+        res[i] = arr[arr.size() - k + i];
+    }
+    return res;
 }
 
 int main() {
-    std::vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
-    // Use the result here...
+    int k;
+    cin >> k;
+
+    if (k <= 0) {
+        cout << "Invalid value of k" << endl;
+        return -1;
+    } else {
+        vector<int> res = maximum({1, 2, 3, -23, 243, -400, 0}, k);
+        // Do something with the result
+    }
+
+    return 0;
 }
