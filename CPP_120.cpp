@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -11,7 +11,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         throw std::invalid_argument("Input vector size is less than k");
     }
     std::vector<int> result;
-    // #include <initializer_list>
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
