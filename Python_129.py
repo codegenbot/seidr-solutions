@@ -1,4 +1,3 @@
-
 def minPath(grid, k):
     min_path = []
     min_len = float("inf")
