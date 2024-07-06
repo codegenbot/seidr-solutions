@@ -5,7 +5,7 @@
 
 using namespace std;
 
-typedef string key_t;
+typedef string key_t; 
 
 bool check_dict_case(const map<string, string>& dict) {
     if (dict.empty()) return false;
