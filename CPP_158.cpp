@@ -1,17 +1,23 @@
 Here is the completed code:
 
 ```cpp
-vector<string> words;
-int maxCount = 0;
-string result;
+#include <vector>
+#include <algorithm>
+#include <string>
 
-for (auto& word : words) {
-    int count = 0;
-    set<char> uniqueChars(word.begin(), word.end());
-    if (uniqueChars.size() > maxCount) {
-        maxCount = uniqueChars.size();
-        result = word;
+using namespace std;
+
+string find_max(vector<string> words) {
+    string max = words[0];
+    int maxUnique = 0;
+    
+    for (const auto& word : words) {
+        set<char> unique(word.begin(), word.end());
+        if (unique.size() > maxUnique) {
+            max = word;
+            maxUnique = unique.size();
+        }
     }
+    
+    return max;
 }
-
-return result;
