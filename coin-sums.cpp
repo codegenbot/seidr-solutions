@@ -1,3 +1,4 @@
+```
 int quarters = cents / 25;
 cents %= 25;
 
@@ -10,6 +11,6 @@ cents %= 5;
 int pennies = cents;
 
 cout << quarters << endl; 
-cout << dimes << endl;
-cout << nickles << endl;
+cout << dimes << endl; 
+cout << nickles << endl; 
 cout << pennies << endl;
