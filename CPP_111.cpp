@@ -1,39 +1,35 @@
-#include <string>
-#include <map>
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string str = test + " ";
+    string words[256]; // assuming only lowercase letters and space as delimiter
+    int wordCount = 0;
+    for (char c : test) {
+        if (c == ' ') {
+            wordCount++;
+        } else {
+            words[wordCount].push_back(c);
+        }
+    }
+
+    for (int i = 0; i <= wordCount; i++) {
+        if (!words[i].empty()) {
+            char ch = words[i][0];
+            result[ch]++;
+        }
+    }
+
+    map<char, int> maxMap;
     int maxCount = 0;
-    char mostRepeatedChar = ' ';
-
-    for (char c : unique(str)) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str[i] == c) {
-                count++;
-            }
-        }
-        if (count > maxCount || (count == maxCount && mostRepeatedChar == ' ')) {
-            maxCount = count;
-            mostRepeatedChar = c;
+    for (auto& p : result) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
+            maxMap.clear();
+            maxMap[p.first] = p.second;
+        } else if (p.second == maxCount) {
+            maxMap[p.first] = p.second;
         }
     }
 
-    for (char c : unique(str)) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str[i] == c) {
-                count++;
-            }
-        }
-        if (count == maxCount) {
-            result[c]++;
-        }
-    }
-
-    return result;
+    return maxMap;
 }

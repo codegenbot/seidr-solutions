@@ -1,12 +1,4 @@
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
-bool operator==(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
+```cpp
 vector<int> count_up_to(int n) {
     vector<int> primes;
     for (int i = 2; i <= n; ++i) {
@@ -28,18 +20,23 @@ vector<int> count_up_to(int n) {
     return primes;
 }
 
+bool operator==(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 int main() {
     int n;
-    cout << "Enter a number: ";
+    cout << "Enter the number: ";
     cin >> n;
-    
-    vector<int> result = count_up_to(n);
-
-    cout << "Primes up to " << n << ": ";
-    for (auto prime : result) {
-        cout << prime << " ";
+    vector<int> primes = count_up_to(n);
+    vector<int> checkPrimes(1); // dummy prime
+    if (primes == checkPrimes) {
+        cout << "No prime found.\n";
+    } else {
+        cout << "Primes up to " << n << ": ";
+        for(int i: primes) {
+            cout << i << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-
-    return 0;
 }
