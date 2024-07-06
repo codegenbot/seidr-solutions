@@ -13,7 +13,7 @@ int do_algebra(vector<char*> operators, vector<int> operands) {
         } else if (*operators[i] == '*') {
             result *= operands[i + 1];
         } else if (*operators[i] == '/') {
-            result = result / static_cast<int>(operands[i + 1]);
+            result = result / operands[i + 1];
         } 
     }
     return result;
@@ -21,5 +21,6 @@ int do_algebra(vector<char*> operators, vector<int> operands) {
 
 int main() {
     assert (do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    // add your code here
+    std::cout << do_algebra({"//", "*"}, {7, 3, 4}) << "\n";
+    return 0;
 }
