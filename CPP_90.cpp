@@ -5,9 +5,10 @@
 
 int next_smallest(const std::vector<int>& lst) {
     std::sort(lst.begin(), lst.end());
-    for(int i=1; i<lst.size(); ++i) {
-        if (lst[i] > lst[0])
+    for (size_t i = 1; i < lst.size(); ++i) {
+        if (lst[i] != lst[0]) {
             return lst[i];
+        }
     }
     return -1;
 }

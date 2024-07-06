@@ -1,12 +1,16 @@
-```
+Here is the modified code:
+
+```Python
 import hashlib
 
 def string_to_md5():
-    text = input("Enter your string: ")
-    confirm = input("Do you want to continue? (yes/no): ")
-    if text.strip() and (confirm.lower() == 'yes' or confirm.lower() == 'y'):
-        return hashlib.md5(text.encode()).hexdigest()
-    else:
+    while True:
+        text = input("Enter your string: ").strip()
+        confirm = input("Do you want to continue? (yes/no): ").lower()
+        if text and confirm in ['yes', 'no']:
+            break
+    if not text or confirm != 'yes':
         return None
+    return hashlib.md5(text.encode()).hexdigest()
 
 print(string_to_md5())

@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<string> split(const string& str, const string& delimiter) {
@@ -30,6 +29,7 @@ int main()
     cout << "Enter a sentence: ";
     getline(cin, s);
 
-    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    cout << "Anti-shuffle: " << anti_shuffle(s) << endl;
 
     return 0;
+}

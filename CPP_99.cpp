@@ -1,5 +1,3 @@
-Here is the completed code:
-
 #include <string>
 using namespace std;
 
