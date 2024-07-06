@@ -6,4 +6,4 @@ def get_max_triples(n):
             k = (3 - (i * i) % 3) // (j * j) % 3
             if k > 0:
                 count += 1
-    return count % (3 ** n)
+    return count
