@@ -1,4 +1,3 @@
-```
 def double_the_difference(input_list):
     result = 0
     for i in input_list:
