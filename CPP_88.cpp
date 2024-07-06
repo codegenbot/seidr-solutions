@@ -2,17 +2,22 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> sort_array(std::vector<int> array) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
+    return true;
+}
+
+vector<int> sort_array(vector<int> array){
     int sum = array[0] + array[array.size()-1];
     if(sum % 2 == 0) {
-        std::vector<int> sortedArray = array;
-        std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
+        vector<int> sortedArray = array;
+        sort(sortedArray.begin(), sortedArray.end(), greater<int>());
         return sortedArray;
     } else {
-        std::vector<int> sortedArray = array;
-        std::sort(sortedArray.begin(), sortedArray.end());
+        vector<int> sortedArray = array;
+        sort(sortedArray.begin(), sortedArray.end());
         return sortedArray;
     }
 }
-
-assert(sort_array({21, 14, 23, 11}) == std::vector<int>({23, 21, 14, 11}));
