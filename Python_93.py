@@ -3,7 +3,18 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in 'aeiou':
-                result += {char.lower(): 'ckioqu'[list('aeiou').index(char.lower())]}.get(char, char.swapcase())
+                if char.lower() == 'a':
+                    result += 'c'
+                elif char.lower() == 'e':
+                    result += 'g'
+                elif char.lower() == 'i':
+                    result += 'k'
+                elif char.lower() == 'o':
+                    result += 'q'
+                elif char.lower() == 'u':
+                    result += 'y'
+            else:
+                result += char.swapcase()
         else:
-            result += char
+            result += char  
     return result
