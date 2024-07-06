@@ -8,7 +8,7 @@ vector<float> sort_even(vector<float> l){
     vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){ // even index
-            vector<float> evens(l.size()); 
+            vector<float> evens(l.size());  // Declare the size of evens
             for(int j = 0; j < l.size(); j++){
                 if(j % 2 == 0){
                     evens.push_back(l[j]);
