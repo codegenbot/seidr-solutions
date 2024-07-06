@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include <algorithm>
 
 using namespace std;
 
@@ -11,7 +10,7 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
+    for (char c : letters) { 
         int count = 0;
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
@@ -21,14 +20,13 @@ map<char, int> histogram(string test) {
         if (count > 0) result[c] = count;
     }
 
-    int maxCount = 0;
     map<char, int> maxCountMap;
+    int maxCount = 0;
     for (auto& pair : result) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            for (auto& p : result)
-                if (p.second == maxCount) maxCountMap[p.first] = p.second;
+            maxCountMap[pair.first] = pair.second;
         } else if (pair.second == maxCount)
             maxCountMap[pair.first] = pair.second;
     }
