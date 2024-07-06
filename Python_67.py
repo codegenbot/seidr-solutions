@@ -1,4 +1,5 @@
-def fruit_distribution(s, n):
+```
+def fruit_distribution(s,n):
     words = s.split()
     count_apples = 0
     for word in words:
