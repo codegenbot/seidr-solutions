@@ -10,7 +10,6 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> numbers = {4, 4, 6, 8};
-    assert (add(numbers) == 12);
+    assert (add({4, 4, 6, 8}) == 12);
     return 0;
 }
