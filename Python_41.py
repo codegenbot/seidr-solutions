@@ -21,6 +21,6 @@ def car_race_collision():
                 print("Invalid input. Please enter two integers separated by a space.")
         total_damage += damage * speed
     
-    return f'Total damage: ${total_damage:,}'
+    return str(total_damage)
 
 print(car_race_collision())
