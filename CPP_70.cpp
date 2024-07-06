@@ -1,6 +1,15 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
+
+int remove_one(const vector<int>& vec) {
+    auto it = vec.begin();
+    while (it != vec.end() && *it == *vec.begin()) {
+        ++it;
+    }
+    return it - vec.begin();
+}
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
@@ -15,12 +24,4 @@ vector<int> strange_sort_vector(vector<int> lst) {
         }
     }
     return result;
-}
-
-int remove_one(const vector<int>& vec) {
-    auto it = vec.begin();
-    while (it != vec.end() && *it == *vec.begin()) {
-        ++it;
-    }
-    return it - vec.begin();
 }
