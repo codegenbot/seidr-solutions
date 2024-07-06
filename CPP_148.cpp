@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -9,10 +10,12 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> bf(std::string a, std::string b) {
-    return {a, b};
+std::vector<std::string> bf(std::string s1, std::string s2) {
+    // define the logic to create the desired output vector
+    // for example:
+    return {s1, s2};
 }
 
 int main() {
-    std::cout << "Output: " << (issame(bf("Jupiter", "Makemake"), {}) ? "True" : "False") << std::endl; 
+    std::cout << "Output: " << issame(bf("Jupiter", "Makemake"), {}) << std::endl;
 }
