@@ -9,8 +9,7 @@ while True:
     if not strings or strings.isspace():
         print("No input provided.")
     else:
-        if len(strings) > 0 and strings[0] == ' ': 
-            strings = strings[1:]
-        if len(strings) > 0 and strings[-1] == ' ': 
-            strings = strings[:-1]
-        print(" ".join(map(str.strip, strings.split())))
+        output_string = ""
+        for s in strings.split():
+            output_string += s.capitalize() + " "
+        print(output_string.strip())
