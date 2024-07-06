@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     if not all(isinstance(x, int) for x in xs):
         return "Error: Input must be a list of integers."
