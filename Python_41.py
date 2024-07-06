@@ -1,3 +1,4 @@
+```
 from functools import reduce
 import operator
 
@@ -8,7 +9,10 @@ def car_race_collision():
         while True:
             try:
                 speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
-                break
+                if len(str(speed)) > 0 and len(str(damage)) > 0:
+                    break
+                else:
+                    print("Invalid input. Please enter two integers separated by a space.")
             except ValueError:
                 print("Invalid input. Please enter two integers separated by a space.")
         total_damage += damage * speed
