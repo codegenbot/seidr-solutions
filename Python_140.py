@@ -1,4 +1,7 @@
-```python
+```
+import re
+
+
 def fix_spaces(text):
     if not text or not isinstance(text, str):
         return
