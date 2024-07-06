@@ -2,19 +2,18 @@
 #include <vector>
 #include <limits>
 
-long long minSubArraySum(std::vector<long long> nums) {
-    long long sum = 0, min_sum = LLONG_MAX;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        min_sum = std::min(min_sum, sum);
-        if (sum > 0) {
-            sum = 0;
+int main() {
+    int minSubArraySum(std::vector<int> nums) {
+        int sum = 0, min_sum = INT_MAX;
+        for (int i = 0; i < nums.size(); i++) {
+            sum += nums[i];
+            min_sum = std::min(min_sum, sum);
+            if (sum > 0) {
+                sum = 0;
+            }
         }
+        return min_sum;
     }
-    return min_sum;
-}
 
-long long main() {
-    std::vector<long long> nums = {1, -1};
-    printf("%lld\n", minSubArraySum(nums));
+    assert(minSubArraySum({1, -1}) == -1);
 }
