@@ -1,4 +1,7 @@
 ```
+def total_fruits():
+    pass
+
 def fruit_distribution(fruit_list, amount):
     fruit_dict = {}
     for fruit in fruit_list.split():
@@ -10,6 +13,4 @@ def fruit_distribution(fruit_list, amount):
 fruit_list = input()
 amount = int(input())
 print(fruit_distribution(fruit_list, amount))
-fruit_list = input()
-amount = int(input())
-print(fruit_distribution(fruit_list, amount))
+print(fruit_distribution(input(), int(input())))
