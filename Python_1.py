@@ -1,2 +1,2 @@
-def separate_paren_groups(input_str):
-    return balance_groups(input_str)
+def separate_paren_groups(result):
+    return [group.replace("(", "").replace(")", "") for group in result]
