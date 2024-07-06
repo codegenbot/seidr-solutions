@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <climits>
 #include <iostream>
@@ -29,7 +30,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return make_pair(left, right);
 }
 
-pair<vector<int>, vector<int>> main() {
+int main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -52,5 +53,5 @@ pair<vector<int>, vector<int>> main() {
         }
     }
     cout << "]\n";
-    return make_pair(result.first, result.second);
+    return 0;
 }
