@@ -1,5 +1,11 @@
-```
 from typing import List
+import math
+
+
+def task_name() -> None:
+    num = int(input("Enter a number: "))
+    factors = factorize(num)
+    print(f"The factors of {num} are: {factors}")
 
 
 def factorize(n: int) -> List[int]:
@@ -11,12 +17,12 @@ def factorize(n: int) -> List[int]:
         if n % i:
             i += 1
         else:
+            n //= i
             count = 0
             while n % i == 0:
                 n //= i
                 count += 1
-            for _ in range(count):
-                factors.append(i)
+            factors.extend([i] * count)
     if n > 1:
         factors.append(n)
     return factors
