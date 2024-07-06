@@ -1,7 +1,3 @@
 
 def make_palindrome(string):
-    rev = "".join(reversed(string))
-    if rev == string:
-        return rev
-    else:
-        return None
+    return string + "".join(reversed(string))
