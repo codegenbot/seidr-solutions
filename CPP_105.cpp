@@ -1,12 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 bool issame(vector<string> a,vector<string>b){
     return a == b;
 }
-
 vector<string> by_length(vector<int> arr) {
     vector<string> sortedArr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            sortedArr.push_back(to_string(num));
+            sortedArr.push_back(num < 5 ? "One" : "Five");
         }
     }
 
@@ -18,7 +20,7 @@ vector<string> by_length(vector<int> arr) {
     map<int, string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
                                    {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
 
-    for (int num : sortedArr) {
+    for (int num : arr) {
         result.push_back(numToName[num]);
     }
 
