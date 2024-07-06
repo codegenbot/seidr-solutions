@@ -1,13 +1,11 @@
 ```
-def parse_nested_parens(paren_string: str) -> int:
-    nesting_level = 0
+def parse_nested_parens(paren_string: str) -> list[int]:
+    result = []
+    level = 0
     for char in paren_string:
         if char == '(':
-            nesting_level += 1
+            level += 1
+            result.append(level)
         elif char == ')':
-            if nesting_level > 0:
-                nesting_level -= 1
-    return nesting_level
-
-if __name__ == "__main__":
-    print(parse_nested_parens("((()))"))
+            level -= 1
+    return [level] if level > 0 else []
