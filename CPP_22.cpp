@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -25,9 +24,6 @@ int main() {
     std::vector<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
     std::vector<int> output = filter_integers(values);
     for (const auto& num : output) {
-        if(num % 1 == 0)
-            std::cout << num << "\n";
-        else
-            std::cout << "Non-integer value: " << num << "\n";
+        std::cout << num << "\n";
     }
 }
