@@ -6,15 +6,15 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (!(a[i] == b[i])) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l, std::vector<float> v = {}) {
+std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -25,9 +25,10 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v = {})
 }
 
 int main() {
-    std::vector<float> v = {1, -2, 3};
+    std::vector<float> vec1 = {1, 2, 3}; 
+    std::vector<float> vec2 = {4, 5, 6};
     std::cout << "Only positive numbers are: ";
-    for (float num : get_positive(v)) {
+    for (float num : get_positive(vec1,vec2)) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
