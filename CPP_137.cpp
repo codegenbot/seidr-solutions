@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int compareOne(string a, string b) {
+int compareStrings(string a, string b) {
     int ai = stoi(a);
     int bi = stoi(b);
 
@@ -21,7 +21,7 @@ int main() {
         cin >> input[i];
     }
 
-    int result = compareOne(input[0], input[1]);
+    int result = compareStrings(input[0], input[1]);
 
     if (result > 0) cout << "First is greater" << endl;
     else if (result == 0) cout << "Both are equal" << endl;
