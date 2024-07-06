@@ -4,27 +4,17 @@
 int do_algebra(const char* operation, std::vector<int> operands) {
     int result = operands[0];
     for (int i = 1; i < operands.size(); i++) {
-        if (std::string(operation) == "*/") {
+        if (!strcmp(operation, "*/")) {
             if (*operation == '*') {
                 result *= operands[i];
             } else {
-                if (operands[i] != 0) {
-                    result /= operands[i];
-                } else {
-                    return 0;
-                }
+                result /= operands[i];
             }
-        } else if (std::string(operation) == "+*") {
+        } else if (!strcmp(operation, "+*") || !strcmp(operation, "-+")) {
             if (*operation == '+') {
                 result += operands[i];
             } else {
-                result *= operands[i];
-            }
-        } else if (std::string(operation) == "-+") {
-            if (*operation == '-') {
-                result -= operands[i];
-            } else {
-                result += operands[i];
+                result = (result == 0) ? operands[i] : (result * -1 + operands[i]);
             }
         }
     }
