@@ -8,7 +8,7 @@ def sum_squares(lst):
                 if isinstance(value, (int, float))
             )
         elif isinstance(element, list):
-            total_sum += sum_squares([element[0]])
+            total_sum += sum_squares(element)
         elif isinstance(element, (int, float)):
             total_sum += abs(element) ** 2
         else:
