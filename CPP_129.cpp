@@ -1,39 +1,43 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     vector<int> res;
-    for (int i = 0; i < k; i++) {
-        int maxVal = -1;
-        int row, col;
-        for (int j = 0; j < grid.size(); j++) {
-            for (int l = 0; l < grid[j].size(); l++) {
-                if (grid[j][l] > maxVal) {
-                    maxVal = grid[j][l];
-                    row = j;
-                    col = l;
-                }
-            }
-        }
-        res.push_back(maxVal);
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[i].size(); j++) {
-                if (i == row && j == col) {
-                    grid[i][j] = -1;
-                }
+    
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                vector<int> path = dfs(grid, visited, i, j, k);
+                if (!res.empty() && path.size() > res.size()) continue;
+                res = path;
             }
         }
     }
+    
     return res;
 }
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
+vector<int> dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k) {
+    int n = grid.size();
+    vector<int> path;
+    if (k == 0) {
+        return path;
     }
-    return 0;
+    
+    for (int dx = -1; dx <= 1; ++dx) {
+        for (int dy = -1; dy <= 1; ++dy) {
+            int nx = x + dx, ny = y + dy;
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                visited[nx][ny] = true;
+                path.push_back(grid[nx][ny]);
+                vector<int> res = dfs(grid, visited, nx, ny, k - 1);
+                if (!res.empty()) {
+                    path.insert(path.end(), res.begin(), res.end());
+                }
+                visited[nx][ny] = false;
+                return path;
+            }
+        }
+    }
+    
+    return {};
 }
