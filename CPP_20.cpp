@@ -1,16 +1,8 @@
 #include <algorithm>
+#include <numeric>
+#include <limits>
 
 using namespace std;
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (abs(a[i] - b[i]) > 0.0001)
-            return false;
-    }
-    return true;
-}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() < 2) {
@@ -25,7 +17,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(max(numbers[i], numbers[j]), min_diff), max(min(numbers[i], numbers[j]), min_diff));
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
