@@ -1,11 +1,9 @@
-def total_expenses(transactions: List[Tuple[str, int]]) -> Tuple[int, int]:
-    total_sum = 0
-    product = 1
-    for transaction in transactions:
-        if transaction[1] > 0:
-            total_sum += transaction[1]
-            product *= transaction[1]
-        else:
-            total_sum -= transaction[1]
-            product /= abs(transaction[1])
-    return total_sum, int(product)
+from typing import List, Tuple
+
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not isinstance(numbers, list) or not all(
+        isinstance(num, int) for num in numbers
+    ):
+        return (-1, "Invalid input. Please enter a list of integers.")
+    return (sum(numbers), 1 if not numbers else eval("*".join(map(str, numbers))))
