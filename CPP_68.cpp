@@ -1,29 +1,23 @@
-```c++
 #include <vector>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<pair<int, int>> pluck(vector<int> arr) {
+void pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return result;
-
-    int minEven = INT_MAX;
-    int index = 0;
+    
+    if (arr.empty()) {
+        cout << "Array is empty." << endl;
+        return;
+    }
+    
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0) {
+            result.push_back({arr[i], i});
         }
     }
-
-    result.push_back({minEven, index});
-    return result;
+    
+    cout << "Plucked even numbers: ";
+    for (auto pair : result) {
+        cout << pair.first << " at index " << pair.second << endl;
+    }
 }
