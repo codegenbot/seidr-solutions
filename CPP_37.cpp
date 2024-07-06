@@ -1,4 +1,8 @@
-```cpp
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
@@ -28,6 +32,7 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input;
+    cout << "Enter the size of the array: ";
     int n; cin >> n;
     for(int i=0; i<n; i++) {
         float x; cin >> x;
@@ -39,3 +44,4 @@ int main() {
     else cout << "Sorted array is different.\n";
     
     return 0;
+}
