@@ -1,10 +1,7 @@
-```
-from typing import List
+from typing import list
 
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    if not isinstance(strings, list):
-        raise ValueError("Input 'strings' must be a list")
-    if not isinstance(substring, str):
-        raise ValueError("Input 'substring' must be a string")
 
+def filter_by_substring(strings: list, substring: str) -> list:
+    if not substring:
+        return strings
     return [s for s in strings if substring in s]
