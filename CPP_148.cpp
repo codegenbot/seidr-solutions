@@ -13,8 +13,8 @@ vector<string> bf(string planet1, string planet2) {
         auto it1 = find(planets.begin(), planets.end(), planet1);
         auto it2 = find(planets.begin(), planets.end(), planet2);
 
-        int index1 = distance(it1, planets.end());
-        int index2 = distance(it2, planets.end());
+        int index1 = distance(planets.begin(), it1);
+        int index2 = distance(planets.begin(), it2);
 
         if (index1 < index2) {
             vector<string> result;
@@ -56,5 +56,4 @@ int main() {
     } else {
         cout << "Invalid input" << endl;
     }
-    return 0;
 }
