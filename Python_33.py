@@ -1,12 +1,13 @@
-```Python
+```
 def sort_third(l):
     result = []
-    for i in range(0, len(l), 3):
-        if i + 3 <= len(l):
-            result.append(sorted([l[i], l[i+1], l[i+2]]))
+    for i, x in enumerate(l):
+        if i % 3 != 0:
+            result.append(x)
         else:
-            result.append(sorted([l[i]]))
-    return [item for sublist in result for item in sublist]
+            min_element = min(l[i-2:i+1])
+            result.append(min_element)
+    return sorted(result)
 
 input_list = [5, 6, 3, 4, 8, 9, 2, 1]
 print(sort_third(input_list))
