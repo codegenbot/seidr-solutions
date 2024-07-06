@@ -1,4 +1,4 @@
-```c
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -7,8 +7,10 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(size_t i = 0; i<a.size();i++){
-        if (a[i] != b[i])return false;
+    for(const auto& str1 : a) {
+        size_t pos = distance(b.begin(),find(b.begin(),b.end(),str1));
+        if(pos == b.end()-b.begin()) return false; // not found
+        if (str1 != b[pos]) return false;
     }
     return true;
 }
