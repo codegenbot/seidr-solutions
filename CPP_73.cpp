@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -13,6 +14,8 @@ int smallest_change(std::vector<int> arr) {
             ++left, --right;
     }
     return changes;
+
+int smallest_change(std::vector<int> arr);
 
 int main 
 {
