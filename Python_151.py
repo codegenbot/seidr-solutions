@@ -1,5 +1,3 @@
 def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-
-input_list = [1, 2, 3]
-output = double_the_difference(input_list)
+    odd_sum = sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
+    return (abs(odd_sum - len(lst)) / len(lst)) * 2 if len(lst) else 0
