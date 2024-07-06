@@ -1,5 +1,4 @@
+
 def find_zero(xs: list):
-    if len(xs) == 0:
-        return None
-    else:
-        return math.pow(xs[0], 1 / len(xs))
+    # Your code here
+    return math.pow(xs[0], 1 / len(xs)) if xs else None
