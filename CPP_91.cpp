@@ -1,12 +1,12 @@
 int is_bored(string S){
     int count = 0;
+    string boredom = "I";
     size_t pos = 0;
-    while ((pos = S.find("I", pos)) != string::npos) {
-        if (S[pos] == ' ' || S[pos+1] == '.'
-            || S[pos+1] == '?' || S[pos+1] == '!') {
+    while((pos = S.find('.', pos)) != string::npos || (pos = S.find('!', pos)) != string::npos || (pos = S.find('?')) != string::npos) {
+        if(S.substr(0, boredom.size()).compare(boredom) == 0) {
             count++;
         }
-        pos += 2;
+        pos++;
     }
     return count;
 }
