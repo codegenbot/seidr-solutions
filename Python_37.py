@@ -1,9 +1,9 @@
 def sort_even(l: list):
     return [
         (
-            x
+            i
             if i % 2 != 0
-            else sorted([y for y in l if (l.index(y) % 2 == 0 and l.index(y) < i)])[0]
+            else sorted([j for j in l if (l.index(j) + 1) % 2 == 0])[::-1][k]
         )
-        for i, x in enumerate(l)
+        for k, i in enumerate(l)
     ]
