@@ -7,3 +7,4 @@ int fib(int n) {
         b = result;
     }
     return b;
+}
