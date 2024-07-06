@@ -1,8 +1,6 @@
-#include <iostream>
-#include <cmath>
 #include <string>
 
-std::string rounded_avg(int n, int m) {
+string rounded_avg(int n,int m){
     if(n > m) return "-1";
     int sum = 0;
     for(int i=n; i<=m; i++){
@@ -10,7 +8,7 @@ std::string rounded_avg(int n, int m) {
     }
     double avg = (double)sum / (m - n + 1);
     int rounded = floor(avg + 0.5);
-    std::string binary = "";
+    string binary = "";
     while(rounded > 0){
         if(rounded & 1) binary.push_back('1');
         else binary.push_back('0');
@@ -18,4 +16,3 @@ std::string rounded_avg(int n, int m) {
     }
     reverse(binary.begin(), binary.end());
     return binary;
-}

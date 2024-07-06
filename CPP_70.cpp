@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <ostream>
+#include <fstream>
 
 using namespace std;
 
@@ -39,7 +39,7 @@ int main() {
     for (int x : output) {
         cout << x << " ";
     }
-    cout << std::endl;
+    cout << endl;
 
     return 0;
 }
