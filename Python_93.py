@@ -1,4 +1,4 @@
-````
+```
 def encode(message):
     """Complete this function"""
     result = ""
@@ -11,4 +11,3 @@ def encode(message):
         else:
             result += char
     return result
-```
