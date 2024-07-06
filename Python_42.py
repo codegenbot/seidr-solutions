@@ -11,3 +11,4 @@ def incr_list(lst):
                 cont = input("Invalid choice. Please enter y or n: ")
         except ValueError:
             print("Invalid input. Please enter an integer.")
+    return []
