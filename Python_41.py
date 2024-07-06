@@ -1,3 +1,4 @@
+```
 def car_race_collision():
     while True:
         try:
@@ -21,3 +22,5 @@ def car_race_collision():
         total_damage += damage * speed
     
     return f'Total damage: ${total_damage:,}'
+
+print(car_race_collision())
