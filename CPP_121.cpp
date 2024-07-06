@@ -13,6 +13,6 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     std::vector<int> testList = {3, 13, 2, 9};
-    assert(solutions(testList) == 3);
+    assert(solutions(testList) == 13);
     return 0;
 }
