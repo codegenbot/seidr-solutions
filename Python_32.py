@@ -1,3 +1,8 @@
 def find_zero(xs):
-    n = (xs[0] + xs[1]) // 2
-    return -n / xs[1]
+    if not xs:  
+        x1 = int(input("Enter first number: "))
+        x2 = int(input("Enter second number: "))
+    else:
+        x1, x2 = xs
+    n = (x1 + x2) // 2
+    return -n / x2
