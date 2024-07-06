@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -34,16 +35,23 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
     
-    if (issame(nums, order_by_points(nums))) {
-        cout << "Yes\n";
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> nums[i];
+    }
+
+    if(issame(nums, order_by_points(nums))) {
+        cout << "The array is same after ordering by points." << endl;
     } else {
-        cout << "No\n";
+        vector<int> ordered = order_by_points(nums);
+        for(int i : ordered) {
+            cout << i << " ";
+        }
+        cout << endl;
     }
 
     return 0;
