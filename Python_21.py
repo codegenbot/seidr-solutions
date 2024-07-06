@@ -14,3 +14,7 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
         return [(x - min_val) / (max_val - min_val) for x in numbers]
     except TypeError:
         raise ValueError("Input list must contain only numbers")
+
+
+numbers = [1, 2, 3]
+print(rescale_to_unit(numbers))
