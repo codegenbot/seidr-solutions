@@ -2,20 +2,19 @@
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
-    return a == b;
+    for(int i =0; i<a.size();i++){
+        if(a[i]!=b[i])return false;
+    }
+    return true;
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (issame({game[i]}, {guess[i]})) {
+        if (issame({game[i], guess[i]}, {guess[i], game[i]])) {
             result.push_back(0);
         } else {
-            int diff = abs(guess[i] - game[i]);
-            if (diff > 9) {
-                diff = 10;
-            }
-            result.push_back(diff);
+            result.push_back(abs(guess[i] - game[i]));
         }
     }
     return result;
