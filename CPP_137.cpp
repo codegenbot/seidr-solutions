@@ -1,6 +1,49 @@
 ```
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
+
+int main() {
+    int num1;
+    double num2;
+    std::string str;
+
+    std::cout << "Enter a value (int or string): ";
+    boost::any any_val = boost::any(get_value());
+
+    return 0;
+}
+
+boost::any get_value() {
+    char c;
+    do {
+        std::cin >> c;
+        switch(c) {
+            case '1':
+                {
+                    int i;
+                    std::cout << "Enter an integer: ";
+                    std::cin >> i;
+                    return boost::any(i);
+                }
+            case '2':
+                {
+                    double d;
+                    std::cout << "Enter a double: ";
+                    std::cin >> d;
+                    return boost::any(d);
+                }
+            case '3':
+                {
+                    std::cout << "Enter a string: ";
+                    std::getline(std::cin, str);
+                    return boost::any(str);
+                }
+            default:
+                std::cout << "Invalid option. Try again.\n";
+        }
+    } while(true);
+}
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
