@@ -20,7 +20,7 @@ int main() {
         std::cout << "Enter operation (" << (i + 1) << "/" << n << "): ";
         std::cin >> operation;
         operations.push_back(operation);
-   
+    }
     
     if(below_zero(operations))
         std::cout << "At some point, the balance was below zero.\n";
