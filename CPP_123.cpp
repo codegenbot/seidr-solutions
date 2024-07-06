@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -14,11 +16,11 @@ std::vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         result.push_back(n);
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert({get_odd_collatz(1)} == {1});
+    assert(std::issame({get_odd_collatz(1)}, {1}));
     return 0;
 }
