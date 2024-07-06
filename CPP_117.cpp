@@ -1,21 +1,35 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <cctype>
 
 // Define the select_words function
 std::vector<std::string> select_words(const std::string& input, int count) {
     std::vector<std::string> result;
-    size_t start = 0;
-    
-    while (start <= input.length() && result.size() < count) {
-        size_t end = input.find(' ', start);
-        if (end == std::string::npos)
-            end = input.length();
-        
-        result.push_back(input.substr(start, end - start));
-        start = end + 1;
+    bool wordFound = false;
+
+    for (int i = 0; i < input.length(); ++i) {
+        if (!wordFound && isalpha(input[i])) {
+            wordFound = true;
+            result.push_back("");
+        }
+        if (wordFound) {
+            if (!isalpha(input[i])) {
+                if (!issame(result.back().back(), input[i])) {
+                    result.back() += input[i];
+                    if (++result.size() > count) {
+                        break;
+                    }
+                } else {
+                    wordFound = false;
+                    result.pop_back();
+                }
+            } else {
+                result.back() += tolower(input[i]);
+            }
+        }
     }
-    
+
     return result;
 }
 
