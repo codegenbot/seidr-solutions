@@ -5,12 +5,11 @@ def main():
     try:
         user_input = input("Enter a list of numbers separated by space: ")
         numbers = [float(num) for num in user_input.split()]
-        
-        # Check if all inputs can be converted to float
-        if any(not isinstance(n, (int, float)) for n in numbers):
-            print("Invalid input. Please enter some valid numbers.")
+        if len(numbers) == 0:
+            print("Invalid input. Please enter some numbers.")
         else:
             print(mean_absolute_deviation(numbers))
+        input("Press Enter to continue...")
     except ValueError as e:
         print(f"Invalid input: {e}")
 
@@ -21,3 +20,4 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 
 main()
+print(mean_absolute_deviation([1, 2, 3, 4, 5]))

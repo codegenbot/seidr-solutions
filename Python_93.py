@@ -1,18 +1,18 @@
 def encode(message):
-    result = ''
+    result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                if char.lower() == 'a':
-                    result += 'c'
-                elif char.lower() == 'e':
-                    result += 'g'
-                elif char.lower() == 'i':
-                    result += 'k'
-                elif char.lower() == 'o':
-                    result += 'q'
-                elif char.lower() == 'u':
-                    result += 'y'
+            if char.lower() in "aeiou":
+                if char.lower() == "a":
+                    result += "c"
+                elif char.lower() == "e":
+                    result += "g"
+                elif char.lower() == "i":
+                    result += "k"
+                elif char.lower() == "o":
+                    result += "q"
+                elif char.lower() == "u":
+                    result += "y"
             else:
                 if char.isupper():
                     result += char.lower()
@@ -21,7 +21,3 @@ def encode(message):
         else:
             result += char
     return result
-
-if __name__ == "__main__":
-    message = input("Enter the message: ")
-    print(encode(message))
