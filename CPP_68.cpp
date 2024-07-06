@@ -1,27 +1,28 @@
+#include <iostream>
 #include <vector>
-#include <climits>
-#include <numeric>
-
+#include <climits> 
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return result;
-    
-    int minEven = numeric_limits<int>::max();
+    if (arr.empty()) return {};
+
+    int smallest_even = INT_MAX;
     int index = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
+            smallest_even = arr[i];
             index = i;
         }
     }
-    
-    result.push_back({minEven, index});
+
+    if (smallest_even == INT_MAX) return {};
+
+    result.push_back({smallest_even, index});
     return result;
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == {{}});
+    assert(pluck({7, 9, 7, 1}) == vector<pair<int, int>>()); 
     return 0;
 }
