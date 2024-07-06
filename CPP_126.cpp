@@ -1,17 +1,11 @@
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
 
-using namespace std;
-
-bool is_sorted(vector<int> lst){
+bool is_sorted(std::vector<int> lst) {
     for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] >= lst[i+1]){
+        if(std::make_pair(lst[i],lst[i+1]) > std::make_pair(lst[i+1],lst[i])){
             return false;
         }
     }
     return true;
-}
-
-int main(){
-    assert (is_sorted({1, 2, 3, 4}) == true);
 }

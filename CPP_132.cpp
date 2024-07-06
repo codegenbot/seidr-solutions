@@ -1,4 +1,4 @@
-````
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,7 +9,7 @@ bool is_nested(std::string str) {
         else if(c == ']') close++;
         if(open > 0 && close > 0) return true;
     }
-    return (open != close);
+    return false;
 }
 
 int main() {
@@ -22,4 +22,3 @@ int main() {
 
     return 0;
 }
-```

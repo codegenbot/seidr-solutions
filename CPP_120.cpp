@@ -2,7 +2,7 @@
 #include <iostream>
 
 namespace myns {
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -26,6 +26,6 @@ int main() {
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     int n = sizeof(arr)/sizeof(arr[0]);
     std::vector<int> array (arr, arr+n);
-    assert(myns::is_same(myns::maximum(array, 4), ({0, 1, 2, 3})));
+    assert(myns::isSame(myns::maximum(array, 4), ({0, 1, 2, 3})));
     return 0;
 }
