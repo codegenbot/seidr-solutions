@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -27,13 +27,12 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 5, 3, 6, 4};
-    vector<string> output = by_length(arr);
-    cout << "The output is: ";
+    vector<int> input = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<string> output = by_length(input);
+
     for (string str : output) {
-        cout << str << " ";
+        cout << str << endl;
     }
-    cout << endl;
-    
+
     return 0;
 }
