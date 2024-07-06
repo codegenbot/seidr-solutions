@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -15,29 +14,25 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    std::vector<std::string> result = {"", ""};
-    size_t start = 0, end = 0;
-    do {
-        start = end + 1;
-        while (end < s.size() && !isblank(s[end])) {
-            end++;
+    std::vector<std::string> result = {};
+    for (int i = 0; i < s.size(); ) {
+        int j = i + 1;
+        while (j < s.size() && !isblank(s[j])) {
+            j++;
         }
-        if (start <= end) {
-            result[0] = s.substr(start - 1, end - start);
-            while (end < s.size() && isblank(s[end])) {
-                end++;
-            }
-            result[1] = s.substr(end);
-            return result;
+        if (i != j) {
+            result.push_back(s.substr(i, j - i));
         }
-    } while ((end = s.find("\n", end)) != std::string::npos || end = s.find(" ", end) != std::string::npos);
-    if (start <= end) {
-        result[0] = s.substr(start - 1, end - start);
-        return {result[0]};
+        i = j;
     }
-    return {};
+    for (int i = 0; i < result.size(); i++) {
+        if (!issame(std::vector<std::string>(1,result[i])) && !std::count(expected.begin(), expected.end(), result[i])) {
+            return {};
+        }
+    }
+    return result;
 }
 
 bool isblank(char c) {
-    return isspace(c) || c == ',';
+    return (c == ' ' || c == '\t' || c == '\n' || c == ',' || c == '.' || c == '?' || c == '!'); 
 }
