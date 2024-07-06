@@ -1,7 +1,4 @@
 ```
-def add(x: int, y: int):
-    return x + y
-
 while True:
     try:
         while True:
@@ -18,7 +15,7 @@ while True:
                         elif y.replace('-', '',).replace('.', '').isnumeric():
                             y = int(y)
                             if -2**31 <= y <= 2**31 -1:
-                                print(f"The sum is {add(x, y)}")
+                                print(f"The sum is {x + y}")
                                 break
                             else:
                                 print("Invalid input. Please enter a whole number.")
