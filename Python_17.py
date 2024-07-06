@@ -11,11 +11,11 @@ def parse_music(music_string: str) -> List[int]:
             while i < len(music_string) and music_string[i] != "|":
                 i += 1
             i += 1
-        elif music_string[i:i+3] == "\\| ":
+        elif music_string[i:i + 2] == "o\\|":
             music_list.append(2)
-            i += 3
+            i += 2
             i += 1
-        elif music_string[:4] == ".\\ | ":
+        elif music_string[i:i + 3] == "\\. |":
             music_list.append(1)
-            i = i + 4
+            i += 3
     return music_list
