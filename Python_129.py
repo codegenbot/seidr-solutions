@@ -1,7 +1,7 @@
 ```
 def minPathSum(m):
     n = len(m)
-    
+
     def dfs(i, j, path):
         if i == n-1 and j == n-1:
             return path
@@ -33,4 +33,5 @@ def minPathSum(m):
                 min_path = path
     return min_path
 
-print(minPathSum([[1], [2]]))
+if __name__ == "__main__":
+    print(minPathSum([[1], [2]]))
