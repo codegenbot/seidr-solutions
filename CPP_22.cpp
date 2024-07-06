@@ -3,7 +3,6 @@
 #include <list>
 #include <optional>
 
-// Add these includes:
 #include <boost/any.hpp>
 
 std::vector<int> filter_integers(std::list<boost::any> values) {
