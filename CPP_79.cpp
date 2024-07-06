@@ -19,7 +19,7 @@ int main() {
     cin >> num;
 
     string result = decimal_to_binary(num);
-    cout << "The binary representation of the decimal number is: " << result << endl;
+    cout << "Binary representation: " << result << endl;
 
     return 0;
 }
