@@ -1,5 +1,8 @@
+```
+import math
+
 def modp(n: int, p: int):
     if n < p:
         return n
     else:
-        return (n // p) * p + modp((n // p) % p, p)
+        return p * (modp((n - 1) // p, p)) + n % p
