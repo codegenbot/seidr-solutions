@@ -1,10 +1,4 @@
-```
 def double_the_difference(lst):
-    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
-    return odd_sum
-
-
-if double_the_difference([1, 2, 3]) == 9:
-    print("The function works correctly")
-else:
-    print("There is a problem with the function")
+    avg_all = sum(lst) / len(lst)
+    avg_even = sum(i for i in lst if isinstance(i, int) and i % 2 == 0) / (sum(1 for i in lst if isinstance(i, int) and i % 2 == 0) or 1)
+    return abs(avg_all - avg_even) * 2
