@@ -7,14 +7,18 @@ int solutions(std::vector<int> lst) {
     if (lst.size() == 0) {
         return -1;
     }
-    
-    int result = 0;
-    for (int i : lst) {
-        if ((i & (i << 1)) != i)
-            result++;
+    int count = 0;
+    for(int i=2; i<=9; ++i){
+        bool flag = true;
+        for(int j: lst){
+            if(i%j!=0){
+                flag = false;
+                break;
+            }
+        }
+        if(flag)++count;
     }
-
-    return result;
+    return count;
 }
 
 int main() {
