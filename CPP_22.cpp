@@ -1,9 +1,16 @@
-std::vector<int> filter_integers(std::list<boost::any> values) {
+#include <vector>
+#include <list>
+#include <any>
+#include <optional>
+
+std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if(boost::any_cast<boost::optional<int>>(value).has_value()) {
-            int optionalInt = boost::any_cast<boost::optional<int>>(value).get();
-            result.push_back(optionalInt);
+        if(const std::optional<int>& optionalInt = std::any_cast<std::optional<int>>(value)) {
+            if(optionalInt.has_value()) {
+                result.push_back(*optionalInt);
+            }
         }
     }
     return result;
+}
