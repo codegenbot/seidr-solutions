@@ -16,3 +16,5 @@ while True:
         strings = [] 
     elif len(user_input) > 0:
         strings.append(user_input)
+
+print("You entered:", *strings, sep='\n')
