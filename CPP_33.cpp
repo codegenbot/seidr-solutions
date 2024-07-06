@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -17,7 +17,7 @@ std::vector<int> sortThird(std::vector<int> l) {
                 temp.push_back(l[i+j]);
                 j++;
             }
-            sort(temp.begin(), temp.end());
+            std::sort(temp.begin(), temp.end());
             for(int k = 0; k < temp.size(); ) {
                 if(k % 3 == 0) {
                     result.push_back(temp[k]);
@@ -34,8 +34,9 @@ std::vector<int> sortThird(std::vector<int> l) {
     return result;
 }
 
-int sortThirdMain() {
+int main() {
     std::vector<int> l = {4, 2, 9, 6, 23, 12, 34, 11};
     std::vector<int> res = sortThird(l);
-    for(int i : res) cout << i << " ";
+    for(int i : res) std::cout << i << " ";
+    return 0;
 }
