@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <string>
 
+bool same(vector<string> v1, vector<string> v2) {
+    return v1 == v2;
+}
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
@@ -31,13 +35,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if(result.size()==2&&result[1]=="True"){
-        std::cout<<result[0]<<std::endl;
-        std::cout<<"True"<<std::endl;
-    }
-    else{
-        std::cout<<result[0]<<std::endl;
-        std::cout<<"False"<<std::endl;
-    }
+    assert(same({result[0], (result.size() == 2) ? (result[1] == "True") ? "True" : "False" : "")}, {"", "True"});
     return 0;
 }

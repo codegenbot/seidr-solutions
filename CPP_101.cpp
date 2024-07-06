@@ -1,4 +1,5 @@
 #include <vector>
+#include <sstream>
 #include <string>
 
 bool issame(std::vector<std::string> a) {
@@ -14,21 +15,30 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    std::vector<std::string> result = {"", ""};
-    size_t start = 0;
-    for (size_t i = 0; i <= s.size(); i++) {
-        if ((i == s.size() || !isalpha(s[i])) && start > 0) {
-            size_t len = i - start;
-            if (len > 0) {
-                result.push_back(std::string(s, start, len));
-                for (int j = 1; j < result.size(); j++) {
-                    if (!issame(std::vector<std::string>(1,result[j])) && !std::count(expected.begin(), expected.end(), result[j])) {
-                        return {};
-                    }
-                }
-            }
-            start = i + 1;
+    std::vector<std::string> result = words_string(s);
+    if (!issame(result)) {
+        return {};
+    }
+    for (int i = 0; i < expected.size(); i++) {
+        if (result[i] != expected[i]) {
+            return {};
         }
     }
     return result;
+}
+
+std::vector<std::string> words_string(std::string s) {
+    std::vector<std::string> words;
+    std::stringstream ss(s);
+    std::string word;
+    
+    while (ss >> word) {
+        words.push_back(word);
+    }
+    
+    return words;
+}
+
+int main() {
+    assert(issame(words_string("ahmed     , gamal", {"ahmed", "gamal"})));
 }
