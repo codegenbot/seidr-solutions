@@ -1,21 +1,44 @@
-```cpp
 vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> res;
-    for(int i = 0; i < (int)grid.size(); i++){
-        for(int j = 0; j < (int)grid[0].size(); j++){
-            if(grid[i][j] <= k){
-                res.push_back(grid[i][j]);
-                k--;
-                if(k == 0) return res;
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(grid[i][j] == 1){
+                pq.push({1, {i, j}});
+                visited[i][j] = true;
             }
         }
     }
-    return res;
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < (int)a.size(); i++){
-        if(a[i] != b[i]) return false;
+    vector<int> path;
+    while(!pq.empty() && path.size() < k){
+        int val = pq.top().first;
+        pair<int, int> pos = pq.top().second;
+        pq.pop();
+        
+        if(path.size() > 0){
+            if(val != path.back()){
+                return {};
+            }
+        }
+        
+        path.push_back(val);
+        
+        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        random_shuffle(directions.begin(), directions.end());
+        
+        for(auto dir : directions){
+            int ni = pos.first + dir.first;
+            int nj = pos.second + dir.second;
+            
+            if(ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]){
+                visited[ni][nj] = true;
+                pq.push({grid[ni][nj], {ni, nj}});
+            }
+        }
     }
-    return true;
+
+    return path;
 }
