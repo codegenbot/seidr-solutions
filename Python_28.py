@@ -1,4 +1,7 @@
-def concatenate() -> List[str]:
+from typing import List
+
+
+def concatenate()-> List[str]:
     strings = []
     while True:
         s = input("Enter a string (or 'stop' if finished): ")
