@@ -1,6 +1,12 @@
+```
+#include <algorithm>
+#include <map>
+#include <vector>
+#include <string>
+
 using namespace std;
 
-string sort_numbers(string numbers) {
+std::string sort_numbers(std::string numbers) {
     map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
                                 {"eight", 8}, {"nine", 9}};
@@ -26,11 +32,9 @@ string sort_numbers(string numbers) {
         return to_string(numMap[a]) < to_string(numMap[b]);
     });
 
-    string result;
+    std::string result;
     for (auto &num : numVec) {
         result += num + " ";
     }
     return result.substr(0, result.length() - 1);
 }
-
-assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
