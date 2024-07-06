@@ -27,3 +27,4 @@ def longest_file_line(input_file: str) -> Optional[str]:
 
 input_file = input("Please enter a file name: ")
 longest_file = longest_file_line(input_file)
+print(longest_file)
