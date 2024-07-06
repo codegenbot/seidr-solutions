@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,9 +22,20 @@ int Strongest_Extension(string class_name,vector<string> extensions){
     return class_name + "." + result;
 }
 
-int main() {
-    string class_name = "MyClass";
-    vector<string> extensions = {"Java", "Python", "C++", "JS"};
-    cout << Strongest_Extension(class_name, extensions) << endl;
+int main(){
+    string class_name;
+    vector<string> extensions;
+    cout << "Enter the name of the class: ";
+    cin >> class_name;
+    cout << "Enter the list of extensions (separated by spaces): ";
+    string temp;
+    getline(cin,temp);
+    size_t pos = 0;
+    while((pos = temp.find(" ")) != string::npos){
+        extensions.push_back(temp.substr(0,pos));
+        temp.erase(0,pos+1);
+    }
+    extensions.push_back(temp);
+    cout << "The strongest extension is: " << Strongest_Extension(class_name,extensions) << endl;
     return 0;
 }
