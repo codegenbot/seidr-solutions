@@ -1,7 +1,6 @@
-```
 def simplify(x, n):
-    x_num, x_denom = map(int, input(f"Enter numerator and denominator of {x} (separated by /): ").split('/'))
-    n_num, n_denom = map(int, input(f"Enter numerator and denominator of {n} (separated by /): ").split('/'))
+    x_num, x_denom = map(int, x.split("/"))
+    n_num, n_denom = map(int, n.split("/"))
 
     def gcd(a, b):
         while b:
@@ -11,8 +10,8 @@ def simplify(x, n):
     common = gcd(x_denom, n_denom)
     new_x_num = x_num // common
     new_n_num = n_num // common
-    
-    if (x_num // common) / (n_denom // common) == (n_num // common) / (x_denom // common):
-        return True
+
+    if x_num // common / (n_denom // common) == n_num // common / x_denom // common:
+        return str(True)
     else:
-        return False
+        return str(False)
