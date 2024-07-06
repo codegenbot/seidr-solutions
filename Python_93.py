@@ -1,3 +1,4 @@
+
 def encode(message):
     encoded_message = ""
     for char in message:
@@ -7,5 +8,6 @@ def encode(message):
             elif char.isupper():
                 encoded_char = chr(ord("a") + (ord(char) - ord("A")) % 26)
         else:
+            # handle non-letters here
             encoded_message += char
     return encoded_message
