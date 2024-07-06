@@ -1,7 +1,6 @@
+
 def prime_fib(n: int):
-    fibonacci = []
-    for i in range(2**31 - 1):
-        if is_prime(i):
-            fibonacci.append(i)
-        if len(fibonacci) == n:
-            return fibonacci[-1]
+    fib = [0, 1]
+    for i in range(2, n+1):
+        fib.append(fib[i-1] + fib[i-2])
+    return [x for x in fib if isprime(x)][n-1]
