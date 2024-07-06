@@ -1,3 +1,4 @@
 
 def digits(n):
-    return max(sorted([int(digit) for digit in str(n)]))
+    max_digit = max(map(int, str(n)))
+    return 0 if max_digit not in n else max_digit
