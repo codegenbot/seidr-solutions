@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
@@ -17,7 +18,7 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     return {(max_negative >= 0 ? 0 : max_negative), (min_positive <= 0 ? 0 : min_positive)};
 }
 
-int main() {
+int main1() {
     vector<int> lst1 = {2, 4, 1, 3, 5, 7};
     vector<int> result1 = largest_smallest_integers(lst1);
     cout << "Largest negative integer: " << result1[0] << ", Smallest positive integer: " << result1[1] << endl;
