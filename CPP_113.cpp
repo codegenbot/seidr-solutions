@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,7 +22,7 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
         }
         std::string temp = "the number of odd elements ";
         temp += (count > 0 ? std::to_string(count) : "no");
-        temp += " in the str";
+        temp += " in the string ";
         temp += std::to_string(i+1);
         temp += " of the input.";
         result.push_back(temp);
@@ -29,11 +30,11 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
     return result;
 }
 
-int main() {
+int mainFunction() {
     vector<string> test = {"271", "137", "314"};
-    vector<string> expected = {"the number of odd elements 2 in the str1 of the input.", 
-                               "the number of odd elements 1 in the str2 of the input.", 
-                               "the number of odd elements 1 in the str3 of the input."};
+    vector<string> expected = {"the number of odd elements 2 in the string 1 of the input.",
+                               "the number of odd elements 1 in the string 2 of the input.",
+                               "the number of odd elements 1 in the string 3 of the input."};
     assert(issame(odd_count(test), expected));
     return 0;
 }
