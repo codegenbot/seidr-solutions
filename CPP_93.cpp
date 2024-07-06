@@ -9,8 +9,10 @@ string encode(string message) {
                 newChar = 'A' + ((c - 'A') + 2) % 26;
             }
             result += tolower(newChar);
-        } else if (isprint(c)) {
-            result += c;
+        } else {
+            if (isprint(c)) {
+                result += c;
+            }
         }
     }
     return result;
