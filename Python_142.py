@@ -1,4 +1,3 @@
-@check
 def sum_squares(lst):
     total_sum = 0
     for element in lst:
@@ -7,18 +6,17 @@ def sum_squares(lst):
         elif isinstance(element, (int, float)):
             total_sum += abs(element) ** 2
         else:
-            raise ValueError(f"Invalid input '{element}' found. Input must contain only numbers.")
+            raise ValueError(
+                f"Invalid input '{element}' found. Input must contain only numbers."
+            )
     return total_sum
 
-def check(func):
-    assert all(isinstance(x, (int, float)) for x in func([1, 2, 3])), "Input list must not contain non-numeric elements."
-    return func
 
 def main():
-    print(sum_squares([1, 2, 3]))
+    if all(isinstance(i, (int, float)) for i in [1, 2, 3]):
+        print(sum([abs(i) ** 2 for i in [1, 2, 3]]))
+    else:
+        print(sum_squares([1, 2, 3]))
 
-if __name__ == "__main__":
-    try:
-        sum_squares([1, 2, 3])
-    except ValueError as e:
-        print(e)
+
+main()
