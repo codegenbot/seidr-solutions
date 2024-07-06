@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total_sum = sum(num ** len(str(i)) for i, num in enumerate(lst))
     return total_sum
