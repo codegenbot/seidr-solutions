@@ -1,6 +1,7 @@
-using namespace std;
+#include <string>
+#include <cctype>
 
-int hex_key(const string& num) {
+int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
         if (!isxdigit(c)) { 
@@ -8,3 +9,10 @@ int hex_key(const string& num) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(hex_key("") == 0);
+    // rest of your code
+    return 0;
+}
