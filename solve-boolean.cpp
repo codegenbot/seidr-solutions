@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 #include <iostream>
 
@@ -39,5 +39,5 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-    return 0;
+    cin.ignore();
 }
