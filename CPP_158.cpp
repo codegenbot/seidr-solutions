@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -9,7 +8,7 @@ std::string find_max(std::vector<std::string> words) {
             if (a.size() == b.size()) {
                 return a < b;
             }
-            return a.size() > count(a.begin(), a.end(), unique_copy(a.begin(), a.end()));
+            return a.size() > std::count(a.begin(), a.end(), std::unique_copy(a.begin(), a.end())[0]);
         });
     return result;
 }
