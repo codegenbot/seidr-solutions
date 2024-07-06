@@ -1,7 +1,7 @@
-```
 def solve_boolean(expression):
     bool_map = {'T': True, 'F': False}
     expression = ''.join(bool_map.get(c, c) for c in expression)
+    
     while '&' in expression:
         start = 0
         end = 0
@@ -11,6 +11,8 @@ def solve_boolean(expression):
             elif expression[i] == '|':
                 end = i
                 break
-        or_parts = expression[:end+1].split('|')
-        expression = str(all(p != 'F' for p in or_parts) and expression[start + 1:])
-    return expression.split('|') != ['F']
+        and_parts = expression[:end+1].split('&')
+        result &= all(eval(' '.join(map(str, part.split('|')))) for part in and_parts)
+        expression = expression[start + 1:]
+    
+    return not eval(' '.join(expression.split('|')))
