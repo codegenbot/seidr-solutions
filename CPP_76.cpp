@@ -1,6 +1,5 @@
-#include <cmath>
-#include <cassert>
-
+```cpp
+Here is the completed code:
 bool is_simple_power(int x, int n) {
     double log_x = log((double)x);
     double log_n = log((double)n);
@@ -9,10 +8,9 @@ bool is_simple_power(int x, int n) {
         return true;
     else
         return false;
+
 }
 
 int main() {
-    assert(is_simple_power(1, 12)==true);
-    // add more test cases as needed
-    return 0;
+    assert(is_simple_power(1, 12) == true); 
 }
