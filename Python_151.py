@@ -1,3 +1,5 @@
-def double_the_difference(lst):
-    odd_sum = sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
-    return abs(odd_sum - len(lst)) * 2 + odd_sum
+def check(func):
+    result = func()
+    return double_the_difference(result) * 2 - sum(result)
+
+check(lambda: list(map(int, input().split())))
