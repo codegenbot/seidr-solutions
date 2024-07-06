@@ -1,26 +1,47 @@
+#include <vector>
+#include <algorithm>
+#include <initializer_list>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
+    for (int i = 0; i < k; ++i) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
+}
+
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of elements in array: ";
     std::cin >> n;
-
-    std::vector<int> arr(n);
+    
+    std::vector<int> vec;
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
+        int temp;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> temp;
+        vec.push_back(temp);
     }
-
+    
     int k;
-    std::cout << "Enter the number of elements to extract: ";
+    std::cout << "Enter the number of maximum elements: ";
     std::cin >> k;
-
-    if (k <= 0 || k > n) {
-        std::cout << "Invalid operation. K should be between 1 and " << n << ".";
-        return 1;
+    
+    std::vector<int> maxVec = maximum(vec, k);
+    
+    if(maxVec.empty())
+        std::cout << "Array does not contain enough unique elements.\n";
+    else {
+        for (int i = 0; i < maxVec.size(); ++i) {
+            std::cout << "Maximum element is: " << maxVec[i] << "\n";
+        }
     }
-
-    auto res = maximum(arr, k);
-    for (int i : res)
-        std::cout << i << " ";
-
+    
     return 0;
 }
