@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def factorize():
     n = int(input("Enter a number: "))
     factors = []
@@ -18,5 +19,6 @@ def factorize():
     if n > 1:
         factors.append(n)
     return factors
+
 
 print(factorize())
