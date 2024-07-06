@@ -1,24 +1,21 @@
-#include <vector>
-#include <algorithm>
+int strange_sort_list(std::vector<int> lst) {
+    for(int i = 1; i < lst.size(); ++i) {
+        int key = lst[i];
+        int j = i - 1;
+        
+        while(j >= 0 && lst[j] > key)
+            lst[j + 1] = lst[j--];
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::sort(lst.begin(), lst.end());
-    for(int i = 1; i < lst.size(); i++) {
-        if(lst[i] <= lst[i-1]) {
-            std::swap(lst[i], lst[0]);
-            for(int j = 0; j < i; j++) {
-                std::cout << lst[j] << " ";
-            }
-            return lst;
-        }
+        lst[j+1] = key;
     }
-    return lst;
+    
+    return 0;
 }
 
 int main() {
     std::vector<int> lst;
     int num;
-
+    
     while(true) {
         std::cout << "Enter a number (or -1 to finish): ";
         std::cin >> num;
