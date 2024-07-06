@@ -1,10 +1,10 @@
-```Python
 import math
+
 
 def find_zero():
     while True:
         xs = [int(x) for x in input("Enter coefficients separated by space: ").split()]
-        
+
         if len(xs) % 2 != 0:
             print("Coefficients must have even number. Try again.")
         else:
@@ -18,5 +18,6 @@ def find_zero():
 
     x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
     return round(x, 2)
+
 
 print(find_zero())
