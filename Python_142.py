@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total = 0
     for i in range(len(lst)):
@@ -8,7 +9,4 @@ def sum_squares(lst):
     return total
 
 lst = list(map(int, input("Enter numbers separated by space: ").split()))
-if all(isinstance(x, int) for x in lst):
-    print(sum_squares(lst))
-else:
-    print("Invalid input. Please enter integers only.")
+print(sum_squares(lst))
