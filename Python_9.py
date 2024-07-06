@@ -1,7 +1,7 @@
-from typing import List
-
-
 def rolling_max(numbers: List[int]) -> List[int]:
-    max_sum = 0
-    result = [max(num for num in numbers[: i + 1]) for i in range(len(numbers))]
-    return result
+    result = [
+        max(numbers[i : j + 1])
+        for i in range(len(numbers))
+        for j in range(i, len(numbers))
+    ]
+    return sorted(set(result))
