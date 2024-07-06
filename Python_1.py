@@ -8,11 +8,8 @@ def separate_paren_groups(paren_string):
             if len(stack) > 0:
                 stack[-1].append(char)
             else:
-                result.append("".join(stack))
+                result.extend(["".join(item) for sublist in stack for item in sublist])
                 stack = []
-        else:
-            if len(stack) > 0:
-                stack[-1].append(char)
     if len(stack) > 0:
-        result.append("".join(stack))
+        result.extend(["".join(item) for sublist in stack for item in sublist])
     return result
