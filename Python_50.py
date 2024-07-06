@@ -1,4 +1,4 @@
-Here is the corrected Python function:
+Here's the corrected code:
 
 def decode_shift(s: str):
     result = ""
