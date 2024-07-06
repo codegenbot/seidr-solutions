@@ -1,6 +1,12 @@
 ```
-def encode(string, mapping):
-    return ''.join(mapping.get(i.lower(), i) for i in string)
+def encode(s, encoding_mapping):
+    result = ""
+    for char in s:
+        if char in encoding_mapping:
+            result += encoding_mapping[char]
+        else:
+            result += char
+    return result
 
 def check():
     encoding_mapping = {
@@ -25,6 +31,3 @@ def check():
         "S": "R",
     }
     result = encode("I DoNt KnOw WhAt tO WrItE", encoding_mapping)
-    print(result)
-
-check()
