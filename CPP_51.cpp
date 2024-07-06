@@ -1,8 +1,8 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string remove_vowels(string text){
-    string result = "";
+std::string remove_vowels(std::string text){
+    std::string result = "";
     for(char c : text){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U'){
             result += c;
@@ -12,6 +12,7 @@ string remove_vowels(string text){
 }
 
 int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
-    // Add more test cases as needed
+    assert (remove_vowels("ybcd") == "ybcd");
+    std::cout << remove_vowels("Hello, World!") << std::endl;
+    return 0;
 }
