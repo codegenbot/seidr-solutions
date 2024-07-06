@@ -1,37 +1,35 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     vector<int> result;
-    for(int i = 0; i<grid[0].size(); i++){
-        bool found = false;
-        for(auto path : result){
-            if(issame(path, {path[0], grid[0][i]})){
-                path.push_back(grid[1][i]);
-                path.push_back(grid[2][i]);
-                return path;
+    for (int i = 0; i < grid[0].size(); i++) {
+        bool flag = false;
+        for (int j = 0; j < grid.size() - k; j++) {
+            if (!issame(grid[j], {grid[i][0], grid[i][1], ...})) {
+                break;
+            }
+            if (j == grid.size() - k - 1) {
+                flag = true;
             }
         }
-        vector<int> new_path({grid[0][i]});
-        for(int j = 1; j<3; j++){
-            new_path.push_back(grid[j][i]);
+        if (flag) {
+            result.push_back(i);
         }
-        result.push_back(new_path);
     }
-    if(k < result.size()){
-        return result[k-1];
-    } else {
-        return {};
-    }
+    return result;
 }
 
 int main() {
