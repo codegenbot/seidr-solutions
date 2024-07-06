@@ -1,18 +1,28 @@
 ```cpp
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+#include <algorithm>
+#include <vector>
+#include <limits>
+
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
-    for(int x : lst) {
-        if(result.empty() || !issame({x}, result).first)
-            result.push_back(x);
-        else
-            result.pop_back();
+    while (!lst.empty()) {
+        int minVal = *min_element(lst.begin(), lst.end());
+        int maxVal = *max_element(lst.begin(), lst.end());
+        result.push_back(minVal);
+        result.push_back(maxVal);
+        std::vector<int> temp;
+        for (int i : lst) {
+            if (i != minVal && i != maxVal)
+                temp.push_back(i);
+        }
+        lst = temp;
     }
+
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
