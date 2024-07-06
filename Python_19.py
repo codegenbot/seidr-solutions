@@ -29,32 +29,54 @@ def sort_numbers(numbers: str) -> str:
         "eighty": 80,
         "ninety": 90,
     }
-    hundreds = [
-        "one hundred",
-        "two hundred",
-        "three hundred",
-        "four hundred",
-        "five hundred",
-        "six hundred",
-        "seven hundred",
-        "eight hundred",
-        "nine hundred",
-    ]
+
+    hundreds_dict = {
+        "zero hundred": 0,
+        "one hundred": 100,
+        "two hundred": 200,
+        "three hundred": 300,
+        "four hundred": 400,
+        "five hundred": 500,
+        "six hundred": 600,
+        "seven hundred": 700,
+        "eight hundred": 800,
+        "nine hundred": 900,
+    }
+
+    thousands_dict = {
+        "zero thousand": 0,
+        "one thousand": 1000,
+        "two thousand": 2000,
+        "three thousand": 3000,
+        "four thousand": 4000,
+        "five thousand": 5000,
+        "six thousand": 6000,
+        "seven thousand": 7000,
+        "eight thousand": 8000,
+        "nine thousand": 9000,
+    }
 
     nums = list(
         map(
-            lambda x: num_dict[x] if x in num_dict else int(x) if x.isdigit() else None,
+            lambda x: (
+                int(x)
+                if x.isdigit()
+                else (
+                    num_dict[x]
+                    if x in num_dict
+                    else (
+                        hundreds_dict[f"{int(x.split()[0])} hundred"]
+                        if int(x.split()[0]) < 10 and x.split()[1] == "hundred"
+                        else (
+                            thousands_dict[f"{int(x.split()[0])} thousand"]
+                            if int(x.split()[0]) < 10 and x.split()[1] == "thousand"
+                            else None
+                        )
+                    )
+                )
+            ),
             numbers.split(),
         )
     )
-
-    for i, n in enumerate(nums):
-        if n is None:
-            if numbers.split()[i] in hundreds:
-                nums[i] = 100
-            elif numbers.split()[i].endswith("teen"):
-                nums[i] = num_dict[numbers.split()[i]]
-            else:
-                nums[i] = int(numbers.split()[i])
 
     return " ".join(sorted(map(str, set(nums))))
