@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -32,7 +33,7 @@ def factorize():
         print(factors)
 
     again = input("Do you want to factorize another number? (yes/no): ")
-    while again.lower() != "no":
+    while again.lower() in ["yes", "y"]:
         try:
             m = int(input("Enter a new number: "))
             if m < 2:
