@@ -20,4 +20,5 @@ def factorize() -> List[int]:
         factors.append(n)
     return factors
 
+
 factorize()
