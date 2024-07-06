@@ -1,20 +1,14 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
-bool same(const vector<string>& a, const vector<string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) {
         return false;
     }
     
     for(int i = 0; i < a.size(); i++) {
-        vector<string> v1=a[i];
-        vector<string> v2=b[i];
-        
-        sort(v1.begin(), v1.end());
-        sort(v2.begin(), v2.end());
-        
-        if(v1 != v2) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -22,8 +16,8 @@ bool same(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<vector<string>> by_length(const vector<int>& arr) {
-    vector<vector<string>> result(10);
+std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
+    std::vector<std::vector<std::string>> result(10);
     
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
@@ -63,6 +57,8 @@ vector<vector<string>> by_length(const vector<int>& arr) {
 }
 
 int main() {
-    assert(same(by_length({1,4,8}) , {"One","Four","Eight"}));
+    std::vector<int> arr = {1,4,8};
+    std::vector<std::string> expected = {"One","Four","Eight"};
+    assert(same(by_length(arr), expected));
     return 0;
 }
