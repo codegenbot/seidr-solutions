@@ -9,10 +9,11 @@ def main():
         # Check if all inputs can be converted to float
         if any(not isinstance(n, (int, float)) for n in numbers):
             print("Invalid input. Please enter some valid numbers.")
-        elif len(numbers) < 2:
-            print("Please enter at least two numbers.")
         else:
-            print(mean_absolute_deviation(numbers))
+            try:
+                print(mean_absolute_deviation(numbers))
+            except Exception as e:
+                print(f"An error occurred: {e}")
     except ValueError as e:
         print(f"Invalid input: {e}")
 
