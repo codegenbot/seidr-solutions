@@ -1,10 +1,12 @@
-def make_palindrome(string: str) -> str:
-    # Find the longest postfix of supplied string that is a palindrome
-    i = len(string) - 1
-    while i > 0 and string[i] != string[i - 1]:
-        i -= 1
-    if i == 0:
-        return string + string[::-1]
-
-    # Append to the end of the string reverse of a string prefix that comes before the palindromic suffix
-    return string + string[:i][::-1]
+def make_palindrome(string):
+    # Initialize a list to store the characters of the palindrome
+    palindrome = []
+    for i, c in enumerate(string):
+        # Check if the character is already in the correct position for the palindrome
+        if string[i] == string[-i - 1]:
+            palindrome.append(c)
+        else:
+            # If not, then rearrange the characters to make it a palindrome
+            palindrome.append(string[-i - 1])
+            palindrome.append(c)
+    return "".join(palindrome)[::-1]
