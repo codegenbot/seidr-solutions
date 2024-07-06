@@ -21,6 +21,6 @@ int main() {
             odd_sum += int(x);
     }
     
-    assert(double_the_difference(lst) == (long long)odd_sum * (long long)odd_sum); 
+    assert(double_the_difference(lst) == odd_sum * odd_sum); 
     return 0;
 }
