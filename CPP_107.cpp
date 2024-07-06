@@ -19,7 +19,7 @@ vector<int> even_odd_palindrome(int n) {
         }
         if (isPalindrome && i % 2 == 0)
             result[0]++;
-        else if (isPalindrome)
+        else if (isPalindrome && i % 2 != 0)
             result[1]++;
     }
     return result;
