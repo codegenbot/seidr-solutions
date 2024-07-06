@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -15,8 +14,8 @@ std::vector<int> strangeSortVector(std::vector<int> lst) {
         int maxVal = *std::max_element(lst.begin(), lst.end());
         result.push_back(minVal);
         result.push_back(maxVal);
-        std::erase(lst, minVal);
-        std::erase(lst, maxVal);
+        std::erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
+        std::erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
     }
 
     return result;
