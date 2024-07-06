@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -25,24 +25,10 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
 
 int main() {
     assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
-    std::vector<int> numbers; 
-    int n;
-    
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-
-    for(int i = 0; i < n; ++i) {
-        int num; 
-        std::cout << "Enter element " << (i + 1) << ":";
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
     numbers = remove_duplicates(numbers);
-
-    std::cout << "Duplicated elements removed: ";
-    for(int i : numbers)
+    for(int i : numbers) {
         std::cout << i << " ";
-
+    }
     return 0;
 }
