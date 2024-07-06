@@ -1,6 +1,5 @@
 #include <string>
-
-bool solveBoolean(std::string s) {
+bool solveBoolean(string s) {
     bool t = true;
     bool f = false;
     bool res = t;
@@ -12,14 +11,8 @@ bool solveBoolean(std::string s) {
         } else if (s[i] == '|') {
             res |= f;
             f = !f;
-        } else if (s[i] == 'T' || s[i] == 't') {
-            res = t;
-            break;
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            res = f;
-            break;
-        }
+        } 
     }
-
+    
     return res;
 }
