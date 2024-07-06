@@ -1,4 +1,3 @@
-```cpp
 int findLargestPrimeSum(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){
@@ -19,7 +18,6 @@ bool isPrime(int n){
         if(n % i == 0)
             return false;
     return true;
-}
 
 int main() {
     vector<int> lst = {127, 97, 8192};
