@@ -1,27 +1,26 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cryptopp/md5.h>
 
 using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    // include the necessary Cryptopp libraries
-    #include "cryptopp/md5.h"
-    #include "cryptopp/sha.h"
+    unsigned char md[16];
+    unsigned char* data = reinterpret_cast<unsigned char*>(text.c_str());
+    int len = text.length();
+    MD5Context ctx;
+    MD5Init(&ctx);
+    MD5Update(&ctx, data, len);
+    MD5Final(&ctx, md);
 
-    MD5 md;
-    md.Update((const unsigned char*)text.c_str(), text.length());
-    string result = hexEncode(md.Digest());
-
-    return result;
-}
-
-string hexEncode(const byte* data, int length) {
-    string str;
-    for(int i=0; i<length; i++) {
-        str += setfill('0') << setw(2) << hex << (int)data[i];
+    string result;
+    for (int i = 0; i < 16; ++i) {
+        ostringstream oss;
+        oss << setfill('0') << setw(2) << hex << static_cast<int>(md[i]);
+        result += oss.str();
     }
-    return str;
+    return result;
 }
