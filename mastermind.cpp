@@ -2,17 +2,17 @@
 #include <string>
 using namespace std;
 int main() {
-   string code, guess;
-   int whitePegs = 0, blackPegs = 0;
-    while (cin >> code >> guess) {
-           for (int i = 0; i < code.length(); i++) {
-               if (code[i] == guess[i]) {
-                   blackPegs++;
-               } else if (code.find(guess[i]) != string::npos) {
-                    whitePegs++;
-               }
-           }
-     cout << whitePegs << " " << blackPegs << endl;
-}
-return 0;
+    string mastermindCode, guess;
+    int whitePegs = 0, blackPegs = 0;
+    cin >> mastermindCode >> guess;
+    for (int i = 0; i < 4; i++) {
+        if (mastermindCode[i] == guess[4-i-1]) {
+            blackPegs++;
+        } else {
+            whitePegs++;
+        }
+    }
+    cout << "White pegs: " << whitePegs << endl;
+    cout << "Black pegs: " << blackPegs << endl;
+    return 0;
 }
