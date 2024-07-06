@@ -1,14 +1,18 @@
+#include <string>
+#include <algorithm>
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char new_c;
-            if (c >= 'a' && c <= 'z') {
-                new_c = 'a' + (c - 'a' + 2) % 26;
+            char base = isupper(c) ? 'A' : 'a';
+            c = tolower(c);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                result += static_cast<char>(base + 2);
             } else {
-                new_c = 'A' + (c - 'A' + 2) % 26;
+                result += c;
             }
-            result += tolower(isupper(c) ? new_c : toupper(new_c));
         } else {
             result += c;
         }
