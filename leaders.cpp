@@ -1,16 +1,17 @@
-    #include <vector>
+#include <vector>
+using std::vector;
 
-std::vector<int> leaders(const std::vector<int>& v) {
-    std::vector<int> result;
-    for (std::vector<int>::reverse_iterator i = v.rbegin(); i != v.rend(); ++i) {
+vector<int> leaders(const vector<int>& v) {
+    vector<int> result;
+    for (auto it = v.rbegin(); it != v.rend(); ++it) {
         bool isLeader = true;
-        for (std::vector<int>::const_reverse_iterator j = i + 1; j != v.rend(); ++j) {
-            if (*i < *j) {
+        for (auto jt = it + 1; jt != v.rend(); ++jt) {
+            if (*it < *jt) {
                 isLeader = false;
                 break;
             }
         }
-        if (isLeader) result.push_back(*i);
+        if (isLeader) result.push_back(*it);
     }
     return result;
 }
