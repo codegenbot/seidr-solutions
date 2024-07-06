@@ -28,7 +28,7 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
                 end++;
             }
             result[1] = s.substr(end);
-            return {result[0], result[1]};
+            return result;
         }
     } while ((end = s.find("\n", end)) != std::string::npos || end = s.find(" ", end) != std::string::npos);
     if (start <= end) {
