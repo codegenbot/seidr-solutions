@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <limits>
@@ -10,7 +9,7 @@ void compareOne(int x) {
     cin >> val2;
 }
 
-int originalMain() {
+int main() {
     cout << "Enter two values: ";
     int val1;
     cin >> val1;
@@ -27,7 +26,8 @@ int originalMain() {
 
     cout << "Enter the second value: ";
     string val2;
-    cin >> val2;
+    cin >> ws; 
+    getline(cin, val2);
 
     if (!val2.empty()) {
         int num = stoi(val2);
@@ -42,10 +42,7 @@ int originalMain() {
         cout << "Please enter a valid value for the second number.\n";
     }
 
-    return 0;
-}
+    compareOne(val1);
 
-int main() {
-    originalMain();
     return 0;
 }
