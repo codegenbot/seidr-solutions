@@ -2,14 +2,13 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-using namespace std;
 
 int gcd(int a, int b) {
-    if (a == 0) return b;
-    return gcd(b % a, a);
+    if (b == 0) return abs(a);
+    return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
+vector<int> getIndicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     for (int i = 0; i < text.size() - target.size() + 1; ++i) {
         if (text.substr(i, target.size()) == target) {
@@ -20,12 +19,15 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    int gcdResult = gcd(12, 15); // Call gcd() function with input 12 and 15
-    cout << "GCD of 12 and 15 is: " << gcdResult << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
 
-    vector<int> indices = indicesOfSubstring("hello", "ll"); // Call indicesOfSubstring() function with input "hello" and "ll"
-    for (auto index : indices) {
-        cout << index << " ";
+    string text, target;
+    cin >> text >> target;
+    vector<int> indices = getIndicesOfSubstring(text, target);
+    for (int i : indices) {
+        cout << i << " ";
     }
     cout << endl;
 
