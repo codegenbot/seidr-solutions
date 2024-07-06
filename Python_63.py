@@ -1,3 +1,4 @@
+```Python
 def fibfib(n: int):
     if n == 0:
         return 0
