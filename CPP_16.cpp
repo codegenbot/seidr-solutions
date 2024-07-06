@@ -4,12 +4,15 @@
 #include<algorithm>
 using namespace std;
 
-int count_distinct_characters(string str){
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<char> v;
-    for(char c : str) {
-        if(find(v.begin(), v.end(), c) == v.end()) 
-            v.push_back(c);
+int count_distinct_characters(string str) {
+    vector<char> distinct_chars;
+    for (char c : str) {
+        if (tolower(c) >= 'a' && tolower(c) <= 'z') {
+            auto it = find(distinct_chars.begin(), distinct_chars.end(), tolower(c));
+            if (it == distinct_chars.end()) {
+                distinct_chars.push_back(tolower(c));
+            }
+        }
     }
-    return (int)v.size();
+    return distinct_chars.size();
 }
