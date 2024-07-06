@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 string anti_shuffle(string s) {
@@ -31,8 +33,5 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    cout << anti_shuffle("Hi") << endl;
-    cout << anti_shuffle("hello") << endl;
-    cout << anti_shuffle("Hello World!!!") << endl;
     return 0;
 }
