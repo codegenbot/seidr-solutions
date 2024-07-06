@@ -1,8 +1,6 @@
 def paired_digits(s):
-    prev = None
     total = 0
-    for i in s:
-        if i == prev:
+    for i, j in zip(s, s[1:] + [None]):
+        if i == j:
             total += int(i)
-        prev = i
     return total
