@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -14,3 +15,4 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
+}
