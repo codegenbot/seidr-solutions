@@ -1,3 +1,4 @@
+```
 def incr_list():
     while True:
         try:
@@ -9,4 +10,5 @@ def incr_list():
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-print(incr_list())
+while True:
+    print(incr_list())
