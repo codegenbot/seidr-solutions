@@ -31,8 +31,5 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, s);
 
-    if (!s.empty()) {
-        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
-    }
-    return 0;
+    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
 }
