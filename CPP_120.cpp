@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -20,21 +21,18 @@ std::vector<int> findMaximum(int n, int k) {
     
     std::vector<int> myVector;
     for (int i = 0; i < n; ++i) {
-        myVector.push_back(arr[i]);
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        myVector.push_back(x);
     }
     
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
         int max_val = *std::max_element(myVector.begin(), myVector.end());
         result.push_back(max_val);
-        int it = 0;
-        while(it < myVector.size()){
-            if(myVector[it] == max_val){
-                myVector.erase(myVector.begin() + it);
-                break;
-            }
-            it++;
-        }
+        auto it = std::remove_if(myVector.begin(), myVector.end(), [&](int x){ return x == max_val;});
+        myVector.erase(it, myVector.end());
     }
     
     return result;
