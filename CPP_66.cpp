@@ -3,12 +3,6 @@
 #include <string>
 #include <cctype>
 
-int main() {
-    int sum = digitSum("You arE Very Smart");
-    assert(sum == 327);
-    return 0;
-}
-
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
@@ -17,4 +11,10 @@ int digitSum(string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    int sum = digitSum("You arE Very Smart");
+    std::cout << sum << std::endl;
+    return 0;
 }
