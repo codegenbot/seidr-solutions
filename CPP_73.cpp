@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 
@@ -6,20 +7,12 @@ int smallest_change(std::vector<int> arr) {
     int changes = 0;
 
     while (left < right) {
-        if (arr[left] != arr[right]) {
-            for (int i = left; i <= right; i++) {
-                if (arr[i] == arr[right]) {
-                    std::swap(arr[i], arr[left]);
-                    changes++;
-                    break;
-                }
-            }
-            left++;
-            right--;
-        } else {
-            left++;
-            right--;
+        if ((arr[left] % 2 == 0 && arr[right] % 2 != 0) || 
+            (arr[left] % 2 != 0 && arr[right] % 2 == 0)) {
+            changes++;
         }
+        left++;
+        right--;
     }
 
     return changes;

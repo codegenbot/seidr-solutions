@@ -1,43 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+
+using namespace std;
+
+bool same(const vector<string>& a, const vector<string>& b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+}
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> numVec;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            numVec.push_back(i);
-        }
+    vector<int> sortedArr;
+    for(int i : arr){
+        if(i >= 1 && i <= 9)
+            sortedArr.push_back(i);
     }
-    sort(numVec.begin(), numVec.end());
-    reverse(numVec.begin(), numVec.end());
+    sort(sortedArr.begin(), sortedArr.end());
+    reverse(sortedArr.begin(), sortedArr.end());
     vector<string> result;
-    for (int i : numVec) {
-        switch (i) {
-            case 1:
-                result.push_back("One");
-                break;
-            case 2:
-                result.push_back("Two");
-                break;
-            case 3:
-                result.push_back("Three");
-                break;
-            case 4:
-                result.push_back("Four");
-                break;
-            case 5:
-                result.push_back("Five");
-                break;
-            case 6:
-                result.push_back("Six");
-                break;
-            case 7:
-                result.push_back("Seven");
-                break;
-            case 8:
-                result.push_back("Eight");
-                break;
-            case 9:
-                result.push_back("Nine");
-                break;
-        }
+    map<int, string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
+                                  {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    for(int i : sortedArr){
+        result.push_back(numToName[i]);
     }
     return result;
+}
+
+int main() {
+    vector<int> arr = {1, 2, 5, 3, 6, 4};
+    vector<string> output = by_length(arr);
+    cout << "The output is: ";
+    for (string str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
