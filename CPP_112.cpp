@@ -22,9 +22,12 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     result.push_back(res);
 
-    string str = res;
-    reverse(str.begin(), str.end());
-    result.push_back((str == res ? "True" : "False"));
+    string rev_str = "";
+    for (char x : s) {
+        rev_str += x;
+    }
+    reverse(rev_str.begin(), rev_str.end());
+    result.push_back(rev_str);
 
     return result;
 }
