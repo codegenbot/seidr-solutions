@@ -1,12 +1,11 @@
-````
-#include <iostream>
 #include <string>
+using namespace std;
 
-int words_in_sentence(const std::string& sentence) {
+int words_in_sentence(const string& sentence) {
     int count = 0;
     bool inWord = false;
 
-    for (char c : sentence) {
+    for (char c : sentence) { 
         if (c == ' ') {
             inWord = false;
         } else {
@@ -22,6 +21,4 @@ int words_in_sentence(const std::string& sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == 2);
-    return 0;
 }
-```
