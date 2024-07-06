@@ -1,22 +1,13 @@
 #include <string>
-#include <cctype>
 
 string get_closest_vowel(string word) {
-    int n = word.length();
-    for (int i = 0; i < n - 2; ++i) {
+    int n = word.size();
+    for (int i = n - 1; i > 0; --i) {
         if (!isalpha(word[i])) continue;
-        if (!isalpha(word[i + 1]) || !isalpha(word[i + 2])) continue;
-        if (word[i] == 'y' && isvowel(word[i + 1])) return string(1, word[i + 1]);
-    }
-    for (int i = n - 3; i >= 0; --i) {
-        if (!isalpha(word[i])) continue;
-        if (!isalpha(word[i - 1]) || !isalpha(word[i - 2])) continue;
-        if (word[i] == 'y' && isvowel(word[i - 1])) return string(1, word[i - 1]);
+        char c = tolower(word[i]);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            return word.substr(i);
+        }
     }
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
