@@ -1,8 +1,5 @@
-```
 def double_the_difference(input_list):
-    first_max = max(input_list)
-    second_min = min(input_list) + 1
-    return (first_max - second_min)
+    return sum(set(input_list)) - min(input_list) - max(input_list)
 
 def check(func, input_list, expected_result):
     result = func(input_list)
