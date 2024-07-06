@@ -1,6 +1,13 @@
-```Python
+```
 def add(x: int, y: int):
-    return x + y
+    while x > y:
+        print(f"{x} is greater than {y}")
+        z = input("Press Enter to continue: ")
+        if z == "q":
+            break
+        x -= 1
+    else:
+        print(f"{x} is not greater than {y}")
 
 num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
