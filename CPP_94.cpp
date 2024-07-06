@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <cassert>
 
 int findMaxPrime(std::vector<int> lst){
     int maxPrime = 0;
@@ -24,9 +24,7 @@ bool isPrime(int n) {
     }
     return true;
 
-}
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    assert(findMaxPrime(lst) == 10);
+    assert(findMaxPrime({127, 97, 8192}) == 10);
     return 0;
 }
