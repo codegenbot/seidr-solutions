@@ -1,10 +1,16 @@
-Here is the completed code:
+#include <string>
+
+using namespace std;
 
 string solve(int N) {
-    int sum = 0;
+    string binary = "";
     while (N > 0) {
-        sum += N & 1;
-        N >>= 1;
+        int remainder = N % 2;
+        if (remainder == 0)
+            binary.insert(0, "0");
+        else
+            binary.insert(0, "1");
+        N /= 2;
     }
-    return std::bitset<8>(sum).to_string();
+    return binary;
 }
