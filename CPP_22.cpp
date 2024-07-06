@@ -20,7 +20,7 @@ vector<int> filter_integers(list<any> values) {
         if (any_cast<int>(value).which() == typeindex<int>()) {
             int x = any_cast<int>(value).get();
             bool duplicate = false;
-            for (const auto& y : result) {
+            for (int y : result) {
                 if (y == x) {
                     duplicate = true;
                     break;
