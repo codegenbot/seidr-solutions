@@ -7,10 +7,10 @@ vector<int> sort_array(vector<int> array) {
     }
     
     if (sum % 2 == 0) {
-        sort(result.begin(), result.end(), greater<int>());
+        sort(array.begin(), array.end(), greater<int>());
     } else {
-        sort(result.begin(), result.end());
+        sort(array.begin(), array.end());
     }
     
-    return result;
+    return array;
 }
