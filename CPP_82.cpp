@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 
@@ -10,6 +9,7 @@ bool prime_length(std::string str) {
         }
     }
     return prime(len);
+
 }
 
 bool prime(int n) {
