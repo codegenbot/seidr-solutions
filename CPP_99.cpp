@@ -1,14 +1,16 @@
-Here is the completed code:
+Here is the solution:
 
-#include <string>
-using namespace std;
+```cpp
+#include<string>
 
 int closest_integer(string value) {
     double num = stod(value);
-    int integerPart = (int)num;
-    if (fabs(num - integerPart) < 0.5) {
-        return abs(num) > integerPart ? integerPart + (num > 0 ? 1 : -1) : integerPart;
-    } else {
-        return num > 0 ? (int)ceil(num) : (int)floor(num);
-    }
+    int integerPart = (long long)num;
+
+    if (abs(num - integerPart) < 0.5)
+        return integerPart;
+    else if (num > integerPart) 
+        return integerPart + 1;
+    else
+        return integerPart - 1;
 }
