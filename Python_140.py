@@ -1,5 +1,5 @@
-def fix_spaces(text: str) -> str:
-    return text.replace("  ", "-").replace(" ", "_")
+import re
 
 
-fix_spaces("   Exa 1 2 2 mple")
+def fix_spaces(text):
+    return re.sub(r"\s+", "-", text)
