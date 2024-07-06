@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -14,5 +15,5 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-int main 
-{
+int main() {
+}
