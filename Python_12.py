@@ -1,5 +1,5 @@
-```python
 from typing import List, Optional
+
 
 def longest(strings: List[str]) -> Optional[str]:
     if not all(isinstance(s, str) and len(s) > 0 for s in strings):
