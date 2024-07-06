@@ -12,8 +12,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     std::vector<std::string> result;
     if (i >= planets.size() || j >= planets.size()) return result;
-    int start = std::max(i, 0);
-    int end = std::min(j, planets.size());
+    int start = max(i, 0);
+    int end = min(j, planets.size());
     for (int k = start; k < end; k++) {
         result.push_back(planets[k]);
     }
