@@ -1,7 +1,7 @@
-"""
+```Python
 def solve(N):
-    result = 0
-    for i in str(bin(N)[2:]):
-        if i == '1':
-            result += 2 ** (len(str(bin(N)[2:])) - 1)
-    return bin(result)[2:]
+    result = ''
+    for i, bit in enumerate(str(bin(N)[2:])[::-1]):
+        if int(bit) == 1:
+            result += '1' if i % 2 != 0 else '0'
+    return bin(int(result, 2))[2:]
