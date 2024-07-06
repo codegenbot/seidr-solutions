@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isIdentical(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); ++i)
@@ -22,8 +22,4 @@ std::vector<int> removeDuplicates(std::vector<int> numbers){
 
     return result;
 }
-
-int main() {
-    assert (isIdentical(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
-    return 0;
-}
+assert(isSame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
