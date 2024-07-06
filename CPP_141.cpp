@@ -1,4 +1,3 @@
-```c++
 #include <cassert>
 
 std::string file_name_check(const std::string& file_name) {
