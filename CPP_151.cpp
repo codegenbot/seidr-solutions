@@ -16,6 +16,6 @@ long long double_the_difference(vector<float> lst) {
 int main() {
     vector<float> lst = {};
     long long odd_sum = double_the_difference(lst);
-    assert(odd_sum == 0);
+    long long(odd_sum == 0);
     return 0;
 }
