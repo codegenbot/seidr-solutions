@@ -5,6 +5,6 @@ def sum_squares(lst):
         if (i % 3 == 0 and i % 4 != 0) or (i % 4 == 0 and i % 3 != 0):
             if i % 3 == 0:
                 total_sum += lst[i] ** 2
-            elif i % 4 == 0:
+            else:
                 total_sum += lst[i] ** 3
     return total_sum
