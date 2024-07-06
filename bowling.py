@@ -1,22 +1,20 @@
 ```
 def calculate_score(games):
-    frames = games.replace('/', '')
     score = 0
-    current_roll = 0
+    games_list = games.split('/')
 
-    for i in range(0, len(frames), 2):
-        if frames[i].isdigit():
-            current_roll = int(frames[i])
+    for i in range(0, len(games_list)):
+        if games_list[i] == 'X':
+            score += 10
+            if i < 9:
+                score += int(calculate_score(''.join(games_list[i+1:])))
+        elif games_list[i] == '-':
+            score += 10 - int(games_list[i-1])
+            if i < 9:
+                score += int(calculate_score(''.join(games_list[i+2:])))
         else:
-            if current_roll > 0:
-                if current_roll == 10: # spare
-                    score += 10 + int(frames[i+1]) + (10 - int(frames[i+1])) * 2
-                elif current_roll < 10: # normal roll
-                    score += current_roll + int(frames[i+1])
-                current_roll = 0
-        if i >= 9:
-            break
+            score += sum(int(x) for x in games_list[i].split())
 
     return score
 
-print(calculate_score("3645339/218/8-7/X71"))
+print(calculate_score("364/5339/-7/X71"))
