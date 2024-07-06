@@ -1,5 +1,4 @@
 ```
-```python
 def sort_third(l):
     result = []
     for i, x in enumerate(l):
@@ -21,4 +20,3 @@ if not input_list:
     print("No input provided. No output generated.")
 else:
     print(sort_third(input_list))
-```
