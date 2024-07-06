@@ -1,3 +1,4 @@
+````
 def intersperse(numbers: list[int], delimiter: int) -> list[int]:
     if not isinstance(numbers, list):
         raise ValueError("Input 'numbers' must be a list")

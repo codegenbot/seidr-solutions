@@ -7,5 +7,9 @@ def parse_nested_parens(s):
         s = s[:start] + inner_input + s[end+1:]
     return s
 
-main_input = input().strip()
-print(parse_nested_parens(main_input))
+def main():
+    main_input = input().strip()
+    print(parse_nested_parens(main_input))
+
+if __name__ == "__main__":
+    main()
