@@ -1,7 +1,5 @@
+```Python
 def incr_list():
-    """
-    Returns a list of numbers from 1 to n.
-    
     while True:
         try:
             n = int(input("Enter a number: "))
