@@ -1,3 +1,5 @@
 
 def words_string(s):
-    return s.strip().split(", ")
+    return s.split(", ")
+
+check(words_string("ahmed, gamal"))
