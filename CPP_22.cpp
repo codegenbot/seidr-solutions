@@ -1,32 +1,32 @@
-```cpp
 #include <optional>
 #include <vector>
+#include <list>
+#include <any>
+#include <boost/any.hpp>
+#include <algorithm>
 
-bool std::operator==(const std::vector<int>& l, const std::vector<int>& r) {
-    if (l.size() != r.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < l.size(); ++i) {
-        if (l[i] != r[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    std::vector<int> result = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-    assert(result == {3, 3, 3});
-    return 0;
-}
-
-std::vector<int> filter_integers(std::vector<std::optional<int>> values) {
-    std::vector<int> result = {};
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if(value.has_value()) {
-            int i = value.get();
-            result.push_back(i);
+        if(value.type() == typeid(std::optional<int>)) {
+            auto optionalInt = boost::any_cast<std::optional<int>>(value);
+            if(optionalInt.has_value()) {
+                result.push_back(optionalInt.get());
+            }
+        }
+        else if(value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
+}
+
+int main() {
+    auto values = {std::optional<int>(3), 'c', std::optional<int>(3), 3, 'a', 'b'};
+    std::list<boost::any> valuesList(values.begin(), values.end());
+    assert(std::equal(filter_integers(valuesList).begin(), filter_integers(valuesList).end(), std::vector<int>{3, 3, 3}));
 }
