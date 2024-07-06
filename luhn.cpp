@@ -1,21 +1,33 @@
-#include <vector>
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <vector>
+
 using namespace std;
-int luhn(vector<int>& digits) {
+
+int luhn(const vector<string>& digits) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        int d = digits[i] * 2;
-        if (d > 9) {
-            d -= 9;
+    for (int i = digits.size() - 2; i >= 0; i -= 2) {
+        int digit = stoi(digits[i]) * 2;
+        if (digit > 9) {
+            digit -= 9;
         }
-        sum += d;
+        sum += digit;
     }
-    return sum % 10;
+    return sum;
 }
+
+vector<string> get_digits() {
+    vector<string> digits;
+    string input;
+    while (cin >> input) {
+        digits.push_back(input);
+    }
+    return digits;
+}
+
 int main() {
-    vector<int> digits = {9, 2, 6, 8, 9, 7, 3, 4, 2, 3, 9, 6, 0, 8, 9, 6};
-    cout << luhn(digits) << endl;
+    vector<string> digits = get_digits(); // Get the digits from user input or file
+    int sum = luhn(digits); // Call the luhn function with the digits
+    cout << "Sum of doubled digits: " << sum << endl; // Output the result
     return 0;
 }
