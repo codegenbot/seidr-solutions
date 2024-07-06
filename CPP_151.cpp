@@ -1,13 +1,12 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> numbers) {
+long long double_the_difference(vector<long long> lst) {
     long long sum = 0;
-    for (float num : numbers) {
-        if (num > 0 && std::floor(num) == num) { 
-            auto fractionalPart = modf(sqrt(num), &num);
-            if (fractionalPart != 0.0) { 
-                sum += pow(num, 2); 
+    for (long long num : lst) {
+        if (num > 0 && floor((double)num) == (double)num) { 
+            if (modf(sqrt((double)num), &num) != 0.0) { 
+                sum += pow((double)num, 2); 
             }
         }
     }
