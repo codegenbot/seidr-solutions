@@ -1,10 +1,9 @@
-```cpp
 #include <boost/any.hpp>
 #include <algorithm>
-#include <cstdlib>
 #include <string>
 
 using namespace std;
+using boost::any_cast;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {

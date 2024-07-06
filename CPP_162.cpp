@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
+#include <openssl/ssl.h>
 
 using namespace std;
 
