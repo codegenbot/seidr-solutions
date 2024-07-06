@@ -1,3 +1,4 @@
+```
 def process_strings():
     strings = []
     i = 0
@@ -18,5 +19,3 @@ def process_strings():
             strings.append(user_input)
 
     return strings
-
-print(process_strings())
