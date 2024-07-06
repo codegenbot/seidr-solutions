@@ -1,4 +1,4 @@
-```python
+```
 def basement(arr):
     total = 0
     index = 0
