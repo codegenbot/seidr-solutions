@@ -1,10 +1,11 @@
+
 #include <vector>
 using vector = std::vector<int>;
 vector<int> leaders(const vector<int>& v) {
     vector<int> result;
-    for (vector<int>::iterator i = v.begin(); i != v.end(); ++i) {
+    for (vector<int>::reverse_iterator i = v.rbegin(); i != v.rend(); ++i) {
         bool isLeader = true;
-        for (vector<int>::iterator j = i + 1; j != v.end(); ++j) {
+        for (vector<int>::reverse_iterator j = i + 1; j != v.rend(); ++j) {
             if (*i < *j) {
                 isLeader = false;
                 break;
