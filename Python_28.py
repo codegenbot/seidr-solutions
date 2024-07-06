@@ -1,3 +1,4 @@
+```
 strings = ""
 while True:
     user_input = input("Please enter a string or 'stop' to finish: ")
