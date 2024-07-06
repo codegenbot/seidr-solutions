@@ -1,18 +1,25 @@
+#define BOOST_ALL_DYN_LINK 1
+#include <boost/config.hpp>
+
 #include <vector>
 #include <list>
-#include <any>
-#include <algorithm>
+#include <boost/any.hpp>
 
-bool issame(std::vector<int> vec) {
-    return std::all_of(vec.begin(), vec.end(), [](int x){ return x == 3; });
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> filter_integers(std::list<std::any> values) {
+std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int) && boost::any_cast<int>(value).good()) {
+        if (boost::any_cast<int>(value).good()) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b') }), {3, 3, 3}));
+    return 0;
 }
