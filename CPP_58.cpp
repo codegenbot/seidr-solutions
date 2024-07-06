@@ -1,18 +1,21 @@
+#include <iostream>
 #include <vector>
 #include <set>
 
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    std::set<int> s1(l1.begin(), l1.end());
-    std::set<int> s2(l2.begin(), l2.end());
+using namespace std;
 
-    std::set<int> result;
+vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
+
+    set<int> result;
     for (int i : s1) {
         if (s2.find(i) != s2.end()) {
             result.insert(i);
         }
     }
 
-    std::vector<int> res;
+    vector<int> res;
     for (int i : result) {
         res.push_back(i);
     }
