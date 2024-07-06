@@ -1,4 +1,3 @@
-```
 def cycpattern_check(a, b):
     if len(b) == 0:
         return True
