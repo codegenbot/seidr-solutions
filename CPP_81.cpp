@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-std::vector<string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
             result.push_back("A+");
@@ -30,4 +30,16 @@ std::vector<string> numerical_letter_grade(std::vector<float> grades) {
             result.push_back("E");
     }
     return result;
+}
+
+int main() {
+    std::vector<float> grades = {4.5, 3.2};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    for (int i = 0; i < result.size(); i++) {
+        if ((i < result.size() - 1) && result[i] == "E" && result[i+1] == "D-")
+            std::cout << "Test passed.\n";
+        else
+            std::cout << "Test failed.\n";
+    }
+    return 0;
 }
