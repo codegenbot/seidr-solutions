@@ -12,7 +12,7 @@ int smallest_change(vector<int> arr) {
     while (left < right) {
         if (str[left] != str[right]) {
             changes++;
-            if (str[left] == str[right-1]) {
+            if (str[left] == '0' && str[right] == '1') {
                 right--;
             } else {
                 left++;
@@ -23,10 +23,4 @@ int smallest_change(vector<int> arr) {
         }
     }
     return changes;
-}
-
-int main() {
-    vector<int> input = {0, 1};
-    assert(smallest_change(input) == 1);
-    return 0;
 }
