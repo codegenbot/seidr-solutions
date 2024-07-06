@@ -1,4 +1,3 @@
-```
 def double_the_difference():
     user_input = input("Enter a list of integers: ")
     lst = [int(x) for x in user_input.split()]
