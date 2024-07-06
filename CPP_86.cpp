@@ -1,21 +1,20 @@
+```
 #include <string>
 
-string anti_shuffle(string s){
-    string result = "";
+std::string anti_shuffle(std::string s){
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
             result += ' ';
         }else{
-            bool foundSpace = false;
-            while(i < s.length() && !foundSpace){
+            char c = s[i];
+            while(c != ' ' && i < s.length()){
                 int j = i+1;
-                foundSpace = true;
-                while(j < s.length() && s[j] <= s[i]){
-                    if(s[j] != ' ')
-                        foundSpace = false;
+                while(j < s.length() && s[j] <= c){
+                    c = s[j];
                     j++;
                 }
-                result += s[i];
+                result += c;
                 i = j-1;
             }
         }
