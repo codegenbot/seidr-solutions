@@ -1,20 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cctype>
+#include <bits/stdc++.h>
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size()!=b.size())
+        return false;
+    for(int i=0;i<a.size();i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = ""; 
 
     for (char c : s) {
-        if (std::isalpha(c)) {
+        if (isalpha(c)) {
             word += tolower(c);
-        } else if (!word.empty()) {
+        } else if (!word.empty()) { 
             bool has_n_consonants = false;
             int consonant_count = 0;
             for (char ch : word) {
-                if (!std::ispunct(ch) && !std::isspace(ch) && !std::isvowel(tolower(ch))) {
+                if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
                     consonant_count++;
                     if (consonant_count == n) {
                         has_n_consonants = true;
@@ -25,7 +31,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             if (has_n_consonants) {
                 result.push_back(word);
             }
-            word = ""; // Clear word
+            word = ""; 
         }
     }
     return result;
