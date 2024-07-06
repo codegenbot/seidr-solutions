@@ -7,6 +7,8 @@ bool issame(vector<int> a, vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
+vector<int> sort_third(vector<int> l);
+
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
     for(int i = 0; i < l.size(); i++) {
