@@ -5,11 +5,11 @@ int main {
     std::cin >> num_operations;
 
     // Read each operation from user and store it in the vector
-    std::vector<int> operations;
     for (int i = 0; i < num_operations; ++i) {
         int operation;
         std::cout << "Enter operation " << i + 1 << ": ";
         std::cin >> operation;
+        std::vector<int> operations;
         operations.push_back(operation);
     }
 
