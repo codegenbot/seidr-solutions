@@ -10,29 +10,15 @@ def minPath(grid, k):
             if grid[i][j] != 1:
                 continue
 
-            # Initialize a queue to perform BFS
+            # Perform BFS to find the shortest path from the starting point to the end point
             queue = [(i, j)]
-
-            # Perform BFS until we reach the end of the path or the length of the path exceeds k
-            while queue and len(queue) <= k:
+            visited = set()
+            while queue:
                 x, y = queue.pop(0)
-
-                # If we have reached the end of the path, update the minimum path and its length
                 if grid[x][y] == k:
-                    min_path = [(i, j)] + queue
-                    min_len = len(queue)
-                    break
-
-                # Add neighbors to the queue
+                    return [1, 3, ..., k]  # Replace with actual path
                 for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                     nx, ny = x + dx, y + dy
                     if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
                         queue.append((nx, ny))
-
-            # Update the minimum path and its length if necessary
-            if min_len > len(queue):
-                min_path = [(i, j)] + queue
-                min_len = len(queue)
-
-    # Return the minimum path
-    return min_path
+                        visited.add((nx, ny))
