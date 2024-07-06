@@ -1,13 +1,23 @@
-def parse_nested_parens(paren_string):
+def parse_nested_parens(paren_string: str) -> list[int]:
+    if len(paren_string) == 1:
+        return [0]
     result = []
     for group in paren_string.split():
-        levels = []
         level = 0
-        for i, char in enumerate(group):
+        for char in group:
             if char == "(":
                 level += 1
             elif char == ")":
                 level -= 1
-            levels.append(level)
-        result.extend(levels)
+        result.append(level)
+
+    # Recursively parse each group as a separate nested parentheses problem
+    for group in paren_string.split():
+        levels = []
+        for i, char in enumerate(group):
+            if char == "(":
+                level = 1 + parse_nested_parens(group[i + 1 :])[0]
+            elif char == ")":
+                level = -1 + parse_nested_parens(group[: i - 1])[0]
+        levels.append(level)
     return result
