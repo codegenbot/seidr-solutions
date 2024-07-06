@@ -1,9 +1,14 @@
-def sum_of_squares_of_elements_at_positions_divisible_by_3_or_4(lst):
+```
+def sum_squares(lst):
+    if not isinstance(lst, list) or len(lst) == 0:
+        raise ValueError("Input must be a non-empty list")
+    
     total_sum = 0
     for i in range(len(lst)):
-        if (i + 1) % 3 == 0 or (i + 1) % 4 == 0:
+        if i % 3 == 0 and i % 4 != 0:
             total_sum += lst[i] ** 2
+        elif i % 4 == 0 and i % 3 != 0:
+            total_sum += lst[i] ** 3
+        else:
+            total_sum += lst[i]
     return total_sum
-
-lst = list(map(int, input("Enter a list of integers separated by space: ").split()))
-print(sum_of_squares_of_elements_at_positions_divisible_by_3_or_4(lst))
