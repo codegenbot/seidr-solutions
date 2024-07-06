@@ -1,6 +1,6 @@
 def encode(message):
     encoded_message = ""
-    for char in message:
+    for char in message.lower():
         if char.isalpha():
             encoded_char = chr((ord(char) - ord("a") + 3) % 26)
         else:
