@@ -1,5 +1,4 @@
 #include <iostream>
-
 int main() {
     int cents;
     std::cin >> cents;
@@ -15,10 +14,10 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << quarters << "\n";
-    std::cout << dimes << "\n";
-    std::cout << nickles << "\n";
-    std::cout << pennies << "\n";
+    std::cout << quarters << std::endl;
+    std::cout << dimes << std::endl;
+    std::cout << nickles << std::endl;
+    std::cout << pennies << std::endl;
 
     return 0;
 }
