@@ -1,9 +1,9 @@
-```
-#include <string>
+```cpp
 #include <sstream>
+#include <string>
 
-const string& string_sequence(int n) {
-    ostringstream oss;
+const std::string& string_sequence(int n) {
+    std::ostringstream oss;
     for (int i = 0; i <= n; ++i) {
         oss << i << " ";
     }
