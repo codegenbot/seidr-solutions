@@ -1,11 +1,17 @@
-#include <boost/any.hpp>
+```cpp
+#include <optional>
+#include <vector>
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if(boost::any_cast<boost::optional<int>>(value).has_value()) {
-            int optionalInt = boost::any_cast<boost::optional<int>>(value).get();
-            result.push_back(optionalInt);
+        if(value.type() == typeid(std::optional<int>)) {
+            auto optionalInt = boost::any_cast<std::optional<int>>(value);
+            if( optionalInt.has_value()) {
+                int i = optionalInt.get();
+                result.push_back(i);
+            }
         }
     }
     return result;
+}
