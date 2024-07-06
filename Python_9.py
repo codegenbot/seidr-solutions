@@ -1,6 +1,6 @@
 ````
 """
-def rolling_max(numbers: list[int]) -> list[int]:
+def rolling_max(numbers: List[int]) -> List[int]:
     result = []
     max_so_far = numbers[0]
     for num in numbers:
@@ -9,4 +9,3 @@ def rolling_max(numbers: list[int]) -> list[int]:
             max_so_far = num
     return result
 """
-```
