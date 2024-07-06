@@ -1,6 +1,18 @@
-```
-#include <vector>
+```cpp
 #include <iostream>
+#include <vector>
+
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> primes;
@@ -27,14 +39,11 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
+    
+    std::vector<int> primes = count_up_to(n);
 
-    auto primes = count_up_to(n);
-
-    for (auto prime : primes) {
-        std::cout << prime << " ";
+    for(int i=0; i<primes.size();i++){
+        std::cout<<primes[i]<<" ";
     }
-
-    std::cout << std::endl;
-
     return 0;
 }
