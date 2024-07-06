@@ -1,4 +1,4 @@
-def match_parens(lst) -> str:
+def match_parens(lst):
     stack = []
     for s in lst:
         for c in s:
