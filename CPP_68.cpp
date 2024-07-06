@@ -5,7 +5,7 @@ using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if(arr.empty()) return result;
+    if(arr.empty()) return vector<pair<int, int>>();
     
     int minEven = INT_MAX;
     int minIndex = -1;
