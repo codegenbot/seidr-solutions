@@ -1,7 +1,5 @@
 ```
 from typing import List
-
-
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
@@ -13,5 +11,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             elif char == ')':
                 level -= 1
             max_level = max(max_level, level)
-        result.append(max_level + 1)
+        result.append(max_level)
     return result
