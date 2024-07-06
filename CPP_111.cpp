@@ -1,38 +1,25 @@
-```cpp
-#include <string>
-#include <map>
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
-    
-    string word;
-    for (char c : test) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                ++result[word[0]];
-                word.clear();
-            }
+
+    string str = test; // remove trailing spaces
+    char prevChar = str[0];
+    int count = 1;
+
+    for (int i = 1; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            continue;
+        }
+        else if (str[i] != prevChar) {
+            prevChar = str[i];
+            count = 1;
         } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        ++result[word[0]];
-    }
-
-    map<char, int> maxMap;
-    int maxCount = 0;
-    for (auto& pair : result) {
-        if (pair.second > maxCount) {
-            maxMap.clear();
-            maxMap[pair.first] = pair.second;
-            maxCount = pair.second;
-        } else if (pair.second == maxCount) {
-            maxMap[pair.first] = pair.second; 
+            count++;
         }
     }
 
-    return maxMap;
+    for (auto &p : result)
+    p.second++; // increment counts by 1 for each character
+
+    return result;
 }
