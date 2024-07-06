@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
@@ -44,6 +45,11 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    // your code here
+    vector<int> arr = {5,8,4,2,7};
+    vector<string> result = by_length(arr);
+    for (string str : result) {
+        cout << str << " ";
+    }
+    cout << endl;
     return 0;
 }
