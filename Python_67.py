@@ -3,14 +3,8 @@ def fruit_distribution(s, n):
     words = s.split()
     count = 0
     for word in words:
-        if (
-            "apples" in word
-            and int(word.replace(" apples", "").replace("apple", "")) < n
-        ):
-            count += int(word.replace(" apples", "").replace("apple", ""))
-        elif (
-            "oranges" in word
-            and int(word.replace(" oranges", "").replace("orange", "")) < n
-        ):
-            count += int(word.replace(" oranges", "").replace("orange", ""))
+        if "apples" in word and (result := word.replace(" apples", "").replace("apple", "")).isdigit() and int(result) < n:
+            count += int(result)
+        elif "oranges" in word and (result := word.replace(" oranges", "").replace("orange", "")).isdigit() and int(result) < n:
+            count += int(result)
     return n - count
