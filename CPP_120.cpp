@@ -3,11 +3,19 @@
 #include <queue>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
     return true;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    priority_queue<int> pq;
+    std::priority_queue<int> pq;
     for (int num : arr) {
         pq.push(num);
     }
@@ -20,5 +28,5 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));  
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3) , {3, 2, 1}));
 }
