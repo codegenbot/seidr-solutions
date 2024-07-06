@@ -1,4 +1,3 @@
-```cpp
 bool any_int(float a, float b, float c) {
     if (a == static_cast<int>(a) && 
         b == static_cast<int>(b) && 
