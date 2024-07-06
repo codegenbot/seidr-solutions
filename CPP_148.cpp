@@ -5,7 +5,7 @@ bool issame(const std::vector<std::string>& a) {
     return true;
 }
 
-bool bf(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool bf(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -27,5 +27,14 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 
 int main() {
     assert(bf(code({"Jupiter"}, {"Makemake"}), {}) == std::vector<std::string>({}));
-    std::cout << "Output: " << bf(code({"Jupiter"}, {"Makemake"}), {}) << std::endl;
+    std::cout << "Output: ";
+    
+    std::vector<std::string> s1 = {"Jupiter"};
+    std::vector<std::string> s2 = {"Makemake"};
+    
+    if (bf(code(s1, s2), {})) {
+        std::cout << "true" << std::endl;
+    } else {
+        std::cout << "false" << std::endl;
+    }
 }
