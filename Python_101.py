@@ -9,4 +9,4 @@ def words_string():
             continue
         result = [x.strip() for x in re.split("[,\s]+", s) if x]
         break
-    return result
+    print(result)
