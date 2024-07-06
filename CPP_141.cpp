@@ -1,4 +1,3 @@
-```c++
 #include <cassert>
 #include <string>
 
@@ -10,6 +9,6 @@ bool file_name_check(const std::string& file_name) {
 }
 
 int main_test() {
-    assert(!file_name_check("s.") == false);
+    assert(!file_name_check("s."));
     return 0;
 }
