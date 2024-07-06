@@ -3,17 +3,16 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                index = ord(char.lower()) - 97
-                new_char = chr((index + 2) % 26 + 97)
-                if char.isupper():
-                    result += new_char.upper()
+            if char.islower():
+                if char in 'aeiou':
+                    result += chr((ord(char) - 97 + 3) % 26 + 97)
                 else:
-                    result += new_char
-            elif char.isupper():
-                result += char.lower().swapcase()
+                    result += chr((ord(char) - 97 + ord(char).bit_length()) % 26 + 97)
             else:
-                result += char.swapcase()
+                if char in 'AEIOU':
+                    result += chr((ord(char) - 65 + 3) % 26 + 65)
+                else:
+                    result += chr((ord(char) - 65 + ord(char).bit_length()).upper())
         else:
             result += char
     return result
