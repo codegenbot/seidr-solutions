@@ -6,4 +6,9 @@ def sort_array(input_array=None):
     try:
         return sorted(array)
     except ValueError as e:
-        return "Error: Array contains non-integer values"
+        return (
+            str(e)
+            .replace("could not convert", "must be an integer")
+            .replace("['", "[")
+            .replace("']]", "]")
+        )
