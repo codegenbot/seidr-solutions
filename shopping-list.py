@@ -1,4 +1,12 @@
 def shopping_list(prices, discounts, total_price):
+    """
+    Calculate the total price of a shopping list with discounts applied.
+    Parameters:
+        prices (list): List of float prices for each item in the shopping list.
+        discounts (list): List of float discounts for each item in the shopping list, as percentages (e.g. 20 for a 20% discount).
+    Returns:
+        float: The total price of the shopping list with discounts applied.
+    """
     # Validate input
     if len(discounts) < len(prices):
         discounts += [0] * (len(prices) - len(discounts))
