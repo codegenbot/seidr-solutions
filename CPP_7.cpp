@@ -14,10 +14,8 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b); // add semicolon
-bool isSame(std::vector<std::string> a, std::vector<std::string> b){ 
-    return (a==b); 
-}
+
 int main() {
-    assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+    assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), filter_by_substring({"grunt", "prune"})));
     return 0;
 }
