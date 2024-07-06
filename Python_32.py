@@ -1,14 +1,8 @@
-```
-def find_zero(a, b, c):
-    x1 = (-b + (b**2 - 4 * a * c)**0.5) / (2 * a)
-    x2 = (-b - (b**2 - 4 * a * c)**0.5) / (2 * a)
-    return min(x1, x2)
-
 print("Enter 'a', 'b', 'c': ")
 a = float(input())
 
 while True:
-    print("Enter non-zero values for 'a', 'b', 'c': ")
+    print("Enter non-zero values for 'b' and 'c': ")
     b = float(input())
     c = float(input())
 
@@ -17,5 +11,5 @@ while True:
     else:
         break
 
-result = find_zero(a, b, c)
+result = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
 print(f"Zero is approximately {result}")
