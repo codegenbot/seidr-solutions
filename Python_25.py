@@ -1,13 +1,4 @@
-from typing import List
-
-def get_average_weight(librarians: List[List[str]]) -> float:
-    total_weight = 0
-    for librarian in librarians:
-        weight = 0
-        for book in librarian:
-            if "hardcover" in book:
-                weight += 1.5
-            elif "paperback" in book:
-                weight += 1
-        total_weight += weight
-    return total_weight / len(librarians)
+def calculate_average_age_and_names(students):
+    average_age = sum(student["age"] for student in students) / len(students)
+    names = [student["name"] for student in students]
+    return average_age, names
