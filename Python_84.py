@@ -1,4 +1,5 @@
-def main():
+```
+def solve():
     choice = int(
         input(
             "Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? "
@@ -10,3 +11,9 @@ def main():
     elif choice == 2:
         N = input("Enter a binary number: ")
         print(oct(int(N, 2))[2:])
+
+def main():
+    solve()
+
+if __name__ == "__main__":
+    main()
