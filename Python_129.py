@@ -1,17 +1,15 @@
-def minPath(grid, k):
-    N = len(grid)
-    visited = [[False] * N for _ in range(N)]
-    queue = [(0, 0, [])]
-    min_path = None
-    while queue:
-        row, col, path = queue.pop(0)
-        if len(path) == k:
-            if not min_path or path < min_path:
-                min_path = path
-        else:
-            for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                nr, nc = row + dr, col + dc
-                if 0 <= nr < N and 0 <= nc < N and not visited[nr][nc]:
-                    queue.append((nr, nc, path + [grid[nr][nc]]))
-                    visited[nr][nc] = True
-    return min_path
+```
+N = int(input("Enter the number of rows in the grid: "))
+M = int(input("Enter the number of columns in the grid: "))
+
+grid = [[0 for _ in range(M)] for _ in range(N)]
+
+for i in range(N):
+    row = input(f"Enter row {i+1} (space-separated): ").split()
+    for j in range(len(row)):
+        grid[i][j] = int(row[j])
+
+k = int(input("Enter the number of elements to find: "))
+
+min_path = minPath(grid, k)
+print(min_path)
