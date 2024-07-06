@@ -1,15 +1,2 @@
-```
 def is_equal_to_sum_even(n):
-    for i in range(1, n+1):
-        found = False
-        for j in range(i+1, n+1):
-            k = n - i - j
-            if (i+j) % 2 == 0 and k > 0:
-                found = True
-                break
-            elif i+j+k == n:
-                found = True
-                break
-        if not found:
-            return False
-    return True
+    return any(sum(range(2, i+1, 2)) == n for i in range(2, n+1, 2))
