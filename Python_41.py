@@ -11,4 +11,8 @@ def car_race_collision(n: int):
             right_to_left -= 1
         collisions += 1
 
-    return collisions * 2
+    return collisions
+
+def test_car_race_collision():
+    assert car_race_collision(10) == 100
+```
