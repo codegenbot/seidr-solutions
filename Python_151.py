@@ -5,6 +5,5 @@ def double_the_difference(lst):
     return 2 * diff
 
 
-if __name__ == "__main__":
-    lst = [int(x) for x in input("Enter numbers: ").split()]
-    print(double_the_difference(lst))
+# test your function with a list of numbers
+double_the_difference([1, 3, 5, 7])  # should return 14
