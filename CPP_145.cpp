@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -29,28 +34,25 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    int n; cin >> n;
-    vector<int> a(n), b(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i] >> b[i];
+    int n;
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+    
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> nums[i];
     }
-    
-    if(issame(a,b))
-    cout << "Yes\n";
-    else 
-    cout << "No\n";
-    
-    vector<int> points;
-    int m; cin >> m;
-    for(int i=0; i<m; i++) {
-        int num; cin >> num;
-        points.push_back(num);
+
+    if(issame(nums, order_by_points(nums))) {
+        cout << "The array is same after ordering by points." << endl;
+    } else {
+        vector<int> ordered = order_by_points(nums);
+        for(int i : ordered) {
+            cout << i << " ";
+        }
+        cout << endl;
     }
-    
-    vector<int> result = order_by_points(points);
-    
-    for(auto x : result) {
-        cout << x << " ";
-    }cout << endl;
+
     return 0;
 }
