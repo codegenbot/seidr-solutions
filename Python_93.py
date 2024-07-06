@@ -8,7 +8,7 @@ def encode(message):
                 result += char.swapcase()
         else:
             if char == ' ': 
-                result += ' '
+                result += char
             else:
                 result += char
     return result
