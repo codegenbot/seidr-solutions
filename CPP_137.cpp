@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
 
 using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -54,7 +53,7 @@ int main(){
 
     cout << "Enter the first input: ";
     cin >> s1;
-    
+
     istringstream iss(s1);
     iss >> f1;
 
@@ -72,7 +71,7 @@ int main(){
     if(result.type() == typeid(string))
         cout << "Result: None";
     else
-        cout << "Result: " << boost::lexical_cast<int>(result) << endl;
+        cout << "Result: " << boost::any_cast<float>(result);
 
     return 0;
 }
