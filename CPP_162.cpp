@@ -1,5 +1,5 @@
-#include <string>
 #include <openssl/evp.h>
+#include <string>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -19,3 +19,4 @@ string string_to_md5(string text) {
         result += buf;
     }
     return result;
+}
