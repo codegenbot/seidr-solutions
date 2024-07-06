@@ -1,3 +1,4 @@
 def double_the_difference(numbers):
-    lst = numbers
-    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    min_num = min(num for num in numbers if isinstance(num, int) and num > 0)
+    max_num = max(num for num in numbers if isinstance(num, int) and num % 2 != 0)
+    return abs(min_num - max_num) * 2
