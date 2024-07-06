@@ -16,7 +16,7 @@ def car_race_collision():
     for i in range(n):
         while True:
             try:
-                speed, damage = map(int, input(f"Enter speed and damage for car {i+1}: ").split())
+                speed, damage = map(int, input(f"Enter speed and damage for car {i+1} (space-separated): ").split())
                 break
             except ValueError:
                 print("Invalid input. Please enter two integers separated by a space.")
@@ -24,6 +24,3 @@ def car_race_collision():
     return str(total_damage)
 
 print(car_race_collision())
-
-while True:
-    print(car_race_collision())
