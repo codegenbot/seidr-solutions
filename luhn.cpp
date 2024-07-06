@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 int luhn(vector<int>& digits) {
@@ -16,8 +15,7 @@ int luhn(vector<int>& digits) {
 }
 
 int main() {
-    vector<int> digits = {...}; // input data
+    vector<int> digits = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}; // input data
     int sum = luhn(digits);
-    cout << "Sum: " << sum << endl;
-    return 0;
+    cout << "Sum: " << sum;
 }
