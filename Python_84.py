@@ -23,7 +23,7 @@ def convert():
                 print(N)
                 break
             except ValueError:
-                print("That's not a valid binary number! Try again.")
+                print("That's not a valid binary number! Try again."
 
 
 if __name__ == "__main__":
