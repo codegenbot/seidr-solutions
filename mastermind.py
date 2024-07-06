@@ -1,4 +1,4 @@
-"""  
+""" 
 def mastermind(code, guess):
     white = 0
     black = 0
@@ -11,12 +11,8 @@ def mastermind(code, guess):
         elif code_count[ord(code[i]) - ord('A')] > 0 and code_count[ord(code[i]) - ord('A')] > guess_count[ord(code[i]) - ord('A')]:
             white += 1
 
-    black_peg_limit = min(black, 4)
-    for i in range(4):
-        if code[i] == guess[i]:
-            black -= 1
-        elif black < black_peg_limit:
-            break
+    # Handle cases where there are more pegs than positions
+    black = min(black, 4)
+    white = min(white - black, 4)
 
-    return black, min(white + black, 4)
-"""
+    return black, white
