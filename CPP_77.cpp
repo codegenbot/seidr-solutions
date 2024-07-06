@@ -1,6 +1,6 @@
-Here is the completed code:
+#include <cmath>
 
 bool iscuber(int a){
-    int root = cbrt(a);
-    return (root * root) == a;
+    int c = round(cbrt(a));
+    return (c*c*c == a);
 }
