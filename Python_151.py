@@ -6,7 +6,6 @@ def get_input():
 def double_the_difference(lst):
     return sum(i**2 for i in lst if isinstance(i, int) and i > 0) * 2
 
-# Usage:
 input_lst = get_input()
 result = double_the_difference(input_lst)
 print(result)
