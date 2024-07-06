@@ -12,26 +12,26 @@ while True:
         if num1_str.lower() == 'q':
             break
         
-        num1 = int(num1_str)
-        
-        choice = input(f"Add another number for {num1}? (y/n) ")
-        
         while True:
-            if choice.lower() != 'y' and choice.lower() != 'n':
-                print("Invalid choice. Please enter y or n.")
-                choice = input(f"Add another number for {num1}? (y/n) ")
-            else: 
+            try:
+                num1 = int(num1_str)
                 break
-        
-        if choice.lower() == 'n':
-            break
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+                num1_str = input("Enter first number (or 'q' to quit): ")
         
         num2_str = input("Enter second number: ")
         
         if num2_str.lower() == 'q':
             break
 
-        num2 = int(num2_str)
+        while True:
+            try:
+                num2 = int(num2_str)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+                num2_str = input("Enter second number: ")
 
         print(add(num1, num2))
     except ValueError:
