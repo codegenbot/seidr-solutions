@@ -1,4 +1,5 @@
 def sort_third(l: list):
+    """Given a list of integers l, return the third sorted in ascending order."""
     result = []
     for i, x in enumerate(l):
         if i % 3 != 0:

@@ -1,3 +1,4 @@
+```
 stack = []
 group = ""
 result = []
