@@ -1,7 +1,7 @@
 import re
+
+
 def fix_spaces(text):
-    # Replace multiple spaces with single underscore
+    text = input("Enter some text: ")
     text = re.sub(r"\s+", "_", text)
-    
-    # Remove all remaining spaces
     return text.replace(" ", "")
