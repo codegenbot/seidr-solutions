@@ -1,8 +1,10 @@
 def leaders(vector):
-    result = []
-    current_leader = vector[-1]
-    for i in range(len(vector) - 2, -1, -1):
-        if vector[i] >= current_leader:
-            result.append(current_leader)
+    if len(vector) == 0:
+        return []
+    result = [vector[0]]
+    current_leader = vector[0]
+    for i in range(1, len(vector)):
+        if vector[i] >= current_leader and vector[i] != current_leader:
+            result.append(vector[i])
             current_leader = vector[i]
-    return result + [current_leader]
+    return result

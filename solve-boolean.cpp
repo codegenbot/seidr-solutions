@@ -1,6 +1,14 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 using namespace std;
+
+int main() {
+    string expression;
+    cin >> expression;
+    bool result = evaluate(expression);
+    cout << result << endl;
+    return 0;
+}
 
 bool evaluate(const string &expression) {
     bool result = true;
@@ -16,12 +24,4 @@ bool evaluate(const string &expression) {
         }
     }
     return result;
-}
-
-int main() {
-    string expression;
-    getline(cin, expression);
-    bool result = evaluate(expression);
-    cout << (result ? "true" : "false") << endl;
-    return 0;
 }

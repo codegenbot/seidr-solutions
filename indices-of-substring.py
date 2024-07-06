@@ -1,6 +1,6 @@
-import re
-
-
-def indices_of_substring(text, target):
-    matches = re.finditer(target, text)
-    return [match.start() for match in matches]
+def get_indices(text, target):
+    indices = []
+    for i in range(len(text)):
+        if text[i:].startswith(target):
+            indices.append(i)
+    return indices

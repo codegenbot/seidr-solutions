@@ -1,5 +1,7 @@
 def get_middle(s):
     if len(s) % 2 == 0:
-        return f"{s[len(s) // 2 - 1 : len(s) // 2 + 2]}"
+        # Even number of characters, return two middle characters
+        return s[len(s) // 2 - 1 : len(s) // 2 + 2]
     else:
-        return f"{s[len(s) // 2]}"
+        # Odd number of characters, return the middle character
+        return s[len(s) // 2]
