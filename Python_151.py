@@ -1,3 +1,2 @@
-def check(f):
-    result = f()
-    print("Double the sum of squares of all positive numbers: ", 2 * result)
+def check(func):
+    func(lambda: double_the_difference(input().split()))
