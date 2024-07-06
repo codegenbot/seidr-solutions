@@ -1,9 +1,9 @@
 ```
 #include <openssl/md5.h>
-#include <sstream>
 #include <string>
+#include <sstream>
 
-std::string string_to_md5(const std::string& text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
     unsigned char md5[MD5_DIGEST_LENGTH];
     MD5((unsigned char*)text.c_str(), text.size(), md5);
