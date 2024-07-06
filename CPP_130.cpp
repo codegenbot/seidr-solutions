@@ -1,32 +1,14 @@
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 using namespace std;
 
 vector<int> tri(int n) {
-    vector<int> result(n + 1);
-    if (n >= 0) {
-        result[0] = 3;
-        if (n >= 1) {
-            result[1] = 1;
-            if (n >= 2) {
-                result[2] = 1 + 2 / 2;
-                for (int i = 3; i <= n; i++) {
-                    result[i] = result[i - 1] + result[i - 2] + (i % 2 ? result[i - 3] : 1 + i / 2);
-                }
-            }
+    vector<int> result(1, 3);
+    if (n > 0) {
+        for (int i = 1; i <= n - 1; i++) {
+            int val = (i % 2 == 0) ? 1 + i / 2 : result[i-1] + result[i-2] + (i+1);
+            result.push_back(val);
         }
     }
     return result;
-}
-
-int main() {
-    int n;
-    cout << "Enter a non-negative integer number: ";
-    cin >> n;
-    vector<int> sequence = tri(n);
-    for (int num : sequence) {
-        cout << num << " ";
-    }
-    cout << endl;
-    return 0;
 }
