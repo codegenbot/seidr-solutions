@@ -23,4 +23,4 @@ def find_closest_elements() -> Tuple[float, float]:
     if closest_pair != (None, None):
         return tuple(sorted(closest_pair))
     else:
-        return None
+        return
