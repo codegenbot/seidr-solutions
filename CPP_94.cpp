@@ -1,7 +1,10 @@
-int main_test() {
-    std::vector<int> lst;
-    std::string input;
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main_test(std::vector<int> lst) {
     std::cout << "Enter the list of numbers (space separated): ";
+    std::string input;
     getline(std::cin, input);
     for (int i = 0; i < input.size(); i++) {
         int num = std::stoi(input.substr(i));
