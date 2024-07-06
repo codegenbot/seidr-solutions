@@ -11,7 +11,9 @@ def separate_paren_groups(paren_string):
                 stack.pop()
                 count -= 1
             else:
-                # Check if the stack is empty after popping the closing parenthesis
-                if not stack:
-                    result.append(c)
-    return [group for group in result if group[0] == "(" and group[-1] == ")" and len(group) % 2 == 0 and count == 0]
+                result.append(c)
+    return [
+        group
+        for group in result
+        if group[0] == "(" and group[-1] == ")" and len(group) % 2 == 0 and count == 0
+    ]
