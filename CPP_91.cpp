@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int is_bored(string S) {
@@ -8,7 +7,6 @@ int is_bored(string S) {
         if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
             count++;
         }
-        pos = S.find("I", pos + 1);
+        pos = S.find("I", pos);
     }
     return count;
-}
