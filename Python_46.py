@@ -6,8 +6,8 @@ def fib4(n: int):
     else:
         sequence = [0, 0, 2]
         for i in range(5, n + 1):
-            if i < len(sequence):
+            try:
                 sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
-            else:
-                return -1  # or any other value to indicate an error
+            except IndexError:
+                return -1
         return sequence[n]
