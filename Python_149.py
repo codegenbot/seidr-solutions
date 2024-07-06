@@ -1,9 +1,11 @@
 def sorted_list_sum(input_list):
     while True:
         try:
-            user_input = input("Enter a list of numbers separated by space: ").split()
-            break
+            user_input = input("Enter a list of words separated by space: ").split()
+            sum_val = 0
+            for word in user_input:
+                if "".join(filter(str.isdigit, word)).isdigit():
+                    sum_val += int(word)
+            return sum_val
         except ValueError:
-            print("Invalid input. Please enter numbers separated by spaces.")
-
-    return str(sum(sorted(map(int, user_input))))
+            print("Invalid input. Please enter numbers and/or words separated by spaces.")
