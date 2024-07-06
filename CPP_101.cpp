@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -48,11 +48,11 @@ int main() {
         }
     }
     expect.push_back(str.substr(start));
-    
+
     std::cout << "Words in string: ";
     for (const auto &word : words_string(str, expect)) {
         std::cout << word << " ";
     }
     std::cout << "\n";
-    assert(issame(words_string("ahmed, gamal", {"ahmed", "gamal"})));
+    assert(issame(words_string(str, {"ahmed", "gamal"})) == (std::vector<std::string>{("ahmed"), ("gamal")}));
 }
