@@ -13,15 +13,15 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> tempResult;
-    for (const auto& str : lst) {
+std::vector<std::string> sorted_list_sum(std::vector<std::string> input_vector) {
+    std::vector<std::string> result;
+    for (const auto& str : input_vector) {
         if (str.length() % 2 == 0 || issame({str}, {"sum"})) { 
-            tempResult.push_back(str);
+            sum_vector.push_back(str);
         }
     }
-    std::sort(tempResult.begin(), tempResult.end());
-    return tempResult;
+    std::sort(result.begin(), result.end());
+    return result;
 }
 
 bool issame_helper(const std::string& a, const std::string& b) {
