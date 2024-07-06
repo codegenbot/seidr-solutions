@@ -6,7 +6,7 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), min(arr.begin() + k, arr.end()));
-    sort(result.begin(), result.end());
-    return result;
+    vector<int> result(arr.begin(), arr.end());
+    sort(result.rbegin(), result.rend());
+    return vector<int>(result.begin(), result.begin() + k);
 }
