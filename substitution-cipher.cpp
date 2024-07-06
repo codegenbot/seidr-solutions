@@ -4,21 +4,21 @@
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
-    for (int i = 0; i < mapping.length(); i++) {
-        char c_map = mapping[i];
-        if (c_map == ' ') {
-            result += ' ';
+    for (char c : cipher) {
+        int idx = mapping.find(c);
+        if (idx != std::string::npos) {
+            char m = mapping[idx];
+            result += m;
         } else {
-            char deciphered_c = (cipher.find(c_map) != std::string::npos) ? cipher[c_map - 'a' : 0] : ' ';
-            result += deciphered_c;
+            result += c;
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipher, mapping;
-    std::cin >> cipher >> mapping;
+    std::string mapping, cipher;
+    std::cin >> mapping >> cipher;
     std::cout << decode(cipher, mapping) << std::endl;
     return 0;
 }
