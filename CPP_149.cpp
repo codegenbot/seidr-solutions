@@ -12,7 +12,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
                 if (first) {
                     first = false;
                 } else {
-                    temp += c; 
+                    temp.push_back(c);
                 }
             }
             result.push_back(temp);
