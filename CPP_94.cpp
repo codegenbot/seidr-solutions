@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -35,7 +35,10 @@ int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
+    std::vector<int> lst;
+    for (int i : {1, 2, 3, 4, 5}) {
+        lst.push_back(i);
+    }
     std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << endl;
     return 0;
 }

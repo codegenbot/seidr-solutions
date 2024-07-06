@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 int smallest_change(std::vector<int> arr) {
     std::string str = "";
@@ -16,6 +15,7 @@ int smallest_change(std::vector<int> arr) {
     return changes;
 
 int main() {
-    std::cout << "This is your output" << std::endl;  
-    return 0;
+    std::vector<int> arr = {1, 2, 3};
+    int result = smallest_change(arr);
+    return 0; 
 }

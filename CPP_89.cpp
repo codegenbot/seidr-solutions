@@ -1,4 +1,5 @@
-```cpp
+Here's the modified code:
+
 #include <iostream>
 #include <string>
 
