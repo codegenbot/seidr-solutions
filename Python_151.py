@@ -7,7 +7,9 @@ def check(lst):
 
 
 def double_the_difference(lst):
-    return [(x - min(lst)) * 2 + min(lst) for x in lst]
+    first_half_sum = sum(i for i in lst[:len(lst)//2])
+    second_half_sum = sum(i for i in lst[len(lst)//2:])
+    return [abs(first_half_sum - second_half_sum)]
 
 
 check([1, 3, 5])
