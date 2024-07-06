@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+
+vector<string> b;
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
@@ -19,29 +20,11 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
+}
+
 int main() {
-    int n;
-    std::cout << "Enter number of strings: ";
-    std::cin >> n;
-    vector<string> strings(n);
-
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter string" << (i + 1) << ": ";
-        std::getline(std::cin, strings[i]);
-    }
-
-    string prefix;
-    cout<<"Enter the prefix: ";
-    cin>>prefix;
-
-    vector<string> filteredStrings = filter_by_prefix(strings, prefix);
-
-    if(filteredStrings.size() > 0){
-        cout << "The list of strings that start with the given prefix are:" << endl;
-        for(auto str : filteredStrings)
-            cout << str << endl;
-    } else
-        cout<<"No string starts with the given prefix."<<endl;
-
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    b = filter_by_prefix(strings, "xxx");
+    assert (issame(b , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
