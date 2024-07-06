@@ -2,26 +2,24 @@
 
 using namespace std;
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result = {};
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return {};
 
-    if (arr.empty()) {
-        return result;
-    }
-
-    int smallestEvenIndex = -1;
-    int smallestEvenValue = INT_MAX;
+    int min_even = INT_MAX;
+    int min_even_index = 0;
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenIndex = i;
-            smallestEvenValue = arr[i];
+        if (arr[i] % 2 == 0 && arr[i] < min_even) {
+            min_even = arr[i];
+            min_even_index = i;
         }
     }
 
-    if (smallestEvenIndex != -1) {
-        result.push_back(smallestEvenValue);
-        result.push_back(smallestEvenIndex);
+    if (min_even != INT_MAX) {
+        result.push_back({min_even, min_even_index});
+    } else {
+        result.push_back({0, 0});
     }
 
     return result;
