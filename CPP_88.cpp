@@ -1,19 +1,24 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+using namespace std;
 
+bool issame(vector<int> a,vector<int> b) {
+    return a == b;
 }
 
 vector<int> sort_array(vector<int> array) {
-    int sum = 0;
-    for (int num : array) {
-        sum += num;
+    if (array.empty()) {
+        return array;
     }
-    if (sum % 2 != 0)
+    if (array[0] + array.back() % 2 == 1)
         return array;
     else
-        std::sort(array.begin(), array.end());
-    return array;
+        return vector<int>(array.rbegin(), array.rend());
+
+}
+
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}), {11, 14, 21, 23}));
+    return 0;
 }
