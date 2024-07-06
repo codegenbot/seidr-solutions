@@ -6,12 +6,21 @@ int smallest_change(std::vector<int> arr) {
     int left = 0, right = arr.size() - 1;
     int changes = 0;
 
-    while (left <= right) {
+    while (left < right) {
         if (arr[left] != arr[right]) {
-            changes++;
+            for (int i = left; i <= right; i++) {
+                if (arr[i] == arr[right]) {
+                    std::swap(arr[i], arr[left]);
+                    changes++;
+                    break;
+                }
+            }
+            left++;
+            right--;
+        } else {
+            left++;
+            right--;
         }
-        left++;
-        right--;
     }
 
     return changes;
