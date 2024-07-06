@@ -1,13 +1,12 @@
-import collections
-
 def minPath(grid, k):
-    # ... existing code ...
+    n = len(grid)
+    dp = [[float("inf") for _ in range(n)] for _ in range(n)]
+    dp[0][0] = grid[0][0]
 
-# Read user input
-n = int(input("Enter the size of the grid: "))
-m = int(input("Enter the number of steps: "))
-k = int(input("Enter the maximum allowed value for the sum of the elements in a path: "))
+    for i in range(1, n):
+        for j in range(len(grid[0])):
+            if i == 0 and j == 0:
+                continue
+            dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
 
-# Call minPath with the user input
-result = minPath(grid, k)
-print(result)
+    return dp[-1][-1]
