@@ -1,3 +1,4 @@
+```
 def encode(text, table):
     result = ""
     shifts = [int(x) for x in table.split() if x.isdigit()]
@@ -14,5 +15,4 @@ def encode(text, table):
             result += char
     return result
 
-
-print(encode("i doNt knOw whAt tO wrItE", "k dQnT kNqW wHcT Tq wRkTg"))
+print(encode("i doNt knOw whAt tO wrItE", "k 3 11 10 19 14 5 21 7 6 1 22"))
