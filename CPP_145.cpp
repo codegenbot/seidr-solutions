@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -20,4 +19,3 @@ int main() {
         }
         return result;
     }
-}
