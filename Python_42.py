@@ -1,5 +1,5 @@
-```
 def incr_list():
+    """
     while True:
         try:
             n = int(input("Enter a number: "))

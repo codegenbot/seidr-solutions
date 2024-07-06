@@ -1,9 +1,11 @@
+```
 print("Enter 'a': ")
 a = float(input())
 
 while True:
-    print("Enter 'b', 'c': ")
+    print("Enter 'b': ")
     b = float(input())
+    print("Enter 'c': ")
     c = float(input())
 
     if a == 0 or b**2 - 4 * a * c < 0:
