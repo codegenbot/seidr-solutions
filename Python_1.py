@@ -1,13 +1,14 @@
 def separate_paren_groups(paren_string: str) -> list[str]:
     groups = []
-    current_group = ""
-    for char in paren_string:
-        if char == "(" or char == ")":
-            if len(current_group) > 0 and current_group[-1] != char:
-                groups.append(current_group)
-                current_group = ""
-        else:
-            current_group += char
-    if len(current_group) > 0:
-        groups.append(current_group)
+    level = 0
+    start = -1
+    for i, c in enumerate(paren_string):
+        if c == "(":
+            level += 1
+            if level == 1:
+                start = i
+        elif c == ")":
+            level -= 1
+            if level == 0:
+                groups.append(paren_string[start : i + 1])
     return groups
