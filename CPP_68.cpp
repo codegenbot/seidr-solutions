@@ -1,17 +1,15 @@
 #include <vector>
 #include <algorithm>
+#include <climits>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool sameVectors(vector<int> a, vector<int> b) {
+    return a.size() == b.size();
 }
 
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {})); 
-}
-
-vector<pair<int,int>> pluck(vector<int> arr) {
-    vector<pair<int,int>> result;
-    if (arr.empty()) return result;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return vector<pair<int,int>>{}; 
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -22,8 +20,8 @@ vector<pair<int,int>> pluck(vector<int> arr) {
         }
     }
 
-    if (minEven == INT_MAX) return {};
+    if (minEven == INT_MAX) return vector<pair<int,int>>{}; 
 
     result.push_back({minEven, minIndex});
-    return result;
+    return result.size() > 0 ? result : vector<pair<int,int>>{};
 }

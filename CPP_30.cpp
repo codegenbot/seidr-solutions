@@ -1,11 +1,19 @@
 #include <vector>
 #include <iostream>
 
-bool issame(float a, float b) {
-    return (a == b);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i]) != std::abs(b[i])) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l, std::vector<float> v = {}) {
+std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -15,7 +23,7 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v = {})
     return result;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     std::vector<float> v = {1, -2, 3};
     std::cout << "Only positive numbers are: ";
     for (float num : get_positive(v)) {

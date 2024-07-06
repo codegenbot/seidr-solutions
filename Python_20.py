@@ -13,7 +13,7 @@ def find_closest_elements() -> Tuple[float, float]:
         except ValueError:
             print("Invalid input. Please enter only two numbers separated by spaces.")
 
-    return (abs(sorted(numbers)[1] - sorted(numbers)[0]),)
+    return (numbers[0], numbers[1])
 
 
 print(find_closest_elements())

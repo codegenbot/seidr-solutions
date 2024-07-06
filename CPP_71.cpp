@@ -1,10 +1,12 @@
-Here is the solution:
+#include <cmath>
+
+using namespace std;
 
 float triangle_area(float a, float b, float c) {
-    if ((a + b > c) && (a + c > b) && (b + c > a)) {
-        float s = (a + b + c) / 2;
-        return round((sqrt(s * (s - a) * (s - b) * (s - c))) * 100.0) / 100.0;
-    } else {
-        return -1.0f;
-    }
+    if (!isValidTriangle(a, b, c)) return -1.0f;
+    return (sqrt((a * b) * c)) / 2.0;
+}
+
+bool isValidTriangle(float a, float b, float c) {
+    return (a + b > c) && (a + c > b) && (b + c > a);
 }
