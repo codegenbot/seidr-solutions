@@ -4,9 +4,9 @@
 
 int issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (std::equal(a.begin(), a.end(), b.begin(), b.end())) {
-        return 1;
+        return 1; 
     } else {
-        return 0;
+        return 0; 
     }
 }
 
