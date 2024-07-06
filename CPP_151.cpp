@@ -1,3 +1,4 @@
+```cpp
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
@@ -11,8 +12,8 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {}; // declare an empty list
+    vector<float> lst = {}; 
     long long odd_sum = double_the_difference(lst);
-    assert(odd_sum == 0); 
+    assert(odd_sum == 0);
     return 0;
 }
