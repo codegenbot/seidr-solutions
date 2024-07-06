@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool issame(const std::vector<std::string>& a) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return true;
 }
 
@@ -26,5 +27,6 @@ std::vector<std::string> code(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    assert(bf(code({"Jupiter"}, {"Makemake"}), std::vector<std::string>()) == std::vector<std::string>());
+    assert(bf("Jupiter", "Makemake") == std::vector<std::string>());
+    // Do something with the output
 }
