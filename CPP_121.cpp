@@ -9,11 +9,11 @@ int solution(std::vector<int> lst) {
         }
     }
     return sum;
-
 }
 
 int main() {
+    // Example usage
     std::vector<int> testVec = {3, 13, 2, 9};
-    std::cout << "The sum of odd numbers in the vector is: " << solution(testVec) << std::endl;
+    assert(solution(testVec) == 16);
     return 0;
 }
