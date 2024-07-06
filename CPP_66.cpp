@@ -1,5 +1,8 @@
+```cpp
 #include <string>
 using namespace std;
+
+int digitSum(string s);
 
 int digitSum(string s){
     int sum = 0;
@@ -11,7 +14,7 @@ int digitSum(string s){
     return sum;
 }
 
-int main() {
+int main(){
     assert(digitSum("You arE Very Smart") == 327);
     return 0;
 }
