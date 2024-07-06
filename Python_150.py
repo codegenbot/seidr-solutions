@@ -1,6 +1,7 @@
-```
 def x_or_y(n, x, y):
-    if n <= 0:
+    if n % x == 0:
         return x
-    else:
+    elif n % y == 0:
         return y
+    else:
+        return pass
