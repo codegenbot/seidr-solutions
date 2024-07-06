@@ -2,24 +2,14 @@
 using namespace std;
 
 bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string temp = s.substr(i, 3);
-        bool unique = true;
-        for (char c : temp) {
-            int count = 0;
-            for (int j = 0; j < s.length(); j++) {
-                if (s[j] == c)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
+    int num = stoi(s);
+    while (num != 1 && num != 4) {
+        int next_num = 0;
+        for (int i = 0; i < 10; i++) {
+            if ((num / i) % 10 + (num % i)) 
+                next_num = next_num * 16 + i;
         }
-        if (!unique)
-            return false;
+        num = next_num;
     }
-    return true;
+    return num == 1;
 }
