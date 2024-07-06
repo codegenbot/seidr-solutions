@@ -9,3 +9,4 @@ vector<float> derivative(vector<float> xs) {
         result[i-1] = xs[i] * i;
     }
     return result;
+}
