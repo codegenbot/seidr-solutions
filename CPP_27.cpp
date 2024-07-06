@@ -1,11 +1,12 @@
+````
 #include <string>
 #include <cctype>
 
 std::string flip_case(std::string str);
 
 std::string flip_case(std::string str){
-    if(str.empty()) {
-        return "Error: Input string is empty.";
+    if(str.empty()){
+        throw runtime_error("Error: Input string is empty!");
     }
     std::string result = "";
     for(int i=0; i<str.length(); i++){
@@ -18,5 +19,5 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    // ...
 }
+```
