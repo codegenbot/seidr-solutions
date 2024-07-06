@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,10 +18,17 @@ std::vector<int> sort_array(std::vector<int> array) {
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    if (!(std::cin >> n)) {
+        std::cerr << "Invalid input. Please enter a valid integer." << std::endl;
+        return 1;
+    }
+    if (n <= 0) {
+        std::cerr << "Number of elements must be greater than zero." << std::endl;
+        return 1;
+    }
     std::vector<int> array(n);
     for (auto &i : array) {
-        std::cout << "Enter element " << ++i << ": ";
+        std::cout << "Enter element: ";
         if (!(std::cin >> i)) {
             std::cerr << "Invalid input. Please enter a valid integer." << std::endl;
             return 1;
