@@ -1,8 +1,8 @@
-```
+```Python
 from typing import List
 
 
-def has_close_elements() -> bool:
+def has_close_elements() -> None:
     while True:
         numbers = input("Enter space-separated numbers: ")
         try:
@@ -25,7 +25,8 @@ def has_close_elements() -> bool:
             for j in range(i + 1, len(numbers)):
                 if abs(numbers[i] - numbers[j]) <= threshold:
                     found_close_elements = True
-                    break  # Break out of innermost loop when close elements are found
+                    print(found_close_elements)
+                    return
 
     cont = input("Do you want to check another set of numbers? (y/n): ")
     while cont.lower() != "n":
@@ -48,7 +49,7 @@ def has_close_elements() -> bool:
                 for j in range(i + 1, len(numbers)):
                     if abs(numbers[i] - numbers[j]) <= threshold:
                         found_close_elements = True
-                        break  # Break out of innermost loop when close elements are found
+                        print(found_close_elements)
+                        return
 
-        cont = input("Do you want to check another set of numbers? (y/n): ")
-    return found_close_elements
+    print("No close elements found.")
