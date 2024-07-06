@@ -3,24 +3,16 @@ def solve_boolean(expression):
 
     def eval_expression(expr):
         if expr not in bool_map:  
-            return eval.BooleanToBooleanValue(expr)
-
-        while '&' in expr:
-            and_parts = expr.split('&')
-            result = all(eval_expression(part) for part in and_parts)
-            return 'T' if result else 'F'
+            return bool_map[expr]
         
-        while '|' in expr:
-            or_parts = expr.split('|')
-            result = any(eval_expression(part) for part in or_parts)
-            return 'T' if result else 'F'
+        if '&' in expr:
+            parts = expr.split('&')
+            return 'T' if all(eval_expression(part) for part in parts) else 'F'
         
-        return bool_map[expr]
+        if '|' in expr:
+            parts = expr.split('|')
+            return 'T' if any(eval_expression(part) for part in parts) else 'F'
+        
+        return expr
 
-    def BooleanToBooleanValue(s):
-        if s == 'T':
-            return True
-        elif s == 'F':
-            return False
-
-    return eval.BooleanToBooleanValue(expression)
+    return eval_expression(expression) == 'T'
