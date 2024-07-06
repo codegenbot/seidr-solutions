@@ -3,7 +3,9 @@ if not input_str.strip():
     print("Error: No input provided")
     exit()
 
-numbers = [float(x.strip()) for x in input_str.replace(",", " ").split()]
+input_str = input_str.replace(",", " ")  
+
+numbers = [float(x.strip()) for x in input_str.split()]
 if any(not isinstance(num, (int, float)) or num < 0.0 for num in numbers):
     raise ValueError("Input list must contain only positive numbers")
 
@@ -12,6 +14,6 @@ max_val = max(numbers)
 result = [(x - min_val) / (max_val - min_val) for x in numbers]
 print(result)
 
-if len(numbers) < 2:
-    print(f"Error: At least two numbers are required")
+if any(not isinstance(num, (int, float)) or num < 0.0 for num in result):
+    print("Error: Input list must contain only positive numbers")
     exit(1)
