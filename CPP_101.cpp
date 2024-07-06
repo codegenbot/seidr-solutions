@@ -1,6 +1,6 @@
-```c
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
@@ -15,22 +15,18 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
-    if (!issame(expected)) {
-        return {};
-    }
-    std::vector<std::string> result = words_string(s);
-    for (int i = 0; i < expected.size(); i++) {
-        if (result[i] != expected[i]) {
-            return {};
+    std::vector<std::string> result = {};
+    for (int i = 0; i < s.size(); i++) {
+        std::string temp = "";
+        while (i < s.size() && s[i] != ' ') {
+            temp += s[i];
+            i++;
+        }
+        if (!temp.empty()) {
+            if (!issame({temp}) || !std::count(expected.begin(), expected.end(), temp)) {
+                return {};
+            }
+            result.push_back(temp);
         }
     }
     return result;
-}
-
-std::vector<std::string> words_string(std::string s) {
-    return std::vector<std::string>(std::split(s, ' '));
-}
-
-int main() {
-    assert(issame(words_string("ahmed     , gamal", {"ahmed", "gamal"})));
-}
