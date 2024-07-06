@@ -1,3 +1,4 @@
+```
 import math
 
 def rounded_avg(n, m):
