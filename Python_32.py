@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -16,11 +15,15 @@ if __name__ == "__main__":
     b = float(input())
     print("Enter c: ")
     c = float(input())
-    
+
     if a == 0 and (b != 0 or c != 0):
-        print("The program did not receive the expected input. 'a' cannot be zero when 'b' or 'c' is non-zero.")
-    elif b**2 - 4*a*c < 0:
-        print("The program did not receive the expected input. The discriminant must be non-negative.")
+        print(
+            "The program did not receive the expected input. 'a' cannot be zero when 'b' or 'c' is non-zero."
+        )
+    elif b**2 - 4 * a * c < 0:
+        print(
+            "The program did not receive the expected input. The discriminant must be non-negative."
+        )
     else:
         result = find_zero(a, b, c)
         print(f"Zero is approximately {result}")
