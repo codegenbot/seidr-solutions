@@ -1,19 +1,23 @@
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 int do_algebra(std::string operation, std::vector<int> operands) {
     int result = operands[0];
     for (int i = 1; i < operands.size(); i++) {
-        switch(operation[0]){
+        switch(operation[0]) {
+            case '/':
+                if (operation.length() == 1)
+                    result /= operands[i];
+                else
+                    result /= operands[i];
+                break;
             case '*':
                 result *= operands[i];
                 break;
-            case '/':
-                if(operands[i] != 0)
-                    result /= operands[i];
-                else
-                    return -1; // or handle this however you want
-                break;
+            default:
+                std::cerr << "Invalid operation." << std::endl;
+                return -1;
         }
     }
     return result;
