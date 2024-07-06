@@ -1,4 +1,2 @@
 def check(func):
-    lst = input().split()
-    result = func(lst)
-    print(result)
+    func(lambda: double_the_difference(input().split()))
