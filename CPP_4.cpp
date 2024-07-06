@@ -1,13 +1,15 @@
 ```cpp
-#include <vector>
-#include <numeric>
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
 float mean(vector<float> numbers) {
-    return static_cast<float>(std::accumulate(numbers.begin(), numbers.end(), 0.0)) / numbers.size();
+    return accumulate(numbers.begin(), numbers.end(), 0.0) / numbers.size();
 }
 
 float mean_absolute_deviation(vector<float> numbers) {
-    float sum = 0.0;
+    float sum = 0;
     for (float num : numbers) {
         sum += abs(num - mean(numbers));
     }
