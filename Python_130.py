@@ -1,6 +1,7 @@
+
 def tri(n):
     if n == 1:
-        return [1] * n
+        return [1, 3]
     elif n % 2 == 0:
         return [1, int(n / 2)]
     else:
