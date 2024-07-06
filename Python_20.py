@@ -1,3 +1,4 @@
+```
 from typing import Tuple
 
 
@@ -13,7 +14,8 @@ def find_closest_elements() -> Tuple[float, float]:
         except ValueError:
             print("Invalid input. Please enter only two numbers separated by spaces.")
 
-    return (abs(sorted(numbers)[1] - sorted(numbers)[0]),)
+    closest_pair = (abs(sorted(numbers)[1] - sorted(numbers)[0]),)
+    return closest_pair
 
 
 print(find_closest_elements())
