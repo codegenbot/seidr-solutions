@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <assert.h>
