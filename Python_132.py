@@ -5,7 +5,6 @@ def is_nested(string):
         if char == '[':
             stack.append(char)
         elif char == ']':
-            if len(stack) == 0:
-                return False
-            stack.pop()
-    return len(stack) > 0
+            if len(stack) == 0 or stack.pop() != '[':
+                return True
+    return False
