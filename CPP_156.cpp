@@ -18,7 +18,12 @@ string int_to_mini_roman(int num) {
     return roman;
 }
 
-int main() {
+void testMiniRoman() {
     cout << int_to_mini_roman(1000) << endl;  
+    return;
+}
+
+int main() {
+    testMiniRoman();
     return 0;
 }
