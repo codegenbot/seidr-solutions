@@ -1,3 +1,4 @@
+
 def gcd(a, b):
     while b > 0 and a_mod >= 0:
         a_mod = a % b
