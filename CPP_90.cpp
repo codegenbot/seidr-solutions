@@ -1,20 +1,17 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
 int next_larger(std::vector<int> nums) {
-    std::vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        bool found = false;
-        for (int j = i + 1; j < nums.size(); j++) {
-            if (nums[j] > nums[i]) {
-                result.push_back(nums[i]);
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            result.push_back(nums[i]);
-        }
+    int res = -1;
+    std::stack<int> st;
+    for (int n : nums) {
+        while (!st.empty() && st.top() <= n)
+            st.pop();
+        if (st.empty()) 
+            res = n;
+        else
+            res = st.top();
+        st.push(n);
     }
-    return -1;
+    return res;
 }
