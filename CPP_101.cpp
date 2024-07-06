@@ -1,9 +1,11 @@
+Here's the corrected code:
+
 ```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <initializer_list>
 
-bool issame(const std::vector<std::string>& a) {
+bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
         return true;
     }
@@ -36,5 +38,4 @@ std::vector<std::string> words_string(std::string s) {
 
 int main() {
     assert(issame(words_string("ahmed     , gamal")));
-    return 0;
 }
