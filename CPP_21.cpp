@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+#include <cmath>
 using namespace std;
 
 vector<float> rescale_to_unit(vector<float> numbers) {
