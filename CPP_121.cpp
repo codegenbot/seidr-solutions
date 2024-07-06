@@ -20,9 +20,7 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    (void)std::cout; // added parentheses to initialize the function
     std::vector<int> lst = {3, 13, 2, 9};
     int result = solutions(lst);
     std::cout << "Result: " << result << std::endl;
     return 0;
-}
