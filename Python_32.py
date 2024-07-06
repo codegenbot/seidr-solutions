@@ -1,6 +1,6 @@
 while True:
     try:
-        a = float(input())
+        a = float(input("Enter 'a' value: "))
         if a == 0:
             print("Please enter non-zero value for 'a'.")
         else:
@@ -17,7 +17,7 @@ else:
     r1 = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
     r2 = (-b - (b**2 - 4 * a * c) ** 0.5) / (2 * a)
 
-    if complex(0).imag != 0 or complex(0).imag != 0:
+    if r1.imag != 0 or r2.imag != 0:
         print(f"The equation has complex roots {r1} and {r2}.")
     else:
         print(f"Zeroes are approximately {r1:.2f} and {r2:.2f}")
