@@ -18,11 +18,11 @@ int main() {
     std::cin >> n;
 
     std::vector<int> nums;
-    nums.resize(n); 
-
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> nums[i];
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
     }
 
     int count = specialFilter(nums);
