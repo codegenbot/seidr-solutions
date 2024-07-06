@@ -1,37 +1,48 @@
 #include <vector>
-#include <algorithm>
-#include <cmath>
 #include <iostream>
+#include <algorithm>
+#include <string>
 
-bool isPrime(int n) {
+int isPrime(int n) {
     if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; ++i) {
+        return 0;
+    for (int i = 2; i * i <= n; i++) {
         if (n % i == 0)
-            return false;
+            return 0;
     }
-    return true;
+    return 1;
 }
 
 int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxPrime = -1, sum = 0;
-    for (auto num : lst) {
-        if (isPrime(num)) {
-            if (num > maxPrime)
-                maxPrime = num;
-            int digitSum = 0;
-            while (num > 0) {
-                digitSum += num % 10;
-                num /= 10;
+    int largestPrime = -1, sum = 0;
+
+    for (int num : lst) {
+        for (int digit : {num}) {
+            if (isPrime(digit)) {
+                if (digit > largestPrime)
+                    largestPrime = digit;
             }
-            sum = std::max(sum, digitSum);
         }
     }
+
+    while (largestPrime > 0) {
+        sum += largestPrime % 10;
+        largestPrime /= 10;
+    }
+
     return sum;
 }
 
 int main_test() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
+    std::vector<int> lst;
+    std::string input;
+    std::cout << "Enter the list of numbers (space separated): ";
+    getline(std::cin, input);
+    for (int i = 0; i < input.size(); i++) {
+        int num = std::stoi(input.substr(i));
+        lst.push_back(num);
+    }
+    
     std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
     return 0;
 }
