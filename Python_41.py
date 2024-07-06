@@ -1,4 +1,5 @@
-def car_race_collision(n):
+
+def car_race_collision(n: int):
     left_to_right = 0
     right_to_left = n - 1
     collisions = 0
@@ -10,4 +11,4 @@ def car_race_collision(n):
             right_to_left -= 1
         collisions += 1
 
-    return collisions
+    return (n * (n + 1)) // 2
