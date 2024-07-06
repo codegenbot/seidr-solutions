@@ -1,10 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-typedef std::basic_string<char> my_string;
-
-bool issame(std::vector<my_string> a, std::vector<my_string> b) {
+bool compare(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,9 +13,9 @@ bool issame(std::vector<my_string> a, std::vector<my_string> b) {
     return true;
 }
 
-std::vector<std::string> words_string(std::string s) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> words(string s) {
+    vector<string> result;
+    string word = "";
     for (char c : s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -33,23 +30,4 @@ std::vector<std::string> words_string(std::string s) {
         result.push_back(word);
     }
     return result;
-}
-
-int main() {
-    std::string s;
-    // Input the string
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
-
-    // Split the string and check for sameness with input string
-    auto words = words_string(s);
-    bool is_same = issame({s}, words);
-
-    if (is_same) {
-        std::cout << "The string and its words are same." << std::endl;
-    } else {
-        std::cout << "The string and its words are not the same." << std::endl;
-    }
-
-    return 0;
 }

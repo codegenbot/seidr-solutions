@@ -1,12 +1,10 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string>, const vector<string>&);
+bool issame(vector<string>, vector<string> b);
 
-vector<string> by_length(const vector<int>& arr) {
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
-    vector<int> temp = {0}; // Initialize temp with a default value.
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
             switch (i) {
@@ -44,14 +42,16 @@ vector<string> by_length(const vector<int>& arr) {
     return result;
 }
 
-bool issame(vector<string> a, const vector<string>& b) {
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
 }
