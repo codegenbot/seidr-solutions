@@ -1,10 +1,16 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
 
 using namespace std;
 
-int main() {
+void compareOne(int x) {
+    int val2;
+    cin >> val2;
+}
+
+int originalMain() {
     cout << "Enter two values: ";
     int val1;
     cin >> val1;
@@ -36,7 +42,10 @@ int main() {
         cout << "Please enter a valid value for the second number.\n";
     }
 
-    //compareOne(val1);
+    return 0;
+}
 
+int main() {
+    originalMain();
     return 0;
 }
