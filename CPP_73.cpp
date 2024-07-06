@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 int smallest_change(std::vector<int> arr) {
     int left = 0, right = arr.size() - 1;
     int changes = 0;
@@ -14,9 +11,4 @@ int smallest_change(std::vector<int> arr) {
     }
 
     return changes;
-}
-
-int main() {
-    std::cout << smallest_change(std::vector<int>({0, 1})) << std::endl;
-    return 0;
 }
