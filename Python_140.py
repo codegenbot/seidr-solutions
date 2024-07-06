@@ -1,4 +1,3 @@
-```python
 def fix_spaces(text):
     result = ''
     prev_was_space = True
