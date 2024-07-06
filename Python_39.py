@@ -1,6 +1,6 @@
 
 def prime_fib(n: int):
-    fib = [0, 1]
+    fib = [0, 1, 1]
     i = 2
     while len(fib) < n:
         fib.append(fib[i-2] + fib[i-1])
