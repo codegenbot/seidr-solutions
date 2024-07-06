@@ -1,21 +1,21 @@
-def balance_groups(s):
-    s = s.strip()
-    stack = []
-    group = ""
-    result = []
-    for char in s:
-        if char == "(" or char == ")":
-            if char == "(":
-                stack.append(char)
-                group += char
-            elif char == ")":
-                stack.pop()
-                group += char
-                if not stack:
-                    result.append(group)
-                    group = ""
-        else:
+```
+s = input().strip()
+stack = []
+group = ""
+result = []
+for char in s:
+    if char == "(" or char == ")":
+        if char == "(":
+            stack.append(char)
             group += char
-    if stack:  
-        result.append("(" + "".join(stack) + ")")
-    return result
+        elif char == ")":
+            stack.pop()
+            group += char
+            if not stack:
+                result.append(group)
+                group = ""
+    else:
+        group += char
+if stack:  
+    result.append("(" + "".join(stack) + ")")
+print(result)
