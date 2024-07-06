@@ -1,6 +1,6 @@
 #include <string>
 
-string file_name_check(string file_name) {
+string file_name_check(string file_name){
     bool valid = true;
     int dot_count = 0;
     int digit_count = 0;
