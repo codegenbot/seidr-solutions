@@ -5,6 +5,7 @@ def digit_sum(n):
         n //= 10
     return total
 
+
 def main():
     while True:
         try:
