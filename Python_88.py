@@ -1,4 +1,3 @@
-```
 def sort_array(input_array=None):
     if not isinstance(input_array, list):
         print("Error: Input type is incorrect")
@@ -7,6 +6,8 @@ def sort_array(input_array=None):
     else:
         array = [int(i) for i in input_array]
     try:
-        return sorted(set(array))
+        if input_array is not None:
+            return sorted(array)
+        return set(array)
     except TypeError as e:
         print("Error: Array contains non-integer values")
