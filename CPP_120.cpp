@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <algorithm>
 
-bool checkEquality(std::vector<int> a, std::vector<int> b) {
+bool same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -43,9 +44,6 @@ int main() {
     std::cout << "Enter the number of maximum elements to find: ";
     std::cin >> k;
     
-    if(checkEquality({0, 1, 2, 3}, findMaximum(n, k))) {
-        return 0;
-    } else {
-        return -1;
-    }
+    assert(same({}, findMaximum(n, k)));
+    return 0;
 }
