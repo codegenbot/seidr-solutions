@@ -1,6 +1,6 @@
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -29,3 +29,4 @@ int main() {
     assert(same(filter_by_prefix(input, "xxx"), expected));
     
     return 0;
+}
