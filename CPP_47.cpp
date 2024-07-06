@@ -1,16 +1,15 @@
 #include <cassert>
 #include <vector>
+#include <algorithm>
 #include <cmath>
 
 float median(std::vector<float> arr) {
-    int n = arr.size();
     std::sort(arr.begin(), arr.end());
-    
-    if (n % 2 == 1) {
-        return arr[n / 2];
-    } else {
-        return (arr[n / 2 - 1] + arr[n / 2]) / 2.0;
-    }
+    int n = arr.size();
+    if(n%2==0)
+        return (arr[n/2 - 1] + arr[n/2]) / 2;
+    else
+        return arr[n/2];
 }
 
 int main() {
