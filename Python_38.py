@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s):
     result = ""
     if s[0] in ["<", ">"]:
@@ -21,4 +22,4 @@ def decode_cyclic(s):
         for char in s:
             if char != "<" and char != ">":
                 result += char
-    return result
+    return result```
