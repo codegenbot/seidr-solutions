@@ -12,24 +12,47 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int ai = boost::any_cast<int>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return (stof(bs) > ai) ? b : "None";
+        if (std::stof(bs) > ai) {
+            return b;
+        } else {
+            return typeid(int);
+        }
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float af = boost::any_cast<float>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return (stof(bs) > af) ? b : "None";
+        if (std::stof(bs) > af) {
+            return b;
+        } else {
+            return typeid(float);
+        }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string as = boost::any_cast<std::string>(a);
         int bi = boost::any_cast<int>(b);
-        return (stof(as) > bi) ? a : "None";
+        if (std::stof(as) > bi) {
+            return a;
+        } else {
+            return typeid(int);
+        }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string as = boost::any_cast<std::string>(a);
         float bf = boost::any_cast<float>(b);
-        return (stof(as) > bf) ? a : "None";
+        if (std::stof(as) > bf) {
+            return a;
+        } else {
+            return typeid(float);
+        }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return (stof(as) > stof(bs)) ? a : ((stof(as) < stof(bs)) ? b : "None");
+        if (std::stof(as) > std::stof(bs)) {
+            return a;
+        } else if (std::stof(as) < std::stof(bs)) {
+            return b;
+        } else {
+            return typeid(std::string);
+        }
     }
 
+    // If none of the above conditions are met, return the first value
     return a;
 }
