@@ -1,3 +1,4 @@
+
 def car_race_collision(n):
     num_cars = n
     counter = 0
