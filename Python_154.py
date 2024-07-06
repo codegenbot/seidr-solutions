@@ -1,7 +1,9 @@
+```
 def cycpattern_check(a, b):
     if len(b) > len(a):
         return False
-    for i in range(len(a) - len(b) + 1):
-        if a[i : i + len(b)] == b:
+    for i in range(len(a)):
+        rotated = a[i:] + a[:i]
+        if rotated == b or rotated == b[1:]+b[0]:
             return True
     return False
