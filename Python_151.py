@@ -1,2 +1,5 @@
-def check(func):
-    print(func([-1, -2, -3, 0, 2, 6]))
+def check(func, *args):
+    if func(1) == func(-1):
+        print("Output will be the same")
+    else:
+        print("Output will not be the same")
