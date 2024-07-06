@@ -1,4 +1,3 @@
-
 def count_up_to(n):
     prime_numbers = []
     for i in range(2, n+1):
