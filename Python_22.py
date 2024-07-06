@@ -1,5 +1,7 @@
-```
 from typing import List
 
-def filter_integers(values: List[Any]) -> List[int]:
+
+def filter_integers(values: Any) -> List[int]:
+    if not isinstance(values, list):
+        return []
     return [value for value in values if isinstance(value, int)]

@@ -1,5 +1,5 @@
+```
 from typing import List
-
 
 def parse_music() -> List[int]:
     music_string = input()
