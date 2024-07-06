@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <vector>
 #include <string>
 using namespace std;
@@ -17,10 +16,12 @@ vector<int> even_odd_palindrome(int n) {
             left++;
             right--;
         }
-        if (isPalindrome && i % 2 == 0)
-            result[0]++;
-        else if (isPalindrome)
-            result[1]++;
+        if (isPalindrome) {
+            if (i % 2 == 0)
+                result[0]++;
+            else
+                result[1]++;
+        }
     }
     return result;
 }
