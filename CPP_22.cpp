@@ -1,8 +1,10 @@
+```cpp
 #include <optional>
 #include <vector>
-#include <list>
-#include <any>
-#include <boost/any.hpp>
+
+bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -17,11 +19,7 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
-}
-
 int main() {
-    auto values = std::list<std::any>{std::optional<int>(3), 'c', std::optional<int>(3), 3, 'a', 'b'};
-    assert(std::equal(filter_integers(values).begin(), filter_integers(values).end(), {3, 3, 3}));
+    assert(isEqual(filter_integers({std::optional<int>(3), 'c', std::optional<int>(3), 3, std::optional<int>('a'), 'b'}), {3, 3, 3}) );
+    return 0;
 }
