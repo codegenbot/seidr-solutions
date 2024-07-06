@@ -7,7 +7,37 @@ bool same(const vector<string>& a, const vector<string>& b) {
     }
     
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+        size_t count1 = count(a[i].begin(), a[i].end(), ' ');
+        size_t count2 = count(b[i].begin(), b[i].end(), ' ');
+
+        if(count1 != count2) {
+            return false;
+        }
+    }
+
+    for(int i = 0; i < a.size(); i++) {
+        string temp1 = "";
+        string temp2 = "";
+
+        for(char c : a[i]) {
+            if(c >= 'A' && c <= 'Z') {
+                temp1 += ' ';
+                temp1 += tolower(c);
+            } else {
+                temp1 += c;
+            }
+        }
+
+        for(char c : b[i]) {
+            if(c >= 'A' && c <= 'Z') {
+                temp2 += ' ';
+                temp2 += tolower(c);
+            } else {
+                temp2 += c;
+            }
+        }
+
+        if(temp1 != temp2) {
             return false;
         }
     }
@@ -58,3 +88,4 @@ vector<vector<string>> by_length(const vector<int>& arr) {
 int main() {
     assert(same(by_length({1,4,8}) , {"One","Four","Eight"}));
     return 0;
+}
