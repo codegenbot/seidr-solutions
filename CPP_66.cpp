@@ -1,10 +1,11 @@
+```
 #include <string>
 
-int digitSum(string s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        if (isdigit(c)) {
-            sum += static_cast<int>(c - '0');
+        if (isupper(c)) {
+            sum += static_cast<int>(c - 'A' + 1);
         }
     }
     return sum;
