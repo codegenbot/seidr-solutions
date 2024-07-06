@@ -7,4 +7,5 @@ def encode(message):
             encoded_message += vowel_map[char]
         else:
             encoded_message += char
+
     return encoded_message
