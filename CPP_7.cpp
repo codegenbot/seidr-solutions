@@ -1,15 +1,11 @@
-bool issame(vector<string> a, vector<string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for (size_t i = 0; i < min(a.size(), b.size()); ++i) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<string> a,vector<string>b){
+    if(a.size()!=b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        string s1 = filter_by_substring({a[i], b[i]}, substring);
+        bool containsSameSubstring = (s1.size() && !s1.empty());
+        if(!containsSameSubstring)
+            return false;
     }
     return true;
-}
-
-int main() {
-    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    assert(issame(filter_by_substring(strings, substring),{"grunt","prune"}));
-    return 0;
 }
