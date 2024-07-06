@@ -1,22 +1,26 @@
 #include <vector>
 #include <string>
 
-bool same(const std::vector<std::string>& v1, const std::string& str) {
-    if (v1.size() != 1) {
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if (v1.size() != v2.size()) {
         return false;
     }
     for (int i = 0; i < v1.size(); ++i) {
-        if (!str.compare(v1[i])) {
-            return true;
+        if (!issame(v1[i], v2[i])) {
+            return false;
         }
     }
-    return false;
+    return true;
+}
+
+bool sameStrings(const std::string& str1, const std::string& str2) {
+    return issame({str1}, {str2});
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
     for (const auto& str : lst) {
-        if (str.length() % 2 == 0 || same({str}, {"sum"})) {
+        if (str.length() % 2 == 0 || sameStrings(str, {"sum"})) {
             result.push_back(str);
         }
     }
