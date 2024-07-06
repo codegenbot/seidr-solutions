@@ -1,8 +1,8 @@
-from typing import List
-
+```
 def parse_music(music_string: str) -> List[int]:
-    if not music_string or not isinstance(music_string, str):
-        return []
+    if not isinstance(music_string, str):
+        raise ValueError("Input must be a string")
+    
     music_list = []
     i = 0
     while i < len(music_string):
