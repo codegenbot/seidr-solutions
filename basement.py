@@ -1,8 +1,8 @@
-```
 def basement(vector):
-    total = 0
     for i in range(len(vector)):
-        total += vector[i]
-        if total < 0:
-            return i + 1
+        current_sum = 0
+        for j in range(i + 1):
+            current_sum += vector[j]
+            if current_sum < 0:
+                return i
     return -1
