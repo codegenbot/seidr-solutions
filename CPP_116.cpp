@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 vector<int> sort_vector(vector<int> arr) {
