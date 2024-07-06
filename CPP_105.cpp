@@ -1,54 +1,34 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> v1, vector<string> v2) {
-    if(v1.size() != v2.size()) {
+bool issame(vector<string> vec1, vector<string> vec2) {
+    if (vec1.size() != vec2.size()) {
         return false;
     }
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) {
+    
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] != vec2[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<string> numbers;
     for (int num : arr) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+        if (num >= 10 && num <= 99) {
+            string str = to_string(num);
+            vector<char> charVec(str.begin(), str.end());
+            sort(charVec.begin(), charVec.end());
+            if (!issame({str}, {string(charVec.begin(), charVec.end())})) {
+                numbers.push_back("No");
+            } else {
+                numbers.push_back("Yes");
+            }
         }
-        result.push_back(str);
     }
 
-    return result;
+    return numbers;
 }
