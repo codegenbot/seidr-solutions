@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include <algorithm>
-#include <iterator>
+#include <set>
 
 using namespace std;
 
@@ -10,15 +9,13 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
-    for (char c : unique_copy(letters.begin(), letters.end())) { // replace unique with unique_copy
-        int count = 0;
+    set<char> uniqueLetters(test.begin(), test.end());
+    for (char c : uniqueLetters) {
         size_t pos = 0;
-        while ((pos = letters.find(c, pos)) != string::npos) {
-            count++;
+        while ((pos = test.find(c, pos)) != string::npos) {
             pos += 1; // skip the same character
         }
-        if (count > 0) result[c] = count;
+        if (pos > 0) result[c] = pos - 1;
     }
 
     map<char, int> maxCountMap;
