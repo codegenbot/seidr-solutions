@@ -1,25 +1,30 @@
-#include <vector>
-
-using namespace std;
-
 int smallest_change(vector<int> arr) {
-    int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    int left = 0, right = arr.size() - 1;
+    int changes = 0;
 
-    for (int i = 0; i < n; i++) {
-        dp[i][i] = 0;
-    }
-
-    for (int length = 2; length <= n; length++) {
-        for (int i = 0; i < n - length + 1; i++) {
-            int j = i + length - 1;
-            if (arr[i] == arr[j]) {
-                dp[i][j][0] = dp[i + 1][j - 1][0];
-            } else {
-                dp[i][j][0] = 1 + min(dp[i + 1][j][0], dp[i][j - 1][0]);
+    while (left < right) {
+        if (arr[left] != arr[right]) {
+            changes++;
+            for (int i = 0; i < arr.size(); i++) {
+                if (i == left || i == right) continue;
+                vector<int> temp = arr;
+                temp[i] = arr[left];
+                bool isPalindromic = true;
+                int j = 0, k = temp.size() - 1;
+                while (j < k) {
+                    if (temp[j] != temp[k]) {
+                        isPalindromic = false;
+                        break;
+                    }
+                    j++;
+                    k--;
+                }
+                if (isPalindromic) return changes + 1;
             }
         }
+        left++;
+        right--;
     }
 
-    return dp[0][n - 1][0];
+    return changes;
 }
