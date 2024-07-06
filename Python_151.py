@@ -6,4 +6,5 @@ def double_the_difference(lst):
             result += num ** 2
     return result
 
+lst = [1, 3, 5, 7, 9]
 check(double_the_difference)
