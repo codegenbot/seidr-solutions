@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -7,11 +8,11 @@ int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     for(int i=0; i<sorted.size()-1; i++) {
-        if(sorted[i] > sorted[i+1]) {
+        if(sorted[i] != sorted[i+1]) {
             return sorted[i+1];
         }
     }
-    return sorted.back();
+    return -1; 
 }
 
 int main() {

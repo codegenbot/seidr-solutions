@@ -1,3 +1,4 @@
+```cpp
 bool move_one_ball(vector<int> arr) {
     int n = arr.size();
     if (n == 0)
