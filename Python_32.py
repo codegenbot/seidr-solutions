@@ -6,7 +6,15 @@ def find_zero(x):
     else:
         return 0
 
-
 if __name__ == "__main__":
-    x = float(input("Enter a number: "))
+    while True:
+        try:
+            x = int(input("Enter a number: "))
+            if not str(x).isdigit():
+                print("Invalid input. Please enter an integer.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
     print(find_zero(x))
