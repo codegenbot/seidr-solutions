@@ -1,13 +1,12 @@
 
 def smallest_change(arr):
-    n = len(arr)
-    dp = [[0] * (n + 1) for _ in range(n + 1)]
-    
-    for i in range(1, n + 1):
-        for j in range(1, n + 1):
-            if arr[i - 1] == arr[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1]
-            else:
-                dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j]) + 1
-    
-    return dp[n][n]
+    # Initialize a variable to keep track of the minimum number of changes
+    min_changes = len(arr)
+
+    # Loop through the array and check if each element is the same as its reverse counterpart
+    for i in range(len(arr)):
+        # If the element is not the same as its reverse counterpart, increment the minimum number of changes
+        if arr[i] != arr[len(arr) - 1 - i]:
+            min_changes += 1
+
+    return min_changes
