@@ -1,4 +1,3 @@
-```
 import math
 def max_fill():
     num_rows = int(input("Enter number of rows: "))
