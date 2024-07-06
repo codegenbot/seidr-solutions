@@ -1,11 +1,4 @@
-def digit_sum(n):
-    total = 0
-    while n:
-        total += n % 10
-        n //= 10
-    return total
-
-
+```Python
 def main():
     while True:
         try:
@@ -22,9 +15,8 @@ def main():
     elif calc_type == 2:
         total = 1
         for digit in str(num):
-            total *= int(digit)
+            if digit != '0':
+                total *= int(digit)
+            else:
+                break
         print(total)
-
-
-if __name__ == "__main__":
-    main()
