@@ -1,5 +1,5 @@
 ```
-num_strings = -1
+num_strings = 0
 while num_strings <= 0:
     try:
         num_strings = int(input("How many strings do you have? "))
@@ -10,9 +10,4 @@ while num_strings <= 0:
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
-strings = []
-for i in range(num_strings):
-    try:
-        strings.append(input(f"Enter string {i+1}:"))
-    except ValueError:
-        print("Invalid input. Please enter a valid string.")
+strings = [input(f"Enter string {i+1}:") for i in range(num_strings)]
