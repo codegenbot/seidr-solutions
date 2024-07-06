@@ -5,7 +5,7 @@
 bool below_zero(std::vector<std::string> operations) {
     int balance = 0;
     for (int i = 0; i < operations.size(); ++i) {
-        int operation = stoi(operations[i].substr(0, operations[i].size() - 1));
+        int operation = stoi(operations[i].substr(0, operations[i].find('\n')));
         balance += operation;
         if (balance < 0) return true;
     }
