@@ -1,9 +1,10 @@
-```
-def solution(paren_string):
+from typing import List
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
     stack = []
     temp_str = ''
-    result = []
-
+    
     for char in paren_string:
         if char == ' ':
             continue
@@ -16,8 +17,7 @@ def solution(paren_string):
             if not stack:
                 result.append(temp_str)
                 temp_str = ''
-    else:  
-        if temp_str:  
-            result.append(temp_str)
+    if temp_str:  
+        result.append(temp_str)
 
     return result
