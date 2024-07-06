@@ -1,3 +1,3 @@
 ```
 def digitSum(s):
-    return sum(int(c) for c in s if c.isdigit())
+    return sum(int(ord(c)-55) for c in s if 'A' <= c <= 'Z')
