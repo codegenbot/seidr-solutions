@@ -1,20 +1,21 @@
+```cpp
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[b.size()-i-1]) return false;
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> sort_array(vector<int> array) {
-    int sum = 0;
-    for (int i : array) sum += i;
-    if (sum % 2 == 1)
+std::vector<int> sort_array(std::vector<int> array) {
+    if (array.size() % 2 == 1)
         return array;
     else
-        return vector<int>(array.rbegin(), array.rend());
+        std::sort(array.rbegin(), array.rend());
+    
+    // Add this message to handle the error!
+    cout << "Error: Vector not found" << endl;
+}
 
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
 }
