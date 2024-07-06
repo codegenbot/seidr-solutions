@@ -15,5 +15,4 @@ try:
 except:
     print("Invalid input. Please try again.")
     text = None
-
 print(string_to_md5(text))
