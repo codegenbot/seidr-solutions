@@ -8,20 +8,17 @@ bool isvowel(char c) {
 
 std::string get_closest_vowel(std::string word) {
     int left = 0, right = word.size() - 1;
-    while (left < right) {
+    while (left <= right) {
         if (!isvowel(word[left])) {
             ++left;
         } else if (!isvowel(word[right])) {
             --right;
         } else {
-            return word.substr(left, min(right - left + 1, string::npos));
+            return word.substr(left, 1);
         }
     }
-    return (isvowel(word[0])) ? word : (isvowel(word[word.size() - 1])) ? word.substr(word.size() - 1) : "";
+    return "";
 }
-
-#include <algorithm>
-using namespace std;
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
