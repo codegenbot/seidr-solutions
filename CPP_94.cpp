@@ -34,22 +34,22 @@ int main() {
     int n;
     std::cout << "Enter the number of elements in the list: ";
     std::cin >> n;
-    
+
     std::cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
         int num;
         std::cin >> num;
         lst.push_back(num);
     }
-    
+
     if (!lst.empty()) {
         int maxPrime = largestPrime(lst);
         if (isPrime(maxPrime)) {
             std::cout << "The sum of digits for the largest prime is: " << sumOfDigits(maxPrime) << std::endl;
         } else {
-            std::cout << "No prime number found in the list." << std::endl;
+            std::cout << "No primes found in the list." << std::endl;
         }
     } else {
-        std::cout << "List is empty. Please enter some numbers." << std::endl;
+        std::cout << "List is empty." << std::endl;
     }
 }
