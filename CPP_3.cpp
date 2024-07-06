@@ -13,6 +13,7 @@ int main() {
 
     // Read each operation from user and store it in the vector
     for (int i = 0; i < operation; ++i) {
+        int operation;
         std::cout << "Enter operation " << i + 1 << ": ";
         std::cin >> operation;
         operations.push_back(std::to_string(operation)); 
