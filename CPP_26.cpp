@@ -1,12 +1,13 @@
-#include<bits/stdc++.h>
-using namespace std;
+```cpp
+#include<vector>
+#include<algorithm>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(std::vector<int> a,std::vector<int>b){
     return a == b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> result;
     for (int num : numbers) {
         if (find(result.begin(), result.end(), num) == result.end()) {
             result.push_back(num);
