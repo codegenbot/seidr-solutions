@@ -1,4 +1,4 @@
-```Python
+```
 def sort_numbers(numbers: str) -> str:
     num_dict = {
         "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4,
