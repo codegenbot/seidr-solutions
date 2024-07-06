@@ -20,5 +20,6 @@ int main() {
     while (cin >> x)
         lst.push_back(x);
     long long odd_sum = double_the_difference(lst);
+    cout << odd_sum;
     return 0;
 }
