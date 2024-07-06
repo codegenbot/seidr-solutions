@@ -1,6 +1,4 @@
-Here is the solution:
-
-```python
+```
 from typing import List
 
 
