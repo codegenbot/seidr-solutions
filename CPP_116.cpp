@@ -1,15 +1,11 @@
-Here is the completed code:
+#include <algorithm>
 
 vector<int> sort_array(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count(binary(a).begin(), binary(a).end(), '1') <
-            count(binary(b).begin(), binary(b).end(), '1')) {
-            return true;
-        } else if (count(binary(a).begin(), binary(a).end(), '1') ==
-                   count(binary(b).begin(), binary(b).end(), '1')) {
+        if (bitset<32>(a).count() == bitset<32>(b).count()) {
             return a < b;
         }
-        return false;
+        return bitset<32>(a).count() < bitset<32>(b).count();
     });
     return arr;
 }
