@@ -1,7 +1,8 @@
 #include <cryptopp/md5.h>
+#include <string>
 
 using namespace std;
-using namespace CryptoPP;
+using namespace Crypto;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
