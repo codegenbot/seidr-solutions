@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -16,20 +16,21 @@ std::vector<int> make_a_pile(int n) {
 }
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
+    std::cout << "Enter a number: ";
     std::cin >> n;
     std::vector<int> pile = make_a_pile(n);
-    for (int i = 0; i < pile.size(); i++) {
-        std::cout << pile[i] << " ";
+    
+    // Your code to compare and check the equality
+    if (issame({1, 3}, pile)) {
+        std::cout << "Piles are same.\n";
+    } else {
+        std::cout << "Piles are different.\n";
     }
+    
     return 0;
 }
