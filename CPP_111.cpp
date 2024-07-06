@@ -1,6 +1,5 @@
-#include <string>
-#include <map>
 #include <vector>
+
 using namespace std;
 
 map<char, int> histogram(string test) {
@@ -42,5 +41,5 @@ map<char, int> histogram(string test) {
         }
     }
 
-    return map<char, int>(maxCountLetters.begin(), maxCountLetters.end());
+    return vector<pair<char, int>>(maxCountLetters.begin(), maxCountLetters.end());
 }
