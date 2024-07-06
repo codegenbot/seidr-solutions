@@ -9,13 +9,13 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a positive integer.")
 
-for _ in range(num_strings):
-    while True:
-        strings = input("Enter a string (or 'stop' to finish): ")
-        if strings.lower() == 'stop':
-            break
-        try:
-            reversed_string = strings[::-1]
-            print(reversed_string)
-        except AttributeError:
-            print("Invalid input. Please enter a valid string.")
+    for _ in range(num_strings):
+        while True:
+            strings = input("Enter a string (or 'stop' to finish): ")
+            if strings.lower() == 'stop':
+                break
+            try:
+                reversed_string = strings[::-1]
+                print(reversed_string)
+            except AttributeError:
+                print("Invalid input. Please enter a valid string.")
