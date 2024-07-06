@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -34,20 +32,20 @@ int main() {
     vector<float> input;
     for(int i=0; i<5; i++){
         float x;
-        std::cin >> x;
+        cin >> x;
         input.push_back(x);
     }
 
     vector<float> output = sort_even(input);
 
     if(issame(input, output)) {
-        std::cout << "The sorted even elements are identical." << std::endl;
+        cout << "The sorted even elements are identical." << endl;
     } else {
-        std::cout << "Sorted even elements: ";
+        cout << "Sorted even elements: ";
         for(auto e : output) {
-            std::cout << e << " ";
+            cout << e << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 
     return 0;
