@@ -23,17 +23,19 @@ int main() {
     string val2;
     cin >> val2;
 
-    if (!val2.empty()) {
-        int num = stoi(val2);
-        if (val1 > num) {
-            cout << "The first number is bigger.\n";
-        } else if (val1 < num) {
-            cout << "The second number is bigger.\n";
-        } else {
-            cout << "Both numbers are equal.\n";
-        }
+    int num2 = 0;
+    try {
+        num2 = stoi(val2);
+    } catch (const invalid_request_exception& e) {
+        cout << "Invalid input. Please enter a valid number.\n";
+    }
+
+    if (val1 > num2) {
+        cout << "The first number is bigger.\n";
+    } else if (val1 < num2) {
+        cout << "The second number is bigger.\n";
     } else {
-        cout << "Please enter a valid value for the second number.\n";
+        cout << "Both numbers are equal.\n";
     }
 
     return 0;
