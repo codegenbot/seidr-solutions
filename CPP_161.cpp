@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cctype>
 #include <algorithm>
 

@@ -1,23 +1,37 @@
 #include <vector>
 #include <cmath>
 
-int do_alphabet(std::vector<char*> operators, std::vector<int> operands) {
+int do_algebra(const char* operation, std::vector<int> operands) {
     int result = operands[0];
-    for (int i = 0; i < operators.size(); i++) {
-        if (*operators[i] == '+') {
-            result += operands[i + 1];
-        } else if (*operators[i] == '-') {
-            result -= operands[i + 1];
-        } else if (*operators[i] == '*') {
-            result *= operands[i + 1];
-        } else if (*operators[i] == '/') {
-            result /= static_cast<int>(operands[i + 1]);
+    for (int i = 1; i < operands.size(); i++) {
+        if (std::string(operation) == "*/") {
+            if (*operation == '*') {
+                result *= operands[i];
+            } else {
+                if (operands[i] != 0) {
+                    result /= operands[i];
+                } else {
+                    return 0;
+                }
+            }
+        } else if (std::string(operation) == "+*") {
+            if (*operation == '+') {
+                result += operands[i];
+            } else {
+                result *= operands[i];
+            }
+        } else if (std::string(operation) == "-+") {
+            if (*operation == '-') {
+                result -= operands[i];
+            } else {
+                result += operands[i];
+            }
         }
     }
     return result;
 }
 
 int main() {
-    assert(do_alphabet({"//", "*"}, {7, 3, 4}) == 8);
+    int result = do_algebra("//*", {7, 3, 4});
     return 0;
 }

@@ -12,7 +12,12 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         return distance(nums.begin(), find(nums.begin(), nums.end(), a)) -
                distance(nums.begin(), find(nums.begin(), nums.end(), b));
     };
-    std::vector<int> res = nums;
-    sort(res.begin(), res.end(), compare);
-    return res;
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
+}
+
+int test(){
+    std::vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
+    assert (std::equal(result.begin(), result.end(),{-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }

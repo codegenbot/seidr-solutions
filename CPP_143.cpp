@@ -1,3 +1,7 @@
+````
+#include <iostream>
+#include <string>
+
 int words_in_sentence(const std::string& sentence) {
     int count = 0;
     bool inWord = false;
@@ -15,3 +19,9 @@ int words_in_sentence(const std::string& sentence) {
 
     return count;
 }
+
+int main() {
+    assert(words_in_sentence("here is") == 2);
+    return 0;
+}
+```

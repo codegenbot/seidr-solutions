@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <assert.h>
@@ -9,7 +10,7 @@ int solutions(std::vector<int> lst) {
     } else {
         int result = 0;
         for(int i = 0; i < lst.size(); i++) {
-            for(int j = i + 1; j <= lst.size() - 1; j++) {
+            for(int j = i + 1; j < lst.size(); j++) {
                 if(lst[i] > lst[j]) {
                     result++;
                 }
@@ -19,8 +20,10 @@ int solutions(std::vector<int> lst) {
     }
 }
 
-int main() {
+int main 
+{
     std::vector<int> lst = {3, 13, 2, 9};
     int result = solutions(lst);
     std::cout << "Result: " << result << std::endl;
     return 0;
+}
