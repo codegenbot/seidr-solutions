@@ -38,3 +38,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+}
