@@ -9,9 +9,7 @@ def separate_paren_groups(paren_string):
                 stack.pop()
             else:
                 result.append(c)
-
-    # Check for unmatched parentheses
-    if len(stack) != 0:
-        return None
-
+    # check for unmatched parentheses
+    if len(stack) > 0:
+        raise ValueError("Unbalanced parentheses")
     return result
