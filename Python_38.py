@@ -1,3 +1,4 @@
+
 def decode_cyclic(s: str):
     if len(s) % 3 != 0:
         raise ValueError("Input string must have a length that is a multiple of 3")
