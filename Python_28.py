@@ -1,3 +1,4 @@
+```
 while True:
     try:
         num_strings = int(input("Enter the number of strings: "))
