@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -7,13 +8,13 @@ bool is_nested(std::string str) {
         if (c == '[') open++;
         else if (c == ']') close++;
     }
-    return open > 0 && close > open;
+    return open > 0 && close >= open; 
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str); 
+    std::cin >> str;
     bool result = is_nested(str);
     if(result)
         std::cout << "The string is nested";
