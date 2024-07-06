@@ -1,5 +1,5 @@
+```Python
 from typing import List
-
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -7,31 +7,25 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
 
     for char in paren_string:
-        if char == " ":
+        if char == ' ':
             continue
-        if char not in ["(", ")"]:
+        if char not in ['(', ')']:
             raise ValueError("Invalid character")
 
-        if char == "(":
+        if char == '(':
             stack.append(char)
-            groups.append("(")
-        elif char == ")":
+            groups.append('(')
+        elif char == ')':
             stack.pop()
-            groups.append(")")
+            groups.append(')')
 
         if not stack:
-            result.append("".join(groups))
+            result.append(''.join(groups))
             groups = []
 
-    if groups:
-        result.append("".join(groups))
-
-    # Check for remaining characters in the stack
-    while stack:
-        if stack[0] == "(":
-            result.append("(" + "".join(stack) + ")")
-            break
-        else:
-            stack.pop()
+    if stack and stack[0] == '(':
+        result.append('(' + ''.join(stack) + ')')
+    elif stack:
+        raise ValueError("Unmatched parentheses")
 
     return [group for group in result if group]
