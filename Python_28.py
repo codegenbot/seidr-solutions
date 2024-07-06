@@ -1,8 +1,11 @@
-# Python/28: Reverse Strings
+```
 while True:
     try:
         num_strings = int(input("Enter the number of strings: "))
-        break
+        if num_strings <= 0:
+            print("Please enter a positive integer.")
+        else:
+            break
     except ValueError:
         print("Invalid input. Please enter a positive integer.")
 
