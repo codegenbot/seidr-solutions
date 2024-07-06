@@ -1,3 +1,4 @@
+
 def decode_cyclic(s: str):
     if len(s) % 3 != 0:
         raise ValueError("Input string length must be divisible by 3")
