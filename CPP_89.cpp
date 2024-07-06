@@ -1,6 +1,6 @@
-using namespace std;
+#include <string>
 
-string encrypt(string s){
+string encrypt(string s) {
     string result = "";
     for(char c : s){
         if(c >= 'a' && c <= 'z'){
@@ -13,3 +13,4 @@ string encrypt(string s){
         result += c;
     }
     return result;
+}
