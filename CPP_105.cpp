@@ -1,13 +1,15 @@
+```
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<vector<string>> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if(a.size() != b.size()) {
         return false;
     }
     
     for(int i = 0; i < a.size(); i++) {
-        if(!issame({a[i]}, b[i])) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -15,38 +17,68 @@ bool issame(vector<string> a, vector<vector<string>> b) {
     return true;
 }
 
-vector<vector<string>> by_length(const vector<int>& arr) {
-    vector<vector<string>> result(10, vector<string>());
-    
+vector<string> by_length(const vector<int>& arr) {
+    vector<string> result;
+    vector<int> temp = {0};
     for (int i : arr) {
         if(i >= 1 && i <= 9) {
             switch (i) {
                 case 1:
-                    result[1].push_back("One");
+                    result.push_back("One");
                     break;
                 case 2:
-                    result[2].push_back("Two");
+                    result.push_back("Two");
                     break;
                 case 3:
-                    result[3].push_back("Three");
+                    result.push_back("Three");
                     break;
                 case 4:
-                    result[4].push_back("Four");
+                    result.push_back("Four");
                     break;
                 case 5:
-                    result[5].push_back("Five");
+                    result.push_back("Five");
                     break;
                 case 6:
-                    result[6].push_back("Six");
+                    result.push_back("Six");
                     break;
                 case 7:
-                    result[7].push_back("Seven");
+                    result.push_back("Seven");
                     break;
                 case 8:
-                    result[8].push_back("Eight");
+                    result.push_back("Eight");
                     break;
                 case 9:
-                    result[9].push_back("Nine");
+                    result.push_back("Nine");
+                    break;
+            }
+        } else {
+            switch (i % 10) {
+                case 1:
+                    result.push_back("One");
+                    break;
+                case 2:
+                    result.push_back("Two");
+                    break;
+                case 3:
+                    result.push_back("Three");
+                    break;
+                case 4:
+                    result.push_back("Four");
+                    break;
+                case 5:
+                    result.push_back("Five");
+                    break;
+                case 6:
+                    result.push_back("Six");
+                    break;
+                case 7:
+                    result.push_back("Seven");
+                    break;
+                case 8:
+                    result.push_back("Eight");
+                    break;
+                case 9:
+                    result.push_back("Nine");
                     break;
             }
         }
@@ -56,6 +88,6 @@ vector<vector<string>> by_length(const vector<int>& arr) {
 }
 
 int main() {
-    assert(issame(by_length({1,4,8}), {{"One"}, {"Four", "Eight"}}));
+    assert(issame(by_length({1, 4, 8}), {"One", "Four", "Eight"}));
     return 0;
 }
