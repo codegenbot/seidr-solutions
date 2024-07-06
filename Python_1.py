@@ -1,13 +1,19 @@
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups(paren_string: str) -> list:
     result = []
-    open_count = 0
-    start_index = 0
-    for i, char in enumerate(paren_string):
+    stack = []
+    current_group = ""
+    for char in paren_string:
         if char == "(":
-            open_count += 1
+            stack.append(char)
         elif char == ")":
-            open_count -= 1
-        if open_count == 0 and i > start_index:
-            result.append(paren_string[start_index : i + 1])
-            start_index = i + 1
+            if len(stack) == 0:
+                result.append(current_group)
+                current_group = ""
+            else:
+                stack.pop()
+                current_group += char
+        else:
+            current_group += char
+    if len(stack) != 0:
+        raise ValueError("Unbalanced parentheses")
     return result
