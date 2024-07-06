@@ -3,7 +3,10 @@ def select_words(s, n):
     words = s.split()
     result = []
     for word in words:
-        consonants = sum(1 for char in word if char.isalpha() and not char.lower() in 'aeiou')
+        consonants = 0
+        for char in word:
+            if char.lower() not in 'aeiou':
+                consonants += 1
         if consonants == n:
             result.append(word)
     return result
