@@ -1,7 +1,7 @@
 ```
 import re
-def digitSum(n):
+def digitSum():
+    n = int(input("Enter a number: "))
     return sum(int(i) for i in str(n))
 
-n = int(input("Enter a number: "))
-print(digitSum(n))
+digitSum()
