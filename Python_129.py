@@ -1,4 +1,6 @@
 ```
+from collections import deque
+
 def minPath(m, k):
     n = len(m)
     def dfs(i, j, path, visited):

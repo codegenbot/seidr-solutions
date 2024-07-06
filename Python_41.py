@@ -1,4 +1,5 @@
-def car_race_collision(n=0): 
+```
+def car_race_collision():
     while True:
         try:
             n = int(input("Enter the number of cars: "))
@@ -19,3 +20,15 @@ def car_race_collision(n=0):
         return None
     
     return f'Total damage: ${total_damage:,}'
+
+
+def main():
+    output = car_race_collision()
+    if not isinstance(output, type(None)):
+        print(output)
+    else:
+        print("Program did not receive expected input")
+
+
+if __name__ == "__main__":
+    main()
