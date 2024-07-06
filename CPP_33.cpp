@@ -37,3 +37,4 @@ int main() {
     vector<int> res = sort_third(l);
     for(int i : res) cout << i << " ";
     return 0;
+}
