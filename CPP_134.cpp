@@ -1,8 +1,8 @@
-Here is the completed code:
+#include <string>
 
-```cpp
-bool check_if_last_char_is_a_letter(string txt){
+bool check_if_last_char_is_a_letter(std::string txt){
     if(txt.empty()) return false;
     char lastChar = txt.back();
-    return (isalpha(lastChar) && !std::isspace(lastChar));
+    bool isLastCharLetter = (lastChar >= 'a' && lastChar <= 'z') || (lastChar >= 'A' && lastChar <= 'Z');
+    return !isLastCharLetter || (!ispunct(lastChar) && !isspace(lastChar));
 }
