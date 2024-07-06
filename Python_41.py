@@ -1,4 +1,3 @@
-```
-import math
+from functools import reduce
 def car_race_collision(n: int):
-    return math.prod(range(1, n + 1))
+    return reduce(lambda x, y: x * y, range(1, n + 1))
