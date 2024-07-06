@@ -1,10 +1,10 @@
 ```cpp
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
 int can_arrange(vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
-        assert(i >= 1);
+        assert(arr[i] > arr[i - 1]);
         if (arr[i] <= arr[i - 1]) {
             return i;
         }
