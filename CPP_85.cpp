@@ -9,9 +9,11 @@ int add(std::vector<int> lst) {
             sum += lst[i];
     }
     return sum;
+
 }
 
 int main() {
-    assert(add({4, 4, 6, 8}) == 12);
+    std::vector<int> lst = {4, 4, 6, 8};
+    assert(add(lst) == 12);
     return 0;
 }
