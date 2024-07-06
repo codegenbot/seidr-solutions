@@ -1,40 +1,39 @@
 #include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a.convert_to<int>() ? b : a;
+        return b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any(b.convert_to<int>() > a.convert_to<int>()) ? b : a;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = a.convert_to<std::string>();
+        std::string str2 = b.convert_to<std::string>();
+        size_t pos = str1.find('.');
+        if (pos != std::string::npos) {
+            str1 = str1.substr(0, pos);
+        }
+        pos = str2.find(',');
+        if (pos != std::string::npos) {
+            str2 = str2.substr(0, pos);
+        }
+        return boost::any(str2 > str1 ? b : a);
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        float f = b.convert_to<float>();
+        std::string s = a.convert_to<std::string>();
+        size_t pos = s.find('.');
+        if (pos != std::string::npos) {
+            s = s.substr(0, pos);
+        }
+        return boost::any(f > std::stof(s)) ? b : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float f = a.convert_to<float>();
+        std::string s = b.convert_to<std::string>();
+        size_t pos = s.find(',');
+        if (pos != std::string::npos) {
+            s = s.substr(0, pos);
+        }
+        return boost::any(std::stof(s) > f) ? b : a;
+    } else {
+        return boost::any(a.convert_to<int>() == b.convert_to<int>()) ? boost::any("None") : (a.convert_to<float>() > b.convert_to<float>()) ? a : b;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        istringstream iss(str);
-        float f;
-        iss >> f;
-        return f > a.convert_to<int>() ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return compare_one(b, a);
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        istringstream iss1(str1), iss2(str2);
-        float f1, f2;
-        iss1 >> f1; iss2 >> f2;
-        return f1 > f2 ? a : (f1 == f2 ? b : boost::any("None"));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string str = boost::any_cast<string>(a);
-        istringstream iss(str);
-        float f;
-        iss >> f;
-        return f > b.convert_to<float>() ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return compare_one(b, a);
-    }
-
-    return boost::any("None");
 }
