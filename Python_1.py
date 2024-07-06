@@ -1,10 +1,8 @@
 ```
-from typing import List
-
-def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
+def solution(paren_string):
     stack = []
     temp_str = ''
+    result = []
     
     for char in paren_string:
         if char == ' ':
