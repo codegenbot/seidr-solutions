@@ -1,29 +1,19 @@
 #include <vector>
 #include <initializer_list>
 #include <assert.h>
-#include <iostream>
+#include <iostream>  
+using namespace std;
 
-int solutions(std::vector<int> lst) {
+int solutions(vector<int> lst) {
     if (lst.size() == 0) {
         return -1;
     }
-    int count = 0;
-    for(int i=2; i<=9; ++i){
-        bool flag = true;
-        for(int j: lst){
-            if(i%j!=0){
-                flag = false;
-                break;
-            }
-        }
-        if(flag)++count;
-    }
-    return count;
+    return 0; 
 }
 
 int main() {
-    std::vector<int> lst = {3, 13, 2, 9};
+    vector<int> lst = {3, 13, 2, 9};
     int result = solutions(lst);
-    std::cout << "Result: " << result << std::endl;
+    cout << "Result: " << result << endl;
     return 0;
 }
