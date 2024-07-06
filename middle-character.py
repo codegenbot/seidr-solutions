@@ -1,11 +1,7 @@
-def get_middle(string):
-    # Calculate the index of the middle character
-    mid = len(string) // 2
-
-    # Check if the middle character is present in the string
-    if string[mid] in string:
-        # If it is, return only that character as a string
-        return string[mid]
+def get_middle(s):
+    if len(s) % 2 == 0:
+        # Even length, return middle two characters
+        return s[len(s) // 2 - 1 : len(s) // 2 + 2]
     else:
-        # Otherwise, return the two middle characters as a string
-        return string[mid - 1 : mid + 2]
+        # Odd length, return middle character
+        return s[len(s) // 2]
