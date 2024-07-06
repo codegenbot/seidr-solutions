@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -16,7 +16,5 @@ int solutions(vector<int> lst) {
 
 int main() {
     assert(solutions({3, 13, 2, 9}) == 3);
-    vector<int> input = {1, 4, 7, 10};
-    cout << "Solutions: " << solutions(input) << endl;
     return 0;
 }
