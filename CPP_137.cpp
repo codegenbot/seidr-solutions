@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
 
 using namespace boost;
 
@@ -31,6 +32,13 @@ boost::any compare_one(boost::any a, boost::any b) {
         return aStr > bStr ? a : b;
     }
     else {
-        return boost::any("None");
+        return "None";
     }
+}
+
+int main() {
+    boost::any a = 10;
+    boost::any b = "20.5";
+    std::cout << compare_one(a, b).type() == typeid(std::string) << std::endl;
+    return 0;
 }
