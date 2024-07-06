@@ -1,5 +1,5 @@
-def sum_product(numbers: list[int]) -> list[int]:
+def sum_product(numbers: list[int]) -> tuple[int, int]:
     if not numbers:
-        return [0, 1]
+        return 0, 1
     else:
-        return [sum(numbers), math.prod(numbers)]
+        return sum(numbers), math.prod(numbers)
