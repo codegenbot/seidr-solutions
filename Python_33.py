@@ -1,4 +1,10 @@
+```Python
 def sort_third(l: list):
-    l_copy = [i for i in l]
-    l.sort(key=lambda x: (x % 3, -x))
-    return l
+    return [
+        (
+            i
+            if i % 3 != 0
+            else min([x for x in l if x % 3 == 0 and x != i])
+        )
+        for i in sorted(l)
+    ]
