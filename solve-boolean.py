@@ -1,6 +1,6 @@
-```Python
+```
 def solve_boolean(expression):
-    expression = ''.join(map({'T': True, 'F': False}.get, expression))
+    expression = ''.join(map({True: 'T', False: 'F'}.get, expression))
 
     while '&' in expression and '|' in expression:
         start = 0
@@ -16,8 +16,8 @@ def solve_boolean(expression):
 
         for part in and_parts:
             or_parts = part.split('|')
-            expression = 'F' if all(not {'T': True, 'F': False}[p] for p in or_parts) else 'T'
+            expression = 'F' if all(not ({True: 'T', False: 'F'}.get(p)) for p in or_parts) else 'T'
             expression = (expression.replace('F', '&False') + '&' + 
                           expression.replace('T', '&True')).replace('&False|&True', 'F').replace('&False&True', 'F').replace('&True&False', 'F')
 
-    return not {'T': True, 'F': False}[expression]
+    return not ({True: 'T', False: 'F'}.get(expression))
