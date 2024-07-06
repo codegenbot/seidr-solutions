@@ -2,7 +2,14 @@ from typing import List
 import math
 
 
-def factorize(n: int) -> List[int]:
+def factorize():
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    
     factors = []
     i = 2
     while i * i <= n:
@@ -16,11 +23,7 @@ def factorize(n: int) -> List[int]:
             factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    return factors
+    print(factors)
 
 
-while True:
-    num = int(input("Enter an integer (or 'q' to quit): "))
-    if num == "q":
-        break
-    print(factorize(num))
+factorize()
