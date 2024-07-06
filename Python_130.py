@@ -1,22 +1,14 @@
-```
 def tri(n):
     if n == 0:
         return [3]
-
     elif n == 1:
         return [3]
-
-    elif n == 2:
-        return [3, 2]
-
     else:
-        tri_sequence = [3, 2]
-        
-        for i in range(2, n):
+        tribonacci = [3]
+        for i in range(2, n + 1):
             if i % 2 == 0:
-                tri_sequence.append(1 + i / 2)
+                tribonacci.append(int((i / 2) + 1))
             else:
-                last_three = tri_sequence[-3:]
-                tri_sequence.append(sum(last_three))
-                
-        return tri_sequence
+                last_three = tribonacci[-3:]
+                tribonacci.append(sum(last_three))
+        return tribonacci
