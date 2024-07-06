@@ -1,5 +1,5 @@
-#include <cstdlib>
+```#include <cstdlib>
 
-int generateRandom(int min, int max) {
-    return rand() % (max - min + 1) + min;
+int add(int x, int y) {
+    return x + y;
 }
