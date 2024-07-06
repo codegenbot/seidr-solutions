@@ -1,4 +1,6 @@
-def firstHalfSum():
+```
+print("Double the difference program:")
+def double_the_difference():
     while True:
         try:
             first_half_sum = int(input("Enter first half sum: "))
@@ -12,5 +14,3 @@ def firstHalfSum():
                 break
         except ValueError:
             print("Invalid input. Please enter a whole number for both sums.")
-    
-    firstHalfSum()
