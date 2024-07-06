@@ -1,3 +1,4 @@
+```c
 #include <vector>
 #include <cmath>
 
@@ -13,17 +14,14 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    // initialize lst with input values...
-    float num1, num2, num3, num4, num5;
-    cout << "Enter five numbers: ";
-    cin >> num1 >> num2 >> num3 >> num4 >> num5;
-    lst.push_back(num1);
-    lst.push_back(num2);
-    lst.push_back(num3);
-    lst.push_back(num4);
-    lst.push_back(num5);
+    float a, b; 
+    cin >> a >> b;
+    lst.push_back(a);
+    lst.push_back(b);
+
     long long sum = 0;
     sum = double_the_difference(lst);
     cout << "Sum: " << sum << endl;
+
     return 0;
 }
