@@ -1,2 +1,2 @@
-def remove_duplicates(numbers: list[int]) -> list[int]:
+def remove_duplicates(numbers):
     return list(set(numbers))
