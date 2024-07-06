@@ -15,9 +15,12 @@ bool is_multiply_prime(int a) {
                     }
                     return prime;
                 }
+                else if (i * j * k > a) {
+                    return true; // No perfect or non-perfect cube division
+                }
                 k++;
             }
         }
     }
-    return false;
+    return true; // No such division is found
 }
