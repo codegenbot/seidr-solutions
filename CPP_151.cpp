@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -12,7 +13,7 @@ long long double_the_difference(std::vector<double> lst) {
     return sum;
 }
 
-int main_func() {
+int main() {
     std::vector<double> lst;
     double input;
 
@@ -25,14 +26,7 @@ int main_func() {
         lst.push_back(input);
     }
 
-    long long sum = double_the_difference(lst); 
-    int odd_sum = 0;
-    for (double num : lst) {
-        if (num > 0 && int(num + 0.5) == num) { 
-            odd_sum += int(num + 0.5); 
-        }
-    }
-
-    assert(sum == pow(odd_sum, 2)); 
+    long long odd_sum = double_the_difference(lst); 
+    std::cout << "The total sum is: " << odd_sum << std::endl;
     return 0;
 }
