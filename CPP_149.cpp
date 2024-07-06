@@ -15,29 +15,34 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    int n;
-    vector<string> a, b;
-    
-    cout << "Enter the number of strings: ";
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        string s;
-        cout << "Enter string " << i+1 << ": ";
-        cin >> s;
-        if(i < n/2) 
-            a.push_back(s);
-        else
-            b.push_back(s);
+int sorted_list_sum(vector<string> lst) {
+    sort(lst.begin(), lst.end());
+    int sum = 0;
+    for (const string& str : lst) {
+        sum += str.length();
     }
+    return sum;
+}
+
+vector<string> vector_sort(vector<string> lst) {
+    auto it = unique(lst.begin(), lst.end(),
+        [](const string& a, const string& b){ return (a.size() % 2 == 1 && b.size() % 2 == 0) || (a.size() % 2 == 0 && b.size() % 2 == 1); });
+    lst.erase(unique(it, lst.end()), lst.end());
     
-    bool result = issame(a, b);
+    sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b){
+            if(a.size() != b.size())
+                return (a.size() < b.size());
+            else
+                return a < b;
+        }
+    );
     
-    if(result)
-        cout << "The lists are same.\n";
-    else
-        cout << "The lists are not same.\n";
-    
-    return 0;
+    return lst;
+}
+
+int main() {
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    assert(issame(vector_sort(lst), {"ccc", "dd", "aaaa", "bbbb"}));
+    cout << sorted_list_sum(lst) << endl;
 }
