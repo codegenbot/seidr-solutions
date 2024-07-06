@@ -1,7 +1,5 @@
-```c++
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 bool issame(vector<string> a,vector<string>b){
     return a == b;
@@ -37,5 +35,5 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Makemake") == vector<string>({})); 
+    assert(bf("Jupiter", "Makemake") == vector<string>({})); // Correct usage
 }
