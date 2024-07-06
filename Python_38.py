@@ -1,11 +1,23 @@
 def decode_cyclic(s: str):
-    decoded_groups = []
-    group = ""
+    result = ""
+    temp = ""
     for char in s:
-        group += char
-        if len(group) == 3:
-            decoded_groups.append(group[1:] + group[0])
-            group = ""
-    if group:
-        decoded_groups.append(group)
-    return "".join(decoded_groups)
+        if len(temp) < 3:
+            temp += char
+        else:
+            if len(temp) == 3:
+                if temp[0] == temp[-1]:
+                    result += temp[1]
+                else:
+                    result += temp
+            temp = char
+    if len(temp) == 3 and temp[0] == temp[-1]:
+        result += temp[1]
+    elif len(temp) < 3:
+        result += temp
+    else:
+        if temp[0] == temp[-1]:
+            result += temp[1]
+        else:
+            result += temp
+    return result
