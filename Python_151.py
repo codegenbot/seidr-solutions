@@ -7,4 +7,4 @@ odd_sum = sum(
     for i in input("Enter space-separated integers: ").split()
     if isinstance(int(i), int) and int(i) > 0
 )
-print(double_the_difference([int(x) for x in input().split()]))
+check(double_the_difference([int(x) for x in input().split()]))
