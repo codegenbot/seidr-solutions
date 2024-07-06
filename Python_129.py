@@ -1,18 +1,29 @@
 def get_neighbors(grid, cell):
     # Get the row and column of the current cell
-    row, col = cell
+    row = cell // len(grid[0])
+    col = cell % len(grid[0])
 
-    # Get the rows and columns of the neighboring cells
+    # Initialize a list to store the neighboring cells
     neighbors = []
-    for i in range(-1, 2):
-        for j in range(-1, 2):
-            if i == 0 and j == 0:
-                continue
-            neighbors.append((row + i, col + j))
 
-    # Filter out the neighbors that are not within the grid boundaries
-    return [
-        neighbor
-        for neighbor in neighbors
-        if 0 <= neighbor[0] < len(grid) and 0 <= neighbor[1] < len(grid[0])
-    ]
+    # Check if the cell has a north neighbor
+    if row > 0:
+        # Add the north neighbor to the list
+        neighbors.append((row - 1, col))
+
+    # Check if the cell has a south neighbor
+    if row < len(grid) - 1:
+        # Add the south neighbor to the list
+        neighbors.append((row + 1, col))
+
+    # Check if the cell has an east neighbor
+    if col > 0:
+        # Add the east neighbor to the list
+        neighbors.append((row, col - 1))
+
+    # Check if the cell has a west neighbor
+    if col < len(grid[0]) - 1:
+        # Add the west neighbor to the list
+        neighbors.append((row, col + 1))
+
+    return neighbors
