@@ -1,13 +1,10 @@
 def get_max_triples(n):
-    primes = []
-    for i in range(2, n + 1):
-        if all(i % p != 0 for p in primes):
-            primes.append(i)
-
+    a = [i * i - i + 1 for i in range(1, n + 1)]
+    a.sort()
     count = 0
-    for prime in primes:
-        for i in range(len(primes)):
-            for j in range(i + 1, len(primes)):
-                if prime + primes[i] + primes[j] % 3 == 0:
+    for i in range(len(a)):
+        for j in range(i + 1, len(a)):
+            for k in range(j + 1, len(a)):
+                if a[i] + a[j] + a[k] % 3 == 0:
                     count += 1
     return count
