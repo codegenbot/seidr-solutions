@@ -1,5 +1,6 @@
 Here is the completed code:
 
 bool iscuber(int a){
-    return round(cbrt(a)) * round(cbrt(a)) == a;
+    double c = cbrt(a);
+    return floor(c) == c && c >= 0;
 }
