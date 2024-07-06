@@ -1,14 +1,6 @@
-std::vector<std::string> bf(std::string a, std::string c) {
-    int i = 0;
-    while (i < a.size()) {
-        if (a[i] == ' ') {
-            a.erase(a.begin() + i);
-        } else {
-            i++;
-        }
-    }
-    return {a, c};
-}
+#include <vector>
+#include <string>
+#include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     for (int i = 0; i < a.size(); i++) {
@@ -17,4 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
         }
     }
     return true;
+}
+
+std::string bf(std::string a, std::string b) {
 }
