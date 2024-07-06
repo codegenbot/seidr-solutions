@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -6,23 +7,29 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
-    auto evenVals = l;
-    auto oddVals = l;
+    vector<float> result(l.size()), evenVals, oddVals;
     
-    std::stable_partition(evenVals.begin(), evenVals.end(),
-        [](float x){return fabs(x) % 2 == 0;});
-    std::stable_partition(oddVals.begin(), oddVals.end(),
-        [](float x){return fabs(x) % 2 != 0;});
-
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            result[i] = evenVals[0];
-            evenVals.erase(evenVals.begin());
+    // Separate the array into two parts: one with even values and one with odd values
+    for (float num : l) {
+        if (num % 2 == 0) {
+            evenVals.push_back(num);
         } else {
-            result[i] = oddVals[0];
-            oddVals.erase(oddVals.begin());
+            oddVals.push_back(num);
         }
     }
+    
+    // Sort the entire array
+    sort(evenVals.begin(), evenVals.end());
+    sort(oddVals.begin(), oddVals.end());
+    
+    int i = 0, j = 0;
+    for (int k = 0; k < l.size(); k++) {
+        if (k % 2 == 0) {
+            result[k] = evenVals[i++];
+        } else {
+            result[k] = oddVals[j++];
+        }
+    }
+    
     return result;
 }
