@@ -5,3 +5,14 @@ def find_zero(x):
         return 1
     else:
         return 0
+
+
+if __name__ == "__main__":
+    while True:
+        try:
+            x = int(input("Enter a number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
+    print(find_zero(x))
