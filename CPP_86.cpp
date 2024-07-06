@@ -1,21 +1,44 @@
-string anti_shuffle(string s){
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+string anti_shuffle(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += ' ';
-        }else{
-            string word = "";
-            for(int j=i; j<s.length() && s[j] != ' '; j++){
-                word += s[j];
-                int temp = 0;
-                for(int k=0; k<word.length(); k++){
-                    if(temp <= word[k]){
-                        temp = word[k];
-                    }
-                }
-                result += (char)temp;
+    for (const auto& word : split(s, ' ')) {
+        result += reorder(word);
+        if (!result.empty()) {
+            result += " ";
+        }
+    }
+    return result;
+}
+
+string split(const string& str, char delimeter) {
+    string result[100];
+    int i = 0;
+    for (const auto& c : str) {
+        if (c != delimeter) {
+            result[i] += c;
+        } else {
+            i++;
+        }
+    }
+    return "";
+}
+
+string reorder(const string& word) {
+    string result = "";
+    for (char c : word) {
+        bool isAdded = false;
+        for (const auto& charInWord : word) {
+            if (!isAdded && c > charInWord) {
+                result += charInWord;
+                isAdded = true;
             }
-            i = j;
+        }
+        if (!isAdded) {
+            result += c;
         }
     }
     return result;
