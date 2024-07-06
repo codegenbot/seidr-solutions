@@ -1,32 +1,46 @@
 #include <string>
 #include <map>
+#include <vector>
 using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
+    string word;
+    int maxCount = 0;
 
-    string str = test + " ";
-    char prevChar = str[0];
-    int count = 1;
-
-    for (int i = 1; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (result.find(prevChar) == result.end()) {
-                result[prevChar] = count;
-            } else {
-                result[prevChar]++;
+    for (char c : test) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                if (result.find(word[0]) != result.end())
+                    result[word[0]]++;
+                else
+                    result[word[0]] = 1;
+                word.clear();
             }
-            prevChar = str[i];
-            count = 1;
-        } else if (str[i] != prevChar) {
-            prevChar = str[i];
-            count = 1;
         } else {
-            prevChar = str[i];
-            count++;
+            word += c;
         }
     }
 
-    return result;
+    if (!word.empty()) {
+        if (result.find(word[0]) != result.end())
+            result[word[0]]++;
+        else
+            result[word[0]] = 1;
+    }
+
+    int maxCountNow = 0;
+    vector<pair<char, int>> maxCountLetters;
+
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCountNow) {
+            maxCountNow = it->second;
+            maxCountLetters.clear();
+            maxCountLetters.push_back({it->first, it->second});
+        } else if (it->second == maxCountNow) {
+            maxCountLetters.push_back({it->first, it->second});
+        }
+    }
+
+    return vector<pair<char, int>>(maxCountLetters.begin(), maxCountLetters.end());
 }
