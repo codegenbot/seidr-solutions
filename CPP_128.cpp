@@ -1,6 +1,6 @@
 #include <vector>
 
-int prod_signs(std::vector<int> arr) {
+int prod_signs(vector<int> arr) {
     long long product = 1;
     int sum = 0;
 
