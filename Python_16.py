@@ -1,3 +1,3 @@
-```
 def count_distinct_characters(string: str) -> int:
-    return len(set(string.casefold()))
+    string = string.lower()
+    return len(set(string))
