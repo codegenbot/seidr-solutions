@@ -14,22 +14,11 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float n;
-    
-    // Get the input vector
-    std::cout << "Enter a sequence of numbers (0 to stop):" << std::endl;
-    while (true) {
-        std::cin >> n;
-        if (n == 0) {
-            break;
-        }
-        lst.push_back(n);
+    float num;
+    while (std::cin >> num) {
+        lst.push_back(num);
     }
-
     long long odd_sum = double_the_difference(lst);
-    
-    // Add a meaningful assertion
-    assert(double_the_difference(lst) == odd_sum); 
-
+    std::cout << "The sum is: " << odd_sum << std::endl;
     return 0;
 }
