@@ -1,3 +1,18 @@
+#include <cmath>
+#include <cassert>
+
 bool is_simple_power(int x, int n) {
-    return pow(n, 1.0 / log2(x)) == (int)pow(n, 1.0 / log2(x));
+    double log_x = log((double)x);
+    double log_n = log((double)n);
+
+    if (fmod(log_x, log_n) == 0)
+        return true;
+    else
+        return false;
+}
+
+int main() {
+    assert(is_simple_power(1, 12)==true);
+    // add more test cases as needed
+    return 0;
 }
