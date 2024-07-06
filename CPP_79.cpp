@@ -1,4 +1,3 @@
-```cpp
 std::string decimal_to_binary(int n){
     std::string binary = "";
     do{
