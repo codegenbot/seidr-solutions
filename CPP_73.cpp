@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -22,11 +21,4 @@ int smallest_change(vector<int> arr) {
     }
     
     return dp[0][n-1][0];
-}
-
-int main() {
-    // Example usage:
-    vector<int> arr = {2, 4, 3};
-    cout << smallest_change(arr) << endl;
-    return 0;
 }
