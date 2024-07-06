@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";

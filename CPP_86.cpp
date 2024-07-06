@@ -1,26 +1,21 @@
-Here is the completed code:
-
-```cpp
-string anti_shuffle(string s) {
+string anti_shuffle(string s){
     string result = "";
-    size_t pos = 0;
-
-    while (pos < s.length()) {
-        if (s[pos] == ' ') {
-            result += " ";
-            pos++;
-        } else {
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
+            result += ' ';
+        }else{
             string word = "";
-            do {
-                word += s[pos];
-                pos++;
-            } while (pos < s.length() && s[pos] != ' ');
-            string newWord = "";
-            for (char c : word) {
-                newWord += std::min_element(word.begin(), word.end(),
-                                            [](char a, char b) { return a < b; }) -> c;
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
+                word += s[j];
+                int temp = 0;
+                for(int k=0; k<word.length(); k++){
+                    if(temp <= word[k]){
+                        temp = word[k];
+                    }
+                }
+                result += (char)temp;
             }
-            result += newWord;
+            i = j;
         }
     }
     return result;
