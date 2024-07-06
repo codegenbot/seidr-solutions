@@ -1,3 +1,4 @@
+```
 def sort_even(l: list) -> tuple:
     pos_evens = sorted([x for x in l if 0 < x and x % 2 == 0])
     neg_evens = sorted([-x for x in l if x < 0 and x % 2 == 0])
@@ -5,14 +6,17 @@ def sort_even(l: list) -> tuple:
 
     result = []
     while len(odds) >= len(pos_evens) and len(odds) >= len(neg_evens):
-        result.append(odds.pop(0))
-        if pos_evens:
+        while pos_evens:
             result.append(pos_evens.pop(0))
-        if neg_evens:
+        while neg_evens:
             result.append(-neg_evens.pop(0))
+        if odds:
+            result.append(odds.pop(0))
 
-    result.extend(pos_evens)
-    result.extend([-x for x in neg_evens])
+    if pos_evens:
+        result.extend(pos_evens)
+    else:
+        result.extend([-x for x in neg_evens])
     result.extend(odds)
 
     return tuple(result)
