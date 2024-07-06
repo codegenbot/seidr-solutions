@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string anti_shuffle(string s){
+string anti_shuffle(string s) {
     string result = "";
     for (const auto& word : split(s, " ")) {
         result += std::accumulate(word.begin(), word.end(),
@@ -23,4 +23,8 @@ string split(const string& str, const string& delimiter) {
     }
     tokens.push_back(str);
     return string(tokens.begin(), tokens.end());
+}
+
+int main() {
+    // Your existing code...
 }
