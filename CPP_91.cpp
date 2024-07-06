@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -15,4 +15,4 @@ int is_bored(std::string S){
     return count;
 }
 
-int main() { return is_bored("I am bored I"); }
+int main() { return is_bored("I am bored"); }
