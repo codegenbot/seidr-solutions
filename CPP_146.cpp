@@ -12,8 +12,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 11, -12, 13, -21};
-    int result = specialFilter(nums);
-    std::cout << "The number of special numbers in the given vector is: " << result << std::endl;
+    std::vector<int> nums = {11, 12, 13, 14, 15};
+    int output = specialFilter(nums);
+    std::cout << "Output: " << output << std::endl;
     return 0;
 }
