@@ -1,27 +1,23 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <set>
+
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
-    
-    set<int> intersection;
-    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                      inserter(intersection, intersection.begin()));
-    
-    vector<int> result(intersection.begin(), intersection.end());
-    return result;
-}
 
-int main() {
-    vector<int> l1 = {1, 4, 3, 34, 653, 2, 5};
-    vector<int> l2 = {5, 7, 1, 5, 9, 653, 121};
-    
-    vector<int> res = common(l1, l2);
-    for (int i : res) {
-        cout << i << " ";
+    set<int> result;
+    for (int i : s1) {
+        if (s2.find(i) != s2.end()) {
+            result.insert(i);
+        }
     }
-    return 0;
+
+    vector<int> res;
+    for (int i : result) {
+        res.push_back(i);
+    }
+    return res;
 }
