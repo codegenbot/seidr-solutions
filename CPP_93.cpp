@@ -1,17 +1,20 @@
+#include <algorithm>
+#include <cctype>
+#include <string>
+
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c == toupper(base)) ? tolower(c) : toupper(c);
-            switch (c - base) {
-                case 0:
-                case 1:
-                    result += c;
-                    break;
-                default:
-                    result += char((c - base + 2) % 26 + base);
+            char newC = c;
+            if (islower(newC)) {
+                newC = 'a' + (newC - 'a' + 2) % 26;
+            } else {
+                newC = 'A' + (newC - 'A' + 2) % 26;
             }
+            result += toppercase(newC);
         } else {
             result += c;
         }
