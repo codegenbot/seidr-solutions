@@ -1,6 +1,6 @@
+#include <cassert>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 int do_algebra(std::vector<char> operations, std::vector<int> operands) {
     int result = operands[0];
