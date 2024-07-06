@@ -1,9 +1,9 @@
 #include <vector>
 using namespace std;
-vector<pair<int, string>> by_length(vector<int> arr) {
+vector<pair<int, string>> by_length(vector<int> arr){
     vector<pair<int, string>> temp;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9)
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] >= 1 && arr[i] <= 9)
             temp.push_back({arr[i], to_string(arr[i]) == "1" ? "One": 
                 to_string(arr[i]) == "2" ? "Two":
                 to_string(arr[i]) == "3" ? "Three":
