@@ -1,20 +1,23 @@
+```
 def calculate_score(games):
-    frames = games.replace('/', '').split('/')
+    frames = games.replace('/', '')
     score = 0
     current_roll = 0
 
     for i in range(len(frames)):
         if frames[i].isdigit():
-            current_roll += int(frames[i])
+            current_roll = current_roll * 10 + int(frames[i])
         else:
-            if frames[i] == 'X':
-                score += 10 + (10 - current_roll) if i < len(frames) - 1 else 10
-            elif frames[i] == '0' and current_roll != 0:
-                score += 10
-            elif current_roll > 0:
+            if current_roll > 0:
                 score += current_roll
+            elif current_roll == 10:
+                score += 10
+            if frames[i] == "X":
+                score += 10
+            elif frames[i].isdigit():
+                score += int(frames[i])
             current_roll = 0
 
-    return score
+    return score + max(0, current_roll)
 
 print(calculate_score("3645339/218/8-7/X71"))
