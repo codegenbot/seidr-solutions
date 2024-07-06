@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```cpp
 #include <vector>
 #include <string>
 
@@ -24,7 +27,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    // Use the total_match function
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> a = {"this"};
+    vector<string> b = {};
+    assert(issame(total_match(a, b), {}));
     return 0;
 }
