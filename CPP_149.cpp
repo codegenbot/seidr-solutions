@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -13,19 +14,6 @@ bool issame(vector<string> a, vector<string> b) {
     }
     
     return true;
-}
-
-vector<string> sorted_list_sum(vector<string> input) {
-    vector<string> result;
-    for (string str : input) {
-        int sum = 0;
-        for(char ch: str) {
-            sum += ch;
-        }
-        result.push_back(to_string(sum));
-    }
-    sort(result.begin(), result.end());
-    return result;
 }
 
 int main() {
@@ -48,14 +36,10 @@ int main() {
         b.push_back(s);
     }
 
-    vector<string> sum_a = sorted_list_sum(a);
-    vector<string> sum_b = sorted_list_sum(b);
-
-    if(issame(sum_a, sum_b)) {
+    if(issame(a, b)) {
         std::cout << "The lists are the same." << std::endl;
     } else {
         std::cout << "The lists are not the same." << std::endl;
     }
     
     return 0;
-}

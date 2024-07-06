@@ -17,6 +17,8 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    std::vector<int> game(game.begin(), game.end());
+    std::vector<int> guess(guess.begin(), guess.end());
+    assert(issame(compare(game,{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
