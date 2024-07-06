@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -15,7 +16,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-cin >> n;
+cin >> n; 
 
 vector<string> v1, v2;
 
