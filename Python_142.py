@@ -1,14 +1,13 @@
-```
-def sum_squares(num1, num2):
-    return square(num1) + square(num2)
-
-
 def square(x):
     return x**2
 
 
 def cube(x):
     return x**3
+
+
+def sum_squares(num1, num2):
+    return square(num1) + square(num2)
 
 
 while True:
