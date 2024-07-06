@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,9 +14,9 @@ map<char, int> histogram(string test) {
     for (char c : uniqueLetters) {
         size_t pos = 0;
         while ((pos = test.find(c, pos)) != string::npos) {
+            result[c]++;
             pos += 1; // skip the same character
         }
-        if (pos > 0) result[c] = pos - 1;
     }
 
     map<char, int> maxCountMap;
