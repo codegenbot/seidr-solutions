@@ -1,9 +1,9 @@
-```python
+```
 def add(x: int, y: int):
     return x + y
 
-num1 = 0  # initialize with a default value
-num2 = 0  # initialize with a default value
+num1 = 0  
+num2 = 0  
 
 while True:
     try:
