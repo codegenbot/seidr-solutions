@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
-#include <cmath>
+```
+#include<iostream>
 
 bool any_int(float a, float b, float c) {
     if (a == static_cast<int>(a) && 
@@ -13,13 +12,11 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     float a, b, c;
-    std::cout << "Enter three floats: ";
+    std::cout << "Enter three float numbers: ";
     std::cin >> a >> b >> c;
-
     if (any_int(a, b, c))
-        std::cout << "The sum of two integers is the third integer." << std::endl;
+        std::cout << "Any two of the input values are equal.\n";
     else
-        std::cout << "None of the input values are integers." << std::endl;
-
+        std::cout << "The input values are distinct.\n";
     return 0;
 }
