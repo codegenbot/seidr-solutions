@@ -1,5 +1,9 @@
 ```cpp
-bool issame(vector<float> a, vector<float> b) {
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+bool issame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -7,11 +11,11 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> evenVals;
+            std::vector<float> evenVals;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenVals.push_back(l[j]);
@@ -27,13 +31,13 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> v1 = {3.5, 2.7, 6.8, 4.9};
-    vector<float> v2 = sort_even(v1);
+    std::vector<float> v1 = {3.5, 2.7, 6.8, 4.9};
+    v1 = sort_even(v1);
     
-    if(issame(v1,v2)) {
-        cout << "Vectors are same" << endl;
+    if(issame(v1,{3.5,2.7,4.0,6.8})) {
+        std::cout << "Vectors are same" << std::endl;
     } else {
-        cout << "Vectors are not same" << endl;
+        std::cout << "Vectors are not same" << std::endl;
     }
     return 0;
 }
