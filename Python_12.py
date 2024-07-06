@@ -6,7 +6,9 @@ while True:
         break
     elif len(user_input) > 0 and strings:
         print(strings)
+        strings = [] 
     elif len(user_input) > 0:
         strings.append(user_input)
     else:
         print("Please enter a non-empty string.")
+    i += 1
