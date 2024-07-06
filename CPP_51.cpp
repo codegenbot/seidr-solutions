@@ -1,5 +1,4 @@
 #include <string>
-
 string remove_vowels(string text){
     string result = "";
     for(char c : text){
@@ -10,3 +9,4 @@ string remove_vowels(string text){
         }
     }
     return result;
+}
