@@ -1,27 +1,25 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    if(k > arr.size()) {
+        throw std::runtime_error("k is greater than the size of the array");
     }
-    return true;
+    std::sort(arr.begin(), arr.end());
+    return {arr.begin(), arr.begin() + 1}; 
 }
 
 int main() {
-    vector<int> arr;
-    int k, n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter " << n << " integers: ";
-    for(int i = 0; i<n; i++) {
-        cin >> k;
-        arr.push_back(k);
+    try {
+        assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {});
+        std::cout << "Test passed.\n";
+    } catch(const std::exception& e) {
+        std::cout << "Error: " << e.what() << '\n';
     }
-    cout << "Maximum " << k << " numbers are: ";
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    for(auto x : result) cout << x << " ";
     return 0;
 }
