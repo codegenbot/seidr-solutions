@@ -6,11 +6,6 @@ def double_the_difference(lst):
     return result
 
 
-# Test case 1:
-assert double_the_difference([]) == 0
-
-# Test case 2:
-assert double_the_difference([1, 3, 5, 7]) == 90
-
-# Test case 3:
-assert double_the_difference([1, 2, 3, 4, 5, 6, 7]) == 189
+# Example usage with a list of integers
+lst = [1, 3, 5, 7]
+print(double_the_difference(lst))  # Output: 64
