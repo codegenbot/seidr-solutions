@@ -1,7 +1,3 @@
-```cpp
-#include <algorithm>
-using namespace std;
-
 string anti_shuffle(string s) {
     string result = "";
     size_t pos = 0;
@@ -21,7 +17,7 @@ string anti_shuffle(string s) {
     return result;
 }
 
-int main() {
+string main() {
     assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-    return "Success";
+    return anti_shuffle("Hi. My name is Mister Robot. How are you?");
 }
