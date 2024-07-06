@@ -6,16 +6,14 @@
 using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
+    string str = to_string(q[0]);
+    for (int i = 1; i < q.size(); i++) {
+        str += " " + to_string(q[i]);
     }
-    vector<char> reversed;
-    for (char c : str) {
-        reversed.push_back(c);
-    }
+    
+    vector<char> reversed(str.begin(),str.end());
     reverse(reversed.begin(),reversed.end());
-    string revStr(string(reversed.begin(),reversed.end()));
+    string revStr(reversed.begin(),reversed.end());
     
     if (str != revStr)
         return false;
