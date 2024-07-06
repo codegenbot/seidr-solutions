@@ -1,5 +1,6 @@
 ```
-def miller_rabin(n: int):
+def miller_rabin():
+    n = int(input("Enter number: "))
     if n < 2:
         return True
     for p in [2, 3, 5]:
@@ -13,7 +14,9 @@ def miller_rabin(n: int):
         p *= 2
     return True
 
-def modp(n: int, p: int):
+def modp():
+    n = int(input("Enter number: "))
+    p = int(input("Enter prime number: "))
     if p < 2:
         return n
     if p == 2 or n % p == 0:
@@ -24,3 +27,5 @@ def modp(n: int, p: int):
         if pow(n, i, p) != n and pow(i, (p - 1), p) != 1:
             return n % p
     return pow(n * pow(n, p-1, p), -1, p) * n % p
+
+print(modp())
