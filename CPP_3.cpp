@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 
-bool below_zero(std::vector<std::string> operations) 
-{
+bool below_zero(std::vector<std::string> operation) {
     int balance = 0;
-    for (const auto& operation : operations) {
-        int op = std::stoi(operation);
+    for (const auto& operations : operation) {
+        int op = std::stoi(operations);
         balance += op;
         if (balance < 0) return true;
     }
