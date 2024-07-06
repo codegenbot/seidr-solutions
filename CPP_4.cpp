@@ -1,6 +1,6 @@
-#include <initializer_list>
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 float mean(std::vector<float> numbers) {
     return std::accumulate(numbers.begin(), numbers.end(), 0.0f) / numbers.size();
@@ -15,6 +15,6 @@ float mean_absolute_deviation(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(std::abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+    assert(std::abs(mean_absolute_deviation({1.0f, 2.0f, 3.0f, 4.0f, 5.0f}) - 6.0f / 5.0f) < 1e-4);
     return 0;
 }
