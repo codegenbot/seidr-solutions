@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -6,7 +5,7 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
@@ -14,16 +13,13 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> result;
-    for (int i = 0; i < grid[0].size(); ++i) {
-        bool found = false;
-        for (int j = 0; j < grid.size(); ++j) {
-            if (grid[j][i] == k) {
-                found = true;
-                result.push_back(k);
-                break;
+    // Your code here to find the minimum path
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[i].size(); j++) {
+            if (!issame(result, vector<int>(grid[i][j], grid[i][j], grid[i][j]))) {
+                result.push_back(grid[i][j]);
             }
         }
-        if (!found) return vector<int>(); // No path found
     }
     return result;
 }
