@@ -1,3 +1,4 @@
+```
 def calculate_score(games):
     frames = games.replace('/', '').split('/')
     score = 0
@@ -16,3 +17,5 @@ def calculate_score(games):
             current_roll = 0
 
     return score
+
+print(calculate_score("3645339/218/8-7/X71"))
