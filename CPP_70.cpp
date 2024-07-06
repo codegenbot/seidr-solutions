@@ -5,27 +5,22 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> main(std::vector<int> lst) {
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    std::vector<int> minMax;
-    for (int i = 0; i < lst.size(); i++) {
-        int minVal = *min_element(lst.begin(), lst.end());
-        int maxVal = *max_element(lst.begin(), lst.end());
-        if (i % 2 == 0) {
-            result.push_back(minVal);
-            lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
-        } else {
-            result.push_back(maxVal);
-            lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
-        }
+    while (!lst.empty()) {
+        int first = *lst.begin();
+        int last = *(--lst.end());
+        result.push_back(first);
+        result.push_back(last);
+        lst.erase(std::remove(lst.begin(), lst.end(), first), lst.end());
+        lst.erase(std::remove(lst.begin(), lst.end(), last), lst.end());
     }
 
     return result;
 }
 
 int main() {
-    assert(main({111111}) == std::vector<int>({111111}));
-    return 0;
+    assert(issame(strange_sort_vector({1, 2, 3}), {3, 2, 1}));
 }
