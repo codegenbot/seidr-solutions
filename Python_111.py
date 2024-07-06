@@ -1,9 +1,8 @@
-```
-def histogram(test):
-    if not test:
+def histogram(*test):
+    if not test[0]:
         return {}
     counts = {}
-    for letter in test.split():
+    for letter in test[0].lower().split():
         if letter in counts:
             counts[letter] += 1
         else:
