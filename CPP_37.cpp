@@ -1,9 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -11,11 +6,11 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size());
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> evenVals;
+            vector<float> evenVals;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenVals.push_back(l[j]);
@@ -31,17 +26,17 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> input;
-    std::cout << "Enter the size of the array: ";
-    int n; std::cin >> n;
+    vector<float> input;
+    float x;
+    cout << "Enter the size of the array: ";
+    int n; cin >> n;
     for(int i=0; i<n; i++) {
-        float x; std::cin >> x;
+        cin >> x;
         input.push_back(x);
     }
-    std::vector<float> output = sort_even(input);
+    vector<float> output = sort_even(input);
     bool same = issame(input, output);
-    if(same) std::cout << "Sorted array is the same.\n";
-    else std::cout << "Sorted array is different.\n";
-    
+    if(same) cout << "Sorted array is the same.\n";
+    else cout << "Sorted array is different.\n";
     return 0;
 }
