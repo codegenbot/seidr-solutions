@@ -9,6 +9,6 @@ def search(lst):
                 freq[num] = 1
     max_num = -1
     for num, count in freq.items():
-        if num > 0 and count >= num:
+        if num >= count and num > 0 and num > max_num:
             max_num = num
     return max_num
