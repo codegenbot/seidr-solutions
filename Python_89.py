@@ -1,5 +1,11 @@
 def encrypt(s):
-    encrypted = ""
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    encrypted_alphabet = alphabet[2:] + alphabet[:2]
+    encrypted_string = ""
     for char in s:
-        encrypted += chr((ord(char) - 2) % 26 + ord("a"))
-    return encrypted
+        if char.isalpha():
+            encrypted_char = encrypted_alphabet[alphabet.index(char)]
+            encrypted_string += encrypted_char
+        else:
+            encrypted_string += char
+    return encrypted_string
