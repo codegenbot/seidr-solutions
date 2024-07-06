@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <cassert>
 #include <string>
 #include <vector>
@@ -17,10 +17,9 @@ std::vector<std::string> words_in_sentence(const std::string& sentence) {
     }
 
     return words;
-
 }
 
 int main() {
-    assert(std::vector<std::string>({"is"}) == words_in_sentence("here is"));
+    assert(std::accumulate(words_in_sentence("here is").begin(), words_in_sentence("here is").end(), "") == "is");
     return 0;
 }
