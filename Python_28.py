@@ -1,3 +1,4 @@
+```
 while True:
     strings = ""
     while True:
@@ -10,5 +11,6 @@ while True:
     else:
         output_string = ""
         for s in strings.split():
-            output_string += s.title() + " "
+            words = s.title().split()
+            output_string += ' '.join(words) + " "
         print(output_string.strip())
