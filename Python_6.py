@@ -1,15 +1,17 @@
 ```
 def parse_nested_parens(s):
-    while '{}' in s:
-        start = s.index('{')
-        end = s.index('}')
-        inner_input = input().strip()  
-        s = s[:start] + inner_input + s[end+1:]
+    while "{}" in s:
+        start = s.index("{")
+        end = s.index("}")
+        main_input = s[:start] + input().strip() + s[end + 1 :]
+        s = main_input
     return s
 
+
 def main():
-    main_input = input().strip()
-    print(parse_nested_parens(main_input))
+    outer_input = input().strip()
+    print(parse_nested_parens(outer_input))
+
 
 if __name__ == "__main__":
     main()
