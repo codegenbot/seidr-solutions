@@ -1,7 +1,5 @@
 #include <string>
-#include <vector>
-
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0) {
