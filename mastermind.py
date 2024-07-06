@@ -1,3 +1,4 @@
+```
 def mastermind():
     code = list(input("Enter the Mastermind code: "))
     guess = list(input("Enter your guess: "))
@@ -8,8 +9,11 @@ def mastermind():
     for i, c in enumerate(guess):
         if c == code[i]:
             black += 1
-        elif c in code:
-            white += 1
-            code.remove(c)
+            code.pop(i)
+            guess.pop(i)
+        else:
+            if c in code:
+                white += 1
+                code.remove(c)
 
     print(f"Black pegs: {black}, White pegs: {white}")
