@@ -1,5 +1,5 @@
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
