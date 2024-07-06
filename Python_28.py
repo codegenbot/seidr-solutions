@@ -1,13 +1,11 @@
-strings = []
 while True:
-    user_input = input("Please enter a string or 'stop' to finish: ")
-    if user_input.lower() == 'stop':
-        break
-    try:
-        strings.append(user_input.strip())
-    except Exception as e:
-        print(f"Invalid input. Please enter a valid string: {e}")
-if not strings:
-    print("No input provided.")
-else:
-    print(" ".join(strings))
+    strings = ""
+    while True:
+        user_input = input("Please enter a string or 'stop' to finish: ")
+        if not user_input.strip() or user_input.lower() == 'stop':
+            break
+        strings += user_input + " "
+    if not strings or strings.isspace():
+        print("No input provided.")
+    else:
+        print(" ".join(map(str.strip, strings.split())))
