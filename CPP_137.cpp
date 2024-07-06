@@ -26,20 +26,16 @@ int main() {
 
     cout << "Enter the second value: ";
     string val2;
-    cin >> ws; 
+    cin >> ws; // ignore whitespace
     getline(cin, val2);
 
-    if (!val2.empty()) {
-        int num = stoi(val2);
-        if (val1 > num) {
-            cout << "The first number is bigger.\n";
-        } else if (val1 < num) {
-            cout << "The second number is bigger.\n";
-        } else {
-            cout << "Both numbers are equal.\n";
-        }
+    int num = std::stoi(val2);
+    if (val1 > num) {
+        cout << "The first number is bigger.\n";
+    } else if (val1 < num) {
+        cout << "The second number is bigger.\n";
     } else {
-        cout << "Please enter a valid value for the second number.\n";
+        cout << "Both numbers are equal.\n";
     }
 
     compareOne(val1);
