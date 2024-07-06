@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <cassert>
 
@@ -17,6 +16,6 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    assert(encrypt("a")=="d");
+    assert (encrypt("a")=="d");
     return 0;
 }
