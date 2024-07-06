@@ -1,28 +1,13 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<string> a, vector<string> b) {
-    int sum_a = 0;
-    int sum_b = 0;
-
-    for (const auto& str : a) {
-        sum_a += static_cast<int>(str[0]);
+bool issame(vector<string> a,vector<string> b){
+    if(a.size()!=b.size())return false;
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])return false;
     }
-
-    for (const auto& str : b) {
-        sum_b += static_cast<int>(str[0]);
-    }
-
-    return sum_a == sum_b;
+    return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (issame({str}, {})) {
-            result.push_back(str);
-        }
-    }
-    sort(result.begin(), result.end());
-    return result;
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
 }
