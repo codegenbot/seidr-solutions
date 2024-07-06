@@ -11,10 +11,11 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
 std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (!value.type()->is_same_v<std::any::type<char>>()) {
-            if (value.has_value()) {
-                result.push_back(value.get_as<int>());
-            }
+        if (value.type()->is_same_v<std::any::type<char>>()) {
+            continue;
+        }
+        if (value.has_value() && value.type()->is_same_v<std::any::type<int>>()) {
+            result.push_back(std::any_cast<int>(value).get());
         }
     }
     return result;
