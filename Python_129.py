@@ -1,10 +1,11 @@
 def minPath(grid, k):
+    # Initialize variables
     rows = len(grid)
     cols = len(grid[0])
     visited = set()
     queue = [(0, 0)]
     path = []
-    
+
     while queue:
         x, y = queue.pop(0)
         if (x, y) not in visited:
@@ -17,5 +18,9 @@ def minPath(grid, k):
                     queue.append((nx, ny))
         if len(path) == k:
             break
-    
+
+    # Check if the path is valid
+    if path[-1] != grid[rows - 1][cols - 1]:
+        return None
+
     return path
