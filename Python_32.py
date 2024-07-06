@@ -32,8 +32,9 @@ while True:
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-    if b**2 - 4 * a * c <= 0:
-        print("This equation does not have real roots.")
+    if b**2 - 4 * a * c >= 0:
+        result1 = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
+        result2 = (-b - (b**2 - 4 * a * c) ** 0.5) / (2 * a)
+        print(f"Zeros are approximately {result1:.2f} and {result2:.2f}")
     else:
-        result = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
-        print(f"Zero is approximately {result:.2f}")
+        break
