@@ -1,13 +1,20 @@
-string solve(string s){
-    string result = "";
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+#include <iostream>
+#include <cctype>
+#include <algorithm>
+
+std::string solve(std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
+                ? toupper(c)
+                : tolower(c);
+        } else {
             result += c;
         }
-        else{
-            result += s[i];
-        }
+    }
+    if (result.empty()) {
+        reverse(result.begin(), result.end());
     }
     return result;
 }
