@@ -1,3 +1,4 @@
+```
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = 1;
