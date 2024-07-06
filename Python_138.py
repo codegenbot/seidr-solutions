@@ -1,4 +1,4 @@
-def solve_is_equal_to_sum_even(n):
+def is_equal_to_sum_even(n):
     for a in range(2, n+1, 2):
         for b in range(a+2, n+1, 2):
             for c in range(b+2, n+1, 2):

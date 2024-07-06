@@ -6,4 +6,4 @@ def solve(s):
             result += char.swapcase()
         else:
             result += char
-    return result[::-1] if not any(c.isalpha() for c in s) else result
+    return result[::-1] if not any(char.isalpha() for char in s) else result
