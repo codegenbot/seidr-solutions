@@ -11,4 +11,4 @@ def words_string():
             result = [x.strip() for x in re.split("[,\s]+", s.strip()) if x]
             return result
         except (ValueError, TypeError):
-            print("Invalid input. Please try again with only letters and numbers separated by commas or spaces.")
+            print(f"Invalid input. Please try again with only letters and numbers separated by commas or spaces.")
