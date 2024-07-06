@@ -1,4 +1,3 @@
-```
 def fizz_buzz(n: int):
     for i in range(1, n + 1):
         if i % 3 == 0:
@@ -10,4 +9,3 @@ def fizz_buzz(n: int):
             print("Buzz")
         else:
             print(i)
-    return n % 15 == 0
