@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -16,30 +15,23 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    int n;
-    std::vector<std::string> a, b;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
+cin >> n;
 
-    for(int i = 0; i < n; i++) {
-        std::string s;
-        std::cout << "Enter string " << i+1 << ": ";
-        std::cin >> s;
-        a.push_back(s);
-    }
+vector<string> v1, v2;
 
-    for(int i = 0; i < n; i++) {
-        std::string s;
-        std::cout << "Enter string " << i+1 << ": ";
-        std::cin >> s;
-        b.push_back(s);
-    }
+for(int i = 0; i < n; i++) {
+    string s;
+    cin >> s;
+    v1.push_back(s);
+}
 
-    if(issame(a, b)) {
-        std::cout << "The lists are the same." << std::endl;
-    } else {
-        std::cout << "The lists are not the same." << std::endl;
-    }
-    
-    return 0;
+for(int i = 0; i < n; i++) {
+    string s;
+    cin >> s;
+    v2.push_back(s);
+}
+
+if(issame(v1, v2)) 
+    cout << "Same" << endl;
+else
+    cout << "Not Same" << endl;
