@@ -12,7 +12,20 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> testList = {3, 13, 2, 9};
-    assert(solutions(testList) == 3);
+    std::vector<int> testList;
+    int num;
+    
+    std::cout << "Enter numbers separated by space: ";
+    while(std::cin >> num) {
+        testList.push_back(num);
+    }
+    
+    if(testList.size() > 0) {
+        int result = solutions(testList);
+        std::cout << "Sum of even-indexed odd numbers is: " << result << std::endl;
+    } else {
+        std::cout << "No numbers entered." << std::endl;
+    }
+    
     return 0;
 }
