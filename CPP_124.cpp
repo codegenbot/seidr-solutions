@@ -4,34 +4,24 @@
 using namespace std;
 
 bool valid_date(string date) {
-    int month, day, year;
-    string token1, token2, token3;
-
-    // Split the date into three parts: mm-dd-yyyy
     istringstream iss(date);
-    getline(iss, token1, '-');
-    getline(iss, token2, '-');
-    getline(iss, token3);
+    string month, day, year;
+    iss >> month >> day >> year;
 
-    // Convert the strings to integers
-    month = stoi(token1);
-    day = stoi(token2);
-    year = stoi(token3);
+    if (month.length() != 2 || day.length() != 2 || year.length() != 4)
+        return false;
 
-    // Check if the date is valid according to the rules
-    if (month < 1 || month > 12) {
+    int m = stoi(month), d = stoi(day), y = stoi(year);
+
+    if (m < 1 || m > 12)
         return false;
-    }
-    if ((month == 2 && day > 29) ||
-        (month == 4 || month == 6 || month == 9 || month == 11) &&
-            day > 30) ||
-        (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) &&
-            day > 31) {
+
+    if ((m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) && d > 31)
         return false;
-    }
-    if (day < 1) {
+    else if (m == 4 || m == 6 || m == 9 || m == 11 && d > 30)
         return false;
-    }
+    else if (m == 2 && (d < 1 || d > 29))
+        return false;
 
     return true;
 }
