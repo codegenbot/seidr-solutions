@@ -1,5 +1,3 @@
-Here is the completed code with the provided function signature:
-
 ```
 from typing import List
 
