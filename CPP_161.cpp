@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -11,5 +10,5 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(string(s)).rbegin()->reverse().str() : result;
+    return result.empty() ? string(s).substr(0, s.size()) : result;
 }
