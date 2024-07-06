@@ -1,4 +1,4 @@
-```python
+"""
 def correct_bracketing(brackets: str):
     stack = []
     for bracket in brackets:
@@ -8,7 +8,3 @@ def correct_bracketing(brackets: str):
             if len(stack) == 0 or stack.pop() != "<":
                 return False
     return len(stack) == 0
-
-# Test the function
-brackets = input("Enter your brackets: ")
-print(correct_bracketing(brackets))
