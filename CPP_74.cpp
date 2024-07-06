@@ -36,7 +36,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 vector<string> testMain() {
-    vector<string> vec1 = {{"this"}};
-    vector<string> vec2 = {""};
+    vector<string> vec1 = {""};
+    vector<string> vec2 = {"", ""};
     return total_match(vec1,vec2);
 }
