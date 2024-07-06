@@ -5,20 +5,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() {
-    int n;
-    std::cout << "Enter the number: ";
-    std::cin >> n;
-
-    if (issame(make_a_pile(n), make_a_pile(n))) {
-        std::cout << "The piles are same." << std::endl;
-    } else {
-        std::cout << "The piles are not same." << std::endl;
-    }
-
-    return 0;
-}
-
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int stones = 1;
@@ -32,4 +18,20 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number: ";
+    std::cin >> n;
+
+    std::vector<int> pile = make_a_pile(n);
+
+    if (issame(pile, {1,3,5,7})) {
+        std::cout << "Pile is same as expected." << std::endl;
+    } else {
+        std::cout << "Pile is different from expected." << std::endl;
+    }
+
+    return 0;
 }
