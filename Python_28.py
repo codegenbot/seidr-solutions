@@ -11,5 +11,5 @@ while True:
     else:
         output_string = ""
         for s in strings.split():
-            output_string += s.capitalize() + " "
+            output_string += s.title() + " "
         print(output_string.strip())
