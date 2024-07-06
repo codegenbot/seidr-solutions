@@ -1,8 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <map>
-
 int search(std::vector<int> lst) {
     std::map<int, int> count;
     for (int num : lst) {
@@ -23,11 +19,4 @@ int search(std::vector<int> lst) {
     }
 
     return maxVal;
-}
-
-int main() {
-    std::vector<int> lst = {3, 10, 10, 9, 2};
-    int result = search(lst);
-    std::cout << "The maximum value is: " << result << std::endl;
-    return 0;
 }
