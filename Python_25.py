@@ -1,15 +1,10 @@
-````
+```
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
-    """"
-    This function takes an integer n and returns a list of its prime factors.
-    
-    :param n: The number to be factorized.
-    :return: A list of the prime factors of n.
-    """
+    """Complete the following code given the task description and function signature."""
     factors = []
     i = 2
     while i * i <= n:
