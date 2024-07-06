@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 int is_bored(string S) {
