@@ -4,4 +4,5 @@ def make_palindrome(string: str) -> str:
     postfix = ""
     for char in string:
         postfix = char + postfix
-    return string + postfix[::-1]
+    reversed_string = string[::-1]
+    return string + postfix + postfix if postfix != "" else reversed_string
