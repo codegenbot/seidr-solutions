@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -18,6 +17,5 @@ std::string find_max(std::vector<std::string> words){
 
 int main(){
     assert ((find_max({"play", "play", "play"}) == "play"));
-    std::vector<std::string> words = {"hello", "world", "abc", "def"};
-    std::cout << find_max(words) << std::endl;
+    return 0;
 }
