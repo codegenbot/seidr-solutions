@@ -29,32 +29,45 @@ def sort_numbers(numbers: str) -> str:
         "eighty": 80,
         "ninety": 90,
     }
-    hundreds = [
-        "one hundred",
-        "two hundred",
-        "three hundred",
-        "four hundred",
-        "five hundred",
-        "six hundred",
-        "seven hundred",
-        "eight hundred",
-        "nine hundred",
-    ]
-
+    hundreds = {
+        "": 0,
+        "-one": 1,
+        "-two": 2,
+        "-three": 3,
+        "-four": 4,
+        "-five": 5,
+        "-six": 6,
+        "-seven": 7,
+        "-eight": 8,
+        "-nine": 9,
+    }
+    thousands = {
+        "": 0,
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
+    }
     nums = list(
         map(
-            lambda x: num_dict[x] if x in num_dict else int(x) if x.isdigit() else None,
+            lambda x: (
+                int(x)
+                if x.isdigit()
+                else (
+                    (
+                        int(num_dict[x.replace("-", "")]) * 1000
+                        + int(thousands.get(x, num_dict[x]).replace(" ", ""))
+                    )
+                    if "thousand" in x or "hundred" in x
+                    else (num_dict[x] if len(x) > 3 else int(x))
+                )
+            ),
             numbers.split(),
         )
     )
-
-    for i, n in enumerate(nums):
-        if n is None:
-            if numbers.split()[i] in hundreds:
-                nums[i] = 100
-            elif numbers.split()[i].endswith("teen"):
-                nums[i] = num_dict[numbers.split()[i]]
-            else:
-                nums[i] = int(numbers.split()[i])
-
-    return " ".join(sorted(map(str, set(nums))))
+    return " ".join(map(str, set(nums)))
