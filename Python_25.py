@@ -1,7 +1,4 @@
-
-Here is the modified code that adheres to the given specifications:
-
-def factorize(n: int) -> list[int]:
+def factorize(n: int) -> list:
     factors = []
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
