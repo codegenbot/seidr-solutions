@@ -10,7 +10,7 @@ def solve():
             print("Invalid input. Please choose a number between 1 and 2.")
 
     while True:
-        if choice == "1":
+        if int(choice) == 1:
             while True:
                 try:
                     N = int(input("Enter a number: "))
@@ -21,7 +21,7 @@ def solve():
                     break
                 except ValueError:
                     print("That's not a valid number! Try again.")
-        elif choice == "2":
+        elif int(choice) == 2:
             while True:
                 try:
                     N = input("Enter a binary number: ")
