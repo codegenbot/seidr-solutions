@@ -1,7 +1,3 @@
-bool issame(int a, int b) {
-    return a == b;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     for (int num : arr) {
@@ -39,6 +35,9 @@ vector<string> by_length(vector<int> arr) {
             result.push_back(str);
         }
     }
+
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
 
     return result;
 }
