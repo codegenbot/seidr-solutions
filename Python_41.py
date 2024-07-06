@@ -1,4 +1,5 @@
-```
-def car_race_collision():
-    num_lanes = int(input("Enter the number of lanes: "))
-    return num_lanes * (num_lanes - 1) // 2
+import math
+
+
+def car_race_collision(n: int):
+    return math.comb(2 * n, 2)
