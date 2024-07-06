@@ -1,10 +1,11 @@
-#include <stdio.h>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 vector<int> count_up_to(int n) {
     vector<int> primes;
-    for (int i = 2; i <= n; ++i) {
+    for (int i = 2; i < n; ++i) {
         bool isPrime = true;
         for (int j = 2; j * j <= i; ++j) {
             if (i % j == 0) {
@@ -12,8 +13,9 @@ vector<int> count_up_to(int n) {
                 break;
             }
         }
-        if (isPrime)
+        if (isPrime) {
             primes.push_back(i);
+        }
     }
     return primes;
 }

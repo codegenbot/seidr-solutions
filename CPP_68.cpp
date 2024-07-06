@@ -1,5 +1,5 @@
-#include <climits>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -19,4 +19,9 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     result.push_back({minEven, minIndex});
     
     return result;
+}
+
+int main() {
+    assert(pluck({7, 9, 7, 1}).empty());
+    return 0;
 }
