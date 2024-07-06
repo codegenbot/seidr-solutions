@@ -1,9 +1,6 @@
+Here is the completed code:
+
 bool iscuber(int a){
-    int i = 0;
-    while (pow(i+1,3) <= a){
-        if(pow(i+1,3) == a)
-            return true;
-        i++;
-    }
-    return false;
+    double c = cbrt(a);
+    return floor(c) == c && c >= 0;
 }
