@@ -1,3 +1,4 @@
+
 def is_prime(n):
     if n < 2:
         return False
@@ -5,7 +6,6 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-
 
 def is_multiply_prime(a):
     if a < 1:
