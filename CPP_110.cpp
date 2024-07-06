@@ -1,18 +1,16 @@
-Here is the completed code:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int even_count = 0;
     for (int num : lst1) {
-        if (num % 2 == 0) {
-            even_count++;
+        if (num % 2 != 0) {
+            bool found = false;
+            for (int num2 : lst2) {
+                if (num2 % 2 == 0) {
+                    swap(lst1[lst1.size() - 1], lst2[lst2.size() - 1]);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return "NO";
         }
     }
-    for (int num : lst2) {
-        if (num % 2 == 0) {
-            even_count--;
-        } else {
-            even_count++;
-        }
-    }
-    return even_count >= 0 ? "YES" : "NO";
+    return "YES";
 }
