@@ -30,7 +30,7 @@ int main() {
 
     cout << quarters << endl;
     cout << dimes << endl;
-    cout << nickles << endl;
+    cout << nickies << endl;
     cout << pennies << endl;
 
     return 0;
