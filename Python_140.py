@@ -2,4 +2,7 @@ import re
 
 
 def fix_spaces(text):
-    return re.sub(r"\s+", "-", text)
+    text = re.sub(r"\s+", "-", text)
+    text = text.strip()
+    text = text.lower()
+    return text
