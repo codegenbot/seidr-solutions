@@ -1,7 +1,4 @@
-```cpp
 #include <vector>
-#include <cmath>
-
 bool has_close_elements(vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
@@ -12,9 +9,5 @@ bool has_close_elements(vector<float> numbers, float threshold) {
     }
     return false;
 }
-
-int main() {
-    bool result = has_close_elements(vector<float>({1.0, 2.0, 3.9, 4.0, 5.0, 2.2}), 0.5);
-    assert(result == false);
-    return 0;
-}
+bool result = has_close_elements(vector<float>({1.0, 2.0, 3.9, 4.0, 5.0, 2.2}), 0.5);
+assert(result == false);
