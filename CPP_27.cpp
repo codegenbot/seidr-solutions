@@ -1,17 +1,14 @@
-#include <string>
+using namespace std;
 
-string flip_case(std::string str){
-    string flipped = "";
-    for(int i=0; i<str.length(); i++){
-        if(str[i]>96 && str[i]<123) {
-            flipped += (char)(str[i] - 32);
-        }
-        else if(str[i]>64 && str[i]<91) {
-            flipped += (char)(str[i] + 32);
-        } 
-        else{
-            flipped += str[i];
+string flip_case(string str){
+    string result = "";
+    for (int i = 0; i < str.length(); i++) {
+        char c = str[i];
+        if (islower(c)) {
+            result += toupper(c);
+        } else if (isupper(c)) {
+            result += tolower(c);
         }
     }
-    return flipped;
+    return result;
 }
