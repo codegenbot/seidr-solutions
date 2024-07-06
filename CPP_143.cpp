@@ -1,9 +1,10 @@
+```cpp
 int words_in_sentence(const std::string& sentence) {
     int count = 0;
     bool inWord = false;
 
-    for (auto it = sentence.begin(); it != sentence.end(); ++it) {
-        if (*it == ' ') {
+    for (const auto c : sentence) { 
+        if (c == ' ') {
             inWord = false;
         } else {
             if (!inWord) {
