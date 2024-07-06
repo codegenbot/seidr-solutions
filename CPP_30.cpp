@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -5,8 +6,8 @@ bool issame(const std::vector<float>& a,const std::vector<float>& b) {
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
-std::vector<float> get_positive(std::vector<std::vector<float>> v) {
-    v.erase(std::remove_if(v.begin(), v.end(), [](const auto& x) { return std::all_of(x.begin(), x.end(), [](float y) { return y < 0; }); }), v.end());
+std::vector<std::float> get_positive(std::vector<float> v) {
+    v.erase(std::remove_if(v.begin(), v.end(), [](float x) { return x < 0; }), v.end());
     return v;
 }
 
