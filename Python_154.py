@@ -1,2 +1,4 @@
 def check(func):
-    check = lambda x, y: func(x, y)
+    def wrapper(a, b):
+        return func(a, b) == "winten"
+    return wrapper
