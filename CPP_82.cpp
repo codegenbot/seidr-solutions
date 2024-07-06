@@ -1,17 +1,12 @@
-Here is the completed code:
+```cpp
+bool prime_length(string str){
+    int len = str.length();
+    bool isPrime = true;
 
-bool prime_length(string str) {
-    int n = str.length();
-    if (n <= 1)
-        return false;
-
-    for (int i = 2; i * i <= n; i++) {
-        while (n % i == 0) {
-            n /= i;
-        }
-        if (n == 1)
-            break;
+    for(int i=2; i*i <= len; i++){
+        if(len%i == 0)
+            isPrime = false;
     }
 
-    return n > 1;
+    return isPrime;
 }
