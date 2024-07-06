@@ -1,3 +1,5 @@
+Here is the corrected function:
+
 ```
 def fib(n: int):
     if n <= 0:
