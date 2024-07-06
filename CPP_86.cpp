@@ -6,16 +6,16 @@ string anti_shuffle(string s){
         if(s[i] == ' '){
             result += ' ';
         }else{
-            char c = s[i];
-            while(c != ' ' && i < s.length()){
+            bool foundSpace = false;
+            while(i < s.length() && !foundSpace){
                 int j = i+1;
-                while(j < s.length() && s[j] <= c){
-                    c = s[j];
+                foundSpace = true;
+                while(j < s.length() && s[j] <= s[i]){
+                    if(s[j] != ' ')
+                        foundSpace = false;
                     j++;
                 }
-                for(int k=j-1; k>=i; k--){
-                    result += s[k];
-                }
+                result += s[i];
                 i = j-1;
             }
         }
