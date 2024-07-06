@@ -1,4 +1,5 @@
 #include <vector>
+
 int search(std::vector<int> lst) {
     std::map<int, int> count;
     for (int num : lst) {
