@@ -8,3 +8,4 @@ int is_bored(std::string S){
             ++count;
     }
     return count;
+}
