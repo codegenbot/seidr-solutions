@@ -15,4 +15,5 @@ def find_closest_elements() -> Tuple[float, float]:
 
     return tuple(sorted(numbers))
 
+
 print(find_closest_elements())
