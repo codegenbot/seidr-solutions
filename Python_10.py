@@ -1,11 +1,16 @@
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
+
 def make_palindrome(string: str) -> str:
-    # Find the longest postfix of supplied string that is a palindrome
-    i = 0
-    while i < len(string):
-        if string[i] == string[-1 - i]:
-            i += 1
-        else:
+    if is_palindrome(string):
+        return string
+
+    suffix = ""
+    for i in range(len(string), 0, -1):
+        if is_palindrome(string[:i]):
+            suffix = string[i:]
             break
 
-    # Append to the end of the string reverse of a string prefix that comes before the palindromic suffix
-    return string + string[:i][::-1]
+    prefix = string[: len(suffix)]
+    return string + prefix[::-1]
