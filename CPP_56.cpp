@@ -1,4 +1,3 @@
-```
 #include <string>
 
 bool correct_bracketing(std::string brackets) {
@@ -10,8 +9,7 @@ bool correct_bracketing(std::string brackets) {
             if (count > 0)
                 count--;
             else
-                return false; 
+                return false;
         }
     }
     return count == 0;
-}
