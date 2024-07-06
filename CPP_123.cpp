@@ -1,11 +1,10 @@
-```c++
+```
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
 
-bool issame(std::initializer_list<int> a, std::initializer_list<int> b) {
-    return std::all_of(a.begin(), a.end(),
-        [&b](int x) { return std::any_of(b.begin(), b.end(), [&](int y) { return x == y; }); });
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
