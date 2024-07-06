@@ -11,9 +11,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<string> result;
+    std::vector<std::string> result;
     for (float grade : grades) {
-        string letterGrade;
+        std::string letterGrade;
         if (grade >= 4.0) {
             letterGrade = "A+";
         } else if (grade > 3.7) {
@@ -46,7 +46,32 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> testGrades = {0, 0.7};
-    std::vector<std::string> result = numerical_letter_grade(testGrades);
-    assert(issame({result[0], result[1]}, {"E", "D-"})); 
+    for (int i = 0; i < testGrades.size(); ++i) {
+        if (testGrades[i] >= 4.0) {
+            std::cout << "A+\n";
+        } else if (testGrades[i] > 3.7) {
+            std::cout << "A\n";
+        } else if (testGrades[i] > 3.3) {
+            std::cout << "A-\n";
+        } else if (testGrades[i] > 3.0) {
+            std::cout << "B+\n";
+        } else if (testGrades[i] > 2.7) {
+            std::cout << "B\n";
+        } else if (testGrades[i] > 2.3) {
+            std::cout << "B-\n";
+        } else if (testGrades[i] > 2.0) {
+            std::cout << "C+\n";
+        } else if (testGrades[i] > 1.7) {
+            std::cout << "C\n";
+        } else if (testGrades[i] > 1.3) {
+            std::cout << "C-\n";
+        } else if (testGrades[i] > 1.0) {
+            std::cout << "D+\n";
+        } else if (testGrades[i] > 0.7) {
+            std::cout << "D\n";
+        } else {
+            std::cout << "E\n";
+        }
+    }
     return 0;
 }

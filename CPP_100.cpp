@@ -1,6 +1,13 @@
 ```cpp
 #include <vector>
-#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -14,18 +21,6 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    int n = 10; // input from user
-    auto expected = make_a_pile(n);
-    auto actual1 = make_a_pile(n);
-    auto actual2 = make_a_pile(n);
-
-    assert(issame(expected, actual1) && "The first pile is not the same");
-    assert(!issame(expected, actual2) && "Both piles are the same");
-
-    return 0;
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
 }
