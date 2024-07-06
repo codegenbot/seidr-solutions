@@ -33,6 +33,10 @@ int bowlingScore(string s) {
 }
 
 int main(int argc, char* argv[]) { 
+    if(argc != 2) {
+        cout << "Usage: bowlingScore <string>";
+        return -1;
+    }
     std::cout << bowlingScore(argv[1]) << '\n'; 
     return 0; 
 }
