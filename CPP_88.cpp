@@ -1,3 +1,4 @@
+```cpp
 vector<int> sort_array(vector<int> array) {
     int sum = 0;
     for (int x : array) sum += x;
