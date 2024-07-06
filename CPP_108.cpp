@@ -1,4 +1,7 @@
-int count_nums(vector<int> n) {
+#include <vector>
+#include <cmath>
+
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         bool has_positive_sum = false;
