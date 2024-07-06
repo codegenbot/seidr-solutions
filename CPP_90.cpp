@@ -2,18 +2,16 @@
 #include <algorithm>
 
 int next_smallest(std::vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None
+    if (lst.size() < 2) return -1; 
     std::vector<int> sorted = lst;
     std::sort(sorted.begin(), sorted.end());
-    int res = sorted[1];
+    int res = sorted[0];
     for (int i = 0; i < lst.size(); i++) {
         if (lst[i] == res) {
-            if (i >= 2) return res;
-            if (i == 1) continue;
-            else return sorted[1]; // Return the next smallest
+            if (i > 0) return sorted[i-1]; // Return the next smallest
         }
     }
-    return -1; // Return None
+    return -1; 
 }
 
 int main() {
