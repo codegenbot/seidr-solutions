@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int words_in_sentence(const std::string& sentence) {
+int count_words(const std::string& sentence) {
     int word_count = 0;
     size_t start = 0;
     while (start < sentence.size()) {
@@ -16,6 +16,6 @@ int words_in_sentence(const std::string& sentence) {
 }
 
 int main() {
-    std::cout << words_in_sentence("here is") << std::endl;
+    std::cout << count_words("here is") << std::endl;
     return 0;
 }
