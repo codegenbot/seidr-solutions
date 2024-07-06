@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,8 +10,6 @@ bool issame(vector<string> a,vector<string> b){
     }
     return true;
 }
-
-#include <string>
 
 std::vector<std::string> odd_count(std::vector<std::string> lst) {
     std::vector<std::string> result; 
