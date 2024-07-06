@@ -23,6 +23,10 @@ std::vector<string> reverse_delete(string s, string c) {
     result.push_back(temp);
     string revTemp = temp;
     reverse(revTemp.begin(), revTemp.end());
-    result.push_back((temp == revTemp) ? "True" : "False");
+    if (temp == revTemp) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     return result;
 }
