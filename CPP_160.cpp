@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -19,6 +20,6 @@ int do_algebra(std::string operation, std::vector<int> operands) {
 
 int main() {
     int result = do_algebra("//", {7, 3, 4});
-    //assert(result == 1);
+    assert(result == 1);
     return 0;
 }
