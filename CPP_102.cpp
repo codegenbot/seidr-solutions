@@ -3,6 +3,5 @@ int choose_num(int x, int y) {
         if (i % 2 == 0)
             return i;
     }
-    // No even numbers found
     return -1;
 }
