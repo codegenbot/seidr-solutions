@@ -8,8 +8,5 @@ def separate_paren_groups(paren_string):
             if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
             else:
-                result.append(c)
-    # check for unmatched parentheses
-    if len(stack) > 0:
-        raise ValueError("Unbalanced parentheses")
+                result.append("(" + c + ")")
     return result
