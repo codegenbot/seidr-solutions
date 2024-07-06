@@ -1,6 +1,5 @@
-```
+#include <algorithm>
 #include <string>
-
 using namespace std;
 
 string anti_shuffle(string s) {
@@ -19,13 +18,10 @@ string anti_shuffle(string s) {
             }
             string newWord;
             for (char c : word) {
-                if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-                    newWord += c;
-                }
+                newWord += (c <= 'z' && c >= 'a') ? c : (c <= 'Z' && c >= 'A');
             }
             result += newWord;
             i += word.length() - 1;
         }
     }
     return result;
-}
