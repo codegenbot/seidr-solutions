@@ -3,4 +3,5 @@ def parse_nested_parens(s):
         s = s.replace('{}', input().strip())
     return s
 
-print(parse_nested_parens(input().strip()))
+s = input().strip()
+print(parse_nested_parens(s))
