@@ -1,6 +1,6 @@
-def rolling_max(numbers: List[int]) -> List[int]:
+def rolling_max(numbers: list[int]) -> list[int]:
     result = []
-    current_max = float("-inf")
+    current_max = -1
     for num in numbers:
         if num > current_max:
             current_max = num
