@@ -1,3 +1,4 @@
+
 #include <string>
 
 string getMiddle(string str) {
