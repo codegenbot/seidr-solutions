@@ -1,41 +1,39 @@
+Here is the completed code:
+
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-
-    string words[256]; // assuming ASCII characters only
-    int wordCount = 0;
+    string temp = "";
     for (char c : test) {
-        bool found = false;
-        for (int i = 0; i < wordCount; i++) {
-            if (words[i][0] == c) {
-                words[i++] = "";
-                found = true;
-                break;
+        if (c == ' ') {
+            if (!temp.empty()) {
+                if (result.find(temp[0]) == result.end() || result[temp[0]] < 1) {
+                    result[temp[0]] = 1;
+                } else {
+                    result[temp[0]]++;
+                }
+                temp.clear();
             }
-        }
-        if (!found) {
-            words[wordCount++] = string(1, c);
-        }
-    }
-
-    for (int i = 0; i < wordCount; i++) {
-        if (!words[i].empty()) {
-            char letter = words[i][0];
-            result[letter]++;
+        } else {
+            temp += c;
         }
     }
-
-    map<char, int> maxMap;
+    if (!temp.empty()) {
+        if (result.find(temp[0]) == result.end() || result[temp[0]] < 1) {
+            result[temp[0]] = 1;
+        } else {
+            result[temp[0]]++;
+        }
+    }
+    map<char, int> maxCountMap;
     int maxCount = 0;
-    for (auto& p : result) {
-        if (p.second > maxCount) {
-            maxCount = p.second;
-            maxMap.clear();
-            maxMap[p.first] = p.second;
-        } else if (p.second == maxCount) {
-            maxMap[p.first] = p.second;
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+            maxCountMap.clear();
+            maxCountMap[pair.first] = pair.second;
+        } else if (pair.second == maxCount) {
+            maxCountMap[pair.first] = pair.second;
         }
     }
-
-    return maxMap;
+    return maxCountMap;
 }
