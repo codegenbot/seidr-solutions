@@ -2,15 +2,11 @@
 def encode(message):
     encoded_message = ""
     for char in message:
-        ord_char = ord(char)
         if char.isalpha():
-            if ord_char >= ord("A") and ord_char <= ord("Z"):
-                # Uppercase letter
-                encoded_char = chr(ord("A") + (ord_char - ord("A")) % 26)
-            elif ord_char >= ord("a") and ord_char <= ord("z"):
-                # Lowercase letter
-                encoded_char = chr(ord("a") + (ord_char - ord("a")) % 26)
+            ordinal = ord(char) - ord("A")
+            if ordinal < 0:
+                ordinal += 26
+            encoded_char = chr(ordinal % 26 + ord("A"))
         else:
-            encoded_char = char
-        encoded_message += encoded_char
+            encoded_message += char
     return encoded_message
