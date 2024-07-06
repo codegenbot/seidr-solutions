@@ -1,5 +1,7 @@
+
 def encrypt(s):
-    table = str.maketrans(
-        "abcdefghijklmnopqrstuvwxyz", "cdefghijklmnopqrstuvwxyz"[: len(s)]
-    )
-    return s.translate(table)
+    table = {
+        "a": "e",
+        "b": "f"
+    }
+    return "".join([table.get(c, c) for c in s])
