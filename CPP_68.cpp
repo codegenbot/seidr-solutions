@@ -1,22 +1,14 @@
+```cpp
 #include <vector>
-#include <climits>
 
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
-    int index = 0;
+    int index = -1;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEven) {
             minEven = arr[i];
