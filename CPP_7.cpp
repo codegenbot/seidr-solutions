@@ -6,8 +6,10 @@ int main() {
     vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     string substring = "run";
     vector<string> result = filter_by_substring(strings, substring);
-    bool same = issame(result, {"grunt", "prune"});
-    cout << "Result: " << (same ? "True" : "False") << endl;
+    if (!issame(result, {"grunt", "prune"})) {
+        std::cerr << "Assertion failed" << std::endl;
+        return 1;
+    }
     return 0;
 }
 
