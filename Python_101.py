@@ -1,12 +1,14 @@
-```
 import re
 
 def words_string():
+    results = {}
     while True:
-        s = input("Please enter a string with comma-separated values: ")
+        s = input("Please enter a string with comma-separated values or press Enter to stop: ")
         if not s: 
-            print("Input cannot be blank. Please enter valid text.")
-            continue
+            break
         result = [x.strip() for x in re.split("[,\s]+", s) if x]
-        break
-    print(result)
+        for word in set(result):
+            results[word] = results.get(word, 0) + 1
+    return results
+
+print(words_string())
