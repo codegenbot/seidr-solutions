@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 int minSubArraySum(vector<long long> nums) {
     long long min_sum = LLONG_MAX;
@@ -14,5 +15,4 @@ int minSubArraySum(vector<long long> nums) {
         }
     }
 
-    return min_sum == LLONG_MAX ? 0 : min_sum;
-}
+    return min_sum == LLONG_MAX ? 0 : min(sum);
