@@ -1,4 +1,19 @@
-def calculate_average_age_and_names(students):
-    average_age = sum(student["age"] for student in students) / len(students)
-    names = [student["name"] for student in students]
-    return average_age, names
+```
+def factorize(n: int) -> List[int]:
+    if n < 2:
+        return [n]
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
