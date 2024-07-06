@@ -1,8 +1,6 @@
-import re
-
 
 def spin_words(string):
-    words = re.split(r"\s+", string)
+    words = re.split(r'\s+', string)
     result = []
     for word in words:
         if len(word) >= 5:
