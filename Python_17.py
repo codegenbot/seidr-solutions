@@ -1,6 +1,6 @@
 from typing import List
 
-def parse_music(music_string: str) -> List[int]:
+def parse_music(music_string: str) -> List:
     beats = [0]
     for note in music_string.split():
         if note == "o":
