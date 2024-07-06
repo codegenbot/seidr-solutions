@@ -1,8 +1,10 @@
-def user_strings() -> List[str]:
-    strings = []
+from typing import List
+
+
+def concatenate(str_params: List[str]) -> str:
     while True:
         s = input("Enter a string (or 'stop' if finished): ")
         if s.lower() == "stop":
             break
-        strings.append(s)
-    return ' '.join([s.strip() for s in strings])
+        str_params.append(s)
+    return " ".join([s.strip() for s in str_params])
