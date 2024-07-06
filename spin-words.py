@@ -1,9 +1,8 @@
 import re
 
 
-def spin_words():
-    string = input("Enter a string: ")
-    words = string.split()
+def spin_words(string):
+    words = re.split(r"\s+", string)
     result = []
     for word in words:
         if len(word) >= 5:
