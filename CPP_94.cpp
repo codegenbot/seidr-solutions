@@ -1,15 +1,4 @@
 #include <vector>
-#include <cmath>
-
-bool isPrime(int n) {
-    if(n <= 1) return false;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0)
-            return false;
-    }
-    return true;
-}
-
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
@@ -22,4 +11,13 @@ int skjkasdkd(vector<int> lst){
         maxPrime /= 10;
     }
     return sum;
+}
+
+bool isPrime(int n){
+    if(n <= 1) return false;
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0)
+            return false;
+    }
+    return true;
 }

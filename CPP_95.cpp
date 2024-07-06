@@ -1,5 +1,7 @@
 ```cpp
-bool check_dict_case(map<string, string> dict);
+bool check_dict_case(map<string, string> dict); 
+// Function definition follows...
+
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
