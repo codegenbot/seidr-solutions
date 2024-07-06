@@ -3,13 +3,13 @@ import heapq
 
 def minPath(grid, k):
     n = len(grid)
+
     queue = [(0, (0, 0, []))]
     visited = set((0, 0))
-    path_lengths = {}
     shortest_paths = {}
 
     while queue:
-        _, (x, y, path) = heapq.heappop(queue)
+        path_length, (x, y, path) = heapq.heappop(queue)
 
         if len(path) == k:
             return path
