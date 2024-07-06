@@ -13,6 +13,9 @@ def has_close_elements() -> bool:
         if not isinstance(num_list, list):
             raise ValueError("Invalid input. Please enter a list of numbers.")
 
+        num_list = list(
+            map(float, num_list)
+        )  # Convert the string into a float and store in list
         num_list.sort()
         for i in range(1, len(num_list)):
             if abs(num_list[i] - num_list[i - 1]) <= threshold:
