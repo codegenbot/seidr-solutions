@@ -1,14 +1,24 @@
+Here is the solution to the problem:
+
+```python
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
-    beats = [0] * (len(music_string) // 3 + 1)
-    i = 0
-    for note in music_string:
-        if note == "o":
-            beats[i] += 4
-        elif note == "|":
-            beats[i] += 2
-        elif note == ".":
-            beats[i] += 1
+    beats_per_note = {'o': 4, 'o|': 2, '.|': 1}
+    result = []
+    note = ''
+    
+    for char in music_string:
+        if char in ['o', '|']:
+            if note:
+                result.append(beats_per_note[note])
+            note = ''.join([note, char])
+        elif char == '.' and note == '.|':
+            note += char
         else:
-            raise ValueError("Invalid note")
-        i = (i + 1) % len(beats)
-    return beats[: i + 1]
+            pass
+    
+    result.append(beats_per_note.get(note, 0))
+    
+    return result
