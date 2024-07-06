@@ -1,9 +1,8 @@
-def double_the_difference(list):
-    small = min(list)
-    large = max(list)
-    diff = large - small
-    return 2 * diff
+# Prompt user for input
+input_string = input(
+    "Enter numbers separated by spaces (negative numbers and floating-point numbers are allowed): "
+)
+lst = [float(x) for x in input_string.split()]
 
-
-lst = [int(x) for x in input("Enter numbers separated by spaces: ").split()]
+# Call function with input
 print(double_the_difference(lst))
