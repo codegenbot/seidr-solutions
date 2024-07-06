@@ -2,28 +2,68 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string>, vector<string>) {
-    // Your implementation here
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> temp;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            temp.push_back(i);
+        }
+    }
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    std::vector<std::string> result;
+    for (int i : temp) {
+        switch (i) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
+    }
+    return result;
 }
 
 int main() {
     int n;
-    std::cout << "Enter the number of strings: ";
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<std::string> vec1, vec2;
-
+    
+    std::vector<int> arr(n);
     for (int i = 0; i < n; ++i) {
-        std::string str;
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, str);
-        if (i == 0)
-            vec1.push_back(str);
-        else
-            vec2.push_back(str);
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
     }
-
-    // Your implementation here
-
+    
+    std::vector<std::string> result = by_length(arr);
+    
+    std::cout << "The numbers in descending order with their English representations are: ";
+    for (const auto& str : result) {
+        std::cout << str << " ";
+    }
+    std::cout << "\n";
+    
     return 0;
 }
