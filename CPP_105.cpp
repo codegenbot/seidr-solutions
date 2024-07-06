@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -7,37 +8,13 @@ bool same(const vector<string>& a, const vector<string>& b) {
     }
     
     for(int i = 0; i < a.size(); i++) {
-        size_t count1 = count(a[i].begin(), a[i].end(), ' ');
-        size_t count2 = count(b[i].begin(), b[i].end(), ' ');
-
-        if(count1 != count2) {
-            return false;
-        }
-    }
-
-    for(int i = 0; i < a.size(); i++) {
-        string temp1 = "";
-        string temp2 = "";
-
-        for(char c : a[i]) {
-            if(c >= 'A' && c <= 'Z') {
-                temp1 += ' ';
-                temp1 += tolower(c);
-            } else {
-                temp1 += c;
-            }
-        }
-
-        for(char c : b[i]) {
-            if(c >= 'A' && c <= 'Z') {
-                temp2 += ' ';
-                temp2 += tolower(c);
-            } else {
-                temp2 += c;
-            }
-        }
-
-        if(temp1 != temp2) {
+        vector<string> v1=a[i];
+        vector<string> v2=b[i];
+        
+        sort(v1.begin(), v1.end());
+        sort(v2.begin(), v2.end());
+        
+        if(v1 != v2) {
             return false;
         }
     }
