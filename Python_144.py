@@ -8,11 +8,7 @@ def simplify(x, n):
         return a
 
     common = gcd(x_denom, n_denom)
-    new_x_num = x_num // common
-    new_x_denom = x_denom // common 
-    new_n_num = n_num // common
-    new_n_denom = n_denom // common 
+    new_x_num, new_x_denom = x_num // common, x_denom // common
+    new_n_num, new_n_denom = n_num // common, n_denom // common
 
-    fraction_x = new_x_num / new_x_denom
-    fraction_n = new_n_num / new_n_denom
-    return fraction_x == fraction_n
+    return (x_num, x_denom) == (new_n_num, new_n_denom)
