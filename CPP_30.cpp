@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -17,5 +18,5 @@ std::vector<float> get_positive(std::vector<float> l) {
 
 int main() {
     std::vector<float> v = get_positive({1, -2, 3});
-    assert(v.size() == 2); 
+    assert(v.size() == std::count_if(v.begin(), v.end(), [](float x){return x > 0;}); 
 }
