@@ -1,3 +1,4 @@
+```
 def sort_array(*args):
     while True:
         user_choice = input("Do you want to sort array? (S for yes): ")
