@@ -1,11 +1,12 @@
-```c++
+```
 #include <vector>
 #include <iostream>
 #include <string>
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
-    for (char c : cipher) {
+    for (int i = 0; i < cipher.length(); i++) {
+        char c = cipher[i];
         int idx = mapping.find(c);
         if (idx != std::string::npos) {
             result += mapping[idx];
