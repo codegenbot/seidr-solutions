@@ -1,24 +1,20 @@
-```
 def smallest_change(arr):
-    arr_len = len(arr)
-    left = 0
-    right = arr_len - 1
-    changes = 0
-    
+    n = len(arr)
+    arr_palindrome = arr.copy()
+
+    left, right = 0, n - 1
+
     while left < right:
-        if arr[left] != arr[right]:
-            changes += (right - left) + 1
-            break
+        if arr_palindrome[left] != arr_palindrome[right]:
+            for i in range(n):
+                if arr[i] == arr_palindrome[right]:
+                    arr_palindrome[i], arr_palindrome[left] = (
+                        arr_palindrome[left],
+                        arr_palindrome[i],
+                    )
+                    break
+            left += 1
         else:
-            if arr[left] == arr[right]:
-                left += 1
-                right -= 1
-            else:
-                break
-    
-    for i in range(left+1):
-        if arr[i] != arr[arr_len-1-i]:
-            changes += (arr_len - 1) // 2 - i
-            break
-    
-    return changes
+            left, right = left + 1, right - 1
+
+    return len(arr) - max(len(set(str(i)) for i in arr))
