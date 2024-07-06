@@ -1,28 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cctype>
 
-bool isalpha(char c) {
-    return std::isalnum(c);
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
 
     for (char c : s) {
-        if (isalpha(c)) {
+        if (std::isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
             bool has_n_consonants = false;
             int consonant_count = 0;
             for (char ch : word) {
-                if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
+                if (!std::ispunct(ch) && !std::isspace(ch) && !std::isvowel(tolower(ch))) {
                     consonant_count++;
                     if (consonant_count == n) {
                         has_n_consonants = true;
