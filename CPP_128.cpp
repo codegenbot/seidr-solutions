@@ -1,28 +1,22 @@
-int prod_signs(vector<int> arr) {
-    int sign_product = 1;
-    long long sum_of_magnitudes = 0;
+Here is the completed code:
 
-    for (int num : arr) {
-        if (num == 0) {
-            return 0;
-        }
-        sign_product *= sign(num);
-        sum_of_magnitudes += abs(num);
-    }
+```cpp
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
-    if (arr.empty()) {
+int prod_signs(vector<int> arr){
+    if(arr.empty())
         return -32768;
+    
+    int sign_product = 1; // initialize product of signs to 1
+    int sum_of_magnitudes = 0; // initialize sum of magnitudes
+    
+    for(int i : arr){
+        sign_product *= (i > 0) ? 1 : ((i < 0)? -1 : 0);
+        sum_of_magnitudes += abs(i); // add magnitude to sum
     }
-
-    return sum_of_magnitudes * sign_product;
-}
-
-int sign(int num) {
-    if (num > 0) {
-        return 1;
-    }
-    if (num < 0) {
-        return -1;
-    }
-    return 0;
+    
+    return sign_product * sum_of_magnitudes;
 }
