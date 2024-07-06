@@ -1,3 +1,4 @@
+```
 def process_strings():
     strings = []
     i = 0
@@ -17,6 +18,7 @@ def process_strings():
         elif len(user_input) > 0:
             strings.append(user_input)
 
-    return strings
+    print(strings)
+    return None
 
 print(process_strings())
