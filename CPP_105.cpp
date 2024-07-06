@@ -1,7 +1,6 @@
 ```c++
 #include <vector>
 using namespace std;
-
 vector<pair<int, string>> by_length(vector<int> arr){
     vector<int> temp;
     for(int i: arr){
