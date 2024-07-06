@@ -34,5 +34,5 @@ int main() {
     for (string str : output) {
         cout << str << endl;
     }
-    return 0;
+    
 }
