@@ -3,11 +3,13 @@ bool is_palindrome(std::string text) {
     int end = text.length() - 1;
 
     while (start <= end) {
-        if (!isalnum(text[start])) { 
-            ++start; // increment start
-        } else if (!isalnum(text[end])) { 
-            --end; // decrement end
-        } else if (tolower(text[start]) != tolower(text[end])) {
+        while (start <= end && !isalnum(text[start])) { 
+            start++;
+        }
+        while (start <= end && !isalnum(text[end])) { 
+            end--;
+        }
+        if (tolower(text[start]) != tolower(text[end])) {
             return false;
         }
         start++;
