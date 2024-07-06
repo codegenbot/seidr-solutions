@@ -1,4 +1,3 @@
-```Python
 import re
 
 def words_string():
@@ -11,11 +10,4 @@ def words_string():
             result = [x.strip() for x in re.split("[,\s]+", s.strip()) if x]
             return result
         except Exception as e:
-            while True:
-                cont = input(f"Invalid input. Please enter valid text. Continue? (yes/no): ")
-                if cont.lower() == 'no':
-                    return None
-                elif cont.lower() == 'yes':
-                    break
-                else: 
-                    print("Invalid option. Please respond with 'yes' or 'no'."
+            print(f"Invalid input. Please enter valid text.")
