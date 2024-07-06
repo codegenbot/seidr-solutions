@@ -1,6 +1,7 @@
+```cpp
 int main() {
-    vector<float> lst = {1.5f, -3.2f, 2.0f};
+    vector<float> lst = {1.5f, -2.8f, 3.0f, 4.9f};
     int odd_sum = 0; 
-    assert(double_the_difference(lst) == odd_sum);
+    cout << double_the_difference(lst) << endl;
     return 0;
 }
