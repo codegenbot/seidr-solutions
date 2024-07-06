@@ -1,6 +1,6 @@
-Here is the corrected code:
+Here is the modified code:
 
-```
+```python
 from typing import List
 
 def parse_music(music_string: str) -> List[int]:
