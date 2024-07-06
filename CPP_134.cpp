@@ -1,8 +1,7 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    for (int i = 0; i < txt.size() - 1; ++i) {
-        if (!isspace(txt[i])) return true;
-    }
-    char lastChar = txt.back();
-    return isalpha(lastChar);
+int length = txt.length();
+if (length == 0) {
+    return false;
 }
+char last_char = txt.at(length - 1);
+bool is_word_end = (length > 1 && txt.rfind(' ') != txt.npos);
+return isalpha(last_char) && !is_word_end;
