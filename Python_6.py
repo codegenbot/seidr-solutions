@@ -1,5 +1,4 @@
-```
-from typing import List
+Here is the completed code:
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
