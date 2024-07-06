@@ -5,4 +5,4 @@ def select_words(s, n):
     elif n == 1:
         return list(filter(lambda x: x.islower(), words))
     else:
-        return words[:n]
+        return list(filter(lambda x: all(c.islower() for c in x[1:]), words))[:n]
