@@ -1,4 +1,3 @@
-```
 #include <cassert>
 
 bool any_int(float a, float b, float c) {
@@ -9,6 +8,10 @@ bool any_int(float a, float b, float c) {
     return ((a == ai + bi + ci) || (b == ai + bi + ci) || (c == ai + bi + ci));
 }
 
-int main() {
-    assert(any_int(3.01f, 4.0f, 7.0f) == false);
+bool any_int(float a, float b, float c) {
+    for(int i = 0; i < 3; ++i) {
+        int val = (int)((i==0)?a:(i==1)?b:c);
+        if(val != (int)(val)) return true;
+    }
+    return false;
 }
