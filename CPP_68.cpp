@@ -1,7 +1,11 @@
-#include <climits>
 #include <vector>
+#include <climits>
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    // implementation of issame
+}
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
