@@ -1,12 +1,7 @@
 ```cpp
-#include <algorithm>
-#include <map>
 #include <vector>
+#include <map>
 #include <string>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::map<int, std::string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
@@ -19,4 +14,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     sort(result.begin(), result.end());
     reverse(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(std::equal(by_length({9, 4, 8}).begin(), by_length({9, 4, 8}).end(), {"Nine", "Eight", "Four"}));
+    return 0;
 }
