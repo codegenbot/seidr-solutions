@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <set>
 
@@ -23,3 +24,4 @@ std::vector<int> removeDuplicates(std::vector<int> numbers) {
 
 int main() {
     assert(sameVectors(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+}
