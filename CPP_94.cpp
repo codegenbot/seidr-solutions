@@ -1,4 +1,3 @@
-```cpp
 int max_prime_sum(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){

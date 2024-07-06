@@ -11,7 +11,6 @@ int is_bored(string S) {
         pos = S.find("I", pos);
     }
     return count;
-
 }
 
 int main() {
