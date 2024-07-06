@@ -1,16 +1,15 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string words_in_sentence(std::string sentence) {
-    int count = 0;
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ' || i == sentence.length() - 1) {
-            if (i != sentence.length() - 1)
-                count++;
+    int wordCount = 0;
+    for (char c : sentence) {
+        if (c == ' ') {
+            wordCount++;
         }
     }
-    return std::to_string(count);
+    wordCount++; // add one more for the last word
+    return std::to_string(wordCount);
 }
 
 int main() {
