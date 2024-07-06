@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -44,8 +43,9 @@ int main() {
     std::cout << "Enter the number of maximum elements to find: ";
     std::cin >> k;
     
-    if (!checkEquality({0, 1, 2, 3}, findMaximum(n, k))) {
-        return 1; // Test failed
+    if(checkEquality({0, 1, 2, 3}, findMaximum(n, k))) {
+        return 0;
+    } else {
+        return -1;
     }
-    return 0;
 }
