@@ -1,11 +1,16 @@
-#include <vector>
-#include <string>
-
-std::vector<std::string> isSame(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
-    for(std::string s : strings){
-        if(s.find(substring) != std::string::npos)
-            result.push_back(s);
+```cpp
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size())
+        return false;
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(find(b.begin(), b.end(), a[i]) == b.end())
+            return false;
     }
-    return result;
+    
+    return true;
+}
+
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }

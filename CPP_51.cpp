@@ -1,11 +1,18 @@
-```
-string str = "";
-for (char c : text) {
-    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-        || tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i'
-        || tolower(c) == 'o' || tolower(c) == 'u') {
-        continue;
+```cpp
+#include <string>
+using namespace std;
+
+string remove_vowels(string text){
+    string result = "";
+    for(char c : text){
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U'){
+            result += c;
+        }
     }
-    str += c;
+    return result;
 }
-return str;
+
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
+    // Add more test cases as needed
+}
