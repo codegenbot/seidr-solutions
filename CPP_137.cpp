@@ -1,39 +1,83 @@
+```cpp
 #include <boost/any.hpp>
-#include <boost/convert.hpp>
+#include <string>
+#include <limits>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : b;
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return ((int)a > (int)b) ? a : (a.convert_to<int>() == b.convert_to<int>()) ? boost::any(false) : b;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        std::string str_a = boost::any_cast<std::string>(a);
-        int num_b = boost::any_cast<int>(b);
-        return str_a.size() > boost::str_stoi(to_string(num_b)).size() ? a : b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        std::string str_b = boost::any_cast<std::string>(b);
-        double num_a = boost::any_cast<double>(a);
-        return str_b.size() > boost::str_stod(to_string(num_a)).size() ? a : b;
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string str_a = boost::any_cast<std::string>(a);
-        int num_b = boost::any_cast<int>(b);
-        return str_a.size() > to_string(num_b).size() ? a : b;
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        std::string str_a = boost::any_cast<std::string>(a);
-        double num_b = boost::any_cast<double>(b);
-        return str_a.size() > to_string(num_b).size() ? a : b;
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return ((float)a > (float)b) ? a : (a.convert_to<float>() == b.convert_to<float>()) ? boost::any(false) : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str_a = boost::any_cast<std::string>(a);
-        std::string str_b = boost::any_cast<std::string>(b);
-        return str_a.size() > str_b.size() ? a : b;
+        return ((std::string)a > (std::string)b) ? a : (a.convert_to<std::string>() == b.convert_to<std::string>()) ? boost::any(false) : b;
     }
-    else if (a.type() == typeid(int) && a.convert_to(b) || 
-             a.type() == typeid(double) && a.convert_to(b) || 
-             a.type() == typeid(std::string) && a.convert_to(b)) {
-        return "None";
+    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        if ((int)a > (float)b) {
+            return a;
+        } 
+        else if ((int)a < (float)b) {
+            return b;
+        }
+        else {
+            return boost::any(false);
+        }
     }
-    return a > b ? a : b;
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        if (std::stoi((std::string)b) > (int)a) {
+            return b;
+        } 
+        else if (std::stoi((std::string)b) < (int)a) {
+            return a;
+        }
+        else {
+            return boost::any(false);
+        }
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        if ((float)a > (int)b) {
+            return a;
+        } 
+        else if ((float)a < (int)b) {
+            return b;
+        }
+        else {
+            return boost::any(false);
+        }
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        if (std::stof((std::string)b) > (float)a) {
+            return b;
+        } 
+        else if (std::stof((std::string)b) < (float)a) {
+            return a;
+        }
+        else {
+            return boost::any(false);
+        }
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        if (std::stoi((std::string)a) > (int)b) {
+            return a;
+        } 
+        else if (std::stoi((std::string)a) < (int)b) {
+            return b;
+        }
+        else {
+            return boost::any(false);
+        }
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        if (std::stof((std::string)a) > (float)b) {
+            return a;
+        } 
+        else if (std::stof((std::string)a) < (float)b) {
+            return b;
+        }
+        else {
+            return boost::any(false);
+        }
+    }
+    return a; // default to the first value
 }
