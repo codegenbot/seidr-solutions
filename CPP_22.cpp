@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <list>
-#include <any>
 #include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
