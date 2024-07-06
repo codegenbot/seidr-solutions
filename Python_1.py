@@ -1,13 +1,10 @@
-Here is the modified code:
-
-```python
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
     current_group = ''
-
+    
     for char in paren_string:
         if char == ' ':
             continue
@@ -20,5 +17,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group += char
                 groups.append(current_group)
                 current_group = ''
-
+    
     return groups
