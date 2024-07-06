@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -16,6 +17,7 @@ int main() {
     std::vector<double> lst;
     double input;
 
+    // Ask the user for input
     while (true) {
         std::cout << "Enter a number (or -1 to finish): ";
         std::cin >> input;
