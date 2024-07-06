@@ -1,19 +1,14 @@
-```c++
+```cpp
 #include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+#include <initializer_list>
 
 std::vector<int> sort_array(std::vector<int> array) {
-    int sum = 0;
-    for (int num : array)
-        sum += num;
-
+    if(array.empty()) {
+        throw std::runtime_error("Error: Input array is empty.");
+    }
+    int sum = array[0] + array.back();
     if (sum % 2 == 1)
-        return array;
+        return std::vector<int>(array.begin(), array.end());
     else
-        std::sort(array.rbegin(), array.rend());
-    return array;
+        return std::vector<int>(array.rbegin(), array.rend());
 }
