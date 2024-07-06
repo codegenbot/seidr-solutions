@@ -1,5 +1,4 @@
 #include <cassert>
-#include <string>
 
 int is_bored(string S) {
     int count = 0;
@@ -8,11 +7,9 @@ int is_bored(string S) {
         if (S[pos] == 'I' && (S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!')) {
             count++;
         }
-        pos = S.find("I", pos);
+        pos = S.find("i", pos);
     }
     return count;
 }
 
-int main() {
-    assert(is_bored("You and I are going for a walk") == 0);
-    return 0;
+assert(is_bored("You and I are going for a walk") == 0);
