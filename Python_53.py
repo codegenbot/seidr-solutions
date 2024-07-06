@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 def add(x: int, y: int):
     return x + y
 
@@ -12,6 +15,7 @@ while True:
         if num1 >= 0 and num2 >= 0:  
             print(add(num1, num2))
             break
+        else:
+            print("Please enter non-negative numbers.")
     except ValueError:
         print("Invalid input. Please try again.")
-print("Program received expected input")
