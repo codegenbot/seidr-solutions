@@ -19,3 +19,4 @@ int main() {
     std::cin >> cipher >> mapping;
     std::cout << decode(cipher, mapping) << std::endl;
     return 0;
+}
