@@ -1,14 +1,12 @@
-```
 def decode_cyclic(s):
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
+    
+    s += s[:2] if len(s) % 3 else ""  
     result = ""
     i = 0
     while i < len(s):
-        if len(s[i:]) >= 3:
-            group = s[i:i+3]
-        else:
-            group = s[i:]
+        group = s[i:i+3]
         if len(group) == 1:
             result += group[0] * 2
         elif len(group) == 2: 
