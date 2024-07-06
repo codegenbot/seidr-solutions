@@ -3,7 +3,8 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in (paren_string[i:i+j] for i in range(len(paren_string)) for j in range(1, len(paren_string)-i+1)):
+    groups = paren_string.split()
+    for group in groups:
         depth = 0
         nested_depth = 0
         for char in group:
