@@ -1,8 +1,6 @@
-```
 def find_closest_elements():
-    num_list = input("Enter numbers separated by space: ").split()
-    num_list = [int(num) for num in num_list]
-    num_list.sort()
-    print("Closest pair of elements are: ", (num_list[0], num_list[-1]))
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    diff = abs(num2 - num1)
 
-find_closed_elements()
+    return f"The closest numbers are {num1} and {num2}, which differ by {diff}."
