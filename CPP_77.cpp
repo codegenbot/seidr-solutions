@@ -1,15 +1,3 @@
-```cpp
 #include <cmath>
-bool iscuber(int a){
-    int i = 1;
-    while (pow(i,3) <= a) {
-        if (pow(i,3) == a)
-            return true;
-        i++;
-    }
-    return false;
-}
-int main() {
-    assert(iscuber(1729) == false);
-    return 0;
-}
+
+bool iscuber(int a);
