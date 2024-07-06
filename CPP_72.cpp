@@ -1,4 +1,6 @@
 #include <cassert>
+#include <string>
+using namespace std;
 
 bool will_it_fly(vector<int> q,int w){
     string str = "";
@@ -10,6 +12,6 @@ bool will_it_fly(vector<int> q,int w){
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
-    // Add more test cases as needed
+    assert (will_it_fly({5}, 5) == true); // Add more test cases as needed
     return 0;
+}
