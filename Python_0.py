@@ -1,6 +1,4 @@
 ```
-from typing import List
-
 def has_close_elements() -> bool:
     found_close_elements = False
     while True:
