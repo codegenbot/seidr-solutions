@@ -1,19 +1,4 @@
-```cpp
-#include <vector>
-#include <cmath>
-#include <iostream>
-
-long long double_the_difference(std::vector<double> lst) {
-    long long sum = 0;
-    for (double num : lst) {
-        if (num > 0 && int(num + 0.5) == num) { 
-            sum += pow(int(num + 0.5), 2); 
-        }
-    }
-    return sum;
-}
-
-int main() {
+main() {
     std::vector<double> lst;
     double input;
 
@@ -26,6 +11,12 @@ int main() {
         lst.push_back(input);
     }
 
-    long long sum = double_the_difference(lst); 
+    long long sum = 0;
+    for (double num : lst) {
+        if (num > 0 && int(num + 0.5) == num) { 
+            sum += pow(int(num + 0.5), 2); 
+        }
+    }
+    std::cout << "The difference is: " << sum << std::endl;
     return 0;
 }
