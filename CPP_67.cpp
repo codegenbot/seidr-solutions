@@ -1,3 +1,4 @@
+```cpp
 int fruit_distribution(std::string s, int n) {
     std::istringstream iss(s);
     std::string token;
