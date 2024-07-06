@@ -10,4 +10,5 @@ def search(lst):
     for key, value in freq_dict.items():
         if key > 0 and value >= key:
             max_num = key
+            break
     return max_num
