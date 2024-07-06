@@ -4,8 +4,8 @@
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) return false;
-    for (const auto& pair : a) {
-        if (b.find(pair.first) == b.end() || pair.second != b.at(pair.first)) return false;
+    for (auto& pair : a) {
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) return false;
     }
     return true;
 }
