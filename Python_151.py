@@ -1,6 +1,14 @@
 def double_the_difference(lst):
-    min_num = min(i for i in lst if isinstance(i, int) and i > 0)
-    max_num = max(i for i in lst if isinstance(i, int) and i > 0)
-    return (min_num + max_num) * 2
+    if len(lst) < 2:
+        return None
 
-check(double_the_difference([1, 2, 3]))
+    max_val = max(i for i in lst if isinstance(i, int))
+    min_val = min(i for i in lst if isinstance(i, int))
+
+    return (max_val - min_val) * 2
+
+def check(expected_output):
+    input_list = [1, 2, 3]
+    print(double_the_difference(input_list) == expected_output)
+
+check(14)
