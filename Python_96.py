@@ -6,8 +6,4 @@ def count_up_to(n):
             prime_numbers.append(i)
     return prime_numbers
 
-def test_count_up_to():
-    assert count_up_to(10) == [2, 3, 5, 7]
-
-if __name__ == "__main__":
-    test_count_up_to()
+assert count_up_to(5) == [2, 3, 5]
