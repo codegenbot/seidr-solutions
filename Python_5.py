@@ -15,7 +15,6 @@ def intersperse(numbers: list[int], delimiter: int) -> list[int]:
         result.pop()  # remove trailing delimiter
     return result
 
-
 input_numbers = input("Enter a list of integers separated by commas: ")
 numbers = [int(num) for num in input_numbers.split(",")]
 
