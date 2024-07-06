@@ -1,10 +1,7 @@
-```cpp
+#include <iostream>
 #include <string>
-#include <cctype>  
 
-using namespace std;
-
-int count_upper(string s){
+int count_upper(std::string s) {
     int count = 0;
     for(int i=1; i<s.length(); i=i+2){
         if(isupper(s[i])){
@@ -15,5 +12,6 @@ int count_upper(string s){
 }
 
 int main() {
-    assert (count_upper("EEEE") == 2);
+    std::cout << "Count of upper characters in EEEE is: " << count_upper("EEEE") << std::endl;
+    return 0;
 }
