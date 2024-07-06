@@ -1,16 +1,13 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <string>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string>b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> by_length(vector<int> arr){
@@ -31,8 +28,14 @@ vector<string> by_length(vector<int> arr){
 }
 
 int main() {
-    vector<int> arr = {9, 4, 8};
-    vector<string> result = by_length(arr);
-    assert(issame(result , {"Nine", "Four", "Eight"}));
+    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<string> same = by_length(arr);
+    
+    if(issame(same, {"Eight", "Five", "Four", "One", "Nine", "Seven", "Six", "Three", "Two"})) {
+        cout << "The vectors are the same." << endl;
+    } else {
+        cout << "The vectors are not the same." << endl;
+    }
+    
     return 0;
 }
