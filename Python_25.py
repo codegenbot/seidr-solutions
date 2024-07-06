@@ -1,9 +1,4 @@
-```
-if __name__ == '__main__':
-    n = int(input("Enter a number: "))
-    print(factorize(n))
-
-def factorize(n: int) -> list:
+def factorize(n: int) -> List[int]:
     i = 2
     factors = []
     while i * i <= n:
