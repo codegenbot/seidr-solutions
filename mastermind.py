@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     code_count = [0]*6
     for c in code:
@@ -15,10 +14,3 @@ def mastermind(code, guess):
             white += 1
 
     return black, white
-
-code = input("Enter the Mastermind code: ")
-guess = input("Enter your guess: ")
-
-black, white = mastermind(code, guess)
-
-print(f"Black pegs: {black}, White pegs: {white}")
