@@ -1,25 +1,32 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
-    int min_diff = INT_MAX;
     vector<vector<int>> res(2);
-    
-    for (int i = 1; i < n; i++) {
-        if (abs(vec[i] - vec[i-1]) == min_diff) {
-            res[0].assign(vec.begin(), vec.begin() + i);
-            res[1].assign(vec.begin() + i, vec.end());
-            return res;
-        } else if (vec[i] - vec[i-1] < min_diff) {
-            min_diff = vec[i] - vec[i-1];
+    int diff = INT_MAX;
+    vector<int> minDiff;
+    for (int i = 1; i < vec.size(); i++) {
+        int currDiff = abs(vec[i] - vec[i-1]);
+        if (currDiff < diff) {
+            diff = currDiff;
+            minDiff.clear();
+            minDiff.push_back(vec[i-1]);
+            minDiff.push_back(vec[i]);
         }
     }
-    
-    // If the input vector is empty or all elements are equal
-    res[0].assign(vec.begin(), vec.end());
-    res[1].clear();
+
+    res[0].assign(minDiff.begin(), minDiff.end());
+    for (int i = 0; i < vec.size(); i++) {
+        if (vec[i] == minDiff.back()) {
+            res[1].push_back(vec[i]);
+            break;
+        }
+    }
+    res[1].assign(vec.begin() + minDiff.size(), vec.end());
+
     return res;
 }
 
