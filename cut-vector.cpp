@@ -11,8 +11,8 @@ int main() {
     }
     vector<vector<int>> res = cutVector(vec);
     cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        for(int num : res[0][i]){
+    for(int i = 0; i < res[0].size(); i++){
+        for(int num:res[0][i]){
             cout<<num<<" ";
         }
         cout << " ] [";
