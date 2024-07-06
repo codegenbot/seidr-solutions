@@ -1,6 +1,7 @@
+def add(x: int, y: int):
+    return x + y
 
-def add(input_list):
-    total = 0
-    for sublist in input_list:
-        total += sum(sublist)
-    return total
+user_input = input("Enter two numbers to add: ")
+numbers = user_input.split()
+result = add(int(numbers[0]), int(numbers[1]))
+print(f"The result is {result}")
