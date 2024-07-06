@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
     int m_idx = 0; // Index of current char in mapping
