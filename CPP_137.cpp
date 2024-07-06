@@ -1,3 +1,4 @@
+```
 #include <boost/any.hpp>
 #include <string>
 
@@ -52,6 +53,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
 
-    // If none of the above conditions are met, return the first value
     return a;
 }
