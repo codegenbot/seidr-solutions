@@ -1,3 +1,8 @@
+```
+from typing import List
+import math
+
+
 def factorize():
     while True:
         try:
@@ -56,4 +61,18 @@ def factorize():
         else:
             print(factorized_factors)
 
+        print("")  # added this line
+
         again = input("Do you want to factorize another number? (yes/no): ")
+
+
+while True:
+    try:
+        input("Press Enter when ready: ")
+        factorize()
+        break
+    except (EOFError, KeyboardInterrupt):
+        print("Program terminated.")
+        exit()
+    except:
+        print("Please provide a valid integer.")
