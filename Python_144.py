@@ -14,4 +14,4 @@ def simplify(x, n):
     new_n_num = n_num // common
     new_n_denom = n_denom // common
 
-    return new_x_num == new_n_num and new_x_denom == new_n_denom
+    return (new_x_num / new_x_denom) == (new_n_num / new_n_denom)
