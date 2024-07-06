@@ -12,7 +12,6 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    // Test your function here
-    return 0;
+    std::vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    // ... rest of the code ...
 }
