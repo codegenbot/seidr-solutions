@@ -14,4 +14,6 @@ std::string decimal_to_binary(int n){
 }
 
 int main() {
+    assert (decimal_to_binary(15) == "11111");
+    cout << decimal_to_binary(5) << endl;
 }
