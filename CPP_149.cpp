@@ -1,3 +1,4 @@
+```cpp
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (const auto& str : lst) {
@@ -13,25 +14,17 @@ vector<string> sorted_list_sum(vector<string> lst) {
                  return a < b;
              }
          });
-    
     bool issame(vector<string> a,vector<string>b){
         if(a.size() != b.size()) return false;
         for(int i=0; i<a.size(); i++){
             if(a[i] != b[i]) return false;
         }
         return true;
-    }
-
-    vector<vector<string>> pairs;
-    for (int i = 0; i < result.size() - 1; i++) {
-        pair<string, string> p({result[i], result[i + 1]});
-        pairs.push_back(vector<string>(p));
-    }
+    };
+    // To fix this issue, you need to declare the `issame` function before using it and also implement the logic inside the function.
+    // Here is a simple way to do it:
     
-    sort(pairs.begin(), pairs.end(),
-         [](const vector<string>& a, const vector<string>& b) {
-             return issame(a,b);
-         });
+    // This function checks if two vectors of strings are the same by comparing their sizes and then each element in them..
     
-    return {};
+    return result;
 }
