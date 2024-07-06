@@ -1,3 +1,4 @@
+```
 def encode(key, message):
     char_index = {v: k for k, v in {k: v.lower() if k.isupper() else k for k, v in zip(key, key)}.items()}
     result = ""
