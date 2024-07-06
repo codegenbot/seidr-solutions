@@ -1,17 +1,15 @@
-#include <string>
+```#include <string>
 
-string flip_case(std::string str){
-    string flipped = "";
-    for(int i=0; i<str.length(); i++){
-        if(str[i]>96 && str[i]<123) {
-            flipped += (char)(str[i] - 32);
+std::string flip_case(std::string str){
+    std::string result;
+    for(int i = 0; i < str.length(); i++){
+        char c = str[i];
+        if(c >= 'a' && c <= 'z'){
+            c -= ('a' - 'A');
+        } else if(c >= 'A' && c <= 'Z'){
+            c += ('a' - 'A');
         }
-        else if(str[i]>64 && str[i]<91) {
-            flipped += (char)(str[i] + 32);
-        } 
-        else{
-            flipped += str[i];
-        }
+        result.push_back(c);
     }
-    return flipped;
-}
+    return result;
+}``
