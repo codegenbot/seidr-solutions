@@ -1,4 +1,4 @@
-```python 
+```Python
 def parse_nested_parens(s):
     while "{}" in s:
         start = s.index("{")
