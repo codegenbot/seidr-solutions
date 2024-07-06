@@ -5,8 +5,9 @@ vector<int> remove_duplicates(vector<int> numbers) {
             unique_numbers.push_back(num);
         }
     }
-    bool issame(vector<int> a, vector<int> b) {
-        return a == b;
-    }
     return unique_numbers;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
