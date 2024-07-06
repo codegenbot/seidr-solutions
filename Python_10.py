@@ -1,3 +1,4 @@
+
 def make_palindrome(string):
     suffix = string[::-1]
     for i in range(len(suffix)):
@@ -5,4 +6,5 @@ def make_palindrome(string):
             break
     else:
         i = len(string) - 1
+    
     return string + string[:i+1][::-1]
