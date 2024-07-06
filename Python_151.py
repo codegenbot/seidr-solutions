@@ -5,5 +5,6 @@ def double_the_difference(nums):
     return 2 * diff
 
 
-lst = input("Enter a list of integers: ")
-print(double_the_difference(lst))
+nums = [1, 2, 3, 4]
+result = double_the_difference(nums)
+print(result)

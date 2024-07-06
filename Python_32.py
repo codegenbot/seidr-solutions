@@ -1,12 +1,7 @@
-
 def find_zero(x):
-    if x > 0:
+    if input("Enter a number: ") > 0:
         return -1
-    elif x < 0:
+    elif input("Enter a number: ") < 0:
         return 1
     else:
         return 0
-
-if __name__ == "__main__":
-    x = int(input("Enter a number: "))
-    print(find_zero(x))
