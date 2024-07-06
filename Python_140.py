@@ -1,10 +1,11 @@
-def replace_spaces(s):
-    new_string = s.split()
-    result = ''
-    for word in new_string:
-        if len(word) > 3:
-            result += word[:3] + '...' + word[-1]
+def fix_spaces(text):
+    result = ""
+    for char in text:
+        if char == " " and len(result) > 0 and result[-1] == " ":
+            while len(result) < 3 and result[-1] == " ":
+                result += "-"
+        elif char == " ":
+            result += "_"
         else:
-            result += word
-        result += ' '
-    return result.strip()
+            result += char
+    return result
