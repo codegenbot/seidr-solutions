@@ -1,11 +1,6 @@
-Here is the modified code:
-
 ```
-from typing import List
-
-
 def below_zero() -> None:
-    operations = list(map(int, input("Enter your operations (space-separated): ").split()))
+    operations = list(map(int, input("Enter your income (space-separated): ").split()))
     balance = sum(operations)
 
     has_debt = input("Do you have any debt? (yes/no): ")
