@@ -1,4 +1,4 @@
-#include <iostream>
+    #include <iostream>
 #include <vector>
 #include <numeric>
 
@@ -8,10 +8,8 @@ double shoppingList(const std::vector<float>& prices, const std::vector<float>& 
 }
 
 int main() {
-    constexpr int prices_size = sizeof(prices) / sizeof(float);
-    constexpr int discounts_size = sizeof(discounts) / sizeof(float);
-    std::vector<float> prices(prices_data, prices_data + prices_size);
-    std::vector<float> discounts(discounts_data, discounts_data + discounts_size);
+    std::vector<float> prices = {50.0, 100.0};
+    std::vector<float> discounts = {10.0, 20.0};
     std::cout << shoppingList(prices, discounts) << std::endl;
     return 0;
 }
