@@ -15,4 +15,3 @@ int is_bored(std::string S){
     if(word.size() && word[0] == 'I')
         ++count;
     return count;
-}
