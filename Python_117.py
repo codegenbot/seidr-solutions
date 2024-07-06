@@ -1,12 +1,11 @@
-```
 def select_words(s, n):
     words = s.split()
-    result = []
-    for word in words:
-        consonants = 0
-        for char in word:
-            if char.lower() not in 'aeiou':
-                consonants += 1
-        if consonants == n:
-            result.append(word)
+    result = [
+        word
+        for word in words
+        if len(
+            [char for char in word.lower() if char.isalpha() and char not in "aeiou"]
+        )
+        == n
+    ]
     return result
