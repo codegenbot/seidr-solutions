@@ -11,5 +11,3 @@ def fizz_buzz(n):
             out = str(i)
         
         print(out)
-
-    return None
