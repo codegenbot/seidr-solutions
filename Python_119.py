@@ -1,13 +1,14 @@
+
 def match_parens(lst):
     left = 0
     right = 0
-    for char in lst[0]:
-        if char == "(":
+    for c in lst[0]:
+        if c == '(':
             left += 1
         else:
             right += 1
-    for char in lst[1]:
-        if char == "(":
+    for c in lst[1]:
+        if c == '(':
             left -= 1
         else:
             right -= 1
