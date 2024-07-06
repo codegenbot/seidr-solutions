@@ -1,31 +1,18 @@
-#include <algorithm>
-using namespace std;
-
 string anti_shuffle(string s) {
     string result = "";
-    for (const auto& word : split(s, ' ')) {
-        result += anti_sort(word) + " ";
-    }
-    return result;
-}
-
-string anti_sort(const string& str) {
-    string sortedStr = str;
-    sort(sortedStr.begin(), sortedStr.end());
-    return sortedStr;
-}
-
-vector<string> split(const string& str, char delimeter) {
-    vector<string> tokens;
-    string token;
-    for (const auto& c : str) {
-        if (c == delimeter) {
-            tokens.push_back(token);
-            token = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            result += " ";
         } else {
-            token += c;
+            string word = "";
+            for (int j = i; j < s.length() && s[j] != ' '; j++) {
+                word += s[j];
+            }
+            for (char c : word) {
+                result += c;
+            }
+            i += word.length() - 1;
         }
     }
-    tokens.push_back(token);
-    return tokens;
+    return result;
 }
