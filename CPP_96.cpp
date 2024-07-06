@@ -1,5 +1,10 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> count_up_to(int n) {
-    vector<int> result;
+    vector<int> primes;
     for (int i = 2; i < n; ++i) {
         bool isPrime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -9,8 +14,8 @@ vector<int> count_up_to(int n) {
             }
         }
         if (isPrime) {
-            result.push_back(i);
+            primes.push_back(i);
         }
     }
-    return result;
+    return primes;
 }
