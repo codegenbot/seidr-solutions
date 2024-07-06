@@ -1,18 +1,6 @@
+```cpp
 #include <map>
 #include <string>
-
-bool check_dict_case(map<string, string> dict);
-
-int main() {
-    map<string, string> dict;
-    
-    dict["hello"] = "H";
-    dict["world"] = "w";
-
-    bool result = check_dict_case(dict);
-    
-    return result;
-}
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -28,4 +16,13 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return all_lower || all_upper;
+}
+
+int main() {
+    map<string, string> dict;
+    // ... your code here ...
+    // Now you can use the function
+    bool result = check_dict_case(dict);
+    cout << "The result is: " << (result ? "true" : "false") << endl;
+    return 0;
 }
