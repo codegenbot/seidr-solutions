@@ -1,20 +1,14 @@
 ```cpp
-#include<iostream>
-using namespace std;
-
-bool is_simple_power(int x, int n);
+#include <cmath>
+#include <iostream>
 
 bool is_simple_power(int x, int n) {
     return pow(n, log(x) / log(n)) == x;
 }
 
 int main() {
-    int x, n;
-    cout << "Enter two numbers: ";
-    cin >> x >> n;
-    if(is_simple_power(x,n))
-        cout << x << " is a simple power of " << n;
-    else
-        cout << x << " is not a simple power of " << n;
+    bool isSimplePower = is_simple_power(8, 2);
+    std::cout << "Is power: " << (isSimplePower ? "True" : "False") << std::endl;
+
     return 0;
 }
