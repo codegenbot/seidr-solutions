@@ -16,7 +16,9 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
+    // Read input from user and call make_a_pile function
     int n;
     std::cin >> n;
     std::vector<int> result = make_a_pile(n);
+    // Return output corresponding to the task description
 }
