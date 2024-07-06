@@ -10,7 +10,6 @@ int sumOdds(vector<int> lst) {
         }
     }
     return sum;
-
 }
 
 int main() {
