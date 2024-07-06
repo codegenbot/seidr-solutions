@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```python
 from collections import deque
 
 def minPath(grid, k):
@@ -24,7 +26,17 @@ def minPath(grid, k):
     min_path = None
     for i in range(n):
         for j in range(n):
-            path = dfs(i, j, [], set())
+            path = dfs(i, j, [m[i][j]], set())
             if min_path is None or len(path) < len(min_path):
                 min_path = path
     return min_path
+
+n = int(input("Enter number of rows in the grid: "))
+m = int(input("Enter number of columns in the grid: "))
+
+grid = []
+for i in range(n):
+    row = list(map(int, input(f"Enter {m} values for row {i+1}: ").split()))
+    grid.append(row)
+
+print(minPath(grid, 0))
