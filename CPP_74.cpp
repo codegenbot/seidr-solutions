@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -35,8 +36,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-vector<string> testMain() {
+int main_func() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
-    return total_match(vec1,vec2);
+    return total_match(vec1,vec2).size();
 }
