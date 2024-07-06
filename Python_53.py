@@ -1,7 +1,9 @@
 import sys
 
+
 def add(x: int, y: int):
     return x + y
+
 
 # Accept user input for x and y
 try:
