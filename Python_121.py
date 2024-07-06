@@ -1,2 +1,2 @@
-def find_odd_primes(lst):
-    return sum(i for i in lst[1::2] if int(i) > 1 and int(i) % 2 != 0)
+def find_even_numbers(lst):
+    return sum(int(num) for num in lst[1::2] if int(num) > 1 and int(num) % 2 != 0)
