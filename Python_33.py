@@ -1,5 +1,6 @@
 def sort_third(l: list):
+    multiples_of_three = [i for i in l if i % 3 == 0]
+    multiples_of_three.sort()
     return [
-        i if i % 3 != 0 else sorted([x for x in l if x % 3 == 0 and x != i], reverse=True).pop(0)
-        for i in l
+        i if i % 3 != 0 else multiples_of_three.pop(0) if i % 3 == 0 else i for i in l
     ]
