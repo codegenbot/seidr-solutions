@@ -1,5 +1,3 @@
-#include <string>
-
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
@@ -8,5 +6,6 @@ int digitSum(string s) {
             sum += c - 'A' + 1; 
         }
     }
+    #include <string>
     return sum;
 }
