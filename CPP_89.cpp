@@ -20,9 +20,8 @@ int main() {
     std::string inputStr;
     std::stringstream ss;
     std::getline(ss, inputStr);
-    std::istringstream in(inputStr); 
+    std::istringstream in(inputStr);  
     
     // Now you can call this function:
     std::string encrypted = encrypt(in);
     std::cout << "Encrypted: " << encrypted << std::endl;
-}
