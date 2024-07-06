@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
-#include <vector>
+#include <sstream>
 #include <string>
+#include <vector>
 
 std::string words_in_sentence(std::string sentence){
     std::string result = "";
@@ -34,8 +34,4 @@ bool is_prime(int num) {
         }
     }
     return true;
-
-int main() {
-    std::cout << words_in_sentence("here is") << std::endl;
-    return 0;
 }
