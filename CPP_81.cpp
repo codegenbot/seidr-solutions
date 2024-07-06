@@ -22,14 +22,7 @@ bool same(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int original_main() {
-    std::vector<int> grades = {90, static_cast<int>(70)};
-    std::vector<std::string> expected = {"A", "C"};
-    assert(same(numerical_letter_grade(grades), expected));
-    return 0;
-}
-
-int new_main() {
+int main_test() {
     std::vector<int> grades = {90, static_cast<int>(70)};
     std::vector<std::string> expected = {"A", "C"};
     assert(same(numerical_letter_grade(grades), expected));
