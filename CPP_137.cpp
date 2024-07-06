@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -38,7 +39,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         istringstream iss(str);
         float f;
         iss >> f;
-        return f > b.convert_to<float>() ? a : b;
+        return f > boost::any_cast<float>(b) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         return compare_one(b, a);
@@ -71,7 +72,7 @@ int main(){
     if(result.type() == typeid(string))
         cout << "Result: None";
     else
-        cout << "Result: " << result.convert_to<int>();
+        cout << "Result: " << boost::lexical_cast<int>(result) << endl;
 
     return 0;
 }
