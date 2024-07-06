@@ -1,6 +1,6 @@
 ```
 def filter_by_substring(input_string):
-    substring = "substring"
+    substring = input("Enter a substring: ")
     if substring in input_string:
         return "The string contains the substring."
     else:
