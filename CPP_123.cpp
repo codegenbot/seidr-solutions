@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -20,11 +19,7 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int cpp_main() {
-    if (!issame({get_odd_collatz(12)}, {1, 2, 6})) {
-        std::cerr << "Test failed: expected get_odd_collatz(12) to be {1, 2, 6} but got " << get_odd_collatz(12).size() << " elements: " << get_odd_collatz(12)[0];
-        for (int i = 1; i < get_odd_collatz(12).size(); ++i)
-            std::cerr << ", " << get_odd_collatz(12)[i];
-        std::cerr << std::endl;
-    }
+    if (!areSame({get_odd_collatz(12)}, std::vector<int>({1, 2, 6})))
+        std::cerr << "Test failed: Expected {1, 2, 6}, got " << {get_odd_collatz(12)} << std::endl;
     return 0;
 }
