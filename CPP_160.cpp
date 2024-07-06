@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 
-int do_algebra(vector<string> operators, vector<int> operands) {
+int do_alpha(vector<string> operators, vector<int> operands) {
     int result = operands[0];
     for (int i = 0; i < operators.size(); i++) {
         if (operators[i] == "+") {
