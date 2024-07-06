@@ -8,7 +8,7 @@ int skjkasdkd(vector<int> lst){
     vector<int>::iterator it;
     for(it=lst.begin();it!=lst.end();++it)
     {
-        if(!isPrime(*it)) continue; 
+        if(!isPrime(*it)) continue; // Skip non-prime numbers
         int n = *it;
         while(n > 0) 
         {
