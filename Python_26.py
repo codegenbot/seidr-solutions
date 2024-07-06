@@ -1,2 +1,5 @@
-def remove_duplicates(numbers):
-    return list(set(map(int, input("Enter numbers (space-separated): ").split())))
+```
+from collections import OrderedDict
+
+def remove_duplicates(numbers) -> list:
+    return list(OrderedDict.fromkeys(numbers))
