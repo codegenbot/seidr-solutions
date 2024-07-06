@@ -1,17 +1,21 @@
-Here is the solution:
-
-```cpp
 string anti_shuffle(string s){
     string result = "";
-    string temp;
     for(int i=0; i<s.length(); i++){
-        if(s[i] == ' ' || s[i] == '\0'){
-            sort(temp.begin(),temp.end());
-            result += temp;
-            temp = "";
-        }
-        else{
-            temp += s[i];
+        if(s[i] == ' '){
+            result += ' ';
+        }else{
+            string word = "";
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
+                word += s[j];
+                int temp = 0;
+                for(int k=0; k<word.length(); k++){
+                    if(temp <= word[k]){
+                        temp = word[k];
+                    }
+                }
+                result += (char)temp;
+            }
+            i = j;
         }
     }
     return result;
