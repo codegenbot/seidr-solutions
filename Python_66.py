@@ -1,4 +1,3 @@
-```python
 def digit_sum(n):
     total = 0
     while n:
