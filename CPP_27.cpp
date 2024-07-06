@@ -1,7 +1,9 @@
+```cpp
 #include <string>
+#include <cctype>
 
-string flip_case(string str) {
-    string result = "";
+std::string flip_case(std::string str) {
+    std::string result = "";
     for (char c : str) {
         if (std::isupper(c)) {
             result += std::tolower(c);
@@ -12,3 +14,4 @@ string flip_case(string str) {
         }
     }
     return result;
+}
