@@ -5,7 +5,7 @@ int digitSum(std::string s){
     int sum = 0;
     for (char c : s) {
         if(isupper(c)) {
-            sum += (int)c - 55; 
+            sum += (int)c - 55; // subtract ASCII value of 'A' - 1
         }
     }
     return sum;
@@ -13,5 +13,6 @@ int digitSum(std::string s){
 
 int main() {
     std::cout << digitSum("You arE Very Smart") << std::endl;
+    assert(digitSum("You arE Very Smart") == 327);
     return 0;
 }
