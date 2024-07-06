@@ -2,39 +2,23 @@ def minPath(grid, k):
     # Initialize variables
     n = len(grid)
     m = len(grid[0])
-    visited = [[False for _ in range(m)] for _ in range(n)]
+    visited = set()
+    queue = deque([(0, 0)])
     path = []
-    min_path = float("inf")
 
-    def dfs(i, j, curr_path):
-        # Base case: if the current path is longer than k, return
-        if len(curr_path) > k:
-            return
+    # Loop until the queue is empty or the path length is k
+    while queue and len(path) < k:
+        # Get the current cell and its neighbors
+        i, j = queue.popleft()
+        neighbors = [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]
 
-        # If we have reached the end of the grid, check if the current path is shorter than the minimum path so far
-        if i == n - 1 and j == m - 1:
-            if len(curr_path) < min_path:
-                min_path = len(curr_path)
-                path = curr_path[:]
+        # Filter out visited cells and add new cells to the queue
+        for ni, nj in neighbors:
+            if 0 <= ni < n and 0 <= nj < m and (ni, nj) not in visited:
+                queue.append((ni, nj))
+                visited.add((ni, nj))
 
-        # If the current cell is not visited, mark it as visited and add its value to the current path
-        if not visited[i][j]:
-            visited[i][j] = True
-            curr_path.append(grid[i][j])
-
-            # Recursively explore all neighboring cells
-            for di in range(-1, 2):
-                for dj in range(-1, 2):
-                    if 0 <= i + di < n and 0 <= j + dj < m:
-                        dfs(i + di, j + dj, curr_path)
-
-            # Backtrack and remove the current cell from the path
-            visited[i][j] = False
-            curr_path.pop()
-
-    # Start the DFS from all cells in the grid
-    for i in range(n):
-        for j in range(m):
-            dfs(i, j, [])
+        # Add the current cell to the path
+        path.append(grid[i][j])
 
     return path
