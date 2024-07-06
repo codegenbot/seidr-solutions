@@ -3,19 +3,23 @@ def sort_array(input_array=None):
         print("Error: Input type is incorrect")
     if input_array is None:
         array = list(map(int, input("Enter numbers separated by space: ").split()))
+        while not array:
+            print("Array cannot be empty. Please enter numbers separated by space:")
+            array = list(map(int, input().split()))
     else:
         array = [int(i) for i in input_array]
-    
+
     try:
         user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
-        
-        if user_choice.upper() == 'S':
+
+        if user_choice.upper() == "S":
             return sorted(array)
-        elif user_choice.upper() == 'U':
+        elif user_choice.upper() == "U":
             return set(array)
         else:
-            print("Error: Invalid choice. Please enter S for sorting or U for finding unique elements.")
-    except EOFError:
-        print("Program did not receive expected input")
+            print(
+                "Error: Invalid choice. Please enter S for sorting or U for finding unique elements."
+            )
+            return array
     except TypeError as e:
         print("Error: Array contains non-integer values")
