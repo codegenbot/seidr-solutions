@@ -1,7 +1,3 @@
-#include <vector>
-
-using namespace std;
-
 vector<int> count_up_to(int n) {
     vector<int> result;
     for (int i = 2; i < n; ++i) {
