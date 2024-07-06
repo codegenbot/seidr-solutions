@@ -15,7 +15,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.pop()
             temp_group += char
             if not stack:
-                groups.append(temp_group)
+                groups.append(temp_group.strip('()'))
                 temp_group = ''
-    
     return groups
