@@ -1,6 +1,7 @@
 ```
-from typing import list
-def parse_nested_parens(paren_string: str) -> list[int]:
+from typing import List
+
+def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
         level = 0
