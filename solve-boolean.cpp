@@ -1,21 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool evaluate(const string &expression) {
     bool result = true;
-    int i = 0;
-    while (i < expression.length()) {
+    stack<char> operators;
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            // Evaluate the first operand
-            result |= evaluate(expression.substr(i + 1, expression.length() - i));
+            operators.push('|');
         } else if (expression[i] == '&') {
-            // Evaluate the second operand
-            result &= evaluate(expression.substr(i + 1, expression.length() - i));
+            operators.push('&');
         } else if (expression[i] == '^') {
-            // Evaluate the first operand and then apply the XOR operation to the result
-            result ^= evaluate(expression.substr(i + 1, expression.length() - i));
+            operators.push('^');
         } else if (expression[i] == '~') {
-            // Apply the NOT operation to the result
             result = !result;
+        } else if (operators.empty()) {
+            result = true;
+        } else {
+            char operator = operators.top();
+            switch (operator) {
+                case '|':
+                    result |= expression[i];
+                    break;
+                case '&':
+                    result &= expression[i];
+                    break;
+                case '^':
+                    result ^= expression[i];
+                    break;
+            }
         }
-        i++;
     }
-    return result;
+    return result && expression != "false";
 }
