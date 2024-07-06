@@ -14,5 +14,5 @@ int main() {
     if (total_water % capacity != 0)
         ++buckets_needed;
 
-    return buckets_needed;
+    return 0;
 }
