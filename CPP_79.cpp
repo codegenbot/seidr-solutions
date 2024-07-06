@@ -13,6 +13,6 @@ std::string decimal_to_binary(int n){
 
 int main() {
     assert(decimal_to_binary(15) == "1111");
-    std::cout << decimal_to_binary(15) << std::endl; 
+    std::cout << decimal_to_binary(15) << std::endl; // Run the function with input 15
     return 0;
 }
