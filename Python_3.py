@@ -1,4 +1,3 @@
-```
 def calculate_average_grade():
     total = 0
     count = 0
@@ -19,3 +18,5 @@ def calculate_average_grade():
         print(f"Your average grade is {average_grade:.2f}. You failed.")
     else:
         print(f"Your average grade is {average_grade:.2f}. You passed!")
+
+calculate_average_grade()
