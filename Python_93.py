@@ -5,7 +5,10 @@ def encode(input_string, output_string):
             ascii_value = ord(char.lower()) - 97
             if char.isupper():
                 ascii_value += 65
-            result += output_string[ascii_value]
+            if ascii_value < len(output_string):
+                result += output_string[ascii_value]
+            else:
+                result += char
         else:
             result += char
     return result
