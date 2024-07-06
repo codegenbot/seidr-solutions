@@ -1,10 +1,9 @@
-```
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
-    """This function takes an integer as input and returns a list of its prime factors."""
+    """"
     factors = []
     i = 2
     while i * i <= n:
@@ -15,8 +14,7 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            for _ in range(count):
-                factors.append(i)
+            factors.append(i ** count)
             i += 1
     if n > 1:
         factors.append(n)
