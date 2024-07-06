@@ -1,4 +1,7 @@
+```
 def solve(N):
-    binary = str(bin(N)[2:])
-    result = ['a' if i % 2 else 'b' for i in range(len(binary))]
-    return "".join(result)
+    if N < 2:
+        return "1" * N
+    else:
+        binary = str(bin(N)[2:]).replace("1", "a").replace("0", "b")
+        return str(int(binary, 2))
