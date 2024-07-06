@@ -1,5 +1,5 @@
-```
-def histogram(test):
+def histogram():
+    test = input("Enter a string: ")
     if not test:
         return {}
     counts = {}
