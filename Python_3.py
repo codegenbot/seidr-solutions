@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -34,3 +35,7 @@ def below_zero() -> None:
     else:
         if balance < 0:
             print("Congratulations, your debt is paid off!")
+
+
+if __name__ == "__main__":
+    below_zero()
