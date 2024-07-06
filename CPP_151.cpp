@@ -9,20 +9,23 @@ long long double_the_difference(std::vector<float> lst) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    std::vector<float> input; // read input from user
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        float x;
-        cin >> x;
-        input.push_back(x);
+    std::vector<float> input; 
+    float num;
+    
+    // read input from user
+    while(std::cin >> num) {
+        input.push_back(num);
     }
+    
     // process the input
     float output = double_the_difference(input);
+
     // print the output
-    cout << output;
+    std::cout << "The doubled difference is: " << output << std::endl;
+
     return 0;
 }
