@@ -1,4 +1,4 @@
-```python
+```
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
