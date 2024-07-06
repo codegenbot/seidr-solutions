@@ -9,4 +9,4 @@ def get_middle(s):
             return s[len(s) // 2]
         else:
             # Middle character is not in ASCII range, return empty string
-            return ""
+            return ''
