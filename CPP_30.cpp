@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -17,7 +16,7 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(std::equal(get_positive({}).begin(), get_positive({}).end(), {}.begin()));
+    assert(issame(get_positive({}), {}));
     std::cout << "All assertions passed." << std::endl;
     return 0;
 }
