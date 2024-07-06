@@ -2,9 +2,6 @@
 def add(x: int, y: int):
     return x + y
 
-num1 = 0
-num2 = 0
-
 while True:
     try:
         num1 = int(input("Enter first number: "))
