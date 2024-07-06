@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -13,9 +12,9 @@ int solutions(vector<int> lst) {
     }
     return sum;
 
-}
-
 int main() {
-    vector<int> input = {3, 13, 2, 9};
-    assert(solutions(input) == 15);
+    vector<int> lst = {3, 13, 2, 9};
+    int result = solutions(lst);
+    cout << "Result: " << result << endl;
+    return 0;
 }
