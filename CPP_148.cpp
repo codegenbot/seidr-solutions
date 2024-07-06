@@ -1,21 +1,49 @@
-std::vector<std::string> bf(std::string str1, std::string str2) {
-    std::vector<std::string> result;
-    for(int i = 0; i < str1.size(); i++) {
-        for(int j = 0; j <= str2.size() - lenOfSubstring(str1.substr(i), str2); j++) {
-            if(str2.substr(j, lenOfSubstring(str1.substr(i), str2)).compare(str1.substr(i)) == 0) {
-                result.push_back(str1.substr(i));
-                i = str1.size();
+#include <vector>
+#include <string>
+#include <algorithm>
+
+std::vector<std::string> bf(std::string a, std::string c) {
+    int i = 0;
+    while(i < a.length()) {
+        if(c[i] == '1') {
+            if(i == 0 || a[i-1] == '0' || a[i] != '1') {
+                if(i > 0) { 
+                    std::string temp = "";
+                    for(int j = i; j >= 0; j--) {
+                        temp += (a[j] == '1') ? "10" : "11";
+                        i--;
+                    }
+                    a = temp;
+                } else {
+                    a.insert(a.begin(), "11");
+                }
+            } else {
+                if(i > 0) { 
+                    std::string temp = "";
+                    for(int j = i; j >= 0; j--) {
+                        temp += (a[j] == '1') ? "10" : "11";
+                        i--;
+                    }
+                    a = temp;
+                } else {
+                    a.insert(a.begin(), "1");
+                }
             }
         }
+        i++;
+    }
+    std::vector<std::string> result;
+    for(int i = 0; i < a.length(); i += 2) {
+        result.push_back(a.substr(i, 2));
     }
     return result;
 }
 
-int lenOfSubstring(const std::string& sub) {
-    for(int i = 0; i < sub.size(); i++) {
-        if(sub[i] != str2[0]) {
-            return i;
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    for (int i = 0; i < a.size(); i++) {
+        if (find(b.begin(),b.end(),a[i]) == b.end()) {
+            return false;
         }
     }
-    return sub.size();
+    return true;
 }
