@@ -10,7 +10,7 @@ bool is_nested(string str) {
         else if (c == ']')
             close++;
         
-        if (open > 0 && close > open)
+        if (open <= close && open > 0)
             return true;
     }
     
