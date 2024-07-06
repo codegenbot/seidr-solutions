@@ -1,34 +1,26 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = 0;
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i];
-        } else if (operator_[i] == "-") {
-            result -= operand[i];
-        } else if (operator_[i] == "*") {
-            int temp = 0;
-            for (int j = i; j < operand.size(); j++) {
-                temp += operand[j];
-                if (j == i) continue;
-                if (operator_[j - i] == "+") result += temp;
-                else if (operator_[j - i] == "-") result -= temp;
-                else if (operator_[j - i] == "*") result *= temp;
-            }
-        } else if (operator_[i] == "///") {
-            int temp = operand[i];
-            for (int j = i + 1; j < operand.size(); j++) {
-                temp /= operand[j];
-                if (operator_[j - i] == "+") result += temp;
-                else if (operator_[j - i] == "-") result -= temp;
-            }
-        } else if (operator_[i] == "**") {
-            int base = operand[i];
-            for (int j = i + 1; j < operand.size(); j++) {
-                base = pow(base, operand[j]);
-                if (operator_[j - i] == "+") result += base;
-                else if (operator_[j - i] == "-") result -= base;
-            }
+int do_algebra(vector<string> operato, vector<int> operand) {
+    int res = 0;
+    int op1 = operand[0];
+    string op = "";
+    
+    for(int i = 0; i < operato.size(); i++) {
+        if(operato[i] == "+") {
+            res += op1;
+            op1 = operand[i+1];
+        } else if(operato[i] == "-") {
+            res -= op1;
+            op1 = operand[i+1];
+        } else if(operato[i] == "*") {
+            res *= op1;
+            op1 = operand[i+1];
+        } else if(operato[i] == "//") {
+            res /= op1;
+            op1 = operand[i+1];
+        } else if(operato[i] == "**") {
+            res = pow(res, op1);
+            op1 = operand[i+1];
         }
     }
-    return result;
+    
+    return res + op1;
 }
