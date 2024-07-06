@@ -11,6 +11,5 @@ def separate_paren_groups(paren_string):
                 result.append(c)
     # Check for unmatched parentheses
     if len(stack) != 0:
-        raise ValueError("Unmatched parentheses in input string")
-    # Return the result list with all complete parenthesis groups
+        raise ValueError("Unmatched parentheses")
     return [group for group in result if group[0] == "(" and group[-1] == ")"]
