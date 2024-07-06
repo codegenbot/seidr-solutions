@@ -5,14 +5,9 @@ def skjkasdkd(lst):
         if is_prime(num) and (max_prime is None or num > max_prime):
             max_prime = num
 
-    # If no prime numbers were found, return 0
-    if max_prime is None:
-        return 0
+    # If a prime number was found, return the sum of its digits
+    if max_prime is not None:
+        return sum(int(digit) for digit in str(max_prime))
 
-    # Sum the digits of the largest prime number
-    sum_digits = 0
-    while max_prime > 0:
-        sum_digits += max_prime % 10
-        max_prime //= 10
-
-    return sum_digits
+    # Otherwise, return 0
+    return 0
