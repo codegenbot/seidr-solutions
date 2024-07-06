@@ -1,6 +1,6 @@
 #include <vector>
 #include <initializer_list>
-#include <iostream> 
+#include <iostream>
 #include <assert.h>
 
 int solutions(std::vector<int> lst) {
@@ -8,10 +8,12 @@ int solutions(std::vector<int> lst) {
         return -1;
     }
     int count = 0;
-    for(int i=0; i<lst.size();i++){
-        if(lst[i]%2==0) count++;
+    for(int i=2;i*i<=lst[0];i++){
+        if(lst[0]%i==0){
+            count++;
+        }
     }
-    return count; 
+    return count;
 }
 
 int main() {
