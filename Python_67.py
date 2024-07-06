@@ -1,8 +1,9 @@
+```
 def fruit_distribution(fruit_list, amount):
-    fruits = [x.strip() for x in fruit_list.split(',')]
+    fruits = fruit_list.split()
     distribution = {}
 
-    for fruit in set(fruits):
+    for fruit in fruits:
         if fruit not in distribution:
             distribution[fruit] = 0
         distribution[fruit] += int(amount) // len(fruits)
