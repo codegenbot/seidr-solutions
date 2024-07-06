@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+string exchange(vector<int> lst1, vector<int> lst2) {
     bool isPossible = false;
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -24,6 +24,15 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 }
 
 int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
+    int n, m;
+    cin >> n >> m;
+    vector<int> lst1(n), lst2(m);
+    for (int i = 0; i < n; i++) {
+        cin >> lst1[i];
+    }
+    for (int i = 0; i < m; i++) {
+        cin >> lst2[i];
+    }
+    cout << exchange(lst1, lst2) << endl;
     return 0;
 }
