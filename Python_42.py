@@ -22,13 +22,14 @@ def incr_list():
             except ValueError:
                 print("Invalid input. Please enter an integer.")
 
+    cont = 'y'
     while True:
         cont = input("Do you want to continue? (y/n): ")
-        if cont.lower() == 'y':
-            return [i + j for i, j in zip(result, result)]
-        elif cont.lower() == 'n':
-            return []
+        if cont.lower() == 'n':
+            return result
+        elif cont.lower() != 'y':
+            print("Please enter y or n.")
         else:
-            print("Invalid choice. Please enter y or n: ")
+            break
 
 print(incr_list())
