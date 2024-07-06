@@ -32,14 +32,14 @@ vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> l
     }
     
     if (sum1 < sum2) {
-        return lst2; 
+        return vector<string>(lst2);
     } else if (sum1 > sum2) {
-        return lst1;
+        return vector<string>(lst1);
     } else {
         if(issame(lst1, lst2))
-            return lst1;
+            return vector<string>(lst1);
         else
-            return lst2; 
+            return vector<string>(lst2); 
     }
 }
 
@@ -47,5 +47,5 @@ vector<string> testMain() {
     vector<string> vec1 = {"this"};
     vector<string> vec2 = {""};
     vector<vector<string>> result = total_match({vec1},{vec2});
-    return result[0];
+    return vector<string>(result[0]);
 }
