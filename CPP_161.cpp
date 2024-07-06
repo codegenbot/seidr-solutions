@@ -10,5 +10,5 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    return result.empty() ? string(s).substr(0, s.size()) : result;
 }
