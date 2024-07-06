@@ -1,10 +1,26 @@
-bool issame(const string& s1, const string& s2) {
-    vector<string> v1 = split(s1);
-    vector<string> v2 = split(s2);
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    int sum1 = 0;
+    for (const auto& str : lst1) {
+        sum1 += str.length();
+    }
 
-    return total_match(v1, v2).size() > 0;
-}
+    int sum2 = 0;
+    for (const auto& str : lst2) {
+        sum2 += str.length();
+    }
 
-int main() {
-    // Code here
+    if (sum1 < sum2) return lst1;
+    else if (sum1 > sum2) return lst2;
+    vector<string> temp;
+    for (auto str : lst1) {
+        bool issame = false;
+        for (auto s : lst2) {
+            if (str == s) {
+                issame = true;
+                break;
+            }
+        }
+        if (!issame) temp.push_back(str);
+    }
+    return temp;
 }
