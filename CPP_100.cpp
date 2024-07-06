@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,14 +10,13 @@ bool issame(int a, int b) {
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    int stones = 1;
+    int stones = (n & 1)? 1 : 2;
     for (int i = 0; i < n; i++) {
-        if ((n & 1)) { // check if n is odd using bitwise AND operator
-            pile.push_back(stones);
-            stones++;
-        } else {
-            pile.push_back(stones);
-            stones += 2;
+        pile.push_back(stones);
+        if ((n & 1)) { 
+            stones = stones + 1; 
+        } else { 
+            stones = stones + 2; 
         }
     }
     return pile;
