@@ -3,14 +3,14 @@
 #include <vector>
 #include <list>
 
-bool same(vector<int> a, vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if(boost::any_cast<int>(value) != 0 && boost::any_cast<int>(value) != 0.0f) {
+        if(boost::any_cast<int>(value) != 0){
             result.push_back(value.get<int>());
         }
     }
@@ -18,7 +18,7 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 }
 
 int main() {
-    assert(same(filter_integers({3, 97, 3, 98, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(isSame(filter_integers({3, 97, 3, 98, 3, 'a', 'b'}), {3, 3, 3}));
     std::cout << "Test passed." << std::endl;
     return 0;
 }
