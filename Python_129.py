@@ -1,37 +1,28 @@
 ```
 def minPath(grid, k):
     n = len(grid)
-    visited = [[False] * n for _ in range(n)]
+    visited = [[False]*n for _ in range(n)]
     path = []
 
-    def dfs(i, j, current_path, min_sum):
+    def dfs(i, j, current_path):
         nonlocal path
         if len(current_path) == k:
-            if not path or sum(current_path) < sum(path):
+            if not path or sum(x for x in current_path) <= sum(x for x in path):
                 path = current_path[:]
             return
 
-        global min_sum
-        if not path or sum(current_path) < min_sum:
-            min_sum = sum(current_path)
-
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            ni, nj = i + x, j + y
-            if (
-                0 <= ni < n
-                and 0 <= nj < n
-                and not visited[ni][nj]
-                and abs(grid[ni][nj]) <= abs(grid[i][j])
-            ):
+        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            ni, nj = i + dx, j + dy
+            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
                 visited[ni][nj] = True
-                dfs(ni, nj, current_path + [grid[ni][nj]], min_sum)
+                dfs(ni, nj, current_path + [grid[ni][nj]])
                 visited[ni][nj] = False
 
     for i in range(n):
         for j in range(n):
             if not visited[i][j]:
                 visited[i][j] = True
-                dfs(i, j, [grid[i][j]], sum([grid[i][j]]))
+                dfs(i, j, [grid[i][j]])
                 visited[i][j] = False
 
     return path
