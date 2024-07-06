@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
@@ -15,6 +14,5 @@ int add_elements(vector<int> arr, int k) {
 
 int main() {
     assert(add_elements({1}, 1) == 1);
-    // Test your code here
     return 0;
 }
