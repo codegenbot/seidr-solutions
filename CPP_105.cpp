@@ -1,14 +1,18 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <map>
 #include <algorithm>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size();
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if(v1.size() != v2.size())
+        return false;
+    for(int i=0; i<v1.size(); i++)
+        if(v1[i] != v2[i])
+            return false;
+    return true;
 }
 
-std::vector<std::string> by_length(const std::vector<int>& arr) {
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::map<int, std::string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
                                              {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     std::vector<std::string> result;
@@ -22,36 +26,13 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    int n, x; 
-    std::vector<int> numbers; 
-    std::cout << "Enter the number of inputs: ";
-    std::cin >> n;
+    std::vector<int> input = {2, 4, 6};
+    std::vector<std::string> output = by_length(input);
     
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter a number: ";
-        std::cin >> x;
-        numbers.push_back(x);
-    }
+    if(issame(output, {"Two", "Four", "Six"}))
+        std::cout << "Test passed\n";
+    else
+        std::cout << "Test failed\n";
     
-    std::vector<std::string> result = by_length(numbers);
-
-    bool sameLength = true;
-    for (int i = 0; i < n-1 && sameLength; ++i) {
-        if (result[i].size() != result[i+1].size()) {
-            sameLength = false;
-        }
-    }
-
-    std::cout << "Array by length: ";
-    for(int i : result){
-        std::cout << i << " ";
-    }
-    
-    if (!issame(result, numbers)) {
-        std::cout << "\n";
-    } else {
-        std::cout << "\nThe array is the same length.\n";
-    }
-
     return 0;
 }
