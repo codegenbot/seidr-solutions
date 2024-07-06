@@ -1,7 +1,4 @@
 ```
 def digits(n):
-    product = 1
-    for digit in str(n):
-        if int(digit) % 2 == 1:
-            product *= int(digit)
-    return product
+    count = sum(int(digit) % 2 != 0 for digit in str(n))
+    return 1 if count == 0 else 0
