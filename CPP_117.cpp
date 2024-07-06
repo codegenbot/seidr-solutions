@@ -30,11 +30,14 @@ bool are_words_the_same(std::vector<std::string> a, std::vector<std::string> b) 
     for (int i = 0; i < a.size(); i++) {
         if (!is_same(a[i][0], b[i][0])) {
             return false;
+        }
     }
     return true;
-}
+
+#include <initializer_list>
 
 int main() {
-    assert(are_words_the_same(select_words("a b c d e f", 4), {"b", "c", "d", "f"}));
+    std::vector<std::string> expected = {"b", "c", "d", "f"};
+    assert(are_words_the_same(select_words("a b c d e f", 4), expected));
     return 0;
 }

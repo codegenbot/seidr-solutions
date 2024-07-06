@@ -1,9 +1,9 @@
-```cpp
+```
 #include <string>
 #include <sstream>
 #include <iostream>
 
-std::string encrypt(const std::string& s) {
+std::string encrypt(std::string s) {
     std::string result = "";  
     for(int i=0; i<s.length(); i++){
         char c = s[i];
@@ -19,11 +19,9 @@ std::string encrypt(const std::string& s) {
 
 int main() {
     std::string inputStr;
-    std::stringstream ss;
-    std::getline(ss, inputStr);
-    std::istringstream in(ss.str());  
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, inputStr);
 
-    // Now you can call this function:
-    std::string encrypted = encrypt(in.str());  // Convert stringstream to string
+    std::string encrypted = encrypt(inputStr);
     std::cout << "Encrypted: " << encrypted << std::endl;
 }

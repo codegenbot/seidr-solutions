@@ -3,45 +3,46 @@
 #include <iostream>
 #include <algorithm>
 
-int isPrime(int n) {
-    if (n <= 1)
-        return 0;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return 0;
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
     }
-    return 1;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int largestPrime = -1, sum = 0;
-
+    int maxNum = 0;
     for (int num : lst) {
-        for (int digit : {num}) {
-            if (isPrime(digit)) {
-                if (digit > largestPrime)
-                    largestPrime = digit;
-            }
+        if (num > maxNum) {
+            maxNum = num;
         }
     }
 
-    while (largestPrime > 0) {
-        sum += largestPrime % 10;
-        largestPrime /= 10;
+    int sumOfDigits = 0;
+    while (maxNum > 0) {
+        sumOfDigits += maxNum % 10;
+        maxNum /= 10;
     }
 
-    return sum;
+    return sumOfDigits;
 }
 
-int main() {
+int main_test() {
+    std::vector<int> lst;
     int num;
     std::cout << "Enter the list of numbers (space separated): ";
-    std::cin >> num;
-
-    // code to read the vector
-    std::vector<int> lst = {num};
+    do {
+        std::cin >> num;
+        if(num != -1) {
+            lst.push_back(num);
+        }
+    } while(num != -1);
 
     std::cout << "The sum of digits for the largest prime is: " << calculateSumOfDigitsLargestPrime(lst) << std::endl;
-    assert(calculateSumOfDigitsLargestPrime({127, 97, 8192}) == 10);
     return 0;
 }
