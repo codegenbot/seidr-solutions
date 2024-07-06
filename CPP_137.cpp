@@ -1,18 +1,27 @@
-#include <iostream>
-#include <string>
-#include <variant>
+int main() {
+    std::cout << "Enter two values: ";
+    int val1;
+    float val2;
+    std::cin >> val1;
 
-std::variant<int, float, std::string> compare_one(int a, std::variant<int, float, std::string> b) {
-    if (std::holds_alternative<int>(b)) {
-        int bi = std::get<std::variant_cast<int>>(b);
-        return (a > bi) ? a : (bi > a) ? bi : a;
+    if (std::cin.fail()) {
+        // handle invalid input here
+    } else {
+        std::string str;
+        std::cin >> str;
+        // process the string and val1 as needed
     }
-    else if (std::holds_alternative<float>(b)) {
-        float bf = std::get<std::variant_cast<float>>(b);
-        return (a > bf) ? a : (bf > a) ? bf : a;
+    
+    int a = val1;  
+    std::string b = str;
+
+    if (a > std::stoi(b)) {
+        std::cout << "The first number is bigger.\n";
+    } else if (a < std::stoi(b)) {
+        std::cout << "The second number is bigger.\n";
+    } else {
+        std::cout << "Both numbers are equal.\n";
     }
-    else {
-        std::string bs = std::get<std::string>(b);
-        return (stoi(bs) > a) ? bs : (a > stoi(bs)) ? bs : std::to_string(a);
-    }
+    
+    return 0;
 }

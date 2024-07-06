@@ -1,11 +1,11 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <assert.h>
 
 std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     std::vector<std::string> result;
-    for (auto& str : list) {
+    for (const auto& str : list) {
         if (str.size() > 0) {
             bool first = true;
             std::string temp;
@@ -13,7 +13,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
                 if (first) {
                     first = false;
                 } else {
-                    temp += c; 
+                    temp.push_back(c); 
                 }
             }
             result.push_back(temp);
@@ -23,11 +23,17 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    std::sort(a.begin(), a.end());
+bool issame(const std::vector<std::string>& a, const std::string& b) {
+    if (a.size() != 1) return false;
+    std::string temp = "";
+    for (const auto& str : a) {
+        if (!temp.empty()) 
+            temp += str;
+        else
+            temp = str;
+    }
     std::sort(b.begin(), b.end());
-    return a == b;
+    return issame({temp}, {b});
 }
 
 int main() {
