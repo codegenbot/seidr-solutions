@@ -1,4 +1,4 @@
-```python
+```
 def double_the_difference(lst):
     return sum(i - (i+1) for i in lst)
 
