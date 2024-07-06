@@ -4,5 +4,5 @@ int choose_num(int x, int y) {
             break;
         }
     }
-    return i;
+    return i; // or -1 if no even number found
 }
