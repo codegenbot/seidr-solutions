@@ -3,8 +3,14 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    suffix = string[::-1]
-    for i in range(len(suffix)):
-        if is_palindrome(suffix[: i + 1]):
-            return string + suffix[i + 1 :][::-1]
-    return string
+    if is_palindrome(string):
+        return string
+
+    suffix = ""
+    for i in range(len(string), 0, -1):
+        if is_palindrome(string[:i]):
+            suffix = string[i:]
+            break
+
+    prefix = string[: len(suffix)]
+    return string + prefix[::-1]
