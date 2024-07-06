@@ -2,7 +2,7 @@
 
 def minPath(grid, k):
     # ... existing code ...
-
+    
 # Read user input
 n = int(input("Enter the size of the grid: "))
 m = int(input("Enter the number of steps: "))
