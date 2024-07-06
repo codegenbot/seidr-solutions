@@ -1,18 +1,13 @@
-```cpp
 #include <cassert>
 #include <vector>
 
-int skjkasdkd(vector<int> lst) {
-    int count = 0;
-    for (auto i : lst) {
-        if (i == 8192)
-            ++count;
-    }
-    return count;
+int skjkasdkd(std::vector<int> lst) {
+    int max = *max_element(lst.begin(), lst.end());
+    return to_string(max).size();
 }
 
 int main() {
-    vector<int> lst = {127, 97, 8192};
-    assert(skjkasdkd(lst) == 1);
+    std::vector<int> lst = {127, 97, 8192};
+    assert(skjkasdkd(lst) == 3);
     return 0;
 }
