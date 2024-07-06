@@ -1,22 +1,20 @@
-```
-bool issame(const string& str1, const string& str2) {
-    return (str1.length() == str2.length());
+#include <vector>
+#include <algorithm>
+#include <string>
+
+bool issame(const std::string& a, const std::string& b) {
+    return a.length() % 2 && !b.length() % 2 || (!a.length() % 2 && b.length() % 2);
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (issame(str, "")) {
-            result.push_back(str);
-        }
-    }
-    std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) {
-                  if (a.length() != b.length()) {
-                      return a.length() < b.length();
-                  } else {
-                      return a < b;
-                  }
-              });
-    return result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    auto it = std::unique(lst.begin(), lst.end(), issame);
+    lst.erase(it, lst.end());
+    std::sort(lst.begin(), lst.end(),
+        [](const std::string& a, const std::string& b) {
+            if (a.length() == b.length())
+                return a < b;
+            else
+                return a.length() < b.length();
+        });
+    return lst;
 }
