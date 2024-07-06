@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     result = ''
     prev_was_space = True
@@ -12,4 +11,4 @@ def fix_spaces(text):
         else:
             result += char
             prev_was_space = False
-    return result
+    return result.replace('-_', '-')
