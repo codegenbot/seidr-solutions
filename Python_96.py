@@ -1,3 +1,11 @@
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
 
 def count_up_to(n):
     result = []
@@ -5,8 +13,3 @@ def count_up_to(n):
         if is_prime(i):
             result.append(i)
     return result
-
-from math import gcd
-
-def is_prime(n):
-    return gcd(n, 2) == 1
