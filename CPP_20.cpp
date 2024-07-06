@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -16,16 +15,27 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 
 std::vector<float> find_closest_elements(std::vector<float> input_vector) {
     std::vector<float> result;
+    float min_diff = FLT_MAX;
 
-    // Your logic to find the closest elements
-    for (float num : input_vector) {
-        if (result.empty() || abs(num - *result.begin()) < abs(*result.begin() - num)) {
-            result = {num};
-        } else if (abs(num - *result.begin()) <= abs(num - *(--result.end()))) {
-            result.insert(result.begin(), num);
-        } else {
-            result.push_back(num);
+    for(int i = 0; i < input_vector.size(); ++i) {
+        bool found = false;
+        float min_element = input_vector[i];
+        for(int j = 0; j < input_vector.size(); ++j) {
+            if(abs(input_vector[j] - input_vector[i]) < min_diff && input_vector[j] != min_element) {
+                min_diff = abs(input_vector[j] - min_element);
+                found = true;
+            }
         }
+
+        result.push_back(min_element);
+
+        for(int j = 0; j < input_vector.size(); ++j) {
+            if(abs(input_vector[j] - min_element) == min_diff && input_vector[j] != min_element) {
+                result.push_back(input_vector[j]);
+            }
+        }
+
+        min_diff = FLT_MAX;
     }
 
     return result;

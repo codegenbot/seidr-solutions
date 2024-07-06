@@ -1,9 +1,11 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
 int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    return *std::max_element(l.begin(), l.end());
+    vector<float> l;
+    cout << "Enter the elements of the vector (space-separated): ";
+    cin >> noskipws;
+    while (cin >> l.push_back) {
+    }
+    return std::abs(*std::max_element(l.begin(),l.end()));
 }
