@@ -5,7 +5,7 @@ def calculate(operation, num):
     elif operation == 'cube':
         return num ** 3
     else:
-        print("Invalid operation. Please enter 'square' or 'cube'")
+        print("Invalid operation. Please enter 'square' or 'cube")
 
 num = float(input('Enter a number: '))
 operation = input('Choose an operation (square/cube): ')
