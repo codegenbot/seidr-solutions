@@ -1,6 +1,6 @@
 ```cpp
 #include <cmath>
-#include <cfloat>
+#include <cstdlib>
 
 float triangle_area(float a, float b, float c) {
     if (a + b > c && a + c > b && b + c > a) {
@@ -9,4 +9,8 @@ float triangle_area(float a, float b, float c) {
     } else {
         return -1.0f;
     }
+}
+
+int main() {
+    assert(std::abs(triangle_area(2, 2, 10) +1)<0.01);
 }
