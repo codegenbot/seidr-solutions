@@ -1,5 +1,6 @@
-from collections import deque
 
+# Import the `deque` class from the `collections` module
+from collections import deque
 
 def minPath(grid, k):
     # Initialize variables
