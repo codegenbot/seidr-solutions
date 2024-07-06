@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
@@ -20,5 +21,4 @@ bool will_it_fly(vector<int> q, int w) {
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
-    // write your test cases here
 }
