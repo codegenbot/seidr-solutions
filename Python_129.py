@@ -2,29 +2,26 @@
 import itertools
 def minPath(grid, k):
     n = len(grid)
-    visited = [[False] * n for _ in range(n)]
-    path = []
+    target_sum = sum(sum(row) for row in grid) // (k + 1)
 
-    def dfs(i, j, current_path, target_sum):
+    def dfs(i, j, current_path):
         nonlocal path
-        if sum(current_path) == target_sum:
-            if not path or len(current_path) < len(path):
+        if len(current_path) == k:
+            if not path or sum(current_path) < target_sum:
                 path = current_path[:]
             return
 
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
-                visited[ni][nj] = True
-                for c in itertools.combinations(grid[i][j:i+k], k):
-                    dfs(ni, nj, list(c) + current_path, target_sum)
-                visited[ni][nj] = False
+        combinations = list(itertools.combinations(current_path, k))
+        for c in combinations:
+            if sum(c) == target_sum and (not path or sum(c) < sum(path)):
+                path = c[:]
 
     for i in range(n):
         for j in range(n):
-            if not visited[i][j]:
-                visited[i][j] = True
-                dfs(i, j, [grid[i][j]], sum(grid[0]))
-                visited[i][j] = False
+            current_path = [grid[i][j]]
+            visited = [[False] * n for _ in range(n)]
+            visited[i][j] = True
+            dfs(i, j, current_path)
+            visited[i][j] = False
 
     return path
