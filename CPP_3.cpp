@@ -5,7 +5,7 @@
 bool below_zero(std::vector<std::string> operations) {
     int balance = 0;
     for (int i = 0; i < operations.size(); ++i) {
-        int operation = stoi(operations[i]);
+        int operation = stoi(operations[i].substr(0, operations[i].size() - 1));
         balance += operation;
         if (balance < 0) return true;
     }
@@ -14,7 +14,7 @@ bool below_zero(std::vector<std::string> operations) {
 }
 
 int main() {
-    std::vector<std::string> operations(std::allocator<std::string>());
+    std::vector<std::string> operations;
     int num_operations;
 
     // Read the number of operations from user
