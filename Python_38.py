@@ -1,3 +1,5 @@
+```
+s = input()
 def decode_cyclic(s: str):
     groups = []
     temp = ""
@@ -6,11 +8,10 @@ def decode_cyclic(s: str):
         if len(temp) % 3 == 0:
             groups.append(temp)
             temp = ""
-    if temp:
-        groups.append(temp)
     return "".join(
         [
             group[1:] + group[0] if len(group) == 3 else group
             for group in [temp] + groups
         ]
     )
+print(decode_cyclic(s))
