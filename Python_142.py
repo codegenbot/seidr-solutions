@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total = 0
     lst = list(map(int, input("Enter numbers separated by space: ").split()))
