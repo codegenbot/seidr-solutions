@@ -1,6 +1,7 @@
-```
+Here is the solution:
+
 def hex_key(num):
-    primes = {'B': True, 'D': True}
+    primes = {'2': True, '3': True, '5': True, '7': True, 'B': True, 'D': True}
     count = 0
     for char in num:
         if char.upper() in primes:
