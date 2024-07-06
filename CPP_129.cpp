@@ -1,34 +1,22 @@
 #include <iostream>
 #include <vector>
 
-// Function definition
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
+    return a == b;
 }
 
 vector<int> minPath(vector<vector<int>>& grid, int k) {
-    vector<int> result;
-    int n = grid.size();
-    int m = grid[0].size();
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (grid[i][j] == k) {
-                if (i - 1 >= 0 && j - 1 >= 0 && 
-                    i + 1 < n && j + 1 < m &&
-                    grid[i-1][j] == k && grid[i+1][j] == k && 
-                    grid[i][j-1] == k && grid[i][j+1] == k) {
-                        result.push_back(k);
-                    }
-            }
+    if(k > 3) 
+        return {};
+    
+    int total = 0;
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            total += grid[i][j];
         }
     }
-
+    
+    vector<int> result = {total};
     return result;
 }
 
