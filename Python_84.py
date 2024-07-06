@@ -13,7 +13,8 @@ def solve():
         while True:
             try:
                 N = int(input("Enter a number: "))
-                print(bin(N)[2:])
+                print(f"The binary representation is {bin(N)[2:]}")
+                input("Press Enter to continue...")
                 break
             except ValueError:
                 print("That's not a valid number! Try again.")
@@ -21,7 +22,8 @@ def solve():
         while True:
             try:
                 N = input("Enter a binary number: ")
-                print(int(N, 2))
+                print(f"The decimal representation is {int(N, 2)}")
+                input("Press Enter to continue...")
                 break
             except ValueError:
                 print("That's not a valid binary number! Try again.")

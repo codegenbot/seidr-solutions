@@ -4,7 +4,7 @@ def sum_squares(lst):
         if isinstance(element, dict):
             total_sum += sum_squares(list(element.values()))
         elif isinstance(element, (int, float)):
-            total_sum += abs(element) ** 2
+            total_sum += element**2
         else:
             raise ValueError(
                 f"Invalid input '{element}' found. Input must contain only numbers."
@@ -13,7 +13,7 @@ def sum_squares(lst):
 
 
 def main():
-    print(sum_squares([1, 2, 3]))
+    print(sum_squares([{"x": 2}, {"y": 4}]))
 
 
 main()
