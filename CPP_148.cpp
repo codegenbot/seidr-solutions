@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
 std::vector<std::string> bf(std::string a, std::string b) {
     // Define the function body here
