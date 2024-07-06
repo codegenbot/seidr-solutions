@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -26,6 +25,6 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main(){
     vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
-    assert (isSame(result , {-76, -21, 0, 4, 23, 6, 6}));
+    assert (std::equal(result.begin(), result.end(),{-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
