@@ -1,4 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
+#include <map>
 
 int search(std::vector<int> lst) {
     std::map<int, int> count;
@@ -20,4 +23,10 @@ int search(std::vector<int> lst) {
     }
 
     return maxVal;
+}
+
+int main() {
+    std::vector<int> lst = {3, 10, 10, 9, 2};
+    std::cout << search(lst) << std::endl;
+    return 0;
 }
