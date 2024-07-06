@@ -1,12 +1,22 @@
-```cpp
-#include <vector>
-#include <string>
+using namespace std;
 
-std::vector<std::string> bf(std::string a, std::string b) {
-    // Define the function body here
+vector<string> bf(string a, string b){
+    vector<string> result;
+    int i = 0, j = 0;
+    while (i < a.size() && j < b.size()) {
+        if (a[i] == b[j]) {
+            result.push_back(a.substr(i, 1));
+            i++;
+            j++;
+        } else if (a[i] < b[j])
+            i++;
+        else
+            j++;
+    }
+    return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(vector<string> a, vector<string> b){
     for (int i = 0; i < a.size(); i++) {
         if (find(b.begin(),b.end(),a[i]) == b.end()) {
             return false;
