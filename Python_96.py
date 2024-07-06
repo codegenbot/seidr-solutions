@@ -1,3 +1,4 @@
+
 def count_up_to(n):
     result = []
     for i in range(2, n + 1):
@@ -5,6 +6,7 @@ def count_up_to(n):
             result.append(i)
     return result
 
+from math import gcd
 
 def is_prime(n):
-    return all([n % i != 0 for i in range(2, n)])
+    return gcd(n, 2) == 1
