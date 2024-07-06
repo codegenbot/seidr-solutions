@@ -1,7 +1,6 @@
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-
 
 def encrypt(s):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
     rotated_alphabet = alphabet[2:] + alphabet[:2]
     encrypted_string = ""
     for char in s:
