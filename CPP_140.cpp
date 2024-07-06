@@ -1,22 +1,17 @@
+#include <string>
+
 string fix_spaces(string text) {
     string result = "";
-    bool previous_space = false;
-
-    for (char c : text) {
-        if (c == ' ') {
-            if (!previous_space) {
-                result += '_';
-                previous_space = true;
-            } else if (result.size() > 1 && result.back() == ' ') {
-                result.pop_back();
-                result += '-';
-                previous_space = false;
+    for(int i = 0; i < text.length(); i++) {
+        if(text[i] == ' ') {
+            if(i+1 < text.length() && text[i+1] == ' ' && (i+2 >= text.length() || text[i+2] != ' ')) {
+                result += "-";
+            } else {
+                result += "_";
             }
         } else {
-            result += c;
-            previous_space = false;
+            result += text[i];
         }
     }
-
     return result;
 }
