@@ -1,8 +1,8 @@
-```
-num_dict = {"zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9}
-
-def sort_numbers(input_string):
-    return sorted([num_dict[i] for i in input_string.split()])
-
-input_string = input("Enter a string of numbers (zero-nine) separated by spaces: ")
-print(sort_numbers(input_string))
+```Python
+def sort_numbers(numbers: str) -> str:
+    num_dict = {
+        "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4,
+        "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9
+    }
+    nums = list(map(lambda x: num_dict[x] if x in num_dict else int(x), numbers.split()))
+    return " ".join(str(i) for i in sorted(nums))
