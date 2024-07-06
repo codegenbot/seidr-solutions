@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 bool is_palindrome(std::string text){
@@ -14,4 +13,12 @@ bool is_palindrome(std::string text){
 
 int main() {
     assert(is_palindrome("xywzx") == false);
+    std::string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    if(is_palindrome(input)) 
+        cout << input << " is a palindrome.\n";
+    else
+        cout << input << " is not a palindrome.\n";
+    return 0;
 }
