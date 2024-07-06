@@ -5,11 +5,13 @@ def encode(message):
         if char.isalpha():
             if char.lower() in 'aeiou':
                 result += chr((ord(char.lower()) - 97 + 3) % 26 + 97)
+            elif char.lower() >= 'n' and char.lower() <= 'z':
+                result += chr((ord(char.lower()) - 96 + 1) % 26 + 96)
             else:
                 if char.islower():
-                    result += chr((ord(char) - 97 + 3) % 26 + 97)
+                    result += chr((ord(char) - 96) % 26 + 96)
                 else:
-                    result += chr((ord(char) - 65 + 3) % 26 + 65)
+                    result += char
         else:
             result += char
     return result
