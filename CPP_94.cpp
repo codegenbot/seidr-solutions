@@ -1,7 +1,24 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+
+int calculateSumOfDigitsLargestPrime(const std::vector<int>& lst) {
+    int max_prime = -1;
+    for (int num : lst) {
+        if (is_prime(num)) {
+            if (num > max_prime)
+                max_prime = num;
+        }
+    }
+
+    int sum_of_digits = 0;
+    while (max_prime > 0) {
+        sum_of_digits += max_prime % 10;
+        max_prime /= 10;
+    }
+
+    return sum_of_digits;
+}
 
 int main_test(std::vector<int> lst) {
     std::cout << "Enter the list of numbers (space separated): ";
@@ -16,27 +33,12 @@ int main_test(std::vector<int> lst) {
     return 0;
 }
 
-int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int maxPrime = 0;
-    for (int num : lst) {
-        if(isPrime(num) && num > maxPrime)
-            maxPrime = num;
-    }
-    return sumOfDigits(maxPrime);
-}
-
-bool isPrime(int num) {
-    if(num <= 1) return false;
-    for(int i=2; i*i<=num; i++)
-        if(num%i == 0)
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
             return false;
-    return true;
-}
-int sumOfDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
     }
-    return sum;
+    return true;
 }
