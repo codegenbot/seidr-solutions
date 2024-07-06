@@ -1,5 +1,6 @@
-def parse_nested_parens(paren_string: str) -> list[int]:
-    result = []
+
+def parse_nested_parens(paren_string: str) -> int:
+    max_level = 0
     for group in paren_string.split():
         level = 0
         for char in group:
@@ -7,16 +8,5 @@ def parse_nested_parens(paren_string: str) -> list[int]:
                 level += 1
             elif char == ")":
                 level -= 1
-        result.append(level)
-
-    # Recursively parse each group as a separate nested parentheses problem
-    for group in paren_string.split():
-        levels = []
-        for i, char in enumerate(group):
-            if char == "(":
-                level = 1 + parse_nested_parens(group[i+1:])[0]
-            elif char == ")":
-                level = -1 + parse_nested_parens(group[:i-1])[0]
-        levels.append(level)
-        result.extend(levels)
-    return result
+        max_level = max(max_level, level)
+    return max_level
