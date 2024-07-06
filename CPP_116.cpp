@@ -1,7 +1,9 @@
-#include <algorithm>
-
 vector<int> sort_array(vector<int> arr) {
-    return vector<int>(arr.begin(), arr.end());
-    //sort(arr.begin(), arr.end(), 
-    //  [](int a, int b) { return bitset<32>(a).count() < bitset<32>(b).count(); });
+    vector<pair<int, int>> pairs;
+    for (int num : arr) {
+        int ones = __builtin_popcount(num);
+        pairs.push_back({ones, num});
+    }
+    sort(pairs.begin(), pairs.end());
+    return vector<int>(pair.second for pair in pairs);
 }
