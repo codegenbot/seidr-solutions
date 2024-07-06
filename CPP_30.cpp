@@ -18,6 +18,6 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    assert (issame(get_positive({}) , vector<float>()) );
+    assert (issame(get_positive({}) , vector<float>() ));
     return 0;
 }
