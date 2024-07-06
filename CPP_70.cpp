@@ -8,12 +8,13 @@ bool issame(int a, int b) {
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (!issame(lst[i], lst[i + 1])) {
-            int temp = lst[i];
-            lst[i] = lst[i + 1];
-            lst[i + 1] = temp;
-            i--;
+    auto it = lst.begin();
+    for (auto end = lst.begin() + 1; it != end; ++it) {
+        if (!issame(*it, *(it + 1))) {
+            int temp = *it;
+            *it = *(it + 1);
+            *(it + 1) = temp;
+            --i;
         }
     }
     return lst;
