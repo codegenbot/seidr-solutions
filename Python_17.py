@@ -25,9 +25,9 @@ def parse_music(music_string: str) -> list:
                 music_list.append(4)
             else:
                 print("Invalid input")
-            i += 2
+                return "Error"
         else:
             print("Invalid input")
-        i += 1
+            return "Error"
 
     return music_list
