@@ -1,2 +1,10 @@
+```
 def sum_squares(lst):
-    return sum(i**2 if (i % 3 == 0 and i % 4 != 0) else i**3 for i in lst)
+    total_sum = 0
+    for num in lst:
+        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0):
+            if num % 3 == 0 and num % 4 != 0:
+                total_sum += num ** 2
+            elif num % 4 == 0 and num % 3 != 0:
+                total_sum += num ** 3
+    return total_sum
