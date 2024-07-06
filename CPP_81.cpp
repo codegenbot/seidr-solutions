@@ -14,7 +14,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<int>& grades) 
     return result;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -22,9 +22,9 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int mainTest() {
-    std::vector<int> grades = {90, static_cast<int>(70)};
+int main() {
+    std::vector<int> grades = {(int)90, (int)70};
     std::vector<std::string> expected = {"A", "C"};
-    assert(isSame(numerical_letter_grade(grades), expected));
+    assert(issame(numerical_letter_grade({0, (int)7}), {"F", "D"}));
     return 0;
 }
