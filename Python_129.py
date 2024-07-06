@@ -1,9 +1,9 @@
 ```
 def minPath(grid, k):
     n = len(grid)
-
+    
     queue = [(0, 0, [])]
-    visited = {(0, 0)}
+    visited = set((0, 0))
     path_lengths = {}
     shortest_paths = {}
 
@@ -11,7 +11,7 @@ def minPath(grid, k):
         x, y, path = queue.pop(0)
 
         if len(path) > k:
-            return []
+            continue
 
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
@@ -27,5 +27,5 @@ def minPath(grid, k):
                     path_lengths[len(new_path)] = len(new_path)
                     shortest_paths[len(new_path)] = len(new_path)
 
-    min_length = sorted(path_lengths.keys())[-1] if path_lengths else 0
-    return [grid[0][j] for j in range(min_length)] if k == 0 else []
+    min_length = next(iter(path_lengths.keys())) if path_lengths else k
+    return [grid[0][0]] * min_length
