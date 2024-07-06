@@ -1,32 +1,31 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cmath>
 
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; ++i) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
 int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
-    int largestPrime = 0;
-    for (int num : lst) {
-        bool isPrime = true;
-        if (num <= 1) {
-            isPrime = false;
-        } else {
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
-                    isPrime = false;
-                    break;
-                }
+    int maxPrime = 0, sum = 0;
+    for (int n : lst) {
+        if (isPrime(n)) {
+            if (n > maxPrime) maxPrime = n;
+            int digitSum = 0;
+            while (n > 0) {
+                digitSum += n % 10;
+                n /= 10;
             }
-        }
-        if (isPrime && num > largestPrime) {
-            largestPrime = num;
+            sum = std::max(sum, digitSum);
         }
     }
-    int sumOfDigitsLargestPrime = 0;
-    while (largestPrime > 0) {
-        sumOfDigitsLargestPrime += largestPrime % 10;
-        largestPrime /= 10;
-    }
-    return sumOfDigitsLargestPrime;
+    return sum;
 }
 
 int main_test(std::vector<int> lst) {
