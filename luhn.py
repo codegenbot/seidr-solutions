@@ -1,3 +1,4 @@
+
 def luhn(digits):
     digits = [int(digit) for digit in digits]
     sum = 0
@@ -7,4 +8,4 @@ def luhn(digits):
             sum += digit // 10 + digit % 10
         else:
             sum += digit
-    return sum
+    return int(sum)
