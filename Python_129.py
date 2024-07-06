@@ -1,20 +1,22 @@
+import collections
+
 
 def minPath(grid, k):
-    """
-    Given a grid of size n x m and a number k, find the minimum cost path from (0, 0) to (n-1, m-1).
-    The cost of a path is calculated by summing the values of the cells through which it passes.
-    """
-    
-    # Initialize a 2D array dp with size n x m and fill it with infinity
-    dp = [[float("inf") for _ in range(m)] for _ in range(n)]
-    dp[0][0] = grid[0][0]
+    # ... existing code ...
+    for i in range(m):
+        for j in range(n):
+            if grid[i][j] > k:
+                return False
+    return True
 
-    # Loop through the grid and calculate the minimum cost path at each cell
-    for i in range(1, n):
-        for j in range(m):
-            if i == 0 and j == 0:
-                continue
-            dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
-    
-    # Return the minimum cost path
-    return dp[-1][-1]
+
+# Read user input
+n = int(input("Enter the size of the grid: "))
+m = int(input("Enter the number of steps: "))
+k = int(
+    input("Enter the maximum allowed value for the sum of the elements in a path: ")
+)
+
+# Call minPath with the user input
+result = minPath(grid, k)
+print(result)
