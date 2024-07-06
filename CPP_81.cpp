@@ -4,18 +4,18 @@
 
 std::vector<std::string> numerical_letter_grade(std::vector<double> grades) {
     std::vector<std::string> result;
-    
+
     for (int i = 0; i < grades.size(); i++) {
-        if(grades[i] >= 90.0)
+        if(static_cast<int>(grades[i]) >= 90)
             result.push_back("A");
-        else if(grades[i] >= 80.0)
+        else if(static_cast<int>(grades[i]) >= 80)
             result.push_back("B");
-        else if(grades[i] >= 70.0)
-            result.push_back((grades[i] >= 79.5) ? "D-" : "C");
-        else if(grades[i] >= 60.0)
+        else if(static_cast<int>(grades[i]) >= 70)
+            result.push_back("C");
+        else if(static_cast<int>(grades[i]) >= 60)
             result.push_back("D");
         else 
-            result.push_back((grades[i] >= 59.5) ? "F+" : "F");
+            result.push_back("F");
     }
     
     return result;
