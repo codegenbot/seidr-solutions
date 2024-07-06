@@ -1,3 +1,2 @@
-```Python
-def order_by_points(nums):
-    return sorted((num, sum(map(int, str(abs(num))))) for num in nums)
+def order_by_points(athletes):
+    return sorted((athlete, sum(int(digit) for digit in str(abs(athlete['points'])))) for athlete in athletes, key=lambda x: x[1], reverse=True)
