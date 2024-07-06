@@ -1,9 +1,1 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
-bool isEqual(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
-}
-
-// Rest of the code remains the same
+#define issame(a, b) ((a).size() == (b).size() && !std::any_of((a).begin(), (a).end(), [&](int x) { return std::find((b).begin(), (b).end(), x) == (b).end();})
