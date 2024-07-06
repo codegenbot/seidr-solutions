@@ -1,24 +1,15 @@
-int count = 0;
-for (int i = 2; i <= a; i++) {
-    if (isPrime(i)) {
-        for (int j = i; j <= a / i; j++) {
-            if (isPrime(j) && i * j == a) {
-                return true;
-            }
+#include <cmath>
+
+bool is_multiply_prime(int a) {
+    for (int i = 2; i <= sqrt(a); i++) {
+        int p = 1;
+        while (a % i == 0) {
+            a /= i;
+            p *= i;
+        }
+        if (p > 1 && p < 100) {
+            return true;
         }
     }
-}
-
-return false;
-
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i*i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
+    return false;
 }
