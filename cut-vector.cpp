@@ -13,15 +13,14 @@ int main() {
     cout << "[";
     for (int i = 0; i < res.size(); i++) {
         cout << "[";
-        for(int j = 0; j < res[i].size()-1;j++){
+        for(int j = 0; j < res[i].size(); j++){
             for(auto num:res[i][j]){
                 cout<<std::to_string(num)<<" ";
                 if(j+1<res[i].size()-1)cout<<",";
             }
-            cout<<"] ";
+            if(i==res.size()-1 && j==res[i].size()-1)cout<<"]]";
+            else cout << "], [";
         }
-        if(i < res.size() - 1) cout << "], [";
-        else cout << "]";
     }
     cout << "]";
     return 0;
