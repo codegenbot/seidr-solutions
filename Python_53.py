@@ -4,31 +4,15 @@ def add(x: int, y: int):
 
 while True:
     try:
-        while True:
-            x = input("Enter the first number: ")
-            if x == "q":
+        x = int(input("Enter the first number: "))
+        if -2**31 <= x <= 2**31 -1:
+            y = int(input("Enter the second number: "))
+            if -2**31 <= y <= 2**31 -1:
+                print(f"The sum is {add(x, y)}")
                 break
-            if x.isnumeric():
-                x = int(x)
-                if -2**31 <= x <= 2**31 -1:
-                    while True:
-                        y = input("Enter the second number: ")
-                        if y == "q":
-                            break
-                        if y.isnumeric():
-                            y = int(y)
-                            if -2**31 <= y <= 2**31 -1:
-                                print(f"The sum is {add(x, y)}")
-                                break
-                            else:
-                                print("Invalid input. Please enter a whole number.")
-                                continue
-                        else:
-                            print("Invalid input. Please enter a whole number.")
-                            continue
-                    break
-                else:
-                    print("Invalid input. Please enter a whole number.")
-                    continue
+            else:
+                print("Invalid input. Please enter a whole number.")
+        else:
+            print("Invalid input. Please enter an integer between -2147483648 and 2147483647.")
     except ValueError:
         print("Invalid input. Please enter a whole number.")
