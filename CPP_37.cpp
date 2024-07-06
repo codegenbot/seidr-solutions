@@ -1,15 +1,14 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> sort_even(std::vector<int> l) {
-    vector<int> evenVals;
-    vector<int> oddVals;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> evenVals;
+    std::vector<float> oddVals;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -19,9 +18,9 @@ std::vector<int> sort_even(std::vector<int> l) {
         }
     }
 
-    sort(evenVals.begin(), evenVals.end());
+    std::sort(evenVals.begin(), evenVals.end());
 
-    vector<int> result;
+    std::vector<float> result;
     int idx = 0;
 
     for (int i = 0; i < l.size(); i++) {
@@ -33,27 +32,4 @@ std::vector<int> sort_even(std::vector<int> l) {
     }
 
     return result;
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> l;
-    for (int i = 0; i < n; ++i) {
-        int val;
-        std::cin >> val;
-        l.push_back(val);
-    }
-
-    std::cout << "[";
-    for (int i = 0; i < l.size() - 1; ++i) {
-        std::cout << l[i] << ", ";
-    }
-    std::cout << l.back() << "]\n";
-
-    if (issame(l, sort_even(l)))
-        std::cout << "Yes\n";
-    else
-        std::cout << "No\n";
 }
