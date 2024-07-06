@@ -30,5 +30,14 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    // Your code here
+    vector<float> input;
+    // Read input from user
+    float num;
+    while(std::cin >> num) {
+        input.push_back(num);
+    }
+
+    sort_even(input);
+
+    return 0;
 }
