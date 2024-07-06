@@ -1,11 +1,13 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
-std::vector<std::string> split(const std::string& str, const std::string& delimiter) {
+vector<string> split(const string& str, const string& delimiter) {
     size_t pos = 0;
-    std::vector<std::string> tokens;
-    while ((pos = str.find(delimiter)) != std::string::npos) {
+    vector<string> tokens;
+    while ((pos = str.find(delimiter)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + delimiter.length());
     }
@@ -13,22 +15,22 @@ std::vector<std::string> split(const std::string& str, const std::string& delimi
     return tokens;
 }
 
-std::string anti_shuffle(std::string s){
-    std::string result = "";
+string anti_shuffle(string s){
+    string result = "";
     for (const auto& word : split(s, " ")) {
         result += std::accumulate(word.begin(), word.end(),
-            std::string{}, [](std::string acc, char c) { return acc + c; }) + " ";
+            string{}, [](string acc, char c) { return acc + c; }) + " ";
     }
     return result.substr(0, result.size() - 1);
 }
 
 int main()
 {
-    std::string s;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, s);
+    string s;
+    cout << "Enter a sentence: ";
+    getline(cin, s);
 
-    std::cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << std::endl;
+    cout << "Anti-shuffle: " << anti_shuffle(s) << endl;
 
     return 0;
 }
