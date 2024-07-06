@@ -1,17 +1,9 @@
-Here is the completed code:
-
-```cpp
-vector<string> words;
-int maxCount = 0;
-string result;
-
-for (auto& word : words) {
-    int count = 0;
-    set<char> uniqueChars(word.begin(), word.end());
-    if (uniqueChars.size() > maxCount) {
-        maxCount = uniqueChars.size();
-        result = word;
-    }
+string find_max(vector<string> words) {
+    string result = *minmax_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
+            return (int)a.size() + a.count(' ') == (int)b.size() + b.count(' ')
+                ? lexicographical_compare(a.begin(), a.end(), b.begin(), b.end())
+                : (a.size() + a.count(' ')) < (b.size() + b.count(' '));
+        }).first;
+    return result;
 }
-
-return result;
