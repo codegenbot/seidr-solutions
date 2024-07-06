@@ -2,10 +2,17 @@
 #include <string>
 
 std::vector<std::string> bf(std::string a, std::string b) {
+    int i = 0, j = 0;
     std::vector<std::string> result;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] == b[0]) {
-            result.push_back(a.substr(i));
+    while(i < a.size() && j < b.size()) {
+        if(a[i] == b[j]) {
+            result.push_back(b.substr(j, 1));
+            i++;
+            j++;
+        } else if(a[i] < b[j]){
+            i++;
+        } else {
+            j++;
         }
     }
     return result;
