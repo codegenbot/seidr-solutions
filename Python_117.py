@@ -1,6 +1,9 @@
 def select_words(s, n):
-    words = s.split()
     if n <= 0:
         return []
-    else:
-        return [word for word in words if len([c for c in word if c.islower()]) == n]
+    words = s.split()
+    unique_words = set()
+    for word in words:
+        if len([c for c in word if c.islower()]) == n:
+            unique_words.add(word)
+    return list(unique_words)
