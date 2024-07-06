@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 string remove_vowels(string text){
     string result = "";
