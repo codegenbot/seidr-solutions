@@ -1,3 +1,6 @@
+```cpp
+using namespace std;
+
 #include <algorithm>
 #include <vector>
 
