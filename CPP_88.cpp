@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> sort_array(vector<int> array) {
     vector<int> result = array;
     
