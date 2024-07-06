@@ -1,24 +1,15 @@
-#include <map>
+std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, 
+                                                 {400, "CD"}, {100, "C"}, {90, "XC"}, 
+                                                 {50, "L"}, {40, "XL"}, {10, "X"}, 
+                                                 {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
-using namespace std;
-
-string int_to_mini_roman(int num) {
-    map<int, string> roman = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-                                {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-                                {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
-
-    string roman_num = "";
-
-    for (auto& pair : roman) {
-        while (num >= pair.first) {
-            roman_num += pair.second;
-            num -= pair.first;
-        }
-        if (num > 0) {
-            roman_num += "i";
-            num--;
+std::string int_to_mini_roman(int number) {
+    std::string roman = "";
+    for (auto p : roman) {
+        while (number >= p.first) {
+            roman += p.second;
+            number -= p.first;
         }
     }
-
-    return roman_num;
+    return roman;
 }
