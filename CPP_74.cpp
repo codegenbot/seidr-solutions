@@ -7,14 +7,7 @@ bool issame(vector<string> a, vector<string> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     for(const auto& str1 : a) {
-        bool found = false;
-        for(const auto& str2 : b) {
-            if (str1 == str2) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) return false;
+        if(find(b.begin(),b.end(),str1) == b.end()) return false;
     }
     return true;
 }
