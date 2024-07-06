@@ -11,4 +11,4 @@ def count_up_to(n):
     for i in range(2, n+1):
         if is_prime(i):
             result.append(str(i)) 
-    return list(set(result))
+    return len(set(result))
