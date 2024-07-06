@@ -1,5 +1,4 @@
-def parse_nested_parens(paren_string: str) -> list[int]:
-    # If the input string is empty, return an empty list
+def parse_nested_parens(paren_string):
     if not paren_string:
         return []
 
