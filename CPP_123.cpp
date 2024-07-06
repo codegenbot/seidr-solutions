@@ -1,23 +1,30 @@
-#include <initializer_list>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 0)
-            n /= 2;
-        else
-            n = 3 * n + 1;
-        result.push_back(n);
+int main {
+    std::vector<std::vector<int>> sequences;
+    for (int i = 1; i <= 10; ++i) {
+        sequences.push_back(get_odd_collatz(i));
     }
-    sort(result.begin(), result.end());
-    return result;
-}
-
-int main 
-{
-    assert(issame({get_odd_collatz(1)}, {1}));
+    
+    std::vector<int> allUnique;
+    for (const auto& seq : sequences) {
+        for (int num : seq) {
+            bool unique = true;
+            for (int j = 0; j < allUnique.size(); ++j) {
+                if (allUnique[j] == num) {
+                    unique = false;
+                    break;
+                }
+            }
+            if (unique)
+                allUnique.push_back(num);
+        }
+    }
+    
+    std::sort(allUnique.begin(), allUnique.end());
+    for (int i = 0; i < allUnique.size(); ++i) {
+        if (allUnique[i] == allUnique[0]) {
+            break;
+        }
+        std::cout << allUnique[i] << " ";
+    }
+    std::cout << std::endl;
 }
