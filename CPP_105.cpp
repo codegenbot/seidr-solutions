@@ -3,28 +3,26 @@
 #include <algorithm>
 
 bool issame(vector<string>, vector<string>) {
-    // implementation
+    // implementation for this function
 }
 
 int main() {
-    std::vector<int> arr;
     int n;
-    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        arr.push_back(num);
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> arr[i];
     }
-    vector<string> result = by_length(arr);
-    for (string s : result) {
-        std::cout << s << " ";
+    
+    std::vector<string> result = by_length(arr);
+    
+    for (const auto& str : result) {
+        std::cout << str << " ";
     }
     return 0;
 }
 
-vector<string> by_length(vector<int> arr) {
+std::vector<string> by_length(vector<int> arr) {
     vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
