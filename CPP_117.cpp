@@ -1,16 +1,17 @@
+```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
 
-using my_string = std::string;
-
 bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const my_string& s) { return find(b.begin(), b.end(), s) != b.end(); });
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) { return find(b.begin(), b.end(), s) != b.end(); });
 }
 
+using my_string = std::string;
+my_string word; 
 vector<string> select_words(my_string s, int n) {
     vector<string> result;
-    my_string word = "";
+    word = "";
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
@@ -36,5 +37,8 @@ vector<string> select_words(my_string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    my_string s = "a b c d e f";
+    int n = 1;
+    vector<string> expected = {"b", "c", "d", "f"};
+    assert(issame(select_words(s, n), expected));
 }
