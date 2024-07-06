@@ -10,4 +10,4 @@
                 level -= 1
             max_level = max(max_level, level)
         result.append(max_level)
-    return result'''
+    return list(map(int, result))''
