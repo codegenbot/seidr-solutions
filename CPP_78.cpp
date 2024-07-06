@@ -1,3 +1,6 @@
+#include <string>
+#include <cctype>
+
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
