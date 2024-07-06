@@ -14,8 +14,10 @@ long long special_factorial(int n) {
     }
     return result;
 
+}
+
 int main() {
-    assert(special_factorial(1) == 1);  
-    std::cout << "Hello, World!";
+    assert(special_factorial(5) == 120);  
+    std::cout << "Hello, World!" << special_factorial(5) << std::endl;
     return 0;
 }
