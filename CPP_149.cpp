@@ -2,13 +2,13 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string>b);
 vector<string> sorted_list_sum(vector<string> lst);
 
 // ... existing code ...
 
-bool issame(vector<string> a, vector<string>b) {
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    // your logic here...
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
