@@ -1,5 +1,5 @@
 def find_zero(xs):
-    if xs == '':
+    if xs == "":
         return False
     for x in xs:
         if x == 0:
