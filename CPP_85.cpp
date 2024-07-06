@@ -1,17 +1,22 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-int add(std::vector<int> lst) {
+int main() {
     int sum = 0;
+    vector<int> lst;
+    int num;
+    
+    cout << "Enter numbers (enter -1 to finish):" << endl;
+
+    while ((cin >> num) && (num != -1)) {
+        lst.push_back(num);
+    }
+
     for (int i = 1; i < lst.size(); i += 2) {
         if (lst[i] % 2 == 0)
             sum += lst[i];
     }
-    return sum;
-}
-
-int main() {
-    assert(add({4, 4, 6, 8}) == 12);
+    
+    cout << "The sum of even numbers is: " << sum << endl;
     return 0;
 }
