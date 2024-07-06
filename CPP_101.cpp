@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -53,6 +53,7 @@ int main() {
         std::cout << word << " ";
     }
     std::cout << "\n";
+    
     std::vector<std::string> words = words_string(str, expect);
     assert(issame(words));
 }
