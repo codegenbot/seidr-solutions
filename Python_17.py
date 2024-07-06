@@ -1,5 +1,4 @@
-```python
-def parse_music(music_string: str) -> List[int]:
+```def parse_music(music_string: str) -> List[int]:
     result = []
     i = 0
     while i < len(music_string):
