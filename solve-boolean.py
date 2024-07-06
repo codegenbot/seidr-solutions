@@ -1,12 +1,11 @@
-```
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
 
-    operators = '&' | '|'
-    parts = expression.split(next((c for c in operators if c in expression), ''))
+    operators = "&" | "|"
+    parts = expression.split(next((c for c in operators if c in expression), ""))
 
     def evaluate_and(parts):
         result = None
@@ -26,7 +25,7 @@ def solve_boolean(expression):
                 result = True
         return result if result else False
 
-    if expression.count('&') > 0:
+    if expression.count("&") > 0:
         return evaluate_and(parts)
     else:
         return evaluate_or(parts)
