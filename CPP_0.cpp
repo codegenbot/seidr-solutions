@@ -1,6 +1,3 @@
-Here's the corrected code:
-
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
