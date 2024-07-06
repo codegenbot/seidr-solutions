@@ -4,5 +4,5 @@ def find_zero(xs):
             return True
     return False
 
-user_input = int(input("Enter an integer: "))
-find_zero(user_input)
+user_input = input("Enter an integer: ")
+find_zero([int(user_input)])
