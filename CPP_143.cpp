@@ -4,13 +4,17 @@
 
 std::vector<std::string> words_in_sentence(const std::string& sentence) {
     std::vector<std::string> words;
-    size_t pos = 0;
-    while ((pos = sentence.find(' ')) != std::string::npos) {
-        words.push_back(sentence.substr(0, pos));
-        sentence.erase(0, pos + 1);
+    size_t pos = 0, prevPos = 0;
+
+    while ((pos = sentence.find(' ', pos)) != std::string::npos) {
+        words.push_back(sentence.substr(prevPos, pos - prevPos));
+        prevPos = pos + 1;
     }
-    if (!sentence.empty())
-        words.push_back(sentence);
+
+    if (prevPos < sentence.size()) {
+        words.push_back(sentence.substr(prevPos));
+    }
+
     return words;
 }
 
