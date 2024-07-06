@@ -1,4 +1,5 @@
 def make_palindrome(string):
+    # Initialize a list to store the characters of the palindrome
     palindrome = []
     for i, c in enumerate(string):
         if string[i] == string[-i - 1]:
