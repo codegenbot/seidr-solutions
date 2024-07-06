@@ -8,19 +8,17 @@ bool is_palindrome(const std::string& text) {
             return false;
     }
     return true;
-
 }
 
 int main() {
     assert(is_palindrome("xywzx") == false);
-    // Add your code here to test the function
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
     if (is_palindrome(input))
-        std::cout << input << " is a palindrome." << std::endl;
+        std::cout << "The entered string is palindrome.";
     else
-        std::cout << input << " is not a palindrome." << std::endl;
-
+        std::cout << "The entered string is not palindrome.";
+    
     return 0;
 }
