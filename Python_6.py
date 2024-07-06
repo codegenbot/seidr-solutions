@@ -1,12 +1,13 @@
-def parse_nested_parens(paren_string: str) -> list[int]:
+def parse_nested_parens(paren_string):
     result = []
-    level = 0
-    for char in paren_string:
-        if char == "(":
-            level += 1
-        elif char == ")":
-            level -= 1
-        else:
-            continue
-        result.append(level)
+    for group in paren_string.split():
+        levels = []
+        level = 0
+        for i, char in enumerate(group):
+            if char == "(":
+                level += 1
+            elif char == ")":
+                level -= 1
+            levels.append(level)
+        result.extend(levels)
     return result
