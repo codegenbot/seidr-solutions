@@ -1,5 +1,5 @@
 int main() {
-    vector<long long> nums = {2,-5,5};
+    vector<long long> nums = {1,-5,2,4};
     cout << minSubArraySum(nums);
 }
 
