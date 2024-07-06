@@ -1,5 +1,5 @@
 #include <string>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -11,10 +11,10 @@ bool solveBoolean(string s) {
             return t && f;
         } else if (s[i] == '|') {
             return t || f;
-        } else if (s[i] == 't') {
+        } else if (s[i] == 'T' || s[i] == 't') {
             t = true;
             f = false;
-        } else if (s[i] == 'f') {
+        } else if (s[i] == 'F' || s[i] == 'f') {
             t = false;
             f = true;
         }
