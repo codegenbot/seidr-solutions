@@ -1,32 +1,53 @@
 ```cpp
-bool issame(map<char,int> a,map<char,int> b){
-    return a==b;
-}
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
 
-int main() {
-    assert(histogram("a") == map<char,int>{{'a', 1}});
-    // Add more test cases if needed
-    return 0;
-}
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : letters) {
-        ++result[c];
-    }
-
-    char max_letter = *max_element(result.begin(), result.end(),
-                                    [](auto a, auto b) { return a.second < b.second; })
-                     ->first;
-
-    map<char, int> max_count;
-    for (const auto& p : result) {
-        if (p.second == result[max_letter]) {
-            max_count[p.first] = p.second;
+    for (char c : unique(letters.begin(), letters.end())) {
+        int count = 0;
+        size_t pos = 0;
+        while ((pos = letters.find(c, pos)) != string::npos) {
+            count++;
+            pos += 1; 
         }
+        if (count > 0) result[c] = count;
     }
 
-    return max_count;
+    map<char, int> maxCountMap;
+    int maxCount = 0;
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+            maxCountMap.clear();
+            maxCountMap[pair.first] = pair.second;
+        } else if (pair.second == maxCount)
+            maxCountMap[pair.first] = pair.second;
+    }
+
+    return maxCountMap;
+}
+
+int main() {
+    string test;
+    cout << "Enter a string: ";
+    getline(cin, test);
+    
+    map<char, int> result = histogram(test);
+
+    if (!result.empty()) {
+        for (auto& pair : result) {
+            cout << "Character '" << pair.first << "' appears " << pair.second << " times." << endl;
+        }
+    } else
+        cout << "No characters found in the string." << endl;
+
+    return 0;
 }
