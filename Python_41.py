@@ -1,8 +1,7 @@
-```
-def car_race_collision():
+def car_race_collision(n=None):
     while True:
         try:
-            n = int(input("Enter the number of cars: "))
+            n = int(input("Enter the number of cars: ") if n is None else str(n))
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
@@ -22,5 +21,3 @@ def car_race_collision():
         total_damage += damage * speed
     
     return f'Total damage: ${total_damage:,}'
-
-print(car_race_collision())
