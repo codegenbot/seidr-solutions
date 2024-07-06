@@ -29,12 +29,13 @@ int main() {
         while (!(std::cin >> nums[i])) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin.ignore(std::streamsize::max, '\n');
+            std::cin.ignore(std::numeric_limits<std::streamsize>::limit(), '\n');
         }
     }
 
     int count = specialFilter(nums);
 
     std::cout << "Count: " << count << std::endl;
+    
     return 0;
 }
