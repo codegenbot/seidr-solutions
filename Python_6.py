@@ -1,11 +1,11 @@
-def parse_nested_parens(paren_string: str) -> list[int]:
-    max_levels = []
+def parse_nested_parens(paren_string: str) -> list:
+    result = []
     for group in paren_string.split():
-        levels = 1
+        level = 0
         for char in group:
             if char == "(":
-                levels += 1
+                level += 1
             elif char == ")":
-                levels -= 1
-        max_levels.append(levels)
-    return max_levels
+                level -= 1
+        result.append(level)
+    return result
