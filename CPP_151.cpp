@@ -12,7 +12,7 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {};
+    vector<float> lst;
     long long result = double_the_difference(lst);
     assert(result == 0);
     return 0;
