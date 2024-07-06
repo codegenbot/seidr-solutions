@@ -16,6 +16,6 @@ std::vector<std::string> words_in_sentence(const std::string& sentence) {
 }
 
 int main() {
-    assert(std::vector<std::string>({"here", "is"}).operator==words_in_sentence("here is"));
+    assert(words_in_sentence("here is").size() == 1 && words_in_sentence("here is")[0] == "is");
     return 0;
 }
