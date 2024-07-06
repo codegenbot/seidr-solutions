@@ -1,8 +1,4 @@
-def calculate_average(grades):
-    total = sum(float(grade) for grade in grades)
-    average = total / len(grades)
-    return round(average, 2)
-
+```
 def average_grade(name):
     grades = []
     while True:
