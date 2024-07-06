@@ -1,5 +1,5 @@
+```
 from typing import List
-
 
 def has_close_elements() -> bool:
     while True:
@@ -17,12 +17,10 @@ def has_close_elements() -> bool:
         else:
             print("Please enter a positive number for the threshold.")
 
-    while True:
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                if abs(numbers[i] - numbers[j]) <= threshold:
-                    return True
-        return False
-
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if abs(numbers[i] - numbers[j]) <= threshold:
+                return True
+    return True
 
 print(has_close_elements())
