@@ -1,6 +1,5 @@
 def get_middle(s):
-    mid = len(s) // 2
-    if s[mid] in s:
-        return s[mid]
+    if len(s) % 2 == 0:
+        return f"{s[len(s) // 2 - 1 : len(s) // 2 + 2]}"
     else:
-        return s[mid - 1 : mid + 2]
+        return f"{s[len(s) // 2]}"

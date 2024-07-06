@@ -1,7 +1,7 @@
+import numpy as np
+
+
 def shopping_list(prices, discounts):
-    total = 0
-    for i in range(len(prices)):
-        price = prices[i]
-        discount = discounts[i]
-        total += (price - (price * discount / 100))
-    return total
+    prices = input("Enter prices: ")
+    discounts = input("Enter discounts: ")
+    return np.sum(prices * (1 - discounts / 100))
