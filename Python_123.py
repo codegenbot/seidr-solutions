@@ -1,3 +1,4 @@
+
 def get_odd_collatz(n):
     result = []
     while n > 1:
