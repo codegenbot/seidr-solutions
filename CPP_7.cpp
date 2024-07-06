@@ -1,10 +1,23 @@
-#include <vector>
-#include <string>
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 
-bool issame(vector<string> a,vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring) {
+    vector<vector<string>> result;
+    for(auto &s : strings){
+        bool same = false;
+        for(string substr: s){
+            if(filter_by_substring(s, substr).size() > 1)
+                same = true;
+        }
+        if(!same) {
+            vector<string> temp;
+            for (string str : s) {
+                if(str.find(substring) != string::npos)
+                    temp.push_back(str);
+            }
+            result.push_back(temp);
+        }
     }
-    return true;
+    return result;
 }
