@@ -1,3 +1,5 @@
 def find_zero(xs):
-    n = (xs[0] + xs[1]) // 2
-    return -n / xs[1]
+    x1 = xs[0]
+    x2 = xs[1]
+    n = (x1 + x2) // 2
+    return -n / x2
