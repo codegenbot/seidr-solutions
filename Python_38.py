@@ -9,9 +9,10 @@ def decode_cyclic(s):
             result += group[0]
         elif group[0] != group[1]:
             result += group[0] + group[1]
+        else:
             j = 2
             while j > 0 and i + j < len(s):
-                if s[i] == group[0]:
+                if s[i+j] == group[0]:
                     break
                 j -= 1
         i += 3
