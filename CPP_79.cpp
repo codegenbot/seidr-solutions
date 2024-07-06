@@ -1,5 +1,9 @@
-string decimal_to_binary(int decimal){
-    string binary = "";
+```cpp
+#include <iostream>
+#include <string>
+
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
     while(decimal > 0) {
         int remainder = decimal % 2;
         if(remainder == 1)
@@ -9,4 +13,10 @@ string decimal_to_binary(int decimal){
         decimal /= 2;
     }
     return "db" + binary + "db";
+}
+
+int main() {
+    assert(decimal_to_binary(15) == "db1111db");
+    std::cout << "Binary representation of 15 is: " << decimal_to_binary(15) << std::endl;
+    return 0;
 }
