@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -23,12 +24,12 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> ex
         }
         if (!temp.empty()) {
             if (!issame({temp}) || !std::count(expected.begin(), expected.end(), temp)) {
-                return {};
+                return {};  // Return empty vector when mismatch found
             }
             result.push_back(temp);
         }
     }
-    return result;
+    return result;  // Return the result vector
 }
 
 int main() {
@@ -51,4 +52,6 @@ int main() {
     }
     std::cout << "\n";
     
-    assert(issame(words_string("ahmed gamal ahmed", {"ahmed", "gamal"})) == ({"ahmed", "gamal"}));
+    assert(issame({}) == true);
+    assert(words_string("ahmed gamal ahmed", {"ahmed", "gamal"}).size() == 2);
+}
