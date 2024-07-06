@@ -1,15 +1,14 @@
+```c++
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::initializer_list<int> a, std::initializer_list<int> b) {
+    return std::all_of(a.begin(), a.end(),
+        [&b](int x) { return std::any_of(b.begin(), b.end(), [&](int y) { return x == y; }); });
 }
 
-std::vector<int> getOddCollatz(int n) {
+std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
@@ -23,6 +22,6 @@ std::vector<int> getOddCollatz(int n) {
 }
 
 int main() {
-    assert(isSame({getOddCollatz(1)}, {1}));
+    assert(issame({get_odd_collatz(1)}, {get_odd_collatz(1)}));
     return 0;
 }
