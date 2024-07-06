@@ -1,7 +1,7 @@
 def modp(x, y):
     if y == 0:
-        return 1 if x % y == 0 else x
+        return x
     elif y % 2 == 0: 
-        return modp((x*x) % y, y//2)
+        return modp(x*x, y//2)
     else:
-        return (x * modp(x, y-1)) % y
+        return x % 2 != 0 and x * modp(x, y-1) or modp(x*x, y//2)

@@ -1,4 +1,3 @@
-```
 import re
 
 def fruit_distribution(s, n):
@@ -6,6 +5,6 @@ def fruit_distribution(s, n):
     parts = list(map(int, re.findall(r"\d+", s)))
     return sum(parts) if len(parts) >= n else 0
 
-s = input()
 n = int(input())
-print(fruit_distribution(s, n))
+s = input()
+fruit_distribution(s, n)

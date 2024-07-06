@@ -1,5 +1,4 @@
-```
-def solve():
+def main():
     if int(input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? ")) == 1:
         N = int(input("Enter a number: "))
         return bin(N)[2:]
@@ -11,4 +10,4 @@ def solve():
         num2 = int(input("Enter another number: "))
         return str(num1) * str(num2)
 
-print(solve())
+print(main())
