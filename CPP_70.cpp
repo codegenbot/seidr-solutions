@@ -1,30 +1,27 @@
-#include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    if (lst.empty()) return std::vector<int>();
+    std::vector<int> result;
+    if (lst.empty()) return result;
 
     while (!lst.empty()) {
-        int minVal = *std::min_element(lst.begin(), lst.end());
-        int maxVal = *std::max_element(lst.begin(), lst.end());
+        int minVal = *min_element(lst.begin(), lst.end());
+        int maxVal = *max_element(lst.begin(), lst.end());
+        result.push_back(minVal);
+        result.push_back(maxVal);
         lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
         lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
     }
 
-    return lst;
+    return result;
 }
 
 int main() {
-    std::vector<int> test = {111111};
-    if (issame(test, strange_sort_vector(test))) 
-        std::cout << "Test passed." << std::endl;
-    else 
-        std::cout << "Test failed." << std::endl;
-    
+    assert(issame(strange_sort_vector({1, 2}), vector<int>({1, 2})));
     return 0;
 }
