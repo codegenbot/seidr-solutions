@@ -1,4 +1,4 @@
-````
+#include <iostream>
 #include <cassert>
 
 bool any_int(float a, float b, float c) {
@@ -10,6 +10,5 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    assert(any_int(3.01, 4, 7) == false);
-    return 0;
+    assert(any_int(3.01f, 4.0f, 7.0f) == false);
 }
