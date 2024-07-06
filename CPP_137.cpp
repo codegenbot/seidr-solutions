@@ -1,19 +1,7 @@
 #include <iostream>
-#include <string>
 #include <limits>
-#include <boost/any.hpp>
 
 using namespace std;
-
-void compare_one(int num1, int num2) {
-    if (num1 > num2) {
-        cout << "The first number is bigger.\n";
-    } else if (num1 < num2) {
-        cout << "The second number is bigger.\n";
-    } else {
-        cout << "Both numbers are equal.\n";
-    }
-}
 
 int main() {
     cout << "Enter two values: ";
@@ -31,14 +19,17 @@ int main() {
     }
 
     cout << "Enter the second value: ";
-    string val2;
+    int val2;
     cin >> val2;
 
-    if (!val2.empty()) {
-        int num = stoi(val2);
-        compare_one(val1, num);
-    } else {
+    if (!val2) {
         cout << "Please enter a valid value for the second number.\n";
+    } else if (val1 == val2) {
+        cout << "Both numbers are equal.\n";
+    } else if (val1 > val2) {
+        cout << "The first number is bigger.\n";
+    } else {
+        cout << "The second number is bigger.\n";
     }
 
     return 0;
