@@ -1,6 +1,3 @@
-
-import re
-
 def fruit_distribution(s, n):
     apples, oranges = s.split("and")
     num_apples = int(re.search(r'\d+', apples).group())
