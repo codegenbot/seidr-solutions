@@ -1,2 +1,8 @@
 def is_equal_to_sum_even(n):
-    return any(sum(range(2, i+1, 2)) == n for i in range(2, n+1, 2))
+    for a in range(2, n+1, 2):
+        for b in range(2, n+1, 2):
+            for c in range(2, n+1, 2):
+                for d in range(2, n+1, 2):
+                    if a + b + c + d == n:
+                        return True
+    return False
