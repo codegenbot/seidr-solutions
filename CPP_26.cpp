@@ -14,6 +14,3 @@ vector<int> remove_duplicates(vector<int> numbers){
     }
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b){
-}
