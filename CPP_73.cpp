@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 int smallest_change(std::vector<int> arr) {
     std::string str = "";
     int n = arr.size(), left = 0, right = n - 1, changes = 0;
@@ -11,7 +14,9 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-int main() {
+int main 
+{
     std::vector<int> arr = {1, 2, 3};
     int result = smallest_change(arr);
     return 0;
+}
