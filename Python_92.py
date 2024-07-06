@@ -1,2 +1,8 @@
-def any_int(x: int, y: int, z: int) -> bool:
-    return (x + y == z) or (x + z == y) or (y + z == x)
+from math import isclose
+
+
+def any_int(x, y, z):
+    if isclose(x + y, z) or isclose(x + z, y) or isclose(y + z, x):
+        return True
+    else:
+        return False
