@@ -21,11 +21,10 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    std::vector<int> nums(n, 0); // Create a vector of size n and initialize all elements to 0
-
+    std::vector<int> nums; // Initialize the vector with no size
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        while (!(std::cin >> nums[i])) {
+        while (!(std::cin >> nums.push_back(i))) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
