@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -34,25 +32,6 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements in the array: ";
-    std::cin >> n;
-    
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> nums[i];
-    }
-
-    if(issame(nums, order_by_points(nums))) {
-        cout << "The array is same after ordering by points." << endl;
-    } else {
-        vector<int> ordered = order_by_points(nums);
-        for(int i : ordered) {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
