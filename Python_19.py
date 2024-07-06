@@ -12,4 +12,4 @@ def sort_numbers(numbers: str) -> str:
         "nine": 9,
     }
     sorted_numbers = sorted([num_dict[i] for i in numbers.split()])
-    return " ".join([str(num_dict[i]) for i in sorted_numbers])
+    return " ".join(map(str, sorted_numbers))
