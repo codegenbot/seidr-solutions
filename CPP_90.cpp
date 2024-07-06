@@ -1,5 +1,7 @@
 #include <vector>
-int next_larger(std::vector<int> lst) {
+#include <algorithm>
+
+int next_smaller(std::vector<int> lst) {
     if(lst.size() < 2) return -1; 
     std::vector<int> sorted = lst;
     std::sort(sorted.begin(), sorted.end());
