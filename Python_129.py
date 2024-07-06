@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
 
@@ -23,8 +24,4 @@ def minPath(grid, k):
                     visited.add((nx, ny))
                     shortest_paths[len(new_path)] = len(new_path)
 
-    return min([p for p in shortest_paths.values()], default=grid[0] + [grid[0][0]] * (k - len(shortest_paths[min(shortest_paths)]))) if k > 0 else []
-
-grid = [[0,1], [1,0]]
-k = 2
-print(minPath(grid, k))
+    return min(shortest_paths.values(), default=grid[0] + [grid[0][0]] * (k - max(shortest_paths.keys()))) if k > 0 else []
