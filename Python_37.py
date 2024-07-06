@@ -1,13 +1,14 @@
+```
 def sort_even(l: list):
-    evens = sorted([x for x in l if x % 2 == 0])
-    odds = [x for x in l if x % 2 != 0]
+    even = sorted([x for x in l if x % 2 == 0])
+    odd = sorted([x for x in l if x % 2 != 0])
     
     result = []
-    while evens and odds:
-        result.append(evens.pop(0))
-        result.append(odds.pop(0))
-        
-    result.extend(evens)
-    result.extend(odds)
-    
+    for i in range(len(even)):
+        if i < len(odd):
+            result.append(even[i])
+            result.append(odd[i])
+        else:
+            result.extend(even[i:])
+            
     return tuple(result)
