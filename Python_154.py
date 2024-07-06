@@ -1,9 +1,10 @@
 def cycpattern_check(a, b):
-    if not a.isnumeric() or not b.isnumeric():
-        return "Invalid input"
+    if not (isinstance(a, int) and isinstance(b, int)):
+        return "not winten"
+    a = str(int(str(a).zfill(6)))[1:]
+    b = str(int(str(b).zfill(6)))[1:]
 
-    total = int(a) + int(b)
-    if total % 2 == 0:
+    if int(str(a) + str(b)) % 2 == 0:
         return "winten"
     else:
         return "not winten"
