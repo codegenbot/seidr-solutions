@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -35,3 +34,9 @@ def below_zero() -> None:
     else:
         if balance < 0:
             print("Congratulations, your debt is paid off!")
+
+def calculate_debt(total_balance: int, current_debt: int) -> int:
+    return total_balance - current_debt
+
+if __name__ == "__main__":
+    below_zero()
