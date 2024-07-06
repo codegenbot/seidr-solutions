@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <assert.h>
 
 int solution(vector<int> lst) {
     int sum = 0;
