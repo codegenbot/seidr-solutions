@@ -1,3 +1,4 @@
+````
 #include <string>
 #include <cctype>
 
@@ -14,3 +15,4 @@ bool is_palindrome(std::string text) {
 
     return true;
 }
+```
