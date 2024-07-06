@@ -2,7 +2,7 @@ import hashlib
 
 
 def string_to_md5(text):
-    return hashlib.md5(text.encode("utf-8")).hexdigest()
+    return hashlib.md5(text.encode()).hexdigest()
 
 
 def main():
@@ -11,7 +11,7 @@ def main():
         if text.lower() == "q":
             break
         try:
-            result = string_to_md5(text)
+            result = string_to_md5(text.encode())
             print(result)
         except Exception as e:
             print(f"Error: {e}")
