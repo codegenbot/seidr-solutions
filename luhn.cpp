@@ -23,15 +23,6 @@ int luhn(vector<int>& digits) {
     return sum;
 }
 
-vector<int> get_digits() {
-    vector<int> digits;
-    int input;
-    while (cin >> input) {
-        digits.push_back(input);
-    }
-    return digits;
-}
-
 int main() {
     vector<int> digits = get_digits(); // Get the digits from user input or file
     int sum = luhn(digits); // Call the luhn function with the digits
