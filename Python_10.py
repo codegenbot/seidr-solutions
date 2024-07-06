@@ -1,3 +1,3 @@
-
 def make_palindrome(string):
-    return string[::-1] + string
+    rev = string[::-1]
+    return " ".join([c for c in string if c == rev[-1]]) + " is a palindrome"
