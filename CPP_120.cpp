@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,7 +18,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         auto it = arr.erase(std::remove(arr.begin(), arr.end(), max_val), arr.end());
     }
     return result;
-
 }
 
 int main() {
@@ -29,5 +29,5 @@ int main() {
     for (int i = 0; i < k; ++i) {
         std::cout << maximum(arr_vec, k)[i] << " ";
     }
-    std::cout << endl;
+    std::cout << std::endl;
 }
