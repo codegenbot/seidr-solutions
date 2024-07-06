@@ -29,37 +29,54 @@ def sort_numbers(numbers: str) -> str:
         "eighty": 80,
         "ninety": 90,
     }
-    hundreds = {
-        "ten": 10,
-        "eleven": 11,
-        "twelve": 12,
-        "thirteen": 13,
-        "fourteen": 14,
-        "fifteen": 15,
-        "sixteen": 16,
-        "seventeen": 17,
-        "eighteen": 18,
-        "nineteen": 19,
-        "twenty": 20,
-        "thirty": 30,
-        "forty": 40,
-        "fifty": 50,
-        "sixty": 60,
-        "seventy": 70,
-        "eighty": 80,
-        "ninety": 90,
-    }
-    thousands = {"zero": 0, "one": 1000}
 
-    nums = []
-    for word in numbers.split():
-        if word.isdigit():
-            nums.append(int(word))
-        elif word in num_dict:
-            nums.append(num_dict[word])
-        elif len(word) == 3 and word[1:] in hundreds:
-            nums.append(hundreds[word[1:]] * 100 + num_dict.get(word[0], 0))
-        elif len(word) >= 4 and word[:3] in thousands and word[-3:] in hundreds:
-            nums.append(thousands[word[:3]] + hundreds[word[-3:]])
+    hundreds_dict = {
+        "zero hundred": 0,
+        "one hundred": 100,
+        "two hundred": 200,
+        "three hundred": 300,
+        "four hundred": 400,
+        "five hundred": 500,
+        "six hundred": 600,
+        "seven hundred": 700,
+        "eight hundred": 800,
+        "nine hundred": 900,
+    }
+
+    thousands_dict = {
+        "zero thousand": 0,
+        "one thousand": 1000,
+        "two thousand": 2000,
+        "three thousand": 3000,
+        "four thousand": 4000,
+        "five thousand": 5000,
+        "six thousand": 6000,
+        "seven thousand": 7000,
+        "eight thousand": 8000,
+        "nine thousand": 9000,
+    }
+
+    nums = list(
+        map(
+            lambda x: (
+                int(x)
+                if x.isdigit()
+                else (
+                    num_dict[x]
+                    if x in num_dict
+                    else (
+                        hundreds_dict[f"{int(x.split()[0])} hundred"]
+                        if int(x.split()[0]) < 10 and x.split()[1] == "hundred"
+                        else (
+                            thousands_dict[f"{int(x.split()[0])} thousand"]
+                            if int(x.split()[0]) < 10 and x.split()[1] == "thousand"
+                            else None
+                        )
+                    )
+                )
+            ),
+            numbers.split(),
+        )
+    )
 
     return " ".join(sorted(map(str, set(nums))))
