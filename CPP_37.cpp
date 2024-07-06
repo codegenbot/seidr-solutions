@@ -1,7 +1,9 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float>b) {
+bool stdsame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -31,4 +33,28 @@ std::vector<float> sort_even(std::vector<float> l) {
     }
 
     return result;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<float> l(n);
+    
+    for (int i = 0; i < n; ++i) {
+        float temp;
+        std::cout << "Enter element at index " << i << ":";
+        std::cin >> temp;
+        l[i] = temp;
+    }
+
+    std::vector<float> result = sort_even(l);
+
+    std::cout << "\nThe sorted even elements: ";
+    for (float &num : result) {
+        std::cout << num << " ";
+    }
+    
+    return 0;
 }
