@@ -20,16 +20,17 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of elements for the pile: ";
+    int n = 0;
+    cout << "Enter the value of n: ";
     cin >> n;
+
     vector<int> pile = make_a_pile(n);
-    
-    bool check = issame(pile, {1,2,3,4});
-    if(check)
-        cout << "The given condition is met." << endl;
-    else
-        cout << "The given condition is not met." << endl;
-    
+
+    if (issame(pile, {1, 3, 5})) {
+        cout << "The piles are same." << endl;
+    } else {
+        cout << "The piles are not the same." << endl;
+    }
+
     return 0;
 }
