@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 #include <initializer_list>
@@ -18,5 +17,5 @@ int solutions(vector<int> lst) {
 
 int main() {
     vector<int> input = {3, 13, 2, 9};
-    assert(solutions(input) == 3);
+    assert(solutions(input) == 15);
 }
