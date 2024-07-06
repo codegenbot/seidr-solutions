@@ -1,14 +1,14 @@
 #include <vector>
-#include <string>
 #include <algorithm>
-#include <cassert>
+using namespace std;
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
     for (int i : q) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
-    if (str != std::string(str.rbegin(), str.rend()))
+    reverse(str.begin(), str.end());
+    if (str != to_string(q)) 
         return false;
     int sum = 0;
     for (int i : q) {
@@ -18,5 +18,5 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
+    assert(will_it_fly({5}, 5));
 }
