@@ -1,5 +1,5 @@
 ```
-def decode_cyclic():
+"""def decode_cyclic():
     s = input("Enter a cyclic string: ")
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
@@ -15,4 +15,4 @@ def decode_cyclic():
         i += 3
     return result
 
-print(decode_cyclic())
+print(decode_cyclic())"""
