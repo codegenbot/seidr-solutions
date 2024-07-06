@@ -1,4 +1,3 @@
-```
 def intersperse(numbers: list[int], delimiter: int) -> list[int]:
     if not isinstance(numbers, list):
         raise ValueError("Input 'numbers' must be a list")
@@ -25,14 +24,3 @@ except ValueError:
 else:
     output = intersperse(numbers, delimiter)
     print(output)
-
-delimiter = 0  
-while True:
-    try:
-        delimiter = int(input("Enter an integer to use as the delimiter: "))
-        break
-    except ValueError:
-        print("Error: Invalid input for delimiter. Please try again.")
-
-output = intersperse(numbers, delimiter)
-print(output)
