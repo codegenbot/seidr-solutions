@@ -1,10 +1,8 @@
-#include <string>
-#include <sstream>
-
-std::istringstream encrypt(const std::string& s) {
+```
+std::istringstream encrypt(std::istringstream s) {
     std::string result = "";  
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
+    for(int i=0; i<s.str().length(); i++){
+        char c = s.str()[i];
         if(c >= 'a' && c <= 'z'){
             c = (c - 'a' + 3) % 26 + 'a';
         } else if(c >= 'A' && c <= 'Z'){
@@ -12,5 +10,8 @@ std::istringstream encrypt(const std::string& s) {
         }
         result += c;  
     }
-    return std::istringstream(result);
+    return s;
 }
+
+std::istringstream iss ("a");
+assert ((encrypt(iss)).str()=="e");
