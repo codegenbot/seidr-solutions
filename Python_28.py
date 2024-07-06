@@ -1,5 +1,9 @@
 ```
 while True:
+    choice = input("Do you want to enter more strings? (yes/no): ")
+    if choice.lower() == 'no':
+        break
+
     strings = ""
     while True:
         user_input = input("Please enter a string or 'stop' to finish: ")
