@@ -1,3 +1,3 @@
-
 def sort_even(l: list):
-    return l[:] if len(l) == 1 else [min(l[::2])] + sort_even(l[2:])
+    l_sorted = sorted(l[::2])
+    return [x if i % 2 == 0 else y for x, y in zip(l, l_sorted)]
