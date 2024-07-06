@@ -8,24 +8,24 @@ int is_bored(std::string S){
     std::istringstream iss(S);
     std::string word;
 
-    while(getline(iss, word, ' ')) {
+    while(iss >> word) {
         if(word.size() > 0 && word[0] == 'I')
             ++count;
     }
     return count;
 }
 
-int main(){
-    std::string S;
-    std::cout << "Enter a sentence: ";
-    std::cin >> S;
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
     
-    int result = is_bored(S);
+    int result = is_bored(str);
     
     if(result > 0)
-        std::cout << "Bored\n";
+        std::cout << "You're getting bored with " << result << " instances of 'I'." << std::endl;
     else
-        std::cout << "Not Bored\n";
+        std::cout << "No signs of boredom found!" << std::endl;
 
     return 0;
 }
