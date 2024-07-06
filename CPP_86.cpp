@@ -7,7 +7,7 @@ using namespace std;
 
 vector<string> split(const string& str, const string& delimiter) {
     size_t pos = 0;
-    vector<string> tokens(1);
+    vector<string> tokens;
     while ((pos = str.find(delimiter)) != string::npos) {
         if (pos > 0) { 
             tokens.push_back(str.substr(0, pos));
@@ -33,5 +33,9 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, s);
 
-    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    if (!s.empty()) {
+        cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+    } else {
+        cout << "Empty input. No Anti-Shuffle." << endl;
+    }
 }
