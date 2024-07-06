@@ -1,3 +1,4 @@
+```cpp
 #include <set>
 #include <vector>
 
@@ -6,8 +7,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::set<int> seen;
-    std::vector<int> result;
+    set<int> seen;
+    vector<int> result;
 
     for (int num : numbers) {
         if (seen.find(num) == seen.end()) {
