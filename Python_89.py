@@ -1,4 +1,5 @@
 
+from itertools import rotate
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     rotated_alphabet = rotate(alphabet, 2)
