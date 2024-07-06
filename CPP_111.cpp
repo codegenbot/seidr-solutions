@@ -11,7 +11,7 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique_copy(letters.begin(), letters.end())) { // Use unique_copy
+    for (char c : unique_copy(letters.begin(), letters.end())) { // replace unique with unique_copy
         int count = 0;
         size_t pos = 0;
         while ((pos = letters.find(c, pos)) != string::npos) {
