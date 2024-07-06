@@ -14,4 +14,4 @@ def find_zero(xs):
     return round(x, 2)
 
 xs = list(map(float, input("Enter coefficients: ").split()))
-find_zero(xs)
+print(find_zero(xs))
