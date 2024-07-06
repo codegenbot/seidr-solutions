@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,20 +31,10 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
 }
 
 int main() {
-    vector<string> test;
-    string s;
-    while (true) {
-        cout << "Enter a string (-1 to stop): ";
-        cin >> s;
-        if (s == "-1") break;
-        test.push_back(s);
-    }
-    
-    std::vector<std::string> result = odd_count(test);
-    
-    for(std::string s : result){
-        cout << s << endl;
-    }
-    
+    vector<string> test = {"271", "137", "314"};
+    vector<string> expected = {"the number of odd elements 2 in the str1 of the input.", 
+                               "the number of odd elements 1 in the str2 of the input.", 
+                               "the number of odd elements 1 in the str3 of the input."};
+    assert(issame(odd_count(test), expected));
     return 0;
 }
