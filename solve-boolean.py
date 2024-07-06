@@ -1,13 +1,12 @@
 import re
 
+
 def solve_boolean(expression):
-    # ... (your existing code here) ...
-
-# Read input from the user
-expression = input("Enter a Boolean expression: ")
-
-# Call the solve_boolean function with the user's input
-result = solve_boolean(expression)
-
-# Print the result
-print(f"The resulting Boolean value is: {result}")
+    result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
+    if result:
+        left, right = result.groups()
+        return solve_boolean(left) | solve_boolean(right)
+    elif expression == "t":
+        return True
+    else:
+        return False
