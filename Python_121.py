@@ -1,2 +1,4 @@
-def sum_of_odd(lst):
-    return sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
+```
+def solution(lst):
+    """Return sum of odd numbers in every other element from the input list."""
+    return sum(i for i in lst[1::2] if i % 2 != 0)
