@@ -1,17 +1,17 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     int stones = 1;
     for (int i = 0; i < n; i++) {
-        if ((n % 2) == 1) { 
+        if (n % 2 != 0) { // n is odd
             pile.push_back(stones);
             stones += 2;
-        } else { 
+        } else { // n is even
             pile.push_back(stones);
             stones += 1;
         }
@@ -20,14 +20,5 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of stones: ";
-    cin >> n;
-    vector<int> p = make_a_pile(n);
-    cout << "Pile: ";
-    for (int i : p) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
 }
