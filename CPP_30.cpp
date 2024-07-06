@@ -8,4 +8,3 @@ vector<float> get_positive(vector<float> l) {
         }
     }
     return result;
-}
