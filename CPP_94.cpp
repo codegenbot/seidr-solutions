@@ -1,7 +1,4 @@
-Here is the corrected code:
-
-```cpp
-#include <vector>
+```#include <vector>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -25,4 +22,4 @@ bool isPrime(int n) {
             return false;
     }
     return true;
-}
+}``
