@@ -1,20 +1,12 @@
+import re
+
 
 def solve_boolean(expression):
-    # Use a stack to evaluate the expression
-    stack = []
-    for char in expression:
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '|':
-            # Evaluate the previous two elements using OR
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
-        elif char == '&':
-            # Evaluate the previous two elements using AND
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a and b)
-    return stack[-1]
+    result = re.match(r"^(?P<left>.*?)(\||\&)(?P<right>.*)$", expression)
+    if result:
+        left, right = result.groups()
+        return solve_boolean(left) | solve_boolean(right)
+    elif expression == "t":
+        return True
+    else:
+        return False

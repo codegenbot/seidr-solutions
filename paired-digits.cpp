@@ -1,10 +1,19 @@
 
-int pairedDigits(string input) {
-    int sum = 0;
-    for (int i = 0; i < input.length() - 1; i++) {
-        if (input[i] == input[i + 1]) {
-            sum += input[i] - '0';
+#include <iostream>
+#include <string>
+using namespace std;
+int main(){
+    int sum=0;
+    
+    string str;
+    cout<<"Enter a string: ";
+    cin>>str;
+    
+    for (int i = 0; i < str.size() - 1; i++) {
+        if (str[i] == str[i + 1]) {
+            sum += str[i] - '0';
         }
     }
-    return sum;
+    
+     cout<<"Sum of digit is: "<<sum;
 }
