@@ -29,5 +29,9 @@ def minPath(grid, k):
                     if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
                         queue.append((nx, ny))
 
+    # If the minimum path is not found, return None
+    if not min_path:
+        return None
+
     # Return the minimum path
     return min_path
