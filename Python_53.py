@@ -1,3 +1,3 @@
-
-def add(x: int, y: int, data: list):
+def add(numbers):
+    x, y = map(int, numbers.split())
     return x + y
