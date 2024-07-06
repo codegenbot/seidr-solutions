@@ -12,7 +12,7 @@ while True:
         if num1_str.lower() == 'q':
             break
         
-        if num1_str.lower() != 'q':  
+        if num1_str.lower() != 'q': 
             num1 = int(num1_str)
 
         if num1 != 0:  
