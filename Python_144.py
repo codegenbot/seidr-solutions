@@ -16,5 +16,4 @@ def simplify(x, n):
 
     fraction_x = new_x_num / new_x_denom
     fraction_n = new_n_num / new_n_denom
-
-    return fraction_x == fraction_n
+    return x_num == n_num and x_denom == n_denom
