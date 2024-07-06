@@ -1,4 +1,3 @@
-```Python
 def decode_cyclic(s):
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
