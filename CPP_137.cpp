@@ -1,16 +1,16 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <typeinfo>
 
 using namespace std;
 
 int main() {
-    string s;
+    stringstream ss;
     cout << "Enter a number (or a floating point number followed by 'f') and press Enter: ";
-    cin >> s;
-
-    if (s.back() == 'f') {
+    string s; 
+    ss >> s;
+    
+    if (s.find('f') != string::npos) {
         float f = stof(s.substr(0, s.length() - 1));
         int i = static_cast<int>(f);
         cout << "You entered a number: " << f << endl;
@@ -22,3 +22,4 @@ int main() {
     }
 
     return 0;
+}
