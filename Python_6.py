@@ -1,6 +1,4 @@
 ```
-from typing import List
-
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     level = 0
@@ -12,3 +10,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level -= 1
             result.append(level)
     return result
+
+if __name__ == "__main__":
+    print(parse_nested_parens("((()))"))
