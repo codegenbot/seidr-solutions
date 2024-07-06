@@ -23,9 +23,9 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
             }
         }
         std::string temp = "the number of odd elements ";
-        temp += std::to_string(count);
+        temp += to_string(count);
         temp += " in the str";
-        temp += std::to_string(i+1);
+        temp += to_string(i+1);
         temp += " of the input.";
         result.push_back(temp); 
     }
@@ -34,13 +34,8 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
 
 int main() {
     vector<string> test = {"271", "137", "314"};
-    string result = "";
-    for (string s : odd_count(test)) {
-        result += s + "\n";
-    }
-    assert(issame(vector<string>(result.begin(), result.end()), 
-                 {"the number of odd elements 2 in the str1 of the input.\n",
-                  "the number of odd elements 1 in the str2 of the input.\n",
-                  "the number of odd elements 0 in the str3 of the input."}));
+    assert(issame(odd_count(test), {"the number of odd elements 2 in the str1 of the input.", 
+                                 "the number of odd elements 1 in the str2 of the input.", 
+                                 "the number of odd elements 0 in the str3 of the input."}));
     return 0;
 }
