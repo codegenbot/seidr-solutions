@@ -2,21 +2,25 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     for (int i = 1; i <= n; i++) {
-        if (i % 2 != 0) {
+        if (i % 2 == 0) {
             pile.push_back(i * 2 - 1);
         } else {
             pile.push_back(i * 2);
         }
     }
-    sort(pile.begin(), pile.end());
     return pile;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    int n = 5; // example number of piles
+    std::vector<int> pile1 = make_a_pile(n);
+    assert(issame(pile1, {0, 2, 4, 6, 8}));
+    return 0;
 }
