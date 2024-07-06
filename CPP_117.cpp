@@ -1,3 +1,9 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
@@ -5,29 +11,16 @@ vector<string> select_words(string s, int n) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            bool has_n_consonants = count(word.begin(), word.end(), 'b') + 
-                                    count(word.begin(), word.end(), 'c') + 
-                                    count(word.begin(), word.end(), 'd') + 
-                                    count(word.begin(), word.end(), 'f') + 
-                                    count(word.begin(), word.end(), 'g') + 
-                                    count(word.begin(), word.end(), 'h') + 
-                                    count(word.begin(), word.end(), 'j') + 
-                                    count(word.begin(), word.end(), 'k') + 
-                                    count(word.begin(), word.end(), 'l') + 
-                                    count(word.begin(), word.end(), 'm') + 
-                                    count(word.begin(), word.end(), 'p') + 
-                                    count(word.begin(), word.end(), 'q') + 
-                                    count(word.begin(), word.end(), 'r') + 
-                                    count(word.begin(), word.end(), 's') + 
-                                    count(word.begin(), word.end(), 't') + 
-                                    count(word.begin(), word.end(), 'v') + 
-                                    count(word.begin(), word.end(), 'w') + 
-                                    count(word.begin(), word.end(), 'x') + 
-                                    count(word.begin(), word.end(), 'y') = n;
-            if (has_n_consonants) {
+            int consonants = 0;
+            for (char ch : word) {
+                if (!ispunct(ch) && !isalnum(ch)) {
+                    ++consonants;
+                }
+            }
+            if (consonants == n) {
                 result.push_back(word);
             }
-            word = "";
+            word.clear();
         }
     }
     return result;
