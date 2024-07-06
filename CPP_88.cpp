@@ -1,3 +1,5 @@
+```cpp
+#include <vector>
 #include <initializer_list>
 
 std::vector<int> sort_array(std::vector<int> array) {
@@ -6,6 +8,7 @@ std::vector<int> sort_array(std::vector<int> array) {
     }
     int sum = array[0] + array.back();
     if (sum % 2 == 1)
-        return vector<int>(array.begin(), array.end());
+        return std::vector<int>(array.begin(), array.end());
     else
-        return vector<int>(array.rbegin(), array.rend());
+        return std::vector<int>(array.rbegin(), array.rend());
+}
