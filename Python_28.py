@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -7,4 +8,4 @@ def concatenate(strings: List[str]) -> str:
         if s.lower() == "stop":
             break
         strings.append(s)
-    return " ".join([s.strip() for s in strings])
+    return ' '.join([s.strip() for s in strings])
