@@ -2,30 +2,25 @@
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
-        if(abs(a[i]-b[i]) > 1e-6) return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
-    int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             vector<float> evenVals;
-            int k = 0;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenVals.push_back(l[j]);
-                    k++;
                 }
             }
             sort(evenVals.begin(), evenVals.end());
-            for(int i=0; i<k; i++) {
-                result[i*2] = evenVals[i];
-            }
+            result[i] = evenVals[0];
         } else {
-            result[j++] = l[i];
+            result[i] = l[i];
         }
     }
     return result;
@@ -41,6 +36,9 @@ int main() {
         cout << "Test failed!" << endl;
     }
     
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> testInput = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    vector<float> testOutput = sort_even(testInput);
+    assert(issame(testOutput, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    
     return 0;
 }
