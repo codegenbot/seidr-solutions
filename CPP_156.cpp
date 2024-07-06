@@ -1,90 +1,32 @@
 #include <string>
 using namespace std;
 string int_to_mini_roman(int number) {
-    string roman = "";
-    if(number >=1000){
-        while(number>=1000){
-            roman += "M";
-            number -= 1000;
-        }
-    }
-    if(number >= 900){
-        while(number>=900){
-            roman +="CM";
-            number -= 900;
-        }
-    }
-    if(number >=500){
-        while(number>=500){
-            roman += "D";
-            number -= 500;
-        }
-    }
-    if(number >=400){
-        while(number>=400){
-            roman +="CD";
-            number -= 400;
-        }
-    }
-    if(number >=100){
-        while(number>=100){
-            if(number<100 && number>90)roman += "XC";
-            else roman += "C";
-            number -= 100;
-        }
-    }
-    if(number >=90){
-        while(number>=90){
-            roman += "XC";
-            number -= 90;
-        }
-    }
-    if(number >=50){
-        while(number>=50){
-            roman += "L";
-            number -= 50;
-        }
-    }
-    if(number >=40){
-        while(number>=40){
-            roman +="XL";
-            number -= 40;
-        }
-    }
-    if(number >=10){
-        while(number>=10){
-            if(number<10 && number>9)roman += "IX";
-            else roman += "X";
-            number -= 10;
-        }
-    }
-    if(number >=9){
-        while(number>=9){
-            roman += "IX";
-            number -= 9;
-        }
-    }
-    if(number >=5){
-        while(number>=5){
-            roman += "V";
-            number -= 5;
-        }
-    }
-    if(number >=4){
-        while(number>=4){
-            roman +="IV";
-            number -= 4;
-        }
-    }
-    if(number >=1){
-        while(number>0){
-            if(number<4)roman+="I";
-            else if(number==4) roman+="IV";
-            else if(number==5) roman+="V";
-            else if(number<9)roman+="VI";
-            else if(number==9) roman+="IX";
-            number -=1;
-        }
-    }
+    string roman;
+    if (number >= 1000)
+        roman += "M" + int_to_mini_roman(number - 1000);
+    else if (number >= 900)
+        roman += "CM" + int_to_mini_roman(number - 900);
+    else if (number >= 500)
+        roman += "D" + int_to_mini_roman(number - 500);
+    else if (number >= 400)
+        roman += "CD" + int_to_mini_roman(number - 400);
+    else if (number >= 100)
+        roman += (number / 100) == 1 ? "C" : string((number / 100), 'C') + (number % 100 > 0 ? "D" : "") + int_to_mini_roman(number % 100);
+    else if (number >= 90)
+        roman += "XC" + int_to_mini_roman(number - 90);
+    else if (number >= 50)
+        roman += "L" + int_to_mini_roman(number - 50);
+    else if (number >= 40)
+        roman += "XL" + int_to_mini_roman(number - 40);
+    else if (number >= 10)
+        roman += (number / 10) == 1 ? "X" : string((number / 10), 'X') + (number % 10 > 0 ? "V" : "") + int_to_mini_roman(number % 10);
+    else if (number >= 9)
+        roman += "IX" + int_to_mini_roman(number - 9);
+    else if (number >= 5)
+        roman += "V" + int_to-mini_roman(number - 5);
+    else if (number >= 4)
+        roman += "IV" + int_to_mini_roman(number - 4);
+    else
+        roman += (number == 1 ? "I" : string(number, 'I')) + ((number > 3) ? "V" : "");
     return roman;
 }
