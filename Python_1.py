@@ -13,8 +13,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             group = ''
             while stack:
                 group += ``
-```
-stack.pop()
-```
+                stack.pop()
             groups.append(group + char)
     return groups
