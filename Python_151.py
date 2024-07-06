@@ -4,7 +4,8 @@ def double_the_difference(lst):
     return odd_sum*2
 
 
-if double_the_difference([1, 2, 3]) == 18:
+input_list = [1, 2, 3]
+if double_the_difference(input_list) == 18:
     print("The function works correctly")
 else:
     print("There is a problem with the function")
