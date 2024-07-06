@@ -1,8 +1,5 @@
 ```
-from collections import deque
-
-
-def minPath(m):
+def minPathSum(m):
     n = len(m)
     
     def dfs(i, j, path):
@@ -15,8 +12,8 @@ def minPath(m):
             for x, y in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                 ni2, nj2 = ni + x, nj + y
                 if (
-                    0 <= ni2 < n and 0 <= nj2 < n and 
-                    m[ni2][nj2] % n + nj2 < m[i][j]
+                    0 <= ni2 < n and 0 <= nj2 < n 
+                    and m[ni2][nj2] % n + nj2 < m[i][j]
                 ):
                     new_path2 = new_path + [m[ni2][nj2]]
                     if min_path is None or len(new_path2) < len(min_path):
@@ -24,7 +21,6 @@ def minPath(m):
         return min_path
 
     k = int(input("Enter the value of k: "))
-    min_path = None
     n = int(input("Enter the size of the matrix (n): "))
     m = []
     
@@ -32,6 +28,7 @@ def minPath(m):
         row = list(map(int, input(f"Enter the row {i+1}: ").split()))
         m.append(row)
     
+    min_path = None
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [m[i][j]])
