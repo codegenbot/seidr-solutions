@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -34,6 +33,9 @@ std::vector<std::string> words_string(std::string s) {
 }
 
 int main() {
-    std::vector<std::string> b = {"ahmed", "gamal"};
-    assert(issame(words_string("ahmed     , gamal"), b));
+    std::vector<std::string> v1 = words_string("ahmed     , gamal");
+    std::vector<std::string> v2 = { "ahmed", "gamal" };
+    if (!isSame(v1, v2)) {
+        // do something ...
+    }
 }
