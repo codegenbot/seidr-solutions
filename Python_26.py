@@ -1,5 +1,8 @@
+```Python
 def remove_duplicates(numbers: list[int]) -> list[int]:
     if not numbers:
         return []
     
-    return [num for i, num in enumerate(sorted(set(numbers)))]
+    unique_numbers = set(numbers)
+    sorted_unique_numbers = sorted(unique_numbers)
+    return [num for num in sorted_unique_numbers]
