@@ -1,15 +1,11 @@
-```cpp
 #include <vector>
 
-bool issame(int a, int b) {
-    if(a == b)
-        return true;
-    else 
-        return false;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
     int stones = 1;
     for (int i = 0; i < n; i++) {
         if ((n % 2) == 1) { 
@@ -21,4 +17,19 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements for the pile: ";
+    cin >> n;
+    vector<int> pile = make_a_pile(n);
+    
+    bool check = issame(pile, {1,2,3,4});
+    if(check)
+        cout << "The given condition is met." << endl;
+    else
+        cout << "The given condition is not met." << endl;
+    
+    return 0;
 }
