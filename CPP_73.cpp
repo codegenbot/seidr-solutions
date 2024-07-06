@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -15,7 +14,6 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-int main() {
-    std::cout << "The smallest number of operations required to make all the digits the same is: " << smallest_change({1,2,3,4}) << std::endl;  
-    return 0;
+void main() {
+    std::cout << "Hello World!" << std::endl;  
 }
