@@ -1,3 +1,4 @@
+```
 #include <string>
 
 string anti_shuffle(string s){
@@ -6,15 +7,15 @@ string anti_shuffle(string s){
         if(s[i] == ' '){
             result += ' ';
         }else{
-            char c = s[i];
-            while(c != ' ' && i < s.length()){
-                int j = i+1;
-                while(j < s.length() && s[j] <= c){
-                    c = s[j];
-                    j++;
+            bool first = true;
+            while(i < s.length()){
+                if(first || s[i] > result.back()){
+                    result += s[i];
+                    i++;
+                    first = false;
+                } else {
+                    i++;
                 }
-                result += c;
-                i = j-1;
             }
         }
     }
