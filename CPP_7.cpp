@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -14,10 +13,10 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    std::vector<std::string> b_var = b; // declaring variable 'b'
-    return (a==b_var);
+    return (a==b);
 }
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    // ...
 }
