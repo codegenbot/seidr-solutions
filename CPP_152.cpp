@@ -1,7 +1,5 @@
 #include <vector>
-#include <algorithm>
-
-using namespace std;
+#include <cmath>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -13,14 +11,7 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(abs(guess[i] - game[i]));
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
-}
-
-int main() {
-    assert(is_same(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
-    // your code here
-    return 0;
-}

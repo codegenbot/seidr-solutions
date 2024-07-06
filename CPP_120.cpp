@@ -1,12 +1,9 @@
 #include <vector>
 #include <queue>
+#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size()!=b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
-    }
-    return true;
+    // Your implementation here
 }
 
 vector<int> maximum(vector<int> arr,int k){
@@ -20,8 +17,4 @@ vector<int> maximum(vector<int> arr,int k){
     for(int i=k-1;i>=0;--i)
         result[i]=max_heap.top(),max_heap.pop();
     return result;
-}
-
-int main() {
-   // your code here
 }

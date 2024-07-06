@@ -1,13 +1,13 @@
-```cpp
-#include <vector>
+#include <iostream>
 #include <cmath>
+#include <vector>
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num >= 0 && int(num) == num) { 
-            if (int(num) % 2 != 0) { 
-                sum += pow(int(num), 2);
+        if (num > 0 && floor(num) == num) { 
+            if (num % 2 != 0) { 
+                sum += pow(num, 2); 
             }
         }
     }
@@ -15,8 +15,7 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.5, 3.0, -4.0, 7.0};
-    long long result = double_the_difference(lst);
-    cout << "The result is: " << result << endl;
+    std::vector<float> lst; // define your vector here
+    int result = double_the_difference(lst);
     return 0;
 }
