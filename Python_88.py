@@ -1,4 +1,3 @@
-```
 def sort_array(*args):
     while True:
         user_choice = input("Do you want to sort array? (S for yes): ")
@@ -25,11 +24,16 @@ def sort_array(*args):
 
     while True:
         user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
-        if user_choice.upper() in ['S', 'U']:
+        if user_choice.upper() in ["S", "U"]:
             break
         else:
             print(
                 "Error: Invalid choice. Please enter S for sorting or U for finding unique elements."
             )
 
-    return sorted(arr) if user_choice.upper() == 'S' else set(arr)
+    while True:
+        try:
+            return sorted(arr) if user_choice.upper() == "S" else set(arr)
+            break
+        except Exception as e:
+            print("An unexpected error occurred.")
