@@ -1,16 +1,21 @@
-```
+from typing import List
+
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    nested = 0
-    for char in paren_string:
-        if char == '(':
-            nested += 1
-        elif char == ')':
-            nested -= 1
-        if nested > (max := len(result)):
-            result.append(nested)
-        elif nested < 0:
-            while nested < 0:
-                if result.pop() == max - 1:
-                    break
+    for group in paren_string.split(", "):
+        level = 0
+        max_level = 0
+        for char in group:
+            if char == "(":
+                level += 1
+            elif char == ")":
+                level -= 1
+            max_level = max(max_level, level)
+        result.append(max_level)
     return result
+
+
+print(parse_nested_parens("((()))"))  # [3]
+print(parse_nested_parens("(())()"))  # [2,1]
+print(parse_nested_parens(""))  # []
