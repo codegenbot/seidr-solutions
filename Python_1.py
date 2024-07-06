@@ -1,4 +1,3 @@
-```
 def solution(paren_string):
     stack = []
     temp_str = ''
