@@ -1,4 +1,7 @@
 def sum_squares(lst):
+    if not isinstance(lst, list) or len(lst) == 0:
+        raise ValueError("Input must be a non-empty list")
+    
     total_sum = 0
     for i in range(len(lst)):
         if i % 3 == 0 and i % 4 != 0:
