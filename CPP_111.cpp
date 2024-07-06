@@ -1,6 +1,5 @@
-#include <string>
-#include <map>
 #include <vector>
+
 using namespace std;
 
 map<char, int> histogram(string test) {
