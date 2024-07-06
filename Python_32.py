@@ -1,4 +1,4 @@
-def find_zero(xs: list):
+def find_zero(xs: list) -> int:
     for i in range(len(xs)):
         if xs[i] == 0:
             return i
