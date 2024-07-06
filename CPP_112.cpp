@@ -56,7 +56,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-int testMain() {
+int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
     compareVectorsAndPrint({ "", "True" }, result);
     if (!compareVectors({ "", "True" }, result)) {
