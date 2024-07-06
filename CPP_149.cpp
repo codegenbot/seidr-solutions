@@ -38,6 +38,6 @@ vector<string> vector_sort(vector<string> lst) {
 
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> output = vector_sort(input);
-    assert(issame(output, {"ccc", "dd", "aaaa", "bbbb"}));
+    vector<string> expected = {"ccc", "dd", "aaaa", "bbbb"};
+    assert(issame(vector_sort(input), expected));
 }
