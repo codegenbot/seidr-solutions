@@ -1,7 +1,19 @@
-int main {
+#include <vector>
+
+bool below_zero(std::vector<int> operations){
+    int balance = 0;
+    for (int operation : operations) {
+        balance += operation;
+        if (balance < 0) return true;
+    }
+    return false;
+
+int main() {
+    {std::vector<int> operations;
+    int num_operations;
+
     // Read the number of operations from user
     std::cout << "Enter the number of operations: ";
-    int num_operations;
     std::cin >> num_operations;
 
     // Read each operation from user and store it in the vector
@@ -9,7 +21,6 @@ int main {
         int operation;
         std::cout << "Enter operation " << i + 1 << ": ";
         std::cin >> operation;
-        std::vector<int> operations;
         operations.push_back(operation);
     }
 
@@ -23,5 +34,4 @@ int main {
         std::cout << "The total balance is not below zero.\n";
     }
 
-    return 0;
-}
+    return 0;}
