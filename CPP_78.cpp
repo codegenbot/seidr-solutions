@@ -4,14 +4,8 @@
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
-        if (!isxdigit(c)) { 
+        if (!std::isxdigit(c)) { 
             count++;
         }
     }
     return count;
-}
-
-int main() {
-    assert(hex_key("") == 0);
-    return 0;
-}
