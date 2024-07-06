@@ -1,12 +1,25 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+using namespace std;
+
+bool isSame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] == guess[i]) {
+            result.push_back(0);
+        } else {
+            result.push_back(abs(game[i] - guess[i]));
+        }
+    }
+    return result;
+}
+
 int main() {
-    assert(issame({1, 2, 3, 5}, {-1, 2, 3, 4}) == false);
-    assert(issame({1, 2, 3, 5}, {1, 2, 3, 5}) == true);
-    
+    assert(isSame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
