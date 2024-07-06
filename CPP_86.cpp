@@ -1,24 +1,35 @@
 #include <string>
+#include <algorithm>
 
 string anti_shuffle(string s) {
     string result = "";
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == ' ') {
-            result += ' ';
-            i++;
+            result += " ";
         } else {
             string word = "";
-            while (i < s.length() && s[i] != ' ') {
-                word += s[i];
-                i++;
+            bool first = true;
+            for (int j = i; j < s.size() && s[j] != ' '; j++) {
+                if (first) {
+                    first = false;
+                } else {
+                    word += s[j];
+                }
             }
             for (char c : word) {
-                result += c;
+                result += min_element(word.begin(), word.end()) -> second; // return the smallest character
             }
-            if (i < s.length()) {
-                result += ' ';
-            }
+            i += word.size() - 1;
         }
     }
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    string output = anti_shuffle(input);
+    cout << "Anti-shuffled string: " << output << endl;
+    return 0;
+}
