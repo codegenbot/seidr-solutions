@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <cmath> 
-
+#include <cmath> // for std::abs
 using namespace std;
 
 bool has_close_elements(vector<float> numbers, float threshold){
