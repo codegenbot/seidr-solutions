@@ -7,6 +7,7 @@ def cycpattern_check(a, b):
         rotated_a = a[i:] + a[:i]
         if b in a or b in rotated_a:
             return True
-    if cycpattern_check(b, a):
-        return True
+    if a != b:  
+        if cycpattern_check(b, a):  
+            return True
     return False
