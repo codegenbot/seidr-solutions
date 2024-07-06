@@ -12,18 +12,16 @@ while True:
 
 while True:
     while True:
-        try:
-            b = float(input("Enter 'b' value: "))
-            c = float(input("Enter 'c' value: "))
-            if b == 0 or c == 0:
-                print("Please enter non-zero values.")
-            else:
-                break
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+        b = float(input("Enter 'b' value: "))
+        c = float(input("Enter 'c' value: "))
 
-    if b**2 - 4 * a * c < 0:
-        print("Invalid input. Please try again.")
-    else:
-        result = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
-        print(f"Zero is approximately {result:.2f}")
+        if b == 0 or c == 0:
+            print("Please enter non-zero values.")
+        elif b**2 - 4 * a * c < 0:
+            print("Invalid input. Please try again.")
+        else:
+            break
+    break
+
+result = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
+print(f"Zero is approximately {result:.2f}")

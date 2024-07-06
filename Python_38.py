@@ -1,5 +1,6 @@
 ```
-def decode_cyclic(s):
+def decode_cyclic():
+    s = input()
     if not isinstance(s, str):
         return "Invalid input. Please provide a string."
     result = ""
@@ -8,15 +9,8 @@ def decode_cyclic(s):
         group = s[i:i+3]
         if group[0] == group[1] and group[0] == group[2]:
             result += group[0]
-        elif group[0] != group[1]:
-            result += group[0] + group[1]
+            i += 2  
         else:
-            j = 2
-            while j > 0 and i + j < len(s):
-                if s[i+j] == group[0]:
-                    result += group[0]
-                    i += j
-                    break
-                j -= 1
+            result += group
         i += 3
-    return s
+    return result
