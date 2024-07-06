@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     if not isinstance(lst, list) or len(lst) == 0:
         raise ValueError("Input must be a non-empty list")
@@ -7,8 +6,10 @@ def sum_squares(lst):
     for num in lst:
         if not isinstance(num, (int, float)):
             raise ValueError(f"Invalid input '{num}' found. Input must contain only numbers.")
-        if num % 2 == 0:
+        if num <= 0:
+            raise ValueError(f"All numbers should be positive. Found a negative number: {num}")
+        if num > 0:
             total_sum += num ** 2
         else:
-            total_sum += num ** 2
+            raise ValueError(f"All numbers should be positive. Found a negative number: {num}")
     return total_sum
