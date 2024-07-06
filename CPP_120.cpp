@@ -1,10 +1,10 @@
-Here is the completed code:
+Here is the solution:
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
+    vector<int> result(arr.size());
     for (int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
+        result[i] = *it;
         arr.erase(it);
     }
     return result;
