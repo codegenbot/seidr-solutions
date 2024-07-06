@@ -1,22 +1,23 @@
+#include<stdio.h>
+#include<math.h>
+#include<string>
+using namespace std;
+
 string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
-    long sum = 0;
-    for (int i = n; i <= m; i++) {
+    if (n > m)
+        return "-1";
+    double sum = 0;
+    for (int i = n; i <= m; ++i)
         sum += i;
+    int average = round(sum / (m - n + 1));
+    string result = "";
+    while (average > 0) {
+        if (average & 1)
+            result.push_back('1');
+        else
+            result.push_back('0');
+        average >>= 1;
     }
-    double avg = round((double)sum / (m - n + 1));
-    string bin = "";
-    while (avg > 0) {
-        if (avg >= 2.0) {
-            avg -= 2.0;
-            bin = "1" + bin;
-        } else if (avg == 1.0) {
-            avg = 0.0;
-            bin = "1" + bin;
-        } else {
-            avg = round(avg);
-            bin = "0" + bin;
-        }
-    }
-    return bin;
+    reverse(result.begin(), result.end());
+    return result;
 }
