@@ -1,8 +1,5 @@
-def car_race_collision(n):
-    num_cars = n
-    counter = 0
-    for i in range(num_cars):
-        for j in range(i+1, num_cars):
-            if (i == j) or (i + j) % 2 == 0:
-                counter += 1
-    return counter
+def car_race_collision(n: int):
+    left_to_right = range(1, n + 1)
+    right_to_left = range(n, 0, -1)
+    collisions = set(left_to_right).intersection(right_to_left)
+    return len(collisions)
