@@ -8,4 +8,6 @@ def parse_nested_parens(paren_string: str) -> list[int]:
             result.append(level)
         elif char == ')':
             level -= 1
+            if level < 0:
+                return [level] if level > 0 else []
     return [level] if level > 0 else []
