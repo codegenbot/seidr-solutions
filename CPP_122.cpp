@@ -1,18 +1,11 @@
-#include <vector>
-#include <string>
+#include 
 
-int add_elements(std::vector<int> arr, int k) {
+int add_elements(vector<int> arr, int k) {
     int sum = 0;
-    for (int i = 0; i < std::min(k, (int)arr.size()); i++) {
-        if (std::to_string(arr[i]).size() <= 2) {
+    for (int i = 0; i < min(k, (int)arr.size()); i++) {
+        if (to_string(arr[i]).size() <= 2) {
             sum += arr[i];
         }
     }
     return sum;
-}
-
-int main() {
-    assert(add_elements({1}, 1) == 1);
-    // Add more test cases as needed
-    return 0;
 }
