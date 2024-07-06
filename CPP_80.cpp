@@ -1,6 +1,6 @@
 #include <string>
 
-bool is_happy(string s) {
+bool is_happy(string s){
     if(s.length() < 3) return false;
     for(int i = 0; i <= s.length()-3; i++){
         string sub = s.substr(i, 3);
@@ -18,4 +18,3 @@ bool is_happy(string s) {
         if(!unique) return false;
     }
     return true;
-}
