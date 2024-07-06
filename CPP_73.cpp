@@ -1,5 +1,7 @@
+```c++
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int smallest_change(std::vector<int> arr) {
     std::string str = "";
@@ -14,6 +16,7 @@ int smallest_change(std::vector<int> arr) {
     }
     return changes;
 
-void main() {
-    std::cout << "Hello World!" << std::endl;  
+int main() {
+    std::cout << smallest_change({1, 2, 3}) << std::endl;  
+    return 0;
 }
