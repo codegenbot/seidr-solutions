@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 using namespace std;
 
@@ -6,14 +5,13 @@ vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
-    vector<int> min_max;
     for (int num : lst) {
-        if (num == *min_element(lst.begin(), lst.end())) {
-            result.push_back(num);
-            lst.erase(remove(lst.begin(), lst.end(), num), lst.end());
-        } else if (num == *max_element(lst.begin(), lst.end())) {
-            result.push_back(num);
-            lst.erase(remove(lst.begin(), lst.end(), num), lst.end());
+        if (count(result.begin(), result.end(), num) == 0) {
+            if (count(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())) > count(lst.begin(), lst.end(), num)) {
+                result.push_back(num);
+            } else if (count(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())) > count(lst.end() - 1, lst.rbegin(), num)) {
+                result.push_back(num);
+            }
         }
     }
 

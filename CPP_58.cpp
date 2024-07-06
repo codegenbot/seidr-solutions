@@ -6,16 +6,13 @@
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
-    // Get unique elements from both vectors
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
 
-    // Find the intersection of two sets
     set<int> intersection;
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
                      inserter(intersection, intersection.begin()));
 
-    // Convert the intersection set to a vector and sort it
     vector<int> result;
     for (auto i : intersection) {
         result.push_back(i);
