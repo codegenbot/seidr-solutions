@@ -4,10 +4,8 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    s = string.lower()
-    i = len(s) - 1
-    while i >= 0 and s[i] == s[0]:
-        i -= 1
-    prefix = s[: i + 1]
-    suffix = s[i + 1 :][::-1]
-    return prefix + suffix
+    reverse_string = string[::-1]
+    for i in range(len(string)):
+        if string[: i + 1] == string[: i + 1][::-1]:
+            return string + reverse_string[i:]
+    return string + reverse_string
