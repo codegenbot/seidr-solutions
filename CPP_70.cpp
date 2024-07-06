@@ -12,7 +12,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
-    if (lst.empty()) return result;
+
+    if(lst.empty()) return result;
 
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
