@@ -1,12 +1,12 @@
+```
 #include <string>
-#include <iostream>
-
+#include <iostream> 
 using namespace std;
 
 bool solveBoolean(string s) {
     bool t = true;
     bool f = false;
-
+    
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             return t && f;
@@ -20,7 +20,7 @@ bool solveBoolean(string s) {
             f = true;
         }
     }
-
+    
     return t;
 }
 
@@ -38,3 +38,4 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
+}
