@@ -13,11 +13,8 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst;
-    long long odd_sum;
-
-    lst = {1,3,5,7};
-    odd_sum = 0;
+    std::vector<float> lst = {1,3,5,7};
+    long long odd_sum = 0;
 
     for(auto x : lst){
         if(int(x) > 0 && int(x) % 2 != 0)
