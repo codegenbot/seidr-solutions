@@ -1,20 +1,19 @@
+```
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.append(i) * count
-            i += 1
+    for i in range(2, math.isqrt(n) + 1):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
     if n > 1:
         factors.append(n)
-    return [int(i) for i in set(map(str, factors))]
+    return [factor ** (factors.count(factor)) for factor in set(factors)]
+
+
+n = int(input("Enter a number: "))
+result = factorize(n)
+print(result)
