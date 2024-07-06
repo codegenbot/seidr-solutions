@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <map>
 using namespace std;
@@ -12,8 +13,6 @@ map<char, int> histogram(string test) {
 
     for (int i = 1; i < str.length(); i++) {
         if (str[i] == ' ') {
-            continue;
-        } else if (str[i] != prevChar) {
             if (result.find(prevChar) == result.end()) {
                 result[prevChar] = count;
             } else {
@@ -21,9 +20,18 @@ map<char, int> histogram(string test) {
             }
             prevChar = str[i];
             count = 1;
+        } else if (str[i] != prevChar) {
+            prevChar = str[i];
+            count = 1;
         } else {
             count++;
         }
+    }
+
+    if (result.find(prevChar) == result.end()) {
+        result[prevChar] = count;
+    } else {
+        result[prevChar]++;
     }
 
     return result;
