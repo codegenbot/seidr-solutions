@@ -10,11 +10,19 @@ int add_elements(std::vector<int> arr, int k) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    // Test the function
-    assert(add_elements({1}, 1) == 1);
-    std::cout << "Test passed.\n";
+    std::vector<int> input;
+    int k;
+    cout << "Enter elements: ";
+    for(int i = 0; i < k; i++) {
+        int temp;
+        cin >> temp;
+        input.push_back(temp);
+    }
+    
+    cout << "Sum of elements: " << add_elements(input, k) << endl;
     return 0;
 }
