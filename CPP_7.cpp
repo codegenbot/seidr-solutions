@@ -1,10 +1,9 @@
-```
 #include <vector>
 #include <string>
 
 int main() {
-    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert (issame(result ,{"grunt", "prune"}));
+    vector<string> filtered = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    bool same = issame(filtered,{"grunt", "prune"});
     return 0;
 }
 
