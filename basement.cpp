@@ -6,9 +6,9 @@ int basement(const std::vector<int>& numbers) {
         sum += numbers[i];
         if (sum < 0) return i;
     }
-    return -1; 
+    return -1; // not found
 }
 
-int main() { 
-    return basement({-1, 2, 3, -7, 5, 6, 1}); 
+int main() {
+    return basement({-7,2,-5,10});
 }
