@@ -1,3 +1,4 @@
+```
 def main():
     choice = int(
         input(
@@ -6,7 +7,14 @@ def main():
     )
     if choice == 1:
         N = int(input("Enter a number: "))
-        print(bin(N)[2:])
+        solve = bin(N)[2:]
+        print(solve)
     elif choice == 2:
         N = input("Enter a binary number: ")
-        print(oct(int(N, 2))[2:])
+        solve = oct(int(N, 2))[2:]
+        print(solve)
+    else:
+        print("Invalid choice. Please choose (1) or (2).")
+
+if __name__ == "__main__":
+    main()

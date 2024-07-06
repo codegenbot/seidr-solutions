@@ -3,3 +3,6 @@ def fix_spaces(text):
     while "__" in text:
         text = text.replace("__", "_")
     return text
+
+text = input().strip()
+print(fix_spaces(text))
