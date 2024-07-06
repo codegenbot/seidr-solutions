@@ -2,15 +2,7 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -36,18 +28,9 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<vector<string>> test_cases = {{{"", "()"}, {"()"}}};
-    for (auto& case_: test_cases) {
-        string actual = "";
-        for (const auto& paren_string : case_) {
-            actual += "(" + separate_paren_groups(paren_string).at(0) + ")";
-        }
-        cout << "Expected: ";
-        for (const auto& expected_group : case_[1]) {
-            cout << "(" + expected_group + ")"; 
-        } 
-        cout << endl;
-        cout << "Actual: " << actual << endl;
-    }
+    vector<vector<string>> expected = {{"()"}, {"()"}, {"()"}};
+    vector<string> actual = separate_paren_groups("( ) (( )) (( )( ");
+    bool are_same = issame(actual, expected);
+    assert(are_same);
     return 0;
 }
