@@ -1,6 +1,6 @@
 def find_zero(xs):
-    left_sum = 0
-    right_sum = sum(xs[len(xs)//2+1:])
-    for i in range(len(xs) // 2):
-        left_sum += xs[i]
-    return -(left_sum - right_sum) / (right_sum + left_sum)
+    n = len(xs) // 2
+    for i in range(len(xs)):
+        if xs[i] == 0:
+            return -xs[n - 1] / xs[i]
+    return -xs[n - 1] / xs[-1]
