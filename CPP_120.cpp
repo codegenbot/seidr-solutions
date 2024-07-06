@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,11 +6,30 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end());
-    std::vector<int> result; // Initialize result vector
+    std::vector<int> result;
     for (int i = 0; i < k; ++i) {
-        result.push_back(arr.back());
-        arr.pop_back();
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
-    return arr;
+    return result;
+}
+
+int main() {
+    int n, k;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> arr[i];
+    }
+    std::cout << "Enter k: ";
+    std::cin >> k;
+    
+    auto res = maximum(arr, k);
+    
+    for (int x : res)
+        std::cout << x << " ";
+    return 0;
 }
