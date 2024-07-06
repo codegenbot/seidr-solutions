@@ -1,19 +1,25 @@
+```
 #include <iostream>
 #include <string>
 
 std::string encrypt(std::string s);
 
-int main() 
-{
+int main() {
     assert(encrypt("a") == "e");
     std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
+    try {
+        std::cout << "Enter a string: ";
+        std::cin >> s;
+        if(s.length() == 0) {
+            throw std::runtime_error("Error: Input cannot be empty.");
+        }
+        std::cout << "Encrypted string: " << encrypt(s) << std::endl;
+    } catch(const std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 }
 
-std::string encrypt(std::string s) 
-{
+std::string encrypt(std::string s) {
     std::string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
@@ -25,3 +31,4 @@ std::string encrypt(std::string s)
         result += c;
     }
     return result;
+}
