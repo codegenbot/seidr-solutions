@@ -21,18 +21,14 @@ std::vector<int> get_odd_collatz(int n) {
 
 int main() {
     assert(issame({get_odd_collatz(12)}, {1, 2, 6}) == true);
-    int num;
+    int n;
     std::cout << "Enter a number: ";
-    std::cin >> num;
-    if (num < 0) {
-        std::cout << "Error: Please enter a non-negative integer." << std::endl;
-    } else {
-        std::vector<int> result = get_odd_collatz(num);
-        std::cout << "The Collatz Conjecture sequence for " << num << " is ";
-        for (int i : result) {
+    std::cin >> n;
+    auto collatz = get_odd_collatz(n);
+    if (collatz.size() > 0) {
+        for (int i : collatz)
             std::cout << i << " ";
-        }
-        std::cout << std::endl;
     }
-    return 0;
+    else
+        std::cout << "No sequence found." << std::endl;
 }
