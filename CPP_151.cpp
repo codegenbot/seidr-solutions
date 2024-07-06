@@ -1,4 +1,3 @@
-```c++
 int mainTest() {
     std::vector<float> lst;
     long long odd_sum = 0;
