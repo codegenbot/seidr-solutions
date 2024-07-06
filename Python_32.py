@@ -1,5 +1,4 @@
-```
-print("This program calculates the root of a quadratic equation.")
+print("This program calculates the roots of a quadratic equation.")
 print("Enter non-zero values for 'a', 'b', 'c': ")
 while True:
     try:
@@ -35,5 +34,6 @@ while True:
     if b**2 - 4 * a * c <= 0:
         print("This equation does not have real roots.")
     else:
-        result = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
-        print(f"Zero is approximately {result:.2f}")
+        r1 = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
+        r2 = (-b - (b**2 - 4 * a * c) ** 0.5) / (2 * a)
+        print(f"Zeroes are approximately {r1:.2f} and {r2:.2f}")
