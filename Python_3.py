@@ -1,7 +1,5 @@
 ```
 def calculate_average_grade():
-    total = 0
-    count = 0
     while True:
         try:
             grades = list(map(float, input("Enter your grades (space-separated): ").split()))
@@ -10,11 +8,7 @@ def calculate_average_grade():
         except ValueError:
             print("Invalid grade! Please enter a positive number.")
     
-    for grade in grades:
-        total += grade
-        count += 1
-    
-    average_grade = total / count
+    average_grade = sum(grades) / len(grades)
 
     if average_grade < 3.0:
         print(f"Your average grade is {average_grade:.2f}. You failed.")
