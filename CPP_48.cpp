@@ -1,12 +1,8 @@
-```
-int left = 0;
-int right = text.length() - 1;
-
-while(left <= right) {
-    if(text[left] != text[right])
-        return false;
-    left++;
-    right--;
+bool is_palindrome(string text) {
+    string t = text;
+    for (int i = 0; i < t.length() / 2; ++i) {
+        if (t[i] != t[t.length() - 1 - i])
+            return false;
+    }
+    return true;
 }
-
-return true;
