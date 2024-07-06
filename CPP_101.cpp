@@ -1,7 +1,9 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool compare(vector<string> a, vector<string> b) {
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,9 +15,9 @@ bool compare(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> words(string s) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> wordsString(const std::string& s) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -30,4 +32,20 @@ vector<string> words(string s) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
+
+    std::vector<std::string> words = wordsString(s);
+
+    if (isSame(words, {"Hello", "World"})) {
+        std::cout << "The words are the same.\n";
+    } else {
+        std::cout << "The words are different.\n";
+    }
+
+    return 0;
 }
