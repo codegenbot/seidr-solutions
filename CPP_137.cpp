@@ -52,5 +52,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
 
+    // If none of the above conditions are met, return the first value
     return a;
 }
