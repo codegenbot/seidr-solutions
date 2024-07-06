@@ -3,7 +3,7 @@ def parse_nested_parens(s):
     while "{}" in s:
         start = s.index("{")
         end = s.index("}")
-        inner_input = input().strip()
+        inner_input = input().strip() or "default_input"
         s = s[:start] + inner_input + s[end+1:]
     return s
 

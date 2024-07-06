@@ -1,4 +1,4 @@
-```
+```"""
 def parse_music(music_string: str) -> list:
     if not music_string:
         return []
@@ -21,9 +21,14 @@ def parse_music(music_string: str) -> list:
             music_list.append(2)
             i += 2
         elif i+4 <= len(music_string) and music_string[i:i+3] == 'o o|':
-            music_list.append(1)
-            i += 3
+            if i+5 <= len(music_string) and music_string[i+1:i+4] == 'o o o':
+                music_list.append(0)
+                i += 4
+            else:
+                music_list.append(1)
+                i += 3
         else:
             print("Invalid input")
         i += 1
     return music_list
+"""```
