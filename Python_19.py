@@ -9,7 +9,7 @@ def sort_numbers(numbers: str) -> str:
         "six": 6,
         "seven": 7,
         "eight": 8,
-        "nine": 9,
+        "nine": 9
     }
     nums = list(map(lambda x: int(x) if x.isdigit() else num_dict[x], numbers.split()))
     return " ".join(sorted(map(str, set(nums))))
