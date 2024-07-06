@@ -11,4 +11,4 @@ def sort_third(input_list):
     if current_group:  
         result.append(tuple(sorted(current_group)))
 
-    return tuple(result)
+    return tuple(sorted(result))
