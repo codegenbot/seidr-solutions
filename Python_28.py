@@ -8,4 +8,4 @@ def concatenate(*args: List[str]) -> List[str]:
         if s.lower() == "stop":
             break
         strings.append(s)
-    return [s.strip() for s in strings]
+    return [" ".join([s.strip() for s in args]), *strings]
