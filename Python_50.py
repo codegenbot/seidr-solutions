@@ -1,5 +1,7 @@
 ```
 def decode_shift():
+    # 
+
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
     while not isinstance(direction, str):
