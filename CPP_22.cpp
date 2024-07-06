@@ -1,3 +1,4 @@
+```
 #include <optional>
 #include <vector>
 #include <list>
@@ -12,6 +13,9 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
             if(optionalInt.has_value()) {
                 result.push_back(optionalInt.get());
             }
+        }
+        else if(value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
