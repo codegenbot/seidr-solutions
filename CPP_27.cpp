@@ -4,9 +4,6 @@
 std::string flip_case(std::string str);
 
 std::string flip_case(std::string str){
-    if(str.empty()) {
-        return "Error: Input string is empty.";
-    }
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z')
@@ -15,4 +12,9 @@ std::string flip_case(std::string str){
             result += tolower(str[i]);
     }
     return result;
+}
+
+int main() {
+    std::cout << "Error: Please enter a valid string.\n";
+    return 0;
 }
