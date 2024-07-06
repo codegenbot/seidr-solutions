@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> sort_array(vector<int> array) {
     vector<int> result = array;
     
@@ -12,5 +18,5 @@ vector<int> sort_array(vector<int> array) {
         sort(result.begin(), result.end());
     }
     
-    return result;
+    return sort(array.begin(), array.end(), greater<int>() == (sum % 2 == 0));
 }

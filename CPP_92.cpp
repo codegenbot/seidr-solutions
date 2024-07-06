@@ -1,6 +1,4 @@
-```
-#include<iostream>
-
+```cpp
 bool any_int(float a, float b, float c) {
     if (a == static_cast<int>(a) && 
         b == static_cast<int>(b) && 
@@ -11,12 +9,6 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    float a, b, c;
-    std::cout << "Enter three float numbers: ";
-    std::cin >> a >> b >> c;
-    if (any_int(a, b, c))
-        std::cout << "Any two of the input values are equal.\n";
-    else
-        std::cout << "The input values are distinct.\n";
+    assert(any_int(3.01, 4, 7) == false);  
     return 0;
 }
