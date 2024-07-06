@@ -3,7 +3,7 @@ def luhn_algorithm(digits):
     for i in range(16):
         if i % 2 == 0:
             digit = digits[i] * 2
-            if digit > 9:
+            while digit > 9:
                 digit -= 9
             sum += digit
         else:
