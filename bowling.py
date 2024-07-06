@@ -1,9 +1,9 @@
 def calculate_score(games):
-    frames = games.replace('/', '')
+    frames = games.replace("/", "")
     current_roll = 0
     score = 0
 
-    for i in range(0, len(frames), 1):
+    for i in range(len(frames)):
         if frames[i].isdigit():
             current_roll = current_roll * 10 + int(frames[i])
         else:
