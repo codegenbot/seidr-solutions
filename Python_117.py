@@ -1,3 +1,8 @@
 def select_words(s, n):
     words = s.split()
-    return [word for word in words if any(c.islower() for c in word)]
+    if n <= 0:
+        return []
+    elif n == 1:
+        return list(filter(lambda x: x.islower(), words))
+    else:
+        return words[:n]

@@ -6,13 +6,12 @@ def find_zero(x):
     else:
         return 0
 
+
 if __name__ == "__main__":
+    # Read user input and convert to integer
     while True:
         try:
-            x = int(input("Enter a number: "))
-            if not str(x).isdigit():
-                print("Invalid input. Please enter an integer.")
-                continue
+            x = int(raw_input("Enter a number: "))
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
