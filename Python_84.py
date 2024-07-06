@@ -1,3 +1,2 @@
-```
 def solve(N):
-    return bin(sum(int(i) for i in str(N)))```
+    return bin(int(''.join(map(str, str(N)))))
