@@ -7,5 +7,5 @@ while True:
     try:
         print(digitSum())
         break
-    except ValueError:
+    except (ValueError, EOFError):
         print("Invalid input. Please enter an integer.")
