@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
 
@@ -18,10 +19,8 @@ vector<string> split(const string& str, const string& delimiter) {
 string anti_shuffle(string s){
     string result = "";
     for (const auto& word : split(s, " ")) {
-        string accumulator = "";
-        for (char c : word)
-            accumulator += c;
-        result += accumulator + " ";
+        result += std::accumulate(word.begin(), word.end(),
+            string{}, [](string acc, char c) { return acc + c; }) + " ";
     }
     return result.substr(0, result.size() - 1);
 }
@@ -32,6 +31,6 @@ int main() {
     getline(cin, s);
 
     cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
-    
+
     return 0;
 }
