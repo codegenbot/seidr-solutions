@@ -5,25 +5,31 @@
 
 int calculateSumOfDigitsLargestPrime(std::vector<int> lst) {
     int maxPrime = -1;
-    for(int i = 0; i < lst.size(); i++) {
-        bool isPrime = true;
-        for (int j = 2; j <= std::sqrt(lst[i]); j++) {
-            if (lst[i] % j == 0) {
-                isPrime = false;
-                break;
-            }
+    for (int num : lst) {
+        if (isPrime(num)) {
+            if (num > maxPrime)
+                maxPrime = num;
         }
-        if(isPrime && lst[i] > maxPrime)
-            maxPrime = lst[i];
-    }
-
-    int sumOfDigits = 0;
-    while(maxPrime > 0) {
-        sumOfDigits += (maxPrime % 10);
-        maxPrime /= 10;
     }
     
-    return sumOfDigits;
+    return isSumOfDigits(maxPrime);
+}
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++)
+        if (n % i == 0)
+            return false;
+    return true;
+}
+
+int isSumOfDigits(int n) {
+    int sum = 0;
+    while(n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
 }
 
 int main_test(std::vector<int> lst) {
