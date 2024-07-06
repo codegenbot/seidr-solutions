@@ -4,5 +4,5 @@ float snow_day(int hours, float initial_snow, float rate_of_snowfall, float prop
         current_snow += rate_of_snowfall;
         current_snow -= current_snow * proportion_of_melting;
     }
-    return current_snow;
+    return current_snow - initial_snow;
 }

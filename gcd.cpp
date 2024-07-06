@@ -1,4 +1,4 @@
-    #include <vector>
+#include <vector>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,14 +10,10 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    size_t start = 0;
-    while (start < text.size()) {
-        size_t pos = text.find(target, start);
-        if (pos != string::npos) {
-            indices.push_back(pos);
-            start = pos + target.size();
-        } else {
-            break;
+    for (int i = 0; i < text.size() - target.size() + 1; ++i) {
+        int index = text.find(target, i);
+        if (index != -1) {
+            indices.push_back(index);
         }
     }
     return indices;
