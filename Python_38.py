@@ -5,7 +5,13 @@ def decode_cyclic():
     result = ""
     i = 0
     while i < len(s):
-        result += s[i]
+        group = s[i:i+3]
+        if group[0] == group[1] and group[0] == group[2]:
+            if not result or result[-1] != group[0]: 
+                result += group[0] * 3
+            i += 3 
+        else:
+            result += group[0]
         i += 1
     return result
 
