@@ -11,4 +11,3 @@ int prod_signs(vector<int> arr) {
         product *= (num > 0 ? 1 : -1);
     }
     return product * sum;
-}
