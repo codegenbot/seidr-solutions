@@ -1,10 +1,3 @@
-```
-"""
-This function checks whether there exist three integers in the given list that sum to zero.
-It sorts the list first then uses two pointers (one from the left and one from the right) 
-to find a triplet with sum equal to zero.
-"""
-
 def triples_sum_to_zero(l: list):
     l.sort()
     for i in range(len(l) - 2):
