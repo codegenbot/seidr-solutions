@@ -1,7 +1,7 @@
 #include <cassert>
 #include <vector>
 
-int skjkasdkd(const std::vector<int>&); // Declare function before use
+int skjkasdkd(const std::vector<int>&);
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
