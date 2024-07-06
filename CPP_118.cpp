@@ -1,32 +1,22 @@
-#include <string>
-using namespace std;
-
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int right = word.size() - 1; right >= 0; --right) {
-        if (!isvowel(word[right])) {
-            left = right + 1;
-            break;
-        }
-    }
-    
-    for (int i = left; i < word.size(); ++i) {
+    int n = word.size();
+    for (int i = n - 1; i > 0; --i) {
         if (isvowel(word[i])) {
-            return string(1, topper(word[i]));
+            for (int j = i - 1; j >= 0; --j) {
+                if (!isvowel(word[j]) && !isconsonant(word[j])) break;
+                if (!isvowel(word[j]) && isconsonant(word[j])) return word.substr(i, 1);
+            }
         }
     }
-    
     return "";
 }
 
 bool isvowel(char c) {
-    c = topper(c);
-    return c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-char topper(char c) {
-    if (c >= 'a' && c <= 'z')
-        return c - ('a' - 'A');
-    else
-        return c;
+bool isconsonant(char c) {
+    c = tolower(c);
+    return (!isvowel(c));
 }
