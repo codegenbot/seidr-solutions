@@ -1,10 +1,11 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<int>& grades) {
     std::vector<std::string> result;
-    
+
     for (int grade : grades) {
         if (grade >= 90)
             result.push_back("A");
@@ -17,11 +18,11 @@ std::vector<std::string> numerical_letter_grade(const std::vector<int>& grades) 
         else
             result.push_back("F");
     }
-    
+
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool std::issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -32,6 +33,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int main() {
     std::vector<int> grades = {0, 70};
     std::vector<std::string> expected = {"F", "D"};
-    assert(issame(numerical_letter_grade(grades), expected));
+    assert(std::issame(numerical_letter_grade(grades), expected));
     return 0;
 }
