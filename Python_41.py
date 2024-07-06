@@ -1,2 +1,2 @@
 def car_race_collision(n: int):
-    return n
+    return (n * (3 * n - 1)) // 2
