@@ -3,14 +3,9 @@ def decode_cyclic(s: str):
     i = 0
     while i < len(s):
         if i + 3 <= len(s):
-            group = s[i : i + 3]
+            group = s[i : i + 2]
         else:
             group = s[i:]
-        if i == 0:
-            result += group[1:]
-        elif i % 2 == 0:
-            result += group[1] + group[0] + group[2]
-        else:
-            result += group
-        i += 3
+        result += group[1] + (group[0] if i > 0 else "")
+        i += 2
     return result
