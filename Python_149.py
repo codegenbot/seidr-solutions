@@ -1,3 +1,4 @@
+
 def sorted_list_sum(lst):
     result = []
     for word in lst:
