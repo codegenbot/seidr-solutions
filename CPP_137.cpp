@@ -1,41 +1,50 @@
-```
-#include <boost/any.hpp>
-using namespace boost;
+```c++
+#include "/usr/include/boost/any.hpp"
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any(b.convert_to<int>() > a.convert_to<int>() ? b : a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = a.convert_to<string>();
-        string str2 = b.convert_to<string>();
-        size_t pos = str1.find('.');
-        if (pos != string::npos) {
-            str1 = str1.substr(0, pos);
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)boost::any_cast<int>(a) > boost::any_cast<double>(b)
+            ? a
+            : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return boost::any_cast<double>(a) > boost::any_cast<int>(b)
+            ? a
+            : b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str_a = boost::any_cast<std::string>(a);
+        std::string str_b = boost::any_cast<std::string>(b);
+
+        if (str_a == "None" || str_b == "None") {
+            return "None";
         }
-        pos = str2.find(',');
-        if (pos != string::npos) {
-            str2 = str2.substr(0, pos);
+
+        double num_a = std::stod(str_a);
+        double num_b = std::stod(str_b);
+
+        return num_a > num_b ? a : b;
+    } else if (a.type() == typeid(std::string) && b.type() != typeid(std::string)) {
+        std::string str_a = boost::any_cast<std::string>(a);
+        double num_b = boost::any_cast<double>(b);
+
+        if (str_a == "None") {
+            return "None";
         }
-        return boost::any(str2 > str1 ? b : a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float f = b.convert_to<float>();
-        string s = a.convert_to<string>();
-        size_t pos = s.find('.');
-        if (pos != string::npos) {
-            s = s.substr(0, pos);
+
+        double num_a = std::stod(str_a);
+
+        return num_a > num_b ? a : b;
+    } else if (a.type() != typeid(std::string) && b.type() == typeid(std::string)) {
+        double num_a = boost::any_cast<double>(a);
+        std::string str_b = boost::any_cast<std::string>(b);
+
+        if (str_b == "None") {
+            return "None";
         }
-        return boost::any(f > stof(s) ? b : a);
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float f = a.convert_to<float>();
-        string s = b.convert_to<string>();
-        size_t pos = s.find(',');
-        if (pos != string::npos) {
-            s = s.substr(0, pos);
-        }
-        return boost::any(stof(s) > f ? b : a);
+
+        double num_b = std::stod(str_b);
+
+        return num_a > num_b ? a : b;
     } else {
-        return boost::any(a.convert_to<int>() == b.convert_to<int>() ? boost::any("None") : (a.convert_to<float>() > b.convert_to<float>() ? a : b));
+        throw std::invalid_argument("Invalid type");
     }
 }
