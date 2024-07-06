@@ -29,14 +29,9 @@ def minPath(grid, k):
                     if 0 <= nx < len(grid) and 0 <= ny < len(grid[i]):
                         queue.append((nx, ny))
 
-            # Check if the path length exceeds k
-            if len(min_path) > k:
-                # If so, return None
-                return None
+    # If the minimum path is not found, return None
+    if min_path == []:
+        return None
 
-    # Return the minimum path
-    return min_path
-
-
-# Test case 1
-print(minPath([[1, 3], [3, 2]], 10))  # Should print [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
+    # Return the minimum path length
+    return min_len
