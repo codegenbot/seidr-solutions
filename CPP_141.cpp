@@ -1,14 +1,14 @@
-```
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
     string file_name;
-    cout << "Enter a file name: ";
-    cin >> file_name;
-    cout << file_name_check(file_name) << endl;
+    std::cout << "Enter a file name: ";
+    std::getline(std::cin, file_name);
+    
+    std::cout << file_name_check(file_name) << std::endl;
+
+    return 0;
 }
 
 string file_name_check(string file_name){
