@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```
 def minPath(grid, k):
     grid = [list(map(int, input().split())) for _ in range(len(grid))]
     n = len(grid)
