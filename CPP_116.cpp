@@ -1,14 +1,11 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-#include<algorithm>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_array(vector<int> arr){
-    sort(arr.begin(), arr.end(), 
-         [](int a, int b) {
-             return bitset<32>(a).count() < bitset<32>(b).count() ||
-                    (bitset<32>(a).count() == bitset<32>(b).count() && a < b);
-         });
-    return arr;
+vector<int> sort_vector(vector<int> arr) {
+    vector<pair<int, int>> vec;
+    for (int i : arr) {
+        vec.push_back({__builtin_popcount(i), i});
+    }
+    sort(vec.begin(), vec.end());
+    return vector<int>(vec.begin(), vec.end());
 }
