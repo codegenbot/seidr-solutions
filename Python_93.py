@@ -1,5 +1,3 @@
-```python
-```python
 def encode(string, mapping):
     return ''.join(mapping.get(i.lower(), i) for i in string)
 
@@ -29,4 +27,3 @@ def check():
     print(result)
 
 check()
-```
