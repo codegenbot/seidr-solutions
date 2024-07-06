@@ -1,8 +1,6 @@
 def paired_digits(s):
     total = 0
-    for i in range(len(s) - 2):
-        if s[i : i + 2] == s[i + 2 : i + 4]:
-            total += int(s[i + 1])
-        if len(s) >= i + 4:
-            total += int(s[i + 3])
+    for i, j in zip(s, s[::-1]):
+        if i == j:
+            total += int(i)
     return total
