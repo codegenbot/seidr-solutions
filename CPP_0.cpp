@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <cmath>  // For std::abs
+#include <cmath> 
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     for (int i = 0; i < numbers.size() - 1; i++) {
@@ -13,12 +14,10 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 
 int main() {
     std::vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    for (float i : a) {
-        if (i < threshold) {
-            cout << "Number is less than the threshold: " << i << endl;
-        } else {
-            cout << "Number is greater or equal to the threshold: " << i << endl;
-        }
-    }
+    if (has_close_elements(a, 0.1)) 
+        std::cout << "Array contains close elements." << std::endl;
+    else
+        std::cout << "Array does not contain close elements." << std::endl;
+    
     return 0;
 }
