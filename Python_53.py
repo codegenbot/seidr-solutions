@@ -1,6 +1,6 @@
+
 def add(x: int, y: int):
     return x + y
-
 
 user_input = input("Enter two numbers to add: ")
 numbers = user_input.split()
