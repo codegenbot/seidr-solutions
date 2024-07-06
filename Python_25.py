@@ -1,6 +1,6 @@
+```
 def main():
     while True:
-
         def factorize(n):
             factors = []
             i = 2
@@ -18,23 +18,19 @@ def main():
             else:
                 print(factors)
 
+        m = int(input("Enter a new number: "))
+        if m < 2:
+            print(
+                "Invalid input. Please enter an integer greater than or equal to 2."
+            )
+            continue
+        factorize(m)
+        print("Factorization complete!")
         again = input("Do you want to factorize another number? (yes/no): ")
         while again.lower() in ["yes", "y"]:
-            try:
-                m = int(input("Enter a new number: "))
-                if m < 2:
-                    print(
-                        "Invalid input. Please enter an integer greater than or equal to 2."
-                    )
-                    continue
-                break
-            except ValueError:
-                print("Invalid input. Please enter an integer.")
-                again = input("Do you want to factorize another number? (yes/no): ")
-
-        if again.lower() != "yes" and again.lower() != "y":
-            break
-
+            main()
+            print("Factorization complete!")
+            again = input("Do you want to factorize another number? (yes/no): ")
 
 if __name__ == "__main__":
     main()
