@@ -9,5 +9,5 @@ def words_string():
                 continue
             result = [x.strip() for x in re.split("[,\s]+", s.strip()) if x]
             return result
-        except (ValueError, TypeError):
-            print(f"Invalid input. Please enter valid text (only letters and numbers).")
+        except Exception as e:
+            print(f"Invalid input. Please enter valid text.")
