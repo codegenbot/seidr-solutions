@@ -1,5 +1,5 @@
-
 import numpy as np
+
 
 def shopping_list(prices, discounts):
     prices = map(float, input("Enter prices: ").split())
