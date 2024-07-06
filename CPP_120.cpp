@@ -2,18 +2,12 @@
 #include <queue>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[a.size() - 1 - i]) {
-            return false;
-        }
-    }
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++) if(a[i]!=b[b.size()-1-i])return false;
     return true;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
+vector<int> maximum(vector<int> arr,int k){
     priority_queue<int> max_heap;
     for(int i:arr){
         max_heap.push(i);
@@ -27,7 +21,6 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main(){
-    // Correct input value for k
     assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 5) , {243, 23, 3, 2, 1})); 
     return 0;
 }
