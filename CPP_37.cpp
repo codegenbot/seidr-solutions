@@ -1,9 +1,17 @@
+bool issame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
-    for (int i = 0; i < l.size(); ++i) {
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             vector<float> evenVals;
-            for (int j = 0; j < l.size(); ++j) {
+            for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenVals.push_back(l[j]);
                 }
@@ -15,4 +23,18 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     return result;
+}
+
+int main() {
+    // Example usage:
+    vector<float> input = {3.14f, 1.7f, -2.9f, 4.8f};
+    vector<float> output = sort_even(input);
+    
+    if (issame(output, {1.7f, -2.9f, 3.14f, 4.8f})) {
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+    
+    return 0;
 }
