@@ -15,9 +15,8 @@ int main() {
     std::cout << "Enter a string: ";
     std::cin >> str;
     bool result = is_nested(str);
-    if(result) {
+    if(result)
         std::cout << "The string is nested";
-    } else {
+    else
         std::cout << "The string is not nested";
-    }
 }
