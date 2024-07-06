@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <vector>
-#include <string>
 
 vector<int> order_by_points(vector<int> nums) {
     auto compare = [&](int a, int b) {
