@@ -1,19 +1,30 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    return a == b;
+bool isSame(vector<int> a, vector<int> b) {
+    return (a == b);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> pile = make_a_pile(n);
+    for(int i=0; i<n; i++){
+        cout << pile[i] << " ";
+    }
+    cout << endl;
+    assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
 }
 
 vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int numStones = 1;
+    vector<int> pile(n);
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
-            numStones += 2;
+            pile[i] = i * 2 + 1;
         } else {
-            numStones += 1;
+            pile[i] = i * 2;
         }
-        pile.push_back(numStones);
     }
     return pile;
 }
