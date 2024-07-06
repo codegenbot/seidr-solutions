@@ -1,2 +1,2 @@
 def add(x: int, y: int):
-    print(f"The sum is {x + y}")
+    return int(input("Enter the first number: ")) + int(input("Enter the second number: ")),
