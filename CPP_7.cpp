@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -17,9 +18,12 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
+
 }
 
 int main() {
-    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    assert (issame(filter_by_substring(strings, substring) ,vector<string>{("grunt"), ("prune")}));
     return 0;
 }
