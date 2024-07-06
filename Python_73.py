@@ -1,17 +1,20 @@
 ```
 def smallest_change(arr):
-    n = len(arr)
-    left = right = 0
-    changes = 0
+    left = 0
+    right = len(arr) - 1
     
-    while left < n // 2:
-        if arr[left] != arr[n - 1 - left]:
-            right = n - 1 - left
-            while left < right and arr[left] != arr[right]:
-                right -= 1
-            changes += (right - left + 1)
-            left = right + 1
-        else:
-            left += 1
+    changes = 0
+    while left < right:
+        if arr[left] != arr[right]:
+            for i in range(left + 1, right):
+                if arr[i] == arr[right]:
+                    arr[i], arr[left] = arr[left], arr[i]
+                    changes += 1
+                    break
+            else:
+                arr[left], arr[right] = arr[right], arr[left]
+                changes += 1
+        left += 1
+        right -= 1
     
     return changes
