@@ -1,4 +1,3 @@
-'`
 def decode_cyclic():
     s = input("Enter a cyclic string: ")
     if not isinstance(s, str):
