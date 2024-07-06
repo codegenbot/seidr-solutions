@@ -1,13 +1,41 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const vector<float>& a, const vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> evenVals;
-    std::vector<float> oddVals;
+int main() {
+    int numTestCases;
+    cin >> numTestCases;
+
+    for (int i = 0; i < numTestCases; i++) {
+        int numElements;
+        cin >> numElements;
+
+        vector<float> list;
+        for (int j = 0; j < numElements; j++) {
+            float element;
+            cin >> element;
+            list.push_back(element);
+        }
+
+        vector<float> result = sort_even(list);
+
+        cout << "List #" << i + 1 << ":";
+        for (float val : result) {
+            cout << " " << val;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> evenVals;
+    vector<float> oddVals;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -17,9 +45,9 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
 
-    std::sort(evenVals.begin(), evenVals.end());
+    sort(evenVals.begin(), evenVals.end());
 
-    std::vector<float> result;
+    vector<float> result;
     int idx = 0;
 
     for (int i = 0; i < l.size(); i++) {
