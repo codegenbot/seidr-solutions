@@ -9,18 +9,17 @@ def main():
         # Check if all inputs can be converted to float
         if any(not isinstance(n, (int, float)) for n in numbers):
             print("Invalid input. Please enter some valid numbers.")
+        elif not numbers:
+            print("No numbers were entered.")
         else:
-            try:
-                print(mean_absolute_deviation(numbers))
-            except Exception as e:
-                print(f"An error occurred: {e}")
+            print(mean_absolute_deviation(numbers))
     except ValueError as e:
         print(f"Invalid input: {e}")
 
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
-    return sum(abs(num - mean) for num in numbers) / len(numbers")
+    return sum(abs(num - mean) for num in numbers) / len(numbers)
 
 
 main()
