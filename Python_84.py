@@ -1,9 +1,12 @@
-def solve():
-    N = int(input("Enter a number: "))
+def solve(N):
     if N < 2:
-        return str(N) * N
+        return "1" * N
     else:
-        binary = bin(N)[2:].replace("1", "a").replace("0", "b")
-        return str(int(binary, 2))
-
-print(solve())
+        binary = bin(N)[2:].replace("1", "*").replace("0", "+")
+        equation = ""
+        for i in range(len(binary)):
+            if i % 4 == 3 and i != len(binary) - 1:
+                equation += f"+{binary[i-3:i+1]}"
+            else:
+                equation += f"{'+' if binary[i] == '0' else '*'}{binary[i]}"
+        return equation
