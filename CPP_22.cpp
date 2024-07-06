@@ -1,5 +1,5 @@
-```cpp
 #include <initializer_list>
+
 #include <optional>
 #include <vector>
 
@@ -15,4 +15,3 @@ std::vector<int> filter_integers(std::list<std::any> values) {
         }
     }
     return result;
-}
