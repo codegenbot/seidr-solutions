@@ -1,43 +1,41 @@
-```cpp
+#include <algorithm>
+#include <vector>
+
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
+    vector<float> result;
+    
+    // separate even and odd numbers
+    vector<float> evens;
+    vector<float> odds;
+    for (float x : l) {
+        if (std::abs(x) % 2 == 0)
+            evens.push_back(x);
+        else
+            odds.push_back(x);
+    }
+
+    // sort the even numbers
+    std::sort(evens.begin(), evens.end());
+
+    // alternate between even and odd numbers in the result
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> evenVals;
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 2 == 0) {
-                    evenVals.push_back(l[j]);
-                }
-            }
-            sort(evenVals.begin(), evenVals.end());
-            result[i] = evenVals[0];
+            if (!evens.empty())
+                result.push_back(evens.front());
+            else
+                result.push_back(odds.front());
+            if (!evens.empty()) evens.pop_front();
+            if (!odds.empty()) odds.pop_front();
         } else {
-            result[i] = l[i];
+            if (!odds.empty())
+                result.push_back(odds.back());
+            if (!odds.empty()) odds.pop_back();
         }
     }
-    return result;
-}
 
-int main() {
-    vector<float> input;
-    cout << "Enter the size of the array: ";
-    int n; cin >> n;
-    for(int i=0; i<n; i++) {
-        float x; cin >> x;
-        input.push_back(x);
-    }
-    vector<float> output = sort_even(input);
-    bool same = issame(input, output);
-    if(same) cout << "Sorted array is the same.\n";
-    else cout << "Sorted array is different.\n";
-    
-    return 0;
+    return result;
 }
