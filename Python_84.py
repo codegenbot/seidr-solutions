@@ -1,2 +1,3 @@
 def solve(N):
-    return bin(sum(int(i) for i in str(N))) if N > 0 else "0"
+    total_sum = sum(int(bit) for bit in bin(N)[2:].replace('0b', '')) 
+    return format(total_sum, 'b')
