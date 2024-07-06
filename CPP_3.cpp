@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -9,7 +10,7 @@ bool below_zero(std::vector<int> operations){
     }
     return false;
 
-int main() {
+int main {
     std::vector<std::string> operations;
     int num_operations;
 
