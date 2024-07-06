@@ -8,14 +8,13 @@ def sum_squares(lst):
                 if isinstance(value, (int, float))
             )
         elif isinstance(element, list):
-            for sub_element in element:
-                total_sum += abs(sub_element) ** 2
+            if len(element) > 1:  
+                raise ValueError("Lists within the input must contain only one element.")
+            total_sum += sum_squares([element[0]])
         elif isinstance(element, (int, float)):
             total_sum += abs(element) ** 2
         else:
-            raise ValueError(
-                f"Invalid input '{element}' found. Input must contain only numbers."
-            )
+            raise ValueError(f"Invalid input '{element}' found. Input must contain only numbers.")
     return total_sum
 
 
