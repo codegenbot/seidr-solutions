@@ -1,4 +1,5 @@
 #include <vector>
+#include <map>
 using namespace std;
 
 vector<pair<int, string>> by_length(vector<int> arr) {
@@ -12,11 +13,10 @@ vector<pair<int, string>> by_length(vector<int> arr) {
     return result;
 }
 
-int main() {
-    int n;
-    cin >> n; 
-    vector<int> arr(n);
-    for(int i=0;i<n;i++) cin >> arr[i]; 
-    vector<pair<int, string>> result = by_length(arr); 
-    return 0;
+int main(){
+    vector<int> input = {2,3,8,5};
+    vector<pair<int, string>> output = by_length(input);
+    for(auto i : output) {
+        cout << "Length: " << i.first << ", Name: " << i.second << endl;
+    }
 }
