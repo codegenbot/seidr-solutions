@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -24,6 +25,5 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == {});
-    return 0;
+    assert (pluck({7, 9, 7, 1}) == vector<pair<int,int>>());
 }
