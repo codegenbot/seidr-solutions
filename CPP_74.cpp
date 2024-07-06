@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -26,7 +25,7 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
         if (issame(lst1, lst2))
             return {};
         else
-            return lst1;  
+            return lst1;  // assuming you want to return lst1 here
     }
 }
 
