@@ -1,9 +1,13 @@
+```
 def add(x: int, y: int):
-    if x > y:
-        return f"The sum of {x} and {y} is {x + y}"
+    while x > y:
+        print(f"{x} is greater than {y}")
+        z = input("Press Enter to continue: ")
+        if z == "q":
+            break
+        x -= 1
     else:
-        return f"The sum of {y} and {x} is {x + y}"
-
+        print(f"{x} is not greater than {y}")
 
 num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
