@@ -1,31 +1,21 @@
-string file_name_check(string file_name){
-    bool valid = true;
-    int dot_count = 0;
-    int digit_count = 0;
+Here is the completed code:
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.'){
-            dot_count++;
-        } else if(isdigit(file_name[i])){
-            digit_count++;
+string file_name_check(string file_name){
+    int count = 0;
+    bool has_dot = false;
+    for(int i = 0; i < file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            count++;
+        }
+        else if(file_name[i] == '.'){
+            has_dot = true;
+        }
+        else if(has_dot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || file_name[i] == 'l')){
+            return "Yes";
         }
     }
-
-    if(dot_count != 1 || digit_count > 3) {
-        valid = false;
+    if(count > 3 || !has_dot || file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z'){
+        return "No";
     }
-
-    string before_dot = file_name.substr(0, file_name.find('.'));
-    string after_dot = file_name.substr(file_name.find('.')+1);
-
-    if(before_dot.empty() || !isalpha(before_dot[0])){
-        valid = false;
-    }
-
-    vector<string> allowed_extensions = {"txt", "exe", "dll"};
-    if(find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()){
-        valid = false;
-    }
-
-    return valid ? "Yes" : "No";
+    return "Yes";
 }
