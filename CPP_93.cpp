@@ -8,7 +8,7 @@ string encode(string message) {
     
     for (char c : message) {
         if (isalpha(c)) {
-            char newC = isupper(c) ? (c >= 'A' && c <= 'Z') ? c + 3 : c - 25 : (c >= 'a' && c <= 'z') ? c + 3 : c - 97;
+            char newC = (c >= 'a' && c <= 'z') ? c + 3 : (c >= 'A' && c <= 'Z') ? c - 19 : c;
             result += tolower(isupper(newC)) ? toupper(newC) : tolower(newC);
         } else {
             result += c;
