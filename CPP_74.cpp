@@ -27,10 +27,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
     else
-    {
-        if(issame(lst1, lst2))
-            return lst1;
-        else
-            return {"both"};
-    }
+        return issame(lst1,lst2) ? lst1 : lst2;
 }
