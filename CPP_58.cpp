@@ -14,3 +14,16 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result(intersection.begin(), intersection.end());
     return result;
 }
+
+int main() {
+    // test cases
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {3, 4, 5};
+
+    vector<int> res = common(l1, l2);
+
+    for (auto x : res) {
+        cout << x << " ";
+    }
+    return 0;
+}
