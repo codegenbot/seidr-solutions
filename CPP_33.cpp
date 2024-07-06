@@ -1,7 +1,7 @@
-```
+```cpp
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
