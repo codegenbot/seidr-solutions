@@ -1,8 +1,6 @@
-def check(lst):
-    if len(lst) < 2:
-        return None
-    result = double_the_difference(lst)
-    return result
+def check():
+    lst = list(map(int, input("Enter a space-separated integer sequence: ").split()))
+    return double_the_difference(lst)
 
 def double_the_difference(lst):
     odd_sum = sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
