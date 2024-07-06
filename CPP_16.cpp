@@ -1,10 +1,12 @@
-int count_distinct_characters(string str){
-    string temp = str;
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    vector<char> vec;
-    for(int i=0; i<temp.length(); i++){
-        if(find(vec.begin(), vec.end(), temp[i]) == vec.end())
-            vec.push_back(temp[i]);
+#include <string>
+#include <unordered_set>
+
+using namespace std;
+
+int count_distinct_characters(string str) {
+    unordered_set<char> distinct_chars;
+    for (char c : str) {
+        distinct_chars.insert(tolower(c));
     }
-    return vec.size();
+    return distinct_chars.size();
 }
