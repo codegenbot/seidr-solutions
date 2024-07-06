@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -38,8 +37,5 @@ int main() {
     assert(issame(odd_count(test), {"the number of odd elements 2 in the str1 of the input.", 
                                  "the number of odd elements 1 in the str2 of the input.", 
                                  "the number of odd elements 0 in the str3 of the input."}));
-    for (const auto& s : odd_count(test)) {
-        std::cout << s << std::endl;
-    }
     return 0;
 }
