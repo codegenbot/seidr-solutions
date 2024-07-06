@@ -20,5 +20,5 @@ string rounded_avg(int n, int m) {
         avg /= 2;
     }
     reverse(res.begin(), res.end());
-    return to_string(stoll(res));
+    return res;
 }
