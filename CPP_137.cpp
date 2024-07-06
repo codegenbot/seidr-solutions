@@ -2,21 +2,6 @@
 #include <boost/any.hpp>
 #include <string>
 
-int main() {
-    boost::any a = boost::any(5);
-    boost::any b = boost::any("Hello");
-    boost::any result = compare_one(a, b);
-    if (boost::any_cast<std::string>(result) == "None") {
-        std::cout << "These types cannot be compared." << std::endl;
-    } else if (result.type() == typeid(std::string)) {
-        std::cout << boost::any_cast<std::string>(result) << " is larger than " << boost::any_cast<std::string>(a) << " and " << boost::any_cast<std::string>(b) << "." << std::endl;
-    } else if (result.type() == typeid(int)) {
-        std::cout << boost::any_cast<int>(result) << " is larger than " << boost::any_cast<int>(a) << " and " << boost::any_cast<int>(b) << "." << std::endl;
-    } else {
-        std::cout << "Unknown result type." << std::endl;
-    }
-}
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return (int)boost::any_cast<int>(a) > (double)boost::any_cast<double>(b) ? a : b;
