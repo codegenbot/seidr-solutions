@@ -2,7 +2,11 @@
 input_num = input("Enter space-separated integers: ")
 nums = [int(x) for x in input_num.split()]
 print(minSubArraySum(nums))
+
 def minSubArraySum(nums):
+    total_sum = sum(nums)
+    if total_sum <= 0:
+        return total_sum
     total_sum = 0
     min_sum = float('inf')
     window_sum = 0

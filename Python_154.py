@@ -1,13 +1,14 @@
 def cycpattern_check(a, b):
-    if int(a) % 2 == 0 and int(b) % 2 != 0:
-        return "winten"
-    else:
-        return "not winten"
+    if not a.isnumeric() or not b.isnumeric():
+        return False
+
+    total = int(a) + int(b)
+    return total % 2 == 0
 
 
 def check(func):
     def wrapper(a, b):
-        return func(a, b) == "winten"
+        return func(a, b)
 
     return wrapper
 
