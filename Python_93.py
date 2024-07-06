@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     for char in message:
@@ -44,12 +43,12 @@ def encode(message):
                             result += char.swapcase().upper()
                         else:
                             result += char.swapcase()
-            elif char.isalnum():  
+            elif char.isalnum():  # Check if the character is alphanumeric
                 if char.isupper():
                     result += char.swapcase().upper()
                 else:
                     result += char.swapcase()
-        else:  
+        else:  # Add this block to check for non-alphanumeric characters
             result += char
 
     return result
