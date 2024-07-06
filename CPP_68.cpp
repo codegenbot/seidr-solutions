@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
+#include <stdbool.h>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result = {};
+vector<int> pluck(vector<int> arr) {
+    vector<int> result = {};
     int minEvenValueIndex = -1;
     int minEvenValue = INT_MAX;
 
