@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <iostream>
 #include <string>
@@ -17,7 +18,8 @@ std::string solve(std::string s){
 }
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
+    assert(solve("#ccc") == "#CCC");
+    assert(solve("Hello World") == "HELLO WORLD");
     std::cout << "Test Passed" << std::endl;
     return 0;
 }

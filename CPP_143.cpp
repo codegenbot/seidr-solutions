@@ -1,4 +1,6 @@
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 int words_in_sentence(const string& sentence) {
@@ -17,4 +19,8 @@ int words_in_sentence(const string& sentence) {
     }
 
     return count;
+}
+
+int main() {
+    assert(words_in_sentence("here is") == 2);
 }
