@@ -19,7 +19,8 @@ int smallest_change(std::vector<int> arr) {
     return changes;
 
 int main() {
-    std::vector<int> arr = {5, 4, 2};
+    std::vector<int> arr = {12, 11, 34, 5};
     int result = smallest_change(arr);
+    std::cout << "Minimum number of swaps required: " << result << endl;
     return 0;
 }
