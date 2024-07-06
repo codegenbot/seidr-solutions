@@ -1,23 +1,24 @@
-Here is the completed code:
-
 ```cpp
+#include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-using namespace std;
+std::string find_max(std::vector<std::string> words) {
+    std::string max_word = *std::max_element(words.begin(), words.end(), 
+        [&] (const std::string& a, const std::string& b) {
+            int unique_chars_a = a.length() - std::count(a.begin(), a.end(), '*');
+            int unique_chars_b = b.length() - std::count(b.begin(), b.end(), '*');
+            if(unique_chars_a == unique_chars_b)
+                return a < b;
+            else
+                return unique_chars_a > unique_chars_b;
+    });
+    return max_word;
+}
 
-string find_max(vector<string> words) {
-    string max = words[0];
-    int maxUnique = 0;
-    
-    for (const auto& word : words) {
-        set<char> unique(word.begin(), word.end());
-        if (unique.size() > maxUnique) {
-            max = word;
-            maxUnique = unique.size();
-        }
-    }
-    
-    return max;
+int main() {
+    assert((find_max({"play", "play", "play"}) == "play");
+    std::cout << find_max({"play", "play", "play"}) << std::endl;
+    return 0;
 }
