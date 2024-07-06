@@ -10,9 +10,9 @@ def decode_cyclic(s: str):
             result += group[0] + group[1]
         else:
             result += group
-        if i < len(s) - 2:  
+        if i < len(s) - 2:  # Last group of characters (length <= 2)
             i += 3
         else:
             result += group[0]
-            break
+            break  # Exit the loop
     return result
