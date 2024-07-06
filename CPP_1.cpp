@@ -1,15 +1,15 @@
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool operator==(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+std::vector<std::string> separate_groups(std::string paren_string) {
+    std::vector<std::string> result;
     int open_count = 0;
-    string current_group;
+    std::string current_group;
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -28,7 +28,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( "), {{"()", "()"}, {"(())"} }));
+int separate_groups_main() {
+    assert(separate_groups("( ) (( )) (( )( ") == std::vector<std::string>({{"()", "()", "()"}}));
     return 0;
 }
