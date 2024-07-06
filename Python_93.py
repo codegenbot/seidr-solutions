@@ -1,12 +1,12 @@
-import re
-
-
+```
 def encode(message):
-    return re.sub(
-        r"[aeiouAEIOU]",
-        lambda m: chr(
-            (ord(m.group()) - ord("a" if m.group().islower() else "A") + 2) % 26
-            + ord("a" if m.group().islower() else "A")
-        ),
-        message,
-    ).swapcase()
+    result = ""
+    for char in message:
+        if char.isalpha():
+            if char.lower() in "aeiou":
+                result += chr((ord(char.lower()) - ord("a") + 3) % 26 + ord("a"))
+            else:
+                result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
+        else:
+            result += char
+    return result
