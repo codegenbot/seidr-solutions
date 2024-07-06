@@ -15,6 +15,7 @@ bool issame(std::vector<std::string> a) {
 }
 
 std::vector<std::string> words_string(std::string s, std::initializer_list<std::string> expected) {
+    std::vector<std::string> result = {};
     for (int i = 0; i < s.size(); i++) {
         std::string temp = "";
         while (i < s.size() && s[i] != ' ') {
@@ -22,11 +23,11 @@ std::vector<std::string> words_string(std::string s, std::initializer_list<std::
             i++;
         }
         if (!temp.empty()) {
-            if (!issame({temp}) || !std::count(expected.begin(), expected.end(), temp)) {
+            if (!issame({{temp}}) || !std::count(expected.begin(), expected.end(), temp)) {
                 return {};
             }
             result.push_back(temp);
         }
     }
-    return {};
+    return result;
 }
