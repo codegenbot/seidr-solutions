@@ -4,7 +4,7 @@ float snow_day(int hours, float initial_snow, float rate_of_snowfall, float prop
     float current_snow = initial_snow;
     for (int i = 0; i < hours; i++) {
         current_snow += rate_of_snowfall;
-        current_snow -= floor(current_snow * proportion_of_melting);
+        current_snow -= std::floor(current_snow * proportion_of_melting);
     }
     return current_snow;
 }
