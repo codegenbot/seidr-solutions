@@ -10,4 +10,5 @@ def fib4(n: int):
             if i <= n - 3:
                 sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
         return sequence[n]
+
 assert fib4(12) == 386
