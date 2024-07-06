@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 float median(std::vector<float> numbers) {
     if (numbers.empty()) 
@@ -15,27 +14,7 @@ float median(std::vector<float> numbers) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    if (n <= 0) {
-        std::cerr << "Number of elements must be greater than zero." << std::endl;
-        return -1;
-    }
-
-    std::vector<float> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter number " << i + 1 << ": ";
-        std::cin >> numbers[i];
-    }
-
-    try {
-        float med = median(numbers);
-        std::cout << "The median is: " << med << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-    
+    assert(std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4 );
+    std::cout << "All tests passed." << std::endl;
     return 0;
 }
