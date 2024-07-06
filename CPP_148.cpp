@@ -13,15 +13,19 @@ vector<string> bf(string planet1, string planet2) {
         int index2 = distance(planets.begin(), find(planets.begin(), planets.end(), planet2));
 
         if (index1 < index2) {
+            vector<string> result;
             for (int i = index1 + 1; i < index2; i++) {
-                return {planets[i]};
+                result.push_back(planets[i]);
             }
+            return result;
         } else if (index1 > index2) {
+            vector<string> result;
             for (int i = index1; i > index2; i--) {
-                return {planets[i - 1]};
+                result.push_back(planets[i - 1]);
             }
+            return result;
         } else {
-            return {planets[0]};
+            return {};
         }
     } else {
         return {};
