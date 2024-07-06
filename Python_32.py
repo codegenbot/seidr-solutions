@@ -1,7 +1,8 @@
+
 def find_zero(x):
-    if x > 0:
-        return -1
-    elif x < 0:
-        return 1
+    n = int(input("Enter a number: "))
+    
+    if x == 0:
+        return n
     else:
-        return 0
+        return x
