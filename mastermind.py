@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 def mastermind(code, guess):
     white = 0
     black = 0
@@ -12,4 +9,5 @@ def mastermind(code, guess):
             black += 1
         elif code_count[ord(code[i]) - ord('A')] > 0 and code_count[ord(code[i]) - ord('A')] > guess_count[ord(code[i]) - ord('A')]:
             white += 1
+
     return black, white
