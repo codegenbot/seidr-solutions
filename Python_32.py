@@ -1,4 +1,3 @@
-
 def find_zero(xs: list):
     # Find the largest non-zero coefficient in xs
     max_coeff = max([abs(coeff) for coeff in xs if coeff != 0])
