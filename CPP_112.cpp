@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -33,6 +34,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(isSame(reverse_delete("mamma", "mia"), vector<string>({"", "True"})));
+    assert(isSame({"" , "True"}, reverse_delete("mamma", "mia")));
     return 0;
 }
