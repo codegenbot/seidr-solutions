@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -8,36 +9,15 @@ def find_zero(a, b, c):
     return round(min(x1, x2), 2)
 
 
-if __name__ == "__main__":
-    print("Enter 'a': ")
-    a = float(input())
+print("Enter 'a': ")
+a = float(input())
 
-    if a == 0:
-        while True:
-            print("Enter non-zero value for 'b' and 'c': ")
-            b = float(input())
-            c = float(input())
+while True:
+    print("Enter non-zero values for 'b' and 'c': ")
+    b = float(input())
+    c = float(input())
 
-            if b**2 - 4 * a * c >= 0:
-                break
-        result = find_zero(a, b, c)
-        print(f"Zero is approximately {result}")
-    elif b**2 - 4 * a * c < 0:
-        while True:
-            print("Enter non-zero value for 'c': ")
-            c = float(input())
-
-            if b**2 - 4 * a * c >= 0:
-                break
-        result = find_zero(a, b, c)
-        print(f"Zero is approximately {result}")
-    else:
-        while True:
-            print("Enter non-zero value for 'b' and 'c': ")
-            b = float(input())
-            c = float(input())
-
-            if b**2 - 4 * a * c >= 0:
-                break
-        result = find_zero(a, b, c)
-        print(f"Zero is approximately {result}")
+    if b**2 - 4 * a * c >= 0:
+        break
+result = find_zero(a, b, c)
+print(f"Zero is approximately {result}")
