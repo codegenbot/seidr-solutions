@@ -1,16 +1,18 @@
-def mastermind(code, guess):
-    code_count = [0]*6
-    for c in code:
-        code_count[ord(c)-48] += 1
+def mastermind():
+    code = list(input("Enter the Mastermind code: "))
+    guess = list(input("Enter your guess: "))
 
-    black = 0
     white = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-            code_count[ord(code[i])-48] -= 1
-        elif code_count[ord(guess[i])-48] > 0:
-            code_count[ord(guess[i])-48] -= 1
-            white += 1
+    black = 0
 
-    return black, white
+    for i, c in enumerate(guess):
+        if c == code[i]:
+            black += 1
+            del code[i]
+            del guess[i]
+        else:
+            if c in code:
+                white += 1
+                code.remove(c)
+
+    print(f"Black pegs: {black}, White pegs: {white}")
