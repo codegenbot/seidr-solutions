@@ -1,11 +1,11 @@
 long long double_the_difference(vector<float> lst) {
-    long long odd_sum = 0;
-    for (float x : lst) {
-        if (x >= 0 && (int)x == x) {
-            odd_sum += pow(x, 2);
+    long long sum = 0;
+    for (int i = 0; i < lst.size(); i++) {
+        if (lst[i] >= 0 && (int)lst[i] == lst[i]) {
+            sum += pow(lst[i], 2);
         }
     }
-    return odd_sum;
+    return sum;
 }
 
 int main() {
