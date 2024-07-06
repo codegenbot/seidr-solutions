@@ -1,6 +1,5 @@
-#include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
 
 int fruit_distribution(std::string s, int n) {
     std::istringstream iss(s);
@@ -12,10 +11,14 @@ int fruit_distribution(std::string s, int n) {
     while (std::getline(iss, token, ' ')) {
         if (token.find("apples") != std::string::npos) {
             std::istringstream app_token(token);
-            app_token >> apples;
+            int count;
+            app_token >> count;
+            apples += count;
         } else if (token.find("oranges") != std::string::npos) {
             std::istringstream ora_token(token);
-            ora_token >> oranges;
+            int count;
+            ora_token >> count;
+            oranges += count;
         }
     }
 
@@ -25,7 +28,6 @@ int fruit_distribution(std::string s, int n) {
 }
 
 int main() {
-    int result = fruit_distribution("apples 2 oranges 3", 5);
-    std::cout << "Total: " << result << std::endl;
+    assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
     return 0;
 }
