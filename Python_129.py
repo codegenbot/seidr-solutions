@@ -1,26 +1,29 @@
 def minPath(grid, k):
     N = len(grid)
-    res = []
-    visited = [[False] * N for _ in range(N)]
+    total_cells = N * N
+    cell_values = {i + 1: v for i, row in enumerate(grid) for v in enumerate(row)}
 
-    def dfs(i, j, path):
-        if len(path) == k:
-            return path
-        visited[i][j] = True
-        path.append(grid[i][j])
-        min_val = grid[i][j]
-        min_path = path[:]
+    def dfs(cell_value, path_length, current_path):
+        if path_length == k:
+            return current_path
 
-        for ni, nj in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
-            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
-                new_path = dfs(ni, nj, path)
-                if len(new_path) == k:
-                    return new_path
-        visited[i][j] = False
-        return min_path
+        for neighbor_cell_value in [
+            v
+            for i, j in [
+                (i, j) for i, row in enumerate(grid) for j, v in enumerate(row)
+            ]
+            if cell_values[neighbor_cell_value] != cell_value
+        ]:
+            new_current_path = current_path + [cell_value]
+            res = dfs(neighbor_cell_value, path_length + 1, new_current_path)
+            if res:
+                return res
 
-    for i in range(N):
-        for j in range(N):
-            res.append(dfs(i, j, []))
+        return None
 
-    return [x[0] for x in sorted(res)]
+    min_path = []
+    for start in cell_values:
+        res = dfs(start, 0, [])
+        if not min_path or res < min_path:
+            min_path = res
+    return min_path
