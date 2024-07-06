@@ -10,6 +10,26 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+int main() {
+    int num;
+    std::vector<int> lst;
+    
+    // read input
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+
+    std::vector<int> result = strange_sort_list(lst);
+
+    if(issame(lst, result)) {
+        for(int i : result) std::cout << i << " ";
+    } else {
+        std::cout << "Error: Lists are not the same.\n";
+    }
+    
+    return 0;
+}
+
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
@@ -24,36 +44,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
     }
     return result;
-}
-
-int main() {
-    std::vector<int> numbers;
-    int n;
-    
-    // Take input from the user
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        int num;
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-
-    // Call the function
-    std::vector<int> sorted_list = strange_sort_list(numbers);
-
-    // Print the result
-    if(issame(sorted_list, numbers)) {
-        std::cout << "The list is already in the desired order.\n";
-    } else {
-        std::cout << "The sorted list: ";
-        for(auto i : sorted_list) {
-            std::cout << i << " ";
-        }
-        std::cout << "\n";
-    }
-
-    return 0;
 }
