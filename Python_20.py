@@ -1,12 +1,5 @@
 ```
-def find_closest_elements():
-    arr = []
-    while True:
-        num = input("Enter a number (or 'done' if finished): ")
-        if num.lower() == 'done':
-            break
-        arr.append(int(num))
-
+def find_closest_elements(arr):
     min_diff = float('inf')
     closest_pair = ()
 
