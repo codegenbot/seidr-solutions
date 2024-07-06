@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def filter_by_prefix() -> List[str]:
