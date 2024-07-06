@@ -1,3 +1,4 @@
+```
 def check(lst):
     difference_result = double_the_difference(lst)
     if sum(x for x in lst) % 2 == 0:
