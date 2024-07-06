@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -7,26 +6,16 @@ vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
     int diff = INT_MAX;
-    vector<int> minDiff;
-    for (int i = 1; i < vec.size(); i++) {
+    for (int i = 1; i < n; i++) {
         int currDiff = abs(vec[i] - vec[i-1]);
         if (currDiff < diff) {
             diff = currDiff;
-            minDiff.clear();
-            minDiff.push_back(vec[i-1]);
-            minDiff.push_back(vec[i]);
+            res[0].clear();
+            res[0].assign(min(res[0].begin(), minDiff.begin()), max(res[0].end(), minDiff.end()));
+            res[1].clear();
+            res[1].assign(min(res[1].begin(), vec.begin() + minDiff.size()), max(res[1].end(), vec.end()));
         }
     }
-
-    res[0].assign(minDiff.begin(), minDiff.end());
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] == minDiff.back()) {
-            res[1].push_back(vec[i]);
-            break;
-        }
-    }
-    res[1].assign(vec.begin() + minDiff.size(), vec.end());
-
     return res;
 }
 
