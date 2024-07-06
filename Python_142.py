@@ -1,5 +1,4 @@
-Here is the corrected code:
-
+```
 def sum_squares(lst):
     if isinstance(lst, dict):  
         return sum(map(lambda x: sum_squares(x), lst.values()))  
