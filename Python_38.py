@@ -7,7 +7,7 @@ def decode_cyclic(s: str):
         else:
             group = s[i:]
         if i > 0:
-            result += group[1:] 
+            result += group[1:] # decode the pair except first character
         else:
             result += group
         i += 3
