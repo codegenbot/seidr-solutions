@@ -1,7 +1,5 @@
-Here is the modified code:
-
-```python
 from typing import List
+
 
 def has_close_elements() -> bool:
     found_close_elements = False
@@ -27,7 +25,7 @@ def has_close_elements() -> bool:
                 break
 
     cont = input("Do you want to check another set of numbers? (y/n): ")
-    while cont.lower() != 'n':
+    while cont.lower() != "n":
         numbers = input("Enter space-separated numbers: ")
         try:
             numbers = [float(num) for num in numbers.split()]
