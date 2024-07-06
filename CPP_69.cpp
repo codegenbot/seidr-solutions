@@ -1,7 +1,6 @@
-Here is the completed code:
-
 #include <vector>
 #include <map>
+#include <initializer_list>
 
 using namespace std;
 
