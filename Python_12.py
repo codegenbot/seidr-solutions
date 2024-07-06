@@ -1,4 +1,6 @@
+```
 from typing import Optional
+
 
 def longest_file_line(input_file: str) -> Optional[str]:
     if not input_file:
@@ -13,4 +15,6 @@ def longest_file_line(input_file: str) -> Optional[str]:
                     longest_line = line.strip()
     except FileNotFoundError:
         return None
-    return longest_line
+    except IOError:
+        return None
+    return longest_line if longest_line is not None else ""
