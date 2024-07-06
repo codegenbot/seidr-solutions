@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -48,8 +49,5 @@ int main() {
         return sumDigits;
     }
 
-    vector<int> lst = {127, 97, 8192};
-    assert(skkkasdkd(lst) == 10);
-    
-    return skjkasdkd(lst);
+    assert(skkkasdkd({127, 97, 8192}) == 10);
 }
