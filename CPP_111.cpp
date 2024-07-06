@@ -1,32 +1,28 @@
-#include<string>
-#include<map>
-using namespace std;
-
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    for (string word : split(test)) {
-        for (char c : word) {
-            if (result.count(c))
-                result[c]++;
-            else
-                result[c] = 1;
+map<char,int> histogram(string test){
+    map<char,int> result;
+    if(test.empty()) return result;
+    string temp;
+    int max_count = 0;
+    for(char c : test + " ") {
+        if(c == ' ') {
+            if(!temp.empty()) {
+                ++result[temp[0]];
+                temp.clear();
+            }
+        } else {
+            temp += c;
         }
     }
-    return max_element(result.begin(), result.end(), [](pair<char, int>& a, pair<char, int>& b) {
-        return a.second < b.second;
-    });
-}
-
-vector<string> split(string test) {
-    vector<string> words;
-    string word = "";
-    for (char c : test) {
-        if (c == ' ')
-            words.push_back(word), word = "";
-        else
-            word += c;
+    if(!temp.empty()) {
+        ++result[temp[0]];
+        max_count = result[temp[0]];
     }
-    if (!word.empty())
-        words.push_back(word);
-    return words;
+    for(auto& p : result) {
+        if(p.second > 1 || (p.second == 1 && max_count == 1)) {
+            cout << "{" << p.first << ", " << p.second << "}" << endl;
+        } else {
+            return {};
+        }
+    }
+    return result;
 }

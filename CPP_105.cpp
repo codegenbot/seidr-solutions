@@ -1,29 +1,59 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool issame(vector<string>, vector<string>) {
-    // Your implementation here
+vector<string> by_length(vector<int> arr) {
+    vector<string> result;
+    for (int i : arr) {
+        string str = "";
+        switch (i) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+                break;
+        }
+        result.push_back(str);
+    }
+    return result;
 }
 
 int main() {
+    
+    vector<int> arr; 
     int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-
-    std::vector<std::string> vec1, vec2;
-
-    for (int i = 0; i < n; ++i) {
-        std::string str;
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, str);
-        if (i == 0)
-            vec1.push_back(str);
-        else
-            vec2.push_back(str);
+    cin >> n;
+    for (int i=0;i<n;i++) {
+        int a;
+        cin >> a;
+        arr.push_back(a);
     }
 
-    // Your implementation here
-
+    cout << "Input numbers in range 1-9 are : ";
+    for(string x: by_length(arr)) {
+        cout<<x<<" ";
+    }
+    
     return 0;
 }
