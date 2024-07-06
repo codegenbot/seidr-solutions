@@ -29,12 +29,30 @@ int main() {
     if (num < 0) {
         std::cout << "Error: Please enter a non-negative integer." << std::endl;
     } else {
-        std::vector<int> result = get_odd_collatz(num);
-        std::cout << "The Collatz Conjecture sequence for " << num << " is ";
-        for (int i : result) {
-            std::cout << i << " ";
+        std::vector<std::vector<int>> sequences = {{get_odd_collatz(12)}};
+        for(int i=1; i<=num; ++i){
+            sequences.push_back({get_odd_collatz(i)});
         }
-        std::cout << std::endl;
+        
+        bool found = false;
+        for(const auto& sequence : sequences) {
+            if (issame(sequence, {1, 2, 6})) {
+                found = true;
+                break;
+            }
+        }
+
+        std::cout << "The Collatz Conjecture sequence for " << num << " is ";
+        for (const auto& sequence : sequences) {
+            for (int i : sequence) {
+                std::cout << i << " ";
+            }
+            std::cout << std::endl;
+        }
+        if (!found)
+            std::cout << " has not reached 1." << std::endl;
+        else
+            std::cout << "." << std::endl;
     }
     return 0;
 }
