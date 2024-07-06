@@ -18,27 +18,26 @@ void sort_third_main() {
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> result;
-    int k = 0;
     for(int i = 0; i < l.size(); ) {
         if(i % 3 == 0) {
+            std::vector<int> temp;
             int j = 0;
             while(j < l.size() && i+j < l.size()) {
-                result.push_back(l[i+j]);
+                temp.push_back(l[i+j]);
                 j++;
             }
-            std::sort(result.begin(), result.end());
-            for(int i1 = 0; i1 < result.size(); ) {
+            sort(temp.begin(), temp.end());
+            for(int k = 0; k < temp.size(); ) {
                 if(k % 3 == 0) {
-                    res.push_back(result[i1]);
-                    k += 3;
+                    result.push_back(temp[k]);
+                    i += 3;
                     break;
                 }
                 k++;
-                i1++;
             }
         } else {
             result.push_back(l[i]);
-            k++;
+            i++;
         }
     }
     return result;
