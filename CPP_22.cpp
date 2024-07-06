@@ -1,20 +1,17 @@
-```#include <optional>
-
+#include <optional>
 #include <vector>
 #include <list>
-#include <type_traits>
+
+#include <variant>
 
 using namespace std;
 
-std::vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list<variant<string, int>> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (holds_alternative(optional<int>, value)) {
-            optional<int> optionalInt = get<optional<int>>(value);
-            if (optionalInt.has_value()) {
-                int i = optionalInt.get();
-                result.push_back(i);
-            }
+        if (holds_alternative<int>(value)) {
+            int optionalInt = get<int>(value);
+            result.push_back(optionalInt);
         }
     }
     return result;
