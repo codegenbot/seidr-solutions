@@ -1,12 +1,9 @@
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!a[i].compare(0, a[i].size(), b[i]) == 0) { 
+        if (!a[i] == b[i]) { 
             return false;
         }
     }

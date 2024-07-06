@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -22,11 +21,11 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& list1, const std::vector<std::string>& list2) {
-    if (list1.size() != list2.size()) return false;
-    std::sort(list1.begin(), list1.end());
-    std::sort(list2.begin(), list2.end());
-    return list1 == list2;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
