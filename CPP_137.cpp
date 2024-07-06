@@ -2,11 +2,10 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include <boost/algorithm/string.hpp>
 
 using namespace std;
 
-void compare_one(int x) {
+void compareOne(int x) {
     int val2;
     cin >> val2;
 }
@@ -43,7 +42,7 @@ int main() {
         cout << "Please enter a valid value for the second number.\n";
     }
 
-    compare_one(val1);
+    compareOne(val1);
 
     return 0;
 }
