@@ -21,9 +21,9 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
             }
         }
         std::string temp = "the number of odd elements ";
-        temp += std::to_string(count);
+        temp += to_string(count);
         temp += " in the str";
-        temp += std::to_string(i+1);
+        temp += to_string(i+1);
         temp += " of the input.";
         result.push_back(temp);
     }
