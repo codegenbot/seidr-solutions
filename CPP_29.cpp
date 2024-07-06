@@ -23,17 +23,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 }
 
-int test() {
-    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    string prefix = "xxx";
-    vector<string> filteredStrings = filter_by_prefix(strings, prefix);
-    bool isSame = issame(filteredStrings, { "xxx", "xxxAAA", "xxx" });
-    return isSame ? 0 : 1;
-}
-
 int main() {
-    if(test())
-        return 1;
-    else
-        return 0;
+    vector<string> input = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    vector<string> expected = filter_by_prefix(input, "xxx");
+    assert(issame(expected, {"xxx", "xxxAAA"}));
+    return 0;
 }
