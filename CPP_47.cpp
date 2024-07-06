@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,7 +23,8 @@ int main() {
         return -1;
     }
 
-    std::vector<float> numbers(n, 0.0f);
+    std::vector<float> numbers;
+    numbers.resize(n);
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter number " << i + 1 << ": ";
         std::cin >> numbers[i];
@@ -38,4 +38,3 @@ int main() {
     }
     
     return 0;
-}
