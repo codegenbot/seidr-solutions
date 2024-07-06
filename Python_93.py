@@ -2,10 +2,10 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.islower():
-                result += chr(ord("A") + ord(char) - ord("a"))
+            if char.isupper():
+                result += chr(ord("A") + (ord(char) - ord("A") + 2) % 26)
             else:
-                result += chr(ord("a") + ord(char) - ord("A"))
-        else:
+                result += chr(ord("a") + (ord(char) - ord("a") + 2) % 26)
+        elif char.isspace() or char.ispunct():
             result += char
     return result
