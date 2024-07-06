@@ -9,23 +9,28 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    int n, x;
-    std::cout << "Enter the size of array: ";
-    std::cin >> n;
+    std::vector<int> arr;
+    int n;
     
-    std::vector<int> arr(n);
+    // input
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        arr[i] = x;
+        int temp;
+        std::cin >> temp;
+        arr.push_back(temp);
+    }
+
+    // process
+    int result = can_arrange(arr);
+
+    // output
+    if(result == -1) {
+        std::cout << "The array is already sorted.";
+    } else {
+        std::cout << "Minimum index of first pair of out-of-order elements: " << result;
     }
     
-    int result = can_arrange(arr);
-    
-    if (result == -1) 
-        std::cout << "Array is already arranged.\n";
-    else
-        std::cout << "First element that cannot be placed to the end: " << arr[result] << "\n";
-        
     return 0;
 }

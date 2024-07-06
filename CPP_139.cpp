@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 long long fact(int n) {
