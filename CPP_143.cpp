@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-bool is_prime(int n); 
+bool is_prime(int n); // Declare is_prime before using it
 
 std::string words_in_sentence(std::string sentence) {
     std::string result = "";
