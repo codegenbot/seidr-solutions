@@ -9,27 +9,21 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (currentRolls == 1) {
-                score += rolls[0] + rolls[1];
-                rolls.erase(rolls.begin());
-                rolls.erase(rolls.begin());
+            if (currentRolls < 2) {
+                if (rolls.back() + 10 - '0' > 10) {
+                    score += 10;
+                } else {
+                    score += rolls.back() + 10 - '0';
+                }
                 currentRolls = 0;
-            } else if (currentRolls < 2) {
-                int roll = 10 - '0';
+            } else {
+                int roll = 0;
                 for (int i = 0; c != '/'; i++) {
                     c = s[i];
                     roll = roll * 10 + c - '0';
                 }
                 score += roll;
                 currentRolls = 1;
-            } else {
-                if (rolls.back() + rolls[rolls.size() - 2] >= 10) {
-                    score += 10;
-                } else {
-                    score += rolls[rolls.size() - 2] + rolls.back();
-                }
-                rolls.erase(rolls.end() - 2, rolls.end());
-                currentRolls = 0;
             }
         } else {
             rolls.push_back(c - '0');
@@ -49,13 +43,13 @@ int bowlingScore(string s) {
     if (currentRolls == 2) {
         int roll = 0;
         for (int i = 0; i < 2; i++) {
-            roll = roll * 10 + rolls[i] - '0';
+            roll = roll * 10 + s[i] - '0';
         }
         score += roll;
     } else if (currentRolls > 1) {
         int roll = 0;
         for (int i = 0; i < currentRolls; i++) {
-            roll = roll * 10 + rolls[rolls.size() - 1] - '0';
+            roll = roll * 10 + rolls.back() - '0';
             rolls.pop_back();
         }
         score += roll;
