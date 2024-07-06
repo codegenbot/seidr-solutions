@@ -2,22 +2,18 @@
 #include <vector>
 
 bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
+    return (a == 1 && b == 1);
 }
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    int stones = (n & 1)? 1 : 2;
-    for (int i = 0; i < n; i++) {
-        pile.push_back(stones);
-        if ((n & 1)) { 
-            stones = stones + 1; 
-        } else { 
-            stones = stones + 2; 
-        }
+    if(n % 2 == 0)
+        pile.push_back(1);
+    else
+        pile.push_back(n);
+
+    for (int i = 1; i < n; i++) {
+        pile.push_back(i % 2 + 1);
     }
     return pile;
 }
