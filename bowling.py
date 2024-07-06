@@ -12,6 +12,7 @@ def bowling_score(games):
                 score += 10
                 current_roll = 0
             elif current_roll > 0:
-                score += min(10, current_roll) + 1
-                current_roll = max(0, current_roll - 10)
+                score += min(current_roll, 10) + int(frames[i])
+                current_roll = 0
+
     return score
