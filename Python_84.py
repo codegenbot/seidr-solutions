@@ -1,4 +1,7 @@
-```
+```Python
 def solve(N):
-    decimal_sum = sum(int(i) for i in str(bin(N)[2:]))
-    return bin(decimal_sum)[2:]
+    result = ''
+    for i, bit in enumerate(str(bin(N)[2:])[::-1]):
+        if int(bit) == 1:
+            result += '1' if i % 2 != 0 else '0'
+    return bin(int(result, 2))[2:]
