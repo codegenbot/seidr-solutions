@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -10,6 +9,7 @@ std::string remove_vowels(std::string text){
         }
     }
     return result;
+
 }
 
 int main() {
