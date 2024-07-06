@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -21,12 +20,17 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
             result.push_back(num);
         }
     }
+    for (float num : v) {
+        if (num > 0) {
+            result.push_back(num);
+        }
+    }
     return result;
 }
 
 int main() {
-    std::vector<float> vec1 = {1, 2.5, 3}; 
-    std::vector<float> vec2 = {-4, -5, 6};
+    std::vector<float> vec1 = {1, 2, -3}; 
+    std::vector<float> vec2 = {-4, 5, 6};
     std::cout << "Only positive numbers are: ";
     for (float num : get_positive(vec1,vec2)) {
         std::cout << num << " ";
