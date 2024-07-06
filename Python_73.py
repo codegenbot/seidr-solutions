@@ -1,14 +1,4 @@
 ```
 def smallest_change(arr):
-    n = len(arr)
-    left = right = 0
-    changes = 0
-    
-    while left < n // 2:
-        if arr[left] != arr[n - 1 - left]:
-            changes += 1
-            right -= 1
-        left += 1
-        right += 1
-    
-    return changes
+    arr = arr[::-1]
+    return sum(1 for a, b in zip(arr, arr[1:]) if a != b) + (len(arr) % 2)
