@@ -1,5 +1,7 @@
 ```
-def find_closest_elements(numbers: list[float]) -> tuple[float, float]:
+from typing import List, Tuple
+
+def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
     min_diff = float('inf')
     closest_pair = ()
     
@@ -11,3 +13,10 @@ def find_closest_elements(numbers: list[float]) -> tuple[float, float]:
                 closest_pair = (numbers[i], numbers[j])
     
     return closest_pair
+
+if __name__ == "__main__":
+    main()
+
+def main():
+    numbers = [float(num) for num in input("Enter the numbers separated by spaces: ").split()]
+    print(find_closed_elements(numbers))
