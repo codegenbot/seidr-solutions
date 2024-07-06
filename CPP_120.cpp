@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -11,7 +12,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> std::maximum(std::vector<int> arr,int k){
+std::vector<int> maximum(std::vector<int> arr,int k){
     std::priority_queue<int> max_heap;
     for(int i:arr){
         max_heap.push(i);
