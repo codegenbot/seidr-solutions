@@ -1,5 +1,5 @@
+```
 #include <vector>
-#include <map>
 using namespace std;
 
 vector<pair<int, string>> by_length(vector<int> arr) {
@@ -9,18 +9,24 @@ vector<pair<int, string>> by_length(vector<int> arr) {
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
+    vector<pair<int, string>> result;
     map<int, string> numToName = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}; 
     for(int i: temp){
-        cout << i << " - " << numToName[i] << endl;
+        result.push_back({i, numToName[i]});
     }
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    by_length(arr);
+    vector<pair<int, string>> res = by_length(arr);
+    for(auto p : res) {
+        cout << "Number: " << p.first << ", Name: " << p.second << endl;
+    }
+    return 0;
 }
