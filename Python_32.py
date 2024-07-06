@@ -1,5 +1,5 @@
 def find_zero(xs):
-    n = len(xs) // (0 if len(xs) % 2 else 1)
+    n = len(xs) // (1 if len(xs) % 2 == 0 else 1)
     zero_index = None
     for i in range(len(xs)):
         if xs[i] == 0:
