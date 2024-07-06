@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 def mastermind(code, guess):
     # Count the number of occurrences of each character in the guess string
     guess_count = Counter(guess)
