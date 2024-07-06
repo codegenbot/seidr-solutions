@@ -1,36 +1,50 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string s) {
-    bool t = true;
-    bool f = false;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            return t && f;
-        } else if (s[i] == '|') {
-            return t || f;
-        } else if (s[i] == 't') {
-            t = true;
-            f = false;
-        } else if (s[i] == 'f') {
-            t = false;
-            f = true;
+bool solveBoolean(string expression) {
+    stack<char> st;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (!st.empty() && st.top() == '|') {
+                return false;
+            }
+            else if (!st.empty()) {
+                st.pop();
+            }
+        } 
+        else if (expression[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (!st.empty() && st.top() == '&') {
+                return false;
+            }
+            else if (!st.empty()) {
+                st.pop();
+            }
+        } 
+        else if (expression[i] != 'T' && expression[i] != 'F') {
+            continue;
+        }
+        else {
+            st.push(expression[i]);
         }
     }
-    
-    return t;
+    while (!st.empty() && (st.top() == '&' || st.top() == '|')) {
+        st.pop();
+    }
+    return st.top() == 'T';
 }
 
 int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    cin >> s;
-    bool result = solveBoolean(s);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    // Test cases
+    cout << boolalpha << solveBoolean("t") << endl;  // True
+    cout << boolalpha << solveBoolean("f") << endl;  // False
+    cout << boolalpha << solveBoolean("f&f") << endl;  // False
+    cout << boolalpha << solveBoolean("f&t") << endl;  // False
+    cout << boolalpha << solveBoolean("t&f") << endl;  // False
     return 0;
 }
