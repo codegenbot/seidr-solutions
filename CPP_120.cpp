@@ -11,36 +11,23 @@ bool isEqual(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> findMaximum(int n, int k) {
     std::cout << "Enter the number of elements: ";
-    if (!(std::cin >> n)) {
-        std::cerr << "Invalid input for number of elements.\n";
-        return {};
-    }
-
-    std::cout << "Enter the number of maximum elements to find: ";
-    if (!(std::cin >> k)) {
-        std::cerr << "Invalid input for number of maximum elements to find.\n";
-        return {};
-    }
-    
     int* arr = new int[n];
     
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i+1 << ": ";
-        if (!(std::cin >> arr[i])) {
-            std::cerr << "Invalid input for elements.\n";
-            return {};
-        }
+        std::cin >> arr[i];
     }
     
-    delete[] arr;
-    
-    std::vector<int> myVector (arr, arr+n);
+    std::vector<int> myVector;
+    for (int i = 0; i < n; ++i) {
+        myVector.push_back(arr[i]);
+    }
     
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
         int max_val = *std::max_element(myVector.begin(), myVector.end());
         result.push_back(max_val);
-        auto it = std::remove(myVector.begin(), myVector.end(), max_val);
+        auto it = std::remove_if(myVector.begin(), myVector.end(), [&](int x){ return x == max_val;});
         myVector.erase(it, myVector.end());
     }
     
@@ -50,18 +37,12 @@ std::vector<int> findMaximum(int n, int k) {
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
-    if (!(std::cin >> n)) {
-        std::cerr << "Invalid input for number of elements.\n";
-        return 1;
-    }
+    std::cin >> n;
     
     int k;
     std::cout << "Enter the number of maximum elements to find: ";
-    if (!(std::cin >> k)) {
-        std::cerr << "Invalid input for number of maximum elements to find.\n";
-        return 1;
-    }
+    std::cin >> k;
     
-    assert(isEqual(std::vector<int>({0, 1, 2, 3}), findMaximum(n, k)));
+    assert(isEqual({0, 1, 2, 3}, findMaximum(n, k));
     return 0;
 }
