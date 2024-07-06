@@ -11,8 +11,9 @@ string anti_shuffle(string s) {
             }
             sort(word.begin(), word.end());
             result += word;
-            i--; // increment i after processing each word
         }
+        // Fix: Increment i after processing each word
+        i--;
     }
     return result;
 }
