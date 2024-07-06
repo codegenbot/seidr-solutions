@@ -1,3 +1,4 @@
+
 def find_zero(x):
     if x > 0:
         return -1
@@ -5,7 +6,6 @@ def find_zero(x):
         return 1
     else:
         return 0
-
 
 if __name__ == "__main__":
     while True:
