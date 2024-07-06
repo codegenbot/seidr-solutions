@@ -1,9 +1,12 @@
-```
+```c++
 #include <algorithm>
-#include <pmr/vector>
 
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
 
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
