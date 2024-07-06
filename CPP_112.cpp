@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -57,18 +56,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-void testMain() {
+int testMain() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    assert(isSame({ "", "True" }, result)); 
+    isSame({ "", "True" }, result);
     if (!compareVectors({ "", "True" }, result)) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
     }
-    return;
-}
-
-int main() {
-    testMain();
     return 0;
 }
