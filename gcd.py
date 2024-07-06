@@ -1,15 +1,7 @@
 def gcd(a, b):
-    if a > 2**31 - 1 or b > 2**31 - 1:
-        # Use extended Euclidean algorithm for large inputs
-        q = (a // b) * (b // a)
-        r = a - q * b
-        while r != 0:
-            q, r = r, r % b
-    else:
-        # Use Euclidean algorithm for small inputs
-        while b != 0 or a_mod != 0:
-            a_mod = a % b
-            if a_mod == 0:
-                break
-            b = b - (a_mod // b) * b
+    while b != 0 or a_mod != 0:
+        a_mod = a % b
+        if a_mod == 0 and b == 0:
+            break
+        b = b - (a_mod // b) * b
     return b
