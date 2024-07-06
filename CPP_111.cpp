@@ -1,31 +1,27 @@
-#include <string>
-#include <map>
-using namespace std;
+map<char,int> histogram(string test){
+    map<char,int> result;
+    if(test.empty()) return result;
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
-
-    string str = test + " ";
-    char prevChar = str[0];
-    int count = 1;
-
-    for (int i = 1; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (result.find(prevChar) == result.end()) {
-                result[prevChar] = count;
-            } else {
-                result[prevChar]++;
-            }
-            prevChar = str[i];
-            count = 1;
-        } else if (str[i] != prevChar) {
-            prevChar = str[i];
-            count = 1;
+    string words[1000];
+    int count = 0;
+    for(string word : split(test, ' ')){
+        if(result.find(word[0]) == result.end()){
+            result[word[0]] = 1;
         } else {
-            count++;
+            result[word[0]]++;
         }
+        count++;
     }
 
     return result;
+}
+
+vector<string> split(string str, char delimiter) {
+    vector<string> tokens;
+    string token;
+    istringstream tokenStream(str);
+    while (std::getline(tokenStream, token, delimiter)) {
+        tokens.push_back(token);
+    }
+    return tokens;
 }
