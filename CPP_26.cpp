@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool vectorsAreEqual(const std::vector<int>& a, const std::vector<int>& b) {
+bool equalVectors(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); ++i)
