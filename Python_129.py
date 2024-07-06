@@ -1,8 +1,9 @@
+```
 def minPathSum(m):
     n = len(m)
-
+    
     def dfs(i, j, path):
-        if i == j == n - 1:
+        if len(path) == 1:
             return path
         min_path = None
         queue = [(i, j, path)]
@@ -19,11 +20,11 @@ def minPathSum(m):
     k = int(input("Enter the value of k: "))
     n = int(input("Enter the size of the matrix (n): "))
     m = []
-
+    
     for i in range(n):
         row = list(map(int, input(f"Enter the row {i+1}: ").split()))
         m.append(row)
-
+    
     min_path = None
     for i in range(n):
         for j in range(n):
