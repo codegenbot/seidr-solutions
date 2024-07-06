@@ -1,8 +1,5 @@
 ```c++
-#include <vector>
-#include <algorithm>
-
-bool std::vector<float> a, std::vector<float>b) {
+bool std::vector<float>(a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
