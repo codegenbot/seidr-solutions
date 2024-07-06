@@ -1,5 +1,5 @@
 ```
-def incr_list(lst):
+def incr_list(lst=None):
     result = []
     while True:
         try:
@@ -7,7 +7,7 @@ def incr_list(lst):
             if n < 1:
                 print("Number should be positive. Try again.")
             else:
-                result = [n + i for i in lst]
+                result = [n + i for i in result]  
                 break
         except ValueError:
             print("Invalid input. Please enter an integer.")
@@ -17,6 +17,6 @@ def incr_list(lst):
         if cont.lower() == 'y':
             return result
         elif cont.lower() == 'n':
-            return []
+            return result
         else:
             print("Invalid choice. Please enter y or n: ")
