@@ -1,6 +1,8 @@
+Here is the solution to the problem:
+
 ```cpp
-#include <vector>
 #include <string>
+#include <vector>
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
