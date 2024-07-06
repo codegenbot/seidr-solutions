@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <list>
 #include <any>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
