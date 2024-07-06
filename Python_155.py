@@ -1,6 +1,4 @@
 ```
 def even_odd_count(num):
-    num = str(abs(num)) # convert number to string and take absolute value
-    even = sum(1 for i in num if int(i) % 2 == 0)
-    odd = len(num) - even
-    return (even, odd)
+    num = str(abs(num))
+    return (sum(int(digit) % 2 == 0 for digit in num), len(num) - sum(int(digit) % 2 == 0 for digit in num))
