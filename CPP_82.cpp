@@ -1,12 +1,23 @@
-```cpp
-bool prime_length(string str){
-    int len = str.length();
-    bool isPrime = true;
+#include <string>
 
-    for(int i=2; i*i <= len; i++){
-        if(len%i == 0)
-            isPrime = false;
+using namespace std;
+
+bool prime_length(string str) {
+    int len = str.length();
+    if (len <= 1)
+        return true;
+    
+    for(int i=2; i*i<=len; i++){
+        if(len%i==0){
+            return false;
+        }
     }
 
-    return isPrime;
+    // Check divisibility from the number right after the square root to len.
+    for(int i=i+1; i<=len; i++){
+        if(len%i==0)
+            return false;
+    }
+    
+    return true;
 }
