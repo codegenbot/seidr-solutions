@@ -1,11 +1,8 @@
-```c++
 float median(std::vector<float> numbers) {
-    if (numbers.empty()) 
-        throw std::runtime_error("Input vector is empty");
-    
     std::sort(numbers.begin(), numbers.end());
-    if (numbers.size() % 2 == 0)
-        return ((numbers[numbers.size()/2 - 1] + numbers[numbers.size()/2]) / 2.0);
+    int n = numbers.size();
+    if (n % 2 == 0)
+        return ((numbers[n/2 - 1] + numbers[n/2]) / 2.0);
     else
-        return numbers[numbers.size()/2];
+        return numbers[n/2];
 }
