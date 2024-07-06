@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -10,9 +9,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     if (k > arr.size()) {
         throw std::invalid_argument("Input vector size is less than k");
     }
-    // Remove this line
-    // #include <initializer_list>
-    
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
