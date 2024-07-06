@@ -1,7 +1,7 @@
 def car_race_collision(n: int):
-    if n < 1:
-        return "Invalid input. Please enter a positive integer."
+    if n <= 0:
+        return 0
     elif n == 1:
-        return "There will be no collisions for 1 car."
+        return "There is no collision."
     else:
         return n * (n - 1) // 2
