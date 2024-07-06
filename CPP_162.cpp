@@ -1,12 +1,13 @@
 #include <string>
 #include <sstream>
-#include <openssl/md5.h>
+#include <openssl/md5.h> // Assuming it's called md5.h in your system
+#include <iomanip>
 
 using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-
+    
     unsigned char result[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
