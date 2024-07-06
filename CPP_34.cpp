@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    sort(l.begin(), l.end());
-    auto it = unique(l.begin(), l.end());
-    return vector<int>(it, l.end());
+    vector<int> result(l.begin(), l.end());
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
@@ -15,4 +14,5 @@ int main() {
     for (auto i : unique(l)) {
         cout << i << " ";
     }
+    return 0;
 }
