@@ -1,38 +1,38 @@
 #include <iostream>
-#include <boost/any.hpp>
 #include <string>
+#include <boost/any.hpp>
 
-bool convertible = false;
-
-void compare(std::string s1, std::string s2) {
-    if (s1.size() > s2.size()) {
-        return;
+bool compareOne(boost::any& a, boost::any& b) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)boost::any_cast<int>(a) > (double)boost::any_cast<double>(b);
     }
-}
-
-int main(int argc, char const *argv[]) {
-    boost::any a, b;
-
-    // Read from the user
-    int x, y; double z; std::string str;
-    
-    std::cout << "Enter an integer (a): ";
-    std::cin >> x;
-    a = x;
-
-    std::cout << "Enter a string: ";
-    std::cin.ignore();
-    std::getline(std::cin, str);
-    b = str;
-    
-    boost::any result = compare_one(a, b);
-
-    // Output the result
-    if (boost::any_cast<std::string>(result) == "None") {
-        std::cout << "None\n";
-    } else {
-        std::cout << boost::any_cast<std::string>(result) << "\n";
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int num_b = boost::any_cast<int>(b);
+        std::string str_a = boost::any_cast<std::string>(a);
+        return str_a.size() > std::to_string(num_b).size();
     }
-    
-    return 0;
+    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        double num_a = boost::any_cast<double>(a);
+        std::string str_b = boost::any_cast<std::string>(b);
+        return str_b.size() > std::to_string(num_a).size();
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        int num_b = boost::any_cast<int>(b);
+        std::string str_a = boost::any_cast<std::string>(a);
+        return str_a.size() > std::to_string(num_b).size();
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        double num_b = boost::any_cast<double>(b);
+        std::string str_a = boost::any_cast<std::string>(a);
+        return str_a.size() > std::to_string(num_b).size();
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str_a = boost::any_cast<std::string>(a);
+        std::string str_b = boost::any_cast<std::string>(b);
+        return str_a.size() > str_b.size();
+    }
+    else if (a.convert_to(b) || b.convert_to(a)) {
+        return true;
+    }
+    return false;
 }
