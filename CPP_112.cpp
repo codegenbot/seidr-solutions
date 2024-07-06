@@ -1,9 +1,9 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> same(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
     for (char ch : s) {
@@ -21,12 +21,21 @@ std::vector<std::string> same(std::string s, std::string c) {
     result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    result.push_back((temp == rev) ? "True" : "False");
+    if (temp == rev)
+        result.push_back("True");
+    else
+        result.push_back("False");
     return result;
 }
 
+bool same(vector<string> v1, vector<string> v2) {
+    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
+}
+
 int main() {
-    std::vector<std::string> result = same("mamma", "mia");
-    assert(result[0].empty() && result[1] == "True");
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+    if (!same({result[0], (result.size() == 2) ? result[1] : ""}, {"", "True"})) {
+        return 1;
+    }
     return 0;
 }

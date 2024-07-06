@@ -1,3 +1,4 @@
+```c
 #include <vector>
 #include <string>
 
@@ -15,8 +16,11 @@ bool issame(std::vector<std::string> a) {
 
 std::vector<std::string> words_string(std::string s, std::vector<std::string> expected) {
     std::vector<std::string> result = words_string(s);
-    for (int i = 0; i < result.size(); i++) {
-        if (!issame(std::vector<std::string>(1,result[i])) && !std::count(expected.begin(), expected.end(), result[i])) {
+    if (!issame(result)) {
+        return {};
+    }
+    for (int i = 0; i < expected.size(); i++) {
+        if (result[i] != expected[i]) {
             return {};
         }
     }
