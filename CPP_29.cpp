@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -19,23 +20,23 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 int main() {
     int num_strings;
-    cin >> num_strings;
+    std::cin >> num_strings;
     vector<string> input;
     for(int i = 0; i < num_strings; ++i) {
         string s;
-        cin >> s;
+        std::cin >> s;
         input.push_back(s);
     }
     
-    string prefix;
-    cin >> prefix;
+    string prefix_;
+    std::cin >> prefix_;
 
-    bool same = issame(input, filter_by_prefix(input,prefix));
+    bool same = issame(input, filter_by_prefix(input,prefix_));
     
     if (same)
-        cout << "True";
+        std::cout << "True";
     else
-        cout << "False";
+        std::cout << "False";
 
     return 0;
 }
