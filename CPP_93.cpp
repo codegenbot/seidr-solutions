@@ -1,18 +1,22 @@
-string encode(string message){
+#include <algorithm>
+#include <cctype>
+
+string encode(string message) {
     string result = "";
-    for(int i=0; i<message.size(); i++){
-        char c = message[i];
-        if(isalpha(c)){
-            if(isupper(c)){
-                c = 'a' + (c - 'A');
-            } else {
-                c = 'A' + (c - 'a');
+    for (char c : message) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c == toupper(base)) ? tolower(c) : toupper(c);
+            switch (c - base) {
+                case 0: case 1: case 2:
+                    c += 3;
+                    break;
+                case 18: case 19: case 20:
+                    c -= 22;
+                    break;
+                default:
+                    c = base + ((c - base) % 26);
             }
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = (c == 'a') ? 'c' : ((c == 'e') ? 'g' : ((c == 'i') ? 'k' : ((c == 'o') ? 'q' : 's'))); 
-            }
-        } else {
-            result += c;
         }
         result += c;
     }
