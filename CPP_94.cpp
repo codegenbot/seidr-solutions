@@ -23,6 +23,6 @@ bool isPrime(int n){
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
-    int result = skjkasdkd(lst);
+    std::cout << skjkasdkd(lst) << std::endl;
     return 0;
 }
