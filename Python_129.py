@@ -1,6 +1,7 @@
     import collections
-    def minPath(grid, k):
-        # ... existing code ...
+
+def minPath(grid, k):
+    # ... existing code ...
 
 # Read user input
 n = int(input("Enter the size of the grid: "))
@@ -10,6 +11,3 @@ k = int(input("Enter the maximum allowed value for the sum of the elements in a 
 # Call minPath with the user input
 result = minPath(grid, k)
 print(result)
-
-def grid():
-    return (n, m, k)
