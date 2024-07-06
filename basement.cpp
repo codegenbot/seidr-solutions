@@ -1,24 +1,18 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-int findFirstNegativeIndex(vector<int>& arr) {
+int basement(const std::vector<int>& numbers) {
     int sum = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        sum += arr[i];
+    for (int i = 0; i < numbers.size(); ++i) {
+        sum += numbers[i];
         if (sum < 0) return i;
     }
-    return -1;
+    return -1; // not found
 }
 
 int main() {
-    vector<int> arr;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        arr.push_back(x);
-    }
-    cout << findFirstNegativeIndex(arr) << endl;
+    std::vector<int> v = {1, 2, -3};
+    int result = basement(v);
+    std::cout << "The first index such that the sum of all integers from the start of the vector to that index is negative: " << result << std::endl;
     return 0;
 }
