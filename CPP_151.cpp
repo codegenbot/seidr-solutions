@@ -1,6 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 
 long long double_the_difference(std::vector<double> lst) {
     long long sum = 0;

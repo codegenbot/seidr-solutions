@@ -1,16 +1,17 @@
+```cpp
 #include <vector>
 #include <cmath>
 
-int do_algebra(std::vector<std::string> operations, std::vector<int> operands) {
+int do_algebra(std::string operation, std::vector<int> operands) {
     int result = operands[0];
     for (int i = 1; i < operands.size(); i++) {
-        if (operations[i-1] == "/") {
+        if (operation == "//") {
             result /= operands[i];
-        } else if (operations[i-1] == "*") {
+        } else if (operation == "*") {
             result *= operands[i];
-        } else if (operations[i-1] == "+") {
+        } else if (operation == "+") {
             result += operands[i];
-        } else if (operations[i-1] == "-") {
+        } else if (operation == "-") {
             result -= operands[i];
         }
     }
@@ -18,6 +19,7 @@ int do_algebra(std::vector<std::string> operations, std::vector<int> operands) {
 }
 
 int main() {
-    int result = do_algebra({"//", "*"}, {7, 3, 4});
+    int result = do_algebra("//", {7, 3, 4});
+    assert(result == 1);
     return 0;
 }
