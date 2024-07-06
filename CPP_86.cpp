@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
+string anti_shuffle(string s){
+    string result = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
             result += ' ';
@@ -13,7 +14,9 @@ std::string anti_shuffle(std::string s) {
                     c = s[j];
                     j++;
                 }
-                result += c;
+                for(int k=j-1; k>=i; k--){
+                    result += s[k];
+                }
                 i = j-1;
             }
         }
