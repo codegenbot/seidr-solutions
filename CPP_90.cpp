@@ -1,15 +1,17 @@
 int next_larger(std::vector<int> lst) {
-    int res = -1;
-    for(int i = 0; i < lst.size(); i++){
-        bool found = false;
-        for(int j = i + 1; j < lst.size(); j++){
-            if(lst[j] > lst[i]){
-                res = lst[i];
-                found = true;
-                break;
+    for(int i = lst.size() - 1; i >= 0; i--){
+        int left = i-1;
+        int right = i+1;
+        while(left >= 0 && right < lst.size()){
+            if(lst[left] < lst[i] && lst[right] > lst[i]){
+                return lst[i];
+            }
+            else{
+                if(lst[left] < lst[i]) left--;
+                else if (lst[right] > lst[i]) right++;
+                else break;
             }
         }
-        if(found) break;
     }
-    return res;
+    return -1; 
 }
