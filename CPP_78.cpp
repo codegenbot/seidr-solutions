@@ -1,5 +1,6 @@
+```cpp
 #include <string>
-#include <cctype>
+#include <cassert>
 
 int hex_key(std::string num) {
     int count = 0;
@@ -9,7 +10,6 @@ int hex_key(std::string num) {
         }
     }
     return count;
-
 }
 
 int main() {
