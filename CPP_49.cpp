@@ -1,20 +1,12 @@
-#include <iostream>
-
-using namespace std;
-
 int modp(int n, int p) {
-    if (p == 1)
-        return 0;
+    if (n < 0)
+        return modp(-n, p);
     long long res = 1;
-    for (long long i = 2; i <= n; i++) {
-        res = (res * i) % p;
+    while (n > 0) {
+        if ((n & 1))
+            res = (long long)res * p % p;
+        n >>= 1;
+        p = (long long)p * p % p;
     }
     return res;
-}
-
-int main() {
-    int n, p;
-    cin >> n >> p;
-    cout << modp(n, p);
-    return 0;
 }
