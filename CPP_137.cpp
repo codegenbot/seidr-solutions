@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int compareOne( string a, string b ) {
+int compareOne(string a, string b) {
     int ai = stoi(a);
     int bi = stoi(b);
 
