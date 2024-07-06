@@ -1,5 +1,5 @@
 
-def prime_fib(n):
+def prime_fib(n: int):
     fib = [0, 1]
     i = 2
     while len(fib) <= n:
