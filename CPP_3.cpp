@@ -2,20 +2,29 @@
 #include <iostream>
 #include <vector>
 
-bool below_zero(std::vector<std::string> operations);
+bool below_zero(std::vector<std::string> operations) {
+    int balance = 0;
+    for (int i = 0; i < operations.size(); ++i) {
+        int operation = stoi(operations[i]);
+        balance += operation;
+        if (balance < 0) return true;
+    }
+    return false;
+
+}
 
 int main() {
     std::vector<std::string> operations;
-    int num_operations;
-
+    
     // Read the number of operations from user
+    int num_operations;
     std::cout << "Enter the number of operations: ";
     std::cin >> num_operations;
 
     // Read each operation from user and store it in the vector
     for (int i = 0; i < num_operations; ++i) {
-        std::cout << "Enter operation " << i + 1 << ": ";
         int operation;
+        std::cout << "Enter operation " << i + 1 << ": ";
         std::cin >> operation;
         operations.push_back(std::to_string(operation)); 
     }
@@ -31,14 +40,4 @@ int main() {
     }
 
     return 0;
-}
-
-bool below_zero(std::vector<std::string> operations){
-    int balance = 0;
-    for (int i = 0; i < operations.size(); ++i) {
-        int operation = stoi(operations[i]);
-        balance += operation;
-        if (balance < 0) return true;
-    }
-    return false;
 }
