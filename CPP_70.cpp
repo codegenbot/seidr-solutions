@@ -1,15 +1,8 @@
+```
 #include <vector>
 #include <algorithm>
 
 using namespace std;
-
-bool is_same(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
@@ -23,6 +16,14 @@ vector<int> strange_sort_vector(vector<int> lst) {
             sort(lst.begin(), lst.end());
     }
 
-    assert(is_same(strange_sort_vector({111111}), {111111}));
     return result;
+}
+
+int main() {
+    vector<int> numbers = {1, 3, 2, 4};
+    vector<int> sorted_numbers = strange_sort_vector(numbers);
+    for (int num : sorted_numbers) {
+        cout << num << " ";
+    }
+    return 0;
 }
