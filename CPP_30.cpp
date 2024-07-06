@@ -1,4 +1,7 @@
 #include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
