@@ -9,11 +9,12 @@ def minPath(grid, k):
                 dfs(i, j, k - 1, grid, path, res, paths)
     return paths
 
+
 def dfs(i, j, k, grid, path, res, paths):
     n = len(grid)
     if k == 0:
         res.extend(path)
-        paths.append(res[:])
+        paths.append(res)
         return
     for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
         ni, nj = i + x, j + y
