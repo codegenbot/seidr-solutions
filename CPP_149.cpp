@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -13,7 +12,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
                 if (first) {
                     first = false;
                 } else {
-                    temp.push_back(c); 
+                    temp += c; 
                 }
             }
             result.push_back(temp);
@@ -23,17 +22,11 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::string& b) {
-    if (a.size() != 1) return false;
-    std::string temp = "";
-    for (const auto& str : a) {
-        if (!temp.empty()) 
-            temp += str;
-        else
-            temp = str;
-    }
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    return issame({temp}, {b});
+    return a == b;
 }
 
 int main() {
