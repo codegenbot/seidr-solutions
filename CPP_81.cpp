@@ -28,7 +28,3 @@ int main_test() {
     assert(same(numerical_letter_grade(grades), expected));
     return 0;
 }
-
-int main() {
-    return main_test();
-}
