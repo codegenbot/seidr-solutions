@@ -11,6 +11,6 @@ while True:
     else:
         output_string = ""
         for s in strings.split():
-            words = s.title().split()
-            output_string += ' '.join(words) + " "
+            words = ' '.join(w.strip() for w in s.title().split())  
+            output_string += words + " "
         print(output_string.strip())
