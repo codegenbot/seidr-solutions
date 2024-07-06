@@ -1,15 +1,17 @@
+
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    # Sort the list in ascending order
-    numbers.sort()
+    # sort the list of numbers in ascending order
+    sorted_numbers = sorted(numbers)
 
-    # Initialize variables to keep track of the closest elements
-    closest_smaller = None
-    closest_larger = None
+    # initialize variables to keep track of the closest pair
+    closest_pair = (sorted_numbers[0], sorted_numbers[1])
+    min_diff = abs(closest_pair[0] - closest_pair[1])
 
-    # Iterate over the sorted list and find the closest elements
-    for i in range(len(numbers) - 1):
-        if numbers[i + 1] - numbers[i] < numbers[i] - numbers[i - 1]:
-            closest_smaller = numbers[i]
-            closest_larger = numbers[i + 1]
+    # loop through the rest of the list and find the closest pair
+    for i in range(1, len(sorted_numbers) - 1):
+        current_diff = abs(sorted_numbers[i] - sorted_numbers[i + 1])
+        if current_diff < min_diff:
+            min_diff = current_diff
+            closest_pair = (sorted_numbers[i], sorted_numbers[i + 1])
 
-    return (closest_smaller, closest_larger)
+    return closest_pair
