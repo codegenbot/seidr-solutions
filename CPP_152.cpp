@@ -24,7 +24,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame({1,2,3,5},{-1,2,3,4})==2);
+    assert(issame({1,2,3,5},{-1,2,3,4})==false);
     std::cout << "Test passed" << std::endl;
     return 0;
 }

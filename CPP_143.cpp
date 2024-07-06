@@ -1,22 +1,16 @@
+```cpp
 #include <iostream>
 #include <string>
 
-int words_in_sentence(const std::string& sentence) {
+std::string words_in_sentence(std::string sentence) {
     int count = 0;
-    bool inWord = false;
-
-    for (char c : sentence) {
-        if (c == ' ') {
-            inWord = false;
-        } else {
-            if (!inWord) {
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ' || i == sentence.length() - 1) {
+            if (i != sentence.length() - 1)
                 count++;
-                inWord = true;
-            }
         }
     }
-
-    return count;
+    return std::to_string(count);
 }
 
 int main() {
