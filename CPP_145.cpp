@@ -1,25 +1,21 @@
 ```
 #include <algorithm>
+#include <vector>
+#include <utility>
 
 bool issame(int a, int b) {
-    if (a == 0 && b == 0)
-        return true;
-    return false;
+    return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
-        pairs.emplace_back(abs(nums[i]), i);
+        pairs.emplace_back(std::abs(nums[i]), i);
     }
-    sort(pairs.begin(), pairs.end());
-    vector<int> result;
+    std::sort(pairs.begin(), pairs.end());
+    std::vector<int> result;
     for (const auto& pair : pairs) {
-        if (!issame(pair.first, 0)) {
-            result.push_back(pair.second * (pair.first > 0 ? 1 : -1));
-        } else {
-            result.push_back(0);
-        }
+        result.push_back(pair.second * (pair.first > 0 ? -1 : 1));
     }
     return result;
 }
