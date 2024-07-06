@@ -52,7 +52,7 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
         }
     }
 
-    return {"One", "Four", "Eight"};
+    return result;
 }
 
 int main() {
