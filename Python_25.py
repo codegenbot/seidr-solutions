@@ -4,9 +4,9 @@ import math
 
 def factorize(n: int) -> List[int]:
     if not isinstance(n, int):
-        return [Error: Input must be an integer.]
+        return [n]
     if n < 1:
-        return [Error: Input must be a positive integer.]
+        return ["Error: Input must be a positive integer."]
 
     factors = []
     for i in range(2, int(math.sqrt(n)) + 1):
