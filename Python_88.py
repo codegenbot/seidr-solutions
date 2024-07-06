@@ -1,8 +1,5 @@
-def sort_array():
-    print(
-        "This program allows users to sort an array of integers or find unique elements."
-    )
-
+```
+def sort_array(*args):
     while True:
         user_choice = input("Do you want to sort array? (S for yes): ")
         if user_choice.upper() != "S":
@@ -28,11 +25,11 @@ def sort_array():
 
     while True:
         user_choice = input("Do you want to sort (S) or find unique elements (U)? ")
-        if user_choice.upper() in ["S", "U"]:
+        if user_choice.upper() in ['S', 'U']:
             break
         else:
             print(
                 "Error: Invalid choice. Please enter S for sorting or U for finding unique elements."
             )
 
-    return sorted(arr) if user_choice.upper() == "S" else set(arr)
+    return sorted(arr) if user_choice.upper() == 'S' else set(arr)
