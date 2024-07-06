@@ -1,18 +1,18 @@
-template<typename T1, typename T2>
-bool issame(const T1& t1, const T2& t2) {
-    return std::type_index(typeid(T1)) == std::type_index(typeid(T2));
-}
+#include <vector>
+#include <list>
+#include <any>
+#include <boost/any.hpp>
 
-bool same(vector<int> a, vector<int> b) {
-    // your comparison logic here
-}
-
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (issame(int(), typeid(typeof(value)))) {
-            result.push_back(any_cast<int>(value));
+        if (value.type() == typeid(int) && boost::any_cast<int>(value) != 0) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    assert(std::vector({1, 2, 3}) == filter_integers({1, 2, 3}));
 }
