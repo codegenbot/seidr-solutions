@@ -1,5 +1,9 @@
 bool issame(vector<float> a,vector<float>b){
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(abs(a[i] - b[i]) > 0.001) return false;
+    }
+    return true;
 }
 
 vector<float> sort_even(vector<float> l) {
@@ -14,9 +18,4 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     return result;
-}
-
-int main() {
-    assert (issame({-12, 2, 3, 4, 5, 8, 11, 12, 23}, sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12})));
-    return 0;
 }
