@@ -1,17 +1,11 @@
-
 def car_race_collision(n: int):
-    left_to_right = 0
-    right_to_left = n - 1
-    collisions = 0
+    # Initialize a counter for the number of collisions
+    collision_count = 0
 
-    while left_to_right < right_to_left:
-        if left_to_right == right_to_left:
-            collisions += 1
-            left_to_right += 1
-            right_to_left -= 1
-        elif left_to_right > right_to_left:
-            left_to_right += 1
-        else:
-            right_to_left -= 1
+    # Loop through each pair of cars
+    for i in range(n):
+        # Check if the two cars are moving towards each other
+        if (i % 2 == 0 and n - i >= 1) or (i % 2 == 1 and n - i <= -1):
+            collision_count += 1
 
-    return collisions
+    return collision_count
