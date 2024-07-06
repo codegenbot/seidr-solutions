@@ -26,7 +26,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> result;
 
     for (int i = 0; i < planets.size(); i++) {
-        if (issame(planets[i], planet1)) {
+        if (issame(planets[i], planet1) || issame(planets[i], planet2)) {
             result.push_back(planets[i]);
         } else if ((index1 <= i && i <= index2) || (index1 >= i && i >= index2)) {
             result.push_back(planets[i]);
