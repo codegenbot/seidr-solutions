@@ -1,9 +1,9 @@
+```
 def sort_array(array):
     if len(array) == 0:
         return array
-    odd = [num for num in array if num % 2 != 0]
-    even = [num for num in array if num % 2 == 0]
-    if sum(array) % 2 != 0:
-        return sorted(odd + even)
+    total = sum(set(array)) # convert to set to remove duplicates and calculate the total
+    if total % 2 != 0:
+        return sorted(array)
     else:
-        return sorted(even, reverse=True) + sorted(odd)
+        return sorted(array, reverse=True)
