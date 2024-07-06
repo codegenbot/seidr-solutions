@@ -1,3 +1,2 @@
-
-def fix_spaces(text):
-    return re.sub(r'\s+', '-', text)
+def fix_spaces(text, space_char):
+    return text.replace(" ", space_char)

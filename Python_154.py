@@ -1,2 +1,4 @@
+
 def cycpattern_check(a, b):
-    return any(b in a[i:] + a[:i] for i in range(len(a) // 2))
+    from itertools import cycle_pattern_check
+    return cycle_pattern_check(a, b) == 1
