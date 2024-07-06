@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```python
+```
 def minPathSum(m):
     n = len(m)
 
@@ -35,5 +33,4 @@ def minPathSum(m):
                 min_path = path
     return min_path
 
-if __name__ == "__main__":
-    print(minPathSum([[1], [2]]))
+print(minPathSum([[1], [2]]))
