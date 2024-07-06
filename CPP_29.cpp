@@ -1,20 +1,19 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> result;
-    for(string s : strings){
-        if(s.find(prefix) == 0)
+    for (string s : strings) {
+        if (s.find(prefix) == 0)
             result.push_back(s);
     }
     return result;
@@ -22,28 +21,25 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 int main() {
     int n;
-    std::cout << "Enter the number of words: ";
-    std::cin >> n;
-
-    vector<string> words(n);
+    cin >> n;
+    
+    vector<string> input_strings;
+    string temp;
+    
     for(int i = 0; i < n; ++i) {
-        std::cout << "Enter word " << (i+1) << ": ";
-        std::cin >> words[i];
+        cin >> temp;
+        input_strings.push_back(temp);
     }
 
     string prefix;
-    std::cout << "Enter a prefix: ";
-    std::cin >> prefix;
+    cin >> prefix;
 
-    vector<string> filtered = filter_by_prefix(words, prefix);
+    vector<string> filtered = filter_by_prefix(input_strings, prefix);
 
-    if(filtered.empty()) {
-        cout << "No words found with the given prefix." << endl;
-    } else if(issame(words, filtered)) {
-        cout << "All words in the list have the given prefix." << endl;
-    } else {
-        cout << "Not all words in the list have the given prefix." << endl;
-    }
+    if(issame(input_strings, filtered))
+        cout << "The strings are same\n";
+    else
+        cout << "The strings are not the same\n";
 
     return 0;
 }
