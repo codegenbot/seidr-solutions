@@ -1,38 +1,43 @@
-```cpp
+#include <boost/any.hpp>
 #include <iostream>
 #include <vector>
 #include <list>
-#include <any>
-#include <algorithm>
+#include <stdexcept>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+using namespace std;
+
+template <typename T1, typename T2>
+bool issame(const vector<T1>& v1, const vector<T2>& v2) {
+    if (v1.size() != v2.size())
+        return false;
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (!(v1[i] == static_cast<typename T1::value_type>(v2[i])) &&
+            !static_cast<bool>(dynamic_pointer_cast<T1>(&v2[i])))
+            return false;
+    }
+    return true;
 }
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<boost::any>& values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type()->is_same_v<int>()) {
-            int i = std::any_cast<int>(value);
-            if (!i.has_value()) {
-                continue;
-            }
-            result.push_back(i.get());
-        } else if (value.type()->is_same_v<double>()) {
-            double d = std::any_cast<double>(value);
-            if (!d) {
-                continue;
-            }
-            result.push_back(static_cast<int>(d));
+        try {
+            int integer = boost::any_cast<int>(value);
+            result.push_back(integer);
+        } catch(const bad_any_cast &) {
+            // ignore non-integer values
         }
     }
     return result;
 }
 
 int main() {
-    std::list<std::any> values = {10, 20, 'a', 'b', 30.5f, "hello"};
-    std::vector<int> output = filter_integers(values);
-    for (const auto& num : output) {
-        std::cout << num << "\n";
+    list<boost::any> values = { 1, 2.0f, 3, "hello", 4 };
+    vector<int> integers = filter_integers(values);
+    if (issame(vector<int>(({ 1, 3, 4 })), integers)) {
+        cout << "Integers are the same." << endl;
+    } else {
+        cout << "Integers are not the same." << endl;
     }
+    return 0;
 }

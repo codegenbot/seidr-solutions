@@ -1,24 +1,15 @@
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
-}
+#include <vector>
+#include <algorithm>
 
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
-    for(int i = 0; i < numbers.size(); i++){
-        bool duplicate = false;
-        for(int j = 0; j < result.size(); j++){
-            if(result[j] == numbers[i]){
-                duplicate = true;
-                break;
-            }
-        }
-        if(!duplicate){
-            result.push_back(numbers[i]);
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> unique_numbers;
+    for (int num : numbers) {
+        if (find(unique_numbers.begin(), unique_numbers.end(), num) == unique_numbers.end()) {
+            unique_numbers.push_back(num);
         }
     }
-    return result;
-}
+    return unique_numbers;
 
-int main(){
-    assert (issame({1, 4, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})));
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
