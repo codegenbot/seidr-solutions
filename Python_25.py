@@ -1,23 +1,8 @@
-```
 from typing import List
-import math
 
 
-def factorize(n: int) -> List[int]:
-    if n <= 1:
-        return [n]
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
-    return factors
+def calculate_average_weight(animals: List[dict]) -> float:
+    total_weight = 0
+    for animal in animals:
+        total_weight += animal['weight']
+    return round(total_weight / len(animals), 2) if animals else None
