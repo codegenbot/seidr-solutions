@@ -5,4 +5,4 @@ def double_the_difference(lst):
             result += num ** 2
     return result
 
-double_the_difference([1, 2, 3, 4])
+double_the_difference(lst=[1, 2, 3, 4])
