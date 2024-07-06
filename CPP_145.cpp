@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <vector>
 
@@ -10,7 +11,7 @@ int get_sum_of_digits(int num) {
     return sum;
 }
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++) {
@@ -31,5 +32,4 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
-
 }
