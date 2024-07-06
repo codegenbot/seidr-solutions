@@ -6,9 +6,9 @@ def encode(message):
             if char.lower() in "aeiou":
                 if (char.lower() == "a" or char.lower() == "e" or char.lower() == "i" or char.lower() == "o" or char.lower() == "u"):
                     if char.isupper():
-                        result += ("c" if char.lower() == "a" else "g" if char.lower() == "e" else "k" if char.lower() == "i" else "q" if char.lower() == "o" else "y").upper()
+                        result += ("c", "g", "k", "q", "y")[ord(char)-97].upper()
                     else:
-                        result += ("c" if char.lower() == "a" else "g" if char.lower() == "e" else "k" if char.lower() == "i" else "q" if char.lower() == "o" else "y")
+                        result += ("c", "g", "k", "q", "y")[ord(char)-97]
                 elif char.lower() in ["do", "to"]:
                     if char.isupper():
                         result += "dQnT".upper()
