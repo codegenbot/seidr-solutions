@@ -1,6 +1,12 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 string concatenate(vector<string> strings){
     string result = "";
-    for (const auto& str : strings) {
+    for(string str : strings){
         result += str;
     }
     return result;
