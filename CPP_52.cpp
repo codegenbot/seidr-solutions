@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 bool below_threshold(vector<int> l, int t) {
@@ -8,4 +7,3 @@ bool below_threshold(vector<int> l, int t) {
         }
     }
     return true;
-}
