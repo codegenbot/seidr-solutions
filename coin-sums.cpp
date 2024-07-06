@@ -9,7 +9,6 @@ int main() {
     int quarters = cents / 25;
     int remainingCents = cents % 25;
 
-    // Adjust quarter count if there are leftovers
     while (remainingCents >= 25) {
         quarters++;
         remainingCents -= 25;
