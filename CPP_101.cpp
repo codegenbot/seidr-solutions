@@ -18,7 +18,7 @@ std::vector<std::string> words_string(std::string s, const std::vector<std::stri
             i++;
         }
         if (!temp.empty()) {
-            if (!issame({temp}) || !std::count(expected.begin(), expected.end(), temp)) {
+            if (!issame(std::vector<std::string>({temp})) || !std::count(expected.begin(), expected.end(), temp)) {
                 return {};
             }
             result.push_back(temp);
