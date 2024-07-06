@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cryptopp/md5.h>
 #include <cryptopp/hex.h>
 
