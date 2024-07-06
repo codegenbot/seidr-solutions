@@ -1,9 +1,7 @@
-from itertools import rotate
-
 
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    rotated_alphabet = rotate(alphabet, 2)
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
     encrypted_string = ""
     for char in s:
         index = alphabet.index(char)
