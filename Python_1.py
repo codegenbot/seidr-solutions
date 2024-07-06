@@ -1,5 +1,4 @@
-```
-from typing import List
+`from typing import List`
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
@@ -12,6 +11,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             group = ''
             while stack:
-                group += ``
-```
-```
+                group += `stack.pop()`
+            groups.append(group + char)
