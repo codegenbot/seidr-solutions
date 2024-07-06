@@ -1,5 +1,5 @@
 ```cpp
-int findLargestPrimeSum(vector<int> lst){
+int max_prime_sum(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){
         if(isPrime(num) && num > max_prime)
@@ -23,6 +23,6 @@ bool isPrime(int n){
 
 int main() {
     vector<int> lst = {127, 97, 8192};
-    cout << findLargestPrimeSum(lst) << endl;
+    cout << max_prime_sum(lst) << endl;
     return 0;
 }
