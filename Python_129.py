@@ -12,4 +12,4 @@ def minPath(grid, k):
                 for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
                     if 0 <= x < n and 0 <= y < m and dp[x][y] != float("inf"):
                         dp[i][j] = min(dp[i][j], dp[x][y] + 1)
-    return [grid[i // n][i % m] for i in range(k)] if k <= n * m else []
+    return [grid[i // n][i % (m - 1)] for i in range(k)]
