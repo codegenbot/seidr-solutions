@@ -7,14 +7,10 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (rollCount < 9)
-                score += max(1, currentRoll) + currentRoll;
-            else
-                score += currentRoll;
+            score += currentRoll + (rollCount < 9 ? max(1, currentRoll) : 0);
             currentRoll = 0;
             rollCount++;
-        } 
-        else if (isdigit(c)) {
+        } else if (isdigit(c)) {
             currentRoll *= 10;
             currentRoll += c - '0';
         }
