@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -26,7 +25,6 @@ int fruit_distribution(std::string s, int n) {
 }
 
 int main() {
-    int result = fruit_distribution("apples 2 oranges 3", 5);
-    std::cout << "Total: " << result << std::endl;
+    std::cout << "Total: " << fruit_distribution("apples 2 oranges 3", 5) << std::endl;
     return 0;
 }
