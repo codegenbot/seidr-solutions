@@ -1,3 +1,3 @@
-```
 def solve(N):
-    return str(bin(N)).count('1')
+    bin_list = [str((N>>i)&1) for i in range(N.bit_length())][::-1]
+    return ''.join(bin_list)
