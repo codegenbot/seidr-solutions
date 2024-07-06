@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -23,6 +22,6 @@ int do_alpha(vector<string> operators, vector<int> operands) {
 int main() {
     vector<string> operators = {"//", "*"};
     vector<int> operands = {7, 3, 4};
-    cout << do_alpha(operators, operands) << endl;
+    assert(do_alpha(operators, operands) == 8);
     return 0;
 }
