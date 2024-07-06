@@ -1,3 +1,4 @@
+```
 def calculate_average_grade():
     grades = list(map(float, input("Enter your grades (space-separated): ").split()))
     average_grade = sum(grades) / len(grades)
