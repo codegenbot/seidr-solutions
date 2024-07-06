@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <map>
 
 int search(std::vector<int> lst) {
-    std::map<int, int> count;
+    std::map<int, int> count;  
     for (int num : lst) {
         if (count.find(num) == count.end()) {
             count[num] = 1;
@@ -13,10 +12,11 @@ int search(std::vector<int> lst) {
     }
 
     int maxVal = -1;
-    for (auto p : count) {
-        if (p.second >= p.first && p.first > 0) {
-            maxVal = p.first;
-            break;
+    int maxFreq = 0;
+    for (auto p : count) {  
+        if(p.second > maxFreq) {
+            maxFreq = p.second; 
+            maxVal = p.first; 
         }
     }
 
