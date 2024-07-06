@@ -6,25 +6,6 @@ bool issame(const vector<float>& a, const vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
-    int n;
-    cin >> n;
-
-    vector<float> l(n);
-
-    for (int i = 0; i < n; i++) {
-        cin >> l[i];
-    }
-
-    vector<float> sortedEvenVals = sort_even(l);
-    
-    cout << "Sorted Even Values: ";
-    for (float val : sortedEvenVals) {
-        cout << val << " ";
-    }
-    cout << endl;
-}
-
 vector<float> sort_even(vector<float> l) {
     vector<float> evenVals;
     vector<float> oddVals;
@@ -51,4 +32,21 @@ vector<float> sort_even(vector<float> l) {
     }
 
     return result;
+}
+
+int main() {
+    vector<float> a = {1.5, 3.8, 2.9, 4.7};
+    vector<float> b = {1.5, 2.9, 3.8, 4.7};
+
+    if (issame(a, b)) {
+        vector<float> result = sort_even(a);
+        for (float i : result) {
+            cout << i << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "Vectors are not the same" << endl;
+    }
+
+    return 0;
 }
