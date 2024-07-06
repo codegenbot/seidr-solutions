@@ -1,13 +1,23 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] == guess[i]) {
+            result.push_back(0);
+        } else {
+            result.push_back(abs(guess[i] - game[i]));
+        }
+    }
+    return result;
+}
+
 int main() {
-    assert(issame({1, 2, 3, 5}, {-1, 2, 3, 4}) == false);
-    assert(issame({1, 2, 3, 5}, {1, 2, 3, 5}) == true);
-    
-    // Your other code here...
+    assert(std::equal(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
 }

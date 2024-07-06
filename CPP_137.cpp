@@ -1,7 +1,7 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
-
-using namespace std;
+#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -11,8 +11,8 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         int ai = boost::any_cast<int>(a);
-        string bs = boost::any_cast<string>(b);
-        return (ai > stoi(bs)) ? a : (stoi(bs) > ai) ? b : a;
+        std::string bs = boost::any_cast<std::string>(b);
+        return (ai > std::stoul(bs)) ? a : (std::stoul(bs) > ai) ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         float af = boost::any_cast<float>(a);
@@ -21,23 +21,24 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         float af = boost::any_cast<float>(a);
-        string bs = boost::any_cast<string>(b);
-        return (af > stod(bs)) ? a : (stod(bs) > af) ? b : a;
+        std::string bs = boost::any_cast<std::string>(b);
+        return (af > std::stod(bs)) ? a : (std::stod(bs) > af) ? b : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string as = boost::any_cast<string>(a);
+        std::string as = boost::any_cast<std::string>(a);
         int bi = boost::any_cast<int>(b);
-        return (stoi(as) > bi) ? a : (bi > stoi(as)) ? b : a;
+        return (std::stod(as) > bi) ? a : (bi > std::stod(as)) ? b : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string as = boost::any_cast<string>(a);
+        std::string as = boost::any_cast<std::string>(a);
         float bf = boost::any_cast<float>(b);
-        return (stod(as) > bf) ? a : (bf > stod(as)) ? b : a;
+        return (std::stod(as) > bf) ? a : (bf > std::stod(as)) ? b : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string as = boost::any_cast<string>(a);
-        string bs = boost::any_cast<string>(b);
-        return (stod(as) > stod(bs)) ? a : (stod(bs) > stod(as)) ? b : a;
+        std::string as = boost::any_cast<std::string>(a);
+        std::string bs = boost::any_cast<std::string>(b);
+        return (std::stod(as) > std::stod(bs)) ? a : (std::stod(bs) > std::stod(as)) ? b : a;
     }
     else
         return a;
+}
