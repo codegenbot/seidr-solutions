@@ -23,11 +23,11 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    std::vector<int> output = pluck(arr);
+    std::vector<int> numbers = {2, 4, 6, 8};
+    std::vector<int> output = pluck(numbers);
 
-    for (int i : output) {
-        std::cout << i << " ";
+    for (int num : output) {
+        std::cout << num << " ";
     }
     
     return 0;
