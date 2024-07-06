@@ -3,15 +3,15 @@
 #include <cassert>
 
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None or some other value that represents "None" in C++.
+    if (lst.size() < 2) return -1; 
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     for(int i=0; i<sorted.size()-1; i++) {
-        if(sorted[i] != sorted[i+1]) {
-            return sorted[i];
+        if(sorted[i] > sorted[i+1]) {
+            return sorted[i+1];
         }
     }
-    return -1; // Return None or some other value that represents "None" in C++.
+    return -1; 
 }
 
 int main() {
