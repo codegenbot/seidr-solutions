@@ -1,11 +1,19 @@
+
 def fruit_distribution(s, n):
     import re
-
-    # Extract the number of apples and oranges from the input string
-    apple_count = int(re.search(r"(\d+) apples?", s).group(1))
-    orange_count = int(re.search(r"(\d+) oranges?", s).group(1))
-
+    
+    # Check if the input string contains both "apples" and "oranges"
+    if not all(fruit in s for fruit in ["apples", "oranges"]):
+        raise ValueError("Invalid input: missing 'apples' or 'oranges' in string")
+    
+    # Parse the input string to extract the number of apples and oranges
+    apple_count = re.search("\d+", s.split("and")[0])
+    orange_count = re.search("\d+", s.split("and")[1])
+    
+    if not (apple_count and orange_count):
+        raise ValueError("Invalid input: missing 'apples' or 'oranges' in string")
+    
     # Calculate the number of mango fruits in the basket
-    mango_count = n - apple_count - orange_count
-
+    mango_count = n - int(apple_count) - int(orange_count)
+    
     return mango_count
