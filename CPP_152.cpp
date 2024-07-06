@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <algorithm>
 
@@ -12,7 +11,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(abs(game[i] - guess[i]));
+            result.push_back(std::abs(game[i] - guess[i]));
         }
     }
     return result;
@@ -21,6 +20,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 int main() {
     std::vector<int> game(game.begin(), game.end());
     std::vector<int> guess(guess.begin(), guess.end());
-    assert(issame(compare(game, guess),std::vector<int>{2,0,0,1}));
+    
+    assert(issame(compare(game, guess),{2,0,0,1}));
     return 0;
 }
