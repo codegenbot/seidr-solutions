@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -5,8 +6,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::pair<std::string, std::string>> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::pair<std::string, std::string>> letter_grades;
+std::vector<std::string> numerical_letter_grade(std::initializer_list<float> grades) {
+    std::vector<std::string> letter_grades;
     for (float grade : grades) {
         std::string letter_grade;
         if (grade >= 4.0) {
@@ -36,7 +37,7 @@ std::vector<std::pair<std::string, std::string>> numerical_letter_grade(std::vec
         } else {
             letter_grade = "E";
         }
-        letter_grades.push_back({letter_grade, ""});
+        letter_grades.push_back(letter_grade);
     }
     return letter_grades;
 }
