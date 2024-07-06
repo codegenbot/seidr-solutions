@@ -20,9 +20,9 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> numbers = {1, 3, 2, 4};
-    vector<int> sorted_numbers = strange_sort_vector(numbers);
-    for (int num : sorted_numbers) {
+    vector<int> input = {4, 2, 9, 6, 5, 1, 3, 7, 8};
+    vector<int> output = strange_sort_vector(input);
+    for (int num : output) {
         cout << num << " ";
     }
     return 0;
