@@ -8,21 +8,58 @@ using namespace std;
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
-    
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-                result.push_back(word);
+            if (!word.empty()) {
+                bool has_n_consonants = false;
+                int consonant_count = 0;
+                for (char ch : word) {
+                    if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'
+                        && ch != ' ') {
+                        consonant_count++;
+                    }
+                }
+                if (consonant_count == n) {
+                    has_n_consonants = true;
+                }
+                if (has_n_consonants) {
+                    result.push_back(word);
+                }
+                word.clear();
             }
-            word = "";
         } else {
             word += c;
         }
     }
-    
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-        result.push_back(word);
+    if (!word.empty()) {
+        bool has_n_consonants = false;
+        int consonant_count = 0;
+        for (char ch : word) {
+            if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'
+                && ch != ' ') {
+                consonant_count++;
+            }
+        }
+        if (consonant_count == n) {
+            has_n_consonants = true;
+        }
+        if (has_n_consonants) {
+            result.push_back(word);
+        }
     }
-    
     return result;
+}
+
+int main() {
+    string s;
+    int n;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Enter the number of consonants: ";
+    cin >> n;
+    vector<string> res = select_words(s, n);
+    for (string str : res) {
+        cout << str << endl;
+    }
+    return 0;
 }
