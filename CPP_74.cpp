@@ -7,7 +7,7 @@ bool issame(vector<string> a, vector<string> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     for(const auto& str1 : a) {
-        if (str1 != b[a.end()-a.begin()+distance(a.begin(),find(b.begin(),b.end(),str1))]) return false;
+        if (str1 != b.at(distance(b.begin(), find(b.begin(), b.end(), str1))))return false;
     }
     return true;
 }
