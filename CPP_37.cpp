@@ -26,15 +26,25 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    // Example usage:
-    vector<float> input = {3.14f, 1.7f, -2.9f, 4.8f};
-    vector<float> output = sort_even(input);
-    
-    if (issame(output, {1.7f, -2.9f, 3.14f, 4.8f})) {
-        cout << "Test passed!" << endl;
-    } else {
-        cout << "Test failed!" << endl;
+    vector<float> input;
+    // Input your code here
+    for(int i=0; i<5; i++){
+        float x;
+        cin >> x;
+        input.push_back(x);
     }
-    
+
+    vector<float> output = sort_even(input);
+
+    if(issame(input, output)) {
+        cout << "The sorted even elements are identical." << endl;
+    } else {
+        cout << "Sorted even elements: ";
+        for(auto e : output) {
+            cout << e << " ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
