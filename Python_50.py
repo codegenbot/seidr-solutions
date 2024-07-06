@@ -1,5 +1,5 @@
-def decode_shift(n: str) -> str:
-    s = "".join([chr((ord(ch) - 5 - ord("a")) % 26 + ord("a")) for ch in n])
+def decode_shift(n: int) -> str:
+    s = "".join([chr((ord(ch) - 5 - ord("a")) % 26 + ord("a")) for ch in str(n)])
     return s
 
 
