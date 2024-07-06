@@ -1,17 +1,16 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 int main() {
-    vector<int> lst;
+    std::vector<int> lst;
     int num;
 
     while (true) {
-        cout << "Enter a number (or -1 to finish): ";
-        cin >> num;
+        std::cout << "Enter a number (or -1 to finish): ";
+        std::cin >> num;
 
-        if (num == -1)
-            break;
+        if (num == -1) break;
 
         lst.push_back(num);
     }
@@ -19,28 +18,41 @@ int main() {
     std::vector<int> result = strange_sort_list(lst);
 
     for (int n : result) {
-        cout << n << " ";
+        std::cout << n << " ";
     }
     
     return 0;
 }
 
-bool issame(int x, int y) {
-    if (x > y)
-        return true;
-    else
-        return false;
-}
+std::vector<int> strange_sort_list(const std::vector<int>& lst) {
+    std::vector<int> result;
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    for (int i = 0; i < lst.size() - 1; i++) {
-        for (int j = 0; j < lst.size() - i - 1; j++) {
-            if (!issame(lst[j], lst[j + 1])) {
-                int temp = lst[j];
-                lst[j] = lst[j + 1];
-                lst[j + 1] = temp;
+    for (int num : lst) {
+        bool found = false;
+        for (int& x : result) {
+            if (!issame(num, x)) {
+                x = num;
+                found = true;
+                break;
             }
         }
+
+        if (!found) {
+            result.push_back(num);
+        }
     }
-    return lst;
+
+    return result;
+}
+
+bool issame(int a, int b) {
+    std::cout << "Check for identical numbers: ";
+    for (int i = 0; i < 3; i++) {
+        if ((a >> i & 1) != (b >> i & 1)) {
+            std::cout << "Numbers are not the same.\n";
+            return false;
+        }
+    }
+    std::cout << "Numbers are the same.\n";
+    return true;
 }
