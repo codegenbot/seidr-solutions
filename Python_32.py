@@ -1,8 +1,11 @@
-def find_zero(input():
-    x = float(input())
-    if x == 0:
-        return 0
-    elif x < 0:
+
+def find_zero(x):
+    if x > 0:
         return -1
-    else:
+    elif x < 0:
         return 1
+    else:
+        return 0
+if __name__ == "__main__":
+    x = int(input("Enter a number: "))
+    print(find_zero(x))
