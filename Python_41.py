@@ -1,2 +1,7 @@
 def car_race_collision(n: int):
-    return sum(range(1, n + 1))
+    if n < 1:
+        return "Please enter a positive integer."
+    elif n == 1:
+        return "No collisions will occur because there is only one car."
+    else:
+        return n * (n - 1) // 2
