@@ -1,5 +1,4 @@
-```
-def car_race_collision():
+def car_race_collision(n=0): 
     while True:
         try:
             n = int(input("Enter the number of cars: "))
