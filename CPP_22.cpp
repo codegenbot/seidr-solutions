@@ -2,24 +2,31 @@
 #include <optional>
 #include <vector>
 
-bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
-    for (const auto& value : values) {
-        if(value.type() == typeid(std::optional<int>)) {
-            auto optionalInt = boost::any_cast<std::optional<int>>(value);
-            if(optionalInt.has_value()) {
-                result.push_back(optionalInt.get());
-            }
+bool std::operator==(const std::vector<int>& l, const std::vector<int>& r) {
+    if (l.size() != r.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < l.size(); ++i) {
+        if (l[i] != r[i]) {
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 int main() {
-    assert(isEqual(filter_integers({std::optional<int>(3), 'c', std::optional<int>(3), 3, std::optional<int>('a'), 'b'}), {3, 3, 3}) );
+    std::vector<int> result = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+    assert(result == {3, 3, 3});
     return 0;
+}
+
+std::vector<int> filter_integers(std::vector<std::optional<int>> values) {
+    std::vector<int> result = {};
+    for (const auto& value : values) {
+        if(value.has_value()) {
+            int i = value.get();
+            result.push_back(i);
+        }
+    }
+    return result;
 }
