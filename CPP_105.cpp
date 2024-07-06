@@ -3,26 +3,23 @@
 #include <string>
 
 bool issame(int a, int b) {
-    if (a >= 1 && a <= 9 && b >= 1 && b <= 9) {
-        return true;
-    }
-    return false;
+    return (a == b);
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
-        if (issame(num, 0)) {
+        if (num >= 1 && num <= 9) {
             numbers.push_back(num);
         }
     }
 
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
 
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : numbers) {
-        string str = "";
+        std::string str = "";
         switch (num) {
             case 1:
                 str = "One";
