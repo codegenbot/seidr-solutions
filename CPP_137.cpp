@@ -1,6 +1,6 @@
 #include <boost/any.hpp>
+#include <iostream>
 #include <string>
-
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -27,7 +27,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string as = boost::any_cast<string>(a);
         int bi = boost::any_cast<int>(b);
-        return (stoi(as) > bi) ? a : (bi > stoi(as)) ? b : a;
+        return (stod(as) > bi) ? a : (bi > stod(as)) ? b : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         string as = boost::any_cast<string>(a);
@@ -41,3 +41,20 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else
         return a;
+}
+
+int main() {
+    boost::any a, b;
+    cout << "Enter first value: ";
+    cin >> a;
+    cout << "Enter second value: ";
+    cin >> b;
+    boost::any result = compare_one(a, b);
+    if (result.type() == typeid(int))
+        cout << "First value is greater";
+    else if (result.type() == typeid(float))
+        cout << "Second value is greater";
+    else
+        cout << "Values are equal";
+    return 0;
+}
