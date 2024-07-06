@@ -1,4 +1,3 @@
-```
 def smallest_change(arr):
     """Docstring"""
     n = len(arr)
