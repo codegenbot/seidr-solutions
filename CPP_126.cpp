@@ -1,31 +1,19 @@
-Here's the solution:
+#include <vector>
+#include <algorithm>
 
-```cpp
-bool is_sorted(vector<int> lst){
+bool is_sorted(std::vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            vector<int> temp;
             bool flag = true;
-            for(int j = 0; j < i; j++){
-                while(j+1 < i && lst[j] == lst[j+1]){
-                    j++;
-                }
-                temp.push_back(lst[j]);
-                if(flag){
-                    flag = false;
-                }else{
-                    return false;
-                }
+            int j = i - 1;
+            while(j >= 0 && lst[j] == lst[j+1]){
+                j--;
             }
-            if(temp.size() > 1) return false;
-            for(int j = i; j < lst.size(); j++){
-                while(j+1 < lst.size() && lst[j] == lst[j+1]){
-                    j++;
-                }
-                temp.push_back(lst[j]);
+            int k = i;
+            while(k < lst.size() && lst[k] == lst[k-1]){
+                k++;
             }
-            if(temp.size() != lst.size()) return false;
-            return true;
+            if(i - j > 1 || k - i > 1) return false;
         }
     }
     return true;
