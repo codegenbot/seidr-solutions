@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def search(lst):
     frequency_dict = {}
