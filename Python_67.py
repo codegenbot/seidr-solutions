@@ -1,6 +1,4 @@
 
 def fruit_distribution(s, n):
-    s = s.split()
-    apples = int(s[0])
-    oranges = int(s[-1])
+    apples, oranges = map(int, s.split())
     return n - apples - oranges
