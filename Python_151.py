@@ -1,4 +1,3 @@
-```
 def check(expected_result, actual_result):
     if actual_result == expected_result:
         print("Correct")
