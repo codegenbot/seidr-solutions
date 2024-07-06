@@ -1,11 +1,12 @@
 def get_neighbors(grid, cell):
+    row, col = cell
     neighbors = []
-    if cell[0] > 0:
-        neighbors.append((cell[0] - 1, cell[1]))
-    if cell[0] < len(grid) - 1:
-        neighbors.append((cell[0] + 1, cell[1]))
-    if cell[1] > 0:
-        neighbors.append((cell[0], cell[1] - 1))
-    if cell[1] < len(grid[0]) - 1:
-        neighbors.append((cell[0], cell[1] + 1))
+    if row > 0:
+        neighbors.append((row - 1, col))
+    if row < len(grid) - 1:
+        neighbors.append((row + 1, col))
+    if col > 0:
+        neighbors.append((row, col - 1))
+    if col < len(grid[0]) - 1:
+        neighbors.append((row, col + 1))
     return neighbors
