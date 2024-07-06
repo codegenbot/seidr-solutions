@@ -8,7 +8,6 @@ def decimal_to_binary():
         except ValueError:
             print("That's not a valid number! Try again.")
 
-
 def binary_to_decimal():
     while True:
         try:

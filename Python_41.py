@@ -1,10 +1,8 @@
-def car_race_collision(num_cars=None):
+```
+def car_race_collision():
     while True:
         try:
-            if num_cars is None:
-                n = int(input("Enter the number of cars: "))
-            else:
-                n = num_cars
+            n = int(input("Enter the number of cars: "))
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
@@ -22,3 +20,15 @@ def car_race_collision(num_cars=None):
         return None
     
     return f'Total damage: ${total_damage:,}'
+
+
+def main():
+    output = car_race_collision()
+    if not isinstance(output, type(None)):
+        print(output)
+    else:
+        print("Program did not receive expected input")
+
+
+if __name__ == "__main__":
+    main()

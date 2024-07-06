@@ -1,12 +1,14 @@
 def sum_squares(lst):
     if isinstance(lst, dict):
-        return sum(map(lambda x: sum_squares(x), lst.values()))
+        raise ValueError("Input must be a non-empty list")
     elif not isinstance(lst, list) or len(lst) == 0:
         raise ValueError("Input must be a non-empty list")
 
     total_sum = 0
     for num in lst:
-        if not isinstance(num, (int, float)):
+        if isinstance(num, dict):
+            return 0
+        elif not isinstance(num, (int, float)):
             raise ValueError(
                 f"Invalid input '{num}' found. Input must contain only numbers."
             )
