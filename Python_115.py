@@ -1,5 +1,3 @@
-from math import ceil
-
 
 def max_fill(grid, capacity):
     rows = len(grid)
