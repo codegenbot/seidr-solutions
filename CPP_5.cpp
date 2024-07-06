@@ -1,18 +1,14 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
-    for (int i = 0; i <= numbers.size(); ) {
-        if (i < numbers.size()) {
-            result.push_back(numbers[i]);
-        }
-        if (i + 1 < numbers.size()) {
+    for (int i = 0; i < numbers.size(); i++) {
+        if (i > 0) {
             result.push_back(delimiter);
         }
-        i += 2;
+        result.push_back(numbers[i]);
     }
     return result;
 }
