@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <iostream> 
 using namespace std;
@@ -17,19 +16,19 @@ bool solveBoolean(string s) {
             res = false;
             i++;
         } else if (s[i] == '&') {
-            if (s[i + 1] == 't')
-                f = t;
-            else
-                f = f;
             res &= f;
-            i += 2;
+            i++;
+            if (i < s.length() && (s[i] == 't' || s[i] == 'f')) {
+                f = (s[i] == 't');
+                i++;
+            }
         } else if (s[i] == '|') {
-            if (s[i + 1] == 't')
-                f = t;
-            else
-                f = f;
             res |= f;
-            i += 2;
+            i++;
+            if (i < s.length() && (s[i] == 't' || s[i] == 'f')) {
+                f = (s[i] == 't');
+                i++;
+            }
         }
     }
 
@@ -41,13 +40,9 @@ int main() {
     cout << "Enter a Boolean expression: ";
     getline(cin, s);
     bool result = solveBoolean(s);
-    if (result) 
-    { 
-        cout << "True" << endl; 
-    } 
-    else 
-    { 
-        cout << "False" << endl; 
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
     }
-    return 0;
 }
