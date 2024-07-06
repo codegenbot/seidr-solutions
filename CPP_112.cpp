@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string> // Add this line
 
 bool same(vector<string> v1, vector<string> v2) {
     return v1 == v2;
@@ -19,7 +19,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            temp += ch;
+            temp += std::to_string(ch);  // Convert character to string
         }
     }
     result.push_back(temp);
