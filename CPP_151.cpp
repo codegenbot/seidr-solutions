@@ -26,10 +26,6 @@ int main_func() {
         if (input == -1.0) break; 
 
         lst.push_back(input);
-
-        if (input > 0 && int(input + 0.5) == input) { 
-            odd_sum += pow(int(input + 0.5), 2); 
-        }
     }
 
     long long sum = double_the_difference(lst); 
