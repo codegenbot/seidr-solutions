@@ -1,25 +1,20 @@
-#include <iostream>
+Here is the completed code:
 
-using namespace std;
-
+```cpp
 int choose_num(int x, int y) {
-    if (x > y) {
-        swap(x, y);
-    }
-    for (int i = x; i <= y; i++) {
-        if (i % 2 == 0) {
-            return i;
+    if (x % 2 == 0 && y % 2 == 0) {
+        return max(x, y);
+    } else if ((x % 2 != 0 && y % 2 == 0) || (x % 2 == 0 && y % 2 != 0)) {
+        return -1;
+    } else if (x % 2 != 0 && y % 2 != 0) {
+        int maxEven = x;
+        for (int i = x + 1; i <= y; i++) {
+            if (i % 2 == 0 && i > maxEven) {
+                maxEven = i;
+            }
         }
+        return maxEven;
+    } else {
+        return -1;
     }
-    return -1;
-}
-
-int main() {
-    int x, y;
-    cout << "Enter the first number: ";
-    cin >> x;
-    cout << "Enter the second number: ";
-    cin >> y;
-    cout << "The biggest even integer is: " << choose_num(x, y) << endl;
-    return 0;
 }
