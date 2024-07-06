@@ -1,10 +1,3 @@
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
@@ -17,8 +10,9 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
+    bool issame = true; 
+    string str = "";
     for (int num : numbers) {
-        string str = "";
         switch (num) {
             case 1:
                 str = "One";
@@ -48,7 +42,13 @@ vector<string> by_length(vector<int> arr) {
                 str = "Nine";
                 break;
         }
-        result.push_back(str);
+        if (!issame) {
+            result.push_back(str);
+            issame = true;
+        } else {
+            result.back() += ", " + str;
+            issame = false;
+        }
     }
 
     return result;
