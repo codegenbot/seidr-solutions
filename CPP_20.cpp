@@ -10,7 +10,8 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
             min_diff = diff;
-            closest_pair = {numbers[i], numbers[i + 1]};
+            closest_pair.first = numbers[i];
+            closest_pair.second = numbers[i + 1];
         }
     }
 
