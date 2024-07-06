@@ -1,15 +1,15 @@
 def parse_nested_parens(paren_string):
     result = []
-    level = 0
-    stack = []
+    max_level, level = 0, 0
     for group in paren_string.split():
         for char in group:
             if char == "(":
                 level += 1
-                stack.append(level)
             elif char == ")":
                 level -= 1
-                if len(stack) > 0 and stack[-1] == level:
-                    stack.pop()
-        result.append(level)
+                if level < 0:
+                    raise ValueError("Unbalanced parentheses")
+            if level > max_level:
+                max_level = level
+        result.append(max_level)
     return result
