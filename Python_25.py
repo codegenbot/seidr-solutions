@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -68,5 +69,8 @@ while True:
         input("Press Enter when ready: ")
         factorize()
         break
+    except (EOFError, KeyboardInterrupt):
+        print("Program terminated.")
+        exit()
     except:
         print("Please provide a valid integer.")
