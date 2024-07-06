@@ -2,9 +2,7 @@ def sum_squares(lst):
     total_sum = 0
     for element in lst:
         if isinstance(element, dict):
-            total_sum += sum(
-                sum_squares(list(value)) for value in list(element.values())
-            )
+            total_sum += sum_squares(list(element.values()))
         elif isinstance(element, (int, float)):
             total_sum += abs(element) ** 2
         else:

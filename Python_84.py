@@ -1,3 +1,6 @@
+```
+import sys
+
 def solve():
     while True:
         choice = input(
@@ -28,7 +31,10 @@ def solve():
 
 
 def main():
-    solve()
+    if len(sys.argv) > 1:
+        solve()
+    else:
+        print("Program did not receive expected input. Please run the program with command line arguments.")
 
 
 if __name__ == "__main__":
