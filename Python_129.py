@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     path = []
@@ -5,7 +6,7 @@ def minPath(grid, k):
     def dfs(i, j, visited, current_path):
         nonlocal path
         if len(current_path) == k:
-            if not path or sum(current_path) < sum(path):
+            if not path or sum(current_path) <= sum(path):
                 path = current_path[:]
             return
         
