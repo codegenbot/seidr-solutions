@@ -1,4 +1,4 @@
-def separate_paren_groups(paren_string):
+def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     stack = []
     for char in paren_string:
@@ -8,11 +8,11 @@ def separate_paren_groups(paren_string):
             if len(stack) > 0:
                 stack[-1].append(char)
             else:
-                result.append(stack)
+                result.extend(["".join(g) for g in stack])
                 stack = []
         else:
             if len(stack) > 0:
                 stack[-1].append(char)
     if len(stack) > 0:
-        result.append(stack)
+        result.extend(["".join(g) for g in stack])
     return result
