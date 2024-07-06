@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++)
