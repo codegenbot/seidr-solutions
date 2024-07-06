@@ -1,4 +1,4 @@
-```
+```python
 from typing import List
 
 
@@ -7,7 +7,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
         return []
 
     result = [numbers[0]]
-    if numbers[1:] and delimiter != 0:
-        for num in numbers[1:]:
-            result.extend([result[-1], delimiter, num])
+    for i in range(1, len(numbers)):
+        result.extend([result[-1], delimiter, numbers[i]])
+    result.append(delimiter)
     return result
