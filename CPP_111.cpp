@@ -5,10 +5,11 @@
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
-    
     if (test.empty()) return result;
 
-    for (char c : test) {
+    std::transform(test.begin(), test.end(), test.begin(),
+                   [&](char c){return ::tolower(c);});
+    for (char c : std::unique(test.begin(), test.end())) {
         int count = 0;
         size_t pos = 0;
         while ((pos = test.find(c, pos)) != std::string::npos) {
@@ -18,7 +19,18 @@ std::map<char, int> histogram(std::string test) {
         if (count > 0) result[c] = count;
     }
 
-    return result;
+    std::map<char, int> maxCountMap;
+    int maxCount = 0;
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+            maxCountMap.clear();
+            maxCountMap[pair.first] = pair.second;
+        } else if (pair.second == maxCount)
+            maxCountMap[pair.first] = pair.second;
+    }
+
+    return maxCountMap;
 }
 
 int main() {
