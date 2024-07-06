@@ -1,4 +1,6 @@
-# Option 2: Call the function without arguments
+import re
+
+
 def words_string():
     inp = sys.stdin.readline()
     words = re.split(r"\s+", inp)

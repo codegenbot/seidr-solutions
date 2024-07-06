@@ -1,3 +1,5 @@
+import collections
+
 
 def minPath(grid, k):
     n = len(grid)
