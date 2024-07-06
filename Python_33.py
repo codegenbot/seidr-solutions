@@ -1,2 +1,3 @@
+```
 def sort_third(l: list):
-    return sorted(l, key=lambda x: x % 3)
+    return sorted((i % 3 and 'multiple of 3' or 'not a multiple of 3') for i in l)
