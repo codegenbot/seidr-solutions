@@ -1,9 +1,12 @@
 ```cpp
-bool issame(const vector<int>& a, const vector<int>& b) {
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
@@ -23,7 +26,4 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
-int main() {
-    assert(strange_sort_list({111111}) == vector<int>({111111}));
-    return 0;
-}
+assert(strange_sort_vector({111111}) == vector<int>({111111}));
