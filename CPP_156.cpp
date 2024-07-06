@@ -1,46 +1,20 @@
-#include <cassert>
 #include <string>
 
-std::string int_toRoman(int num) {
-    std::string roman;
-    int thousand = num / 1000;
-    int fourhundred = (num % 1000) / 400;
-    int twohundred = (num % 400) / 200;
-    int onehundred = (num % 200) / 100;
-    int fifty = (num % 100) / 50;
-    int ten = (num % 50) / 10;
-    int five = (num % 10) / 5;
-    int one = num % 5;
+using namespace std;
 
-    for(int i = 0; i < thousand; i++) {
-        roman += "M";
+string mini_roman_to_int(string number) {
+    vector<pair<string, int>> roman = {{"M", 1000}, {"CM", 900}, {"D", 500},
+                                        {"CD", 400}, {"C", 100}, {"XC", 90},
+                                        {"L", 50}, {"XL", 40}, {"X", 10},
+                                        {"IX", 9}, {"V", 5}, {"IV", 4}, {"I", 1}};
+    int result = 0;
+    
+    for (const auto& pair : roman) {
+        while (number.find(pair.first) == 0) {
+            number.erase(0, pair.first.length());
+            result += pair.second;
+        }
     }
-    for(int i = 0; i < fourhundred; i++) {
-        roman += "CD";
-    }
-    for(int i = 0; i < twohundred; i++) {
-        roman += "DII";
-    }
-    for(int i = 0; i < onehundred; i++) {
-        roman += "C";
-    }
-    for(int i = 0; i < fifty; i++) {
-        roman += "L";
-    }
-    for(int i = 0; i < ten; i++) {
-        roman += "X";
-    }
-    for(int i = 0; i < five; i++) {
-        roman += "V";
-    }
-    for(int i = 0; i < one; i++) {
-        roman += "I";
-    }
-
-    return roman;
-}
-
-int main() {
-    assert(int_toRoman(1000) == "M");
-    return 0;
+    
+    return to_string(result);
 }
