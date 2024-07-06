@@ -1,7 +1,8 @@
-```
 def convert():
     while True:
-        choice = input("Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? ")
+        choice = input(
+            "Do you want to (1) Convert decimal to binary or (2) Convert binary to decimal? "
+        )
         if choice in ["1", "2"]:
             break
         else:
@@ -17,9 +18,8 @@ def convert():
                 print("That's not a valid number! Try again.")
     elif choice == "2":
         while True:
-            bin_input = input("Enter a binary number in base 10 (e.g., 101): ")
             try:
-                N = int(bin_input, 2)
+                N = int(input("Enter a binary number in base 2: "), 2)
                 print(N)
                 break
             except ValueError:
