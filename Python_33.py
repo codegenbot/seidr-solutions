@@ -1,3 +1,3 @@
 def sort_third(l: list):
-    third_divisible = [x for x in l if x % 3 == 0]
-    return sorted([i if i % 3 != 0 else min(third_divisible) for i in l])
+    zeros = [i for i in l if i % 3 == 0]
+    return [i if i % 3 != 0 else sorted(zeros)[len(zeros) // 2] for i in l]
