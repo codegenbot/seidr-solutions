@@ -1,4 +1,3 @@
-```
 def sort_array(input_array=None):
     if not isinstance(input_array, list):
         print("Error: Input type is incorrect")
