@@ -3,6 +3,7 @@ def minPath(grid, k):
 
     queue = [(0, 0, [])]
     visited = set((0, 0))
+    path_lengths = {}
     shortest_paths = {}
 
     while queue:
@@ -17,10 +18,20 @@ def minPath(grid, k):
             if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < n:
                 new_path = path + [grid[nx][ny]]
 
-                if len(new_path) not in shortest_paths or len(new_path) < shortest_paths.get(len(new_path), float('inf')):
+                if len(new_path) not in shortest_paths or len(
+                    new_path
+                ) < shortest_paths.get(len(new_path), float("inf")):
                     queue.append((nx, ny, new_path))
                     visited.add((nx, ny))
+                    path_lengths[len(new_path)] = len(new_path)
                     shortest_paths[len(new_path)] = len(new_path)
 
-    min_length = min(shortest_paths.keys()) if shortest_paths else 0
-    return [grid[x][y] for x, y in [(i, j) for i, j in shortest_paths.keys()][:min_length]]
+    return (
+        min(
+            [p for p in sorted(path_lengths.keys())],
+            default=grid[0]
+            + [grid[0][0]] * (k - len(shortest_paths[min(shortest_paths)])),
+        )
+        if k > 0
+        else []
+    )
