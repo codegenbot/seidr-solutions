@@ -1,4 +1,6 @@
+```
 def fizz_buzz(n):
+    result = ""
     for i in range(1, n + 1):
         out = ""
         if i % 15 == 0:
@@ -9,5 +11,5 @@ def fizz_buzz(n):
             out = "Fizz"
         else:
             out = str(i)
-        
-        print(out)
+        result += out + "\n"
+    return result

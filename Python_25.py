@@ -1,3 +1,4 @@
+```
 def factorize(n):
     factors = []
     i = 2
@@ -13,6 +14,7 @@ def factorize(n):
     if n > 1:
         print("The number is prime.")
     else:
+        input("Press Enter to continue...: ")
         print(factors)
 
     again = input("Do you want to factorize another number? (yes/no): ")
@@ -42,6 +44,7 @@ def factorize(n):
         if m > 1:
             print("The number is prime.")
         else:
+            input("Press Enter to continue...: ")
             print(factorized_factors)
 
         again = input("Do you want to factorize another number? (yes/no): ")
