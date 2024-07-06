@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Concatenator:
     def concatenate(self, strings_list: List[str]) -> str:
         result = ""
