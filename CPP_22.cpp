@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <boost/optional.hpp>
 
