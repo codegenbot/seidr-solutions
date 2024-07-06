@@ -1,20 +1,15 @@
-```
 #include <vector>
 #include <algorithm>
 #include <climits>
 using namespace std;
 
-bool compareVectors(vector<int> a, vector<int> b) {
+bool sameVectors(vector<int> a, vector<int> b) {
     return a.size() == b.size();
 }
 
-pair<vector<int>, int> pluck(vector<int> arr) {
-    pair<vector<int>, int> result;
-    if (arr.empty()) {
-        result.first = arr;
-        result.second = 0;
-        return result;
-    }
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return vector<pair<int,int>>{}; 
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -25,15 +20,8 @@ pair<vector<int>, int> pluck(vector<int> arr) {
         }
     }
 
-    if (minEven == INT_MAX) {
-        result.first = arr;
-        result.second = -1;
-        return result;
-    }
+    if (minEven == INT_MAX) return vector<pair<int,int>>{}; 
 
-    vector<int> tempArr = arr;
-    tempArr.erase(remove(tempArr.begin(), tempArr.end(), minEven), tempArr.end());
-    result.first = tempArr;
-    result.second = minIndex;
-    return result;
+    result.push_back({minEven, minIndex});
+    return result.size() > 0 ? result : vector<pair<int,int>>{};
 }
