@@ -1,8 +1,11 @@
 ```
-from typing import List
+from typing import list
 
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+def filter_by_substring(strings: list, substring: str) -> list:
     return [s for s in strings if substring in s]
 
-result = filter_by_substring(input("Enter strings (space-separated): ").split(), input("Enter substring: "))
-print(result)
+if __name__ == "__main__":
+    strings = input("Enter strings (space-separated): ").split()
+    substring = input("Enter the substring to filter by: ")
+    result = filter_by_substring(strings, substring)
+    print(result)
