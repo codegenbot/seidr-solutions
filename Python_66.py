@@ -1,4 +1,3 @@
-```
 def digit_sum(n):
     total = 0
     while n:
@@ -15,5 +14,7 @@ def main():
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-        else:
-            continue
+
+
+if __name__ == "__main__":
+    main()
