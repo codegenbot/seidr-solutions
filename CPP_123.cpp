@@ -1,13 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size(); i++)
-        if(a[i] != b[i])
-            return false;
-    return true;
+bool isSameCollatzSequences(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.size() == 0 && b.size() == 0) || (a.size() == b.size() && a == b);
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -23,17 +18,7 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-std::vector<std::vector<int>> get_collatz_sequence(int n) {
-    std::vector<std::vector<int>> sequences;
-    for(int i=1; i<=n; i++) {
-        sequences.emplace_back(get_odd_collatz(i));
-    }
-    return sequences;
-}
-
 int main() {
-    auto collatz_sequences = get_collatz_sequence(12);
-    bool result = issame({collatz_sequences[0]}, {1,2,6});
-    std::cout << (result ? "True" : "False") << std::endl;
+    assert(isSameCollatzSequences({get_odd_collatz(12)}, {1, 2, 6}) == true);
     return 0;
 }
