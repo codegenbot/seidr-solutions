@@ -1,6 +1,8 @@
 def encrypt(s):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     rotated_alphabet = alphabet[2:] + alphabet[:2]
+    if not all(char.isalpha() for char in s):
+        raise ValueError("Input string must only contain alphabetical characters.")
     encrypted_string = ""
     for char in s:
         index = alphabet.index(char)
@@ -8,4 +10,4 @@ def encrypt(s):
             encrypted_string += rotated_alphabet[index + 1]
         else:
             encrypted_string += rotated_alphabet[index - 2]
-    return rotated_alphabet[index - 2]
+    return encrypted_string
