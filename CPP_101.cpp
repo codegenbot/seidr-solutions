@@ -1,4 +1,4 @@
-Here's the corrected code:
+Here's the modified code:
 
 ```cpp
 #include <vector>
