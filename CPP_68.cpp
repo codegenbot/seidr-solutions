@@ -1,9 +1,8 @@
-```
 #include <vector>
-#include "headerfile.h"
+#include "your_header_file.h"
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
     if(arr.empty()) return result;
 
     int minEven = INT_MAX;
