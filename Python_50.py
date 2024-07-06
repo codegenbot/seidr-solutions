@@ -1,4 +1,4 @@
-def decode_shift():
+```def decode_shift():
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
     
     if not isinstance(direction, str):
@@ -20,4 +20,4 @@ def decode_shift():
                 result += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
         else:
             result += ch
-    return result
+    return result```
