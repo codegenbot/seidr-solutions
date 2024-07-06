@@ -1,3 +1,4 @@
+```
 def square_digits(n):
     result = ""
     for i in str(n):
