@@ -1,11 +1,21 @@
-```
 def factorize(n):
-    factors = set()
-    for i in range(1, n + 1):
-        if n % i == 0:
-            factors.add(i)
-    return ", ".join(map(str, sorted(factors)))
+    i = 2
+    factors = []
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(str(i))
+    if n > 1:
+        factors.append(str(n))
+    return " ".join(factors)
+
+
+def solve():
+    n = int(input("Enter a number: "))
+    print(factorize(n))
+
 
 if __name__ == "__main__":
-    n = int(input("Enter an integer: "))
-    print(factors := factorize(n))
+    solve()
