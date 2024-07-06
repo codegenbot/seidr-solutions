@@ -1,10 +1,10 @@
+```cpp
 #include <vector>
 #include <list>
 #include <any>
 #include <algorithm>
-#include <boost/any.hpp>
 
-bool same(vector<int> a, vector<int> b) {
+bool same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
