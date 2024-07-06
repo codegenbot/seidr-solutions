@@ -1,5 +1,9 @@
 def find_zero(xs):
-    for i, x in enumerate(xs):
-        if x == 0:
-            return i
-    return -1
+    # Read input from the user
+    num = int(input("Enter a number: "))
+
+    # Return the corresponding output
+    if num == 0:
+        return "Found zero!"
+    else:
+        return f"{num} is not zero."
