@@ -1,45 +1,27 @@
+```cpp
 #include <iostream>
-#include <vector>
 #include <string>
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
-    for (const auto& word : split(sentence, ' ')) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+int words_in_sentence(const std::string& sentence) {
+    int count = 0;
+    bool inWord = false;
+
+    for (char c : sentence) {
+        if (c == ' ') {
+            inWord = false;
+        } else {
+            if (!inWord) {
+                count++;
+                inWord = true;
+            }
         }
     }
-    return result.substr(0, result.size() - 1);
+
+    return count;
 }
 
-std::vector<std::string> split(const std::string& str, char c) {
-    std::vector<std::string> tokens;
-    size_t pos = 0;
-    if (!str.empty()) {
-        pos = str.find(c);
-    }
-    while (pos != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-        if (!str.empty()) {
-            pos = str.find(c);
-        }
-    }
-    tokens.push_back(str);
-    return tokens;
-}
-
-bool is_prime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
-
-int main() { 
+int main() {
     std::cout << words_in_sentence("here is") << std::endl;
+    assert(words_in_sentence("here is") == 2);
+    return 0;
 }
