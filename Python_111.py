@@ -1,5 +1,6 @@
 ```
-def histogram(test):
+def histogram(s):
+    test = s
     if not test:
         return {}
     counts = {}
