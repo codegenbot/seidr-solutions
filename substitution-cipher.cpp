@@ -1,26 +1,24 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string decode(std::string cipher, std::string mapping) {
+std::string substitutionCipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
-    for (int i = 0; i < cipher.length(); i++) {
-        char c = mapping[i];
-        if (c == ' ') {
-            result += ' ';
-        } else {
-            int idx = mapping.find(c);
-            if (idx != std::string::npos) {
-                result += cipher[idx];
-            }
+    for (int i = 0; i < message.length(); i++) {
+        int index = 0;
+        while(index < cipher1.length() && message[i] != cipher1[index]) {
+            index++;
         }
+        if (index != cipher1.length())
+            result += cipher2[index];
+        else
+            result += message[i];
     }
     return result;
 }
 
 int main() {
-    std::string cipher, mapping;
-    std::cin >> cipher >> mapping;
-    std::cout << decode(cipher, mapping) << std::endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
