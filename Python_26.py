@@ -1,3 +1,4 @@
+```
 def remove_duplicates(numbers: str) -> list[int]:
     if not numbers:
         return []
@@ -8,7 +9,7 @@ def remove_duplicates(numbers: str) -> list[int]:
         return []
     seen = set()
     result = []
-    for num in sorted(set(map(int, numbers))):
+    for num in sorted(numbers):
         if num not in seen:
             result.append(num)
             seen.add(num)
