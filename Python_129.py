@@ -1,6 +1,7 @@
+import collections
+
 
 def minPath(grid, k):
-    import collections
     n = len(grid)
     m = len(grid[0])
     visited = set()
