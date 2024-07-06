@@ -19,4 +19,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups.append(group)
                 group = ''
 
-    return [group] if group else groups
+    return groups
