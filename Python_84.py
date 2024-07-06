@@ -1,2 +1,3 @@
+```
 def solve(N):
-    return bin(sum(int(i) for i in str(bin(N)[2:])))[2:]
+    return ''.join('a' if digit == '1' else 'b' for digit in bin(N)[2:])

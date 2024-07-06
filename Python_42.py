@@ -1,9 +1,5 @@
-def incr_list(lst=None):
-    if lst is None:
-        result = [0]
-    else:
-        result = lst
-
+def incr_list():
+    result = []
     while True:
         try:
             n = int(input("Enter a number: "))
