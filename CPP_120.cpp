@@ -2,32 +2,30 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) 
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) 
             return false;
-        }
     }
     return true;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    partial_sort(arr.begin(), arr.end() - k + 1, arr.end());
-    for (int i = 0; i < k; i++) {
-        res[i] = arr[arr.size() - k + i];
-    }
-    return res;
-}
-
 int main() {
     int k;
-    cin >> k;
+    std::cin >> k;
+
+    vector<int> maximum(vector<int> arr, int k) {
+        vector<int> res(k);
+        partial_sort(arr.begin(), arr.end() - k + 1, arr.end());
+        for (int i = 0; i < k; i++) {
+            res[i] = arr[arr.size() - k + i];
+        }
+        return res;
+    }
 
     if (k <= 0) {
-        cout << "Invalid value of k" << endl;
+        std::cout << "Invalid value of k" << std::endl;
         return -1;
     } else {
         vector<int> res = maximum({1, 2, 3, -23, 243, -400, 0}, k);
