@@ -1,18 +1,32 @@
 def sort_even(l: list) -> tuple:
-    pos_evens = sorted([x for x in l if 0 < x and x % 2 == 0])
-    neg_evens = sorted([-x for x in l if x < 0 and x % 2 == 0])
-    odds = sorted([x for x in l if (x < 0 and x % 2 != 0) or (x > 0 and x % 2 != 0)])
-
     result = []
-    while len(odds) >= len(pos_evens) and len(odds) >= len(neg_evens):
-        result.append(odds.pop(0))
-        if pos_evens:
-            result.append(pos_evens.pop(0))
-        if neg_evens:
-            result.append(-neg_evens.pop(0))
+    
+    # Separate numbers from other elements
+    num_list = [x for x in l if isinstance(x, int)]
+    
+    # Separate even numbers
+    pos_evens = sorted([x for x in num_list if 0 < x and x % 2 == 0])
+    neg_evens = sorted([-x for x in num_list if x < 0 and x % 2 == 0])
 
-    result.extend(pos_evens)
+    # Separate odd numbers
+    odds = sorted([x for x in num_list if (x < 0 and x % 2 != 0) or (x > 0 and x % 2 != 0)])
+
+    # Sort remaining elements as they are (non-integers)
+    non_ints = sorted([x for x in l if not isinstance(x, int)])
+
+    # Combine all parts
+    while len(odds) >= len(pos_evens) and len(odds) >= len(neg_evens):
+        while pos_evens:
+            result.append(pos_evens.pop(0))
+        while neg_evens:
+            result.append(-neg_evens.pop(0))
+        if odds:
+            result.append(odds.pop(0))
+
     result.extend([-x for x in neg_evens])
     result.extend(odds)
+    
+    # Add non-integers at the end
+    result.extend(non_ints)
 
     return tuple(result)
