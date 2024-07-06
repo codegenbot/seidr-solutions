@@ -1,6 +1,6 @@
+#include <initializer_list>
 #include <optional>
 #include <vector>
-#include <any>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -14,10 +14,4 @@ std::vector<int> filter_integers(std::list<std::any> values) {
         }
     }
     return result;
-}
-
-int main() {
-    std::list<std::any> values = {{1}, {2}, {3}, {4}};
-    auto output = filter_integers(values);
-    // Use the output vector as needed
 }
