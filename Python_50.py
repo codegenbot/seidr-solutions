@@ -1,7 +1,9 @@
 def decode_shift(s: str):
+    if s[:6] not in ["encode", "decode"]:
+        return 
     result = ""
     if not isinstance(s, str):
-        return "Error: Input must be a string."
+        return 
     
     is_encoding = s[:6] == "encode"
     s = s[6:] if not is_encoding else s
