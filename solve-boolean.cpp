@@ -1,6 +1,6 @@
 ```
 #include <string>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -12,10 +12,10 @@ bool solveBoolean(string s) {
             return t && f;
         } else if (s[i] == '|') {
             return t || f;
-        } else if (s[i] == 't' || s[i] == 'T') {
+        } else if (s[i] == 'T' || s[i] == 't') {
             t = true;
             f = false;
-        } else if (s[i] == 'f' || s[i] == 'F') {
+        } else if (s[i] == 'F' || s[i] == 'f') {
             t = false;
             f = true;
         }
@@ -27,10 +27,7 @@ bool solveBoolean(string s) {
 int main() {
     string s;
     cout << "Enter a Boolean expression: ";
-    s = "";
-    while (getchar() != '\n') {
-        s += getchar();
-    }
+    getline(cin, s);
     bool result = solveBoolean(s);
     if (result) {
         cout << "True" << endl;
