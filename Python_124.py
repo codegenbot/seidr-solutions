@@ -1,5 +1,5 @@
 ```
-def is_valid_date(date):
+def valid_date(date):
     day, month, year = map(int, date.split('-'))
     if len(str(date)) != 8 or not str(month).isdigit() or not str(day).isdigit() or not str(year).isdigit():
         return False
