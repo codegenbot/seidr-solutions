@@ -1,3 +1,3 @@
 def check(func):
     result = func()
-    print("Result: ", result)
+    return str(result) * 2
