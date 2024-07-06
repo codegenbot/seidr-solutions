@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 #include <cmath>
 
 std::string rounded_avg(int n, int m) {
@@ -9,9 +7,9 @@ std::string rounded_avg(int n, int m) {
     double sum = 0;
     for (int i = n; i <= m; i++)
         sum += i;
-    double avg = round(sum / (double)(m - n + 1));
+    double avg = std::round(sum / (double)(m - n + 1));
     std::string res;
-    while (avg > 0) {
+    while (avg >= 1) {
         res.push_back((int)(avg)%2+'0');
         avg /= 2;
     }
