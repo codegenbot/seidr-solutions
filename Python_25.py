@@ -3,8 +3,8 @@ import math
 
 
 def factorize() -> List[int]:
-    factors = []
     n = int(input("Enter a number: "))
+    factors = []
     i = 2
     while i * i <= n:
         if n % i:
