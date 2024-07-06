@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 int main() {
@@ -10,7 +11,7 @@ int main() {
         cin >> vec[i];
     }
     vector<vector<int>> res = cutVector(vec);
-    std::ostringstream oss;
+    ostringstream oss;
     oss << "[";
     for (int i = 0; i < res[0].size(); i++) {
         oss << res[0][i] << " ";
