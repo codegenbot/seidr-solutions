@@ -1,4 +1,3 @@
-```
 def count_up_to(n):
     result = []
     for i in range(1, n+1):
@@ -12,6 +11,6 @@ def check(lst):
 n = int(input("Enter a number: "))
 numbers_list = count_up_to(n)
 if check(numbers_list):
-    print("The numbers are even.")
-else:
     print("The numbers are not all even.")
+else:
+    print("The numbers are all even.")
