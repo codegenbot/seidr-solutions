@@ -1,4 +1,3 @@
-```
 def fruit_distribution():
     fruit_dict = {}
     for _ in range(int(input("Enter the number of fruits: "))):
@@ -7,12 +6,11 @@ def fruit_distribution():
             fruit_dict[fruit] = fruit_dict.get(fruit, 0) + 1
     fruit_weights = {}
     for fruit, _ in fruit_dict.items():
-        for _ in range(1):
-            weight = input(f"Enter the weight of {fruit} (or 'stop' to finish): ")
-            if weight.lower() == "stop":
+        while True:
+            if input(f"Enter the weight of {fruit} (or 'stop' to finish): ").lower() == "stop":
                 break
             try:
-                fruit_weights[fruit] = int(weight)
+                fruit_weights[fruit] = int(input("Enter the weight of {}: ".format(fruit)))
                 break
             except ValueError:
                 print("Invalid weight. Please enter a number.")
