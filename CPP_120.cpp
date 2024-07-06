@@ -8,11 +8,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     if (k > arr.size()) {
-        throw std::invalid_argument("Input vector size is less than k");
+        throw std:// your error handling here
     }
-    // Remove this line
-    // #include <initializer_list>
-    
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
