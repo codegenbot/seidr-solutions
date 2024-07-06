@@ -1,17 +1,16 @@
-```
 def fizz_buzz(n):
-    out = []
+    count = 0
     for i in range(1, n + 1):
-        result = ""
+        out = ""
         if i % 15 == 0:
-            result = "FizzBuzz"
+            out = "FizzBuzz"
         elif i % 3 == 0:
-            result = "Fizz"
+            out = "Fizz"
         elif i % 5 == 0:
-            result = "Buzz"
-        else:
-            result = str(i)
+            out = "Buzz"
         
-        out.append(result)
+        print(out)
+        if out in ["FizzBuzz", "Fizz", "Buzz"]:
+            count += 1
     
-    return '\n'.join(out)
+    return count
