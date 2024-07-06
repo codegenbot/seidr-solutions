@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 bool move_one_ball(vector<int> arr) {
     int n = arr.size();
     if (n == 0)
@@ -10,6 +7,10 @@ bool move_one_ball(vector<int> arr) {
         if (arr[i] <= arr[0]) {
             return false;
         }
+    }
+    
+    if (arr[n-1] <= arr[0]) {
+        return false;
     }
     
     return true;
