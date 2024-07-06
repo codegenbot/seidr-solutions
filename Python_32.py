@@ -1,5 +1,4 @@
-
-def find_zero(xs: list):
+def find_zero(xs):
     # Read input from user
     while True:
         try:
