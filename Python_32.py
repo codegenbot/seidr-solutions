@@ -1,5 +1,4 @@
-
-def find_zero(xs: list):
+def find_zero(xs):
     if len(xs) == 0:
         return None
     else:
