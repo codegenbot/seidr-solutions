@@ -1,20 +1,44 @@
-Here is the completed code:
-
-string file_name_check(string file_name){
+int count_digits(const string& file_name) {
     int count = 0;
-    bool has_dot = false;
-    for(int i = 0; i < file_name.length(); i++){
-        if(isdigit(file_name[i])){
+    for (char c : file_name) {
+        if (isdigit(c)) {
             count++;
-            if(count > 3) return "No";
         }
-        else if(file_name[i] == '.'){
-            has_dot = true;
-        }
-        else if(!has_dot && !isalpha(file_name[i])) return "No";
     }
-    if(!has_dot || file_name.find('.') == string::npos) return "No";
-    string extension = file_name.substr(file_name.find('.')+1);
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+    return count;
+}
+
+bool is_valid_substring(const string& substring) {
+    if (substring.empty()) {
+        return false;
+    }
+    if (!isalpha(substring[0])) {
+        return false;
+    }
+    return true;
+}
+
+string file_name_check(string file_name) {
+    int digit_count = count_digits(file_name);
+    if (digit_count > 3) {
+        return "No";
+    }
+    
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || is_valid_substring(file_name.substr(0, dot_pos)) ||
+        !is_valid_extension(file_name.substr(dot_pos + 1))) {
+        return "No";
+    }
+    
     return "Yes";
+}
+
+bool is_valid_extension(const string& extension) {
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    for (const string& ext : valid_extensions) {
+        if (ext == extension) {
+            return true;
+        }
+    }
+    return false;
 }
