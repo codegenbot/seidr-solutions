@@ -1,4 +1,4 @@
-```python
+```
 import re
 
 def bowling_score(frames):
@@ -7,9 +7,9 @@ def bowling_score(frames):
         if '/' in frames[i]:
             left_pins, right_pins = map(int, re.split('/', frames[i]))
             if left_pins == 0:
-                score += 10 + (right_pins if right Pins > 0 else 0)
-            elif left Pins + right_pins < 10:
-                score += left Pins + right Pins
+                score += 10 + (right_pins if right_pins > 0 else 0)
+            elif left_pins + right_pins < 10:
+                score += left_pins + right_pins
             else:
                 score += 10
         else:
