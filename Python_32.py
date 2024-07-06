@@ -8,13 +8,12 @@ def find_zero(x):
 
 
 if __name__ == "__main__":
+    # Read user input and convert to integer
     while True:
         try:
-            x = int(input("Enter a number: "))
+            x = int(raw_input("Enter a number: "))
+            break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-            continue
-        else:
-            break
 
     print(find_zero(x))
