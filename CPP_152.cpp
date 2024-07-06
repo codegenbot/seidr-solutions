@@ -3,7 +3,6 @@
 #include <assert.h>
 
 bool issame(vector<int> a, vector<int> b);
-vector<int> compare(vector<int> game, vector<int> guess);
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
