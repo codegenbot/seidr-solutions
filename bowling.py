@@ -1,27 +1,16 @@
-```
-def bowling_score(game):
+import re
+
+def bowling_score(frames):
     score = 0
-    roll = []
-    for char in game:
-        if char.isdigit():
-            roll.append(int(char))
-        elif char == '/':
-            strike = False
-            while len(roll) < 2 or (len(roll) == 2 and roll[-1] != 10):
-                score += 10 - sum(roll)
-                if not strike:
-                    score += sum(roll)
-                roll = []
-            if not strike:
-                strike = True
-        elif char in 'Xx':
-            if len(roll) > 0:
-                score += 10 + sum(roll)
-                roll = []
+    for i in range(10):
+        if '/' in frames[i]:
+            left_pins, right_pins = map(int, re.split('/', frames[i]))
+            if left_pins == 0:
+                score += 10 + (right_pins if right_pins > 0 else 0)
+            elif left_pins + right_pins < 10:
+                score += left_pins + right_pins
             else:
-                score += 30
-
-    for i in range(len(roll)):
-        score += roll[i]
-
+                score += 10
+        else:
+            score += int(frames[i])
     return score
