@@ -1,9 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string>, vector<string>);
 
 vector<string> by_length(vector<int> arr) {
+    vector<int> temp;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            temp.push_back(i);
+        }
+    }
+
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+
     vector<string> result;
     for (int i : temp) {
         if(i >= 1 && i <= 9) {
@@ -43,6 +54,15 @@ vector<string> by_length(vector<int> arr) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your code to compare two vectors of strings goes here.
-    // For example, you can use std::equal or check if the sizes match and then iterate over each pair.
+    if(a.size() != b.size()) {
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
