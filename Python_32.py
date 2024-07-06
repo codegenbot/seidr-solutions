@@ -1,6 +1,2 @@
-
 def find_zero(xs):
-    for i in range(len(xs)):
-        if xs[i] == 0:
-            return i
-    return -1
+    return next((i for i, x in enumerate(xs) if x == 0), -1)
