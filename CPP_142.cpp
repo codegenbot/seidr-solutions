@@ -13,3 +13,4 @@ int sum_squares(vector<int> lst) {
         }
     }
     return sum;
+}
