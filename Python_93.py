@@ -1,4 +1,3 @@
-
 def encode(message):
     vowels = {
         "a": "A",
@@ -6,11 +5,11 @@ def encode(message):
         "i": "I",
         "o": "O",
         "u": "U",
-        "t": "T",
-        "n": "N",
         "I": "?",
+        "t": "T",
         " ": "",
         "d": "",
+        "n": "N" # Add this line to fix the issue
     }
     encoded_message = ""
     for char in message:
