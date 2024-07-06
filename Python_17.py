@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```
 def parse_music(music_string: str) -> List[int]:
     music_list = []
     i = 0
