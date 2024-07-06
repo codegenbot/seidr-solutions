@@ -5,17 +5,7 @@
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -41,6 +31,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int run_tests() {
-    assert(issame(separate_paren_groups("( ) (( ") , {"","",""}));
+    assert(issame(separate_paren_groups("( ) (( )"), vector<string>{{"()"}, {"()"}}));
     return 0;
 }
