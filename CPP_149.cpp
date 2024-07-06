@@ -15,18 +15,19 @@ bool issame(const std::string& s1, const std::string& s2) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> result;
-    for (const auto& str : lst) {
+std::vector<std::string> sorted_list_sum(std::initializer_list<std::string> lst) {
+    std::vector<std::string> result(lst);
+    for (auto& str : result) {
         if (str.length() % 2 == 0 || issame(str, "sum")) {
-            result.push_back(str);
+            continue;
         }
+        str = std::to_string(std::stoi(str) / 3);
     }
     std::sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(std::equal(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(std::equal(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "0.33", "0.67", "1"}));
     return 0;
 }
