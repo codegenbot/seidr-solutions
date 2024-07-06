@@ -1,13 +1,9 @@
-```Python
-def decode_shift(s: str):
-    result = ""
-    for ch in s:
-        if "a" <= ch <= "z":
-            ascii_offset = ord("a") if ch.islower() else ord("A")
-            result += chr((ord(ch) - ascii_offset - 1) % 26 + ascii_offset)
-        elif "A" <= ch <= "Z":
-            ascii_offset = ord("A") 
-            result += chr((ord(ch) - ascii_offset - 1) % 26 + ascii_offset)
-        else:
-            result += ch
-    return result
+def decode_shift(shift: str, s: str):
+    if shift == "encode":
+        return "".join(
+            [chr((ord(ch) - ord("a") + 3) % 26 + ord("a")) for ch in s.lower()]
+        )
+    elif shift == "decode":
+        return "".join(
+            [chr((ord(ch) - ord("a") - 3) % 26 + ord("a")) for ch in s.lower()]
+        )
