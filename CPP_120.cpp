@@ -14,8 +14,19 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     for (int i = 0; i < k; ++i) {
         int max_val = *std::max_element(arr.begin(), arr.end());
         result.push_back(max_val);
-        auto it = arr.erase(std::remove(arr.begin(), arr.end(), max_val), arr.end());
-        while(it != arr.end()) {it++;}
+        auto it = std::remove(arr.begin(), arr.end(), max_val);
+        arr.erase(it, arr.end());
     }
     return result;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, -23, 243, -400, 0};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    std::vector<int> array;
+    for (int i = 0; i < n; ++i) {
+        array.push_back(arr[i]);
+    }
+    assert(issame(maximum(array, 4), {0, 1, 2, 3}));
+    return 0;
 }
