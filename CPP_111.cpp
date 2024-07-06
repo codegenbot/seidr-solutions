@@ -1,15 +1,13 @@
-#include <map>
-#include <string>
-#include <algorithm>
-
+```cpp
 bool issame(map<char,int> a,map<char,int> b){
-    if(a.size() != b.size()) return false;
-    for(auto p : a) {
-        if(b.find(p.first) == b.end() || b[p.first] != p.second) return false;
-    }
-    return true;
+    return a==b;
 }
 
+int main() {
+    assert(histogram("a") == map<char,int>{{'a', 1}});
+    // Add more test cases if needed
+    return 0;
+}
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
@@ -31,9 +29,4 @@ map<char, int> histogram(string test) {
     }
 
     return max_count;
-}
-
-int main() {
-    assert (issame(histogram("a") , {{'a', 1}}));
-    return 0;
 }
