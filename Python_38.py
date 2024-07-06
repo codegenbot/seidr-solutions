@@ -5,10 +5,10 @@ def decode_cyclic(s):
     result = ""
     i = 0
     while i < len(s):
-        group = s[i:i+3]
-        if group[0] == group[1] and group[0] == group[2]:
-            result += group[0]
+        group = s[i:i+2]
+        if len(group) == 1:
+            result = group[0] * 3 + result
         else:
-            result += group[0] + group[1]
-        i += 3
+            result += group[1] + result
+        i += 2
     return result
