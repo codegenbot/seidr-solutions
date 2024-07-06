@@ -14,6 +14,7 @@ std::vector<int> unique(std::vector<int> l) {
     return result;
 }
 
+#include <iostream>
 int main() {
     assert(std::equal(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}).begin(), unique({5, 3, 5, 2, 3, 3, 9, 0, 123}).end(), {0, 2, 3, 5, 9, 123}.begin()));
     return 0;
