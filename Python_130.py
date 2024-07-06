@@ -6,9 +6,9 @@ def tri(n):
         return [3]
     else:
         result = []
-        for i in range(2, n+1):
+        for i in range(n+1):
             if i % 2 == 0:
-                result.append(result[-1] + result[-2])
+                result.append(i/2)
             else:
-                result.append(result[-1] + result[-2] + result[i+1])
-        return [1] + result
+                result.append((result[i-1] + result[i-2]) / (result[i-3] - result[i-4]))
+        return result
