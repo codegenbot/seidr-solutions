@@ -1,4 +1,4 @@
-```
+```python
 from typing import List
 import math
 
@@ -8,9 +8,7 @@ def factorize():
         try:
             n = int(input("Enter a number: "))
             if n < 2:
-                print(
-                    "Invalid input. Please enter an integer greater than or equal to 2."
-                )
+                print("Invalid input. Please enter an integer greater than or equal to 2.")
                 continue
             break
         except ValueError:
@@ -28,9 +26,9 @@ def factorize():
                 count += 1
             factors.extend([i] * count)
     if n > 1:
-        return "The number is prime."
+        print("The number is prime.")
     else:
-        return factors
+        print(factors)
 
 
-print(factorize())
+factorize()
