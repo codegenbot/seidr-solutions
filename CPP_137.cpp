@@ -12,10 +12,16 @@ void compareOne(int x) {
 int main() {
     cout << "Enter two values: ";
     int val1;
-    while (!(cin >> val1)) {
+    cin >> val1;
+
+    if (cin.fail()) {
         cout << "Invalid input. Please enter an integer.\n";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> val1;
+        if (cin.fail()) {
+            cout << "Invalid input again. Please enter a valid number.\n";
+        }
     }
 
     cout << "Enter the second value: ";
