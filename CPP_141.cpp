@@ -1,5 +1,7 @@
 #include <string>
 #include <cassert>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 bool file_name_check(string file_name) {
@@ -27,14 +29,15 @@ bool file_name_check(string file_name) {
     }
 
     vector<string> allowed_extensions = {"txt", "exe", "dll"};
-    if(find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()){
+    auto it = find(allowed_extensions.begin(), allowed_extensions.end(), after_dot);
+    if(it == allowed_extensions.end()){
         valid = false;
     }
 
     return valid;
 }
 
-int main() {
+int main_test() {
     assert(file_name_check("s.") == false);
     return 0;
 }
