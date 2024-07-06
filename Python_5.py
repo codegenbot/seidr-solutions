@@ -21,15 +21,13 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 
-user_input = input("Enter a list of integers separated by commas: ")
+input_numbers = input("Enter a list of integers separated by commas: ")
+numbers = [int(num) for num in input_numbers.split(",")]
 try:
-    numbers = list(map(int, user_input.split(',')))
+    output = intersperse(
+        numbers, int(input("Enter an integer to use as the delimiter: "))
+    )
 except ValueError as e:
     print(f"Error: {e}")
 else:
-    try:
-        output = intersperse(numbers, int(input("Enter an integer to use as the delimiter: ")))
-    except ValueError as e:
-        print(f"Error: {e}")
-    else:
-        print(output)
+    print(output)
