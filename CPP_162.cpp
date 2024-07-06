@@ -1,21 +1,28 @@
-string string_to_md5(string text){
-    MD5_CTX md5ctx;
-    unsigned char md5buf[16];
-    size_t len = strlen(text.c_str());
-    
-    if(len == 0)
-        return "None";
-    
-    MD5_Init(&md5ctx);
-    MD5_Update(&md5ctx, text.c_str(), len);
-    MD5_Final(md5buf, &md5ctx);
-    
-    string result;
-    for(int i = 0; i < 16; i++){
-        char hex[3];
-        sprintf(hex, "%02x", md5buf[i]);
-        result += hex;
+```cpp
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+string string_to_md5(string text) {
+    if (text.empty()) {
+        return "";
     }
-    
-    return result;
+
+    unsigned char md[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* p = text.c_str();
+    while (*p) {
+        MD5_Update(&ctx, p, 1);
+        p++;
+    }
+    MD5_Final(md, &ctx);
+
+    stringstream ss;
+    for (int i = 0; i < 16; ++i) {
+        ss << setfill('0') << setw(2) << hex << (int)md[i];
+    }
+
+    return ss.str();
 }
