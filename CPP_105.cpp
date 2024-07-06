@@ -1,8 +1,7 @@
-```
 bool issame(int a, int b) {
-    if (a == b)
+    if(a == b)
         return true;
-    else
+    else 
         return false;
 }
 
@@ -18,7 +17,8 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (int num : numbers) {
+    for (int i = 0; i < numbers.size(); ++i) {
+        int num = numbers[i];
         string str = "";
         switch (num) {
             case 1:
