@@ -1,15 +1,11 @@
+#include <vector>
+#include <string>
+
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+    vector<string> result;
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            numbers.push_back(i);
-    }
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
-    std::vector<std::string> result;
-    for (int num : numbers) {
-        std::string str = "";
-        switch (num) {
+        string str = "";
+        switch (i) {
             case 1: str = "One"; break;
             case 2: str = "Two"; break;
             case 3: str = "Three"; break;
@@ -28,3 +24,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 int main() {
     assert(by_length({9, 4, 8}) == std::vector<std::string>({"Nine", "Eight", "Four"}));
     return 0;
+}
