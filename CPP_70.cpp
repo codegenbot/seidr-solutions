@@ -1,12 +1,15 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_vector(vector<int> lst) {
+    vector<int> result;
     if (lst.empty()) return result;
 
     while (!lst.empty()) {
@@ -14,11 +17,14 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         int maxVal = *max_element(lst.begin(), lst.end());
         result.push_back(minVal);
         result.push_back(maxVal);
-        auto newEnd = std::remove(lst.begin(), lst.end(), minVal);
-        lst.erase(newEnd, lst.end());
-        newEnd = std::remove(lst.begin(), lst.end(), maxVal);
-        lst.erase(newEnd, lst.end());
+        lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
+        lst.erase(remove(lst.begin(), lst.end(), maxVal), lst.end());
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(strange_sort_vector({111111}), vector<int>{111111}));
+    return 0;
 }

@@ -1,4 +1,3 @@
-```cpp
 int is_bored(string S){
     int count = 0;
     string word;
@@ -11,12 +10,4 @@ int is_bored(string S){
         }
     }
     return count;
-}
-
-int main(){
-    string input;
-    cout << "Enter a sentence: ";
-    cin >> input;
-    cout << "The number of times the phrase 'I am' appears is: " << is_bored(input) << endl;
-    return 0;
 }
