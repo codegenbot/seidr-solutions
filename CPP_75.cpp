@@ -18,3 +18,4 @@ bool is_multiply_prime(int a) {
         }
     }
     return true;
+}
