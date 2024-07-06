@@ -1,23 +1,19 @@
 #include <vector>
+#include <algorithm>
 #include <iostream>
 
-bool (*issame)(const std::vector<float>&, const std::vector<float>&) {
-    return [](const std::vector<float>& a, const std::vector<float>& b) {
-        for (int i = 0; i < a.size(); i++) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
-    };
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
+int main() {
+    std::vector<float> l = {1.0, 2.0, 3.0};
+    std::vector<float> m;
+    // Input from user
+    int n; std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        float x; std::cin >> x;
+        m.push_back(x);
     }
-    return result;
+    std::cout << std::boolalpha << issame(l, m) << std::endl;
 }
