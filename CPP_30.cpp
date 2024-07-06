@@ -1,46 +1,19 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
-bool issame(vector<float> l) {
-    float first = *l.begin();
-    for (float num : l) {
-        if (num != first)
-            return false;
-    }
-    return true;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    vector<float> l = {1.0, 2.0, 3.0};
-    cout << issame(l) << endl;
-
-    vector<float> get_positive(vector<float> a) {
-        vector<float> result;
-        for (float num : a) {
-            if (num > 0)
-                result.push_back(num);
-        }
-        return result;
+    std::vector<float> l = {1.0, 2.0, 3.0};
+    std::vector<float> m;
+    // Input from user
+    int n; std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        float x; std::cin >> x;
+        m.push_back(x);
     }
-
-    assert(issame(get_positive({1.0, -2.0, 3.0})) == true);
-    
-    vector<float> input;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        float num;
-        cin >> num;
-        input.push_back(num);
-    }
-    cout << issame(input) << endl;
-
-    vector<float> positive_nums = get_positive(input);
-    cout << "Positive numbers: ";
-    for (float num : positive_nums) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    std::cout << std::boolalpha << issame(l, m) << std::endl;
 }
