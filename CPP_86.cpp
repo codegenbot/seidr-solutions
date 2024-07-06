@@ -1,21 +1,35 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    for (const auto& word : split(s, " ")) {
-        result += std::string(word.begin(), word.end()) + " ";
-    }
-    return result.substr(0, result.size() - 1);
-}
+using namespace std;
 
-std::string split(const std::string& str, const std::string& delimiter) {
+vector<string> split(const string& str, const string& delimiter) {
     size_t pos = 0;
-    std::vector<std::string> tokens;
-    while ((pos = str.find(delimiter)) != std::string::npos) {
+    vector<string> tokens;
+    while ((pos = str.find(delimiter)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + delimiter.length());
     }
     tokens.push_back(str);
-    return std::string(tokens.begin(), tokens.end());
+    return tokens;
+}
+
+string anti_shuffle(string s){
+    string result = "";
+    for (const auto& word : split(s, " ")) {
+        result += std::accumulate(word.begin(), word.end(),
+            string{}, [](string acc, char c) { return acc + c; }) + " ";
+    }
+    return result.substr(0, result.size() - 1);
+}
+
+int main()
+{
+    string s;
+    cout << "Enter a sentence: ";
+    getline(cin, s);
+
+    cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
+
+    return 0;
