@@ -1,4 +1,3 @@
-```
 from typing import Optional
 
 
@@ -14,14 +13,12 @@ def longest_file_line(input_file: str) -> Optional[str]:
                     max_length = len(line.strip())
                     longest_line = line.strip()
     except FileNotFoundError:
-        print("File not found.")
+        print("The file does not exist.")
         return None
     except IOError:
-        print("Error reading file. Please check permissions.")
+        print("Error reading the file.")
         return None
-    if longest_line is None:
-        return "File is empty."
+    if longest_line is not None:
+        print(f"The longest line in {input_file} is '{longest_line}'")
     else:
-        return longest_line
-
-print(longest_file_line("path_to_your_file.txt"))
+        print(f"No lines found in {input_file}.")
