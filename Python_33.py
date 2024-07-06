@@ -1,4 +1,3 @@
-```Python
 def sort_third(l: list):
     return [
         l[i] if i % 3 == 2 else (
