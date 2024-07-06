@@ -1,8 +1,11 @@
-```cpp
 #include <vector>
+#include <string>
+#include <map>
+#include <algorithm>
+
 using namespace std;
 
-vector<pair<int, string>> by_length(vector<int> arr) {
+vector<pair<int, string>> by_length(vector<int> arr){
     vector<int> temp;
     for(int i: arr){
         if(i >= 1 && i <= 9)temp.push_back(i);
@@ -14,10 +17,4 @@ vector<pair<int, string>> by_length(vector<int> arr) {
     for(int i: temp){
         result.push_back({i, numToName[i]});
     }
-    return result;
-
-}
-
-int main() {
-    return 0;
 }
