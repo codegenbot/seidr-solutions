@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <climits>
@@ -14,7 +15,8 @@ vector<int> pluck(vector<int> arr) {
         }
     }
 
-    if (minEven != INT_MAX) result.push_back(minEven);
+    if (minEven == INT_MAX) return result;
 
+    result.push_back(minEven);
     return result;
 }
