@@ -31,7 +31,7 @@ def minPath(grid, k):
 
             # Check if the path length exceeds k
             if len(min_path) > k:
-                # If so, return an empty list instead of None
+                # If so, return an empty list
                 return []
 
     # Return the minimum path
