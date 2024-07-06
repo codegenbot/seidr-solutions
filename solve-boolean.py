@@ -2,10 +2,7 @@ import re
 
 
 def solve_boolean(expression):
-    # Add an input statement to read the expression from the user
-    expression = input("Enter a Boolean expression: ")
-
-    result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
+    result = re.match(r"^(?P<left>.*?)(\||\&)(?P<right>.*)$", expression)
     if result:
         left, right = result.groups()
         return solve_boolean(left) | solve_boolean(right)
@@ -13,3 +10,9 @@ def solve_boolean(expression):
         return True
     else:
         return False
+
+
+# Read input from the user
+expression = input("Enter a Boolean expression: ")
+result = solve_boolean(expression)
+print(f"The result is {result}")
