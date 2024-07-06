@@ -24,20 +24,12 @@ string get_closest_vowel(string word) {
 }
 
 int main() {
-    string s;
-    cout << "Enter a sentence: ";
-    cin >> s;
+    assert(get_closest_vowel("Above") == "o");
     
-    if (!s.empty()) {
-        for (char c : s) {
-            if (isvowel(c)) {
-                cout << "The closest vowel is " << c << ".\n";
-                break;
-            }
-        }
-    } else {
-        cout << "You didn't enter any sentence. Try again.\n";
-    }
+    string str;
+    cout << "Enter a word: ";
+    cin >> str;
+    cout << "The closest vowel is: " << get_closest_vowel(str) << endl;
     
     return 0;
 }
