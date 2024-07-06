@@ -30,3 +30,4 @@ int main() {
     std::cout << "Total snow after " << hours << " hours is: " << result << " cm" << std::endl;
 
     return 0;
+}
