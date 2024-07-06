@@ -1,5 +1,9 @@
+```
 #include <string>
 #include <vector>
+#include <cctype>
+
+using namespace std;
 
 string file_name_check(string file_name){
     bool valid = true;
@@ -31,9 +35,4 @@ string file_name_check(string file_name){
     }
 
     return valid ? "Yes" : "No";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
 }
