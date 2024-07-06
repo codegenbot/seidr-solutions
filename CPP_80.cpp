@@ -1,22 +1,27 @@
+#include <string>
+using namespace std;
+
 bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string temp = s.substr(i, 3);
-        bool unique = true;
-        for (char c : temp) {
-            int count = 0;
-            for (char d : temp) {
-                if (c == d)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
-        }
-        if (!unique)
-            return false;
+    long long num = stol(s);
+    while (num != 1 && !is_one_digit(num)) {
+        num = get_sum_of_digits(num);
     }
-    return true;
+    return num == 1;
+}
+
+long long get_sum_of_digits(long long n) {
+    long long sum = 0;
+    while (n > 0) {
+        int digit = n % 10;
+        sum += digit * digit;
+        n /= 10;
+    }
+    return sum;
+}
+
+bool is_one_digit(long long n) {
+    while (n > 9) {
+        n = get_sum_of_digits(n);
+    }
+    return n == 1 || n == 4 || n == 7;
 }

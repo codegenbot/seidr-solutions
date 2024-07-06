@@ -24,9 +24,3 @@ int smallest_change(vector<int> arr) {
     }
     return changes;
 }
-
-int main() {
-    vector<int> input = {0, 1};
-    assert(smallest_change(input) == 1);
-    return 0;
-}
