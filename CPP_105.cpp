@@ -1,34 +1,16 @@
 #include <vector>
-#include <string>
-
-bool issame(vector<string> vec1, vector<string> vec2) {
-    if (vec1.size() != vec2.size()) {
-        return false;
+using namespace std;
+vector<pair<int, string>> by_length(vector<int> arr){
+    vector<int> temp;
+    for(int i: arr){
+        if(i >= 1 && i <= 9)temp.push_back(i);
     }
-    
-    for (int i = 0; i < vec1.size(); i++) {
-        if (vec1[i] != vec2[i]) {
-            return false;
-        }
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    map<int, string> numToName = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}; 
+    vector<pair<int, string>> result;
+    for(int i: temp){
+        result.push_back({i, numToName[i]});
     }
-    
-    return true;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
-    for (int num : arr) {
-        if (num >= 10 && num <= 99) {
-            string str = to_string(num);
-            vector<char> charVec(str.begin(), str.end());
-            sort(charVec.begin(), charVec.end());
-            if (!issame({str}, {string(charVec.begin(), charVec.end())})) {
-                numbers.push_back("No");
-            } else {
-                numbers.push_back("Yes");
-            }
-        }
-    }
-
-    return numbers;
+    return result;
 }
