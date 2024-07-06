@@ -1,5 +1,4 @@
-
-import collections
+    import collections
 
 def minPath(grid, k):
     # ... existing code ...
