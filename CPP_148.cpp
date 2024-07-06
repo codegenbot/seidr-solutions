@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
 
@@ -11,10 +11,14 @@ bool bf(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 bool issame(std::vector<std::string> a) {
-    return true;
+    return true; 
+}
+
+std::vector<std::string> code(const std::initializer_list<std::string>& lst) {
+    return std::vector<std::string>(lst);
 }
 
 int main() {
-    std::cout << "Output: " << bf({"Jupiter", "Makemake"}, {}) << std::endl;
-    assert(bf({"Jupiter", "Makemake"}, {}) == std::vector<std::string>());
+    std::cout << "Output: " << bf(code({"Jupiter", "Makemake"}), {}) << std::endl;
+    assert(bf(code({"Jupiter", "Makemake"}), {}) == std::vector<std::string>());
 }
