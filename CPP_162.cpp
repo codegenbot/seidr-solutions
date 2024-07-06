@@ -1,4 +1,5 @@
-#include <md5.h>
+#include <openssl/md5.h>
+#include <sstream>
 #include <iomanip>
 
 using namespace std;
