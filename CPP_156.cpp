@@ -24,7 +24,6 @@ std::string int_to_mini_roman(int number) {
             number -= pair.first;
         }
     }
-
     return mini_roman;
 }
 
