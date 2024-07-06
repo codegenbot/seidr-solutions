@@ -13,3 +13,4 @@ std::string longest(std::vector<std::string> strings){
         }
     }
     return longest;
+}
