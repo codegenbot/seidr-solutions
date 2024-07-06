@@ -1,16 +1,14 @@
-```cpp
 #include <vector>
 #include <list>
 #include <any>
-#include <memory> 
-#include <boost/any.hpp>
+#include <algorithm>
 
-bool equal_v(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 std::vector<int> filter_integers(std::list<std::any> values) {
-    std::pmr::vector<int> result;
+    std::pmr_vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
@@ -20,6 +18,6 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 }
 
 int main() {
-    assert(equal_v(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
