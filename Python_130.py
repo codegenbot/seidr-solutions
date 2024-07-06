@@ -10,4 +10,4 @@ def tri(n):
                 result.append(1 + i // 2)
             else:
                 result.append(result[i - 1] + result[i - 2] + result[i + 1])
-        return [n] + result
+        return [1] + result
