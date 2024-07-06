@@ -1,1 +1,7 @@
-print(encode("I DoNt KnOw WhAt tO WrItE", "k dQnT kNqW wHcT Tq wRkTg"))
+def check(encode, message, expected):
+    key = "ThisIsTheKey"
+    result = encode(key, message)
+    if result == expected:
+        print("Test passed!")
+    else:
+        print("Test failed!")
