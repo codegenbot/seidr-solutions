@@ -1,13 +1,13 @@
-def double_the_difference(numbers):
+def double_the_difference(lst):
     result = 0
-    for num in numbers:
+    for num in lst:
         if num % 2 != 0 and num > 0:
             result += num**2
     return result
 
 
-# Test case 1
-assert double_the_difference([]) == 0
+# User input
+lst = list(map(int, input().split()))
 
-# Test case 2
-assert double_the_difference([3, 5, 7]) == 64
+# Call function with user input
+print(double_the_difference(lst))
