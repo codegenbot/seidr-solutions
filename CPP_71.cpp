@@ -1,5 +1,4 @@
 #include <cstddef>
-#include <cmath>
 using namespace std;
 
 float triangle_area(float a, float b, float c) {
