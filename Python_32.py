@@ -1,3 +1,4 @@
+
 def find_zero(xs: list):
     # Read input from user
     xs = list(map(int, input().split()))
