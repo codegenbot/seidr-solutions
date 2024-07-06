@@ -2,7 +2,8 @@ import re
 
 
 def fix_spaces(text):
-    return re.sub(r"\s+", "-", text)
+    text = re.sub(r"\s+", "-", text)
+    return text
 
 
 if __name__ == "__main__":
