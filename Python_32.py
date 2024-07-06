@@ -9,9 +9,6 @@ def find_zero(a, b, c):
 
 
 if __name__ == "__main__":
-
-    print()
-
     print("Enter 'a': ")
     a = float(input())
 
@@ -23,9 +20,8 @@ if __name__ == "__main__":
 
             if b**2 - 4 * a * c >= 0:
                 break
-        else:
-            result = find_zero(a, b, c)
-            print(f"Zero is approximately {result}")
+        result = find_zero(a, b, c)
+        print(f"Zero is approximately {result}")
     elif b**2 - 4 * a * c < 0:
         while True:
             print("Enter non-zero value for 'c': ")
