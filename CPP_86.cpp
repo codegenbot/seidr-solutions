@@ -19,17 +19,16 @@ string anti_shuffle(string s){
     string result = "";
     for (const auto& word : split(s, " ")) {
         result += std::accumulate(word.begin(), word.end(),
-            char(), [](char acc, char c) { return static_cast<char>(acc + c); }) + " ";
+            string{}, [](string acc, char c) { return acc + c; }) + " ";
     }
     return result.substr(0, result.size() - 1);
 }
 
-int main(){
+int main() {
     string s;
     cout << "Enter a sentence: ";
     getline(cin, s);
 
     cout << "Anti-Shuffle of input sentence is: " << anti_shuffle(s) << endl;
-
     return 0;
 }
