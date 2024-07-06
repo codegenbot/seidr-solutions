@@ -1,3 +1,5 @@
+Here is the corrected code:
+```
 def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
@@ -13,7 +15,7 @@ def minPath(grid, k):
             visited[i][j] = True
             current_path.append(grid[i][j])
 
-            for x, y in [(0, 1), (1, 0), (-1, 0), (0, -1)]:
+            for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 ni, nj = i + x, j + y
                 if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
                     if dfs(ni, nj, current_path[:]):
