@@ -1,4 +1,3 @@
-```python
 def fruit_distribution(fruits, amount):
     fruit_dict = {}
     for fruit in fruits.split(','):
