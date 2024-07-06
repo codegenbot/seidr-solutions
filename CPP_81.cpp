@@ -1,4 +1,6 @@
-vector<string> numerical_letter_grade(vector<float> grades) {
+Here is the completed code:
+
+vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
