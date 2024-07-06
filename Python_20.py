@@ -1,7 +1,8 @@
+```
 from typing import Tuple
 
 
-def find_closest_elements() -> Tuple[float, float]:
+def find_closest_pair() -> Tuple[float, float]:
     while True:
         user_input = input("Enter two space-separated numbers: ")
         try:
@@ -24,4 +25,4 @@ def find_closest_elements() -> Tuple[float, float]:
     
     return closest_pair
 
-print(find_closest_elements())
+print(find_closest_pair())
