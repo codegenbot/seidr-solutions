@@ -6,9 +6,9 @@ string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char base = isalpha(c) ? (c <= 'z' ? 'a' : 'A') : c;
+            char base = isupper(c) ? 'A' : 'a';
             c = (c == toupper(base)) ? tolower(c) : toupper(c);
-            switch ((c - base) % 26) {
+            switch (c - base) {
                 case 0:
                 case 1:
                 case 3:
