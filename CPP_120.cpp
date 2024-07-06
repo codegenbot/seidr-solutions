@@ -24,25 +24,25 @@ int main() {
     int n;
     std::cout << "Enter the size of the array: ";
     std::cin >> n;
-    
+
     int* arr = new int[n];
-    
+
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
-    
+
     int k;
     std::cout << "Enter the number of maximum elements to remove: ";
     std::cin >> k;
-    
+
     if(k > n) {
         std::cout << "k cannot be greater than the size of the array. Exiting...\n";
         return 0;
     }
-    
+
     std::vector<int> myVector(arr, arr+n);
-    assert(issame({1,2,3}, maximum(myVector, k))); // Adjust this part according to your test case
+    assert(issame({0, 1, 2, 3}, maximum(myVector, k)));
     delete[] arr;
     return 0;
 }
