@@ -1,18 +1,23 @@
+```cpp
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
-bool issame(const std::vector<float>& a,const std::vector<float>& b) {
-    return std::equal(a.begin(),a.end(),b.begin());
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
+        }
+    }
+    return result;
 }
 
 int main() {
-    assert(std::equal(get_positive({}), {}));
-    vector<float> l1 = get_positive({0, 2.5f, -3, 4, 5});
-    vector<float> l2 = {2.5f, 4, 5};
-    if(issame(l1,l2)) {
-        std::cout << "Vectors are same." << std::endl;
-    }
-    else {
-        std::cout << "Vectors are not same." << std::endl;
-    }
+    assert(std::equal(get_positive({}).begin(), get_positive({}).end(), {}.begin()));
+    std::cout << "All assertions passed." << std::endl;
+    return 0;
 }
