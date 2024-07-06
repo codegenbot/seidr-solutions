@@ -1,10 +1,4 @@
-```python
-from typing import List
-
-def concatenate(strings: List[str]) -> str:
+def concatenate():
+    n = int(input("Enter the number of strings: "))
+    strings = [input(f"Enter string {i+1}: ") for i in range(n)]
     return "".join(strings)
-
-if __name__ == "__main__":
-    strings = input("Enter space-separated strings: ").split()
-    result = concatenate(strings)
-    print(result)
