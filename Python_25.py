@@ -1,5 +1,4 @@
-````
-def factorize(n: int) -> List[int]:
+```"""def factorize(n: int) -> List[int]:
     factors = []
     i = 2
     while n > 1:
@@ -11,5 +10,4 @@ def factorize(n: int) -> List[int]:
                 n //= i
                 count += 1
             factors.append(i * count)
-    return factors
-```
+    return factors""```
