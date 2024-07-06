@@ -6,10 +6,14 @@ def longest_file_line(input_file: str) -> Optional[str]:
         return None
     max_length = 0
     longest_line = None
-    with open(input_file, "r") as f:
-        lines = f.readlines()
-        for line in lines[:-1]:
-            if len(line.strip()) > max_length:
-                max_length = len(line.strip())
-                longest_line = line.strip()
+    try:
+        with open(input_file, "r") as f:
+            for line in f:
+                if len(line.strip()) > max_length:
+                    max_length = len(line.strip())
+                    longest_line = line.strip()
+    except FileNotFoundError:
+        return None
+    except IOError:
+        return None
     return longest_line if longest_line is not None else ""

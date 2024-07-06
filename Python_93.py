@@ -1,10 +1,14 @@
-```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                if char.lower() == "do" or char.lower() == "to":
+                if char.lower() == "a" or char.lower() == "e" or char.lower() == "i" or char.lower() == "o" or char.lower() == "u":
+                    if char.isupper():
+                        result += {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}[char.lower()].upper()
+                    else:
+                        result += {"a": "c", "e": "g", "i": "k", "o": "q", "u": "y"}[char.lower()]
+                elif char.lower() == "do" or char.lower() == "to":
                     if char.isupper():
                         result += "dQnT".upper()
                     else:
@@ -20,16 +24,10 @@ def encode(message):
                     else:
                         result += "sWnT"
                 else:
-                    if char.lower() in "aeiou":
-                        if char.isupper():
-                            result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()].upper()
-                        else:
-                            result += {"a": 'c', "e": 'g', "i": 'k', "o": 'q', "u": 'y'}[char.lower()]
+                    if char.isupper():
+                        result += char.swapcase().upper()
                     else:
-                        if char.isupper():
-                            result += char.swapcase().upper()
-                        else:
-                            result += char.swapcase()
+                        result += char.swapcase()
             else:
                 if char.isupper():
                     result += char.swapcase().upper()
