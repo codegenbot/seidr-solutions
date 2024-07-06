@@ -24,7 +24,7 @@ std::vector<float> get_positive(std::vector<float> l, std::vector<float> v) {
 }
 
 int main() {
-    std::vector<float> v = {1, -2, 3};
+    std::vector<float> v = {1.0, -2.0, 3.0};
     std::cout << "Only positive numbers are: ";
     for (float num : get_positive(v)) {
         std::cout << num << " ";
