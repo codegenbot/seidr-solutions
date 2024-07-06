@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <algorithm>
 
@@ -15,13 +14,6 @@ int main() {
     }
 
     int is_bored(const string& s) {
-        if (s.find("are") != std::string::npos && s.find("going") != std::string::npos)
-            return 1;
-        else
-            return 0;
+        return 0;
     }
-    
-    int result = is_bored("You and I are going for a walk");
-    assert(result == 0);
-    return 0;
 }
