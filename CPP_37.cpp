@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -20,7 +20,7 @@ std::vector<float> sort_even(std::vector<float> l) {
                     evenVals.push_back(l[j]);
                 }
             }
-            sort(evenVals.begin(), evenVals.end());
+            std::sort(evenVals.begin(), evenVals.end());
             result[i] = evenVals[0];
         } else {
             result[i] = l[i];
@@ -30,7 +30,14 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> input = {3.14f, 1.7f, -2.9f, 4.8f};
+    std::vector<float> input;
+    while (true) {
+        float num;
+        std::cin >> num;
+        if (!std::cin) break;
+        input.push_back(num);
+    }
+    
     std::vector<float> output = sort_even(input);
     
     if (issame(output, {1.7f, -2.9f, 3.14f, 4.8f})) {
@@ -39,11 +46,6 @@ int main() {
         std::cout << "Test failed!" << std::endl;
     }
     
-    if (issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
-        std::cout << "Test passed!" << std::endl;
-    } else {
-        std::cout << "Test failed!" << std::endl;
-    }
-    
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
