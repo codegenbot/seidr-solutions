@@ -1,8 +1,4 @@
-def add(x: int, y: int):
-    return x + y
-
-
-x = 5
-y = 3
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
 result = add(x, y)
 print("Result:", result)
