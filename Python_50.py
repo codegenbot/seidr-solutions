@@ -1,16 +1,8 @@
-```python
-def decode_shift():
-    direction = input("Enter 'encode' to encode or 'decode' to decode: ")
-    
-    if not isinstance(direction, str):
+def decode_shift(s: str):
+    if not isinstance(s, str):
         return 
-    
-    if direction not in ["encode", "decode"]:
-        return 
-        
-    s = input("Enter the string to encode/decode: ")
-    
-    is_encoding = direction == "encode"
+    is_encoding = s[:6] == "encode"
+    s = s[7:] if is_encoding else s
     result = ""
     for ch in s:
         if ch.isalpha():
@@ -21,4 +13,5 @@ def decode_shift():
                 result += chr((ord(ch) - ascii_offset - 5) % 26 + ascii_offset)
         else:
             result += ch
-    return result
+    elif not s:
+        return
