@@ -1,4 +1,3 @@
-```
 #include <cassert>
 #include <string>
 using namespace std;
@@ -15,5 +14,6 @@ std::string decimal_to_binary(int n){
 
 int main() {
     assert (decimal_to_binary(15) == "11111");
-    cout << decimal_to_binary(5) << endl;
+    cout << decimal_to_binary(10) << endl;
+    return 0;
 }
