@@ -1,7 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::string& s1, const std::string& s2) {
     if (s1.length() != s2.length()) {
@@ -9,6 +8,25 @@ bool issame(const std::string& s1, const std::string& s2) {
     }
     for (int i = 0; i < s1.length(); ++i) {
         if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool compare(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    if (vec1.size() != vec2.size()) {
+        return false;
+    }
+    for (int i = 0; i < vec1.size(); ++i) {
+        bool found = false;
+        for (const auto& str : vec2) {
+            if (issame(vec1[i], str)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
             return false;
         }
     }
@@ -27,6 +45,11 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(std::equal(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
+    std::vector<std::string> expected = sorted_list_sum(input);
+    bool areEqual = std::equal(expected.begin(), expected.end(), {"cc", "dd", "aaaa", "bbbb"});
+    if (!areEqual) {
+        return 1;
+    }
     return 0;
 }
