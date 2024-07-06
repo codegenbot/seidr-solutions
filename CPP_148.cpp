@@ -1,13 +1,9 @@
-std::vector<std::string> bf(std::string a, std::string c) {
-    int i = 0;
-    while (i < a.size()) {
-        if (a[i] == ' ') {
-            a.erase(a.begin() + i);
-        } else {
-            i++;
-        }
-    }
-    return {a, c};
+#include <vector>
+#include <string>
+#include <algorithm>
+
+std::string bf(std::string a, std::string b) {
+    // Define the function body here
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
