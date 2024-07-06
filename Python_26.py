@@ -1,2 +1,6 @@
 def remove_duplicates(numbers) -> list:
-    return [x for i, x in enumerate(sorted(map(str, set((y for y in numbers)))) if i == 0 or str(x) != str(numbers[i - 1])]
+    return [
+        x
+        for i, x in enumerate(sorted(set(map(str, numbers))))
+        if i == 0 or x != numbers[i - 1]
+    ]
