@@ -1,3 +1,7 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
 string file_name_check(string file_name){
     int count = 0;
     bool has_dot = false;
@@ -16,4 +20,12 @@ string file_name_check(string file_name){
         return "No";
     }
     return "Yes";
+}
+
+int main() {
+    string file_name;
+    cout << "Enter a filename: ";
+    cin >> file_name;
+    cout << file_name_check(file_name) << endl;
+    return 0;
 }

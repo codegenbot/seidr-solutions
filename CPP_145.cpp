@@ -1,6 +1,8 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <iterator>
 
 bool issame(vector<int> a,vector<int>b){
     int sumA = 0, sumB = 0;
@@ -24,6 +26,5 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main(){
-    vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
-    assert (issame(result , {-76, -21, 0, 4, 23, 6, 6}));
+    assert (order_by_points({0,6,6,-76,-21,23,4}) == vector<int> {-76, -21, 0, 4, 23, 6, 6});
 }
