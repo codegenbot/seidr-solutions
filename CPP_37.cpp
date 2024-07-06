@@ -1,5 +1,7 @@
+```
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<float> a, std::vector<float>b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
@@ -7,7 +9,8 @@ bool issame(std::vector<float> a, std::vector<float>b) {
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> evenVals;
-#include <initializer_list>
+    std::vector<float> oddVals;
+
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             evenVals.push_back(l[i]);
