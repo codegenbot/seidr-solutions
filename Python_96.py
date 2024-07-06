@@ -1,4 +1,3 @@
-```
 def count_up_to(n):
     return list(range(1, n+1))
 
@@ -11,7 +10,6 @@ try:
         print("Please enter a positive integer.")
     else:
         numbers_list = count_up_to(n)
-        print(f"The even numbers up to {n} are: {numbers_list}")
         if not check(numbers_list):
             print("The numbers are not all even.")
         else:
