@@ -1,14 +1,12 @@
-def parse_nested_parens():
-    return nested_levels()
-
-def check(func):
+```
+def parse_nested_parens(s):
     result = []
-    nested_levels = 0
-    for char in input():
+    levels = 0
+    for char in s:
         if char == "(":
-            nested_levels += 1
-            result.append(str(nested_levels))
+            levels += 1
+            result.append(str(levels))
         elif char == ")":
-            nested_levels -= 1
-            result.append(str(nested_levels))
+            levels -= 1
+            result.append(str(levels))
     print(result)
