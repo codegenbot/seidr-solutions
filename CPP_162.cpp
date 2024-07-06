@@ -1,22 +1,24 @@
-```cpp
-#include <iomanip>
-#include <sstream>
+#include <openssl/evp.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
-    unsigned char result[16];
-    MD5_CTX md5;
-    MD5_Init(&md5);
-    const char* str = text.c_str();
-    int len = text.size();
-    MD5_Update(&md5, str, len);
-    MD5_Final(&md5, result);
 
-    stringstream ss;
-    for (int i = 0; i < 16; i++) {
-        ss << setfill('0') << setw(2) << hex << static_cast<int>(result[i]);
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5_CTX mdContext;
+    MD5_Init(&mdContext);
+    const char* ptr = text.c_str();
+    while (*ptr) {
+        MD5_Update(&mdContext, ptr, 1);
+        ptr++;
+    }
+    MD5_Final(result, &mdContext);
+
+    string output;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        char buff[3];
+        sprintf(buff, "%02x", result[i]);
+        output += buff;
     }
 
-    return ss.str();
+    return output;
 }
