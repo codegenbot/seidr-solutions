@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string decimal_to_binary(int n) {
+std::string decimal_to_binary(int n){
     std::string binary = "";
     do{
         if(n % 2 == 0) binary += '0';
@@ -12,10 +12,10 @@ std::string decimal_to_binary(int n) {
     return std::string(binary.rbegin(), binary.rend()); 
 }
 
-int main() {
-    int number;
+int main(){
+    int decimal;
     std::cout << "Enter a decimal number: ";
-    std::cin >> number;
-    std::cout << "Binary representation is: " << decimal_to_binary(number) << std::endl;
+    std::cin >> decimal;
+    std::cout << "Binary representation of the decimal number is: " << decimal_to_binary(decimal) << std::endl;
     return 0;
 }
