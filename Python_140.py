@@ -1,3 +1,6 @@
+import sys
+
+
 def fix_spaces(text):
     import re
 
@@ -5,6 +8,6 @@ def fix_spaces(text):
     return text.replace(" ", "")
 
 
-user_input = input("Enter text: ")
+user_input = sys.stdin.readline().strip()
 result = fix_spaces(user_input)
-print(result)
+sys.stdout.write(f"{result}\n")
