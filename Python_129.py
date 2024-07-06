@@ -1,29 +1,24 @@
-
 def get_neighbors(grid, cell):
-    # Get the row and column of the current cell
-    row, col = cell
+    # Get the row and column index of the current cell
+    i, j = cell[0], cell[1]
 
-    # Initialize a list to store the neighbors
+    # Initialize an empty list to store the neighbors
     neighbors = []
 
     # Check if the cell has a neighbor above it
-    if row > 0:
-        # Add the neighbor above to the list
-        neighbors.append(grid[row-1][col])
+    if i > 0:
+        neighbors.append((i - 1, j))
 
     # Check if the cell has a neighbor below it
-    if row < len(grid)-1:
-        # Add the neighbor below to the list
-        neighbors.append(grid[row+1][col])
+    if i < len(grid) - 1:
+        neighbors.append((i + 1, j))
 
     # Check if the cell has a neighbor to its left
-    if col > 0:
-        # Add the neighbor to the left to the list
-        neighbors.append(grid[row][col-1])
+    if j > 0:
+        neighbors.append((i, j - 1))
 
     # Check if the cell has a neighbor to its right
-    if col < len(grid[0])-1:
-        # Add the neighbor to the right to the list
-        neighbors.append(grid[row][col+1])
+    if j < len(grid[0]) - 1:
+        neighbors.append((i, j + 1))
 
     return neighbors
