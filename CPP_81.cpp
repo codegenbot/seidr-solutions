@@ -1,20 +1,19 @@
-```cpp
 #include <string>
 #include <vector>
 
-char numerical_letter_grade(int grade) {
+int numerical_letter_grade(int grade) {
     if (grade < 0 || grade > 100)
-        return ' ';
-    else if (grade >= 90) 
-        return 'A';
+        return -1;
+    else if (grade >= 90)
+        return 4; // A
     else if (grade >= 80)
-        return 'B';
+        return 3; // B
     else if (grade >= 70)
-        return 'C';
+        return 2; // C
     else if (grade >= 60)
-        return 'D';
+        return 1; // D
     else
-        return 'F';
+        return 0; // F
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -26,5 +25,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame({std::string("E"), std::string("D-")}, {numerical_letter_grade(0), numerical_letter_grade(70)}));
+    assert(issame(std::vector<std::string>({{"E"}, {"D-"}}) == numerical_letter_grade({0, 0.7}))); // Use the function here
 }
