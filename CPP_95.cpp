@@ -1,6 +1,18 @@
-```cpp
 #include <map>
 #include <string>
+
+bool check_dict_case(map<string, string> dict);
+
+int main() {
+    map<string, string> myDict = {{"Hello", "world"}, {"HI", "WORLD"}};
+    bool result = check_dict_case(myDict);
+    if (result) {
+        cout << "The dictionary case is either all upper or all lower." << endl;
+    } else {
+        cout << "The dictionary case is mixed." << endl;
+    }
+    return 0;
+}
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -16,31 +28,4 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return all_lower || all_upper;
-}
-
-int main() {
-    map<string, string> dict;
-    // insert input from user into the dictionary
-    cout << "Enter key-value pairs in format 'key value', each on a new line. Enter 'quit' to stop.\n";
-    string line;
-    while (true) {
-        cin >> line;
-        if (line == "quit") break;
-        size_t space = line.find(' ');
-        dict[substr(line, 0, space)] = substr(line, space + 1);
-    }
-    // call the check_dict_case function with the dictionary
-    bool result = check_dict_case(dict);
-    if (result) {
-        cout << "Dictionary is either all uppercase or all lowercase.\n";
-    } else {
-        cout << "Dictionary is not all uppercase and not all lowercase.\n";
-    }
-    return 0;
-}
-
-string substr(const string& s, size_t pos, size_t len = string::npos) {
-    if (pos > s.length()) return "";
-    string result = s.substr(pos, len);
-    return result;
 }

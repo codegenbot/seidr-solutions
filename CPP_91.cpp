@@ -1,3 +1,5 @@
+#include <iostream>
+#include <sstream>
 #include <string>
 
 int is_bored(std::string S){
