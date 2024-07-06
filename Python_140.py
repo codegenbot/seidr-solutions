@@ -3,7 +3,7 @@ def fix_spaces(text):
     prev_was_space = True
     for char in text:
         if char.isspace():
-            if not char.isspace():
+            if not prev_was_space:
                 result += '-'
             else:
                 result += '_'
