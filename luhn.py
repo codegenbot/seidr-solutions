@@ -1,12 +1,11 @@
 def luhn_algorithm(digits):
+    digits = [int(d) for d in digits]  # Convert input to array of integers
     sum = 0
-    for i in range(16):
-        if i % 2 == 0 or i == 16:
-            digit = digits[i] * 2
+    for i, digit in enumerate(digits):
+        if i % 2 == 0:
+            digit *= 2
             if digit > 9:
-                sum += digit - 9
-            else:
-                sum += digit
+                sum += digit - 10 if digit > 18 else digit - 9
         else:
-            sum += digits[i]
-    return sum
+            sum += digit
+    return "".join(str(digit) for digit in digits[::-1])
