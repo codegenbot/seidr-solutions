@@ -1,10 +1,11 @@
 import re
 
-def words_string(s):
-    if s:
-        return re.split('?, |\s*,\s*|\s+|,\s*', s.strip())
-    else:
-        return None
+def words_string():
+    while True:
+        try:
+            s = input("Please enter a string with comma-separated values: ")
+            return re.split('?, |\s*,\s*|\s+|,\s*', s.strip())
+        except Exception as e:
+            print(f"Invalid input. Please enter valid text.")
 
-input_str = input("Enter a string: ")
-print(words_string(input_str))
+print(words_string())
