@@ -1,17 +1,14 @@
-```cpp
 #include <string>
-#include <sstream>
 
-string flip_case(std::string str){
-    std::stringstream ss;
-    for(int i=0; i<str.length(); i++){
+string flip_case(string str){
+    string result;
+    for(int i = 0; i < str.length(); i++){
         char c = str[i];
-        if(c>=65 && c<=90) // uppercase letter
-            ss << static_cast<char>(c+32);
-        else if(c>=97 && c<=122) // lowercase letter
-            ss << static_cast<char>(c-32);
-        else 
-            ss << c;
+        if(c >= 'a' && c <= 'z')
+            c -= ('a' - 'A');
+        else if(c >= 'A' && c <= 'Z')
+            c += ('a' - 'A');
+        result += c;
     }
-    return ss.str();
+    return result;
 }
