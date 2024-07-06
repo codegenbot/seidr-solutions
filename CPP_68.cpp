@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,20 +23,12 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 6};
-    auto result = pluck(numbers);
-
-    if (result.size() > 0) {
-        for (auto value : result) {
-            if (value % 2 == 0) {
-                std::cout << "The first even value in the array is: " << value << std::endl;
-                break;
-            } else if (value % 2 != 0 && value < INT_MAX) {
-                std::cout << "The smallest odd number greater than the smallest even number is: " << value << std::endl;
-                break;
-            }
-        }
+    std::vector<int> input = {1, 2, 3, 4};
+    std::vector<int> output = pluck(input);
+    
+    for(int i: output) {
+        std::cout << i << " ";
     }
-
+    std::cout << std::endl;
     return 0;
 }
