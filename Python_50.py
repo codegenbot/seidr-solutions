@@ -1,7 +1,18 @@
+```
 def decode_shift():
     direction = input("Enter 'encode' to encode or 'decode' to decode: ")
+    
+    while not isinstance(direction, str):
+        direction = input("Invalid input. Enter 'encode' to encode or 'decode' to decode: ")
+        
+    if direction not in ["encode", "decode"]:
+        direction = input("Invalid input. Enter 'encode' to encode or 'decode' to decode: ")
+        
     s = input("Enter the string to encode/decode: ")
-
+    
+    while not isinstance(s, str):
+        s = input("Invalid input. Enter a valid string to encode/decode: ")
+        
     is_encoding = direction == "encode"
     result = ""
     for ch in s:
@@ -14,5 +25,3 @@ def decode_shift():
         else:
             result += ch
     return result
-
-print(decode_shift())
