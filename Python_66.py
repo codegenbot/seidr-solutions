@@ -1,4 +1,5 @@
 ```
+```
 def digit_sum():
     n = int(input("Enter a number: "))
     return sum(int(i) for i in str(n))
@@ -13,3 +14,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
