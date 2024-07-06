@@ -1,3 +1,7 @@
+#include <string>
+#include <map>
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
@@ -25,7 +29,7 @@ map<char, int> histogram(string test) {
             maxMap[pair.first] = pair.second;
             maxCount = pair.second;
         } else if (pair.second == maxCount) {
-            maxMap[pair.first] = pair.second; 
+            maxMap[pair.first] = pair.second; // Update maxMap here
         }
     }
 
