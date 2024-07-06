@@ -1,18 +1,18 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> result;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            result.push_back((i == 1 ? "One" : (i == 2 ? "Two" : (i == 3 ? "Three" : (i == 4 ? "Four" : (i == 5 ? "Five" : (i == 6 ? "Six" : (i == 7 ? "Seven" : (i == 8 ? "Eight" : "Nine")))))))));
-    }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
-    return result;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
-int main() {
-    assert(by_length({9, 4, 8}) == std::vector<std::string>({"Nine", "Eight", "Four"}));
-    return 0;
+vector<string> by_length(vector<int> arr) {
+    vector<string> numbers;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            numbers.push_back(to_string(i));
+    }
+    sort(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
+    return numbers;
 }

@@ -9,9 +9,13 @@ int is_bored(std::string S){
             ++count;
     }
     return count;
-
 }
 
 int main(){
-    return 0; 
+    std::string S;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, S);
+    int result = is_bored(S);
+    std::cout << "Count of words starting with I: " << result << std::endl;
+    return 0;
 }
