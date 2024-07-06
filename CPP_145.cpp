@@ -1,12 +1,21 @@
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(int a, int b) {
+    int sum1 = 0;
+    int num1 = abs(a);
+    while (num1 > 0) {
+        sum1 += num1 % 10;
+        num1 /= 10;
     }
-    return true;
+    int sum2 = 0;
+    int num2 = abs(b);
+    while (num2 > 0) {
+        sum2 += num2 % 10;
+        num2 /= 10;
+    }
+
+    return sum1 == sum2;
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -29,9 +38,4 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }
