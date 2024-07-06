@@ -1,8 +1,8 @@
-def make_palindrome(string: str) -> str:
+def make_palindrome(string):
     suffix = string[::-1]
     for i in range(len(suffix)):
-        if is_palindrome(suffix[: i + 1]):
-            return string + suffix[i + 1 :]
-    if is_palindrome(string):
-        return string + string[::-1]
-    return string
+        if suffix[:i+1] == suffix[::-1][:i+1]:
+            break
+    else:
+        i = len(string) - 1
+    return string + string[:i+1][::-1]
