@@ -1,15 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
-
-using namespace std;
-
-bool same(const vector<string>& a, const vector<string>& b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
-
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<int> sortedArr;
     for(int i : arr){
         if(i >= 1 && i <= 9)
@@ -24,16 +13,4 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(numToName[i]);
     }
     return result;
-}
-
-int main() {
-    vector<int> arr = {1, 2, 5, 3, 6, 4};
-    vector<string> output = by_length(arr);
-    cout << "The output is: ";
-    for (string str : output) {
-        cout << str << " ";
-    }
-    cout << endl;
-    
-    return 0;
 }

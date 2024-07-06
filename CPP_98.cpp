@@ -1,17 +1,14 @@
 #include <string>
 #include <assert.h>
 
-int count_upper(std::string s) {
+int main() {
+    std::string s = "EEEE";
     int count = 0;
-    for (int i = 1; i < s.length(); i += 2) {
+    for (int i = 0; i < s.length(); i++) {
         if (isupper(s[i])) {
             count++;
         }
     }
-    return count;
-}
-
-int main() {
-    assert(count_upper("EEEE") == 4);
+    assert(count == 4); 
     return 0;
 }
