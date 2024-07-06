@@ -1,5 +1,4 @@
-
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list[int]:
     max_levels = []
     for group in paren_string.split():
         levels = 1
