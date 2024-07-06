@@ -1,4 +1,3 @@
-```
 def incr_list(lst=None):
     result = []
     while True:
