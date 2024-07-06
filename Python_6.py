@@ -1,9 +1,10 @@
+Here is the modified code:
 ```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in (paren_string[i:i+j] for i in range(len(paren_string)) for j in range(1, len(paren_string)-i+1)):
+    for group in paren_string.split():
         depth = 0
         nested_depth = 0
         for char in group:
@@ -14,3 +15,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 depth -= 1
         result.append(nested_depth)
     return result
+
+print(parse_nested_parens("((())) (()) ()"))
