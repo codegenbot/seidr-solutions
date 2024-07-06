@@ -1,12 +1,9 @@
-```
 def match_parens(lst):
-    stack = []
-    for s in lst:
-        for c in s:
-            if c == '(':
-                stack.append(c)
-            elif c == ')':
-                if len(stack) == 0:
-                    return 'No'
-                stack.pop()
-    return 'Yes' if len(stack) == 0 else 'No'
+    s1, s2 = lst
+    return (
+        "Yes"
+        if (s1.count("(") == s1.count(")") and s2.count("(") == s2.count(")"))
+        or ((s1.count("(") > s1.count(")")) and not any(c < "0" for c in s2))
+        or ((s1.count("(") < s1.count(")")) and not any(c > "0" for c in s2))
+        else "No"
+    )
