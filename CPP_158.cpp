@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 string find_max(vector<string> words){
@@ -12,4 +11,3 @@ string find_max(vector<string> words){
         }
     }
     return res;
-}
