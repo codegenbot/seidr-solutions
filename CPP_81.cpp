@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,7 +12,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 using namespace std;
 
-std::vector<string> numerical_letter_grade(vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade;
@@ -21,36 +20,26 @@ std::vector<string> numerical_letter_grade(vector<float> grades) {
             letterGrade = "A+";
         } else if (grade > 3.7) {
             letterGrade = "A";
-        } 
-        else if (grade > 3.3) {
+        } else if (grade > 3.3) {
             letterGrade = "A-";
-        } 
-        else if (grade > 3.0) {
+        } else if (grade > 3.0) {
             letterGrade = "B+";
-        } 
-        else if (grade > 2.7) {
+        } else if (grade > 2.7) {
             letterGrade = "B";
-        } 
-        else if (grade > 2.3) {
+        } else if (grade > 2.3) {
             letterGrade = "B-";
-        } 
-        else if (grade > 2.0) {
+        } else if (grade > 2.0) {
             letterGrade = "C+";
-        } 
-        else if (grade > 1.7) {
+        } else if (grade > 1.7) {
             letterGrade = "C";
-        } 
-        else if (grade > 1.3) {
+        } else if (grade > 1.3) {
             letterGrade = "C-";
-        } 
-        else if (grade > 1.0) {
+        } else if (grade > 1.0) {
             letterGrade = "D+";
-        } 
-        else if (grade > 0.7) {
+        } else if (grade > 0.7) {
             letterGrade = "D";
-        } 
-        else {
-            letterGrade = "E";
+        } else {
+            letterGrade = "F";
         }
         result.push_back(letterGrade);
     }
@@ -59,6 +48,8 @@ std::vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     vector<float> testGrades = {0, 0.7};
-    assert(issame(numerical_letter_grade(testGrades), {"E", "D-"}) ); 
+    if (!issame(numerical_letter_grade(testGrades), vector<string>{ "E", "D-" })) {
+        cout << "Failed assertion!" << endl;
+    }
     return 0;
 }
