@@ -1,5 +1,5 @@
-#define issame(a,b) (!(a).size() || !(b).size() || (a).size()==(b).size() &&equal((a).begin(), (a).end(), (b).begin())) 
-
+```
+#define issame(a,b) (a==b)
 vector<int> count_up_to(int n) {
     vector<int> primes;
     for (int i = 2; i <= n; ++i) {
