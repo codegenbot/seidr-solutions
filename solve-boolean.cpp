@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -6,19 +5,14 @@ using namespace std;
 bool solveBoolean(string s) {
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') {
-            result = true;
-        } else if (s[i] == 'f') {
-            result = false;
+        if (s[i] == 'T') {
+            return true;
+        } else if (s[i] == 'F') {
+            return false;
         } else if (s[i] == '|') {
-            bool temp = result;
-            result = !result;
-            if (!temp) return false;
+            result = true;
         } else if (s[i] == '&') {
-            if (!result) return false;
-            bool temp = result;
-            result = !result;
-            if (result && temp) return true;
+            result = false;
         }
     }
     return result;
