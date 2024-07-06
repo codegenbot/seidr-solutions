@@ -1,8 +1,7 @@
 def gcd(a, b):
-    while b != 0:
+    while a % b != 0:
         a, b = b, a % b
     return a
-
 
 def indices_of_substring(text, target):
     window_size = len(target)
@@ -10,8 +9,8 @@ def indices_of_substring(text, target):
     for i in range(len(text)):
         if text[i : i + window_size] == target:
             indices.append(i)
-            # If the current index is the last character of the target,
-            # add it to the list of indices as well.
-            if i + window_size == len(text):
+        # Check for overlapping occurrences of the target string.
+        for j in range(1, window_size - 1):
+            if text[i : i + j] == target:
                 indices.append(i)
-    return [idx for idx in text.find(target) if text[idx : idx + window_size] == target]
+    return indices
