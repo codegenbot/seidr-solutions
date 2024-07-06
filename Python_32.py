@@ -1,2 +1,8 @@
-def find_zero(x):
-    return 0 if x == 0 else -1 if x < 0 else 1
+def find_zero(input():
+    x = float(input())
+    if x == 0:
+        return 0
+    elif x < 0:
+        return -1
+    else:
+        return 1
