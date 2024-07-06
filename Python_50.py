@@ -1,4 +1,3 @@
-
 def decode_shift(n: int) -> str:
     if n < 0 or n > 9:
         raise ValueError("Input must be a single-digit number")
