@@ -1,3 +1,10 @@
+```cpp
+#include <vector>
+#include <cassert>
+#include <iostream>
+
+using namespace std;
+
 int solutions(vector<int> lst) {
     int sum = 0;
     for(int i = 0; i < lst.size(); i++) {
@@ -7,7 +14,21 @@ int solutions(vector<int> lst) {
     }
     return sum;
 
+}
+
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 3);
-    return 0;
+    vector<int> input;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    cout << "Enter " << n << " integers: ";
+    for(int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        input.push_back(x);
+    }
+    
+    assert(solutions(input) == 3);
+
 }

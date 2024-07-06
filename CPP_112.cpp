@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool isSame(vector<string> a, vector<string> b) {
-    return a == b;
+bool same(vector<string> v1, vector<string> v2) {
+    return v1 == v2;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
@@ -36,7 +35,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (!(isSame({result[0], (result.size() == 2) ? (result[1] == "True") ? "True" : "False" : "")}, {"", "True"})) {
+    if (!(result.size() == 2 && result[0].empty() && result[1] == "True")) {
         std::cout << "Test failed." << std::endl;
     } else {
         std::cout << "Test passed." << std::endl;
