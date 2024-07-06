@@ -1,11 +1,10 @@
-```cpp
 #include <cassert>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool separate_issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -42,6 +41,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int run_tests() {
-    assert(issame(separate_paren_groups("( ) (( ") , vector<string>({"","",""})));
+    assert(separate_issame(separate_paren_groups("( ) (( ") , {"","",""}));
     return 0;
 }

@@ -1,10 +1,14 @@
-input_str = (
-    input(
-        "Enter two numbers (integers or floats) with decimal points separated by commas: "
-    )
-    .replace(",", ".")
-    .split()
-)
-num1 = float(input_str[0].replace(".", ""))
-num2 = float(input_str[1].replace(".", ""))
-print(compare_one(num1, num2))
+def compare_one(a, b):
+    if isinstance(a, str) and isinstance(b, (int, float)):
+        a = float(str(a).replace('.', '').replace(',', '.'))
+        b = float(b)
+    elif isinstance(b, str) and isinstance(a, (int, float)):
+        a = float(a)
+        b = float(str(b).replace('.', '').replace(',','.'))
+
+    if a > b:
+        return a
+    elif a < b:
+        return b
+    else:
+        return None
