@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -14,10 +13,10 @@ int main() {
     for (int i = 0; i < res.size(); i++) {
         if(i == 0) cout << "[";
         for(int j = 0; j < res[i].size(); j++){
-            for(auto num:res[i][j]){
-                cout<<num<<" ";
+            for(int k = 0; k < res[i][j].size(); k++){
+                cout << res[i][j][k] << " ";
             }
-            if(i < res.size() - 1) cout << " ] [";
+            if(i < res.size() - 1) cout << "] [";
         }
     }
     cout << "]";
@@ -35,4 +34,3 @@ vector<vector<int>> cutVector(vector<int> vec) {
         }
     }
     return res;
-}
