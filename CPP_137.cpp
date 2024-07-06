@@ -1,17 +1,9 @@
-```cpp
+```
 #include <boost/any.hpp>
-#include <algorithm>
-#include <cctype>
-#include <cstdlib>
-#include <fstream>
-#include <iostream>
-#include <limits>
-#include <sstream>
-#include <stdexcept>
 #include <string>
-#include <unordered_map>
-#include <vector>
+#include <algorithm>
 
+using boost::any_cast;
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
