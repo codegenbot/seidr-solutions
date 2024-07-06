@@ -1,10 +1,5 @@
 def simplify(x, n):
-    # Convert x and n to fractions
-    x_frac = Fraction(x)
-    n_frac = Fraction(n)
-
-    # Simplify the expression
-    result = x_frac * n_frac
-
-    # Check if the result is a whole number
-    return result.denominator == 1
+    x_num, x_denom = map(int, x.split("/"))
+    n_num, n_denom = map(int, n.split("/"))
+    result = (x_num * n_num) % (x_denom * n_denom) == 0
+    return result
