@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <map>
 using namespace std;
@@ -14,7 +15,7 @@ map<char, int> histogram(string test) {
             }
         }
     }
-    int maxCount = 0;
+    int maxCount = 0; // Initialize maxCount with 0
     map<char, int> maxMap;
     for (auto it = result.begin(); it != result.end(); ++it) {
         if (it->second > maxCount) {
@@ -26,3 +27,4 @@ map<char, int> histogram(string test) {
         }
     }
     return maxMap;
+}
