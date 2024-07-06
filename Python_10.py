@@ -1,6 +1,6 @@
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string + string
-    else:
-        reversed_string = string[::-1]
-        return string + reversed_string
+        return string
+    for char in string:
+        string = char + string + char
+    return string
