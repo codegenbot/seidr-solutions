@@ -8,4 +8,4 @@ def snow_day(hours, snow_on_ground, snow_fall_rate, melting_proportion):
     # Calculate the total amount of snow on the ground after the given hours
     snow_on_ground += snow_fallen - snow_melted
 
-    return round(snow_on_ground, 1)
+    return float(snow_on_ground)
