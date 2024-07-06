@@ -1,4 +1,3 @@
-
 def parse_nested_parens(paren_string: str) -> int:
     max_level = 0
     for group in paren_string.split():
