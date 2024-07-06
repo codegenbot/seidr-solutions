@@ -3,15 +3,15 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.islower():
-                if char in 'aeiou':
+                if char == 'a' or char == 'e' or char == 'i' or char == 'o' or char == 'u':
                     result += chr((ord(char) - 97 + 3) % 26 + 97)
                 else:
-                    result += chr(((ord(char) - 97) * 2) % 26 + 97)
+                    result += chr((ord(char) - 97 + ord(char).bit_length()) % 26 + 97)
             else:
-                if char in 'AEIOU':
+                if char == 'A' or char == 'E' or char == 'I' or char == 'O' or char == 'U':
                     result += chr((ord(char) - 65 + 3) % 26 + 65)
                 else:
-                    result += chr(((ord(char) - 65) * 2) % 26 + 65).upper()
+                    result += chr((ord(char) - 65 + ord(char).bit_length()).upper())
         else:
             result += char
     return result
