@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -24,5 +23,12 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    assert(same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    string prefix = "xxx";
+    
+    vector<string> expected_result = {"xxx", "xxxAAA", "xxx"};
+    vector<string> actual_result = filter_by_prefix(strings, prefix);
+    
+    assert(same(actual_result, expected_result));
     return 0;
+}

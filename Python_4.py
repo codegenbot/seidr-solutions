@@ -1,15 +1,18 @@
 from typing import List
 
 
-def try_except_block():
-    while True:
-        try:
-            user_input = input("Enter a list of numbers separated by space: ")
-            numbers = [float(num) for num in user_input.split()]
+def main():
+    try:
+        user_input = input("Enter a list of numbers separated by space: ")
+        numbers = [float(num) for num in user_input.split()]
+        
+        # Check if all inputs can be converted to float
+        if any(not isinstance(n, (int, float)) for n in numbers):
+            print("Invalid input. Please enter some valid numbers.")
+        else:
             print(mean_absolute_deviation(numbers))
-            break
-        except ValueError as e:
-            print(f"Invalid input: {e}")
+    except ValueError as e:
+        print(f"Invalid input: {e}")
 
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
@@ -17,5 +20,4 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return sum(abs(num - mean) for num in numbers) / len(numbers)
 
 
-print(mean_absolute_deviation([1, 2, 3, 4, 5]))
-try_except_block()
+main()
