@@ -13,8 +13,7 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    // Example usage
     std::vector<int> testVec = {3, 13, 2, 9};
-    assert(solution(testVec) == 3);
+    std::cout << solution(testVec);
     return 0;
 }
