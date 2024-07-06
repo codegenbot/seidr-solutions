@@ -1,6 +1,4 @@
 #include <string>
-#include <cstring>
-
 using namespace std;
 
 bool prime_length(string str) {
