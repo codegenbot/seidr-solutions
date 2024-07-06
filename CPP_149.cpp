@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <assert.h>
 
@@ -37,7 +38,5 @@ vector<string> vector_sort(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"ccc", "dd", "aaaa", "bbbb"};
-    assert(issame(vector_sort(input), expected));
+    assert(issame(vector_sort({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
 }
