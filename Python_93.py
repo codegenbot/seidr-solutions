@@ -4,10 +4,32 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                result += {**{("a": "c", "e": "g", "i": "k", "o": "q", "u": "y").fromkeys(("a", "e", "i", "o", "u"))}.get(char.lower(), char.swapcase())
-            elif char.lower() in ["do", "to"]:
-                result += {**{("d", "t"): ["dQnT"], ("r", "o", "t"): ["gYkS"], ("s"): ["sWnT"]}.get(char.lower(), char.swapcase())
-            else:
+                if (char.lower() == "a" or char.lower() == "e" or char.lower() == "i" or char.lower() == "o" or char.lower() == "u"):
+                    if char.isupper():
+                        result += ("c", "g", "k", "q", "y")[ord(char)-97].upper()
+                    else:
+                        result += ("c", "g", "k", "q", "y")[ord(char)-97]
+                elif char.lower() in ["do", "to"]:
+                    if char.isupper():
+                        result += "dQnT".upper()
+                    else:
+                        result += "dQnT"
+                elif char.lower() in ["re", "ro", "te"]:
+                    if char.isupper():
+                        result += "gYkS".upper()
+                    else:
+                        result += "gYkS"
+                elif char.lower() == "se":
+                    if char.isupper():
+                        result += "sWnT".upper()
+                    else:
+                        result += "sWnT"
+                else:
+                    if char.isupper():
+                        result += char.swapcase().upper()
+                    else:
+                        result += char.swapcase()
+            elif char.isalnum():  
                 if char.isupper():
                     result += char.swapcase().upper()
                 else:
