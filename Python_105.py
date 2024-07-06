@@ -1,19 +1,14 @@
 def by_length(arr):
-    sorted_arr = sorted([i for i in arr if 1 <= i <= 9])
-    reversed_arr = sorted_arr[::-1]
-    return [
-        name
-        for num in reversed_arr
-        for name in [
-            "One",
-            "Two",
-            "Three",
-            "Four",
-            "Five",
-            "Six",
-            "Seven",
-            "Eight",
-            "Nine",
-        ]
-        if str(num) == str(name.split()[0][:-3])
-    ]
+    num_names = {
+        1: "One",
+        2: "Two",
+        3: "Three",
+        4: "Four",
+        5: "Five",
+        6: "Six",
+        7: "Seven",
+        8: "Eight",
+        9: "Nine",
+    }
+    result = sorted([num for num in arr if 1 <= num <= 9])
+    return [num_names[num] for num in result[::-1]]
