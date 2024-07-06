@@ -1,6 +1,7 @@
 def make_palindrome(string: str) -> str:
+    """Your docstring here"""
     reverse = string[::-1]
-    new_string = ""
-    for i in range(len(string)):
-        new_string += string[i] + (reverse[i] if i < len(reverse)//2 else "")
-    return new_string + (reverse[len(reverse)//2:] if len(string)%2 != 0 else "")
+    new_string = string + reverse
+    if len(string) % 2 != 0:
+        new_string = string[0] + new_string + string[0]
+    return new_string
