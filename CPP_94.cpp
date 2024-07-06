@@ -18,6 +18,7 @@ bool isPrime(int n){
         if(n % i == 0)
             return false;
     return true;
+}
 
 int main() {
     vector<int> lst = {127, 97, 8192};
