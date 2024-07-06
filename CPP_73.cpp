@@ -1,8 +1,9 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
 
-int smallest_change(std::initializer_list<int> arr) {
+int smallest_change(std::vector<int> arr) {
     std::string str = "";
     int n = arr.size(), left = 0, right = n - 1, changes = 0;
     for (int i : arr)
