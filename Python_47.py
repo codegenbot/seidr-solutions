@@ -1,4 +1,3 @@
-```
 def median(l: list):
     l.sort()
     n = len(l)
