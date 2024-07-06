@@ -1,4 +1,3 @@
-```
 def minSubArraySum(nums):
     if not nums:
         return 0
@@ -13,5 +12,5 @@ def minSubArraySum(nums):
             left += 1
     return min_sum if min_sum != float('inf') else 0
 
-nums = [int(x) for x in input("Enter space-separated integers: ").split()]
+nums = list(map(int, input("Enter space-separated integers: ").split()))
 print(minSubArraySum(nums))
