@@ -12,31 +12,34 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+vector<string> total_match(const char** lst1, int n1, const char** lst2, int n2) {
     int sum1 = 0;
-    for (const auto& str : lst1) {
-        sum1 += str.length();
+    for(int i = 0; i < n1; i++){
+        sum1 += strlen(lst1[i]);
     }
     
     int sum2 = 0;
-    for (const auto& str : lst2) {
-        sum2 += str.length();
+    for(int i = 0; i < n2; i++){
+        sum2 += strlen(lst2[i]);
     }
     
     if (sum1 < sum2) {
-        return lst2; 
+        return vector<string>(lst2, lst2 + n2);
     } else if (sum1 > sum2) {
-        return lst1;
+        return vector<string>(lst1, lst1 + n1);
     } else {
-        if(issame(lst1, lst2))
-            return lst1;
+        if(issame(vector<string>(lst1, lst1 + n1), vector<string>(lst2, lst2 + n2)))
+            return vector<string>(lst1, lst1 + n1);
         else
-            return lst2; 
+            return vector<string>(lst2, lst2 + n2); 
     }
 }
 
 int main() {
-    vector<string> vec1 = {"this"};
-    vector<string> vec2 = {""};
-    assert(issame(total_match(vec1,vec2),vector<string>({"", "this"})));  
+    const char* vec1[] = {"this"};
+    int n1 = sizeof(vec1) / sizeof(vec1[0]);
+    const char* vec2[] = {""};
+    int n2 = sizeof(vec2) / sizeof(vec2[0]);
+    assert(issame(total_match(vec1, n1, vec2, n2),{"","this"}));  
     return 0;
+}
