@@ -45,11 +45,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::string> expected = sorted_list_sum(input);
-    bool areEqual = std::equal(expected.begin(), expected.end(), {"cc", "dd", "aaaa", "bbbb"});
-    if (!areEqual) {
-        return 1;
-    }
+    std::vector<std::string> vec = {"aaaa", "bbbb", "dd", "cc"};
+    std::equal(sorted_list_sum(vec).begin(), sorted_list_sum(vec).end(), {"cc", "dd", "aaaa", "bbbb"});
     return 0;
 }
