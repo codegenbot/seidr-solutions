@@ -1,3 +1,4 @@
+```
 class Solution:
     def is_palindrome(self, string: str) -> bool:
         return string == string[::-1]
