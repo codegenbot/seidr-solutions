@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 
 int sumOdds(std::vector<int> lst) {
     int sum = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        if (i % 2 != 0) {
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] % 2 != 0) {
             sum += lst[i];
         }
     }
@@ -11,17 +12,6 @@ int sumOdds(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
-    int num;
-
-    // Read input from the user
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-
-    int solution = sumOdds(input);
-
-    std::cout << "The sum of odd numbers is: " << solution << std::endl;
-
+    assert(sumOdds({3, 13, 2, 9}) == 17);
     return 0;
 }
