@@ -1,28 +1,59 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include <vector>
+#include <algorithm>
+#include <string>
 
-bool issame(vector<string> a,vector<string>b){
-    return a == b;
-}
-vector<string> by_length(vector<int> arr) {
-    vector<string> sortedArr;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num < 5 ? "One" : "Five");
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
+    return true;
+}
 
-    sort(sortedArr.begin(), sortedArr.end());
-
-    reverse(sortedArr.begin(), sortedArr.end());
-
+std::vector<std::string> by_length(std::vector<int> arr) {
     vector<string> result;
-    map<int, string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-                                   {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-
-    for (int num : arr) {
-        result.push_back(numToName[num]);
+    vector<int> numVec;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            numVec.push_back(i);
+        }
     }
-
+    sort(numVec.begin(), numVec.end());
+    reverse(numVec.begin(), numVec.end());
+    for (int i : numVec) {
+        switch (i) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
+    }
     return result;
 }

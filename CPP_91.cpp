@@ -1,20 +1,26 @@
-```
+#include <string>
 #include <iostream>
 #include <sstream>
-#include <string>
 
-int is_bored(std::string S){
+int main() {
+    std::string S;
     int count = 0;
     std::istringstream iss(S);
     std::string word;
 
-    while(getline(iss, word, ' ')) {
-        if(word.size() > 0 && word[0] == 'I')
-            ++count;
+    try {
+        while(getline(iss, word, ' ')) {
+            if(word.size() > 0 && word[0] == 'I')
+                ++count;
+        }
+    } catch (const std::runtime_error &e) {
+        std::cerr << "Error: " << e.what() << '\n';
+        return 1;
     }
-    return count;
-}
 
-int main() { 
-    return is_bored("I am bored and tired. I will go to bed"); 
+    if(count == 0) {
+        std::cout << "No words starting with I found.\n";
+    } else {
+        std::cout << "Number of words starting with I: " << count << '\n';
+    }
 }
