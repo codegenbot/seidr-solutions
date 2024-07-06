@@ -6,6 +6,7 @@ bool correct_bracketing(std::string brackets) {
         if (c == '(') count++;
         else if (count > 0) count--;
         else if (c == ')') count--;
+        if (count < 0) return false;
     }
     return count == 0;
 }
