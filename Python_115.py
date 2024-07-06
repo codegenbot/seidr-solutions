@@ -17,7 +17,7 @@ def max_fill(grid, capacity):
                     water[i][j] += 1
                     count += 1
                     can_fill = True
-        if not can_fill or capacity <= count:
+        if not can_fill or capacity <= 0:
             break
 
     return count
