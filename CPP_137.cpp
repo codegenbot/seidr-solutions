@@ -1,9 +1,10 @@
+```
 #include <boost/any.hpp>
 #include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any(a.convert_to(b));
+        return (int)boost::any_cast<int>(a) > (double)boost::any_cast<double>(b) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         std::string str_a = boost::any_cast<std::string>(a);
