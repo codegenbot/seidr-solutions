@@ -1,11 +1,6 @@
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+rotation_dict = {char: alphabet[(alphabet.index(char) + 2) % len(alphabet)] for char in alphabet}
+
 def encrypt(s):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    rotated_alphabet = alphabet[2:] + alphabet[:2]
-    encrypted_string = ""
-    for char in s:
-        index = alphabet.index(char)
-        if index < 2:
-            return encrypted_string + char
-        else:
-            encrypted_string += rotated_alphabet[index - 2]
-    return encrypted_string
+    return ''.join([rotation_dict[c] for c in s])
