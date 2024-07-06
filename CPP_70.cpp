@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(int a, int b) {
     return a == b;
