@@ -1,2 +1,3 @@
 def make_palindrome(string):
-    return "".join([char for char in string if char.isalnum()]) + string[::-1]
+    rev_string = "".join(reversed([char for char in string if char.isalnum()])) + string
+    return rev_string
