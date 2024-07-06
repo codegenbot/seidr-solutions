@@ -14,12 +14,18 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> input; 
     int n;
-    cin >> n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
     input.resize(n);
-    for (auto& x : input) {
-        cin >> x;
+
+    std::cout << "Enter elements (space separated): ";
+    for(int i = 0 ; i < n; ++i) {
+        std::cin >> input[i];
     }
+
     float output = double_the_difference(input);
-    cout << output;
+    std::cout << "Double the difference: " << output << std::endl;
+    
     return 0;
 }
