@@ -1,4 +1,9 @@
+```
 """
+Complete the following code given the task description and function signature..
+Currently, the code is 
+"""
+import math
 def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
