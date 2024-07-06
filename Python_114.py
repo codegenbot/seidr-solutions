@@ -10,7 +10,7 @@ def minSubArraySum(nums):
         if window_sum < min_sum:
             min_sum = window_sum
             
-        if window_sum > total_sum - num:
+        if window_sum > total_sum:
             window_sum = num
         else:
             window_sum += num
