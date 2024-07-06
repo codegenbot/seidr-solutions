@@ -1,4 +1,3 @@
-
 def fruit_distribution(s, n):
     apples, oranges = s.split("and")
     num_apples = int(apples)
