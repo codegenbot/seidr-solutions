@@ -1,6 +1,3 @@
-from typing import List
-
-
 def try_except_block():
     while True:
         try:
@@ -10,12 +7,3 @@ def try_except_block():
             break
         except ValueError as e:
             print(f"Invalid input: {e}")
-
-
-def mean_absolute_deviation(numbers: List[float]) -> float:
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(num - mean) for num in numbers) / len(numbers)
-
-
-print(mean_absolute_deviation([1, 2, 3, 4, 5]))
-try_except_block()
