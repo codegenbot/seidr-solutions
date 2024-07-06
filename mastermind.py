@@ -1,7 +1,9 @@
-import re
-
 
 def mastermind(code, guess):
+    # Convert input to 4-character string consisting of only '0', '1', '2', '3', '4', and '5'
+    code = re.sub(r"[^0-5]", "", code)
+    guess = re.sub(r"[^0-5]", "", guess)
+
     # Initialize variables to keep track of white and black pegs
     white_pegs = 0
     black_pegs = 0
@@ -15,21 +17,3 @@ def mastermind(code, guess):
 
     # Return the number of white and black pegs
     return (white_pegs, black_pegs)
-
-
-# Get input from user
-code = input("Enter Mastermind code: ")
-guess = input("Enter guess: ")
-
-# Check for valid input
-if re.match(r"^[0-5]{4}$", code) and re.match(r"^[0-5]{4}$", guess):
-    # Call mastermind function with input
-    result = mastermind(code, guess)
-else:
-    print(
-        "Invalid input! Please enter a 4-character string consisting only of the characters '0', '1', '2', '3', '4', and '5'."
-    )
-    sys.exit()
-
-# Print output
-print(f"White pegs: {result[0]}, Black pegs: {result[1]}")
