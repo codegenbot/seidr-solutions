@@ -1,4 +1,7 @@
-def nested_levels():
+def parse_nested_parens():
+    return nested_levels()
+
+def check(func):
     result = []
     nested_levels = 0
     for char in input():
