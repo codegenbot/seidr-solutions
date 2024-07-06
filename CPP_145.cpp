@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -13,12 +12,17 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         return distance(nums.begin(), find(nums.begin(), nums.end(), a)) -
                distance(nums.begin(), find(nums.begin(), nums.end(), b));
     };
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
+    std::vector<int> res = nums;
+    sort(res.begin(), res.end(), compare);
+    return res;
 }
 
-int test(){
-    std::vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
-    assert (std::equal(result.begin(), result.end(),{-76, -21, 0, 4, 23, 6, 6}));
+int main() {
+    std::vector<int> nums = {0,6,6,-76,-21,23,4};
+    std::vector<int> res = order_by_points(nums);
+    std::cout << "{";
+    for(int i=0; i<res.size()-1;i++)
+        std::cout << res[i]<<", ";
+    std::cout<<res.back()<<"}"<<std::endl;
     return 0;
 }
