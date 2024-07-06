@@ -1,4 +1,3 @@
-
 def minPath(grid, k):
     # Initialize variables
     rows = len(grid)
