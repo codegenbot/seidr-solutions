@@ -1,12 +1,8 @@
-vector<int> maximum(vector<int> arr,int k){
-    priority_queue<int> max_heap;
-    for(int i:arr){
-        max_heap.push(i);
-        if(max_heap.size()>k)
-            max_heap.pop();
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> res(k);
+    partial_sort(arr.begin(), arr.end() - k + 1, arr.end());
+    for (int i = 0; i < k; i++) {
+        res[i] = arr[arr.size() - k + i];
     }
-    vector<int> result(k);
-    for(int i=k-1;i>=0;--i)
-        result[i]=max_heap.top(),max_heap.pop();
-    return result;
+    return res;
 }
