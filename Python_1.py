@@ -1,4 +1,3 @@
-```
 def balance_groups(input_str):
     result = []
     current_group = ''
