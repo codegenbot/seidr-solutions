@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 #include <vector>
 
 std::string find_max(std::vector<std::string> words) {
