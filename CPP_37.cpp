@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool stdsame(std::vector<float> a, std::vector<float> b) {
+bool stdsame(std::vector<float> a, std::vector<float>b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -37,24 +37,18 @@ std::vector<float> sort_even(std::vector<float> l) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
     std::vector<float> l(n);
-    
-    for (int i = 0; i < n; ++i) {
-        float temp;
-        std::cout << "Enter element at index " << i << ":";
-        std::cin >> temp;
-        l[i] = temp;
+
+    for (int i = 0; i < n; i++) {
+        std::cin >> l[i];
     }
 
-    std::vector<float> result = sort_even(l);
+    l = sort_even(l);
 
-    std::cout << "\nThe sorted even elements: ";
-    for (float &num : result) {
-        std::cout << num << " ";
+    for (float x : l) {
+        std::cout << x << " ";
     }
-    
     return 0;
 }
