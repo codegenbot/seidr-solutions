@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -19,7 +20,7 @@ vector<float> sort_even(vector<float> l) {
                     evenVals.push_back(l[j]);
                 }
             }
-            sort(evenVals.begin(), evenEvenVals.end());
+            sort(evenVals.begin(), evenVals.end());
             result[i] = evenVals[0];
         } else {
             result[i] = l[i];
@@ -32,20 +33,20 @@ int main() {
     vector<float> input;
     for(int i=0; i<5; i++){
         float x;
-        cin >> x;
+        std::cin >> x;
         input.push_back(x);
     }
 
     vector<float> output = sort_even(input);
 
     if(issame(input, output)) {
-        cout << "The sorted even elements are identical." << endl;
+        std::cout << "The sorted even elements are identical." << std::endl;
     } else {
-        cout << "Sorted even elements: ";
+        std::cout << "Sorted even elements: ";
         for(auto e : output) {
-            cout << e << " ";
+            std::cout << e << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
     return 0;
