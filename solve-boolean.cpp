@@ -4,7 +4,7 @@ using namespace std;
 
 bool evaluate(const string &expression) {
     bool result = true;
-    std::stack<char> operators;
+    stack<char> operators;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             operators.push('|');
