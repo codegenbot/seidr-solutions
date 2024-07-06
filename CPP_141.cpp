@@ -1,7 +1,7 @@
-#include <vector>
 #include <string>
+using namespace std;
 
-std::string file_name_check(std::string file_name){
+bool file_name_check(string file_name) {
     bool valid = true;
     int dot_count = 0;
     int digit_count = 0;
@@ -18,17 +18,22 @@ std::string file_name_check(std::string file_name){
         valid = false;
     }
 
-    std::string before_dot = file_name.substr(0, file_name.find('.'));
-    std::string after_dot = file_name.substr(file_name.find('.')+1);
+    string before_dot = file_name.substr(0, file_name.find('.'));
+    string after_dot = file_name.substr(file_name.find('.')+1);
 
     if(before_dot.empty() || !isalpha(before_dot[0])){
         valid = false;
     }
 
-    std::vector<std::string> allowed_extensions = {"txt", "exe", "dll"};
-    if(std::find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()){
+    vector<string> allowed_extensions = {"txt", "exe", "dll"};
+    if(find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()){
         valid = false;
     }
 
-    return valid ? "Yes" : "No";
+    return valid;
+}
+
+int main() {
+    assert (file_name_check("s.") == false);
+    return 0;
 }
