@@ -1,6 +1,10 @@
 #include <vector>
 #include <string>
 
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
+}
+
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
@@ -27,4 +31,10 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(bf("Jupiter", "Makemake") == {});
+    // your code here
+    return 0;
 }
