@@ -28,4 +28,4 @@ while True:
         break
 
     else:
-        print("Invalid operation. Please enter 'square', 'cube' or 'sum_of_squares'")
+        print("Invalid operation. Please enter 'square', 'cube' or 'sum_of_squares'"
