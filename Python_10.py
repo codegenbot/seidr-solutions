@@ -5,8 +5,8 @@ def is_palindrome(string: str) -> bool:
 
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string + string
+        return string + string[::-1]
     for i in range(len(string), -1, -1):
-        if string[:i] + string[i:][::-1] == string:
-            return string[:i] + string[i:][::-1]
-    return None
+        if string[:i] + string[i:][::-1] == (string[:i] + string[i:])[::-1]:
+            return string[:i] + string[i:][::-1] + (string[:i] + string[i:])[len(string[i:]):][::-1]
+    return string + string[::-1]
