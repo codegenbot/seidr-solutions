@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
@@ -28,6 +24,4 @@ int skjkasdkd(vector<int> lst){
 
 int main(){
     assert (skjkasdkd({127, 97, 8192}) == 10);
-    cout << skjkasdkd({127, 97, 8192}) << endl;
-    return 0;
 }
