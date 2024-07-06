@@ -1,9 +1,8 @@
-#include <iostream>
-#include <cctype>
 #include <string>
+using namespace std;
 
 std::string flip_case(std::string str) {
-    std::string result = "";
+    string result = "";
     for (char c : str) {
         if (isupper(c)) {
             result += tolower(c);
@@ -14,3 +13,12 @@ std::string flip_case(std::string str) {
         }
     }
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << flip_case(str) << std::endl;
+    return 0;
+}
