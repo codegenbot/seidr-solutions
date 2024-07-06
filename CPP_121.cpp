@@ -1,7 +1,5 @@
+```cpp
 #include <vector>
-#include <initializer_list>
-#include <assert.h>
-#include <iostream>
 
 int solutions(std::vector<int> lst) {
     if (lst.size() == 0) {
@@ -22,3 +20,4 @@ int main() {
     int result = solutions(lst);
     std::cout << "Result: " << result << std::endl;
     return 0;
+}
