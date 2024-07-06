@@ -1,21 +1,7 @@
-#include <iostream>
-
-using namespace std;
-
 vector<float> derivative(vector<float> xs) {
-    vector<float> result(xs.size() - 1);
+    vector<float> result;
     for (int i = 1; i < xs.size(); i++) {
-        result[i-1] = xs[i] * i;
+        result.push_back(i * xs[i]);
     }
     return result;
-}
-
-int main() {
-    vector<float> xs = {3, 1, 2, 4, 5};
-    vector<float> res = derivative(xs);
-    for (float x : res) {
-        cout << x << " ";
-    }
-    cout << endl;
-    return 0;
 }
