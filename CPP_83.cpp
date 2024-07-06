@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <cmath>
+#include <iostream>
 
 int starts_one_ends(int n) {
     int count = 0;
@@ -8,8 +9,8 @@ int starts_one_ends(int n) {
             count++;
         }
         for (int j = 1; j < std::pow(10, n); j++) {
-            int num = i * static_cast<int>(std::pow(10, n - 1)) + j;
-            if ((num / static_cast<int>(std::pow(10, n - 1))) % 10 == 1 || num % 10 == 1) {
+            int num = i * std::pow(10, n - 1) + j;
+            if ((num / std::pow(10, n - 1)) % 10 == 1 || num % 10 == 1) {
                 count++;
             }
         }
@@ -19,8 +20,8 @@ int starts_one_ends(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter the number of digits: ";
     std::cin >> n;
-    std::cout << "Number of numbers that start with or end with '1' in range (1-" << pow(10, n) << "): " << starts_one_ends(n) << "\n";
+    std::cout << "Number of integers that start with 1 and end with 1 or have a digit that is 1: " << starts_one_ends(n) << std::endl;
     return 0;
 }
