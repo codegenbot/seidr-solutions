@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,16 +6,16 @@ bool below_zero(std::vector<std::string> operations);
 
 int main() {
     std::vector<std::string> operations;
-    int operation;
+    int num_operations;
 
     // Read the number of operations from user
     std::cout << "Enter the number of operations: ";
-    std::cin >> operation;
+    std::cin >> num_operations;
 
     // Read each operation from user and store it in the vector
-    for (int i = 0; i < operation; ++i) {
-        int operation;
+    for (int i = 0; i < num_operations; ++i) {
         std::cout << "Enter operation " << i + 1 << ": ";
+        int operation;
         std::cin >> operation;
         operations.push_back(std::to_string(operation)); 
     }
