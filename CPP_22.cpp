@@ -1,7 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <list>
+```cpp
 #include <boost/any.hpp>
+#include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -11,24 +10,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::vector<boost::any>& values) {
     std::vector<int> result;
-    for (auto& value : values) {
-        if(boost::any_cast<int>(value) != 0) {
-            result.push_back(boost::any_cast<int>(value));
+    for (const auto& value : values) {
+        if (boost::holds_alternative<int>(value)) {
+            int x = boost::get<int>(value);
+            if (x != 0) {
+                result.push_back(x);
+            }
         }
     }
     return result;
-}
-
-int main() {
-    std::list<boost::any> values = {1, -2, 3, 4, 5, 6};
-    std::vector<int> filtered_values = filter_integers(values);
-
-    for (auto& value : filtered_values) {
-        std::cout << value << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
