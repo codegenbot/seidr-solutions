@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -18,6 +17,6 @@ bool correct_bracketing(string brackets) {
 
 int main() {
     string s = "<><><<><>><>>><>";
-    assert(not (correct_bracketing(s)));
+    assert(not correct_bracketing(s));
     return 0;
 }
