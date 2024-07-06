@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> a_) {
-    if(a.size()!=a_.size())
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size()!=b.size())
         return false;
     for(int i=0; i<a.size();i++)
-        if(a[i] != a_[i])
+        if(a[i] != b[i])
             return false;
     return true;
 }
@@ -19,7 +19,10 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    vector<string> expected = {"W", "WW", "WWW"};
-    assert (issame(all_prefixes("WWW"), expected));
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    vector<string> expected = all_prefixes(str);
+    assert (issame(expected, all_prefixes(str)));
     return 0;
 }
