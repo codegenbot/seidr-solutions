@@ -11,7 +11,7 @@ int specialFilter(std::vector<int> nums) {
     return count;
 }
 
-int newMain() {
+int myMain() {
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
@@ -29,5 +29,5 @@ int newMain() {
 }
 
 int main() {
-    return newMain();
+    return myMain();
 }
