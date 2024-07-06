@@ -11,6 +11,8 @@ def fizz_buzz(n):
         elif i % 5 == 0:
             out = "Buzz"
             count += (i % 3 != 0)
+        else:
+            continue
         
         print(out)
     
