@@ -1,12 +1,8 @@
-```
-def fruit_distribution(s,n):
-    s = s.lower()
-    n = int(n)
-    count = 0
-    for i in range(1,s.count('and')+1):
-        if 'apples' in s[i-5:i+4] and 'oranges' not in s[i-5:i+4]:
-            a = int(s[:s.index('apples')].replace(' ',''))
-            o = int(s[s.index('and')+3:s.index('oranges')].replace(' ','').replace('and',''))
-            count = n - a - o
-            break
-    return count
+def fruit_distribution(s, n):
+    words = s.split()
+    for i in range(len(words)):
+        if words[i].lower() == "apples" or words[i].lower() == "oranges":
+            n -= int("".join(filter(str.isdigit, words[:i]))) + int(
+                "".join(filter(str.isdigit, words[i + 2 :]))
+            )
+    return n
