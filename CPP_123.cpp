@@ -1,10 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-// Prototype declaration
-std::vector<int> get_odd_collatz(int n);
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));  
+    return 0;
+}
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,7 +19,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-// Function implementation
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
@@ -30,9 +32,4 @@ std::vector<int> get_odd_collatz(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(get_odd_collatz(1), std::vector<int>({1})));  
-    return 0;
 }
