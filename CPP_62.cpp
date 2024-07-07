@@ -1,9 +1,4 @@
 ```cpp
-#include <vector>
-#include <cmath>
-#include <algorithm>
-#include <iostream>
-
 using namespace std;
 
 int n;
