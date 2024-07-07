@@ -1,12 +1,14 @@
+#include <algorithm>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = tolower(c);
-            c = (c == 'z' || c == 'Z') ? (c == 'z' ? 'A' : 'a') : toupper(c);
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    return result.empty() ? string(rbegin(s), rend(s)) : result;
 }
