@@ -16,26 +16,22 @@ int main() {
     std::cout << "Enter the first interval: ";
     std::string temp;
     std::cin >> temp; 
-    temp += " "; // add a space at the end for proper parsing
     interval1.first = std::stoi(temp);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::cout << "Enter the end of the first interval: ";
-    std::cin >> temp; 
-    temp += " "; // add a space at the end for proper parsing
+    std::getline(std::cin, temp); 
     interval1.second = std::stoi(temp);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::pair<int, int> interval2;
     std::cout << "Enter the second interval: ";
     std::cin >> temp; 
-    temp += " "; // add a space at the end for proper parsing
     interval2.first = std::stoi(temp); 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Enter the end of the second interval: ";
-    std::cin >> temp; 
-    temp += " "; // add a space at the end for proper parsing
+    std::getline(std::cin, temp); 
     interval2.second = std::stoi(temp);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
