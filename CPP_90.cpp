@@ -1,8 +1,12 @@
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any other value that represents "None"
-    auto it = std::next(std::min_element(lst.begin(), lst.end()));
-    while (*it == *std::min_element(lst.begin(), lst.end())) {
-        ++it;
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    int target = 1;
+    for(int i = 0; i < sorted.size(); i++) {
+        if(sorted[i] > target) {
+            return (i == 0)? None : sorted[i-1];
+        }
+        target++;
     }
-    return *it;
+    return None;
 }
