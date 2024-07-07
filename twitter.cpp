@@ -1,13 +1,14 @@
 #include <string>
+#include <cctype>
 
 std::string validateTweet(std::string tweet) {
     int charCount = 0;
     for (char c : tweet) {
-        if (!isspace(c)) { 
+        if (!std::isspace(c)) { 
             charCount++;
         }
     }
-    
+
     if (tweet.empty()) {
         return "You didn't type anything";
     }
