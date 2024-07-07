@@ -1,11 +1,12 @@
+#include <vector>
 #include <iostream>
 #include <iomanip>
-#include <vector>
+
 using namespace std;
 
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     if (v1.size() != v2.size()) {
-        return -1.0; // error: vectors have different sizes
+        return -1.0; 
     }
     double sum = 0;
     for (int i = 0; i < v1.size(); i++) {
@@ -26,3 +27,4 @@ int main() {
     }
     cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
     return 0;
+}
