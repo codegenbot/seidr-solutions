@@ -1,31 +1,31 @@
-#include <string>
 #include <boost/any.hpp>
+#include <string>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b);
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any_cast<double>(a);
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
-        if (str_a > str_b)
-            return a;
-        else if (str_a < str_b)
-            return b;
-        else
-            return any("None");
-    }
-    else {
-        if (boost::any_cast<double>(a) > boost::any_cast<double>(b))
-            return a;
-        else if (boost::any_cast<double>(a) < boost::any_cast<double>(b))
-            return b;
-        else
-            return any("None");
-    }
+    if (is_none(a) || is_none(b)) return "None";
+    
+    if (any_cast<int>(a) > any_cast<int>(b))
+        return a;
+    else if (any_cast<int>(a) < any_cast<int>(b))
+        return b;
+
+    double da = any_cast<double>(a);
+    double db = any_cast<double>(b);
+
+    if (da > db)
+        return a;
+    else if (da < db)
+        return b;
+
+    string sa = any_cast<string>(a);
+    string sb = any_cast<string>(b);
+
+    if (stod(sa) > stod(sb))
+        return a;
+    else if (stod(sa) < stod(sb))
+        return b;
+
+    return "None";
 }
