@@ -11,7 +11,6 @@ size_t findPattern(const string& input) {
         pos = input.find("I am bored", pos);
     }
     return count;
-
 }
 
 int main() {
