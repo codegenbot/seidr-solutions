@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -8,7 +9,7 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
 
 int total_match(const std::vector<std::vector<std::string>>& v) {
     int sum = 0;
-    for (const auto& vec : v) { 
+    for (const auto& vec : v) {
         for (const auto& s : vec) {
             sum += s.size();
         }
@@ -17,12 +18,45 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
 }
 
 int main() {
-    std::vector<std::vector<std::string>> vec1({{{"this"}}});
-    std::vector<std::vector<std::string>> vec2({{{}}});
+    int n;
+    std::cin >> n;
 
-    int sum1 = total_match({{vec1}});  
-    int sum2 = total_match({{}});
-    
-    assert(issame(vec1, vec2)); 
+    std::vector<std::vector<std::string>> vec1;
+    std::vector<std::vector<std::string>> vec2;
+
+    for (int i = 0; i < n; ++i) {
+        int m;
+        std::cin >> m;
+        vec1.push_back({});
+        for (int j = 0; j < m; ++j) {
+            std::string s;
+            std::cin >> s;
+            vec1.back().push_back(s);
+        }
+    }
+
+    n = std::cin.ignore().ignore("\n").stof();
+    for (int i = 0; i < n; ++i) {
+        int m;
+        std::cin >> m;
+        vec2.push_back({});
+        for (int j = 0; j < m; ++j) {
+            std::string s;
+            std::cin >> s;
+            vec2.back().push_back(s);
+        }
+    }
+
+    if (!issame(vec1, vec2)) {
+        return 1;
+    }
+
+    int sum1 = total_match(vec1);  
+    int sum2 = total_match(vec2);
+
+    if (sum1 != sum2) {
+        return 1;
+    }
+
     return 0;
 }
