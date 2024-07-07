@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <bits/initializer_list.h>
 
-bool isSameVectors(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -32,8 +33,6 @@ int main() {
     std::cin >> n;
     std::vector<int> primes = countUpTo(n);
     for (int prime : primes) {
-        if (!isSameVectors({prime}, primes)) {
-            std::cout << "Prime number: " << prime << std::endl;
-        }
+        std::cout << "Prime number: " << prime << std::endl;
     }
 }
