@@ -1,20 +1,19 @@
-````
 #include <iostream>
 #include <vector>
 
 int solution(std::vector<int> arr) {
-    int total = 0;
+    int sum = 0;
     for (int i : arr) {
         if (i % 2 == 1)
-            total += i;
+            sum += i;
     }
-    return total;
+    return sum;
 }
 
 int main() {
-    std::vector<int> arr = {3, 13, 2, 9};
-    int sum = solution(arr);
+    int arr[] = {3, 13, 2, 9}; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+    int sum = solution(std::vector<int>(arr, arr+n)); 
     std::cout << "Result: " << sum << std::endl;
     return 0;
 }
-```
