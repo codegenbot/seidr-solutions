@@ -13,7 +13,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& input,
     return result;
 }
 
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool are_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -26,7 +26,9 @@ bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& 
 }
 
 int main() {
-    if (is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
+    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    const std::string prefix = "xxx";
+    if (are_equal(filter_by_prefix(input, prefix), {prefix, "xxxAAA", "xxx"})) {
         std::cout << "Filtering successful." << std::endl;
     } else {
         std::cout << "Filtering failed." << std::endl;
