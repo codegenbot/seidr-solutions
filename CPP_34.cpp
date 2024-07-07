@@ -4,7 +4,8 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), l.end());
+    vector<int> result;
+    result.assign(unique_copy(l.begin(), l.end()), l.end());
     sort(result.begin(), result.end());
     return result;
 }
