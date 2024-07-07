@@ -49,7 +49,8 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    for (float val : sort_even(input)) {
+    std::vector<float> result = sort_even(input);
+    for (float val : result) {
         std::cout << val << " ";
     }
 }
