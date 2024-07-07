@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return v1 == v2;
 }
 
 std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, const std::string& substring) {
@@ -20,8 +20,9 @@ int main() {
     auto result = filterBySubstring(str, "run");
     
     for (const auto& s : result) {
-        if (!issame({s}, std::vector<std::string>({"grunt", "prune"}))) {
-            return 1; // returning with error
+        std::vector<std::string> v2 = {s};
+        if (!issame({s}, v2)) { 
+            return 1; 
         }
     }
 }
