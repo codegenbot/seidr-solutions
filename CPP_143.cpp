@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 bool is_prime(int n) {
@@ -9,8 +8,8 @@ bool is_prime(int n) {
     return true;
 }
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
+string words_in_sentence(string sentence){
+    string result = "";
     int count = 0;
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
@@ -21,10 +20,10 @@ std::string words_in_sentence(std::string sentence){
     }
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] != ' ') {
-            if (is_prime(count + 1)) {
-                result += sentence.substr(0, count) + " ";
+            if (is_prime(sentence.substr(count, i-count).size())) {
+                result += sentence.substr(count, i-count) + " ";
             }
-            count++;
+            count = i;
         }
     }
     return result.substr(0, result.size() - 1);
