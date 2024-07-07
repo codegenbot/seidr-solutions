@@ -3,7 +3,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
     int min = *min_element(lst.begin(), lst.end());
     int max = *max_element(lst.begin(), lst.end());
 
