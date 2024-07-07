@@ -3,18 +3,15 @@ using namespace std;
 long long double_the_difference(vector<float> lst);
 
 int main() {
-    vector<float> input_list; // Define the input list
-    float odd_sum = 0.0f; // Initialize the odd sum variable
+    vector<float> input_list; 
+    float odd_sum = 0.0f; 
 
-    int n;
-    cin >> n;
-    for(int i=0;i<n;i++){
-        float x;
-        cin >> x;
+    cout << "Enter numbers (separated by space): ";
+    for(float x; cin >> x; ) {
         input_list.push_back(x);
     }
 
-    odd_sum = double_the_difference(input_list);
+    odd_sum = double_the_difference(input_list); 
 
     return 0;
 }
