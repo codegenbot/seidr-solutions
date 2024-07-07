@@ -1,29 +1,60 @@
-#include <any>
+#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
 
 using namespace std;
 
-any compare_one(any a, any b) {
-    if (any_cast<int>(a) > any_cast<float>(b)) {
-        return b;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)b > a ? b : boost::any("None");
     }
-    else if (any_cast<int>(a) > stoi(any_cast<string>(b).substr(1))) {
-        return b;
+    if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str[0] = '.';
+            return boost::any(str);
+        } else {
+            return (int)stoi(str) > a ? b : boost::any("None");
+        }
     }
-    else if (stoi(any_cast<string>(a).substr(1)) > any_cast<int>(b)) {
-        return a;
+    if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > b ? a : boost::any("None");
     }
-    else if (any_cast<string>(a) > any_cast<string>(b)) {
-        return a;
+    if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = boost::any_cast<string>(a);
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str[0] = '.';
+            return boost::any(str);
+        } else {
+            return str > to_string(b) ? a : boost::any("None");
+        }
     }
-    else if (any_cast<float>(a) > any_cast<int>(b)) {
-        return a;
+    if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = boost::any_cast<string>(b);
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str[0] = '.';
+            return boost::any(str) > a ? b : boost::any("None");
+        } else {
+            return str > to_string(a) ? b : boost::any("None");
+        }
     }
-    else if (stoi(any_cast<string>(b).substr(1)) > any_cast<float>(a)) {
-        return b;
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        size_t pos1 = str1.find(',');
+        string str2 = boost::any_cast<string>(b);
+        size_t pos2 = str2.find(',');
+        if (pos1 != string::npos && pos2 != string::npos) {
+            return str2 > str1 ? b : boost::any("None");
+        } else if (pos1 == string::npos && pos2 != string::npos) {
+            return str2 > str1 ? b : boost::any("None");
+        } else if (pos1 != string::npos && pos2 == string::npos) {
+            return str1 > str2 ? a : boost::any("None");
+        } else {
+            return str1.compare(str2) > 0 ? a : boost::any("None");
+        }
     }
-    else {
-        return "None";
-    }
+    return boost::any("None");
 }
