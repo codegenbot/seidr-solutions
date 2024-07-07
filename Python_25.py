@@ -1,21 +1,23 @@
+Here is the completed code:
+
+```
 from typing import List
-import math
 
 
 def factorize(n: int) -> List[int]:
-    factors = []
     i = 2
+    factors = []
     while i * i <= n:
         if n % i:
             i += 1
         else:
-            count = 0
-            while n % (i * i) == 0:
-                count += 1
-                n //= i * i
-            for _ in range(count):
+            n //= i
+            if len(factors) == 0 or i != factors[-1]:
                 factors.append(i)
-            i += 1
+            else:
+                factors[-1] *= i
+            i = 2
     if n > 1:
-        factors.extend([n] * 2)
-    return sorted(factors)
+        if len(factors) == 0 or n != factors[-1]:
+            factors.append(n)
+    return factors
