@@ -1,9 +1,9 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <memory>
+#include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
     return a == b;
 }
 
@@ -24,9 +24,8 @@ std::vector<int> count_up_to(int n) {
 }
 
 int main() {
-    std::vector<int> result = count_up_to(101);
-    for (int prime : result) {
-        std::cout << prime << " ";
+    std::vector<int> primes = count_up_to(101);
+    for (int prime : primes) {
+        std::cout << "Prime number: " << prime << std::endl;
     }
-    return 0;
 }
