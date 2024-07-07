@@ -1,7 +1,4 @@
-#include <vector>
-#include <string>
-
-bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool substringSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -15,17 +12,13 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
     return result;
 }
 
-int originalMain() {
+int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     auto result = filterBySubstring(str, "run");
     
     for (const auto& s : result) {
-        if (!same({s}, std::vector<std::string>({"grunt", "prune"}))) {
+        if (!substringSame({s}, std::vector<std::string>({"grunt", "prune"}))) {
             return 1; // returning with error
         }
     }
-}
-
-int main() {
-    originalMain();
 }
