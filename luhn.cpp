@@ -1,26 +1,33 @@
 ```cpp
+#include <iostream>
 #include <vector>
 using namespace std;
 
-int luhn(vector<int> digits) {
+int luhnCheck(vector<int> digits) {
     int sum = 0;
-    bool doubleNext = false;
-    for (int i = digits.size() - 1; i >= 0; --i) {
-        int digit = digits[i];
-        if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+    for(int i = digits.size() - 1; i >= 0; i--) { 
+        if(i % 2 == 1) {
+            int doubleDigit = digits[i] * 2;
+            if(doubleDigit > 9) {
+                doubleDigit -= 9;
             }
+            sum += doubleDigit;
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
-        doubleNext = !doubleNext;
     }
     return sum;
 }
 
 int main() {
-    vector<int> digits = {3, 4, 9, 0, 5, 5, 4, 0, 2, 1, 7, 6, 3, 5, 8};
-    cout << "The Luhn check value is: " << luhn(digits) << endl;
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int digit;
+        cin >> digit;
+        input.push_back(digit);
+    }
+    cout << luhnCheck(input) << endl;
     return 0;
 }
