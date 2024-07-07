@@ -1,20 +1,16 @@
 ```cpp
+#include <iostream>
 #include <string>
 #include <vector>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest_strength = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int cap = 0;
-        for (char c : extension) {
-            if (isupper(c)) {
-                cap++;
-            }
-        }
+        int cap = count(extension.begin(), extension.end(), toupper);
         int sm = extension.size() - cap;
-        double strength = static_cast<double>(cap) / (extension.size());
+        double strength = static_cast<double>(cap) - sm;
 
         if (strength > strongest_strength) {
             strongest_strength = strength;
@@ -26,8 +22,6 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    std::string class_name = "MyClass";
-    std::vector<std::string> extensions = {"java", "cpp", "python"};
-    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
