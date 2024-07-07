@@ -1,10 +1,13 @@
-string longest(vector<string> strings){
-    if(strings.empty())
-        return "";
-    string longest = strings[0];
-    for(auto s : strings){
-        if(s.length() > longest.length())
-            longest = s;
+if(strings.empty()) {
+    return "";
+} else {
+    string longestSoFar = strings[0];
+    for(string s : strings) {
+        if(s.length() > longestSoFar.length()) {
+            longestSoFar = s;
+        } else if(s.length() == longestSoFar.length()) {
+            longestSoFar = s;
+        }
     }
-    return longest;
+    return longestSoFar;
 }
