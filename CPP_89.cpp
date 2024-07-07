@@ -4,8 +4,7 @@ string encrypt(string s){
         char c = s[i];
         if(c >= 'a' && c <= 'z'){
             c = (c - 'a' + 2*2) % 26 + 'a';
-        }
-        else if(c >= 'A' && c <= 'Z'){
+        } else if(c >= 'A' && c <= 'Z'){
             c = (c - 'A' + 2*2) % 26 + 'A';
         }
         result += c;
