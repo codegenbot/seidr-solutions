@@ -35,7 +35,8 @@ int mainFunction() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    std::vector<int> input(n); 
+    std::vector<int> input;
+    input.reserve(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> input[i];
