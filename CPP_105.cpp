@@ -14,12 +14,12 @@ vector<string> by_length(vector<string> arr) {
         lengthCount[len]++;
     }
 
-    vector<string> output(lengthCount.size(), string()); // Initialize the vector with n elements
+    vector<vector<string>> output; // No need to initialize size here, just declare
     for (auto it = lengthCount.begin(); it != lengthCount.end(); ++it) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
                 if(to_string(i).size() == it->first) {
-                    output.push_back((i==1?"One":(i==2?"Two":(i==3?"Three):(i==4?"Four":"Five"))));
+                    output.push_back({(i==1?"One":(i==2?"Two":(i==3?"Three):(i==4?"Four":"Five")))});
                     it->second--;
                     if(it->second == 0) break;
                 }
@@ -44,7 +44,7 @@ int main() {
     vector<string> output = by_length(arr);
     cout << "The numbers in the order of their lengths are: ";
     for (string str : output) {
-        cout << str << " ";
+        cout << str[0] << " ";
     }
     cout << "\n";
 }
