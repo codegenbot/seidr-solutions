@@ -1,14 +1,26 @@
 ```cpp
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+#include <queue>
+#include <vector>
+
+using namespace std;
+
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; ++i) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+    priority_queue<int> pq;
+    for (int i : arr) {
+        pq.push(i);
+        if (pq.size() > k)
+            pq.pop();
     }
+    vector<int> result(k);
+    for (int i = k - 1; i >= 0; --i)
+        result[i] = pq.top(), pq.pop();
     return result;
 }
