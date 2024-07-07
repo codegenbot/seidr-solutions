@@ -1,5 +1,4 @@
 def shopping_list(prices, discounts):
-    # Validate input
     for i in range(min(len(prices), len(discounts))):
         try:
             price = float(prices[i])
@@ -17,5 +16,4 @@ def shopping_list(prices, discounts):
             except ValueError:
                 print("Invalid price! Please enter a valid number.")
                 return None
-    # Round result to two decimal places
     return float(format(total_price, ".2f"))
