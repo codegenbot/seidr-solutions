@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -6,15 +5,12 @@ vector<int> leaders(vector<int>& vec) {
     int n = vec.size();
     vector<int> res;
     
+    int max_right = vec.back();
     for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(vec[j] >= vec[i]) {
-                leader = false;
-                break;
-            }
+        if(vec[i] >= max_right) {
+            res.push_back(vec[i]);
+            max_right = vec[i];
         }
-        if(leader) res.push_back(vec[i]);
     }
     
     return res;
