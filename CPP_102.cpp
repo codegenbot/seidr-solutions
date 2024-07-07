@@ -11,15 +11,19 @@ int choose_num(std::string s1, std::string s2) {
 int main() {
     std::cout << "Enter two numbers (separated by a space): ";
     std::string s1, s2;
-    if (!(std::cin >> s1 >> s2)) {
+
+    if (!(std::cin >> s1 >> s2)) {  
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
         return 1; 
     }
+
     int result = choose_num(s1, s2);
     std::cout << "Result: " << result << std::endl;
-    if(result == std::stoi(s1))
+
+    if (std::stoi(s1) > std::stoi(s2)) {
         std::cout << "Greater number is " << s1 << std::endl;
-    else
+    } else {
         std::cout << "Greater number is " << s2 << std::endl;
+    }
     return 0;
 }
