@@ -1,9 +1,6 @@
-using namespace std;
+#include <bits/stdc++.h>
 
-#include <vector>
-#include <cmath>
-#include <algorithm>
-#include <iostream>
+using namespace std;
 
 double similarity(vector<float> v1, vector<float> v2) {
     double sum = 0;
@@ -34,4 +31,3 @@ int main() {
     double result = similarity(v1, v2);
     cout << "Similarity between the two vectors is: " << result << endl;
     return 0;
-}
