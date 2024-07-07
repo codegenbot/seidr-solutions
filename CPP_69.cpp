@@ -2,10 +2,7 @@
 #include <cassert>
 
 int search(int n) {
-    if(n < 0)
-        return -1;
-    else
-        return n;
+    return n;
 }
 
 int main() {
@@ -13,11 +10,12 @@ int main() {
     std::cout << "Enter a positive number: ";
     std::cin >> num; 
     if (num >= 0) {
-        int testValue = 10; 
-        assert(search(testValue) == testValue);
+        std::cout << "The value is " << search(num) << "." << std::endl;
     } else {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
     
+    int testValue = 10; 
+    assert(search(testValue) == testValue);
     return 0;
 }
