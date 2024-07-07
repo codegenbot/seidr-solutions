@@ -7,17 +7,17 @@ std::string decode(std::string cipher, std::string mapping) {
     for (char c : cipher) {
         int idx = mapping.find(c);
         if (idx != std::string::npos) {
-            result.push_back(mapping[idx]); 
+            result += mapping[idx]; 
         } else {
-            result.push_back(c); 
+            result += c; 
         }
     }
-    return result;
+    std::cout << result << std::endl;
 }
 
 int main() {
     std::string cipher = "cehubtgxnspvqohlwrzady";
     std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
-    std::cout << decode(cipher, mapping) << std::endl;
+    decode(cipher, mapping);
     return 0;
 }
