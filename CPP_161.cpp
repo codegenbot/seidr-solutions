@@ -1,12 +1,24 @@
-string solve(string s){
+#include <iostream>
+#include <string>
+using namespace std;
+
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.size(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
         } else {
-            result += s[i];
+            result += c;
         }
     }
-    if(result.empty()) reverse(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Resulted string: " << solve(s) << endl;
+    return 0;
 }
