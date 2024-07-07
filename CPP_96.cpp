@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -36,7 +36,7 @@ int main() {
     std::cin >> n;
     std::vector<int> primes = count_up_to(n);
     for (int i = 1; i < primes.size(); i++) {
-        if (primes[i] != primes[0]) {
+        if (!issame({primes[0]}, {primes[i]})) {
             std::cout << "Prime number: " << primes[i] << std::endl;
         }
     }

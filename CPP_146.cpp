@@ -1,3 +1,5 @@
+#include <vector>
+#include <cmath>
 #include <initializer_list>
 
 int specialFilter(std::vector<int> nums) {

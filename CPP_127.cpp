@@ -7,13 +7,14 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     int end = std::min(interval1.second, interval2.second);
 
     if (start <= end)
-        return "YES";
+        return std::to_string(start) + " " + std::to_string(end) + " yes";
     else
-        return "NO";
+        return "no";
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    assert(intersection({-2, -2}, {-3, -2}) == "no");
+
     
     std::pair<int, int> interval1;
     std::cout << "Enter the first interval's start: ";
@@ -34,10 +35,10 @@ int main() {
     std::cin >> temp; 
     interval2.second = temp;
 
-    if (intersection(interval1, interval2) == "YES")
-        std::cout << "The intervals intersect.\n";
-    else
+    if (intersection(interval1, interval2) == "no")
         std::cout << "The intervals do not intersect.\n";
+    else
+        std::cout << "The intervals intersect.\n";
 
     return 0;
 }
