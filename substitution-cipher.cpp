@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -6,16 +5,14 @@ std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
     for (char c : cipher) {
         int idx = 0;
-        char decoded_char = ' ';
-        while(idx<mapping.size() && decoded_char == ' ') {
-            if(c==mapping[idx]) 
-                decoded_char = c; 
+        while(idx<mapping.length() && map_idx!=mapping.find(c))
             idx++;
-        }
-        if(decoded_char!=' ') 
+        if(idx<mapping.length())
+            char decoded_char = mapping[idx]; 
             result.push_back(decoded_char); 
-        else 
+        } else {
             result.push_back(c); 
+        }
     }
     return result;
 }
