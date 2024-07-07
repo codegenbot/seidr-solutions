@@ -14,10 +14,10 @@ bool solveBoolean(string s) {
             bool subRes = evaluateTerm(term);
             res = res || subRes;
             term.clear();
+            term.erase(0, term.size());
         } else if (c == 't' || c == 'f') {
-            if (c == 't') term += 't';
-            else term += 'f';
-            if (i < s.length() - 1 && s[i + 1] == '&') i++; 
+            term += c;
+            if (i < s.length() - 1 && s[i + 1] == '&') i++; // skip '&' for now
         }
     }
     bool subRes = evaluateTerm(term);
@@ -35,10 +35,10 @@ bool evaluateTerm(string term) {
             bool subRes = (subTerm == "t") ? true : false;
             res = res && subRes;
             subTerm.clear();
+            subTerm.erase(0, subTerm.size());
         } else if (c == 't' || c == 'f') {
-            if (c == 't') subTerm += 't';
-            else subTerm += 'f';
-            if (i < term.length() - 1 && term[i + 1] == '&') i++; 
+            subTerm += c;
+            if (i < term.length() - 1 && term[i + 1] == '&') i++; // skip '&' for now
         }
     }
     bool subRes = (subTerm == "t") ? true : false;
