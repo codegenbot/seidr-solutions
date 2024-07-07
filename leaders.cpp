@@ -1,3 +1,6 @@
+#include <vector>
+using std::vector;
+
 vector<int> leaders(const vector<int>& v) {
     vector<int> result;
     for (auto it = v.rbegin(); it != v.rend() - 1; ++it) {
