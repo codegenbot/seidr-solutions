@@ -15,17 +15,9 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-float get_positive(std::initializer_list<float> input) {
-    std::vector<float> v;
-    for (auto x : input) {
-        if (x > 0) v.push_back(x);
-    }
-    return *v.begin();
-}
-
 int main() {
-    float num;
     std::vector<float> v1, v2;
+    float num;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
