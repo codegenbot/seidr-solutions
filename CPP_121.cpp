@@ -12,8 +12,6 @@ int solution(std::initializer_list<int> vec) {
     return sum;
 }
 
-int main() {
-    int sum = solution({3, 13, 2, 9});
-    std::cout << "Result: " << sum << std::endl;
-    return 0;
+int main() { 
+    return solution({3, 13, 2, 9}); 
 }
