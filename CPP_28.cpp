@@ -5,19 +5,19 @@
 
 using namespace std;
 
-std::string concatenate(vector<string> strings);
+std::string concatenate(vector<string> strVec);
 
 int main() {
     vector<string> strings;
-    string input;
+    string userInput;
 
     while (true) {
         cout << "Enter a string (or 'stop' to finish): ";
-        getline(cin, input);
+        getline(cin, userInput);
 
-        if (input == "stop") break;
+        if (userInput == "stop") break;
 
-        strings.push_back(input.substr(0, input.find('\n')));
+        strings.push_back(userInput.substr(0, userInput.size() - 1)); // <--- Add this!
     }
 
     std::string result = concatenate(strings);
@@ -26,9 +26,9 @@ int main() {
     return 0;
 }
 
-std::string concatenate(vector<string> strings){
+std::string concatenate(vector<string> strVec){
     string result = "";
-    for (const auto& str : strings) {
+    for (const auto& str : strVec) {
         result += str + " ";
     }
     return result;
