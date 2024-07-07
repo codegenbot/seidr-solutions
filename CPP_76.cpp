@@ -1,7 +1,6 @@
-bool is_simple_power(int x, int n) {
-    if (n == 1)
-        return true;
+"Here's the completed code:
 
-    double log_val = log(x) / log(n);
-    return floor(log_val + 0.5) == log_val;
-}
+bool is_simple_power(int x, int n) {
+    double y = pow(n, 1.0);
+    return (int)y == x;
+}"
