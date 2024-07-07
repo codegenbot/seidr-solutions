@@ -25,7 +25,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int mainTest() { 
+int main() { 
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (arr.size() == 0) {
