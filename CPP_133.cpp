@@ -1,3 +1,4 @@
+```cpp
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers: ";
