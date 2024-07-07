@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 
 int bowlingScore(string s) {
@@ -7,7 +8,9 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     int rollCount = 0;
 
-    for (char c : s) {
+    std::istringstream iss(s);
+    char c;
+    while (iss >> c) {
         if (c == '/') {
             if (currentRoll >= 10) {
                 score += currentRoll + 10;
@@ -33,4 +36,5 @@ int bowlingScore(string s) {
 
 int main(int argc, char* argv[]) { 
     std::cout << bowlingScore(argv[1]) << '\n'; 
-    return 0;
+    return 0; 
+}
