@@ -1,17 +1,18 @@
+
 #include <vector>
 using std::vector;
-
 vector<int> leaders(const vector<int>& v) {
+    
     vector<int> result;
-    for (auto it = v.rbegin(); it != v.rend(); ++it) {
+    for (int i = 0; i < v.size(); i++) {
         bool isLeader = true;
-        for (auto jt = it + 1; jt != v.rend(); ++jt) {
-            if (*it < *jt) {
+        for (int j = i + 1; j < v.size(); j++) {
+            if (v[i] < v[j]) {
                 isLeader = false;
                 break;
             }
         }
-        if (isLeader) result.push_back(v[it]);
+        if (isLeader) result.push_back(v[i]);
     }
     return result;
 }
