@@ -10,10 +10,15 @@ int solution(std::vector<int> arr) {
     return sum;
 }
 
-int userMain() {
+int testMain() { 
     int arr[] = {3, 13, 2, 9}; 
     int n = sizeof(arr) / sizeof(arr[0]); 
-    int sum = solution(std::vector<int>(arr, arr+n)); 
+    int sum = solution(std::vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]))); 
     std::cout << "Result: " << sum << std::endl;
+    return 0;
+}
+
+int main() {
+    testMain();
     return 0;
 }
