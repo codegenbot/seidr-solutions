@@ -37,9 +37,7 @@ void calculateAndPrint() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
 
-        if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(num); 
-        }
+        lst.push_back(num); 
     }
 
     double odd_sum = double_the_difference(lst);
