@@ -24,5 +24,5 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    return {blackPegs, whitePegs};
+    return make_pair(blackPegs, whitePegs);
 }
