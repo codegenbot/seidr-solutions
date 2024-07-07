@@ -14,6 +14,9 @@ int hex_key(std::string num) {
 }
 
 int main() {
-    std::cout << hex_key("2728") << std::endl;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+    int result = hex_key(str);
     return 0;
 }
