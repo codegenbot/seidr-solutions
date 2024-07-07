@@ -1,8 +1,7 @@
-```cpp
+```
 #include <cassert>
 #include <vector>
 #include <initializer_list>
-#include <functional>
 
 int solution(std::initializer_list<int> vec) {
     int sum = 0;
