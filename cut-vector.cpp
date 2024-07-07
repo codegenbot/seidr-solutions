@@ -1,7 +1,6 @@
-#include <vector>
+```cpp
 #include <iostream>
-#include <limits>
-
+#include <vector>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -45,3 +44,4 @@ int main() {
     cout << "0]" << endl;
     
     return 0;
+}
