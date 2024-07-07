@@ -22,7 +22,9 @@ double find_zero(std::vector<double> xs){
 
 int main() {
     std::vector<double> coeffs;
-    for (double &temp; ; ) {
+    double temp;
+
+    while (true) {
         std::cin >> temp;
         if (std::cin.fail()) break;
         coeffs.push_back(temp);
