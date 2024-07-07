@@ -1,7 +1,7 @@
-#include<vector>
-#include<iostream>
+#include <iostream>
+#include <vector>
 
-int add(vector<int> lst) {
+int add(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 == 0)
@@ -11,14 +11,6 @@ int add(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    std::cout << "Enter the numbers: ";
-    int num;
-    while(std::cin >> num) {
-        input.push_back(num);
-    }
-    
-    int result = add(input);
-    std::cout << "Sum of even numbers is: " << result << std::endl;
+    std::cout << add({4, 4, 6, 8}) << std::endl;
     return 0;
 }
