@@ -1,11 +1,14 @@
+Here is the completed code:
+
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    char lastChar = txt.back();
-    for (int i = 0; i < txt.length() - 1; i++) {
-        if (!isspace(txt[i])) {
-            if (isalpha(lastChar)) return true;
-            else return false;
+    int lastCharIndex = txt.length() - 1;
+    if (lastCharIndex < 0) return false;
+    char lastChar = txt[lastCharIndex];
+    if (!isalpha(lastChar)) return false;
+    for (int i = 0; i < lastCharIndex; i++) {
+        if (isspace(txt[i]) || !isalpha(txt[i])) {
+            return true;
         }
     }
-    return isalpha(lastChar);
+    return false;
 }
