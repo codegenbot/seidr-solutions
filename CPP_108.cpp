@@ -1,29 +1,15 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        bool sum_greater_than_zero = false;
-        if (num >= 0) {
-            long temp = num;
-            while (temp != 0) {
-                int digit = temp % 10;
-                if (digit > 0) {
-                    sum_greater_than_zero = true;
-                    break;
-                }
-                temp /= 10;
-            }
-        } else {
-            temp = -num;
-            while (temp != 0) {
-                int digit = temp % 10;
-                if (digit < 0) {
-                    sum_greater_than_zero = true;
-                    break;
-                }
-                temp /= 10;
-            }
+        if (num < 0) {
+            num = -num;
         }
-        if (sum_greater_than_zero) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        if (sum > 0) {
             count++;
         }
     }
