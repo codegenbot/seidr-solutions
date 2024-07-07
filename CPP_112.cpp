@@ -2,27 +2,30 @@ Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    
     string temp = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += ch;
+    for (int i = 0; i < s.length(); i++) {
+        if (find(c.begin(), c.end(), s[i]) == c.end()) {
+            temp += s[i];
         }
     }
-    
-    result.push_back(temp);
-    
-    string str = temp;
-    reverse(str.begin(), str.end());
-    bool isPalindrome = temp == str;
-    result.push_back(isPalindrome ? "True" : "False");
-    
+    if (isPalindrome(temp)) {
+        result.push_back(temp);
+        result.push_back("True");
+    } else {
+        result.push_back(temp);
+        result.push_back("False");
+    }
     return result;
+}
+
+bool isPalindrome(string str) {
+    int start = 0;
+    int end = str.length() - 1;
+    while (start < end) {
+        if (str[start] != str[end])
+            return false;
+        start++;
+        end--;
+    }
+    return true;
 }
