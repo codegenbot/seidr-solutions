@@ -1,4 +1,6 @@
-```cpp
+Here is the corrected code:
+
+```c++
 #include <iostream>
 #include <string>
 
@@ -13,8 +15,8 @@ int digitSum(std::string s) {
 
 }
 
-int main() {
-    { 
+int main 
+{
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
