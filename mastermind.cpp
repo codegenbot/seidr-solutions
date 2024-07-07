@@ -1,12 +1,10 @@
-```c++
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 #include <initializer_list>
 
 using namespace std;
-
-int mastermind(string code, string guess); 
 
 int mastermind(string code, string guess) {
     int whitePegs = 0;
