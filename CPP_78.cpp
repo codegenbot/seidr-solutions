@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int main() {
+int calculateHexDigits() {
     std::string str;
     std::cout << "Enter a string: ";
     getline(std::cin, str);
@@ -12,5 +12,10 @@ int main() {
         }
     }
     std::cout << "Number of hexadecimal digits: " << result << std::endl;
+    return 0;
+}
+
+int main() {
+    calculateHexDigits();
     return 0;
 }
