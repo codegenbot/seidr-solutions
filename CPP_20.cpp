@@ -1,10 +1,11 @@
 ```cpp
 #include <algorithm>
-#include <limits>
 #include <numeric>
 #include <cmath>
+#include <limits>
+#include <initializer_list>
 
-bool std::issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,7 +18,7 @@ bool std::issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
     std::pair<float, float> closestPair;
     
@@ -29,10 +30,5 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
     
-    return std::vector<float>(closestPair.begin(), closestPair.end());
-}
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-    return 0;
+    return std::vector<float>{closestPair.first, closestPair.second};
 }
