@@ -1,5 +1,6 @@
-#include <string>
+```cpp
 #include <cassert>
+#include <string>
 
 std::string filp_case(const std::string& str) -> const std::string {
     std::string result;
