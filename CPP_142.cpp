@@ -28,12 +28,7 @@ int main() {
             std::cin >> num;
             
             if (num >= 0 && num <= 100) {
-                if(inputVector.size() < n){
-                    inputVector.push_back(num);
-                } else {
-                    std::cerr << "You've reached the maximum capacity of your vector!" << std::endl;
-                    break;
-                }
+                inputVector.push_back(num);
                 break;
             } else {
                 if(i < n-1){
@@ -43,9 +38,10 @@ int main() {
                     break;
                 }
             }
+        }
         
-        if(inputVector.size() == n) {
-            break; // Exit loop once maximum capacity is reached
+        if(inputVector.size() >= n) {
+            break; // Exit loop once desired number of elements is reached
         }
     }
 
