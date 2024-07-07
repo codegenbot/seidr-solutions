@@ -1,4 +1,8 @@
-```cpp
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 bool evaluateTerm(string term);
 bool solveBoolean(string s) {
     bool res = true;
@@ -6,16 +10,21 @@ bool solveBoolean(string s) {
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == '|') {
-            bool subRes = evaluateTerm(term);
-            res = res || subRes;
-            term = "";
+            if (!term.empty()) {
+                bool subRes = evaluateTerm(term);
+                res = res || subRes;
+                term = "";
+            }
         } 
         else if (c == 't' || c == 'f') {
-            term += (c == 't') ? "t" : "f";
+            if (c == 't') term += 't';
+            else if (c == 'f') term += 'f';
         }
     }
-    bool subRes = evaluateTerm(term);
-    res = res || subRes;
+    if (!term.empty()) {
+        bool subRes = evaluateTerm(term);
+        res = res || subRes;
+    }
 
     return res;
 }
@@ -31,7 +40,8 @@ bool evaluateTerm(string term) {
             subTerm = "";
         } 
         else if (c == 't' || c == 'f') {
-            subTerm += (c == 't') ? "t" : "f";
+            if (c == 't') subTerm += 't';
+            else if (c == 'f') subTerm += 'f';
         }
     }
     if (subTerm == "tt") res = true;
