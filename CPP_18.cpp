@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <iostream>
 
@@ -14,7 +13,7 @@ int how_many_times(string str, string substring) {
     return count;
 }
 
-int main() { 
+void user_input() { 
     string str;
     cout << "Enter the string: ";
     getline(cin, str);
@@ -31,5 +30,9 @@ int main() {
         int result = how_many_times(str, substring);
         cout << "The substring appears " << result << " times." << endl;
     }
+}
+
+int main() { 
+    user_input();
     return 0;
 }
