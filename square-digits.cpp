@@ -1,13 +1,13 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 using namespace std;
 
 string squareDigits(int number) {
-    stringstream ss;
+    string result = "";
     while (number > 0) {
         int digit = number % 10;
-        ss << to_string(digit * digit);
+        result = std::to_string(digit * digit) + result;
         number /= 10;
     }
-    return ss.str();
+    return result;
 }
