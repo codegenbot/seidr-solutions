@@ -6,12 +6,26 @@
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<string> arr) {
     vector<string> output;
     map<int, int> lengthCount;
-    for (int num : arr) {
-        string str = to_string(num);
-        lengthCount[str.length()]++;
+    for (string str : arr) {
+        if (str == "One") str = "1";
+        else if (str == "Two") str = "2";
+        else if (str == "Three") str = "3";
+        else if (str == "Four") str = "4";
+        else if (str == "Five") str = "5";
+        else if (str == "Six") str = "6";
+        else if (str == "Seven") str = "7";
+        else if (str == "Eight") str = "8";
+        else if (str == "Nine") str = "9";
+
+        int len = str.length();
+        if (lengthCount.find(len) != lengthCount.end()) {
+            lengthCount[len]++;
+        } else {
+            lengthCount[len] = 1;
+        }
     }
 
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
@@ -33,9 +47,9 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<int> arr;
+    vector<string> arr;
     for(int i=0; i<n; i++) {
-        int num;
+        string num;
         cout << "Enter integer " << i+1 << ": ";
         cin >> num;
         arr.push_back(num);
