@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cassert>
 using namespace std;
@@ -10,9 +11,10 @@ int search(int n) {
 }
 
 void runUserInput() {
-    int num;
-    cout << "Enter a positive integer (for example, 1, 2 or 3): ";
-    cin >> num; 
+    string input;
+    cout << "Enter a positive number: ";
+    getline(cin, input); 
+    int num = stoi(input); 
     if (num >= 0) {
         cout << "The search function returns " << search(num) << " for the number " << num << "." << endl;
     } else {
