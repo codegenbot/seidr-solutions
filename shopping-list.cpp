@@ -4,7 +4,8 @@
 
 double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
     return std::accumulate(prices.begin(), prices.end(), 0.0, [&](double sum, float price) {
-        return sum + (price - discounts[static_cast<size_t>(prices.size())]) * (1 - discounts[static_cast<size_t>(prices.size())]);
+        double discount = discounts[static_cast<size_t>(price)];
+        return sum + (price * (1 - discount));
     });
 }
 
