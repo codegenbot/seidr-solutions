@@ -1,30 +1,35 @@
-string file_name_check(string file_name) {
-    int digit_count = 0;
-    bool found_dot = false;
-
-    for (char c : file_name) {
+int count_digits(const string& s) {
+    int count = 0;
+    for (char c : s) {
         if (isdigit(c)) {
-            digit_count++;
-            if (digit_count > 3)
-                return "No";
+            count++;
         }
-        else if (c == '.') {
-            found_dot = true;
-        }
-        else if (!found_dot && !isalpha(c))
-            return "No";
     }
+    return count;
+}
 
-    if (!found_dot || file_name.find('.') == string::npos)
+string file_name_check(string file_name) {
+    int digit_count = count_digits(file_name);
+    if (digit_count > 3) {
         return "No";
-
-    string extension = file_name.substr(file_name.find('.') + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-
-    for (string ext : valid_extensions) {
-        if (extension == ext)
-            return "Yes";
     }
 
-    return "No";
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+        return "No";
+    }
+
+    string prefix = file_name.substr(0, dot_pos);
+    string suffix = file_name.substr(dot_pos + 1);
+
+    if (!isalpha(prefix[0])) {
+        return "No";
+    }
+
+    vector<string> valid_suffixes = {"txt", "exe", "dll"};
+    if (find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end()) {
+        return "No";
+    }
+
+    return "Yes";
 }
