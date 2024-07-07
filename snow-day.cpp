@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 using namespace std;
 
@@ -25,9 +26,9 @@ int main() {
     cout << "Enter initial snow: ";
     cin >> initialSnow;
     cout << "Enter rate of snow fall: ";
-    cin >> rateOfSnowfall;
+    cin >> fixed >> rateOfSnowfall;
     cout << "Enter proportion of snow melting per hour: ";
-    cin >> proportionMeltingPerHour;
+    cin >> fixed >> proportionMeltingPerHour;
 
     double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour);
     
