@@ -1,9 +1,4 @@
 ```cpp
-#ifndef _MSC_VER
-#define _AFX THROW
-#endif
-
-#include <initializer_list>
 #include <vector>
 #include <string>
 
