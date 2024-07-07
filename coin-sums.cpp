@@ -13,10 +13,10 @@ int main() {
 
     int pennies = cents;
 
-    cout << quarters << endl;
-    cout << dimes << endl;
-    cout << nickles << endl;
-    cout << pennies << endl;
+    cout << fixed << setprecision(0) << quarters << endl;
+    cout << fixed << setprecision(0) << dimes << endl;
+    cout << fixed << setprecision(0) << nickles << endl;
+    cout << fixed << setprecision(0) << pennies << endl;
 
     return 0;
 }
