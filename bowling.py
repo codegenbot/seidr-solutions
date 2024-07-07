@@ -1,14 +1,11 @@
 def calculate_score(games):
-    frames = games.replace("/", "")
-    current_roll = 0
+    frames = games.replace('/', '')
     score = 0
+    current_roll = 0
 
     for i in range(0, len(frames), 1):
         if frames[i].isdigit():
-            if len(frames) - i > 1 and frames[i + 1].isdigit():
-                current_roll = int(frames[i]) + int(frames[i + 1])
-            else:
-                current_roll = int(frames[i])
+            current_roll = current_roll * 10 + int(frames[i])
         else:
             if current_roll == 10:
                 score += 10
@@ -19,5 +16,4 @@ def calculate_score(games):
 
     return score
 
-
-print(calculate_score("1/2/3/4/5/6/7/8/9/X"))
+print(calculate_score("7/5/3/4/6/9/X/8+4/1+2"))
