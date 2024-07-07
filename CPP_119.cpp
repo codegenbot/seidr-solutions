@@ -1,11 +1,4 @@
-```cpp
-#include <vector>
-#include <cassert>
-
-int main() {
-    assert(match_parens({ "", "()" }) == "Yes");
-    return 0;
-}
+#include <initializer_list>
 
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
