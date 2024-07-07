@@ -1,5 +1,6 @@
+
 import re
 def spin_words():
     string = input("Enter a string: ")
-    words = re.sub(r"(?<!\b)(\w{5,})", r"\1", string.split())
-    print("The spin-words result is:", words)
+    words = re.sub(r"\b(\w{5,})", r"\1", string)
+    return words
