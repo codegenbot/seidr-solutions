@@ -14,7 +14,7 @@ int main() {
     std::cout << "Enter a positive number: ";
     std::cin >> num; 
     if (num >= 0) {
-        std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
+        std::cout << "Result of searching " << std::to_string(num) << ": " << search(num) << std::endl;
     } else {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
