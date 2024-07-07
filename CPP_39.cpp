@@ -3,6 +3,7 @@ long long prime_fib(int n) {
     for (int i = 2; ; i++) {
         int fib = a + b;
         if (fib > n) return i;
+        if (fib > n) break;
         a = b;
         b = fib;
         bool isPrime = true;
