@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <cassert>
 
@@ -16,5 +17,4 @@ int digitSum(string s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 15);
-    return 0;
 }

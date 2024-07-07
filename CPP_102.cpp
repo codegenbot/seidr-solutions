@@ -17,11 +17,10 @@ int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
     std::cin >> num1 >> num2;  
-    int result = choose_num(num1, num2);
-    if(result == -1) {
-        std::cout << "Error: Both numbers must be odd." << std::endl;
-    } else {
-        std::cout << "Result: " << result << std::endl;
-    }
+    std::string str1 = std::to_string(num1);
+    std::string str2 = std::to_string(num2);
+
+    int result = choose_num(stoi(str1), stoi(str2));
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
