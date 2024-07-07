@@ -4,16 +4,14 @@
 #include <numeric>
 
 std::vector<std::vector<int>> grid;
-
 grid.resize(3, std::vector<int>(3)); 
 
+grid[0].resize(3);
 for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++) {
-        grid[i].push_back(1 + i + 2 * i);
-    }
+    grid[i].push_back(1 + i + 2 * i);
 }
 
-int max_fill(std::vector<stdvector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
     for (int i = 0; i < n; i++) {
