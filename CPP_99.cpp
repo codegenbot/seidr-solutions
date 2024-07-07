@@ -16,6 +16,6 @@ int main() {
     cout << "Enter a number: ";
     cin >> num;
     cout << "The closest integer is: " << closest_integer(num) << endl;
-    assert(closest_integer(0.0) == 0);
+    assert(closest_integer(stod("0")) == 0);
     return 0;
 }
