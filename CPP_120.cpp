@@ -1,5 +1,8 @@
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    return result;
+    vector<int> res(k);
+    copy(std::make_move_iterator(arr.begin() + (arr.size()-k)), 
+         std::make_move_iterator(arr.end()), 
+         res.begin());
+    sort(res.begin(), res.end());
+    return res;
 }
