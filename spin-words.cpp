@@ -3,20 +3,18 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-            result += str.substr(i);
-            break;
-        }
-        int j = str.find(" ", i);
-        string word = str.substr(i, j - i);
-        if (word.length() >= 5) {
-            for (int k = word.length() - 1; k >= 0; --k)
-                result += word[k];
+    string temp = "";
+
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
+            if (temp.length() >= 5) {
+                for (int j = temp.length() - 1; j >= 0; j--)
+                    result += temp[j];
+            } else
+                result += temp;
+            temp = "";
         } else
-            result += word;
-        i = j + 1;
+            temp += str[i];
     }
     return result;
 }
