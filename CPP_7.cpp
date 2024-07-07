@@ -9,29 +9,27 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    vector<string> filtered_a = filter_by_substring(a, "same");
-    vector<string> filtered_b = filter_by_substring(b, "same");
-
-    if(filtered_a.size() != filtered_b.size()) {
-        return false;
+    bool b = true; // declare and initialize the variable
+    if(a.size() != b.size())
+        b = false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            b = false;
     }
-
-    for(string s : filtered_a) {
-        if(find(filtered_b.begin(), filtered_b.end(), s) == filtered_b.end())
-            return false;
-    }
-    
-    return true;
+    return b;
 }
 
-int main(){
-    vector<string> a = {"same", "not same1", "same2"};
-    vector<string> b = {"same3", "same4", "same5"};
-
-    if(issame(a, b))
-        cout << "a and b are the same" << endl;
+int main() {
+    vector<string> strings = {"abc", "abcd", "abcde"};
+    string substring = "abc";
+    
+    vector<string> filteredStrings = filter_by_substring(strings, substring);
+    bool areEqual = issame(filteredStrings, strings);
+    
+    if(areEqual)
+        cout << "The filtered and original lists are the same." << endl;
     else
-        cout << "a and b are not the same" << endl;
-
+        cout << "The filtered list is different from the original list." << endl;
+    
     return 0;
 }
