@@ -1,8 +1,8 @@
-string middleCharacter(string s) {
+int main() {
     int len = s.length();
     if (len % 2 == 1) {
-        return string(1, s[len / 2]);
+        return std::to_string(s[len / 2]);
     } else {
-        return string(1, s[(len - 1) / 2]) + string(1, s[len / 2]);
+        return std::to_string(s[(len - 1) / 2]) + std::to_string(s[len / 2]);
     }
 }
