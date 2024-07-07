@@ -1,32 +1,17 @@
+Here is the completed code:
+
+```
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (num >= 0) {
-            int sum = 0;
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-            if (sum > 0) {
-                count++;
-            }
-        } else {
-            num = -num; // make it positive for calculation
-            int sum = 0;
-            bool negative = true;
-            while (num > 0) {
-                if (negative) {
-                    sum -= num % 10;
-                } else {
-                    sum += num % 10;
-                }
-                num /= 10;
-                negative = !negative; // toggle the sign
-            }
-            if (sum > 0) {
-                count++;
-            }
+        int sign = (num < 0) ? -1 : 1;
+        num *= sign;
+        long sum = 0;
+        while (num != 0) {
+            sum += abs(num % 10);
+            num /= 10;
         }
+        if (sum > 0) count++;
     }
     return count;
 }
