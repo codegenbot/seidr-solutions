@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,12 +11,8 @@ int main() {
     vector<string> strings;
     string userInput;
 
-    int max_strings = 100; // Adjust as per requirement
-
-    strings.reserve(max_strings);  // Reserve memory for expected number of strings
-
     while (true) {
-        cout << "Enter a string (or 'stop' to finish): ";
+        cout << "Enter a string (or stop to finish): ";
         getline(cin, userInput);
 
         if (userInput == "stop") break;
