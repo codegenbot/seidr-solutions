@@ -1,27 +1,28 @@
 #include <boost/any.hpp>
 #include <string>
+#include <vector>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(double)) {
-        double da = any_cast<double>(a);
-        double db = any_cast<double>(b);
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
+    if (is_same<type_of<boost::any>, int>(a.type()) && 
+        is_same<type_of<boost::any>, int>(b.type())) {
+        return max(a.convert<int>(), b.convert<int>());
+    } else if (is_same<type_of<boost::any>, double>(a.type()) && 
+               is_same<type_of<boost::any>, double>(b.type())) {
+        return max(a.convert<double>(), b.convert<double>());
+    } else if (is_same<type_of<boost::any>, string>(a.type()) && 
+               is_same<type_of<boost::any>, string>(b.type())) {
+        return (max(a.cast<string>(), b.cast<string>()) == a.cast<string>() ? "None" : a.cast<string>());
+    } else if (is_same<type_of<boost::any>, int>(a.type())) {
+        if (is_same<type_of<boost::any>, double>(b.type()))
+            return max(a.convert<int>(), b.convert<double>()) > 0 ? boost::any(b) : "None";
         else
             return "None";
-    } else if (is_any_of<a>(const char*)) {
-        string sa = any_cast<string>(a);
-        string sb = any_cast<string>(b);
-        if (stod(sa) > stod(sb))
-            return a;
-        else if (stod(sb) > stod(sa))
-            return b;
+    } else {
+        if (is_same<type_of<boost::any>, int>(b.type()))
+            return max(a.convert<double>(), b.convert<int>()) > 0 ? a : "None";
         else
             return "None";
     }
-    return "None"; // default to None for other types
 }
