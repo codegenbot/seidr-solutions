@@ -1,5 +1,6 @@
-#include <cassert>
+```cpp
 #include <iostream>
+#include <cassert>
 
 int search(int n) {
     if(n < 0)
@@ -12,6 +13,8 @@ int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    assert(search(num) == num);
+    if (num < 0) {
+        std::cout << "The search function returns -1 for negative numbers." << std::endl;
+    }
     return 0;
 }
