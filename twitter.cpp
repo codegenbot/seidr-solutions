@@ -4,9 +4,9 @@
 using namespace std;
 
 string validateTweet(string tweet) {
-    tweet.erase(0, find_first_not_of(" \t", tweet.begin()) - tweet.begin()); 
-    tweet.erase(find_last_not_of(" \t") + 1);
-
+    tweet.erase(0, std::find_first_not_of(" \t", tweet.begin()) - tweet.begin()); // Remove leading whitespace
+    tweet.erase(std::find_last_not_of(" \t") - tweet.rbegin(), tweet.npos); // Remove trailing whitespace
+    
     if (tweet.empty()) {
         return "You didn't type anything";
     }
