@@ -1,7 +1,4 @@
-#include <iostream>
-using namespace std;
-
-int prime_fib(int n) {
+long long prime_fib(int n) {
     int a = 0, b = 1;
     for (int i = 2; ; i++) {
         int fib = a + b;
@@ -18,12 +15,4 @@ int prime_fib(int n) {
         if (!isPrime) continue;
         return i;
     }
-}
-
-int main() {
-    int n;
-    cout << "Enter the number: ";
-    cin >> n;
-    cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
-    return 0;
 }
