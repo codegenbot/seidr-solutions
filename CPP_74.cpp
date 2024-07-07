@@ -1,20 +1,20 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (b.size() == 0) return true;
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-int total_match(const std::vector<std::vector<std::string>>& vec) {
+auto total_match = []() {
     int sum = 0;
-    for (const auto& v : vec) {
-        for (const std::string& s : v) {
+    for (const auto& v : lst1) {
+        for (const auto& s : v) {
             sum += s.size();
         }
     }
     return sum;
-}
+};
 
 int main() {
     int sum1 = 0;
@@ -23,10 +23,13 @@ int main() {
     std::vector<std::vector<std::string>> lst1 = {{"this"}, {"is"}};
     std::vector<std::vector<std::string>> lst2 = {};
 
-    if (issame(lst1, lst2)) {
-        sum1 = total_match(lst1);
+    if (sum1 < sum2) {
+        sum1 = total_match();
+    } else if (sum1 > sum2) {
+        sum2 = total_match();
     } else {
-        sum2 = total_match(lst2);
+        sum1 = total_match();
+        sum2 = total_match();
     }
     return 0;
 }
