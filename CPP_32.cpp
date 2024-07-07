@@ -2,33 +2,43 @@
 #include <vector>
 #include <cmath>
 
+int find_zero(const std::vector<double>& coeffs) {
+    double x = -coeffs[1] / (2 * coeffs[0]);
+    return static_cast<int>(x);
+}
+
 int main() {
     int ncoeff; 
-    std::vector<double> coeffs = {};
+    using namespace std;
+    vector<double> coeffs;
 
-    std::cout << "Enter the number of coefficients: ";
-    std::cin >> ncoeff;
+    cout << "Enter the number of coefficients: ";
+    cin >> ncoeff;
     
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
-        std::cout << "Enter coefficient " << i+1 << ": ";
-        std::cin >> coeff;
+        cout << "Enter coefficient " << i+1 << ": ";
+        cin >> coeff;
         coeffs.push_back(coeff);
     }
     
     double x, y;
-    std::cout << "Enter the value of x: ";
-    std::cin >> x;
+    cout << "Enter the value of x: ";
+    cin >> x;
 
     for(int i = 0; i < ncoeff; i++) {
-        double poly = 0.0;
+        double sum = 0.0;
         for(int j = 0; j <= i; j++) {
-            poly += coeffs[j] * pow(x, j);
+            sum += coeffs[j] * pow(x, j);
         }
-        y = poly;
+        y = sum;
     }
 
-    std::cout << "The value of y is: " << y << std::endl;
+    cout << "The value of y is: " << y << endl;
+
+    int solution = find_zero(coeffs);
+
+    cout << "The zero of the polynomial is: " << solution << endl;
 
     return 0;
 }
