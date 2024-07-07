@@ -1,56 +1,40 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int how_many_times(const std::string& str, const std::string& substring);
+using namespace std;
 
-int main_function() {
-    std::string str, substring;
+int how_many_times(string str, string substring);
+
+int main_function() { 
+    string str, substring;
 
     while(true) {
-        std::cout << "Enter the string: ";
-        std::getline(std::cin, str);
+        cout << "Enter the string: ";
+        getline(cin, str);
 
         if (!str.empty()) break;
-        std::cout << "Error: The input string is empty. Please try again." << std::endl;
+        cout << "Error: The input string is empty. Please try again." << endl;
     }
 
     while(true) {
-        std::cout << "Enter substring: ";
-        std::getline(std::cin, substring);
+        cout << "Enter substring: ";
+        getline(cin, substring);
 
         if (!substring.empty()) break;
-        std::cout << "Error: The input substring is empty. Please try again." << std::endl;
+        cout << "Error: The input substring is empty. Please try again." << endl;
     }
     
-    while((str.empty() || substring.empty())) {
-        if (str.empty()) 
-            std::cout << "Error: The input string is empty. Please try again." << std::endl;
-        else
-            std::cout << "Error: The input substring is empty. Please try again." << std::endl;
-
-        std::cout << "Enter the string: ";
-        std::getline(std::cin, str);
-
-        if (!str.empty()) break;
-        std::cout << "Enter substring: ";
-        std::getline(std::cin, substring);
-    }
-
     int result = how_many_times(str, substring);
-    std::cout << "The substring appears " << result << " times." << std::endl;
+    cout << "The substring appears " << result << " times." << endl;
 
     return 0;
 }
 
-int how_many_times(const std::string& str, const std::string& substring) {
+int how_many_times(string str, string substring) {
     int count = 0;
-    size_t pos = 0;
-
-    while ((pos = str.find(substring)) != std::string::npos) {
-        ++count;
-        pos += substring.size();
+    for (int i = 0; i <= str.length() - substring.length(); i++) {
+        if (str.substr(i, substring.length()).compare(substring) == 0)
+            count++;
     }
-
     return count;
 }
