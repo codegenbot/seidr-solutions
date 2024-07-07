@@ -1,16 +1,8 @@
-```cpp
-int mainFunction() {
-    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
-    auto result = filterBySubstring(str, "run");
-    
-    for (const auto& s : result) {
-        if (!substringSame({s}, std::vector<std::string>({"grunt", "prune"}))) {
-            return 1; 
-        }
-    }
-}
+#include <iostream>
+#include <vector>
+#include <string>
 
-bool substringSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -22,4 +14,20 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
         }
     }
     return result;
+}
+
+int original_main() {
+    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
+    auto result = filterBySubstring(str, "run");
+    
+    for (const auto& s : result) {
+        if (!isSame({s}, std::vector<std::string>({"grunt", "prune"}))) {
+            return 1;
+        }
+    }
+}
+
+int main() {
+    original_main();
+    return 0;
 }
