@@ -36,11 +36,10 @@ int main() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    input.resize(n);  
-
+    input.reserve(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> input[i];  
+        std::cin >> input.push_back(0);
     }
 
     // Process the array
