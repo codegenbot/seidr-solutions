@@ -17,15 +17,6 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
     return sum;
 }
 
-std::vector<std::string> v = {"this"};
-
-bool check(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
-    if (!issame(a, b)) return false;
-    int sum1 = total_match(a);  
-    int sum2 = total_match(b);
-    return (sum1 == sum2);
-}
-
 int main() {
     int n;
     std::cin >> n;
@@ -58,7 +49,14 @@ int main() {
         }
     }
 
-    if (!check(vec1, vec2)) {
+    if (!issame(vec1, vec2)) {
+        return 1;
+    }
+
+    int sum1 = total_match({{{"this"}}});  
+    int sum2 = total_match({{{"this"}}});
+
+    if (sum1 != sum2) {
         return 1;
     }
 
