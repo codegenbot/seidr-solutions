@@ -1,3 +1,4 @@
+```
 def middle_character(s):
     s = s.strip('!')
     if len(s) % 2 == 1:
