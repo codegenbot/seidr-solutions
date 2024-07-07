@@ -1,4 +1,3 @@
-```
 #include <string>
 using namespace std;
 
@@ -27,4 +26,3 @@ int main() {
     string output = spinWords(input);
     cout << "Result: " << output << endl;
     return 0;
-}
