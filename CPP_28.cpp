@@ -1,20 +1,30 @@
 ```cpp
-vector<string> strings;
-string userInput;
+#include <iostream>
+#include <vector>
+#include <string>
 
-while (true) {
-    cin.ignore(); 
-    cout << "Enter a string (or stop to finish): ";
-    getline(cin, userInput);
-
-    if (userInput == "stop") break;
-
-    strings.push_back(userInput);
+int concatenate(const std::vector<std::string>& strings) {
+    std::string result = "";
+    for (const auto& str : strings) {
+        result += str + " ";
+    }
+    return result;
 }
 
-string result = "";
-for (const auto& str : strings) {
-    result += str + " ";
+int main() {
+    std::vector<std::string> strings;
+    std::string userInput;
+
+    while (true) {
+        cin.ignore(); 
+        cout << "Enter a string (or stop to finish): ";
+        getline(cin, userInput);
+
+        if (userInput == "stop") break;
+
+        strings.push_back(userInput);
+    }
+
+    std::cout << "Concatenated string: " << concatenate(strings) << std::endl;
+    return 0;
 }
-cout << "Concatenated string: " << result << endl;
-return 0;
