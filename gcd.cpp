@@ -1,10 +1,11 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
-using namespace std;
+using std::string;
+using std::vector;
 
-vector<int> indicesOfSubstring(std::string text, std::string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
     int m = target.length();
