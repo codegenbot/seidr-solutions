@@ -1,17 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result = "";
-    for (const auto& str : strings) {
-        result += str;
-    }
-    return "Concatenated string: " + result + "\n";
-}
-
-int main() {
+std::vector<std::string> getStrings() {
     std::vector<std::string> strings;
     while (true) {
         std::cout << "Enter a string (or 'stop' to finish): ";
@@ -22,6 +13,16 @@ int main() {
         strings.push_back(input); 
     }
 
-    std::cout << concatenate(strings) << std::endl;
+    return strings;
+}
+
+int main() {
+    std::vector<std::string> strings = getStrings();
+
+    std::string result = "";
+    for (const auto& str : strings) {
+        result += str + "\n";
+    }
+    std::cout << "Concatenated string: " << result;
     return 0;
 }
