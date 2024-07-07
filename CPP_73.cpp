@@ -7,7 +7,7 @@ int smallest_change(vector<int> arr) {
     }
     
     for (int len = 2; len <= n; len++) {
-        for (int i = 0; i < n - len + 1; i++) {
+        for (int i = 0; i <= n - len; i++) {
             int j = i + len - 1;
             
             if (arr[i] == arr[j]) {
