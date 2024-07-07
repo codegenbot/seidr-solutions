@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 
@@ -17,7 +18,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-int main() {
+bool main() {
     std::vector<float> derivative_input = {1};
     std::vector<float> expected_output = {};
     assert(issame(calculate_derivative(derivative_input), expected_output));
