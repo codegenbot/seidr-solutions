@@ -2,10 +2,11 @@
 #include <algorithm>
 #include <iostream>
 #include <limits>
+#include <cassert>
 
 using namespace std;
 
-bool same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -29,7 +30,7 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(same(get_odd_collatz(1), vector<int>({1})));  
+    assert(issame(get_odd_collatz(1), vector<int>({1})));  
     int input;
     cout << "Enter a number: ";
     cin >> input;

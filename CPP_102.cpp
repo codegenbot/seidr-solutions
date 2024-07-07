@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int choose_num(int, int);
 
@@ -8,7 +9,7 @@ int main() {
     std::cout << "Enter two numbers (separated by a space): ";
     std::cin >> num1 >> num2;  
     int result = choose_num(num1, num2);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "Result: " << std::to_string(result) << std::endl;
     return 0;
 }
 
