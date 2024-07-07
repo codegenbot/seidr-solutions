@@ -1,17 +1,16 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool is_nested(const std::string& str) {
-    size_t count = 0;
+    int count = 0;
     bool isOpeningBracket = false;
-    for (auto it = str.begin(); it != str.end(); ++it) {
-        if (*it == '[') {
+    for (size_t i = 0; i < str.size(); i++) {
+        if (str[i] == '[') {
             if (!isOpeningBracket) {
                 count++;
                 isOpeningBracket = true;
             }
-        } else if (*it == ']') {
+        } else if (str[i] == ']') {
             if (count > 0) {
                 count--;
             } else {
@@ -23,7 +22,7 @@ bool is_nested(const std::string& str) {
     return count > 0;
 }
 
-int main() {
+int testMain() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
