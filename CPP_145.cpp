@@ -1,11 +1,11 @@
 #include <algorithm>
 #include <vector>
 
-bool areSame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool isSame(std::vector<int> vec1, std::vector<int> vec2) {
+    return vec1 == vec2;
 }
 
-std::vector<pair<int, int>> order_by_points(std::vector<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
@@ -28,6 +28,6 @@ std::vector<pair<int, int>> order_by_points(std::vector<int> nums) {
 }
 
 int main1() {
-    assert(areSame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    assert(isSame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
