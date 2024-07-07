@@ -1,3 +1,4 @@
+
 #include <string>
 std::string getMiddle(std::string str) {
     int len = str.length();
