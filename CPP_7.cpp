@@ -23,8 +23,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> str = {{"grunt", "trumpet", "prune", "gruesome"}};
-    std::vector<std::string> b = {"grunt", "prune"};
-    assert(issame(filter_by_substring(str, "run"),b)); 
+    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
+    assert(issame(filter_by_substring(str, "run"),{std::string("grunt"), std::string("prune")})); 
     return 0;
 }
