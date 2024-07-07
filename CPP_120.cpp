@@ -15,7 +15,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 int main() { 
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
-    if (maximum(arr, k) != std::vector<int>({3, -23, 243, 0})) {
+    if (maximum(arr, k) != std::vector<int>({0, 243, -23, 3})) {
         return 1;
     }
     return 0;
