@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <cstddef>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -19,8 +18,8 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
 
 int test() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
-    std::vector<std::string> filtered = filterBySubstring(str, "run"); 
-    assert(issame({},filtered)); 
+    std::vector<std::string> filtered = filterBySubstring(str, "run");
+    assert(issame({}, filtered));
     return 0;
 }
 
