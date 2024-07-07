@@ -1,3 +1,11 @@
+```cpp
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
