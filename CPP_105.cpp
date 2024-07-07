@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <functional>
 #include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -54,4 +53,3 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}

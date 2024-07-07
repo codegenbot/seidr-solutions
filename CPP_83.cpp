@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 int starts_one_ends(int n) {
@@ -17,6 +18,7 @@ int starts_one_ends(int n) {
         if (flag) count++;
     }
     return count;
+
 }
 
 int main() {
