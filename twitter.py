@@ -1,3 +1,6 @@
+import re
+
+
 def validate_tweet(tweet):
     if len(tweet) > 140:
         return "Too many characters"
