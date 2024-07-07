@@ -21,16 +21,17 @@ int main() {
     }
     
     std::string s1 = line.substr(0, pos);
-    line.erase(pos);
-    std::string s2 = line;
+    std::string s2 = line.substr(pos + 1);
 
     int num1 = std::stoi(s1);
     int num2 = std::stoi(s2);
 
+    std::cout << num1 << " " << num2;
+    
     if(num1 > num2)
-        std::cout << "Greater number is " << std::to_string(choose_num(num1, num2)) << std::endl;
+        std::cout << "\nGreater number is " << choose_num(num1, num2) << std::endl;
     else
-        std::cout << "Greater number is " << std::to_string(choose_num(num1, num2)) << std::endl;
+        std::cout << "\nGreater number is " << choose_num(num1, num2) << std::endl;
 
     return 0;
 }
