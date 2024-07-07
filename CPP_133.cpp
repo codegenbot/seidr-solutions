@@ -4,8 +4,8 @@
 
 double sum_squares(const std::vector<double>& input) {
     double sum = 0;
-    for (const auto& x : input) {
-        sum += x * x;
+    for (const auto& num : input) {
+        sum += num * num;
     }
     return sum;
 }
