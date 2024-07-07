@@ -1,16 +1,16 @@
-#include <iostream>
-
-using namespace std;
+#include <cmath>
 
 int prime_fib(int n) {
-    int a = 0, b = 1;
-    for (int i = 2; ; i++) {
-        int fib = a + b;
-        if (fib >= n) return fib;
+    int a = 0, b = 1, fib = 1;
+    while (fib <= n) {
+        if (isPrime(fib)) {
+            return fib;
+        }
         a = b;
         b = fib;
-        if (isPrime(fib)) return fib;
+        fib = a + b;
     }
+    return -1; // or any other value to indicate that there is no such number
 }
 
 bool isPrime(int num) {
