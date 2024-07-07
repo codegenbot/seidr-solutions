@@ -1,9 +1,7 @@
-```cpp
 #include <vector>
-#include <algorithm>
+#include <limits>
 
-template<typename T>
-bool std::same(std::vector<T> const& a, std::vector<T> const& b) {
+bool std::issame(std::vector<float> const& a, std::vector<float> const& b) {
     if (a.size() != b.size()) {
         return false;
     }
