@@ -30,21 +30,21 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
+    std::vector<int> input;
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::vector<int> input(n), output;
 
     // Read input
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;  
+    input.resize(n);  
+
     for (int i = 0; i < n; i++) {
-        int num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        input.push_back(num);
+        std::cin >> input[i];  
     }
 
     // Process the array
-    output = pluck(input);
+    std::vector<int> output = pluck(input);
 
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
