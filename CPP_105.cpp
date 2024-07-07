@@ -27,7 +27,7 @@ vector<string> by_length(vector<string> arr) {
         }
     }
 
-    vector<string> output(arr.size());
+    vector<string> output;
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
@@ -47,7 +47,7 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<string> arr(n);
+    vector<string> arr(n, string());
     for(int i=0; i<n; i++) {
         string num;
         cout << "Enter integer " << i+1 << ": ";
