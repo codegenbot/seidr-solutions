@@ -3,7 +3,7 @@ using namespace std;
 
 vector<int> leaders(int arr[], int n) {
     vector<int> result;
-    int rightmost = arr[n-1];
+    int rightmost = arr[n - 1];
     for (int i = n - 2; i >= 0; i--) {
         if (arr[i] >= rightmost) {
             rightmost = arr[i];
