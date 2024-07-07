@@ -18,9 +18,9 @@ int main() {
         return 1;
     }
     std::vector<double> input;
-    input.reserve(2); // Reserve space for 2 elements
-    input.push_back(num1);
-    input.push_back(num2);
+    input.resize(2);
+    input[0] = num1;
+    input[1] = num2;
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
 }
