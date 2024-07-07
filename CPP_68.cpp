@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
@@ -26,7 +26,10 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     if (result.empty()) {
         return {};
     } else {
-        auto it = min_element(result.begin(), result.end());
+        auto it = std::min_element(result.begin(), result.end(),
+                                    [](const auto& a, const auto& b) {
+                                        return a.first < b.first;
+                                    });
         return {{it->first, it->second}};
     }
 }
