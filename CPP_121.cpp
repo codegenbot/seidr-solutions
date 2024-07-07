@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,7 +10,7 @@ int solution(std::vector<int> arr) {
 }
 
 int main() {
-    int sum = solution({3, 13, 2, 9});
+    int sum = solution(std::vector<int>({3, 13, 2, 9})); 
     std::cout << "Result: " << sum << std::endl;
     return 0;
 }

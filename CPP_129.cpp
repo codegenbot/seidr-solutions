@@ -10,7 +10,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<bool> row(n, false);
     vector<vector<bool>> visited(n, vector<bool>(n, false)); // Initialize each row with all elements as false.
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
-    vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -20,6 +19,8 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             }
         }
     }
+
+    vector<int> res;
 
     while (!pq.empty()) {
         int val = pq.top().first;
