@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <sstream>
 
@@ -23,4 +23,3 @@ int main() {
     int result = choose_num(num1, num2);
     std::cout << "Result: " << result << std::endl;
     return 0;
-}
