@@ -22,17 +22,11 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    std::vector<int> l1;
-    l1.push_back(1); l1.push_back(2); l1.push_back(3); l1.push_back(4);
+    std::vector<int> l1 = {1, 2, 3, 4};
+    std::vector<int> l2 = {3, 4, 5, 6};
 
-    std::vector<int> l2;
-    l2.push_back(3); l2.push_back(4); l2.push_back(5); l2.push_back(6);
-
-    std::set<int> set1(l1.begin(), l1.end());
-    std::set<int> set2(l2.begin(), l2.end());
-
-    if(std::set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(),
-        std::inserter(set2, set2.end())).size()) {
+    if(std::set_difference(l1.begin(), l1.end(), l2.begin(), l2.end(),
+        std::inserter(l2.begin(), l2.end())).size()) {
         std::cout << "Not all elements of one list are present in another." << std::endl;
     } else {
         std::cout << "All elements of one list are present in another." << std::endl;
