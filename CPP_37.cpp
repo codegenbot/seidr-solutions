@@ -1,17 +1,9 @@
+```cpp
 #include <vector>
 #include <cmath>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;
-}
-
-bool areVectorsEqual(std::vector<float> a, std::vector<float> b) {
-    for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) {
-            return false;
-        }
-    }
-    return true;
 }
 
 std::vector<float> sort_even(std::vector<float> input) {
@@ -46,7 +38,7 @@ std::vector<float> sort_even(std::vector<float> input) {
     return result;
 }
 
-int mainEntry() {
+int main() { 
     int n;
     std::vector<float> input;
     float num;
@@ -59,8 +51,4 @@ int mainEntry() {
     for (float val : result) {
         std::cout << val << " ";
     }
-}
-
-int main() {
-    return mainEntry();
 }
