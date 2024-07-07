@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
@@ -16,3 +16,4 @@ bool solveBoolean(string s) {
         }
     }
     return result;
+}
