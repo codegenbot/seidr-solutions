@@ -1,11 +1,9 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <memory>
+#include <iostream>
 
-using std::vector;
-using std::string;
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
@@ -36,10 +34,14 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
 
-    vector<int> arr;
+    return result;
+}
+
+int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
+    vector<int> arr;
     for(int i=0; i<n; i++) {
         int num;
         cout << "Enter integer " << i+1 << ": ";
@@ -52,5 +54,4 @@ vector<string> by_length(vector<int> arr) {
         cout << str << " ";
     }
     cout << "\n";
-    return 0;
 }
