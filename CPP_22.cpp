@@ -1,12 +1,22 @@
-#include <boost/type_erasure.hpp>
-#include <boost/more_results.hpp>
+#include <boost/any.hpp>
+#include <vector>
+#include <list>
+#include <exception>
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+bool issame(vector<int> a,vector<int>b){
+    return a == b;
+}
+
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<bool>(value)) {
-            int val = any_cast<int>(value);
-            result.push_back(val);
+        if (boost::any_cast<int>(value).which() == boost::any::type_code<int>()) {
+            try {
+                int num = boost::any_cast<int>(value).get();
+                result.push_back(num);
+            } catch(const std::exception &e) {
+                // Handle the exception
+            }
         }
     }
     return result;
