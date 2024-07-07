@@ -1,4 +1,8 @@
-int luhnCheck(vector<int> digits) {
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool luhnCheck(vector<int> digits) {
     int sum = 0;
     bool doubleNext = true; 
     for(int i = 0; i < digits.size(); i++) {
@@ -13,4 +17,17 @@ int luhnCheck(vector<int> digits) {
         doubleNext = !doubleNext; 
     }
     return (sum % 10 == 0);
+}
+
+int main() {
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int digit;
+        cin >> digit;
+        input.push_back(digit);
+    }
+    cout << luhnCheck(input) << endl;
+    return 0;
 }
