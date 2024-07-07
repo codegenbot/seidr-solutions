@@ -1,14 +1,10 @@
-```
 #include <vector>
-using namespace std;
+#include <initializer_list>
 
-int calculateFuelCost(vector<int> numbers) {
+int calculateFuelCost(std::vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        if (num % 3 == 0) {
-            int result = static_cast<int>(floor((double)num / 3)) - 2;
-            sum += result;
-        }
+        sum += std::floor((double)num / 3) - 2;
     }
-    return sum; 
+    return sum;
 }
