@@ -9,9 +9,10 @@ using namespace std;
 vector<string> by_length(vector<string> arr) {
     unordered_map<int, int> lengthCount;
     for (string str : arr) {
-        int len = str.length();
+        int num;
+        num = stoi(str);
+        int len = to_string(num).length();
         lengthCount[len]++;
-        str = to_string(stoi(str));
     }
 
     vector<string> output;
