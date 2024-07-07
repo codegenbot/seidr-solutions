@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -34,40 +35,16 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    // Input from user
-    int num1, num2;
-    string str1, str2;
-    char choice;
-
-    cout << "Enter the first number: ";
-    cin >> num1;
-
-    cout << "Enter the second number (integer or float): ";
-    cin >> num2;
-
-    if (num2 == 0) {
-        cout << "Please enter a non-zero value.\n";
-        return 0;
+    boost::any a, b;
+    cout << "Enter the first value: ";
+    cin >> a;
+    cout << "Enter the second value: ";
+    cin >> b;
+    boost::any result = compare_one(a, b);
+    if (result.type() == typeid(string)) {
+        cout << "The values are equal." << endl;
+    } else {
+        cout << "The result is: " << boost::any_cast<string>(result) << endl;
     }
-
-    // Check if the user wants to compare strings
-    cout << "Do you want to compare strings? (y/n): ";
-    cin >> choice;
-
-    if (choice == 'y') {
-        cout << "Enter the first string: ";
-        getline(cin, str1);
-
-        cout << "Enter the second string: ";
-        getline(cin, str2);
-
-        boost::any result = compare_one(boost::any(typeid(int), num1), boost::any(typeid(float), num2));
-        if (result.type() == typeid(string)) {
-            cout << result.convert_to<string>() << endl;
-        } else {
-            cout << "None" << endl;
-        }
-    }
-
     return 0;
 }
