@@ -46,7 +46,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         int pos_j = pq.top().j;
         pq.pop();
 
-        res.push_back(val);
+        res.push_back(grid[pos_i][pos_j]);
 
         if (k > 0) {
             --k;

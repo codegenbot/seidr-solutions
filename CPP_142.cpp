@@ -21,15 +21,19 @@ int main() {
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    int i = 0;
-    while(i < n) {
-        int num; 
-        while(true) { 
+    for(int i = 0; i < n; ++i) {
+        int num;
+        while(true) {
             std::cout << "Enter element " << i + 1 << ": ";
             std::cin >> num;
             
             if (num >= 0 && num <= 100) {
-                inputVector.push_back(num);
+                if(inputVector.size() < n){
+                    inputVector.push_back(num);
+                } else {
+                    std::cerr << "You've reached the maximum capacity of your vector!" << std::endl;
+                    break;
+                }
                 break;
             } else {
                 if(i < n-1){
@@ -39,7 +43,7 @@ int main() {
                     break;
                 }
             }
-        i++;
+        
         if(inputVector.size() == n) {
             break; // Exit loop once maximum capacity is reached
         }
