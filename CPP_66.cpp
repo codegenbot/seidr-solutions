@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <cctype>
@@ -10,6 +11,7 @@ int digitSum(std::string s) {
         }
     }
     return sum % 26;
+
 }
 
 int main() {
