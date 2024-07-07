@@ -15,12 +15,12 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (const auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
+    for (std::map<std::string, std::string>::const_iterator it = dict.begin(); it != dict.end(); ++it) {
+        if (!islower(it->first[0]) && !isupper(it->first[0])) {
             allLower = false;
             allUpper = false;
             break;
-        } else if ((pair.first[0] >= 'a' && pair.first[0] <= 'z') != (allLower)) {
+        } else if ((it->first[0] >= 'a' && it->first[0] <= 'z') != (allLower)) {
             allLower = false;
             allUpper = false;
             break;
