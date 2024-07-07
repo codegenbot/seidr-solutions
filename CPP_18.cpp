@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -12,7 +13,7 @@ int how_many_times(string str, string substring) {
 
 }
 
-int main() { 
+int main_function() { 
     string str, substring;
 
     cout << "Enter the string: ";
@@ -28,7 +29,7 @@ int main() {
             cout << "Error: The input substring is empty." << endl;
         } else {
             int result = how_many_times(str, substring);
-            cout << "The substring appears " << result << " times." << endl;
+            cout << "The substring appears " << how_many_times(str, substring) << " times." << endl;
         }
     }
 
