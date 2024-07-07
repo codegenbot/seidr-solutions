@@ -14,8 +14,8 @@ int main() {
     std::string str2 = "CW";
     
     size_t pos = 0;
-    vector<int> indices;
-    while ((pos = str1.find(str2)) != string::npos) {
+    std::vector<size_t> indices;
+    while ((pos = str1.find(str2, pos)) != std::string::npos) {
         indices.push_back(pos);
         pos += str2.size();
     }
@@ -23,9 +23,7 @@ int main() {
     int a = 12;
     int b = 15; 
     std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
-    for (int index : indices) {
-        std::cout << "Indices of Substring 'CW' are: " << index << std::endl;
-    }
-    
+    for (auto i : indices)
+        std::cout << "Index at which target string appears: " << i << std::endl;
     return 0;
 }
