@@ -1,5 +1,4 @@
-#include <string>
-using namespace std;
+Here is the completed code:
 
 vector<string> by_length(vector<int> arr) {
     vector<int> temp;
@@ -8,11 +7,8 @@ vector<string> by_length(vector<int> arr) {
             temp.push_back(i);
         }
     }
-    
     sort(temp.begin(), temp.end());
-    
     reverse(temp.begin(), temp.end());
-    
     vector<string> result;
     for (int i : temp) {
         switch (i) {
@@ -45,6 +41,4 @@ vector<string> by_length(vector<int> arr) {
                 break;
         }
     }
-    
     return result;
-}
