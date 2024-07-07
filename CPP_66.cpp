@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-int digitSum(std::string s) {
+int digitSum(const std::string& str) {
     int sum = 0;
-    for (char c : s) {
+    for (char c : str) {
         if (isdigit(c)) {
             sum += (c - '0');
         }
