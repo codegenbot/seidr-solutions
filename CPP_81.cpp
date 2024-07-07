@@ -1,9 +1,9 @@
 ```cpp
-#include <iostream>
+#include <initializer_list>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool compareVectors(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -40,7 +40,7 @@ string letterGrade(float grade) {
         return "F";
 }
 
-vector<string> numericalLetterGrade(vector<float> grades) {
+vector<string> letterGrade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         result.push_back(letterGrade(grade));
@@ -50,10 +50,10 @@ vector<string> numericalLetterGrade(vector<float> grades) {
 
 int main() {
     vector<float> fgrades = {0, 0.7};
-    vector<string> grades = numericalLetterGrade(fgrades);
-    if (!issame({grades[0], grades[1]}, {"E", "D-" }))
-        std::cout << "Test failed" << std::endl;
+    vector<string> grades = letterGrade(fgrades);
+    if (!compareVectors({grades[0], grades[1]}, {"E", "D-" }))
+        cout << "Test failed" << endl;
     else
-        std::cout << "Test passed" << std::endl;
+        cout << "Test passed" << endl;
     return 0;
 }
