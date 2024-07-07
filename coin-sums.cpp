@@ -2,8 +2,8 @@
 #include <tuple>
 
 std::tuple<int, int, int, int> coinSum(int cents) {
-    int pennies = cents;
-    cents = 0;
+    int pennies = cents; 
+    cents %= 1;
 
     int quarters = 0;
     quarters = cents / 25;
@@ -22,13 +22,13 @@ std::tuple<int, int, int, int> coinSum(int cents) {
 
 int main() {
     int cents;
-    std::cin >> cents;
+    cin >> cents;
 
     auto counts = coinSum(cents);
-    std::cout << std::get<0>(counts) << std::endl;
-    std::cout << std::get<1>(counts) << std::endl;
-    std::cout << std::get<2>(counts) << std::endl;
-    std::cout << std::get<3>(counts) << std::endl;
+    cout << get<0>(counts) << endl;
+    cout << get<1>(counts) << endl;
+    cout << get<2>(counts) << endl;
+    cout << get<3>(counts) << endl;
 
     return 0;
 }
