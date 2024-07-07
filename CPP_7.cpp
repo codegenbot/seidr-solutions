@@ -1,4 +1,5 @@
-```cpp
+#include <initializer_list>
+
 #include <vector>
 #include <string>
 
@@ -17,7 +18,6 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
 }
 
 int main() {
-    auto str = {"grunt", "trumpet", "prune", "gruesome"};
+    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     assert(issame(filterBySubstring(str, "run"), {"grunt", "prune"}));
     return 0;
-}
