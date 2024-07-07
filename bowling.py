@@ -16,4 +16,4 @@ def calculate_score(games):
 
     return score
 
-print(calculate_score("7/X/3+2/4/5/5/10/-/2/8")
+print(calculate_score("1/2/3/4/5/6/7/8/9/X"))
