@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,11 +16,20 @@ int main() {
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
     std::pair<int, int> interval1;
     std::cout << "Enter the first interval: ";
-    std::cin >> interval1.first >> interval1.second;
+    std::string temp;
+    std::cin >> temp; 
+    interval1.first = std::stoi(temp); 
+    temp.clear(); 
+    std::cin >> temp; 
+    interval1.second = std::stoi(temp);
 
     std::pair<int, int> interval2;
     std::cout << "Enter the second interval: ";
-    std::cin >> interval2.first >> interval2.second;
+    std::cin >> temp; 
+    interval2.first = std::stoi(temp); 
+    temp.clear(); 
+    std::cin >> temp; 
+    interval2.second = std::stoi(temp);
 
     if (intersection(interval1, interval2) == "YES")
         std::cout << "The intervals intersect.\n";
