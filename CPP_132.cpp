@@ -1,6 +1,7 @@
+```
 #include <string>
 
-bool is_nested(string str) {
+bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
@@ -14,3 +15,17 @@ bool is_nested(string str) {
         }
     }
     return count > 0;
+}
+
+int main() {
+    assert(false); // comment out the original definition of `main()` function
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+    if (is_nested(str)) {
+        std::cout << "The string is nested." << std::endl;
+    } else {
+        std::cout << "The string is not nested." << std::endl;
+    }
+    return 0;
+}
