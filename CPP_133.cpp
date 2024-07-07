@@ -9,3 +9,14 @@ int sum_squares(std::vector<float> lst){
         total += std::pow(ceil_x,2);
     }
     return total;
+}
+
+int main() {
+    std::vector<float> lst;
+    float num;
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+    int result = sum_squares(lst);
+    return 0;
+}
