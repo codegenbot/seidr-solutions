@@ -31,7 +31,7 @@ int main() {
     std::vector<float> vec1({maxV1});
     std::vector<float> vec2({0.0f});
 
-    if (!issame({vec1[0]}, {vec2[0]})) {
+    if (!issame(vec1, vec2)) {
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
         std::cout << "The two sets of numbers are the same.\n";
