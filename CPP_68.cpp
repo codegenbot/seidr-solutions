@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <limits>
 
-bool sameVector(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -47,7 +46,7 @@ int mainFunction() {
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        assert(sameVector(pluck({7, 9, 7, 1}), {}));
+        assert(issame(pluck({7, 9, 7, 1}), {{})); // Fix this line
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }
