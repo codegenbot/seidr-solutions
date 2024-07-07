@@ -1,4 +1,3 @@
-```cpp
 std::string spinWords(std::string str) {
     std::string result = "";
     std::stringstream ss(str);
@@ -7,5 +6,5 @@ std::string spinWords(std::string str) {
     while (ss >> word) {
         result += (word.length() >= 5 ? std::string(word.rbegin(), word.rend()) : word) + " ";
     }
-    return result.substr(0, result.size() - 1); // Remove the extra space at the end
+    return result.substr(0, result.size() - 1); 
 }
