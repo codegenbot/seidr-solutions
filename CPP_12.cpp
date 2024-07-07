@@ -1,7 +1,5 @@
-````
 #include <vector>
-#include <string>
-
+#include <algorithm>
 using namespace std;
 
 std::string longest(vector<string> strings) {
@@ -12,4 +10,3 @@ std::string longest(vector<string> strings) {
     }
     return result;
 }
-```
