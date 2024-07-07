@@ -1,7 +1,7 @@
 ```c++
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -18,21 +18,21 @@ vector<int> findIndices(string text, string target) {
         }
         if(found) {
             indices.push_back(i);
-            int pos = i + targetLength;
-            while(pos <= text.length() - targetLength) {
+            int k = i + targetLength;
+            while(k <= text.length() - targetLength && found) {
                 found = true;
                 for(int j = 0; j < targetLength; j++) {
-                    if(text[pos+j] != target[j]) {
+                    if(text[k+j] != target[j]) {
                         found = false;
                         break;
                     }
                 }
                 if(found) {
-                    indices.push_back(pos);
-                    pos += targetLength;
+                    indices.push_back(k);
                 } else {
                     break;
                 }
+                k += targetLength;
             }
         }
     }
@@ -49,5 +49,9 @@ int main() {
     int a = 10;
     int b = 20;
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    vector<int> indices = findIndices("Hello World", "ll");
+    for(int i : indices) {
+        cout << i << " ";
+    }
     return 0;
 }
