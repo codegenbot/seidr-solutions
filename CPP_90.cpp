@@ -1,33 +1,23 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-int next_smallest(std::vector<int> lst) {
+int next_smallest(vector<int> lst) {
     if (lst.empty()) return -1;
-    std::vector<int> copy = lst;
-    std::sort(copy.begin(), copy.end());
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
     int second_smallest = (copy.size() > 1)? copy[1] : -1; 
     return second_smallest;
 }
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> lst(n);
-    std::cout << "Enter the elements: ";
-    for (auto &x : lst) {
-        std::cin >> x;
+    cin >> n;
+    vector<int> lst(n);
+    for(int i=0; i<n; i++) {
+        cin >> lst[i];
     }
-
-    int result = next_smallest(lst);
-
-    if (result == -1)
-        std::cout << "Invalid input";
-    else
-        std::cout << "The next smallest number is: " << result;
-
+    cout << next_smallest(lst) << endl;
     return 0;
 }
