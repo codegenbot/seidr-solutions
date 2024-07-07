@@ -20,6 +20,15 @@ int luhn(const vector<string>& digits) {
     return sum;
 }
 
+vector<string> get_digits() {
+    vector<string> digits;
+    string input;
+    while (cin >> input && digits.size() < 16) {
+        digits.push_back(input);
+    }
+    return digits;
+}
+
 int main() {
     vector<string> digits = get_digits();
     int sum = luhn(digits);
