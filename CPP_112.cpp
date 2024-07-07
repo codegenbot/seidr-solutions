@@ -28,11 +28,11 @@ bool issame(vector<string> b, vector<string> a) {
     return true;
 }
 
-int mainFunction() {
-    vector<string> v = {"mamma", "mia"};
-    vector<string> temp = {"mamma", "mia"};
-    v = reverse_delete(temp);
+int main() {
+    vector<string> v1 = {"mamma"};
+    vector<string> v2 = {"mia"};
+    v1 = reverse_delete({v1.begin(), v1.end()});
     vector<string> result = {{"", "True"}};
-    assert(issame(result, v));
+    assert(issame(result, v1));
     return 0;
 }
