@@ -34,18 +34,15 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
+    
     std::vector<double> lst;
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        
-        if (num > 0) {
-            lst.push_back(num);  
-        }
+        lst.push_back(num);  
     }
-
+    
     double odd_sum = double_the_difference(lst);
 
     calculateOddSums(lst);
