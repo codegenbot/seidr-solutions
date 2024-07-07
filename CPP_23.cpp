@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 
 size_t str_length(const std::string& str) {
     return str.size();
