@@ -1,4 +1,6 @@
-bool solveBoolean(string s) {
+#include <string>
+
+std::string solveBoolean(std::string s) {
     bool result = true;
     for (char c : s) {
         if (c == 'F') {
@@ -13,5 +15,5 @@ bool solveBoolean(string s) {
             }
         }
     }
-    return result ? "True" : "False";
+    return std::to_string(result);
 }
