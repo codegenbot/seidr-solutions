@@ -1,25 +1,19 @@
+Here is the solution:
+
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (int i = 0; i < s.length(); i++) {
-        bool found = false;
-        for (int j = 0; j < c.length(); j++) {
-            if (s[i] == c[j]) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += s[i];
+    vector<char> char_s(s.begin(), s.end());
+    for (char ch : c) {
+        auto it = find(char_s.begin(), char_s.end(), ch);
+        while (it != char_s.end()) {
+            char_s.erase(it);
+            break;
         }
     }
-    result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
+    string result = "";
+    for (int i = 0; i < char_s.size(); i++) {
+        if (i == 0 || char_s[i] != char_s[char_s.size() - i - 1]) {
+            result += char_s[i];
+        }
     }
-    return result;
+    return {s.substr(0, s.find(c[0])) + result, to_string(result == string(result.rbegin(), result.rend()))};
 }
