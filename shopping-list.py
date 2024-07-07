@@ -9,6 +9,7 @@ def shopping_list(prices, discounts):
         except ValueError:
             print("Invalid price or discount! Please enter a valid number.")
             return None
+    # Check if there are fewer discounts than prices
     if len(prices) > len(discounts):
         for i in range(len(discounts), len(prices)):
             try:
