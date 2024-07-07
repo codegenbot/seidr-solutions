@@ -10,9 +10,7 @@ int main() {
   // Reverse each word that is 5 or more letters long.
   for (int i = 0; i < words.size(); i++) {
       if (words[i].length() >= 5) {
-          std::string reversedWord = words[i];
-          std::reverse(reversedWord.begin(), reversedWord.end());
-          words[i] = reversedWord;
+          std::reverse(words[i].begin(), words[i].end());
       }
   }
   // Join the words back together into a single string.
