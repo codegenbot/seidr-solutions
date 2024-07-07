@@ -1,17 +1,11 @@
-Here is the completed code:
+int countOpen = 0, countClose = 0;
 
-```cpp
-int totalOpen = 0;
-for(string s : lst) {
-    for(char c : s) {
-        if(c == '(')
-            totalOpen++;
-        else if(c == ')')
-            totalOpen--;
-        if(totalOpen < 0)
-            return "No";
+for (auto str : lst) {
+    for (char c : str) {
+        if (c == '(') countOpen++;
+        else if (c == ')') countClose++;
     }
 }
-if(totalOpen != 0)
-    return "No";
-return "Yes";
+
+if (countOpen == countClose) return "Yes";
+else return "No";
