@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -30,7 +31,7 @@ std::vector<int> count_up_to(int n) {
     return primes;
 }
 
-void originalMain() {
+int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
@@ -40,9 +41,5 @@ void originalMain() {
             std::cout << "Prime number: " << primes[i] << std::endl;
         }
     }
-}
-
-void main() {
-    originalMain();
     return 0;
 }
