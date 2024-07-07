@@ -1,1 +1,1 @@
-map(function, iterable) applies the given function to every item in the iterable.
+map(lambda x: str(int(x) ** 2), str(n))
