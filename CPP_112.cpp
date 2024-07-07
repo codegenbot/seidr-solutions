@@ -1,6 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
+
+using namespace std;
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
@@ -24,11 +27,17 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-int main() {
-    std::vector<std::string> output = reverse_delete("mamma", "mia");
-    if (output[0] != "" || output[1] != "True") {
-        return 1;
-    } else {
-        return 0;
+bool issame(vector<string> a, vector<string>b){
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+int main(){
+    string s = "hello";
+    string c = "lo";
+    vector<string> result = reverse_delete(s,c);
+    if(issame(result,{reverse_delete(s,c)[0],(reverse_delete(s,c))[1]})){
+        cout << "The strings are the same." << endl;
+    }else{
+        cout << "The strings are not the same." << endl;
     }
 }

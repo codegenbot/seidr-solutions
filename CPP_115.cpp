@@ -1,9 +1,7 @@
-```cpp
 #include <cassert>
 #include <vector>
 #include <ostream>
 #include <iostream>
-#include <initializer_list>
 
 int max_fill(std::vector<std::vector<int>> grid) {
     int max = 0;
