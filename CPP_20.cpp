@@ -1,10 +1,28 @@
 #include <algorithm>
+#include <numeric>
+#include <cmath>
+#include <limits>
+#include <vector>
+#include <initializer_list>
+using namespace std;
+
+bool my_issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > 1e-9) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float minDiff = numeric_limits<float>::max();
     pair<float, float> closestPair;
-    
+
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
@@ -12,6 +30,6 @@ vector<float> find_closest_elements(vector<float> numbers) {
             closestPair = {numbers[i], numbers[i + 1]};
         }
     }
-    
-    return vector<float>(closestPair.begin(), closestPair.end());
+
+    return vector<float>{closestPair.first, closestPair.second};
 }
