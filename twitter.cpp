@@ -40,6 +40,5 @@ int main() {
         }
     }
 
-    cout << validateTweet(ss.str()) << endl;
-    return 0;
+    return validateTweet(ss.str());
 }
