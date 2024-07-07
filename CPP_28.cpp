@@ -1,13 +1,14 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
     std::vector<std::string> result;
     for (const auto& str : strings) {
-        result.push_back(str);
+        if (result.empty()) {
+            result.push_back(str);
+        } else {
+            result.push_back(str + strings[0]);
+        }
     }
-    return result; 
-}
-
-assert(concatenate({"x", "y", "z", "w", "k"}) == {"xy", "yz", "zw", "wk"});
+    return result;
