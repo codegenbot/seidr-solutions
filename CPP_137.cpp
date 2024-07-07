@@ -9,24 +9,46 @@ boost::any compare_one(boost::any a, boost::any b) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max((float)a.convert_to<float>(), stof(b.convert_to<string>()));
+        string str = (string)b.convert_to<string>();
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str = str.substr(0, pos);
+        }
+        return max((float)a.convert_to<float>(), stof(str));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (stof(a.convert_to<string>()) > stof(b.convert_to<string()))) ? a : ((stof(a.convert_to<string>()) < stof(b.convert_to<string()))) ? b : boost::any("None"));
+        size_t pos1 = (string)a.convert_to<string>().find(',');
+        size_t pos2 = (string)b.convert_to<string>().find(',');
+        if (pos1 != string::npos && pos2 != string::npos) {
+            return max((string)a.convert_to<string>().substr(0, pos1), (string)b.convert_to<string>().substr(0, pos2));
+        }
+        else if (pos1 == string::npos && pos2 == string::npos) {
+            return "None";
+        }
+        else {
+            size_t pos = (pos1 != string::npos ? pos1 : pos2);
+            return max((string)a.convert_to<string>().substr(0, pos), (string)b.convert_to<string>().substr(0, pos));
+        }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (int)a.convert_to<int>() > stof(b.convert_to<string>()) ? a : ((int)a.convert_to<int>() < stof(b.convert_to<string>())) ? b : boost::any("None");
+        size_t pos = (string)b.convert_to<string>().find(',');
+        if (pos != string::npos) {
+            return max((int)a.convert_to<int>(), stof((string)b.convert_to<string>().substr(0, pos)));
+        }
+        else {
+            return "None";
+        }
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a.convert_to<int>() > (int)b.convert_to<int>() ? a : ((int)a.convert_to<int>() < (int)b.convert_to<int>()) ? b : boost::any("None");
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a.convert_to<float>() > (int)b.convert_to<int>() ? a : ((float)a.convert_to<float>() < (int)b.convert_to<int>()) ? b : boost::any("None");
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (float)a.convert_to<float>() > (float)b.convert_to<float>() ? a : ((float)a.convert_to<float>() < (float)b.convert_to<float>()) ? b : boost::any("None");
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        size_t pos = (string)a.convert_to<string>().find(',');
+        if (pos != string::npos) {
+            return max(stof((string)a.convert_to<string>().substr(0, pos)), (int)b.convert_to<int>());
+        }
+        else {
+            return "None";
+        }
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
