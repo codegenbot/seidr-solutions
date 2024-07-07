@@ -20,5 +20,7 @@ vector<string> bf(string planet1, string planet2) {
         }
     }
     
+    sort(result.begin(), result.end());
+    
     return result;
 }
