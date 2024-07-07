@@ -1,17 +1,12 @@
-Here is the completed code:
-
 bool is_nested(string str) {
-    int count = 0;
+    int open = 0, close = 0;
+
     for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']') {
-            if (count > 0) {
-                count--;
-            } else {
-                return true;
-            }
-        }
+        if (c == '[') open++;
+        else if (c == ']') close++;
+
+        if (open > 0 && close > open) return true;
     }
+
     return false;
 }
