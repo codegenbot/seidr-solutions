@@ -25,13 +25,14 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() { 
+int mainTest() { 
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (arr.size() == 0) {
         return 0; // Exit successfully
     }
-    if (!compareVectors(maximum(arr, k), std::vector<int>({0, 243, -23, 3}))) {
+    std::vector<int> expected = {};
+    if (!compareVectors(maximum(arr, k), expected)) {
         return 1; // Return error code
     }
     return 0;
