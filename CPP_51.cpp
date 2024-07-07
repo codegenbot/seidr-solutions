@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cassert>
 
@@ -10,7 +9,7 @@ std::string remove_vowels(std::string text){
             result += c;
         }
     }
-    return result;
+    return std::move(result);
 }
 
 assert(remove_vowels("ybcd") == "ybcd");
