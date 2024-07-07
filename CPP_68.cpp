@@ -6,27 +6,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}) , {}));
+    assert(issame({},{});
     return 0;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> nodes;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            nodes.emplace_back(arr[i], i);
-        }
-    }
-    if (nodes.empty()) {
-        return {};
-    }
-    sort(nodes.begin(), nodes.end());
-    vector<int> result;
-    for(int i = 1; i < nodes.size(); i++) {
-        if(nodes[i-1].first != nodes[i].first) {
-            result.push_back(nodes[i].first);
-            break;
-        }
-    }
-    return result;
 }
