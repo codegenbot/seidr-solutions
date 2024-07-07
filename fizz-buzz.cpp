@@ -4,16 +4,13 @@ using namespace std;
 class Solution {
 public:
     string numberToWords(int num) {
-        if (num % 15 == 0)  
+        if (num % 3 == 0 && num % 5 == 0)
             return "FizzBuzz";
-            
-        else if (num % 3 == 0 && num % 5 != 0)   
+        else if (num % 3 == 0)
             return "Fizz";
-            
-        else if (num % 5 == 0 && num % 3 != 0)   
+        else if (num % 5 == 0)
             return "Buzz";
-            
-        else 
+        else
             return to_string(num);
     }
 };
@@ -22,6 +19,6 @@ int main() {
     Solution solution;
     cout << solution.numberToWords(3) << endl;  
     cout << solution.numberToWords(5) << endl;  
-    cout << solution.numberToWords(15) << endl;  
+    cout << solution.numberToWords(15) << endl; 
     return 0;
 }
