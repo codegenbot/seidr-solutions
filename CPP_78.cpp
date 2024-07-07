@@ -1,6 +1,7 @@
-Here is the completed code:
+#include <string>
 
-```cpp
+using namespace std;
+
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
