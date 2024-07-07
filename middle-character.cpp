@@ -1,4 +1,3 @@
-
 #include <string>
 std::string getMiddleChar(std::string str) {
     int len = str.length();
