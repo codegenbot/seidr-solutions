@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <numeric>
@@ -18,20 +18,11 @@ int main() {
     int n, w;
     std::cout << "Enter the number of quails: ";
     std::cin >> n;
-    std::cout << "Enter the weight: ";
-    std::cin >> w;
-    
     std::vector<int> q(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter the weight of quail " << i + 1 << ": ";
-        std::cin >> q[i];
+    std::cout << "Enter weights of quails: ";
+    for (auto &i : q) {
+        std::cin >> i;
     }
-    
-    if (will_it_fly(q, w)) {
-        std::cout << "The quails will fly." << std::endl;
-    } else {
-        std::cout << "The quails won't fly." << std::endl;
-    }
-    
+    std::cout << "Will it fly? " << (will_it_fly(q, w) ? "Yes" : "No") << std::endl;
     return 0;
 }
