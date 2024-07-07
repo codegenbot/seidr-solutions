@@ -1,34 +1,26 @@
-```
 def minPath(grid, k):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
-    dp = [[[float('inf')] * (k + 1) for _ in range(n)] for _ in range(n)]
-    dp[0][0][0] = m[0][0]
-    for i in range(1, n):
-        dp[i][0][0] = dp[i-1][0][0] + grid[i][0]
-        dp[0][i][0] = dp[0][i-1][0] + grid[0][i]
-    for i in range(n):
-        for j in range(n):
-            if i > 0:
-                dp[i][j][0] = min(dp[i-1][j][0], dp[i][j-1][0]) + grid[i][j]
-            else:
-                dp[i][j][0] = dp[i][j-1][0] + grid[i][j]
+    N = len(grid)
+    seen = set()
+    queue = [(0, 0, [grid[0][0]])]
     res = []
-    i, j = n - 1, n - 1
-    for _ in range(k):
-        if i > 0 and j > 0:
-            min_val = min(dp[i-1][j][0], dp[i][j-1][0])
-        elif i > 0:
-            min_val = dp[i-1][j][0]
-        else:
-            min_val = dp[i][j-1][0]
-        if i > 0 and j > 0 and dp[i-1][j][0] == min_val:
-            res.append(grid[i][j])
-            i -= 1
-        elif i > 0 and dp[i-1][j][0] == min_val:
-            res.append(grid[i][j])
-            i -= 1
-        else:
-            res.append(grid[i][j])
-            j -= 1
-    return res
+
+    while queue:
+        x, y, path = queue.pop(0)
+
+        if len(path) == k + 1:
+            res.append(path[:-1])
+            continue
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+
+            if 0 <= nx < N and 0 <= ny < N and grid[nx][ny] not in path:
+                new_path = list(path)
+                new_path.append(grid[nx][ny])
+                new_path.sort()
+
+                if tuple(new_path) not in seen:
+                    queue.append((nx, ny, new_path))
+                    seen.add(tuple(new_path))
+
+    return min(res)[1:-1]
