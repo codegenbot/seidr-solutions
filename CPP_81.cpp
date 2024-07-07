@@ -44,10 +44,8 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<string> grades = {"0", "0.7"};
-    float a = std::stof(grades[0]);
-    float b = std::stof(grades[1]);
-    vector<float> fgrades = {a, b};
-    assert(issame(numerical_letter_grade(fgrades), {"E", "D-"}));
+    vector<float> grades = {0, 0.7};
+    vector<string> expected = {"E", "D-"};
+    assert(issame(numerical_letter_grade(grades), expected));
     return 0;
 }
