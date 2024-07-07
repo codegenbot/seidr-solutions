@@ -1,3 +1,8 @@
+#include <vector>
+#include <climits>
+
+using namespace std;
+
 vector<int> cutVector(vector<int>& v) {
     int n = v.size();
     int minDiff = INT_MAX;
@@ -18,3 +23,4 @@ vector<int> cutVector(vector<int>& v) {
     result.insert(result.end(), left.begin(), left.end());
     result.insert(result.end(), right.begin(), right.end());
     return result;
+}
