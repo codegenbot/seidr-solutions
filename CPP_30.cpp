@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <algorithm>
 #include <iostream>
+#include <cstddef>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) return false;
@@ -15,7 +17,7 @@ float get_positive(const std::vector<float>& input) {
     return *std::max_element(input.begin(), input.end());
 }
 
-void myMain() {
+int main() {
     float num;
     std::vector<float> v1; 
     std::vector<float> v2; 
@@ -25,7 +27,7 @@ void myMain() {
         if (num == -1) break;
         if (num > 0) v1.push_back(num);
         else v2.push_back(-num); 
-    }
+   }
     
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
