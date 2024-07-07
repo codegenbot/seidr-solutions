@@ -1,7 +1,16 @@
-int add(vector<int> lst){
+#include <iostream>
+#include <vector>
+
+int add(std::vector<int> lst) {
     int sum = 0;
-    for(int i = 1; i < lst.size(); i += 2){
-        if(lst[i] % 2 == 0) sum += lst[i];
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] % 2 == 0)
+            sum += lst[i];
     }
     return sum;
+}
+
+int main() {
+    std::cout << add({4, 4, 6, 8}) << std::endl;
+    return 0;
 }
