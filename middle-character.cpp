@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -14,6 +13,5 @@ string middleCharacter(string s) {
 }
 
 int main() {
-    cout << middleCharacter("your_string_here") << endl;
-    return 0;
+    return middleCharacter("your_string_here");
 }
