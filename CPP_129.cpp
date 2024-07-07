@@ -1,11 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
-}
+bool compare(const std::vector<int>& a, const std::vector<int>& b);
 
 struct pair_int {
     int val;
@@ -15,10 +14,18 @@ struct pair_int {
     pair_int() : val(0), i(-1), j(-1) {}
 };
 
+bool operator>(const pair_int &a, const pair_int &b) {
+    return a.val > b.val;
+}
+
+bool compare(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
-    std::vector<int> res;
+    std::vector<int> res(k);
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -33,7 +40,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         int pos_j = pq.top().j;
         pq.pop();
 
-        res.push_back(grid[pos_i][pos_j]);
+        res[--k] = grid[pos_i][pos_j];
 
         if (k > 0) {
             --k;
