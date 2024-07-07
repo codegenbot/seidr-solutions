@@ -1,15 +1,12 @@
-```c++
 #include <vector>
 #include <cmath>
-#include <initializer_list>
-using namespace std;
 
 bool issame(float a, float b) {
-    return abs(a - b) < 0.0001;
+    return std::abs(a - b) < 0.0001;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             float minVal = l[0];
@@ -41,13 +38,17 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    int;  
-    vector<float> input;
+    int n;
+    std::vector<float> input;
     float num;
-    cout << "Enter numbers separated by spaces: ";
-    while ((cin >> num) && cin.peek() != '\n') {
+    std::cout << "Enter numbers separated by spaces: ";
+    while ((std::cin >> num) && std::cin.peek() != '\n') {
         input.push_back(num);
     }
-    vector<float> result = sort_even(input);
+    std::cin.ignore();
+    std::vector<float> result = sort_even(input);
+    for (float val : result) {
+        std::cout << val << " ";
+    }
     return 0;
 }
