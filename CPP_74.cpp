@@ -16,14 +16,14 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
     return sum;
 }
 
-std::vector<std::vector<std::string>> main() {
-    std::vector<std::vector<std::string>> vec1({{ "this" }});
-    std::vector<std::vector<std::string>> vec2({});
+int main() {
+    std::vector<std::vector<std::string>> v1 = {{"this"}};
+    std::vector<std::vector<std::string>> v2 = {{}, {}};
 
-    int sum1 = total_match(vec1);
-    int sum2 = total_match(vec2);
+    int sum1 = total_match(v1);
+    int sum2 = total_match(v2);
 
-    assert(issame({{"this"}}, {{}} ));
+    assert(issame({{ "this" }}, {{} }));
 
-    return {vec1, vec2};
+    return 0;
 }
