@@ -1,7 +1,7 @@
+#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
-#include <ostream>
 
 using namespace std;
 
@@ -54,11 +54,10 @@ int main() {
     for(int num : order_by_points(nums)) {
         cout << num << " ";
     }
-    cout << std::endl;
-    if (!isSame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
+    cout << endl;
+    if (!isSame(order_by_points({0,6,6,-76,-21,23,4}), {0, -76, -21, 4, 6, 6, 23})) {
         cout << "Test failed" << endl;
     } else {
         cout << "Test passed" << endl;
     }
     return 0;
-}
