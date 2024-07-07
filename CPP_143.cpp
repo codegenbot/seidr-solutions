@@ -1,3 +1,5 @@
+using namespace std;
+
 #include <vector>
 #include <algorithm>
 
@@ -39,4 +41,3 @@ vector<string> split(const string& str, char delimiter) {
     
     tokens.push_back(str.substr(prev));
     return tokens;
-}
