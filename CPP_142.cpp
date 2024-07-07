@@ -27,14 +27,11 @@ int main() {
             std::cout << "Enter element " << i + 1 << ": ";
             std::cin >> num;
             
-            if (num >= 0 && num <= 100) {
-                // Check for overflow before pushing into vector
-                if (!inputVector.empty() && inputVector.back() == 100) {
-                    break; // If last element is 100, exit the loop
-                }
-                inputVector.push_back(num);
+            if(std::abs(num) <= 100) {
+                inputVector.push_back(std::abs(num)); 
                 break;
-            } else {
+            }
+            else {
                 std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
             }
         }
