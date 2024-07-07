@@ -8,14 +8,6 @@ string middleCharacter(string s) {
     if (length % 2 == 0) {
         return s.substr(length / 2 - 1, 2);
     } else {
-        return string(1, s[length / 2]);
+        return to_string(s[length / 2]);
     }
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Middle character(s): " << middleCharacter(input) << endl;
-    return 0;
 }
