@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -24,6 +24,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
 
-    cout << "The count of the numbers of " << to_string(n) << "-digit positive integers that start or end with 1 is: " << starts_one_ends(stoi(to_string(n))) << endl;
+    string str = to_string(n);
+    cout << "The count of the numbers of " << str << "-digit positive integers that start or end with 1 is: " << starts_one_ends(stoi(str)) << endl;
     return 0;
 }
