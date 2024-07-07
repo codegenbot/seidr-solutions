@@ -12,27 +12,31 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
 int main() {
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
     std::pair<int, int> interval1;
-    std::cout << "Enter the start of the first interval: ";
-    int temp;
+    std::cout << "Enter the first interval: ";
+    std::string temp;
     std::cin >> temp; 
-    std::cin.ignore();
-    std::cout << "Enter the end of the first interval: ";
-    std::cin >> temp; 
-    std::cin.ignore();
+    interval1.first = std::stoi(temp);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
-    interval1.first = temp;
-    interval1.second = temp;
+    std::cout << "Enter the end of the first interval: ";
+    std::cin >> temp;
+    std::string str;
+    str = temp; // Convert the integer input into a string
+    interval1.second = std::stoi(str);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::pair<int, int> interval2;
-    std::cout << "Enter the start of the second interval: ";
-    std::cin >> temp; 
-    std::cin.ignore();
-    std::cout << "Enter the end of the second interval: ";
-    std::cin >> temp; 
-    std::cin.ignore();
+    std::cout << "Enter the second interval: ";
+    std::cin >> temp;
+    str = temp; // Convert the integer input into a string
+    interval2.first = std::stoi(str); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    interval2.first = temp;
-    interval2.second = temp;
+    std::cout << "Enter the end of the second interval: ";
+    std::cin >> temp;
+    str = temp; // Convert the integer input into a string
+    interval2.second = std::stoi(str);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (intersection(interval1, interval2) == "YES")
         std::cout << "The intervals intersect.\n";
