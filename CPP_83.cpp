@@ -1,25 +1,5 @@
-```c++
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-string starts_one_ends(int n);
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-
-    if (n > 10 && n <= 1000000) {
-        cout << "The count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
-    } else {
-        cout << "Input value is out of range." << endl;
-    }
-    return 0;
-}
-
-string starts_one_ends(int n) {
+```cpp
+int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= 9; i++) {
         if (i == 1 || i % 10 == 1) {
@@ -31,6 +11,5 @@ string starts_one_ends(int n) {
             }
         }
     }
-    string s = to_string(count);
-    return s;
+    return count;
 }
