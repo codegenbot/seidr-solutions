@@ -1,4 +1,7 @@
-bool solveBoolean(string s) {
+#include <string>
+using namespace std;
+
+string solveBoolean(string s) {
     bool result = true;
     for (char c : s) {
         if (c == 'F') {
