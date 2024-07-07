@@ -11,14 +11,9 @@ int closest_integer(double num) {
     }
 }
 
-int main() {
-    std::cout << "Enter a number: ";
-    char input[256];
-    std::cin >> input;
-    double num = std::stod(input); 
-
-    int closest = closest_integer(num);
-    std::cout << "The closest integer is: " << closest << std::endl;
-
+int test_closest_integer() {
+    double num = std::stod("0"); 
+    assert(closest_integer(num) == 0);
+    std::cout << "The closest integer is: " << std::to_string(closest_integer(5.0)) << std::endl;
     return 0; 
 }
