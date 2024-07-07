@@ -1,4 +1,3 @@
-```
 #include <boost/any.hpp>
 #include <string>
 
@@ -6,18 +5,32 @@ using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a>(double())) {
-        double da = any_cast<double>(a);
-        double db = any_cast<double>(b);
-        if (da > db) return a;
-        else if (da < db) return b;
-        else return boost::any("None");
+        if (is_any_of<b>(double())) {
+            double da = any_cast<double>(a);
+            double db = any_cast<double>(b);
+            return da > db ? a : b;
+        }
+        else {
+            double da = any_cast<double>(a);
+            std::string s2 = any_cast<std::string>(b);
+            if (da == 0.0) return boost::any(s2);
+            if (db == 0.0) return a;
+            if (da > 0 && db < 0) return a;
+            if (da < 0 && db > 0) return b;
+            return boost::any("None");
+        }
     }
     else if (is_any_of<a>(std::string())) {
-        std::string s1 = any_cast<std::string>(a);
-        std::string s2 = any_cast<std::string>(b);
-        if (s1 > s2) return a;
-        else if (s1 < s2) return b;
-        else return boost::any("None");
+        if (is_any_of<b>(std::string())) {
+            std::string s1 = any_cast<std::string>(a);
+            std::string s2 = any_cast<std::string>(b);
+            return s1 > s2 ? a : b;
+        }
+        else {
+            double da = any_cast<double>(a);
+            if (da == 0.0) return boost::any("None");
+            return a;
+        }
     }
     else {
         return boost::any("Invalid input");
