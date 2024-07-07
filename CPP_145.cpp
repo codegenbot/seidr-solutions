@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-std::vector<int> isSame(const std::vector<int>& v1, const std::vector<int>& v2) {
+std::vector<int> same(const std::vector<int>& v1, const std::vector<int>& v2) {
     if(v1.size() != v2.size()) return {};
     for(int i = 0; i < v1.size(); i++) {
         if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return {};
