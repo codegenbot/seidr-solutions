@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string flipCase(const std::string& str) -> const std::string {
+std::string flipCase(const std::string& str) {
     std::string result;
     for (char c : str) {
         if (c >= 'a' && c <= 'z') {
