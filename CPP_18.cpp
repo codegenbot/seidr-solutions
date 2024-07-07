@@ -1,36 +1,37 @@
 ```cpp
+#include <string>
 #include <iostream>
-using namespace std;
 
-int how_many_times(string str, string substring) {
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != string::npos) {
+    while ((pos = str.find(substring)) != std::string::npos) {
         count++;
         pos += substring.length();
     }
     return count;
+
 }
 
 int main() { 
-    string str, substring;
+    std::string str;
+    std::cout << "Enter the string: ";
+    std::getline(std::cin, str);
 
-    cout << "Enter the string: ";
-    getline(cin, str);
-
-    if (str.empty()) {
-        cout << "Error: The input string is empty." << endl;
-    } else {
-        cout << "Enter substring: ";
-        getline(cin, substring);
-        
-        if (substring.empty()) {
-            cout << "Error: The input substring is empty." << endl;
-        } else {
-            int result = how_many_times(str, substring);
-            cout << "The substring appears " << result << " times." << endl;
-        }
+    std::string substring;
+    std::cout << "Enter substring: ";
+    char c;
+    while((c = cin.get()) != '\n' && c != ' ') {
+        substring += c;
     }
-
+    
+    if (str.empty()) {
+        std::cout << "Error: The input string is empty." << std::endl;
+    } else if (substring.empty()) {
+        std::cout << "Error: The input substring is empty." << std::endl;
+    } else {
+        int result = how_many_times(str, substring);
+        std::cout << "The substring appears " << result << " times." << std::endl;
+    }
     return 0;
 }
