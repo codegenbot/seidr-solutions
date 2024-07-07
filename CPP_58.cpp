@@ -26,5 +26,7 @@ int main() {
         std::cout << "Not all elements of one list are present in another." << std::endl;
     }
 
+    assert (common({4, 3, 2, 8}, {}).size() == 0);
+
     return 0;
 }

@@ -1,9 +1,9 @@
+```c++
 #include <vector>
 #include <initializer_list>
 #include <algorithm>
-#include <iostream>
 
-bool issame(std::vector a, std::vector b) {
+bool issame(const std::vector& a, const std::vector& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -11,7 +11,7 @@ bool issame(std::vector a, std::vector b) {
     return true;
 }
 
-float get_positive(std::vector input) {
+float get_positive(const std::vector& input) {
     return *std::max_element(input.begin(), input.end());
 }
 
