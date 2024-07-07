@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <initializer_list>
@@ -17,7 +18,7 @@ int main() {
         std::cerr << "Invalid input. Please enter two numbers." << std::endl;
         return 1;
     }
-    std::vector<double> input = {num1, num2};
+    std::vector<double> input({num1, num2});
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
 }
