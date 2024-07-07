@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -6,7 +7,7 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-auto total_match = [](const std::vector<std::vector<std::string>>& v) {
+int total_match(const std::vector<std::vector<std::string>>& v) {
     int sum = 0;
     for (const auto& vec : v) {
         for (const auto& s : vec) {
