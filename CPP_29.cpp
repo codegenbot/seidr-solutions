@@ -1,22 +1,21 @@
-#include <initializer_list>
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
+bool filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
-    for (const auto& s : strings) {
+    for (const auto& s : vec) {
         if (s.find(prefix) == 0) {
             result.push_back(s);
         }
     }
-    return result;
+    return areSame(result, {"xxx", "xxxAAA", "xxx"});
 }
 
-bool areSameHelper(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool areSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size();
 }
 
 int main() {
-    assert(areSameHelper(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") == true);
     return 0;
 }
