@@ -8,8 +8,11 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        if (n > 1 && i == 1) {
-            break;
+        for (int j = 1; j < n - 1; j++) {
+            int num = i * pow(10, j - 1) + j % 10;
+            if (num >= 1 && num <= 9) {
+                count++;
+            }
         }
     }
     return count;
