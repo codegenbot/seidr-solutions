@@ -1,3 +1,4 @@
+#include <iostream>
 using namespace std;
 
 bool operator>(const pair<int, int> &a, const pair<int, int> &b) {
@@ -15,14 +16,6 @@ bool issame(vector<int>, vector<int>);
 
 bool operator>(const pair_int &a, const pair_int &b) {
     return a.val > b.val;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -66,6 +59,14 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     return res;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() 
