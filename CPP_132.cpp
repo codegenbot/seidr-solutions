@@ -1,6 +1,7 @@
-#include <string>
+```cpp
+#include<string>
 
-bool is_nested(std::string str) {
+bool is_nested(string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
@@ -17,6 +18,15 @@ bool is_nested(std::string str) {
 }
 
 int main() {
-    assert(is_nested("]]]]]]]])" == false);
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    
+    if (is_nested(input)) {
+        cout << "The string is nested." << endl;
+    } else {
+        cout << "The string is not nested." << endl;
+    }
+    
     return 0;
 }

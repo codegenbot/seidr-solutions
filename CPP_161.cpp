@@ -1,20 +1,22 @@
-#include <iostream>
-#include <string>
-#include <cctype>
+#include <bits/stdc++.h>
+using namespace std;
 
-std::string solve(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
+string solve(string s){
+    string result = "";
+    bool hasLetter = false;
+
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            hasLetter = true;
+            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
         } else {
-            result += c;
+            result += s[i];
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
-}
 
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    // Add your code here
+    if(!hasLetter){
+        reverse(result.begin(), result.end());
+    }
+
+    return result;
 }
