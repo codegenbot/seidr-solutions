@@ -1,53 +1,27 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
-
-struct pair_int {
-    int val;
-    int i;
-    int j;
-
-    pair_int() : val(0), i(-1), j(-1) {}
-};
-
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
-}
+std::vector<std::vector<int>> grid;
+int k;
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
-    std::priority_queue<pair_int*, std::vector<pair_int*>, greater<pair_int>> pq; 
+    std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
     std::vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            pair_int* p = new pair_int{grid[i][j], i, j};
+            pair_int p = {grid[i][j], i, j};
             pq.push(p);
         }
     }
 
     while (!pq.empty()) {
-        int val = ((pair_int*)pq.top())->val;
-        int pos_i = ((pair_int*)pq.top())->i;
-        int pos_j = ((pair_int*)pq.top()->i);
+        int val = pq.top().val;
+        int pos_i = pq.top().i;
+        int pos_j = pq.top().j;
         pq.pop();
-        delete pq.top();
 
         res.push_back(grid[pos_i][pos_j]);
 
@@ -61,7 +35,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
                     int nj = pos_j + j;
 
                     if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
-                        pair_int* p = new pair_int{grid[ni][nj], ni, nj};
+                        pair_int p = {grid[ni][nj], ni, nj};
                         pq.push(p);
                     }
                 }
@@ -76,8 +50,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
 
 int main() 
 {
-    std::vector<std::vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
+    grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    k = 3;
 
     std::vector<int> result = minPath(grid, k);
 
