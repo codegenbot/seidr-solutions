@@ -1,18 +1,18 @@
 int mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
-    
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
-    
+
     vector<char> codeUsed;
     for (char c : code) {
         codeUsed.push_back(c);
     }
-    
+
     for (char d : guess) {
         int count = 0;
         for (char e : codeUsed) {
@@ -26,6 +26,6 @@ int mastermind(string code, string guess) {
             blackPegs--;
         }
     }
-    
+
     return make_pair(blackPegs, whitePegs);
 }
