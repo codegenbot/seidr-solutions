@@ -3,29 +3,21 @@
 #include <string>
 
 int choose_num(std::string s1, std::string s2) {
-    if (std::stoi(s1) > std::stoi(s2))
-        return std::stoi(s1);
-    else
-        return std::stoi(s2);
+    int num1 = std::stoi(s1);
+    int num2 = std::stoi(s2);
+    return (num1 > num2) ? num1 : num2;
 }
 
 int main() {
-    int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    if (!(std::cin >> std::ws >> num1 >> std::ws >> num2)) {
+    std::string s1, s2;
+    if (!(std::cin >> s1 >> s2)) {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
         return 1; 
     }
-    int result;
-    if (num1 > num2) {
-        result = num1;
-    } else {
-        result = num2;
-    }
-    std::cout << "Result: " << (num1 > num2 ? num1 : num2) << std::endl;
-    if(result == num1)
-        std::cout << "Greater number is " << num1 << std::endl;
-    else
-        std::cout << "Greater number is " << num2 << std::endl;
+    int result = choose_num(s1, s2);
+    std::cout << "Result: " << result << std::endl;
+    int num = (std::stoi(s1) > std::stoi(s2)) ? std::stoi(s1) : std::stoi(s2);
+    std::cout << "Greater number is " << (num == std::stoi(s1) ? s1 : s2) << std::endl;
     return 0;
 }
