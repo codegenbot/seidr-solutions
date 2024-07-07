@@ -1,8 +1,10 @@
 ```cpp
-#include <cassert>
 #include <vector>
+#include <iostream>
 
-int max_fill(std::vector<std::vector<int>> grid) {
+using namespace std;
+
+int max_fill(vector<vector<int>> grid) {
     int max = 0;
     for (int i = 0; i < grid.size(); i++) {
         for (int j = 0; j < grid[0].size(); j++) {
@@ -34,6 +36,6 @@ int max_fill(std::vector<std::vector<int>> grid) {
 int main() {
     assert(max_fill({{1,1,1,1}, {1,1,1,1}}) == 8);
     int result = max_fill({{0,0,0},{0,1,0}});
-    std::cout << "Maximum number of filled cells: " << result << std::endl;
+    cout << "Maximum number of filled cells: " << result << endl;
     return 0;
 }
