@@ -1,6 +1,8 @@
 #include <vector>
 using namespace std;
 
+#include <initializer_list>
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int rightmost = arr.back();
