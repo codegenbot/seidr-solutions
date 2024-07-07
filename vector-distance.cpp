@@ -11,9 +11,9 @@ double vectorDistance(int n) {
     }
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow(x2[i] - x1[i], 2);
+        sum += pow(x2[i] - x1[i], 2.0);
     }
-    return sqrt(sum);
+    return sqrt(sum) / (double)n;
 }
 
 int main() {
