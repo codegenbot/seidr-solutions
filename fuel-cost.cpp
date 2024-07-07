@@ -1,10 +1,13 @@
+```
 #include <vector>
+#include <cmath>
 
 int fuelCost(vector<int>& v) {
     int sum = 0;
     for (int i : v) {
-        int x = static_cast<double>(i) / 3; // convert to double and then to int
-        sum += std::floor(x) - 2; // round down to nearest integer
+        int x = (i / 3);
+        x = floor(x);
+        sum += x - 2;
     }
     return sum;
 }
