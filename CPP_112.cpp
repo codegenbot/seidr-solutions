@@ -16,16 +16,19 @@ void reverse_delete(vector<string>& v) {
 }
 
 bool issame(vector<string> b, vector<string> a) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (!(a[i].compare(b[i]) == 0)) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-int main() {
-    vector<string> v1 = {"mamma"};
-    reverse_delete(v1);
-    assert(issame(v1, {""}));
+int main(void) {
+    vector<string> result = reverse_delete(vector<string>({"mamma", "mia"}));
+    assert(issame(result, {"", "True"}));
     return 0;
 }
