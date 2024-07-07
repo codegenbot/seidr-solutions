@@ -1,40 +1,34 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
-using namespace std;
-
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev = 0;
-
+    size_t pos = 0, prev_pos = 0;
+    
     while ((pos = txt.find_first_of(" ,")) != string::npos) {
         if (pos == 0) {
-            if (txt.find(',') == string::npos)
-                return {to_string(count_lower(txt))};
-            else
-                result.push_back(txt.substr(0, pos));
-            prev = pos + 1;
-        } else {
-            if (prev != 0) {
-                if (pos > prev)
-                    result.push_back(txt.substr(prev, pos - prev));
-                prev = pos + 1;
-            }
+            // Split on commas if no whitespace exists
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
+            prev_pos = pos;
+        } else if (prev_pos != pos) {
+            // Split on whitespace if commas exist
+            result.push_back(txt.substr(prev_pos, pos - prev_pos));
+            txt.erase(pos, 1);
+            prev_pos = pos;
         }
     }
-
-    if (prev < txt.length())
-        result.push_back(txt.substr(prev));
-
-    return result;
-}
-
-int count_lower(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c >= 'a' && c <= 'z')
-            count++;
+    
+    if (!txt.empty()) {
+        // Count lower-case letters with odd order in the alphabet
+        int count = 0;
+        for (char c : txt) {
+            if (c >= 'a' && c <= 'z' && (int)c % 2 == 1) {
+                count++;
+            }
+        }
+        result.push_back(to_string(count));
+    } else {
+        // No whitespaces or commas, return a vector with one element
+        result.push_back("0");
     }
-    return count;
+    
+    return result;
 }
