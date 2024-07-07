@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n, 0.0f), v2(n, 0.0f);
+    vector<float> v1(n), v2(n);
 
     for (int i = 0; i < n; ++i) {
         cin >> v1[i] >> v2[i];
