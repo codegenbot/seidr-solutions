@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <string>
 
 std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
@@ -34,4 +36,12 @@ int getVal(std::string s) {
     else if (s == "I")
         val = 1;
     return val;
+}
+
+int main() {
+    int num; // input
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << "Mini Roman representation is: " << int_to_mini_roman(num) << "\n";
+    return 0;
 }
