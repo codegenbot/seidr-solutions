@@ -1,10 +1,10 @@
-```cpp
 #include <vector>
-using namespace std;
 namespace std {
 template <class _Ty>
 struct vector<_Ty>::size_type { };
 }
+
+using namespace std;
 
 void reverse_delete(std::vector<std::string>& v) {
     for (int i = v.size() - 1; i >= 0; --i) {
