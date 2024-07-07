@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -25,13 +25,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-int main() {
-    if (!issame({reverse_delete("mamma", "mia")}, {"", "True"}))
-        return 1;
-    else
-        return 0;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
