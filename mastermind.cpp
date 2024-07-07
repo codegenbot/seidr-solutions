@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-bool isDuplicate(char ch, const string& str) {
+bool isDuplicate(char ch, const std::string& str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ch && str[i + 1] != ch) return true; // if character is found before and after the current position
     }
