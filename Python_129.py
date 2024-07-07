@@ -1,18 +1,28 @@
+```
 def minPath(grid, k):
     n = len(grid)
-    seen = set()
-    queue = [(grid[0][0], [grid[0][0]])]
-
-    while queue:
-        val, path = queue.pop(0)
-        if len(path) == k + 1:
-            return path
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            x, y = divmod(path[-1] - 1, n) + (dx, dy)
-            if 0 <= x < n and 0 <= y < n and val + n * n + 1 == grid[x][y]:
-                new_path = path + [grid[x][y]]
-                tuple_path = tuple(sorted(new_path))
-                if tuple_path not in seen:
-                    queue.append((grid[x][y], new_path))
-                    seen.add(tuple_path)
-    return []
+    m = [[i for _ in range(n)] for i in range(n)]
+    
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] == 1:
+                m[i][j] = 0
+            else:
+                m[i][j] = 1
+    
+    res = []
+    pos = [(i, j) for i in range(n) for j in range(n)]
+    
+    while k > 0 and len(res) < k:
+        min_val = float('inf')
+        min_pos = None
+        for p in pos:
+            if m[p[0]][p[1]] == 0:
+                if grid[p[0]][p[1]] < min_val:
+                    min_val = grid[p[0]][p[1]]
+                    min_pos = p
+        res.append(min_val)
+        m[min_pos[0]][min_pos[1]] = 2
+        pos.remove(min_pos)
+    
+    return res
