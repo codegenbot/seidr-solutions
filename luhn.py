@@ -1,3 +1,5 @@
+```
 def luhn(card):
-    card = list(map(int, card.replace(" ", "")))
-    return str(sum((i * 2 if i % 2 != 0 else i) for i in (j if j > 9 then j - 9 else j for j in (i * 2 for i in card)))) % 10
+    card = list(map(int, card.replace(' ', '')))
+    result = sum(sum(divmod(2 * i, 10)) if i % 2 != 0 else i for i in card)
+    return '0' if result % 10 == 0 else str(result % 10)
