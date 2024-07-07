@@ -1,10 +1,9 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
 
 int main() {
-   string tweet;
+    string tweet;
     getline(cin, tweet);
 
     if (tweet.length() > 140) {
