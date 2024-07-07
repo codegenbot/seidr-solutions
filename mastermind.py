@@ -1,11 +1,4 @@
+```
 def mastermind(code, guess):
-    white = 0
-    black = 0
-
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-        elif str(guess[i]) != str(code[i]):
-            white += 1
-
-    return black, white
+    correct = sum(1 for c in zip(guess, code) if c[0] == c[1])
+    return str(correct), str(max(0, 4 - correct))
