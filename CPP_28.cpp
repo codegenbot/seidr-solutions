@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,7 +8,7 @@ std::vector<std::string> getStrings() {
         std::cout << "Enter a string (or 'stop' to finish): ";
         std::string input;
         std::getline(std::cin, input);
-        if (input == "stop\n") break;
+        if (input == "stop") break;
 
         strings.push_back(input); 
     }
