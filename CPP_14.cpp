@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -10,8 +11,11 @@ bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
     return true;
 }
 
+std::vector<std::string> a = {"W", "WW", "WWW"};
+std::vector<std::string> b = all_prefixes("WWW");
+
 std::vector<const char*> all_prefixes(const std::string& str) {
-    std::vector<const char*> result;
+    std::vector<std::string> result;
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i).c_str());
     }
