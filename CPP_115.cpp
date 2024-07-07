@@ -33,8 +33,8 @@ int max_fill(vector<vector<int>> grid) {
     return max;
 }
 
-int main() { 
-    vector<vector<int>> grid({1, 1, 1, 1}, {1, 1, 1, 1});
+int main() {
+    vector<vector<int>> grid = {{1,1,1,1},{1,1,1,1}};
     int result = max_fill(grid);
     cout << "Maximum number of filled cells: " << result << endl;
     return 0; 
