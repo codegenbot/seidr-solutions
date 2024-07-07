@@ -4,11 +4,10 @@ using namespace std;
 
 size_t findPattern(const string& input) {
     size_t count = 0;
-    size_t pos = 0;
-    while ((pos = input.find("I am bored", pos)) != string::npos) {
-        if (pos == string::npos) break;
+    size_t pos = input.find("I am bored");
+    while (pos != string::npos) {
         count++;
-        pos = input.find("I am bored", pos);
+        pos = input.replace(pos, 8, "I am bored");
     }
     return count;
 
