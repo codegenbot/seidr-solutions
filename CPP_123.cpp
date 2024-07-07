@@ -1,17 +1,34 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
-        if (n % 2 == 0)
+        if (n % 2 == 0) {
             n /= 2;
-        else
+        } else {
             n = 3 * n + 1;
-    }
-    for (; n > 0; n /= 2) {
-        if (n % 2 != 0)
+        }
+        if (n % 2 != 0) {
             result.push_back(n);
+        }
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    vector<int> result = get_odd_collatz(n);
+    cout << "The sorted odd numbers in the Collatz sequence are: ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+    return 0;
 }
