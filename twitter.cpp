@@ -1,8 +1,4 @@
 ```cpp
-#include <sstream>
-
-using namespace std;
-
 string validateTweet(string tweet) {
     int charCount = 0;
     for (char c : tweet) {
@@ -17,9 +13,10 @@ string validateTweet(string tweet) {
     if (charCount > 140) {
         return "Too many characters";
     }
-    ostringstream ostr;
-    ostr << "Your tweet has " << charCount << " characters";
-    return ostr.str();
+    if (charCount > 0)
+        return "Your tweet has " + to_string(charCount) + " characters";
+    else
+        return "Your tweet is empty!";
 }
 
 int main() {
