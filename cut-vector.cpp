@@ -19,5 +19,5 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> left(v.begin(), v.begin() + pos);
     vector<int> right(v.begin() + pos, v.end());
     
-    return vector<int>(left.begin(), left.end()) + vector<int>(right.begin(), right.end());
+    return {vector<int>{left.begin(), left.end()}, vector<int>{right.begin(), right.end()}()};
 }

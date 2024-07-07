@@ -1,3 +1,3 @@
 ```
-def roll_dice(n, m):
-    return sum(1 / n for _ in range(m-1)) / (n * m - 1)
+def dice_game(n, m):
+    return sum(1/n/m for _ in range(min(n-1, m))) / (n * m)
