@@ -1,7 +1,7 @@
 def substitution_cipher(message, cipher):
     char_map = {}
     for i in range(len(cipher)):
-        char_map[cipher[i]] = cipher[i]
+        char_map[cipher[i]] = message[i]
 
     deciphered_message = ""
     for char in message:
@@ -11,4 +11,3 @@ def substitution_cipher(message, cipher):
             deciphered_message += char
 
     return deciphered_message
-```
