@@ -1,15 +1,15 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, const std::string& substr) {
+std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, const std::string& sub) {
     std::vector<std::string> filtered;
     for (const auto& s : str) {
-        if (!s.find(substr)) {
+        if (!s.find(sub)) {
             filtered.push_back(s);
         }
     }
@@ -18,8 +18,7 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
 
 int test() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
-    std::vector<std::string> filtered = filterBySubstring(str, "run"); 
-    assert(issame({},filtered)); 
+    assert(issame({}, filterBySubstring(str, "run")));
     return 0;
 }
 
