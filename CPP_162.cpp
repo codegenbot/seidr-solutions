@@ -1,28 +1,32 @@
-#include <openssl/evp.h>
+```cpp
+#include <algorithm>
+#include <iomanip>
+#include <sstream>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
-    unsigned char hash[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX mdctx;
-    EVP_MD *md = EVP_md5();
-    unsigned char *d = nullptr;
 
-    EVP_MD_CTX_init(&mdctx);
-    EVP_DigestInit_ex(&mdctx, md, nullptr);
+    MD5_CTX md5;
+    unsigned char md5sum[16];
+    const unsigned char *p = reinterpret_cast<const unsigned char*>(text.c_str());
+    size_t len = text.size();
+    unsigned int numBytes = len + 1; // Include null terminator
 
-    d = text.c_str();
-    while (*d) {
-        EVP_DigestUpdate(&mdctx, d++, strlen(d));
+    // Initialize the context
+    MD5_Init(&md5);
+
+    // Update the context with the string
+    MD5_Update(&md5, &p[0], numBytes);
+
+    // Finalize the context
+    MD5_Final(&md5, md5sum);
+
+    ostringstream oss;
+    for (int i = 0; i < 16; ++i) {
+        oss << setfill('0') << setw(2) << hex << static_cast<int>(md5sum[i]);
     }
 
-    EVP_DigestFinal_ex(&mdctx, hash, nullptr);
-    EVP_MD_CTX_cleanup(&mdctx);
-
-    stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)hash[i];
-    }
-
-    return ss.str();
+    return oss.str();
 }
