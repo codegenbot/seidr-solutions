@@ -3,7 +3,7 @@
 #include <iostream>
 
 std::string flip_case(std::string str) {
-    std::string flipped = str;
+    std::string flipped = str; 
     for (char & c : flipped) { 
         if (std::islower(c)) {
             c = std::toupper(c);
