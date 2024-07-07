@@ -1,4 +1,3 @@
-```
 int calculateFuelCost(std::vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
