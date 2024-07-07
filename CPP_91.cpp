@@ -2,12 +2,12 @@
 #include <cassert>
 #include <string>
 
-int findPattern(const std::string& input) {
+int findPattern(std::string& input) {
     int count = 0;
     size_t pos = 0;
     while ((pos = input.find("I am bored", pos)) != std::string::npos) {
         ++count;
-        pos += 7; // increment by the length of "I am bored"
+        pos += 9; // increment by the length of "I am bored"
     }
     return count;
 }
