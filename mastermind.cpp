@@ -1,11 +1,10 @@
 ```c++
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
-
-int mastermind(string code, string guess); // Declare before main
 
 int mastermind(string code, string guess) {
     int whitePegs = 0;
@@ -32,6 +31,7 @@ int mastermind(string code, string guess) {
     }
     
     return blackPegs;
+
 }
 
 int main() {
