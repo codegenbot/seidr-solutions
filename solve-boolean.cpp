@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool evaluate(const string &expression) {
     stack<char> operators;
     bool result = true;
