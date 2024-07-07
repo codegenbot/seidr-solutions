@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <bits/stdc++.h>
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> sequence;

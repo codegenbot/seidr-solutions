@@ -22,20 +22,18 @@ int main() {
     std::cin >> n;
 
     for(int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
         int num;
-        std::cin >> num;
-        
-        if (num < 0 || num > 100) {
-            std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
-            return -1; 
-        }
-
-        if (num >= 0 && num <= 100) {
-            inputVector.push_back(num); 
-        } else {
-            std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
-            return -1; 
+        while(true) {
+            std::cout << "Enter element " << i + 1 << ": ";
+            std::cin >> num;
+            
+            if (num >= 0 && num <= 100) {
+                inputVector.push_back(num);
+                break;
+            }
+            else {
+                std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
+            }
         }
     }
 
