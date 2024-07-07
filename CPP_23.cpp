@@ -1,3 +1,3 @@
-int strLength(string str){
+int my_strlen(std::string str){
     return str.length();
 }
