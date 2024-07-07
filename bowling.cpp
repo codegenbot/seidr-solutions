@@ -1,17 +1,22 @@
-using namespace std;
+#include <string>
 
 int bowlingScore(string str) {
     int score = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '/') {
-            if (i + 2 <= str.length()) {
-                score += (10 - (str[i + 1] - '0')) + (str[i + 2] - '0');
-                i++;
-            } else {
-                score += 10;
+    for (char c : str) {
+        if (c == '/') {
+            if (score % 2 != 0) {
+                score += 10 - (str.find('/') - str.find_last_of('0') + 1);
             }
-        } else if (isdigit(str[i])) {
-            score += (str[i] - '0');
+            score++;
+        } else if (isdigit(c)) {
+            int temp = c - '0';
+            while (str[str.find_last_of('0') + 1] == '0' && str.find_last_of('0') < str.size() - 1) {
+                temp *= 10;
+                str.erase(str.find_last_of('0'), 1);
+            }
+            score += temp;
+        } else {
+            score++;
         }
     }
     return score;
