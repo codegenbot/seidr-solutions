@@ -1,6 +1,11 @@
 #include <map>
 #include <string>
-#include <cctype>
+
+int main() {
+    std::map<std::string, std::string> dict;
+    bool result = check_dict_case(dict);
+    // Rest of your code...
+}
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
