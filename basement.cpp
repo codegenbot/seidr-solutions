@@ -7,9 +7,11 @@ int findFirstNegativeIndex(const vector<int>& nums) {
         sum += nums[i];
         if (sum < 0) return i;
     }
-    return -1;
+    return -1; 
 }
 
 int main() {
-    return findFirstNegativeIndex({-1, 2, -3, 4, -5});
+    vector<int> nums = {1, -2, 3, -4};
+    cout << findFirstNegativeIndex(nums);
+    return 0;
 }
