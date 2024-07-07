@@ -1,19 +1,24 @@
+```cpp
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 string validateTweet(string tweet) {
-    tweet.erase(tweet.find_last_not_of(" \t")); // Remove trailing whitespace
-    tweet.erase(0, tweet.find_first_not_space()); // Remove leading whitespace
+    int charCount = 0;
+    for (char c : tweet) {
+        if (!isspace(c)) { 
+            charCount++;
+        }
+    }
     
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (tweet.length() > 140) {
+    if (charCount > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    return "Your tweet has " + to_string(charCount) + " characters";
 }
 
 int main() {
