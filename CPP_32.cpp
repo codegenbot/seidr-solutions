@@ -26,7 +26,8 @@ double find_zero(vector<double> coeffs){
 }
 
 int main() {
-    vector<double> poly_coeffs = {};
+    vector<double> poly_coeffs;
+    poly_coeffs.reserve(100);
 
     string temp;
     double val;
