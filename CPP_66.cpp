@@ -3,11 +3,15 @@
 #include <cassert>
 
 int digitSum(const std::string& s) {
-    int sum = 0;
+    std::string new_str = "";
     for (char c : s) {
         if (isdigit(c)) {
-            sum += (c - '0');
+            new_str += c;  
         }
+    }
+    int sum = 0;
+    for (char c : new_str) {
+        sum += (c - '0');  
     }
     return sum;
 

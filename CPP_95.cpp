@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <map>
 #include <string>
@@ -30,6 +31,4 @@ int main() {
 
     bool result = check_dict_case(std::map<std::string, std::string>());
     std::cout << (result ? "True" : "False") << std::endl;
-
-    return 0;
 }

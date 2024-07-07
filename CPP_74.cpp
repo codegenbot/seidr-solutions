@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -19,6 +20,8 @@ auto total_match = [](const std::vector<std::vector<std::string>>& v) {
 int main() {
     int sum1 = total_match({{"this"}, {"is"}});
     int sum2 = total_match({});
+
+    assert(issame({{"this"}}, {})); // Modified this line
 
     return 0;
 }

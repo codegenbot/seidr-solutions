@@ -1,5 +1,4 @@
-```
-vector<int> count_up_to(int n) {
+vector<int> count_upto(int n) {
     vector<int> primes;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
@@ -14,4 +13,8 @@ vector<int> count_up_to(int n) {
         }
     }
     return primes;
+}
+
+bool isSame(vector<int> a, vector<int> b) {
+    return a == b;
 }

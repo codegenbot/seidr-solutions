@@ -1,8 +1,9 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
 
-bool compareVectors(vector<string> a, vector<string> b) {
+bool areSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,7 +13,7 @@ bool compareVectors(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> numerical_letter_grades(vector<float> grades) {
+vector<string> numericalLetterGrade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -45,8 +46,8 @@ vector<string> numerical_letter_grades(vector<float> grades) {
 
 int main() {
     vector<float> fgrades = {0, 0.7};
-    vector<string> grades = numerical_letter_grades(fgrades);
-    if (!compareVectors(grades, {"E", "D-" }))
+    vector<string> grades = numericalLetterGrade(fgrades);
+    if (!areSame(grades, {"E", "D-" }))
         cout << "Test failed" << endl;
     else
         cout << "Test passed" << endl;
