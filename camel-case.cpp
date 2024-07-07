@@ -19,7 +19,7 @@ string camelCase(string s) {
             result += word;
             i = j;
         } else if (s[i] != ' ') {
-            result += s[i];
+            result += tolower(s[i]);
         }
     }
     return result;
