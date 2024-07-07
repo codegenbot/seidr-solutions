@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -35,6 +36,6 @@ int main() {
     for (int num : output) {
         std::cout << num << " ";
     }
-    assert(isSame(getOddCollatz(1), std::vector<int>({1})));
+    assert(isSame(getOddCollatz(1), {1}));
     return 0;
 }
