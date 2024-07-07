@@ -1,9 +1,5 @@
+```cpp
 #include <vector>
-namespace std {
-template <class _Ty>
-struct vector<_Ty>::size_type { };
-}
-
 using namespace std;
 
 void reverse_delete(std::vector<std::string>& v) {
