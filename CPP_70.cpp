@@ -23,10 +23,10 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input = {1, 2, 3};
-    vector<int> output = strange_sort_list(input);
+    vector<int> lst = {1, 2, 3, 4};
+    vector<int> sorted_list = strange_sort_list(lst);
     
-    assert(issame(output, vector<int>{1, 3, 2}));
+    assert(issame(sorted_list, vector<int>{1, 4, 2, 3}));
     
     return 0;
 }
