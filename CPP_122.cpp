@@ -1,5 +1,6 @@
-#include <vector>
+```cpp
 #include <string>
+#include <vector> 
 #include <initializer_list>
 
 int add_elements(std::vector<int> arr, int k) {
@@ -27,9 +28,10 @@ int main() {
     }
     
     // Calculate sum using add_elements function
-    int result = add_elements(arr, k);
+    result = add_elements(std::vector<int>(k, 0), k);
     
     // Print the result
     std::cout << "Sum of elements: " << result << std::endl;
     
     return 0;
+}
