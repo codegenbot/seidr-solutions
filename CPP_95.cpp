@@ -1,17 +1,16 @@
-bool check_dict_case(map<string,string> dict){
-    bool all_upper = true;
-    bool all_lower = true;
+bool check_dict_case(map<string, string> dict) {
+    if (dict.empty()) return false;
 
-    for(auto it = dict.begin(); it != dict.end(); ++it) {
-        if(!islower(it->first[0]) && !isupper(it->first[0])) {
+    bool all_lower = true;
+    bool all_upper = true;
+
+    for (auto& pair : dict) {
+        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             return false;
         }
-        if(islower(it->first[0])) {
-            all_upper = false;
-        } else {
-            all_lower = false;
-        }
+        if (!all_lower) all_upper = false;
+        if (!all_upper) all_lower = false;
     }
 
-    return all_upper || all_lower;
+    return all_lower || all_upper;
 }
