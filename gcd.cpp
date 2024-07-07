@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
 int gcd(int a, int b) {
     if (a == 0) return b;
     return gcd(b % a, a);
@@ -13,7 +12,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     size_t start = 0;
     while (start < text.size()) {
         size_t pos = text.find(target, start);
-        if (pos >= 0) {
+        if (pos != string::npos) {
             indices.push_back(pos);
             start = pos + target.size();
         } else {
@@ -22,7 +21,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     }
     return indices;
 }
-
 int main() {
     cout << "Enter a text string: ";
     string text;
