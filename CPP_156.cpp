@@ -6,41 +6,32 @@ std::string int_to_mini_roman(int num) {
     return toMiniRomanHelper(num, "", "MDC");
 }
 
-std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
+std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
     if (num == 0)
-        return roman;
-    int val = getVal(symbols);
+        return str;
+    int val = getVal(roman);
     if (num >= val) {
-        roman += getSymbol(symbols);
-        return toMiniRomanHelper(num - val, roman, removeFirst(symbols));
+        return toMiniRomanHelper(num - val, str + roman[0], roman.substr(1));
     } else {
-        return toMiniRomanHelper(num, roman, removeFirst(symbols));
+        return toMiniRomanHelper(num, str, roman.substr(1));
     }
 }
 
-int getVal(std::string symbols) {
+int getVal(std::string s) {
     int val = 0;
-    if (symbols.find("M") != std::string::npos)
+    if (s == "M")
         val = 1000;
-    else if (symbols.find("D") != std::string::npos)
+    else if (s == "D")
         val = 500;
-    else if (symbols.find("C") != std::string::npos)
+    else if (s == "C")
         val = 100;
+    else if (s == "L")
+        val = 50;
+    else if (s == "X")
+        val = 10;
+    else if (s == "V")
+        val = 5;
+    else if (s == "I")
+        val = 1;
     return val;
-}
-
-std::string getSymbol(std::string symbols) {
-    if (symbols.find("M") != std::string::npos)
-        return "M";
-    else if (symbols.find("D") != std::string::npos)
-        return "D";
-    else if (symbols.find("C") != std::string::npos)
-        return "C";
-    return "";
-}
-
-std::string removeFirst(std::string symbols) {
-    if (symbols.length() > 0)
-        return symbols.substr(1);
-    return "";
 }
