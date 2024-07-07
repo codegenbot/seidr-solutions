@@ -3,10 +3,10 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::initializer_list<float>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9) return false;
+        if (std::abs(a[i] - *std::find_first_of(b.begin(), b.end(), a[i])) > 1e-9) return false;
     }
     return true;
 }
@@ -22,13 +22,13 @@ int main() {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
         if (num == -1) break;
-        if (num > 0) v1.push_back(num);
-        else v2.push_back(-num); 
+        if (num > 0) v1.push_back(static_cast<float>(num));
+        else v2.push_back(-static_cast<float>(num)); 
     }
     
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame(v1, v2) ? "" : "not ")) << " the same.\n";
+    std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame({v1.begin(), v1.end()}, {v2.begin(), v2.end()}) ? "" : "not ")) << " the same.\n";
     return 0;
 }
