@@ -1,9 +1,5 @@
-#include <algorithm>
-
-vector<int> unique(vector<int> l) {
-    vector<int> result = l;
-    sort(result.begin(), result.end());
-    auto it = std::unique(result.begin(), result.end());
-    result.erase(it, result.end());
-    return result;
+vector<int> unique(vector<int> l){
+    sort(l.begin(), l.end());
+    l.erase(unique(l.begin(), l.end()), l.end());
+    return l;
 }
