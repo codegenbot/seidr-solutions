@@ -1,12 +1,15 @@
-std::string camelCase(const std::string& s) {
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string s;
+    char capitalizeNext = false;
     std::string result;
-    bool capitalizeNext = true;
+
+    std::cin >> s; 
 
     for (char c : s) {
         if (c == '-' || c == ' ') { 
-            if (!capitalizeNext) {
-                result += ' ';
-            }
             capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
@@ -16,13 +19,7 @@ std::string camelCase(const std::string& s) {
         }
     }
 
-    return result;
-}
+    std::cout << result;
 
-int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
-    }
     return 0;
 }
