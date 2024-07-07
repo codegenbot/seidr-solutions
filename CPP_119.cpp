@@ -1,18 +1,18 @@
-#include <string>
-#include <initializer_list>
 #include <vector>
-#include <assert.h>
+#include <string>
 
-std::string match_parens(std::initializer_list<std::string> lst) {
+using namespace std;
+
+int match_parens(initializer_list<string> lst) {
     int open = 0, close = 0;
-    for (const std::string& s : lst) {
+    for (const string& s : lst) {
         if (s == "(") open++;
         else if (s == ")") close++;
     }
-    return (open == close) ? "Yes" : "No";
+    return (open == close) ? 1 : 0;
 }
 
 int main() {
-    assert(match_parens({")", "("}) == "Yes");
+    assert(match_parens({"" , "("}) == 0 );
     return 0;
 }
