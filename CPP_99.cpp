@@ -1,17 +1,16 @@
+```
 #include <iostream>
+#include <string>
 #include <cmath>
 
-int closest_integer(double num) {
-    if (num >= 0) {
-        return static_cast<int>(std::ceil(num));
-    } else {
-        return static_cast<int>(std::floor(num));
-    }
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    return (num >= 0) ? std::ceil(num) : std::floor(num);
 }
 
 int main() {
-    int num = 0;
+    std::string userInput;
     std::cout << "Enter a number: ";
-    std::cin >> num; 
-    std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
+    std::cin >> userInput; 
+    std::cout << "The closest integer is: " << closest_integer(userInput) << std::endl;
 }
