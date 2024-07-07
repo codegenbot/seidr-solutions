@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cassert>
 #include <string>
 
@@ -15,7 +15,6 @@ int findPattern(const std::string& str) {
 
 int main() {
     assert(findPattern("I am bored I am bored I am bored") == 3);
-    int result = findPattern("You and I are going for a walk");
-    std::cout << "Result: " << result << std::endl;
+    int is_bored = findPattern("You and I are going for a walk");
     return 0;
 }

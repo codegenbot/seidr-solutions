@@ -34,10 +34,8 @@ int main() {
         }
     }
 
-    std::cin.ignore();
-    int n2;
-    std::cin >> n2;
-    for (int i = 0; i < n2; ++i) {
+    n = std::cin.ignore().ignore("\n").stof();
+    for (int i = 0; i < n; ++i) {
         int m;
         std::cin >> m;
         vec2.push_back({});
