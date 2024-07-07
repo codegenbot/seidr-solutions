@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -8,9 +7,14 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
         return "no";
     else
     {
-        std::ostringstream oss;
-        oss << interval1.first << " " << std::min({interval1.second, interval2.second});
-        return oss.str();
+        std::string str;
+        if (interval1.first > interval2.first)
+            str += std::to_string(interval2.first);
+        else
+            str += std::to_string(interval1.first);
+
+        str += " " + std::to_string(std::min({interval1.second, interval2.second})) + " ";
+        return str;
     }
 }
 
