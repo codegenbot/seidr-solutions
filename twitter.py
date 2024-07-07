@@ -2,7 +2,7 @@ import re
 
 
 def validate_tweet(tweet):
-    pattern = r"^[a-zA-Z0-9 ]+$"
+    pattern = r"^[a-zA-Z0-9 ]+$"  # only allow alphanumeric and spaces
     if not re.match(pattern, tweet):
         return "Your tweet contains invalid characters"
     tweet = tweet.strip()
