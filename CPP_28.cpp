@@ -1,11 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
-
-std::string concatenate(vector<string> strVec);
 
 int main() {
     vector<string> strings;
@@ -20,16 +18,10 @@ int main() {
         strings.push_back(userInput);
     }
 
-    std::string result = concatenate(strings);
-    cout << "Concatenated string: " << result << endl;
-
-    return 0;
-}
-
-std::string concatenate(vector<string> strVec){
     string result = "";
-    for (const auto& str : strVec) {
+    for (const auto& str : strings) {
         result += str + " ";
     }
-    return result;
+    cout << "Concatenated string: " << result << endl;
+    return 0;
 }
