@@ -10,7 +10,7 @@ vector<int> filter_integers(list_any values) {
                 int num = boost::any_cast<int>(value).get();
                 result.push_back(num);
             } catch(const exception &e) {
-                
+                // Handle the exception
             }
         }
     }
