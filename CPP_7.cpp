@@ -9,7 +9,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, const std::string& substr) {
     std::vector<std::string> filtered;
     for (const auto& s : str) {
-        if (!s.find(substr)) {
+        if (s.find(substr) == std::string::npos) {
             filtered.push_back(s);
         }
     }
