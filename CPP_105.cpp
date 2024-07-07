@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <memory>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
@@ -33,6 +33,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(str);
     }
 
+    return result;
+}
+
+int main() {
     std::vector<int> arr;
     int n;
     std::cout << "Enter the number of integers: ";
