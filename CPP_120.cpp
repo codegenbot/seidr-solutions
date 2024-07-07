@@ -16,14 +16,10 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     std::sort(arrCopy.begin(), arrCopy.end());
     std::vector<int> result;
     for (int i = 0; i < k && i < arrCopy.size(); i++) {
-        if (arrCopy.size() > 1) {
-            result.push_back(arrCopy.back());
-            arrCopy.pop_back();
+        if (arrCopy.size() > k) {
+            result.push_back(arrCopy[arrCopy.size() - 1 - i]);
         } else {
-            for(int j=0;j<k&&j<i;j++){
-                result.push_back(arrCopy[0]);
-                arrCopy.erase(arrCopy.begin());
-            }
+            result.push_back(arrCopy[0]);
             break;
         }
     }
