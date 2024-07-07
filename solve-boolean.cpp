@@ -1,4 +1,3 @@
-#include <string>
 #include <iostream>
 using namespace std;
 
@@ -39,10 +38,9 @@ int main() {
     bool result = evaluateBooleanExpression(expression);
 
     if (result) {
-        cout << "True" << std::endl;
+        cout << "True" << endl;
     } else {
-        cout << "False" << std::endl;
+        cout << "False" << endl;
     }
 
     return 0;
-}
