@@ -37,11 +37,17 @@ int mainFunction() {
         }
     }
 
-    std::vector<int> output = pluck({minEven, minIndex});
+    std::vector<int> output; // Initialize without size and default values
+    output.push_back(minEven);
+    output.push_back(minIndex);
 
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
+        std::vector<int> test = {1,2,3};
+        std::vector<int> expected = {2, 0};
+        std::vector<int> actual = pluck(test);
+        assert(sameVector(actual, expected));
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }
