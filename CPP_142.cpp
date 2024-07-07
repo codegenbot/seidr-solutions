@@ -28,14 +28,15 @@ int main() {
             std::cin >> num;
             
             if (num >= 0 && num <= 100) {
-                // Check for overflow before pushing into vector
-                if (!inputVector.empty() && inputVector.back() == 100) {
-                    break; // If last element is 100, exit the loop
-                }
                 inputVector.push_back(num);
                 break;
             } else {
-                std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
+                if(i < n-1){
+                    std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
+                }else{
+                    std::cerr << "You've reached the maximum capacity of your vector!" << std::endl;
+                    break;
+                }
             }
         }
     }
