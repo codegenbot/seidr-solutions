@@ -1,23 +1,23 @@
-Here is the Python solution for the problem:
+Here is the completed code:
 
 ```
 from typing import List
-import math
 
 
 def factorize(n: int) -> List[int]:
-    factors = []
     i = 2
+    factors = []
     while i * i <= n:
         if n % i:
             i += 1
         else:
             n //= i
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.extend([i] * count)
+            if len(factors) == 0 or i != factors[-1]:
+                factors.append(i)
+            else:
+                factors[-1] *= i
+            i = 2
     if n > 1:
-        factors.append(n)
+        if len(factors) == 0 or n != factors[-1]:
+            factors.append(n)
     return factors
