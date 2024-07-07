@@ -18,20 +18,20 @@ vector<int> findIndices(string text, string target) {
         if(found) {
             indices.push_back(i);
             int k = i + targetLength;
-            while(k <= text.length() - targetLength) {
-                bool isFound = true;
+            while(k <= text.length() - targetLength && found) {
+                found = true;
                 for(int j = 0; j < targetLength; j++) {
                     if(text[k+j] != target[j]) {
-                        isFound = false;
+                        found = false;
                         break;
                     }
                 }
-                if(isFound) {
+                if(found) {
                     indices.push_back(k);
-                    k += targetLength;
                 } else {
                     break;
                 }
+                k += targetLength;
             }
         }
     }
