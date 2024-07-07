@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <cassert>
-#include <string>
+#include <vector>
 
 int search(int n) {
     if(n < 0)
@@ -11,22 +10,17 @@ int search(int n) {
 }
 
 int main() {
-    std::string strNum;
-    int num = 0; // default value
-    
+    int num;
     std::cout << "Enter a positive number: ";
-    std::cin >> strNum; 
-
-    try {
-        num = stoi(strNum);
-        if (num >= 0) {
-            std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
-        } else {
-            std::cout << "The search function returns -1 for negative numbers." << std::endl;
-        }
-    } catch (std::invalid_argument& ia) {
-        std::cout << "Invalid number format. Please enter a valid positive number." << std::endl;
+    std::cin >> num; 
+    if (num >= 0) {
+        std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
+    } else {
+        std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
     
+    // If you want to test the function with multiple values
+    //std::vector<int> nums = {3, 10, 10, 9, 2};
+    //assert(search(0) == -1);
     return 0;
 }
