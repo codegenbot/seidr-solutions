@@ -2,24 +2,24 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> nums;
+vector<string> by_length(vector<int> arr) {
+    vector<string> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             nums.push_back(std::to_string(num));
         }
     }
 
-    std::sort(nums.begin(), nums.end());
-    std::reverse(nums.begin(), nums.end());
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
 
-    std::vector<std::string> result;
-    for (std::string str : nums) {
-        switch (std::stoi(str)) {
+    vector<string> result;
+    for (string str : nums) {
+        switch (stoi(str)) {
             case 1:
                 str = "One";
                 break;
