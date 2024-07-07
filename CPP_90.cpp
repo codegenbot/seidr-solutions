@@ -14,18 +14,20 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
     std::vector<int> lst(n);
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
         std::cin >> lst[i];
     }
-    
+
     int result = next_smallest(lst);
-    if(result != -1)
+
+    if (result == -1) {
+        std::cout << "The list is empty. No smallest element exists." << std::endl;
+    } else {
         std::cout << "The next smallest number is: " << result << std::endl;
-    else
-        std::cout << "No second smallest number exists." << std::endl;
+    }
 
     return 0;
 }
