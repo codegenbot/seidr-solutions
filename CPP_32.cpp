@@ -10,13 +10,13 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
     
-    std::vector<double>(ncoeff, std::vector<double>::allocator_type()); 
+    std::vector<double> coeffs(ncoeff); 
 
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
         std::cout << "Enter coefficient " << i+1 << ": ";
         std::cin >> coeff;
-        coeffs.push_back(coeff);
+        coeffs[i] = coeff;
    }
     
     double x, y;
