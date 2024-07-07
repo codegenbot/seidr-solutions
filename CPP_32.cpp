@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -25,8 +26,8 @@ double find_zero(vector<double> coeffs){
 }
 
 int main() {
-    vector<double> poly_coeffs;
-    int val;
+    double val;
+    vector<double> poly_coeffs = {};
 
     cin >> val;
     while (val != 0) {
