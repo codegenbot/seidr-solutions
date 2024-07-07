@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,6 +19,6 @@ int main() {
         std::cerr << "Invalid input. Please enter two numbers." << std::endl;
         return 1;
     }
-    std::vector<double> input({static_cast<double>(num1), static_cast<double>(num2)});
-    std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
+    std::cout << "Sum of squares is: " << sum_squares({num1, num2}) << std::endl;
     return 0;
+}
