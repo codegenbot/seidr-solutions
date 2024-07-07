@@ -1,13 +1,8 @@
+```cpp
 #include <algorithm>
 #include <cmath>
 
-int findMax(int n) {
-    if (n <= 0) {
-        std::cout << "Error: Please enter a positive integer." << std::endl;
-        return -1;
-    }
-    else {
-        int max = *std::max_element(std::vector<int>(1, n).begin(), std::vector<int>(1, n).end());
-        return abs(max);
-    }
+int main() {
+    int maxVal = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+    return std::abs(maxVal- 124)<1e-4;
 }
