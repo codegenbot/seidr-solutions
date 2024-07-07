@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -14,12 +15,12 @@ int fuelCost(vector<int> nums) {
 int main() {
     vector<int> nums;
     int n;
-    cout << "Enter the number of elements: ";
+    cout << "Enter the number of integers: ";
     cin >> n;
-    for(int i=0; i<n; i++) {
-        cout << "Enter element " << (i+1) << ": ";
-        cin >> nums.push_back;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter integer " << i + 1 << ": ";
+        cin >> nums.push_back(i);
     }
-    cout << "Fuel cost is: " << fuelCost(nums);
+    cout << "The fuel cost is: " << fuelCost(nums) << endl;
     return 0;
 }
