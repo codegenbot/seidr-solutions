@@ -1,13 +1,12 @@
-```cpp
 #include <string>
 #include <iostream>
 
-int how_many_times(std::string str, std::string substring) {
+int how_many_times(const char* str, const char* substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != std::string::npos) {
+    while ((pos = std::strchr(str, *(substring + 0))) != nullptr) {
         count++;
-        pos += substring.length();
+        pos += 1; 
     }
     return count;
 
@@ -27,7 +26,7 @@ int main() {
     } else if (substring.empty()) {
         std::cout << "Error: The input substring is empty." << std::endl;
     } else {
-        int result = how_many_times(str, substring);
+        int result = how_many_times(str.c_str(), substring.c_str());
         std::cout << "The substring appears " << result << " times." << std::endl;
     }
     return 0;

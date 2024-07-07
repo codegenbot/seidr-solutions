@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <map>
+#include <iostream>
 
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
@@ -20,7 +20,11 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
+    std::vector<int> lst;
+    int n;
+    while(std::cin >> n) {
+        lst.push_back(n);
+    }
     int result = search(lst);
     if (result != -1) {
         std::cout << "The first number that appears at least as many times as its value is: " << result << std::endl;
@@ -28,4 +32,3 @@ int main() {
         std::cout << "No such number found." << std::endl;
     }
     return 0;
-}
