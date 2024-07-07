@@ -6,5 +6,5 @@ string match_parens(vector<string> lst) {
             else close++;
         }
     }
-    return open == close ? "Yes" : "No";
+    return (open == close) ? "Yes" : "No";
 }
