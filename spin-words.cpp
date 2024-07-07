@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <bits/stdc++.h>
 #include <algorithm>
 
 int main() {
