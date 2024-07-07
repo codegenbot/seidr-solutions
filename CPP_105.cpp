@@ -7,10 +7,14 @@
 using namespace std;
 
 vector<string> by_length(vector<string> arr) {
-    unordered_map<int, int> lengthCount;
+    vector<int> lengths;
     for (string str : arr) {
         int num = stoi(str);
-        int len = to_string(num).size();
+        lengths.push_back(to_string(num).length());
+    }
+
+    map<int, int> lengthCount;
+    for (int len : lengths) {
         lengthCount[len]++;
     }
 
@@ -18,7 +22,7 @@ vector<string> by_length(vector<string> arr) {
     for (auto it = lengthCount.begin(); it != lengthCount.end(); ++it) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
-                if(to_string(i).size() == it->first) {
+                if(to_string(i).length() == it->first) {
                     output.push_back((i==1?"One":(i==2?"Two":(i==3?"Three):(i==4?"Four":"Five"))));
                     it->second--;
                     if(it->second == 0) break;
@@ -34,7 +38,7 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<string> arr(n);
+    vector<string> arr(std::vector<string>(n));
     for(int i=0; i<n; i++) {
         string num;
         cout << "Enter integer " << i+1 << ": ";
