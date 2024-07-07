@@ -1,11 +1,12 @@
-
 #include <iostream>
 #include <string>
+#include <stack>
 using namespace std;
 
 bool evaluate(const string &expression) {
     bool result = true;
     stack<char> operators;
+    
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             operators.push('|');
@@ -32,5 +33,6 @@ bool evaluate(const string &expression) {
             }
         }
     }
-    return result || expression != "false";
+    
+    return result && expression != "false";
 }
