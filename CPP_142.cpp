@@ -22,9 +22,13 @@ int main() {
     std::cin >> n;
 
     for(int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int num; // Declared here, not inside the loop
-        std::cin >> num;
+        int num;
+        while (!(std::cin >> num)) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> num;
+        }
         inputVector.push_back(num);
     }
 
