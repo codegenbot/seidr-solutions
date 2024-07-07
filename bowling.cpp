@@ -29,10 +29,9 @@ int bowlingScore(string s) {
     }
 
     return score;
-
 }
 
 int main(int argc, char* argv[]) { 
-    cout << bowlingScore(argv[1]) << '\n'; 
+    std::cout << bowlingScore(argv[1]) << '\n'; 
     return 0; 
 }
