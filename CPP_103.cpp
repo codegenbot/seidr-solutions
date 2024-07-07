@@ -13,6 +13,6 @@ std::string rounded_avg(int n,int m){
         else binary.push_back('0');
         avg >>= 1;
     }
-    std::reverse(binary.begin(), binary.end());
+    reverse(binary.begin(), binary.end());
     return binary;
 }
