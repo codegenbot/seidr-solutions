@@ -1,9 +1,12 @@
+#include <iostream>
+using namespace std;
+
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
-    double totalSnow = initialSnow; // Initialize to the initial amount of snow
+    double totalSnow = 0.0; // Initialize to zero
 
     for (int i = 0; i < hours; i++) {
-        double newSnow = totalSnow + rateOfSnowfall; // Apply rate of snowfall
-        totalSnow = newSnow - (newSnow * proportionMeltingPerHour); // Apply melting proportionally
+        totalSnow += initialSnow;
+        totalSnow += rateOfSnowfall - totalSnow * proportionMeltingPerHour;
     }
     
     return totalSnow;
