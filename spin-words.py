@@ -1,17 +1,17 @@
-import re
-
+import string
 
 def spin_words():
-    # Read input from user
+    # Prompt the user for input
     string = input("Enter a string: ")
-
-    # Split the string into individual words
+    
+    # Split the input string into words
     words = string.split()
-
-    # Reverse all words that are 5 or more letters long
-    for i, word in enumerate(words):
-        if len(word) >= 5:
-            words[i] = word[::-1]
-
-    # Join the words back into a string and return it
-    return " ".join(words)
+    
+    # Reverse the order of words that are five or more letters long
+    reversed_words = [word[::-1] for word in words if len(word) >= 5]
+    
+    # Join the reversed words back together
+    result = " ".join(reversed_words)
+    
+    # Print the resulting string
+    print("The spin-words result is:", result)
