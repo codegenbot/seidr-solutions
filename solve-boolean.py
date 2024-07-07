@@ -1,9 +1,7 @@
 def solve_boolean(expression):
-    if isinstance(expression, str):
-        result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
-        if result:
-            left, right = result.groups()
-            return solve_boolean(left) and solve_boolean(right)
-    elif isinstance(expression, list):
-        for exp in expression:
-            solve_boolean(exp)
+    if len(expression) == 1:
+        return True
+    else:
+        left = expression[0]
+        right = expression[-1]
+        return solve_boolean(left) and solve_boolean(right)
