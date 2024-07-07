@@ -1,20 +1,8 @@
-```cpp
-int mainFunction() {
-    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
-    auto result = filterBySubstring(str, "run");
-    
-    for (const auto& s : result) {
-        if (!substringSame({s}, std::vector<std::string>({"grunt", "prune"}))) {
-            return 1; 
-        }
-    }
-}
-
-bool substringSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool checkStrings(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, const std::string& substring) {
+std::vector<std::string> filter(const std::vector<std::string>& str, const std::string& substring) {
     std::vector<std::string> result;
     for (const auto& s : str) {
         if (s.find(substring) != std::string::npos) {
@@ -22,4 +10,15 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
+    auto result = filter(str, "run");
+    
+    for (const auto& s : result) {
+        if (!checkStrings({s}, std::vector<std::string>({"grunt", "prune"}))) {
+            return 1;
+        }
+    }
 }
