@@ -1,8 +1,7 @@
-Here is the Python solution for the problem:
-
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
-
-# Example usage:
-input_arr = list(map(int, input().split()))
-print(leaders(input_arr))
+def leaders(a):
+    leaders = [a[-1]]
+    for i in range(len(a) - 2, -1, -1):
+        if a[i] >= a[-1]:
+            leaders.append(a[i])
+            leaders[-1] = a[i]
+    return list(reversed(leaders))
