@@ -1,11 +1,11 @@
-string solve(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            if(islower(s[i])) result += toupper(s[i]);
-            else result += tolower(s[i]);
+std::string solve(std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
+        } else {
+            result += c;
         }
-        else result += s[i];
     }
-    return result;
+    return result.empty() ? std::string(s).reverse() : result;
 }
