@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -8,7 +8,7 @@ int choose_num(std::string s1, std::string s2) {
     return (num1 > num2) ? num1 : num2;
 }
 
-int main() {
+int main() { 
     std::string s1, s2;
     std::cout << "Enter two numbers (separated by a space): ";
     if (!(std::cin >> s1 >> s2)) {  
