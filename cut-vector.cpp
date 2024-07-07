@@ -1,59 +1,63 @@
 #include <vector>
 #include <iostream>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int min_diff = INT_MAX;
-    int cut_idx = -1;
+using namespace std;
 
-    for (int i = 0; i < vec.size() - 1; i++) {
+vector<vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
+
+    for (int i = 1; i <= vec.size() - 1; i++) {
         int left_sum = 0, right_sum = 0;
-        for (int j = 0; j <= i; j++) {
+        for (int j = 0; j < i; j++) {
             left_sum += vec[j];
         }
-        for (int j = i + 1; j < vec.size(); j++) {
+        for (int j = i; j < vec.size(); j++) {
             right_sum += vec[j];
         }
 
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
-            cut_idx = i;
+            cut_index = i;
         }
     }
 
-    std::vector<int> left_vec, right_vec;
-    for (int i = 0; i <= cut_idx; i++) {
-        left_vec.push_back(vec[i]);
+    vector<vector<int>> result(2);
+    for (int i = 0; i < cut_index; i++) {
+        result[0].push_back(vec[i]);
     }
-    for (int i = cut_idx + 1; i < vec.size(); i++) {
-        right_vec.push_back(vec[i]);
+    for (int i = cut_index; i < vec.size(); i++) {
+        result[1].push_back(vec[i]);
     }
 
-    return {left_vec, right_vec};
+    return result;
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
 
-    std::vector<int> vec(n);
-    for (auto& x : vec) {
-        std::cin >> x;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> vec[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
+    vector<vector<int>> result = cutVector(vec);
 
-    std::cout << "Left vector: ";
-    for (const auto& x : result.first) {
-        std::cout << x << " ";
+    cout << "Left subvector: ";
+    for (int num : result[0]) {
+        cout << num << " ";
     }
-    std::cout << "\n";
+    cout << endl;
 
-    std::cout << "Right vector: ";
-    for (const auto& x : result.second) {
-        std::cout << x << " ";
+    cout << "Right subvector: ";
+    for (int num : result[1]) {
+        cout << num << " ";
     }
-    std::cout << "\n";
+    cout << endl;
 
     return 0;
 }
