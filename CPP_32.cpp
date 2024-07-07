@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 double poly(vector<double> coeffs, double x) {
     double result = 0;
@@ -9,7 +10,7 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> xs){
+double find_zero(vector<double> xs){
     double sum = 0;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
