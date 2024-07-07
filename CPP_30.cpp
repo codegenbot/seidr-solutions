@@ -22,8 +22,8 @@ int main() {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
         if (num == -1) break;
-        if (num > 0) v1.push_back(static_cast<float>(num));
-        else v2.push_back(-static_cast<float>(num)); 
+        if (num > 0) v1.push_back(num);
+        else v2.push_back(-num); 
     }
     
     float maxV1 = get_positive(v1);
