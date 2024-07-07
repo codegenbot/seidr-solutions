@@ -1,6 +1,4 @@
 ```cpp
-#include <string>
-#include <algorithm>
 #include <cassert>
 
 int vowels_count(const std::string& s) {
