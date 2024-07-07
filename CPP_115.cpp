@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <ostream>
+#include <iostream>
 
 int max_fill(std::vector<std::vector<int>> grid) {
     int max = 0;
@@ -26,3 +26,4 @@ int main() {
     int result = max_fill({{0,0,0},{0,1,0}});
     std::cout << "Maximum number of filled cells: " << result << std::endl;
     return 0;
+}
