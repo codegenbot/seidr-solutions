@@ -1,24 +1,18 @@
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25; // calculate full quarters
-    cents %= 25; // subtract full quarters from cents
-    int total_quarters = min(quarters, cents / 25); // update quarters to only consider full quarters and remaining cents
-    int remaining_cents = cents % 25;
+    int quarters = cents / 25;
+    int remainingCents = cents % 25;
+    int dimes = remainingCents / 10;
+    remainingCents %= 10;
+    int nickles = remainingCents / 5;
+    remainingCents %= 5;
+    int pennies = remainingCents;
 
-    int dimes = remaining_cents / 10;
-    remaining_cents %= 10;
-    int nickles = remaining_cents / 5;
-    remaining_cents %= 5;
-    int pennies = remaining_cents;
-
-    cout << total_quarters << endl;
-    cout << nickles << endl;
+    cout << quarters << endl; 
     cout << dimes << endl;
+    cout << nickles << endl;
     cout << pennies << endl;
 
     return 0;
