@@ -26,20 +26,12 @@ double find_zero(vector<double> coeffs){
 }
 
 int main() {
-    vector<double> poly_coeffs;
-    poly_coeffs.reserve(100);
+    vector<double> poly_coeffs = {};
 
-    string temp;
-    double val;
-
-    while (true) {
-        cin >> temp;
-        if (!cin) {
-            cout << "Invalid input. Please enter a valid number." << endl;
-            break;
-        }
-        val = stod(temp);
+    cin >> val;
+    while (val != 0) {
         poly_coeffs.push_back(val);
+        cin >> val;
     }
 
     if(poly_coeffs.size() == 0){
