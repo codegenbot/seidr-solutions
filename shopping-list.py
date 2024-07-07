@@ -1,4 +1,5 @@
 def shopping_list(prices, discounts):
+    total_price = 0
     # Validate input
     for i in range(min(len(prices), len(discounts))):
         try:
