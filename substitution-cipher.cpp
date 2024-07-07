@@ -6,7 +6,7 @@ std::string decode(std::string cipher, std::string mapping) {
     for (char c : cipher) {
         for(int i=0; i<mapping.length(); ++i) {
             if(mapping[i] == c) {
-                result += mapping.substr(i+1, 1); // Assuming the mapping is one-character-per-index.
+                result += mapping.substr(i+1, 1); 
                 break;
             }
         }
