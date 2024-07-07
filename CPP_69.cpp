@@ -1,3 +1,8 @@
+```
+#include <iostream>
+#include <vector>
+#include <map>
+
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
     for (int num : lst) {
@@ -17,8 +22,9 @@ int search(std::vector<int> lst) {
 
 int main() {
     std::vector<int> lst;
-    int n;
-    while(std::cin >> n) {
+    int n, numInputs = 5; // Limit the number of inputs
+    while(numInputs-- > 0) {
+        std::cin >> n;
         lst.push_back(n);
     }
     int result = search(lst);
@@ -28,3 +34,4 @@ int main() {
         std::cout << "No such number found." << std::endl;
     }
     return 0;
+}
