@@ -7,8 +7,6 @@
 
 using namespace std;
 
-typedef unsigned long int size_type;
-
 bool issame(vector<string> a, vector<string> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
@@ -54,5 +52,5 @@ vector<string> by_length(vector<int> arr) {
         cout << str << " ";
     }
     cout << "\n";
-    return 0;
+    return output;
 }
