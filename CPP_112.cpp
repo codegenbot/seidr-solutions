@@ -1,27 +1,43 @@
-Here is the completed code:
+Here is the solution:
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    string temp = "";
-    for (char i : s) {
+    
+    for (char& ch : s) {
         bool found = false;
-        for (char j : c) {
-            if (i == j) {
+        for (char& cc : c) {
+            if (ch == cc) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            temp += i;
+            result.push_back(string(1, ch));
         }
     }
-    result.push_back(temp);
-    string revTemp = temp;
-    reverse(revTemp.begin(), revTemp.end());
-    if (temp == revTemp) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
+    
+    string resStr = "";
+    for (int i = 0; i < result.size(); ++i) {
+        resStr += result[i];
     }
-    return result;
-}
+    
+    bool isPalindrome = true;
+    int start = 0, end = resStr.length() - 1;
+    while (start < end) {
+        if (resStr[start] != resStr[end]) {
+            isPalindrome = false;
+            break;
+        }
+        start++;
+        end--;
+    }
+    
+    vector<string> finalResult;
+    finalResult.push_back(resStr);
+    if (isPalindrome) {
+        finalResult.push_back("True");
+    } else {
+        finalResult.push_back("False");
+    }
+    
+    return finalResult;
