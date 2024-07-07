@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cassert>
 
@@ -23,7 +24,7 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
         if (value <= num) {
             roman += symbols[0];
             num -= value;
-            return toMiniRomanHelper(num, roman, symbols.substr(1));
+            return toMiniRomanHelper(num, roman, std::string(symbols.begin() + i, symbols.end()));
         }
     }
 
@@ -33,7 +34,7 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
 std::string int_to_mini_roman(int num) {
     if (num <= 0)
         return "";
-    return toMiniRomanHelper(num, "", "MDCXIVL");
+    return toMiniRomanHelper(num, "", "MDC");
 }
 
 int main() {
