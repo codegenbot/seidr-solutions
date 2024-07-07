@@ -27,11 +27,6 @@ std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
 int main()
 {
     std::vector<std::string> strings = getStrings();
-    if(strings.size() >= 1024*10) {
-        // resize the vector every 10K elements
-        strings.reserve(1024*20); 
-    }
-
     std::vector<std::string> concatenated = concatenate(strings);
     
     for (const auto& str : concatenated) {
