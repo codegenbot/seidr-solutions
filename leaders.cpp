@@ -5,7 +5,8 @@ vector<int> leaders(vector<int>& vec) {
     int n = vec.size();
     vector<int> res;
     
-    if(n == 0) return res;
+    if(n == 0)
+        return res;
     
     res.push_back(vec[n-1]);
     
@@ -13,9 +14,8 @@ vector<int> leaders(vector<int>& vec) {
         if(res.back() < vec[i]) {
             res.clear();
             res.push_back(vec[i]);
-        } else if(res.back() == vec[i]) {
+        } else if(res.back() == vec[i])
             res.push_back(vec[i]);
-        }
     }
     
     return res;
