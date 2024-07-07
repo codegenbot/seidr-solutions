@@ -1,37 +1,31 @@
 string words_in_sentence(string sentence){
     string result = "";
-    int len = 0;
-    for(int i=2; i<=100; i++){
+    int count = 0;
+    for(int i=1; i<=100; i++){
         if(isPrime(i)){
-            len = i;
-            break;
+            size_t pos = 0;
+            while((pos = sentence.find(" ")) != string::npos){
+                if(sentence.length() - (pos+1) <= i){
+                    break;
+                }
+                result += sentence.substr(0, pos+i) + " ";
+                sentence.erase(0, pos+i);
+            }
+            if(sentence.length() > 0)
+                result += sentence + " ";
         }
     }
-    vector<string> words;
-    split(sentence, " ", words);
-    for(auto word : words){
-        if(word.length() == len){
-            result += word + " ";
-        }
-    }
-    return result.substr(0, result.size()-1);
+    return result;
 }
 
 bool isPrime(int num) {
-    if (num <= 1)
+    if (num <= 1) {
         return false;
+    }
     for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0)
+        if (num % i == 0) {
             return false;
+        }
     }
     return true;
-}
-
-void split(const string& str, char c, vector<string>& result) {
-    size_t pos = 0;
-    while ((pos = str.find(c)) != string::npos) {
-        result.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    result.push_back(str);
 }
