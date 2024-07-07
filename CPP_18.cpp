@@ -11,6 +11,7 @@ int how_many_times(string str, string substring) {
         pos += substring.length();
     }
     return count;
+
 }
 
 int main() {
@@ -28,3 +29,4 @@ int main() {
         cout << "The substring appears " << result << " times." << endl;
     }
     return 0;
+}
