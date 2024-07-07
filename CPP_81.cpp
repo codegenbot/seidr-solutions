@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -47,6 +47,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = numerical_letter_grade(fgrades);
-    assert(same(grades, {"E", "D-" }));
+    assert(issame(grades, {"E", "D-" }));
     return 0;
 }
