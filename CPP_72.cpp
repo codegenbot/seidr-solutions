@@ -1,19 +1,12 @@
-Here is the completed code:
-
-bool will_it_fly(vector<int> q,int w){
+bool will_it_fly(vector<int> q, int w) {
     string str = "";
-    for(int i=0; i<q.size(); i++){
-        str += to_string(q[i]);
+    for (int i : q) {
+        str += to_string(i);
     }
-    
-    if(str != reverse(str).str()){
-        return false;
-    }
-    
+    if (str != reverse(str).s) return false; // unbalanced
     int sum = 0;
-    for(int i=0; i<q.size(); i++){
-        sum += q[i];
+    for (int i : q) {
+        sum += i;
     }
-    
     return sum <= w;
 }
