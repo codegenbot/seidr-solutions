@@ -15,22 +15,11 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    int n1, m1, n2, m2;
-    cin >> n1 >> m1 >> n2 >> m2;
-    vector<int> l1(m1);
-    for(int i=0; i<m1; i++){
-        cin >> l1[i];
-    }
-    vector<int> l2(m2);
-    for(int i=0; i<m2; i++){
-        cin >> l2[i];
-    }
+    vector<int> l1 = {1,2,3,4};
+    vector<int> l2 = {3,4,5,6};
     vector<int> result = common(l1, l2);
-    cout << "[";
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-        if(i+1==result.size()) cout<<"]";
-        else cout<<"], [";
+    for(int i : result) {
+        cout << i << " ";
     }
     return 0;
 }
