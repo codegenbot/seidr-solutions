@@ -1,20 +1,27 @@
-Here is the completed code:
-
 int count_nums(vector<int> nums) {
     int count = 0;
-    for (auto num : nums) {
-        if (num > 0) {
+    for (int num : nums) {
+        if (num >= 0) {
             int sum = 0;
-            bool negative = false;
-            while (num != 0) {
-                int digit = abs(num) % 10;
-                if (digit > 0 || (!negative && num < 0)) {
-                    sum += digit;
-                }
-                if (num < 0) {
-                    negative = true;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            }
+        } else {
+            num = -num; // make it positive for calculation
+            int sum = 0;
+            bool negative = true;
+            while (num > 0) {
+                if (negative) {
+                    sum -= num % 10;
+                } else {
+                    sum += num % 10;
                 }
                 num /= 10;
+                negative = !negative; // toggle the sign
             }
             if (sum > 0) {
                 count++;
