@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,8 +22,8 @@ int main() {
     std::cin >> n;
 
     for(int i = 0; i < n; ++i) {
-        int num;
         std::cout << "Enter element " << i + 1 << ": ";
+        int num; // Declared here, not inside the loop
         std::cin >> num;
         inputVector.push_back(num);
     }
@@ -30,4 +31,5 @@ int main() {
     int result = sum_squares(inputVector);
     std::cout << "Sum of squares is: " << result << std::endl;
 
-    return 0;
+    return 0; 
+}
