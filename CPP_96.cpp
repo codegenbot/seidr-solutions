@@ -1,4 +1,4 @@
-#define _LIBCPP_VERSION
+```cpp
 #include <vector>
 #include <initializer_list> 
 #include <algorithm>
@@ -38,4 +38,5 @@ int main() {
             std::cout << "Prime number: " << prime << std::endl;
         }
     }
+    return 0;
 }
