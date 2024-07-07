@@ -16,8 +16,11 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> set1(l1.begin(), l1.end());
     std::set<int> set2(l2.begin(), l2.end());
     std::vector<int> intersection;
-    intersection.insert(intersection.end(), std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
-        std::back_inserter(intersection)));
+    for(int i : set1){
+        if(set2.find(i) != set2.end()){
+            intersection.push_back(i);
+        }
+    }
     return intersection;
 }
 
