@@ -1,25 +1,19 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+bool same(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    if (arr.empty()) return result;
-
-    int minEven = INT_MAX;
-    int minIndex = -1;
+    int minEven = INT_MAX, minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEven) {
@@ -34,12 +28,13 @@ std::vector<int> pluck(std::vector<int> arr) {
     return result;
 }
 
-int mainFunc() {
-    std::vector<int> input;
+int main() {
+    std::vector<int> input, output;
     int n;
+
+    // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
     for (int i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
@@ -47,12 +42,14 @@ int mainFunc() {
         input.push_back(num);
     }
 
-    std::vector<int> output = pluck(input);
+    // Process the array
+    output = pluck(input);
 
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1] << std::endl;
+        std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
+                  << std::endl;
     }
 
     return 0;
