@@ -6,55 +6,56 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a ? b : boost::any("None");
+        return ((int)b) > any_cast<int>(a) ? b : typeid(int);
     }
     if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
+        string str = any_cast<string>(b);
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return boost::any(str);
+            return str;
         } else {
-            return (int)stoi(str) > a ? b : boost::any("None");
+            int num = stoi(str);
+            return (int)num > any_cast<int>(a) ? b : typeid(int);
         }
     }
     if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > b ? a : boost::any("None");
+        return any_cast<float>(a) > b ? a : typeid(int);
     }
     if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string str = boost::any_cast<string>(a);
+        string str = any_cast<string>(a);
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return boost::any(str);
+            return str;
         } else {
-            return str > to_string(b) ? a : boost::any("None");
+            return str > to_string(b) ? a : typeid(int);
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string str = boost::any_cast<string>(b);
+        string str = any_cast<string>(b);
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return boost::any(str) > a ? b : boost::any("None");
+            return str > a ? b : typeid(int);
         } else {
-            return str > to_string(a) ? b : boost::any("None");
+            return str > to_string(any_cast<float>(a)) ? b : typeid(int);
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
+        string str1 = any_cast<string>(a);
         size_t pos1 = str1.find(',');
-        string str2 = boost::any_cast<string>(b);
+        string str2 = any_cast<string>(b);
         size_t pos2 = str2.find(',');
         if (pos1 != string::npos && pos2 != string::npos) {
-            return str2 > str1 ? b : boost::any("None");
+            return str2 > str1 ? b : typeid(int);
         } else if (pos1 == string::npos && pos2 != string::npos) {
-            return str2 > str1 ? b : boost::any("None");
+            return str2 > str1 ? b : typeid(int);
         } else if (pos1 != string::npos && pos2 == string::npos) {
-            return str1 > str2 ? a : boost::any("None");
+            return str1 > str2 ? a : typeid(int);
         } else {
-            return str1.compare(str2) > 0 ? a : boost::any("None");
+            return str1.compare(str2) > 0 ? a : typeid(int);
         }
     }
-    return boost::any("None");
+    return typeid(int);
 }
