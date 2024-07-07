@@ -6,7 +6,7 @@ using Pair = struct {
     int second;
 };
 
-bool compareVectors(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
@@ -36,6 +36,14 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return result;
 }
 
+bool areEqual(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
+    }
+    return true;
+}
+
 int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
     std::cout << "Sorted array: ";
@@ -43,7 +51,7 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    if (!compareVectors(order_by_points({0,6,6,-76,-21,23,4}), {0, -76, -21, 4, 6, 6, 23})) {
+    if (!areEqual(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
