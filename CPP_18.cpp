@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int how_many_times(string str, string substring) {
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
     size_t pos = 0;
     while ((pos = str.find(substring)) != string::npos) {
@@ -14,9 +14,8 @@ int how_many_times(string str, string substring) {
     return count;
 }
 
-int main
-{
-    string str, substring;
+int main() {
+    std::string str, substring;
     cout << "Enter the string: ";
     getline(cin, str);
     cout << "Enter the substring: ";
