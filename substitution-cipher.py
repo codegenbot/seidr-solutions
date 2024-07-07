@@ -1,3 +1,4 @@
+```
 import itertools
 
 def substitution_cipher(cipher_text1, cipher_text2, text):
