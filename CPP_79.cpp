@@ -1,9 +1,22 @@
-int decimalToBinary(int n) {
-    string binary = "";
-    while(n > 0){
-        if(n % 2 == 0) binary.push_back('0');
-        else binary.push_back('1');
-        n /= 2;
+#include <iostream>
+#include <string>
+
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
+    while(decimal > 0){
+        if(decimal % 2 == 0)
+            binary += '0';
+        else
+            binary += '1';
+        decimal /= 2;
     }
-    string result = "db" + binary + "db";
-    return result;
+    return "db" + binary + "db";
+}
+
+int main() {
+    int decimal;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> decimal;
+    std::cout << "Binary representation: " << decimal_to_binary(decimal) << std::endl;
+    return 0;
+}
