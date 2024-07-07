@@ -1,7 +1,7 @@
 ```cpp
 #include <vector>
 #include <cmath>
-#include <iostream>
+#include <initializer_list>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;
@@ -26,11 +26,11 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    int i;  
     std::vector<float> input;
     float num;
     std::cout << "Enter numbers separated by spaces: ";
-    while ((std::cin >> num) && std::cin.peek() != '\n') {
+    while (std::cin >> num) {
+        if (std::cin.peek() == '\n') break;
         input.push_back(num);
     }
     std::vector<float> result = sort_even(input);
