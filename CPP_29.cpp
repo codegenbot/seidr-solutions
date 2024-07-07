@@ -1,9 +1,8 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
+std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::string prefix) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
@@ -18,6 +17,6 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(isSame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
+    assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
     return 0;
 }
