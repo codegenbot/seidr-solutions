@@ -1,22 +1,25 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25.0;
+    float quarters = cents / 25.0; // Update this line
     cents %= 25;
 
-    int dimes = cents / 10.0;
+    int dimes = static_cast<int>(cents / 10);
     cents %= 10;
 
-    int nickles = cents / 5.0;
+    int nickles = static_cast<int>(cents / 5);
     cents %= 5;
 
-    int pennies = cents;
+    int pennies = static_cast<int>(cents);
 
-    cout << fixed << setprecision(0) << quarters << endl;
-    cout << fixed << setprecision(0) << dimes << endl;
-    cout << fixed << setprecision(0) << nickles << endl;
-    cout << fixed << setprecision(0) << pennies << endl;
+    cout << ceil(quarters) << endl;
+    cout << ceil(dimes) << endl;
+    cout << ceil(nickles) << endl;
+    cout << pennies << endl;
 
     return 0;
 }
