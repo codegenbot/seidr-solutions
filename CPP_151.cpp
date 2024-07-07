@@ -1,6 +1,9 @@
-#include <bits/stdc++.h>
-using namespace std;
-long long double_the_difference(vector<float> lst) {
+```cpp
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) {
@@ -9,15 +12,19 @@ long long double_the_difference(vector<float> lst) {
     }
     return sum;
 }
+
 int main() {
-    vector<float> lst;
+    std::vector<float> lst;
     int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        float x;
-        cin >> x;
-        lst.push_back(x);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        lst.push_back(num);
     }
-    cout << double_the_difference(lst) << endl;
+    long long result = double_the_difference(lst);
+    std::cout << "The sum of squares of positive integers is: " << result << std::endl;
     return 0;
 }
