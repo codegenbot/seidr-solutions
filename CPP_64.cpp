@@ -10,9 +10,10 @@ int vowels_count(string s) {
                 count++;
                 break;
             case 'y': {
-                if (s.find('y') == s.size() - 1)
+                if (s.find('y') == s.length() - 1)
                     count++;
-                break;
+                else
+                    break;
             }
         }
     }
