@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+vector<int> leaders(int arr[], int n) {
     vector<int> result;
-    int rightmost = arr.back();
-    for (int i = arr.size() - 2; i >= 0; i--) {
+    int rightmost = arr[n-1];
+    for (int i = n - 2; i >= 0; i--) {
         if (arr[i] >= rightmost) {
             rightmost = arr[i];
             result.push_back(rightmost);
@@ -15,8 +14,8 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 1, 5};
-    vector<int> leadersVector = leaders(arr);
+    int arr[] = {1, 3, 4, 1, 5};
+    vector<int> leadersVector = leaders(arr, sizeof(arr) / sizeof(arr[0]));
     for (auto leader : leadersVector) {
         cout << leader << endl;
     }
