@@ -1,13 +1,13 @@
-Here is the solution:
+#include <cmath>
 
-bool is_multiply_prime(int a){
-    for(long long i=2; i*i<=a; i++){
-        if(a%i==0){
-            int count = 0;
-            for(long long j=2; j*j<=i; j++){
-                if(i%j==0)count++;
+bool is_multiply_prime(int a) {
+    for (int i = 2; i <= sqrt(a); i++) {
+        int temp = a;
+        for (int j = 2; j <= sqrt(temp); j++) {
+            while (temp % j == 0) {
+                temp /= j;
             }
-            if(count==1&&is_multiply_prime(i/a)){
+            if (temp == 1) {
                 return true;
             }
         }
