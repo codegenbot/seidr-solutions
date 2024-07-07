@@ -1,3 +1,16 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
     for (int num : arr) {
@@ -45,4 +58,15 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<string> result = by_length(arr);
+
+    for (string s : result) {
+        cout << s << endl;
+    }
+    
+    return 0;
 }
