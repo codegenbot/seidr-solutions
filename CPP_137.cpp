@@ -6,17 +6,37 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return (string)b.convert_to<string>() > to_string((float)a.convert_to<float>()) ? b : "None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (string)a.convert_to<string>() > (string)b.convert_to<string>() ? a : (string)b.convert_to<string>() == (string)a.convert_to<string>() ? boost::any("None") : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (string)b.convert_to<string>() > to_string((int)a.convert_to<int>()) ? b : "None";
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max((float)a.convert_to<float>(), (int)b.convert_to<int>());
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return (string)a.convert_to<string>() > to_string((int)b.convert_to<int>()) ? a : "None";
+        return max((int)a.convertible_to<int>(), (float)b.convertible_to<float>());
     }
-    return boost::any("None");
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (string)b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)b;
+        if (str.find('.') != string::npos || str.find(',') != string::npos)
+            return a;
+        else
+            return (string)b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if ((string)a > (string)b)
+            return a;
+        else if ((string)a < (string)b)
+            return b;
+        else
+            return boost::any("None");
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = (int)a.convertible_to<int>();
+        int y = (int)b.convertible_to<int>();
+        if (x > y)
+            return a;
+        else if (x < y)
+            return b;
+        else
+            return boost::any("None");
+    }
+    else {
+        return boost::any("None");
+    }
 }
