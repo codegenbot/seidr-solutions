@@ -14,7 +14,7 @@ int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
-    if (is_nested(input)) {
+    if(is_nested(input)) {
         cout << "The string is nested." << endl;
     } else {
         cout << "The string is not nested." << endl;
