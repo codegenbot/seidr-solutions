@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```cpp
 #include <vector>
 #include <iostream>
@@ -7,7 +5,7 @@ Here is the corrected code:
 
 using namespace std;
 
-int mastermind(string code, string guess); // Declare the function
+int mastermind(string code, string guess); 
 
 int main() {
     string code, guess;
