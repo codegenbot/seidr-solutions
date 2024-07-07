@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,7 +13,7 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> numbers({1, 2, 3, 4, 5}); 
+    vector<int> numbers;
     int num;
     cout << "Enter the numbers: ";
     while(cin >> num) {
