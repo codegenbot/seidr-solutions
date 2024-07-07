@@ -35,6 +35,9 @@ int main() {
     for (int num : output) {
         std::cout << num << " ";
     }
-    assert(isSame(getOddCollatz(1), {1}));
+    
+    if (!isSame({1}, getOddCollatz(1))) {
+        assert(false); 
+    } 
     return 0;
 }
