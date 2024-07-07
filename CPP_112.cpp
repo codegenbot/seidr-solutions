@@ -1,8 +1,12 @@
-```cpp
 #include <vector>
+namespace std {
+template <class _Ty>
+struct vector<_Ty>::size_type { };
+}
+
 using namespace std;
 
-void reverse_delete(std::vector<std::string>& v) {
+void reverse_delete(vector<string>& v) {
     for (int i = v.size() - 1; i >= 0; --i) {
         if (!v[i].empty()) {
             v.erase(v.begin() + i);
@@ -11,7 +15,7 @@ void reverse_delete(std::vector<std::string>& v) {
     }
 }
 
-bool issame(std::vector<std::string> b, std::vector<std::string> a) {
+bool issame(vector<string> b, vector<string> a) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -21,4 +25,10 @@ bool issame(std::vector<std::string> b, std::vector<std::string> a) {
         }
     }
     return true;
+}
+
+int main() {
+    vector<string> result = reverse_delete(vector<string>({"mamma", "mia"}));
+    assert(issame(result, {"", "True"}));
+    return 0;
 }
