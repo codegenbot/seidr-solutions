@@ -1,4 +1,4 @@
-```cpp
+```
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -27,4 +27,4 @@ bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
 vector<string> a = {"W", "WW", "WWW"};
 vector<string> b = vector<string>(all_prefixes("WWW").begin(), all_prefixes("WWW").end());
 
-assert(issame(vector<vector<string>>(all_prefixes("WWW")).begin(), all_prefixes("WWW").end()), vector<vector<string>>({"W", "WW", "WWW"}));
+assert(issame(vector<vector<string>>(all_prefixes("WWW")).begin(), all_prefixs
