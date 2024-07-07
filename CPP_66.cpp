@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -19,5 +20,4 @@ int main() {
 
     int result = digitSum(input);
     std::cout << "Sum of digits: " << result << std::endl;
-
-    return 0;
+}
