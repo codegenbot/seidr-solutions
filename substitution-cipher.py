@@ -1,3 +1,5 @@
+import sys
+
 
 def substitution_cipher(message, cipher):
     char_map = {}
@@ -12,6 +14,7 @@ def substitution_cipher(message, cipher):
             deciphered_message += char
 
     return deciphered_message
+
 
 # Read input from the user using sys.stdin.readline()
 message = sys.stdin.readline().rstrip("\n")
