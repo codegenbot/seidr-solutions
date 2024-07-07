@@ -1,20 +1,20 @@
-```cpp
-int anti_shuffle(const std::string& str);
-int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-    return 0;
-}
-
-int anti_shuffle(const std::string& str) {
-    int n = str.length();
-    char temp[n+1];
-    strcpy(temp, str.c_str());
-    for(int i=0; i<n; i++) {
-        if(temp[i] >= 'a' && temp[i] <= 'z') {
-            temp[i] += ('A' - 'a');
-        } else if(temp[i] >= 'A' && temp[i] <= 'Z') {
-            temp[i] += ('a' - 'A');
+void anti_shuffle(int arr[], int n) {
+    if (n <= 1)
+        return;
+    for (int i = 0; i < n - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            std::swap(arr[i], arr[i + 1]);
+            i--;
         }
     }
-    return atoi(temp);
+}
+
+int main() {
+    int arr[] = {4, 3, 2, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    anti_shuffle(arr, n);
+    for (int i = 0; i < n; i++) {
+        std::cout << arr[i] << " ";
+    }
+    return 0;
 }
