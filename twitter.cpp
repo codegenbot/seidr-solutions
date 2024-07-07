@@ -30,3 +30,4 @@ int main() {
     tweet.erase(tweet.find_last_not_of(" \t\r\n") + 1 );
     cout << validateTweet(tweet) << endl;
     return 0;
+}
