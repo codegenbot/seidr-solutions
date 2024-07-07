@@ -1,17 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 double double_the_difference(std::vector<double> lst) {
-    return std::accumulate(lst.begin(), lst.end(), 0.0, [](double x, double y) { 
-        if (y > 0 && std::floor(y) == y) { 
-            if (std::fmod(y, 2.0) != 0.0) { 
-                return x + std::pow(y, 2);
+    double sum = 0;
+    for (double num : lst) {
+        if (num > 0 && std::floor(num) == num) { 
+            if (std::fmod(num, 2.0) != 0.0) { 
+                sum += std::pow(num, 2);
             }
         }
-        return x;
-    });
+    }
+    return sum;
 }
 
 int main() {
