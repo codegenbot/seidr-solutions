@@ -12,10 +12,15 @@ int solution(std::vector<int> arr) {
 }
 
 int main() { 
-    int arr[] = {3, 13, 2, 9}; 
-    int n = sizeof(arr) / sizeof(arr[0]); 
-    std::vector<int> arrVector(arr, arr + n); 
-    int sum = solution(arrVector); 
-    std::cout << "Result: " << sum << std::endl;
+    int n; 
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n; 
+    std::vector<int> arr(n); 
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i]; 
+    }
+    int result = solution(arr); 
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }

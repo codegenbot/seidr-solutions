@@ -2,17 +2,18 @@
 #include <iostream>
 #include <string>
 
-bool is_nested(std::string str) {
+using namespace std;
+
+bool is_nested(string str) {
     int count = 0;
     bool isOpeningBracket = false;
-    char* c = str.c_str();
-    for (; *c != '\0'; ++c) {
-        if (*c == '[') {
+    for (char c : str) {
+        if (c == '[') {
             if (!isOpeningBracket) {
                 count++;
                 isOpeningBracket = true;
             }
-        } else if (*c == ']') {
+        } else if (c == ']') {
             if (count > 0) {
                 count--;
             } else {
@@ -25,12 +26,12 @@ bool is_nested(std::string str) {
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
     if (is_nested(str)) {
-        std::cout << "The string is nested." << std::endl;
+        cout << "The string is nested." << endl;
     } else {
-        std::cout << "The string is not nested." << std::endl;
+        cout << "The string is not nested." << endl;
     }
 }
