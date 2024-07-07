@@ -3,8 +3,14 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [b](const auto& x) { return x == *(b.begin()); });
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 std::string letterGrade(float grade) {
@@ -47,20 +53,16 @@ std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> fgrades;
-    float grade;
     for (int i = 0; i < 2; i++) {
+        float grade;
         std::cout << "Enter grade: ";
         std::cin >> grade;
-        if (grade > 4.0 || grade < 0.0) {
-            std::cerr << "Invalid grade. Please enter a value between 0 and 4." << std::endl;
-            return 1; // Exit with error code
-        }
         fgrades.push_back(grade);
     }
-
+    
     std::vector<std::string> grades = numericalLetterGrade(fgrades);
-
-    if (!issame({grades[0], grades[1]}, {"F", "F"}))
+    
+    if (!issame({grades[0], grades[1]}, {"F", "D"}))
         std::cout << "Test failed" << std::endl;
     else
         std::cout << "Test passed" << std::endl;
