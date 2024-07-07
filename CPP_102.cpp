@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+int choose_num(int, int);
+
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
@@ -9,12 +11,18 @@ int main() {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
         return 1; 
     }
-    std::cout << "Result: ";    
-    if (num1 > num2)
-        std::cout << num1;
+    int result = choose_num(num1, num2);
+    std::cout << "Result: " << (num1 > num2 ? std::to_string(num1) : std::to_string(num2)) << std::endl;
+    if(result == num1)
+        std::cout << "Greater number is " << num1 << std::endl;
     else
-        std::cout << num2;
-
-    std::cout << std::endl;
+        std::cout << "Greater number is " << num2 << std::endl;
     return 0;
+}
+
+int choose_num(int num1, int num2) {
+    if (num1 > num2)
+        return num1;
+    else
+        return num2;
 }
