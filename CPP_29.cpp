@@ -8,14 +8,10 @@ bool filter_by_prefix(const std::vector<std::string>& vec, const std::string& pr
             result.push_back(s);
         }
     }
-    return equalVectors(result, {"xxx", "xxxAAA", "xxx"});
+    return equalVectors(result, {prefix + "AAA", prefix});
 }
 
 bool equalVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size();
-}
-
-bool isEqualVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size();
 }
 
