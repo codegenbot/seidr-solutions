@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <limits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool sameVector(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -28,7 +28,7 @@ std::vector<int> pluck(const std::vector<int>& arr) {
     return result;
 }
 
-int main() {
+int mainFunction() {
     int n;
 
     // Read input
@@ -41,11 +41,11 @@ int main() {
     }
 
     // Process the array
-    if(input.empty()) {
+    std::vector<int> output = pluck(input);
+
+    if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        std::vector<int> output = pluck(input);
-
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }
