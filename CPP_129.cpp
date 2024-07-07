@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -6,11 +5,19 @@
 
 using namespace std;
 
+struct Node {
+    int val;
+    pair<int, int> pos;
+};
+
+bool operator<(const Node& a, const Node& b) {
+    return a.val > b.val;
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
-    vector<int> res;
+    priority_queue<Node> pq;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -21,20 +28,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
+    vector<int> res;
+
     while (!pq.empty()) {
-        int val = pq.top().first;
-        pair<int, int> pos = pq.top().second;
+        Node node = pq.top();
         pq.pop();
 
-        res.push_back(val);
+        res.push_back(node.val);
 
         if (k > 0) {
             --k;
 
+            // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
-                    int ni = pos.first + i;
-                    int nj = pos.second + j;
+                    int ni = node.pos.first + i;
+                    int nj = node.pos.second + j;
 
                     if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
                         visited[ni][nj] = true;
