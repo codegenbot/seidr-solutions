@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <string>
+#include <cassert>
 
 std::string anti_shuffle(std::string s) {
     std::string result = "";
@@ -15,7 +16,6 @@ std::string anti_shuffle(std::string s) {
             }
             sort(word.begin(), word.end());
             result += word;
-            i = j - 1;
         }
     }
     return result;
