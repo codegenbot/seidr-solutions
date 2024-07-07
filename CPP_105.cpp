@@ -6,15 +6,15 @@
 
 using namespace std;
 
-vector<string> by_length(vector<string*> arr) {
+vector<string> by_length(vector<string> arr) {
     unordered_map<int, int> lengthCount;
-    for (string* str : arr) {
-        int num = stoi(*str);
+    for (string str : arr) {
+        int num = stoi(str);
         int len = to_string(num).size();
         lengthCount[len]++;
     }
 
-    vector<string> output;
+    vector<string> output(arr.begin(), arr.end());
     for (auto it = lengthCount.begin(); it != lengthCount.end(); ++it) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
@@ -34,11 +34,11 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<string*> arr; arr.resize(n);
+    vector<string> arr(n);
     for(int i=0; i<n; i++) {
-        string* num = new string();
+        string num;
         cout << "Enter integer " << i+1 << ": ";
-        cin >> *num;
+        cin >> num;
         arr[i] = num;
     }
     vector<string> output = by_length(arr);

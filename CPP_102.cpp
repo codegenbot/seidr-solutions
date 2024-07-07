@@ -10,10 +10,11 @@ int choose_num(std::string s1, std::string s2) {
 
 int main() {
     std::cout << "Enter two numbers (separated by a space): ";
-    std::string s1, s2;
-
     if (!(std::cin >> s1 >> s2)) {  
-        std::cerr << "Invalid input. Please enter two integers." << std::endl;
+        std::cin.clear();
+        std::string err;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. Please enter two integers." << std::endl;
         return 1; 
     }
 
