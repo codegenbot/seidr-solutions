@@ -1,12 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> v1, std::vector<int> v2) {
-    if (v1.size() != v2.size()) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -30,19 +30,14 @@ std::vector<int> count_up_to(int n) {
     return primes;
 }
 
-void originalMain() {
+int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
     std::vector<int> primes = count_up_to(n);
     for (int i = 1; i < primes.size(); i++) {
-        if (!same({primes[0]}, {primes[i]})) {
+        if (!issame({primes[0]}, {primes[i]})) {
             std::cout << "Prime number: " << primes[i] << std::endl;
         }
     }
-}
-
-int main() {
-    originalMain();
-    return 0;
 }
