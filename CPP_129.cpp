@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -16,3 +17,4 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         grid[maxRow].erase(grid[maxRow].begin());
     }
     return result;
+}
