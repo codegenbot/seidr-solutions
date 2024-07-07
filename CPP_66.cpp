@@ -16,5 +16,6 @@ int digitSum(string s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 15);
+    cout << "The digit sum is: " << digitSum("You arE Very Smart") << endl;
     return 0;
 }
