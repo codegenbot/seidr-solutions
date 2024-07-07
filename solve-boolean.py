@@ -6,9 +6,9 @@ def solve_boolean(expression):
     elif "&" in expression:
         left, right = expression.split("&")
         return solve_boolean(left) and solve_boolean(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
+    elif "|":
+        left, right = expression.split("|", 1)
         return solve_boolean(left) or solve_boolean(right)
     else:
         if "T" not in expression and "F" not in expression:
-            return None
+            return None  # invalid input
