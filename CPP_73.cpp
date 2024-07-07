@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
 int smallest_change(vector<int> arr){
     int n = arr.size();
     string s = "";
@@ -20,4 +25,9 @@ int smallest_change(vector<int> arr){
         }
     }
     return count;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
