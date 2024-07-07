@@ -1,3 +1,4 @@
+```python
 def roll_dice(n, m):
     prob = 0
     for i in range(1, n+1):
