@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,6 +9,7 @@ int main() {
     string userInput;
 
     while (true) {
+        cin.ignore(); 
         cout << "Enter a string (or stop to finish): ";
         getline(cin, userInput);
 
