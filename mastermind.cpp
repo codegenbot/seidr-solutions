@@ -1,5 +1,6 @@
-#include <string>
 #include <map>
+#include <vector>
+#include <string>
 
 pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
