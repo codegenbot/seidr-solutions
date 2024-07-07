@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -10,16 +11,10 @@ int solution(std::vector<int> arr) {
     return sum;
 }
 
-int testMain() { 
+int main() { 
     int arr[] = {3, 13, 2, 9}; 
     int n = sizeof(arr) / sizeof(arr[0]); 
-    std::vector<int> vec(arr, arr+n); // Initialize vector with array
-    int sum = solution(vec);
+    int sum = solution(std::vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]))); 
     std::cout << "Result: " << sum << std::endl;
-    return 0;
-}
-
-int main() {
-    testMain();
     return 0;
 }
