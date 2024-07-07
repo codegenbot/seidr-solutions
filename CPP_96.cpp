@@ -42,7 +42,7 @@ void originalMain() {
     }
 }
 
-int main() {
+void main() {
     originalMain();
     return 0;
 }
