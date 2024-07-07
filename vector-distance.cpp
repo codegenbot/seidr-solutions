@@ -5,7 +5,7 @@ using namespace std;
 
 double vectorDistance() {
     int n;
-    cin >> n; 
+    cin >> n;
     double x1[n], x2[n];
     for (int i = 0; i < n; i++) {
         cin >> x1[i] >> x2[i];
