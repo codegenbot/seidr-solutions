@@ -1,10 +1,15 @@
+```cpp
 #include <algorithm>
 #include <vector>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
 std::vector<int> same(const std::vector<int>& v1, const std::vector<int>& v2) {
     if(v1.size() != v2.size()) return {};
     for(int i = 0; i < v1.size(); i++) {
-        if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return {};
+        if(v1[i] != v2[i]) return {};
     }
     return v1;
 }
@@ -38,5 +43,6 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
