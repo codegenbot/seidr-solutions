@@ -38,9 +38,7 @@ void calculateAndPrint() {
         std::cin >> num;
 
         if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            if(num > 0.0) { // Check that num is greater than 0 before pushing back
-                lst.push_back(num); 
-            }
+            lst.push_back(num); 
         }
     }
 
