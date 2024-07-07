@@ -14,7 +14,7 @@ size_t findPattern(const std::string& input) {
 
 }
 
-int anotherMain() {
+int mainTest() {
     assert(findPattern("You and I are going for a walk") == 0);
     return 0;
 }

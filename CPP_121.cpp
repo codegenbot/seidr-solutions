@@ -1,19 +1,17 @@
-#include <vector>
-#include <iostream>
+```cpp
 #include <cassert>
+#include <vector>
 
-int solution(std::vector<int> lst) {
+int solution(std::vector<int> vec) {
     int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] % 2 != 0) {
-            sum += lst[i];
-        }
+    for (int i : vec) {
+        sum += i * i;
     }
     return sum;
 }
 
-int testMain() {
+int main() {
     std::vector<int> vec = {3, 13, 2, 9};
-    assert(solution(vec) == 25);
+    assert(solution(vec) == 16);
     return 0;
 }

@@ -12,10 +12,11 @@ int closest_integer(double num) {
 }
 
 int main() {
-    std::string input;
+    double num;
     std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::string input;
     getline(std::cin, input);
-    int num = std::stoi(input); 
-    std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
+    std::cout << "The closest integer is: " << closest_integer(num) << std::endl;
     assert(closest_integer(0.5) == 0);
 }
