@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         int ai = boost::any_cast<int>(a);
@@ -9,7 +10,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         int ai = boost::any_cast<int>(a);
         string bs = boost::any_cast<string>(b);
-        return (ai > stoi(bs)) ? a : ((stoi(bs) > ai) ? b : boost::any(typeid(string)));
+        return (ai > stod(bs)) ? a : ((stod(bs) > ai) ? b : boost::any(typeid(string)));
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         double ai = boost::any_cast<double>(a);
