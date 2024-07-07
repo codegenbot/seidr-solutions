@@ -1,13 +1,5 @@
 #include <iostream>
 
-int sum_squares(std::vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        sum += i * i;
-    }
-    return sum;
-}
-
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers: ";
