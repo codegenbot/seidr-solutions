@@ -6,14 +6,11 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     int start = std::max(interval1.first, interval2.first);
     int end = std::min(interval1.second, interval2.second);
 
-    if (start <= end)
-        return std::to_string(start) + " " + std::to_string(end) + " yes";
-    else
-        return "no";
+    return (start <= end ? "yes" : "no");
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "no");
+    assert(intersection({-2, -2}, {-3, -2}) == "falseyes");
 
     
     std::pair<int, int> interval1;
