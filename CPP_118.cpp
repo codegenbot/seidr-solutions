@@ -1,26 +1,21 @@
-#include<string>
-#include<algorithm>
-using namespace std;
-
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = word.size() - 1; i >= 0; i--) {
-        if (!isvowel(word[i])) {
-            left = i + 1;
-            break;
+    string vowels = "aeiouAEIOU";
+    for (int i = 0; i < word.length(); ++i) {
+        if (!isalpha(word[i])) continue;
+        bool left_consonant = true;
+        for (int j = i - 1; j >= 0; --j) {
+            if (isalpha(word[j]) && vowels.find(tolower(word[j])) != string::npos)
+                return word.substr(j, i - j);
+            if (!isalpha(word[j])) left_consonant = false;
         }
-    }
-
-    for (int i = left; i < word.size(); i++) {
-        if (isvowel(word[i])) {
-            return string(1, tolower(word[i]));
+        if (!left_consonant) continue;
+        bool right_consonant = true;
+        for (int j = i + 1; j < word.length(); ++j) {
+            if (isalpha(word[j]) && vowels.find(tolower(word[j])) != string::npos)
+                return word.substr(i, j - i);
+            if (!isalpha(word[j])) right_consonant = false;
         }
+        if (!right_consonant) continue;
     }
-
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
