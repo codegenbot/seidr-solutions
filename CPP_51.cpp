@@ -1,5 +1,4 @@
-#include <string>
-#include <cassert>
+#include <bits/stdc++.h>
 
 string remove_vowels(string text){
     string result = "";
@@ -11,8 +10,3 @@ string remove_vowels(string text){
         }
     }
     return result;
-}
-
-int main() {
-    assert (remove_vowels("ybcd") == "ybcd");
-}
