@@ -32,7 +32,10 @@ int main() {
             v2.push_back(num);
         }
     }
-    if (!issame(v1, v2)) {
+    float maxV1 = get_positive({v1.begin(), v1.end()});
+    float maxV2 = get_positive({v2.begin(), v2.end()});
+
+    if (!issame({maxV1}, {0})) {
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
         std::cout << "The two sets of numbers are the same.\n";
