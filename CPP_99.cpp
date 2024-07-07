@@ -1,19 +1,16 @@
 ```cpp
+#include <iostream>
 #include <string>
 #include <cmath>
 
-using namespace std;
-
-int closest_integer(string value) {
-    double num = stod(value);
-    return (num >= 0) ? ceil(num) : floor(num);
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    return (num >= 0) ? std::ceil(num) : std::floor(num);
 }
 
 int main() {
-    string userInput;
-    cout << "Enter a number: ";
-    getline(cin, userInput); 
-    cout << "The closest integer is: " << closest_integer(userInput) << endl;
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    cin.get();
-}
+    std::string userInput;
+    std::cout << "Enter a number: ";
+    std::getline(std::cin, userInput); 
+    std::cout << "The closest integer is: " << closest_integer(userInput) << std::endl;
+    return 0;
