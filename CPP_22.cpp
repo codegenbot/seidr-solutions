@@ -1,7 +1,7 @@
 #include <boost/type_erasure.hpp>
 #include <boost/more_results.hpp>
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
         if (any_cast<bool>(value)) {
@@ -10,3 +10,4 @@ vector<int> filter_integers(list<any> values) {
         }
     }
     return result;
+}
