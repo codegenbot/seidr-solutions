@@ -1,6 +1,7 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;
@@ -48,7 +49,6 @@ int main() {
     }
     std::cin.ignore();
     std::vector<float> result = sort_even(input);
-    for (float val : result) { 
+    for (float val : result) {
         std::cout << val << " ";
     }
-}
