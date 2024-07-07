@@ -1,31 +1,17 @@
-#include <any>
+#include <boost/any.hpp>
 #include <string>
-#include <algorithm>
 
-using namespace std;
-
-std::any compare_one(std::any a, std::any b) {
-    if (any_cast<int>(a) > any_cast<float>(b)) {
-        return b;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int) a > (double) b ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int) a > (double) b ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(double)) {
+        return (float) a > (double) b ? a : b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
+        return str1 > str2 ? a : b;
     }
-    else if (any_cast<int>(a) < any_cast<int>(b)) {
-        return b;
-    }
-    else if (any_cast<string>(a).find(',') != string::npos && 
-             any_cast<string>(b).find(',') == string::npos) {
-        return a;
-    }
-    else if (any_cast<string>(a).find(',') == string::npos && 
-             any_cast<string>(b).find(',') != string::npos) {
-        return b;
-    }
-    else if (any_cast<string>(a) > any_cast<string>(b)) {
-        return b;
-    }
-    else if (any_cast<string>(a) < any_cast<string>(b)) {
-        return a;
-    }
-    else {
-        return "None";
-    }
+    return boost::any(typeid("None"));
 }
