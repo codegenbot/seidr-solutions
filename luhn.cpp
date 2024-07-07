@@ -1,6 +1,6 @@
 #include <vector>
 
-int luhn(vector<int>& numbers) {
+int luhn(const std::vector<int>& numbers) {
     int sum = 0;
     for (int i = 0; i < numbers.size(); i++) {
         if ((i % 2) == 1) {
