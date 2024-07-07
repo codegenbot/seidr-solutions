@@ -1,4 +1,6 @@
-```
+#include <cassert>
+#include <iostream>
+
 int search(int n) {
     if(n < 0)
         return -1;
