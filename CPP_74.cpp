@@ -17,8 +17,15 @@ auto total_match = [](const std::vector<std::vector<std::string>>& v) {
 };
 
 int main() {
-    int sum1 = total_match({{"this"}, {"is"}});
-    int sum2 = total_match({});
+    int sum1 = 0;
+    int sum2 = 0;
 
+    std::vector<std::vector<std::string>> lst1 = {{"this"}, {"is"}};
+    std::vector<std::vector<std::string>> lst2 = {};
+
+    if (!lst2.empty()) {
+        sum1 = total_match(lst1);
+        sum2 = total_match({}); // fix: pass an empty vector
+    }
     return 0;
 }
