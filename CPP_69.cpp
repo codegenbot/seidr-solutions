@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <cassert>
+#include <vector>
+
 int search(int n) {
     if(n < 0)
         return -1;
@@ -16,6 +19,7 @@ int main() {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
     
-    assert(search(0) == -1);
+    int testValue = 10; 
+    assert(search(testValue) == -1);
     return 0;
 }

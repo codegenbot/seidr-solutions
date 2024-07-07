@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list> 
 #include <algorithm>
@@ -39,4 +38,3 @@ int main() {
         }
     }
     return 0;
-}
