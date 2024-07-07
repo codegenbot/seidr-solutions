@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,15 +14,22 @@ int solution(std::vector<int> lst) {
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
     std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
+    int num;
+    
+    // Read input from user
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
+        
+        if (num == -1)
+            break;
+        
         input.push_back(num);
     }
-    std::cout << "The sum of odd elements at even positions is: " << solution(input) << std::endl;
+    
+    // Print the output
+    int result = solution(input);
+    std::cout << "Sum of odd numbers at even positions: " << result << std::endl;
+    
     return 0;
 }
