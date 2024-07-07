@@ -8,30 +8,53 @@ using namespace std;
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0, prev_pos = 0;
-    
+
     while (pos != string::npos) {
         pos = txt.find(' ', prev_pos);
-        
         if (pos == string::npos) {
-            if (txt.find(',') == string::npos)
-                return {to_string(count_lowercase(txt))};
-            else
-                result.push_back(txt.substr(prev_pos));
-        } else {
-            result.push_back(txt.substr(prev_pos, pos - prev_pos));
-            prev_pos = pos + 1;
+            // No whitespace found, check for commas
+            pos = txt.find(',', prev_pos);
+            if (pos == string::npos) {
+                // No whitespaces or commas found, count odd lower-case letters
+                int count = 0;
+                for (char c : txt.substr(prev_pos)) {
+                    if (islower(c) && (c - 'a') % 2 != 0) {
+                        count++;
+                    }
+                }
+                result.push_back(to_string(count));
+                return result;
+            }
         }
+
+        string word = txt.substr(prev_pos, pos - prev_pos);
+        result.push_back(word);
+
+        prev_pos = pos + 1;
     }
-    
+
     return result;
 }
 
-int count_lowercase(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (c >= 'a' && c <= 'z') {
-            count++;
-        }
+int main() {
+    // Test cases
+    cout << "{";
+    for (const auto& word : split_words("Hello world!")) {
+        cout << "\"" << word << "\"";
     }
-    return count;
+    cout << "}" << endl;
+
+    cout << "{";
+    for (const auto& word : split_words("Hello,world!")) {
+        cout << "\"" << word << "\"";
+    }
+    cout << "}" << endl;
+
+    cout << "{";
+    for (const auto& word : split_words("abcdef")) {
+        cout << "\"" << word << "\"";
+    }
+    cout << "}" << endl;
+
+    return 0;
 }
