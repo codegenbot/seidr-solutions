@@ -2,32 +2,35 @@
 using namespace std;
 
 bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
-    }
+    if (num <= 1)
+        return false;
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
+            return false;
     return true;
 }
 
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        fib = a + b;
-        if (isPrime(fib)) {
-            if (i == n) return fib;
-            a = b;
-            b = fib;
-        } else {
-            a = b;
-            b = fib;
+    int fib_num = 0, prev_prev = 0, prev = 1;
+    int count = 0;
+
+    while (true) {
+        fib_num = prev + prev_prev;
+        prev_prev = prev;
+        prev = fib_num;
+
+        if (isPrime(fib_num)) {
+            count++;
+            if (count == n)
+                return fib_num;
         }
     }
 }
 
 int main() {
     int n;
-    cout << "Enter the number: ";
+    cout << "Enter the position of the Fibonacci number: ";
     cin >> n;
-    cout << "The " << n << "-th prime Fibonacci number is " << prime_fib(n) << endl;
+    cout << "The " << n << "th prime Fibonacci number is " << prime_fib(n) << endl;
     return 0;
 }
