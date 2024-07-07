@@ -17,7 +17,7 @@ int hex_key(std::string num) {
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str;
+    getline(std::cin, str);
     int result = hex_key(str);
     return 0;
 }
