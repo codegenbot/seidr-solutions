@@ -12,8 +12,8 @@ int solution(std::vector<int> arr) {
 
 int main() { 
     int arr[] = {3, 13, 2, 9}; 
-    int n = sizeof(arr) / sizeof(arr[0]); 
-    std::vector<int> arrVector(arr, arr + n); 
+    std::vector<int> arrVector(arr, arr + sizeof(arr)/sizeof(arr[0])); 
+    int n = arrVector.size(); 
     int result = solution(arrVector); 
     std::cout << "Result: " << result << std::endl;
     return 0;

@@ -7,7 +7,14 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
-    MD5((const unsigned char*)text.c_str(), text.size(), md5);
+    EVP_MD_CTX mdctx;
+    const EVP_MD *md = EVP_md5();
+    unsigned char* input = (unsigned char*)text.c_str();
+    size_t len = text.size();
+
+    EVP_DigestInit_ex(&mdctx, md, NULL);
+    EVP_DigestUpdate(&mdctx, input, len);
+    EVP_DigestFinal_ex(&mdctx, md5, NULL);
 
     string result;
     for (int i = 0; i < 16; ++i) {
