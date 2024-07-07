@@ -26,11 +26,9 @@ bool solveBoolean(string s) {
 }
 
 bool evaluateTerm(string term) {
-    if (term.length() == 0 || term[0] != '&') {
-        if (term == "t") return true;
-        else if (term == "f" || term == "tt") return false;
-    } 
-    
+    if (term.length() == 0 || term[0] != '&') 
+        return term == "tt" || term == "t";
+
     string subTerm = "";
     for (int i = 0; i < term.length(); i++) {
         char c = term[i];
@@ -42,8 +40,7 @@ bool evaluateTerm(string term) {
             subTerm += c;
         }
     }
-    
-    // If we reach this point, it means the term is of the form t|... or f|...
+
     bool res = evaluateTerm(subTerm) && true; // Replace true with the correct result
     return res;
 }
