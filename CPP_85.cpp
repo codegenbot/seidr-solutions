@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+using namespace std;
 
-int add(std::vector<int> lst) {
+int add(vector<int> lst){
     int sum = 0;
     for(int i = 1; i < lst.size(); i += 2){
         if(lst[i] % 2 == 0)
@@ -11,25 +13,12 @@ int add(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    assert (add({4, 4, 6, 8}) == 12);
+    vector<int> numbers;
     int num;
-
-    // Read input from user
-    while(true) {
-        std::cout << "Enter a number (or -1 to stop): ";
-        std::cin >> num;
-        
-        if(num == -1)
-            break;
-        
+    cout << "Enter the numbers: ";
+    while(cin >> num) {
         numbers.push_back(num);
     }
-
-    // Calculate the sum of even numbers
-    int result = add(numbers);
-
-    // Print the result
-    std::cout << "Sum of even numbers: " << result << std::endl;
-
+    cout << "Sum of even numbers: " << add(numbers) << endl;
     return 0;
-}
