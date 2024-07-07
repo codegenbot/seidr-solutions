@@ -1,9 +1,10 @@
-long long double_the_difference(vector<float> lst) {
+Here is the completed code:
+
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
-    for (float n : lst) {
-        if (n > 0 && round(n) == n) {
-            sum += pow(round(n), 2);
+    for(auto x : lst) {
+        if(abs((int)x) % 2 != 0) { 
+            sum += pow(abs((int)x), 2);
         }
     }
-    return sum;
-}
+    return (long long)sum;
