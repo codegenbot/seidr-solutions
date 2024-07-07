@@ -1,43 +1,59 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int min_diff = INT_MAX;
-    int idx = 0;
-    
-    for(int i = 1; i <= v.size(); i++) {
-        if(i == v.size() || v[i-1] != v[i]) {
-            int diff = abs(v[i-1] - v[0]);
-            if(diff < min_diff) {
-                min_diff = diff;
-                idx = i;
-            }
+    int cut_idx = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j <= i; j++) {
+            left_sum += vec[j];
+        }
+        for (int j = i + 1; j < vec.size(); j++) {
+            right_sum += vec[j];
+        }
+
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
-    
-    vector<int> left(v.begin(), v.begin()+idx);
-    vector<int> right(v.begin()+idx, v.end());
-    
-    return make_pair(left, right);
+
+    std::vector<int> left_vec, right_vec;
+    for (int i = 0; i <= cut_idx; i++) {
+        left_vec.push_back(vec[i]);
+    }
+    for (int i = cut_idx + 1; i < vec.size(); i++) {
+        right_vec.push_back(vec[i]);
+    }
+
+    return {left_vec, right_vec};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v[i];
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
     }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left: ";
-    for(auto x : result.first) {
-        cout << x << " ";
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
+
+    std::cout << "Left vector: ";
+    for (const auto& x : result.first) {
+        std::cout << x << " ";
     }
-    cout << endl;
-    cout << "Right: ";
-    for(auto x : result.second) {
-        cout << x << " ";
+    std::cout << "\n";
+
+    std::cout << "Right vector: ";
+    for (const auto& x : result.second) {
+        std::cout << x << " ";
     }
-    cout << endl;
+    std::cout << "\n";
+
     return 0;
 }
