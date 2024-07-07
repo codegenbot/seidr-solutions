@@ -1,5 +1,6 @@
+
 def substitution_cipher(ciphertext, key):
-    # Create a dictionary to map each character in ciphertext to its corresponding character in key
+   # Create a dictionary to map each character in ciphertext to its corresponding character in key
     char_map = {char: key[i] for i, char in enumerate(ciphertext)}
     
     # Use the dictionary to decipher the message
