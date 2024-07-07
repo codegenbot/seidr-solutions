@@ -1,9 +1,8 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <cmath>
 #include <limits>
-#include <vector>
-#include <utility>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
