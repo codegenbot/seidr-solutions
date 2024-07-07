@@ -3,13 +3,17 @@
 using namespace std;
 
 double snowDay(int hours, float groundSnow, float rate, float melt) {
-    double totalSnow = 0;
+    double totalSnow = groundSnow;
     
     for (int i = 0; i < hours; i++) {
-        groundSnow += rate - melt * groundSnow;
+        if (rate > melt * groundSnow) {
+            totalSnow += rate - melt * groundSnow;
+        } else {
+            totalSnow -= melt * groundSnow;
+        }
     }
     
-    return groundSnow;
+    return totalSnow;
 }
 
 int main() {
