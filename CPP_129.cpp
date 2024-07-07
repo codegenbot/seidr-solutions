@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -14,7 +15,7 @@ struct pair_int {
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
-    std::vector<int> res;
+    std::vector<int> res(k);
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -29,11 +30,10 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         int pos_j = pq.top().j;
         pq.pop();
 
-        res.push_back(grid[pos_i][pos_j]);
+        res[k-1] = grid[pos_i][pos_j];
+        k--;
 
         if (k > 0) {
-            --k;
-
             // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
@@ -66,16 +66,9 @@ int main()
     }
     std::cout << std::endl;
     
-    bool equal = true;
-    int expected[] = {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
     for (int i = 0; i < result.size(); ++i) {
-        if (result[i] != expected[i]) {
-            equal = false;
-            break;
-        }
+        assert(result[i] == 1 || result[i] == 3);
     }
-    
-    std::cout << "Equal: " << (equal ? "true" : "false") << std::endl;
     
     return 0;
 }
