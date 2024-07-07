@@ -1,4 +1,2 @@
-```
 def luhn(card):
-    card = list(map(int, card.replace(" ", "")))
-    return str(sum((i * 2 % 10 if i % 2 != 0 else i) for i in card)) % 10
+    return str(sum((int(d) * 2 if i % 2 != 0 else int(d)) if (int(d) * 2) > 9 else (int(d) * 2 - 9) for i, d in enumerate(reversed(card))) % 10)
