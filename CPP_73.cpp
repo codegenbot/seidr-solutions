@@ -1,25 +1,41 @@
-#include <vector>
-using namespace std;
+Here is the completed code:
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    
-    for (int i = 0; i < n; i++) {
-        dp[i][i] = 0;
-    }
-    
-    for (int len = 2; len <= n; len++) {
-        for (int i = 0; i <= n - len; i++) {
-            int j = i + len - 1;
-            
-            if (arr[i] == arr[j]) {
-                dp[i][j][0] = dp[i+1][j-1][0];
-            } else {
-                dp[i][j][0] = 1 + min(dp[i+1][j][0], dp[i][j-1][0]);
+    int left = 0, right = n - 1;
+    int changes = 0;
+
+    while (left < right) {
+        if (arr[left] != arr[right]) {
+            changes++;
+            for (int i = 0; i < n; i++) {
+                if (i == left || i == right) continue;
+                bool flag = true;
+                for (int j = 0; j < n; j++) {
+                    if (j == left || j == right) continue;
+                    if (arr[i] != arr[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) return changes + 1;
+            }
+            for (int i = 0; i < n; i++) {
+                if (i == left || i == right) continue;
+                bool flag = true;
+                for (int j = 0; j < n; j++) {
+                    if (j == left || j == right) continue;
+                    if (arr[i] != arr[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (!flag) continue;
+                return changes + 1;
             }
         }
+        left++;
+        right--;
     }
-    
-    return dp[0][n-1][0];
+    return changes;
 }
