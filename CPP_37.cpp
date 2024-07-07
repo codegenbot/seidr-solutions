@@ -1,3 +1,4 @@
+``` 
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -22,8 +23,5 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
     return result;
-}
 
 int main() {
-    int i;  
-}
