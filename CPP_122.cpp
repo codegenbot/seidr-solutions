@@ -1,10 +1,12 @@
-#include <bits/stdc++.h>
-using namespace std;
+```cpp
+#include <string>
+#include <vector> 
+#include <initializer_list>
 
-int add_elements(vector<int> arr, size_t k) {
+int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
-    for (size_t i = 0; i < k; i++) {
-        if (to_string(arr[i]).size() <= 2) {
+    for (int i = 0; i < k; i++) {
+        if (std::to_string(arr[i]).size() <= 2) {
             sum += arr[i];
         }
     }
@@ -12,24 +14,24 @@ int add_elements(vector<int> arr, size_t k) {
 }
 
 int main() {
-    vector<int> arr;
-    size_t k;
+    std::vector<int> arr;
+    int k;
     
     // Read input from user
-    cout << "Enter the number of elements: ";
-    cin >> k;
-    for (size_t i = 0; i < k; i++) {
-        cout << "Enter element " << i + 1 << ": ";
+    std::cout << "Enter the number of elements: ";
+    std::cin >> k;
+    for (int i = 0; i < k; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
         int num;
-        cin >> num;
+        std::cin >> num;
         arr.push_back(num);
     }
     
     // Calculate sum using add_elements function
-    int result = add_elements(arr, k);
+    result = add_elements(std::vector<int>(k, 0), k);
     
     // Print the result
-    cout << "Sum of elements: " << result << endl;
+    std::cout << "Sum of elements: " << result << std::endl;
     
     return 0;
 }
