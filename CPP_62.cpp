@@ -1,4 +1,5 @@
-```
+```cpp
+#include <initializer_list>
 #include <vector>
 #include <cmath>
 
@@ -21,6 +22,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 int main() {
     std::vector<float> input;
     input.push_back(1);
-    assert(issame(derivative(input), std::vector<float>()));
+    assert(issame(derivative(input), {}));
     return 0;
 }
