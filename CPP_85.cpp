@@ -1,6 +1,5 @@
 ```cpp
 #include<vector>
-#include<iostream>
 
 int add(vector<int> lst) {
     int sum = 0;
@@ -13,13 +12,13 @@ int add(vector<int> lst) {
 
 int main() {
     vector<int> input;
-    std::cout << "Enter the numbers: ";
+    cout << "Enter the numbers: ";
     int num;
-    while(std::cin >> num) {
+    while(cin >> num) {
         input.push_back(num);
-    }
+   }
     
     int result = add(input);
-    std::cout << "Sum of even numbers is: " << result << std::endl;
+    cout << "Sum of even numbers is: " << result << endl;
     return 0;
 }
