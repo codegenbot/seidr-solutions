@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 int main() {
     int ncoeff; 
-    std::vector<double> coeffs;
+    std::vector<double> coeffs = {};
 
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;

@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -12,7 +13,7 @@ int how_many_times(std::string str, std::string substring) {
 
 }
 
-int main() { 
+int mainProblem() { 
     std::string str;
     std::cout << "Enter the string: ";
     if (!(std::cin >> str).fail()) {
@@ -38,3 +39,4 @@ int main() {
         std::cout << "The substring appears " << result << " times." << std::endl;
     }
     return 0;
+}
