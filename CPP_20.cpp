@@ -3,7 +3,7 @@
 #include <numeric>
 #include <cmath>
 
-bool issame(vector<float> a, vector<float> b) {
+bool std::issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,10 +15,10 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> find_closest_elements(vector<float> numbers) {
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
-    pair<float, float> closestPair;
+    std::pair<float, float> closestPair;
     
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
@@ -28,9 +28,10 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    return vector<float>(closestPair.begin(), closestPair.end());
+    return std::vector<float>(closestPair.begin(), closestPair.end());
 }
 
 int main() {
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    return 0;
 }
