@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int max_fill(vector<vector<int>> grid, int capacity) {
@@ -24,8 +25,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
             }
         }
         
-        capacity -= res;
-        if (!changed && capacity <= 0) {
+        if (!changed) {
             return -1;
         }
     }
