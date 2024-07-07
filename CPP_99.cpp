@@ -12,6 +12,7 @@ int closest_integer(string value) {
 int main() {
     string userInput;
     cout << "Enter a number: ";
-    getline(cin, userInput); 
+    getline(cin, userInput);
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "The closest integer is: " << closest_integer(userInput) << endl;
 }
