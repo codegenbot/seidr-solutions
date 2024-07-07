@@ -1,7 +1,7 @@
-#include <cassert>
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 int hex_key(const std::string& s) {
     int result = 0;
@@ -12,9 +12,4 @@ int hex_key(const std::string& s) {
     }
     return result;
 
-}
-
-int main() {
-    assert(hex_key("") == 0);
-    std::cout << hex_key("hello") << std::endl;
 }
