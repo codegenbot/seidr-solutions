@@ -1,9 +1,5 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
-#include <string> // include this library
-
+#include <string> // Include this line for using string
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -20,7 +16,7 @@ vector<int> findIndices(string text, string target) {
         if(found) {
             indices.push_back(i);
             // check for overlapping targets
-            for(int k = i + targetLength; k <= text.length() - targetLength; k += 1) {
+            for(int k = i + targetLength; k <= text.length() - targetLength; k += j++) {
                 found = true;
                 for(int j = 0; j < targetLength; j++) {
                     if(text[k+j] != target[j]) {
