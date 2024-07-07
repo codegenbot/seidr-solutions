@@ -7,15 +7,12 @@ std::vector<int> get_odd_collatz(int n) {
         if (n % 2 != 0) {
             sequence.push_back(n);
         }
-        if (n == 1) {
-            break;
-        }
-        n = n / 2;
+        n = (n + 1) / 2; 
     }
     return sequence;
 }
 
-bool isSame(std::vector<int> v1, std::vector<int> v2) {
+bool checkEquality(std::vector<int> v1, std::vector<int> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i=0; i<v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -35,7 +32,7 @@ int main() {
     for (int i : output) {
         std::cout << i << " ";
     }
-    if (!isSame({1}, {1})) { 
+    if (!checkEquality({1}, {1})) {
         std::cout << "Assertion failed." << std::endl;
     }
     return 0;
