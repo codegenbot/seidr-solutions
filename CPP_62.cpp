@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <algorithm>
@@ -33,4 +34,5 @@ int main() {
 
     double result = similarity(v1, v2);
     cout << "Similarity between the two vectors is: " << result << endl;
+    return 0;
 }
