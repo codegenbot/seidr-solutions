@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <cmath>
+
 using namespace std;
 
 double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
@@ -15,7 +15,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n), v2(n);
+    vector<float> v1(n, 0.0f), v2(n, 0.0f);
 
     for (int i = 0; i < n; ++i) {
         cin >> v1[i] >> v2[i];
