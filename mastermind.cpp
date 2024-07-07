@@ -1,11 +1,14 @@
-```c++
+Here is the corrected code:
+
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-int mastermind(string code, string guess); // Declare before main
+int mastermind(string code, string guess); // Declare the function
+
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code (4 characters): ";
