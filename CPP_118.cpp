@@ -1,6 +1,12 @@
 #include <string>
+#include <cctype>
 
-string get_closest_vowel(string word) {
+bool isvowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+std::string get_closest_vowel(std::string word) {
     int n = word.size();
     for (int i = n - 1; i > 0; --i) {
         if (!isalpha(word[i])) continue;
@@ -11,4 +17,9 @@ string get_closest_vowel(string word) {
         if (isvowel(word[i])) return word.substr(i);
     }
     return "";
+}
+
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
 }
