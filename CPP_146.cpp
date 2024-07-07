@@ -1,20 +1,6 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> input;
-
-void readInput() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; ++i) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        input.push_back(num);
-    }
-}
-
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -26,7 +12,19 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    readInput();
-    std::cout << "Special Filter Count: " << specialFilter(input) << std::endl;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> nums[i];
+    }
+
+    int result = specialFilter(nums);
+
+    std::cout << "Number of elements that satisfy the condition: " << result << std::endl;
+
     return 0;
 }
