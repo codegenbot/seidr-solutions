@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <iterator>
+#include <bits/stdc++.h>
 
 int main() {
     std::string input;
@@ -10,6 +9,7 @@ int main() {
     // Split the input string into words.
     std::vector<std::string> words = split(input, ' ');
 
+    // Reverse each word that is 5 or more letters long.
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
             std::string reversedWord = words[i];
