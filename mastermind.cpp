@@ -1,5 +1,5 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -39,4 +39,3 @@ int main() {
     int result = mastermind(code, guess);
     cout << "Black pegs: " << result << endl;
     return 0;
-}
