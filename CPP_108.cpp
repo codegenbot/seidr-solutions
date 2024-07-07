@@ -26,4 +26,3 @@ int count_nums(vector<int> v) {
         }
     }
     return count;
-}
