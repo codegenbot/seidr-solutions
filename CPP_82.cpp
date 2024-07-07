@@ -1,3 +1,5 @@
+Here is the completed code:
+
 bool prime_length(string str){
     int len = str.length();
     if(len <= 1) return false;
