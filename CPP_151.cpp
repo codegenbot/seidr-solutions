@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
@@ -25,14 +26,12 @@ void calculateOddSums(std::vector<double> lst) {
     std::cout << "Average of odd numbers: " << average << std::endl;
 }
 
-int main() {
+void calculateAndPrint() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
     std::vector<double> lst;
-    double odd_sum = 0; // declare here
-
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
@@ -43,9 +42,12 @@ int main() {
         }
     }
 
-    odd_sum = double_the_difference(lst); // assign here
+    double odd_sum = double_the_difference(lst);
 
     calculateOddSums(lst);
+}
 
+int main() {
+    calculateAndPrint();
     return 0;
 }
