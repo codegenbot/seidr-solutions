@@ -11,8 +11,8 @@ int add(vector<int> lst){
     return sum;
 }
 
-int main() {
-    vector<int> numbers({1, 2, 3, 4, 5}); 
+int originalMain() {
+    vector<int> numbers;
     int num;
     cout << "Enter the numbers: ";
     while(cin >> num) {
