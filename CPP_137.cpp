@@ -14,9 +14,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (is_any_of<a>(std::string())) {
         std::string s1 = any_cast<std::string>(a);
         std::string s2 = any_cast<std::string>(b);
-        if (s1 > s2) return a;
-        else if (s1 < s2) return b;
-        else return boost::any("None");
+        return s1 > s2 ? a : b;
     }
     else {
         return boost::any("Invalid input");
