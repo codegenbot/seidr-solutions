@@ -20,15 +20,15 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    double temp;
     std::vector<double> coeffs;
     
     for (int i = 0; ; i++) {
         if (i % 2 == 1) break;
+        double coeff;
         // read input
-        std::cin >> temp;
-        coeffs.push_back(temp);
-   
+        std::cin >> coeff;
+        coeffs.push_back(coeff);
+    }
     
     double solution = find_zero(coeffs);
     assert (abs(poly(coeffs, solution))< 1e-3);

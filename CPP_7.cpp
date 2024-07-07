@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool check(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -10,6 +11,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
             return false;
     }
     return true;
+
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
@@ -24,8 +26,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 
 int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
-    std::vector<std::string> b;
-    b = {"grunt", "prune"};
-    assert(issame(filter_by_substring(str, "run"),b)); 
+    std::vector<std::string> b = {"grunt", "prune"};
+    assert(check(filter_by_substring(str, "run"),b)); 
     return 0;
 }
