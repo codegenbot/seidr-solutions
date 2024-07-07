@@ -1,18 +1,26 @@
-string file_name_check(string file_name){
+#include <string>
+
+using namespace std;
+
+string file_name_check(string file_name) {
     int digit_count = 0;
     bool found_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
+    string before_dot = "";
+    for (char c : file_name) {
+        if (isdigit(c)) {
             digit_count++;
-            if(digit_count > 3) return "No";
-        } else if(file_name[i] == '.'){
+            if (digit_count > 3) return "No";
+        } else if (c == '.') {
             found_dot = true;
-        } else if(!found_dot && !isalpha(file_name[i])) return "No";
+        } else if (!found_dot) {
+            before_dot += c;
+        }
     }
-    if(!found_dot || file_name.find('.') == string::npos) return "No";
-    size_t dot_pos = file_name.find('.');
-    string ext = file_name.substr(dot_pos+1);
-    vector<string> valid_exts = {"txt", "exe", "dll"};
-    if(find(valid_exts.begin(), valid_exts.end(), ext) == valid_exts.end()) return "No";
-    return "Yes";
+
+    if (!before_dot.size() || !isalpha(before_dot[0])) return "No";
+
+    string after_dot = file_name.substr(file_name.find('.') + 1);
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
+
+    return found_dot ? "Yes" : "No";
 }
