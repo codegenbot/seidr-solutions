@@ -40,4 +40,3 @@ int main() {
     std::vector<std::string> expected = {"mamma", (issame(reverse_delete("mamma", "mia"), reverse_delete("mamma", "mia")) ? "True" : "False")};
     assert(issame({reverse_delete("mamma", "mia")[0], reverse_delete("mamma", "mia")[1]}, expected));
     return 0;
-}
