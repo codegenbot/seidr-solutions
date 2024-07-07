@@ -1,8 +1,7 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 #include <numeric>
-#include <cmath>
-#include <limits>
-#include <initializer_list>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -17,9 +16,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
-    std::pair<float, float> closestPair;
+    pair<float, float> closestPair;
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
@@ -29,5 +28,30 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
 
-    return std::vector<float>{closestPair.first, closestPair.second};
+    return vector<float>(closestPair.begin(), closestPair.end());
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<float> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> numbers[i];
+    }
+
+    if (issame(numbers, {numbers[0], numbers.back()})) {
+        std::cout << "The vector is symmetric.\n";
+    } else {
+        std::vector<float> closest = find_closest_elements(numbers);
+        std::cout << "The closest pair of elements are: ";
+        for (float num : closest) {
+            std::cout << num << " ";
+        }
+        std::cout << "\n";
+    }
+
+    return 0;
 }
