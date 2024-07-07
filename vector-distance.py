@@ -1,10 +1,11 @@
-def vector_distance():
-    n = int(input())
-    v1 = list(map(float, input().split()))
-    m = int(input())
-    v2 = list(map(float, input().split()))
-
-    return math.sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
+n = int(input())
+v1 = list(map(float, input().split()))
+n = int(input())
+v2 = list(map(float, input().split()))
 
 
-print(vector_distance())
+def vector_distance(v1, v2):
+    return sum((x - y) ** 2 for x, y in zip(v1, v2)) ** 0.5
+
+
+print(vector_distance(v1, v2))
