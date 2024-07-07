@@ -10,34 +10,25 @@ def minPath(grid, k):
     for i in range(1, n):
         for j in range(1, n):
             dp[i][j][0] = min(min(dp[i - 1][j][0], dp[i][j - 1][0]), m[i][j])
-    for l in range(1, k + 1):
-        for i in range(n):
-            for j in range(n):
-                if l == 1:
-                    dp[i][j][l] = min(
-                        dp[max(i - 1, 0)][j][l - 1],
-                        dp[i][max(j - 1, 0)][l - 1],
-                        m[i][j],
-                    )
-                else:
-                    dp[i][j][l] = float("inf")
-                    for x in range(max(0, i - 1), min(n, i + 2)):
-                        for y in range(max(0, j - 1), min(n, j + 2)):
-                            if (x, y) != (i, j):
-                                dp[i][j][l] = min(
-                                    dp[i][j][l], dp[x][y][l - 1] + m[i][j]
-                                )
-    res = []
-    i, j = 0, 0
-    for _ in range(k):
-        res.append(m[i][j])
-        if i == 0:
-            j += 1
-        elif j == 0:
-            i += 1
-        else:
-            if m[i - 1][j] < m[i][j - 1]:
-                i -= 1
-            else:
-                j -= 1
-    return res
+    for i in range(n):
+        for j in range(k + 1):
+            if dp[i][j][k] == float("inf"):
+                continue
+            for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                ni, nj = i + x, j + y
+                if 0 <= ni < n and 0 <= nj < k + 1:
+                    dp[ni][nj][k] = min(dp[ni][nj][k], dp[i][j][k - 1] + m[ni][nj])
+    path = []
+    i, j = n - 1, k
+    while j > 0:
+        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + x, j + y
+            if (
+                0 <= ni < n
+                and 0 <= nj < k + 1
+                and dp[ni][nj][k - 1] == dp[i][j][k - 1] - m[ni][nj]
+            ):
+                path.append(m[ni][nj])
+                i, j = ni, nj
+                break
+    return path[::-1]
