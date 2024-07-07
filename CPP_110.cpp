@@ -5,5 +5,18 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    for (int num : lst2) {
+        if (num % 2 != 0) {
+            if (oddCount > 0) {
+                return "NO";
+            } else {
+                oddCount++;
+            }
+        }
+    }
+    if (oddCount > 0) {
+        return "NO";
+    } else {
+        return "YES";
+    }
 }
