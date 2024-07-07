@@ -5,11 +5,16 @@
 int is_bored(std::string S) {
     int count = 0;
     std::string boredom = "I am bored";
-    size_t pos = S.find(boredom);
-    while (pos != std::string::npos) {
-        count++;
-        pos = S.find(boredom, pos + boredom.length());
+    
+    // Split the input string into individual words
+    std::istringstream iss(S);
+    std::string word;
+    while (std::getline(iss, word, ' ')) {
+        if (word == boredom) {
+            count++;
+        }
     }
+    
     return count;
 }
 
