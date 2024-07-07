@@ -15,9 +15,13 @@ bool is_palindrome(string text){
     return true;
 }
 
-int main(){
-    string s; 
+int main2(){
+    string s;
+    cout << "Enter a string: ";
     cin >> s;
-    cout << (is_palindrome(s) ? "Yes" : "No") << endl;
+    if(is_palindrome(s))
+        cout << s << " is palindrome.\n";
+    else
+        cout << s << " is not palindrome.\n";
     return 0;
 }
