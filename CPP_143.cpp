@@ -1,33 +1,31 @@
+#include <string>
+using namespace std;
+
 string words_in_sentence(string sentence){
-    vector<int> primes = getPrimes(sentence);
     string result = "";
-    int i = 0;
-    for (int j = 0; j < sentence.size(); j++) {
-        if (j + 1 <= primes[i]) {
-            while (i + 1 < primes.size() && j + 1 > primes[i]) {
-                i++;
-            }
-            result += " ";
+    int count = 0;
+    for (int i = 0; i < sentence.size(); i++) {
+        if (sentence[i] == ' ') {
+            count++;
+        } else {
+            i++;
         }
-        result += sentence[j];
     }
-    return result;
+    for (int i = 0; i < sentence.size(); i++) {
+        if (sentence[i] != ' ') {
+            if (is_prime(count+1)) {
+                result += sentence.substr(0, i-count) + " ";
+            }
+            count = i;
+        }
+    }
+    return result.substr(0, result.size() - 1);
 }
 
-vector<int> getPrimes(string sentence){
-    vector<bool> isPrime(101, true);
-    for (int i = 2; i * i <= 100; i++) {
-        if (isPrime[i]) {
-            for (int j = i * i; j <= 100; j += i) {
-                isPrime[j] = false;
-            }
-        }
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
     }
-    vector<int> primes;
-    for (int i = 2; i <= 100; i++) {
-        if (isPrime[i]) {
-            primes.push_back(i);
-        }
-    }
-    return primes;
+    return true;
 }
