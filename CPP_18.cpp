@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -38,3 +39,4 @@ int main() {
         std::cout << "The substring appears " << result << " times." << std::endl;
     }
     return 0;
+}
