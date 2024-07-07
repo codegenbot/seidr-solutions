@@ -7,54 +7,30 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev_pos = 0;
-
-    while (pos != string::npos) {
-        pos = txt.find(' ', prev_pos);
-        if (pos == string::npos) {
-            // No whitespace found, check for commas
-            pos = txt.find(',', prev_pos);
-            if (pos == string::npos) {
-                // No whitespaces or commas found, count odd lower-case letters
-                int count = 0;
-                for (char c : txt.substr(prev_pos)) {
-                    if (islower(c) && (c - 'a') % 2 != 0) {
-                        count++;
-                    }
-                }
-                result.push_back(to_string(count));
-                return result;
-            }
+    size_t pos = 0, prevPos = 0;
+    
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.find(',') == string::npos)
+                return {to_string(count(txt.begin(), txt.end(), c))};
+            pos = txt.find(',');
         }
-
-        string word = txt.substr(prev_pos, pos - prev_pos);
-        result.push_back(word);
-
-        prev_pos = pos + 1;
+        result.push_back(txt.substr(prevPos, pos - prevPos));
+        prevPos = pos + 1;
     }
-
+    
+    result.push_back(txt.substr(prevPos));
+    
     return result;
 }
 
 int main() {
-    // Test cases
-    cout << "{";
-    for (const auto& word : split_words("Hello world!")) {
-        cout << "\"" << word << "\"";
+    string txt;
+    cout << "Enter a string: ";
+    getline(cin, txt);
+    vector<string> res = split_words(txt);
+    for (auto& s : res) {
+        cout << s << endl;
     }
-    cout << "}" << endl;
-
-    cout << "{";
-    for (const auto& word : split_words("Hello,world!")) {
-        cout << "\"" << word << "\"";
-    }
-    cout << "}" << endl;
-
-    cout << "{";
-    for (const auto& word : split_words("abcdef")) {
-        cout << "\"" << word << "\"";
-    }
-    cout << "}" << endl;
-
     return 0;
 }
