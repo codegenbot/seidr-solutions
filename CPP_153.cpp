@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cctype>
+#include <cctype> 
 using namespace std;
 
 int Strongest_Extension(string class_name, vector<string> extensions){
