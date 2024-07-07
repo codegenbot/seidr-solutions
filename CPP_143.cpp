@@ -1,17 +1,8 @@
-```cpp
 #include <string>
-using namespace std;
+#include <cassert>
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-string words_in_sentence(string sentence){
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int count = 0;
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
@@ -24,14 +15,17 @@ string words_in_sentence(string sentence){
         if (sentence[i] != ' ') {
             if (is_prime(count + 1)) {
                 result += sentence.substr(0, count+1) + " ";
+                count = i;
             }
-            count++;
         }
     }
     return result.substr(0, result.size() - 1);
 }
 
-int main() {
-    assert(words_in_sentence("here is").size() == 2);
-    return 0;
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
 }
