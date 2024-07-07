@@ -1,6 +1,5 @@
-```cpp
-#include <vector>
 #include <cassert>
+#include <vector>
 #include <ostream>
 
 int max_fill(std::vector<std::vector<int>> grid) {
@@ -9,11 +8,21 @@ int max_fill(std::vector<std::vector<int>> grid) {
         for (int j = 0; j < grid[0].size(); j++) {
             if (grid[i][j] == 1) {
                 int count = 0;
-                for (int k = -1; k <= 1; k++) {
-                    for (int l = -1; l <= 1; l++) {
-                        if ((k == 0 && l == 0) || i + k < 0 || j + l < 0 || i + k >= grid.size() || j + l >= grid[0].size()) continue;
-                        if (grid[i + k][j + l] == 1) count++;
-                    }
+                // Check left
+                for (int k = j - 1; k >= 0 && grid[i][k] == 1; k--) {
+                    count++;
+                }
+                // Check right
+                for (int k = j + 1; k < grid[0].size() && grid[i][k] == 1; k++) {
+                    count++;
+                }
+                // Check top
+                for (int k = i - 1; k >= 0 && grid[k][j] == 1; k--) {
+                    count++;
+                }
+                // Check bottom
+                for (int k = i + 1; k < grid.size() && grid[k][j] == 1; k++) {
+                    count++;
                 }
                 max = std::max(max, count);
             }
