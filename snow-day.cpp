@@ -16,6 +16,7 @@ int main() {
     int hours;
     float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
 
+    // Read input from user
     cout << "Enter number of hours: ";
     cin >> hours;
     cout << "Enter initial snow: ";
@@ -27,6 +28,7 @@ int main() {
 
     double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour);
     
+    // Print output
     cout << "Amount of snow on the ground after " << hours << " hours is: " << result << endl;
 
     return 0;
