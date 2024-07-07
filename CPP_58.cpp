@@ -1,8 +1,11 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <set>
-#include <initializer_list>
+#include <iostream>
 using namespace std;
+
+#pragma message "This program requires at least C++14 for initializer_list support."
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> set1(l1.begin(), l1.end());
