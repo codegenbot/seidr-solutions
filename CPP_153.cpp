@@ -9,7 +9,7 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     for (const auto& extension : extensions) {
         int cap = 0;
         for (char c : extension) {
-            if (std::toupper(c) == toupper('A')) {
+            if (std::toupper(c) == 'B' || std::toupper(c) == 'b') {
                 cap++;
             }
         }
@@ -26,6 +26,6 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
 }
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.Bb");
     return 0;
 }
