@@ -20,7 +20,8 @@ int main() {
     int sum1 = total_match({{"this"}});
     int sum2 = total_match({});
 
-    assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
+    assert(total_match({{"this"}}) == 4);
+    assert(total_match({}) == 0);
 
     return 0;
 }
