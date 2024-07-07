@@ -1,9 +1,7 @@
-```cpp
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
+bool same(vector<string> a, vector<string> b){
+    bool result = (a == b);
+    if (!result) {
+        throw runtime_error("The two vectors are not the same");
     }
     return result;
 }
