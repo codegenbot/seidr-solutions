@@ -1,7 +1,3 @@
-#include <string>
-#include <stack>
-#include <iostream>
-
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
@@ -47,3 +43,4 @@ int main() {
     }
 
     return 0;
+}
