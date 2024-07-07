@@ -23,15 +23,15 @@ string words_in_sentence(string sentence){
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] != ' ') {
             if (is_prime(count + 1)) {
-                result += sentence.substr(0, count) + " ";
+                result += sentence.substr(0, count+1) + " ";
             }
-            count = i;
+            count++;
         }
     }
     return result.substr(0, result.size() - 1);
 }
 
-int main(){
+int main() {
     assert(words_in_sentence("here is").size() == 2);
     return 0;
 }
