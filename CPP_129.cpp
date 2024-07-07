@@ -31,9 +31,10 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         pq.pop();
 
         res[k-1] = grid[pos_i][pos_j];
-        k--;
 
         if (k > 0) {
+            --k;
+
             // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
