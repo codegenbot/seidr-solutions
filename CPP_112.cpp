@@ -10,4 +10,3 @@ bool issame(std::vector<std::string> b, std::vector<std::string> a) {
         }
     }
     return true;
-}
