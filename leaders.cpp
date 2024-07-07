@@ -1,5 +1,5 @@
 
-// C++ program to find leaders in a vector
+#include <iostream>
 #include <vector>
 using namespace std;
 
