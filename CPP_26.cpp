@@ -2,10 +2,10 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && a == b;
+    return a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
+vector<int> remove_duplicates(vector<int> numbers) {
     std::vector<int> result(numbers.begin(), numbers.end());
     sort(result.begin(), result.end());
     auto it = unique(result.begin(), result.end());
@@ -13,8 +13,14 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
-    assert(issame(remove_duplicates(numbers), std::vector<int>({1, 2, 3, 4, 5})));
-    return 0;
+bool operator==(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
