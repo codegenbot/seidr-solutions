@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -19,7 +19,7 @@ vector<string> all_prefixes(string str) {
     return result;
 }
 
-bool main_function() {
+int main_function() {
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return true;
+    return 0;
 }
