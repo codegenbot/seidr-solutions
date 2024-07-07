@@ -8,14 +8,13 @@ int main() {
 
     int n;
     cin >> n;
-
-    for(int i=0; i<n; i++){
+    for(int i=0;i<n;i++){
         float x;
         cin >> x;
         input_list.push_back(x);
     }
 
-    cout << double_the_difference(input_list) << endl;
+    odd_sum = double_the_difference(input_list);
 
     return 0;
 }
