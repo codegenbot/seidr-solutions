@@ -1,5 +1,4 @@
 ```cpp
-#include <ext/new_allocator.h>
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,7 +15,8 @@ double double_the_difference(std::vector<double> lst) {
 }
 
 int main() {
-    std::vector<double> lst = {1.5};
+    std::vector<double> lst(lst.begin(), lst.end());
+    lst = {1.5, 3.0, 4.25, 6.0};
     double odd_sum = double_the_difference(lst);
 
     return 0;
