@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -31,7 +31,5 @@ vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> l
 }
 
 int main() {
-    vector<vector<string>> a = {{"this"}};
-    vector<vector<string>> b;
-    cout << (issame(a, b) ? "True" : "False") << endl;
+    assert(issame({{"this"}}, {}) == true);
 }
