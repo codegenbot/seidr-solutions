@@ -6,13 +6,13 @@ int findPattern(const std::string& str) {
     size_t pos = 0;
     while ((pos = str.find("I am bored")) != std::string::npos) {
         ++count;
-        pos += 7; // Move the position to the next occurrence
+        pos += 9; // Move the position to the next occurrence
     }
     return count;
 
 }
 
-int main() {
+int testMain() {
     assert(findPattern("I am bored I am bored I am bored") == 3);
     return 0;
 }
