@@ -1,13 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
-bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -25,9 +25,9 @@ vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> l
             sum2 += s.length();
         }
     }
-    if (sum1 < sum2) return vector<string>(lst1.begin(), lst1.end());
-    else if (sum1 > sum2) return vector<string>(lst2.begin(), lst2.end());
-    else return vector<string>(lst1.begin(), lst1.end());
+    if (sum1 < sum2) return lst1;
+    else if (sum1 > sum2) return lst2;
+    else return lst1;
 }
 
 int main() {
