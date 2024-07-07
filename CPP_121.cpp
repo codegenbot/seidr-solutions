@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,8 +13,5 @@ int solution(std::vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
-    std::vector<int> lst = {1, 2, 3, 4, 5};
-    int result = solution(lst);
-    std::cout << "The sum of odd numbers at even positions is: " << result << std::endl;
     return 0;
 }
