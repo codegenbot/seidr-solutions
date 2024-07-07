@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 
-std::string filp_case(const std::string& str) -> std::string {
+std::string filp_case(const std::string& str) {
     std::string result = "";
     for (char c : str) {
         if ((c >= 'a' && c <= 'z')) {
