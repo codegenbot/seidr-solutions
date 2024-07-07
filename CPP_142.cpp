@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,8 +14,8 @@ int sum_squares(std::vector<int> lst) {
     return total;
 }
 
-int main() { 
-    std::vector<int> inputVector(0); 
+int main() {
+    std::vector<int> inputVector; 
     int n; 
 
     std::cout << "Enter the number of elements in the vector: ";
@@ -40,8 +41,8 @@ int main() {
             }
        
         
-        if(inputVector.size() >= n) {
-            break; // Exit loop once desired number of elements is reached
+        if(i >= n) {
+            break; 
         }
     }
 
