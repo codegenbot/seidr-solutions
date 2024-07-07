@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> &nums) {
@@ -39,3 +38,4 @@ int main() {
     cout << "]" << endl;
 
     return 0;
+}
