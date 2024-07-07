@@ -1,7 +1,13 @@
-int issame(int x, int y) {
-    return (x == y);
+```cpp
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 }
-
 vector<int> minPath(vector<vector<int>>& grid, int k){
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
