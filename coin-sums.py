@@ -1,14 +1,14 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    answer = [0, 0, 0, 0]  
-
+    answer = {'quarters': 0, 'dimes': 0, 'nickles': 0, 'pennies': 0}
+    
     for coin in coins:
         count = cents // coin
-        cents %= coin
-        answer[coins.index(coin)] = count
-
-    return len(answer) - 1, *answer[:-1]
+        answer[f'{coin/100}'] = count
+        cents -= count * coin
+        
+    return [answer['quarters'], answer['dimes'], answer['nickles'], answer['pennies']]
 
 cents = int(input())
 print(*coin_sums(cents))
