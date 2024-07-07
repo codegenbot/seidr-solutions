@@ -24,7 +24,7 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
         if (value <= num) {
             roman += symbols[0];
             num -= value;
-            return toMiniRomanHelper(num, roman, std::string(symbols.begin() + i, symbols.end()));
+            return toMiniRomanHelper(num, roman, "IVXL");
         }
     }
 
@@ -34,7 +34,7 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
 std::string int_to_mini_roman(int num) {
     if (num <= 0)
         return "";
-    return toMiniRomanHelper(num, "", "MDC");
+    return toMiniRomanHelper(num, "", "IVXL");
 }
 
 int main() {
