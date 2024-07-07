@@ -22,6 +22,6 @@ void runUserInput() {
 
 int main() {
     runUserInput();
-    assert(search(10) == -1); 
+    assert(search(3) == 3); 
     return 0;
 }
