@@ -1,22 +1,19 @@
-Here is the solution:
-
 def minPath(grid, k):
-    N = len(grid)
-    visited = [[False]*N for _ in range(N)]
-    
-    def dfs(i, j, path, depth):
-        if depth == k:
-            return path
-        visited[i][j] = True
-        res = []
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            ni, nj = i+x, j+y
-            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
-                res.append(dfs(ni, nj, path+[grid[i][j]], depth+1))
-        return min(res) if res else [path]
-    
-    res = []
-    for i in range(N):
-        for j in range(N):
-            res.extend(dfs(i, j, [], 0))
-    return min(set(tuple(x for x in r) for r in res))
+    n = len(grid)
+    path = set()
+    queue = [(grid[0][0], [grid[0][0]])]
+
+    while queue:
+        val, path_val = queue.pop(0)
+        if len(path_val) == k + 1:
+            if not path or tuple(sorted(path_val)) < tuple(sorted(path)):
+                path = set(path_val)
+            continue
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            x, y = divmod(path_val[-1] - 1, n) + (dx, dy)
+            if 0 <= x < n and 0 <= y < n:
+                new_val = grid[x][y]
+                queue.append((new_val, path_val + [new_val]))
+
+    return sorted(list(path))
