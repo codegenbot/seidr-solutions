@@ -1,19 +1,24 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<pair<int, int>> pluck(vector<pair<int, int>> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
-    pair<int, int> minEvenPair = make_pair(INT_MAX, -1);
-
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<pair<int, int>> nodes;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i].first % 2 == 0 && arr[i].first < minEvenPair.first) {
-            minEvenPair = arr[i];
+        if (arr[i] % 2 == 0) {
+            nodes.emplace_back(arr[i], i);
         }
     }
+    if (nodes.empty()) {
+        return {};
+    }
+    sort(nodes.begin(), nodes.end());
+    return {nodes[0].first, nodes[0].second};
+}
 
-    result.push_back(minEvenPair);
-    return result;
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));  
 }
