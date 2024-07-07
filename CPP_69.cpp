@@ -1,4 +1,5 @@
-```
+Here is the modified code:
+
 #include <iostream>
 #include <vector>
 #include <map>
@@ -32,4 +33,4 @@ int main() {
     } else {
         std::cout << "No such number found." << std::endl;
     }
-}
+    return 0;
