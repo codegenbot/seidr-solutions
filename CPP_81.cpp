@@ -13,7 +13,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-char* letterGrade(float grade) {
+string letterGrade(float grade) {
     if (grade < 1.0)
         return "F";
     else if (grade >= 4.0)
@@ -44,8 +44,8 @@ char* letterGrade(float grade) {
 
 vector<string> numericalLetterGrade(vector<float> grades) {
     vector<string> result;
-    for (float grade : grades) {
-        result.push_back(string(letterGrade(grade)));
+    for (int i = 0; i < grades.size(); i++) {
+        result.push_back(letterGrade(grades[i]));
     }
     return result;
 }
