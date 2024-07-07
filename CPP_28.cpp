@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,13 +15,13 @@ int main() {
     std::string outputString;
 
     while (true) {
-        cin.ignore(); 
-        cout << "Enter a string (or stop to finish): ";
-        getline(cin, outputString);
+        std::cout << "Enter a string (or stop to finish): ";
+        std::cin.ignore(); 
+        getline(std::cin, outputString);
 
         if (outputString == "stop") break;
 
-        strings.push_back(outputString + " "); // add a space after each input string
+        strings.push_back(outputString + " "); 
     }
 
     std::cout << concatenate(strings) << std::endl; 
