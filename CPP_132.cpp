@@ -3,7 +3,7 @@
 #include <string>
 
 bool is_nested(const std::string& str) {
-    int count = 0;
+    size_t count = 0;
     bool isOpeningBracket = false;
     for (size_t i = 0; i < str.size(); i++) {
         if (str[i] == '[') {

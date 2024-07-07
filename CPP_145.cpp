@@ -36,14 +36,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return result;
 }
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
-    }
-    return true;
-}
-
 int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
     std::cout << "Sorted array: ";
@@ -51,7 +43,7 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    if (!areEqual(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
+    if (!areVectorsEqual(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
