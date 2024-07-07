@@ -1,5 +1,4 @@
-int main 
-{
+int main {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
@@ -9,4 +8,4 @@ int main
             std::cout << "Prime number: " << prime << std::endl;
         }
     }
-}
+    return 0;
