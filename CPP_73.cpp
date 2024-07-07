@@ -1,7 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-int smallest_change(std::vector<int> arr) {
+using namespace std;
+
+int smallest_change(vector<int> arr) {
     int left = 0, right = arr.size() - 1;
     int changes = 0;
 
@@ -24,21 +27,19 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr;
+    vector<int> arr;
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
         arr.push_back(x);
     }
 
-    int res = smallest_change(arr);
-
-    std::cout << "Smallest change required: " << res << std::endl;
+    cout << "Smallest change: " << smallest_change(arr) << endl;
 
     return 0;
 }
