@@ -14,5 +14,6 @@ int main() {
     cout << "Enter a number: ";
     getline(cin, userInput); 
     cout << "The closest integer is: " << closest_integer(userInput) << endl;
-    cin.ignore();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cin.get();
 }
