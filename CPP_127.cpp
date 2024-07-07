@@ -7,14 +7,8 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     if (interval1.first > interval2.second || interval2.first > interval1.second)
         return "no";
     else
-    {
-        std::string str = (interval1.first > interval2.first) ? std::to_string(interval2.first)
-                                              : std::to_string(interval1.first);
-        str += " " + ((interval1.second <= interval2.second) ?
-               std::to_string(interval1.second) :
-               std::to_string(interval2.second));
-        return str;
-    }
+        return std::to_string(std::max({interval1.first, interval2.first}.first)) + " " +
+               std::to_string(std::min({interval1.second, interval2.second}.second));
 }
 
 int main() {
