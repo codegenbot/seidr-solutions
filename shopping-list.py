@@ -1,5 +1,10 @@
 ```
 def shopping_list():
+    """
+    Given a vector of floats representing the prices of various shopping goods
+    and another vector of floats representing the percent discount of each of those goods,
+    return the total price of the shopping trip after applying the discount to each item.
+    """
     n = int(input())
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
