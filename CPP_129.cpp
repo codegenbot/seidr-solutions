@@ -1,32 +1,53 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    vector<vector<int>> dp(n, vector<int>(n));
     vector<int> res;
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                dfs(grid, visited, i, j, k, res);
+            if (k == 1) {
+                dp[i][j] = grid[i][j];
+            } else {
+                int min_val = INT_MAX;
+                if (i > 0) min_val = min(min_val, dp[i-1][j]);
+                if (j > 0) min_val = min(min_val, dp[i][j-1]);
+                if (i < n - 1) min_val = min(min_val, dp[i+1][j]);
+                if (j < n - 1) min_val = min(min_val, dp[i][j+1]);
+                dp[i][j] = grid[i][j] + min_val;
             }
         }
     }
+    
+    int min_val = INT_MAX;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (dp[i][j] == dp[0][0]) break;
+            min_val = min(min_val, dp[i][j]);
+        }
+    }
+    
+    int x = 0, y = 0;
+    for (int i = k - 1; i >= 0; --i) {
+        if (x > 0 && y > 0 && x < n - 1 && y < n - 1) {
+            if (dp[x-1][y] == dp[x][y]) x--;
+            else if (dp[x+1][y] == dp[x][y]) x++;
+            else if (dp[x][y-1] == dp[x][y]) y--;
+            else if (dp[x][y+1] == dp[x][y]) y++;
+        } else {
+            if (x > 0 && y > 0 && x < n - 1 && y < n - 1) {
+                if (dp[x-1][y] <= dp[x+1][y] && dp[x-1][y] <= dp[x][y-1] && dp[x-1][y] <= dp[x][y+1]) x--;
+                else if (dp[x+1][y] <= dp[x-1][y] && dp[x+1][y] <= dp[x][y-1] && dp[x+1][y] <= dp[x][y+1]) x++;
+                else if (dp[x][y-1] <= dp[x-1][y] && dp[x][y-1] <= dp[x+1][y] && dp[x][y-1] <= dp[x][y+1]) y--;
+                else if (dp[x][y+1] <= dp[x-1][y] && dp[x][y+1] <= dp[x+1][y] && dp[x][y+1] <= dp[x][y-1]) y++;
+            } else {
+                if (x > 0) x--;
+                else if (x < n - 1) x++;
+                else if (y > 0) y--;
+                else if (y < n - 1) y++;
+            }
+        }
+        res.push_back(grid[x][y]);
+    }
+    
     return res;
-}
-
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
-    int n = grid.size();
-    if (k == 0) {
-        res.insert(res.end(), res.begin(), res.end());
-        return;
-    }
-    visited[x][y] = true;
-    for (int dx = -1; dx <= 1; ++dx) {
-        for (int dy = -1; dy <= 1; ++dy) {
-            int nx = x + dx, ny = y + dy;
-            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-                dfs(grid, visited, nx, ny, k - 1, res);
-                if (res.size() == k) return;
-            }
-        }
-    }
-    visited[x][y] = false;
 }
