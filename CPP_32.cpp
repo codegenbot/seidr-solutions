@@ -1,15 +1,7 @@
 double find_zero(vector<double> xs){
-    double a = xs[0];
-    double b = xs[1];
-    double c = 0;
-    if (xs.size() >= 3) {
-        c = xs[2];
+    double sum = 0;
+    for(int i=1; i<xs.size();i++){
+        if(i%2==0) sum += xs[i]/(double)i;
     }
-    double d = 0;
-    if (xs.size() >= 4) {
-        d = xs[3];
-    }
-
-    double x = (-b + sqrt(pow(b, 2) - 4*a*c)) / (2*a);
-    return round(x, 2);
+    return -sum;
 }
