@@ -1,3 +1,8 @@
-vector<int>::iterator it = std::next(std::unique(lst.begin(), lst.end()), 0);
+Here is the solution:
 
-return it != lst.end() ? *it : NULL;
+if (lst.size() < 2) return -1;
+
+vector<int>::iterator it = lst.begin();
+advance(it, 1);
+
+return *prev(it);
