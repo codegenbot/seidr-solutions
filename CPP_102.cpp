@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,13 +15,8 @@ int main() {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
         return 1; 
     }
-    int result;
-    if (num1 > num2) {
-        result = num1;
-    } else {
-        result = num2;
-    }
-    std::cout << "Result: " << (num1 > num2 ? num1 : num2) << std::endl;
+    int result = num1 > num2 ? num1 : num2;
+    std::cout << "Result: " << result << std::endl;
     if(result == num1)
         std::cout << "Greater number is " << num1 << std::endl;
     else
