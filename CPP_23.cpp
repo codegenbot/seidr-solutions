@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int custom_strlen(std::string str){
