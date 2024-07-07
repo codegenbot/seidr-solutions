@@ -1,48 +1,38 @@
-Here is the updated code:
-
-```cpp
-#include <cassert>
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-using namespace std;
-
-double poly(vector<double> coeffs, double x) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
-
-double find_zero(vector<double> coeffs){
-    double sum = 0;
-    for (int i = 1; i < coeffs.size(); i++) {
-        if (i % 2 == 0) {
-            sum += coeffs[i];
-        } else {
-            sum -= coeffs[i];
-        }
-    }
-    return -sum / coeffs[0];
-}
-
 int main() {
-    vector<double> poly_coeffs;
-    int val;
-
-    cin >> val;
-    while (val != 0) {
-        poly_coeffs.push_back(val);
-        cin >> val;
-    }
-
-    if(poly_coeffs.size() == 0){
-        cout << "No coefficients entered. Cannot find zero." << endl;
-    } else {
-        double solution = find_zero(poly_coeffs);
-        assert(abs(poly(poly_coeffs, solution)) < 1e-3);
+    int ncoeff; 
+    double coeffs[5]; // declare the size of the coeffs array
+    
+    cout << "Enter the number of coefficients: ";
+    cin >> ncoeff;
+    
+    for(int i = 0; i < ncoeff; i++) {
+        cout << "Enter coefficient " << i+1 << ": ";
+        cin >> coeffs[i];
     }
     
-};
+    double x, y;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    
+    find_zero(coeffs, ncoeff, x, y);
+    
+    cout << "The value of y is: " << y << endl;
+    
+    return 0;
+}
+
+void find_zero(double coeffs[], int ncoeff, double x, double& y) {
+    double poly = 0.0;
+    for(int i = 0; i < ncoeff; i++) {
+        poly += coeffs[i] * pow(x, i);
+    }
+    y = poly;
+}
+
+double poly(double coeffs[], int ncoeff, double x) {
+    double poly = 0.0;
+    for(int i = 0; i < ncoeff; i++) {
+        poly += coeffs[i] * pow(x, i);
+    }
+    return poly;
+}
