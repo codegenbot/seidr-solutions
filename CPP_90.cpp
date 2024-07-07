@@ -1,11 +1,14 @@
 Here is the completed code:
 
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // Return None
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i=0; i<sorted.size()-1; i++){
-        if(sorted[i] != sorted[i+1]) return sorted[i+1];
+```cpp
+int next_smallest(vector<int> lst) {
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    int n = v.size();
+    if(n < 2) return -1; // or any other value to represent None
+    for(int i=0; i<n-1; i++) {
+        if(v[i] != v[n-1]) 
+            return v[i];
     }
-    return -1; // Return None
+    return -1; // or any other value to represent None
 }
