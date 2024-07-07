@@ -1,17 +1,15 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int choose_num(int, int);
 
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    if (!(std::cin >> num1 >> num2)) {
-        std::cerr << "Invalid input. Please enter two integers." << std::endl;
-        return 1; // Return with error code
-    }
+    std::cin >> num1 >> num2;  
     int result = choose_num(num1, num2);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "Result: " << std::to_string(result) << std::endl;
     return 0;
 }
 
