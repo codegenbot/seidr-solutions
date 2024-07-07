@@ -1,8 +1,13 @@
 ```cpp
+#ifndef _MSC_VER
+#define _AFX THROW
+#endif
+
+#include <initializer_list>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -18,7 +23,12 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
 
 int test() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
-    std::vector<std::string> filtered = filterBySubstring(str, "run"); 
-    assert(issame({},filtered)); 
+    std::vector<std::string> filtered = filterBySubstring(str, "run");
+    assert(issame({}, filtered));
+    return 0;
+}
+
+int main() {
+    test();
     return 0;
 }
