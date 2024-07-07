@@ -1,6 +1,5 @@
-```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int solution(vector<int> lst) {
     int sum = 0;
@@ -15,6 +14,6 @@ int solution(vector<int> lst) {
 int main() {
     vector<int> lst = {3, 13, 2, 9};
     int result = solution(lst);
-    std::cout << "Result: " << result << std::endl;
+    cout << "Result: " << result << endl;
     return 0;
 }
