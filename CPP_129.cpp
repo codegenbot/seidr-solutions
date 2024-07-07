@@ -1,5 +1,5 @@
-bool issame(int i1, int j1, int i2, int j2) {
-    return (i1 == i2 && j1 == j2);
+int issame(int x, int y) {
+    return (x == y);
 }
 
 vector<int> minPath(vector<vector<int>>& grid, int k){
