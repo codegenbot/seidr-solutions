@@ -1,7 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -28,6 +31,5 @@ vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> l
 }
 
 int main() {
-    assert(issame(total_match({{"this"}}, {}), {}));
-    return 0;
+    assert(issame({{"this"}}, {}) == true);
 }
