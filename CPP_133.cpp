@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <cmath>
-#include <iostream>
 
 int sum_squares(std::vector<float> lst){
     int total = 0;
@@ -11,12 +11,12 @@ int sum_squares(std::vector<float> lst){
     return total;
 }
 
-int main(){
-    std::vector<float> input;
+int main() {
+    std::vector<float> lst;
     float num;
     while(std::cin >> num) {
-        input.push_back(num);
+        lst.push_back(num);
     }
-    int output = sum_squares(input);
-    std::cout << output << std::endl;
+    int result = sum_squares(lst);
+    return 0;
 }
