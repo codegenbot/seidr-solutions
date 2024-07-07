@@ -1,9 +1,17 @@
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+#include <iostream>
+#include <vector>
+#include <algorithm>  
+using namespace std;
+
+bool isSame(vector<int> a, vector<int> b) { 
+    return a == b;
+}
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> arrCopy = arr;
+    std::sort(arrCopy.begin(), arrCopy.end());  
+    if (k > arrCopy.size()) {
+        k = arrCopy.size();
     }
-    return result;
+    return {arrCopy.begin(), arrCopy.begin() + k};
 }
