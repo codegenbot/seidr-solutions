@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <cstdlib>
+#include <string>
 
 int gcd(int a, int b) {
     if (b == 0)
