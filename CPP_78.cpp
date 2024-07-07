@@ -1,21 +1,9 @@
-#include <iostream>
-#include <string>
-
-int hex_key(const std::string& str) {
+int hex_key(const std::string& s) {
     int result = 0;
-    for (char c : str) {
+    for (char c : s) {
         if (std::isxdigit(std::toupper(c))) { 
-            result++;
+            result += std::isxdigit(std::toupper(c)) ? 1 : 0; 
         }
     }
     return result;
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    getline(std::cin, str);
-    int key = hex_key(str);
-    std::cout << "Number of hexadecimal digits: " << key << std::endl;
-    return 0;
 }
