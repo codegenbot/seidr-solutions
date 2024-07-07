@@ -13,3 +13,4 @@ def solve_boolean(expression):
                     result &= (expression == 'T')
                 else:
                     result |= (expression == 'T')
+        return result
