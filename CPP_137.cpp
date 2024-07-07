@@ -6,37 +6,33 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string s = (string)b.convert_to<string>();
-        size_t pos = s.find(',');
+        return max((int)a.convertible_to<int>(), (float)b.convertible_to<float>());
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (b.convertible_to<string>()) > to_string(a.convertible_to<int>()) ? b : "None";
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)b;
+        size_t pos = str.find(',');
         if (pos != string::npos) {
-            s.erase(pos, 1);
+            float a1 = stof(str.substr(0, pos));
+            float a2 = stof(str.substr(pos + 1));
+            return max(a1, a2);
         }
-        return max((float)a.convert_to<float>(), stof(s));
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if ((string)a.convert_to<string>() > (string)b.convert_to<string>()) {
-            return a;
-        } else if ((string)a.convert_to<string()] < (string)b.convert_to<string>()) {
-            return b;
-        } else {
-            return boost::any("None");
+        else {
+            return (stof(str)) > a.convertible_to<float>() ? b : "None";
         }
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = (string)b.convert_to<string>();
-        size_t pos = s.find(',');
-        if (pos != string::npos) {
-            s.erase(pos, 1);
-        }
-        return max((int)a.convert_to<int>(), stof(s));
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int i = (int)b.convert_to<int>();
-        size_t pos = (string)a.find(',');
-        if (pos != string::npos) {
-            (string)a.erase(pos, 1);
-        }
-        return max(stof((string)a), i);
-    } else {
-        return boost::any("None");
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (string)b > a ? b : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return max(a.convertible_to<int>(), b.convertible_to<int>()) == a.convertible_to<int>() ? "None" : boost::any(b);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max(a.convertible_to<float>(), b.convertible_to<float>()) == a.convertible_to<float>() ? "None" : b;
+    }
+    else {
+        return "None";
     }
 }
