@@ -11,17 +11,15 @@ std::vector<float> derivative(std::vector<float> a) {
     return result;
 }
 
-bool same(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 1e-9) return false;
+bool isEqual(std::vector<float> A, std::vector<float> B) {
+    if (A.size() != B.size()) return false;
+    for (int i = 0; i < A.size(); ++i) {
+        if (std::abs(A[i] - B[i]) > 1e-9) return false;
     }
     return true;
 }
 
 int main() {
-    std::vector<float> input(3);
-    input[0] = 1.0f; input[1] = 2.0f; input[2] = 3.0f;
-    assert(same(input, derivative({1})));
+    assert(isEqual(derivative({1}), {}));  
     return 0;
 }
