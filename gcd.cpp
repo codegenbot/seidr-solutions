@@ -1,6 +1,5 @@
-```
 #include <vector>
-#include <string>
+#include <string>  
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -28,10 +27,10 @@ vector<int> findIndices(string text, string target) {
                 }
                 if(found) {
                     indices.push_back(k);
+                    k += targetLength;
                 } else {
                     break;
                 }
-                k += targetLength;
             }
         }
     }
