@@ -1,7 +1,4 @@
 #include <string>
-#include <iostream>
-
-using namespace std;
 
 string remove_vowels(string text){
     string result = "";
@@ -13,9 +10,4 @@ string remove_vowels(string text){
         }
     }
     return result;
-}
-
-int main(){
-    assert (remove_vowels("ybcd") == "ybcd");
-    return 0;
 }
