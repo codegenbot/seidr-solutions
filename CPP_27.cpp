@@ -1,9 +1,11 @@
-char temp;
-for(int i = 0; i < str.length(); i++) {
-    temp = str[i];
-    if(temp >= 'a' && temp <= 'z')
-        str[i] = temp - ('a' - 'A');
-    else if(temp >= 'A' && temp <= 'Z')
-        str[i] = temp - ('A' - 'a');
+string filp_case(string str){
+    string result = "";
+    for(int i = 0; i < str.length(); i++){
+        char ch = str[i];
+        if(ch >= 'a' && ch <= 'z')
+            result += (ch - ('a' - 'A'));
+        else 
+            result += ch;
+    }
+    return result;
 }
-return str;
