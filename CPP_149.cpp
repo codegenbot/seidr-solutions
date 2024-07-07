@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<string> a,vector<string>b){
     return a==b;
 }
@@ -8,6 +9,19 @@ vector<string> sorted_list_sum(vector<string> lst) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end());
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
     return result;
+}
+int main() {
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> result = sorted_list_sum(lst);
+    assert (issame(result , {"cc","dd","aaaa","bbbb"})); 
+    return 0;
 }
