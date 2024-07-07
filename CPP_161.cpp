@@ -1,19 +1,11 @@
-string solve(string s){
+string solve(string s) {
     string result = "";
-    bool hasLetter = false;
-
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            hasLetter = true;
-            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
         } else {
-            result += s[i];
+            result += c;
         }
     }
-
-    if(!hasLetter){
-        reverse(result.begin(), result.end());
-    }
-
-    return result;
+    return result.empty() ? string(s).reverse() : result;
 }
