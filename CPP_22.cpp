@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -12,11 +13,9 @@ std::vector<int> filter_integers(std::list<boost::any> values){
         if (boost::any_cast<int>(value).good()) {
             result.push_back(boost::any_cast<int>(value).get());
         }
-        else if (boost::any_cast<char>(value).good()) {
-            int num = boost::any_cast<char>(value);
-            if(num >= '0' && num <= '9') {
-                result.push_back(num - '0');
-            }
+        else if (boost::any_cast<std::string>(value).good()) {
+            int temp = std::stoi(boost::any_cast<std::string>(value).get().str());
+            result.push_back(temp);
         }
     }
     return result;
