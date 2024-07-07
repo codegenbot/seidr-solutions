@@ -12,7 +12,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
     return result;
 }
 
-bool areSame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+bool operator==(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -24,8 +24,6 @@ bool areSame(const std::vector<std::string>& v1, const std::vector<std::string>&
     return true;
 }
 
-int main() {
-    std::vector<std::string> filteredStrings = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
-    assert(areSame(filteredStrings, {"xxx", "xxxAAA", "xxx"}));
-    return 0;
-}
+std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
+assert(std::operator==(result, {"xxx", "xxxAAA", "xxx"}));
+return 0;
