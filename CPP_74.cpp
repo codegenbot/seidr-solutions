@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -23,9 +24,7 @@ int main() {
     int sum1 = total_match(vec1);  
     int sum2 = total_match(vec2);
 
-    if (!issame({{{"this"}}}, {{}} )) {
-        assert(false);
-    }
+    assert(issame({{{"this"}}}, {{}} ));
 
     return 0;
 }
