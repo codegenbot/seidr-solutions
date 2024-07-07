@@ -7,18 +7,15 @@ int choose_num(int, int);
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    if (!(std::cin >> num1 >> num2)) {
+    if (!(std::cin >> input)) {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
-        return 1; 
+        return 1; // Return with error code
     }
+    num1 = std::stoi(input); 
+    std::cin >> input;
+    num2 = std::stoi(input);
     int result = choose_num(num1, num2);
-    std::cout << "Result: ";    
-    if (num1 > num2)
-        std::cout << num1;
-    else
-        std::cout << num2;
-
-    std::cout << std::endl;
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
 
