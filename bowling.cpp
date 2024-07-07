@@ -2,19 +2,24 @@
 
 int bowlingScore(string str) {
     int score = 0;
-    int currentRoll = 0;
     for (char c : str) {
         if (c == '/') {
-            if (currentRoll > 1) {
-                score += currentRoll;
-            } else if (currentRoll == 1) {
-                score += 10;
+            if (str[str.find(c) - 1] != 'x') {
+                score += 10 - (str.find(c) - 1);
             }
-            currentRoll = 0;
         } else if (isdigit(c)) {
-            currentRoll *= 10 + (c - '0');
-        } else {
-            currentRoll++;
+            int currentRoll = (c - '0');
+            for (char d : str.substr(str.find(c) + 1)) {
+                if (d == '/') {
+                    score += currentRoll;
+                    break;
+                } else if (isdigit(d)) {
+                    currentRoll *= 10 + (d - '0');
+                } else {
+                    currentRoll++;
+                }
+            }
         }
     }
     return score;
+}
