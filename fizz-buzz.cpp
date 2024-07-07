@@ -1,12 +1,24 @@
 #include <string>
+using namespace std;
 
-std::string fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0)
-        return "FizzBuzz";
-    else if (x % 3 == 0)
-        return "Fizz";
-    else if (x % 5 == 0)
-        return "Buzz";
-    else
-        return std::to_string(x);
+class Solution {
+public:
+    string numberToWords(int num) {
+        if (num % 3 == 0 && num % 5 == 0)
+            return "FizzBuzz";
+        else if (num % 3 == 0)
+            return "Fizz";
+        else if (num % 5 == 0)
+            return "Buzz";
+        else
+            return to_string(num);
+    }
+};
+
+int main() {
+    Solution solution;
+    cout << solution.numberToWords(3) << endl;  
+    cout << solution.numberToWords(5) << endl;  
+    cout << solution.numberToWords(15) << endl; 
+    return 0;
 }
