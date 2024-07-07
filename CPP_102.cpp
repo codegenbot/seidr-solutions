@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -30,3 +31,4 @@ int main() {
         std::cout << "Greater number is " << s2 << std::endl;
 
     return 0;
+}
