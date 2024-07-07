@@ -3,10 +3,11 @@ using namespace std;
 
 int how_many_times(string str, string substring) {
     int count = 0;
-    size_t pos = 0;
-    while ((pos = str.find(substring)) != string::npos) {
+    auto start = str.begin();
+    while ((start += distance(str.begin(), str.find(substring, distance(start, str.end())))) 
+           != str.end()) {
         count++;
-        pos = str.find(substring, pos + 1);
+        start += distance(str.begin(), str.find(substring, distance(start, str.end())));
     }
     return count;
 
