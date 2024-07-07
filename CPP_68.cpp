@@ -1,6 +1,15 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
+bool same(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
@@ -20,7 +29,7 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input, output;
+    std::vector<int> input(n), output;
     int n;
 
     // Read input
