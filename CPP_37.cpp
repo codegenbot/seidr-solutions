@@ -1,10 +1,6 @@
 ```cpp
 #include <vector>
 #include <cmath>
-#include <initializer_list>
-
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wignored-messages"
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;
@@ -51,7 +47,6 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    #define _SCL_SECURE_NO_WARNINGS
     std::vector<float> result = sort_even(input);
     for (float val : result) {
         std::cout << val << " ";
