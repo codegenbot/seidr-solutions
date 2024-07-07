@@ -21,9 +21,9 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> coeffs;
-    for (std::vector<double>::iterator it = coeffs.begin(); ; ) {
-        double &temp = *it;
+    double coeffs[];
+    
+    for (double &temp; ; ) {
         std::cin >> temp;
         if (std::cin.fail()) break;
         coeffs.push_back(temp);
