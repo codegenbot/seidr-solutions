@@ -1,4 +1,3 @@
-```
 #include <string>
 
 bool isPrime(int n) {
