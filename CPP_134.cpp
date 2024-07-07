@@ -1,14 +1,21 @@
-Here is the completed code:
-
 bool check_if_last_char_is_a_letter(string txt) {
-    int lastCharIndex = txt.length() - 1;
-    if (lastCharIndex < 0) return false;
-    char lastChar = txt[lastCharIndex];
-    if (!isalpha(lastChar)) return false;
-    for (int i = 0; i < lastCharIndex; i++) {
-        if (isspace(txt[i]) || !isalpha(txt[i])) {
-            return true;
+    if (txt.empty()) {
+        return false;
+    }
+    char lastChar = txt.back();
+    string word = "";
+    for (int i = 0; i < txt.size(); i++) {
+        if (txt[i] != ' ') {
+            word += txt[i];
+        } else {
+            if (!word.empty() && isalpha(lastChar)) {
+                return false;
+            }
+            word = "";
         }
+    }
+    if (!word.empty() && isalpha(lastChar)) {
+        return true;
     }
     return false;
 }
