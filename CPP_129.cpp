@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -60,6 +61,5 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-
     return 0;
 }
