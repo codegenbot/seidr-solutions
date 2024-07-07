@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <algorithm>
 #include <string>
@@ -24,8 +25,10 @@ std::string anti_shuffle(std::string s) {
     return result;
 }
 
-int main(){
-    std::string input;
+int main() {
+    std::string s;
     std::cout << "Enter a string: ";
-    std::cin >> input;
-    std::cout << "Antisuffled string: " << anti_shuffle(input) << std::endl;
+    std::getline(std::cin, s);
+    std::cout << anti_shuffle(s) << std::endl;  
+    return 0;
+}
