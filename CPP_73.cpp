@@ -18,9 +18,9 @@ int smallest_change(vector<int> arr) {
         }
     }
     
-    if (dp[0][n - 1] < n) {
-        return dp[0][n - 1];
+    if (dp[0][n - 1] > n) {
+        return "Error: No valid coin change found.";
     } else {
-        throw runtime_error("No valid change possible");
+        return dp[0][n - 1];
     }
 }
