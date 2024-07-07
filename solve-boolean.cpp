@@ -13,13 +13,13 @@ bool evaluate(const string &expression) {
         } else {
             char operator = operators.top();
             if (operator == '|') {
-                result |= expression[i];
+                result ||= expression[i];
             } else if (operator == '&') {
-                result &= expression[i];
+                result &&= expression[i];
             } else if (operator == '^') {
-                result ^= expression[i];
+                result != expression[i];
             }
         }
     }
-    return result && expression != "false";
+    return result;
 }
