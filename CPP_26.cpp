@@ -12,4 +12,3 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     auto it = std::unique(result.begin(), result.end());
     result.erase(it, result.end());
     return result;
-}
