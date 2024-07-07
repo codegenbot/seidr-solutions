@@ -1,10 +1,12 @@
-```cpp
-long long minSubArraySum(vector<long long> numVec) {
-    long long min_sum = LLONG_MAX;
-    for (int i = 0; i < numVec.size(); i++) {
-        long long sum = 0;
-        for (int j = i; j < numVec.size(); j++) {
-            sum += numVec[j];
+```
+#include <climits>
+
+int minSubArraySum(std::vector<int> nums) {
+    int min_sum = INT_MAX;
+    for (int i = 0; i < nums.size(); i++) {
+        int sum = 0;
+        for (int j = i; j < nums.size(); j++) {
+            sum += nums[j];
             if (sum < min_sum) {
                 min_sum = sum;
             }
