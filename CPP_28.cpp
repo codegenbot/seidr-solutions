@@ -1,15 +1,25 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result;
-    for (const auto& str : strings) {
-        result += str + "\n";
-    }
-    return result; 
-}
-
 int main() {
-    assert(concatenate({"x", "y", "z", "w", "k"}) == "xy\nz\nw\ nk");
+    std::vector<std::string> strings;
+    std::string input;
+
+    while (std::cin >> input) {
+        strings.push_back(input);
+    }
+
+    if (!strings.empty()) {
+        for (const auto& str : strings) {
+            if (str == strings[0]) {
+                std::cout << str << " ";
+            } else {
+                std::cout << strings[0] + str << " ";
+            }
+        }
+    }
+
     return 0;
 }
