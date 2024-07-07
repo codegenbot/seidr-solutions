@@ -1,15 +1,13 @@
-Here is the completed code:
+Here is the solution:
 
-int next_smallest(vector<int> lst){
-    if (lst.size() < 2) {
-        return -1; // or any other value that represents None
+int next_smallest(vector<int> lst) {
+    vector<int> v = lst;
+    if(v.size() < 2) return -1; // Return None in Python
+    sort(v.begin(), v.end());
+    for(int i=0; i<v.size()-1; i++) {
+        if(v[i] != v[i+1]) {
+            return v[i+1];
+        }
     }
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    auto it = upper_bound(sorted.begin(), sorted.end(), sorted[0]);
-    if (it != sorted.end()) {
-        return *it;
-    } else {
-        return -1; // or any other value that represents None
-    }
+    return -1; // Return None in Python
 }
