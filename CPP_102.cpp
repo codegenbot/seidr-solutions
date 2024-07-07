@@ -21,7 +21,7 @@ int main() {
     }
     
     std::string s1 = line.substr(0, pos);
-    line.erase(0, pos + 1); 
+    line.erase(pos);
     std::string s2 = line;
 
     int num1 = std::stoi(s1);
