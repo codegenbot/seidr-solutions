@@ -1,23 +1,34 @@
-string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = word.size() - 1; i >= 0; --i) {
-        if (!isalpha(word[i]) || isvowel(word[i])) {
-            break;
-        }
-        ++left;
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+std::string get_closest_vowel(std::string word) {
+    int i = word.length() - 1;
+    
+    while (i >= 0 && !isVowel(word[i])) {
+        --i;
     }
-
-    if (left == word.size()) return "";
-
-    int right = left + 1;
-    while (right < word.size() && !isalpha(word[right]) && !isvowel(word[right]))
-        ++right;
-
-    for (; right > left; --right) {
-        if (isvowel(word[right])) {
-            return string(1, tolower(word[right]));
-        }
+    
+    if (i < 0) return "";
+    
+    for (int j = i; j > 0; --j) {
+        if (!isVowel(word[j-1]) || word[j-1] == word[i]) break;
+        --i;
     }
+    
+    return word.substr(i, 1);
+}
 
-    return "";
+bool isVowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int main() {
+    std::cout << get_closest_vowel("yogurt") << std::endl;
+    std::cout << get_closest_vowel("FULL") << std::endl;
+    std::cout << get_closest_vowel("quick") << std::endl;
+    std::cout << get_closest_vowel("ab") << std::endl;
+
+    return 0;
 }
