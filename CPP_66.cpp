@@ -1,17 +1,13 @@
 #include <string>
-#include <cctype>
 
-int digitSum(std::string s) {
+int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
         if (isupper(c)) {
             sum += tolower(c) - 'a' + 1;
+        } else if (isdigit(c)) {
+            sum += c - '0';
         }
     }
-    return sum % 26;
-}
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 14);
-    return 0;
+    return sum;
 }
