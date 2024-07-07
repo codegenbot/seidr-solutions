@@ -1,10 +1,11 @@
 #include <vector>
 #include <cmath>
 
-int calculateFuelCost(std::vector<int> numbers) {
+int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int result = std::floor((double)num / 3);
+        int result = (num / 3);
+        result = floor(result);
         result -= 2;
         sum += result;
     }
