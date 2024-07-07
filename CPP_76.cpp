@@ -12,6 +12,6 @@ int main() {
     std::cin >> x;
     std::cout << "Enter the value of n: ";
     std::cin >> n;
-    assert(is_simple_power(x, n));
+    assert(is_simple_power(x, n)==true);
     return 0;
 }
