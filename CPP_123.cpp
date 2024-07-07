@@ -5,7 +5,15 @@
 
 using namespace std;
 
-std::vector<int> get_odd_collatz(int n) {
+bool isSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<int> getOddCollatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
@@ -28,7 +36,7 @@ int main() {
         cout << "Invalid input. Please enter a non-negative integer." << endl;
         return -1;
     }
-    vector<int> output = get_odd_collatz(input);
+    vector<int> output = getOddCollatz(input);
     for (int num : output) {
         cout << num << " ";
     }
