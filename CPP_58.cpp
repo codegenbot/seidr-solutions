@@ -2,7 +2,6 @@
 #include <set>
 #include <algorithm>
 #include <sstream>
-#include <initializer_list<>>
 
 namespace std {
     bool same(std::vector<int> a, std::vector<int> b) {
