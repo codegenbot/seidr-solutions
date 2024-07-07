@@ -1,12 +1,10 @@
-char temp;
-
-for(int i = 0; i < str.length(); i++) {
-    temp = tolower(str[i]);
-    if(temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u') {
-        temp = toupper(str[i]);
-    } else if(isupper(str[i])) {
-        temp = tolower(str[i]);
+string flip_case(string str){
+    string result = "";
+    for(char c : str){
+        if(isalpha(c)){
+            c = (islower(c)) ? toupper(c) : tolower(c);
+        }
+        result += c;
     }
-    str[i] = temp;
+    return result;
 }
-return str;
