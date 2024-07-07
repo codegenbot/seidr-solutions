@@ -1,22 +1,18 @@
-#include <string>
-
-int bowlingScore(string str) {
+```
+int bowlingScore(std::string str) {
     int score = 0;
+    int currentRoll = 0;
     for (char c : str) {
         if (c == '/') {
-            if (score % 2 != 0) {
-                score += 10 - (str.find('/') - str.find_last_of('0') + 1);
+            if (currentRoll < 2) {
+                score += 10 - currentRoll;
             }
-            score++;
+            currentRoll = 0;
         } else if (isdigit(c)) {
-            int temp = c - '0';
-            while (str[str.find_last_of('0') + 1] == '0' && str.find_last_of('0') < str.size() - 1) {
-                temp *= 10;
-                str.erase(str.find_last_of('0'), 1);
-            }
-            score += temp;
+            currentRoll *= 10 + (c - '0');
         } else {
-            score++;
+            currentRoll++;
         }
     }
     return score;
+}
