@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <cassert>
 
@@ -14,7 +13,8 @@ int main() {
     std::cout << "Enter a positive number: ";
     std::cin >> num; 
     if (num >= 0) {
-        assert(search(10) == 10);
+        int testValue = 10; 
+        assert(search(testValue) == testValue);
     } else {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }

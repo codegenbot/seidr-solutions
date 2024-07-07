@@ -25,7 +25,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() { 
+int problemMain() { 
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (arr.size() == 0) {
@@ -34,5 +34,10 @@ int main() {
     if (!compareVectors(maximum(arr, k), std::vector<int>({0, 243, -23, 3}))) {
         return 1; // Return error code
     }
+    return 0;
+}
+
+int main() { 
+    problemMain();
     return 0;
 }
