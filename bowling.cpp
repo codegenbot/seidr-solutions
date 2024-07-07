@@ -10,13 +10,17 @@ int bowlingScore(string s) {
             }
             roll = 0;
         } else if (isdigit(c)) {
-            roll++;
-        } else { // X
-            if (roll == 1) {
-                score += 10;
-            } else {
-                score += 10 + (stoi(s.substr(s.find('X') - 1, 2)) - 10);
+            int pins = stoi(string(1, c));
+            if (roll > 0) {
+                pins += stoi(string(1, c));
             }
+            score += pins;
+            roll++;
+            if (roll == 2) {
+                roll = 0;
+            }
+        } else { // X
+            score += 10;
             roll = 0;
         }
     }
