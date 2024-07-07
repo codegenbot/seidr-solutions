@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 int digitSum(const std::string& str) {
     int sum = 0;
     for (char c : str) {
-        if (c >= '0' && c <= '9') {
+        if (isdigit(c)) {
             sum += (c - '0');
         }
     }
