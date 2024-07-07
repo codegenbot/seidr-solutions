@@ -1,32 +1,23 @@
-#include <string>
-#include <algorithm>
+#include <openssl/evp.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
-    unsigned char md5[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const unsigned char* ptr = text.c_str();
-    size_t len = text.length();
-    while(len > 0 && len <= 1024-1) {
-        MD5_Update(&ctx, (unsigned char*)ptr, len);
-        ptr += len; len = 0;
-    }
-    if (len > 0) {
-        unsigned char* buffer = new unsigned char[1024];
-        memcpy(buffer, ptr, len);
-        memset(&buffer[len], 0, 1024-len);
-        MD5_Update(&ctx, buffer, 1024-1);
-        delete[] buffer;
-    }
-    MD5_Final(md5, &ctx);
 
-    string result(32, '0');
-    for(int i = 0; i < 16; ++i) {
-        char temp[3];
-        sprintf(temp, "%02x", md5[i]);
-        result.replace(i*2, 2, temp);
+    unsigned char md[16];
+    EVP_MD_CTX ctx;
+    EVP_PKEY key;
+    const EVP_MD *mdalg = EVP_get_digestbyname("MD5");
+    
+    EVP_DigestInit_ex(&ctx, mdalg, NULL);
+    EVP_DigestUpdate(&ctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(&ctx, md, NULL);
+
+    string result;
+    for (int i = 0; i < 16; ++i) {
+        char buff[3];
+        sprintf(buff, "%02x", md[i]);
+        result += buff;
     }
+    
     return result;
 }
