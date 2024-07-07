@@ -1,13 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <list>
-
-bool compareVectors(std::vector<int> a, std::vector<int> b) {
+```cpp
+bool isSame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<int> values) {
-    std::vector<int> result;
+vector<int> filterIntegers(list<int> values) {
+    vector<int> result;
     for (const auto& value : values) {
         if(value >= 0 && value <= 255) {
             result.push_back(value);
@@ -16,7 +13,7 @@ std::vector<int> filter_integers(std::list<int> values) {
     return result;
 }
 
-int mainCPP22() {
-    assert(compareVectors(filter_integers({3, 3, 3}), {3, 3, 3}));
+int main() {
+    assert(isSame(filterIntegers({3, 3, 3}), {3, 3, 3}));
     return 0;
 }
