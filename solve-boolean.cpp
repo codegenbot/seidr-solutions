@@ -1,9 +1,4 @@
 ```cpp
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 bool evaluateTerm(string term);
 bool solveBoolean(string s) {
     bool res = true;
@@ -36,7 +31,7 @@ bool evaluateTerm(string term) {
             subTerm = "";
         } 
         else if (c == 't' || c == 'f') {
-            subTerm += (c == 't') ? "tt" : "tf";
+            subTerm += (c == 't') ? "t" : "f";
         }
     }
     if (subTerm == "tt") res = true;
