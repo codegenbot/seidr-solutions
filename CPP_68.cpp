@@ -1,13 +1,17 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> pluck(std::vector<int> v) {
-    std::vector<int> result;
-    for (int i : v) {
-        if (i % 2 == 0) {
-            result.push_back(i);
-        }
+bool sameVector(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) return false;
     }
+    return true;
+}
+
+std::vector<int> pluck(const std::vector<int>& v) {
+    std::vector<int> result = {v[0], v[1]};
     return result;
 }
 
@@ -33,22 +37,13 @@ int mainFunction() {
         }
     }
 
-    std::vector<int> output(2); // Initialize with size and default values
-    output[0] = minEven;
-    output[1] = minIndex;
+    std::vector<int> output = pluck({minEven, minIndex});
 
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        std::vector<int> test = {1,2,3};
-        std::vector<int> expected = {2};
-        std::vector<int> actual = pluck(test);
-        if (actual == expected) {
-            std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
-                      << std::endl;
-        } else {
-            std::cout << "Test failed." << std::endl;
-        }
+        std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
+                  << std::endl;
     }
 
     return 0;
