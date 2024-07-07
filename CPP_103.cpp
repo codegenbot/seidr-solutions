@@ -1,6 +1,6 @@
 int main(){
     int n,m;
-    cin>>n>>m;
+    cin >> n >> m;
     if(n > m) cout << "-1";
     else {
         int sum = 0;
