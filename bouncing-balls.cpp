@@ -20,9 +20,9 @@ int main() {
         currentHeight = (2 * currentHeight) * bouncinessIndex; // Update the current height for the next bounce
     }
 
-    cout << fixed << setprecision(10);
+    cout << fixed << setprecision(4);
     cout << bouncinessIndex << endl;
-    cout << totalDistance + startHeight << endl;
+    cout << totalDistance + startHeight << endl; // Add the starting height back in
 
     return 0;
 }
