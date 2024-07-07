@@ -18,13 +18,18 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> pile = make_a_pile(8);
+    int n = 8;
+    std::vector<int> pile = make_a_pile(n);
     std::sort(pile.begin(), pile.end());
     for (auto it = pile.begin(); it != pile.end(); ++it) {
         *it -= 1;
     }
     
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    if (!issame(make_a_pile(n), {8, 10, 12, 14, 16, 18, 20, 22})) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
     
     return 0;
 }

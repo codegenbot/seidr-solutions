@@ -2,14 +2,14 @@
 #include <string>
 
 bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
-    if (b.size() == 0) return true;
+    if (b.empty()) return true;
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int total_match(const std::vector<std::vector<std::string>>& v) {
     int sum = 0;
-    for (const auto& vec : v) {
-        for (const auto& s : vec) {
+    for (std::vector<std::string> vec : v) {
+        for (const std::string& s : vec) {
             sum += s.size();
         }
     }
