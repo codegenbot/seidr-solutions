@@ -1,29 +1,34 @@
 ```cpp
 #include <iostream>
+#include <vector>
 #include <string>
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, abs(a % b));
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    int pos = 0;
+    
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos += target.length();
+    }
+    
+    return result;
 }
 
 int main() {
-    std::string str1 = "Indices of Substring (CW)";
-    std::string str2 = "CW";
+    std::string text;
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+
+    std::string target;
+    std::cout << "Enter the target string: ";
+    std::getline(std::cin, target);
     
-    size_t pos = 0;
-    std::vector<size_t> indices;
-    while ((pos = str1.find(str2, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += str2.size();
+    auto result = indicesOfSubstring(text, target);
+    
+    for (int i : result) {
+        std::cout << i << " ";
     }
     
-    int a = 12;
-    int b = 15; 
-    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
-    for (auto i : indices)
-        std::cout << "Index at which target string appears: " << i << std::endl;
     return 0;
 }
