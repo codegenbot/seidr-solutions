@@ -1,11 +1,10 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include <string>
 
 int closest_integer(double num) {
-    std::string str = (num >= 0 ? "" : "-") + std::to_string(static_cast<int>(std::round(num)));
-    return std::stoi(str);
+    return static_cast<int>(num);
 }
 
 int test_closest_integer() {

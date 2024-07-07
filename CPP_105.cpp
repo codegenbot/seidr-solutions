@@ -1,33 +1,19 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
 #include <algorithm>
-#include <string>
 
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            string str = to_string(num);
-            if (str == "1") str = "One";
-            else if (str == "2") str = "Two";
-            else if (str == "3") str = "Three";
-            else if (str == "4") str = "Four";
-            else if (str == "5") str = "Five";
-            else if (str == "6") str = "Six";
-            else if (str == "7") str = "Seven";
-            else if (str == "8") str = "Eight";
-            else if (str == "9") str = "Nine";
-            nums.push_back(str);
-        }
-    }
-
+    vector<string> output;
     map<int, int> lengthCount;
-    for (string num : nums) {
-        int len = num.length();
+    for (int num : arr) {
+        string str = to_string(num);
+        if (str.length() >= 1 && str.length() <= 9) {
+            str = (str == "1") ? "One" : ((str == "2") ? "Two" : ((str == "3") ? "Three" : ((str == "4") ? "Four" : ((str == "5") ? "Five" : ((str == "6") ? "Six" : ((str == "7") ? "Seven" : ((str == "8") ? "Eight" : "Nine")))))));
+        }
+        int len = str.length();
         if (lengthCount.find(len) != lengthCount.end()) {
             lengthCount[len]++;
         } else {
@@ -35,27 +21,9 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
-    vector<string> output;
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
         while (it->second > 0) {
-            if(it->first == 1)
-                output.push_back("One");
-            else if(it->first == 2)
-                output.push_back("Two");
-            else if(it->first == 3)
-                output.push_back("Three");
-            else if(it->first == 4)
-                output.push_back("Four");
-            else if(it->first == 5)
-                output.push_back("Five");
-            else if(it->first == 6)
-                output.push_back("Six");
-            else if(it->first == 7)
-                output.push_back("Seven");
-            else if(it->first == 8)
-                output.push_back("Eight");
-            else
-                output.push_back("Nine");
+            output.push_back((it->first == 2) ? "Two" : ((it->first == 3) ? "Three" : ((it->first == 4) ? "Four" : ((it->first == 5) ? "Five" : ((it->first == 6) ? "Six" : ((it->first == 7) ? "Seven" : ((it->first == 8) ? "Eight" : "Nine")))))));
             it->second--;
         }
     }

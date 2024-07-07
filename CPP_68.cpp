@@ -30,19 +30,19 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 }
 
 int mainFunction() {
-    int n = 0;
+    size_t n = 0;
 
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    std::vector<int> input(std::vector<int>(n)); 
+    std::vector<int> input;
+    input.resize(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> input[i];
     }
 
     // Process the array
-    std::vector<int> output;
     size_t minEven = std::numeric_limits<size_t>::max(), minIndex = -1;
 
     for (int i = 0; i < n; i++) {
@@ -52,6 +52,7 @@ int mainFunction() {
         }
     }
 
+    std::vector<int> output;
     output.push_back(minEven);
     output.push_back(minIndex);
 
