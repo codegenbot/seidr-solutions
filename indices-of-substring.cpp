@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     int prev_idx = -1;
     std::vector<int> result;
@@ -8,4 +12,13 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         }
     }
     return result;
+}
+
+int main() {
+    std::string text = "banana";
+    std::string target = "na";
+    auto indices = indicesOfSubstring(text, target);
+    for (auto i : indices) {
+        std::cout << i << "\n";
+    }
 }
