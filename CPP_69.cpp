@@ -1,36 +1,16 @@
-```cpp
-#include <iostream>
-using namespace std;
+#include <cassert>
 
-int search(int arr[], int n, int target) {
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == target)
-            return i;
-    }
-    return -1;
+int search(int n) {
+    if(n < 0)
+        return -1;
+    else
+        return n;
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    int arr[n];
-    for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> arr[i];
-    }
-
-    int target;
-    cout << "Enter the target element to search: ";
-    cin >> target;
-
-    int result = search(arr, n, target);
-
-    if (result != -1)
-        cout << "Element found at index " << result << endl;
-    else
-        cout << "Element not found" << endl;
-
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    assert(search(num) == num);
     return 0;
 }
