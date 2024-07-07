@@ -1,15 +1,15 @@
 #include <algorithm>
 #include <vector>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
     for (int i = 2; i <= n; ++i) {
         pile.push_back(i * 2);
     }
     return pile;
 }
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -21,12 +21,11 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    std::vector<int> pile = make_a_pile(8);
-    std::sort(pile.begin(), pile.end());
+void main() {
+    vector<int> pile = make_a_pile(8);
+    sort(pile.begin(), pile.end());
     for (auto it = pile.begin(); it != pile.end(); ++it) {
         *it -= 1;
     }
-    assert(same(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
 }
