@@ -1,4 +1,3 @@
-```cpp
 std::string solveBoolean(std::string input) {
     std::stack<char> s;
     for (int i = 0; i < input.length(); i++) {
@@ -23,5 +22,5 @@ std::string solveBoolean(std::string input) {
         s.pop();
     }
 
-    return result == "tt" ? "True" : (result == "tf" ? "False" : result == "ft" ? "True" : result == "ff" ? "False" : "");
+    return result == "t" ? "True" : "False";
 }
