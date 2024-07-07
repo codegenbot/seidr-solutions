@@ -3,20 +3,14 @@
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
-    bool wasDash = false;
     for (char c : s) {
         if (c == '-') {
-            wasDash = true;
+            result += char(toupper(c + 1));
         } else if (c != '-' && c != ' ') {
-            if (wasDash) {
-                result += toupper(c);
-                wasDash = false;
-            } else {
-                if (!result.empty()) {
-                    result[0] = toupper(result[0]);
-                }
-                result += c;
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
             }
+            result += c;
         }
     }
     return result;
