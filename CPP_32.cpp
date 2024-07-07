@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -10,7 +9,8 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
     
-    std::vector<double> coeffs(ncoeff); 
+    std::vector<double> coeffs;
+    coeffs.resize(ncoeff); 
 
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
