@@ -3,11 +3,12 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
+bool issame(vector<string> a) {
+    if (a.size() != 1)
         return false;
+    string b = "E";
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        if (a[i] != b)
             return false;
     }
     return true;
@@ -47,10 +48,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = numerical_letter_grade(fgrades);
-    vector<string> b = {"E", "D-" };
-    if (!issame(grades, b))
-        cout << "Test failed" << endl;
-    else
-        cout << "Test passed" << endl;
+    assert(issame({grades[0], grades[1]}));
     return 0;
 }
