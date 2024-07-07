@@ -4,57 +4,28 @@
 
 using namespace std;
 
-any compare_one(any a, any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a ? b : nullptr;
+std::any compare_one(std::any a, std::any b) {
+    if (any_cast<int>(a) > any_cast<float>(b)) {
+        return b;
     }
-    if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = any_cast<string>(b);
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            str[0] = '.';
-            return str;
-        } else {
-            return (int)stoi(str) > a ? b : nullptr;
-        }
+    else if (any_cast<int>(a) < any_cast<int>(b)) {
+        return b;
     }
-    if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > b ? a : nullptr;
+    else if (any_cast<string>(a).find(',') != string::npos && 
+             any_cast<string>(b).find(',') == string::npos) {
+        return a;
     }
-    if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string str = any_cast<string>(a);
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            str[0] = '.';
-            return str;
-        } else {
-            return str > to_string(b) ? a : nullptr;
-        }
+    else if (any_cast<string>(a).find(',') == string::npos && 
+             any_cast<string>(b).find(',') != string::npos) {
+        return b;
     }
-    if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string str = any_cast<string>(b);
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            str[0] = '.';
-            return str > a ? b : nullptr;
-        } else {
-            return str > to_string(a) ? b : nullptr;
-        }
+    else if (any_cast<string>(a) > any_cast<string>(b)) {
+        return b;
     }
-    if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        size_t pos1 = str1.find(',');
-        string str2 = any_cast<string>(b);
-        size_t pos2 = str2.find(',');
-        if (pos1 != string::npos && pos2 != string::npos) {
-            return str2 > str1 ? b : nullptr;
-        } else if (pos1 == string::npos && pos2 != string::npos) {
-            return str2 > str1 ? b : nullptr;
-        } else if (pos1 != string::npos && pos2 == string::npos) {
-            return str1 > str2 ? a : nullptr;
-        } else {
-            return str1.compare(str2) > 0 ? a : nullptr;
-        }
+    else if (any_cast<string>(a) < any_cast<string>(b)) {
+        return a;
     }
-    return nullptr;
+    else {
+        return "None";
+    }
 }
