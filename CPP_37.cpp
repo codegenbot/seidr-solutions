@@ -1,21 +1,53 @@
-bool issame(float a, float b) {
-    return abs(a - b) < 0.0001;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            float minVal = l[0];
-            for (float val : l) {
-                if (!issame(val, minVal)) {
-                    minVal = val;
+            vector<float> evenVals;
+            for (int j = 0; j < l.size(); j++) {
+                if (j % 2 == 0) {
+                    evenVals.push_back(l[j]);
                 }
             }
-            result[i] = minVal;
+            sort(evenVals.begin(), evenVals.end());
+            result[i] = evenVals[0];
         } else {
             result[i] = l[i];
         }
     }
     return result;
+}
+
+int main() {
+    vector<float> input;
+    float num;
+    std::cout << "Enter numbers (enter -1 to stop): ";
+    while (true) {
+        std::cin >> num;
+        if (num == -1.0f) {
+            break;
+        }
+        input.push_back(num);
+    }
+    vector<float> output = sort_even(input);
+    for (float f : output) {
+        std::cout << f << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
