@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 bool solveBoolean(string s) {
     bool result = true;
     for (char c : s) {
@@ -10,7 +13,6 @@ bool solveBoolean(string s) {
         } else if (c == '|') {
             while (!result && s.size() > 1 && s.back() == '|') {
                 s.pop_back();
-            }
         }
     }
-    return result ? true : false;
+    return result;
