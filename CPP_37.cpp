@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -51,10 +49,9 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    { 
-        std::vector<float> result = sort_even(input);
-        for (float val : result) {
-            std::cout << val << " ";
-        }
+    std::vector<float> result = sort_even(input);
+    for (float val : result) {
+        std::cout << val << " ";
     }
+    std::cout << std::endl;
 }
