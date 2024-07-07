@@ -7,12 +7,12 @@ using namespace std;
 double shoppingList(vector<double> prices, vector<double> discounts) {
     double total = 0;
     for(int i = 0; i < prices.size(); i++) {
-        total += prices[i];
-    }
-    for(int i = 0; i < prices.size(); i++) {
-        if(discounts[i] > 0) {
-            total -= (total * discounts[i]/100);
-        }
+        double price = prices[i];
+        if(price < 0) price = 0;
+        total += price;
+        
+        double discount = price * (discounts[i]/100);
+        total -= discount;
     }
     return total;
 }
