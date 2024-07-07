@@ -24,4 +24,3 @@ int main() {
         cout << leader << endl;
     }
     return 0;
-}
