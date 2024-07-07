@@ -1,11 +1,22 @@
+#include<string>
+#include<algorithm>
+using namespace std;
+
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
-        if (!isalnum(word[i])) continue;
-        if (isvowel(word[i])) return string(1, tolower(word[i]));
-        while (!isalnum(word[i-1])) --i;
-        if (isvowel(word[i-1])) return string(1, tolower(word[i-1]));
+    int left = 0;
+    for (int i = word.size() - 1; i >= 0; i--) {
+        if (!isvowel(word[i])) {
+            left = i + 1;
+            break;
+        }
     }
+
+    for (int i = left; i < word.size(); i++) {
+        if (isvowel(word[i])) {
+            return string(1, tolower(word[i]));
+        }
+    }
+
     return "";
 }
 
