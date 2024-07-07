@@ -4,7 +4,7 @@
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     if (arr.empty()) {
-        result.push_back(INT_MAX);
+        result.push_back(-1);
         result.push_back(-1);
         return result;
     }
@@ -29,6 +29,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}) , {}));
+    assert(issame(pluck({7, 9, 7, 1}) , {});
     return 0;
 }
