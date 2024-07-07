@@ -3,7 +3,7 @@
 
 using namespace std;
 
-double snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
+double snowDay(int hours, double groundSnow, double rateOfSnowFall, double proportionOfSnowMeltingPerHour) {
     double totalSnow = 0;
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
@@ -14,7 +14,7 @@ double snowDay(int hours, float groundSnow, float rateOfSnowFall, float proporti
 
 int main() {
     int hours;
-    float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    double groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     cin >> hours >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
