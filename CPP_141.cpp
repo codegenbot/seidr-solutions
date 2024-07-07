@@ -1,35 +1,31 @@
-int count_digits(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            count++;
+string file_name_check(string file_name){
+    int dot_count = 0;
+    int digit_count = 0;
+    char prev_char = ' ';
+
+    for(int i=0; i<file_name.size(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+            prev_char = '.';
+        }else if(isdigit(file_name[i])){
+            digit_count++;
+            prev_char = file_name[i];
+        }else{
+            if(prev_char != '.' && !isalpha(prev_char) && prev_char != ' '){
+                return "No";
+            }
+            prev_char = file_name[i];
         }
     }
-    return count;
-}
 
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    if (digit_count > 3) {
+    if(digit_count > 3 || dot_count != 1)
         return "No";
-    }
 
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+    size_t pos = file_name.find('.');
+    string ext = file_name.substr(pos+1);
+    
+    if(ext != "txt" && ext != "exe" && ext != "dll")
         return "No";
-    }
-
-    string prefix = file_name.substr(0, dot_pos);
-    string suffix = file_name.substr(dot_pos + 1);
-
-    if (!isalpha(prefix[0])) {
-        return "No";
-    }
-
-    vector<string> valid_suffixes = {"txt", "exe", "dll"};
-    if (find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end()) {
-        return "No";
-    }
-
+    
     return "Yes";
 }
