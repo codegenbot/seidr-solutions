@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cassert>
 
@@ -11,15 +10,15 @@ int search(int n) {
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    
-    // Convert the integer to string and store it in a variable
-    std::string str = std::to_string(num);
-    
-    if (num < 0) {
-        std::cout << "The search function returns -1 for negative numbers." << std::endl;
+    std::cout << "Enter a positive number: ";
+    char str[100]; 
+    std::cin >> str; 
+    for(int i=0; str[i]; i++){
+        num = str[i] - '0';
+        if(num < 0)
+            continue;
+        else
+            return num;
     }
-    
     return 0;
 }
