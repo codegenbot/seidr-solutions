@@ -1,15 +1,20 @@
-Here is the completed code:
-
 bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
-
     bool allLower = true;
     bool allUpper = true;
 
-    for (auto &pair : dict) {
-        if (!allLower && !allUpper) break;
-        if (allLower && !islower(pair.first.begin(), pair.first.end())) allLower = false;
-        if (allUpper && !isupper(pair.first.begin(), pair.first.end())) allUpper = false;
+    for (auto& pair : dict) {
+        if (pair.first.empty()) {
+            return false;
+        }
+        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
+            allLower = false;
+            allUpper = false;
+            break;
+        } else if (allLower && !islower(pair.first[0])) {
+            allLower = false;
+        } else if (allUpper && islower(pair.first[0])) {
+            allUpper = false;
+        }
     }
 
     return allLower || allUpper;
