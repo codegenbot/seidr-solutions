@@ -5,10 +5,9 @@
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> l(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> l[i];
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        std::cin >> arr[i];
     }
-    
-    std::cout << abs(*std::max_element(l.begin(), l.end())) << '\n';
+    std::cout << abs(*std::max_element(std::begin(arr), std::end(arr))) << '\n';
 }
