@@ -13,7 +13,7 @@ std::string spinWords(std::string str) {
         else
             result += word + " ";
     }
-    return result;
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
