@@ -1,13 +1,6 @@
 #include <string>
 #include <cassert>
 
-std::string int_to_mini_roman(int num) {
-    if (num <= 0)
-        return "";
-    std::string roman = toMiniRomanHelper(num, "", "MDC");
-    return roman;
-}
-
 std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
     if (num == 0)
         return roman;
@@ -34,5 +27,16 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
         }
     }
 
-    return toMiniRomanHelper(num, roman, "");
+    return roman;
+}
+
+std::string int_to_mini_roman(int num) {
+    if (num <= 0)
+        return "";
+    return toMiniRomanHelper(num, "", "MDC");
+}
+
+int main() {
+    assert(int_to_mini_roman(1000).compare("M") == 0);
+    return 0;
 }
