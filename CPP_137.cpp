@@ -1,24 +1,24 @@
-using namespace boost;
+Here is the completed code:
 
-any compare_one(any a, any b) {
-    if (is_none(a) && is_none(b)) return "None";
-    
-    double ad = get<double>(a);
-    double bd = get<double>(b);
-    
-    if (!get<string>(a).empty()) {
-        string as = get<string>(a);
-        if (!as.find(".") == string::npos || !as.find(",") == string::npos) 
-            ad = stod(as);
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+using namespace std;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return max(a.convert_to<int>(), b.convert_to<int>());
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return max(a.convert_to<double>(), b.convert_to<double>());
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+               (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string s1 = boost::any_cast<string>(a);
+        string s2 = boost::any_cast<string>(b);
+        if (s1 > s2)
+            return a;
+        else
+            return b;
+    } else {
+        return boost::any("None");
     }
-    
-    if (!get<string>(b).empty()) {
-        string bs = get<string>(b);
-        if (!bs.find(".") == string::npos || !bs.find(",") == string::npos) 
-            bd = stod(bs);
-    }
-    
-    if (ad > bd) return a;
-    else if (bd > ad) return b;
-    else return "None";
 }
