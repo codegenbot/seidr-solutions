@@ -1,4 +1,7 @@
-int count_nums(vector<int> nums) {
+#include <iostream>
+#include <vector>
+
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
@@ -11,7 +14,7 @@ int count_nums(vector<int> nums) {
                 count++;
             }
         } else {
-            num = -num; // convert to positive
+            num = -num; 
             int sum = 0;
             bool is_negative = true;
             while (num > 0) {
