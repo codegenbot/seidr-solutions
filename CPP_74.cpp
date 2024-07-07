@@ -18,7 +18,7 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
     return sum;
 }
 
-std::vector<std::string> v;
+std::vector<std::string> v = {};
 
 bool check(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (!issame(a, b)) return false;
