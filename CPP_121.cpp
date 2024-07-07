@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <vector>
 #include <initializer_list>
@@ -13,6 +14,6 @@ int solution(std::initializer_list<int> vec) {
 
 int testMain() {
     std::vector<int> vec = {3, 13, 2, 9};
-    assert(solution({3, 13, 2, 9}) == 16);
+    assert(solution({3, 13, 2, 9}) == 169); 
     return 0;
 }
