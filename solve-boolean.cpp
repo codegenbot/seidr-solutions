@@ -10,11 +10,9 @@ bool solveBoolean(string s) {
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == '|') {
-            if (!term.empty()) {
-                bool subRes = evaluateTerm(term);
-                res = res || subRes;
-                term = "";
-            }
+            bool subRes = evaluateTerm(term);
+            res = res || subRes;
+            term = "";
         } 
         else if (c == 't' || c == 'f') {
             if (c == 't') term += 't';
