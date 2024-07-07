@@ -1,10 +1,13 @@
 #include <cmath>
-using namespace std;
 
 bool is_simple_power(int x, int n) {
-    return pow(n, ceil(log(x)/log(n))) == x;
+    double log_x = log((double)x);
+    double log_n = log((double)n);
+    
+    return (log_x / log_n) == round(log_x / log_n);
 }
 
 int main() {
-    assert (is_simple_power(1, 12)==true);
+    assert(is_simple_power(1, 12) == true);
+    return 0;
 }
