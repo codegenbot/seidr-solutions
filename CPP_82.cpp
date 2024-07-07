@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 bool prime_length(int len) {
@@ -6,7 +7,6 @@ bool prime_length(int len) {
             return false;
     }
     return true;
-
 }
 
 int main() {
