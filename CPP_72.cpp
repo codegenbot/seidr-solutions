@@ -1,7 +1,6 @@
-```cpp
-#include <vector>
+#include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
@@ -20,4 +19,9 @@ bool is_palindrome(std::string s) {
     std::string t = s;
     std::reverse(t.begin(), t.end());
     return s == t;
+}
+
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    return 0;
 }
