@@ -1,12 +1,26 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+int main() {
+    string class_name;
+    vector<string> extensions;
+
+    // Read input from user
+    cin >> class_name;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        string extension;
+        cin >> extension;
+        extensions.push_back(extension);
+    }
+
     int strongest_strength = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int cap = std::count(extension.begin(), extension.end(), toupper('a'));
+        int cap = count(extension.begin(), extension.end(), toupper);
         int sm = extension.size() - cap;
         double strength = static_cast<double>(cap) - sm;
 
@@ -16,12 +30,7 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
         }
     }
 
-    return class_name + "." + strongest_extension;
-}
+    cout << class_name + "." + strongest_extension << endl;
 
-int main() {
-    std::string class_name = "MyClass";
-    std::vector<std::string> extensions = {".cpp", ".txt", ".java"};
-    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
     return 0;
 }
