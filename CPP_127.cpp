@@ -1,5 +1,6 @@
-#include <algorithm>
+#include <cassert>
 #include <string>
+#include <initializer_list>
 
 std::string intersection(std::pair<int, int> interval1, std::pair<int, int> interval2) {
     int start = std::max(interval1.first, interval2.first);
@@ -9,10 +10,9 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
         return "YES";
     else
         return "NO";
-
 }
 
 int main() {
-    assert(std::make_pair(-2, -2) == intersection(std::make_pair(-2, -2), std::make_pair(-3, -2)));
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
     return 0;
 }
