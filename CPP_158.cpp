@@ -1,5 +1,3 @@
-Here is the solution:
-
 string find_max(vector<string> words){
     string max_word = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
@@ -8,9 +6,5 @@ string find_max(vector<string> words){
             }
             return a.length() > b.length();
         });
-    for (string word : words) {
-        if (word.length() == max_word.length() && word < max_word) {
-            max_word = word;
-        }
-    }
     return max_word;
+}
