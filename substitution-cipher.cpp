@@ -1,14 +1,14 @@
-```
 #include <string>
 #include <iostream>
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
-    for (int i = 0; i < cipher.size(); ++i) {
-        if (i < mapping.size()) {
-            result += mapping[i]; 
+    for (char c : cipher) {
+        int idx = mapping.find(c);
+        if (idx != std::string::npos) {
+            result.push_back(mapping[idx]); 
         } else {
-            result += cipher[i]; 
+            result.push_back(c); 
         }
     }
     return result;
@@ -19,4 +19,3 @@ int main() {
     std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
     std::cout << decode(cipher, mapping) << std::endl;
     return 0;
-}
