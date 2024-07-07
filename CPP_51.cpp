@@ -1,19 +1,15 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-std::string remove_vowels(std::string text){
-    std::string result = "";
+string remove_vowels(string text){
+    string result = "";
     for(int i=0; i<text.length(); i++){
-        if(text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u'
-           && text[i] != 'A' && text[i] != 'E' && text[i] != 'I' && text[i] != 'O' && text[i] != 'U')
+        if(!isvowel(text[i]))
             result += text[i];
     }
     return result;
 }
 
-int main() {
-    assert (remove_vowels("ybcd") == "ybcd");
-    return 0;
+bool isvowel(char c){
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
