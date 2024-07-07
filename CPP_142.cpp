@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -31,3 +32,4 @@ int main() {
     std::cout << "Sum of squares is: " << result << std::endl;
 
     return 0;
+}
