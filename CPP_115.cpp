@@ -1,10 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
-using namespace std;
-
-int max_fill(vector<vector<int>> grid) {
+int max_fill(std::vector<std::vector<int>> grid) {
     int max = 0;
     for (int i = 0; i < grid.size(); i++) {
         for (int j = 0; j < grid[0].size(); j++) {
@@ -34,7 +32,8 @@ int max_fill(vector<vector<int>> grid) {
 }
 
 int main() {
-    vector<vector<int>> grid = {{1,1,1,1},{1,1,1,1}};
+    std::vector<std::vector<int>> grid {{1,1,1,1},{1,1,1,1}};
     int result = max_fill(grid);
-    cout << "Maximum number of filled cells: " << result << endl;
-    return 0;
+    std::cout << "Maximum number of filled cells: " << result << std::endl;
+    return 0; 
+}

@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,7 +16,9 @@ int main() {
     float num1, num2;
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
-    std::vector<float> input = {num1, num2};
+    std::vector<float> input;
+    input.push_back(num1);
+    input.push_back(num2);
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
 }
