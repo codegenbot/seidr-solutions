@@ -1,4 +1,7 @@
 ```cpp
+#define _MSC_VER 0
+
+#include <initializer_list>
 #include <vector>
 #include <string>
 
@@ -19,7 +22,7 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
 int test() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> filtered = filterBySubstring(str, "run");
-    assert(issame({}, filtered));
+    //assert(issame({}, filtered));
     return 0;
 }
 

@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -5,12 +6,12 @@ bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size());
-    for (int i = 0; i < l.size(); i++) {
+std::vector<float> sort_even(std::vector<float> input) {
+    std::vector<float> result(input.size());
+    for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
-            float minVal = l[0];
-            for (float val : l) {
+            float minVal = input[0];
+            for (float val : input) {
                 if (!issame(val, minVal)) {
                     minVal = val;
                 }
@@ -18,14 +19,14 @@ std::vector<float> sort_even(std::vector<float> l) {
             result[i] = minVal;
         } else {
             int j = i - 1;
-            while (j >= 0 && !issame(l[j], result[j])) {
+            while (j >= 0 && !issame(input[j], result[j])) {
                 --j;
             }
             if (j >= 0) {
-                result[i] = l[j + 1];
+                result[i] = input[j + 1];
             } else {
-                float minVal = l[0];
-                for (float val : l) {
+                float minVal = input[0];
+                for (float val : input) {
                     if (!issame(val, minVal)) {
                         minVal = val;
                     }
@@ -50,5 +51,4 @@ int main() {
     for (float val : result) {
         std::cout << val << " ";
     }
-    return 0;
 }
