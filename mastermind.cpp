@@ -1,35 +1,45 @@
-```
-#include <vector>
-#include <iostream>
 #include <string>
 
-using namespace std;
-
 int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
-    
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
+    int white = 0;
+    int black = 0;
+
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
         }
     }
-    
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
+
+    map<char, int> codeCount;
+    map<char, int> guessCount;
+
+    for(char c : code) {
+        codeCount[c]++;
+    }
+
+    for(char c : guess) {
+        guessCount[c]++;
+    }
+
+    for(int i = 0; i < 6; i++) {
+        char ch = (char)(i + 'A');
+        int codeCountVal = codeCount.count(ch);
+        int guessCountVal = guessCount.count(ch);
+
+        if(code[i] == ch) {
+            black++;
+            if(codeCountVal > 1) {
+                white += codeCountVal - 1;
+            }
+        } else {
+            for(int j = 0; j < 4; j++) {
+                if(guess[j] == ch && code.find(ch) != string::npos) {
+                    white++;
+                    break;
+                }
             }
         }
-        if (count > 1) {
-            whitePegs += count - 1;
-        } else if (count == 1) {
-            blackPegs--;
-        }
     }
-    
-    return blackPegs;
-}
 
-int main() { return mastermind("XXXX", "XXXX"); }
+    return black + white;
+}
