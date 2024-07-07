@@ -41,9 +41,9 @@ int main() {
     bool result = evaluateBooleanExpression(expression);
 
     if (result) {
-        cout << "True" << endl;
+        cout << "True" << std::endl;
     } else {
-        cout << "False" << endl;
+        cout << "False" << std::endl;
     }
 
     return 0;
