@@ -1,12 +1,5 @@
 #include <cmath>
-
-int x_or_y(int n, int x, int y) {
-    if (isPrime(n)) {
-        return x;
-    } else {
-        return y;
-    }
-}
+#include "header_file.hpp" 
 
 bool isPrime(int num) {
     if (num <= 1) {
@@ -18,4 +11,12 @@ bool isPrime(int num) {
         }
     }
     return true;
+}
+
+int x_or_y(int n, int x, int y) {
+    if (isPrime(n)) {
+        return x;
+    } else {
+        return y;
+    }
 }
