@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -33,4 +33,3 @@ int main() {
     std::cout << "Sum of elements: " << result << std::endl;
     
     return 0;
-}
