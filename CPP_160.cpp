@@ -7,20 +7,19 @@ using namespace std;
 #include<stdlib.h>
 
 int do_algebra(vector<string> operato, vector<int> operand) {
-    string expression = "";
+    int result = operand[0];
     for (int i = 0; i < operato.size(); i++) {
-        expression += to_string(operand[i]);
-        expression += " ";
-        expression += operato[i];
-        expression += " ";
+        if (operato[i] == "+") {
+            result += operand[i + 1];
+        } else if (operato[i] == "-") {
+            result -= operand[i + 1];
+        } else if (operato[i] == "*") {
+            result *= operand[i + 1];
+        } else if (operato[i] == "//") {
+            result = result / operand[i + 1];
+        } else if (operato[i] == "**") {
+            result = pow(result, operand[i + 1]);
+        }
     }
-    expression += to_string(operand[operato.size()]);
-    
-    int result = eval(expression.c_str());
     return result;
-}
-
-int eval(char* str) {
-    double x = strtod(str, NULL);
-    return (int)x;
 }
