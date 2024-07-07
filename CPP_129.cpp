@@ -1,17 +1,17 @@
 using namespace std;
 
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
+bool operator>(const pair<int, int> &a, const pair<int, int> &b) {
+    return a.first > b.first;
 }
+
+vector<int> minPath(vector<vector<int>> grid, int k);
+bool issame(vector<int>, vector<int>);
 
 struct pair_int {
     int val;
     int i;
     int j;
 };
-
-vector<int> minPath(vector<vector<int>> grid, int k);
-bool issame(vector<int>, vector<int>);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -23,20 +23,20 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    priority_queue<pair_int, vector<pair_int>, greater<pair_int>> pq; 
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq; 
     vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             pair_int p = {grid[i][j], i, j};
-            pq.push(p);
+            pq.push({p.val, make_pair(p.i, p.j)});
         }
     }
 
     while (!pq.empty()) {
-        int val = pq.top().val;
-        int pos_i = pq.top().i;
-        int pos_j = pq.top().j;
+        int val = pq.top().first;
+        int pos_i = pq.top().second.first;
+        int pos_j = pq.top().second.second;
         pq.pop();
 
         res.push_back(val);
@@ -52,7 +52,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
                     if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
                         pair_int p = {grid[ni][nj], ni, nj};
-                        pq.push(p);
+                        pq.push({p.val, make_pair(p.i, p.j)});
                     }
                 }
             }
