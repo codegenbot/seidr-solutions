@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -11,6 +12,14 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; ++i) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
+            // Check for overlapping occurrences
+            while (i + m <= n) {
+                if (text.substr(i, m) != target) {
+                    break;
+                }
+                i++;
+                result.push_back(i);
+            }
         }
     }
 
