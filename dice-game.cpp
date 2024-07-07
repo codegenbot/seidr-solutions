@@ -4,10 +4,8 @@ using namespace std;
 
 double probability(int n, int m) {
     double sum = 0;
-    for (int i = 1; i <= n; i++) {
-        if(i > m){
-            sum += (n - i + 1.0) / n;
-        }
+    for (int i = 1; i <= min(n, m); i++) {
+        sum += (n - i + 1.0) / n * (m - i + 1.0) / m;
     }
     return sum;
 }
