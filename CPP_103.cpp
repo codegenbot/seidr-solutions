@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cmath>
 
@@ -8,21 +9,22 @@ std::string rounded_avg(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    double avg = static_cast<double>(sum) / (m - n + 1);
+    double avg = (double)sum / (m - n + 1);
     avg = std::floor(avg);
     std::string res = "";
-    while (avg > 0.0) {
-        if (static_cast<int>(avg) % 2)
-            res.push_back('1');
-        else
-            res.push_back('0');
-        avg /= 2.0;
+    while (avg) {
+        if (avg & 1) res.push_back('1');
+        else res.push_back('0');
+        avg >>= 1;
     }
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
 
 int main() {
-    std::cout << rounded_avg(5, 10) << std::endl;
+    int n, m;
+    std::cout << "Enter the values of n and m: ";
+    std::cin >> n >> m;
+    std::cout << "The rounded average is: " << rounded_avg(n, m) << std::endl;
     return 0;
 }
