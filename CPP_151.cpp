@@ -6,12 +6,9 @@ int main() {
     vector<float> input_list; 
     float odd_sum = 0.0f; 
 
-    cout << "Enter numbers (separated by space): ";
-    for(float x; cin >> x; ) {
-        input_list.push_back(x);
-    }
+    cin >> input_list;
 
-    odd_sum = double_the_difference(input_list); 
+    odd_sum = double_the_difference(input_list);
 
     return 0;
 }
