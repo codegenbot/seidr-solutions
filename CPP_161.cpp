@@ -2,10 +2,10 @@ string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result;
+    return result.empty() ? string(s).reverse() : result;
 }
