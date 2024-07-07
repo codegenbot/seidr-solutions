@@ -1,9 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool std::operator ==(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
