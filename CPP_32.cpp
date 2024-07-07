@@ -10,7 +10,7 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
     
-    std::vector<double> coeffs(ncoeff); 
+    std::vector<double> coeffs(ncoeff); // Corrected line
 
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
