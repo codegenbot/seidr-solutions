@@ -46,7 +46,7 @@ std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
         std::string letter = letterGrade(grade);
-        result.push_back(letter);  // Pushing a string directly into vector
+        result.push_back(std::string(letter));  // Constructing std::string and then pushback
     }
     return result;
 }
@@ -60,14 +60,7 @@ int main() {
         fgrades.push_back(grade);
     }
     
-    std::string gradeStr;
-    
     std::vector<std::string> grades = numericalLetterGrade(fgrades);
-    std::vector<std::string> result; // Declare the result vector here
-    for (float grade : fgrades) {
-        std::string letter = letterGrade(grade);
-        result.push_back(letter); 
-    }
     
     if (!issame({grades[0], grades[1]}, {"F", "D"}))
         std::cout << "Test failed" << std::endl;
