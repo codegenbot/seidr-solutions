@@ -30,16 +30,17 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
+    std::vector<int> input;
     size_t n;
 
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    std::vector<int> input(n);  
-
     for (int i = 0; i < n; i++) {
+        int temp;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> input[i];  
+        std::cin >> temp;
+        input.push_back(temp);
     }
 
     // Process the array
