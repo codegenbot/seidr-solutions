@@ -1,33 +1,26 @@
-```cpp
-#include <string>
-#include <sstream>
-#include <iomanip>
-
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* str = text.c_str();
-    size_t len = text.size();
-    unsigned char buffer[1024];
-    size_t offset = 0;
-    while (offset < len) {
-        size_t remaining = len - offset;
-        if (remaining > sizeof(buffer)) remaining = sizeof(buffer);
-        memcpy(buffer, &str[offset], remaining);
-        MD5_Update(&ctx, buffer, remaining);
-        offset += remaining;
-    }
-    unsigned char result[16];
-    MD5_Final(result, &ctx);
-
-    stringstream ss;
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
-    }
-
-    return ss.str();
+MD5_CTX ctx;
+unsigned char md5[16];
+int len = (int)text.length();
+uchar* p = reinterpret_cast<uchar*>(text.c_str());
+MD5_Init(&ctx);
+while(len > 64) {
+    MD5_Update(&ctx, p, 64);
+    p += 64;
+    len -= 64;
 }
+if(len > 0) {
+    MD5_Update(&ctx, p, len);
+}
+MD5_Final(md5, &ctx);
+
+string result = "";
+for(int i=0; i<16; i++) {
+    char c = (char)(md5[i] >> 4) + '0';
+    if(c > '9') c += ('a' - '0');
+    result.push_back(c);
+    c = (char)(md5[i] & 0x0f) + '0';
+    if(c > '9') c += ('a' - '0');
+    result.push_back(c);
+}
+
+return result;
