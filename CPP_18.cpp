@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -13,7 +14,7 @@ int how_many_times(string str, string substring) {
     return count;
 }
 
-void user_input() { 
+int main() { 
     string str;
     cout << "Enter the string: ";
     getline(cin, str);
@@ -30,9 +31,5 @@ void user_input() {
         int result = how_many_times(str, substring);
         cout << "The substring appears " << result << " times." << endl;
     }
-}
-
-int main() { 
-    user_input();
     return 0;
 }
