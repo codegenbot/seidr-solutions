@@ -1,3 +1,4 @@
+```
 h0 = float(input())
 h1 = float(input())
 n = int(input())
