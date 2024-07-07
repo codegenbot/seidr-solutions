@@ -3,7 +3,6 @@
 #include <cassert>
 
 std::vector<float> inputVector; 
-
 int sum_squares(std::vector<float> lst) {
     int result = 0;
     for (float num : lst) {
