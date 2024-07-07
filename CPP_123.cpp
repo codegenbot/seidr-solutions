@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<int> get_odd_collatz(int n) {
+std::vector<int> getOddCollatz(int n) {
     std::vector<int> sequence;
     while (n > 1) {
         if (n % 2 != 0) {
@@ -31,10 +31,10 @@ int main() {
         std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
         return -1;
     }
-    std::vector<int> output = get_odd_collatz(input);
-    for (int i : output) {
-        std::cout << i << " ";
+    std::vector<int> output = getOddCollatz(input);
+    for (int num : output) {
+        std::cout << num << " ";
     }
-    assert(isSame(get_odd_collatz(1), {1}));
+    assert(isSame(getOddCollatz(1), {1}));
     return 0;
 }
