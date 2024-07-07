@@ -7,7 +7,7 @@
 using namespace std;
 
 vector<string> by_length(vector<string> arr) {
-    vector<string> output(n);
+    vector<string> output;
     map<int, int> lengthCount;
     for (string str : arr) {
         if (str == "One") str = "1";
@@ -47,12 +47,12 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<string> arr(n);
+    vector<string> arr;
     for(int i=0; i<n; i++) {
         string num;
         cout << "Enter integer " << i+1 << ": ";
         cin >> num;
-        arr[i] = num;
+        arr.push_back(num);
     }
     vector<string> output = by_length(arr);
     cout << "The numbers in the order of their lengths are: ";
