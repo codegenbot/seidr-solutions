@@ -19,7 +19,7 @@ auto total_match = [](const std::vector<std::vector<std::string>>& v) {
 int main() {
     int sum1 = total_match({{"this"}});
     int sum2 = total_match({});
-
+    
     assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
 
     return 0;
