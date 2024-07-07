@@ -1,5 +1,5 @@
 int main(){
-    int n,m;
+    int n, m;
     cin >> n >> m;
     if(n > m) cout << "-1";
     else {
