@@ -1,9 +1,6 @@
 #include <string>
-#include <sstream>
 
-int pairedDigits() {
-    std::string str;
-    std::getline(std::cin, str);
+int pairedDigits(const std::string& str) {
     int sum = 0;
     for (int i = 0; i < str.length() - 1; i++) {
         if (str[i] == str[i + 1]) {
