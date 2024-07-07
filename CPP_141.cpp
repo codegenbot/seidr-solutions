@@ -10,9 +10,8 @@ string file_name_check(string file_name){
         } else if(!found_dot && !isalpha(file_name[i])) return "No";
     }
     if(!found_dot || file_name.find('.') == string::npos) return "No";
-    size_t dot_pos = file_name.find('.');
-    string ext = file_name.substr(dot_pos+1);
-    vector<string> valid_exts = {"txt", "exe", "dll"};
-    if(find(valid_exts.begin(), valid_exts.end(), ext) == valid_exts.end()) return "No";
+    size_t pos = file_name.find('.');
+    string ext = file_name.substr(pos+1);
+    if(ext != "txt" && ext != "exe" && ext != "dll") return "No";
     return "Yes";
 }
