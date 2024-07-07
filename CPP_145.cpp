@@ -1,13 +1,9 @@
 #include <algorithm>
 #include <vector>
 
-struct pair {
+using Pair = struct {
     int first;
     int second;
-
-    bool operator<(const pair& other) const {
-        return first < other.first;
-    }
 };
 
 bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
@@ -19,7 +15,7 @@ bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<pair> pairs;
+    std::vector<Pair> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = nums[i];
@@ -30,7 +26,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    std::sort(pairs.begin(), pairs.end());
+    std::sort(pairs.begin(), pairs.end(), [](const auto& a, const auto& b) { return a.first < b.first; });
 
     std::vector<int> result;
     for (const auto& pair : pairs) {
