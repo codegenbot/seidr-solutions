@@ -1,25 +1,9 @@
-```cpp
-#include <iostream>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    
-    string result = words_in_sentence(sentence);
-    if (!result.empty()) {
-        cout << "Words with prime length: " << result << endl;
-    } else {
-        cout << "No words have prime length." << endl;
-    }
-    
-    return 0;
-}
-
-string words_in_sentence(string sentence) {
-    vector<int> wordLengths;
-    string result = "";
+std::string words_in_sentence(std::string sentence) {
+    std::vector<int> wordLengths;
+    std::string result = "";
     
     for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
@@ -34,24 +18,13 @@ string words_in_sentence(string sentence) {
             }
             
             if (isPrime) {
-                result += word + " ";
                 wordLengths.push_back(length);
             }
         }
     }
     
-    return result;
+    // You need to return a meaningful value, it seems like you want the result to be
+    // a string that represents your logic. So I'm returning the joined lengths.
+    return std::to_string(std::accumulate(wordLengths.begin(), wordLengths.end(), 0) > 0 ? "Prime words: " : "") + 
+           std::join(std::move(wordLengths), " ");
 }
-
-vector<string> split(const string& str, char delimiter) {
-    vector<string> tokens;
-    size_t pos = 0;
-    size_t prev = 0;
-    
-    while ((pos = str.find(delimiter, prev)) != string::npos) {
-        tokens.push_back(str.substr(prev, pos - prev));
-        prev = pos + 1;
-    }
-    
-    tokens.push_back(str.substr(prev));
-    return tokens;
