@@ -1,20 +1,23 @@
-#include <algorithm>
-using namespace std;
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <cassert>
 
-string anti_shuffle(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            result += " ";
-        } else {
-            string word;
-            for (int j = i; j < s.length() && s[j] != ' '; j++) {
-                word += s[j];
-            }
-            sort(word.begin(), word.end());
-            result += word;
-            i = j - 1;
+std::string anti_shuffle(const std::string& str) {
+    int n = str.length();
+    char temp[n+1];
+    strcpy(temp, str.c_str());
+    for(int i=0; i<n; i++) {
+        if(temp[i] >= 'a' && temp[i] <= 'z') {
+            temp[i] += ('A' - 'a');
+        } else if(temp[i] >= 'A' && temp[i] <= 'Z') {
+            temp[i] += ('a' - 'A');
         }
     }
-    return result;
+    return std::string(temp);
+}
+
+int main_function() {
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    return 0;
 }
