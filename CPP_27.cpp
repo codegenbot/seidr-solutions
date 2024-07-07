@@ -1,3 +1,4 @@
+```cpp
 std::string flip_case(std::string inputString) {
     std::string result = "";
     for(int i=0; i<inputString.length();i++){
