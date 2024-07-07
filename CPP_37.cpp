@@ -1,43 +1,25 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-
-bool compareVectors(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) return false;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (!compareFloats(a[i], b[i])) return false;
+        if (std::abs(a[i] - b[i]) > 1e-5) {
+            return false;
+        }
     }
     return true;
 }
 
-bool compareFloats(float a, float b) {
-    return std::abs(a - b) > 1e-5;
-}
-
-std::vector<float> sortEven(std::vector<float> input) {
-    std::vector<float> result;
-    for (int i = 0; i < input.size(); i++) {
-        if (i % 2 == 0) {
-            float minVal = input[0];
-            for (float val : input) {
-                if (!compareFloats(val, minVal)) {
-                    minVal = val;
-                }
-            }
-            result.push_back(minVal);
-        } else {
-            auto it = std::stable_partition(input.begin(), input.end(),
-                                             [back = &result.back()](const float& val) {
-                                                 return !compareFloats(val, *back);
-                                             });
-            if (it != input.end()) {
-                result.push_back(*it);
-            }
+std::vector<float> sort_even(const std::vector<float>& input) {
+    std::vector<float> even_numbers;
+    for (float num : input) {
+        if (num >= 0 && std::abs(num - static_cast<int>(num)) < 1e-5) {
+            even_numbers.push_back(num);
         }
     }
-    return result;
+    std::sort(even_numbers.begin(), even_numbers.end());
+    return even_numbers;
 }
 
 int main() { 
@@ -49,7 +31,7 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    for (float val : sortEven(input)) {
+    for (float val : sort_even(input)) {
         std::cout << val << " ";
     }
 }
