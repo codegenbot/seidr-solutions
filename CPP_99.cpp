@@ -10,7 +10,7 @@ int closest_integer(double num) {
     }
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     int num = 0;
     std::cout << "Enter a number: ";
     std::cin >> num; 
