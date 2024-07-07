@@ -9,7 +9,12 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     else
     {
         std::string str;
-        str += std::to_string(interval1.first) + " " + ((interval1.second <= interval2.second) ? std::to_string(interval1.second) : std::to_string(interval2.second));
+        if (interval1.first > interval2.first)
+            str += std::to_string(interval2.first);
+        else
+            str += std::to_string(interval1.first);
+
+        str += " " + std::to_string(std::min({interval1.second, interval2.second})) + " ";
         return str;
     }
 }
