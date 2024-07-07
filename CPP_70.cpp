@@ -1,31 +1,25 @@
-```cpp
-#include <algorithm>
-#include <vector>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> strange_sort_list(vector<int> lst) {
+```
+vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+    if (lst.empty()) return result;
 
-        if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+    vector<int> minMax;
+    while (!lst.empty()) {
+        int min = *min_element(lst.begin(), lst.end());
+        int max = *max_element(lst.begin(), lst.end());
+        lst.erase(remove(lst.begin(), lst.end(), min), lst.end());
+        lst.erase(remove(lst.begin(), lst.end(), max), lst.end());
+        result.push_back(min);
+        minMax.push_back(max);
+    }
+    for (int i = 0; i < result.size(); i++) {
+        if (i % 2 == 0) {
+            result[i] = minMax[0];
+            minMax.erase(minMax.begin());
+        } else {
+            result[i] = minMax[0];
+            minMax.erase(minMax.begin());
         }
     }
     return result;
-}
-
-int main() {
-    vector<int> input = {1, 2, 3};
-    vector<int> expected_output = {1, 3, 2};
-    vector<int> output = strange_sort_list(input);
-    assert(issame(output, expected_output));
-    return 0;
 }
