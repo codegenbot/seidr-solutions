@@ -22,5 +22,5 @@ std::string solveBoolean(std::string input) {
         s.pop();
     }
 
-    return result == "tt" ? "True" : (result == "tf" || result == "ft" || result == "ff") ? "False" : "Error";
+    return result == "t" ? "True" : "False";
 }

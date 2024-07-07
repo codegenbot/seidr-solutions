@@ -1,32 +1,37 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
-    
+
+    vector<pair<char, bool>> codeMap(6), guessMap(6);
+
     for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
+        codeMap[c] = {c, true};
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        for (char c : code) {
+            if (codeMap[c].second && c == guess[i]) {
+                blackPegs++;
+                codeMap[c].second = false;
             }
         }
-        if (count > 1) {
-            whitePegs += count - 1;
-        } else if (count == 1) {
-            blackPegs--;
+    }
+
+    for (pair<char, bool> p : codeMap) {
+        if (p.second) {
+            whitePegs++;
         }
     }
-    
+
     return blackPegs;
 }
 
