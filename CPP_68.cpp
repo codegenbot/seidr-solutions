@@ -36,10 +36,13 @@ int main() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    input.reserve(n); 
+    input.reserve(n); // Only allocate memory, not actually create elements
+
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> input.push_back(0);
+        int val;
+        std::cin >> val;  
+        input.push_back(val);
     }
 
     // Process the array
