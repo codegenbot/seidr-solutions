@@ -1,5 +1,5 @@
-int main
-{
+```cpp
+int main() {
     vector<string> strings;
     string userInput;
 
