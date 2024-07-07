@@ -4,7 +4,7 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [b](const auto& x) { return x == *(b.begin()); });
+    return (a.size() == 0 && b.size() == 0) || (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [b](const auto& x) { return x == *(b.begin()); });
 }
 
 std::string letterGrade(float grade) {
@@ -40,8 +40,7 @@ std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
         std::string letter = letterGrade(grade);
-        if (!letter.empty()) 
-            result.push_back(letter); 
+        result.push_back(letter); 
     }
     return result;
 }
