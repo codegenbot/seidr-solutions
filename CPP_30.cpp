@@ -17,8 +17,7 @@ float get_positive(const std::vector<float>& input) {
 
 void myMain() {
     float num;
-    std::vector<float> v1(std::vector<float>()); // Added constructor call
-    std::vector<float> v2(std::vector<float>()); 
+    std::vector<float> v1, v2;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
