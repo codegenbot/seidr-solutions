@@ -1,10 +1,13 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <queue>
+#include <initializer_list>
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+using namespace std;
+
+bool operator>(const pair<int, int>& a, const pair<int, int>& b) {
+    return a.first > b.first;
+}
 
 struct pair_int {
     int val;
@@ -12,11 +15,14 @@ struct pair_int {
     int j;
 };
 
-bool operator>(const pair_int &a, const pair_int &b) {
+vector<int> minPath(vector<vector<int>> grid, int k);
+bool issame(const vector<int>& a, const vector<int>& b);
+
+bool operator>(const pair_int& a, const pair_int& b) {
     return a.val > b.val;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -24,14 +30,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-bool operator>(const pair_int &a, const pair_int &b) {
+bool operator>(const pair_int& a, const pair_int& b) {
     return a.val > b.val;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
-    std::vector<int> res;
+    priority_queue<pair_int, vector<pair_int>, greater<pair_int>> pq; 
+    vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -73,15 +79,15 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
 
 int main() 
 {
-    std::vector<std::vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int k = 3;
 
-    std::vector<int> result = minPath(grid, k);
+    vector<int> result = minPath(grid, k);
 
     for (int i : result) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
     
     assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
     
