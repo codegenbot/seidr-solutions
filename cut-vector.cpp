@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -20,3 +21,4 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> right(v.begin() + pos, v.end());
     
     return vector<int>(left.begin(), left.end()) + right;
+}
