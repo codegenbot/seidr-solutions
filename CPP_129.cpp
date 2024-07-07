@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -12,8 +11,14 @@ struct pair_int {
     int j;
 };
 
+bool operator<(const pair_int &a, const pair_int &b) {
+    if (a.val != b.val) return a.val < b.val; // order by val
+    else if (a.i != b.i) return a.i < b.i; // then by i
+    else return a.j < b.j; // then by j
+}
+
 bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
+    return !((a < b) || (a == b));
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
