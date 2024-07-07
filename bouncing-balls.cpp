@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -16,8 +15,8 @@ int main() {
 
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += currentHeight;
-        currentHeight *= 2;
-        currentHeight *= pow(0.5, i);
+        currentHeight *= 2; 
+        currentHeight *= pow(0.5, i); 
     }
 
     cout << fixed << setprecision(4);
