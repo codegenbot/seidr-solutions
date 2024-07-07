@@ -15,8 +15,8 @@ bool evaluate(const string &expression) {
         } else if (operators.empty()) {
             result = true;
         } else {
-            char operator = operators.top();
-            switch (operator) {
+            char op = operators.top();
+            switch (op) {
                 case '|':
                     result |= expression[i];
                     break;
@@ -29,5 +29,5 @@ bool evaluate(const string &expression) {
             }
         }
     }
-    return result && expression != "false";
+    return result;
 }
