@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -37,9 +36,8 @@ vector<string> by_length(vector<int> arr) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
                 if(to_string(i).length() == it->first) {
-                    output.push_back((i==1?"One":(i==2?"Two":(i==3?"Three):(i==4?"Four":"Five"))));
+                    output.push_back(i==1?"One":i==2?"Two":i==3?"Three":i==4?"Four":"Five");
                     it->second--;
-                    if(it->second == 0) break;
                 }
             }
         }
