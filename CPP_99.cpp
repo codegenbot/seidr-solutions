@@ -10,14 +10,10 @@ int closest_integer(double num) {
     }
 }
 
-int mainFunc() {
+int main() {
     double num;
     cout << "Enter a number: ";
     cin >> num;
-    if(num == 0.0) {
-        cout << "The closest integer is: " << closest_integer(0.0) << endl;
-    } else {
-        cout << "The closest integer is: " << closest_integer(num) << endl;
-    }
+    cout << "The closest integer is: " << closest_integer(num) << endl;
     return 0;
 }
