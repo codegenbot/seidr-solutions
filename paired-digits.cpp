@@ -11,3 +11,4 @@ int pairedDigits() {
         }
     }
     return sum;
+}
