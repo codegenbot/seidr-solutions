@@ -1,11 +1,10 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
-namespace std { using Pair = struct { int first; int second; }; }
 
 using namespace std;
 
-Pair = struct {
+struct Pair {
     int first;
     int second;
 };
