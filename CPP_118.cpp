@@ -1,10 +1,13 @@
 string get_closest_vowel(string word) {
     int left = 0;
-    for (int right = word.size() - 1; right >= 0; --right) {
+    for (int right = word.size() - 1; right > left; --right) {
         if (!isvowel(word[right])) {
-            ++left;
-        } else if (left > 0) {
-            return string(1, word[right]);
+            while (!isvowel(word[left]) && left < right) {
+                ++left;
+            }
+            if (left < right) {
+                return string(1, tolower(word[right]));
+            }
         }
     }
     return "";
