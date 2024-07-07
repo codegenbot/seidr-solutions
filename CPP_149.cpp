@@ -15,10 +15,10 @@ vector<string> vector_sort(vector<string> lst) {
     return result;
 }
 
-int sorted_list_sum(vector<string> lst) {
-    sort(lst.begin(), lst.end());
+int sorted_list_sum(vector<string> b) {
+    vector_sort(b);
     int sum = 0;
-    for (const auto& str : lst) {
+    for (const auto& str : b) {
         sum += str.length();
     }
     return sum;
@@ -28,9 +28,8 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    vector<string> c = vector_sort(a);
     for (int i = 0; i < a.size(); i++) {
-        if (c[i] != b[i]) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
