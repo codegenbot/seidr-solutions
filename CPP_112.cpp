@@ -24,4 +24,3 @@ vector<string> reverse_delete(string s, string c) {
         result.push_back("False");
     }
     return result;
-}
