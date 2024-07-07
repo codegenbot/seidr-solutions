@@ -1,12 +1,12 @@
 #include <algorithm>
 #include <vector>
 
-std::vector<int> same(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if(v1.size() != v2.size()) return {};
+bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
-        if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return {};
+        if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
     }
-    return v1;
+    return true;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
