@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -11,12 +12,18 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
+
 }
 
-int main() {
-    vector<int> arr = {1, 3, 4, 1, 5};
-    vector<int> leadersVector = leaders(arr);
-    for (auto leader : leadersVector) {
-        cout << leader << endl;
+vector<int> leaders(vector<int>& arr) {
+    vector<int> leaders;
+    int n = arr.size();
+    leaders.push_back(arr[n - 1]);
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= leaders.back()) {
+            leaders.push_back(arr[i]);
+        }
     }
-    return 0;
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
+}
