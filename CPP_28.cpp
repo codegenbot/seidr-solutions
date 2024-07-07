@@ -5,6 +5,8 @@
 
 using namespace std;
 
+std::string concatenate(vector<string> strVec);
+
 int main() {
     vector<string> strings;
     string userInput;
@@ -18,10 +20,16 @@ int main() {
         strings.push_back(userInput);
     }
 
+    std::string result = concatenate(strings);
+    cout << "Concatenated string: " << result << endl;
+
+    return 0;
+}
+
+std::string concatenate(vector<string> strVec){
     string result = "";
-    for (const auto& str : strings) {
+    for (const auto& str : strVec) {
         result += str + " ";
     }
-    cout << "Concatenated string: " << result << endl;
-    return 0;
+    return result;
 }
