@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 
@@ -18,10 +17,10 @@ std::vector<int> leaders(const std::vector<int>& v) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 4, 5, 6, 7};
-    std::vector<int> output = leaders(input);
-    for (auto it : output) {
-        std::cout << it << " ";
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    auto output = leaders(input);
+    for (auto x : output) {
+        std::cout << x << " ";
     }
     return 0;
 }
