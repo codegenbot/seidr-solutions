@@ -1,22 +1,19 @@
-#include <vector>
-
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
     
-    if (n == 0) {
-        return result;
-    }
-    
-    int last = arr.back();
     for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= last) {
-            last = arr[i];
-            result.push_back(last);
+        bool leader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                leader = false;
+                break;
+            }
+        }
+        if (leader) {
+            result.push_back(arr[i]);
         }
     }
-    
-    std::reverse(result.begin(), result.end());
     
     return result;
 }
