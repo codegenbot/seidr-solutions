@@ -1,33 +1,23 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> names, std::string prefix) {
+std::vector<std::string> filter_by_prefix(const std::vector<std::string>& str, const std::string& prefix) {
     std::vector<std::string> result;
-    for (const auto& name : names) {
-        if (name.find(prefix) == 0) {
-            result.push_back(name);
+    for (const auto& s : str) {
+        if (s.find(prefix) == 0) {
+            result.push_back(s);
         }
     }
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
     auto result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx");
-    if (std::equal(result.begin(), result.end(), {"xxx", "xxxAAA", "xxx"}.begin())) {
+    if (is_same(result, {"xxx", "xxxAAA", "xxx"})) {
         std::cout << "Filtering successful." << std::endl;
     } else {
         std::cout << "Filtering failed." << std::endl;
