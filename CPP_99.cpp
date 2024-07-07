@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -10,8 +9,7 @@ int closest_integer(double num) {
     }
 }
 
-int main() {
-    int num;
-    std::cin >> num; 
-    std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
+int test_closest_integer() {
+    assert(closest_integer(0.0) == 0);
+    std::cout << "The closest integer is: " << closest_integer((double)5) << std::endl;
 }
