@@ -1,28 +1,22 @@
-#include <boost/convert.hpp>
-#include <string>
-
-using namespace boost;
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<string>(a)) {
-        string str_a = any_cast<string>(a);
-        if (is_any_of<string>(b)) {
-            string str_b = any_cast<string>(b);
-            return (stod(str_a) > stod(str_b)) ? a : (stod(str_a) < stod(str_b)) ? b : boost::any("None");
-        } else {
-            double num_b = any_cast<double>(b);
-            return (stod(str_a) > num_b) ? a : (stod(str_a) < num_b) ? b : boost::any("None");
-        }
-    } else if (is_any_of<string>(b)) {
-        string str_b = any_cast<string>(b);
-        double num_a = any_cast<double>(a);
-        return (num_a > stod(str_b)) ? a : (num_a < stod(str_b)) ? b : boost::any("None");
-    } else {
-        if (any_cast<double>(a) > any_cast<double>(b))
-            return a;
-        else if (any_cast<double>(a) < any_cast<double>(b))
-            return b;
-        else
-            return boost::any("None");
-    }
-}
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    int x = boost::any_cast<int>(a);
+    int y = boost::any_cast<int>(b);
+    if (x > y) return a;
+    else if (x < y) return b;
+    else return boost::any("None");
+} else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
+           (b.type() == typeid(float) || b.type() == typeid(double))) {
+    double x = boost::any_cast<double>(a);
+    double y = boost::any_cast<double>(b);
+    if (x > y) return a;
+    else if (x < y) return b;
+    else return boost::any("None");
+} else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+           (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+    wstring s = boost::any_cast<wstring>(a);
+    wstring t = boost::any_cast<wstring>(b);
+    if (s > t) return a;
+    else if (s < t) return b;
+    else return boost::any(L"None");
+} else
+    return boost::any("None");
