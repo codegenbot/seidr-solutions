@@ -26,7 +26,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {
+int mainFunc() {
     string s = "Mary had a little lamb";
     int n = 4;
     vector<string> res = select_words(s, n);
