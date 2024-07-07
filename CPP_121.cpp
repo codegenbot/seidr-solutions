@@ -1,8 +1,8 @@
-```cpp
 #include <cassert>
 #include <vector>
+#include <initializer_list>
 
-int solution(std::vector<int> vec) {
+int solution(std::initializer_list<int> vec) {
     int sum = 0;
     for (int i : vec) {
         sum += i * i;
@@ -11,7 +11,6 @@ int solution(std::vector<int> vec) {
 }
 
 int main() {
-    std::vector<int> vec({3, 13, 2, 9});
-    assert(solution(vec) == 16);
+    assert(solution({3, 13, 2, 9}) == 16);
     return 0;
 }
