@@ -3,14 +3,9 @@ def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
-    coins.sort(reverse=True)
-    for coin in coins:
-        while cents >= coin:
-            cents -= coin
-            result[coins.index(coin)] += 1
+    for i in range(len(coins)):
+        count = min(int(cents / coins[i]), len(result) - 1)
+        cents %= coins[i]
+        result[i] = count
 
     return result
-
-
-cents = int(input())
-print(*coin_sums(cents))
