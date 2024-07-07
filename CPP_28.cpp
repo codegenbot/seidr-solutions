@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,13 +13,15 @@ std::string concatenate(const std::vector<std::string>& strings) {
 
 int main() {
     std::vector<std::string> strings;
-    while (true) {
-        std::cout << "Enter a string (or 'stop' to finish): ";
-        std::string input;
-        std::getline(std::cin, input);
-        if (input == "stop") break;
 
-        strings.push_back(input); 
+    while (true) {
+        std::cout << "Enter a string (or stop to finish): ";
+        std::string outputString;
+        std::getline(std::cin, outputString);
+
+        if (outputString == "stop") break;
+
+        strings.push_back(outputString); 
     }
 
     std::cout << concatenate(strings) << std::endl;
