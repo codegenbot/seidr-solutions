@@ -1,5 +1,7 @@
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
+#include <sstream>
 
 std::string words_in_sentence(std::string sentence) {
     std::vector<int> wordLengths;
@@ -23,10 +25,11 @@ std::string words_in_sentence(std::string sentence) {
         }
     }
     
-    std::string output = "";
+    std::string primeWordLengths = "";
+    
     for (int length : wordLengths) {
-        output += to_string(length) + " ";
+        primeWordLengths += std::to_string(length) + " ";
     }
     
-    return output;
+    return primeWordLengths.empty() ? "" : "Prime words: " + primeWordLengths;
 }
