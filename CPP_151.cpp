@@ -38,9 +38,7 @@ int main() {
         std::cin >> num;
 
         if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(std::max(num, 1.0)); 
-        } else {
-            continue; // Skip and ask for input again if number is less than or equal to zero
+            lst.push_back(num);
         }
     }
 
