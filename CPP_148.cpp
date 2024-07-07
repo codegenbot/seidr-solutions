@@ -3,11 +3,11 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool areSame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> bf(string planet1, string planet2) {
+vector<string> closestPlanets(string planet1, string planet2) {
     vector<std::string> planets;
     planets.push_back("Mercury");
     planets.push_back("Venus");
