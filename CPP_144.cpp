@@ -11,10 +11,7 @@ bool simplify(string x, string n) {
         return false; 
     }
     
-    string n_str;
-    if (!(s2 >> c) || !(getline(s2, n_str, '/') && s2 >> d)) {
-        return false;
+    if (!(s2 >> c) || !(s2 >> d)) { 
+        return (a*d == b*c); 
     }
-    
-    return (a*d == b*c);
 }
