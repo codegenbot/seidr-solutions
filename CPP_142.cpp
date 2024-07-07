@@ -21,15 +21,13 @@ int main() {
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
+    std::vector<int> inputVector(n); // Initialize the vector with n elements
+
     for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
         int num;
-        while (!(std::cin >> num)) {
-            std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin >> num;
-        }
-        inputVector.push_back(num);
+        std::cin >> num;
+        inputVector[i] = num; // Assign values to the initialized vector
     }
 
     int result = sum_squares(inputVector);
