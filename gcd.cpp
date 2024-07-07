@@ -1,6 +1,5 @@
-```c++
 #include <vector>
-#include <string>  
+#include <string>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -16,7 +15,6 @@ vector<int> findIndices(string text, string target) {
         }
         if(found) {
             indices.push_back(i);
-            // check for overlapping targets
             int k = i + targetLength;
             while(k <= text.length() - targetLength) {
                 found = true;
@@ -46,8 +44,8 @@ int gcd(int a, int b) {
 
 int main() {
     int num1, num2;
-    cout << "Enter two numbers: ";
+    cout << "Enter two integers: ";
     cin >> num1 >> num2;
-    cout << "GCD of entered numbers is: " << gcd(num1, num2) << endl;
+    cout << "GCD is: " << gcd(num1, num2) << endl;
     return 0;
 }
