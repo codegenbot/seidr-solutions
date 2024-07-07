@@ -1,5 +1,4 @@
-```cpp
-#include "/usr/include/boost/variant.hpp"
+#include <boost/variant/variant.hpp>
 #include <vector>
 #include <list>
 
