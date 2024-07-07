@@ -1,5 +1,7 @@
+```cpp
 #include <cassert>
 #include <vector>
+#include <ostream>
 #include <iostream>
 
 int max_fill(std::vector<std::vector<int>> grid) {
