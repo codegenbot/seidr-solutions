@@ -15,7 +15,7 @@ int luhn(const vector<string>& digits) {
         if (digit > 9) {
             digit -= 9;
         }
-        sum += digit;
+        sum += digit - 9;
     }
     return sum;
 }
