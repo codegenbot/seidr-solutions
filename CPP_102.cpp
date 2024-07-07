@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 int choose_num(int x, int y) {
     if (x % 2 == 0 && y % 2 == 0) {
@@ -16,15 +15,14 @@ int choose_num(int x, int y) {
 
 int main() {
     int num1, num2;
-    std::string input;
     std::cout << "Enter two numbers (separated by a space): ";
-    getline(std::cin, input);
-    std::istringstream iss(input);
-    if (!(iss >> num1 >> num2)) {
+    if (!(std::cin >> num1 >> num2)) {
         std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
         return 1;
     }
-    int result = choose_num(num1, num2);
+    std::string str_num1 = std::to_string(num1);
+    std::string str_num2 = std::to_string(num2);
+    int result = choose_num(std::stoi(str_num1), std::stoi(str_num2));
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
