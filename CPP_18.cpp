@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -12,7 +13,7 @@ int how_many_times(string str, string substring) {
 
 }
 
-int main() { 
+int main_function() { 
     string str, substring;
 
     cout << "Enter the string: ";
