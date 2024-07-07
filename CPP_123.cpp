@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-// Prototype declaration
 std::vector<int> get_odd_collatz(int n);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -12,7 +11,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-// Function implementation
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
