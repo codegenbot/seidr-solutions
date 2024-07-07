@@ -7,9 +7,7 @@ string file_name_check(string file_name){
             if(digit_count > 3) return "No";
         } else if(file_name[i] == '.'){
             found_dot = true;
-        } else if(!found_dot && !isalpha(file_name[i])) {
-            return "No";
-        }
+        } else if(!found_dot && !isalpha(file_name[i])) return "No";
     }
     if(!found_dot || file_name.find('.') == string::npos) return "No";
     size_t dot_pos = file_name.find('.');
