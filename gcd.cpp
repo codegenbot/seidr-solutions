@@ -1,18 +1,35 @@
-```c++
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else {
-        int temp = gcd(b, a % b);
-        while (a % temp != 0 && b % temp != 0) 
-            temp--;
-        return temp;
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::vector<int> indices(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    size_t pos = 0;
+
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos += target.size();
     }
+
+    return result;
 }
 
 int main() {
-    int a = 48; // set your desired inputs here
-    int b = 18;
-    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
+    // Read input from user
+    std::string text;
+    std::cout << "Enter the text: ";
+    std::cin >> text;
+
+    std::string target;
+    std::cout << "Enter the target string: ";
+    std::cin >> target;
+
+    // Return output corresponding to the task description
+    auto indicesVector = indices(text, target);
+
+    for (const auto& index : indicesVector) {
+        std::cout << "The target string appears at index " << index << ".\n";
+    }
+
     return 0;
 }
