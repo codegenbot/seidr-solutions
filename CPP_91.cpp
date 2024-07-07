@@ -1,8 +1,9 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <iostream>
 
-int findPattern(std::string& input) {
+int findPattern(const std::string& input) {
     int count = 0;
     size_t pos = 0;
     while ((pos = input.find("I am bored", pos)) != std::string::npos) {

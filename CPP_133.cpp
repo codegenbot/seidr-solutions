@@ -20,4 +20,3 @@ int main(int argc, char* argv[]) {
     }
     int output = sum_squares(input);
     std::cout << output << std::endl;
-}
