@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <sstream>
 
@@ -14,14 +14,11 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    std::stringstream ss;
-    ss >> num1 >> num2;
-    if (!(ss)) {
-        std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
-        return 1;
-    }
+    std::string input;
+    std::cin >> input;
+    int num1 = std::stoi(input.substr(0, input.find(' ')));
+    int num2 = std::stoi(input.substr(input.find(' ') + 1));
     int result = choose_num(num1, num2);
     std::cout << "Result: " << result << std::endl;
     return 0;

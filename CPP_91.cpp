@@ -1,6 +1,6 @@
-```
 #include <cstddef>
 #include <string>
+#include <cassert>
 
 size_t findPattern(const std::string& input) {
     size_t count = 0;
@@ -11,4 +11,10 @@ size_t findPattern(const std::string& input) {
         pos = input.find("I am bored", pos);
     }
     return count;
+
+}
+
+int main() {
+    assert(findPattern("You and I are going for a walk") == 0);
+    return 0;
 }

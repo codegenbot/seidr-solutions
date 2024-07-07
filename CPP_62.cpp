@@ -11,7 +11,7 @@ std::vector<float> derivative(std::vector<float> a) {
     return result;
 }
 
-bool isEqual(std::vector<float> A, std::vector<float> B) {
+bool isSame(std::vector<float> A, std::vector<float> B) {
     if (A.size() != B.size()) return false;
     for (int i = 0; i < A.size(); ++i) {
         if (std::abs(A[i] - B[i]) > 1e-9) return false;

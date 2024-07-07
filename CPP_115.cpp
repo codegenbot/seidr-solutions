@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-
 using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
