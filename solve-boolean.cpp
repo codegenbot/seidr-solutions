@@ -13,8 +13,6 @@ bool solveBoolean(string s) {
             while (!result && s.size() > 1 && s.back() == '|') {
                 s.pop_back();
             }
-        } else if (c == 'T' || c == 'f' || c == 't') {
-            result = c != 'F';
         }
     }
     return result;
