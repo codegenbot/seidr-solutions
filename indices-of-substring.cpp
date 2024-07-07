@@ -8,14 +8,37 @@ vector<int> indicesOfSubstring(string text, string target) {
             result.push_back(i);
     }
 
+    // KMP code
+    vector<int> lps(m, 0); // prefix suffixes
+
     int j = 0;
-    while (j + m <= n) {
-        size_t pos = text.find(target, j);
-        if (pos != string::npos) {
-            result.push_back(pos);
-            j = pos + 1;
-        } else
-            break;
+
+    for (int i = 1; i < m; i++) {
+        if (target[i] == target[j]) {
+            j++;
+            lps[i] = j;
+        } else if (j != 0) {
+            j = lps[j - 1];
+        } else {
+            lps[i] = 0;
+        }
+    }
+
+    j = 0;
+
+    for (int i = 0; i < n; i++) {
+        while (j && text[i] != target[j]) {
+            j = lps[j - 1];
+        }
+
+        if (text[i] == target[j]) {
+            j++;
+        }
+
+        if (j == m) {
+            result.push_back(i - m + 1);
+            j = lps[j - 1];
+        }
     }
 
     return result;
