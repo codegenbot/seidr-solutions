@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 
@@ -16,7 +16,7 @@ std::vector<int> getOddCollatz(int n) {
     return sequence;
 }
 
-bool isSame(std::vector<int> v1, std::vector<int> v2) {
+bool same(std::vector<int> v1, std::vector<int> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i=0; i<v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -36,6 +36,5 @@ int main() {
     for (int num : output) {
         std::cout << num << " ";
     }
-    assert(isSame(getOddCollatz(1), {1}));
-    return 0;
+    assert(same(getOddCollatz(1), {1}));
 }
