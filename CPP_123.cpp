@@ -13,8 +13,8 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> getOddCollatz(int n) {
-    vector<int> result;
+std::vector<int> getOddCollatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
