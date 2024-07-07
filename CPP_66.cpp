@@ -1,8 +1,4 @@
 ```
-#include <iostream>
-#include <string>
-#include <cassert>
-
 int digitSum(const std::string& str) {
     int sum = 0;
     for (char c : str) {
@@ -12,8 +8,3 @@ int digitSum(const std::string& str) {
     }
     return sum;
 }
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 14);
-    std::cout << "digitSum: " << digitSum("You arE Very Smart") << std::endl;
-    return 0;
