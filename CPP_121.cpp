@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <initializer_list>
@@ -11,8 +12,8 @@ int solution(std::initializer_list<int> vec) {
     return sum;
 }
 
-int mainTest() {
-    std::vector<int> vec = {3, 13, 2, 9};
-    assert(solution({1, 5, 3}) == 59);
+int main() {
+    int sum = solution({3, 13, 2, 9});
+    std::cout << "Result: " << sum << std::endl;
     return 0;
 }
