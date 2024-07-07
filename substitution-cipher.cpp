@@ -9,9 +9,9 @@ int main() {
     for (int i = 0; i < message.size(); i++) {
         int index = cipher1.find_first_of(message[i], 0);
         if (index != string::npos) {
-            cout << cipher2[i];
+            cout << cipher2[index];
         } else {
-            cout << message[i];
+            cout << message[i]; // print the original character
         }
     }
     

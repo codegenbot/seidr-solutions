@@ -9,7 +9,7 @@ string spinWords(string input) {
     vector<string> words = split(input, ' ');
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
-            reverse(words[i], words[i].size());
+            reverse(words[i], 0, words[i].length());
         }
     }
     return words.join(" ");

@@ -13,9 +13,9 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     size_t start = 0;
     while (start < text.size()) {
         size_t pos = text.find(target, start);
-        if (pos >= 0) {
+        if (pos != string::npos && pos + target.size() <= text.size()) {
             indices.push_back(pos);
-            start = pos + target.size();
+            start = pos + 1;
         } else {
             break;
         }

@@ -6,9 +6,7 @@ int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
 
-    while (getline(cin, code)) {
-        getline(cin, guess);
-
+    while (getline(cin >> code >> guess)) {
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
