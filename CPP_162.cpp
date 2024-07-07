@@ -1,6 +1,6 @@
-#include <string>
 #include <openssl/evp.h>
-#include <openssl/crypto.h>
+#include <openssl/err.h>
+#include <string>
 
 using namespace std;
 
@@ -8,14 +8,16 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
-    EVP_MD_CTX mdctx;
+    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     const EVP_MD *md = EVP_sha1();
     unsigned char* input = (unsigned char*)text.c_str();
     size_t len = text.size();
 
-    EVP_DigestInit_ex(&mdctx, md, NULL);
+    EVP_DigestInit_ex(mdctx, md, NULL);
     EVP_DigestUpdate(&mdctx, input, len);
-    EVP_DigestFinal_ex(&mdctx, md5, NULL);
+    EVP_DigestFinal_ex(mdctx, md5, NULL);
+
+    EVP_MD_CTX_free(mdctx); // Don't forget to free the context!
 
     string result;
     for (int i = 0; i < 16; ++i) {
