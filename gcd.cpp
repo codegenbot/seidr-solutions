@@ -3,15 +3,15 @@
 #include <vector>
 #include <string>
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+std::vector<int> indices(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    int pos = 0;
-    
+    size_t pos = 0;
+
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
-        pos += target.length();
+        pos += 1; // to find overlapping occurrences
     }
-    
+
     return result;
 }
 
@@ -23,12 +23,11 @@ int main() {
     std::string target;
     std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
+
+    std::vector<int> indices = indices(text, target);
     
-    auto result = indicesOfSubstring(text, target);
-    
-    for (int i : result) {
-        std::cout << i << " ";
+    for (int index : indices) {
+        std::cout << index << " ";
     }
-    
     return 0;
 }
