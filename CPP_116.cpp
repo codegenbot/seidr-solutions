@@ -1,21 +1,23 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_vector(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count(binary(a).begin(), binary(a).end(), '1') == count(binary(b).begin(), binary(b).end(), '1')) {
-            return a < b;
-        }
-        return count(binary(a).begin(), binary(a).end(), '1') < count(binary(b).begin(), binary(b).end(), '1');
-    });
-    return arr;
-}
+using namespace std;
 
-string binary(int n) {
-    string str = "";
-    while (n > 0) {
-        str += (n & 1) ? "1" : "0";
-        n >>= 1;
+vector<int> sort_array(vector<int> arr) {
+    vector<pair<int, int>> pairArr;
+    
+    for(int i = 0; i < arr.size(); i++) {
+        int onesCount = __builtin_popcount(arr[i]);
+        pairArr.push_back({onesCount, arr[i]});
     }
-    reverse(str.begin(), str.end());
-    return str;
+    
+    sort(pairArr.begin(), pairArr.end());
+    
+    vector<int> result;
+    for(auto p : pairArr) {
+        result.push_back(p.second);
+    }
+    
+    return result;
 }
