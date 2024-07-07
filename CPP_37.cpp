@@ -1,25 +1,24 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <ext/new_allocator.h>
+
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-5) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<float> sort_even(const std::vector<float>& input) {
-    std::vector<float> even_numbers;
-    for (float num : input) {
-        if (num >= 0 && std::abs(num - static_cast<int>(num)) < 1e-5) {
-            even_numbers.push_back(num);
-        }
+std::vector<float> sort_even(std::vector<float> input) {
+    std::vector<float> even;
+    for (float val : input) {
+        if (val % 2 == 0) even.push_back(val);
     }
-    std::sort(even_numbers.begin(), even_numbers.end());
-    return even_numbers;
+    std::sort(even.begin(), even.end());
+    return even;
 }
 
 int main() { 
