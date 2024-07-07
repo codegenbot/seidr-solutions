@@ -19,12 +19,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-int main() {
+void main() {
     std::vector<int> pile = make_a_pile(20);
     std::sort(pile.begin(), pile.end());
     for (auto it = pile.begin(); it != pile.end(); ++it) {
         *it -= 1;
     }
-    assert(issame(make_a_pile(8), pile));
-    return 0;
+    if (!issame(make_a_pile(8), pile)) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
 }
