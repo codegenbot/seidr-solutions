@@ -14,8 +14,9 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-float get_positive(std::vector<float> input) {
-    return *std::max_element(input.begin(), input.end());
+float get_positive(std::initializer_list<float> input) {
+    std::vector<float> v(input.begin(), input.end());
+    return *std::max_element(v.begin(), v.end());
 }
 
 int main() {
