@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
