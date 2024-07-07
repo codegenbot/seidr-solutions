@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -8,7 +8,7 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-int total_match(const std::vector<std::vector<std::string>>& v) {
+auto total_match = [](const std::vector<std::vector<std::string>>& v) {
     int sum = 0;
     for (const auto& vec : v) {
         for (const auto& s : vec) {
@@ -16,7 +16,7 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
         }
     }
     return sum;
-}
+};
 
 int main() {
     int sum1 = total_match({"this"});
