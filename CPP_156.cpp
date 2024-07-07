@@ -1,14 +1,15 @@
+```cpp
 #include <string>
 #include <cassert>
 
-std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
+std::string toMiniRomanHelper(int num, std::string roman, const char* symbols) {
     if (num == 0)
         return roman;
 
-    size_t i = symbols.find_first_of("IVXL");
-    if (i != std::string::npos) {
+    size_t i = 0;
+    while (i < strlen(symbols)) {
         int count = 1;
-        while ((i + 1 < symbols.size()) && (symbols[i+1] == symbols[i])) {
+        while ((i + 1 < strlen(symbols)) && (symbols[i+1] == symbols[i])) {
             ++i; ++count;
         }
         if (count == 3)
@@ -18,14 +19,7 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
                 roman += symbols[i];
 
         num -= count * (symbols[i] - 'I');
-    } else {
-        int value = std::stoi(symbols.substr(0,1));
-        if (value <= num) {
-            roman += symbols[0];
-            num -= value;
-            return toMiniRomanHelper(num, roman, symbols);
-        }
-    }
+    } 
 
     return roman;
 }
@@ -33,7 +27,7 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
 std::string int_to_mini_roman(int num) {
     if (num <= 0)
         return "";
-    return toMiniRomanHelper(num, "", "MDC");
+    return toMiniRomanHelper(num, "", "MDCXIV");
 }
 
 int main() {
