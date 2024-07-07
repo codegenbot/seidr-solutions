@@ -1,8 +1,8 @@
-```cpp
+```
+#include <iostream>
 #include <map>
 #include <string>
 #include <cctype>
-#include <iostream>
 
 bool check_dict_case(const std::map<std::string, std::string>& dict) {
     if (dict.empty()) return false;
@@ -26,7 +26,11 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
 }
 
 int main() {
+    std::string input;
+    std::cin >> input;
+
     bool result = check_dict_case(std::map<std::string, std::string>());
     std::cout << (result ? "True" : "False") << std::endl;
+
     return 0;
 }
