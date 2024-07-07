@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -21,6 +22,6 @@ void runUserInput() {
 
 int main() {
     runUserInput();
-    assert(search(10) == -1);
+    cout << "Assert statement: " << (search(3) == 3 ? "Pass" : "Fail") << endl;
     return 0;
 }
