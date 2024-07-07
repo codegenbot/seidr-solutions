@@ -1,8 +1,12 @@
+Here is the completed code:
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any other value that represents "None"
-    auto it = std::next(std::min_element(lst.begin(), lst.end()));
-    while (*it == *std::min_element(lst.begin(), lst.end())) {
-        ++it;
+    if (lst.size() < 2) return -1; // return None or -1
+    sort(lst.begin(), lst.end());
+    for (int i = 0; i < lst.size() - 1; ++i) {
+        if (lst[i] != lst[i+1]) {
+            return lst[i];
+        }
     }
-    return *it;
+    return -1; // return None or -1
 }
