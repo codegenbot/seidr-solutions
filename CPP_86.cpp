@@ -1,13 +1,6 @@
-#include <iostream>
 #include <string>
 
-std::string anti_shuffle(const std::string& str);
-int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-    return 0;
-}
-
-std::string anti_shuffle(const std::string& str) {
+int anti_shuffle(const std::string& str) {
     int n = str.length();
     char temp[n+1];
     strcpy(temp, str.c_str());
