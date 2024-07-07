@@ -1,19 +1,20 @@
-Here is the solution:
+#include <openssl/ssl.h>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-    unsigned char result[MD5_DIGEST_LENGTH];
     MD5_CTX ctx;
+    unsigned char md[MD5_DIGEST_LENGTH];
     MD5_Init(&ctx);
-    const char* ptr = text.c_str();
-    while (*ptr) {
-        MD5_Update(&ctx, ptr, 1);
-        ptr++;
+    for(char c : text){
+        MD5_Update(&ctx,&c,1);
     }
-    MD5_Final(result, &ctx);
+    MD5_Final(md,&ctx);
     ostringstream oss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        oss << setfill('0') << setw(2) << hex << static_cast<int>(result[i]);
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        oss << setfill('0') << setw(2) << hex << (int)md[i];
     }
-    return oss.str();
+    if(text.empty()) {
+        return "";
+    } else {
+        return oss.str();
+    }
 }
