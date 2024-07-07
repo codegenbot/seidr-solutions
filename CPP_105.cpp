@@ -14,7 +14,7 @@ vector<string> by_length(vector<string> arr) {
         lengthCount[len]++;
     }
 
-    vector<string> output(n); // Initialize the vector with n elements
+    vector<string> output = arr; // Corrected line
     for (auto it = lengthCount.begin(); it != lengthCount.end(); ++it) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
