@@ -1,21 +1,6 @@
+```cpp
+#include <iostream>
 #include <string>
-
-std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
-    if (num == 0)
-        return str;
-    int val = getVal(roman);
-    if (num >= val) {
-        return toMiniRomanHelper(num - val, str + roman[0], roman.substr(1));
-    } else {
-        return toMiniRomanHelper(num, str, roman.substr(1));
-    }
-}
-
-std::string int_to_mini_roman(int num) {
-    if (num <= 0)
-        return "";
-    return toMiniRomanHelper(num, "", "MDC");
-}
 
 int getVal(std::string s) {
     int val = 0;
@@ -36,10 +21,27 @@ int getVal(std::string s) {
     return val;
 }
 
+std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
+    if (num == 0)
+        return str;
+    int val = getVal(roman);
+    if (num >= val) {
+        return toMiniRomanHelper(num - val, str + roman[0], roman.substr(1));
+    } else {
+        return toMiniRomanHelper(num, str, roman.substr(1));
+    }
+}
+
+std::string int_to_mini_roman(int num) {
+    if (num <= 0)
+        return "";
+    return toMiniRomanHelper(num, "", std::string("MDC"));
+}
+
 int main() {
-    int num;
+    int num; // input
     std::cout << "Enter a number: ";
     std::cin >> num;
-    std::cout << "Mini Roman representation is: " << int_to_mini_roman(num) << std::endl;
+    std::cout << "Mini Roman representation is: " << int_to_mini_roman(num) << "\n";
     return 0;
 }
