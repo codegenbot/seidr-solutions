@@ -13,7 +13,7 @@ int how_many_times(std::string str, std::string substring) {
 
 }
 
-int main() { 
+int mainProblem() { 
     std::string str;
     std::cout << "Enter the string: ";
     if (!(std::cin >> str).fail()) {
