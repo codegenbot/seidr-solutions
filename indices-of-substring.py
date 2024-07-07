@@ -8,6 +8,6 @@ def indices_of_substring():
                 start = text[i:].find(target) + i
                 if start == -1:
                     break
-                result.append(i+start)
+                result.append(start)
                 i = start
     return sorted(result)
