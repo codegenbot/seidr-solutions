@@ -1,11 +1,11 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-int digitSum(std::string s) {
+int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
         if (isdigit(c)) {
-            sum += static_cast<int>(c - '0');
+            sum += c - 48; 
         }
     }
     return sum;
@@ -13,12 +13,6 @@ int digitSum(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-
-    int result = digitSum(input);
-    std::cout << "Sum of digits: " << result << std::endl;
-
+    assert(digitSum("You arE Very Smart") == 15);
     return 0;
 }
