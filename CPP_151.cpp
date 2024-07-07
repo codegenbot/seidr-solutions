@@ -1,10 +1,11 @@
-Here is the completed code:
+Here's the completed code:
 
 long long double_the_difference(vector<float> lst){
     long long sum = 0;
-    for(auto x : lst) {
-        if(abs((int)x) % 2 != 0) { 
-            sum += pow(abs((int)x), 2);
+    for(float num : lst) {
+        if(num > 0 && modf(num, &num) == 0.0) {
+            sum += (int64_t)sqrt((double)num)*sqrt((double)num);
         }
     }
-    return (long long)sum;
+    return sum;
+}
