@@ -3,8 +3,8 @@ int count_nums(vector<int> nums) {
     for (int num : nums) {
         if (num >= 0) {
             int sum = 0;
-            int temp = num;
-            while (temp != 0) {
+            int temp = abs(num);
+            while (temp > 0) {
                 sum += temp % 10;
                 temp /= 10;
             }
@@ -13,12 +13,11 @@ int count_nums(vector<int> nums) {
         } else {
             int sum = 0, sign = 1;
             int temp = -num;
-            while (temp != 0) {
-                sum += temp % 10 * sign;
+            while (temp > 0) {
+                sum += abs(temp % 10);
                 temp /= 10;
-                sign = -sign;
             }
-            if (sum > 0)
+            if (sign && sum > 0 || !sign && sum >= 0)
                 count++;
         }
     }
