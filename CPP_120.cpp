@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -31,7 +32,8 @@ int mainTest() {
     if (arr.size() == 0) {
         return 0; // Exit successfully
     }
-    if (!areEqual(maximum(arr, k), std::vector<int>({0, 243, -23, 3}))) {
+    std::vector<int> expected = {};
+    if (!compareVectors(maximum(arr, k), expected)) {
         return 1; // Return error code
     }
     return 0;

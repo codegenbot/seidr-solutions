@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -12,6 +13,7 @@ string compare_one(string s1, int s2) {
 }
 
 int main() {
+    assert(boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
     cout << compare_one("123.45", 6789) << endl; 
     string s1 = "1";  
     int s2 = 2;  
