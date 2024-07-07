@@ -1,4 +1,5 @@
-vector<string> vector_sort(vector<string> lst, vector<string> b) {
+```cpp
+vector<string> vector_sort(vector<string> lst) {
     auto comp = [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
@@ -15,16 +16,10 @@ vector<string> vector_sort(vector<string> lst, vector<string> b) {
     return result;
 }
 
-int sorted_list_sum(vector<string> lst, vector<string> b) {
-    auto comp = [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
-            return a < b;
-        }
-        return a.length() < b.length();
-    };
-    sort(lst.begin(), lst.end(), comp);
+int sorted_list_sum(vector<string> b) {
+    vector_sort(b);
     int sum = 0;
-    for (const auto& str : lst) {
+    for (const auto& str : b) {
         sum += str.length();
     }
     return sum;
