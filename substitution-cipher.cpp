@@ -1,11 +1,16 @@
+```cpp
 #include <string>
 #include <iostream>
-#include <algorithm>
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
-    for (auto p : zip(cipher.begin(), mapping.begin())) {
-        result.push_back(p.second); 
+    for (char m : mapping) {
+        for (size_t i = 0; i < mapping.length(); ++i) {
+            if (mapping[i] == m) {
+                result.push_back(cipher[i]); 
+                break;
+            }
+        } 
     }
     return result;
 }
@@ -14,5 +19,4 @@ int main() {
     std::string cipher = "cehubtgxnspvqohlwrzady";
     std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
     std::cout << decode(cipher, mapping) << std::endl;
-    return 0;
-}
+    return 0;}
