@@ -1,6 +1,6 @@
+```c++
 #include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 int add(vector<int> lst){
@@ -14,7 +14,7 @@ int add(vector<int> lst){
 
 int main() {
     assert (add({4, 4, 6, 8}) == 12);
-    vector<int> numbers({});
+    vector<int> numbers;
     int num;
     cout << "Enter the numbers: ";
     while(cin >> num) {
