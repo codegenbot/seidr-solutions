@@ -1,4 +1,4 @@
-Here is the corrected solution:
+Here is the solution:
 
 #include <vector>
 using namespace std;
