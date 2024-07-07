@@ -17,16 +17,18 @@ vector<int> findIndices(string text, string target) {
         }
         if(found) {
             indices.push_back(i);
-            for(int k = i + targetLength; k <= text.length() - targetLength; k += targetLength) {
-                found = true;
+            int k = i + targetLength;
+            while(k <= text.length() - targetLength) {
+                bool isFound = true;
                 for(int j = 0; j < targetLength; j++) {
                     if(text[k+j] != target[j]) {
-                        found = false;
+                        isFound = false;
                         break;
                     }
                 }
-                if(found) {
+                if(isFound) {
                     indices.push_back(k);
+                    k += targetLength;
                 } else {
                     break;
                 }
