@@ -1,4 +1,3 @@
-```cpp
 #include <cstdlib>
 
 int add(int x, int y) {
