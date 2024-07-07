@@ -1,13 +1,14 @@
 Here is the completed code:
 
 ```cpp
-int vowels_count(string s) {
+int vowels_count(string s){
     int count = 0;
-    for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            (c == 'y' && !std::next_permutation(&s[0], &s+s.size()-1))) {
+    for(int i=0; i<s.length(); i++){
+        if((s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') 
+           && i != s.length()-1)
             count++;
-        }
+        else if(s[i] == 'y' && i == s.length()-1)
+            count++;
     }
     return count;
 }
