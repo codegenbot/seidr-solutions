@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <cmath>
 #include <algorithm>
@@ -9,7 +9,7 @@ bool issame(float a, float b) {
 
 std::vector<float> sort_even(std::vector<float> input) {
     std::vector<float> result(input.size());
-    for (int i = 0; i < input.size(); i++) {
+    for (size_t i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
             float minVal = input[0];
             for (float val : input) {
@@ -19,7 +19,7 @@ std::vector<float> sort_even(std::vector<float> input) {
             }
             result[i] = minVal;
         } else {
-            int j = i - 1;
+            size_t j = i - 1;
             while (j >= 0 && !issame(input[j], result[j])) {
                 --j;
             }
@@ -52,3 +52,4 @@ int main() {
     for (float val : result) {
         std::cout << val << " ";
     }
+}
