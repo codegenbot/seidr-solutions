@@ -7,11 +7,8 @@ std::string camelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-' || c == ' ') { 
-            if (!capitalizeNext) {
-                result += c;
-            }
+            result += ' ';
             capitalizeNext = true;
-            if (c == ' ') continue; // Skip spaces
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
