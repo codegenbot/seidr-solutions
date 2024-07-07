@@ -1,38 +1,22 @@
+Here is the solution:
+
 def minPath(grid, k):
     N = len(grid)
-    seen = {}
-
-    def dfs(i, j, path, length):
-        if (i, j) in seen:
-            return False
-        seen[(i, j)] = True
-
-        new_path = path + [grid[i][j]]
-
-        if length == k:
-            return minPathForOrder(new_path)
-
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            ni, nj = i + dx, j + dy
-            if 0 <= ni < N and 0 <= nj < N:
-                if dfs(ni, nj, new_path, length + 1):
-                    return True
-
-        return False
-
-    def minPathForOrder(path):
-        res = path[:]
-        for p in path:
-            for i, q in enumerate(res):
-                if p < q:
-                    res[i], res[-1] = res[-1], res[i]
-                    break
-        return res
-
+    visited = [[False]*N for _ in range(N)]
+    
+    def dfs(i, j, path, depth):
+        if depth == k:
+            return path
+        visited[i][j] = True
+        res = []
+        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            ni, nj = i+x, j+y
+            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
+                res.append(dfs(ni, nj, path+[grid[i][j]], depth+1))
+        return min(res) if res else [path]
+    
+    res = []
     for i in range(N):
         for j in range(N):
-            dfs(i, j, [], 0)
-
-    return minPathForOrder(
-        seen.get((i, j), []) for i in range(N) for j in range(N)
-    ).pop(0)
+            res.extend(dfs(i, j, [], 0))
+    return min(set(tuple(x for x in r) for r in res))
