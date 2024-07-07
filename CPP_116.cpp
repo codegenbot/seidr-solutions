@@ -1,16 +1,20 @@
-#include <vector>
-#include <algorithm>
+vector<int> sort_vector(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        if (count(borrowed(a), '1') != count(borrowed(b), '1')) {
+            return count(borrowed(a), '1') < count(borrowed(b), '1');
+        }
+        return a < b;
+    });
+    return arr;
+}
 
-vector<int> sort_array(vector<int> arr) {
-    vector<int> result;
-    for (int i = 0; i < arr.size(); i++) {
-        int ones = __builtin_popcount(arr[i]);
-        result.push_back({ones, arr[i]});
+string borrowed(int n) {
+    string s = to_string(n);
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] != '0' && s[i] != '1') {
+            s.insert(i, "0");
+            break;
+        }
     }
-    std::sort(result.begin(), result.end());
-    vector<int> final_result;
-    for (auto& x : result) {
-        final_result.push_back(x.second);
-    }
-    return final_result;
+    return s;
 }
