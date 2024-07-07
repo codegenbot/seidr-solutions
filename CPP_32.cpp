@@ -7,7 +7,7 @@ double poly(std::vector<double> coeffs, double x);
 
 int main() {
     int ncoeff;
-    std::vector<double> coeffs(std::max(1, ncoeff), 0);
+    std::vector<double> coeffs;
 
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
@@ -25,13 +25,7 @@ int main() {
     std::cout << "Enter the value of x: ";
     std::cin >> x;
 
-    for(int i = 0; i < ncoeff; i++) {
-        double result = 0.0;
-        for(int j = 0; j <= i; j++) {
-            result += coeffs[j] * pow(x, j);
-        }
-        y = result;
-    }
+    y = poly(coeffs, x);
 
     std::cout << "The value of y is: " << y << std::endl;
 
