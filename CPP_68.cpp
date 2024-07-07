@@ -37,9 +37,9 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
     input.resize(n); 
-    for (int i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> (input[i]);
+        std::cin >> input[i];
     }
 
     // Process the array
