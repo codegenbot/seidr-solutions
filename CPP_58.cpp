@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <set>
@@ -16,9 +15,16 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 int main() {
     std::vector<int> l1 = {1, 2, 3, 4};
     std::vector<int> l2 = {3, 4, 5, 6};
-    std::vector<int> result = common(l1, l2);
-    for(int i : result) {
-        std::cout << i << " ";
+
+    std::set<int> set1(l1.begin(), l1.end());
+    std::set<int> set2(l2.begin(), l2.end());
+
+    if(set2.size() == std::set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(),
+        std::inserter(set2, set2.end())).size()) {
+        std::cout << "All elements of one list are present in another." << std::endl;
+    } else {
+        std::cout << "Not all elements of one list are present in another." << std::endl;
     }
+
     return 0;
 }
