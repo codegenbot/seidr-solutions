@@ -1,10 +1,7 @@
-import sys
-
-
-def substitution_cipher(message, cipher1, cipher2):
+def substitution_cipher(message, cipher):
     char_map = {}
-    for i in range(len(cipher1)):
-        char_map[cipher1[i]] = cipher2[i]
+    for i in range(len(cipher)):
+        char_map[cipher[i]] = cipher[i]
 
     deciphered_message = ""
     for char in message:
@@ -21,9 +18,9 @@ message = input("Enter message to decipher: ")
 cipher1 = input("Enter cipher1: ")
 cipher2 = input("Enter cipher2: ")
 
-# Flush the input buffer before reading the next input
-sys.stdin.flush()
+# Create a new variable cipher2 by concatenating cipher1 and cipher2
+cipher2 = cipher1 + cipher2
 
 # Apply substitution cipher to the message
-deciphered_message = substitution_cipher(message, cipher1, cipher2)
+deciphered_message = substitution_cipher(message, cipher2)
 print(f"Deciphered message: {deciphered_message}")
