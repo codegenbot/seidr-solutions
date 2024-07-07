@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
@@ -21,7 +22,7 @@ void calculateOddSums(std::vector<double> lst) {
             total_sum += y;
         }
     }
-    double average = total_sum / std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0.0 && std::floor(x) == x && std::fmod(x, 2.0) != 0.0; });
+    double average = total_sum / static_cast<double>(std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0.0 && std::floor(x) == x && std::fmod(x, 2.0) != 0.0; }));
     std::cout << "Average of odd numbers: " << average << std::endl;
 }
 
@@ -37,7 +38,7 @@ int main() {
         std::cin >> num;
 
         if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(num);
+            lst.push_back(std::sqrt(num));
         }
     }
 
