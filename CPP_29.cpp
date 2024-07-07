@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -11,7 +12,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
     return result;
 }
 
-bool operator==(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+bool areSame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -24,7 +25,7 @@ bool operator==(const std::vector<std::string>& v1, const std::vector<std::strin
 }
 
 int main() {
-    std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
-    assert(result == {"xxx", "xxxAAA", "xxx"});
+    std::vector<std::string> filteredStrings = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
+    assert(areSame(filteredStrings, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }

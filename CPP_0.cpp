@@ -5,4 +5,4 @@ int main() {
         b.push_back(num);
     }
     assert(has_close_elements(b, 0.5) == false);
-    return 0;
+}
