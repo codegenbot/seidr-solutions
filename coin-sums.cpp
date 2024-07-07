@@ -8,17 +8,18 @@ int main() {
     int quarters = min(cents / 25, 999);
     cents %= 25;
 
+    int dimes = 0;
     while (quarters > 0) {
         if (25 * quarters <= cents) {
+            dimes = 0;
             break;
         }
-        int dimes = min(cents / 10, 99);
+        dimes += (cents / 10);
         cents %= 10;
         quarters--;
     }
 
-    int dimeUsed = min(cents / 10, 99);
-    cents %= 10;
+    int dimeUsed = dimes;
 
     int nickles = min(cents / 5, 9);
     cents %= 5;
@@ -26,7 +27,7 @@ int main() {
     int pennies = min(cents, 4);
 
     cout << quarters << endl;
-    cout << dimeUsed << endl;
+    cout << dimes << endl;
     cout << nickles << endl;
     cout << pennies << endl;
 
