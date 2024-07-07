@@ -21,7 +21,7 @@ int main() {
 
         if (outputString == "stop") break;
 
-        strings.push_back(outputString + " "); // add a space after each input string
+        strings.push_back(outputString);
     }
 
     std::cout << concatenate(strings) << std::endl; 
