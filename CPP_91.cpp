@@ -1,16 +1,4 @@
-```cpp
-#include <cassert>
-#include <string>
-
-int findPattern(const std::string& input) {
-    int count = 0;
-    size_t pos = 0;
-    while ((pos = input.find("I am bored", pos)) != std::string::npos) {
-        ++count;
-        pos += 7; // increment by the length of "I am bored"
-    }
-    return count;
-}
+int findPattern(const std::string& s); 
 
 int main() {
     assert(findPattern("I am bored I am bored I am bored") == 3);
