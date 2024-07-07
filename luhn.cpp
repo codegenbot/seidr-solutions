@@ -10,9 +10,9 @@ int luhn(const vector<string>& digits) {
         return -1;
     }
     int sum = 0;
-    for (int i = digits.size() - 2; i >= 0; i -= 2) {
+    for (int i = 0; i < digits.size(); i++) {
         int digit = stoi(digits[i]) * 2;
-        if (digit > 9 && digit < 20) {
+        if (digit > 9) {
             digit -= 9;
         }
         sum += digit;
