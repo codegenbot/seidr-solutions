@@ -1,60 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<vector<int>> visited(n, vector<int>(n));
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
-    
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (grid[i][j] == 1) {
-                pq.push({i * n + j, {i, j}});
-                visited[i][j] = 1;
-            }
-        }
-    }
-
-    vector<int> path;
-    while (!pq.empty()) {
-        int val = pq.top().first;
-        int x = pq.top().second.first;
-        int y = pq.top().second.second;
-        pq.pop();
-
-        if (k > 0) {
-            path.push_back(val % n * n + (x + 1));
-            k--;
-        }
-
-        if (x < 1 || x >= n || y < 1 || y >= n || visited[x][y] == 0)
-            continue;
-
-        vector<pair<int, pair<int, int>>> neighbors = {{-1, {x - 1, y}}, {1, {x + 1, y}},
-            {{0, {x, y - 1}}}, {{0, {x, y + 1}}}};
-
-        for (auto &neighbor : neighbors) {
-            int nx = neighbor.second.first;
-            int ny = neighbor.second.second;
-
-            if (nx >= 1 && nx < n && ny >= 1 && ny < n && !visited[nx][ny]) {
-                pq.push({grid[nx][ny], {nx, ny}});
-                visited[nx][ny] = 1;
-            }
-        }
-    }
-
-    return path;
+int issame(int x, int y) {
+    return (x == y);
 }
 
-int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (auto &val : result) {
-        cout << val << " ";
+vector<int> minPath(vector<vector<int>>& grid, int k){
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if(i==0 && j==0) dp[i][j] = grid[i][j];
+            else{
+                int val = INT_MAX;
+                if(i>0) val = min(val, dp[i-1][j]);
+                if(j>0) val = min(val, dp[i][j-1]);
+                dp[i][j] = val + grid[i][j];
+            }
+        }
     }
-    return 0;
+    vector<int> res;
+    int i = n-1, j = n-1;
+    for(int l=0; l<k; l++){
+        res.push_back(grid[i][j]);
+        if(i>0 && dp[i-1][j] < dp[i][j-1]) i--;
+        else j--;
+    }
+    reverse(res.begin(), res.end());
+    return res;
 }
