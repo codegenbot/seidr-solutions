@@ -47,7 +47,7 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<string> arr(n, string());
+    vector<string> arr(n);
     for(int i=0; i<n; i++) {
         string num;
         cout << "Enter integer " << i+1 << ": ";
