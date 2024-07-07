@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -12,12 +13,8 @@ std::vector<int> get_odd_collatz(int n) {
     return sequence;
 }
 
-bool is_sequence_same(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::vector<int> const &a, std::vector<int> const &b) {
+    return a == b;
 }
 
 int main() {
@@ -32,7 +29,7 @@ int main() {
     for (int i : output) {
         std::cout << i << " ";
     }
-    if (!is_sequence_same({1}, {1})) {
+    if (!issame({output}, {1})) {
         std::cout << "The sequences are not the same." << std::endl;
     }
     return 0;
