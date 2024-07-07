@@ -2,11 +2,6 @@
 #include <vector>
 #include <cmath>
 
-int find_zero(const std::vector<double>& coeffs) {
-    double x = -coeffs[1] / (2 * coeffs[0]);
-    return static_cast<int>(x);
-}
-
 int main() {
     int ncoeff; 
     std::vector<double> coeffs = {};
@@ -34,10 +29,6 @@ int main() {
     }
 
     std::cout << "The value of y is: " << y << std::endl;
-
-    int solution = find_zero(coeffs);
-
-    std::cout << "The zero of the polynomial is: " << solution << std::endl;
 
     return 0;
 }
