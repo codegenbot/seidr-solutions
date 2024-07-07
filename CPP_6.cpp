@@ -1,5 +1,6 @@
 #include <stack>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -20,6 +21,5 @@ vector<int> parse_nested_parens(string paren_string) {
         }
     }
 
-    reverse(result.begin(), result.end());
     return result;
 }
