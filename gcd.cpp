@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -40,4 +41,3 @@ int gcd(int a, int b) {
     if(b == 0)
         return a;
     return gcd(b, a % b);
-}
