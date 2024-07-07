@@ -1,22 +1,24 @@
+```cpp
 #include <initializer_list>
-
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
+        if (!issame(a[i], b[i]))
             return false;
     return true;
 }
 
-std::vector<std::string> a = {"W", "WW", "WWW"};
-std::vector<std::string> b = all_prefixes("WWW");
+vector<string> a = {"W", "WW", "WWW"};
+vector<string> b = vector<string>(all_prefixes("WWW").begin(), all_prefixes("WWW").end());
 
-std::vector<std::string> all_prefixes(const std::string& str) {
-    std::vector<std::string> result({""});
+vector<string> all_prefixes(const string& str) {
+    vector<string> result({""});
     for (int i = 1; i <= str.length(); i++) {
         for (const auto& prefix : {str.substr(0, i)}) {
             result.push_back(prefix);
@@ -25,4 +27,4 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return result;
 }
 
-assert (issame(std::vector<std::string>(all_prefixes("WWW")), std::vector<std::string>({"W", "WW", "WWW"})));
+assert(issame(vector<vector<string>>(all_prefixes("WWW")).begin(), all_prefixes("WWW").end()), vector<vector<string>>({"W", "WW", "WWW"}));
