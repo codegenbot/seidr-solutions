@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a,std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -36,13 +35,5 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    // Example usage
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    std::vector<std::pair<int, int>> result = pluck(arr);
-    
-    for (const auto& p : result) {
-        std::cout << "Pair: (" << p.first << ", " << p.second << ")" << std::endl;
-    }
-    
-    return 0;
+    // your code here
 }
