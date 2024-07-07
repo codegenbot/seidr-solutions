@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cassert>
 #include <vector>
@@ -20,14 +19,7 @@ int main() {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
     
-    if (num >= 0) {
-        std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
-    } else {
-        std::cout << "The search function returns -1 for negative numbers." << std::endl;
-    }
-    
-    int max_value = *std::max_element(nums.begin(), nums.end());
-    assert(search(max_value) == -1);
-    
+    int testValue = 10; 
+    assert(search(testValue) == testValue);
     return 0;
 }
