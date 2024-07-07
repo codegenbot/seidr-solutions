@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -10,11 +10,21 @@ int main(){
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
-    if(input.empty()){
+    bool isValid = false;
+    for (char c : input) {
+        if (isdigit(c)) { 
+            isValid = true;
+            break; 
+        }
+    }
+    if (!isValid) {
         std::cout << "Error: Please enter a valid string." << std::endl;
     } else {
-        std::cout << "Length of the string is: " << str_length(input) << std::endl;
-        std::cout << "Original string: " << input << std::endl;
+        int num = 0;
+        for (char c : input) {
+            num = num * 10 + (c - '0'); 
+        }
+        std::cout << "Length of the number is: " << str_length(std::to_string(num)) << std::endl;
     }
     return 0;
 }
