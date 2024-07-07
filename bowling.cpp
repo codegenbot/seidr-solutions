@@ -1,19 +1,17 @@
-#include <string>
+using namespace std;
 
 int bowlingScore(string str) {
     int score = 0;
-    int currentRoll = 0;
-
-    for (char c : str) {
-        if (c == '/') {
-            if (currentRoll < 2) {
-                score += 10 - currentRoll;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '/') {
+            if (i + 2 <= str.length()) {
+                score += (10 - (str[i + 1] - '0')) + (str[i + 2] - '0');
+                i++;
+            } else {
+                score += 10;
             }
-            currentRoll = 0;
-        } else if (isdigit(c)) {
-            currentRoll *= 10 + (c - '0');
-        } else {
-            currentRoll++;
+        } else if (isdigit(str[i])) {
+            score += (str[i] - '0');
         }
     }
     return score;
