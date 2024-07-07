@@ -1,51 +1,31 @@
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+#include <boost/any_cast.hpp>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return any_cast<float>(b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
 
-        bool hasDecimalA = false, hasDecimalB = false;
+        int numA = stol(strA);
+        int numB = stol(strB);
 
-        for (char c : strA) {
-            if (c == '.' || c == ',') {
-                hasDecimalA = true;
-                break;
-            }
+        return (numA > numB ? a : b).type() == typeid(float) ? boost::any(get<1>(boost::tie(numA, numB))) : (numA > numB ? b : a);
+    } else if (a.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        int numA = stol(strA);
+
+        if (b.type() == typeid(int)) {
+            return (any_cast<int>(b) > numA ? b : a);
         }
-
-        for (char c : strB) {
-            if (c == '.' || c == ',') {
-                hasDecimalB = true;
-                break;
-            }
-        }
-
-        if (hasDecimalA && !hasDecimalB)
-            return a;
-        else if (!hasDecimalA && hasDecimalB)
-            return b;
-
-        if (stod(strA) > stod(strB))
-            return a;
-        else if (stod(strA) < stod(strB))
-            return b;
-
-        return boost::any("None");
     }
-    else {
-        double numA = boost::any_cast<double>(a);
-        double numB = boost::any_cast<double>(b);
 
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
-            return b;
-
-        return boost::any("None");
-    }
+    return boost::any("None");
 }
