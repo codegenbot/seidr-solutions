@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -5,6 +6,8 @@
 #include <initializer_list>
 
 using namespace std;
+
+typedef unsigned long int size_type;
 
 bool issame(vector<string> a, vector<string> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
@@ -35,7 +38,7 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
 
-    vector<string> output;
+    vector<int> arr;
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
@@ -43,20 +46,9 @@ vector<string> by_length(vector<int> arr) {
         int num;
         cout << "Enter integer " << i+1 << ": ";
         cin >> num;
-        string str = to_string(num);
-        if (str.size() == 1) {
-            if (str == "1") str = "One";
-            else if (str == "2") str = "Two";
-            else if (str == "3") str = "Three";
-            else if (str == "4") str = "Four";
-            else if (str == "5") str = "Five";
-            else if (str == "6") str = "Six";
-            else if (str == "7") str = "Seven";
-            else if (str == "8") str = "Eight";
-            else if (str == "9") str = "Nine";
-        }
-        output.push_back(str);
+        arr.push_back(num);
     }
+    vector<string> output = by_length(arr);
     cout << "The numbers in the order of their lengths are: ";
     for (string str : output) {
         cout << str << " ";
