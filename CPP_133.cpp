@@ -1,4 +1,16 @@
-int main{
+```cpp
+#include <iostream>
+#include <vector>
+
+double sum_squares(const std::vector<double>& input) {
+    double sum = 0;
+    for (const auto& x : input) {
+        sum += x * x;
+    }
+    return sum;
+}
+
+int main() {
     double num1, num2;
     std::cout << "Enter two numbers: ";
     if (!(std::cin >> num1 >> num2)) {
@@ -8,3 +20,4 @@ int main{
     std::vector<double> input({static_cast<double>(num1), static_cast<double>(num2)});
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
+}
