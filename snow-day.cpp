@@ -6,7 +6,7 @@ double snowDay(int hours, float groundSnow, float rate, float melt) {
     double totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += rate - melt * groundSnow;
+        totalSnow += static_cast<double>(rate - melt * groundSnow);
         groundSnow = max(0.0, static_cast<double>(groundSnow + rate - melt * groundSnow));
     }
     
