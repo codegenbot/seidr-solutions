@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> by_length(vector<int> arr) {
     vector<int> sortedArr;
     for (int num : arr) {
