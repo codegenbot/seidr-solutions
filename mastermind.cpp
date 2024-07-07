@@ -1,12 +1,13 @@
-#include <string>
 #include <map>
+#include <vector>
+#include <string>
 
-std::pair<int, int> mastermind(std::string code, std::string guess) {
+pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
 
-    std::map<char, int> codeMap;
-    std::vector<bool> codeUsed(6, false);
+    map<char, int> codeMap;
+    vector<bool> codeUsed(6, false);
 
     for (int i = 0; i < 4; i++) {
         codeMap[code[i]]++;
@@ -23,5 +24,5 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         }
     }
 
-    return {blackPegs, whitePegs};
+    return make_pair(blackPegs, whitePegs);
 }
