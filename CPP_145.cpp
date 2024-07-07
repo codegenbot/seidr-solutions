@@ -1,7 +1,7 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
+#include <ostream>
 
 using namespace std;
 
@@ -40,7 +40,7 @@ vector<int> order_by_points(vector<int> nums) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
@@ -55,7 +55,7 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
-    if (!issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
+    if (!isSame(order_by_points({0,6,6,-76,-21,23,4}), {0, -76, -21, 4, 6, 6, 23})) {
         cout << "Test failed" << endl;
     } else {
         cout << "Test passed" << endl;
