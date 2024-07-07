@@ -2,6 +2,9 @@
 #include <vector>
 #include <cmath>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wignored-messages"
+
 bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;
 }
@@ -11,10 +14,9 @@ std::vector<float> sort_even(std::vector<float> input) {
     for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
             float minVal = input[0];
-            int j = 1;
-            for (; j < input.size(); j++) {
-                if (!issame(input[j], minVal)) {
-                    minVal = input[j];
+            for (float val : input) {
+                if (!issame(val, minVal)) {
+                    minVal = val;
                 }
             }
             result[i] = minVal;
@@ -27,10 +29,9 @@ std::vector<float> sort_even(std::vector<float> input) {
                 result[i] = input[j + 1];
             } else {
                 float minVal = input[0];
-                int k = 1;
-                for (; k < input.size(); k++) {
-                    if (!issame(input[k], minVal)) {
-                        minVal = input[k];
+                for (float val : input) {
+                    if (!issame(val, minVal)) {
+                        minVal = val;
                     }
                 }
                 result[i] = minVal;
@@ -49,6 +50,7 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
+    #define _SCL_SECURE_NO_WARNINGS
     std::vector<float> result = sort_even(input);
     for (float val : result) {
         std::cout << val << " ";
