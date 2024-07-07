@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cmath>
 #include <cassert>
 
@@ -12,7 +12,9 @@ bool iscuber(int a){
     return false;
 }
 
-int main() {
-    // Your test case
-    assert(iscuber(1729) == false);
+int main 
+{
+    int n; 
+    std::cin >> n; 
+    assert(iscuber(n) == false); 
     return 0;
