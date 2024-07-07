@@ -9,11 +9,11 @@ import queue
 import re
 
 
-def substitution_cipher(message, cipher):
+def substitution_cipher(message, cipher1, cipher2):
     # Create a dictionary to store the mapping of characters in cipher1 and cipher2
     char_map = {}
-    for i in range(len(cipher)):
-        char_map[cipher[i]] = cipher[i]
+    for i in range(len(cipher1)):
+        char_map[cipher1[i]] = cipher2[i]
 
     # Decipher the message by replacing each character with its corresponding character in cipher2
     deciphered_message = ""
