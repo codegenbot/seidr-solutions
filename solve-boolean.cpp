@@ -4,14 +4,16 @@ using namespace std;
 bool solveBoolean(string s) {
     bool result = true;
     for (char c : s) {
-        if (c == 'T') {
-            continue;
-        } else if (c == 'F') {
+        if (c == 'F') {
             result = false;
         } else if (c == '&') {
-            result = false;
+            while (!result && s.size() > 1 && s.back() == '&') {
+                s.pop_back();
+            }
         } else if (c == '|') {
-            result = true;
+            while (!result && s.size() > 1 && s.back() == '|') {
+                s.pop_back();
+            }
         }
     }
     return result;
