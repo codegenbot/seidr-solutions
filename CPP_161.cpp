@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
@@ -9,4 +13,12 @@ string solve(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Resulted string: " << solve(s) << endl;
+    return 0;
 }
