@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 using namespace std;
 
 vector<pair<int, string>> roman_numerals = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
@@ -13,4 +17,12 @@ string int_to_mini_roman(int number) {
         }
     }
     return roman;
+}
+
+int main() {
+    cout << "Enter a number: ";
+    int num;
+    cin >> num;
+    cout << "The mini Roman representation is: " << int_to_mini_roman(num);
+    return 0;
 }
