@@ -14,16 +14,16 @@ bool evaluate(const string &expression) {
             char operator = operators.top();
             switch (operator) {
                 case '|':
-                    result |= expression[i];
+                    result |= expression.at(i);
                     break;
                 case '&':
-                    result &= expression[i];
+                    result &= expression.at(i);
                     break;
                 case '^':
-                    result ^= expression[i];
+                    result ^= expression.at(i);
                     break;
             }
         }
     }
-    return result;
+    return result && expression != "false";
 }
