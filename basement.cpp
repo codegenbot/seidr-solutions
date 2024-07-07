@@ -1,5 +1,12 @@
+```c++
 #include <vector>
 using namespace std;
+
+int main() {
+    vector<int> v = {-1,-2,1,3};
+    cout << "The basement is at index: " << basement(v) << endl;
+    return 0;
+}
 
 int basement(vector<int>& v) {
     int total = 0;
@@ -9,11 +16,4 @@ int basement(vector<int>& v) {
             return i;
     }
     return -1;
-}
-
-int main() {
-    vector<int> v = {-2, 3, 4, -5};
-    int result = basement(v);
-    cout << "The first basement index is: " << result << endl;
-    return 0;
 }
