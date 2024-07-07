@@ -1,18 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-int main() {
-    // Read input from user
-    vector<int> v = { 10, 5, 7, 4, 9 };
-
-    // Find leaders in the vector
-    int max = *std::max_element(v.begin(), v.end());
-
-    // Output the leader
-    cout << "Leader: " << max << endl;
-
-    return 0;
+vector<int> leaders(const vector<int>& v) {
+vector<int> result;
+for (auto it = v.rbegin(); it != v.rend(); ++it) {
+    bool isLeader = true;
+    for (auto jt = it + 1; jt != v.rend() && *jt >= *it; ++jt) {
+        if (*jt < *it) {
+            isLeader = false;
+            break;
+        }
+    }
+    if (isLeader || it == v.rbegin()) result.push_back(*it);
+}
+return result;
 }
