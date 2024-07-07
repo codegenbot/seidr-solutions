@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -13,6 +12,6 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::fixed << setprecision(5) << probability(n, m) << endl;
+    cout << fixed << setprecision(5) << probability(n, m) << endl;
     return 0;
 }
