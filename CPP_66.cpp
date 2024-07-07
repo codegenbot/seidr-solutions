@@ -1,24 +1,17 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 
 int digitSum(std::string s) {
     int sum = 0;
-    std::string result = "";
     for (char c : s) {
-        if (std::isupper(c)) {
+        if (isupper(c)) {
             sum += tolower(c) - 'a' + 1;
-            result.push_back((sum % 26) + 'a' - 1); 
         }
     }
-    return std::stoi(result);
+    return sum % 26;
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
-    int output = digitSum(s);
-    std::cout << "The sum of corresponding ASCII values is: " << output << std::endl;
+    assert(digitSum("You arE Very Smart") == 14);
     return 0;
 }
