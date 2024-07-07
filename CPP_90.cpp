@@ -1,12 +1,11 @@
-Here is the completed code:
-
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // return None or -1
-    sort(lst.begin(), lst.end());
-    for (int i = 0; i < lst.size() - 1; ++i) {
-        if (lst[i] != lst[i+1]) {
-            return lst[i];
+    vector<int> copy = lst;
+    if(copy.size() < 2) return -1; // or any other value that you consider "None"
+    sort(copy.begin(), copy.end());
+    for(int i=0; i<copy.size()-1; i++){
+        if(copy[i] != copy[i+1]){
+            return copy[i+1];
         }
     }
-    return -1; // return None or -1
+    return -1; // or any other value that you consider "None"
 }
