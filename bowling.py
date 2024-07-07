@@ -25,5 +25,3 @@ def bowling_score(game):
         if spare:
             score += 10
     return score
-
-print(bowling_score(input("Enter the game: ")))
