@@ -1,3 +1,9 @@
+```cpp
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 bool evaluateTerm(string term);
 bool solveBoolean(string s) {
     bool res = true;
@@ -7,10 +13,11 @@ bool solveBoolean(string s) {
         if (c == '|') {
             bool subRes = evaluateTerm(term);
             res = res || subRes;
-            term = ""; // fix: clear the term, not the integer
-        } else if (c == 't' || c == 'f') {
-            term += c;
-            if (i < s.length() - 1 && s[i + 1] == '&') i++; // skip '&' for now
+            term = "";
+        } 
+        else if (c == 't' || c == 'f') {
+            if (c == 't') term += 't';
+            else if (c == 'f') term += 'f';
         }
     }
     bool subRes = evaluateTerm(term);
@@ -25,16 +32,17 @@ bool evaluateTerm(string term) {
     for (int i = 0; i < term.length(); i++) {
         char c = term[i];
         if (c == '&') {
-            bool subRes = (subTerm == "t") ? true : false;
-            res = res && subRes;
-            subTerm = ""; // fix: clear the subTerm, not the integer
-        } else if (c == 't' || c == 'f') {
-            subTerm += c;
-            if (i < term.length() - 1 && term[i + 1] == '&') i++; // skip '&' for now
+            if (subTerm == "tt") res = true;
+            else if (subTerm == "tf" || subTerm == "ft" || subTerm == "ff") res = false;
+            subTerm = "";
+        } 
+        else if (c == 't' || c == 'f') {
+            if (c == 't') subTerm += 't';
+            else if (c == 'f') subTerm += 'f';
         }
     }
-    bool subRes = (subTerm == "t") ? true : false;
-    res = res && subRes;
+    if (subTerm == "tt") res = true;
+    else if (subTerm == "tf" || subTerm == "ft" || subTerm == "ff") res = false;
 
     return res;
 }
