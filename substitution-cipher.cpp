@@ -1,20 +1,14 @@
+#include <string>
+
 std::string decode(std::string cipher, std::string mapping) {
-    int freq[256] = {0}; // assuming ASCII characters
-    for (char m : mapping) {
-        freq[m]++;
-    }
-    
     std::string result = "";
-    for (char c : cipher) {
-        int idx = -1;
-        for (int i = 0; i < 256; ++i) {
-            if (freq[i] > 0) {
-                --freq[i];
-                idx = i;
-                break;
-            }
+    for (char m : mapping) {
+        int idx = mapping.find(m);
+        if (idx != std::string::npos) {
+            result.push_back(cipher[idx]); 
+        } else {
+            result.push_back(m); 
         }
-        result.push_back(idx);
     }
     return result;
 }
