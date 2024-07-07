@@ -13,7 +13,6 @@ bool solveBoolean(string s) {
         if (c == '|') {
             bool subRes = evaluateTerm(term);
             res = res || subRes;
-            term.clear();
             term.erase(0, term.size());
         } else if (c == 't' || c == 'f') {
             term += c;
@@ -34,7 +33,6 @@ bool evaluateTerm(string term) {
         if (c == '&') {
             bool subRes = (subTerm == "t") ? true : false;
             res = res && subRes;
-            subTerm.clear();
             subTerm.erase(0, subTerm.size());
         } else if (c == 't' || c == 'f') {
             subTerm += c;
