@@ -1,43 +1,34 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) return false;
-    }
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> lst2) {
-    int sum1 = 0;
-    for (const auto& v : lst1) {
-        for (const string& s : v) {
-            sum1 += s.length();
-        }
-    }
-    int sum2 = 0;
-    for (const auto& v : lst2) {
-        for (const string& s : v) {
-            sum2 += s.length();
-        }
-    }
-    if (sum1 < sum2) return vector<string>();
-    else if (sum1 > sum2) return vector<string>();
-    else {
+int main() {
+    if (sum1 < sum2) {
         vector<string> result;
         for (const auto& v : lst1) {
             for (const string& s : v) {
                 result.push_back(s);
             }
         }
-        return result;
+        return 0;
+    } else if (sum1 > sum2) {
+        vector<string> result;
+        for (const auto& v : lst2) {
+            for (const string& s : v) {
+                result.push_back(s);
+            }
+        }
+        return 0;
+    } else {
+        vector<string> result;
+        for (const auto& v : lst1) {
+            for (const string& s : v) {
+                result.push_back(s);
+            }
+        }
+        return 0;
     }
-}
-
-int main() {
-    assert(issame({{"this"}}, {}) == true);
-    return 0;
 }
