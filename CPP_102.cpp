@@ -10,20 +10,14 @@ int choose_num(std::string s1, std::string s2) {
 
 int main() {
     std::cout << "Enter two numbers (separated by a space): ";
-    std::string s1, s2;
-
-    if (!(std::cin >> s1 >> s2)) {  
+    while (!(std::cin >> s1 >> s2)) {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
-        return 1; 
+        std::cin.clear();  // clear error flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // ignore all remaining characters
     }
-
     int result = choose_num(s1, s2);
     std::cout << "Result: " << result << std::endl;
-
-    if (std::stoi(s1) > std::stoi(s2)) {
-        std::cout << "Greater number is " << s1 << std::endl;
-    } else {
-        std::cout << "Greater number is " << s2 << std::endl;
-    }
+    int num = (std::stoi(s1) > std::stoi(s2)) ? std::stoi(s1) : std::stoi(s2);
+    std::cout << "Greater number is " << (num == std::stoi(s1) ? s1 : s2) << std::endl;
     return 0;
 }
