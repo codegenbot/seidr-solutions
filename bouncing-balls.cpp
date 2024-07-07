@@ -11,11 +11,12 @@ int main() {
 
     double bouncinessIndex = firstBounceHeight / startHeight;
 
-    double totalDistance = 0.0;
+    double totalDistance = 0.0; 
     double currentHeight = firstBounceHeight; 
 
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += currentHeight * 2; 
+        totalDistance += currentHeight - startHeight;
+        startHeight = currentHeight;
         currentHeight *= bouncinessIndex; 
     }
 
