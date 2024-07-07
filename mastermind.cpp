@@ -1,22 +1,36 @@
 ```c++
 #include <unordered_map>
+#include <algorithm>
+
+using namespace std;
 
 int mastermind(string code, string guess) { 
     int whitePegs = 0;
     int blackPegs = 0;
-
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
+    
+    unordered_map<char, int> codeCount;
+    for (char c : code) {
+        codeCount[c]++;
+    }
 
     for (char c : code) {
-        int count = std::count(guess.begin(), guess.end(), c);
-        if (count > 1) {
-            whitePegs += count - 1;
-        } else if (count == 1) {
-            blackPegs++;
+        if (codeCount[c] > 0) {
+            codeCount[c]--;
+        }
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] != code[i]) {
+            int count = std::count(code.begin(), code.end(), guess[i]);
+            if (count > 0) {
+                whitePegs++;
+            }
         }
     }
 
@@ -32,4 +46,5 @@ int main() {
     int result = mastermind(code, guess);
     cout << "Number of white pegs: 0\nNumber of black pegs: " << result << endl;
     return 0;
+
 }
