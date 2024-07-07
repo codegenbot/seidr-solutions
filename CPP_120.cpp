@@ -1,8 +1,7 @@
-Here is the completed code:
-
 vector<int> maximum(vector<int> arr, int k) {
     vector<int> res(k);
-    copy_n(istream_iterator<int>(istringstream(join(rbegin(arr),rend(arr)," "))),k,res.begin());
-    sort(res.begin(),res.end());
+    partial_sort(arr.begin(), arr.begin() + k, arr.end(),
+                  [](int a, int b) { return a > b; });
+    copy_n(arr.rbegin(), k, res.begin());
     return res;
 }
