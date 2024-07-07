@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -19,4 +19,3 @@ int main() {
     std::vector<float> input = {num1, num2};
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
-}
