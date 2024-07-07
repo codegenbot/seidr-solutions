@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -52,4 +51,3 @@ int main() {
     for (float val : result) {
         std::cout << val << " ";
     }
-}
