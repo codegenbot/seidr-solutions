@@ -1,5 +1,5 @@
+#include <algorithm>
 #include <initializer_list>
-
 using namespace std;
 
 vector<int> cutVector(vector<int>& v) {
@@ -18,5 +18,17 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> left(v.begin(), v.begin() + pos);
     vector<int> right(v.begin() + pos, v.end());
 
-    return {left.begin(), left.end()} | {right.begin(), right.end()};
+    vector<int> result(left);
+    result.insert(result.end(), right.begin(), right.end());
+    
+    if (pos > 0 && abs(v[0] - v[pos-1]) <= minDiff) {
+        result = left;
+    } else if (abs(v.back() - v[0]) <= minDiff) {
+        result.clear();
+        result.push_back(v[0]);
+    } else {
+        throw runtime_error("The numbers on both sides are not equal.");
+    }
+    
+    return result;
 }
