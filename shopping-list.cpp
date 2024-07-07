@@ -1,11 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <algorithm>
 double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
-   std::vector<float>::iterator it = prices.begin();
-   return std::accumulate(std::advance(it, 1), prices.end(), 0.0, [&](double sum, float price) {
-       return sum + price * (1 - discounts[static_cast<size_t>(prices.size())]);
+   return std::accumulate(prices.begin(), prices.end(), 0.0, [&](double sum, float price, size_t i) {
+       return sum + price * (1 - discounts[i]);
    });
 }
 int main() {
