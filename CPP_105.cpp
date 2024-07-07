@@ -1,8 +1,8 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <map>
 #include <algorithm>
+#include <vector>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -24,25 +24,10 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
-    map<int, int> lengthCount;
-    for (string num : nums) {
-        int len = num.length();
-        if (lengthCount.find(len) != lengthCount.end()) {
-            lengthCount[len]++;
-        } else {
-            lengthCount[len] = 1;
-        }
-    }
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
 
-    vector<string> output;
-    for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
-        while (it->second > 0) {
-            output.push_back(it->first == 1 ? "One" : (it->first == 2 ? "Two" : (it->first == 3 ? "Three" : (it->first == 4 ? "Four" : (it->first == 5 ? "Five" : (it->first == 6 ? "Six" : (it->first == 7 ? "Seven" : (it->first == 8 ? "Eight" : "Nine"))))))));
-            it->second--;
-        }
-    }
-
-    return output;
+    return nums;
 }
 
 int main() {
