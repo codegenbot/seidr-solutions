@@ -20,35 +20,15 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     std::vector<std::string> result;
     for (std::string str : nums) {
-        switch (std::stoi(str)) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
-        }
+        if (str == "1") str = "One";
+        else if (str == "2") str = "Two";
+        else if (str == "3") str = "Three";
+        else if (str == "4") str = "Four";
+        else if (str == "5") str = "Five";
+        else if (str == "6") str = "Six";
+        else if (str == "7") str = "Seven";
+        else if (str == "8") str = "Eight";
+        else if (str == "9") str = "Nine";
         result.push_back(str);
     }
 
