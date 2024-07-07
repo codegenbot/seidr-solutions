@@ -18,9 +18,6 @@ int starts_one_ends(int n) {
         if (flag) count++;
     }
     return count;
-}
 
-int main() {
-    std::cout << starts_one_ends(5) << std::endl;
-    return 0;
 }
+std::cout << starts_one_ends(5) << std::endl;
