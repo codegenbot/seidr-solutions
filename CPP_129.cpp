@@ -8,10 +8,7 @@ using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<bool> row(n, false);
-    visited.resize(n);
-    for (int i = 0; i < n; ++i) {
-        visited[i].resize(n, false); // Initialize each row with all elements as false.
-    }
+    vector<vector<bool>> visited(grid.size(), vector<bool>(grid[0].size()));
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
     vector<int> res;
 
