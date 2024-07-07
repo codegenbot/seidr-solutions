@@ -1,6 +1,6 @@
-```
+```cpp
 #include <string>
-#include <stack>
+#include <algorithm>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -8,11 +8,11 @@ bool solveBoolean(std::string s) {
         if (c == 'F') {
             result = false;
         } else if (c == '&') {
-            while (!result && !s.empty() && s.back() == '&') {
+            while (!result && s.size() > 1 && s.back() == '&') {
                 s.pop_back();
             }
         } else if (c == '|') {
-            while (!result && !s.empty() && s.back() == '|') {
+            while (!result && s.size() > 1 && s.back() == '|') {
                 s.pop_back();
             }
         }
