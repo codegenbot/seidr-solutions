@@ -3,35 +3,15 @@
 #include <cmath>
 #include <algorithm>
 
-bool issame(float a, float b) {
-    return std::abs(a - b) < 0.0001;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (!issame(a[i], b[i])) return false;
+    }
+    return true;
 }
 
 std::vector<float> sort_even(std::vector<float> input) {
-    std::vector<float> result;
-    for (int i = 0; i < input.size(); i++) {
-        if (i % 2 == 0) {
-            float minVal = input[0];
-            for (float val : input) {
-                if (!issame(val, minVal)) {
-                    minVal = val;
-                }
-            }
-            result.push_back(minVal);
-        } else {
-            auto it = std::stable_partition(input.begin(), input.end(),
-                                             [back = &result.back()](const float& val) {
-                                                 return !issame(val, *back);
-                                             });
-            if (it != input.end()) {
-                result.push_back(*it);
-            }
-        }
-    }
-    return result;
-}
-
-std::vector<float> sort_even(std::vector<float>& input) {
     std::vector<float> result;
     for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
