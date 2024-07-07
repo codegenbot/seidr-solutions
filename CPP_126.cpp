@@ -1,21 +1,12 @@
-Here's the completed code:
+Here's the solution:
 
-bool is_sorted(vector<int> lst){
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]){
-            vector<int> temp;
-            for(int j = 0; j < i; j++){
-                temp.push_back(lst[j]);
-            }
-            for(int k = i; k < lst.size(); k++){
-                temp.push_back(lst[k]);
-            }
-            if(count(temp.begin(), temp.end(), temp[0]) > 1){
-                return false;
-            }
-        }else{
-            return false;
-        }
+```cpp
+bool is_sorted(vector<int> lst) {
+    for(int i = 0; i < lst.size() - 1; i++) {
+        if(lst[i] >= lst[i+1]) return false;
     }
-    return true;
+    vector<int>::iterator it;
+    it = unique(lst.begin(), lst.end());
+    lst.erase(it, lst.end());
+    return (lst.size() == 0 || (lst[0] == lst[1] && lst.size() == 1));
 }
