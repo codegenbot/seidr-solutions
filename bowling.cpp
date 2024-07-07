@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
+```cpp
 int bowlingScore(string s) {
     int score = 0;
     int currentRoll = 0;
@@ -16,8 +13,7 @@ int bowlingScore(string s) {
             currentRoll = 0;
             rollCount++;
         } else if (isdigit(c)) {
-            currentRoll *= 10;
-            currentRoll += c - '0';
+            currentRoll = currentRoll * 10 + c - '0';
         }
     }
 
