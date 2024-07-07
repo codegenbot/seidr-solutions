@@ -6,7 +6,7 @@ double snowDay(int hours, double groundSnow, double rate, double melt) {
     double totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow = max(0.0, totalSnow + rate - melt * groundSnow);
+        totalSnow += rate - melt * groundSnow;
         groundSnow = max(0.0, groundSnow + rate - melt * groundSnow);
     }
     
@@ -19,5 +19,4 @@ int main() {
     double groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
     cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
-    return 0;
-}
+    return 0;}
