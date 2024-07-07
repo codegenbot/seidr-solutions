@@ -1,9 +1,3 @@
-bool issame(int i1, int j1, int i2, int j2, vector<vector<int>>& grid) {
-    if(i1 < 0 || i1 >= grid.size() || j1 < 0 || j1 >= grid[0].size()) return false;
-    if(i2 < 0 || i2 >= grid.size() || j2 < 0 || j2 >= grid[0].size()) return false;
-    return grid[i1][j1] == grid[i2][j2];
-}
-
 vector<int> minPath(vector<vector<int>>& grid, int k){
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
