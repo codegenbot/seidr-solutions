@@ -1,7 +1,7 @@
-```
 #include <vector>
-#include <initializer_list>
 using namespace std;
+
+#include <initializer_list>
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
@@ -16,15 +16,15 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> leaders;
-    int leader = arr.back();
+    vector<int> result;
+    int rightmost = arr.back();
     for (int i = arr.size() - 2; i >= 0; i--) {
-        if (arr[i] >= leader) {
-            leader = arr[i];
-            leaders.push_back(leader);
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
     }
-    return leaders;
+    return result;
 }
 
 int main() {
