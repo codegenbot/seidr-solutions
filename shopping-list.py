@@ -6,8 +6,8 @@ def shopping_list(prices, discounts):
     total_price = 0
     for i in range(len(prices)):
         try:
-            price = float(prices[i])
-            discount = float(discounts[i])
+            price = float(prices[i], 2)
+            discount = float(discounts[i], 2)
             total_price += price * (1 - discount)
         except ValueError:
             print("Invalid price or discount! Please enter a valid number.")
