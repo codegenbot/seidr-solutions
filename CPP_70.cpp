@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -24,8 +23,7 @@ vector<int> strange_sort_list(vector<int> lst) {
 
 int main() {
     vector<int> input = {1, 2, 3, 4, 5};
-    vector<int> expected = {1, 5, 2, 4, 3};
     vector<int> output = strange_sort_list(input);
-    assert(issame(output, expected));
+    assert(issame(output, vector<int>({1, 5, 2, 4, 3})));
     return 0;
 }
