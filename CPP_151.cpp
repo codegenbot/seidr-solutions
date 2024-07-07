@@ -34,10 +34,11 @@ int main() {
     std::vector<double> lst;
     for(int i = 0; i < n; i++) {
         double num;
-        if (std::cin >> num) {
-            if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-                lst.push_back(static_cast<double>(num));
-            }
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+
+        if (num > 0 && std::fmod(num,2.0) != 0.0) { 
+            lst.push_back(num);
         }
     }
 
