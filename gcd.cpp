@@ -30,12 +30,10 @@ int main() {
 
     string text, target;
     cin >> text >> target;
-
     vector<int> result = indicesOfSubstring(text, target);
 
-    cout << result.size() << endl;
-
-    cout << gcd(num1, num2) << endl;
+    cout << result.size() << endl; // Print the size of the result
+    cout << gcd(num1, num2) << endl; // Print the GCD
 
     return 0;
 }
