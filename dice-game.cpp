@@ -5,3 +5,4 @@ double diceGame(int n, int m) {
         p *= 1.0 * (n - i) / n;
     }
     return p;
+}
