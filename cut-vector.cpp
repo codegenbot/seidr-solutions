@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -9,11 +8,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> vec[i];
     }
-    auto res = cutVector(vec);
+    vector<vector<int>> res = cutVector(vec);
     cout << "[";
+    bool first = true;
     for (int i = 0; i < res.size(); i++) {
         cout << "[";
-        for(auto num:res[i])cout<<num<<" ";
+        string str = "";
+        bool firstElement = true;
+        for(auto num:res[i]){
+            if(firstElement)firstElement=false;else str+=", ";
+            str += to_string(num);
+        }
+        cout<<str<<"] ";
         if(i < res.size() - 1) cout << "], [";
         else cout << "]";
     }
