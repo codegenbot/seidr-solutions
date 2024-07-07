@@ -1,6 +1,2 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    string lastChar = txt.substr(txt.length() - 1);
-    bool isLetter = isalpha(lastChar[0]);
-    return !isalpha(lastChar[0]) && txt.find(lastChar) == txt.length() - 1;
-}
+int last_space = txt.find_last_of(' ');
+return (last_space == string::npos || txt[last_space+1] <= ' ') && isalpha(txt.back());
