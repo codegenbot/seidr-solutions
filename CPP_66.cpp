@@ -1,7 +1,7 @@
 ```cpp
+#include <cassert>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -11,9 +11,9 @@ int digitSum(std::string s) {
         }
     }
     return sum % 26;
+
 }
 
 int main() {
     assert(digitSum("You arE Very Smart") == 14);
-    return 0;
 }
