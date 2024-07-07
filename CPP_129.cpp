@@ -9,7 +9,7 @@ struct pair_int {
     int i;
     int j;
 
-    pair_int() : val(0), i(-1), j(-1) {}
+    pair_int(int v = 0, int ii = -1, int jj = -1) : val(v), i(ii), j(jj) {}
 };
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
@@ -31,10 +31,9 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         pq.pop();
 
         res[k-1] = grid[pos_i][pos_j];
+        k--;
 
         if (k > 0) {
-            --k;
-
             // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
