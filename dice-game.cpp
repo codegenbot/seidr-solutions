@@ -4,9 +4,11 @@ using namespace std;
 
 double probability(int n, int m) {
     double sum = 0;
+    long long totalOutcomes = 1;
     for (int i = 1; i <= min(n, m); i++) {
-        if (i < m) {
-            sum += (n - i + 1.0) / n * (m - i + 1.0) / m;
+        totalOutcomes *= (n - i + 1) * m; 
+        if(i > 1) { 
+            sum += 1.0 * ((long long)(n-1)!/(i-1)!(n-i)) * ((m-1)!/((m-i)!*(m-(i+1)))) / totalOutcomes;
         }
     }
     return sum;
