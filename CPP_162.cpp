@@ -3,21 +3,22 @@
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* ptr = text.c_str();
-    while (*ptr) {
-        MD5_Update(&ctx, ptr, 1);
-        ptr++;
-    }
-    MD5_Final(md, &ctx);
+    unsigned char md5[16];
+    EVP_MD_CTX ctx;
+    EVP_MD *md = EVP_md5();
+    const void* data = text.c_str();
+    size_t len = text.size();
+
+    EVP_DigestInit_ex(&ctx, md, NULL);
+    EVP_DigestUpdate(&ctx, data, len);
+    EVP_DigestFinal_ex(&ctx, md5, NULL);
 
     string result;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        stringstream ss;
-        ss << hex << setfill('0') << setw(2) << static_cast<int>(md[i]);
-        result += ss.str();
+    for (int i = 0; i < 16; ++i) {
+        char buff[3];
+        sprintf(buff, "%02x", md5[i]);
+        result += buff;
     }
+
     return result;
 }

@@ -1,42 +1,24 @@
-Here is the completed code:
+using namespace boost;
 
-#include <boost/convert.hpp>
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        int x = boost::lexical_cast<int>(str);
-        if (boost::any_cast<float>(a) > x)
-            return a;
-        else
-            return "None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        int x1 = boost::lexical_cast<int>(str1);
-        int x2 = boost::lexical_cast<int>(str2);
-        if (x1 > x2)
-            return a;
-        else if (x1 < x2)
-            return b;
-        else
-            return "None";
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(b);
-        if (boost::any_cast<float>(a) > x)
-            return a;
-        else
-            return "None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string str = boost::any_cast<string>(a);
-        float f = boost::lexical_cast<float>(str);
-        if (f > boost::any_cast<float>(b))
-            return a;
-        else
-            return "None";
-    } else {
-        return a > b ? a : b;
+any compare_one(any a, any b) {
+    if (is_none(a) && is_none(b)) return "None";
+    
+    double ad = get<double>(a);
+    double bd = get<double>(b);
+    
+    if (!get<string>(a).empty()) {
+        string as = get<string>(a);
+        if (!as.find(".") == string::npos || !as.find(",") == string::npos) 
+            ad = stod(as);
     }
+    
+    if (!get<string>(b).empty()) {
+        string bs = get<string>(b);
+        if (!bs.find(".") == string::npos || !bs.find(",") == string::npos) 
+            bd = stod(bs);
+    }
+    
+    if (ad > bd) return a;
+    else if (bd > ad) return b;
+    else return "None";
 }
