@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <map>
+#include <iostream>
 
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
@@ -32,4 +32,3 @@ int main() {
         std::cout << "No such number found." << std::endl;
     }
     return 0;
-}
