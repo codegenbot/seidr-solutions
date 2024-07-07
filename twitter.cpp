@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string validateTweet(string tweet) {
     int charCount = 0;
     for (char c : tweet) {
@@ -18,13 +13,4 @@ string validateTweet(string tweet) {
         return "Too many characters";
     }
     return "Your tweet has " + to_string(charCount) + " characters";
-}
-
-int main() {
-    string tweet;
-    cout << "Enter a tweet: ";
-    cin.ignore(); 
-    getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
-    return 0;
 }
