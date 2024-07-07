@@ -1,20 +1,34 @@
+Here is the completed code:
+
+```cpp
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (num > 0) {
-            int sum = 0;
-            bool negative = false;
-            do {
-                int digit = abs(num) % 10;
-                if (digit != 0 || !negative) {
-                    sum += digit;
+        if (num >= 0) {
+            int sum_of_digits = 0;
+            int n = num;
+            while (n > 0) {
+                int digit = n % 10;
+                if (digit != 0) {
+                    sum_of_digits += digit;
                 }
-                num /= 10;
-                if (num < 0 && !negative) {
-                    negative = true;
+                n /= 10;
+            }
+            if (sum_of_digits > 0) {
+                count++;
+            }
+        } else {
+            num = -num; // make it positive
+            int sum_of_digits = 0;
+            int n = num;
+            while (n > 0) {
+                int digit = n % 10;
+                if (digit != 0) {
+                    sum_of_digits += digit;
                 }
-            } while (num > 0);
-            if (sum > 0) {
+                n /= 10;
+            }
+            if (sum_of_digits > 0) {
                 count++;
             }
         }
