@@ -4,8 +4,16 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result;
-    result = unique_copy(l.begin(), l.end(), back_inserter(result));
+    vector<int> result(unique_copy(l.begin(), l.end(), result.begin()));
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    vector<int> v = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> res = unique(v);
+    for (auto i : res) {
+        cout << i << " ";
+    }
+    return 0;
 }
