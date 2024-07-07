@@ -3,14 +3,14 @@
 #include <string>
 
 int is_bored(std::string S) {
-    size_t pos = 0;
-    while ((pos = S.find(' ', pos)) != std::string::npos) {
-        if (S.substr(0, pos).compare("I am bored") == 0) {
-            return 1; 
-        }
-        pos++;
+    int count = 0;
+    std::string boredom = "I am bored";
+    size_t pos = S.find(boredom);
+    while (pos != std::string::npos) {
+        count++;
+        pos = S.find(boredom, pos + boredom.length());
     }
-    return 0;
+    return count;
 }
 
 int main() {
