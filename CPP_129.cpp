@@ -3,7 +3,9 @@
 #include <queue>
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
-bool myCompare(const std::vector<int>& a, const std::vector<int>& b);
+bool operator>(const pair_int &a, const pair_int &b) {
+    return a.val > b.val;
+}
 
 struct pair_int {
     int val;
@@ -12,10 +14,6 @@ struct pair_int {
 
     pair_int() : val(0), i(-1), j(-1) {}
 };
-
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
-}
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
@@ -58,10 +56,6 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     }
 
     return res;
-}
-
-bool myCompare(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() 
