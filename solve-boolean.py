@@ -1,6 +1,3 @@
-import ast
-
-
 def solve_boolean(expression):
     if isinstance(expression, str):
         tree = ast.parse(expression)
