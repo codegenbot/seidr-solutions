@@ -19,14 +19,18 @@ int main() {
     std::set<int> set1(l1.begin(), l1.end());
     std::set<int> set2(l2.begin(), l2.end());
 
-    if(set2.size() == std::set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(),
+    if(std::set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(),
         std::inserter(set2, set2.end())).size()) {
-        std::cout << "All elements of one list are present in another." << std::endl;
-    } else {
         std::cout << "Not all elements of one list are present in another." << std::endl;
+    } else {
+        std::cout << "All elements of one list are present in another." << std::endl;
     }
 
-    assert (common({4, 3, 2, 8}, {}).size() == 0);
+    std::vector<int> result = common(l1, l2);
+    for(int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
