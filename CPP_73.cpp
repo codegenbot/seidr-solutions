@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -16,13 +13,14 @@ int smallest_change(vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i + 1][j - 1];
             } else {
-                dp[i][j] = 1 + min({dp[i + 1][j], dp[i][j - 1]}, std::min(dp[i + 1][j - 1]));
+                try {
+                    dp[i][j] = 1 + std::min({dp[i + 1][j], dp[i][j - 1]}, std::min(dp[i + 1][j - 1]));
+                } catch (const exception& e) {
+                    cout << "Error: " << e.what() << endl;
+                    return -1; 
+                }
             }
         }
-    }
-    
-    if (arr[0] != arr.back()) {
-        throw runtime_error("Array must have the same first and last elements.");
     }
     
     return dp[0][n - 1];
