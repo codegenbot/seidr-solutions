@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <map>
@@ -7,7 +7,7 @@
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> nums;
+    vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             string str = to_string(num);
@@ -20,13 +20,13 @@ vector<string> by_length(vector<int> arr) {
             else if (str == "7") str = "Seven";
             else if (str == "8") str = "Eight";
             else if (str == "9") str = "Nine";
-            nums.push_back(str);
+            nums.push_back(stoi(str));
         }
     }
 
     map<int, int> lengthCount;
-    for (string num : nums) {
-        int len = num.length();
+    for (int num : nums) {
+        int len = to_string(num).length();
         if (lengthCount.find(len) != lengthCount.end()) {
             lengthCount[len]++;
         } else {
@@ -37,7 +37,15 @@ vector<string> by_length(vector<int> arr) {
     vector<string> output;
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
         while (it->second > 0) {
-            output.push_back(it->first == 1 ? "One" : (it->first == 2 ? "Two" : (it->first == 3 ? "Three" : (it->first == 4 ? "Four" : (it->first == 5 ? "Five" : (it->first == 6 ? "Six" : (it->first == 7 ? "Seven" : (it->first == 8 ? "Eight" : "Nine"))))))));
+            if(it->first == 1) output.push_back("One");
+            else if(it->first == 2) output.push_back("Two");
+            else if(it->first == 3) output.push_back("Three");
+            else if(it->first == 4) output.push_back("Four");
+            else if(it->first == 5) output.push_back("Five");
+            else if(it->first == 6) output.push_back("Six");
+            else if(it->first == 7) output.push_back("Seven");
+            else if(it->first == 8) output.push_back("Eight");
+            else output.push_back("Nine");
             it->second--;
         }
     }
