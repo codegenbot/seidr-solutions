@@ -12,19 +12,16 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
+    std::vector<int> nums;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> nums[i];
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << (i+1) << ": ";
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
     }
-
-    int result = specialFilter(nums);
-
-    std::cout << "Number of elements that satisfy the condition: " << result << std::endl;
-
+    std::cout << "Number of special elements: " << specialFilter(nums) << std::endl;
     return 0;
 }
