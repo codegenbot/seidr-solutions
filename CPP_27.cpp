@@ -2,12 +2,15 @@
 #include <cctype>
 
 std::string flip_case(std::string str) {
-    for (char &c : str) {
+    std::string flipped = str;
+    for (char & c : flipped) { 
         if (std::islower(c)) {
+            c = std::toupper(c);
+        } else {
             c = std::tolower(c);
         }
     }
-    return str;
+    return flipped; 
 }
 
 int main() {
