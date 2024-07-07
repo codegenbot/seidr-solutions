@@ -1,29 +1,31 @@
-
 #include <iostream>
 #include <string>
 
-int main() {
-    std::string expression;
-    int result = 0;
-
-    while (true) {
-        // Get input from user
-        std::cout << "Enter a boolean expression (T, F, |, &, ^): ";
-        std::getline(std::cin, expression);
-
-        // Check if the input is valid
-        if (!expression.empty() && expression != "false") {
-            result = atoi(expression.c_str());
-            break;
-        } else {
+bool evaluate(const std::string& expression) {
+    bool result = true;
+    int i = 0;
+    while (i < expression.length()) {
+        if (expression[i] == '|') {
+            i++;
             continue;
+        } else if (expression[i] == '&') {
+            i++;
+            continue;
+        } else if (expression[i] == '^') {
+            i++;
+            continue;
+        } else if (operators.empty()) {
+            result = true;
+        } else {
+            std::string operator = operators.top();
+            if (operator.compare("|") == 0) {
+                result |= std::atoi(expression[i]);
+            } else if (operator.compare("&") == 0) {
+                result &= std::atoi(expression[i]);
+            } else if (operator.compare("^") == 0) {
+                result ^= std::atoi(expression[i]);
+            }
         }
     }
-
-    // Evaluate the expression
-    if (result) {
-        std::cout << "true" << std::endl;
-    } else {
-        std::cout << "false" << std::endl;
-    }
+    return result;
 }
