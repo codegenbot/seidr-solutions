@@ -15,3 +15,4 @@ int main() {
     int result = fuelCost(nums);
     cout << "Fuel cost: " << result << endl;
     return 0;
+}
