@@ -22,7 +22,7 @@ int main() {
 
     for(int i = 0; i < ncoeff; i++) {
         double poly = 0.0;
-        for(int j = 0; j <= i; j++) {
+        for(int j = 0; j < i+1; j++) { // Fix: replaced j <= i with j < i+1
             poly += coeffs[j] * pow(x, j);
         }
         y = poly;
