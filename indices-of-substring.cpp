@@ -1,35 +1,28 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
     int m = target.length();
 
-    vector<int> lps(m, 0); // Longest Prefix Suffix array
-    int j = 0; 
-
-    for (int i = 1; i < m; i++) { 
-        while(j > 0 && target[i] != target[j]) 
-            j = lps[j - 1]; 
-
-        if(target[i] == target[j])
-            j++; 
-
-        lps[i] = j;
-
-        if(i == m-1) 
-            result.push_back(text.find(target));
-    }
-
-    for (int i = 0; i < n; i++) { 
-        j = lps[m - 1]; 
-        while(j > 0 && i + j >= m && text.substr(i, j) != target)
-            j = lps[j-1]; 
-
-        if(i + j == m) {
+    int i = 0; 
+    for (; i <= n - m; i += target.length()) {
+        if (text.substr(i, m) == target)
             result.push_back(i);
-            i += j;
-            j = lps[j - 1];
-        }
     }
 
     return result;
+}
+
+int main() {
+    string text;
+    string target;
+    cin >> text >> target;
+    vector<int> res = indicesOfSubstring(text, target);
+    for (int i : res) {
+        cout << i << " ";
+    }
+    return 0;
 }
