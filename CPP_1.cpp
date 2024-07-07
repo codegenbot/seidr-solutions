@@ -2,30 +2,31 @@
 #include <vector>
 #include <stack>
 #include <string>
+
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    stack<string> parentheses;
-    string currentParenthesis = "";
+    stack<string> groups;
+    string group = "";
 
     for (char c : paren_string) {
         if (c == '(') {
-            currentParenthesis += "(";
-            parentheses.push(currentParenthesis);
-        } else if (c == ')') {
-            currentParenthesis += ")";
-            if (!parentheses.empty()) {
-                parentheses.pop();
-                while (!parentheses.empty()) {
-                    currentParenthesis = parentheses.top() + currentParenthesis;
-                    parentheses.pop();
-                }
-                result.push_back(currentParenthesis);
-                currentParenthesis = "";
+            group += '(';
+            if (groups.empty()) {
+                groups.push(group);
             }
+        } else if (c == ')') {
+            group += ')';
+            if (!groups.empty()) {
+                groups.pop();
+                if (groups.empty()) {
+                    result.push_back(group);
+                }
+            }
+            group = "";
         } else {
-            currentParenthesis += c;
+            group += c;
         }
     }
 
@@ -33,11 +34,11 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input = "( ) (( )) (( )( ))";
-    vector<string> output = separate_paren_groups(input);
+    string paren_string = "( ) (( )) (( )( ))";
+    vector<string> groups = separate_paren_groups(paren_string);
 
-    for (string s : output) {
-        cout << s << endl;
+    for (string group : groups) {
+        cout << group << endl;
     }
 
     return 0;
