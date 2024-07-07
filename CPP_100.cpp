@@ -1,5 +1,8 @@
 #include <algorithm>
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -9,7 +12,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool check(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size()!=b.size())return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[b.size()-1-i])return false;
@@ -17,7 +20,7 @@ bool check(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
+int testMain() {
     int n = 8;
     std::vector<int> pile = make_a_pile(n);
     std::sort(pile.begin(), pile.end());
@@ -25,7 +28,7 @@ int main() {
         *it -= 1;
     }
     
-    assert(check(make_a_pile(n), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(n), {8, 10, 12, 14, 16, 18, 20, 22}));
     
     return 0;
 }
