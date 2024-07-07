@@ -1,29 +1,34 @@
+#include <iostream>
 #include <vector>
+#include <string>
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr){
     int n = arr.size();
-    std::vector<std::vector<int>> dp(n, std::vector<int>(n));
-    
-    for (int i = 0; i < n; i++) {
-        dp[i][i] = 0;
+    string s = "";
+    for(int i=0; i<n; i++){
+        s += to_string(arr[i]);
     }
-    
-    for (int length = 2; length <= n; length++) {
-        for (int i = 0; i < n - length + 1; i++) {
-            int j = i + length - 1;
-            
-            if (arr[i] == arr[j]) {
-                dp[i][j] = dp[i + 1][j - 1];
-            } else {
-                dp[i][j] = 1 + (dp[i + 1][j] < dp[i][j - 1] ? dp[i + 1][j] : dp[i][j - 1]);
-            }
+    int left = 0, right = s.length() - 1;
+    int count = 0;
+    while(left < right){
+        if(s[left] != s[right]){
+            count++;
+            break;
+        }
+        left++;
+        right--;
+    }
+    for(int i=left; i<right; i++){
+        if(s[i] != s[s.length()-i-1]){
+            count++;
         }
     }
-    
-    return dp[0][n - 1];
+    return count;
 }
 
 int main() {
-    assert(smallest_change({0, 1}) == 1);
+    vector<int> arr = {1, 2, 3};
+    int result = smallest_change(arr);
+    std::cout << "Smallest change is: " << result << std::endl;
     return 0;
 }
