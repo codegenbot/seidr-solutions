@@ -3,19 +3,17 @@ using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
     double totalSnow = initialSnow; // Initialize to the initial amount of snow
-    double totalSnowfall = 0.0; // Initialize the total snowfall
 
     for (int i = 0; i < hours; i++) {
-        totalSnowfall += rateOfSnowfall; // Calculate the total snowfall for this hour
+        totalSnow += rateOfSnowfall;
         double melting = totalSnow * proportionMeltingPerHour;
         totalSnow -= melting;
         if (totalSnow < 0) {
-            totalSnow = 0.0;
+            totalSnow = 0;
         }
-        totalSnow += rateOfSnowfall - melting;
     }
-
-    return totalSnow + totalSnowfall; // Return the total snow, including initial and total snowfall
+    
+    return totalSnow;
 }
 
 int main() {

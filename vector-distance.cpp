@@ -1,12 +1,11 @@
-#include <cmath>
 #include <iostream>
-
-using namespace std;
+#include <cmath>
 
 double vectorDistance(int n) {
     double x1[n], x2[n];
-    for (int i = 0; i < n; i++) {
-        cin >> x1[i] >> x2[i];
+    std::cin >> x1[0]; 
+    for (int i = 1; i < n; i++) {
+        std::cin >> x1[i] >> x2[i];
     }
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
