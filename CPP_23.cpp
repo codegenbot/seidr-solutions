@@ -10,10 +10,7 @@ int main(){
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
-    if(input.empty()){
-        std::cout << "Error: Please enter a valid string." << std::endl;
-    } else {
-        std::cout << "Length of the string is: " << str_length(input) << std::endl;
-    }
+    int length = str_length(input);
+    std::cout << "Length of the string is: " << length << std::endl;
     return 0;
 }
