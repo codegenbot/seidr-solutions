@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 
@@ -10,9 +9,4 @@ std::string flip_case(std::string str) {
         }
     }
     return str;
-}
-
-int main() {
-    std::cout << flip_case("These violent delights have violent ends") << std::endl;
-    return 0;
 }
