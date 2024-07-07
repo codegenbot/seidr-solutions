@@ -7,18 +7,23 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     int rollCount = 0;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            if (currentRoll >= 10) {
-                score += currentRoll + 10;
-            } else {
-                score += currentRoll + max(1, currentRoll);
+    for (char c : s) {
+        if (!isdigit(c)) {
+            if (c == '/') {
+                if (currentRoll >= 10) {
+                    score += currentRoll + 10;
+                } else {
+                    score += currentRoll + max(1, currentRoll);
+                }
+                currentRoll = 0;
+                rollCount++;
+            } else if (c == 'X') {
+                currentRoll = 0;
+                score += 10 + (rollCount < 2 ? 10 : 10 - 1 * min(10, rollCount));
             }
-            currentRoll = 0;
-            rollCount++;
-        } else if (isdigit(s[i])) {
+        } else {
             currentRoll *= 10;
-            currentRoll += s[i] - '0';
+            currentRoll += c - '0';
         }
     }
 
@@ -31,11 +36,7 @@ int bowlingScore(string s) {
     return score;
 }
 
-int main(int argc, char* argv[]) { 
-    if(argc != 2) {
-        cout << "Usage: bowlingScore <string>";
-        return -1;
-    }
-    std::cout << bowlingScore(argv[1]) << '\n'; 
-    return 0; 
+int main(int argc, char* argv[]) {
+    std::cout << bowlingScore(argv[1]) << '\n';
+    return 0;
 }
