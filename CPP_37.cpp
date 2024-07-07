@@ -1,9 +1,6 @@
 ```cpp
-#include <vector>
-#include <cmath>
-
 bool issame(float a, float b) {
-    return std::abs(a - b) < 0.0001;
+    return abs(a - b) < 0.0001;
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
