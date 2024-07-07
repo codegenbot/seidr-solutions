@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -29,6 +28,6 @@ string string_to_md5(string text) {
         ss << setfill('0') << setw(2) << hex << (int)result[i];
     }
 
-    string md5Hash = ss.str(); 
+    string md5Hash = ss.str();
     return md5Hash;
 }
