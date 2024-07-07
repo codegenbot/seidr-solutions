@@ -1,13 +1,11 @@
-#include <iostream>
-#include <string>
-
+```cpp
 int main() {
     std::string s;
-    char capitalizeNext = false;
+    bool capitalizeNext = false;
     std::string result;
 
-    std::cin >> s; 
-
+    std::cin >> s;
+    
     for (char c : s) {
         if (c == '-' || c == ' ') { 
             capitalizeNext = true;
