@@ -24,21 +24,19 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        arr.push_back(x);
+        std::cout << "Element " << i + 1 << ": ";
+        std::cin >> arr[i];
     }
 
-    int res = smallest_change(arr);
+    int result = smallest_change(arr);
 
-    std::cout << "Smallest change required: " << res << std::endl;
+    std::cout << "Number of changes required: " << result << std::endl;
 
     return 0;
 }
