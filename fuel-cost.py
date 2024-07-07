@@ -1,4 +1,3 @@
-import math
-
-def fuel_cost(vector):
-    return sum(math.floor(i / 3) - 2 for i in vector)
+```
+def fuel_cost(arr):
+    return sum((i // (i//3 + 1)) - 2 for i in arr)
