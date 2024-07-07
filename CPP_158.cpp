@@ -7,14 +7,5 @@ string find_max(vector<string> words){
             return a.length() > b.length();
         });
     
-    for(auto word : words){
-        if(word.length() >= max_word.length()){
-            set<char> s(word.begin(), word.end());
-            if(s.size() > max_word.length()){
-                max_word = word;
-            }
-        }
-    }
-    
     return max_word;
 }
