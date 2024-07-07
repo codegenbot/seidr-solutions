@@ -16,7 +16,6 @@ def cut_vector(vector):
     if cut_index != -1:
         return vector[:cut_index+1], vector[cut_index+1:]
 
-# Testing the function
 print(cut_vector([1]))  # Output: ([1], [0])
 print(cut_vector([1, 10]))  # Output: ([1], [10, 0])
 print(cut_vector([1, 100]))  # Output: ([1], [100, 0])
