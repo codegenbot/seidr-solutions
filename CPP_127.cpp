@@ -1,22 +1,17 @@
-```cpp
+#include <algorithm>
 #include <string>
-#include <vector>
 
-std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
-    int start = std::max(interval1[0], interval2[0]);
-    int end = std::min(interval1[1], interval2[1]);
+std::string intersection(std::pair<int, int> interval1, std::pair<int, int> interval2) {
+    int start = std::max({interval1.first, interval2.first}.front(), {interval1.second, interval2.second}.front());
+    int end = std::min({interval1.first, interval2.first}.back(), {interval1.second, interval2.second}.back());
 
-    if (start > end) return "NO";
+    if (start <= end)
+        return "YES";
+    else
+        return "NO";
+}
 
-    int length = end - start + 1;
-
-    bool isPrime = true;
-    for (int i = 2; i * i <= length; i++) {
-        if (length % i == 0) {
-            isPrime = false;
-            break;
-        }
-    }
-
-    return isPrime ? "YES" : "NO";
+int main() {
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    return 0;
 }
