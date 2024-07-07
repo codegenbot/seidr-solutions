@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <set>
 #include <algorithm>
 #include <initializer_list>
-#include <sstream>
+#include <iostream> 
 using namespace std;
 
 bool same(vector<int> a, vector<int> b) {
@@ -27,44 +26,40 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return intersection;
 }
 
-int main() {
-    vector<int> l1;
-    int n1;
-    cout << "Enter the number of elements in list 1: ";
-    cin >> n1;
-    for(int i = 0; i < n1; i++) {
-        int x;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> x;
-        l1.push_back(x);
-    }
+vector<int> l1;
+int n1;
+cout << "Enter the number of elements in list 1: ";
+cin >> n1;
+for(int i = 0; i < n1; i++) {
+    int x;
+    cout << "Enter element " << i + 1 << ": ";
+    cin >> x;
+    l1.push_back(x);
+}
 
-    vector<int> l2;
-    int n2;
-    cout << "Enter the number of elements in list 2: ";
-    cin >> n2;
-    for(int i = 0; i < n2; i++) {
-        int x;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> x;
-        l2.push_back(x);
-    }
+vector<int> l2;
+int n2;
+cout << "Enter the number of elements in list 2: ";
+cin >> n2;
+for(int i = 0; i < n2; i++) {
+    int x;
+    cout << "Enter element " << i + 1 << ": ";
+    cin >> x;
+    l2.push_back(x);
+}
 
-    if(same(l1, l2)) {
-        cout << "The two lists are the same." << endl;
-    } else {
-        cout << "The two lists are different." << endl;
-    }
+if(same(l1, l2)) {
+    cout << "The two lists are the same." << endl;
+} else {
+    cout << "The two lists are different." << endl;
+}
 
-    vector<int> intersection = common(l1, l2);
-    if(intersection.size() != 0) {
-        for(int i = 0; i < intersection.size(); i++) {
-            cout << intersection[i] << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "No common elements." << endl;
+vector<int> intersection = common(l1, l2);
+if(intersection.size() != 0) {
+    for(int i = 0; i < intersection.size(); i++) {
+        cout << intersection[i] << " ";
     }
-
-    return 0;
+    cout << endl;
+} else {
+    cout << "No common elements." << endl;
 }
