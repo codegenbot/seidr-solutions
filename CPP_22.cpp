@@ -14,4 +14,3 @@ vector<int> filter_integers(list_any values){
         }
     }
     return result;
-}
