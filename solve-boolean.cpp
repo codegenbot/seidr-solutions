@@ -1,19 +1,21 @@
+```cpp
+#include <string>
+#include <algorithm>
+
 bool solveBoolean(std::string s) {
     bool result = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'F') {
+    for (char c : s) {
+        if (c == 'F') {
             result = false;
-        } else if (s[i] == '&') {
-            if (!result && i + 1 < s.length() && s[i + 1] == '&') {
-                i++;
+        } else if (c == '&') {
+            while (!result && s.size() > 1 && s.back() == '&') {
+                s.pop_back();
             }
-        } else if (s[i] == '|') {
-            if (!result && i + 1 < s.length() && s[i + 1] == '|') {
-                i++;
+        } else if (c == '|') {
+            while (!result && s.size() > 1 && s.back() == '|') {
+                s.pop_back();
             }
         }
-        i++;
     }
     return result;
 }
