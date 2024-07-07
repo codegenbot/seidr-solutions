@@ -1,10 +1,12 @@
-string longest(vector<string> strings){
+#include <vector>
+#include <string>
+
+std::string longest(const std::vector<std::string>& strings){
     if(strings.empty()) return "";
-    string longest_str = strings[0];
-    for(auto str : strings){
-        if(str.length() > longest_str.length()){
-            longest_str = str;
-        }
+    std::string result = strings[0];
+    for(auto str : strings) {
+        if(str.length() > result.length())
+            result = str;
     }
-    return longest_str;
+    return result;
 }
