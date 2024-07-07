@@ -13,10 +13,10 @@ int add_elements(std::vector<int> arr, int k) {
     return sum;
 }
 
-int main() {
+int main {
     std::vector<int> arr;
     int k;
-    
+
     // Read input from user
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
@@ -26,12 +26,12 @@ int main() {
         std::cin >> num;
         arr.push_back(num);
     }
-    
+
     // Calculate sum using add_elements function
     int result = add_elements(arr, k);
-    
+
     // Print the result
     std::cout << "Sum of elements: " << result << std::endl;
-    
+
     return 0;
 }
