@@ -9,10 +9,10 @@ import queue
 import re
 
 
-def substitution_cipher(message, cipher1):
+def substitution_cipher(message: str, cipher1: str, cipher2: str) -> str:
     char_map = {}
     for i in range(len(cipher1)):
-        char_map[cipher1[i]] = cipher1[i]
+        char_map[cipher1[i]] = cipher2[i]
 
     deciphered_message = ""
     for char in message:
@@ -30,5 +30,5 @@ cipher1 = input("Enter cipher1: ")
 cipher2 = input("Enter cipher2: ")
 
 # Apply substitution cipher to the message
-deciphered_message = substitution_cipher(message, cipher1)
+deciphered_message = substitution_cipher(message, cipher1, cipher2)
 print(f"Deciphered message: {deciphered_message}")
