@@ -1,19 +1,22 @@
 int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
-        bool hasPositiveSum = false;
-        if (num < 0) {
-            num = -num; // Make number positive to calculate sum of digits
-        }
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit != 0 || num < 0) { // Check for negative numbers with only one digit
-                hasPositiveSum |= (digit > 0);
+        if (num > 0) {
+            int sum = 0;
+            bool negative = false;
+            while (num != 0) {
+                int digit = abs(num) % 10;
+                if (digit != 0 || !negative) {
+                    sum += digit;
+                }
+                num /= 10;
+                if (num < 0) {
+                    negative = true;
+                }
             }
-            num /= 10;
-        }
-        if (hasPositiveSum) {
-            count++;
+            if (sum > 0) {
+                count++;
+            }
         }
     }
     return count;
