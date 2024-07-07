@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <limits>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool mySame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -52,8 +51,4 @@ int main() {
     }
 
     return 0;
-}
-
-bool isSame() {
-    assert(same(pluck({7, 9, 7, 1}), std::vector<int>{}));
 }
