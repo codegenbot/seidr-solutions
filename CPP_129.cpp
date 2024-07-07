@@ -1,12 +1,5 @@
-```
-bool issame(int i1,int j1,int i2,int j2,vector<vector<int>>& grid){
-    int n = grid.size();
-    for(int x = min(i1,i2);x<=max(i1,i2);x++){
-        for(int y = min(j1,j2);y<=max(j1,j2);y++){
-            if(grid[x][y] != 0) return false;
-        }
-    }
-    return true;
+bool issame(int i1, int j1, int i2, int j2) {
+    return (i1 == i2 && j1 == j2);
 }
 
 vector<int> minPath(vector<vector<int>>& grid, int k){
