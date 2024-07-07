@@ -48,8 +48,8 @@ int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = numericalLetterGrade(fgrades);
     if (!issame(grades, {"E", "D-" }))
-        cout << "Test failed" << endl;
+        std::cout << "Test failed" << std::endl;
     else
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     return 0;
 }
