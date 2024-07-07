@@ -1,23 +1,28 @@
-#include <boost/any.hpp>
+#include <boost/convert.hpp>
+#include <string>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_double(a) && is_double(b)) {
-        return (get<double>(a) > get<double>(b)) ? a : b;
-    } else if (is_double(a) || is_double(b)) {
-        return "None";
-    } else if (is_numeric_string(a) && is_numeric_string(b)) {
-        string strA = get<string>(a);
-        string strB = get<string>(b);
-
-        if (strA > strB)
+    if (is_any_of<string>(a)) {
+        string str_a = any_cast<string>(a);
+        if (is_any_of<string>(b)) {
+            string str_b = any_cast<string>(b);
+            return (stod(str_a) > stod(str_b)) ? a : (stod(str_a) < stod(str_b)) ? b : boost::any("None");
+        } else {
+            double num_b = any_cast<double>(b);
+            return (stod(str_a) > num_b) ? a : (stod(str_a) < num_b) ? b : boost::any("None");
+        }
+    } else if (is_any_of<string>(b)) {
+        string str_b = any_cast<string>(b);
+        double num_a = any_cast<double>(a);
+        return (num_a > stod(str_b)) ? a : (num_a < stod(str_b)) ? b : boost::any("None");
+    } else {
+        if (any_cast<double>(a) > any_cast<double>(b))
             return a;
-        else if (strA < strB)
+        else if (any_cast<double>(a) < any_cast<double>(b))
             return b;
         else
-            return "None";
-    } else {
-        return "None";
+            return boost::any("None");
     }
 }
