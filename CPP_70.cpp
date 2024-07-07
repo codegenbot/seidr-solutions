@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool checkEquality(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -22,6 +22,14 @@ vector<int> strange_sort_list(vector<int> lst) {
         lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
     }
     return result;
+}
+
+bool checkEqualityVector(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
