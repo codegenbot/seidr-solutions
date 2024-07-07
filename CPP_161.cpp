@@ -2,7 +2,8 @@ string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            c = tolower(c);
+            c = (c == 'z' || c == 'Z') ? (c == 'z' ? 'A' : 'a') : toupper(c);
         } else {
             result += c;
         }
