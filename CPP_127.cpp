@@ -14,21 +14,25 @@ int main() {
     std::pair<int, int> interval1;
     std::cout << "Enter the first interval: ";
     std::string temp;
-    std::getline(std::cin, temp); 
+    std::cin >> temp; 
     interval1.first = std::stoi(temp);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::cout << "Enter the end of the first interval: ";
-    std::getline(std::cin, temp); 
+    std::cin >> temp; 
     interval1.second = std::stoi(temp);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::pair<int, int> interval2;
     std::cout << "Enter the second interval: ";
-    std::getline(std::cin, temp); 
+    std::cin >> temp; 
     interval2.first = std::stoi(temp); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Enter the end of the second interval: ";
-    std::getline(std::cin, temp); 
+    std::cin >> temp; 
     interval2.second = std::stoi(temp);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (intersection(interval1, interval2) == "YES")
         std::cout << "The intervals intersect.\n";
