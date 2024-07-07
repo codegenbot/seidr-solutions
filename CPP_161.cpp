@@ -1,3 +1,5 @@
+#include <string>
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
