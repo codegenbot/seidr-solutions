@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // for fixed, setprecision
+#include <iomanip> 
 using namespace std;
 
 double totalPriceAfterDiscount(const vector<float>& prices, const vector<float>& discounts) {
