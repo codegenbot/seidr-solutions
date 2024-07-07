@@ -1,8 +1,7 @@
-Here is the completed code:
+Here is the solution:
 
 bool any_int(float a, float b, float c) {
-    if (abs(a - (b + c)) < 0.0001 && abs(b - (a + c)) < 0.0001 && abs(c - (a + b)) < 0.0001)
+    if (abs(a - (b + c)) < 1e-6 && abs(b - (a + c)) < 1e-6 && abs(c - (a + b)) < 1e-6)
         return true;
-    else
-        return false;
+    return false;
 }
