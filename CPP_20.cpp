@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <vector>
 
+bool isSame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float min_diff = std::numeric_limits<float>::max();
@@ -16,10 +20,6 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     }
 
     return closest_pair;
-}
-
-bool isSame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
 }
 
 int main() {
