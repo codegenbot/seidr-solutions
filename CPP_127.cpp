@@ -5,14 +5,10 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     if (start > end) return "NO";
 
     int len = end - start + 1;
-    bool isPrime = true;
 
     for (int i = 2; i * i <= len; i++) {
-        if (len % i == 0) {
-            isPrime = false;
-            break;
-        }
+        if (len % i == 0) return "NO";
     }
 
-    return isPrime ? "YES" : "NO";
+    return "YES";
 }
