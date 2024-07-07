@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -9,7 +8,7 @@ bool issame(float a, float b) {
 }
 
 std::vector<float> sort_even(std::vector<float> input) {
-    std::vector<float> result(input.size());
+    std::vector<float> result;
     for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
             float minVal = input[0];
@@ -18,14 +17,14 @@ std::vector<float> sort_even(std::vector<float> input) {
                     minVal = val;
                 }
             }
-            result[i] = minVal;
+            result.push_back(minVal);
         } else {
             int j = i - 1;
-            while (j >= 0 && !issame(input[j], result[j])) {
+            while (j >= 0 && !issame(input[j], result.back())) {
                 --j;
             }
             if (j >= 0) {
-                result[i] = input[j + 1];
+                result.push_back(input[j + 1]);
             } else {
                 float minVal = input[0];
                 for (float val : input) {
@@ -33,7 +32,7 @@ std::vector<float> sort_even(std::vector<float> input) {
                         minVal = val;
                     }
                 }
-                result[i] = minVal;
+                result.push_back(minVal);
             }
         }
     }
@@ -49,9 +48,10 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    std::vector<float> result = sort_even(input);
-    for (float val : result) {
-        std::cout << val << " ";
+    { 
+        std::vector<float> result = sort_even(input);
+        for (float val : result) {
+            std::cout << val << " ";
+        }
     }
-    std::cout << std::endl;
 }
