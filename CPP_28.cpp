@@ -7,18 +7,19 @@ int main() {
     std::string outputString;
 
     while (true) {
-        std::cout << "Enter a string (or stop to finish): ";
-        std::cin >> outputString; 
+        cin.ignore(); 
+        cout << "Enter a string (or stop to finish): ";
+        getline(cin, outputString);
 
         if (outputString == "stop") break;
 
-        strings.push_back(outputString);
+        strings.push_back(outputString + " "); // add a space after each input string
     }
 
     std::string result = "";
     for (const auto& str : strings) {
-        result += str + " ";
+        result += str;
     }
-    std::cout << "Concatenated string: " << result << std::endl;
+    cout << "Concatenated string: " << result << "\n";
     return 0;
 }
