@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -37,7 +38,24 @@ vector<string> by_length(vector<int> arr) {
     vector<string> output;
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
         while (it->second > 0) {
-            output.push_back(it->first == 1 ? "One" : (it->first == 2 ? "Two" : (it->first == 3 ? "Three" : (it->first == 4 ? "Four" : (it->first == 5 ? "Five" : (it->first == 6 ? "Six" : (it->first == 7 ? "Seven" : (it->first == 8 ? "Eight" : "Nine"))))))));
+            if(it->first == 1)
+                output.push_back("One");
+            else if(it->first == 2)
+                output.push_back("Two");
+            else if(it->first == 3)
+                output.push_back("Three");
+            else if(it->first == 4)
+                output.push_back("Four");
+            else if(it->first == 5)
+                output.push_back("Five");
+            else if(it->first == 6)
+                output.push_back("Six");
+            else if(it->first == 7)
+                output.push_back("Seven");
+            else if(it->first == 8)
+                output.push_back("Eight");
+            else
+                output.push_back("Nine");
             it->second--;
         }
     }
