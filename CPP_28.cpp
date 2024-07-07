@@ -1,27 +1,25 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> concatenate(const std::vector<std::pair<std::string, int>>& strings) {
-    std::vector<std::string> result;
-    for (const auto& str : strings) {
-        // Process the string as per your requirement
-        std::string processedString = "";
-        for(int i=0; i < str.second; i++)
-            processedString += str.first;
-        result.push_back(processedString);
-    }
-    return result;
-}
+int main() {
+    std::vector<std::string> strings;
+    std::string input;
 
-std::vector<std::string> concatenate(const std::vector<std::pair<std::string, int>>& strings) {
-    std::vector<std::string> result;
-    for (const auto& str : strings) {
-        // Process the string as per your requirement
-        std::string processedString = "";
-        for(int i=0; i < str.second; i++)
-            processedString += str.first;
-        result.push_back(processedString);
+    while (std::cin >> input) {
+        strings.push_back(input);
     }
-    return result;
+
+    if (!strings.empty()) {
+        for (const auto& str : strings) {
+            if (str == strings[0]) {
+                std::cout << str << " ";
+            } else {
+                std::cout << strings[0] + str << " ";
+            }
+        }
+    }
+
+    return 0;
 }
