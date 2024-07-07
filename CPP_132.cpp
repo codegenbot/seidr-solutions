@@ -1,6 +1,5 @@
-```
 #include <string>
-#include <cassert>
+#include <iostream>
 
 bool is_nested(std::string str) {
     int count = 0;
@@ -19,5 +18,12 @@ bool is_nested(std::string str) {
 }
 
 int main() {
-    assert(is_nested("]]]]]]]]") == false);
-}
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+    if (is_nested(str)) {
+        std::cout << "The string is nested." << std::endl;
+    } else {
+        std::cout << "The string is not nested." << std::endl;
+    }
+    return 0;
