@@ -1,32 +1,46 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
-    vector<int> path;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                dfs(grid, visited, i, j, k, &path);
+    vector<int> res;
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (k == 1) {
+                res.push_back(grid[i][j]);
+                return res;
+            }
+            int val = grid[i][j];
+            vector<int> temp;
+            temp.push_back(val);
+            k--;
+            int dir[4][2] = {{-1,0},{1,0},{0,-1},{0,1}};
+            for (int d = 0; d < 4; d++) {
+                int ni = i + dir[d][0];
+                int nj = j + dir[d][1];
+                if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                    temp.push_back(grid[ni][nj]);
+                    k--;
+                    if (k == 0) {
+                        res = temp;
+                        return res;
+                    }
+                }
             }
         }
     }
-    return path;
+    
+    return res;
 }
 
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* path) {
-    (*path).push_back(grid[x][y]);
-    visited[x][y] = true;
-    if (k == 1) {
-        return;
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (int i : result) {
+        cout << i << " ";
     }
-    vector<pair<int, int>> directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-    for (auto& dir : directions) {
-        int newX = x + dir.first;
-        int newY = y + dir.second;
-        if (newX >= 0 && newX < grid.size() && newY >= 0 && newY < grid[0].size() && !visited[newX][newY]) {
-            dfs(grid, visited, newX, newY, k - 1, path);
-            return;
-        }
-    }
-    (*path).pop_back();
-    visited[x][y] = false;
+    return 0;
 }
