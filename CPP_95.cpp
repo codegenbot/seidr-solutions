@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <map>
 #include <string>
@@ -10,12 +9,12 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (std::map<std::string, std::string>::const_iterator it = dict.begin(); it != dict.end(); ++it) {
-        if (!islower(it->first[0]) && !isupper(it->first[0])) {
+    for (const auto& pair : dict) {
+        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             allLower = false;
             allUpper = false;
             break;
-        } else if ((it->first[0] >= 'a' && it->first[0] <= 'z') != (allLower)) {
+        } else if ((pair.first[0] >= 'a' && pair.first[0] <= 'z') != (allLower)) {
             allLower = false;
             allUpper = false;
             break;
@@ -26,9 +25,16 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
 }
 
 int main() {
+    std::map<std::string, std::string> dict;
     std::string input;
-    std::cin >> input;
 
-    bool result = check_dict_case(std::map<std::string, std::string>());
+    while (std::cin >> input) {
+        if (input[0] == '#') break;
+        dict[input] = "value";
+    }
+
+    bool result = check_dict_case(dict);
     std::cout << (result ? "True" : "False") << std::endl;
+
+    return 0;
 }
