@@ -14,7 +14,7 @@ string words_in_sentence(string sentence){
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] != ' ') {
             if (is_prime(count+1)) {
-                result += sentence.substr(0, i-count) + " ";
+                result += sentence.substr(0, i-count+1) + " ";
             }
             count = i;
         }
