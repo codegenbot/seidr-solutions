@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,6 +22,8 @@ int main() {
     std::cin >> n;
 
     size_t i = 0;
+    int sum = 0;
+
     for(; i < n; ++i) {
         int num;
         while(true) {
@@ -29,6 +32,7 @@ int main() {
             
             if (num >= 0 && num <= 100) {
                 inputVector.push_back(num);
+                sum++;
                 break;
             } else {
                 if(i < n-1){
@@ -40,10 +44,13 @@ int main() {
             }
        
         
-        if(i < n) {
+        if(i >= n) {
             break; 
         }
     }
+
+    if (inputVector.size() != sum)
+        inputVector.resize(sum);
 
     int result = sum_squares(inputVector);
     std::cout << "Sum of squares is: " << result << std::endl;
