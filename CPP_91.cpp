@@ -3,14 +3,19 @@
 #include <string>
 
 int is_bored(std::string S) {
-    size_t pos = 0;
-    while ((pos = S.find(' ', pos)) != std::string::npos) {
-        if (S.substr(0, pos).compare("I am bored") == 0) {
-            return 1; 
+    int count = 0;
+    std::string boredom = "I am bored";
+    
+    // Split the input string into individual words
+    std::istringstream iss(S);
+    std::string word;
+    while (std::getline(iss, word, ' ')) {
+        if (word == boredom) {
+            count++;
         }
-        pos++;
     }
-    return 0;
+    
+    return count;
 }
 
 int main() {
