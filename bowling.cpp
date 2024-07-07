@@ -3,7 +3,7 @@ int bowlingScore(const char* s) {
     int currentRoll = 0;
     int rollCount = 0;
 
-    for (const char &c : s) {
+    for (char c : s) {
         if (c == '/') {
             score += currentRoll + (rollCount < 9 ? max(1, currentRoll) : 0);
             currentRoll = 0;
