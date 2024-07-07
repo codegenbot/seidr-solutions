@@ -1,18 +1,13 @@
-#include <vector>
-#include <numeric>
-
-bool will_it_fly(std::vector<int> q, int w) {
-    bool balanced = true;
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - 1 - i]) {
-            balanced = false;
-            break;
-        }
+```cpp
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
+    for (int i : q) {
+        str += to_string(i);
     }
-    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    return 0;
+    if (str != reverse(str).s) return false; // not balanced
+    int sum = 0;
+    for (int i : q) {
+        sum += i;
+    }
+    return sum <= w;
 }
