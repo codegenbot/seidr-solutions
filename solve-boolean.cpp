@@ -1,10 +1,11 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
 
 bool evaluate(const string &expression) {
-    stack<char> operators;
     bool result = true;
+    stack<char> operators;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             operators.push('|');
@@ -12,6 +13,8 @@ bool evaluate(const string &expression) {
             operators.push('&');
         } else if (expression[i] == '^') {
             operators.push('^');
+        } else if (expression[i] == '~') {
+            result = !result;
         } else if (operators.empty()) {
             result = true;
         } else {
@@ -29,5 +32,5 @@ bool evaluate(const string &expression) {
             }
         }
     }
-    return result && expression != "false";
+    return result || expression != "false";
 }
