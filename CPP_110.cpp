@@ -1,13 +1,9 @@
-Here is the solution:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
+    int oddCount = 0;
     for (int num : lst1) {
-        if (num % 2 == 0)
-            evenCount++;
+        if (num % 2 != 0) {
+            oddCount++;
+        }
     }
-    if (evenCount == lst1.size())
-        return "YES";
-    else
-        return "NO";
+    return oddCount == 0 ? "YES" : "NO";
 }
