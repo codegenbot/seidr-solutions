@@ -1,3 +1,5 @@
+#include <string>
+
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
@@ -5,5 +7,5 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    return to_string(oddCount == 0 ? "The lists are even" : "The lists have at least one odd number");
 }
