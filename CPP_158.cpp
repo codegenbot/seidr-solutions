@@ -1,19 +1,16 @@
 string find_max(vector<string> words){
-    string max_word = "";
-    for(auto& word : words){
-        int unique_chars = 0;
-        unordered_set<char> chars;
-        for(char c : word){
-            if(chars.find(c) == chars.end()){
-                unique_chars++;
-                chars.insert(c);
-            }
-        }
-        if(unique_chars > 0 && (max_word.empty() || unique_chars > count(max_word.begin(), max_word.end(), isalpha))){
-            max_word = word;
-        } else if(unique_chars == count(max_word.begin(), max_word.end(), isalpha) && word < max_word){
-            max_word = word;
+    string result = words[0];
+    int max_unique_chars = 0;
+
+    for(auto &word : words){
+        set<char> unique_chars(word.begin(), word.end());
+        if(unique_chars.size() > max_unique_chars){
+            max_unique_chars = unique_chars.size();
+            result = word;
+        } else if(unique_chars.size() == max_unique_chars){
+            result = min(result, word);
         }
     }
-    return max_word;
+
+    return result;
 }
