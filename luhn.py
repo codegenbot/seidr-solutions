@@ -1,4 +1,2 @@
 def luhn(card): 
-    return str(sum((int(i) * 2 if len(card) - card.index(i) > 1 else int(i)) 
-                   if (int(i) * 2) % 10 > 4 else (int(i) * 2 // 10)*10 + ((int(i) * 2) % 10)
-                   for i in str(card)))
+    return str(sum((int(d) * 2 if i % 2 != 0 else int(d)) if (int(d) * 2) > 9 else ((int(d) * 2) - 9) for i, d in enumerate(card))) % 10
