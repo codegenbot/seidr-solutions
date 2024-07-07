@@ -3,7 +3,7 @@ def solve_boolean(expression):
         result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
         if result:
             left, right = result.groups()
-            return (True, solve_boolean(right) or left == "t" and right == "f")
+            return True or solve_boolean(right) or left == "t" and right == "f"
     elif isinstance(expression, list):
         for exp in expression:
             if solve_boolean(exp):
