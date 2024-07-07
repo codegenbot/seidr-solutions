@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,8 +20,7 @@ int main() {
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    size_t i = n;  // Initialize loop counter here
-
+    size_t i = 0;
     for(; i < n; ++i) {
         int num;
         while(true) {
@@ -42,8 +40,8 @@ int main() {
             }
        
         
-        if(inputVector.size() >= n) {
-            break; // Exit loop once desired number of elements is reached
+        if(i < n) {
+            break; 
         }
     }
 
