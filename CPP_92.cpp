@@ -1,11 +1,14 @@
 Here is the completed code:
 
-bool any_int(float a, float b, float c){
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-
-    if(ai+bi==ci || ai+ci==bi || bi+ci==ai)
+bool any_int(float a, float b, float c) {
+    if (abs(a - (b + c)) < 1e-6) {
         return true;
-    else
-        return false;
+    }
+    if (abs(b - (a + c)) < 1e-6) {
+        return true;
+    }
+    if (abs(c - (a + b)) < 1e-6) {
+        return true;
+    }
+    return false;
+}
