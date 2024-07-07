@@ -13,24 +13,22 @@ int sum_squares(std::vector<int> lst) {
     return total;
 }
 
-int main() {
+int main 
+{
     std::vector<int> inputVector; 
     int n; 
 
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    inputVector.resize(n); // Initialize the vector with n elements
-
     for(int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        inputVector.push_back(num); // Assign values to the initialized vector
+        inputVector.push_back(num); 
     }
 
     int result = sum_squares(inputVector);
     std::cout << "Sum of squares is: " << result << std::endl;
 
-    return 0; 
-}
+    return 0;
