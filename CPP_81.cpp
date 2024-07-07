@@ -61,13 +61,12 @@ int main() {
     }
     
     std::string gradeStr;
-    std::vector<std::string> result;
     
     std::vector<std::string> grades = numericalLetterGrade(fgrades);
+    std::vector<std::string> result; // Declare the result vector here
     for (float grade : fgrades) {
         std::string letter = letterGrade(grade);
-        gradeStr = letter; 
-        result.push_back(gradeStr); 
+        result.push_back(letter); 
     }
     
     if (!issame({grades[0], grades[1]}, {"F", "D"}))
