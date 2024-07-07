@@ -1,12 +1,21 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<int> sort_array(vector<int> arr) {
-    vector<int> sortedArr = arr;
-    sort(sortedArr.begin(), sortedArr.end(), [](int a, int b) {
-        if (bitset<64>(a).count() == bitset<64>(b).count()) {
-            return a < b;
-        }
-        return bitset<64>(a).count() < bitset<64>(b).count();
-    });
-    return sortedArr;
+    vector<int> result = arr;
+    sort(result.begin(), result.end(),
+        [](int a, int b) {
+            if (count(binary(a).begin(), binary(a).end(), '1') <
+                count(binary(b).begin(), binary(b).end(), '1')) {
+                return true;
+            }
+            if (count(binary(a).begin(), binary(a).end(), '1') ==
+                count(binary(b).begin(), binary(b).end(), '1')) {
+                return a < b;
+            }
+            return false;
+        });
+    return result;
 }
