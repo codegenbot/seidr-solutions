@@ -1,15 +1,4 @@
-```cpp
 #include <cstdlib>
-
-int main() {
-    int a, b;
-    std::cin >> a >> b;
-    if (b == 0)
-        std::cout << a;
-    else
-        std::cout << gcd(b, abs(a % b));
-    return 0;
-}
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -17,3 +6,10 @@ int gcd(int a, int b) {
     else
         return gcd(b, abs(a % b));
 }
+
+int main() {
+    int a, b;
+    std::cout << "Enter two integers: ";
+    std::cin >> a >> b;
+    std::cout << "The GCD of " << a << " and " << b << " is " << gcd(a, b) << "." << std::endl;
+    return 0;
