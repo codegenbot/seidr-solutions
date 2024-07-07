@@ -13,9 +13,5 @@ string middleCharacter(string s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << middleCharacter(input) << endl;
-    return 0;
+    return middleCharacter("your_string_here");
 }
