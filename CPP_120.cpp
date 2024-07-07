@@ -1,17 +1,21 @@
 #include <vector>
-#include <queue>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
+    for (int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
-    return true;
+    return result;
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    return 0;
+    assert(std::issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {}));
+    // rest of your code
 }
