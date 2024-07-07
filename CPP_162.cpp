@@ -1,39 +1,31 @@
 #include <openssl/evp.h>
-#include <string>
-
 using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
+    
+    EVP_MD_CTX md_ctx;
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    const EVP_MD* md = EVP_md5();
+    unsigned char input[256];
+    int len = 0, i = 0;
 
-    unsigned char md[16];
-    EVP_MD_CTX mdctx;
-    EVP_MD *mdalg;
-    unsigned char *d = NULL;
-    size_t len;
-    const EVP_MD *md_evp = EVP_sha1();
-    BIO *bio;
-
-    // Initialize the EVP_MD_CTX structure.
-    if (1 != EVP_DigestInit_ex(&mdctx, md_evp, NULL))
-        return "";
-
-    bio = BIO_new(BIO_s_file());
-    BIO_set_fp(bio, fopen("input.txt", "r"), BIO_NOCLOSE);
-
-    // Set the message to be digested.
-    if (1 != EVP_DigestUpdate(&mdctx, text.c_str(), text.size()))
-        return "";
-
-    // Finalize the message digest computation.
-    if (1 != EVP_DigestFinal_ex(&mdctx, md, &len))
-        return "";
-
-    BIO_free(bio);
-
-    char *result = new char[len];
-    for(int i=0; i < len; i++) {
-        sprintf(result + i*2, "%02x", md[i]);
+    string result;
+    for (char c : text) {
+        input[i] = c;
+        i++;
+        len = i;
     }
-    return string(result);
+
+    EVP_DigestInit_ex(&md_ctx, md, NULL);
+    EVP_DigestUpdate(&md_ctx, input, len);
+    EVP_DigestFinal_ex(&md_ctx, hash, &len);
+
+    for (int j = 0; j < MD5_DIGEST_LENGTH; j++) {
+        char buff[3];
+        sprintf(buff, "%02x", hash[j]);
+        result += buff;
+    }
+    
+    return result;
 }
