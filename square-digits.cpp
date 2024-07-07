@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 string squareDigits(string n) {
@@ -8,4 +7,3 @@ string squareDigits(string n) {
         result += to_string(digit * digit);
     }
     return result;
-}
