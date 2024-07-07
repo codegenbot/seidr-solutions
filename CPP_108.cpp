@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 
 int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num < 0) {
-            num = -num; // convert to positive
+            num = -num; 
         }
         int sum_of_digits = 0;
         while (num > 0) {
