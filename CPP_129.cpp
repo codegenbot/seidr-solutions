@@ -13,7 +13,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             }
         }
         result.push_back(maxValue);
-        grid[maxRow].erase(grid[maxRow].begin());
+        while (!grid[maxRow].empty()) {
+            grid[maxRow].erase(grid[maxRow].begin());
+        }
     }
     return result;
 }
