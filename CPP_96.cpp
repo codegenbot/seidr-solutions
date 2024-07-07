@@ -27,12 +27,14 @@ std::vector<int> countUpTo(int n) {
     return primes;
 }
 
-void driver() {
+int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
     std::vector<int> primes = countUpTo(n);
     for (int prime : primes) {
-        std::cout << "Prime number: " << prime << std::endl;
+        if (!isSame({prime}, {primes[0]})) {
+            std::cout << "Prime number: " << prime << std::endl;
+        }
     }
 }

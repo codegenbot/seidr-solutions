@@ -9,10 +9,16 @@ int main() {
     std::cout << "Enter two numbers (separated by a space): ";
     if (!(std::cin >> num1 >> num2)) {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
-        return 1; // Return with error code
+        return 1; 
     }
     int result = choose_num(num1, num2);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "Result: ";    
+    if (num1 > num2)
+        std::cout << num1;
+    else
+        std::cout << num2;
+
+    std::cout << std::endl;
     return 0;
 }
 
