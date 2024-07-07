@@ -1,29 +1,20 @@
 #include <vector>
 #include <string>
+#include <assert.h>
 
-bool areStringsEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
-std::vector<std::string> filterBySubstring(const std::vector<std::string>& strings, const std::string& substring) {
-    std::vector<std::string> result;
-    for(const auto& s : strings){
-        if(s.find(substring) != std::string::npos)
-            result.push_back(s);
-    }
-    return result;
-
-}
-
-void solve(){
+int test() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> filtered;
     filtered = filterBySubstring(str, "run"); 
-    assert(areStringsEqual({},filtered)); 
+    assert(issame({},filtered)); 
+    return 0;
+}
+
+int main() {
+    test();
+    return 0;
 }
