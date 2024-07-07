@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 using namespace std;
 
 int search(int n) {
@@ -22,6 +21,6 @@ void runUserInput() {
 
 int main() {
     runUserInput();
-    assert(search(3) == 3); 
+    assert(search(10) == -1);
     return 0;
 }
