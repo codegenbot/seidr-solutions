@@ -8,38 +8,36 @@ vector<int> indicesOfSubstring(string text, string target) {
             result.push_back(i);
     }
 
-    // KMP code
-    vector<int> lps(m, 0); // prefix suffixes
+    vector<int> lps(m, 0);
 
-    int j = 0;
+    int j(0);
+    computeLPSArray(target, lpos(lps), m);
 
-    for (int i = 1; i < m; i++) {
-        if (target[i] == target[j]) {
-            j++;
-            lps[i] = j;
-        } else if (j != 0) {
-            j = lps[j - 1];
-        } else {
-            lps[i] = 0;
-        }
-    }
-
-    j = 0;
-
-    for (int i = 0; i < n; i++) {
-        while (j && text[i] != target[j]) {
-            j = lps[j - 1];
-        }
-
-        if (text[i] == target[j]) {
-            j++;
-        }
-
-        if (j == m) {
-            result.push_back(i - m + 1);
-            j = lps[j - 1];
-        }
+    int pos = 0;
+    while (pos + m - 1 <= n - 1) {
+        if (text.substr(pos, m).compare(target) == 0)
+            result.push_back(pos);
+        pos += max(1, lps[j]);
+        j = (j + 1);
     }
 
     return result;
+}
+
+void computeLPSArray(string target, vector<int>& lps, int m) {
+    int length = 0;
+
+    for (int i = 1; i < m;) {
+        if (target[i] == target[length]) {
+            length++;
+            lps[i] = length;
+            i++;
+        }
+        else if (length != 0)
+            length = lps[level - 1];
+        else
+            lps[i] = 0;
+            i++;
+    }
+
 }
