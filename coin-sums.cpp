@@ -2,16 +2,21 @@
 #include <tuple>
 
 std::tuple<int, int, int, int> coinSum(int cents) {
-    int quarters = cents / 25;
+    int pennies = cents;
+    pennies = pennies + cents / 100; 
+    cents %= 100;
+
+    int quarters = 0;
+    quarters = cents / 25;
     cents %= 25;
 
-    int dimes = cents / 10;
+    int dimes = 0;
+    dimes = cents / 10;
     cents %= 10;
 
-    int nickles = cents / 5;
+    int nickles = 0;
+    nickles = cents / 5;
     cents %= 5;
-
-    int pennies = cents;
 
     return std::make_tuple(quarters, dimes, nickles, pennies);
 }
