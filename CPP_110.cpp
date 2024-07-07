@@ -1,5 +1,3 @@
-Here is the solution:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
