@@ -1,11 +1,12 @@
+```cpp
 #include <vector>
 using namespace std;
 
 int can_arrange(vector<int> arr);
 
 int main() {
-    vector<int> arr = {3, 4, 2};
-    cout << "The index at which the sequence becomes unarranged is: " << can_arrange(arr) << endl;
+    vector<int> arr = {5, 3};
+    assert(can_arrange(arr) == -1);
     return 0;
 }
 
