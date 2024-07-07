@@ -1,8 +1,5 @@
 double find_zero(vector<double> xs){
-    double sum=0;
-    for (int i = 1; i < xs.size(); i++)
-    {
-        if(i%2==0) sum+=xs[i]/i;
-    }
-    return -sum;
+    int n = xs.size();
+    double x = -xs[1]/(2*xs[0]);
+    return poly(xs,x);
 }
