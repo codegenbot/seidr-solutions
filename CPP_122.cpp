@@ -22,7 +22,7 @@ int main() {
         int num;
         cin >> num;
         arr.push_back(num);
-    }
+   
     
     int result = add_elements(arr, k);
     
