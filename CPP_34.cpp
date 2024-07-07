@@ -4,14 +4,14 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> res;
+    vector<int> result;
     for (int i : l) {
-        if (find(res.begin(), res.end(), i) == res.end()) {
-            res.push_back(i);
+        if (find(result.begin(), result.end(), i) == result.end()) {
+            result.push_back(i);
         }
     }
-    sort(res.begin(), res.end());
-    return res;
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
