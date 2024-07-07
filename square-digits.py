@@ -1,3 +1,3 @@
 def square_digits(n):
     n = str(n)
-    return "".join([f"{int(x) ** 2:02d}" for x in map(int, str(n))])
+    return "".join([str(int(x) ** 2).zfill(2) for x in map(int, str(n))])
