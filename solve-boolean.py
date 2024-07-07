@@ -3,7 +3,16 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    while '&' in expression or '|' in expression:
-        left, right = expression.split('(' + expression[0] + ')')
-        expression = str((solve_boolean(left) and solve_boolean(right)) if expression[0] == '&' else (solve_boolean(left) or solve_boolean(right)))
-    return expression == 'T'
+    elif '&' in expression or '|' in expression:
+        while '&' in expression or '|' in expression:
+            if '&' in expression and '|' in expression:
+                left, middle, right = expression.split('&')
+                expression = middle.replace('|', ' & |') + '&' + right
+            else:
+                if '&' in expression:
+                    left, right = expression.split('&')
+                    expression = str(solve_boolean(left)) + ' & ' + str(solve_boolean(right))
+                else:
+                    left, right = expression.split('|')
+                    expression = str(solve_boolean(left)) + ' | ' + str(solve_boolean(right))
+        return (str(solve_boolean(expression[1:-1])) == 'True') if expression[0] == '&' else (str(solve_boolean(expression[1:-1])) == 'False')
