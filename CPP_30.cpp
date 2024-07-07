@@ -1,14 +1,10 @@
 #include <vector>
-#include <algorithm>
+#include <assert.h>
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (abs(a[i] - b[i]) > 1e-9) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<float> a, std::set<float> b) {
+    // your function implementation
+}
+
+int main() {
+    assert (issame(get_positive({}), {})); 
 }
