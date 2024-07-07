@@ -1,7 +1,7 @@
-```cpp
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
 std::string longest(const std::vector<std::string>& strings) {
     if(strings.empty()) return "";
@@ -13,7 +13,7 @@ std::string longest(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> strings = {"apple", "banana", "cherry"};
+    std::vector<std::string> strings = {"hello", "world", "abc"};
     std::cout << longest(strings) << std::endl;
     return 0;
 }
