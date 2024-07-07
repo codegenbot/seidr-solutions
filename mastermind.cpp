@@ -1,5 +1,4 @@
 #include <string>
-
 int mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
