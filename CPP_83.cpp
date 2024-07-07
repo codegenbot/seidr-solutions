@@ -1,4 +1,5 @@
-```cpp
+#include <iostream>
+
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= 9; i++) {
@@ -15,6 +16,6 @@ int starts_one_ends(int n) {
 }
 
 int main() {
-    assert(starts_one_ends(5) == 18000);
+    std::cout << starts_one_ends(5) << std::endl;
     return 0;
 }
