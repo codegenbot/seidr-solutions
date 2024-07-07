@@ -1,8 +1,14 @@
+#include <algorithm>
+using namespace std;
+
 string get_closest_vowel(string word) {
-    for (int i = word.length() - 1; i > 0; --i) {
+    int n = word.size();
+    for(int i = n - 1; i > 0; --i){
         if (!isalpha(word[i])) continue;
-        if (strchr("aeiouAEIOU", tolower(word[i])) != nullptr)
-            return string(1, word[i]);
+        if (ispunct(word[i]) || isdigit(word[i])) continue;
+        if (tolower(word[i]) == 'a' || tolower(word[i]) == 'e' ||
+            tolower(word[i]) == 'i' || tolower(word[i]) == 'o' ||
+            tolower(word[i]) == 'u') return word.substr(i, 1);
     }
     return "";
 }
