@@ -1,6 +1,11 @@
-```
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+bool evaluateTerm(string term);
 bool solveBoolean(string s) {
-    bool res = false;
+    bool res = true;
     string term;
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
@@ -13,11 +18,6 @@ bool solveBoolean(string s) {
             if (c == 't') term += 't';
             else if (c == 'f') term += 'f';
         }
-        else if (c == '&') {
-            bool subRes = evaluateTerm(term);
-            res = res && subRes;
-            term = "";
-        }
     }
     bool subRes = evaluateTerm(term);
     res = res || subRes;
@@ -26,19 +26,37 @@ bool solveBoolean(string s) {
 }
 
 bool evaluateTerm(string term) {
-    bool res = true;
+    if (term.length() == 0 || term[0] != '&') {
+        if (term == "t") return true;
+        else if (term == "f" || term == "tt") return false;
+    } 
+    
+    string subTerm = "";
     for (int i = 0; i < term.length(); i++) {
         char c = term[i];
         if (c == '&') {
-            if (term[i+1] == 't' && term[i+2] == 't') res = true;
-            else if ((term[i+1] == 't' && term[i+2] == 'f') || 
-                     (term[i+1] == 'f' && term[i+2] == 't') || 
-                     (term[i+1] == 'f' && term[i+2] == 'f')) res = false;
-            i++;
+            bool res = evaluateTerm(subTerm) && evaluateTerm(term.substr(i+1));
+            return res;
         } 
         else if (c == 't' || c == 'f') {
-            continue;
+            subTerm += c;
         }
     }
+    
+    // If we reach this point, it means the term is of the form t|... or f|...
+    bool res = evaluateTerm(subTerm) && true; // Replace true with the correct result
     return res;
+}
+
+int main() {
+    string s;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, s);
+    bool result = solveBoolean(s);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
