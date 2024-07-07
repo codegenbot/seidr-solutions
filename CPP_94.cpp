@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
-#include <iostream>
+using namespace std;
 
-int skjkasdkd(std::vector<int> lst) {
+int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -29,6 +30,7 @@ bool isPrime(int num) {
     }
     return true;
 
+}
 int main() {
     int result = skjkasdkd({127, 97, 8192});
     assert(result == 10);
