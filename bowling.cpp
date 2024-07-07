@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -8,6 +9,7 @@ int bowlingScore(string s) {
     int rollCount = 0;
 
     for (char c : s) {
+        int cur = c - '0';
         if (c == '/') {
             if (currentRoll >= 10) {
                 score += currentRoll + 10;
@@ -16,9 +18,8 @@ int bowlingScore(string s) {
             }
             currentRoll = 0;
             rollCount++;
-        } else if (isdigit(c)) {
-            currentRoll *= 10;
-            currentRoll += c - '0';
+        } else {
+            currentRoll = 10 * currentRoll + cur;
         }
     }
 
@@ -31,8 +32,11 @@ int bowlingScore(string s) {
     return score;
 }
 
-int main() { 
-    string s = "7/6/4/-5//3/3/8/2/0/-1//7/5"; // Replace with your own bowling string
-    cout << bowlingScore(s) << '\n'; 
+int main(int argc, char* argv[]) { 
+    if(argc != 2) {
+        cout << "Usage: bowlingScore <string>";
+        return -1;
+    }
+    std::cout << bowlingScore(argv[1]) << '\n'; 
     return 0; 
 }
