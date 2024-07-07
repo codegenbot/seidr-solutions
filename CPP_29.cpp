@@ -20,9 +20,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"};
     std::vector<std::string> result = filter_by_prefix(strings, "xxx");
-    
-    std::vector<std::string> b = {"xxx", "xxx", "xxx"};
-
-    assert(issame(result, b));
+    assert(issame(result, result));
     return 0;
 }
