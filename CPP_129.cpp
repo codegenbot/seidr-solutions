@@ -16,11 +16,9 @@ bool operator>(const pair_int &a, const pair_int &b) {
     return a.val > b.val;
 }
 
-priority_queue<pair_int, vector<pair_int>(), greater<pair_int>> pq;
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    priority_queue<pair_int, vector<pair_int>(), greater<pair_int>> pq;
+    priority_queue<pair_int> pq; 
     vector<int> res;
 
     for (int i = 0; i < n; ++i) {
