@@ -3,11 +3,7 @@
 
 using namespace std;
 
-bool areSame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> closestPlanets(string planet1, string planet2) {
+vector<string> bf(string planet1, string planet2) {
     vector<std::string> planets;
     planets.push_back("Mercury");
     planets.push_back("Venus");
@@ -31,7 +27,7 @@ vector<string> closestPlanets(string planet1, string planet2) {
     if (index1 == -1 || index2 == -1)
         return {};
     
-    vector<std::string> result(result.begin() + min(index1, index2), result.begin() + max(index1, index2));
+    vector<std::string> result(planets.begin() + min(index1, index2), planets.begin() + max(index1, index2));
     
     return result;
 }
