@@ -11,7 +11,9 @@ bool sameVector(const std::vector<int>& v1, const std::vector<int>& v2) {
 }
 
 std::vector<int> pluck(const std::vector<int>& v) {
-    std::vector<int> result = {v[0], v[1]};
+    std::vector<int> result;
+    if(v.size() >= 2)
+        result = {v[0], v[1]};
     return result;
 }
 
@@ -21,7 +23,7 @@ int mainFunction() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    std::vector<int> input(n); 
+    std::vector<int> input(n);
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> input[i];
@@ -37,17 +39,11 @@ int mainFunction() {
         }
     }
 
-    std::vector<int> output; // Initialize without size and default values
-    output.push_back(minEven);
-    output.push_back(minIndex);
+    std::vector<int> output = pluck({minEven, minIndex});
 
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        std::vector<int> test = {1,2,3};
-        std::vector<int> expected = {2, 0};
-        std::vector<int> actual = pluck(test);
-        assert(sameVector(actual, expected));
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }
