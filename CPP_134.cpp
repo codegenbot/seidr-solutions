@@ -1,5 +1,4 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) return false;
-    string lastChar = txt.substr(txt.length()-1, 1);
-    return (isalpha(lastChar[0])) && (!any_of(txt.begin(), txt.end(), ::isspace));
-}
+string txt = txt.substr(0, txt.find(" "));
+if(txt.size() == 0 || txt.find(" ") >= txt.find_last_not_of(" "))
+    return false;
+return !isalnum(txt.back());
