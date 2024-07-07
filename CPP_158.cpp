@@ -1,10 +1,26 @@
-string find_max(vector<string> words){
-    string result = *max_element(words.begin(), words.end(), 
-        [](const string& a, const string& b) {
-            if (a.size() == b.size()) {
-                return a < b;
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+string find_max(vector<string> words) {
+    string max = words[0];
+    int maxUniqueChars = 0;
+    
+    for (const auto& word : words) {
+        int uniqueChars = 0;
+        set<char> charSet(word.begin(), word.end());
+        
+        if (charSet.size() > maxUniqueChars) {
+            maxUniqueChars = charSet.size();
+            max = word;
+        } else if (charSet.size() == maxUniqueChars) {
+            if (word < max) {
+                max = word;
             }
-            return a.size() > std::count(b.begin(), b.end, static_cast<char>(0));
-        });
-    return result;
+        }
+    }
+    
+    return max;
 }
