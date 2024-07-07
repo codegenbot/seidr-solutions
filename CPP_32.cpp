@@ -2,42 +2,43 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> coeffs, double x) {
+double poly(std::vector<double> poly_coeffs, double x) {
     double result = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
+    for (int i = 0; i < poly_coeffs.size(); i++) {
+        result += poly_coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double find_zero(const std::vector<double>& xs){
+double find_zero(std::vector<double> poly_coeffs){
     double sum = 0;
-    for (int i = 1; i < xs.size(); i++) {
+    for (int i = 1; i < poly_coeffs.size(); i++) {
         if (i % 2 == 0) {
-            sum += xs[i] / xs[0];
+            sum += poly_coeffs[i] / poly_coeffs[0];
         }
     }
-    return -sum / xs[0];
+    return -sum / poly_coeffs[0];
 }
 
 int main() {
-    std::vector<double> coeffs;
-    double coeff;
+    std::vector<double> poly_coeffs;
+    double temp;
 
+    poly_coeffs = {};
     while (true) {
-        std::cin >> coeff;
+        std::cin >> temp;
         if (std::cin.fail()) {
             std::cout << "Invalid input. Please enter a valid number." << std::endl;
             break;
         }
-        coeffs.push_back(coeff);
+        poly_coeffs.push_back(temp);
     }
 
-    if(coeffs.size() == 0){
+    if(poly_coeffs.size() == 0){
         std::cout << "No coefficients entered. Cannot find zero." << std::endl;
     } else {
-        double solution = find_zero(coeffs);
-        assert(abs(poly(coeffs, solution)) < 1e-3);
+        double solution = find_zero(poly_coeffs);
+        assert(abs(poly(poly_coeffs, solution)) < 1e-3);
     }
     return 0;
 }

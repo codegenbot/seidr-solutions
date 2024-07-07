@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
 
 size_t str_length(const std::string& str){
-    return str.size();
+    return const_cast<std::string&>(str).size();
 }
 
 int main(){
