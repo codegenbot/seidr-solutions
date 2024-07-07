@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#include <string>
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "";
