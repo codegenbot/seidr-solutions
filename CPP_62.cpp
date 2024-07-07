@@ -18,8 +18,3 @@ bool isEqual(std::vector<float> A, std::vector<float> B) {
     }
     return true;
 }
-
-int main() {
-    assert(isEqual(derivative({1}), {}));  
-    return 0;
-}
