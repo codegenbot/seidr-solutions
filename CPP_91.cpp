@@ -2,19 +2,20 @@
 #include <cassert>
 #include <string>
 
-int findPattern(const std::string& input) {
+int findPattern(std::string& input) {
     int count = 0;
     size_t pos = 0;
     while ((pos = input.find("I am bored", pos)) != std::string::npos) {
         ++count;
-        pos += 7; // increment by the length of "I am bored"
+        pos += 9; // increment by the length of "I am bored"
     }
     return count;
 }
 
 int main() {
     assert(findPattern("I am bored I am bored I am bored") == 3);
-    int result = findPattern(std::string("You and I are going for a walk"));
+    std::string input = "You and I are going for a walk";
+    int result = findPattern(input); 
     std::cout << "Result: " << result << std::endl;
     return 0;
 }

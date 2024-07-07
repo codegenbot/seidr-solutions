@@ -1,7 +1,6 @@
-#include <bits/stdc++.h>
+```
 #include <cassert>
 #include <vector>
-#include <initializer_list>
 
 int solution(std::initializer_list<int> vec) {
     int sum = 0;
