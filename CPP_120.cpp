@@ -1,9 +1,9 @@
-#include <iostream>
+```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    return a==b; 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
@@ -12,5 +12,5 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     if (k > arrCopy.size()) {
         k = arrCopy.size();
     }
-    return {arrCopy.begin(), arrCopy.begin() + k};
+    return arrCopy;
 }

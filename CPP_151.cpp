@@ -38,10 +38,8 @@ int main() {
         std::cin >> num;
         
         if (num > 0.0 && std::floor(num) == num) {  
-            lst.push_back(num);  
-        }
-        else {
-            continue; 
+            if(std::fmod(num,2.0) != 0.0) // Only accept and store odd positive integers
+                lst.push_back(num);  
         }
     }
 
