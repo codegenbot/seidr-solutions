@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -13,14 +16,13 @@ int smallest_change(vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i + 1][j - 1];
             } else {
-                try {
-                    dp[i][j] = 1 + min({dp[i + 1][j], dp[i][j - 1]}, std::min(dp[i + 1][j - 1]));
-                } catch (const exception& e) {
-                    cerr << "An error occurred: " << e.what() << endl;
-                    return -1; // or any other appropriate value
-                }
+                dp[i][j] = 1 + min({dp[i + 1][j], dp[i][j - 1]}, std::min(dp[i + 1][j - 1]));
             }
         }
+    }
+    
+    if (dp[0][n - 1] > n / 2) {
+        throw runtime_error("The smallest change is too large");
     }
     
     return dp[0][n - 1];
