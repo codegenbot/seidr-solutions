@@ -1,25 +1,40 @@
-def bowling_score(frames):
+```
+def bowling_score(game):
     score = 0
-    frame = 0
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            if len(frames[i]) > 1:
-                if int(frames[i]) == 10: 
-                    score += 10 + (10 - int(frames[i-1:i+1])) if frame < 9 else 10
-                    frame += 1
-                elif int(frames[i]) < 10:
-                    score += int(frames[i])
-                    frame += 1
+    frame = 1
+    i = 0
+    while i < len(game):
+        if game[i].isdigit() and (i+1 < len(game) and game[i+1].isdigit()):
+            if int(game[i]) + int(game[i+1]) == 10:
+                score += 10
+                frame -= 1
+                i += 2
             else:
-                score += int(frames[i])
+                score += int(game[i]) + int(game[i+1])
+                i += 2
+        elif game[i] == 'X':
+            score += 10
+            if i < len(game) - 1 and (game[i+1].isdigit() or game[i+1] == '/'):
+                score += int(game[i+1]) + int(game[i+2])
+            frame -= 1
+            i += 1
+        elif game[i] == '/':
+            score += 5
+            if i < len(game) - 1 and game[i+1].isdigit():
+                score += int(game[i+1])
+            frame -= 1
+            i += 2
         else:
-            if frames[i] == 'X':
-                score += 10 + (10 - int(frames[i-2:i])) if frame < 9 else 10
-                frame += 1
-            elif frames[i] == '-':
-                continue
+            if game[i].isdigit() and (i+1 < len(game) and game[i+1].isdigit()):
+                if int(game[i]) + int(game[i+1]) == 10:
+                    score += 10
+                    frame -= 1
+                    i += 2
+                else:
+                    score += int(game[i]) + int(game[i+1])
+                    i += 2
             else:
-                a, b = map(int, frames[i].split('/'))
-                score += a + b
-                frame += 1
+                score += 0
+                frame -= 1
+                i += 1
     return score
