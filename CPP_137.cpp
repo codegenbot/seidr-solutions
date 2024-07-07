@@ -1,6 +1,6 @@
-#include <iostream>
 #include <limits>
-#include <boost/numeric/conversion/cast.hpp>
+#include <iostream>
+#include <boost/any.hpp>
 
 bool isGreaterThanOrEqualTo(double d1) {
     return d1 >= 0.0;
@@ -16,10 +16,8 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     
-    if(isGreaterThanOrEqualTo(boost::numeric_cast<double>(num))) 
-        std::cout << num << " is greater than or equal to 0" << std::endl;
-    else
-        std::cout << "0 is greater than " << num << std::endl;
+    if(isGreaterThanOrEqualTo(num)) std::cout << num << " is greater than or equal to 0" << std::endl;
+    else std::cout << "0 is greater than " << num << std::endl;
     
     return 0;
 }
