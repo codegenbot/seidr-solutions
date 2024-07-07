@@ -1,9 +1,10 @@
-char temp;
-for(int i = 0; i < str.length(); i++) {
-    temp = str[i];
-    if(temp >= 'a' && temp <= 'z')
-        str[i] = temp - ('a' - 'A');
-    else if(temp >= 'A' && temp <= 'Z')
-        str[i] = temp - ('A' - 'a');
+string flip_case(string str){
+    string result = "";
+    for(char c : str){
+        if(isalpha(c)){
+            c = (islower(c)) ? toupper(c) : tolower(c);
+        }
+        result += c;
+    }
+    return result;
 }
-return str;
