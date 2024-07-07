@@ -1,20 +1,23 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-vector<int> leaders(vector<int>& arr) {
+#include <vector>
+
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> leaders;
+    std::vector<int> result;
     
-    if(n == 1)
-        return arr;
-    
-    for(int i=n-2; i>=0; i--) {
-        while(i > 0 && arr[i] <= arr[i+1])
-            i--;
-        leaders.push_back(arr[i]);
+    for (int i = 0; i < n; i++) {
+        bool leader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                leader = false;
+                break;
+            }
+        }
+        if (leader) {
+            result.push_back(arr[i]);
+        }
     }
     
-    leaders.push_back(arr[n-1]);
-    
-    return leaders;
+    return result;
 }
