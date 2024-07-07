@@ -35,8 +35,6 @@ int main() {
     for (int i : output) {
         std::cout << i << " ";
     }
-    if (!isSame(get_odd_collatz(1), {1})) {
-        std::cout << "Assertion failed." << std::endl;
-    }
+    assert(isSame(get_odd_collatz(1), {1}));
     return 0;
 }
