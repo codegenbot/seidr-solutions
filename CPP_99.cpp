@@ -15,7 +15,7 @@ int main() {
     cout << "Enter a number: ";
     cin >> num;
     if(num == 0.0) {
-        cout << "The closest integer is: " << 0 << endl;
+        cout << "The closest integer is: " << closest_integer(0.0) << endl;
     } else {
         cout << "The closest integer is: " << closest_integer(num) << endl;
     }
