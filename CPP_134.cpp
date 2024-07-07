@@ -1,8 +1,12 @@
 bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) return false;
-    int i = txt.size() - 1;
-    while(i > 0 && txt[i-1] == ' ') i--;
-    while(i < txt.size() && txt[i] == ' ') i++;
-    char c = txt[i];
-    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+    if(txt.length() == 0) return false;
+    char lastChar = txt.back();
+    bool isWordEnd = true;
+    for(int i = 0; i < txt.length() - 1; i++) {
+        if(txt[i] != ' ') {
+            isWordEnd = false;
+            break;
+        }
+    }
+    return (isalpha(lastChar) && !isWordEnd);
 }
