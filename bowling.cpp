@@ -18,9 +18,7 @@ int bowlingScore(string s) {
                 currentRoll = 0;
                 rollCount++;
             } else if (c == 'X') { 
-                score += 10; // X in bowling is 10
                 currentRoll = 0;
-                rollCount++;
             }
         } else {
             currentRoll *= 10;
