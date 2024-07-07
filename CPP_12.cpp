@@ -1,7 +1,6 @@
-#include <string>
-#include <vector>
-#include <algorithm>
 #include <iostream>
+#include <vector>
+#include <string>
 
 std::string longest(const std::vector<std::string>& strings) {
     if(strings.empty()) return "";
