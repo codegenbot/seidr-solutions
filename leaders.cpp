@@ -14,6 +14,17 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    for(int i=arr.size()-1;i>=0;--i){
+        if(result.empty() || arr[i] >= result.back()){
+            result.push_back(arr[i]);
+        }
+    }
+    reverse(result.begin(),result.end());
+    return result;
+}
+
 int main() {
     vector<int> arr = {1, 3, 4, 1, 5};
     vector<int> leadersVector = leaders(arr);
@@ -21,3 +32,4 @@ int main() {
         cout << leader << endl;
     }
     return 0;
+}
