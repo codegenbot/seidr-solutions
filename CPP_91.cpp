@@ -2,16 +2,14 @@
 #include <cassert>
 #include <string>
 
-int findPattern(const char* str) {
-    std::string s = str;
+int findPattern(const std::string& input) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = s.find("I am bored")) != std::string::npos) {
+    while ((pos = input.find("I am bored", pos)) != std::string::npos) {
         ++count;
-        pos += 7; // Move the position to the next occurrence
+        pos += 7; // increment by the length of "I am bored"
     }
     return count;
-
 }
 
 int main() {
