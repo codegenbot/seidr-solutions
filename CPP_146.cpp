@@ -13,19 +13,20 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    int n;
+    int n; 
+    std::vector<int> nums;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> nums[i];
+    
+    for(int i = 0; i < n; i++) {
+        int num; 
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> num;
+        nums.push_back(num);
     }
-
+    
     int result = specialFilter(nums);
-
-    std::cout << "The count of numbers satisfying the condition is: " << result << std::endl;
-
+    std::cout << "The count of special numbers is: " << result << std::endl;
+    
     return 0;
 }
