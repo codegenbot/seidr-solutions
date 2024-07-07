@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 int closest_integer(double num) {
     if (num >= 0) {
@@ -10,16 +11,9 @@ int closest_integer(double num) {
     }
 }
 
-int main1() { 
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num; 
-    std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
-
-    assert(closest_integer(0.0) == 0); 
-
-}
-
-int main() {
-    return main1();
+int test_closest_integer() {
+    double num = std::stod("0"); 
+    assert(closest_integer(num) == 0);
+    std::cout << "The closest integer is: " << closest_integer(5.0) << std::endl;
+    return 0; 
 }
