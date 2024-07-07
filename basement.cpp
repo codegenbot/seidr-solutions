@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -7,7 +8,7 @@ int findFirstNegativeIndex(const vector<int>& nums) {
         sum += nums[i];
         if (sum < 0) return i;
     }
-    return -1; 
+    return -1; // or throw an exception, depending on the desired behavior
 }
 
 int main() {
