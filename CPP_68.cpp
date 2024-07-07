@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <limits>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -32,6 +31,7 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 int main() {
     int n;
 
+    // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
     std::vector<int> input(n); 
@@ -40,6 +40,7 @@ int main() {
         std::cin >> input[i];
     }
 
+    // Process the array
     std::vector<int> output = pluck(input);
 
     if (output.empty()) {
