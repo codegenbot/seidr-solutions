@@ -1,10 +1,15 @@
+```cpp
 #include <vector>
 using namespace std;
 
 int main() {
     vector<int> arr = {17, 28, 4}; 
     vector<int> result = leaders(arr);
-    // Print or use the result as needed
+    cout << "The leaders of the array are: ";
+    for (auto i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
 
