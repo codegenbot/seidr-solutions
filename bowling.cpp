@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
     int currentRoll = 0;
@@ -5,10 +9,11 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (rollCount < 9) {
-                score += max(1, currentRoll);
+            if (currentRoll >= 10) {
+                score += currentRoll + 10;
+            } else {
+                score += currentRoll + max(1, currentRoll);
             }
-            score += currentRoll;
             currentRoll = 0;
             rollCount++;
         } else if (isdigit(c)) {
@@ -17,7 +22,16 @@ int bowlingScore(string s) {
         }
     }
 
-    score += currentRoll;
+    if (currentRoll >= 10) {
+        score += currentRoll + 10;
+    } else {
+        score += currentRoll + max(1, currentRoll);
+    }
 
     return score;
+
 }
+
+int main(int argc, char* argv[]) { 
+    cout << bowlingScore(argv[1]) << '\n'; 
+    return 0;
