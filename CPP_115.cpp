@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int max_fill(std::vector<std::vector<int>> grid) {
@@ -18,4 +17,9 @@ int max_fill(std::vector<std::vector<int>> grid) {
         }
     }
     return max;
+}
+
+int main() {
+    int result = max_fill({{0, 0, 0}, {0, 1, 0}, {0, 0, 0}});
+    return result;
 }
