@@ -1,17 +1,9 @@
-Here is the completed code:
-
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> pq;
-    for (int i : arr) {
-        pq.push(i);
-        if (pq.size() > k) {
-            pq.pop();
-        }
-    }
-    vector<int> result(k);
-    for (int i = k - 1; i >= 0; --i) {
-        result[i] = pq.top();
-        pq.pop();
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        int maxNum = *max_element(arr.begin(), arr.end());
+        result.push_back(maxNum);
+        arr.erase(remove(arr.begin(), arr.end(), maxNum), arr.end());
     }
     return result;
 }
