@@ -1,3 +1,4 @@
+```cpp
 vector<string> sorted_list_sum(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(), 
         [](const string& a){ return (a.size() % 2 == 1); });
