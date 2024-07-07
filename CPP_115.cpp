@@ -1,6 +1,5 @@
-```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -34,8 +33,7 @@ int max_fill(vector<vector<int>> grid) {
 }
 
 int main() {
-    vector<vector<int>> grid;
-    grid.resize(2);
+    vector<vector<int>> grid(2);
     for (int i = 0; i < 2; i++) {
         grid[i].resize(4);
         for (int j = 0; j < 4; j++) {
@@ -44,5 +42,5 @@ int main() {
     }
     int result = max_fill(grid);
     cout << "Maximum number of filled cells: " << result << endl;
-    return 0;
+    return 0; 
 }
