@@ -1,12 +1,14 @@
 #include <string>
-using namespace std;
+#include <sstream>
 
 string fizzBuzz(int x) {
+    ostringstream oss;
     if (x % 3 == 0 && x % 5 == 0)
-        return "FizzBuzz";
+        oss << "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
+        oss << "Fizz";
     else if (x % 5 == 0)
-        return "Buzz";
+        oss << "Buzz";
     else
-        return to_string(x);
+        oss << to_string(x);
+    return oss.str();
