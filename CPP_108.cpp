@@ -14,10 +14,11 @@ int count_nums(vector<int> nums) {
             int sum = 0, sign = 1;
             int temp = -num;
             while (temp > 0) {
-                sum += abs(temp % 10);
+                sum += temp % 10 * sign;
                 temp /= 10;
+                sign = -sign;
             }
-            if (sign * sum > 0)
+            if (sum > 0)
                 count++;
         }
     }
