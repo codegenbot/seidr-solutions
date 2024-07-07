@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
-stack<char> operators;
+
 bool evaluate(const string &expression) {
+    stack<char> operators;
     bool result = true;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
