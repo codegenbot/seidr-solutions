@@ -1,10 +1,20 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-double diceGame(int n, int m) {
-    if (n < m) return 0.0;
-    double p = 1.0;
-    for (int i = 1; i <= m - 1; i++) {
-        p *= 1.0 * (n - i) / n;
+double probability(int n, int m) {
+    double total = (double)n * m;
+    double higher = 0;
+    
+    for(int i = m + 1; i <= n; i++) {
+        higher += (double)i / total;
     }
-    return p;
+    
+    return higher;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(1) << probability(n, m) << endl;
+    return 0;
 }
