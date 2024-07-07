@@ -13,8 +13,7 @@ int main() {
     std::cout << "Enter a positive number: ";
     std::cin >> num; 
     if (num >= 0) {
-        int testValue = 10; 
-        assert(search(testValue) == testValue);
+        assert(search(num) == num);
     } else {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }

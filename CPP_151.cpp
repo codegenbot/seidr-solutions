@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<double> lst) {
-    long long sum = 0;
+double double_the_difference(std::vector<double> lst) {
+    double sum = 0;
     for (double num : lst) {
         if (num > 0 && std::floor(num) == num) { 
             if (std::fmod(num, 2.0) != 0.0) { 
@@ -17,7 +16,7 @@ long long double_the_difference(std::vector<double> lst) {
 
 int main() {
     std::vector<double> lst = {1.5, 3.0, 4.25, 6.0};
-    long long odd_sum = double_the_difference(lst);
+    double odd_sum = double_the_difference(lst);
 
     return 0;
 }
