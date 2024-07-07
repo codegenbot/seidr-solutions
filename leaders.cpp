@@ -14,8 +14,24 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-vector<int> arr = {1, 3, 4, 1, 5};
-vector<int> leadersVector = leaders(arr);
-for (auto leader : leadersVector) {
-    cout << leader << endl;
+vector<int> leaders(vector<int>& arr) {
+    vector<int> leaders;
+    int maxRight = arr[arr.size() - 1];
+    for(int i = arr.size()-1; i >=0; i--) {
+        if(arr[i] >= maxRight) {
+            maxRight = arr[i];
+            leaders.push_back(maxRight);
+        }
+    }
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
+}
+
+int main() {
+    vector<int> arr = {1, 3, 4, 1, 5};
+    vector<int> leadersVector = leaders(arr);
+    for (auto leader : leadersVector) {
+        cout << leader << endl;
+    }
+    return 0;
 }
