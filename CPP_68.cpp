@@ -1,8 +1,8 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
-bool checkIfSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -34,7 +34,7 @@ std::vector<int> pluck(std::vector<int> arr) {
     return result;
 }
 
-int main() {
+int mainFunc() {
     std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
