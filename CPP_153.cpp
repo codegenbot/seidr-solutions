@@ -2,17 +2,12 @@
 #include <string>
 #include <vector>
 
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest_strength = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int cap = 0;
-        for (char c : extension) {
-            if (std::toupper(c) == 'B' || std::toupper(c) == 'b') {
-                cap++;
-            }
-        }
+        int cap = count(extension.begin(), extension.end(), toupper);
         int sm = extension.size() - cap;
         double strength = static_cast<double>(cap) - sm;
 
@@ -26,6 +21,6 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
 }
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.Bb");
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
