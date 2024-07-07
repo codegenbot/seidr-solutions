@@ -2,6 +2,7 @@
 #include <initializer_list>
 #include <vector>
 #include <string>
+#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -48,8 +49,8 @@ int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = numericalLetterGrade(fgrades);
     if (!issame(grades, {"E", "D-" }))
-        std::cout << "Test failed" << std::endl;
+        std::cout << "Test failed" << endl;
     else
-        std::cout << "Test passed" << std::endl;
+        std::cout << "Test passed" << endl;
     return 0;
 }
