@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <cctype>
 
 int choose_num(int x, int y) {
     if (x % 2 == 0 && y % 2 == 0) {
@@ -14,8 +15,11 @@ int choose_num(int x, int y) {
 
 int main() {
     int x, y;
-    std::cout << "Enter two numbers: ";
-    std::cin >> x >> y;
+    std::cout << "Enter two numbers (separated by a space): ";
+    std::cin >> x;
+    char input[3];
+    std::cin.getline(input, 3);
+    y = atoi(input);
     int result = choose_num(x, y);
     std::cout << "Result: " << result << std::endl;
     return 0;
