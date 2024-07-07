@@ -1,44 +1,29 @@
+```cpp
 #include <iostream>
 #include <cmath>
-using namespace std;
+#include <vector>
 
-double poly(vector<double> coeffs, double x) {
-    double result = 0.0;
-    for(int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
-
-int find_zero(vector<double> coeffs) {
-    double x = -1.0;
-    while(true) {
-        double y = poly(coeffs, x);
-        if(std::abs(y) < 1e-3)
-            return x;
-        x += 0.1;
-    }
-}
+double poly(std::vector<double> coeffs, double x);
 
 int main() {
     int ncoeff;
-    vector<double> coeffs;
+    std::vector<double> coeffs;
 
-    cout << "Enter the number of coefficients: ";
-    cin >> ncoeff;
+    std::cout << "Enter the number of coefficients: ";
+    std::cin >> ncoeff;
     
     coeffs.clear();
 
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
-        cout << "Enter coefficient " << i+1 << ": ";
-        cin >> coeff;
+        std::cout << "Enter coefficient " << i+1 << ": ";
+        std::cin >> coeff;
         coeffs.push_back(coeff);
    }
     
     double x, y;
-    cout << "Enter the value of x: ";
-    cin >> x;
+    std::cout << "Enter the value of x: ";
+    std::cin >> x;
 
     for(int i = 0; i < ncoeff; i++) {
         double result = 0.0;
@@ -48,13 +33,37 @@ int main() {
         y = result;
     }
 
-    cout << "The value of y is: " << y << endl;
+    std::cout << "The value of y is: " << y << std::endl;
 
     int solution = find_zero(coeffs);
 
-    cout << "The zero of the polynomial is: " << solution << endl;
+    std::cout << "The zero of the polynomial is: " << solution << std::endl;
 
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
+}
+
+int find_zero(std::vector<double> coeffs) {
+    double x = 1.0; // Initial guess
+    double eps = 1e-6; // Error tolerance
+
+    while (true) {
+        double f = poly(coeffs, x);
+        if (std::abs(f) < eps)
+            break;
+        x -= f / poly(coeffs, x); // Newton-Raphson method
+    }
+
+    return static_cast<int>(x);
+}
+
+double poly(std::vector<double> coeffs, double x) {
+    double y = 0.0; // Initialize result to 0
+
+    for(int i = 0; i < coeffs.size(); i++) {
+        y += coeffs[i] * pow(x, i);
+    }
+
+    return y;
 }
