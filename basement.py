@@ -1,10 +1,7 @@
-def basement(vector):
+def basement(arr):
     total = 0
-    for i in range(len(vector)):
-        total += vector[i]
+    for i, x in enumerate(arr):
+        total += x
         if total < 0:
             return i + 1
     return -1
-
-vector = [int(x) for x in input().split()]
-print(basement(vector))
