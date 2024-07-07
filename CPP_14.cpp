@@ -15,16 +15,11 @@ vector<string> all_prefixes(const string& str) {
     return result;
 }
 
-bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (!issame(a[i], b[i]))
-            return false;
-    return true;
+bool issame(const string& str1, const string& str2) {
+    return str1 == str2;
 }
 
 vector<string> a = {"W", "WW", "WWW"};
 vector<string> b = vector<string>(all_prefixes("WWW").begin(), all_prefixes("WWW").end());
 
-assert(issame(vector<vector<string>>(all_prefixes("WWW")).begin(), all_prefixes("WWW").end()), vector<vector<string>>({"W", "WW", "WWW"}));
+assert(all_prefixes("WWW") == a);
