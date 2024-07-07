@@ -7,8 +7,8 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     if (interval1.first > interval2.second || interval2.first > interval1.second)
         return "no";
     else
-        return std::to_string(std::max({interval1.first, interval2.first}.first)) + " " +
-               std::to_string(std::min({interval1.second, interval2.second}.second));
+        return std::to_string(std::max(interval1.first, interval2.first)) + " " +
+               std::to_string(std::min(interval1.second, interval2.second));
 }
 
 int main() {
@@ -33,10 +33,10 @@ int main() {
     std::cin >> temp; 
     interval2.second = temp;
 
-    if (intersection(interval1, interval2) == "no")
-        std::cout << "The intervals do not intersect.\n";
-    else
+    if (interval1.first <= interval2.second && interval2.first <= interval1.second)
         std::cout << "The intervals intersect.\n";
+    else
+        std::cout << "The intervals do not intersect.\n";
 
     return 0;
 }

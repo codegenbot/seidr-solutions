@@ -1,6 +1,6 @@
-```cpp
 #include <string>
 #include <cctype>
+#include <iostream>
 
 std::string solve(std::string s) {
     std::string result = "";
@@ -12,3 +12,11 @@ std::string solve(std::string s) {
         }
     }
     return result.empty() ? std::string(s.rbegin(), s.rend()) : result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Result: " << solve(input) << std::endl;
+}
