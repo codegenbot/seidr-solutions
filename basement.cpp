@@ -1,12 +1,9 @@
-#include <vector>
-using namespace std;
-
-int basement(vector<int>& nums) {
+int basement(const vector<int>& v) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+    for (int i = 0; i < v.size(); ++i) {
+        sum += v[i];
         if (sum < 0)
             return i;
     }
-    return -1;
+    return -1; // or throw an exception, depending on the desired behavior
 }
