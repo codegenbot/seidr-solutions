@@ -1,23 +1,27 @@
-using namespace boost;
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<int>(a)) {
-        int ai = boost::any_cast<int>(a);
-        int bi = boost::any_cast<int>(b);
-        return (ai > bi) ? a : (bi > ai) ? b : boost::any("None");
-    } else if (is_any_of<float>(a)) {
-        float af = boost::any_cast<float>(a);
-        float bf = boost::any_cast<float>(b);
-        return (af > bf) ? a : (bf > af) ? b : boost::any("None");
-    } else if (is_any_of<std::string>(a)) {
-        string as = boost::any_cast<string>(a);
-        string bs = boost::any_cast<string>(b);
-        if (stof(as) > stof(bs))
-            return a;
-        else if (stof(bs) > stof(as))
-            return b;
-        else
-            return boost::any("None");
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        return strA.compare(strB) > 0 ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int numA = boost::any_cast<int>(a);
+        string strB = boost::any_cast<string>(b);
+        return stoi(strB) > numA ? b : a;
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string strA = boost::any_cast<string>(a);
+        int numB = boost::any_cast<int>(b);
+        return stoi(strA) > numB ? a : b;
     }
-    return boost::any();
+
+    return boost::any("None");
 }
