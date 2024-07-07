@@ -1,3 +1,4 @@
+```
 def bowling_score(game):
     score = 0
     frame = 1
@@ -19,8 +20,9 @@ def bowling_score(game):
             frame -= 1
             if i < len(game) - 1 and game[i+2].isdigit() and game[i+3].isdigit():
                 score += int(game[i+2]) + int(game[i+3])
-            elif i < len(game) - 2 and game[i+2].isdigit() and (game[i+3] == '/' or game[i+3] == 'X'):
-                score += int(game[i+2])
+            elif i < len(game) - 2 and (game[i+2] == '/' or game[i+2] == 'X'):
+                if game[i+3].isdigit():
+                    score += int(game[i+3])
         if spare:
             score += 10
     return score
