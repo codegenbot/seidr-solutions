@@ -4,7 +4,7 @@
 bool is_nested(std::string str) {
     int count = 0;
     bool isOpeningBracket = false;
-    for (char& c : str) {
+    for (auto c : str) {
         if (c == '[') {
             if (!isOpeningBracket) {
                 count++;
@@ -31,4 +31,4 @@ int main() {
     } else {
         std::cout << "The string is not nested." << std::endl;
     }
-    return 0;
+}

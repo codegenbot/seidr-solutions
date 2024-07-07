@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -9,28 +9,35 @@ int choose_num(std::string s1, std::string s2) {
 }
 
 int main() { 
-    int result;
-
+    std::string line;
     std::cout << "Enter two numbers (separated by a space): ";
-    std::string s1, s2;
-    if (!(std::cin >> s1 >> s2)) {  
-        std::cin.clear();
-        std::string err;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!(std::getline(std::cin, line))) {  
         std::cout << "Invalid input. Please enter two integers." << std::endl;
         return 1; 
     }
 
-    int num1 = std::stoi(s1);
-    int num2 = std::stoi(s2);
+    if (!line.empty()) {
+        size_t pos = line.find(' ');
+        if(pos == std::string::npos) {
+            std::cout << "Invalid input. Please enter two integers." << std::endl;
+            return 1;
+        }
+        
+        std::string s1 = line.substr(0, pos);
+        std::string s2 = line.substr(pos + 1);
 
-    result = choose_num(s1, s2);
-    std::cout << "Result: " << result << std::endl;
+        int num1 = std::stoi(s1);
+        int num2 = std::stoi(s2);
 
-    if(num1 > num2)
-        std::cout << "Greater number is " << s1 << std::endl;
-    else
-        std::cout << "Greater number is " << s2 << std::endl;
+        if(num1 > num2)
+            std::cout << "Greater number is " << s1 << std::endl;
+        else
+            std::cout << "Greater number is " << s2 << std::endl;
+
+    } else {
+        std::cout << "Invalid input. Please enter two integers." << std::endl;
+        return 1;
+    }
 
     return 0;
 }

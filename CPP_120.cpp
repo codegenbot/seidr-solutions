@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, size_t k) {
+std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> arrCopy(arr);
     std::sort(arrCopy.begin(), arrCopy.end());
     std::vector<int> result;
@@ -26,13 +25,13 @@ std::vector<int> maximum(std::vector<int> arr, size_t k) {
     return result;
 }
 
-int main() { 
+int mainFunc() { 
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    size_t k = 4;
+    int k = 4;
     if (arr.size() == 0) {
         return 1;
     }
-    if (maximum(arr, k) != std::vector<int>({0, 243, -23, 3})) {
+    if (!issame(maximum(arr, k), std::vector<int>({0, 243, -23, 3}))) {
         return 1;
     }
     return 0;
