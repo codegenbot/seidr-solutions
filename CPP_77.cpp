@@ -13,6 +13,6 @@ bool iscuber(int a){
 }
 
 int main() {
-    // Your test case
     assert(iscuber(1729) == false);
+    std::cout << "Test passed." << std::endl; 
     return 0;
