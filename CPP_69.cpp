@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <map>
 
@@ -20,6 +19,16 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
+    std::vector<int> lst;
+    int n;
+    while(std::cin >> n) {
+        lst.push_back(n);
+    }
+    int result = search(lst);
+    if (result != -1) {
+        std::cout << "The first number that appears at least as many times as its value is: " << result << std::endl;
+    } else {
+        std::cout << "No such number found." << std::endl;
+    }
     return 0;
 }
