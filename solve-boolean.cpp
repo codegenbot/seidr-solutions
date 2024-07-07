@@ -1,26 +1,30 @@
-string solveBoolean(string input) {
-    stack<char> s;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+#include <vector>
+#include <iostream>
+#include <string>
+
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            s.push('&');
-        } else if (input[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
             }
-            s.push('|');
-        } else if (input[i] == 't' || input[i] == 'f') {
-            s.push(input[i]);
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
+    return st.top() == 'T';
+}
 
-    string result = "";
-    while (!s.empty()) {
-        result += s.top();
-        s.pop();
-    }
-
-    return result == "t" ? "True" : "False";
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False");
+    return 0;
 }
