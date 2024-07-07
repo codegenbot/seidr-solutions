@@ -3,10 +3,9 @@
 #include <string>
 
 using std::string;
-using std::vector;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(string text, string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
     
