@@ -14,13 +14,12 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    int num1, num2;
+    std::string str;
     std::cout << "Enter two numbers (separated by a space): ";
-    if (!(std::cin >> num1 >> num2)) {
-        std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
-        return 1;
-    }
-    int result = choose_num(num1, num2);
+    std::getline(std::cin, str);
+    int x = std::stoi(str.substr(0, str.find(' ')));
+    int y = std::stoi(str.substr(str.find(' ') + 1));
+    int result = choose_num(x, y);
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
