@@ -1,18 +1,20 @@
+```c++
 #include <vector>
-using namespace std;
+#include <iostream>
 
-int main() {
-    vector<int> v = {-1,-2,1,3};
-    cout << "The basement is at index: " << basement(v) << endl;
-    return 0;
+int basementIndex(const std::vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; ; ++i) {
+        if(i >= nums.size()) return -1;
+        sum += nums[i];
+        if (sum < 0) return i;
+    }
 }
 
-int basement(vector<int>& v) {
-    int total = 0;
-    for (int i = 0; i < v.size(); i++) {
-        total += v[i];
-        if (total < 0)
-            return i;
-    }
-    return -1;
+int main() {
+    std::vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    int result = basementIndex(nums);
+    if (result == -1) std::cout << "No such index exists." << std::endl;
+    else std::cout << "The basement index is: " << result << std::endl;
+    return 0;
 }
