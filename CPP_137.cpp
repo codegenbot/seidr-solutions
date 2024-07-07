@@ -1,23 +1,47 @@
-```
-if (a.type() == typeid(int) && b.type() == typeid(int))
-    return (int)a > (int)b ? a : b;
-else if ((a.type() == typeid(double) || a.type() == typeid(float)) &&
-        (b.type() == typeid(double) || b.type() == typeid(float)))
-    return (boost::any_cast<double>(a) > boost::any_cast<double>(b)) ? a : b;
-else if (a.type() == typeid(string) && b.type() == typeid(string))
-{
-    string str1 = boost::any_cast<string>(a);
-    string str2 = boost::any_cast<string>(b);
+Here is the completed code:
 
-    int num1 = std::stoi(str1.substr(0, str1.find(',')));
-    int num2 = std::stoi(str2.substr(0, str2.find(',')));
-
-    if (num1 > num2)
-        return a;
-    else if (num2 > num1)
+```cpp
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+using namespace std;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
-    else
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        if (strA > strB) {
+            return a;
+        } else if (strA < strB) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int intA = boost::any_cast<int>(a);
+        int intB = boost::any_cast<int>(b);
+        if (intA > intB) {
+            return a;
+        } else if (intA < intB) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float floatA = boost::any_cast<float>(a);
+        int intB = boost::any_cast<int>(b);
+        if (floatA > intB) {
+            return a;
+        } else if (floatA < intB) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
+    } else {
         return boost::any("None");
+    }
 }
-else
-    return boost::any("None");
