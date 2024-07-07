@@ -16,15 +16,13 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     int n, w;
-    std::cin >> n >> w;
+    std::cout << "Enter the number of quails: ";
+    std::cin >> n;
     std::vector<int> q(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> q[i];
+    std::cout << "Enter weights of quails: ";
+    for (auto &i : q) {
+        std::cin >> i;
     }
-    if (will_it_fly(q, w)) {
-        std::cout << "Yes" << std::endl;
-    } else {
-        std::cout << "No" << std::endl;
-    }
+    std::cout << "Will it fly? " << (will_it_fly(q, w) ? "Yes" : "No") << std::endl;
     return 0;
 }
