@@ -1,14 +1,16 @@
-#include<stdio.h>
-#include<string>
+#include <string>
+
 using namespace std;
 
-string flip_case(string str){
+string flip_case(string str) {
     string result = "";
-    for(int i=0; i<str.length(); i++){
-        if(islower(str[i])){
-            result += toupper(str[i]);
+    for (char c : str) {
+        if (islower(c)) {
+            result += toupper(c);
+        } else if (isupper(c)) {
+            result += tolower(c);
         } else {
-            result += tolower(str[i]);
+            result += c;
         }
     }
     return result;
