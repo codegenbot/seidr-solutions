@@ -1,3 +1,6 @@
+```cpp
+#include <cassert>
+
 int vowels_count(const std::string& s) {
     int count = 0;
     for (char c : s) {
@@ -10,6 +13,5 @@ int vowels_count(const std::string& s) {
 }
 
 int main() {
-    std::cout << vowels_count(std::string("ACEDY")) << std::endl;
-    return 0;
+    assert(vowels_count("ACEDY") == 3);
 }
