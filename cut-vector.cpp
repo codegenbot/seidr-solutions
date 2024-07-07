@@ -1,10 +1,10 @@
 #include <algorithm>
-#include <climits>
+#include <limits>
 using namespace std;
 
 vector<int> cutVector(vector<int>& v) {
     int n = v.size();
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int pos = 0;
 
     for (int i = 1; i < n; i++) {
@@ -18,5 +18,5 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> left(v.begin(), v.begin() + pos);
     vector<int> right(v.begin() + pos, v.end());
 
-    return {left.begin(), left.end()}, {right.begin(), right.end()};
+    return {left.begin(), left.end()} | {right.begin(), right.end()};
 }
