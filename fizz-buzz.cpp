@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -17,6 +18,6 @@ public:
 
 int main() {
     Solution solution;
-    cout << solution.fizzBuzz(15) << endl;
+    cout << solution.fizzBuzz(15) << endl; 
     return 0;
 }
