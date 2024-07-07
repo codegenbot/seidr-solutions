@@ -12,7 +12,7 @@ bool compareVectors(vector<string> a, vector<string> b) {
     return true;
 }
 
-string numericalGrade(float grade) {
+string letterGrade(float grade) {
     if (grade >= 4.0)
         return "A+";
     else if (grade > 3.7)
@@ -42,7 +42,7 @@ string numericalGrade(float grade) {
 vector<string> letterGrade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
-        result.push_back(numericalGrade(grade));
+        result.push_back(letterGrade(grade));
     }
     return result;
 }
