@@ -1,18 +1,23 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-vector<int> sort_vector(vector<int> arr) {
-    vector<pair<int, int>> pairs;
-    for (int num : arr) {
-        int ones = __builtin_popcount(num);
-        pairs.push_back({ones, num});
+vector<int> sort_array(vector<int> arr) {
+    vector<pair<int, int>> pairArr;
+    
+    for(int i = 0; i < arr.size(); i++) {
+        int onesCount = __builtin_popcount(arr[i]);
+        pairArr.push_back({onesCount, arr[i]});
     }
-    sort(pairs.begin(), pairs.end());
+    
+    sort(pairArr.begin(), pairArr.end());
+    
     vector<int> result;
-    for (const auto& pair : pairs) {
-        result.push_back(pair.second);
+    for(auto p : pairArr) {
+        result.push_back(p.second);
     }
+    
     return result;
 }
