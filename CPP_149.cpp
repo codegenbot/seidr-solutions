@@ -1,21 +1,18 @@
-Here is the solution:
+#include <algorithm>
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result = lst;
-    for (auto it = result.begin(); it != result.end(); ) {
-        if (it->length() % 2 == 1) {
-            it = result.erase(it);
-        } else {
-            ++it;
-        }
-    }
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-    return result;
+    // Remove strings with odd lengths from the vector
+    lst.erase(std::remove_if(lst.begin(), lst.end(),
+        [](const string& s) { return s.length() % 2; }), lst.end());
+
+    // Sort the vector by length and then alphabetically if two words have the same length
+    std::sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            }
+            return a.length() < b.length();
+        });
+
+    return lst;
 }
