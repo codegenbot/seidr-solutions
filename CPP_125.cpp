@@ -4,37 +4,51 @@
 #include<algorithm>
 using namespace std;
 
-vector<string> split_words(string txt) {
+vector<string> split_words(string txt){
     vector<string> result;
-    size_t pos = 0, prev = 0;
-
+    
+    size_t pos = 0;
     while ((pos = txt.find_first_of(" ,")) != string::npos) {
         if (pos == 0) {
-            if (txt.find(',') == string::npos)
-                return {to_string(count_lower(txt))};
-            else
+            if (txt.find(',') != string::npos) {
+                string temp = txt.substr(0, txt.find(','));
+                result.push_back(temp);
+                txt.erase(0, txt.find(',') + 1);
+            } else {
                 result.push_back(txt.substr(0, pos));
-            prev = pos + 1;
+                txt.erase(0, pos);
+            }
         } else {
-            if (prev != 0) {
-                if (pos > prev)
-                    result.push_back(txt.substr(prev, pos - prev));
-                prev = pos + 1;
+            if (pos == txt.length() - 1) {
+                if (txt[pos] == ',') {
+                    string temp = txt.substr(0, pos + 1);
+                    result.push_back(temp);
+                    txt.clear();
+                } else {
+                    result.push_back(txt.substr(0, pos));
+                    txt.clear();
+                }
+            } else {
+                result.push_back(txt.substr(0, pos));
+                txt.erase(0, pos);
             }
         }
     }
-
-    if (prev < txt.length())
-        result.push_back(txt.substr(prev));
-
-    return result;
-}
-
-int count_lower(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c >= 'a' && c <= 'z')
-            count++;
+    
+    if (txt.length() > 0) {
+        size_t count = 0;
+        for (char c : txt) {
+            if ((int)c >= 97 && (int)c <= 122) {
+                if (count % 2 == 1) {
+                    result.push_back(to_string(count));
+                    break;
+                }
+                count++;
+            } else {
+                count = 0;
+            }
+        }
     }
-    return count;
+    
+    return result;
 }
