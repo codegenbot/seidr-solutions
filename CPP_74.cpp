@@ -25,9 +25,9 @@ vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> l
             sum2 += s.length();
         }
     }
-    if (sum1 < sum2) return vector<string>(total_match(lst1[0],lst2[0]).begin(), total_match(lst1[0],lst2[0]).end());
-    else if (sum1 > sum2) return vector<string>(total_match(lst1[0],lst2[0]).begin(), total_match(lst1[0],lst2[0]).end());
-    else return vector<string>(total_match(lst1[0],lst2[0]).begin(), total_match(lst1[0],lst2[0]).end());
+    if (sum1 < sum2) return {v.begin(), v.end()};
+    else if (sum1 > sum2) return {v2.begin(), v2.end()};
+    else return {lst1.begin(), lst1.end()};
 }
 
 int main() {

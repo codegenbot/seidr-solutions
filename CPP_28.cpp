@@ -1,15 +1,27 @@
+```cpp
 #include <vector>
 #include <string>
 
-std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result;
+std::vector<std::string> concatenate(const std::vector<std::pair<std::string, int>>& strings) {
+    std::vector<std::string> result;
     for (const auto& str : strings) {
-        result += str + "\n";
+        // Process the string as per your requirement
+        std::string processedString = "";
+        for(int i=0; i < str.second; i++)
+            processedString += str.first;
+        result.push_back(processedString);
     }
-    return result; 
+    return result;
 }
 
-int main() {
-    assert(concatenate({"x", "y", "z", "w", "k"}) == "xy\nz\nw\ nk");
-    return 0;
+std::vector<std::string> concatenate(const std::vector<std::pair<std::string, int>>& strings) {
+    std::vector<std::string> result;
+    for (const auto& str : strings) {
+        // Process the string as per your requirement
+        std::string processedString = "";
+        for(int i=0; i < str.second; i++)
+            processedString += str.first;
+        result.push_back(processedString);
+    }
+    return result;
 }
