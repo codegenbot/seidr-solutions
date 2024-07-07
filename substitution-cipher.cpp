@@ -1,26 +1,21 @@
-```
 #include <string>
 #include <iostream>
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
-    for (char c : cipher) {
-        int idx = mapping.find(c);
+    for (char m : mapping) {
+        int idx = mapping.find(m);
         if (idx != std::string::npos) {
-            result.push_back(mapping[idx]); 
+            result.push_back(cipher[idx]); 
         } else {
-            result.push_back(c); 
+            result.push_back(m); 
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipher, mapping;
-    std::cout << "Enter the cipher: ";
-    std::cin >> cipher;
-    std::cout << "Enter the mapping: ";
-    std::cin >> mapping;
+    std::string cipher = "cehubtgxnspvqohlwrzady";
+    std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
     std::cout << decode(cipher, mapping) << std::endl;
-    return 0;
-}
+    return 0;}
