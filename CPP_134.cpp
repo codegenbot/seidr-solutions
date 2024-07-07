@@ -1,5 +1,6 @@
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false; // If string is empty, return false
-    char lastChar = txt.back(); // Get the last character of the string
-    return isalpha(lastChar) && !isalnum(lastChar); // Check if it's an alphabetical character and not part of a word
+    if (txt.empty()) return false;
+    int last_index = txt.length() - 1;
+    char last_char = txt[last_index];
+    return isalpha(last_char) && !isalnum(txt[last_index]);
 }
