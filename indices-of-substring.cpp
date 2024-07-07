@@ -1,5 +1,6 @@
-  #include <vector>
-    std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    #include <vector>
+
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     int prev_idx = -1;
     std::vector<int> result;
     for (size_t i = 0; i < text.length(); ++i) {
