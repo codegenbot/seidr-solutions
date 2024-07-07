@@ -1,6 +1,6 @@
+#include <string>
 bool solveBoolean(string s) {
     bool result = true;
-    #include <string>
     for (char c : s) {
         if (c == 'F') {
             result = false;
@@ -12,6 +12,9 @@ bool solveBoolean(string s) {
             while (!result && s.size() > 1 && s.back() == '|') {
                 s.pop_back();
             }
+        } else if (c == 'T') {
+            return result;
         }
     }
-    return result;
+    return std::to_string(result);
+}
