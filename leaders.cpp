@@ -1,4 +1,7 @@
+
+// C++ program to find leaders in a vector
 #include <vector>
+using namespace std;
 
 vector<int> leaders(const vector<int>& v) {
     vector<int> result;
