@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -24,16 +25,14 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr;
     int n;
-    std::cout << "Enter the size of array: ";
     std::cin >> n;
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        arr.push_back(x);
+        std::cin >> arr[i];
     }
-    std::cout << "Smallest change: " << smallest_change(arr) << std::endl;
+    
+    std::cout << smallest_change(arr) << std::endl;
+
     return 0;
 }
