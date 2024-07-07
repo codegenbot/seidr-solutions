@@ -1,3 +1,4 @@
+```c
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -29,7 +30,6 @@ int mastermind(string code, string guess) {
                 whitePegs++;
             }
         }
-        count = 0; // Reset count for the next iteration
     }
     
     return blackPegs + whitePegs;
