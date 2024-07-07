@@ -1,17 +1,10 @@
 ```cpp
-#include <iostream>
-#include <string>
-#include <sstream>
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
     int currentRoll = 0;
     int rollCount = 0;
 
-    std::istringstream iss(s);
-    char c;
-    while (iss >> c) {
+    for (char c : s) {
         if (c == '/') {
             if (currentRoll >= 10) {
                 score += currentRoll + 10;
@@ -35,7 +28,8 @@ int bowlingScore(string s) {
     return score;
 }
 
-int main(int argc, char* argv[]) { 
-    cout << bowlingScore(argv[1]) << '\n'; 
+int main() { 
+    string s = "7/6/4/8/3/5/9/1/2/10";
+    std::cout << bowlingScore(s) << '\n'; 
     return 0; 
 }
