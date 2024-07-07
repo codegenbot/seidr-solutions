@@ -36,9 +36,3 @@ std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
 
     return toMiniRomanHelper(num, roman, "");
 }
-
-int main() {
-    assert(int_to_mini_roman(1000).compare("M") == 0);
-    // Add your test cases here
-    return 0;
-}
