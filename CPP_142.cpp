@@ -14,7 +14,7 @@ int sum_squares(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> inputVector(n); 
+    std::vector<int> inputVector; 
     int n; 
 
     std::cout << "Enter the number of elements in the vector: ";
@@ -30,8 +30,17 @@ int main() {
                 inputVector.push_back(num);
                 break;
             } else {
-                std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
+                if(i < n-1){
+                    std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
+                }else{
+                    std::cerr << "You've reached the maximum capacity of your vector!" << std::endl;
+                    break;
+                }
             }
+        }
+        
+        if(inputVector.size() == n) {
+            break; // Exit loop once maximum capacity is reached
         }
     }
 
