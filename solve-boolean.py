@@ -1,24 +1,10 @@
-```
 def solve_boolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return solve_boolean(left).and_(solve_boolean(right))
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left).or_(solve_boolean(right))
-
-def and_(a, b):
-    if a is False:
-        return False
-    else:
-        return b
-
-def or_(a, b):
-    if a is True:
-        return True
-    else:
-        return b
+    if '&' in expression and '|' in expression:
+        raise Exception("Invalid expression")
+    
+    while '|' in expression:
+        pos = expression.index('|')
+        left, right = expression[:pos], expression[pos+1:]
+        expression = str(bool(eval(left))) + ' & ' + str(bool(eval(right)))
+    
+    return eval(expression)
