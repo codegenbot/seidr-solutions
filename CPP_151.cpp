@@ -30,19 +30,25 @@ void calculateAndPrint() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<double>(n);
+    std::vector<double> lst;
     for(int i = 0; i < n; i++) {
         double num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
+        while(true) {
+            std::cout << "Enter element " << i+1 << ": ";
+            std::cin >> num;
 
-        if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            std::vector<double>(n).push_back(num); 
+            if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
+                lst.push_back(num); 
+                break; // Exit the loop once a valid number is entered.
+            } else {
+                std::cout << "Invalid input. Please enter a positive odd number." << std::endl;
+            }
         }
     }
 
-    double odd_sum = double_the_difference(std::vector<double>(n));
-    calculateOddSums(std::vector<double>(n));
+    double odd_sum = double_the_difference(lst);
+
+    calculateOddSums(lst);
 }
 
 int main() {
