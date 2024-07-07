@@ -2,13 +2,7 @@
 #include <algorithm>
 
 int main() {
-    std::vector<float> l;
-    // Read input from user
-    float num;
-    while(std::cin >> num) {
-        l.push_back(num);
-    }
-    
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
     auto it = std::max_element(l.begin(), l.end());
     return *it;
 }
