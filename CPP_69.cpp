@@ -16,7 +16,8 @@ int main() {
     if (num < 0) {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     } else {
-        std::cout << "Result of searching " << std::to_string(search(num)) << ": " << search(num) << std::endl;
+        int result = search(num);
+        std::cout << "Result of searching " << num << ": " << result << std::endl;
     }
     return 0;
 }
