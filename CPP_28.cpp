@@ -17,7 +17,7 @@ int main() {
 
         if (userInput == "stop") break;
 
-        strings.push_back(userInput);
+        strings.push_back(userInput.substr(0, userInput.size() - 1)); // <--- Add this!
     }
 
     std::string result = concatenate(strings);
