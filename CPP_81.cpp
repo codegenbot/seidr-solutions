@@ -50,7 +50,8 @@ vector<string> letterGrade(vector<float> grades) {
 int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = letterGrade(fgrades);
-    if (!compareVectors({grades[0], grades[1]}, {"E", "D-" }))
+    vector<string> result = letterGrade({0, 0.7});
+    if (!compareVectors({result[0], result[1]}, {"E", "D-" }))
         cout << "Test failed" << endl;
     else
         cout << "Test passed" << endl;
