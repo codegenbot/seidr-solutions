@@ -4,13 +4,13 @@
 std::string kebabToCamel(const std::string& s) {
     std::string result;
     for (char c : s) {
-        if (c == '-') {
-            result += char(toupper(c + 1));
-        } else if (c != '-' && c != ' ') {
+        if (c == '-' || c == ' ') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            result += tolower(c);
+            result += c + 1;
+        } else {
+            result += c;
         }
     }
     return result;
