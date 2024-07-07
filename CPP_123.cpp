@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <limits>
+#include <initializer_list>
 
 using namespace std;
 
@@ -42,4 +43,3 @@ int main() {
     }
     assert(isSame(getOddCollatz(1), {1}));
     return 0;
-}
