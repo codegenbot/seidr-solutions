@@ -1,24 +1,33 @@
-#include <vector>
-#include <set>
-using namespace std;
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    set<int> even;
-    for (int num : lst2) {
-        if (num % 2 == 0) {
-            even.insert(num);
-        }
-    }
-
+    int even_count = 0;
     for (int num : lst1) {
-        if (even.count(num)) {
+        if (num % 2 == 0)
+            even_count++;
+    }
+    if (even_count == lst1.size())
+        return "YES";
+    for (int i = 0; i < lst2.size(); i++) {
+        int temp = 0;
+        bool found = false;
+        for (int j = 0; j < lst1.size(); j++) {
+            if (lst2[i] % 2 == 0) {
+                temp++;
+                lst1[j] = lst2[i];
+                found = true;
+                break;
+            }
+        }
+        if (!found)
             continue;
-        } else if (even.find(num) != even.end()) {
-            even.erase(even.find(num));
-        } else {
-            return "NO";
+        while (temp > even_count) {
+            for (int k = 0; k < lst1.size(); k++) {
+                if (lst1[k] % 2 != 0) {
+                    temp--;
+                    lst1[k] = lst2[i];
+                    break;
+                }
+            }
         }
     }
-
-    return "YES";
+    return "NO";
 }
