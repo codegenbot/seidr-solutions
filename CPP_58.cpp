@@ -1,9 +1,9 @@
-```cpp
 #include <vector>
 #include <set>
 #include <algorithm>
-#include <sstream>
+#include <initializer_list>
 using namespace std;
+using std::initializer_list;
 
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
