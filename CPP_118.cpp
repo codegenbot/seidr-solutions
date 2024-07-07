@@ -1,18 +1,18 @@
-Here is the solution:
-
 string get_closest_vowel(string word) {
-    for (int i = word.size() - 1; i > 0; --i) {
-        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u') {
-            for (int j = i - 1; j >= 0; --j) {
-                if (!isVowel(word[j])) {
-                    return string(1, tolower(word[i]));
-                }
-            }
+    int n = word.length();
+    for(int i = n-1; i > 0; --i){
+        if(isvowel(word[i])){
+            string::iterator it = upper_bound(word.begin(), word.end(), word[i]);
+            int pos = distance(word.begin(), it);
+            return word.substr(pos, 1);
         }
     }
     return "";
 }
 
-bool isVowel(char c) {
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+bool isvowel(char c) {
+    c = tolower(c);
+    if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+        return true;
+    return false;
 }
