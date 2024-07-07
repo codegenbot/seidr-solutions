@@ -1,34 +1,23 @@
 ```cpp
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a,vector<string> b){
+    bool result = true;
+    for(string s : a){
+        if(find(b.begin(),b.end(),strtol(s.c_str(),0,10)) == b.end())
+            result = false;
     }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    bool b = false; // declare variable
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] == b[i]) {
-            b = true;
-        } else {
-            b = false;
-            break;
-        }
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(string s : strings){
+        transform(s.begin(),s.end(),s.begin(),::tolower);
+        transform(substring.begin(),substring.end(),substring.begin(),::tolower);
+        if(s.find(substring) != string::npos)
+            result.push_back(s);
     }
-    return b;
-}
-
-int main() {
-    vector<string> strings = {"apple", "banana", "cherry"};
-    string substring = "an";
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-    if(filtered_strings.size() > 0) {
-        vector<string> same_strings = {"banana"};
-        bool is_same = issame({strings[0], strings[1]}, same_strings);
-        cout << "Is 'apple' and 'banana' the same? " << (is_same ? "Yes" : "No") << endl;
-    }
-    return 0;
+    return result;
 }
