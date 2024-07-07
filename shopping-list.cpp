@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -28,7 +29,7 @@ int main() {
 
     float totalPrice = totalPriceAfterDiscount(prices, discounts);
 
-    cout << fixed << setprecision(1) << totalPrice << endl;
+    cout << std::fixed << std::setprecision(1) << totalPrice << endl;
 
     return 0;
 }
