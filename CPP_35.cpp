@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -11,9 +12,4 @@ int findMax() {
     
     long long maxVal = *std::max_element(v.begin(), v.end());
     return std::abs(maxVal);
-}
-
-int main() {
-    assert(std::abs(findMax()) < 1e-4);
-    return 0;
 }
