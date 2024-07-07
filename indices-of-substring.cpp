@@ -7,10 +7,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    int i = 0; 
-    for (; i <= n - m; i += target.length()) {
+    for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target)
-            result.push_back(i);
+            for (int j = i + 1; j <= n - m; j++)
+                if (text.substr(j, m) == target)
+                    result.push_back(j);
     }
 
     return result;
