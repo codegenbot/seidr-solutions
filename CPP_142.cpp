@@ -27,16 +27,12 @@ int main() {
             std::cout << "Enter element " << i + 1 << ": ";
             std::cin >> num;
             
-            if (num >= 0 && num <= 100) {
-                inputVector.push_back(num);
+            if(std::abs(num) <= 100) {
+                inputVector.push_back(std::abs(num)); 
                 break;
-            } else {
-                if(i < n-1){
-                    std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
-                }else{
-                    std::cerr << "You've reached the maximum capacity of your vector!" << std::endl;
-                    break;
-                }
+            }
+            else {
+                std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
             }
         }
     }
