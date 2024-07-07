@@ -1,8 +1,7 @@
-```cpp
 #include <string>
 #include <vector>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest_strength = 0;
     std::string strongest_extension;
 
@@ -20,9 +19,11 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     return class_name + "." + strongest_extension;
 }
 
-int main(){
+int main() {
     std::string class_name = "MyClass";
-    std::vector<std::string> extensions = {"cpp", "java", "python"};
+    std::vector<std::string> extensions = {"cpp", "java", "python", "swift"};
+
     std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+
     return 0;
 }
