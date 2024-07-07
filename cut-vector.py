@@ -1,4 +1,3 @@
-```Python
 def cut_vector(vector):
     if len(vector) == 0:
         return [], []
