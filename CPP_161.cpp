@@ -19,4 +19,3 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::cout << "Result: " << solve(input) << std::endl;
-}
