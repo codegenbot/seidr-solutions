@@ -8,17 +8,15 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max((float)a.convert_to<float>(), stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().size()-2, 1)));
+        return (string)b.convert_to<string>() > to_string((float)a.convert_to<float>()) ? b : "None";
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (stof(a.convert_to<string>().erase(0, 1).erase(a.convert_to<string>().size()-2, 1)) > stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().size()-2, 1))) ? a : b;
+        return (string)a.convert_to<string>() > (string)b.convert_to<string>() ? a : (string)b.convert_to<string>() == (string)a.convert_to<string>() ? boost::any("None") : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return max((int)a.convert_to<int>(), stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().size()-2, 1)));
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return max(stof(a.convert_to<string>().erase(0, 1).erase(a.convert_to<string>().size()-2, 1)), (int)b.convert_to<int>());
+        return (string)b.convert_to<string>() > to_string((int)a.convert_to<int>()) ? b : "None";
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return max((float)a.convert_to<float>(), (int)b.convert_to<int>());
-    } else if (a.type() == typeid(string) && a.convert_to<string>() == b.convert_to<string>()) {
-        return boost::any("None");
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return (string)a.convert_to<string>() > to_string((int)b.convert_to<int>()) ? a : "None";
     }
-    return a > b ? a : b;
+    return boost::any("None");
 }
