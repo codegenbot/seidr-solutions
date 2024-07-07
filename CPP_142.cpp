@@ -1,20 +1,8 @@
 ```cpp
 #include <vector>
 #include <cassert>
+#include <numeric>
 
-int main() {
-    std::vector<int> numbers;
-    for (int i = 1; i <= 3; ++i) {
-        numbers.push_back(i);
-    }
-    int sum = sum_squares(numbers);
-    assert(sum == 14);
-}
-
-int sum_squares(std::vector<int> v) {
-    int result = 0;
-    for (int x : v) {
-        result += x * x;
-    }
-    return result;
+int sum_squares(const std::vector<int>& v) {
+    return std::accumulate(v.begin(), v.end(), 0, [](int acc, int x){return acc + x * x;});
 }
