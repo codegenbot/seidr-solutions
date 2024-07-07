@@ -1,5 +1,3 @@
-Here is the solution:
-
 vector<string> all_prefixes(string str) {
     vector<string> result;
     for (int i = 1; i <= str.length(); i++) {
