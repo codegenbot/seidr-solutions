@@ -9,11 +9,10 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (currentRoll >= 10) {
-                score += currentRoll + 10;
-            } else {
-                score += currentRoll + max(1, currentRoll);
-            }
+            if (currentRoll + max(0, min(10 - rollCount, currentRoll)) > 10)
+                score += 10 + max(0, currentRoll - 10);
+            else
+                score += currentRoll + max(0, min(10 - rollCount, currentRoll));
             currentRoll = 0;
             rollCount++;
         } else if (isdigit(c)) {
@@ -22,20 +21,7 @@ int bowlingScore(string s) {
         }
     }
 
-    if (currentRoll >= 10) {
-        score += currentRoll + 10;
-    } else {
-        score += currentRoll + max(1, currentRoll);
-    }
+    if (currentRoll > 0) score += currentRoll;
 
     return score;
-}
-
-int main() {
-    string input;
-    cout << "Enter bowling scores (e.g., 1-2/3-4...): ";
-    cin >> input;
-    int score = bowlingScore(input);
-    cout << "Total score: " << score << endl;
-    return 0;
 }
