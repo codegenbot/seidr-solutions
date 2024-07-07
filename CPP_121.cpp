@@ -1,20 +1,18 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <assert.h>
 
-int solution(std::vector<int> arr) {
-    int sum = 0;
+int solutions(std::vector<int> arr) {
+    int count = 0;
     for (int i : arr) {
         if (i % 2 == 1)
-            sum += i;
+            count++;
     }
-    return sum;
+    return count;
 }
 
-int main() { 
-    int arr[] = {3, 13, 2, 9}; 
-    std::vector<int> arrVector(arr, arr + sizeof(arr)/sizeof(arr[0])); 
-    int n = arrVector.size(); 
-    int result = solution(arrVector); 
-    std::cout << "Result: " << result << std::endl;
+int main() {
+    std::vector<int> arr = {3, 13, 2, 9};
+    assert(solutions(arr) == 3);
     return 0;
 }
