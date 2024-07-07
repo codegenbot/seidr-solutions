@@ -1,16 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <iostream>
 
 using namespace std;
-
-int main() {
-    int a = 10;
-    int b = 15;
-    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
-    return 0;
-}
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
@@ -48,4 +40,17 @@ int gcd(int a, int b) {
     if(b == 0)
         return a;
     return gcd(b, a % b);
+}
+
+int main() {
+    int a = 10;
+    int b = 15;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
+    string text = "hello world";
+    string target = "world";
+    vector<int> indices = findIndices(text, target);
+    for(int i : indices) {
+        cout << i << endl;
+    }
+    return 0;
 }
