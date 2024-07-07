@@ -1,21 +1,19 @@
+#include <iostream>
 #include <vector>
-#include <utility>
-#include <limits>
+using namespace std;
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
+vector<pair<int, int>> pluck(vector<pair<int, int>> arr) {
+    vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
-    int minEvenValue = std::numeric_limits<int>::max();
-    int index = -1;
+    pair<int, int> minEvenPair = make_pair(INT_MAX, -1);
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
-            index = i;
+        if (arr[i].first % 2 == 0 && arr[i].first < minEvenPair.first) {
+            minEvenPair = arr[i];
         }
     }
 
-    result.push_back({minEvenValue, index});
+    result.push_back(minEvenPair);
     return result;
 }
