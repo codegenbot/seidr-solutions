@@ -35,19 +35,18 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<double> lst;
+    std::vector<double>().resize(n);  
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         if (num > 0) {
-            lst.push_back(num);  // Assign the value to the corresponding index
+            std::vector<double>().push_back(num);  
         }
     }
     
-    double odd_sum = double_the_difference(lst);
-
-    calculateOddSums(lst);
+    double odd_sum = double_the_difference(std::vector<double>().resize(n));
+    calculateOddSums(std::vector<double>().resize(n));
 
     return 0;
 }

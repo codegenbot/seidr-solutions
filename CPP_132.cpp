@@ -3,19 +3,24 @@
 #include <string>
 
 bool is_nested(std::string str) {
-    int open = 0;
-    int close = 0;
+    int count = 0;
+    bool isOpeningBracket = false;
     for (size_t i = 0; i < str.size(); i++) {
         if (str[i] == '[') {
-            open++;
+            if (!isOpeningBracket) {
+                count++;
+                isOpeningBracket = true;
+            }
         } else if (str[i] == ']') {
-            close++;
-            if (open > close) {
+            if (count > 0) {
+                count--;
+            } else {
                 return false;
             }
+            isOpeningBracket = false;
         }
     }
-    return open != close;
+    return count > 0;
 }
 
 int main() {
