@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -34,8 +34,9 @@ int max_fill(vector<vector<int>> grid) {
 }
 
 int main() {
-    vector<vector<int>> grid(2, vector<int>(4));
-    for (int i = 0; i < 2; i++) {
+    vector<vector<int>> grid;
+    for(int i=0; i<2; i++) { 
+        grid.push_back(vector<int>(4)); 
         for (int j = 0; j < 4; j++) {
             grid[i][j] = i == j ? 1 : 0;
         }
