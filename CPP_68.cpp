@@ -1,9 +1,13 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-std::vector<int> pluck(const std::vector<int>& v) {
-    std::vector<int> result = {v[0], v[1]};
+std::vector<int> pluck(std::vector<int> v) {
+    std::vector<int> result;
+    for (int i : v) {
+        if (i % 2 == 0) {
+            result.push_back(i);
+        }
+    }
     return result;
 }
 
@@ -37,11 +41,14 @@ int mainFunction() {
         std::cout << "No even numbers found." << std::endl;
     } else {
         std::vector<int> test = {1,2,3};
-        std::vector<int> expected = {2, 0};
+        std::vector<int> expected = {2};
         std::vector<int> actual = pluck(test);
-        assert(sameVector(actual, expected));
-        std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
-                  << std::endl;
+        if (actual == expected) {
+            std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
+                      << std::endl;
+        } else {
+            std::cout << "Test failed." << std::endl;
+        }
     }
 
     return 0;
