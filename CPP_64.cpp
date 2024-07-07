@@ -1,7 +1,10 @@
+Here is the completed code:
+
+```cpp
 int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
-        switch (c) {
+        switch (tolower(c)) {
             case 'a':
             case 'e':
             case 'i':
@@ -9,9 +12,10 @@ int vowels_count(string s) {
             case 'u':
                 count++;
                 break;
-            case 'y': // consider 'y' as a vowel only if it's at the end
-                if (s.size() == 1 || s[s.size() - 1] != 'y') continue;
-                count++;
+            case 'y':
+                if (s.back() == 'y') {
+                    count++;
+                }
                 break;
         }
     }
