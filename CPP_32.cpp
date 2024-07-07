@@ -1,17 +1,38 @@
-int main() {
-    vector<double> poly_coeffs = {};
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cassert>
 
-    string temp;
-    double val;
+using namespace std;
 
-    while (true) {
-        cin >> temp;
-        if (!cin) {
-            cout << "Invalid input. Please enter a valid number." << endl;
-            break;
+double poly(vector<double> coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
+
+double find_zero(vector<double> coeffs){
+    double sum = 0;
+    for (int i = 1; i < coeffs.size(); i++) {
+        if (i % 2 == 0) {
+            sum += coeffs[i];
+        } else {
+            sum -= coeffs[i];
         }
-        val = stod(temp);
+    }
+    return -sum / coeffs[0];
+}
+
+int main() {
+    vector<double> poly_coeffs;
+    int val;
+
+    cin >> val;
+    while (val != 0) {
         poly_coeffs.push_back(val);
+        cin >> val;
     }
 
     if(poly_coeffs.size() == 0){
