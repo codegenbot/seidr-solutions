@@ -14,5 +14,4 @@ def shopping_list(prices, discounts):
             return None
 
     # Round result to two decimal places
-    total_price = round(total_price, 2)
-    return [total_price]
+    return round(total_price, 2)
