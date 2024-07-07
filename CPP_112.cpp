@@ -1,9 +1,5 @@
+```cpp
 #include <vector>
-namespace std {
-template <class _Ty>
-struct vector<_Ty>::size_type { };
-}
-
 using namespace std;
 
 vector<string> reverseDelete(vector<string>& v) {
@@ -16,8 +12,16 @@ vector<string> reverseDelete(vector<string>& v) {
     return v;
 }
 
-bool issame(const vector<string>& b, const vector<string>& a) {
-    return a == b;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void test() {
