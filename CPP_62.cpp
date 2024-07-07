@@ -11,8 +11,3 @@ double similarity(vector<float> v1, vector<float> v2) {
     }
     return sum / (v1.size() * max(abs(*max_element(v1.begin(), v1.end())), abs(*min_element(v1.begin(), v1.end()))));
 }
-
-int main() {
-    // your code here
-    return 0;
-}

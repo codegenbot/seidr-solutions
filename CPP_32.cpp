@@ -26,8 +26,8 @@ double find_zero(vector<double> coeffs){
 }
 
 int main() {
-    double val;
-    vector<double> poly_coeffs = {};
+    vector<double> poly_coeffs;
+    int val;
 
     cin >> val;
     while (val != 0) {
