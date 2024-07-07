@@ -30,7 +30,7 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 }
 
 int mainFunction() {
-    size_t n = 0;
+    int n = 0;
 
     // Read input
     std::cout << "Enter the number of elements: ";
@@ -43,6 +43,7 @@ int mainFunction() {
     }
 
     // Process the array
+    std::vector<int> output;
     size_t minEven = std::numeric_limits<size_t>::max(), minIndex = -1;
 
     for (int i = 0; i < n; i++) {
@@ -52,7 +53,6 @@ int mainFunction() {
         }
     }
 
-    std::vector<int> output;
     output.push_back(minEven);
     output.push_back(minIndex);
 
@@ -60,7 +60,7 @@ int mainFunction() {
         std::cout << "No even numbers found." << std::endl;
     } else {
         std::vector<int> test = {1,2,3};
-        std::vector<int> expected = {7, 9, 7, 1};
+        std::vector<int> expected = {2, 0};
         std::vector<int> actual = pluck(test);
         assert(sameVector(actual, expected));
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
