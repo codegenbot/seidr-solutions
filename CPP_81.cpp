@@ -37,10 +37,10 @@ std::string letterGrade(float grade) {
 }
 
 std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
-    std::vector<std::string> result(std::allocator<std::string>());
+    std::vector<std::string> result;
     for (float grade : grades) {
         std::string letter = letterGrade(grade);
-        result.emplace_back(letter); 
+        result.push_back(letter); 
     }
     return result;
 }
