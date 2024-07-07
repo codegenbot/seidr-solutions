@@ -3,7 +3,9 @@
 
 using namespace std;
 
-double vectorDistance(int n) {
+double vectorDistance() {
+    int n;
+    cin >> n; 
     double x1[n], x2[n];
     for (int i = 0; i < n; i++) {
         cin >> x1[i] >> x2[i];
@@ -12,13 +14,5 @@ double vectorDistance(int n) {
     for (int i = 0; i < n; i++) {
         sum += pow(x2[i] - x1[i], 2.0);
     }
-    return sqrt(sum); 
-}
-
-int main() {
-    int n;
-    cin >> n;
-    double dist = vectorDistance(n);
-    cout << "The distance is: " << dist << endl;
-    return 0;
+    return sqrt(sum);
 }
