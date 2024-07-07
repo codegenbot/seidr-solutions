@@ -1,22 +1,30 @@
+```cpp
 #include <vector>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int> v) {
-    int n = v.size();
-    std::vector<int> leaders;
+int main() {
+    vector<int> vec = {1, 3, 4, 3, 2, 3, 5, 4}; // example input
+    vector<int> leaders = leaders(vec);
+    for (int leader : leaders) {
+        cout << leader << " "; 
+    }
+    return 0;
+}
+
+vector<int> leaders(vector<int>& vec) {
+    int n = vec.size();
+    vector<int> res;
     
-    if (n == 1) return {v[0]};
-    
-    for (int i = n - 1; i >= 0; --i) {
-        bool isLeader = true;
-        for (int j = i + 1; j < n; ++j) {
-            if (v[j] >= v[i]) {
-                isLeader = false;
+    for(int i=n-1; i>=0; i--) {
+        bool leader = true;
+        for(int j=i+1; j<n; j++) {
+            if(vec[j] >= vec[i]) {
+                leader = false;
                 break;
             }
         }
-        
-        if (isLeader) leaders.push_back(v[i]);
+        if(leader) res.push_back(vec[i]);
     }
     
-    return leaders;
+    return res;
 }
