@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 bool issame(vector<float> a,vector<float>b){
