@@ -1,7 +1,7 @@
-#include<string>
+#include <string>
 
-string words_in_sentence(string sentence) {
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int count = 0;
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == ' ') {
@@ -15,7 +15,7 @@ string words_in_sentence(string sentence) {
                 i++;
                 len++;
             }
-            string word = sentence.substr(0, len);
+            std::string word = sentence.substr(0, len);
             bool is_prime = true;
             for (int j = 2; j * j <= len; j++) {
                 if (len % j == 0) {
