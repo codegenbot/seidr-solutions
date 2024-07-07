@@ -1,9 +1,7 @@
-Here is the solution:
-
-```cpp
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
+        bool has_positive_sum_of_digits = false;
         if (num >= 0) {
             int sum = 0;
             while (num > 0) {
@@ -11,22 +9,22 @@ int count_nums(vector<int> nums) {
                 sum += digit;
                 num /= 10;
             }
-            if (sum > 0)
-                count++;
-        } else {
-            num = -num; // convert to positive
-            int sum = 0;
-            bool hasNegative = false;
-            while (num > 0) {
-                int digit = num % 10;
-                if (digit == 5 || digit == 6 || digit == 9)
-                    hasNegative = true;
-                else
-                    sum += digit;
-                num /= 10;
+            if (sum > 0) {
+                has_positive_sum_of_digits = true;
             }
-            if (sum > 0 && !hasNegative)
-                count++;
+        } else {
+            int sum = 0, num_copy = abs(num);
+            while (num_copy > 0) {
+                int digit = num_copy % 10;
+                sum += digit;
+                num_copy /= 10;
+            }
+            if (sum > 0) {
+                has_positive_sum_of_digits = true;
+            }
+        }
+        if (has_positive_sum_of_digits) {
+            count++;
         }
     }
     return count;
