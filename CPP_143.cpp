@@ -9,8 +9,8 @@ bool is_prime(int n) {
     return true;
 }
 
-string words_in_sentence(string sentence){
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int count = 0;
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
@@ -23,9 +23,7 @@ string words_in_sentence(string sentence){
         if (sentence[i] != ' ') {
             if (is_prime(count + 1)) {
                 result += sentence.substr(0, count) + " ";
-                count = i;
             }
-        } else {
             count++;
         }
     }
