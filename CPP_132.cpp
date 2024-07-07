@@ -1,21 +1,25 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool is_nested(std::string str) {
     int count = 0;
-    for (char c : str) {
+    bool isOpeningBracket = false;
+    for (char& c : str) {
         if (c == '[') {
-            count++;
+            if (!isOpeningBracket) {
+                count++;
+                isOpeningBracket = true;
+            }
         } else if (c == ']') {
             if (count > 0) {
                 count--;
             } else {
-                return false; // Not balanced
+                return false;
             }
+            isOpeningBracket = false;
         }
     }
-    return count > 0; // Still has an open bracket, so it's not nested
+    return count > 0;
 }
 
 int main() {
