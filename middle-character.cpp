@@ -14,7 +14,7 @@ string middleCharacter(string s) {
 }
 
 int main() {
-    string input = "hello"; // test input
+    string input = "hello"; 
     cout << middleCharacter(input) << endl;
     return 0;
 }
