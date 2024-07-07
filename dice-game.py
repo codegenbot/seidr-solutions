@@ -1,3 +1,4 @@
-```
-def roll_dice(n, m):
-    return sum(1 / n for _ in range(m-1)) / (n * m - 1)
+def dice_game(n, m):
+    total_outcomes = n * m
+    favorable_outcomes = sum(1 for _ in range(m-1) for _ in range(2,n))  
+    return favorable_outcomes / total_outcomes
