@@ -1,4 +1,12 @@
-bool issame(vector<string> a,vector<string> b);
+```cpp
+bool issame(vector<string> a,vector<string> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0;i<a.size();i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
@@ -7,9 +15,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
-}
-
-bool issame(vector<string> a,vector<string> b){
-    // implement the function here
-    return true; // or false, depending on your logic
 }
