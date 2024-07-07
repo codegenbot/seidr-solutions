@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -13,6 +14,7 @@ int digitSum(std::string s) {
 }
 
 int main() {
+    { 
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
@@ -21,3 +23,4 @@ int main() {
     std::cout << "Sum of digits: " << result << std::endl;
 
     return 0;
+}
