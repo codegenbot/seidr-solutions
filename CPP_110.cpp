@@ -3,8 +3,8 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         if (num % 2 != 0) {
             bool found = false;
             for (int num2 : lst2) {
-                if (num2 % 2 == 0) {
-                    swap(num, num2);
+                if (num2 % 2 == 0 && num2 != num) {
+                    swap(lst1[find(lst1.begin(), lst1.end(), num)], num2);
                     found = true;
                     break;
                 }
