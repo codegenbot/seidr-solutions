@@ -1,10 +1,13 @@
+```cpp
 #include <string>
 #include <iostream>
 
-int how_many_times(std::string str, std::string substring) {
+using namespace std;
+
+int how_many_times(string str, string substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != std::string::npos) {
+    while ((pos = str.find(substring)).size() != 0) {
         count++;
         pos += substring.length();
     }
@@ -12,29 +15,29 @@ int how_many_times(std::string str, std::string substring) {
 }
 
 int main() { 
-    std::string str;
-    std::cout << "Enter the string: ";
-    if (!(std::cin >> str).fail()) {
-        std::getline(std::cin, str);
+    string str;
+    cout << "Enter the string: ";
+    if (!(cin >> str).fail()) {
+        getline(cin, str);
     } else {
-        std::cout << "Error: The input is invalid." << std::endl;
+        cout << "Error: The input is invalid." << endl;
     }
 
-    std::string substring;
-    std::cout << "Enter substring: ";
-    if (!(std::cin >> substring).fail()) {
-        std::getline(std::cin, substring);
+    string substring;
+    cout << "Enter substring: ";
+    if (!(cin >> substring).fail()) {
+        getline(cin, substring);
     } else {
-        std::cout << "Error: The input is invalid." << std::endl;
+        cout << "Error: The input is invalid." << endl;
     }
     
     if (str.empty()) {
-        std::cout << "Error: The input string is empty." << std::endl;
+        cout << "Error: The input string is empty." << endl;
     } else if (substring.empty()) {
-        std::cout << "Error: The input substring is empty." << std::endl;
+        cout << "Error: The input substring is empty." << endl;
     } else {
         int result = how_many_times(str, substring);
-        std::cout << "The substring appears " << result << " times." << std::endl;
+        cout << "The substring appears " << result << " times." << endl;
     }
     return 0;
 }
