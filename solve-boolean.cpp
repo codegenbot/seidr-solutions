@@ -1,9 +1,3 @@
-```cpp
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 bool evaluateTerm(string term);
 bool solveBoolean(string s) {
     bool res = true;
@@ -13,7 +7,7 @@ bool solveBoolean(string s) {
         if (c == '|') {
             bool subRes = evaluateTerm(term);
             res = res || subRes;
-            term = "";
+            term = ""; // fix: clear the term, not the integer
         } else if (c == 't' || c == 'f') {
             term += c;
             if (i < s.length() - 1 && s[i + 1] == '&') i++; // skip '&' for now
@@ -33,7 +27,7 @@ bool evaluateTerm(string term) {
         if (c == '&') {
             bool subRes = (subTerm == "t") ? true : false;
             res = res && subRes;
-            subTerm = "";
+            subTerm = ""; // fix: clear the subTerm, not the integer
         } else if (c == 't' || c == 'f') {
             subTerm += c;
             if (i < term.length() - 1 && term[i + 1] == '&') i++; // skip '&' for now
