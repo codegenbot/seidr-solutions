@@ -12,35 +12,36 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<double> xs){
+double find_zero(vector<double> coeffs){
     double sum = 0;
-    for (int i = 1; i < xs.size(); i++) {
+    for (int i = 1; i < coeffs.size(); i++) {
         if (i % 2 == 0) {
-            sum += xs[i] / xs[0];
+            sum += coeffs[i];
+        } else {
+            sum -= coeffs[i];
         }
     }
-    return -sum / xs[0];
+    return -sum / coeffs[0];
 }
 
 int main() {
-    vector<double> coeffs;
+    vector<double> poly_coeffs;
     double temp;
 
-    coeffs = {};
     while (true) {
         cin >> temp;
         if (cin.fail()) {
             cout << "Invalid input. Please enter a valid number." << endl;
             break;
         }
-        coeffs.push_back(temp);
+        poly_coeffs.push_back(temp);
     }
 
-    if(coeffs.size() == 0){
+    if(poly_coeffs.size() == 0){
         cout << "No coefficients entered. Cannot find zero." << endl;
     } else {
-        double solution = find_zero(coeffs);
-        assert(abs(poly(coeffs, solution)) < 1e-3);
+        double solution = find_zero(poly_coeffs);
+        assert(abs(poly(poly_coeffs, solution)) < 1e-3);
     }
     return 0;
 }
