@@ -1,27 +1,13 @@
-```
 def cut_vector(vector):
-    sorted_vector = sorted(vector)
-    total_sum = sum(sorted_vector)
+    min_diff = float("inf")
+    split_index = 0
 
-    if total_sum % 2 == 0:
-        half_sum = total_sum // 2
-        left_sum = right_sum = 0
+    for i in range(1, len(vector)):
+        left_sum = sum(vector[:i])
+        right_sum = sum(vector[i:])
 
-        for num in sorted_vector:
-            if left_sum <= half_sum:
-                left_sum += num
-            else:
-                right_sum += num
+        if left_sum == right_sum or (abs(left_sum - right_sum) < min_diff):
+            min_diff = abs(left_sum - right_sum)
+            split_index = i
 
-        return sorted_vector[:len(sorted_vector)//2], sorted_vector[len(sorted_vector)//2:]
-    else:
-        half_sum = (total_sum + 1) // 2
-        left_sum = right_sum = 0
-
-        for num in reversed(sorted_vector):
-            if left_sum < half_sum:
-                left_sum += num
-            else:
-                right_sum += num
-
-        return [], sorted_vector[len(sorted_vector)//2:]
+    return vector[:split_index], vector[split_index:]
