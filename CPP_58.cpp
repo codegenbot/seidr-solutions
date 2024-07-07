@@ -26,4 +26,11 @@ int main() {
         std::cout << "All elements of one list are present in another." << std::endl;
     }
 
+    std::vector<int> result = common(l1, l2);
+    for(int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
+}
