@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <algorithm>
 
@@ -17,8 +16,8 @@ bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& 
 }
 
 int main() {
-    auto result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx");
-    if (is_same(result, {"xxx", "xxxAAA", "xxx"})) {
+    assert(is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    if (is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
         std::cout << "Filtering successful." << std::endl;
     } else {
         std::cout << "Filtering failed." << std::endl;
