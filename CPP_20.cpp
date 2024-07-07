@@ -1,25 +1,30 @@
 ```cpp
 #include <algorithm>
-#include <limits>
 #include <vector>
-#include <utility>
-
-bool issame(vector<float> a, vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
+#include <limits>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
-    float minDiff = std::numeric_limits<float>::max();
-    std::pair<float, float> closestPair;
-    
-    for (int i = 0; i < numbers.size() - 1; ++i) {
+    float min_diff = std::numeric_limits<float>::max();
+    std::pair<float, float> closest_pair;
+
+    for (int i = 0; i < numbers.size() - 1; i++) {
         float diff = numbers[i + 1] - numbers[i];
-        if (diff < minDiff) {
-            minDiff = diff;
-            closestPair = {numbers[i], numbers[i + 1]};
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest_pair.first = numbers[i];
+            closest_pair.second = numbers[i + 1];
         }
     }
-    
-    return std::vector<float>({closestPair.first, closestPair.second});
+
+    return {closest_pair.first, closest_pair.second};
+}
+
+bool issame(std::vector<float> a, std::vector<float> b){
+    return a.size()==b.size() && std::equal(a.begin(),a.end(),b.begin());
+}
+
+int main(){
+    //your code
+    return 0;
 }
