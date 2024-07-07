@@ -1,12 +1,12 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.begin() != b.begin() || a.end() != b.end()) return false;
-    for (auto it = a.begin(); it != a.end(); ++it) {
-        if (*it != *b.it) return false;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
