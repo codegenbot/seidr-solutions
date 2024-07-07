@@ -4,16 +4,14 @@
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 1, c = 0, d = 1;
+    int a = 0, b = 0, c = 0, d = 0;
     stringstream s1(x), s2(n);
     
-    if (!(s1 >> a) || !(s1 >> '/' >> b)) { 
-        return false; 
-    }
+    s1 >> a >> '/';
+    s1 >> b;
     
-    if (!(s2 >> c) || !(s2 >> '/' >> d)) { 
-        return false; 
-    }
+    s2 >> c >> '/';
+    s2 >> d;
     
     return (a*d == b*c);
 }
