@@ -7,8 +7,11 @@ def mastermind(code, guess):
         if code[i] == guess[i]:
             black_peg += 1
             correct_matches = True
-        elif [c for c in code if c == guess[i]].count(guess[i]) > 0:
+        elif code_count[ord(guess[i]) - ord("B")] > 0:
             white_peg += 1
+            code_count[ord(guess[i]) - ord("B")] -= 1
+        else:
+            code_count[ord(guess[i]) - ord("B")] += 1
 
     if not correct_matches:
         black_peg = 0
