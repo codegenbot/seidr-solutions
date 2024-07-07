@@ -1,14 +1,14 @@
 #include <vector>
-#include <algorithm>
-#include <initializer_list>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a.size() == b.size() && a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> result(numbers.begin(), numbers.end());
-    std::sort(result.begin(), result.end());
-    auto it = std::unique(result.begin(), result.end());
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result(numbers.begin(), numbers.end());
+    sort(result.begin(), result.end());
+    auto it = unique(result.begin(), result.end());
     result.erase(it, result.end());
     return result;
+}
