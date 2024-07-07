@@ -12,7 +12,8 @@ int solution(std::vector<int> arr) {
 }
 
 int main() { 
-    std::vector<int> arrVector({3, 13, 2, 9}); 
+    int arr[] = {3, 13, 2, 9}; 
+    std::vector<int> arrVector(arr, arr + sizeof(arr)/sizeof(arr[0])); 
     int sum = solution(arrVector); 
     std::cout << "Result: " << sum << std::endl;
     return 0;
