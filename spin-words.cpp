@@ -1,6 +1,27 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <vector>
+
+std::vector<std::string> split(const std::string& str, char delim) {
+    std::vector<std::string> words;
+    std::istringstream ss(str);
+    std::string word;
+    while (ss >> word) {
+        words.push_back(word);
+    }
+    return words;
+}
+
+std::string join(const std::vector<std::string>& words, char delim) {
+    std::ostringstream ss;
+    for (auto& word : words) {
+        if (!word.empty()) {
+            ss << delim << word;
+        }
+    }
+    return ss.str();
+}
 
 int main() {
     std::string input;
