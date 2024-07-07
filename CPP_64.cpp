@@ -1,12 +1,19 @@
-Here is the completed code:
-
-```cpp
 int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            (c == 'y' && s[s.length() - 1] == 'y')) {
-            count++;
+        switch (tolower(c)) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                count++;
+                break;
+            case 'y': {
+                if (s.find('y') == s.size() - 1)
+                    count++;
+                break;
+            }
         }
     }
     return count;
