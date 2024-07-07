@@ -1,7 +1,4 @@
-#include <iostream>
-#include <iomanip>
-using namespace std;
-
+```cpp
 double probability(int n, int m) {
     double strict = 0;
     double equal = 0;
@@ -15,11 +12,4 @@ double probability(int n, int m) {
     }
     
     return strict + equal;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(5) << probability(n, m) << endl;
-    return 0;
 }

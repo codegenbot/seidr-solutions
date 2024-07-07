@@ -16,14 +16,14 @@ int main() {
         cents %= 10;
         quarters--;
     }
-    int dimeUsed = dimes;
 
-    int remainingCents = cents;
+    int dimeUsed = min(cents / 10, 99);
+    cents %= 10;
 
-    int nickles = min(remainingCents / 5, 9);
-    remainingCents %= 5;
+    int nickles = min(cents / 5, 9);
+    cents %= 5;
 
-    int pennies = min(remainingCents, 4);
+    int pennies = min(cents, 4);
 
     cout << quarters << endl;
     cout << dimeUsed << endl;
