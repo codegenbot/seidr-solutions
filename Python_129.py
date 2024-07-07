@@ -1,19 +1,38 @@
 def minPath(grid, k):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+    N = len(grid)
+    seen = {}
 
-    def dfs(i, j, path, cnt):
-        if cnt == k:
-            return [path]
+    def dfs(i, j, path, length):
+        if (i, j) in seen:
+            return False
+        seen[(i, j)] = True
 
-        res = []
-        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+        new_path = path + [grid[i][j]]
+
+        if length == k:
+            return minPathForOrder(new_path)
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + dx, j + dy
-            if 0 <= ni < n and 0 <= nj < n and m[ni][nj] not in path:
-                new_path = list(path)
-                new_path.append(m[ni][nj])
-                res.extend(dfs(ni, nj, new_path, cnt + 1))
-        return sorted(res)
+            if 0 <= ni < N and 0 <= nj < N:
+                if dfs(ni, nj, new_path, length + 1):
+                    return True
 
-    res = dfs(0, 0, [m[0][0]], 0)
-    return min(res)
+        return False
+
+    def minPathForOrder(path):
+        res = path[:]
+        for p in path:
+            for i, q in enumerate(res):
+                if p < q:
+                    res[i], res[-1] = res[-1], res[i]
+                    break
+        return res
+
+    for i in range(N):
+        for j in range(N):
+            dfs(i, j, [], 0)
+
+    return minPathForOrder(
+        seen.get((i, j), []) for i in range(N) for j in range(N)
+    ).pop(0)
