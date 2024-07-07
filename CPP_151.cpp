@@ -37,8 +37,8 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
 
-        if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(std::floor(num));
+        if (num > 0 && std::fmod(num,2.0) != 0.0) { 
+            lst.push_back(num);
         }
     }
 
