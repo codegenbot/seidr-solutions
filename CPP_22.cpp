@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
-#include <list>
+#include <string>
 #include <boost/any.hpp>
-
+#include <list>
 typedef std::list<boost::any> list_any;
 using namespace std;
 
@@ -16,4 +15,3 @@ vector<int> filter_integers(list_any values){
         }
     }
     return result;
-}
