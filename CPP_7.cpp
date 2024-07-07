@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size())
@@ -22,10 +21,20 @@ std::vector<std::string> filter_strings(const std::vector<std::string>& strings,
 
 }
 
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
+    std::vector<std::string> result;
+    for(const auto& s : strings){
+        if(s.find(substring) != std::string::npos)
+            result.push_back(s);
+    }
+    return result;
+
+}
+
 int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> filtered;
-    filtered = filter_strings(str, "run"); 
-    std::vector<std::string> b = {"grunt", "prune"}; // Declare and initialize b
-    assert(issame(filtered,b)); 
+    filtered = filter_by_substring(str, "run"); 
+    assert(issame({} ,filtered)); 
     return 0;
+}
