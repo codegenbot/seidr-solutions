@@ -8,8 +8,8 @@ double shoppingList(const std::vector<float>& prices, const std::vector<float>& 
 }
 
 int main() {
-    std::vector<float> prices = {50.0, 100.0};
-    std::vector<float> discounts = {10.0, 20.0};
+    std::vector<float> prices = {50.0f, 100.0f};
+    std::vector<float> discounts = {10.0f, 20.0f};
     double total_cost = shoppingList(prices, discounts);
     std::cout << "Total cost after discounts: " << total_cost << std::endl;
     return 0;
