@@ -1,7 +1,10 @@
+Here is the updated code:
+
+```cpp
+#include <cassert>
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -42,5 +45,4 @@ int main() {
         assert(abs(poly(poly_coeffs, solution)) < 1e-3);
     }
     
-    return 0;
-}
+};
