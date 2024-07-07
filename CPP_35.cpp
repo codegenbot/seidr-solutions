@@ -1,10 +1,10 @@
 #include <algorithm>
 #include <cmath>
 
-int findMax(int arr[], int n) {
-    if (n == 0) {
-        throw runtime_error("Array is empty");
+int maxElement(vector<int> l) {
+    if(l.empty()) {
+        throw runtime_error("Error: The list is empty.");
     }
     
-    return *max_element(arr, arr + n);
+    return abs(*max_element(l.begin(), l.end()));
 }
