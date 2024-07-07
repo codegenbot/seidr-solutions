@@ -3,6 +3,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace boost;
 
 bool issame(vector<int> a, vector<int> b) {
     return (a == b);
