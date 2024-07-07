@@ -1,4 +1,4 @@
-#include <md5.h>
+#include <openssl/md5.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -14,4 +14,3 @@ string string_to_md5(string text) {
     }
     
     return result;
-}
