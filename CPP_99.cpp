@@ -2,12 +2,9 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include <string>
 
 int closest_integer(double num) {
-    std::string str = (num >= 0 ? "" : "-");
-    str += std::to_string(num); 
-    return std::stoi(str);
+    return static_cast<int>(num);
 }
 
 int test_closest_integer() {
