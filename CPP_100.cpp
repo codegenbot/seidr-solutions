@@ -10,6 +10,9 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
+    template<typename _E>
+    class initializer_list;
+
     std::vector<int> pile = make_a_pile(8);
     std::sort(pile.begin(), pile.end());
     for (auto it = pile.begin(); it != pile.end(); ++it) {
