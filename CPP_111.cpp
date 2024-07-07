@@ -1,28 +1,44 @@
-#include<stdio.h>
-#include<string>
-#include<map>
-using namespace std;
+Here is the completed code:
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string words[1000];
-    int count = 0;
-    for (string word : split(test, ' ')) {
-        if (word.empty()) continue;
-        if (!result.count(word[0])) result[word[0]] = 1;
-        else result[word[0]]++;
+    int max_count = 0;
+
+    for (string word : split(test)) {
+        char c = word[0];
+        int count = 1;
+        for (char ch : word) {
+            if (ch == c) {
+                count++;
+            } else {
+                break;
+            }
+        }
+        if (count > max_count) {
+            max_count = count;
+        }
+        result[c] = count;
     }
+
     return result;
 }
 
-vector<string> split(const string& str, char delim) {
-    vector<string> result;
-    size_t pos = 0;
-    while ((pos = str.find(delim)) != string::npos) {
-        result.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+vector<string> split(string test) {
+    vector<string> words;
+    string word;
+
+    for (char c : test) {
+        if (c == ' ') {
+            words.push_back(word);
+            word.clear();
+        } else {
+            word += c;
+        }
     }
-    if (!str.empty())
-        result.push_back(str);
-    return result;
+
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    return words;
 }
