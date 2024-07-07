@@ -40,8 +40,8 @@ int main() {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        if (std::abs(num) > 0.000001) { 
-            lst.push_back(num);
+        if (num > 0) {
+            lst.push_back(num);  // Assign the value to the corresponding index
         }
     }
     
