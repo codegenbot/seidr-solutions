@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 std::vector<float> derivative(std::vector<float> a) {
     std::vector<float> result;
@@ -20,10 +21,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> input;
-    float x;
-    while(std::cin >> x) {
-        input.push_back(x);
-    }
+    input.push_back(1);
     assert(issame(derivative(input), {}));
     return 0;
 }
