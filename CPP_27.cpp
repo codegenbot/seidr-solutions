@@ -1,24 +1,27 @@
-int main() {
-    try {
-        std::cout << flipCase("These violent delights have violent ends") << std::endl;
-    }
-    catch (...) {
-        std::cerr << "An error occurred." << std::endl;
-    }
-    assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
-    return 0;
-}
+```cpp
+#include <iostream>
+#include <string>
 
-std::string flipCase(const std::string& str) {
-    std::string result = "";
+std::string flipCase(const std::string& str) -> const std::string {
+    std::string result;
     for (char c : str) {
-        if (isupper(c)) {
-            result += tolower(c);
-        } else if (islower(c)) {
-            result += toupper(c);
+        if (c >= 'a' && c <= 'z') {
+            result += c - 32; // Convert lowercase to uppercase
+        } else if (c >= 'A' && c <= 'Z') {
+            result += c + 32; // Convert uppercase to lowercase
         } else {
             result += c;
         }
     }
     return result;
+}
+
+int main() {
+    try {
+        std::cout << flipCase("These violent delights have violent ends") << std::endl;
+    } catch (...) {
+        std::cerr << "An error occurred." << std::endl;
+    }
+    assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
+    return 0;
 }
