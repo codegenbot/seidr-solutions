@@ -1,7 +1,6 @@
-#include <initializer_list>
-
+```cpp
 #include <vector>
-#include <string>
+using namespace std;
 
 void reverse_delete(std::vector<std::string>& v) {
     for (int i = v.size() - 1; i >= 0; --i) {
