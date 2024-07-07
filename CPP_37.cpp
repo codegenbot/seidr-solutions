@@ -39,7 +39,7 @@ std::vector<float> sortEven(std::vector<float> input) {
     return result;
 }
 
-int test() { 
+int main() { 
     int n;
     std::vector<float> input;
     float num;

@@ -1,26 +1,31 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
+
+std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
+    if (strings.empty()) {
+        return {};
+    }
+
+    std::string prefix = strings[0];
+    for (const auto& str : strings.substr(1)) {
+        if (str == prefix) {
+            std::cout << str << " ";
+        } else {
+            std::cout << prefix + str << " ";
+        }
+    }
+}
 
 int main() {
     std::vector<std::string> strings;
     std::string input;
 
-    std::stringstream ss(std::cin.rdbuf());
-    while (std::getline(ss, input)) {
+    while (std::cin >> input) {
         strings.push_back(input);
     }
 
-    if (!strings.empty()) {
-        for (const auto& str : strings) {
-            if (str == strings[0]) {
-                std::cout << str << " ";
-            } else {
-                std::cout << strings[0] + str << " ";
-            }
-        }
-    }
+    concatenate(strings);
 
     return 0;
 }
