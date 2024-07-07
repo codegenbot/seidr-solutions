@@ -1,6 +1,10 @@
 ```cpp
 using namespace std;
 
+bool operator>(const pair<int, int> &a, const pair<int, int> &b) {
+    return a.first > b.first;
+}
+
 struct pair_int {
     int val;
     int i;
@@ -62,19 +66,13 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() 
-{
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
+vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+int k = 3;
 
-    vector<int> result = minPath(grid, k);
+vector<int> result = minPath(grid, k);
 
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-    
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
-    return 0;
+for (int i : result) {
+    cout << i << " ";
 }
+cout << endl;
+assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
