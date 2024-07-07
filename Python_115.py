@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 def max_fill(grid, capacity):
-    return sum(math.ceil(sum(row) / capacity) for row in grid)
+    return sum(math.ceil(sum(row) / capacity))
