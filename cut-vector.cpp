@@ -7,7 +7,7 @@ vector<vector<int>> cutVector(vector<int> vec) {
     vector<vector<int>> result;
     
     for (int i = 1; i < n; i++) {
-        if ((vec[i] - vec[0]) == (vec[i-1] - vec[0])) {
+        if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
             result.push_back({vec.begin(), vec.begin() + i});
             vec.erase(vec.begin());
             break;
