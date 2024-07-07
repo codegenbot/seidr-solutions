@@ -1,9 +1,10 @@
-using namespace std;
-
+```cpp
 #include <vector>
 #include <cmath>
 #include <algorithm>
 #include <iostream>
+
+using namespace std;
 
 double similarity(vector<float> v1, vector<float> v2) {
     double sum = 0;

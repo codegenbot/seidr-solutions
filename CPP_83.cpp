@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,7 +17,6 @@ int starts_one_ends(int n) {
         }
     }
     return count;
-
 }
 
 int main() {
@@ -31,3 +30,4 @@ int main() {
         cout << "Input value is out of range." << endl;
     }
     return 0;
+}
