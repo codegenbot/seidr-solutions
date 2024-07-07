@@ -1,12 +1,12 @@
+```c++
 #include <string>
+#include <algorithm>
 
 bool solveBoolean(std::string s) {
     bool result = true;
     for (char c : s) {
-        if (c == 'T') {
-            result = true;
-        } else if (c == 'F') {
-            result = false;
+        if (c == 'F') {
+            return false;
         } else if (c == '&') {
             while (!result && s.size() > 1 && s.back() == '&') {
                 s.pop_back();
@@ -18,3 +18,4 @@ bool solveBoolean(std::string s) {
         }
     }
     return result;
+}
