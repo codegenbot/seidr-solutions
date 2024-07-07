@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -17,7 +18,7 @@ std::string spinWords(std::string sentence) {
             start = i + 1;
         }
     }
-    return result + (result.empty() ? "" : " ") << std::endl;
+    std::cout << (result.size() > 0 ? result + " " : "") << std::endl;
 }
 
 int main() {
