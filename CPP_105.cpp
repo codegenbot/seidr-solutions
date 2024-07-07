@@ -1,30 +1,26 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 #include <memory>
 #include <initializer_list>
 
-using namespace std;
-typedef long unsigned int size_type;
-
-bool issame(vector<string> a, vector<string> b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> nums;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<std::string> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            nums.push_back(to_string(num));
+            nums.push_back(std::to_string(num));
         }
     }
 
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
+    std::sort(nums.begin(), nums.end());
+    std::reverse(nums.begin(), nums.end());
 
-    vector<string> result;
-    for (string str : nums) {
+    std::vector<std::string> result;
+    for (std::string str : nums) {
         if (str == "1") str = "One";
         else if (str == "2") str = "Two";
         else if (str == "3") str = "Three";
@@ -37,21 +33,21 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
 
-    vector<int> arr;
+    std::vector<int> arr;
     int n;
-    cout << "Enter the number of integers: ";
-    cin >> n;
+    std::cout << "Enter the number of integers: ";
+    std::cin >> n;
     for(int i=0; i<n; i++) {
         int num;
-        cout << "Enter integer " << i+1 << ": ";
-        cin >> num;
+        std::cout << "Enter integer " << i+1 << ": ";
+        std::cin >> num;
         arr.push_back(num);
     }
-    vector<string> output = by_length(arr);
-    cout << "The numbers in the order of their lengths are: ";
-    for (string str : output) {
-        cout << str << " ";
+    std::vector<std::string> output = by_length(arr);
+    std::cout << "The numbers in the order of their lengths are: ";
+    for (std::string str : output) {
+        std::cout << str << " ";
     }
-    cout << "\n";
+    std::cout << "\n";
     return 0;
 }
