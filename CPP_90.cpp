@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,19 +15,17 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> lst(n);
-    for(int i = 0; i < n; i++) {
+    
+    std::vector<int> lst;
+    
+    for(int i = 0; i < n; ++i) {
+        int x;
         std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> lst[i];
+        std::cin >> x;
+        lst.push_back(x);
     }
-
-    int result = next_smallest(lst);
-
-    if(result != -1)
-        std::cout << "The next smallest number is: " << result;
-    else
-        std::cout << "No smaller number exists.";
-
+    
+    std::cout << "The next smallest number is: " << next_smallest(lst) << std::endl;
+    
     return 0;
 }
