@@ -11,13 +11,17 @@ int main() {
     vector<string> strings;
     string userInput;
 
+    int max_strings = 100; // Adjust as per requirement
+
+    strings.reserve(max_strings);  // Reserve memory for expected number of strings
+
     while (true) {
         cout << "Enter a string (or 'stop' to finish): ";
         getline(cin, userInput);
 
         if (userInput == "stop") break;
 
-        strings.push_back(userInput.substr(0, userInput.size() - 1)); // <--- Add this!
+        strings.push_back(userInput);
     }
 
     std::string result = concatenate(strings);
