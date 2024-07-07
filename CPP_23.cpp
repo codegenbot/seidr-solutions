@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-size_t str_length(std::string& str) {
+size_t str_length(const std::string& str) {
     return str.size();
 }
 
@@ -13,7 +13,7 @@ int main(){
     if(input.empty()){
         std::cout << "Error: Please enter a valid string. It seems you forgot to type something... Try again!" << std::endl;
     } else {
-        std::cout << "Length of the string is: " << str_length(input) << std::endl;
+        std::cout << "Length of the string is: " << (int)str_length(input) << std::endl;
         std::cout << "Original string: " << input << std::endl;
     }
     return 0;
