@@ -1,7 +1,6 @@
-```
-#include <cassert>
+```cpp
+#include <iostream>
 #include <string>
-#include <initializer_list>
 
 std::string intersection(std::pair<int, int> interval1, std::pair<int, int> interval2) {
     int start = std::max(interval1.first, interval2.first);
@@ -13,4 +12,22 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
         return "NO";
 }
 
-assert(intersection({-2, -2}, {-3, -2}) == "NO");
+int main() {
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    std::pair<int, int> interval1;
+    std::cout << "Enter the first interval: ";
+    std::cin >> interval1.first >> ' ';
+    std::cin >> interval1.second;
+
+    std::pair<int, int> interval2;
+    std::cout << "Enter the second interval: ";
+    std::cin >> interval2.first >> ' ';
+    std::cin >> interval2.second;
+
+    if (intersection(interval1, interval2) == "YES")
+        std::cout << "The intervals intersect.\n";
+    else
+        std::cout << "The intervals do not intersect.\n";
+
+    return 0;
+}
