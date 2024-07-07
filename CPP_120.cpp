@@ -18,6 +18,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     for (int i = 0; i < k && i < arrCopy.size(); i++) {
         if (arrCopy.size() > k) {
             result.push_back(arrCopy[arrCopy.size() - 1 - i]);
+            arrCopy.erase(arrCopy.size() - 1 - i, 1);
         } else {
             result.push_back(arrCopy[0]);
             break;
