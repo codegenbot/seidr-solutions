@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 std::string decode(std::string cipher, std::string mapping) {
