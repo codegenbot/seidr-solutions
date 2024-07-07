@@ -1,4 +1,10 @@
-int evaluate(const string& expression) {
+#include <string>
+#include <stack>
+#include <cstring>
+using namespace std;
+
+bool evaluate(const string& expression) {
+    stack<char> operators;
     bool result = true;
     int i = 0;
     while (i < expression.length()) {
