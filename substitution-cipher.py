@@ -1,15 +1,7 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
-
-
 def substitution_cipher(cipher1, cipher2, message):
+    if not cipher2:
+        return message
+
     # Create a dictionary to store the mapping of characters in cipher1 and cipher2
     char_map = {}
     for i in range(len(cipher1)):
@@ -24,13 +16,3 @@ def substitution_cipher(cipher1, cipher2, message):
             deciphered_message += char
 
     return deciphered_message
-
-
-# Read input from the user
-cipher1 = input("Enter cipher 1: ")
-cipher2 = input("Enter cipher 2: ")
-message = input("Enter message to decipher: ")
-
-# Apply substitution cipher to the message
-deciphered_message = substitution_cipher(cipher1, cipher2, message)
-print(f"Deciphered message: {deciphered_message}")

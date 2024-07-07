@@ -1,7 +1,7 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
+
 int main(int argc, char** argv) {
     int number = atoi(argv[1]); // Convert command line argument to integer
     string result = "";
