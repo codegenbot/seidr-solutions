@@ -38,7 +38,7 @@ void calculateAndPrint() {
         std::cin >> num;
 
         if (num >= 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(num); // Don't cast to int
+            lst.push_back(num); // store as double
         }
     }
 
