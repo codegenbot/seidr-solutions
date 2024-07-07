@@ -41,11 +41,11 @@ int main() {
     }
 
     // Process the array
-    if(input.empty()) {
+    std::vector<int> output = pluck(input);
+
+    if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        std::vector<int> output = pluck(input);
-
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }

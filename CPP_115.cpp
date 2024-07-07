@@ -3,13 +3,21 @@
 #include <vector>
 #include <numeric>
 
-using namespace std;
+std::vector<std::vector<int>> grid;
 
-int max_fill(vector<vector<int>> grid, int capacity) {
+for (int i = 0; i < 3; i++) {
+    std::vector<int> row;
+    for (int j = 0; j < 3; j++) {
+        row.push_back(1 + i + 2 * j);
+    }
+    grid.push_back(row);
+}
+
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
     for (int i = 0; i < n; i++) {
-        total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+        total_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
     }
     
     int max_fill_times = -1;
@@ -18,25 +26,19 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     
     while (current_water < total_water) {
         for (int i = 0; i < n; i++) {
-            current_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+            current_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
             if (current_water >= capacity) {
                 fill_times++;
                 current_water -= capacity;
             }
         }
-        max_fill_times = max(max_fill_times, fill_times);
+        max_fill_times = std::max(max_fill_times, fill_times);
     }
     
     return max_fill_times;
 }
 
 int main() {
-    vector<vector<int>> grid(3, vector<int>(3));
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            grid[i][j] = 1 + i + 2 * j;
-        }
-    }
     cout << "Maximum number of times the tank can be filled: " << max_fill(grid, 10) << endl;
     return 0;
 }
