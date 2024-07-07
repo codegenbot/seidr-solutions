@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -58,10 +57,7 @@ int mainFunction() {
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        std::vector<int> test = {1,2,3};
-        std::vector<int> expected = {7, 9, 7, 1};
-        std::vector<int> actual = pluck(test);
-        assert(sameVector(actual, expected));
+        assert(sameVector(pluck({1,2,3}), {7, 9, 7, 1})); 
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }
