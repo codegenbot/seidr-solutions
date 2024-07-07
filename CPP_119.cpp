@@ -1,13 +1,18 @@
-int stack = 0;
-for (auto str : lst) {
-    for (char c : str) {
+int count_open = 0;
+int count_close = 0;
+
+for (const string& s : lst) {
+    for (char c : s) {
         if (c == '(') {
-            stack++;
+            count_open++;
         } else if (c == ')') {
-            if (stack <= 0) return "No";
-            stack--;
+            count_close++;
         }
     }
 }
-if (stack > 0) return "No";
-return "Yes";
+
+if (count_open == count_close) {
+    return "Yes";
+} else {
+    return "No";
+}
