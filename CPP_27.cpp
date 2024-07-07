@@ -1,7 +1,7 @@
 #include <cassert>
-#include <string>
-#include <cctype>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 std::string flipCase(std::string str) {
     std::string result = "";
@@ -25,3 +25,4 @@ int main() {
     }
     assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
     return 0;
+}
