@@ -1,33 +1,19 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-std::vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = lst.begin();
-    while (it != lst.end()) {
-        if (it->length() % 2 == 1) {
-            it = lst.erase(it);
-        } else {
-            ++it;
-        }
-    }
-
-    std::sort(lst.begin(), lst.end(),
-              [](const string& a, const string& b) {
-                  if (a.length() != b.length()) {
-                      return a.length() < b.length();
-                  } else {
-                      return a < b;
-                  }
-              });
-
-    int sum = 0;
+long long sorted_list_sum(vector<string> lst) {
+    vector<long long> sum;
     for (const auto& str : lst) {
-        sum += std::stoi(str);
+        long long temp = 0;
+        for (char c : str) {
+            temp += c - '0';
+        }
+        sum.push_back(temp);
     }
 
-    return {to_string(sum)};
+    sort(sum.begin(), sum.end());
+
+    long long total_sum = 0;
+    for (long long num : sum) {
+        total_sum += num;
+    }
+
+    return total_sum;
 }
