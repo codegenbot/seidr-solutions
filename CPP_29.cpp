@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -13,11 +13,11 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 }
 
-bool areStringsEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size();
 }
 
 int main() {
-    assert(areStringsEqual(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
+    assert(same_vectors(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
     return 0;
 }
