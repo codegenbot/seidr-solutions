@@ -1,30 +1,27 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
+std::string kebabToCamel(const std::string& s) {
     std::string result;
-    bool capitalizeNext = true;
-
     for (char c : s) {
-        if (c == ' ' || c == '-') {
-            continue;  // skip non-word characters
-        }
-        
-        if (capitalizeNext) {
+        if (c == '-') {
             result += toupper(c);
-            capitalizeNext = false;
+        } else if (c == ' ') {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
+            result += c;
         } else {
-            result += tolower(c);
+            result += c;
         }
     }
-
     return result;
 }
 
 int main() {
     std::string s;
     while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+        std::cout << kebabToCamel(s) << std::endl;
     }
     return 0;
 }
