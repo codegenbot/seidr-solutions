@@ -21,8 +21,8 @@ int main() {
         return changes;
     }
     
-    vector<int> arr = {2,3,4,5,6};
+    vector<int> arr = {1, 2, 3, 4, 5};
     cout << smallest_change(arr) << endl;
-    
+
     return 0;
 }
