@@ -1,32 +1,42 @@
-#include <iostream>
-#include <string>
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convertible_to<int>(), (float)b.convertible_to<float>());
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return max(to_string(a.convertible_to<int>()), b);
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = to_string(b.convertible_to<float>());
-        return max(to_string(a), str);
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (a.convertible_to<string>() > b.convertible_to<string>()) ? a : ((a.convertible_to<string>() < b.convertible_to<string>()) ? b : boost::any("None")));
-    }
-    else {
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string s = (string)b.convert_to<string>();
+        size_t pos = s.find(',');
+        if (pos != string::npos) {
+            s.erase(pos, 1);
+        }
+        return max((float)a.convert_to<float>(), stof(s));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if ((string)a.convert_to<string>() > (string)b.convert_to<string>()) {
+            return a;
+        } else if ((string)a.convert_to<string()] < (string)b.convert_to<string>()) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string s = (string)b.convert_to<string>();
+        size_t pos = s.find(',');
+        if (pos != string::npos) {
+            s.erase(pos, 1);
+        }
+        return max((int)a.convert_to<int>(), stof(s));
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int i = (int)b.convert_to<int>();
+        size_t pos = (string)a.find(',');
+        if (pos != string::npos) {
+            (string)a.erase(pos, 1);
+        }
+        return max(stof((string)a), i);
+    } else {
         return boost::any("None");
     }
-}
-
-int main() {
-    cout << boost::any_cast<any>(compare_one(1, 2.5)) << endl;
-    cout << boost::any_cast<any>(compare_one(1, "2,3")) << endl;
-    cout << boost::any_cast<any>(compare_one("5,1", "6")) << endl;
-    cout << boost::any_cast<any>(compare_one("1", 1)) << endl;
-    return 0;
 }
