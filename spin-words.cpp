@@ -4,7 +4,7 @@
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    std::stringstream ss; 
+    std::stringstream ss;
     ss << str;
     std::string word;
 
