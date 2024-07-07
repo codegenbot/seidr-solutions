@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -19,21 +18,7 @@ std::vector<float> sort_even(std::vector<float> l) {
             }
             result[i] = minVal;
         } else {
-            int j = i - 1;
-            while (j >= 0 && !issame(l[j], result[j])) {
-                --j;
-            }
-            if (j >= 0) {
-                result[i] = l[j + 1];
-            } else {
-                float minVal = l[0];
-                for (float val : l) {
-                    if (!issame(val, minVal)) {
-                        minVal = val;
-                    }
-                }
-                result[i] = minVal;
-            }
+            result[i] = l[i];
         }
     }
     return result;
@@ -48,5 +33,9 @@ int main() {
         input.push_back(num);
     }
     std::vector<float> result = sort_even(input);
+    
+    for (float val : result) {
+        std::cout << val << " ";
+    }
     return 0;
 }
