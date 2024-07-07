@@ -1,37 +1,29 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prevPos = 0;
-
-    while (pos != string::npos) {
-        pos = txt.find(' ', prevPos);
-        if (pos == string::npos) {
-            if (txt.find(',') == string::npos)
-                return {to_string(count(txt.begin(), txt.end(), c))};
-            else
-                pos = txt.find(',');
+    string word = "";
+    
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
         }
-        result.push_back(txt.substr(prevPos, pos - prevPos));
-        prevPos = pos + 1;
     }
-
+    
+    if (!word.empty()) {
+        result.push_back(word);
+    } else {
+        int count = 0;
+        for (char c = 'a'; c <= 'z'; ++c) {
+            if (txt.find(c) != string::npos) {
+                count++;
+            }
+        }
+        result.push_back(to_string(count));
+    }
+    
     return result;
-}
-
-int main() {
-    string txt;
-    cout << "Enter a string: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-
-    for (const auto& str : result) {
-        cout << str << endl;
-    }
-    return 0;
 }
