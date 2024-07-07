@@ -7,7 +7,7 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return ((int)b > (int)a) ? b : a;
+        return (int)b > boost::any_cast<int>(a) ? b : a;
     }
     if (a.type() == typeid(int) && b.type() == typeid(string)) {
         string str = boost::any_cast<string>(b);
@@ -16,22 +16,20 @@ boost::any compare_one(boost::any a, boost::any b) {
             str[0] = '.';
             return str;
         } else {
-            int num = stoi(str);
-            return ((int)num > (int)a) ? b : a;
+            return (int)stoi(str) > boost::any_cast<int>(a) ? b : a;
         }
     }
     if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return ((float)a > (int)b) ? a : b;
+        return boost::any_cast<float>(a) > b ? a : b;
     }
     if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string str = boost::any_cast<string>(a);
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return str;
+            return str > to_string(b) ? a : b;
         } else {
-            int num = stoi(str);
-            return ((int)num > (int)b) ? a : b;
+            return str > to_string(b) ? a : b;
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(float)) {
@@ -39,10 +37,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return str > a ? b : a;
+            return str > boost::any_cast<string>(a) ? b : a;
         } else {
-            float num = stof(str);
-            return ((float)a > num) ? a : b;
+            return str > to_string(boost::any_cast<int>(a)) ? b : a;
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(string)) {
