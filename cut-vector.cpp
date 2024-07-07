@@ -11,25 +11,16 @@ int main() {
     }
     vector<vector<int>> res = cutVector(vec);
     cout << "[";
-    string str = "";
     bool first = true;
     for (int i = 0; i < res.size(); i++) {
         if (!first) cout << ", ";
         else first = false;
-        cout << "[";
-        auto next = res[i].begin();
-        for(int j = 0; j < res[i].size()-1;j++){
-            str = "";
-            while(next != res[i].end()){
-                str += to_string(*next) + (next == --res[i].end() ? "" : ", ");
-                next++;
-            }
-            cout << str + "]";
+        for(int j = 0; j < res[i].size();j++){
+            cout<<res[i][j];
             if(j+1<res[i].size()-1)cout<<",";
-            cout<<"] ";
         }
         if(i < res.size() - 1) cout << "], [";
-        else cout << "] ";
+        else cout << "]";
     }
     cout << "]";
     return 0;
