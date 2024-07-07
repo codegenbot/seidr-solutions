@@ -1,16 +1,25 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<map>
+#include<algorithm>
+using namespace std;
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> numVec; // store numbers between 1 and 9
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9)
-            numVec.push_back(arr[i]);
+    vector<int> temp;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            temp.push_back(num);
+        }
     }
 
-    sort(numVec.begin(), numVec.end()); // sort the numbers
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
 
     vector<string> result;
-    for (int i = 0; i < numVec.size(); i++) {
+    for (int num : temp) {
         string str = "";
-        switch (numVec[i]) {
+        switch (num) {
             case 1:
                 str = "One";
                 break;
@@ -41,8 +50,6 @@ vector<string> by_length(vector<int> arr) {
         }
         result.push_back(str);
     }
-
-    reverse(result.begin(), result.end()); // reverse the vector
 
     return result;
 }
