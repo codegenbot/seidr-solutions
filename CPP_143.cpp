@@ -1,28 +1,27 @@
-string words_in_sentence(string sentence){
+#include<string>
+using namespace std;
+
+string words_in_sentence(string sentence) {
     string result = "";
-    for (const auto& word : split(sentence, " ")) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    int i = 0;
+    while (i < sentence.length()) {
+        int j = i + 1;
+        while (j <= sentence.length() && !isalpha(sentence[j])) {
+            j++;
         }
+        if (j - i > 2) { // check if the length is prime
+            bool isPrime = true;
+            for (int k = 2; k * k <= j - i; k++) {
+                if ((j - i) % k == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                result += sentence.substr(i, j - i) + " ";
+            }
+        }
+        i = j;
     }
-    return result.substr(0, result.size() - 1);
-}
-
-vector<string> split(const string& str, const string& delimiter) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(delimiter)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + delimiter.length());
-    }
-    tokens.push_back(str);
-    return tokens;
-}
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
+    return result;
 }
