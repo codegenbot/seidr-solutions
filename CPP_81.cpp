@@ -46,7 +46,7 @@ vector<string> numericalLetterGrade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letter = letterGrade(grade);
-        result.push_back(string(to_string(grade)));  // Convert float to string
+        result.push_back(letter);
     }
     return result;
 }
