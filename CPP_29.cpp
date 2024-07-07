@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::string> result;
@@ -19,11 +19,10 @@ bool operator==(const std::vector<std::string>& v1, const std::vector<std::strin
     for (size_t i = 0; i < v1.size(); ++i) {
         if (v1[i] != v2[i]) {
             return false;
-        }
     }
     return true;
 }
 
 std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
-assert(std::operator==(result, {"xxx", "xxxAAA", "xxx"}));
+assert(std::operator==(result, std::vector<std::string> {"xxx", "xxxAAA", "xxx"}));
 return 0;
