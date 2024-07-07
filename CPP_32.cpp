@@ -25,6 +25,7 @@ int main() {
 
     for (int i = 0; ; i++) {
         if (i % 2 == 1) break;
+        double temp;
         std::cin >> temp;
         coeffs.push_back(temp);
     }
