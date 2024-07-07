@@ -1,4 +1,3 @@
-```c++
 #include <sstream>
 #include <iostream>
 #include <limits>
@@ -29,8 +28,11 @@ int main() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     getline(cin, tweet);
     
-    if (!tweet.empty() && tweet.find_first_not_of(' ') != string::npos) {
-        tweet.erase(tweet.find_last_not_of(" \t\r\n") + 1 );
+    int charCount = 0;
+    for (char c : tweet) {
+        if (!isspace(c)) { 
+            charCount++;
+        }
     }
     
     cout << validateTweet(tweet) << endl;
