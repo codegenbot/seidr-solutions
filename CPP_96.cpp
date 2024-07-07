@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -29,7 +28,7 @@ std::vector<int> count_up_to(int n) {
 
 int main() {
     std::vector<int> primes = count_up_to(101);
-    for (int prime : primes) {
+    for (const auto& prime : primes) {
         std::cout << "Prime number: " << prime << std::endl;
     }
 }
