@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 int starts_one_ends(int n) {
@@ -9,13 +10,12 @@ int starts_one_ends(int n) {
         }
         bool flag = true;
         for (int j = 1; j < i; j++) {
-            if ((j % 10 != 1 && j / 10 != 1) || (i % 10 != 1 && i / 10 != 1)) {
+            if ((j % 10 != 1 && j / 10 != 1) || (i % 10 == 1 && j % 10 == 0)) {
                 flag = false;
                 break;
             }
         }
-        if (!flag) continue;
-        count++;
+        if (flag) count++;
     }
     return count;
 }
