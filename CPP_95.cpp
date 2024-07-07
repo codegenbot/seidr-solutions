@@ -24,7 +24,7 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
     return allLower || allUpper;
 }
 
-int main() {
+int newMain() {
     std::map<std::string, std::string> dict;
     std::string input;
 
