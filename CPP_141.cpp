@@ -1,4 +1,10 @@
-string file_name_check(string file_name) {
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cctype>
+
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
 
@@ -15,13 +21,13 @@ string file_name_check(string file_name) {
             return "No";
     }
 
-    if (!found_dot || file_name.find('.') == string::npos)
+    if (!found_dot || file_name.find('.') == std::string::npos)
         return "No";
 
-    string extension = file_name.substr(file_name.find('.') + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    std::string extension = file_name.substr(file_name.find('.') + 1);
+    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
 
-    for (string ext : valid_extensions) {
+    for (std::string ext : valid_extensions) {
         if (extension == ext)
             return "Yes";
     }
