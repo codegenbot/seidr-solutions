@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,9 +15,9 @@ int main() {
     std::string outputString;
 
     while (true) {
-        cin.ignore(); 
-        cout << "Enter a string (or stop to finish): ";
-        getline(cin, outputString);
+        std::cin.ignore(); 
+        std::cout << "Enter a string (or stop to finish): ";
+        std::getline(std::cin, outputString);
 
         if (outputString == "stop") break;
 
