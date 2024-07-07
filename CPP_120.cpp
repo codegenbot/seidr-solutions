@@ -1,5 +1,12 @@
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    return result;
+    priority_queue<int> pq;
+    for (int x : arr) {
+        pq.push(x);
+    }
+    vector<int> res(k);
+    for (int i = 0; i < k; i++) {
+        res[i] = pq.top();
+        pq.pop();
+    }
+    return res;
 }
