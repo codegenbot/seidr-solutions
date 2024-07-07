@@ -25,12 +25,14 @@ void calculateOddSums(std::vector<double> lst) {
     std::cout << "Average of odd numbers: " << average << std::endl;
 }
 
-void calculateAndPrint() {
+int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
     std::vector<double> lst;
+    double odd_sum = 0; // declare here
+
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
@@ -41,12 +43,9 @@ void calculateAndPrint() {
         }
     }
 
-    double odd_sum = double_the_difference(lst);
+    odd_sum = double_the_difference(lst); // assign here
 
     calculateOddSums(lst);
-}
 
-int main() {
-    calculateAndPrint();
     return 0;
 }
