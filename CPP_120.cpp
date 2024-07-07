@@ -1,9 +1,6 @@
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        int maxNum = *max_element(arr.begin(), arr.end());
-        result.push_back(maxNum);
-        arr.erase(remove(arr.begin(), arr.end(), maxNum), arr.end());
-    }
-    return result;
+    vector<int> res(k);
+    copy_n(std::make_heap(arr.begin(), arr.end()),
+           res.begin(), res.end());
+    return res;
 }
