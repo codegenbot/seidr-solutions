@@ -73,7 +73,7 @@ std::string int_to_mini_roman(int num) {
         return toRoman(num);
 }
 
-int main_func() {
+int main() {
     int num; 
     std::cout << "Enter a number: ";
     std::cin >> num;
