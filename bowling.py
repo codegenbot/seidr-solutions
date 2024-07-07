@@ -15,7 +15,7 @@ def bowling_score(frames):
                 score += int(frames[i])
         else:
             if frames[i] == 'X':
-                score += 10 + (10 - int(frames[i-2:i])) if frame < 9 else 10
+                score += 10 + (10 - sum(map(int, frames[max(0,i-2):i]))) if frame < 9 else 10
                 frame += 1
             elif frames[i] == '-':
                 continue
