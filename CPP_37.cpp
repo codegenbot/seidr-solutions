@@ -42,15 +42,14 @@ std::vector<float> sort_even(std::vector<float> input) {
 
 int main() { 
     int n;
-    std::vector<float> input;
     float num;
+    std::vector<float>() input;  // Initialize the vector with default allocator
     std::cout << "Enter numbers separated by spaces: ";
     while ((std::cin >> num) && std::cin.peek() != '\n') {
         input.push_back(num);
     }
     std::cin.ignore();
-    std::vector<float> result = sort_even(input);
-    for (float val : result) {
+    for (float val : sort_even(input)) {
         std::cout << val << " ";
     }
 }
