@@ -22,19 +22,12 @@ int main() {
         std::cin >> num;
         if (num == -1) break;
         if (num > 0) v1.push_back(num);
-        else v2.push_back(-num); 
+        else v2.push_back(num);
     }
     
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::vector<float> vec1({maxV1});
-    std::vector<float> vec2({0.0f});
-
-    if (!issame(vec1, vec2)) {
-        std::cout << "The two sets of numbers are not the same.\n";
-    } else {
-        std::cout << "The two sets of numbers are the same.\n";
-    }
+    assert (issame(std::vector<float> {maxV1}, std::vector<float> {}));
     return 0;
 }
