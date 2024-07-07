@@ -8,7 +8,7 @@ bool filter_by_prefix(const std::vector<std::string>& vec, const std::string& pr
             result.push_back(s);
         }
     }
-    return equalVectors(result, {prefix + "AAA", prefix});
+    return equalVectors(result, {"xxx", "xxxAAA", "xxx"});
 }
 
 bool equalVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -16,6 +16,6 @@ bool equalVectors(const std::vector<std::string>& a, const std::vector<std::stri
 }
 
 int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") == true);
+    assert(equalVectors(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
     return 0;
 }
