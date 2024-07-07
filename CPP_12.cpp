@@ -9,4 +9,3 @@ string longest(vector<string> strings){
         }
     }
     return longest_str;
-}
