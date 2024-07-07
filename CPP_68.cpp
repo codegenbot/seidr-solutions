@@ -36,5 +36,4 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
 
 int main() {
     // Your code here
-    return 0;
 }
