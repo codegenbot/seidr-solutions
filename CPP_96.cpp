@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -37,7 +36,7 @@ int main() {
     std::cin >> n;
     std::vector<int> primes = count_up_to(n);
     for (int i = 1; i < primes.size(); i++) {
-        if (primes[i] != primes[0]) {
+        if (!issame({primes[0]}, {primes[i]})) {
             std::cout << "Prime number: " << primes[i] << std::endl;
         }
     }
