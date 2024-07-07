@@ -26,8 +26,7 @@ double find_zero(vector<double> coeffs){
 }
 
 int main() {
-    vector<double> poly_coeffs;
-    double temp;
+    vector<double> poly_coeffs{}; // Default constructor initialization
 
     while (true) {
         cin >> temp;
@@ -44,4 +43,6 @@ int main() {
         double solution = find_zero(poly_coeffs);
         assert(abs(poly(poly_coeffs, solution)) < 1e-3);
     }
+    
+    return 0;
 }
