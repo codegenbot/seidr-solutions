@@ -1,17 +1,18 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
+vector<pair<int, int>> pluck(vector<pair<int, int>> arr) {
+    vector<pair<int, int>> result;
+    
     if (arr.empty()) return result;
 
     int minEvenValue = INT_MAX;
     int index = -1;
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
+        if (arr[i].first % 2 == 0 && arr[i].first < minEvenValue) {
+            minEvenValue = arr[i].first;
             index = i;
         }
     }
