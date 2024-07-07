@@ -11,5 +11,5 @@ int findFirstNegativeIndex(const vector<int>& nums) {
 }
 
 int main() {
-    return findFirstNegativeIndex({-1,2,-3,4,-5});
+    return findFirstNegativeIndex({-1,2,3,-5,4});
 }
