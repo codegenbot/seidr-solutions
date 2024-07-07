@@ -32,9 +32,9 @@ int main() {
 
     string text, target;
     cin >> text >> target;
+
     vector<int> indices = indicesOfSubstring(text, target);
 
     for(int i : indices)
         cout << i << " ";
-    return 0;
 }
