@@ -1,5 +1,4 @@
-#include <vector>
-using namespace std;
+Here is the completed code:
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
