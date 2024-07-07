@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,10 +14,10 @@ int sum_squares(const std::vector<double>& input) {
 int main() {
     double num1, num2;
     std::cout << "Enter two numbers: ";
-    std::cin >> num1 >> num2;
-    std::vector<double> input(2); // specify capacity instead of initializing with values
-    input.push_back(num1);
-    input.push_back(num2);
+    if (!(std::cin >> num1 >> num2)) {
+        std::cerr << "Invalid input. Please enter two numbers." << std::endl;
+        return 1;
+    }
+    std::vector<double> input({static_cast<double>(num1), static_cast<double>(num2)});
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
-}
