@@ -1,47 +1,36 @@
+Here is the solution:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::vector<std::string> words;
-    std::string word = "";
-    for (char c : str) {
-        if (c == '-') {
-            words.push_back(word);
-            word = "";
-        } else if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
+using namespace std;
 
-    std::string result;
-    for (int i = 0; i < words.size(); ++i) {
+string toCamelCase(string s) {
+    string result = "";
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == '-') {
+            i++;
+            continue;
+        }
         if (i > 0) {
-            result += std::toupper(words[i][0]);
-            result += words[i].substr(1).tolower();
+            result += toupper(s[i]);
         } else {
-            result += words[i];
+            result += tolower(s[i]);
+        }
+        while (i < s.size() && s[i] != ' ') {
+            i++;
+            result += s[i];
         }
     }
-
     return result;
 }
 
 int main() {
-    int numCases;
-    cin >> numCases;
-    for (int i = 0; i < numCases; ++i) {
-        std::string str;
-        cin >> str;
-        cout << camelCase(str) << endl;
-    }
+    string input;
+    cout << "input: ";
+    cin >> input;
+    cout << "output: " << toCamelCase(input) << endl;
     return 0;
 }
