@@ -30,15 +30,16 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    int* input = nullptr; size_t n;
+    std::vector<int> input;
+    size_t n;
 
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    input = new int[n]; 
+    input.resize(static_cast<unsigned long int>(n)); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> input[i];
+        std::cin >> (input[i]);
     }
 
     // Process the array
@@ -50,8 +51,6 @@ int main() {
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }
-
-    delete[] input; // Don't forget to free memory
 
     return 0;
 }
