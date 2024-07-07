@@ -9,35 +9,25 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    bool b;
+    bool b = false; // declare and initialize
     for (int i = 0; i < a.size() && i < b.size(); i++) {
-        if (a[i].compare(b[i]) != 0)
-            return false;
+        if (!filter_by_substring(a, b[i]).empty()) {
+            b = true;
+            break;
+        }
     }
-    return true;
+    return b;
 }
 
 int main() {
-    vector<string> strings;
-    string line;
-    while(getline(cin, line)) {
-        strings.push_back(line);
+    vector<string> strings = {"apple", "banana", "orange", "grape"};
+    string substring = "an";
+    vector<string> result = filter_by_substring(strings, substring);
+    cout << "Strings containing the substring '" << substring << "' are: ";
+    for (const auto& s : result) {
+        cout << s << " ";
     }
-
-    vector<string> substrings;
-    string subline;
-    while(getline(cin, subline)) {
-        substrings.push_back(subline);
-    }
-
-    vector<string> result = filter_by_substring(strings, *max_element(substrings.begin(), substrings.end()));
-    bool same = issame(result, strings);
-
-    if(same) {
-        cout << "The filtered list is the same as the original list." << endl;
-    } else {
-        cout << "The filtered list is different from the original list." << endl;
-    }
-
+    cout << endl;
+    
     return 0;
 }
