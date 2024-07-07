@@ -1,6 +1,5 @@
+```
 from typing import List
-import math
-
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -9,12 +8,12 @@ def factorize(n: int) -> List[int]:
         if n % i:
             i += 1
         else:
+            n //= i
             count = 0
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i) * count
-            i = 2
+            factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    return [int(f) for f in set(map(str, factors))]
+    return factors
