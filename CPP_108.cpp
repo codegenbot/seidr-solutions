@@ -8,9 +8,8 @@ int count_nums(vector<int> nums) {
                 sum += temp % 10;
                 temp /= 10;
             }
-            if (sum > 0) {
+            if (sum > 0)
                 count++;
-            }
         } else {
             int sum = 0, sign = 1;
             int temp = abs(num);
@@ -19,9 +18,8 @@ int count_nums(vector<int> nums) {
                 temp /= 10;
                 sign = -sign;
             }
-            if (sum > 0) {
+            if (sum > 0)
                 count++;
-            }
         }
     }
     return count;
