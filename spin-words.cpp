@@ -1,8 +1,6 @@
-    #include <iostream>
-    #include <string>
-    #include <vector>
-    #include <algorithm>
-    #include <regex>
+#include <iostream>
+#include <string>
+#include <bits/stdc++.h>
 
 int main() {
     std::string input;
