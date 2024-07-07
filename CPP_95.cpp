@@ -1,10 +1,12 @@
 #include <map>
 #include <string>
+#include <cctype>
 
 int main() {
-    std::map<std::string, std::string> dict;
+    map<string, string> dict;
     bool result = check_dict_case(dict);
-    // Rest of your code...
+    cout << (result ? "True" : "False") << endl;
+    return 0;
 }
 
 bool check_dict_case(map<string, string> dict) {
