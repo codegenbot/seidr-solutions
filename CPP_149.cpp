@@ -6,14 +6,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        bool found = false;
-        for (const auto& str : b) {
-            if (str == a[i]) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
