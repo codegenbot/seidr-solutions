@@ -1,8 +1,7 @@
-```
 #include <vector>
 
-std::vector<int> maximum(std::vector<int> arr,int k){
-    std::vector<int> result(arr.begin(),arr.begin()+k);
+vector<int> maximum(vector<int> arr,int k){
+    vector<int> result(arr.begin(),arr.end());
     sort(result.begin(),result.end());
     return result;
 }
