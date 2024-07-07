@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -67,9 +66,16 @@ int main()
     }
     std::cout << std::endl;
     
+    bool equal = true;
+    int expected[] = {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
     for (int i = 0; i < result.size(); ++i) {
-        assert(result[i] == 1 || result[i] == 3);
+        if (result[i] != expected[i]) {
+            equal = false;
+            break;
+        }
     }
+    
+    std::cout << "Equal: " << (equal ? "true" : "false") << std::endl;
     
     return 0;
 }
