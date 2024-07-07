@@ -1,13 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end());
+    std::vector<int> arrCopy = arr; // Create a copy of the input vector
+    std::sort(arrCopy.begin(), arrCopy.end());
     std::vector<int> result;
-    for (int i = 0; i < k; i++) {
-        result.push_back(arr[arr.size() - 1 - i]);
-        arr.pop_back();
+    for (int i = arrCopy.size() - 1; i >= arrCopy.size() - k; i--) {
+        result.push_back(arrCopy[i]);
+        arrCopy.erase(arrCopy.begin() + i);
     }
     return result;
 }
