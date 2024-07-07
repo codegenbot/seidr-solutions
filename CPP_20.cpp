@@ -1,4 +1,10 @@
-using namespace std;
+```
+#include <algorithm>
+#include <numeric>
+#include <cmath>
+#include <limits>
+#include <initializer_list>
+#include <vector>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
