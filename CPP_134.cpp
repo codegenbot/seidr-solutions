@@ -1,9 +1,8 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) return false; 
-    char last_char = txt.back();
-    if(!isalpha(last_char)) return false;
-    for(int i=0; i<txt.length()-1; i++) {
-        if(!isspace(txt[i]) && !isspace(txt[i+1])) return true;
-    }
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    int lastSpace = txt.find_last_of(' ');
+    if(lastSpace == -1) lastSpace = txt.length();
+    char c = txt.at(txt.length() - 1);
+    if(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z') return (txt.length() - 1 > lastSpace);
     return false;
 }
