@@ -14,6 +14,6 @@ int solution(std::initializer_list<int> vec) {
 
 int testMain() {
     std::vector<int> vec = {3, 13, 2, 9};
-    assert(solution({3, 13, 2, 9}) == 169); 
+    assert(solution({3, 13, 2, 9}) == 16);
     return 0;
 }
