@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -18,11 +19,7 @@ vector<string> all_prefixes(string str) {
     return result;
 }
 
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    vector<string> prefixes = all_prefixes(input);
-    assert(issame(all_prefixes(input), prefixes));
-    return 0;
+bool main_function() {
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    return true;
 }

@@ -1,8 +1,11 @@
 ```cpp
+extern "C" {
+#include <cctype>
+}
+
 #ifndef MYCODE_H
 #define MYCODE_H
 
-#include <string>
 using namespace std;
 
 string flip_case(string str) {
