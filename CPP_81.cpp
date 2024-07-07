@@ -1,6 +1,7 @@
+```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -38,16 +39,13 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 0.7)
             result.push_back("D");
         else
-            result.push_back("F");
+            result.push_back("E");
     }
     return result;
 }
 
 int main() {
-    vector<string> grades = {"0", "0.7"};
-    float a = static_cast<float>(std::stoi(grades[0]));
-    float b = std::stod(grades[1]);
-    vector<float> fgrades = {a, b};
-    assert(issame(numerical_letter_grade(fgrades), {"F", "D-"}));
+    vector<float> fgrades = {stof(grades[0]), stof(grades[1])}; 
+    assert(issame(numerical_letter_grade(fgrades), {"E", "D-"}));
     return 0;
 }
