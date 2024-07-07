@@ -1,14 +1,18 @@
 int prod_signs(vector<int> arr) {
-    int sign = 1;
+    int product = 1;
     long long sum = 0;
 
     for (int num : arr) {
         if (num == 0) {
-            return -32768; // special case: at least one zero in the array
+            return 0;
         }
-        sign *= (num > 0) ? 1 : ((num < 0) ? -1 : 0);
+        product *= abs(num);
         sum += abs(num);
     }
 
-    return sign * sum;
+    if (arr.empty()) {
+        return -32768;
+    }
+
+    return product * (sum / product);
 }
