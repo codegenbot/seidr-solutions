@@ -6,16 +6,9 @@ int main() {
     vector<float> input_list; 
     float odd_sum = 0.0f; 
 
-    cout << "Enter the numbers (space-separated): ";
-    for(int i=0; ;i++){
-        float x; cin >> x;
-        if(cin.fail()){
-            break;
-        }
-        input_list.push_back(x);
-    }
+    cin >> input_list;
 
-    odd_sum = double_the_difference(input_list);
+    cout << double_the_difference(input_list) << endl;
 
     return 0;
 }
