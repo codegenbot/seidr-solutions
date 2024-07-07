@@ -1,11 +1,9 @@
-#include <vector>
-using namespace std;
-
-vector<int> maximum(vector<int> arr,int k){
-    if(k > arr.size()) {
-        return vector<int>();
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result;
+    for (int i = 0; i < k; ++i) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it - arr.begin());
     }
-    vector<int> result(arr.begin(),arr.begin()+k);
-    sort(result.begin(),result.end());
     return result;
 }
