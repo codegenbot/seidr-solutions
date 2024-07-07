@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 using namespace std;
@@ -10,14 +11,18 @@ int how_many_times(string str, string substring) {
         str.erase(pos, substring.length());
     }
     return count;
+}
 
 int main() {
-    string inputStr, subStr;
-    cout << "Enter a string: ";
-    getline(cin, inputStr);
-    cout << "Enter a substring: ";
-    getline(cin, subStr);
-    int result = how_many_times(inputStr, subStr);
-    cout << "The substring appears " << result << " times in the given string." << endl;
+    string str, substring;
+    cout << "Enter the substring: ";
+    string temp;
+    getline(cin, temp);
+    substring = temp;
+
+    cout << "Enter the string: ";
+    getline(cin, str);
+    int result = how_many_times(str, substring);
+    cout << "The substring appears " << result << " times." << endl;
     return 0;
 }

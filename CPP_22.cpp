@@ -1,9 +1,7 @@
-#define BOOST_ALL_DYN_LINK 1
-#include <boost/version.hpp>
-
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
+#include <boost/version.hpp>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
