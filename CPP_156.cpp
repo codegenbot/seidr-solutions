@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cassert>
 
@@ -37,6 +36,7 @@ std::string int_to_mini_roman(int num) {
     return toMiniRomanHelper(num, "", "MDC");
 }
 
-int main() {
+int testMain() {
     assert(int_to_mini_roman(1000).compare("M") == 0);
+    return 0;
 }
