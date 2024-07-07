@@ -1,6 +1,7 @@
 def digits(n):
     product = 1
-    for digit in str(n):
-        if int(digit) % 2 != 0:
-            product *= int(digit)
+    while n:
+        if n % 10 % 2:  # check if last digit is odd
+            product *= n % 10
+        n //= 10
     return product
