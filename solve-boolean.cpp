@@ -2,8 +2,8 @@
 #include <stack>
 #include <string>
 
-bool solveBoolean(string s) {
-    stack<char> st;
+bool solveBoolean(std::string s) {
+    std::stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -23,8 +23,8 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False");
+    std::string s;
+    std::cin >> s;
+    std::cout << (solveBoolean(s) ? "True" : "False");
     return 0;
 }
