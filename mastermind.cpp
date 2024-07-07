@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -30,7 +31,6 @@ int mastermind(string code, string guess) {
     }
     
     return blackPegs;
-
 }
 
 int main() {
