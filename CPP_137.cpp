@@ -1,12 +1,19 @@
 #include <iostream>
 #include <string>
-#include <boost/lexical_cast.hpp>
+#include <sstream>
 
 using namespace std;
 
+double toDouble(string s) {
+    double val = 0;
+    stringstream ss(s);
+    ss >> val;
+    return val;
+}
+
 string compare_one(string s1, string s2) {
-    double d1 = boost::lexical_cast<double>(s1);
-    double d2 = boost::lexical_cast<double>(s2);
+    double d1 = toDouble(s1);
+    double d2 = toDouble(s2);
 
     if (d1 > d2) return s1;
     else if (d1 == d2) return "None";
