@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 string string_xor(string a, string b) {
     string result = "";
