@@ -1,19 +1,4 @@
 ```cpp
-#include <iostream>
-#include <iomanip>
-using namespace std;
-
-double snowDay(int hours, double groundSnow, double rate, double melt) {
-    double totalSnow = 0;
-    
-    for (int i = 0; i < hours; i++) {
-        totalSnow += rate - melt * groundSnow;
-        groundSnow = max(0.0, (double)groundSnow + rate - melt * (double)groundSnow);
-    }
-    
-    return totalSnow;
-}
-
 int main() {
     int hours;
     cin >> hours;
