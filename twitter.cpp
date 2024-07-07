@@ -18,14 +18,17 @@ string validateTweet(string tweet) {
     if (charCount > 140) {
         return "Too many characters";
     }
-    ostringstream ostr;
-    ostr << "Your tweet has " << charCount << " characters";
-    return ostr.str();
+    string ostr = "Your tweet has " + to_string(charCount) + " characters";
+    return ostr;
 }
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     getline(cin, tweet);
+    tweet.erase(0, tweet.find_first_not_of(' ')); 
+    tweet.erase(tweet.find_last_not_of(" \t\r\n") + 1 );
     cout << validateTweet(tweet) << endl;
     return 0;
+}
