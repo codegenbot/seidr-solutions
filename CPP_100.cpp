@@ -9,7 +9,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool sameCheck(const std::vector<int>& a, const std::vector<int>& b) {
+bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -25,7 +25,7 @@ int main() {
     for (auto it = pile.begin(); it != pile.end(); ++it) {
         *it -= 1;
     }
-    if (!sameCheck(make_a_pile(20), pile)) {
+    if (!areSame(make_a_pile(8), pile)) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
