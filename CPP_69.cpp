@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <map>
 
@@ -19,11 +20,7 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
-    int n;
-    while(std::cin >> n) {
-        lst.push_back(n);
-    }
+    std::vector<int> lst = {1, 2, 3, 4, 5};
     int result = search(lst);
     if (result != -1) {
         std::cout << "The first number that appears at least as many times as its value is: " << result << std::endl;
