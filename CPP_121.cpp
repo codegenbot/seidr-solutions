@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
 int solution(vector<int> lst) {
     int sum = 0;
