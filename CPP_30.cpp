@@ -34,7 +34,7 @@ int main() {
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    if (!issame({maxV1},{0.0f})) { 
+    if (!issame({maxV1}, {0.0f})) { 
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
         std::cout << "The two sets of numbers are the same.\n";
