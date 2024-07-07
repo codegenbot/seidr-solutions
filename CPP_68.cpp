@@ -1,34 +1,40 @@
 #include <vector>
-#include <climits>
+#include <algorithm>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
-    if (arr.empty()) {
-        result.push_back(INT_MAX);
-        result.push_back(-1);
-        return result;
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
 
-    int smallestEvenValue = INT_MAX;
-    int index = -1;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
+
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenValue = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0) {
+            bool found = false;
+            for (const auto& p : result) {
+                if (p.first == arr[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                result.push_back({arr[i], i});
+            }
         }
     }
 
-    result.push_back(smallestEvenValue);
-    result.push_back(index);
-
-    return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Your comparison logic here
+    if (result.empty()) {
+        return {};
+    } else {
+        auto it = std::min_element(result.begin(), result.end(),
+                                    [](const auto& a, const auto& b) {
+                                        return a.first > b.first;
+                                    });
+        return {{it->first, it->second}};
+    }
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}) , {}));
+    // Your code here
     return 0;
 }

@@ -1,19 +1,22 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-int next_smallest(std::vector<int> lst){
-    std::vector<int> sorted = lst;
-    std::sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; 
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) {
-            return sorted[i + 1];
-        }
-    }
-    return -1; 
+int next_smallest(vector<int> lst) {
+    if (lst.empty()) return -1;
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    int second_smallest = (copy.size() > 1)? copy[1] : -1; 
+    return second_smallest;
 }
 
-int main(){
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    // Your code here...
+int main() {
+    int n;
+    cin >> n;
+    vector<int> lst(n);
+    for(int i=0;i<n;i++)
+        cin >> lst[i];
+    cout << next_smallest(lst) << endl;
+    return 0;
 }
