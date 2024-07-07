@@ -4,7 +4,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     vector<int> bucket(n, 0);
     int res = 0;
-
+    
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < grid[i].size(); j++) {
             if (grid[i][j] == 1) {
@@ -12,7 +12,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
             }
         }
     }
-
+    
     while (true) {
         bool changed = false;
         for (int i = 0; i < n; i++) {
@@ -23,11 +23,10 @@ int max_fill(vector<vector<int>> grid, int capacity) {
                 break;
             }
         }
-
+        
         if (!changed) {
             return -1;
         }
     }
-
+    
     return res;
-}
