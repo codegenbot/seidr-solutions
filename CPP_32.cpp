@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -22,9 +21,8 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> coeffs = {}; // Initialize here
-    for (std::vector<double>::iterator it = coeffs.begin(); ; ) {
-        double &temp = *it;
+    std::vector<double> coeffs;
+    for (double &temp; ; ) {
         std::cin >> temp;
         if (std::cin.fail()) break;
         coeffs.push_back(temp);
