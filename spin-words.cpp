@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -18,15 +17,13 @@ std::string spinWords(std::string sentence) {
             start = i + 1;
         }
     }
-    result +=" ";
-    return result;
+    return result + (result.empty() ? "" : " ") << std::endl;
 }
 
 int main() {
     std::string input;
     while (std::cin >> input) {
         std::cout << spinWords(input) << std::endl;
-        if(std::cin.peek() == '\n') break; 
     }
     return 0;
 }
