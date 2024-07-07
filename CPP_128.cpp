@@ -3,16 +3,20 @@
 using namespace std;
 
 int prod_signs(vector<int> arr) {
-    int product = 1;
-    int sumMagnitude = 0;
-
-    for (int i : arr) {
-        if (i == 0) {
-            return -32768; // return -32768 for empty or contains zero
+    int sign = 1;
+    long long sum = 0;
+    
+    for (int num : arr) {
+        if (num == 0) {
+            return 0;
         }
-        product *= (i > 0 ? 1 : -1);
-        sumMagnitude += abs(i);
+        sign *= ((num > 0) ? 1 : -1);
+        sum += abs(num);
     }
-
-    return product * sumMagnitude;
+    
+    if (arr.empty()) {
+        return INT_MIN; // equivalent to -32768
+    }
+    
+    return sign * sum;
 }
