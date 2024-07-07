@@ -1,6 +1,4 @@
-#include <string>
-using namespace std;
-
+```#include <string>
 bool solveBoolean(string s) {
     bool result = true;
     for (char c : s) {
@@ -17,3 +15,4 @@ bool solveBoolean(string s) {
         }
     }
     return result;
+}```
