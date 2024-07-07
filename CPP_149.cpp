@@ -1,7 +1,4 @@
 ```cpp
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
-}
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (const auto& str : lst) {
@@ -18,6 +15,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
                   }
               });
     return result;
+}
+
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
 }
 int main() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
