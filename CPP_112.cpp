@@ -1,9 +1,6 @@
 ```cpp
 #include <vector>
-namespace std {
-template <class _Ty>
-struct vector<_Ty>::size_type { };
-}
+#include <string>
 
 using namespace std;
 
