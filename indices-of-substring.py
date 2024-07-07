@@ -1,6 +1,5 @@
-```python
 def indices_of_substring(text):
-    target = input()  
+    target = input()
     result = []
     start_index = 0
     while start_index < len(text):
