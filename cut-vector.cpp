@@ -1,13 +1,9 @@
-```
 #include <algorithm>
-#include <initializer_list> 
+#include <climits>
 using namespace std;
 
 vector<int> cutVector(vector<int>& v) {
     int n = v.size();
-    if(n <= 1){
-        throw invalid_argument("The input vector should have at least two elements.");
-    }
     int minDiff = INT_MAX;
     int pos = 0;
 
@@ -22,5 +18,5 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> left(v.begin(), v.begin() + pos);
     vector<int> right(v.begin() + pos, v.end());
 
-    return {left, right};
+    return {left.begin(), left.end()}, {right.begin(), right.end()};
 }
