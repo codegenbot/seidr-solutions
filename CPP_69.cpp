@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 int search(int n) {
@@ -22,5 +24,6 @@ void runUserInput() {
 
 int main() {
     runUserInput();
+    assert(search(3) == 3);
     return 0;
 }

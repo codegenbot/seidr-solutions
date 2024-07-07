@@ -1,7 +1,7 @@
 ```cpp
 #include <string>
 
-std::string int_to_mini_roman(int num) {
+std::string toMiniRoman(int num) {
     if (num < 1 || num > 3999) {
         return "Invalid input";
     }
@@ -28,7 +28,7 @@ std::string int_to_mini_roman(int num) {
     if (ones == 9) {
         roman += "IX";
     } else if (ones >= 5) {
-        roman += toMiniRomanHelper(ones, "V", "IV");
+        roman = toMiniRomanHelper(ones, "V", "IV");
     } else {
         for (int i = 0; i < ones; i++) {
             roman += "I";
@@ -43,9 +43,15 @@ std::string toMiniRomanHelper(int num, std::string s1, std::string s2) {
     } else if (num == 9) {
         return s1 + "I";
     } else {
+        result = s1; // initialize a variable to store the result
         for (int i = 0; i < num / 5; i++) {
-            roman += s1;
+            result += s1;
         }
-        roman += toMiniRomanHelper(num % 5, s1, s2);
+        return result + toMiniRomanHelper(num % 5, s1, s2);
     }
+}
+
+int main() {
+    assert(toMiniRoman(1000) == "M");
+    return 0;
 }
