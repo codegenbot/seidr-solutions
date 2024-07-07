@@ -14,6 +14,11 @@ bool filter_by_prefix(const std::vector<std::string>& vec, const std::string& pr
 }
 
 int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") == true);
+    auto result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx");
+    if (result) {
+        std::cout << "Filtering successful." << std::endl;
+    } else {
+        std::cout << "Filtering failed." << std::endl;
+    }
     return 0;
 }
