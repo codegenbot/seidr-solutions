@@ -1,11 +1,10 @@
-#include <bits/stdc++.h>
-
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <cstddef>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool same(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -32,5 +31,5 @@ int main() {
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame(v1, v2) ? "" : "not ")) << " the same.\n";
+    std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (same(v1, v2) ? "" : "not ")) << " the same.\n";
 }

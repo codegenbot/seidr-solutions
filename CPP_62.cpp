@@ -1,23 +1,23 @@
-int main 
-{
+int main() {
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
-
-    vector<float> v1(n);
-    vector<float> v2(n);
-
-    cout << "Enter elements for vector 1: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> v1[i];
+    vector<float> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-
-    cout << "Enter elements for vector 2: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> v2[i];
+    bool same = issame(a, a);
+    if (same) {
+        cout << "The array is the same." << endl;
+    } else {
+        cout << "The array is not the same." << endl;
     }
+}
 
-    double result = similarity(v1, v2);
-    cout << "Similarity between the two vectors is: " << result << endl;
-    return 0;
+bool issame(vector<float> a, vector<float> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }

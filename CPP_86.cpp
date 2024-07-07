@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <algorithm>
 #include <string>
@@ -29,3 +30,4 @@ int main(){
     std::cout << "Enter a string: ";
     std::cin >> input;
     std::cout << "Antisuffled string: " << anti_shuffle(input) << std::endl;
+}
