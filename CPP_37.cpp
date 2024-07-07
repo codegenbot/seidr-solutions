@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <ext/new_allocator.h>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
@@ -22,9 +21,8 @@ std::vector<float> sort_even(std::vector<float> input) {
 }
 
 int main() { 
-    int n;
-    std::vector<float> input;
     float num;
+    std::vector<float> input;
     std::cout << "Enter numbers separated by spaces: ";
     while ((std::cin >> num) && std::cin.peek() != '\n') {
         input.push_back(num);
