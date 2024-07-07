@@ -1,11 +1,11 @@
+```cpp
 #include <algorithm>
 #include <vector>
-#include <cmath>
-#include <initializer_list>
+#include <assert.h>
+
+int maxVal = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
 
 int main() {
-    std::vector<int> v = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    long long maxVal = *std::max_element(v.begin(), v.end());
-    assert(std::abs(maxVal) < 1e-4);
+    assert(std::abs(std::maxVal-12)<1e-4);
     return 0;
 }
