@@ -1,5 +1,24 @@
-```
 #include <string>
+
+std::string toMiniRomanHelper(int num, std::string str, std::string roman);
+int getVal(std::string s);
+
+std::string int_to_mini_roman(int num) {
+    if (num <= 0)
+        return "";
+    return toMiniRomanHelper(num, "", "MDC");
+}
+
+std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
+    if (num == 0)
+        return str;
+    int val = getVal(roman);
+    if (num >= val) {
+        return toMiniRomanHelper(num - val, str + roman[0], roman.substr(1));
+    } else {
+        return toMiniRomanHelper(num, str, roman.substr(1));
+    }
+}
 
 int getVal(std::string s) {
     int val = 0;
@@ -18,21 +37,4 @@ int getVal(std::string s) {
     else if (s == "I")
         val = 1;
     return val;
-}
-
-std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
-    if (num == 0)
-        return str;
-    int val = getVal(roman);
-    if (num >= val) {
-        return toMiniRomanHelper(num - val, str + roman[0], roman.substr(1));
-    } else {
-        return toMiniRomanHelper(num, str, roman.substr(1));
-    }
-}
-
-std::string int_to_mini_roman(int num) {
-    if (num <= 0)
-        return "";
-    return toMiniRomanHelper(num, "", "MDC");
 }
