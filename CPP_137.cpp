@@ -1,42 +1,28 @@
+#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         return b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return max(a, b);
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::lexical_cast<double>(a.convert_to<string>()) <
-            boost::lexical_cast<double>(b.convert_to<string>())) {
-            return b;
-        } else if (boost::lexical_cast<double>(a.convert_to<string>()) ==
-                   boost::lexical_cast<double>(b.convert_to<string>())) {
-            return boost::any("None");
-        } else {
-            return a;
-        }
+        return (max(a, b)).cast<string>();
     } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::lexical_cast<int>(a) < boost::lexical_cast<int>(b)) {
-            return b;
-        } else if (boost::lexical_cast<int>(a) == boost::lexical_cast<int>(b)) {
-            return boost::any("None");
-        } else {
+        int a_int = boost::any_cast<int>(a);
+        int b_int = boost::any_cast<int>(b);
+        if (a_int > b_int)
             return a;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        if (boost::lexical_cast<float>(a) < boost::lexical_cast<float>(b)) {
+        else if (a_int < b_int)
             return b;
-        } else if (boost::lexical_cast<float>(a) == boost::lexical_cast<float>(b)) {
+        else
             return boost::any("None");
-        } else {
-            return a;
-        }
     } else {
-        throw invalid_argument("Invalid type");
+        return boost::any("None");
     }
 }
