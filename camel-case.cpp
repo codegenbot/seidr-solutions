@@ -1,26 +1,34 @@
 ```c++
-#include <string>
-#include <sstream>
-#include <vector>
-
-std::string camelCase(const std::string& s) {
-    std::stringstream ss(s);
-    std::string word;
-    std::vector<std::string> words;
-
-    while (ss >> word) {
-        if (!words.empty()) {
-            result += toupper(word[0]);
-            for (char c : word.substr(1)) {
-                result += tolower(c);
+string camelCase(string s) {
+    string result = "";
+    bool capitalizeNext = false;
+    
+    for (char c : s) {
+        if (c == '-' || c == ' ') { 
+            if (!result.empty()) {
+                if (capitalizeNext) {
+                    result.push_back(toupper(result.back()));
+                    capitalizeNext = false;
+                }
+                result.push_back(' ');
             }
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            for (char c : word) {
-                result += tolower(c);
-            }
+            result += tolower(c);
         }
-        words.pop_back();
     }
-
+    
+    // remove trailing space and convert first letter to uppercase
+    if (!result.empty()) {
+        result[0] = toupper(result[0]);
+    }
+    size_t lastSpacePos = result.find(' ');
+    if (lastSpacePos != string::npos) {
+        result.erase(lastSpacePos);
+    }
+    
     return result;
 }
