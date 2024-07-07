@@ -1,12 +1,10 @@
+```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 string validateTweet(string tweet) {
-    tweet.erase(0, tweet.find_first_not_of(" \t")); // Remove leading whitespace
-    tweet.erase(tweet.find_last_not_of(" \t") + 1); // Remove trailing whitespace
-    
     if (tweet.empty()) {
         return "You didn't type anything";
     }
@@ -19,7 +17,6 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    cin.ignore(); 
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
     return 0;
