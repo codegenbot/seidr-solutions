@@ -6,13 +6,13 @@ int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
     
-    while (message.size() > 0) {
-        int index = cipher1.find_first_of(message[0], 0);
+    for (int i = 0; i < message.size(); i++) {
+        int index = cipher1.find_first_of(message[i], 0);
         if (index != string::npos) {
             cout << cipher2[index];
-            message.erase(0, 1);
         } else {
-            break;
+            // print the original character from the message string
+            cout << message[i];
         }
     }
     
