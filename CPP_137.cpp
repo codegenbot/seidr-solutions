@@ -1,27 +1,31 @@
-#include <iostream>
 #include <string>
+#include <algorithm>
 #include <boost/any.hpp>
+#include <boost/any_cast.hpp>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_float(a) && is_float(b)) {
-        return (get<float>(a) > get<float>(b)) ? a : ((get<float>(a) == get<float>(b))) ? any("None") : b;
-    }
-    else if (is_float(a) || is_float(b)) {
-        return (is_float(a)) ? a : b;
-    }
-    else if (is_string(a) && is_string(b)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return any_cast<float>(b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
 
-        return (stof(sa) > stof(sb)) ? a : ((stof(sa) == stof(sb))) ? any("None") : b;
+        int numA = stol(strA);
+        int numB = stol(strB);
+
+        return (numA > numB ? a : b).type() == typeid(float) ? boost::any(get<1>(boost::tie(numA, numB))) : (numA > numB ? b : a);
+    } else if (a.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        int numA = stol(strA);
+
+        if (b.type() == typeid(int)) {
+            return (any_cast<int>(b) > numA ? b : a);
+        }
     }
-    else if (is_string(a) || is_string(b)) {
-        return (is_string(a)) ? a : b;
-    }
-    else {
-        // Error handling
-        return any("Invalid input");
-    }
+
+    return boost::any("None");
 }
