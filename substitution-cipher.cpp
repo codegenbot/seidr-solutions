@@ -3,12 +3,16 @@
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
+    int index = 0;
     for (char c : cipher) {
-        int idx = mapping.find(c);
-        if (idx != std::string::npos) {
-            result += mapping[idx]; 
-        } else {
+        while (index < mapping.size() && mapping[index] != c) {
+            ++index;
+        }
+        if (index >= mapping.size()) {
             result += c; 
+        } else {
+            result += mapping[index]; 
+            index++;
         }
     }
     return result;
@@ -17,6 +21,6 @@ std::string decode(std::string cipher, std::string mapping) {
 int main() {
     std::string cipher = "cehubtgxnspvqohlwrzady";
     std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
-    decode(cipher, mapping);
+    std::cout << decode(cipher, mapping) << std::endl;
     return 0;
 }
