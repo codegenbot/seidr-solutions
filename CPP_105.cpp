@@ -24,7 +24,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         if (str == "1") str = "One";
         else if (str == "2") str = "Two";
         else if (str == "3") str = "Three";
-        else if (str == "4") str = "Four";
+        else if (str == "4") str = str = "Four";
         else if (str == "5") str = "Five";
         else if (str == "6") str = "Six";
         else if (str == "7") str = "Seven";
@@ -33,5 +33,22 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(str);
     }
 
-    return result;
-}
+    int main() {
+        std::vector<int> arr;
+        int n;
+        std::cout << "Enter the number of integers: ";
+        std::cin >> n;
+        for(int i=0; i<n; i++) {
+            int num;
+            std::cout << "Enter integer " << i+1 << ": ";
+            std::cin >> num;
+            arr.push_back(num);
+        }
+        std::vector<std::string> output = by_length(arr);
+        std::cout << "The numbers in the order of their lengths are: ";
+        for (std::string str : output) {
+            std::cout << str << " ";
+        }
+        std::cout << "\n";
+        return 0;
+    }

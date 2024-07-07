@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <cassert>
+
 int digitSum(const std::string& s) {
     int sum = 0;
     for (char c : s) {
@@ -10,6 +14,9 @@ int digitSum(const std::string& s) {
 }
 
 int main() {
-    assert(digitSum("You arE Very Smart") == 14);
-    std::cout << "digitSum: " << digitSum("You arE Very Smart") << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "digitSum: " << digitSum(input) << std::endl;
     return 0;
+}
