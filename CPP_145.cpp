@@ -1,13 +1,16 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
+std::vector<int> same(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if(v1.size() != v2.size()) return {};
+    for(int i = 0; i < v1.size(); i++) {
+        if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return {};
+    }
+    return v1;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = nums[i];
@@ -18,9 +21,9 @@ vector<int> order_by_points(vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    sort(pairs.begin(), pairs.end());
+    std::sort(pairs.begin(), pairs.end());
 
-    vector<int> result;
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
@@ -29,11 +32,11 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {0,6,6,-76,-21,23,4};
-    cout << "Sorted array: ";
+    std::vector<int> nums = {0,6,6,-76,-21,23,4};
+    std::cout << "Sorted array: ";
     for(int num : order_by_points(nums)) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }
