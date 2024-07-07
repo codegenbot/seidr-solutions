@@ -11,9 +11,10 @@ std::vector<float> sort_even(std::vector<float> input) {
     for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
             float minVal = input[0];
-            for (float val : input) {
-                if (!issame(val, minVal)) {
-                    minVal = val;
+            int j = 1;
+            for (; j < input.size(); j++) {
+                if (!issame(input[j], minVal)) {
+                    minVal = input[j];
                 }
             }
             result[i] = minVal;
@@ -26,9 +27,10 @@ std::vector<float> sort_even(std::vector<float> input) {
                 result[i] = input[j + 1];
             } else {
                 float minVal = input[0];
-                for (float val : input) {
-                    if (!issame(val, minVal)) {
-                        minVal = val;
+                int k = 1;
+                for (; k < input.size(); k++) {
+                    if (!issame(input[k], minVal)) {
+                        minVal = input[k];
                     }
                 }
                 result[i] = minVal;
