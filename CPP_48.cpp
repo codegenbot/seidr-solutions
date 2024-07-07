@@ -1,4 +1,3 @@
-```cpp
 bool is_palindrome(string text) {
     int start = 0;
     int end = text.length() - 1;
