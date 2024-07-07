@@ -1,12 +1,10 @@
 #include <algorithm>
 #include <cmath>
 
-int findMaximumValue(vector<int> numbers) {
-    if (numbers.empty()) {
-        throw runtime_error("Error: The input vector is empty.");
+int findMax(int arr[], int n) {
+    if (n == 0) {
+        throw runtime_error("Array is empty");
     }
     
-    int maximum = *max_element(numbers.begin(), numbers.end());
-    
-    return maximum;
+    return *max_element(arr, arr + n);
 }
