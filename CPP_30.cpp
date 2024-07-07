@@ -1,9 +1,8 @@
 #include <vector>
-#include <initializer_list>
 #include <algorithm>
 #include <iostream>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -11,24 +10,24 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-float get_positive(const std::vector<float>& input) {
+float get_positive(std::vector<int> input) {
     return *std::max_element(input.begin(), input.end());
 }
 
 int main() {
-    float num;
-    std::vector<float> v1, v2;
+    int num;
+    vector<int> v1, v2;
     while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
-        std::cin >> num;
+        cout << "Enter a number (-1 to stop): ";
+        cin >> num;
         if (num == -1) break;
-        if (num > 0) v1.push_back(static_cast<float>(num));
-        else v2.push_back(-static_cast<float>(num)); 
+        if (num > 0) v1.push_back(num);
+        else v2.push_back(-num); 
     }
     
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::cout << "The two sets of numbers are " << (issame({maxV1}, {maxV2}) ? "" : "not ") << "the same.\n";
+    cout << "The two sets of numbers are " << (issame({maxV1}, {maxV2}) ? "" : "not ") << "the same.\n";
     return 0;
 }
