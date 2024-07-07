@@ -11,5 +11,5 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
             totalSnow = std::max(0.0, totalSnow + netSnowfall);
         }
     }
-
+    
     return totalSnow;
