@@ -1,24 +1,22 @@
 #include <iostream>
-using namespace std;
-
-bool iscuber(int);
+bool iscuber(int); 
 
 int main() {
     int a;
-    cout << "Enter an integer: ";
-    cin >> a;
+    std::cout << "Enter an integer: ";
+    std::cin >> a;
     if (iscuber(a)) {
-        cout << "The number is a perfect cube." << endl;
-    } 
-    else {
-        cout << "The number is not a perfect cube." << endl;
+        std::cout << "The number is a perfect cube." << std::endl;
+    } else {
+        std::cout << "The number is not a perfect cube." << std::endl;
     }
     return 0;
 }
 
-bool iscuber(int n) {
-    int i = round(cbrt(n));
-    if (i * i * i == n)
+bool iscuber(int x) { 
+    int y = cbrt(x);
+    if (y * y * y == x)
         return true;
-    return false;
+    else
+        return false;
 }
