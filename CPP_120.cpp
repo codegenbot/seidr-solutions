@@ -1,8 +1,5 @@
-#include <initializer_list>
-
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
