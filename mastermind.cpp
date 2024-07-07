@@ -1,28 +1,47 @@
-#include <map>
+```c++
 #include <vector>
+#include <iostream>
 #include <string>
 
-pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
+using namespace std;
+
+int mastermind(string code, string guess); // Declare before main
+
+int mastermind(string code, string guess) {
     int whitePegs = 0;
-
-    map<char, int> codeMap;
-    vector<bool> codeUsed(6, false);
-
-    for (int i = 0; i < 4; i++) {
-        codeMap[code[i]]++;
-        codeUsed[code[i]] = true;
-    }
-
-    for (int i = 0; i < 4; i++) {
+    int blackPegs = 0;
+    
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else if (codeMap[guess[i]] > 0 && !codeUsed[guess[i]]) {
-            whitePegs++;
-            codeMap[guess[i]]--;
-            codeUsed[guess[i]] = true;
         }
     }
+    
+    for (char c : code) {
+        int count = 0;
+        for (char d : guess) {
+            if (c == d) {
+                count++;
+            }
+        }
+        if (count > 1) {
+            whitePegs += count - 1;
+        } else if (count == 1) {
+            blackPegs--;
+        }
+    }
+    
+    return blackPegs;
+}
 
-    return make_pair(blackPegs, whitePegs);
+int main() {
+    string code, guess;
+    cout << "Enter the Mastermind code (4 characters): ";
+    cin >> code;
+    cout << "Enter your guess (4 characters): ";
+    cin >> guess;
+    int result = mastermind(code, guess);
+    cout << "Number of white pegs: 0\nNumber of black pegs: " << result << endl;
+    return 0;
+
 }
