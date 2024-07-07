@@ -6,8 +6,6 @@
 
 using namespace std;
 
-std::vector<int> get_odd_collatz(int n);
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -36,10 +34,6 @@ int main() {
     int input;
     cout << "Enter a number: ";
     cin >> input;
-    if(input < 0) {
-        cout << "Invalid input. Please enter a non-negative integer." << endl;
-        return -1;
-    }
     vector<int> output = get_odd_collatz(input);
     for (int num : output) {
         cout << num << " ";
