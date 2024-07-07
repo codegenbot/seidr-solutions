@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
@@ -38,14 +37,18 @@ int main() {
         std::cin >> num;
         
         if (num > 0.0 && std::floor(num) == num) {  
-            if(std::fmod(num,2.0) != 0.0) // Only accept and store odd positive integers
-                lst.push_back(num);  
+            lst.push_back(num);  
         }
     }
 
-    double odd_sum = double_the_difference(lst);
+    // Check for valid input
+    if (!lst.empty()) {
+        double odd_sum = double_the_difference(lst);
 
-    calculateOddSums(lst);
+        calculateOddSums(lst);
+    } else {
+        std::cout << "No integer values entered. Please try again." << std::endl;
+    }
 
     return 0;
 }

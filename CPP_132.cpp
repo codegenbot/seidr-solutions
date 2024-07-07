@@ -26,7 +26,7 @@ bool is_nested(const std::string& str) {
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str; 
+    std::getline(std::cin, str); 
     if (is_nested(str)) {
         std::cout << "The string is nested." << std::endl;
     } else {
