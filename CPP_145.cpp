@@ -1,5 +1,7 @@
+```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 #include <ostream>
 #include <iostream>
 #include <limits>
@@ -14,14 +16,7 @@ struct Pair {
 bool sameVector(const vector<int>& v1, const vector<int>& v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
-        bool found = false;
-        for(int j = 0; j < v2.size(); j++) {
-            if(v1[i] == v2[j]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) return false;
+        if(find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
     }
     return true;
 }
@@ -51,14 +46,7 @@ vector<int> order_by_points(vector<int> nums) {
 bool isSame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        bool found = false;
-        for(int j = 0; j < b.size(); j++) {
-            if(a[i] == b[j]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) return false;
+        if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
     }
     return true;
 }
