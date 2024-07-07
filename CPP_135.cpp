@@ -5,8 +5,17 @@ using namespace std;
 int can_arrange(vector<int> arr);
 
 int main() {
-    vector<int> arr = {5, 3};
-    assert(can_arrange(arr) == -1);
+    vector<int> v = {1, 2, 3, 4};
+    cout << "Array: ";
+    for (int i : v) {
+        cout << i << " ";
+    }
+    cout << endl;
+    int result = can_arrange(v);
+    if(result == -1)
+        cout << "The array is already sorted." << endl;
+    else
+        cout << "First out of order element: " << result << endl;
     return 0;
 }
 
