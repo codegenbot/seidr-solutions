@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int squareDigits(int number); // Declare the squareDigits function
+int squareDigits(int number);
 
 int main(int argc, char** argv) {
     int number = atoi(argv[1]); // get input from user
