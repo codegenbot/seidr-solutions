@@ -1,8 +1,8 @@
 int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
-        if ("aeiouy".find(c) != string::npos) {
-            if (c == 'y' && s[s.length() - 1] == 'y') continue;
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            (c == 'y' && s.find('y') == s.size() - 1)) {
             count++;
         }
     }
