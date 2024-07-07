@@ -1,4 +1,5 @@
 #include<vector>
+#include<iostream>
 
 int add(vector<int> lst) {
     int sum = 0;
@@ -11,12 +12,13 @@ int add(vector<int> lst) {
 
 int main() {
     vector<int> input;
-    cout << "Enter the numbers: ";
+    std::cout << "Enter the numbers: ";
     int num;
-    while(cin >> num) {
+    while(std::cin >> num) {
         input.push_back(num);
     }
     
     int result = add(input);
-    cout << "Sum of even numbers is: " << result << endl;
+    std::cout << "Sum of even numbers is: " << result << std::endl;
     return 0;
+}
