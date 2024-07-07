@@ -28,7 +28,7 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     } else {
         auto it = std::min_element(result.begin(), result.end(),
                                     [](const auto& a, const auto& b) {
-                                        return a.second < b.second;
+                                        return a.first > b.first;
                                     });
         return {{it->first, it->second}};
     }
@@ -36,4 +36,5 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
 
 int main() {
     // Your code here
+    return 0;
 }
