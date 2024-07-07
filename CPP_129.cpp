@@ -1,19 +1,17 @@
-```cpp
 using namespace std;
 
-bool operator>(const pair<int, int> &a, const pair<int, int> &b) {
-    return a.first > b.first;
+bool operator>(const pair_int &a, const pair_int &b) {
+    return a.val > b.val;
 }
+
+vector<int> minPath(vector<vector<int>> grid, int k);
+bool issame(vector<int>, vector<int>);
 
 struct pair_int {
     int val;
     int i;
     int j;
 };
-
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
-}
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
@@ -66,13 +64,19 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-int k = 3;
+int main() 
+{
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
 
-vector<int> result = minPath(grid, k);
+    vector<int> result = minPath(grid, k);
 
-for (int i : result) {
-    cout << i << " ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+    
+    return 0;
 }
-cout << endl;
-assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
