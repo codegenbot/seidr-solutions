@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -11,12 +10,13 @@ int gcd(int a, int b) {
 
 int main() {
     int a;
-    std::cout << "Enter the first number: ";
+    std::cout << "Enter the first integer: ";
     std::cin >> a;
-
+    
     int b;
-    std::cout << "Enter the second number: ";
-    std::cin >> b; 
+    std::cout << "Enter the second integer: ";
+    std::cin >> b;
+    
     std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
     
     return 0;
