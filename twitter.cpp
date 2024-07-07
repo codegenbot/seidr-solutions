@@ -1,5 +1,5 @@
+```cpp
 #include <sstream>
-#include <iostream>
 #include <limits>
 
 using namespace std;
