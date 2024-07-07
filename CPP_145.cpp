@@ -1,8 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 using namespace std;
 
@@ -49,14 +47,14 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
+int main() { 
     vector<int> nums = {0,6,6,-76,-21,23,4};
     cout << "Sorted array: ";
     for(int num : order_by_points(nums)) {
         cout << num << " ";
     }
     cout << endl;
-    if (!issame(order_by_points({0,6,6,-76,-21,23,4}), {76, 21, 0, 4, 23, 6, 6})) {
+    if (!issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
         cout << "Test failed" << endl;
     } else {
         cout << "Test passed" << endl;
