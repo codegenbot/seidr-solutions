@@ -1,33 +1,20 @@
 ```cpp
-#include <cassert>
-#include <algorithm>
-#include <string>
-
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            result += " ";
-        } else {
-            std::string word;
-            int j = i;
-            while (j < s.length() && s[j] != ' ') {
-                word += s[j];
-                j++;
-            }
-            sort(word.begin(), word.end());
-            for (char c : word) {
-                result += c;
-            }
-            i = j - 1;
-        }
-    }
-    return result;
+int anti_shuffle(const std::string& str);
+int main() {
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    return 0;
 }
 
-int main(){
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    std::cout << "Antisuffled string: " << anti_shuffle(input) << std::endl;
+int anti_shuffle(const std::string& str) {
+    int n = str.length();
+    char temp[n+1];
+    strcpy(temp, str.c_str());
+    for(int i=0; i<n; i++) {
+        if(temp[i] >= 'a' && temp[i] <= 'z') {
+            temp[i] += ('A' - 'a');
+        } else if(temp[i] >= 'A' && temp[i] <= 'Z') {
+            temp[i] += ('a' - 'A');
+        }
+    }
+    return atoi(temp);
 }
