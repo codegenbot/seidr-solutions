@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -28,4 +28,5 @@ int main() {
     for (int prime : primes) {
         std::cout << "Prime number: " << prime << std::endl;
     }
+    return 0;
 }
