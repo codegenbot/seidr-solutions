@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
+#include <limits>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -15,8 +15,11 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 float get_positive(std::initializer_list<float> input) {
-    std::vector<float> v(input.begin(), input.end());
-    return *std::max_element(v.begin(), v.end());
+    std::vector<float> v;
+    for (auto x : input) {
+        if (x > 0) v.push_back(x);
+    }
+    return *v.begin();
 }
 
 int main() {
