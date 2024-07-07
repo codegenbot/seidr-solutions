@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -21,6 +20,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
         lst.erase(remove(lst.begin(), lst.end(), max), lst.end()); // Remove maximum value from list
     }
     
-    assert(vector<int>(strange_sort_vector({111111}) ) == vector<int>({111111}));
+    assert(vector<int>(strange_sort_vector({111111})) == vector<int>({111111}));
     return result;
 }
