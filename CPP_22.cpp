@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -13,15 +12,12 @@ std::vector<int> filter_integers(std::list<boost::any> values){
         if (boost::any_cast<int>(value).good()) {
             result.push_back(boost::any_cast<int>(value).get());
         }
-        else if (boost::any_cast<std::string>(value).good()) {
-            int temp = std::stoi(boost::any_cast<std::string>(value).get().str());
-            result.push_back(temp);
-        }
     }
     return result;
 }
 
 int main() {
+    // Use the function
     assert(std::issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
