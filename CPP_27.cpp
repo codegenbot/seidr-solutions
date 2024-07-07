@@ -1,15 +1,12 @@
-#include <algorithm>
+char temp;
 
-string flip_case(string str) {
-    string result = "";
-    for (char c : str) {
-        if (islower(c)) {
-            result += toupper(c);
-        } else if (isupper(c)) {
-            result += tolower(c);
-        } else {
-            result += c;
-        }
+for(int i = 0; i < str.length(); i++) {
+    temp = tolower(str[i]);
+    if(temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u') {
+        temp = toupper(str[i]);
+    } else if(isupper(str[i])) {
+        temp = tolower(str[i]);
     }
-    return result;
+    str[i] = temp;
 }
+return str;
