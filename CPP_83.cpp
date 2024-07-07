@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 int starts_one_ends(int n) {
@@ -21,9 +20,6 @@ int starts_one_ends(int n) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << starts_one_ends(n) << std::endl;  
+    std::cout << starts_one_ends(5) << std::endl;  
     return 0;
 }
