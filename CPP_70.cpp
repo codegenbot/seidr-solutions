@@ -12,15 +12,13 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<vector<int>> strange_sort_list(vector<int> lst) {
-    vector<vector<int>> result;
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
-        vector<int> temp;
         for(int i = 0; i < lst.size(); i++) {
-            if(lst[i] != min_val) temp.push_back(lst[i]);
+            if(lst[i] != min_val) result.push_back(lst[i]);
         }
-        result.push_back(temp);
         lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
     }
     return result;
@@ -37,14 +35,12 @@ int main() {
         cin >> vec[i];
     }
     
-    vector<vector<int>> result = strange_sort_list(vec);
+    vector<int> result = strange_sort_list(vec);
     cout << "Sorted list:" << endl;
     for(auto& x : result) {
-        for(auto& y : x) {
-            cout << y << " ";
-        }
-        cout << endl;
+        cout << x << " ";
     }
+    cout << endl;
     
     return 0;
 }
