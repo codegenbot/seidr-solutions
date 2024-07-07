@@ -1,11 +1,15 @@
-int hex_key(string num) {
-    int count = 0;
-    for (char c : num) {
-        if (c >= '2' && c <= '7') {
-            count++;
-        } else if (c == 'B' || c == 'D' || c == 'F') {
-            count++;
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+int hex_key(const std::string& s) {
+    int result = 0;
+    for (char c : s) {
+        if (std::isxdigit(std::toupper(c))) { 
+            result++;
         }
     }
-    return count;
+    return result;
+
 }
