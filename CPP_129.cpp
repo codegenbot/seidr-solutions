@@ -1,53 +1,65 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    vector<vector<int>> visited(n, vector<int>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
     vector<int> res;
-    
+
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                int min_val = INT_MAX;
-                if (i > 0) min_val = min(min_val, dp[i-1][j]);
-                if (j > 0) min_val = min(min_val, dp[i][j-1]);
-                if (i < n - 1) min_val = min(min_val, dp[i+1][j]);
-                if (j < n - 1) min_val = min(min_val, dp[i][j+1]);
-                dp[i][j] = grid[i][j] + min_val;
+            if (!visited[i][j]) {
+                pq.push({grid[i][j], {i, j}});
+                visited[i][j] = 1;
             }
         }
     }
-    
-    int min_val = INT_MAX;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (dp[i][j] == dp[0][0]) break;
-            min_val = min(min_val, dp[i][j]);
-        }
-    }
-    
-    int x = 0, y = 0;
-    for (int i = k - 1; i >= 0; --i) {
-        if (x > 0 && y > 0 && x < n - 1 && y < n - 1) {
-            if (dp[x-1][y] == dp[x][y]) x--;
-            else if (dp[x+1][y] == dp[x][y]) x++;
-            else if (dp[x][y-1] == dp[x][y]) y--;
-            else if (dp[x][y+1] == dp[x][y]) y++;
+
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        pair<int, int> pos = pq.top().second;
+        pq.pop();
+
+        res.push_back(val);
+
+        if (k > 0) {
+            --k;
+
+            // Check all neighbors
+            for (int i = -1; i <= 1; ++i) {
+                for (int j = -1; j <= 1; ++j) {
+                    int ni = pos.first + i;
+                    int nj = pos.second + j;
+
+                    if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
+                        visited[ni][nj] = 1;
+                        pq.push({grid[ni][nj], {ni, nj}});
+                    }
+                }
+            }
         } else {
-            if (x > 0 && y > 0 && x < n - 1 && y < n - 1) {
-                if (dp[x-1][y] <= dp[x+1][y] && dp[x-1][y] <= dp[x][y-1] && dp[x-1][y] <= dp[x][y+1]) x--;
-                else if (dp[x+1][y] <= dp[x-1][y] && dp[x+1][y] <= dp[x][y-1] && dp[x+1][y] <= dp[x][y+1]) x++;
-                else if (dp[x][y-1] <= dp[x-1][y] && dp[x][y-1] <= dp[x+1][y] && dp[x][y-1] <= dp[x][y+1]) y--;
-                else if (dp[x][y+1] <= dp[x-1][y] && dp[x][y+1] <= dp[x+1][y] && dp[x][y+1] <= dp[x][y-1]) y++;
-            } else {
-                if (x > 0) x--;
-                else if (x < n - 1) x++;
-                else if (y > 0) y--;
-                else if (y < n - 1) y++;
-            }
+            break;
         }
-        res.push_back(grid[x][y]);
     }
-    
+
     return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+
+    vector<int> result = minPath(grid, k);
+
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
