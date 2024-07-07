@@ -1,24 +1,21 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
-using namespace std;
-
-Pair = struct {
+using Pair = struct {
     int first;
     int second;
 };
 
-bool sameVector(const vector<int>& v1, const vector<int>& v2) {
+bool sameVector(const std::vector<int>& v1, const std::vector<int>& v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
-        if(find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
+        if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
     }
     return true;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<Pair> pairs;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<Pair> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = nums[i];
@@ -29,9 +26,9 @@ vector<int> order_by_points(vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    sort(pairs.begin(), pairs.end(), [](const auto& a, const auto& b) { return a.first < b.first; });
+    std::sort(pairs.begin(), pairs.end(), [](const auto& a, const auto& b) { return a.first < b.first; });
 
-    vector<int> result;
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
@@ -39,24 +36,33 @@ vector<int> order_by_points(vector<int> nums) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
+        if(std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
     }
     return true;
 }
 
-int main() {
-    vector<int> nums = {0,6,6,-76,-21,23,4};
-    cout << "Sorted array: ";
+#include <vector>
+
+int main1() {
+    std::vector<int> nums = {0,6,6,-76,-21,23,4};
+    std::cout << "Sorted array: ";
     for(int num : order_by_points(nums)) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     if (!issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
-        cout << "Test failed" << endl;
+        std::cout << "Test failed" << std::endl;
     } else {
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     }
     return 0;
+}
+
+#include <vector>
+
+int main() {
+    // No code here
+}
