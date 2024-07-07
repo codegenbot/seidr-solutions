@@ -1,19 +1,21 @@
+#include <vector>
+#include <map>
+
+using namespace std;
+
 int search(vector<int> lst) {
-    int max = 0;
+    map<int, int> freq;
     for (int num : lst) {
-        if (num > 0 && num >= max) {
-            max = num;
+        if (freq.find(num) == freq.end()) {
+            freq[num] = 1;
+        } else {
+            freq[num]++;
         }
     }
-    for (int i = 1; i <= max; i++) {
-        int count = 0;
-        for (int num : lst) {
-            if (i == num) {
-                count++;
-            }
-        }
-        if (count >= i) {
-            return i;
+
+    for (auto p = freq.begin(); p != freq.end(); ++p) {
+        if (p->second >= p->first && p->first > 0) {
+            return p->first;
         }
     }
     return -1;
