@@ -8,11 +8,8 @@ bool solveBoolean(string s) {
     bool f = false;
     bool res = t;
 
-    bool op = false;
-    char c;
-
     for (int i = 0; i < s.length(); i++) {
-        c = s[i];
+        char c = s[i];
         if (c == 't' || c == 'f') {
             if (op) {
                 res = (c == 't') ? (res | true) : (res | false);
