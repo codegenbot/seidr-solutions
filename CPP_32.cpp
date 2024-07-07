@@ -10,7 +10,7 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(const std::vector<double>& xs){
+double find_zero(std::vector<double> xs){
     double sum = 0;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
@@ -21,23 +21,23 @@ double find_zero(const std::vector<double>& xs){
 }
 
 int main() {
-    std::vector<double> coeffs;
-    double coeff;
+    std::vector<double> poly_coeffs;
+    double temp;
 
     while (true) {
-        std::cin >> coeff;
+        std::cin >> temp;
         if (std::cin.fail()) {
             std::cout << "Invalid input. Please enter a valid number." << std::endl;
             break;
         }
-        coeffs.push_back(coeff);
+        poly_coeffs.push_back(temp);
     }
 
-    if(coeffs.size() == 0){
+    if(poly_coeffs.size() == 0){
         std::cout << "No coefficients entered. Cannot find zero." << std::endl;
     } else {
-        double solution = find_zero(coeffs);
-        assert(abs(poly(coeffs, solution)) < 1e-3);
+        double solution = find_zero(poly_coeffs);
+        assert(abs(poly(poly_coeffs, solution)) < 1e-3);
     }
     return 0;
 }
