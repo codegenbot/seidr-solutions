@@ -1,29 +1,29 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
-    int prevSpaceIndex = -1;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(prevSpaceIndex + 1, i - prevSpaceIndex - 1);
+    vector<int> spaceIndex;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            spaceIndex.push_back(i);
+        } else {
+            int wordEnd = i;
+            
+            while (i + 1 <= str.length() && str[i+1] != ' ') {
+                i++;
+            }
+            
+            string word = str.substr(spaceIndex[spaceIndex.size() - 1], wordEnd - spaceIndex[spaceIndex.size() - 1]);
+            
             if (word.length() >= 5) {
-                for(int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
-            } else {
-                result += word;
+                std::reverse(word.begin(), word.end());
             }
-            if (i < str.length()) {
-                result += " ";
-            }
-            prevSpaceIndex = i;
+            
+            result += word + " ";
+            i++;
         }
     }
-    return result;
+    
+    return result.substr(0, result.length()-1);
 }
 
 int main() {
