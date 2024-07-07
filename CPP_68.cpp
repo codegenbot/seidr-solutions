@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -28,12 +28,12 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     } else {
         auto it = std::min_element(result.begin(), result.end(),
                                     [](const auto& a, const auto& b) {
-                                        return a.first < b.first;
+                                        return a.second < b.second;
                                     });
         return {{it->first, it->second}};
     }
 }
 
 int main() {
-    // your code here
+    // Your code here
 }
