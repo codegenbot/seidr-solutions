@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -16,7 +17,7 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a.size() == b.size();
 }
 
-std::vector<std::string> filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") {
-    std::vector<std::string> result = filter_by_prefix(std::vector<std::string>({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}), "xxx");
-    return isSame(result, {{"xxx"}, {"xxxAAA"}, {"xxx"}}) ? result : {};
+int main() {
+    assert(isSame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
+    return 0;
 }
