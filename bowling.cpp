@@ -2,22 +2,17 @@
 
 int bowlingScore(string str) {
     int score = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '/') {
-            if (i + 1 < str.length() && isdigit(str[i + 1])) {
-                score += 10 - (str[i + 1] - '0');
-            } else {
-                score += 10;
+    int currentRoll = 0;
+    for (char c : str) {
+        if (c == '/') {
+            if (currentRoll == 1 || currentRoll == 2) {
+                score += 10 - currentRoll;
             }
-        } else if (isdigit(str[i])) {
-            int currentRoll = str[i] - '0';
-            if (i + 1 < str.length() && isdigit(str[i + 1])) {
-                currentRoll *= 10 + (str[i + 1] - '0');
-                i++;
-            }
-            score += currentRoll;
+            currentRoll = 0;
+        } else if (isdigit(c)) {
+            currentRoll *= 10 + (c - '0');
         } else {
-            score += 1;
+            currentRoll++;
         }
     }
     return score;
