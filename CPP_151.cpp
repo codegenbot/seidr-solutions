@@ -6,9 +6,14 @@ int main() {
     vector<float> input_list; 
     float odd_sum = 0.0f; 
 
-    cin >> input_list;
+    cout << "Enter the list of floating point numbers separated by spaces: ";
+    for(float &x : cin >> input_list){
+        if(int(x) > 0 && int(x) % 2 != 0){
+            odd_sum += pow(int(x), 2);
+        }
+    }
 
-    odd_sum = double_the_difference(input_list); 
+    cout << "The sum is: " << double_the_difference(input_list);
 
     return 0;
 }
