@@ -35,7 +35,8 @@ int main() {
     if (!issame(v1, v2)) {
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
-        std::cout << "The two sets of numbers are the same.\n";
+        float max = get_positive({v1.begin(), v1.end()});
+        std::cout << "The maximum positive number is: " << max << "\n";
     }
     return 0;
 }
