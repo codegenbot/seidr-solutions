@@ -8,7 +8,8 @@ def coin_sums(cents):
             cents -= coin
             result[i] += 1
 
-    return result[:][::-1]
+    result.reverse()
+    return result
 
 
 cents = int(input())
