@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -35,7 +34,7 @@ int mainFunction() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    std::vector<int> input(input); 
+    std::vector<int> input(n, 0); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> input[i];
@@ -58,7 +57,7 @@ int mainFunction() {
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
-        assert(sameVector(pluck({7, 9, 7, 1}), {}));
+        assert(sameVector(pluck({1,2,3}), {7, 9, 7, 1})); 
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }
