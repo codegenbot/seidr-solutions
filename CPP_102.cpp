@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -20,6 +19,10 @@ int main() {
     int result = choose_num(s1, s2);
     std::cout << "Result: " << result << std::endl;
 
-    std::cout << "Greater number is " << (s1 > s2 ? s1 : s2) << std::endl;
+    if (std::stoi(s1) > std::stoi(s2)) {
+        std::cout << "Greater number is " << s1 << std::endl;
+    } else {
+        std::cout << "Greater number is " << s2 << std::endl;
+    }
     return 0;
 }
