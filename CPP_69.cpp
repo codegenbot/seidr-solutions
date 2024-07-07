@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <map>
-
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
     for (int num : lst) {
@@ -32,4 +28,3 @@ int main() {
         std::cout << "No such number found." << std::endl;
     }
     return 0;
-}

@@ -10,7 +10,7 @@ int is_bored(std::string S) {
         if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
         }
-        pos++;
+        // Remove this line: pos++;
     }
     return count;
 }
