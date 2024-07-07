@@ -3,26 +3,25 @@
 #include <tuple>
 
 std::tuple<int, int, int, int> coinSum(int cents) {
-    int pennies = 0;
     int quarters = 0;
-    int dimes = 0;
-    int nickles = 0;
-
     while (cents >= 25) {
         quarters++;
         cents -= 25;
     }
+
+    int dimes = 0;
     while (cents >= 10) {
         dimes++;
         cents -= 10;
     }
+
+    int nickles = 0;
     while (cents >= 5) {
         nickles++;
         cents -= 5;
     }
 
-    pennies = cents; // assign remaining cents to pennies
-
+    int pennies = cents; // assign remaining cents to pennies
     return std::make_tuple(quarters, dimes, nickles, pennies);
 }
 
