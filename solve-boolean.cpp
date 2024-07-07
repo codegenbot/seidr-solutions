@@ -1,7 +1,5 @@
 #include <string>
-#include <stack>
 #include <iostream>
-
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
