@@ -32,15 +32,10 @@ void test() {
     vector<string> v1 = {"mamma"};
     vector<string> result1 = reverseDelete(v1);
     
-    assert(issame(vector<string>({ "", "True" }), result1));
+    assert(issame(vector<string>({"", "True"}), result1));
     
     vector<string> v2 = {"mia"};
     vector<string> result2 = reverseDelete(v2);
     
     assert(issame(vector<string>({"True"}), result2));
-}
-
-int main() {
-    test();
-    return 0;
 }

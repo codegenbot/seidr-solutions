@@ -1,4 +1,4 @@
-string int_to_mini_roman(int number) {
+string int_toMiniRoman(int number) {
     vector<pair<int, string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
                                             {400, "CD"}, {100, "C"}, {90, "XC"},
                                             {50, "L"}, {40, "XL"}, {10, "X"},
@@ -11,4 +11,12 @@ string int_to_mini_roman(int number) {
         }
     }
     return roman;
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "The mini Roman numeral is: " << int_toMiniRoman(num) << "\n";
+    return 0;
 }

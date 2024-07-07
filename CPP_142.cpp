@@ -21,8 +21,6 @@ int main() {
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    inputVector.reserve(n);  // Initialize the vector's capacity
-
     for(int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
