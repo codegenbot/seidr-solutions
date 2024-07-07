@@ -11,7 +11,8 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
         std::string str = (interval1.first > interval2.first) ? std::to_string(interval2.first)
                                               : std::to_string(interval1.first);
         str += " " + std::to_string((interval1.first > interval2.first) ? interval2.first : interval1.first);
-        str += " " + std::to_string(((interval1.second <= interval2.second) ? interval1.second : interval2.second));
+        std::string end = ((interval1.second <= interval2.second) ? std::to_string(interval1.second) : std::to_string(interval2.second));
+        str += " " + end;
         return str;
     }
 }

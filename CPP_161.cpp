@@ -2,6 +2,16 @@
 #include <cctype>
 #include <iostream>
 
+std::string solve(std::string s);
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Result: " << solve(input) << std::endl;
+
+}
+
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -12,11 +22,4 @@ std::string solve(std::string s) {
         }
     }
     return result.empty() ? std::string(s.rbegin(), s.rend()) : result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "Result: " << solve(input) << std::endl;
 }
