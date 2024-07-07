@@ -17,8 +17,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
 }
 
 int main() {
-    float hours;
-    float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
+    float hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour;
 
     cout << "Enter number of hours: ";
     cin >> hours;
