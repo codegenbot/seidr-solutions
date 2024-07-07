@@ -34,7 +34,14 @@ int max_fill(vector<vector<int>> grid) {
 }
 
 int main() { 
-    vector<vector<int>> grid({1, 1, 1, 1}, {1, 1, 1, 1});
+    vector<vector<int>> grid(2,vector<int>(4,0));
+    for(int i=0;i<grid.size();i++){
+        for(int j=0;j<grid[0].size();j++){
+            if(i==0 || i==1){
+                grid[i][j]=1;
+            }
+        }
+    }
     int result = max_fill(grid);
     cout << "Maximum number of filled cells: " << result << endl;
     return 0; 
