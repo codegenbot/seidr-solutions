@@ -25,12 +25,12 @@ int main() {
     std::string s2 = line;
 
     int num1 = std::stoi(s1);
-    int num2 = (s2.empty()) ? num1 : std::stoi(s2);
+    int num2 = std::stoi(s2);
 
     if(num1 > num2)
-        std::cout << "Greater number is " << std::to_string(choose_num(num1, num2)) << std::endl;
+        std::cout << "Greater number is " << choose_num(num1, num2) << std::endl;
     else
-        std::cout << "Greater number is " << std::to_string(choose_num(num1, num2)) << std::endl;
+        std::cout << "Greater number is " << choose_num(num1, num2) << std::endl;
 
     return 0;
 }
