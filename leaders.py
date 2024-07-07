@@ -1,9 +1,9 @@
-def leaders(input_list):
-    n = len(input_list)
-    leaders_list = [input_list[n - 1]]
+def leaders(arr):
+    n = len(arr)
+    leader = [arr[n - 1]]
 
     for i in range(n - 2, -1, -1):
-        if input_list[i] >= input_list[i + 1]:
-            leaders_list.insert(0, input_list[i])
+        if arr[i] >= arr[i + 1]:
+            leader.append(arr[i])
 
-    return leaders_list
+    return leader[::-1]
