@@ -11,4 +11,7 @@ int sum_squares(const std::vector<float>& input) {
 
 }
 
-std::cout << sum_squares({}) << std::endl;
+int main() {
+    std::cout << sum_squares({1.5f, 2.5f}) << std::endl;
+    return 0;
+}

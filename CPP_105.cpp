@@ -6,10 +6,10 @@
 
 using namespace std;
 
-vector<string> by_length(vector<string*> arr) {
+vector<string> by_length(vector<string> arr) {
     unordered_map<int, int> lengthCount;
-    for (string* str : arr) {
-        int num = stoi(*str);
+    for (string str : arr) {
+        int num = stoi(str);
         int len = to_string(num).size();
         lengthCount[len]++;
     }
@@ -34,12 +34,13 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<string*> arr; arr.resize(n);
+    vector<string> arr;
+    arr.reserve(n);
     for(int i=0; i<n; i++) {
-        string* num = new string();
+        string num;
         cout << "Enter integer " << i+1 << ": ";
-        cin >> *num;
-        arr[i] = num;
+        cin >> num;
+        arr.push_back(num);
     }
     vector<string> output = by_length(arr);
     cout << "The numbers in the order of their lengths are: ";
