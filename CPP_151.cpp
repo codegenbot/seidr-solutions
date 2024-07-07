@@ -8,7 +8,7 @@ int main() {
 
     cin >> input_list;
 
-    cout << double_the_difference(input_list) << endl;
+    odd_sum = double_the_difference(input_list);
 
     return 0;
 }
