@@ -1,15 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int x, int y) {
-    if (x % 2 == 0 && y % 2 == 0)
-        return true;
-    else
-        return false;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -26,4 +23,9 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(minIndex);
 
     return result;
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}) , vector<int>{}));
+    return 0;
 }

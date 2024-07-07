@@ -1,7 +1,8 @@
+```cpp
 #include <cassert>
-#include <iostream>
 #include <string>
-#include <sstream>
+#include <cctype>
+#include <iostream>
 
 std::string flipCase(std::string str) {
     std::string result = "";
@@ -17,12 +18,12 @@ std::string flipCase(std::string str) {
     return result;
 }
 
-int main() {
+int main() { 
     try {
         std::cout << flipCase("These violent delights have violent ends") << std::endl;
-    } catch (...) {
+    } catch(...) {
         std::cerr << "An error occurred." << std::endl;
     }
     assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
-    return 0;
+    return 0; 
 }
