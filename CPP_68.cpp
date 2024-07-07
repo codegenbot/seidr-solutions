@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool checkIfSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -34,7 +34,7 @@ std::vector<int> pluck(std::vector<int> arr) {
     return result;
 }
 
-int mainFunc() {
+int main() {
     std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
@@ -56,9 +56,4 @@ int mainFunc() {
     }
 
     return 0;
-}
-
-int main() {
-    // Commented out the redundant declaration
-    //mainFunc();
 }
