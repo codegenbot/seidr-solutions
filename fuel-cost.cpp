@@ -1,10 +1,13 @@
-int calculateFuelCost(std::vector<int> numbers) {
+#include <vector>
+
+int fuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        if (num % 3 == 0) {
-            int result = (num / 3) - 2;
-            sum += result;
+        int newNum = static_cast<int>(round(double(num) / 3)) - 2;
+        if (newNum < 1) {
+            newNum = 0;
         }
+        sum += newNum;
     }
     return sum;
 }
