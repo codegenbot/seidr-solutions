@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher_text1, cipher_text2, text):
     deciphered_text = ""
     for char in text:
