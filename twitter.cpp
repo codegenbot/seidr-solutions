@@ -1,4 +1,3 @@
-```c++
 #include <sstream>
 #include <iostream>
 #include <limits>
