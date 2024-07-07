@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -8,12 +7,45 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i < n - m + 1; i++) {
-        if (text.find(target, i) != string::npos)
-            result.push_back(i);
+    vector<int> lps(m); // Longest Prefix Suffix array
+    int i = 0; 
+    int j = 0; 
+
+    calculateLPSArray(target, m, lps);
+
+    for (int i = 0; i < n; i++) {
+        if (target[j] == text[i]) {
+            j++;
+            i++;
+        }
+        if (j == m) { // target found
+            result.push_back(i - j);
+            j = lps[j - 1];
+        } 
+        else if (i < n && target[j] != text[i]) {
+            if (j != 0) {
+                j = lps[j - 1]; 
+            }
+            else i++;
+        }
     }
 
     return result;
+}
+
+void calculateLPSArray(string target, int m, vector<int>& lps) {
+    int length = 0; 
+
+    lps[0] = 0; 
+
+    for (int i = 1; i < m; i++) { 
+        while (length > 0 && target[i] != target[length]) {
+            length = lps[length - 1];
+        }
+        if (target[i] == target[length])
+            length++;
+        lps[i] = length;
+    } 
 }
 
 int main() {
