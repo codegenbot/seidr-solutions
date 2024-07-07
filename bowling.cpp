@@ -27,10 +27,10 @@ int bowlingScore(string s) {
             currentRoll *= 10;
             currentRoll += c - '0';
         } else if (c == 'X') { 
-            score += 10 + currentRoll + 10;
+            score += 10 + currentRoll;
             currentRoll = 0;
             previousStrike = true; 
-        } else if (c == '-') { 
+        } else if (c == '-') { // spare
             score += 10;
             currentRoll = 0;
             previousSpare = true; 
