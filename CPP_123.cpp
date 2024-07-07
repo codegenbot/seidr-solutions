@@ -1,35 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <iostream>
-#include <limits>
-#include <cassert>
-
-using namespace std;
-
-bool isSame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 0) {
-            n /= 2;
-        } else {
-            n = 3 * n + 1;
-        }
-        if (n % 2 != 0) { 
-            result.push_back(n);
-        }
-    }
-    return result;
-}
-
-int main() {
+int main {
     int input;
     cout << "Enter a number: ";
     cin >> input;
@@ -37,10 +6,10 @@ int main() {
         cout << "Invalid input. Please enter a non-negative integer." << endl;
         return -1;
     }
-    vector<int> output = get_odd_collatz(input);
+    vector<int> output = getOddCollatz(input);
     for (int num : output) {
         cout << num << " ";
     }
-    assert(isSame(get_odd_collatz(1), {1}));
+    assert(isSame(getOddCollatz(1), {1}));
     return 0;
 }
