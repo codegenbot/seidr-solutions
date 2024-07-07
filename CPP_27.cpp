@@ -1,16 +1,16 @@
-```cpp
 #include <string>
 #include <cctype>
 
-std::string flip_case(std::string str) {
-    for (char c : str) {
+std::string flip_case(const std::string& str) {
+    std::string result = str;
+    for (char c : result) {
         if (std::islower(c)) {
             c = std::toupper(c);
         } else {
             c = std::tolower(c);
         }
     }
-    return str;
+    return result;
 }
 
 int main() {

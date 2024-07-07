@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void mainFunction() {
+int main() {
     vector<string> strings;
     string userInput;
 
@@ -23,9 +23,4 @@ void mainFunction() {
         result += str + " ";
     }
     cout << "Concatenated string: " << result << endl;
-}
-
-int main() {
-    mainFunction();
     return 0;
-}
