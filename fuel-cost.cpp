@@ -6,4 +6,4 @@ int calculateFuelCost(std::vector<int> numbers) {
             sum += result;
         }
     }
-}
+    return sum; }
