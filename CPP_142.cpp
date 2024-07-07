@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int sum_squares(std::vector<int> lst) {
     int total = 0;
-    for (int i = 0; i < lst.size(); i++) {
+    for (size_t i = 0; i < lst.size(); i++) {
         if (i % 3 == 0 && i % 4 != 0 || i % 4 == 0 && i % 3 != 0) {
             total += lst[i] * lst[i];
         } else if (i % 4 == 0 && i % 3 == 0) {
@@ -21,7 +20,8 @@ int main() {
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    for(int i = 0; i < n; ++i) {
+    size_t i = 0;
+    for(; i < n; ++i) {
         int num;
         while(true) {
             std::cout << "Enter element " << i + 1 << ": ";
@@ -38,10 +38,10 @@ int main() {
                     break;
                 }
             }
-        }
+       
         
         if(inputVector.size() >= n) {
-            break; // Exit loop once maximum capacity is reached
+            break; // Exit loop once desired number of elements is reached
         }
     }
 
