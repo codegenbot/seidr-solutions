@@ -1,33 +1,24 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    
-    // Create a set of characters in string c for efficient lookup
-    set<char> c_set(c.begin(), c.end());
-    
-    // Initialize an empty string to store the result
-    string res = "";
-    
-    // Iterate over each character in string s
+    vector<char> sc(c.begin(), c.end());
+    string result = "";
     for (char ch : s) {
-        // Check if the character is not in the set of characters in string c
-        if (c_set.find(ch) == c_set.end()) {
-            // If it's not, add it to the result string
-            res += ch;
+        bool found = false;
+        for (char cc : sc) {
+            if (ch == cc) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result += ch;
         }
     }
-    
-    // Check if the result string is the same when reversed
-    bool is_palindrome = (res == reverse(res));
-    
-    // Add the result string and palindrome check to the vector
-    result.push_back(res);
-    result.push_back((is_palindrome ? "True" : "False"));
-    
-    return result;
+    string revResult = result;
+    reverse(revResult.begin(), revResult.end());
+    vector<string> res;
+    res.push_back(result);
+    res.push_back((result == revResult) ? "True" : "False");
+    return res;
 }
