@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <initializer_list>
 
 double sum_squares(const std::vector<double>& input) {
     double sum = 0;
@@ -17,9 +18,7 @@ int main() {
         std::cerr << "Invalid input. Please enter two numbers." << std::endl;
         return 1;
     }
-    std::vector<double> input(2); // Create a vector of size 2
-    input[0] = num1;              // Initialize the first element
-    input[1] = num2;              // Initialize the second element
+    std::vector<double> input = {num1, num2};
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
 }
