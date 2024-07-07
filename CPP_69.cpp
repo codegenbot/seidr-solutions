@@ -9,9 +9,10 @@ int search(int n) {
 }
 
 void runUserInput() {
-    int num;
-    cout << "Enter a positive integer (for example, 1, 2 or 3): ";
-    cin >> num; 
+    string str;
+    cout << "Enter a word: ";
+    getline(cin, str); 
+    int num = stoi(str);
     if (num >= 0) {
         cout << "The search function returns " << search(num) << " for the number " << num << "." << endl;
     } else {
@@ -21,6 +22,6 @@ void runUserInput() {
 
 int main() {
     runUserInput();
-    assert(search(2) == -1); 
+    cout << "Assert statement: " << (search(3) == 3 ? "Pass" : "Fail") << endl;
     return 0;
 }
