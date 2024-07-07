@@ -1,15 +1,15 @@
 Here is the completed code:
 
 bool is_sorted(vector<int> lst){
-    for(int i=1; i<lst.size(); i++){
+    for(int i=1; i<lst.size();i++){
         if(lst[i-1] >= lst[i]){
             return false;
         }
     }
-    int count = 0;
-    for(int i=0; i<lst.size(); i++){
-        if(i==0 || lst[i] != lst[i-1])
-            count++;
+    vector<int>::iterator it;
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        if(*it > 0 && count(lst.begin(), it, *it) > 1){
+            return false;
+        }
     }
-    return count == 1;
-}
+    return true;
