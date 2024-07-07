@@ -1,7 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <iostream>
-
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -43,8 +42,14 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 10;
-    int b = 20;
-    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    int a = 24;
+    int b = 30;
+    cout << "GCD: " << gcd(a, b) << endl;
+    string text = "Hello World";
+    string target = "o";
+    vector<int> indices = findIndices(text, target);
+    for(int i : indices) {
+        cout << "Index: " << i << endl;
+    }
     return 0;
 }
