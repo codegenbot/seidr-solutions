@@ -1,17 +1,20 @@
+#include <algorithm>
 #include <string>
 
-using namespace std;
+std::string filp_case(std::string str) {
+    std::string result;
+    if (str.empty()) {
+        return result; 
+    }
+    auto first = str.begin();
+    auto last = str.end();
 
-string flip_case(string str) {
-    string result = "";
-    for (char c : str) {
-        if (islower(c)) {
-            result += toupper(c);
-        } else if (isupper(c)) {
-            result += tolower(c);
-        } else {
-            result += c;
-        }
+    if (std::all_of(first, last, ::islower)) { 
+        std::transform(first, last, std::back_inserter(result), ::toupper);
+    } else if (std::all_of(first, last, ::isupper)) { 
+        std::transform(first, last, std::back_inserter(result), ::tolower);
+    } else {
+        result = str; 
     }
     return result;
 }
