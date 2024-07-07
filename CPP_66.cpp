@@ -1,11 +1,10 @@
 ```cpp
 #include <iostream>
-#include <string>
 #include <cassert>
 
-int digitSum(const std::string& str) {
+int digitSum(const std::string& s) {
     int sum = 0;
-    for (char c : str) {
+    for (char c : s) {
         if (isdigit(c)) {
             sum += (c - '0');
         }
