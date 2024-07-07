@@ -1,5 +1,8 @@
+
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <cctype>
 #include <bits/stdc++.h>
 
 int main() {
